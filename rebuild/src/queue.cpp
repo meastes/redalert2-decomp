@@ -137,6 +137,7 @@
 #include "overlay.h"
 #include "overtype.h"
 #include "ownrdraw.h"
+#include "ownrpaint.h"
 #include "particle.h"
 #include "partsys.h"
 #include "psystype.h"

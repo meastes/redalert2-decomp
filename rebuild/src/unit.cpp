@@ -6366,9 +6366,9 @@ wchar_t const * UnitClass::Full_Name(void) const // RA2: wide; RA2 also names a 
 /// reasons that apply to any foot object.
 /// </summary>
 /// <returns>bool; Is the unit prevented from moving?</returns>
-bool UnitClass::Is_Immobilized(void) const // RA2: at 0x70A240 (vtable slot 201)
+bool UnitClass::IsUnderEMP(void) const // RA2: at 0x70A240 (vtable slot 201)
 {
-	return(DeathCounter != -1 || BASECLASS::Is_Immobilized());
+	return(DeathCounter != -1 || BASECLASS::IsUnderEMP());
 }
 
 /// <summary>

@@ -5602,7 +5602,7 @@ bool TechnoClass::Can_Deploy_Now(void) const
 	bool blocked = false;
 
 	if (unit != NULL) {
-		blocked = unit->Is_Immobilized() || unit->CurrentTube >= TUBE_FIRST;
+		blocked = unit->UnitClass::IsUnderEMP() || unit->CurrentTube >= TUBE_FIRST;
 		if (unit->Class->Max_Passengers() > 0) { // RA2: no IsMobileEMP (not in RA2's layout)
 			if (unit->IsOnBridge) {
 				blocked = true;
@@ -5628,7 +5628,7 @@ bool TechnoClass::Can_Deploy_Now(void) const
 			}
 		}
 	} else {
-		blocked = Is_Immobilized();
+		blocked = TechnoClass::IsUnderEMP();
 		if (TClass->Max_Passengers() == 0) {
 			blocked = true;
 		}
@@ -11270,7 +11270,7 @@ bool TechnoClass::CanDisguiseAs(AbstractClass * target) const // RA2: not in Tib
 /// Returns true while the stun duration is greater than zero.
 /// </summary>
 /// <returns>bool; is the object currently immobilized?</returns>
-bool TechnoClass::Is_Immobilized(void) const
+bool TechnoClass::IsUnderEMP(void) const
 {
 	return(StunDuration > 0);
 }

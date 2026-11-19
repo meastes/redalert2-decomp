@@ -513,7 +513,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 			return;
 		}
 
-		if (LinkedTo->Is_Immobilized()) {
+		if (LinkedTo->TechnoClass::IsUnderEMP()) {
 			IsReallyMoving = false;
 			LinkedTo->IsNewNavCom = false;
 			return;

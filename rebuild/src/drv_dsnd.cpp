@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "auddsnd.h"
+#include "win.h"
 #include "dbgprint.h"
 
 
@@ -34,6 +35,8 @@
 
 
 
+static AudioThread driverThread;
+static Lock drv_ref;
 static CRITICAL_SECTION thread_access;
 static int thread_created;
 
@@ -41,6 +44,52 @@ static int thread_created;
 
 
 
+
+static int __fastcall audioLoad(AudioSystem * system);
+static void __fastcall audioUnload(AudioSystem * system);
+static int __fastcall audioOpen(AudioDevice * dev);
+static void __fastcall audioClose(AudioDevice * dev);
+static int __fastcall audioOpenChannel(AudioChannel * chan);
+static int __fastcall audioCloseChannel(AudioChannel * chan);
+static int __fastcall audioStart(AudioChannel * chan);
+static int __fastcall audioStop(AudioChannel * chan);
+static int __fastcall audioPause(AudioChannel * chan);
+static int __fastcall audioResume(AudioChannel * chan);
+static int __fastcall audioCheck(AudioChannel * chan);
+static int __fastcall audioUpdate(AudioChannel * chan);
+static int __fastcall audioQueueIt(AudioChannel * chan);
+static int __fastcall audioLock(AudioChannel * chan);
+static int __fastcall audioUnlock(AudioChannel * chan);
+
+static AudioChannelDriver _AUD_driver = {
+	NULL,
+	audioOpenChannel,
+	audioCloseChannel,
+	audioStart,
+	audioStop,
+	audioPause,
+	audioResume,
+	audioCheck,
+	audioUpdate,
+	audioQueueIt,
+	audioLock,
+	audioUnlock
+};
+
+static AudioSystemMaster _AUD_system_master = {
+	"Direct Sound Driver V2.0",
+	0,
+	0,
+	0,
+	mmioFOURCC('A', 'U', 'D', 'm'),
+	audioLoad,
+	audioUnload,
+	audioOpen,
+	audioClose,
+	&_AUD_driver
+};
+
+AudioSystemMaster * AudioSystemDSD = &_AUD_system_master;
 
 LPDIRECTSOUND AUD_sound_object = NULL;
 LPDIRECTSOUNDBUFFER AUD_primary_buffer = NULL;
@@ -79,7 +128,16 @@ static int imaStepSizeTable[89] = {
 };
 
 
-#if 0
+DWORD WINAPI AUD_service_thread(AudioThread * thr);
+static void __fastcall AUD_new_buffer_src(AudioDriverChannel * ci);
+static int __fastcall AUD_fill_buffer(AudioDriverChannel * ci, int bytes);
+void __fastcall AUD_service_attribs(AudioDevice * dev);
+static CB_TRANSFER PCM_transfer;
+static CB_TRANSFER ADPCM_transfer;
+static CB_DECODE IMA_decode_block;
+short __fastcall ImaAdpcmDecode(unsigned char deltaCode, IMA_DATA * state);
+
+
 static void transfer_init(TRANSFER * trans)
 {
 	trans->decode = NULL;
@@ -87,10 +145,8 @@ static void transfer_init(TRANSFER * trans)
 	trans->out = NULL;
 	trans->pending = FALSE;
 }
-#endif
 
 
-#if 0
 static void AUD_set_wave_format(WAVEFORMATEX * pcmwf, AudioFormat * format)
 {
 	memset(pcmwf, 0, sizeof(WAVEFORMATEX));
@@ -102,19 +158,15 @@ static void AUD_set_wave_format(WAVEFORMATEX * pcmwf, AudioFormat * format)
 	pcmwf->wBitsPerSample = (unsigned short)format->SampleWidth << 3;
 	pcmwf->cbSize = 0;
 }
-#endif
 
 
-#if 0
 static int AUD_same_format(AudioFormat * f1, AudioFormat * f2)
 {
 	return (f1->Channels == f2->Channels && f1->Rate == f2->Rate && f1->SampleWidth == f2->SampleWidth);
 }
-#endif
 
 
-#if 0
-static int AUD_create_pcm_buffer(AUD_DRV_CHAN * ci, AudioFormat * format)
+static int AUD_create_pcm_buffer(AudioDriverChannel * ci, AudioFormat * format)
 {
 	DSBUFFERDESC desc;
 	WAVEFORMATEX pcmwf;
@@ -149,22 +201,18 @@ static int AUD_create_pcm_buffer(AUD_DRV_CHAN * ci, AudioFormat * format)
 	DebugString("Sound buffer size = %d bytes\n", ci->buf_size);
 	return vNO_ERROR;
 }
-#endif
 
 
-#if 0
-static unsigned AUD_get_current_frame(AUD_DRV_CHAN * ci)
+static unsigned AUD_get_current_frame(AudioDriverChannel * ci)
 {
 	unsigned long pos;
 
 	ci->dsbuf->GetCurrentPosition(&pos, (unsigned long *)&ci->write_pos);
 	return pos / ci->frame_bytes;
 }
-#endif
 
 
-#if 0
-static void __fastcall AUD_init_buffer(AUD_DRV_CHAN * ci)
+static void __fastcall AUD_init_buffer(AudioDriverChannel * ci)
 {
 	ci->src_left = 0;
 	ci->pcm_pos = 0;
@@ -180,11 +228,9 @@ static void __fastcall AUD_init_buffer(AUD_DRV_CHAN * ci)
 	ci->frames_played = 0;
 	ci->original_dst_pos = ci->dst_pos;
 }
-#endif
 
 
-#if 0
-static int AUD_restore_buffer(AUD_DRV_CHAN * ci)
+static int AUD_restore_buffer(AudioDriverChannel * ci)
 {
 	if (ci->dsbuf->Restore() == DS_OK) {
 		AUD_init_buffer(ci);
@@ -192,11 +238,9 @@ static int AUD_restore_buffer(AUD_DRV_CHAN * ci)
 	}
 	return FALSE;
 }
-#endif
 
 
-#if 0
-static int AUD_lock_buffer(AUD_DRV_CHAN * ci, unsigned long pos, unsigned long transfer, unsigned char ** dst, unsigned long * bytes1, unsigned char ** dst2, unsigned long * bytes2)
+static int AUD_lock_buffer(AudioDriverChannel * ci, unsigned long pos, unsigned long transfer, unsigned char ** dst, unsigned long * bytes1, unsigned char ** dst2, unsigned long * bytes2)
 {
 	int retval;
 	int retry_count = 3;
@@ -218,24 +262,20 @@ retry:
 	}
 	return TRUE;
 }
-#endif
 
 
-#if 0
-static void __fastcall AUD_set_buffer_src(AUD_DRV_CHAN * ci)
+static void __fastcall AUD_set_buffer_src(AudioDriverChannel * ci)
 {
 	ci->next_frame_called = FALSE;
 	ci->src_pos = (unsigned char *)ci->chan->frameData;
 	ci->src_start = (unsigned char *)ci->chan->frameData;
 	ci->src_left = ci->src_size = ci->chan->bytesInFrame;
 }
-#endif
 
 
-#if 0
 static void AUD_channel_stop(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci;
+	AudioDriverChannel * ci;
 
 	ci = chan->drvData;
 	if (ci->dsbuf) {
@@ -245,11 +285,9 @@ static void AUD_channel_stop(AudioChannel * chan)
 		chan->drvCBSampleDone(chan);
 	}
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioLoad(AudioSystem * system)
 {
 	int result;
@@ -285,11 +323,9 @@ static int __fastcall audioLoad(AudioSystem * system)
 	}
 	return 0;
 }
-#endif
 
 
-#if 0
-static void AUD_update_buffer(AUD_DRV_CHAN * ci)
+static void AUD_update_buffer(AudioDriverChannel * ci)
 {
 	unsigned frame = AUD_get_current_frame(ci);
 	int dif = frame - ci->frame;
@@ -314,10 +350,8 @@ static void AUD_update_buffer(AUD_DRV_CHAN * ci)
 	}
 	ci->service_count++;
 }
-#endif
 
 
-#if 0
 static int AUD_service_device(AudioDevice * dev)
 {
 	AudioSearch sh;
@@ -328,7 +362,7 @@ static int AUD_service_device(AudioDevice * dev)
 		AudioServicePerform(&dev->mixerUpdate, now);
 		AudioChannel * chan = AudioDeviceFirstChannel(dev, &sh);
 		while (chan) {
-			if (chan->Status & mAUDIO_CTRL_PLAYING) {
+			if (chan->Control.Status & mAUDIO_CTRL_PLAYING) {
 				if (audioCheck(chan)) {
 					chan->drvData->poll_interval = now - chan->drvData->last_poll;
 					chan->drvData->last_poll = now;
@@ -345,11 +379,9 @@ static int AUD_service_device(AudioDevice * dev)
 	}
 	return FALSE;
 }
-#endif
 
 
 
-#if 0
 DWORD WINAPI AUD_service_thread(AudioThread * thr)
 {
 	thr->running = TRUE;
@@ -365,12 +397,10 @@ DWORD WINAPI AUD_service_thread(AudioThread * thr)
 	thr->leaving = TRUE;
 	return 0;
 }
-#endif
 
 
 
-#if 0
-static int __fastcall AUD_fill_buffer(AUD_DRV_CHAN * ci, int total_bytes)
+static int __fastcall AUD_fill_buffer(AudioDriverChannel * ci, int total_bytes)
 {
 	unsigned long transfer, bytes_transfer;
 	unsigned long bytes;
@@ -466,12 +496,10 @@ done:
 	}
 	return result;
 }
-#endif
 
 
 
-#if 0
-static void __fastcall AUD_new_buffer_src(AUD_DRV_CHAN * ci)
+static void __fastcall AUD_new_buffer_src(AudioDriverChannel * ci)
 {
 	AudioSample * sample = ci->chan->sample;
 	AudioFormat * format;
@@ -530,12 +558,10 @@ static void __fastcall AUD_new_buffer_src(AUD_DRV_CHAN * ci)
 		}
 	}
 }
-#endif
 
 
 
-#if 0
-static int __fastcall PCM_transfer(AUD_DRV_CHAN *, unsigned char * dst, int * dst_bytes, unsigned char * src, int * src_bytes)
+static int __fastcall PCM_transfer(AudioDriverChannel *, unsigned char * dst, int * dst_bytes, unsigned char * src, int * src_bytes)
 {
 	int transfer;
 
@@ -549,12 +575,10 @@ static int __fastcall PCM_transfer(AUD_DRV_CHAN *, unsigned char * dst, int * ds
 	}
 	return TRUE;
 }
-#endif
 
 
 
-#if 0
-static int __fastcall ADPCM_transfer(AUD_DRV_CHAN * ci, unsigned char * dst, int * dst_bytes, unsigned char * src, int * src_bytes)
+static int __fastcall ADPCM_transfer(AudioDriverChannel * ci, unsigned char * dst, int * dst_bytes, unsigned char * src, int * src_bytes)
 {
 	int sbytes = 0;
 	int dbytes = 0;
@@ -642,11 +666,9 @@ static int __fastcall ADPCM_transfer(AUD_DRV_CHAN * ci, unsigned char * dst, int
 	}
 	return TRUE;
 }
-#endif
 
 
 
-#if 0
 static void __fastcall audioUnload(AudioSystem *)
 {
 	if (AUD_sound_object) {
@@ -668,11 +690,9 @@ static void __fastcall audioUnload(AudioSystem *)
 	}
 	DeleteCriticalSection(&thread_access);
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioOpen(AudioDevice * dev)
 {
 	DSBUFFERDESC dsbdesc;
@@ -702,16 +722,14 @@ static int __fastcall audioOpen(AudioDevice * dev)
 		AUD_sound_object->GetCaps(&caps);
 	}
 	AUD_primary_buffer->Play(0, 0, DSBPLAY_LOOPING);
-	dev->frames = vAUD_DRV_FRAMES;
-	dev->over_sample = vAUD_DRV_OVER_SAMPLE;
-	dev->frame_lag = vAUD_DRV_LAG_FRAMES;
+	dev->Frames = vAUD_DRV_FRAMES;
+	dev->Oversample = vAUD_DRV_OVER_SAMPLE;
+	dev->Lag = vAUD_DRV_LAG_FRAMES;
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static void __fastcall audioClose(AudioDevice *)
 {
 	EnterCriticalSection(&thread_access);
@@ -723,33 +741,29 @@ static void __fastcall audioClose(AudioDevice *)
 		AUD_primary_buffer = NULL;
 	}
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioOpenChannel(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci;
+	AudioDriverChannel * ci;
 
-	ci = (AUD_DRV_CHAN *)operator new(sizeof(AUD_DRV_CHAN));
-	memset(ci, 0, sizeof(AUD_DRV_CHAN));
+	ci = (AudioDriverChannel *)operator new(sizeof(AudioDriverChannel));
+	memset(ci, 0, sizeof(AudioDriverChannel));
 	chan->drvData = ci;
 	ci->chan = chan;
-	chan->time_min_frame = vAUD_DRV_POLL_INTERVAL * vAUD_DRV_OVER_SAMPLE;
-	chan->time_buffer = vAUD_DRV_FRAMES * chan->time_min_frame;
+	chan->frameTime = vAUD_DRV_POLL_INTERVAL * vAUD_DRV_OVER_SAMPLE;
+	chan->bufferTime = vAUD_DRV_FRAMES * chan->frameTime;
 	transfer_init(&ci->transfer_data);
 	AudioChannelSetFormat(ci->chan, &ci->chan->Device->DefaultFormat);
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioCloseChannel(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci;
+	AudioDriverChannel * ci;
 
 	if ((ci = chan->drvData)) {
 		if (ci->transfer_data.in) {
@@ -771,14 +785,12 @@ static int __fastcall audioCloseChannel(AudioChannel * chan)
 	}
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioStart(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci;
+	AudioDriverChannel * ci;
 	AudioFormat * format;
 	AudioSample * sample;
 	DSBUFFERDESC desc;
@@ -807,40 +819,34 @@ static int __fastcall audioStart(AudioChannel * chan)
 	}
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioStop(AudioChannel * chan)
 {
-	if (chan->Status & mAUDIO_CTRL_ACTIVE) {
+	if (chan->Control.Status & mAUDIO_CTRL_ACTIVE) {
 		AUD_channel_stop(chan);
 	}
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioPause(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci = chan->drvData;
+	AudioDriverChannel * ci = chan->drvData;
 
 	if (ci->dsbuf) {
 		ci->dsbuf->Stop();
 	}
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioResume(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci = chan->drvData;
+	AudioDriverChannel * ci = chan->drvData;
 
 	if (ci->dsbuf) {
 		if (ci->dsbuf->Play(0, 0, DSBPLAY_LOOPING) == DS_OK) {
@@ -849,14 +855,12 @@ static int __fastcall audioResume(AudioChannel * chan)
 	}
 	return ERROR_CODE_FAIL;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioCheck(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci = chan->drvData;
+	AudioDriverChannel * ci = chan->drvData;
 	DWORD status;
 
 	if (ci->dsbuf && (ci->dsbuf->GetStatus(&status) == DS_OK)) {
@@ -864,14 +868,12 @@ static int __fastcall audioCheck(AudioChannel * chan)
 	}
 	return FALSE;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioUpdate(AudioChannel * chan)
 {
-	AUD_DRV_CHAN * ci;
+	AudioDriverChannel * ci;
 	int vol;
 	int pitch;
 
@@ -892,36 +894,29 @@ static int __fastcall audioUpdate(AudioChannel * chan)
 	ci->dsbuf->SetFrequency(pitch);
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioQueueIt(AudioChannel *)
 {
 	return ERROR_CODE_FAIL;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioLock(AudioChannel *)
 {
 	EnterCriticalSection(&thread_access);
 	return vNO_ERROR;
 }
-#endif
 
 
 
-#if 0
 static int __fastcall audioUnlock(AudioChannel *)
 {
 	LeaveCriticalSection(&thread_access);
 	return vNO_ERROR;
 }
-#endif
 
 
 
@@ -1040,8 +1035,7 @@ void __fastcall AUD_service_attribs(AudioDevice * dev)
 }
 
 
-#if 0
-static int __fastcall IMA_decode_block(AUD_DRV_CHAN * ci)
+static int __fastcall IMA_decode_block(AudioDriverChannel * ci)
 {
 	int i, j;
 	TRANSFER * data = &ci->transfer_data;
@@ -1107,11 +1101,9 @@ static int __fastcall IMA_decode_block(AUD_DRV_CHAN * ci)
 	}
 	return TRUE;
 }
-#endif
 
 
 
-#if 0
 short __fastcall ImaAdpcmDecode(unsigned char deltaCode, IMA_DATA * state)
 {
 	int step;
@@ -1145,5 +1137,4 @@ short __fastcall ImaAdpcmDecode(unsigned char deltaCode, IMA_DATA * state)
 	}
 	return (short)state->previousValue;
 }
-#endif
 

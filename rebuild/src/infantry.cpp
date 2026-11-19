@@ -5180,7 +5180,7 @@ RTTIType InfantryClass::Fetch_RTTI(void) const
 #ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool InfantryClass::Is_Immobilized(void) const
 {
-	return(BASECLASS::Is_Immobilized()); // RA2: no ProneStruggleTimer
+	return(BASECLASS::IsUnderEMP()); // RA2: no ProneStruggleTimer
 }
 #endif
 

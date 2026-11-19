@@ -83757,7 +83757,7 @@
     "entry": "006d8e80",
     "body": 14,
     "padding": 2,
-    "symbol": "?Is_Immobilized@TechnoClass@@QBE_NXZ",
+    "symbol": "?IsUnderEMP@TechnoClass@@UBE_NXZ",
     "main_symbol": "?Is_Immobilized_006d8e80@seed_006d8e80@@YI_NH@Z",
     "main_source": "src/recovered/techno.cpp"
    },
@@ -130797,7 +130797,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "006fa1e0",
    "0070a350"
@@ -131617,7 +131617,7 @@
     "entry": "0070a240",
     "body": 27,
     "padding": 5,
-    "symbol": "?Is_Immobilized@UnitClass@@QBE_NXZ",
+    "symbol": "?IsUnderEMP@UnitClass@@UBE_NXZ",
     "main_symbol": "?UnitClass_Is_Immobilized@@YIIH@Z",
     "main_source": "src/recovered/unit.cpp"
    },
@@ -131766,7 +131766,11 @@
    "?Overrun_Square@UnitClass@@UAEXABVCell@@_N@Z": "00705160",
    "?Approach_Target@UnitClass@@UAEXXZ": "00705070",
    "?Unit_Draw_Shape@UnitClass@@UBEXVPoint2D@@V?$TRect@H@@H@Z": "007005b0",
-   "?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z": "006ff3e0"
+   "?Unit_Blit_Voxel@UnitClass@@UBEXAAVSurface@@VPoint2D@@V?$TRect@H@@H@Z": "006ff3e0",
+   "_$E302": "006fdfb0",
+   "_?$S301@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4EA": "00ad04b8",
+   "_?$S303@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578",
+   "?IsUnderEMP@UnitClass@@UBE_NXZ": "0070a240"
   },
   "partial_ok": true,
   "holder": "codex1",
@@ -139416,14 +139420,7 @@
     "0073a900"
    ]
   },
-  "data_bound_by_note": "g_OLEInitializer (TibSun wonline.cpp:141-150, empty class): its initializer 0x73A8E0 (OleInitialize, atexit) and destructor 0x73A900 (OleUninitialize) are exact rows; no instruction or data of the image refers to the 1-byte object, and VC6's hash-ordered .bss leaves its slot unknowable. Candidate gaps (wonline bss span 0xB264F8-0xB2AC85, no 4-byte value of the image points into them): 13 aligned 4-byte gaps 0xB26940 0xB2696C 0xB26A5C 0xB2900C 0xB292CC 0xB2938C 0xB2939C 0xB29464 0xB296F4 0xB29834 0xB299A4 0xB29CEC 0xB2A6FC, and larger ones 0xB2689C+132 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15; with alignment fill under 8 bytes excluded the audit keeps 0xB2689C+132 0xB26940+4 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15. User decision 2026-11-18 (DECISIONS, last row), owner-approved use.",
-  "count_sensitive": {
-   "0073fee0": {
-    "windows": "exact under rebuild-trial 840038ec6 headers (+0, +2, +3 probe declarations at the end of globals.h); off at +5 unrelated declarations there; off under queue r2158 globals.h+ownrdraw.h (5 declarations); exact again at r2158 +1..+10 probe declarations at the end of globals.h",
-    "header": "globals.h, ownrdraw.h (queue r2158: MegaMissionQueue, SyncBarOutlineColor, Show_Dialog, Dialog_On_WM_PAINT, Dialog_On_WM_DRAWITEM)",
-    "note": "c2land probe 2026-11-19 (owner ruling): (a) displacing content is queue's evidenced declarations; (b) five unrelated declarations give the same flip; (c) exact windows above. Same row R20 found count-sensitive under the 38-entry DoType."
-   }
-  }
+  "data_bound_by_note": "g_OLEInitializer (TibSun wonline.cpp:141-150, empty class): its initializer 0x73A8E0 (OleInitialize, atexit) and destructor 0x73A900 (OleUninitialize) are exact rows; no instruction or data of the image refers to the 1-byte object, and VC6's hash-ordered .bss leaves its slot unknowable. Candidate gaps (wonline bss span 0xB264F8-0xB2AC85, no 4-byte value of the image points into them): 13 aligned 4-byte gaps 0xB26940 0xB2696C 0xB26A5C 0xB2900C 0xB292CC 0xB2938C 0xB2939C 0xB29464 0xB296F4 0xB29834 0xB299A4 0xB29CEC 0xB2A6FC, and larger ones 0xB2689C+132 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15; with alignment fill under 8 bytes excluded the audit keeps 0xB2689C+132 0xB26940+4 0xB26948+12 0xB26B70+256 0xB2AB90+8 0xB2AC49+15. User decision 2026-11-18 (DECISIONS, last row), owner-approved use."
  },
  "skirmish": {
   "core": [
@@ -142025,7 +142022,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00409390",
    "0040ac80"
@@ -142288,7 +142285,11 @@
     "main_source": "src/recovered/drv_dsnd.cpp"
    }
   ],
-  "references": {},
+  "references": {
+   "__AUD_system_master": "007cce20",
+   "??_C@_0BJ@NGFD@Direct?5Sound?5Driver?5V2?40?$AA@": "007cd184",
+   "__AUD_driver": "007ccdf0"
+  },
   "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
@@ -142492,10 +142493,6 @@
    }
   ],
   "note": "Private IMA_DATA/TRANSFER/AudioDriverChannel/AudioThread/AudioLock closure missing; driver root tables omitted and dependent routines guarded; source extern declarations/private layouts/RA2 geometry switches omitted; original initializer ordering complete; function bounds unchanged.",
-  "build_refused": {
-   "source_sha256": "25b5beee22ab04884aa14875c9527e8fad14d6c8f7c339e832ba6f0957308d09",
-   "reason": "Unsupported allocatable data section .bss #3 in accepted.obj (['.bss', '?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A', '?AUD_sound_object@@3PAUIDirectSound@@A'])"
-  },
   "held_reason": "worker",
   "held_note": "codex2; catalog: whole-file build refused: Unsupported allocatable data section .bss #3 in accepted.obj (['.bss', '?AUD_primary_buffer@@3"
  },

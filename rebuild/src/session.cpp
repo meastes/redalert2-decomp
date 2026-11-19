@@ -2477,3 +2477,83 @@ void SessionPortAllocator::Allocate_Player_Ports(void)
 
 
 /************************** end of session.cpp *****************************/
+
+template <>
+VectorClass<DiskID>::VectorClass(int size, DiskID const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new((void*)array) DiskID[size];
+		} else {
+			Vector = new DiskID[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+template <>
+bool DynamicVectorClass<DiskID>::Resize(int newsize, DiskID const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+template <>
+int DynamicVectorClass<DiskID>::ID(DiskID const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}
+
+template <>
+VectorClass<Wstring>::VectorClass(int size, Wstring const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new((void*)array) Wstring[size];
+		} else {
+			Vector = new Wstring[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+template <>
+bool DynamicVectorClass<Wstring>::Resize(int newsize, Wstring const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+template <>
+int DynamicVectorClass<Wstring>::ID(Wstring const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}

@@ -31,3 +31,8 @@ extern AudioAttribs * AudioGroupAttribs1;
 extern AudioSystemMaster * AudioSystemDSD;
 extern LPDIRECTSOUND AUD_sound_object;
 extern LPDIRECTSOUNDBUFFER AUD_primary_buffer;
+
+#include "imadata.h"
+#include "audtransfer.h"
+#include "auddrvchan.h"
+#include "audthread.h"

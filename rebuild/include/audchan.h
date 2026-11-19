@@ -43,16 +43,16 @@ struct AudioChannelDriver
 {
 	void * unknown0;
 	int (__fastcall * openChannel)(AudioChannel * chan);
-	void (__fastcall * closeChannel)(AudioChannel * chan);
+	int (__fastcall * closeChannel)(AudioChannel * chan);
 	int (__fastcall * start)(AudioChannel * chan);
-	void (__fastcall * stop)(AudioChannel * chan);
-	void (__fastcall * pause)(AudioChannel * chan);
-	void (__fastcall * resume)(AudioChannel * chan);
-	void * unknown1C;
-	void (__fastcall * update)(AudioChannel * chan);
-	void (__fastcall * queueIt)(AudioChannel * chan);
-	void (__fastcall * lock)(AudioChannel * chan);
-	void (__fastcall * unlock)(AudioChannel * chan);
+	int (__fastcall * stop)(AudioChannel * chan);
+	int (__fastcall * pause)(AudioChannel * chan);
+	int (__fastcall * resume)(AudioChannel * chan);
+	int (__fastcall * check)(AudioChannel * chan);
+	int (__fastcall * update)(AudioChannel * chan);
+	int (__fastcall * queueIt)(AudioChannel * chan);
+	int (__fastcall * lock)(AudioChannel * chan);
+	int (__fastcall * unlock)(AudioChannel * chan);
 };
 
 struct AudioChannel

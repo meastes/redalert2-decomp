@@ -791,7 +791,6 @@ class TechnoClass :	public RadioClass,
 
 		BuildingClass * Find_Docking_Bay(BuildingTypeClass const * b, bool friendly = false, bool evenoccupied = false) const; // RA2: not a virtual
 
-		bool Is_Immobilized(void) const; // RA2: not a virtual
 
 
 		bool Is_Allowed_To_Retaliate(TechnoClass const * source, WarheadTypeClass const * warhead) const;
