@@ -119,6 +119,8 @@
 #include "houstype.h"
 #include "_map.h"
 #include "display.h"
+#include "isotype.h"
+#include "cell.h"
 #include "ccini.h"
 extern CCINIClass ArtINI;
 LayerType Layer_From_Name(char const * name);
@@ -500,6 +502,37 @@ int Run_Order(int frame, char const * text)
 			return(1);
 		}
 		fprintf(stderr, "harness-repairhut: no bridge repair hut\n");
+		return(-1);
+	}
+	if (!strcmp(word[0], "bridgecells")) {
+		// logs the 5x5 cells around the first bridge repair hut: `harness-bridgecell x,y it <ITType> sub <n> ov <Overlay>
+		// [bridge|trainbridge]` (lane N4)
+		for (int i = 0; i < Buildings.Count(); ++i) {
+			BuildingClass * hut = Buildings[i];
+			if (hut == NULL || hut->IsInLimbo || !hut->Class->IsBridgeRepairHut) continue;
+			Cell home = hut->Get_Cell();
+			for (int y = -3; y < 4; ++y) for (int x = -3; x < 6; ++x) {
+				CellClass & c = Map[Cell(home.X + x, home.Y + y)];
+				int it = c.ITType;
+				fprintf(stderr, "harness-bridgecell %d,%d it %d sub %d ov %d under %d was %d%s\n", home.X + x, home.Y + y, it, (int)c.SubTile, (int)c.Overlay,
+					c.IsUnderBridge ? 1 : 0, c.WasUnderBridge ? 1 : 0,
+					it >= IsometricTileTypeClass::BridgeSet && it < IsometricTileTypeClass::BridgeSet + 16 ? " bridge" :
+					it >= IsometricTileTypeClass::TrainBridgeSet && it < IsometricTileTypeClass::TrainBridgeSet + 16 ? " trainbridge" : "");
+			}
+			for (int k = 0; k < Map.ZoneConnections.Count(); ++k) {
+				ZoneConnectionClass & z = Map.ZoneConnections[k];
+				if (abs(z.From.X - home.X) > 999 || abs(z.From.Y - home.Y) > 999) continue;
+				fprintf(stderr, "harness-zonecon %d,%d -> %d,%d passable %d type %d\n", z.From.X, z.From.Y, z.To.X, z.To.Y,
+					z.IsPassable ? 1 : 0, (int)z.Type);
+				int dx = z.To.X > z.From.X ? 1 : z.To.X < z.From.X ? -1 : 0, dy = z.To.Y > z.From.Y ? 1 : z.To.Y < z.From.Y ? -1 : 0;
+				for (Cell c = z.From; c.X != z.To.X + dx || c.Y != z.To.Y + dy; c.X += dx, c.Y += dy) {
+					CellClass & cc = Map[c];
+					fprintf(stderr, "harness-span %d,%d under %d ov %d it %d sub %d\n", c.X, c.Y, cc.IsUnderBridge ? 1 : 0, (int)cc.Overlay, (int)cc.ITType, (int)cc.SubTile);
+					if (!dx && !dy) break;
+				}
+			}
+			return(1);
+		}
 		return(-1);
 	}
 	if (!strcmp(word[0], "bridge")) {

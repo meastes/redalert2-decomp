@@ -839,10 +839,27 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
 * **Checked in the Simulator** ("RA2 Duo Validation", `ios_sim_menus.py --games yr --play-seconds 150`, N4_ORDERS): the
   GI garrisons (1 occupant, the player's), the camouflage 271 green to 0 blue/white, the derrick's two animations in
   the ground layer.
-* **Resume note (lane N4)**: item 0a done (Mac and Simulator); next item 2 (bridge repair:
-  gamemd.exe's MapClass::Can_Repair_Bridge is 0x00587410, 2,109 bytes, "IsLinkedBridgeDestroyed" in functions.csv; the
-  draft in glue/map_zones_native.inc is TibSun's, with Tiberian Sun's low-bridge overlays where gamemd.exe tests the
-  overlay ranges 0x4A-0x65 and 0xCD-0xE8), then item 3.
+* **Bridge repair (item 2)**: the harness's `bridge` read 1 before and after because the skirmish maps N3 tried
+  (and XDEADMAN.MAP, ScenIndex 3, the first with huts: `scenario`, `bridgecells`) start with broken bridges, and no
+  repair happened: Per_Cell_Process's TibSun text asked NavCom->Considered_Vehicle(), TibSun's name for the YR tree's
+  IsStrange (vtable 0x80, BuildingClass: Class->IsVehicle(); gamemd.exe 0x00519996 calls it with RTTI_BUILDING
+  required). The tree's Considered_Vehicle (0x7C) is Height > -20, true for every building, so the engineer took the
+  "captured a vehicle" branch and was deleted. The same call in glue/bullet_native.inc, particle_native.inc,
+  bounce_native.inc (buildings let shots and debris through) and building_native.inc's sale (the player's sell sound)
+  is now IsStrange. A vehicle target still takes the old branch in Per_Cell_Process: the draft hijacks vehicles there
+  (yr-native-standins' thief; gamemd.exe's own hijack path not compared yet). Can_Repair_Bridge also gained gamemd.exe's second low-bridge family (0x00587803: overlays
+  0xCD-0xE8, Is_Low_Bridge2). ctest `yr-native-bridge-repair` (readings 1, 0, 1, 0: broken, repaired, blown,
+  repaired). Harness orders `bridgecells` (the cells around the first hut and every bridge zone connection's span)
+  and `scenario`.
+* **Resume note (lane N4)**: items 0a and 2 done; next item 3 (Red Alert 2's unreached rewrites). Most-called in
+  game.exe by rel32 calls: SystemTimerClass::operator() (but its callers compile inline natively), the WWCRCEngine
+  operators (0x00493E80/0x00493FC0/0x00493DF0: the full sync CRC, only on a desync dump), isspace, the LAN dialogs,
+  chat (MessageListClass::Get_Edit_Buf), controlled voices (Audio_Event_Handle_Set). Started: Red Alert 2's harness
+  gained `spawn <ID> [dx dy]` and `kill <ID>` (link/harness_orders.cpp), coverage_runs.py the scenario `n4-deaths`
+  (a demolition truck and two tanks spawned and destroyed); on a coverage build (build/native-cov, the cmake line in
+  coverage_runs.py's docstring plus -DRA2_NATIVE_SUBSYSTEM=all -DRA2_NATIVE_DRAFTS=ON -DRA2_NATIVE_LINK_CLOSURE=ON) it
+  reached Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, now "reached in a coverage run" in
+  native/behaviour_rewrites.json.
 
 ## Next: iOS and Windows
 

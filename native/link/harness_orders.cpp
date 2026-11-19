@@ -40,6 +40,7 @@
 #include "shared/super_weapon_type.hpp"
 #include "shared/laser_draw.hpp"
 #include "shared/wave.hpp"
+#include "shared/rules.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,6 +60,8 @@ bool Same(char const *a, char const *b, int n)
     for (int i = 0; i < n; ++i) if (a[i] != b[i]) return false;
     return true;
 }
+// `spawn <ID> [<dx> <dy>]` and `kill <ID>` (lane N4): a vehicle for the player beside its first techno, and the
+// player's first techno of a type destroyed through Take_Damage (coverage_runs.py n4-deaths).
 // A super weapon's target for `super <index> enemy`: a building, or with `units` a vehicle or
 // infantry standing on the map (kind 1 or 15; aircraft and anything in limbo at cell 0,0 are not).
 bool Super_Target(TechnoClass *techno, bool units)
@@ -249,6 +252,57 @@ int Scripted_Order(char const *command)
             ++listed;
         }
         return listed;
+    }
+    if (Same(word[1], "spawn", 6) && words >= 3) {
+        // `spawn <ID> [<dx> <dy>]` (lane N4, test scaffolding): a vehicle of type ID for the player, on the first free
+        // cell in rings around dx,dy cells from the player's first techno (UnitTypeClass::Create_One_Of, Unlimbo).
+        // Logs `harness-spawn <ID> @x,y &<addr>`.
+        UnitTypeClass const *type = 0;
+        for (int i = 0; i < UnitTypes.Count() && type == 0; ++i) {
+            if (Same_Type(UnitTypes[i]->ID.Buffer, word[2])) type = UnitTypes[i];
+        }
+        TechnoClass *home = 0;
+        for (int i = 0; i < Technos.Count() && home == 0; ++i) {
+            if (Technos[i] && Technos[i]->House == PlayerPtr) home = Technos[i];
+        }
+        if (type == 0 || home == 0) return -1;
+        ObjectClass *object = type->Create_One_Of(PlayerPtr);
+        if (object == 0) return -1;
+        Cell base = home->Center_Coord().As_Cell();
+        int dx = words >= 5 ? atoi(word[3]) : 3, dy = words >= 5 ? atoi(word[4]) : 0;
+        for (int ring = 0; ring <= 8; ++ring) {
+            for (int y = -ring; y <= ring; ++y) {
+                for (int x = -ring; x <= ring; ++x) {
+                    if (abs(x) != ring && abs(y) != ring) continue;
+                    CoordStruct at;
+                    at.X = (base.X + dx + x) * 256 + 128;
+                    at.Y = (base.Y + dy + y) * 256 + 128;
+                    at.Z = 0;
+                    at.Z = Map.Get_Height_GL(at);
+                    if (object->Unlimbo(&at, 0)) {
+                        fprintf(stderr, "harness-spawn %s @%d,%d &%p\n", word[2], at.X / 256, at.Y / 256, (void *)object);
+                        return 1;
+                    }
+                }
+            }
+        }
+        fprintf(stderr, "harness-spawn: no room for %s\n", word[2]);
+        return -1;
+    }
+    if (Same(word[1], "kill", 5) && words >= 3) {
+        // `kill <ID>` (lane N4, test scaffolding): the player's first techno of type ID takes its full strength in
+        // damage from the C4 warhead (TechnoClass::Take_Damage, forced): it dies the way it dies in battle (a
+        // demolition truck's explosion, a vehicle's wreck). Logs `harness-kill <ID> &<addr>`.
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House != PlayerPtr || techno->Techno_Type_Class() == 0) continue;
+            if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
+            int damage = techno->Strength;
+            fprintf(stderr, "harness-kill %s &%p\n", word[2], (void *)techno);
+            techno->Take_Damage(&damage, 0, Rules->C4Warhead, 0, true, 0);
+            return 1;
+        }
+        return -1;
     }
     if (Same(word[1], "shoot", 6) && words >= 3) {
         // `shoot <ID>` (lane C22, test scaffolding): the player's first unit of type ID attacks the

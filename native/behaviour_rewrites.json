@@ -1,5 +1,5 @@
 {
- "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check). Rows with origin_class \"unmatched (launch path)\" are behaviour rewrites of unmatched rows the skirmish harness (ra2-native --skirmish) reaches or of Scout1050's launch-path rows without a usable draft (Scout1069): written from the row's seed/decompile, its header's comment or TibSun, NOT EXACT; where the original reads a data table that is still unsourced the row says what the native body does instead (notes). reach (lane N1, rows no coverage run reached): \"reviewed\" (reachable in the base game; reach_reason names the callers in game.exe and why no run took that path), \"unreachable in the base game\" (no caller, abstract-only vtables, a feature no menu offers), \"unreachable in the port\" (Westwood Online only, or a branch the port's platform never takes), \"reached by a test\" (a unit test runs it on synthetic inputs); reach_checked_by says how.",
+ "about": "Behaviour rewrites of the functions the original implements in handwritten assembly (the link-closure \"c-function\" handwritten-assembly class, src/recovered/asm, manifests/original_target/assembly.json) and of the accepted rows whose body is evidenced inline assembly (native_units.py skips them). Each is portable C++ written from the adopted TibSun archive text, never original code or bytes, and is NOT EXACT: the exact build keeps the assembled procedures. Tests run each on synthetic inputs against references built from the algorithm (native-asm-check). Rows with origin_class \"unmatched (launch path)\" are behaviour rewrites of unmatched rows the skirmish harness (ra2-native --skirmish) reaches or of Scout1050's launch-path rows without a usable draft (Scout1069): written from the row's seed/decompile, its header's comment or TibSun, NOT EXACT; where the original reads a data table that is still unsourced the row says what the native body does instead (notes). reach (lane N1, rows no coverage run reached): \"reviewed\" (reachable in the base game; reach_reason names the callers in game.exe and why no run took that path), \"unreachable in the base game\" (no caller, abstract-only vtables, a feature no menu offers), \"unreachable in the port\" (Westwood Online only, or a branch the port's platform never takes), \"reached by a test\" (a unit test runs it on synthetic inputs), \"reached in a coverage run\" (lane N4: a scenario of tests/coverage_runs.py on a coverage build executed it; reach_reason names the run); reach_checked_by says how.",
  "rows": [
   {
    "entry": "0x00781130",
@@ -765,9 +765,9 @@
    "source": "seed src/recovered/00406100.cpp",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "VocClass::PlayGlobal/PlayAt/UpdateAt, Controller_Set_Voc, RadarClass::Play_Movie/Update_Transmission: a controlled voice or a radar transmission with audio on; the audio runs played none",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-deaths (a skirmish: a demolition truck, an Apocalypse and a Hammer tank spawned and destroyed through the harness, RA2_NATIVE_ORDERS spawn/kill): a controlled voice started while the vehicles died (the run is silent, -noaudio: the event handle is still set)",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-deaths and report"
   },
   {
    "entry": "0x00423DC0",
@@ -792,9 +792,9 @@
    "source": "seed src/recovered/planmgr/Planning_Active.cpp",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "called by Tactical::Render every frame (src/recovered/tactical.cpp, the draft 006a45a0 keeps the call; 5 call sites in ra2-native), TechnoClass::Player_Assign_Mission/ClickedEvent and Command_Guard; the C21 report missed it because the link alias Planning_Mode_Active_614840 shares its address (coverage_runs.py now credits every name at an address)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-deaths (a skirmish: a demolition truck, an Apocalypse and a Hammer tank spawned and destroyed through the harness, RA2_NATIVE_ORDERS spawn/kill): Tactical::Render asks it every frame (a skirmish frame drawn)",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-deaths and report"
   },
   {
    "entry": "0x00496CE0",
@@ -1714,9 +1714,9 @@
    "notes": "shared empty leaf (Leaf_482e00::get); UnitClass::Explode calls it; Scout1125 (M15)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "UnitClass::Explode (a unit that explodes on death, e.g. the Demolition Truck) and BuildingClass::Unlimbo; no run destroyed such a unit",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n4-deaths (a skirmish: a demolition truck, an Apocalypse and a Hammer tank spawned and destroyed through the harness, RA2_NATIVE_ORDERS spawn/kill): the demolition truck spawned and destroyed (UnitClass::Explode shakes the screen)",
+   "reach_checked_by": "N4 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n4-deaths and report"
   },
   {
    "entry": null,

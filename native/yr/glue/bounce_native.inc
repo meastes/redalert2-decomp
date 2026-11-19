@@ -77,7 +77,7 @@ BounceResultType BounceClass::AI(void)
 					if (building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
 						hit_obstacle = false;
 					}
-					if (building->Considered_Vehicle()) {
+					if (building->IsStrange()) {	// YR (lane N4): TibSun's Considered_Vehicle is the YR tree's IsStrange (BuildingClass: Class->IsVehicle(), vtable 0x80); the tree's Considered_Vehicle is another slot (Height > -20), true for every building
 						hit_obstacle = false;
 					}
 				}

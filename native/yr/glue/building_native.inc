@@ -651,7 +651,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 					}
 				}
 
-				if (House->Is_Player_Control() && !Considered_Vehicle()) {
+				if (House->Is_Player_Control() && !IsStrange()) {	// YR (lane N4): TibSun's Considered_Vehicle is the YR tree's IsStrange (BuildingClass: Class->IsVehicle(), vtable 0x80); the tree's Considered_Vehicle is another slot (Height > -20), true for every building
 					VocClass::PlayAt(Rule->SellSound, PositionCoord);	// NATIVE (lane Y11b): YR's sound call for TibSun's Sound_Effect
 				}
 				Status = DURING;

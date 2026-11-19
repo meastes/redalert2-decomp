@@ -196,7 +196,12 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 		**	capture, then capture it.
 		*/
 		if (Mission == MISSION_CAPTURE || Mission == MISSION_GUARD_AREA || Mission == MISSION_PATROL) {
-			if (NavCom != NULL && NavCom->Is_Techno() && ((TechnoClass*)NavCom)->Considered_Vehicle()) {
+			// YR (lane N4, gamemd.exe 0x00519979-0x005199BE): a building that counts as a vehicle (IsStrange, TibSun's
+			// Considered_Vehicle; the YR tree's Considered_Vehicle is another slot, true for every building, so an engineer
+			// sent into a bridge repair hut "captured" it as a vehicle and vanished without repairing the bridge)
+			// A vehicle (not a building) still takes this branch as before: a vehicle thief's hijack (lane P1's test) is
+			// done here in the draft; gamemd.exe's own path for it is not compared yet.
+			if (NavCom != NULL && NavCom->Is_Techno() && (NavCom->Fetch_RTTI() == RTTI_BUILDING ? ((TechnoClass*)NavCom)->IsStrange() : ((TechnoClass*)NavCom)->Considered_Vehicle())) {
 				TechnoClass * tech = (TechnoClass *)NavCom;
 				if (tech != NULL) {
 					if (PositionCell == tech->PositionCell) {

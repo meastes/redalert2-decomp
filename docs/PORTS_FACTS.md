@@ -188,6 +188,13 @@ platform layer. It earns no exact-match credit.
   and crashed when a beam ran one way (`yr-native-standins`).
   Needs a user check on the device: garrison a building, watch a Mirage tank stand still, look at an oil derrick and
   other buildings' animations.
+- Fixed 2026-11-19 (lane N4): engineers did not repair bridges in Yuri's Revenge (one sent into a bridge repair hut
+  vanished and the bridge stayed broken). The soldiers' cell-arrival draft called the wrong game function where Tiberian
+  Sun's text asks whether a building counts as a vehicle; the same mistake let bullets, particles and falling debris
+  through every building and kept the player's sell sound from playing. All five places now call the right one.
+  Checked: ctest `yr-native-bridge-repair` (on the skirmish map Dead Man's, whose bridges start broken: an engineer
+  repairs the bridge, C4 on the hut destroys it again, a second engineer repairs it). Needs a user check on the
+  device: repair a bridge with an engineer.
 - Need a user check on the device: the unit animation fixes from lane Y13 (walk frames and
   idle animations), the lane Y14 fixes above, the team-button hold, and the lane N3 and N4 fixes above.
 - Still open: longer games may still reach functions not recovered yet (written as clearly

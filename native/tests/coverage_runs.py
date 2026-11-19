@@ -90,6 +90,10 @@ SCENARIOS = [
     # The Allied specials: spy, IFV with a gunner, engineers.
     skirmish('specials', 5000, order='win', seconds=700, env=dict(
         RA2_NATIVE_ORDERS=SPECIALS, RA2_NATIVE_BUILD_LIST='GAPOWR,GAPILE,GAREFN,GAWEAP,GAPOWR')),
+    # Lane N4 (item 3, Red Alert 2's unreached rewrites): a demolition truck spawned and destroyed (UnitClass::Explode
+    # shakes the screen), other vehicles spawned and destroyed beside it.
+    skirmish('n4-deaths', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
+        '300 spawn DTRUCK 4 0; 320 spawn APOC 6 2; 340 spawn HTK 6 -2; 400 kill DTRUCK; 600 kill APOC; 700 kill HTK'))),
     # Seven computer opponents on a four-player map, longer: their specials and super weapons.
     skirmish('ai-crowd', 9000, order='all', map_='#10', seconds=900,
              env=dict(RA2_NATIVE_SKIRMISH_AI='3', RA2_NATIVE_SKIRMISH_AI_LEVEL='2')),

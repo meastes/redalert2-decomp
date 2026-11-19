@@ -402,7 +402,7 @@ void BulletClass::AI(void)
 						if (building == (BuildingClass *)payback || (building->Class->IsLaserFence && building->LaserFenceFrame >= 8)) {
 							hit = false;
 						}
-						if (building->Considered_Vehicle()) {
+						if (building->IsStrange()) {	// YR (lane N4): TibSun's Considered_Vehicle is the YR tree's IsStrange (BuildingClass: Class->IsVehicle(), vtable 0x80); the tree's Considered_Vehicle is another slot (Height > -20), true for every building
 							hit = false;
 						}
 						if (payback != NULL && payback->House->Is_Ally(building)) {

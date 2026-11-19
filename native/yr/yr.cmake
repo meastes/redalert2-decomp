@@ -347,6 +347,13 @@ add_test(NAME yr-native-building-anims COMMAND "${Python3_EXECUTABLE}" -B "${CMA
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-building-anims")
 set_tests_properties(yr-native-building-anims PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 200)
 
+# ctest yr-native-bridge-repair (lane N4): an engineer repairs a broken bridge from its repair hut, a hut blown with C4
+# destroys it again (IsStrange for TibSun's Considered_Vehicle; yr/tests/yr_bridge_repair.py)
+add_test(NAME yr-native-bridge-repair COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_bridge_repair.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-bridge-repair")
+set_tests_properties(yr-native-bridge-repair PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
+
 # ctest yr-native-save-dialog (lane N3): a save through the options menu's Save dialog (yr/tests/yr_save_dialog.py)
 add_test(NAME yr-native-save-dialog COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_save_dialog.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"

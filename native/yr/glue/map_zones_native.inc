@@ -961,6 +961,8 @@ int MapClass::Region_Threat(HouseClass * house, int level, int from_subzone, int
 	return(0);
 }
 
+#define LB2_CELL(n) ((OverlayType)(204 + (n)))	// map.cpp's LB2: the second low-bridge family's overlays
+
 bool MapClass::Can_Repair_Bridge(Cell const & cell)
 {
 	static short _x[] = {
@@ -977,6 +979,7 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell)
 	};
 
 	bool found = false;
+	bool second = false;	// YR (lane N4): the low bridge found is of the second family (Is_Low_Bridge2, overlays 0xCD-0xE8)
 	CellClass * cellptr = NULL;
 	int offset = -1;
 
@@ -997,6 +1000,11 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell)
 				Cell cellnum = cell + Cell(x, y);
 				if (Is_Low_Bridge(cellnum)) {
 					found = false;
+					second = false;
+					cellptr = &Map[Cell(cell + Cell(x, y))];
+				} else if (Is_Low_Bridge2(cellnum)) {
+					found = false;
+					second = true;
 					cellptr = &Map[Cell(cell + Cell(x, y))];
 				}
 			}
@@ -1034,6 +1042,30 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell)
 				}
 			}
 		}
+	} else if (cellptr != NULL && second) {
+
+		/*
+		**	YR (lane N4, from gamemd.exe 0x00587803-0x00587A3F): the second low-bridge family (overlays 0xCD-0xE8,
+		**	Is_Low_Bridge2; LB2(n) is 204 + n) is walked as the first is, its ends being LB2(27) and LB2(28). The
+		**	TibSun text had the first family only.
+		*/
+		int overlay = cellptr->Overlay;
+		if (overlay >= LB2_CELL(1) && overlay <= LB2_CELL(9) || overlay >= LB2_CELL(19) && overlay <= LB2_CELL(22) || overlay == LB2_CELL(27)) {
+			for (Cell walk = cellptr->CellID; Is_Low_Bridge2(walk); walk.X--) {
+				if (Map[walk].Overlay == LB2_CELL(27) || Map[walk].Overlay == LB2_CELL(28)) return(true);
+			}
+			for (Cell scan = cellptr->CellID; Is_Low_Bridge2(scan); scan.X++) {
+				if (Map[scan].Overlay == LB2_CELL(27) || Map[scan].Overlay == LB2_CELL(28)) return(true);
+			}
+		} else {
+			for (Cell scan = cellptr->CellID; Is_Low_Bridge2(scan); scan.Y++) {
+				if (Map[scan].Overlay == LB2_CELL(27) || Map[scan].Overlay == LB2_CELL(28)) return(true);
+			}
+			for (Cell walk = cellptr->CellID; Is_Low_Bridge2(walk); walk.Y--) {
+				if (Map[walk].Overlay == LB2_CELL(27) || Map[walk].Overlay == LB2_CELL(28)) return(true);
+			}
+		}
+
 	} else if (cellptr != NULL) {
 
 		if (cellptr->Overlay >= OVERLAY_LOWBRIDGE_01 && cellptr->Overlay <= OVERLAY_LOWBRIDGE_09 ||
