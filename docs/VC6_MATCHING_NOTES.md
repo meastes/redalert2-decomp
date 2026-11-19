@@ -78,6 +78,7 @@ starting points for the next class, not guarantees.
   can also suppress an out-of-line copy the original kept (wwmous.cpp
   `Unblock_Mouse`); an explicit trailing `return;` kept `Calc_Confining_Rect`
   from being expanded into the constructor.
+- An uncalled out-of-line copy whose body other rows of the same unit expand comes from one ordinary (non-`inline`) external definition: /Ob2 auto-inlines it at its call sites, including callers defined earlier in the unit, and still emits its body at its place in definition order (the link keeps unreferenced code). Do not write an inline twin plus an out-of-line copy (rebuild lane R33: wonline Set_Match_State 0x759DF0, Reset_Wait_Events 0x752930).
 - Inline header members are emitted at the end of the unit; non-virtual
   accessors the original emits mid-unit were defined in the .cpp.
 - `/Ob2` gives each caller one cumulative inline budget. The budget is
