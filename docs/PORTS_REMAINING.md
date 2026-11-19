@@ -34,14 +34,10 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 ## Your checks (once)
 
-1. **On the Duo:**
-   - hold a team button to set a team;
-   - an MCV deploying, and a Grizzly's first move;
-   - Yuri's Revenge's bottom bar;
-   - the Skip button only during movies;
-   - unit animations;
-   - the on-screen keyboard in Yuri's Revenge's text fields;
-   - the campaign Difficulty label.
+1. **On the Duo** (checked by the user 2026-11-18):
+   - working: team-button hold, MCV deploy and Grizzly first move, the Skip button, unit animations, the campaign Difficulty label;
+   - **fault:** Yuri's Revenge's bottom command bar shows, but its "select all units of this type" button crashes the game;
+   - **fault:** the on-screen keyboard doesn't come up by itself in Yuri's Revenge's text fields (the skirmish player name); the Keys button works.
 2. **On the Windows PC:** `C:\ra2\for-user\RA2YRNative`:
    - switch games;
    - a skirmish in each game;
@@ -51,6 +47,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 ## Suggested order for the next port lane
 
+0. Fix the two Duo faults above: the command bar's select-by-type crash, then the automatic keyboard in Yuri's Revenge text fields.
 1. Trace the Yuri's Revenge campaign missions for missing functions, and write stand-ins for them.
 2. Add the bridge repair and War Factory unload tests.
 3. Reach Red Alert 2's 110 unreached rewrites, most-called first.
