@@ -1,0 +1,299 @@
+{
+  "id": "rebuild-toggle",
+  "population": {
+    "id": "rebuild-toggle",
+    "inventory_sha256": "f3a98455000b8fe059e57fa20a0681efd006683052ca29e59175c8546167ee53",
+    "gaps_sha256": "cbffbccdcd728aa1288b3ac916d053b7ac1430a62f737654790917baf720cb08",
+    "historical_population_sha256": "074b0d554d1cde32892cd53d3d3c19ccbccaab4246eed7824124c5da9d715cb1",
+    "historical_acceptance_sha256": "f80d324fa51e5a1b00ca63af61f01ffe9865852ff5d26b78e374a625e798fee9"
+  },
+  "references": {
+    "_RECT_NONE": 11275224,
+    "??0ControlClass@@QAE@IHHHHI_N@Z": 4731952,
+    "??_7ToggleClass@@6B@": 7997232,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z": 4732080,
+    "_$E2": 7254272,
+    "??0ToggleClass@@QAE@IHHHH@Z": 7254304,
+    "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z": 4732176,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Draw_Me@ControlClass@@UAEHH@Z": 4732208,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?Get_ID@ControlClass@@MBEIXZ": 4732192,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z": 5476544,
+    "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z": 5476576,
+    "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GToggleClass@@UAEPAXI@Z": 4872128,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_R0?AVControlClass@@@8": 8204112,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVToggleClass@@@8": 8216480,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "??3@YAXPAX@Z": 7871803,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "?Turn_On@ToggleClass@@QAEXXZ": 7254368,
+    "?Turn_Off@ToggleClass@@QAEXXZ": 7254384,
+    "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z": 7254400
+  },
+  "regions": [
+    {
+      "entry": 7254272,
+      "method": "006eb100",
+      "body_bytes": 23,
+      "body_sha256": "1569c0b7c977bf172b2bf13c978e4cb8dd8a8c46e03ef2fda63ff19ab7129f97",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c00a7d10eeb4b7748f9514a04724ef2e3b6db6bb86bcfb36d0eaea95cd92fdfe",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11275224,
+          "addend": 0,
+          "resolved": 11275224
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11275224,
+          "addend": 4,
+          "resolved": 11275228
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11275224,
+          "addend": 8,
+          "resolved": 11275232
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11275224,
+          "addend": 12,
+          "resolved": 11275236
+        }
+      ],
+      "source_sha256": "380226a5078fcfa5b6ff76799a2413d801a9cf96dcf898ef75c8a67c3f8b0ef1",
+      "source": "rebuild/src/toggle.cpp",
+      "population": "rebuild-toggle",
+      "source_order": 7254272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7254304,
+      "method": "006eb120",
+      "body_bytes": 62,
+      "body_sha256": "5ca9e558bd9d000df01085d6b4a409edea1cfc2896bb2702f96006847ecb3b19",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "08e84fe7ecc280984a03148207d447c3c93c2c5e7faa5f39b8e126e4fb706764",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ToggleClass@@QAE@IHHHH@Z",
+      "symbol_prefix": "??0ToggleClass@@QAE@IHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+          "target": 4731952,
+          "addend": 0,
+          "resolved": 4292444905
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7ToggleClass@@6B@",
+          "target": 7997232,
+          "addend": 0,
+          "resolved": 7997232
+        }
+      ],
+      "source_sha256": "380226a5078fcfa5b6ff76799a2413d801a9cf96dcf898ef75c8a67c3f8b0ef1",
+      "source": "rebuild/src/toggle.cpp",
+      "population": "rebuild-toggle",
+      "source_order": 7254304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7254368,
+      "method": "006eb160",
+      "body_bytes": 9,
+      "body_sha256": "e015fb4be27f3e840b67185a29c52f04e6e1fa61172c37ce072f51856102640a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "26103f624f5896d59e97207dbccc49fd4ea98463a9c73f1236b1789bc2663d5f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Turn_On@ToggleClass@@QAEXXZ",
+      "symbol_prefix": "?Turn_On@ToggleClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "380226a5078fcfa5b6ff76799a2413d801a9cf96dcf898ef75c8a67c3f8b0ef1",
+      "source": "rebuild/src/toggle.cpp",
+      "population": "rebuild-toggle",
+      "source_order": 7254368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7254384,
+      "method": "006eb170",
+      "body_bytes": 9,
+      "body_sha256": "d14136e5184a0f15f3df6248519bf56d9046acb7b3406d2616064a072918282c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e24cb24863d544753449d08c87d54ab0668a48a76904cb89edb0c5b341c06dfb",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Turn_Off@ToggleClass@@QAEXXZ",
+      "symbol_prefix": "?Turn_Off@ToggleClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "380226a5078fcfa5b6ff76799a2413d801a9cf96dcf898ef75c8a67c3f8b0ef1",
+      "source": "rebuild/src/toggle.cpp",
+      "population": "rebuild-toggle",
+      "source_order": 7254384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7254400,
+      "method": "006eb180",
+      "body_bytes": 308,
+      "body_sha256": "f20b0fb33843931ed6f0cdaf875625ce3f3e521cd731c3c015696e03aa60ac57",
+      "padding_bytes": 12,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "27ce7be99f1b28794735a282ef2241c9abd868b0a1c11f67e050d885db638659",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z",
+      "symbol_prefix": "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4292444823
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4292444742
+        },
+        {
+          "offset": 276,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4292444696
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4292444674
+        }
+      ],
+      "source_sha256": "380226a5078fcfa5b6ff76799a2413d801a9cf96dcf898ef75c8a67c3f8b0ef1",
+      "source": "rebuild/src/toggle.cpp",
+      "population": "rebuild-toggle",
+      "source_order": 7254400,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

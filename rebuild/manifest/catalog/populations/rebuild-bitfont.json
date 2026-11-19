@@ -1,0 +1,1353 @@
+{
+  "id": "rebuild-bitfont",
+  "population": {
+    "id": "rebuild-bitfont",
+    "inventory_sha256": "91c8e1eb4c6870dd1d5c051261789e6b16786ef7809219c69ac31b5850279c39",
+    "gaps_sha256": "99b9d4f57ea25d8cbaa73dc8f4b81cf2171de552512f7bc40ea4ab3193dcb557",
+    "historical_population_sha256": "da0748bd1d27ac1a8674c90175ea845b9d69cf05c8b2d15ba127ea128198cbf2",
+    "historical_acceptance_sha256": "b4e9994a4d9682906f81c7f3dcb1a749a49ca6d33cb4590e0441e233d2dcc03d"
+  },
+  "references": {
+    "_RECT_NONE": 8710592,
+    "??_7BitFont@@6B@": 7980936,
+    "__imp__SetRect@20": 7972008,
+    "?Load_Data@BitFont@@SIPAUInternalData@1@PBD@Z": 4395344,
+    "?Make_Missing_Char@BitFont@@QAEXXZ": 4398784,
+    "_free": 7874024,
+    "??3@YAXPAX@Z": 7871803,
+    "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z": 4396208,
+    "?Clip_Rect@BitFont@@QAE_NPAULTRBStruct@@00@Z": 4399104,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?WhiteColor@@3VRGBClass@@B": 11233353,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?Adjust@RGBClass@@QAEXHABV1@@Z": 6541088,
+    "?Print_Char@BitFont@@QAEHGHHH@Z": 4397280,
+    "_malloc": 7874096,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E7": 4395040,
+    "??0BitFont@@QAE@PBD@Z": 4395072,
+    "??_GBitFont@@UAEPAXI@Z": 4399616,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVBitFont@@@8": 8189200,
+    "??1BitFont@@UAE@XZ": 4395264,
+    "?Destroy@InternalData@BitFont@@QAEXXZ": 4395968,
+    "?Load@BitFont@@QAE_NPBD@Z": 4396016,
+    "?Set_Color@BitFont@@QAEGG@Z": 4396080,
+    "?Set_Shadow_Color@BitFont@@QAEGG@Z": 4396096,
+    "?Set_Clip@BitFont@@QAE_N_N@Z": 4396112,
+    "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z": 4396128,
+    "?Set_Bold@BitFont@@QAE_N_N@Z": 4396192,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "?Bold_String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396720,
+    "?Chars_In_Width@BitFont@@QAEHPBGHHH@Z": 4396816,
+    "?Bold_Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z": 4397152,
+    "?Set_Tab_Width@BitFont@@QAEHH@Z": 4397248,
+    "?Set_Tab_Origin@BitFont@@QAEXH@Z": 4397264,
+    "?Print_Typed@BitFont@@QAEHPBGHHHH@Z": 4398272,
+    "?Char_Data@BitFont@@QAEPAEG@Z": 4398720,
+    "?Missing_Char@BitFont@@QAEPAXPAG@Z": 4398928,
+    "?Widen_Space@BitFont@@QAEXXZ": 4398960,
+    "?Set_Wide_Space@BitFont@@QAEXXZ": 4399008,
+    "?Lock@BitFont@@QAEXPAVSurface@@@Z": 4399280,
+    "?Unlock@BitFont@@QAEXPAVSurface@@@Z": 4399440,
+    "?Char_Width@BitFont@@QAEHG@Z": 4399472,
+    "?Reset@BitFont@@QAEXXZ": 4399536
+  },
+  "regions": [
+    {
+      "entry": 4395040,
+      "method": "431020",
+      "body_bytes": 23,
+      "body_sha256": "e846d04092f4e217ecf3ebcc2f7a716b223ca9ec3ccec09f3fd745bfabce7660",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ca9f5fc453f0b78061e09f91df4de62fdeb772c1b8786ce3c92207cf36c00c2a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E7",
+      "symbol_prefix": "_$E7",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710592,
+          "addend": 0,
+          "resolved": 8710592
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710592,
+          "addend": 4,
+          "resolved": 8710596
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710592,
+          "addend": 8,
+          "resolved": 8710600
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8710592,
+          "addend": 12,
+          "resolved": 8710604
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4395040,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4395072,
+      "method": "00431040",
+      "body_bytes": 189,
+      "body_sha256": "ae2c302c2dc8cc108533de4934d869f8a1f910d807c139b67243eb0d8a7c9a9c",
+      "padding_bytes": 3,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "6870c357fb4a7d6240cbba1769637b02ce5a313b030f13c20400d86551b235df",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0BitFont@@QAE@PBD@Z",
+      "symbol_prefix": "??0BitFont@@QAE@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7BitFont@@6B@",
+          "target": 7980936,
+          "addend": 0,
+          "resolved": 7980936
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "__imp__SetRect@20",
+          "target": 7972008,
+          "addend": 0,
+          "resolved": 7972008
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?Load_Data@BitFont@@SIPAUInternalData@1@PBD@Z",
+          "target": 4395344,
+          "addend": 0,
+          "resolved": 184
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?Make_Missing_Char@BitFont@@QAEXXZ",
+          "target": 4398784,
+          "addend": 0,
+          "resolved": 3598
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "__imp__SetRect@20",
+          "target": 7972008,
+          "addend": 0,
+          "resolved": 7972008
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4395072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4395264,
+      "method": "00431100",
+      "body_bytes": 75,
+      "body_sha256": "0200a52407895a52e39fba5792b889f07b4f475ff171d09136a058fdc1e1af70",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a0d855d8519afdb1ca671df264ad59b4154c3f36068e86db7735fb1b18cef79c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1BitFont@@UAE@XZ",
+      "symbol_prefix": "??1BitFont@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7BitFont@@6B@",
+          "target": 7980936,
+          "addend": 0,
+          "resolved": 7980936
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3478738
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3476494
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3476478
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3476469
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4395264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4395968,
+      "method": "004313c0",
+      "body_bytes": 46,
+      "body_sha256": "0e3a3c22ded3d7c594d42259ac89ecd96ca78c9f8fdefb2665f018ee2275a8ab",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d00add8298261256de95128fcb4c370ad1898575cd951c9a283e7b9abf93db54",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destroy@InternalData@BitFont@@QAEXXZ",
+      "symbol_prefix": "?Destroy@InternalData@BitFont@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3475819
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3475803
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3475794
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4395968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4396016,
+      "method": "004313f0",
+      "body_bytes": 50,
+      "body_sha256": "db11026cd950360f0d4dbc90b251e7175f14cb72311902c82ab413c36d646b6b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "33232c5751eeaeef93bc5fe6f7c8907649abbb434106e20951abc5f8a04c2e0e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@BitFont@@QAE_NPBD@Z",
+      "symbol_prefix": "?Load@BitFont@@QAE_NPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?Load_Data@BitFont@@SIPAUInternalData@1@PBD@Z",
+          "target": 4395344,
+          "addend": 0,
+          "resolved": 4294966612
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Make_Missing_Char@BitFont@@QAEXXZ",
+          "target": 4398784,
+          "addend": 0,
+          "resolved": 2730
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4396080,
+      "method": "00431430",
+      "body_bytes": 16,
+      "body_sha256": "32695094b0eb6bbad07a664b575bd82cfaf7eadefa4739f763a731e6d011d9fe",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "32695094b0eb6bbad07a664b575bd82cfaf7eadefa4739f763a731e6d011d9fe",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Color@BitFont@@QAEGG@Z",
+      "symbol_prefix": "?Set_Color@BitFont@@QAEGG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3771"
+    },
+    {
+      "entry": 4396096,
+      "method": "00431440",
+      "body_bytes": 16,
+      "body_sha256": "d6385ef3950098b1122c9ebbe44609f658a3e08beb4bc40a6d724f621dc84725",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d6385ef3950098b1122c9ebbe44609f658a3e08beb4bc40a6d724f621dc84725",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Shadow_Color@BitFont@@QAEGG@Z",
+      "symbol_prefix": "?Set_Shadow_Color@BitFont@@QAEGG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3771"
+    },
+    {
+      "entry": 4396112,
+      "method": "00431450",
+      "body_bytes": 13,
+      "body_sha256": "bfac795e905f307cc346e0c2e82d68f626b244ee3e75bf3119b9b7956a07503d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5f4368c83a0022647de0d744e43fe55d65b5b2c2ee899d6be7dbc7daffda3503",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Clip@BitFont@@QAE_N_N@Z",
+      "symbol_prefix": "?Set_Clip@BitFont@@QAE_N_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3771"
+    },
+    {
+      "entry": 4396128,
+      "method": "00431460",
+      "body_bytes": 51,
+      "body_sha256": "46b6168b7df155b958f17426c14029c285fd034d68fbf54a7ea2c1d1e7a097db",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "2bfb8cd50c1bb6f2dbe182655cde27adfda2b30913a79ed07b6a2699528ed5f7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z",
+      "symbol_prefix": "?Set_Bounds@BitFont@@QAEXPAULTRBStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4396192,
+      "method": "004314a0",
+      "body_bytes": 13,
+      "body_sha256": "0b7ed74bb79dfe1f075ee70e6e8f75042e0a88cb6971d6cfe2cf669419de9244",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d4aafd35f104e39604125492d07c7cd5b6cbb42631a8ccf27e2c1f69d2819d0",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Bold@BitFont@@QAE_N_N@Z",
+      "symbol_prefix": "?Set_Bold@BitFont@@QAE_N_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4396208,
+      "method": "004314b0",
+      "body_bytes": 480,
+      "body_sha256": "1e020fbf4e325b1b9a63f14503b98f8f7ed305a83f8f5e18b8cb1f2dda47b69d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "1e020fbf4e325b1b9a63f14503b98f8f7ed305a83f8f5e18b8cb1f2dda47b69d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 40,
+      "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+      "symbol_prefix": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396664,
+          "addend": 0,
+          "resolved": 4396664
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396648,
+          "addend": 0,
+          "resolved": 4396648
+        },
+        {
+          "offset": 440,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396356,
+          "addend": 0,
+          "resolved": 4396356
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396323,
+          "addend": 0,
+          "resolved": 4396323
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396377,
+          "addend": 0,
+          "resolved": 4396377
+        },
+        {
+          "offset": 452,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4396389,
+          "addend": 0,
+          "resolved": 4396389
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4396688,
+      "method": "00431690",
+      "body_bytes": 29,
+      "body_sha256": "fe71336a75c97b7bd824077d224062b5990a130d43964f8c83db34fd996bbb88",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fe3e97fa1b80b2d08cf449902bf3f3019dc96abf681aa0c1022e2139eebb2c5c",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+      "symbol_prefix": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294966794
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4396720,
+      "method": "004316b0",
+      "body_bytes": 88,
+      "body_sha256": "57014ea0000918f31aff109768756d8a9caf37aa774fca27e489e91d914480b4",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "f7526a33382feaed324cfafbe62b6689a33b6d008016f5dc4b6188ce81e6e634",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Bold_String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+      "symbol_prefix": "?Bold_String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294966743
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294966704
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-124"
+    },
+    {
+      "entry": 4396816,
+      "method": "00431710",
+      "body_bytes": 331,
+      "body_sha256": "a9d1a987c2249e2f28897a4ceb423c5dddda7425758add1f304a21d78a32650e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "1eeaae08d3a5b117ec1fe6efdda9df74a39e9314b33c5c45d7c8645d1ef52877",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Chars_In_Width@BitFont@@QAEHPBGHHH@Z",
+      "symbol_prefix": "?Chars_In_Width@BitFont@@QAEHPBGHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4396816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4397152,
+      "method": "00431860",
+      "body_bytes": 86,
+      "body_sha256": "d250dbdee914bfab7a14bd879b3263bee8442f5c2d47101a97854e6541096f3e",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "01b01640caa0e36be42720a1122fce83f4f3f280982f56606c24e786d960bec3",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Bold_Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+      "symbol_prefix": "?Bold_Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294966308
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294966270
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4397152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-124"
+    },
+    {
+      "entry": 4397248,
+      "method": "004318c0",
+      "body_bytes": 13,
+      "body_sha256": "42074561a92d0c05ece42f8e57bc89ae9dd2684102aceea5f38f3c566e00693d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "63ebb7169fe70890de46c567185d155801c8a8f290c03fdb065f0cfc8e02e119",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Tab_Width@BitFont@@QAEHH@Z",
+      "symbol_prefix": "?Set_Tab_Width@BitFont@@QAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4397248,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4397264,
+      "method": "004318d0",
+      "body_bytes": 10,
+      "body_sha256": "089afa5f16a4be21c4c7333f37ece4c7999e330e1cbb877e54bdc416a9896ba9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "61a4989b2e1e30b4d41b745d91c2af0cc9d837a9ab9c2dc1207bea90687f3a52",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Tab_Origin@BitFont@@QAEXH@Z",
+      "symbol_prefix": "?Set_Tab_Origin@BitFont@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4397264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4397280,
+      "method": "004318e0",
+      "body_bytes": 989,
+      "body_sha256": "7ac56b47b88c4c9583c145eaf6466acd915f1d7d02e0f843cb98db859e821720",
+      "padding_bytes": 3,
+      "full_extent_bytes": 992,
+      "full_extent_sha256": "99f34e53b5015561918b8e3ee4bead979d63e73f01295ea4aab6b4b3695d2965",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Print_Char@BitFont@@QAEHGHHH@Z",
+      "symbol_prefix": "?Print_Char@BitFont@@QAEHGHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "__imp__SetRect@20",
+          "target": 7972008,
+          "addend": 0,
+          "resolved": 7972008
+        },
+        {
+          "offset": 261,
+          "kind": 20,
+          "symbol": "?Clip_Rect@BitFont@@QAE_NPAULTRBStruct@@00@Z",
+          "target": 4399104,
+          "addend": 0,
+          "resolved": 1559
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4397280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4398272,
+      "method": "00431cc0",
+      "body_bytes": 439,
+      "body_sha256": "1cb02cc633df6bc2ec8ae89a4c361060236755f889228a3abb3b30b5bb2a1db3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "1174fa42b85f84a8e12ea8bdff95896182be79a93d654cb97fbb535e8ebbc6d8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Print_Typed@BitFont@@QAEHPBGHHHH@Z",
+      "symbol_prefix": "?Print_Typed@BitFont@@QAEHPBGHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?WhiteColor@@3VRGBClass@@B",
+          "target": 11233353,
+          "addend": 0,
+          "resolved": 11233353
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+          "target": 6541088,
+          "addend": 0,
+          "resolved": 2142621
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 329,
+          "kind": 20,
+          "symbol": "?Print_Char@BitFont@@QAEHGHHH@Z",
+          "target": 4397280,
+          "addend": 0,
+          "resolved": 4294965971
+        },
+        {
+          "offset": 414,
+          "kind": 20,
+          "symbol": "?Text_Dimensions@BitFont@@QAE_NPBGPAH1H@Z",
+          "target": 4396208,
+          "addend": 0,
+          "resolved": 4294964814
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4398272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4398720,
+      "method": "00431e80",
+      "body_bytes": 49,
+      "body_sha256": "dd706a7958f9353393dd40e18e150041f82a6a7d4db33472e82ed81d3be45f7b",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "dadf63c0c57165cad58ffbe1784c53934ba734adbec47ca4b0f8e8d12e33e9a5",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Char_Data@BitFont@@QAEPAEG@Z",
+      "symbol_prefix": "?Char_Data@BitFont@@QAEPAEG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4398720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4398784,
+      "method": "00431ec0",
+      "body_bytes": 132,
+      "body_sha256": "c5059c3f3405da0e8e4ec8409747c613aa060da91d3d7fdd79c625cc400fda4e",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "152c0500609c0b36ec420c4400f0e6fff52dd7046266d7d5c1d9f04be66b117f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Make_Missing_Char@BitFont@@QAEXXZ",
+      "symbol_prefix": "?Make_Missing_Char@BitFont@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "_malloc",
+          "target": 7874096,
+          "addend": 0,
+          "resolved": 3475288
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4398784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4398928,
+      "method": "00431f50",
+      "body_bytes": 19,
+      "body_sha256": "67c42f07df8e22c5967dd8b75265ab5bdb36f43190c15e7475d832e15ee113eb",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "debb38ea37dd13bca1451f5ce4b06722c7f169e8bc21460a9676ba4c28fc6c48",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Missing_Char@BitFont@@QAEPAXPAG@Z",
+      "symbol_prefix": "?Missing_Char@BitFont@@QAEPAXPAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4398928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4398960,
+      "method": "00431f70",
+      "body_bytes": 44,
+      "body_sha256": "4e4fe9e8f13ae4709afd6eac7db541d4fa9801692934ee76f92b1a3cd126368a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "29f942ba517613606a107577c6c20063ea569a2fa410ca9350ecf6fc1175d5ac",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Widen_Space@BitFont@@QAEXXZ",
+      "symbol_prefix": "?Widen_Space@BitFont@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4398960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399008,
+      "method": "00431fa0",
+      "body_bytes": 85,
+      "body_sha256": "cf38934696e16179f664c13c1e2bc41338b48d809eb31ba40ed8262d151657f6",
+      "padding_bytes": 11,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "62feed30c09d6313817a2e9b897cfb0434487376e4f4d54c93a346f7b4c67e71",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Wide_Space@BitFont@@QAEXXZ",
+      "symbol_prefix": "?Set_Wide_Space@BitFont@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399104,
+      "method": "00432000",
+      "body_bytes": 162,
+      "body_sha256": "471e268090a39b146910715e7cc61cceacb8b5958d9e411c30639a9b99f04c8d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "6313d8d1f8febd8a02f8e221f1d1dc1123896e03492a89b6b1953e14ee86b429",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clip_Rect@BitFont@@QAE_NPAULTRBStruct@@00@Z",
+      "symbol_prefix": "?Clip_Rect@BitFont@@QAE_NPAULTRBStruct@@00@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399280,
+      "method": "004320b0",
+      "body_bytes": 157,
+      "body_sha256": "397ac927d6aa89096a5ff039e8edc02c6931bba27ae416d60123704b8786ad4e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "f20a13d108da6d174481fc92db2d5aed899ac40e92c63d307547eaddf311ab17",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Lock@BitFont@@QAEXPAVSurface@@@Z",
+      "symbol_prefix": "?Lock@BitFont@@QAEXPAVSurface@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Clip_Rect@BitFont@@QAE_NPAULTRBStruct@@00@Z",
+          "target": 4399104,
+          "addend": 0,
+          "resolved": 4294966971
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399440,
+      "method": "00432150",
+      "body_bytes": 24,
+      "body_sha256": "58138198620e74143958fc2a5d6241f4c0bfd8d44ed471503364da4ee6c09973",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "14989a5e1ed0a9ca13fe87a7a4fed49ad4595fa5be04c348780e856e1aab4f2e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Unlock@BitFont@@QAEXPAVSurface@@@Z",
+      "symbol_prefix": "?Unlock@BitFont@@QAEXPAVSurface@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399472,
+      "method": "00432170",
+      "body_bytes": 60,
+      "body_sha256": "881eff0a7f88ee06fce0e4f5fd10f63ab8bc488167b913bc667a48f55fbdad44",
+      "padding_bytes": 4,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "fc20edca2e4a3a4938322b3f8a09a78180e0a265de8619b9ccbed25a2680e9ab",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Char_Width@BitFont@@QAEHG@Z",
+      "symbol_prefix": "?Char_Width@BitFont@@QAEHG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4399536,
+      "method": "004321b0",
+      "body_bytes": 74,
+      "body_sha256": "0eaf88c412948d5e85879adae6efbc69d91d8445f01976aad0e00e2696312f0a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3442026980a92d8daae6e166d9d216fa6e2bb00e367fe5d0050ef193e7257cfb",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reset@BitFont@@QAEXXZ",
+      "symbol_prefix": "?Reset@BitFont@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "__imp__SetRect@20",
+          "target": 7972008,
+          "addend": 0,
+          "resolved": 7972008
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3700"
+    },
+    {
+      "entry": 4399616,
+      "method": "00432200",
+      "body_bytes": 98,
+      "body_sha256": "5c6bb65783509efabc2e42adca4b2a140592fa815ad2d0a354c46232f1f08f6a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "2be3e2ead55b7bba17267cac57632c1a5924e3832efad1c3d2b107db219a56dc",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GBitFont@@UAEPAXI@Z",
+      "symbol_prefix": "??_GBitFont@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7BitFont@@6B@",
+          "target": 7980936,
+          "addend": 0,
+          "resolved": 7980936
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3474386
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3472141
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3472125
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3472116
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3472098
+        }
+      ],
+      "source_sha256": "b3d12c362d2e559d6251a5b2ee548c8d18b067cc96749560942d29fb6b76c263",
+      "source": "rebuild/src/bitfont.cpp",
+      "population": "rebuild-bitfont",
+      "source_order": 4399616,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

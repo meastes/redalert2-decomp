@@ -1,0 +1,4155 @@
+{
+  "id": "rebuild-wdtconflict",
+  "population": {
+    "id": "rebuild-wdtconflict",
+    "inventory_sha256": "98030b26ee8f1317f784ab37cebc1ad601855071147aed5ce4c66aab5f0ef511",
+    "gaps_sha256": "a4d387a0eb1c4f5e82fb20284f98a68df956964dd1612b3ac99806faf8674b11",
+    "historical_population_sha256": "0475985cbfbfbc99cdf95f6e7e889d48bc80d13a463e1685dd52c9fa5385263c",
+    "historical_acceptance_sha256": "55717f1880354bdee27124ce373d905387995e48a222af9dfd6150f6282e7efb"
+  },
+  "references": {
+    "_RECT_NONE": 11687528,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11687552,
+    "_ISO_TILE_SIZE": 8056936,
+    "_LEPTONS_PER_PIXEL": 11687648,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11687608,
+    "_ONE_RAD": 8056944,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11687600,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11687560,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11687520,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11687656,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11687568,
+    "_CELL_DIAG_SLOPE_ANGLE": 11687592,
+    "_BRIDGE_LEPTON_HEIGHT": 11687640,
+    "_CELL_NONE": 11687544,
+    "_COORD_NONE": 11687576,
+    "??2@YAPAXI@Z": 7872535,
+    "??_7ReferenceCounted@@6B@": 8031508,
+    "??0rc_ptr_base@@QAE@XZ": 6526176,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "?Assign@rc_ptr_base@@QAEXPAX@Z": 6526256,
+    "??_7Conflict@WorldDominationTour@@6B@": 8056956,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "??1ReferenceCounted@@UAE@XZ": 6526736,
+    "_$E41": 7500864,
+    "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A": 11687616,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@": 8056972,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@": 8057004,
+    "?Clear@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ": 7504064,
+    "??_C@_0O@KICH@WDT?3TechLevel?$AA@": 8370712,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "?WDT_Get_Tech_Level@WorldDominationTour@@YIHPBVWDTTerritory@@@Z": 7502720,
+    "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z": 7502864,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@": 8057044,
+    "??_C@_09FMPG@WDT?3Bases?$AA@": 8370700,
+    "??_C@_0M@HOM@WDT?3NoBases?$AA@": 8370688,
+    "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z": 7505872,
+    "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@": 8057036,
+    "??_C@_0O@OPME@WDT?3ShortGame?$AA@": 8370672,
+    "??_C@_0BB@DFIC@WDT?3NotShortGame?$AA@": 8370652,
+    "??_C@_0O@PPNB@WDT?3UnitCount?$AA@": 8370636,
+    "?WDT_Get_Unit_Count@WorldDominationTour@@YIHPBVWDTTerritory@@@Z": 7502704,
+    "??_C@_0BE@EAHD@WDT?3RedeployableMCV?$AA@": 8370616,
+    "??_C@_0BC@OEOG@WDT?3NoRedeployMCV?$AA@": 8370596,
+    "??_C@_0L@PNIA@WDT?3Crates?$AA@": 8370584,
+    "??_C@_0N@CKNL@WDT?3NoCrates?$AA@": 8370568,
+    "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504496,
+    "??1?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAE@XZ": 7502992,
+    "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@I@Z": 7506528,
+    "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@ABV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@Z": 7504640,
+    "??1?$rc_ptr@VGameOption@WorldDominationTour@@@@UAE@XZ": 7502976,
+    "??1?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAE@XZ": 7503008,
+    "?Init_Game_Options@Conflict@WorldDominationTour@@SIXXZ": 7500928,
+    "??0WideWstring@@QAE@XZ": 7797168,
+    "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@": 8057060,
+    "??4WideWstring@@QAEAAV0@ABV0@@Z": 7797712,
+    "??1WideWstring@@QAE@XZ": 7797328,
+    "??0WideWstring@@QAE@ABV0@@Z": 7797264,
+    "??3@YAXPAX@Z": 7871803,
+    "??0Wstring@@QAE@ABV0@@Z": 7788928,
+    "??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z": 7503264,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@": 8057080,
+    "??_7GameOption@WorldDominationTour@@6B@": 8057112,
+    "??_7?$ValueGameOption@E@WorldDominationTour@@6B@": 8057088,
+    "??1GameOption@WorldDominationTour@@UAE@XZ": 7505520,
+    "?Is_User_Modifiable@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z": 7505536,
+    "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@XZ": 7504992,
+    "_$E2": 7500032,
+    "_$E5": 7500064,
+    "_$E8": 7500112,
+    "_$E11": 7500144,
+    "_$E14": 7500176,
+    "_$E17": 7500208,
+    "_$E20": 7500240,
+    "_$E23": 7500272,
+    "_$E26": 7500336,
+    "_$E29": 7500384,
+    "_$E32": 7500432,
+    "_$E35": 7500480,
+    "_$E38": 7500496,
+    "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z": 7500528,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??_GConflict@WorldDominationTour@@UAEPAXI@Z": 7502640,
+    "?Release@ReferenceCounted@@UAEXXZ": 6526752,
+    "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVReferenceCounted@@@8": 8316240,
+    "??0Conflict@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTTerritory@@@@@Z": 7500640,
+    "??8Conflict@WorldDominationTour@@QBE_NABV01@@Z": 7500704,
+    "??1Conflict@WorldDominationTour@@UAE@XZ": 7500736,
+    "?Is_Territory_Set@Conflict@WorldDominationTour@@QBE_NXZ": 7500768,
+    "?Get_Territory_Index@Conflict@WorldDominationTour@@QBEHXZ": 7500784,
+    "_$E43": 7500800,
+    "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504912,
+    "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z": 7504720,
+    "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7503136,
+    "??_G?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@UAEPAXI@Z": 7503088,
+    "?Deinit_Game_Options@Conflict@WorldDominationTour@@SIXXZ": 7502112,
+    "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideWstring@@XZ": 7502176,
+    "??_G?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEPAXI@Z": 7503232,
+    "?WDT_Get_Unit_Count@@YIHPBVWDTTerritory@@@Z": 7502704,
+    "?WDT_Get_Tech_Level@@YIHPBVWDTTerritory@@@Z": 7502720,
+    "?Clear@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ": 7502736,
+    "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7502784,
+    "?GetItem@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@H@Z": 7502816,
+    "??_G?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7503184,
+    "??B?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UBE_NXZ": 7503024,
+    "??E?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ": 7504688,
+    "??F?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ": 7504704,
+    "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z": 7503648,
+    "__purecall": 4950368,
+    "??_GGameOption@WorldDominationTour@@UAEPAXI@Z": 7503344,
+    "?Get_Display_Priority@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z": 7503376,
+    "?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z": 7503408,
+    "??HWideWstring@@QBE?AV0@PBG@Z": 7798480,
+    "??HWideWstring@@QBE?AV0@ABV0@@Z": 7798688,
+    "??_C@_15MHMA@?$AA?0?$AA?5?$AA?$AA@": 8348960,
+    "?length@WideWstring@@QBEIXZ": 7799968,
+    "_swprintf": 7878500,
+    "?get@WideWstring@@QBEPAGXZ": 7799792,
+    "??0WideWstring@@QAE@PBG@Z": 7797184,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "?text@Wstring@@QBEPADXZ": 7792432,
+    "??_C@_0BI@NLJD@D?3?2Ra2?2wdtgameoptions?4h?$AA@": 8371040,
+    "?Wstring_FromInt@@YI?AVWstring@@H@Z": 7796096,
+    "??8?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE_NABV0@@Z": 7503696,
+    "?Resize@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7503776,
+    "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504112,
+    "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504176,
+    "?Resize@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504208,
+    "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z": 7504592,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7500032,
+      "method": "00727100",
+      "body_bytes": 23,
+      "body_sha256": "b27b0e8ec3bdaebb2d172a2b95d42576f5e2545710b8f672856a1bd13ea4fab3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2da5112322f0fa53952060178d1facc5e4c1503480511adfdb1bae9c58603c2b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687528,
+          "addend": 0,
+          "resolved": 11687528
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687528,
+          "addend": 4,
+          "resolved": 11687532
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687528,
+          "addend": 8,
+          "resolved": 11687536
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687528,
+          "addend": 12,
+          "resolved": 11687540
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500064,
+      "method": "00727120",
+      "body_bytes": 40,
+      "body_sha256": "a7467dbc670234a694712df1eab2d5a04dc520dc136f4970aef4cb200cd5a8fa",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8eb3287aa38820e7e8bc0123c4a39d5b1ff82ee0c22ada931c9290a620d16388",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 372863
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292424402
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687552,
+          "addend": 0,
+          "resolved": 11687552
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500112,
+      "method": "00727150",
+      "body_bytes": 19,
+      "body_sha256": "2dcd9eb061883d443b56fbfb21f76e23c751ef505f674052dcc5e6d8d94a991c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9068869652ad1d62c7d32c74f5a991536958ab5fb6aa69bede50b1e2e7e8eb69",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687552,
+          "addend": 0,
+          "resolved": 11687552
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8056936,
+          "addend": 0,
+          "resolved": 8056936
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687648,
+          "addend": 0,
+          "resolved": 11687648
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500144,
+      "method": "00727170",
+      "body_bytes": 19,
+      "body_sha256": "a7b807872796ca4ee1853f6c8138803abf2bdc0348cbcafa12c43041cbd5b591",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cfd62de7213808d060d219c8fc44ce2295c5e640608fa6979aca779a41db54d7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687648,
+          "addend": 0,
+          "resolved": 11687648
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11687608,
+          "addend": 0,
+          "resolved": 11687608
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500176,
+      "method": "00727190",
+      "body_bytes": 19,
+      "body_sha256": "b5ed964d86f2525213b9868a2590bb33f3fd90248f8695b06848916bd439c49b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a665111c91c44c9919587d1cba9a6c712a0925949236ad98af8b7cad1d3559d5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056944,
+          "addend": 0,
+          "resolved": 8056944
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11687600,
+          "addend": 0,
+          "resolved": 11687600
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500208,
+      "method": "007271b0",
+      "body_bytes": 19,
+      "body_sha256": "6114e55e5f5c1b1d8b834bb241e5c8084e54e418c3238f5123ac3f2eef0a6d19",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bba610b99319f474896ab9c202b15283735c97886edc4a994ed1f75629e54c66",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056944,
+          "addend": 0,
+          "resolved": 8056944
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687560,
+          "addend": 0,
+          "resolved": 11687560
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500240,
+      "method": "007271d0",
+      "body_bytes": 19,
+      "body_sha256": "882fa953338feafe7a65a22947d2e95bcaa3ed7d74213ba3b032e52a918db88a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "38723a7783df9fe68b7eca5a240211bfcd71f3f371be8549a3528b8f2e94bf8e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056944,
+          "addend": 0,
+          "resolved": 8056944
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687520,
+          "addend": 0,
+          "resolved": 11687520
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500272,
+      "method": "007271f0",
+      "body_bytes": 49,
+      "body_sha256": "84660a8c7f25cdbe6cfba9fd8eb89808d2fdc169298e2f45334dba507e908633",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "4c5e1a7212bba78be45c8b5dcfe0aa689df25974fdcf76809ed6e02d92a6533d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687520,
+          "addend": 0,
+          "resolved": 11687520
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687560,
+          "addend": 0,
+          "resolved": 11687560
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292424473
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687552,
+          "addend": 0,
+          "resolved": 11687552
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 360181
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687656,
+          "addend": 0,
+          "resolved": 11687656
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500336,
+      "method": "00727230",
+      "body_bytes": 33,
+      "body_sha256": "2ca518e5abfa88d9a97256f25948f054b395279c0ff27e6392a3677398572e32",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9bed7cac449053554fd7200a1f42d8873ddb617f6a4930a7c14da063133dfd5a",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687656,
+          "addend": 0,
+          "resolved": 11687656
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292424553
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11687568,
+          "addend": 0,
+          "resolved": 11687568
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500384,
+      "method": "00727260",
+      "body_bytes": 44,
+      "body_sha256": "8560d0deb03cfe718a9af44b72fbb068fa73c13e133ce2ac31f776944ea17cb3",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f830e2a4bb99db9b1ba7a34b11fb6f0ea30e066cd834243fd94cfc91674c98ad",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687656,
+          "addend": 0,
+          "resolved": 11687656
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687552,
+          "addend": 0,
+          "resolved": 11687552
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292424494
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11687592,
+          "addend": 0,
+          "resolved": 11687592
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500432,
+      "method": "00727290",
+      "body_bytes": 39,
+      "body_sha256": "c623aa0c030b1a0138c610986fbc085b37a0488aaa3b9482f23284299625069f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e03c9c5b4c587d9b6d8428734afa42193c78f963080fbbf53e8f8774a43f2978",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687656,
+          "addend": 0,
+          "resolved": 11687656
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 360032
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11687640,
+          "addend": 0,
+          "resolved": 11687640
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500480,
+      "method": "007272c0",
+      "body_bytes": 15,
+      "body_sha256": "2e1c8d60bf841b12efc94687497cb4c2deccd8fceb84a2be647e6bc3c0f770b0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d5f1bfc4ca8cce81568d0d15fc45b3fa18c40c770ce54cbabcfd4359a7942e5e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687544,
+          "addend": 0,
+          "resolved": 11687544
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687544,
+          "addend": 2,
+          "resolved": 11687546
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500496,
+      "method": "007272d0",
+      "body_bytes": 18,
+      "body_sha256": "c38c98db9b029dba754655d1efa464d41914e5e419115d1b47abb746746efde5",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "31ed16e877087ceca3fc1a1fce4f4b487900ba945736a94949b4e79801af36fe",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687576,
+          "addend": 0,
+          "resolved": 11687576
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687576,
+          "addend": 4,
+          "resolved": 11687580
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687576,
+          "addend": 8,
+          "resolved": 11687584
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500528,
+      "method": "007272f0",
+      "body_bytes": 103,
+      "body_sha256": "6a22034f60e738e5cd3b265dd0683ebab4344b4f7aff4e51c92a4c913da347e9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "ece0fd18888effbf3f4c277dca3096b9751fc8bf5d28e51a661361fc28e97975",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "symbol_prefix": "?Create@Conflict@WorldDominationTour@@SI?AV?$rc_ptr@VConflict@WorldDominationTour@@@@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 371993
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992897
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992960
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+          "target": 8056956,
+          "addend": 0,
+          "resolved": 8056956
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992862
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@",
+          "target": 8056812,
+          "addend": 0,
+          "resolved": 8056812
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992927
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500640,
+      "method": "00727360",
+      "body_bytes": 61,
+      "body_sha256": "1d1403121b88d6d4d3e8293e80c286366e33d2fac9ef019522e49551d19389b5",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ae90671b98ae67017d32901961715d1acc46f1b35a7803616efa9c277c0e67bc",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Conflict@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "symbol_prefix": "??0Conflict@WorldDominationTour@@QAE@ABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992805
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992864
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+          "target": 8056956,
+          "addend": 0,
+          "resolved": 8056956
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500704,
+      "method": "007273a0",
+      "body_bytes": 24,
+      "body_sha256": "1dbfae2c9b6405b770327628693d91dd3cdd577de1c2545730d9371ee3274108",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "df98423fc86b0be2924d16b20070c37f34ac3c0eb4ac578a1c596e03c37ff24f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8Conflict@WorldDominationTour@@QBE_NABV01@@Z",
+      "symbol_prefix": "??8Conflict@WorldDominationTour@@QBE_NABV01@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500736,
+      "method": "007273c0",
+      "body_bytes": 32,
+      "body_sha256": "c253d66c0cdc39bcafa0a2ff28b41921e7c888b82f754dc95f7afc2e183b7194",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c253d66c0cdc39bcafa0a2ff28b41921e7c888b82f754dc95f7afc2e183b7194",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Conflict@WorldDominationTour@@UAE@XZ",
+      "symbol_prefix": "??1Conflict@WorldDominationTour@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+          "target": 8056956,
+          "addend": 0,
+          "resolved": 8056956
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293992761
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293993266
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500768,
+      "method": "007273e0",
+      "body_bytes": 11,
+      "body_sha256": "f9f0babb803dda3aec5be4eca1412ea463471b716ecfc1f0d09c2a951a095700",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a2c78844476e0a7fb7e5ab4ab9857373a69ede936f0ee506259879b4168fa192",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Territory_Set@Conflict@WorldDominationTour@@QBE_NXZ",
+      "symbol_prefix": "?Is_Territory_Set@Conflict@WorldDominationTour@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500784,
+      "method": "007273f0",
+      "body_bytes": 14,
+      "body_sha256": "e748c1008614389d9e76e9eb77d6a86d9d39d8d6510d72ceed3065937fa3fe65",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7f14c8a9124e6f918234fdb21e2857c48cb3b18fba0e86673c9fa9ceb55a82dc",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Territory_Index@Conflict@WorldDominationTour@@QBEHXZ",
+      "symbol_prefix": "?Get_Territory_Index@Conflict@WorldDominationTour@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500800,
+      "method": "00727400",
+      "body_bytes": 61,
+      "body_sha256": "a5eff8e1d9befc8c8e6c98edae88b989fda4ccec3f3853cf369b842fc37b3ada",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "11555ac873e3a0af8e064f8828ee380743a8b48c221787dcc9af37cd7e436256",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E43",
+      "symbol_prefix": "_$E43",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E41",
+          "target": 7500864,
+          "addend": 0,
+          "resolved": 7500864
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 12,
+          "resolved": 11687628
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+          "target": 8056972,
+          "addend": 0,
+          "resolved": 8056972
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 374095
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500864,
+      "method": "00727440",
+      "body_bytes": 61,
+      "body_sha256": "da4b94c6945d09996335b132170dc0ee29138de82bcc06ff75b341d121f18248",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "4c54570e9d3dbc36a72d74c57a934926fa0e86a1966db5ab8c41ec865f1a9b04",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E41",
+      "symbol_prefix": "_$E41",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+          "target": 8057004,
+          "addend": 0,
+          "resolved": 8057004
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7500928,
+      "method": "00727480",
+      "body_bytes": 1172,
+      "body_sha256": "6dcc72b24ae095e9a8a7003b89528b47cda7ba564dddd75c0630e5201e1adae9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1184,
+      "full_extent_sha256": "66858f3f015e1ad11ec38d0b37f82b643a39f3435d0541edc70aa05d86bf6674",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Game_Options@Conflict@WorldDominationTour@@SIXXZ",
+      "symbol_prefix": "?Init_Game_Options@Conflict@WorldDominationTour@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Clear@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+          "target": 7504064,
+          "addend": 0,
+          "resolved": 3111
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_C@_0O@KICH@WDT?3TechLevel?$AA@",
+          "target": 8370712,
+          "addend": 0,
+          "resolved": 8370712
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287864
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?WDT_Get_Tech_Level@WorldDominationTour@@YIHPBVWDTTerritory@@@Z",
+          "target": 7502720,
+          "addend": 0,
+          "resolved": 7502720
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+          "target": 7502864,
+          "addend": 0,
+          "resolved": 1877
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992474
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992532
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992436
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293992391
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+          "target": 8057044,
+          "addend": 0,
+          "resolved": 8057044
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293992374
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "??_C@_09FMPG@WDT?3Bases?$AA@",
+          "target": 8370700,
+          "addend": 0,
+          "resolved": 8370700
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287671
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "??_C@_0M@HOM@WDT?3NoBases?$AA@",
+          "target": 8370688,
+          "addend": 0,
+          "resolved": 8370688
+        },
+        {
+          "offset": 244,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287656
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z",
+          "target": 7505872,
+          "addend": 0,
+          "resolved": 4682
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992271
+        },
+        {
+          "offset": 286,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992334
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 369,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 382,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992238
+        },
+        {
+          "offset": 395,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293992193
+        },
+        {
+          "offset": 407,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057036,
+          "addend": 0,
+          "resolved": 8057036
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293992176
+        },
+        {
+          "offset": 422,
+          "kind": 6,
+          "symbol": "??_C@_0O@OPME@WDT?3ShortGame?$AA@",
+          "target": 8370672,
+          "addend": 0,
+          "resolved": 8370672
+        },
+        {
+          "offset": 427,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287473
+        },
+        {
+          "offset": 437,
+          "kind": 6,
+          "symbol": "??_C@_0BB@DFIC@WDT?3NotShortGame?$AA@",
+          "target": 8370652,
+          "addend": 0,
+          "resolved": 8370652
+        },
+        {
+          "offset": 442,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287458
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z",
+          "target": 7505872,
+          "addend": 0,
+          "resolved": 4484
+        },
+        {
+          "offset": 467,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293992073
+        },
+        {
+          "offset": 484,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992136
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 495,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 505,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 519,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 529,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 539,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 567,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 580,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293992040
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991995
+        },
+        {
+          "offset": 605,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057036,
+          "addend": 0,
+          "resolved": 8057036
+        },
+        {
+          "offset": 610,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991978
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "??_C@_0O@PPNB@WDT?3UnitCount?$AA@",
+          "target": 8370636,
+          "addend": 0,
+          "resolved": 8370636
+        },
+        {
+          "offset": 625,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287275
+        },
+        {
+          "offset": 639,
+          "kind": 6,
+          "symbol": "?WDT_Get_Unit_Count@WorldDominationTour@@YIHPBVWDTTerritory@@@Z",
+          "target": 7502704,
+          "addend": 0,
+          "resolved": 7502704
+        },
+        {
+          "offset": 644,
+          "kind": 20,
+          "symbol": "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+          "target": 7502864,
+          "addend": 0,
+          "resolved": 1288
+        },
+        {
+          "offset": 655,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293991885
+        },
+        {
+          "offset": 672,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991948
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 683,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 693,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 717,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 727,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 740,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 746,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 768,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991852
+        },
+        {
+          "offset": 781,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991807
+        },
+        {
+          "offset": 793,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+          "target": 8057044,
+          "addend": 0,
+          "resolved": 8057044
+        },
+        {
+          "offset": 798,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991790
+        },
+        {
+          "offset": 808,
+          "kind": 6,
+          "symbol": "??_C@_0BE@EAHD@WDT?3RedeployableMCV?$AA@",
+          "target": 8370616,
+          "addend": 0,
+          "resolved": 8370616
+        },
+        {
+          "offset": 813,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287087
+        },
+        {
+          "offset": 823,
+          "kind": 6,
+          "symbol": "??_C@_0BC@OEOG@WDT?3NoRedeployMCV?$AA@",
+          "target": 8370596,
+          "addend": 0,
+          "resolved": 8370596
+        },
+        {
+          "offset": 828,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 287072
+        },
+        {
+          "offset": 842,
+          "kind": 20,
+          "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z",
+          "target": 7505872,
+          "addend": 0,
+          "resolved": 4098
+        },
+        {
+          "offset": 853,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293991687
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991750
+        },
+        {
+          "offset": 875,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        },
+        {
+          "offset": 881,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 891,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 905,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 20,
+          "resolved": 11687636
+        },
+        {
+          "offset": 915,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 925,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 938,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 944,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 953,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 966,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991654
+        },
+        {
+          "offset": 979,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991609
+        },
+        {
+          "offset": 991,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057036,
+          "addend": 0,
+          "resolved": 8057036
+        },
+        {
+          "offset": 996,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991592
+        },
+        {
+          "offset": 1006,
+          "kind": 6,
+          "symbol": "??_C@_0L@PNIA@WDT?3Crates?$AA@",
+          "target": 8370584,
+          "addend": 0,
+          "resolved": 8370584
+        },
+        {
+          "offset": 1011,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 286889
+        },
+        {
+          "offset": 1021,
+          "kind": 6,
+          "symbol": "??_C@_0N@CKNL@WDT?3NoCrates?$AA@",
+          "target": 8370568,
+          "addend": 0,
+          "resolved": 8370568
+        },
+        {
+          "offset": 1026,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 286874
+        },
+        {
+          "offset": 1040,
+          "kind": 20,
+          "symbol": "?Create@FlagGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@IVWstring@@H0H@Z",
+          "target": 7505872,
+          "addend": 0,
+          "resolved": 3900
+        },
+        {
+          "offset": 1051,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293991489
+        },
+        {
+          "offset": 1068,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991552
+        },
+        {
+          "offset": 1078,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 1083,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+          "target": 7504496,
+          "addend": 0,
+          "resolved": 2481
+        },
+        {
+          "offset": 1096,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991492
+        },
+        {
+          "offset": 1105,
+          "kind": 20,
+          "symbol": "??1?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAE@XZ",
+          "target": 7502992,
+          "addend": 0,
+          "resolved": 955
+        },
+        {
+          "offset": 1119,
+          "kind": 20,
+          "symbol": "?Create@MapSizeGameOption@WorldDominationTour@@SI?AV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@I@Z",
+          "target": 7506528,
+          "addend": 0,
+          "resolved": 4477
+        },
+        {
+          "offset": 1129,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@ABV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@Z",
+          "target": 7504640,
+          "addend": 0,
+          "resolved": 2579
+        },
+        {
+          "offset": 1138,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 1144,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+          "target": 7504496,
+          "addend": 0,
+          "resolved": 2420
+        },
+        {
+          "offset": 1153,
+          "kind": 20,
+          "symbol": "??1?$rc_ptr@VGameOption@WorldDominationTour@@@@UAE@XZ",
+          "target": 7502976,
+          "addend": 0,
+          "resolved": 891
+        },
+        {
+          "offset": 1162,
+          "kind": 20,
+          "symbol": "??1?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAE@XZ",
+          "target": 7503008,
+          "addend": 0,
+          "resolved": 914
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7500928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502112,
+      "method": "00727920",
+      "body_bytes": 57,
+      "body_sha256": "96bb8b6251632472d9b2c270d8d26ac0cf7e36a4b22e19b05c1667ece099d1ef",
+      "padding_bytes": 7,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d39d72302d525c4fbcfbd9055a461bdf9a45b2cc9afa46616d5a0905834977fe",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Deinit_Game_Options@Conflict@WorldDominationTour@@SIXXZ",
+      "symbol_prefix": "?Deinit_Game_Options@Conflict@WorldDominationTour@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 4,
+          "resolved": 11687620
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 13,
+          "resolved": 11687629
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 8,
+          "resolved": 11687624
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502176,
+      "method": "00727960",
+      "body_bytes": 456,
+      "body_sha256": "483a23510f08fb7c2eaf57864b37755d848e338a74e27f31fb46eb56157ffcf7",
+      "padding_bytes": 8,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "f503989a91c641b573d92e0c520f0b5129838b3eb60368363ce021238fe1e9ce",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideWstring@@XZ",
+      "symbol_prefix": "?Describe_Options@Conflict@WorldDominationTour@@QBE?AVWideWstring@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 16,
+          "resolved": 11687632
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Init_Game_Options@Conflict@WorldDominationTour@@SIXXZ",
+          "target": 7500928,
+          "addend": 0,
+          "resolved": 4294966021
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@XZ",
+          "target": 7797168,
+          "addend": 0,
+          "resolved": 294951
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?WDTGameOptionList@WorldDominationTour@@3V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@A",
+          "target": 11687616,
+          "addend": 0,
+          "resolved": 11687616
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+          "target": 8057060,
+          "addend": 0,
+          "resolved": 8057060
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293991188
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991251
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@ABV0@@Z",
+          "target": 7797712,
+          "addend": 0,
+          "resolved": 295355
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 294962
+        },
+        {
+          "offset": 207,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293991133
+        },
+        {
+          "offset": 284,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293991008
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293991071
+        },
+        {
+          "offset": 358,
+          "kind": 20,
+          "symbol": "??4WideWstring@@QAEAAV0@ABV0@@Z",
+          "target": 7797712,
+          "addend": 0,
+          "resolved": 295174
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 294781
+        },
+        {
+          "offset": 388,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990952
+        },
+        {
+          "offset": 423,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@ABV0@@Z",
+          "target": 7797264,
+          "addend": 0,
+          "resolved": 294661
+        },
+        {
+          "offset": 435,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+          "target": 8057060,
+          "addend": 0,
+          "resolved": 8057060
+        },
+        {
+          "offset": 440,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 294708
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502640,
+      "method": "00727b30",
+      "body_bytes": 52,
+      "body_sha256": "cc03375eeec099d32a721d7d581451c7e5f7d5c5feba1bf7367eaa6922178360",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "8a573e4dd99e50468a871f9aece0001a7e7a21575b0587d4e6bec3758f910c6c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GConflict@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GConflict@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7Conflict@WorldDominationTour@@6B@",
+          "target": 8056956,
+          "addend": 0,
+          "resolved": 8056956
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VWDTTerritory@@@@6B@",
+          "target": 8013100,
+          "addend": 0,
+          "resolved": 8013100
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990857
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293991362
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 369120
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502704,
+      "method": "00727b70",
+      "body_bytes": 6,
+      "body_sha256": "7ae5c79a78411365e81a65afc1b5c73d6a0f8dcdb00dca249bd6e21bd2950cfb",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4adc7c0927e1d6a2722edee29b50ff8cbd0b66f551f6b20b53278187ad319b0c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?WDT_Get_Unit_Count@@YIHPBVWDTTerritory@@@Z",
+      "symbol_prefix": "?WDT_Get_Unit_Count@@YIHPBVWDTTerritory@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502720,
+      "method": "00727b80",
+      "body_bytes": 6,
+      "body_sha256": "ab12229a1288fbf4f3366f6222daf9233c6571840c88e9198c63f6693645df12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "822598888c23c93106934bafef4eaf57d9829fff21118041beacb03ba627b9d8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?WDT_Get_Tech_Level@@YIHPBVWDTTerritory@@@Z",
+      "symbol_prefix": "?WDT_Get_Tech_Level@@YIHPBVWDTTerritory@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502736,
+      "method": "00727b90",
+      "body_bytes": 43,
+      "body_sha256": "48610c29e7a5d4cefba3d64b58fd183e3031e8a8a747301896a619c4e7e5f27b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b943d2f9ad5d5667e5ef923c20a0f4a7c1e1dcb83d1dc100375d9a1366291b6b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502736,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7502784,
+      "method": "00727bc0",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7502816,
+      "method": "00727be0",
+      "body_bytes": 47,
+      "body_sha256": "3ff7ba0a3754c06dbbbd34e856842f52ac36b4b4662a56068edd8f1aebec7be2",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "791b905c2b659d6ebcbee2770ee83658545082f45acbf81b8e9c3c5b65ed84a1",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VGameOption@WorldDominationTour@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293990633
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293990696
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502816,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7502864,
+      "method": "00727c10",
+      "body_bytes": 98,
+      "body_sha256": "b75bb7345c9a0928a5d4b7b2d8ada81400f7ab2468a5b71159f7fc6408117c6d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "bc51a5fae506f1b73bbd796628f591394d4129fbcff2b2739b2d3e3fd6130c26",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+      "symbol_prefix": "?Create@?$ValueGameOption@E@WorldDominationTour@@SI?AV?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 369657
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@ABV0@@Z",
+          "target": 7788928,
+          "addend": 0,
+          "resolved": 286023
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+          "target": 7503264,
+          "addend": 0,
+          "resolved": 346
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293990541
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+          "target": 8057044,
+          "addend": 0,
+          "resolved": 8057044
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293990607
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 286070
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502976,
+      "method": "00727c80",
+      "body_bytes": 11,
+      "body_sha256": "c3089a51eb71103dab5be220619f4052e398998e08cce63d5b3c44c3b2afa035",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e330cfb116512f2e5df08b57e35087626b99a34c7c593452c3d5d9fa6a3bec68",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$rc_ptr@VGameOption@WorldDominationTour@@@@UAE@XZ",
+      "symbol_prefix": "??1?$rc_ptr@VGameOption@WorldDominationTour@@@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990533
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7502992,
+      "method": "00727c90",
+      "body_bytes": 11,
+      "body_sha256": "4d2516137b003977b7d91671733b04d5096d4636f0144f99e3d9e4e2d5d04ea0",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "108ba220aa476fdb73e53226826a12543d896ca0aa51fb5e00b917abb08ab693",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAE@XZ",
+      "symbol_prefix": "??1?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057036,
+          "addend": 0,
+          "resolved": 8057036
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990517
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7502992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503008,
+      "method": "00727ca0",
+      "body_bytes": 11,
+      "body_sha256": "613e95cf75b954acc67400b0a4673af076ee5dac07588c22fa0b5376454bbaf9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3414a2036b272ff68a27f18e2f343c8866d76aa817172081ce09d865a15373b3",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAE@XZ",
+      "symbol_prefix": "??1?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057080,
+          "addend": 0,
+          "resolved": 8057080
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990501
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503024,
+      "method": "00727cb0",
+      "body_bytes": 14,
+      "body_sha256": "65928e72743eaf9020009560cd7a304f982043da5d52b280521c28d758627639",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6e6072f8a70fc03a5bddce2ece34e019610941c429a8f6803f18ae4bd652db15",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UBE_NXZ",
+      "symbol_prefix": "??B?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503088,
+      "method": "00727cf0",
+      "body_bytes": 36,
+      "body_sha256": "b2848c37d68070e1c3a9d07a7d2830927852380343662bdef998f4d530832c68",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ccba635c217d32a58f35740bf0b2d66b7cab6b8575f8ed380f78ca3a959136e3",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@V?$ValueGameOption@E@WorldDominationTour@@@@6B@",
+          "target": 8057044,
+          "addend": 0,
+          "resolved": 8057044
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990418
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368688
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503136,
+      "method": "00727d20",
+      "body_bytes": 36,
+      "body_sha256": "be43647b8bd43c85bdb61ba14cdd7e772408014220c765a866d02c4bc89f46b5",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "da9abe46f6dd02b614ac1206e4863b2cd48955cd311773b4eba878c21c615357",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VFlagGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057036,
+          "addend": 0,
+          "resolved": 8057036
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990370
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368640
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503184,
+      "method": "00727d50",
+      "body_bytes": 36,
+      "body_sha256": "a3b5741455d9226466685a5c2425897b99d5990910bb8301cc6b36684fb2ce3e",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b507e42b64c1d96b75a19f1caf89af3ecfd8bff1b65265ef3c20f57996b38536",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057080,
+          "addend": 0,
+          "resolved": 8057080
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293990322
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368592
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503232,
+      "method": "00727d80",
+      "body_bytes": 32,
+      "body_sha256": "89d65af2fda085e68c7a4033131015e3114109eb5cfec574b1e5d4d2f6e08bf3",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "89d65af2fda085e68c7a4033131015e3114109eb5cfec574b1e5d4d2f6e08bf3",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@6B@",
+          "target": 8057060,
+          "addend": 0,
+          "resolved": 8057060
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368548
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503264,
+      "method": "00727da0",
+      "body_bytes": 71,
+      "body_sha256": "49626ae9e589ec7d5695dea359e7840ad848336fbda1ad5d71fdb8355739db5f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "7797ba00de51af6ccea6699b1e1ebb532e2cd55ad4b32d7e8a898e44dec11502",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+      "symbol_prefix": "??0?$ValueGameOption@E@WorldDominationTour@@QAE@IP6IHPBVWDTTerritory@@@ZVWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7GameOption@WorldDominationTour@@6B@",
+          "target": 8057112,
+          "addend": 0,
+          "resolved": 8057112
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@ABV0@@Z",
+          "target": 7788928,
+          "addend": 0,
+          "resolved": 285614
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_7?$ValueGameOption@E@WorldDominationTour@@6B@",
+          "target": 8057088,
+          "addend": 0,
+          "resolved": 8057088
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 285695
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503344,
+      "method": "00727df0",
+      "body_bytes": 30,
+      "body_sha256": "42eeef940b7982d558d35d1911fccc934526296f88f9192188553cc3e6dafa7a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "44e7223e36036645316372cd0c0822cc404431a3fab8b4898b9ee1df540cba0f",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGameOption@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGameOption@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+          "target": 7505520,
+          "addend": 0,
+          "resolved": 2168
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368438
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503376,
+      "method": "00727e10",
+      "body_bytes": 29,
+      "body_sha256": "6ac18db51377ff250cbdc4850dd0c2912a9b7b19a8395a957b02a71120ab6ace",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b115dc53ca2be41cd12a926a49a99b0a9f40ae2bc550d4bfcfd75f1f1c0ec9f2",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Display_Priority@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "symbol_prefix": "?Get_Display_Priority@?$ValueGameOption@E@WorldDominationTour@@UBEHABV?$rc_ptr@VWDTTerritory@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Is_User_Modifiable@GameOption@WorldDominationTour@@QBE_NABV?$rc_ptr@VWDTTerritory@@@@@Z",
+          "target": 7505536,
+          "addend": 0,
+          "resolved": 2147
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503648,
+      "method": "00727f20",
+      "body_bytes": 40,
+      "body_sha256": "3a1e9283c2f72e9d5946f8306213b1437aeaec47ba332dbab11fc3e0b1c02928",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "22ac6ba6540ad8abfe8eb5f5e844fa2c7d6a02bc16ef579780ed8c43953908d0",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$ValueGameOption@E@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 285365
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1GameOption@WorldDominationTour@@UAE@XZ",
+          "target": 7505520,
+          "addend": 0,
+          "resolved": 1854
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 368124
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7503696,
+      "method": "00727f50",
+      "body_bytes": 70,
+      "body_sha256": "32b3a7c3ebf46f5bb251418608db3aa033113ebfc9316dbfd9203cb0974097d2",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9dc8cb1fc258301f6358ad5ea496e7e4f627e05dd43ee4fa52799d43afadc9e8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7503776,
+      "method": "00727fa0",
+      "body_bytes": 282,
+      "body_sha256": "4b8cea81c145b364d9d2f9447b8697165a4e6c586c65b540c9fe07edec7becb8",
+      "padding_bytes": 6,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "ab0a36e5b09a500b0297353f4f583e5a92d24ebe9896da2e0e64c83d0542f7ad",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 368715
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293989619
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293989571
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293989577
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7503776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7504064,
+      "method": "007280c0",
+      "body_bytes": 40,
+      "body_sha256": "e1e726adcab65c96c4727ed7b00e7c6f820972aa385f7d02bb01dd05feaac921",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8230d93ecd046519a1228beb5e8cbed35b12310bf5ad000617916c07b45e6f36",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7504112,
+      "method": "007280f0",
+      "body_bytes": 55,
+      "body_sha256": "fed1782a4b5817954d2002aa7f8c50b4aa0f664e16627a3bf81ef0c6f0071255",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "693b7ee0f427b8243f52abfca083bc3c73e11ebb9cc1d983e174286ca8b4fdd8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504176,
+      "method": "00728130",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504208,
+      "method": "00728150",
+      "body_bytes": 285,
+      "body_sha256": "93d80b04a36cda9df21fbe167508357e9d67f573a3ffa319f2abe9362298d8c2",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "269f69d69cdc182d2bd9ba82db99b904ece27535bd9809ef627a25adafa7c4e8",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 368283
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@XZ",
+          "target": 7504992,
+          "addend": 0,
+          "resolved": 707
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293989141
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293989157
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7504496,
+      "method": "00728270",
+      "body_bytes": 87,
+      "body_sha256": "a262f792325befd311aeaf5a262f57d5a28e3aa1ba265e02588226aa6f7138c0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "2f0610b6922c03b3a153a9df741297f1201f4bc7ae25fa963921038d34c1827d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Add@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@QAE_NABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293988975
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504592,
+      "method": "007282d0",
+      "body_bytes": 42,
+      "body_sha256": "6d44d001684a46726dc9a11537f6686d603d332f214242f118cd18b3e79a8c3f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7504640,
+      "method": "00728300",
+      "body_bytes": 35,
+      "body_sha256": "2eed95d6296cb4153219661a18fccca7e823a0039e18ac67a114d4c678606cba",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "de940d82d79bb1dbd9ecc8cd6616f975f9dafed253b315ba5bc8041779831b37",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@ABV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@ABV?$rc_ptr@VMapSizeGameOption@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293988824
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293988883
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504688,
+      "method": "00728330",
+      "body_bytes": 6,
+      "body_sha256": "14db3be74843d875a82d78d97382ed667f85eecbb309b4584b94beaa27676d12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b52fe92ab420b3b64fe68bc7ae3b694023146ceb9e26b177681ea7bc1f8d734",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??E?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??E?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504704,
+      "method": "00728340",
+      "body_bytes": 6,
+      "body_sha256": "f5d6ab61265ab17ba1aa24eec1dd3f880a3da42d1b1c807d32deaafa992aaa82",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91a91676eb37e28fb88f9f6d0da9088cf2b2c06f7e1a18de246ed2f4e5ca1a27",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??F?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??F?$VectorCursor@V?$rc_ptr@VGameOption@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504720,
+      "method": "00728350",
+      "body_bytes": 74,
+      "body_sha256": "5eac67ec5044f81b6476b2d1bbfde6b42bd9f3d3ac3d35d719bab44960069037",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "55dba8c771fa687a7a1edfb8ddb0de7adcc105efa551ebacc9d9c6591ff98622",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+          "target": 8057004,
+          "addend": 0,
+          "resolved": 8057004
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 367018
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504800,
+      "method": "007283a0",
+      "body_bytes": 106,
+      "body_sha256": "3d761fb19017a396698d3e28bf6e0cb943986878ac3e4af7c1f69c5c49aa95b3",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "8a4bf09e98e803c6fb6c545878ff523541c2f86eaa2b57f720cf44f2cc1a8f2f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293988674
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 366942
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293988635
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 366907
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504912,
+      "method": "00728410",
+      "body_bytes": 74,
+      "body_sha256": "9413ddafb7a043fc5f15a5e567c830ee438852f2106c19ad82ec2de89b734225",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ede3d5ddef6d42ae2d1dc956ef9c71425abeaa53fe0e99a32fbccd003f62104b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VGameOption@WorldDominationTour@@@@@@6B@",
+          "target": 8057004,
+          "addend": 0,
+          "resolved": 8057004
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 366826
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7504992,
+      "method": "00728460",
+      "body_bytes": 18,
+      "body_sha256": "46a33cf7f39c000b6add0fdbda8b783beafb88fd8a0456abeb900ee29a962113",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4ef1a8d290d2f7e86c70e138dcbbfa18174deceb66ce6c978bc4981fb4a34a8d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@XZ",
+      "symbol_prefix": "??0?$rc_ptr@VGameOption@WorldDominationTour@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293988472
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@",
+          "target": 8057052,
+          "addend": 0,
+          "resolved": 8057052
+        }
+      ],
+      "source_sha256": "d2884d91a2c6d858f2b56f381266c695b075200faeb76bb8629156a7f41f52f7",
+      "source": "rebuild/src/wdtconflict.cpp",
+      "population": "rebuild-wdtconflict",
+      "source_order": 7504992,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

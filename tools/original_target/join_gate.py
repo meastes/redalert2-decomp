@@ -104,6 +104,15 @@ def main():
     if scope == 'auto':
         scope = gate_scope.scope(gate_scope.changed_paths(args.base))
         scope = 'exact' if scope == 'none' else scope
+    if scope == 'rebuild':
+        # Only the rebuild tree (rebuild/) and docs changed: neither main's whole-file gate nor the
+        # native tests apply; the rebuild gate does (private/tools/land_rebuild_lane.sh).
+        receipt = dict(base=args.base, scope=scope, ok=True, checks={},
+                       note='rebuild-only change: run the rebuild gate (catalog, structure gate, rebuild whole-file build)')
+        out.mkdir(parents=True, exist_ok=True)
+        (out / 'join-gate.json').write_text(json.dumps(receipt, indent=1) + '\n')
+        print(receipt['note'])
+        raise SystemExit(0)
     receipt = dict(base=args.base, scope=scope, checks={}, stages=stages.items)
     ok = True
     import shutil

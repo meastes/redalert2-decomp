@@ -1,0 +1,4593 @@
+{
+  "id": "rebuild-wdtvoice",
+  "population": {
+    "id": "rebuild-wdtvoice",
+    "inventory_sha256": "bcd83cb9d5dafdc822a3242b49b298e078061a3079c1a808ff3fcc7feee9dddf",
+    "gaps_sha256": "c25d9d00be2a126b3ade741e658572510bf4dae4273585c8349e69666e9a8523",
+    "historical_population_sha256": "ef2b781ca61b08a5a72d34cf773f6675bb27d573ee6a8b86a896859dc6b289b0",
+    "historical_acceptance_sha256": "1739536b1e6e2e463d22e4a8c308ffcf517f3e06eb1313a5bf4852c716073651"
+  },
+  "references": {
+    "_RECT_NONE": 11688632,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11688656,
+    "_ISO_TILE_SIZE": 8057848,
+    "_LEPTONS_PER_PIXEL": 11688728,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11688712,
+    "_ONE_RAD": 8057856,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11688704,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11688664,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11688624,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11688736,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11688672,
+    "_CELL_DIAG_SLOPE_ANGLE": 11688696,
+    "_BRIDGE_LEPTON_HEIGHT": 11688720,
+    "_CELL_NONE": 11688648,
+    "_COORD_NONE": 11688680,
+    "??0Wstring@@QAE@XZ": 7788816,
+    "??_F?$DynamicVectorClass@I@@QAEXXZ": 7547952,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_C@_00A@?$AA@": 8635740,
+    "??4Wstring@@QAEAAV0@PBD@Z": 7789504,
+    "??0?$VectorClass@I@@QAE@HPBI@Z": 4371728,
+    "??_7?$DynamicVectorClass@I@@6B@": 7980252,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "??0?$VectorClass@VWstring@@@@QAE@HPBVWstring@@@Z": 6769392,
+    "??_7?$DynamicVectorClass@VWstring@@@@6B@": 8033892,
+    "?AudioGetDevice@@YIPAUAudioDevice@@XZ": 4222784,
+    "??_C@_08JKAL@OldCycle?$AA@": 8373996,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_C@_07JFNM@History?$AA@": 8373988,
+    "??_C@_06IOLI@Status?$AA@": 8373980,
+    "??_C@_09FECI@Territory?$AA@": 8371976,
+    "??_C@_04EKBK@Game?$AA@": 8373972,
+    "??_C@_08IIHM@Evacuate?$AA@": 8373960,
+    "?Speech_Stop@@YIX_N@Z": 7429600,
+    "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z": 4225472,
+    "??_7?$VectorClass@VWstring@@@@6B@": 8033860,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7?$VectorClass@I@@6B@": 7980284,
+    "??1?$DynamicVectorClass@I@@UAE@XZ": 7547984,
+    "??_C@_03JKEC@Win?$AA@": 8332840,
+    "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z": 7545600,
+    "??_C@_04NLLM@Lose?$AA@": 8332832,
+    "??_C@_04OBBN@Draw?$AA@": 8374032,
+    "??_C@_07KNL@Startup?$AA@": 8374024,
+    "?Faction_Name@@YIABVWstring@@H@Z": 7767456,
+    "??H@YI?AVWstring@@ABV0@0@Z": 7796688,
+    "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z": 5303104,
+    "??_C@_01KMAE@?0?$AA@": 8186304,
+    "?getToken@Wstring@@QBEHHPBDAAV1@@Z": 7795200,
+    "?toInt@Wstring@@QBEHXZ": 7796080,
+    "??_C@_0BA@ODPH@TerritorySelect?$AA@": 8374008,
+    "?clear@Wstring@@QAEXXZ": 7792176,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Wstring_FromInt@@YI?AVWstring@@HH@Z": 7796240,
+    "??_C@_0L@BFKF@WWD?9Soviet?$AA@": 8374052,
+    "??H@YI?AVWstring@@PBDABV0@@Z": 7796400,
+    "??_C@_0L@NLEA@WWD_Allied?$AA@": 8374040,
+    "??HWstring@@QBE?AV0@ABV0@@Z": 7791040,
+    "??_C@_08MIAD@Emphasis?$AA@": 8374064,
+    "??YWstring@@QAEAAV0@PBD@Z": 7790352,
+    "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z": 7544416,
+    "?Is_Speaking@@YI_NXZ": 7429664,
+    "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z": 7544624,
+    "?get@Wstring@@QBEPADXZ": 7792368,
+    "?Vox_From_Name@@YI?AW4VoxType@@PBD@Z": 7431744,
+    "?Queue_Speech@@YIXHHH@Z": 7428288,
+    "??2@YAPAXI@Z": 7872535,
+    "??_7Anim@Voices@WorldDominationTour@@6B@": 8057868,
+    "??1MSAnim@@UAE@XZ": 5949072,
+    "?Update@Voices@WorldDominationTour@@QAEXXZ": 7546992,
+    "_$E2": 7541456,
+    "_$E5": 7541488,
+    "_$E8": 7541536,
+    "_$E11": 7541568,
+    "_$E14": 7541600,
+    "_$E17": 7541632,
+    "_$E20": 7541664,
+    "_$E23": 7541696,
+    "_$E26": 7541760,
+    "_$E29": 7541808,
+    "_$E32": 7541856,
+    "_$E35": 7541904,
+    "_$E38": 7541920,
+    "??0Voices@WorldDominationTour@@QAE@H@Z": 7541952,
+    "??_G?$DynamicVectorClass@I@@UAEPAXI@Z": 4371488,
+    "??_G?$DynamicVectorClass@VWstring@@@@UAEPAXI@Z": 6768720,
+    "??_7type_info@@6B@": 8066532,
+    "??1Voices@WorldDominationTour@@QAE@XZ": 7542400,
+    "??_G?$VectorClass@I@@UAEPAXI@Z": 4371408,
+    "??_G?$VectorClass@VWstring@@@@UAEPAXI@Z": 6768608,
+    "?Load@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@@Z": 7542688,
+    "?Load_List@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H1@Z": 7543456,
+    "?Pick@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7543744,
+    "?Pick_Emphasis@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7543968,
+    "?Pick_List@Voices@WorldDominationTour@@QBE_NHAAVWstring@@@Z": 7544192,
+    "?Parse_List@Voices@WorldDominationTour@@SIXABVWstring@@AAV?$DynamicVectorClass@I@@@Z": 7544768,
+    "??0Group@Voices@WorldDominationTour@@QAE@XZ": 7544928,
+    "?Set_Name@Group@Voices@WorldDominationTour@@QAEXABVWstring@@@Z": 7545008,
+    "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H@Z": 7545024,
+    "?Pick@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7545184,
+    "?Pick_Emphasis@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z": 7545392,
+    "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z": 7546128,
+    "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z": 7546624,
+    "?Trim@Voices@WorldDominationTour@@QAEXXZ": 7547232,
+    "?Voices_Noop1@@YIXXZ": 7547344,
+    "?Voices_Noop2@@YIXXZ": 7547360,
+    "?Stop@Voices@WorldDominationTour@@QAEXXZ": 7547376,
+    "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ": 7547456,
+    "?Create_Anim@Voices@WorldDominationTour@@QAEPAVAnim@12@XZ": 7547472,
+    "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z": 7548032,
+    "??_R0?AVMSAnim@@@8": 8280064,
+    "??0Anim@Voices@WorldDominationTour@@QAE@PAV12@@Z": 7547552,
+    "??1Anim@Voices@WorldDominationTour@@UAE@XZ": 7547616,
+    "?Set_Active@Anim@Voices@WorldDominationTour@@UAEX_N@Z": 7547632,
+    "?Pause@Anim@Voices@WorldDominationTour@@UAEXXZ": 7547728,
+    "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ": 7547808,
+    "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z": 7547840,
+    "?Redraw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBV?$TRect@H@@@Z": 7547856,
+    "?Get_Rect@Anim@Voices@WorldDominationTour@@UBE?AV?$TRect@H@@XZ": 7547872,
+    "?Has_Finished@Anim@Voices@WorldDominationTour@@UBE_NXZ": 7547920,
+    "?Restore@Anim@Voices@WorldDominationTour@@UAEXABV?$TRect@H@@@Z": 7547936,
+    "?Clear@?$DynamicVectorClass@I@@UAEXXZ": 4369920,
+    "?ID@?$DynamicVectorClass@I@@UAEHPBI@Z": 4369968,
+    "?GetItem@?$VectorClass@I@@UBEIH@Z": 4370000,
+    "?Clear@?$DynamicVectorClass@VWstring@@@@UAEXXZ": 6764592,
+    "?ID@?$DynamicVectorClass@VWstring@@@@UAEHPBVWstring@@@Z": 6764688,
+    "?GetItem@?$VectorClass@VWstring@@@@UBE?AVWstring@@H@Z": 6764720,
+    "??0Wstring@@QAE@ABV0@@Z": 7788928,
+    "??8?$VectorClass@I@@UBE_NABV0@@Z": 4370112,
+    "?Resize@?$VectorClass@I@@UAE_NHPBI@Z": 4370176,
+    "?Clear@?$VectorClass@I@@UAEXXZ": 4370352,
+    "?ID@?$VectorClass@I@@UAEHABI@Z": 4370400,
+    "?ID@?$VectorClass@I@@UAEHPBI@Z": 4370464,
+    "?Resize@?$DynamicVectorClass@I@@UAE_NHPBI@Z": 4370496,
+    "?ID@?$DynamicVectorClass@I@@UAEHABI@Z": 4370752,
+    "??8?$VectorClass@VWstring@@@@UBE_NABV0@@Z": 6765728,
+    "??9Wstring@@QBE_NABV0@@Z": 7789392,
+    "?Resize@?$VectorClass@VWstring@@@@UAE_NHPBVWstring@@@Z": 6765808,
+    "?Clear@?$VectorClass@VWstring@@@@UAEXXZ": 6766128,
+    "?ID@?$VectorClass@VWstring@@@@UAEHABVWstring@@@Z": 6766208,
+    "??8Wstring@@QBE_NABV0@@Z": 7789168,
+    "?ID@?$VectorClass@VWstring@@@@UAEHPBVWstring@@@Z": 6766288,
+    "?Resize@?$DynamicVectorClass@VWstring@@@@UAE_NHPBVWstring@@@Z": 6766320,
+    "?ID@?$DynamicVectorClass@VWstring@@@@UAEHABVWstring@@@Z": 6766640,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_EWstring@@QAEPAXI@Z": 4239168
+  },
+  "regions": [
+    {
+      "entry": 7541456,
+      "method": "007312d0",
+      "body_bytes": 23,
+      "body_sha256": "d3228e1006e73280681c4b2233c84bdc828b33e6d35c57c5c1257a836ac58704",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "acfa4643b1ede4f350fc7d8e635c1d7e5d891b0f2bb22e6a793396f8418b5479",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688632,
+          "addend": 0,
+          "resolved": 11688632
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688632,
+          "addend": 4,
+          "resolved": 11688636
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688632,
+          "addend": 8,
+          "resolved": 11688640
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11688632,
+          "addend": 12,
+          "resolved": 11688644
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541488,
+      "method": "007312f0",
+      "body_bytes": 40,
+      "body_sha256": "3da752d54390124b61316e18a7868c14cc2ed3c119b5c7d41196a62d24b9bc9b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2428523ae0e177e9bccd705ba6bdb15050035d415113bffdc71f2f9e803f0636",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 331439
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292382978
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688656,
+          "addend": 0,
+          "resolved": 11688656
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541536,
+      "method": "00731320",
+      "body_bytes": 19,
+      "body_sha256": "7dc3971ed1d99ae119c57dc997bd106058414ad10e13a74fa924e918da27c4fd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5fece3340dc8a6cae9c79c9e431ef9aa66f1bc2916aadc661bf3ebee9e26ac45",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688656,
+          "addend": 0,
+          "resolved": 11688656
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8057848,
+          "addend": 0,
+          "resolved": 8057848
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688728,
+          "addend": 0,
+          "resolved": 11688728
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541568,
+      "method": "00731340",
+      "body_bytes": 19,
+      "body_sha256": "389a66dc37587cee234eadd1e84724587b00b516add688ca100cbdaf77332279",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6795dbeb53e9af97a034e022565f566828c46052b05376f66167dfce3f03a42e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688728,
+          "addend": 0,
+          "resolved": 11688728
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11688712,
+          "addend": 0,
+          "resolved": 11688712
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541600,
+      "method": "00731360",
+      "body_bytes": 19,
+      "body_sha256": "2b1e2e3cf2d0dd9bc2bd1c0b530b2477f91ad7b422ea75e4b9c28819e2fdac39",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "90696896aa4c9695b1ddbf7247ab98297dad6af580d3ce9c150f221ef105a832",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057856,
+          "addend": 0,
+          "resolved": 8057856
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11688704,
+          "addend": 0,
+          "resolved": 11688704
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541632,
+      "method": "00731380",
+      "body_bytes": 19,
+      "body_sha256": "f15008b0fe9805c8e0c2fe1e2d29ef63c52aa874722190024a7bcec72c2a8bcd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "faf3689d317a1695e0dd90be0ddf05438cf547cc7fa55681ad290249337dfc64",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057856,
+          "addend": 0,
+          "resolved": 8057856
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11688664,
+          "addend": 0,
+          "resolved": 11688664
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541664,
+      "method": "007313a0",
+      "body_bytes": 19,
+      "body_sha256": "bf0569e32d292a41c9d8feae61fa2189fcbf704f3f42ce5ba6c6ec76af6cc0c1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9f9e3539acb22ef4867d93e7c1d2e16353ed65de5acb871213b27663099da342",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057856,
+          "addend": 0,
+          "resolved": 8057856
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11688624,
+          "addend": 0,
+          "resolved": 11688624
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541696,
+      "method": "007313c0",
+      "body_bytes": 49,
+      "body_sha256": "e393f61b438ad9939e09d2feb30ad1b5369f98f042da14ec32ea192104594439",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "365a640c8893edd7058cbb6147875c8e70b9302e131e66fd4dce74d302e2238b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11688624,
+          "addend": 0,
+          "resolved": 11688624
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11688664,
+          "addend": 0,
+          "resolved": 11688664
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292383049
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688656,
+          "addend": 0,
+          "resolved": 11688656
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 318757
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688736,
+          "addend": 0,
+          "resolved": 11688736
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541760,
+      "method": "00731400",
+      "body_bytes": 33,
+      "body_sha256": "6a515857f1ae0263dcc339b8736b4ed49ecfd4cb864621edfaf0d8ef717b4e8e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e681ea384fde2745b4ac575547c40d90f76ce63bc036c7789291808061bdc97b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688736,
+          "addend": 0,
+          "resolved": 11688736
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292383129
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11688672,
+          "addend": 0,
+          "resolved": 11688672
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541808,
+      "method": "00731430",
+      "body_bytes": 44,
+      "body_sha256": "f04dee8f9db4298b864aa0e15c485beffca21358330b672eac46d20c1756c397",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "864fbe0867634389bde7da7fedb2006a153017264456bd73ae6a82e6a597d7f1",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688736,
+          "addend": 0,
+          "resolved": 11688736
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11688656,
+          "addend": 0,
+          "resolved": 11688656
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292383070
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11688696,
+          "addend": 0,
+          "resolved": 11688696
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541856,
+      "method": "00731460",
+      "body_bytes": 39,
+      "body_sha256": "77fe2046b0465d07f77404f829ab36cdc01ea7c4ea35b84fa52d6b79ee7a91ff",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "55fb79bc7aa554427dcb1bcb06de5b88826de2335191746c8914678b9e333ab9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688736,
+          "addend": 0,
+          "resolved": 11688736
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 318608
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11688720,
+          "addend": 0,
+          "resolved": 11688720
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541904,
+      "method": "00731490",
+      "body_bytes": 15,
+      "body_sha256": "42bfa787493ee231c11eb85478f878d5981716146da67ce8e169fa1615761dfe",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1054b40c5fb1eee4e7329f5a1dc9377e4af8a1fec03a7e38240f3b6b1c595f50",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11688648,
+          "addend": 0,
+          "resolved": 11688648
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11688648,
+          "addend": 2,
+          "resolved": 11688650
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541920,
+      "method": "007314a0",
+      "body_bytes": 18,
+      "body_sha256": "bb30bfbb892e45f27df0a8310eda898684ea3e09460d1c4e08af4bb89d3c5f3e",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4a5b82ac12a33267d6e9267f773e1332ad4e48371c85d27da5384c10fa344946",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11688680,
+          "addend": 0,
+          "resolved": 11688680
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11688680,
+          "addend": 4,
+          "resolved": 11688684
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11688680,
+          "addend": 8,
+          "resolved": 11688688
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7541952,
+      "method": "007314c0",
+      "body_bytes": 434,
+      "body_sha256": "fb549ed3fa9a268cbf9a490bfeeaa180786935327beaa0af582756350e4e7598",
+      "padding_bytes": 14,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "51ee4389a23bea678f9ff2ba281b848c5e1d25dac1b2735858a67cd9b1b4e0d3",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Voices@WorldDominationTour@@QAE@H@Z",
+      "symbol_prefix": "??0Voices@WorldDominationTour@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 246834
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_F?$DynamicVectorClass@I@@QAEXXZ",
+          "target": 7547952,
+          "addend": 0,
+          "resolved": 7547952
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4291664355
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@PBD@Z",
+          "target": 7789504,
+          "addend": 0,
+          "resolved": 247495
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@I@@QAE@HPBI@Z",
+          "target": 4371728,
+          "addend": 0,
+          "resolved": 4291796978
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@I@@6B@",
+          "target": 7980252,
+          "addend": 0,
+          "resolved": 7980252
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294348529
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@VWstring@@@@QAE@HPBVWstring@@@Z",
+          "target": 6769392,
+          "addend": 0,
+          "resolved": 4294194569
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWstring@@@@6B@",
+          "target": 8033892,
+          "addend": 0,
+          "resolved": 8033892
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?AudioGetDevice@@YIPAUAudioDevice@@XZ",
+          "target": 4222784,
+          "addend": 0,
+          "resolved": 4291647934
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "??_C@_08JKAL@OldCycle?$AA@",
+          "target": 8373996,
+          "addend": 0,
+          "resolved": 8373996
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246672
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247443
+        },
+        {
+          "offset": 226,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246842
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "??_C@_07JFNM@History?$AA@",
+          "target": 8373988,
+          "addend": 0,
+          "resolved": 8373988
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246636
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247404
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246803
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "??_C@_06IOLI@Status?$AA@",
+          "target": 8373980,
+          "addend": 0,
+          "resolved": 8373980
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246597
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247365
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246764
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "??_C@_09FECI@Territory?$AA@",
+          "target": 8371976,
+          "addend": 0,
+          "resolved": 8371976
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246558
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247326
+        },
+        {
+          "offset": 343,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246725
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "??_C@_04EKBK@Game?$AA@",
+          "target": 8373972,
+          "addend": 0,
+          "resolved": 8373972
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246519
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247287
+        },
+        {
+          "offset": 382,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246686
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "??_C@_08IIHM@Evacuate?$AA@",
+          "target": 8373960,
+          "addend": 0,
+          "resolved": 8373960
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246480
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 247248
+        },
+        {
+          "offset": 421,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246647
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7541952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7542400,
+      "method": "00731680",
+      "body_bytes": 276,
+      "body_sha256": "75d8335f7d0082d2b8983420b2f1116e0cbe7eaa95bc9bee91ab47179ceb328a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "821ff292c860cb4d38a4f36dbfe35ddf7de8f8c9f1f3f2d48014c1b33dc7464b",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Voices@WorldDominationTour@@QAE@XZ",
+      "symbol_prefix": "??1Voices@WorldDominationTour@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Speech_Stop@@YIX_N@Z",
+          "target": 7429600,
+          "addend": 0,
+          "resolved": 4294854471
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294348159
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?AudioStreamerDestroy@@YIXPAUAudioStreamer@@@Z",
+          "target": 4225472,
+          "addend": 0,
+          "resolved": 4291650284
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWstring@@@@6B@",
+          "target": 8033860,
+          "addend": 0,
+          "resolved": 8033860
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 7789024
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??_I@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239104,
+          "addend": 0,
+          "resolved": 4291663864
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 329261
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@I@@6B@",
+          "target": 7980284,
+          "addend": 0,
+          "resolved": 7980284
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 329201
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "??1?$DynamicVectorClass@I@@UAE@XZ",
+          "target": 7547984,
+          "addend": 0,
+          "resolved": 7547984
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "??_I@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239104,
+          "addend": 0,
+          "resolved": 4291663741
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246358
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7542400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7542688,
+      "method": "007317a0",
+      "body_bytes": 757,
+      "body_sha256": "ce74720a9a1192ccc30cddd538383d51933bd04e2077113a8e8d050054ba9781",
+      "padding_bytes": 11,
+      "full_extent_bytes": 768,
+      "full_extent_sha256": "a7486a27a1fbb33d57a65d0b331c47b91766a783b46fc07d8ba4663257d1fbfc",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@@Z",
+      "symbol_prefix": "?Load@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_03JKEC@Win?$AA@",
+          "target": 8332840,
+          "addend": 0,
+          "resolved": 8332840
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246092
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 2843
+        },
+        {
+          "offset": 74,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246258
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_C@_04NLLM@Lose?$AA@",
+          "target": 8332832,
+          "addend": 0,
+          "resolved": 8332832
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246052
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 2803
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246218
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_04OBBN@Draw?$AA@",
+          "target": 8374032,
+          "addend": 0,
+          "resolved": 8374032
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 246012
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 2763
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246178
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "??_C@_07KNL@Startup?$AA@",
+          "target": 8374024,
+          "addend": 0,
+          "resolved": 8374024
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 245951
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+          "target": 7767456,
+          "addend": 0,
+          "resolved": 224559
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@ABV0@0@Z",
+          "target": 7796688,
+          "addend": 0,
+          "resolved": 253780
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245899
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 245901
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292727446
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 246061
+        },
+        {
+          "offset": 297,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245827
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 252190
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 253054
+        },
+        {
+          "offset": 413,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 419,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 252089
+        },
+        {
+          "offset": 435,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245897
+        },
+        {
+          "offset": 444,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245888
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245879
+        },
+        {
+          "offset": 462,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245870
+        },
+        {
+          "offset": 467,
+          "kind": 6,
+          "symbol": "??_C@_0BA@ODPH@TerritorySelect?$AA@",
+          "target": 8374008,
+          "addend": 0,
+          "resolved": 8374008
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 245664
+        },
+        {
+          "offset": 492,
+          "kind": 20,
+          "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+          "target": 7767456,
+          "addend": 0,
+          "resolved": 224272
+        },
+        {
+          "offset": 503,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@ABV0@0@Z",
+          "target": 7796688,
+          "addend": 0,
+          "resolved": 253493
+        },
+        {
+          "offset": 512,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245612
+        },
+        {
+          "offset": 517,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 526,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 245614
+        },
+        {
+          "offset": 549,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292727159
+        },
+        {
+          "offset": 558,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245774
+        },
+        {
+          "offset": 584,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245540
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 605,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 251903
+        },
+        {
+          "offset": 621,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 252767
+        },
+        {
+          "offset": 694,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 700,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 251808
+        },
+        {
+          "offset": 716,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245616
+        },
+        {
+          "offset": 725,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245607
+        },
+        {
+          "offset": 734,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245598
+        },
+        {
+          "offset": 743,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245589
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7542688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7543456,
+      "method": "00731aa0",
+      "body_bytes": 286,
+      "body_sha256": "5513180342230452300f8428a926eec62d1db36bdf9dbccc36cdff382cdf1b0c",
+      "padding_bytes": 2,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "ddbb2215c70f1766efabc970f5eef00970ab3c743c7a61dfbb50c78892fdacea",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_List@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H1@Z",
+      "symbol_prefix": "?Load_List@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+          "target": 7767456,
+          "addend": 0,
+          "resolved": 223981
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@ABV0@0@Z",
+          "target": 7796688,
+          "addend": 0,
+          "resolved": 253202
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245321
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 245323
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292726862
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245477
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 245234
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 251597
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 252460
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 251501
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245308
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245299
+        },
+        {
+          "offset": 274,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245290
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7543456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7543744,
+      "method": "00731bc0",
+      "body_bytes": 213,
+      "body_sha256": "350270973e50ba570658ec3700d4f9e54b9560a000c8a29cbc1b7f62fa88cc47",
+      "padding_bytes": 11,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "090a160341003eeed201ac7ada0cc0a7ee177cd6a032323689e84d1b7999bc0e",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "symbol_prefix": "?Pick@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 248389
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293946510
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 252392
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252537
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245745
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245144
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245135
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 252333
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252478
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245686
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245085
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 245076
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7543744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7543968,
+      "method": "00731ca0",
+      "body_bytes": 213,
+      "body_sha256": "51e0383168897f1b082c4da61cc9e6e9088f2ab6c8fc20d79ed39ee084914d51",
+      "padding_bytes": 11,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "790681bfe30e87ea88fd5bfbe4ceb81d898679aac079f0a36d50f4895b7a9f51",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick_Emphasis@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "symbol_prefix": "?Pick_Emphasis@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 248165
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293946286
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 252168
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252313
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245521
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244920
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244911
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 252109
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252254
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245462
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244861
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244852
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7543968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7544192,
+      "method": "00731d80",
+      "body_bytes": 209,
+      "body_sha256": "1f1a1b3b9269e9ae75a692a7a5753725d5375d689ef3d3e3ea135e0f25cdf9bf",
+      "padding_bytes": 15,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "d3cb00c9da45e8db5f06cd7c7e129ef11941d72a6f6a8f572bb975a4f38b3f1d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick_List@Voices@WorldDominationTour@@QBE_NHAAVWstring@@@Z",
+      "symbol_prefix": "?Pick_List@Voices@WorldDominationTour@@QBE_NHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 247951
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293946070
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251952
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252097
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245305
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244704
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244695
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251891
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 252036
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245244
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244643
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244634
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7544192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7544416,
+      "method": "00731e60",
+      "body_bytes": 197,
+      "body_sha256": "72826a38d4b133bcded1e0245124c31f245297dd726646089b517181202eb27e",
+      "padding_bytes": 11,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "203f84eeb6a477b0c56bb377284251222ac62fc498048bd175fabbafdd89aa67",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z",
+      "symbol_prefix": "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 247739
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293945858
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251740
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251885
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245093
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244492
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244483
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251679
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251824
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 245032
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244431
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244422
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7544416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7544624,
+      "method": "00731f30",
+      "body_bytes": 130,
+      "body_sha256": "4e659ee25572c29badbb0c8616052c4f219e22322fefe33f8c7aabcff27b96bb",
+      "padding_bytes": 14,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "75516c99f2f67e39900d494aa1103b41a26396617876f5e03da8016553a4b4e7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z",
+      "symbol_prefix": "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251597
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251742
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244948
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244347
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244338
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 251537
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251682
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244888
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244287
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244278
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7544624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7544768,
+      "method": "00731fc0",
+      "body_bytes": 159,
+      "body_sha256": "e665d7792841d874d56153d5ed32190ebb73ea7f289a258c5fe147cb721e6b65",
+      "padding_bytes": 1,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "3040e7619f5b53676757ec2840b3b38ccd04fe82d23296294ba21c1a97893459",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Parse_List@Voices@WorldDominationTour@@SIXABVWstring@@AAV?$DynamicVectorClass@I@@@Z",
+      "symbol_prefix": "?Parse_List@Voices@WorldDominationTour@@SIXABVWstring@@AAV?$DynamicVectorClass@I@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 244024
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 250389
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 251252
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 250295
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 244102
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7544768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7544928,
+      "method": "00732060",
+      "body_bytes": 75,
+      "body_sha256": "f0c2feebd3b6d2db102af0c0cb69c1be761cf05b07fee41638fde87f64ea4a09",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2414351e44bf2575d4910940b7d28f9e88a42ea367c8e68e2ba32c110a6d8165",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Group@Voices@WorldDominationTour@@QAE@XZ",
+      "symbol_prefix": "??0Group@Voices@WorldDominationTour@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 243880
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@I@@6B@",
+          "target": 7980284,
+          "addend": 0,
+          "resolved": 7980284
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@I@@6B@",
+          "target": 7980252,
+          "addend": 0,
+          "resolved": 7980252
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@PBD@Z",
+          "target": 7789504,
+          "addend": 0,
+          "resolved": 244505
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7544928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7545008,
+      "method": "007320b0",
+      "body_bytes": 13,
+      "body_sha256": "14fc7d2e8823764792ea1a459a7176236d75e050f31699d9d17d7814fb2014d6",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0ebc13dcb1612b2d5cd8dd03857084317b37a936777b42ffa46808df2d0de213",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Name@Group@Voices@WorldDominationTour@@QAEXABVWstring@@@Z",
+      "symbol_prefix": "?Set_Name@Group@Voices@WorldDominationTour@@QAEXABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244598
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7545008,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3353"
+    },
+    {
+      "entry": 7545024,
+      "method": "007320c0",
+      "body_bytes": 147,
+      "body_sha256": "1ac3b57fcfa35b4e953d360575b953d7da3bb6cb1d2f7051cb0b2c5c4a1dd54e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "f90b46a60f94d24485426920899bd66f5564b6eb5ce28715c5f3b21e58dfa25f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H@Z",
+      "symbol_prefix": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_C@_03JKEC@Win?$AA@",
+          "target": 8332840,
+          "addend": 0,
+          "resolved": 8332840
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 243787
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 526
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243941
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "??_C@_04NLLM@Lose?$AA@",
+          "target": 8332832,
+          "addend": 0,
+          "resolved": 8332832
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 243735
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 486
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243901
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "??_C@_04OBBN@Draw?$AA@",
+          "target": 8374032,
+          "addend": 0,
+          "resolved": 8374032
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 243695
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+          "target": 7545600,
+          "addend": 0,
+          "resolved": 446
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243861
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7545024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7545184,
+      "method": "00732160",
+      "body_bytes": 199,
+      "body_sha256": "bfc26d21d3459c2864408d0986da62c005a80429669661a41971d840ccce5f4d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "c206673a3e694a6f48b40ad1da5ff122c6048aecc2f49d8262998266568a8203",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "symbol_prefix": "?Pick@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 246964
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293945086
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 250964
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251109
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244317
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243716
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243707
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 250906
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 251051
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244259
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243658
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243649
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7545184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7545392,
+      "method": "00732230",
+      "body_bytes": 199,
+      "body_sha256": "415add949648d829cc2697a14b9421b7c9711c3d1793fcfe28d0ed4752eda7ac",
+      "padding_bytes": 9,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "46089a15f5470a6ac32dd0d30e15eadba14d49cf453852ca97af1a62d9211968",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick_Emphasis@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "symbol_prefix": "?Pick_Emphasis@Group@Voices@WorldDominationTour@@QBE_NHHAAVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 246756
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293944878
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 250756
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "??_C@_0L@BFKF@WWD?9Soviet?$AA@",
+          "target": 8374052,
+          "addend": 0,
+          "resolved": 8374052
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 250901
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244109
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243508
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243499
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 250698
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "??_C@_0L@NLEA@WWD_Allied?$AA@",
+          "target": 8374040,
+          "addend": 0,
+          "resolved": 8374040
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 250843
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 244051
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243450
+        },
+        {
+          "offset": 187,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243441
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7545392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7545600,
+      "method": "00732300",
+      "body_bytes": 524,
+      "body_sha256": "b02b7ff33074a43d26f3fc4e5c36ce47134b12f1d5b28f464d926fd84fc4d48a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 528,
+      "full_extent_sha256": "d223a9bd41ac3d8b74beef393fb922bc9d4dccf82309948e185a013bfde49173",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+      "symbol_prefix": "?Load@Group@Voices@WorldDominationTour@@QAEXAAVINIClass@@ABVWstring@@HH1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+          "target": 7767456,
+          "addend": 0,
+          "resolved": 221830
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@ABV0@0@Z",
+          "target": 7796688,
+          "addend": 0,
+          "resolved": 251051
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??HWstring@@QBE?AV0@ABV0@@Z",
+          "target": 7791040,
+          "addend": 0,
+          "resolved": 245396
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243371
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 243154
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 243156
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292724695
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243310
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 243069
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 249432
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 250295
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 249336
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243143
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "??_C@_08MIAD@Emphasis?$AA@",
+          "target": 8374064,
+          "addend": 0,
+          "resolved": 8374064
+        },
+        {
+          "offset": 291,
+          "kind": 20,
+          "symbol": "??YWstring@@QAEAAV0@PBD@Z",
+          "target": 7790352,
+          "addend": 0,
+          "resolved": 244457
+        },
+        {
+          "offset": 296,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 242923
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292724462
+        },
+        {
+          "offset": 343,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 243077
+        },
+        {
+          "offset": 363,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 242849
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 384,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 249212
+        },
+        {
+          "offset": 400,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 250076
+        },
+        {
+          "offset": 473,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 479,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 249117
+        },
+        {
+          "offset": 495,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 242925
+        },
+        {
+          "offset": 504,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 242916
+        },
+        {
+          "offset": 513,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 242907
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7545600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7546128,
+      "method": "00732510",
+      "body_bytes": 490,
+      "body_sha256": "91885b80c1e5714ee7fbd176e1514d46238def99d9bb9b10ad87a2c416e5979f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "05b27d3496eb5dc07054c1f17e4abe54b5ad61cdafa2421607f5ce306362c0d6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+      "symbol_prefix": "?Say@Voices@WorldDominationTour@@QAEXHH_N0H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 243418
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 242568
+        },
+        {
+          "offset": 158,
+          "kind": 20,
+          "symbol": "?Pick@Voices@WorldDominationTour@@SI_NHABV?$DynamicVectorClass@I@@AAVWstring@@@Z",
+          "target": 7544416,
+          "addend": 0,
+          "resolved": 4294965422
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?Is_Speaking@@YI_NXZ",
+          "target": 7429664,
+          "addend": 0,
+          "resolved": 4294850657
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294344292
+        },
+        {
+          "offset": 291,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 243193
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 245716
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293943842
+        },
+        {
+          "offset": 380,
+          "kind": 20,
+          "symbol": "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z",
+          "target": 7544624,
+          "addend": 0,
+          "resolved": 4294965408
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 243031
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 242416
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7546128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7546624,
+      "method": "00732700",
+      "body_bytes": 361,
+      "body_sha256": "751cf5a0197090b7c0d91200c0beae2914815082724c9bf8552b7969cb65cb9f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "a5e1c69f4300b7acc39fcce81f5fafdf91eb7b97f7e9b2be72568d2a67b6d08e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+      "symbol_prefix": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 242923
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 242073
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?clear@Wstring@@QAEXXZ",
+          "target": 7792176,
+          "addend": 0,
+          "resolved": 245408
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4293943534
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Make_Name@Voices@WorldDominationTour@@SI_NHHAAVWstring@@@Z",
+          "target": 7544624,
+          "addend": 0,
+          "resolved": 4294965100
+        },
+        {
+          "offset": 205,
+          "kind": 20,
+          "symbol": "?Is_Speaking@@YI_NXZ",
+          "target": 7429664,
+          "addend": 0,
+          "resolved": 4294850127
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294343762
+        },
+        {
+          "offset": 325,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 242663
+        },
+        {
+          "offset": 348,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 242048
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7546624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7546992,
+      "method": "00732870",
+      "body_bytes": 229,
+      "body_sha256": "788a5dce0bbd7081931e111a7758a55403cbd19241f45b7c22e4cebc3218984b",
+      "padding_bytes": 11,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "88629d9575e82290fbe7c6e1826f6989dfe690da03874a934ed24bb2acaf525d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+      "symbol_prefix": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294343584
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Is_Speaking@@YI_NXZ",
+          "target": 7429664,
+          "addend": 0,
+          "resolved": 4294849897
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 242493
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "?get@Wstring@@QBEPADXZ",
+          "target": 7792368,
+          "addend": 0,
+          "resolved": 245194
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "?Vox_From_Name@@YI?AW4VoxType@@PBD@Z",
+          "target": 7431744,
+          "addend": 0,
+          "resolved": 4294851859
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXHHH@Z",
+          "target": 7428288,
+          "addend": 0,
+          "resolved": 4294848393
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7546992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547232,
+      "method": "00732960",
+      "body_bytes": 111,
+      "body_sha256": "aac11baec5c7e103b72685c9dfd98cb6b442dbdee55f5501a2a5284412afb5d9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "36a6ccc24888d54cfe658ca2431b908fd01ae08e1a4d17f9ad0e58b9ca689ed0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Trim@Voices@WorldDominationTour@@QAEXXZ",
+      "symbol_prefix": "?Trim@Voices@WorldDominationTour@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 242318
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547344,
+      "method": "007329d0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Voices_Noop1@@YIXXZ",
+      "symbol_prefix": "?Voices_Noop1@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7547360,
+      "method": "007329e0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Voices_Noop2@@YIXXZ",
+      "symbol_prefix": "?Voices_Noop2@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7547376,
+      "method": "007329f0",
+      "body_bytes": 72,
+      "body_sha256": "28ad3d8f656b4e86b96cea6c77f7d50bb2d3f7c24ab9f28d2c84537e5f9b0aea",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a39b61b8861d591797be5cf830bd6eb70543aa591518c01b4c99f8e868d74767",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@Voices@WorldDominationTour@@QAEXXZ",
+      "symbol_prefix": "?Stop@Voices@WorldDominationTour@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Speech_Stop@@YIX_N@Z",
+          "target": 7429600,
+          "addend": 0,
+          "resolved": 4294849497
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294343185
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547456,
+      "method": "00732a40",
+      "body_bytes": 5,
+      "body_sha256": "3805f3394aaf976dde03876fce35c7497ec73c58c052a55d30be96d22a2fbef1",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b2e4fb691863fb1144e3f18c03190b21b888475abcee212b351c77b8bbfc123e",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ",
+      "symbol_prefix": "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Is_Speaking@@YI_NXZ",
+          "target": 7429664,
+          "addend": 0,
+          "resolved": 4294849499
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547472,
+      "method": "00732a50",
+      "body_bytes": 67,
+      "body_sha256": "a086a64ffbc94b4cae9ffc727a3205df87cfa0f3ed10413a67fe09e91e105d6f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "eda8b1212821ef92edf9b5d93d7963ec9bf3984c1f758fcc5698f7eabf92dfa6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_Anim@Voices@WorldDominationTour@@QAEPAVAnim@12@XZ",
+      "symbol_prefix": "?Create_Anim@Voices@WorldDominationTour@@QAEPAVAnim@12@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 325051
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294343096
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+          "target": 8057868,
+          "addend": 0,
+          "resolved": 8057868
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547552,
+      "method": "00732aa0",
+      "body_bytes": 49,
+      "body_sha256": "f155cbf4f72c1c53d62f2330ca134131bdc63601c07fda18ba8bfca39f79a56f",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "947517511efb32fb4ce512bb431d5357e7cf0e9be841473d40e0dfdb1ae1856c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Anim@Voices@WorldDominationTour@@QAE@PAV12@@Z",
+      "symbol_prefix": "??0Anim@Voices@WorldDominationTour@@QAE@PAV12@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294343033
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+          "target": 8057868,
+          "addend": 0,
+          "resolved": 8057868
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547616,
+      "method": "00732ae0",
+      "body_bytes": 11,
+      "body_sha256": "2124bdabe5ce4f171c06e3af6a6efa687b6dc5a1ac24f6b0130572847870f149",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "787610eb7090840b2a94079a9c94e524bd82604206dc30f02a4e90b5cff28c6f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Anim@Voices@WorldDominationTour@@UAE@XZ",
+      "symbol_prefix": "??1Anim@Voices@WorldDominationTour@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+          "target": 8057868,
+          "addend": 0,
+          "resolved": 8057868
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1MSAnim@@UAE@XZ",
+          "target": 5949072,
+          "addend": 0,
+          "resolved": 4293368741
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547632,
+      "method": "00732af0",
+      "body_bytes": 86,
+      "body_sha256": "99a0ee284d65a90e8a30c886fa5c7c95a47c6637cfb68db29c256c68c7e91d92",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "218f751b5c44fda39be57dc58b68e0aca57967839de19c35b6e2015e76d92a53",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Active@Anim@Voices@WorldDominationTour@@UAEX_N@Z",
+      "symbol_prefix": "?Set_Active@Anim@Voices@WorldDominationTour@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "?Speech_Stop@@YIX_N@Z",
+          "target": 7429600,
+          "addend": 0,
+          "resolved": 4294849229
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294342917
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547728,
+      "method": "00732b50",
+      "body_bytes": 65,
+      "body_sha256": "c19c17c134c9ec0aff8453d38428f91ec00e6aed46c41a376d9cab4f8c5823f8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f4a4361049cfb129077c98251c20f879503cd0253a97100b335accfdaf4cf67b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pause@Anim@Voices@WorldDominationTour@@UAEXXZ",
+      "symbol_prefix": "?Pause@Anim@Voices@WorldDominationTour@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294342852
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547808,
+      "method": "00732ba0",
+      "body_bytes": 22,
+      "body_sha256": "473a2bcf2b56895fbc28a342a37003d350b5afcaecd210f8237156e0974dbf87",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "51bbb5a7e8173828ae860ec8873fef520304ee4cb166fff4231703fae9facb0b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ",
+      "symbol_prefix": "?Resume@Anim@Voices@WorldDominationTour@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294342783
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547840,
+      "method": "00732bc0",
+      "body_bytes": 13,
+      "body_sha256": "88bc61a09680dad1fa3caaab861bba5aae2c2c708cdb76e98c1b48162772f4cb",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "dd82ba9d5563082c2d88b79729a59c8c15143a1af32b92e6fe002dc6fc9e1f78",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z",
+      "symbol_prefix": "?Advance@Anim@Voices@WorldDominationTour@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+          "target": 7546992,
+          "addend": 0,
+          "resolved": 4294966440
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547856,
+      "method": "00732bd0",
+      "body_bytes": 11,
+      "body_sha256": "f071e21616bd040ae62ce0c450442199dca83fcaeed013ad86ad9996fa07cdd6",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e8a5c39493f5555c8c6dd3d0589f2600dce89aceacc9a5ff50cced1b4d76ca5d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Redraw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBV?$TRect@H@@@Z",
+      "symbol_prefix": "?Redraw@Anim@Voices@WorldDominationTour@@UAEXPAVSurface@@PBV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+          "target": 7546992,
+          "addend": 0,
+          "resolved": 4294966424
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547872,
+      "method": "00732be0",
+      "body_bytes": 42,
+      "body_sha256": "372172a6f73c12675807733437f7c5ef17b2e544b5c3490e02ac7b83df4cbfe0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8f44de7b7a8b9eac395a8596635d4bcc3ad06bfd9db823498902e91ad97e0579",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Rect@Anim@Voices@WorldDominationTour@@UBE?AV?$TRect@H@@XZ",
+      "symbol_prefix": "?Get_Rect@Anim@Voices@WorldDominationTour@@UBE?AV?$TRect@H@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547920,
+      "method": "00732c10",
+      "body_bytes": 11,
+      "body_sha256": "102f5d628e10255c62a1d20c13db848d464b519ee482703e92f4df6efc78acff",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d204c7a08646de847ee647d86208c3ae4cca68156fb222bcfdb46ba6ae6194a5",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Has_Finished@Anim@Voices@WorldDominationTour@@UBE_NXZ",
+      "symbol_prefix": "?Has_Finished@Anim@Voices@WorldDominationTour@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Is_Speaking@@YI_NXZ",
+          "target": 7429664,
+          "addend": 0,
+          "resolved": 4294849035
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547936,
+      "method": "00732c20",
+      "body_bytes": 11,
+      "body_sha256": "62c52bd3231e7d897cfeb92254a0e4c41918d29b2f63f6846f5dc2d19871c111",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6f3efd996e423fb280ef43a1ccdc4bc360c84e8cce50e298684f98bbefc9d934",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Restore@Anim@Voices@WorldDominationTour@@UAEXABV?$TRect@H@@@Z",
+      "symbol_prefix": "?Restore@Anim@Voices@WorldDominationTour@@UAEXABV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Update@Voices@WorldDominationTour@@QAEXXZ",
+          "target": 7546992,
+          "addend": 0,
+          "resolved": 4294966344
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7547952,
+      "method": "00732c30",
+      "body_bytes": 32,
+      "body_sha256": "3b55088239463e547191b137799136d961fc830ad94c4c6c5d35c0983c7985d4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3b55088239463e547191b137799136d961fc830ad94c4c6c5d35c0983c7985d4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_F?$DynamicVectorClass@I@@QAEXXZ",
+      "symbol_prefix": "??_F?$DynamicVectorClass@I@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@I@@6B@",
+          "target": 7980252,
+          "addend": 0,
+          "resolved": 7980252
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 7547984,
+      "method": "00732c50",
+      "body_bytes": 45,
+      "body_sha256": "1e0279d1cf5be7d41eded335629b6a628dd85f2b3ad5ef9dac6048684225d3c7",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "094d3d04143dda9a9bdfd437c016559e9e0ee52a11e116a017273cb99aa2896d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$DynamicVectorClass@I@@UAE@XZ",
+      "symbol_prefix": "??1?$DynamicVectorClass@I@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@I@@6B@",
+          "target": 7980284,
+          "addend": 0,
+          "resolved": 7980284
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 323789
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7547984,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 7548032,
+      "method": "00732c80",
+      "body_bytes": 36,
+      "body_sha256": "0823d0e0f18914b5c42fc0360777dc99021b5b12c33446235b031911a212c33d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8777bc9c260723ccb68c99f120dc9d72b71fb4887d61d12aee59d8d4ce1b6e58",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GAnim@Voices@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7Anim@Voices@WorldDominationTour@@6B@",
+          "target": 8057868,
+          "addend": 0,
+          "resolved": 8057868
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1MSAnim@@UAE@XZ",
+          "target": 5949072,
+          "addend": 0,
+          "resolved": 4293368322
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 323744
+        }
+      ],
+      "source_sha256": "ed1fe6edeaa81ba8a29525bfc23c9de777ea338f2065e1b5549dbebecec711af",
+      "source": "rebuild/src/wdtvoice.cpp",
+      "population": "rebuild-wdtvoice",
+      "source_order": 7548032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    }
+  ]
+}

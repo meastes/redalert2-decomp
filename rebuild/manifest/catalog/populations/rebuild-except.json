@@ -1,0 +1,3031 @@
+{
+  "id": "rebuild-except",
+  "population": {
+    "id": "rebuild-except",
+    "inventory_sha256": "9d27bfeaf39b73ebf24e93ec9ce3c691f9e873f57856befc5b3147d839230783",
+    "gaps_sha256": "6b58d5b5c03845b0678e5ef0ce479b365cea3e4a1d631447677c250f9e0105dc",
+    "historical_population_sha256": "89b74d381311874e2c5e3e04cefd1cabe52bebdec3ac7d3b88480cab4d1bb1c7",
+    "historical_acceptance_sha256": "0bf94c5e350b435b9717a661806b23c9675ed60cb66143e6335d2ff1e366e46b"
+  },
+  "references": {
+    "_RECT_NONE": 8805288,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8805312,
+    "_ISO_TILE_SIZE": 7999032,
+    "_LEPTONS_PER_PIXEL": 8805384,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8805368,
+    "_ONE_RAD": 7999040,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8805360,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8805320,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8739744,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8805392,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8805328,
+    "_CELL_DIAG_SLOPE_ANGLE": 8805352,
+    "_BRIDGE_LEPTON_HEIGHT": 8805376,
+    "_CELL_NONE": 8805304,
+    "_COORD_NONE": 8805336,
+    "??_C@_0P@EKKE@WM_INITDIALOG?6?$AA@": 8223052,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "_ExceptionText": 8739752,
+    "__imp__SetDlgItemTextA@12": 7971776,
+    "__imp__SetFocus@4": 7971724,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z": 7565440,
+    "__imp__ShowWindow@8": 7971992,
+    "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z": 5384992,
+    "__imp__EndDialog@8": 7971772,
+    "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z": 5385088,
+    "??_C@_06HNBA@Bummer?$AA@": 8223044,
+    "??_C@_0GK@BECN@Sorry?0?5you?5can?5only?5attempt?5an?5e@": 8222936,
+    "__imp__MessageBoxA@16": 7971964,
+    "?On_WM_MOVING@@YI_NPAUHWND__@@IJ@Z": 7564672,
+    "?Audio_File_Flush@@YIXXZ": 5385744,
+    "?ExceptionRecursions@@3HA": 8219384,
+    "__imp__ShowCursor@4": 7971788,
+    "?Fetch_Resource@@YIPBXPBD0@Z": 4805856,
+    "??_C@_0BA@JDHI@Resource?5found?6?$AA@": 8223180,
+    "?ProgramInstance@@3PAUHINSTANCE__@@A": 11690368,
+    "?Exception_Proc@@YGHPAUHWND__@@IIJ@Z": 4946928,
+    "__imp__DialogBoxIndirectParamA@20": 7971784,
+    "??_C@_0BE@DPK@Resource?5not?5found?6?$AA@": 8223160,
+    "__imp__DialogBoxParamA@20": 7971780,
+    "__imp__ExitProcess@4": 7971332,
+    "__imp__AllocConsole@0": 7971336,
+    "__imp__FreeConsole@0": 7971240,
+    "??_C@_0FL@FHBO@Error?5?9?5Recursive?5exception?5dete@": 8223068,
+    "__cprintf": 7956244,
+    "__imp__Sleep@4": 7971300,
+    "__getch": 7955447,
+    "??_C@_0BF@GGFI@Dump?5exception?5info?6?$AA@": 8224288,
+    "??_C@_0N@MLEM@IMAGEHLP?4DLL?$AA@": 8224272,
+    "__imp__LoadLibraryA@4": 7971344,
+    "??_C@_0DE@DDMG@Found?5IMAGEHLP?4DLL?5?9?5linking?5to?5@": 8224220,
+    "__imp__GetProcAddress@8": 7971392,
+    "?ImageHelp@@3UtImageHelpStruct@@A": 8805408,
+    "_ImagehelpFunctionNames": 8219392,
+    "??_C@_0BN@MGC@Unable?5to?5load?5IMAGEHLP?4DLL?6?$AA@": 8224188,
+    "__imp__GetLastError@0": 7971316,
+    "__imp__GetCurrentProcess@0": 7971220,
+    "??_C@_0BJ@MAEJ@Symbols?5are?5available?$AN?6?6?$AA@": 8224160,
+    "__imp__GetModuleFileNameA@12": 7971224,
+    "??_C@_0DA@CNMN@SymLoad?5failed?5for?5module?5?$CFs?5wit@": 8224112,
+    "??_C@_0BP@CNEP@Exception?5is?5access?5violation?6?$AA@": 8224080,
+    "??_C@_0CI@OLNB@SymInitialize?5failed?5with?5code?5?$CF@": 8224040,
+    "??_C@_0BG@OGEF@Exception?5code?5is?5?$CFd?6?$AA@": 8224016,
+    "_?_codes@?1??Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z@4QBIB": 7999048,
+    "??_C@_0BN@ODMO@Found?5exception?5description?6?$AA@": 8223984,
+    "_?_code_txt@?1??Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z@4PAPBDA": 8219432,
+    "__imp__lstrlenA@4": 7971228,
+    "__imp__lstrcatA@8": 7971120,
+    "??_C@_02PIMC@?$AN?6?$AA@": 8223980,
+    "__imp__wsprintfA": 7972004,
+    "??_C@_0BF@CLDO@Access?5address?3?$CF08X?5?$AA@": 8223956,
+    "??_C@_0BC@MEIE@was?5written?5to?4?$AN?6?$AA@": 8223936,
+    "??_C@_0BB@IKIB@was?5read?5from?4?$AN?6?$AA@": 8223916,
+    "__imp__IsBadCodePtr@4": 7971156,
+    "??_C@_0CJ@GKLA@Exception?5occurred?5at?5?$CF08X?5?9?5?$CFs?5@": 8223872,
+    "??_C@_0BP@OOJK@Failed?5to?5get?5symbol?5for?5EIP?$AN?6?$AA@": 8223840,
+    "??_C@_0CM@NNMB@SymGetSymFromAddr?5failed?5with?5co@": 8223796,
+    "??_C@_0BN@LCNF@Exception?5occurred?5at?5?$CF08X?$AN?6?$AA@": 8223764,
+    "??_C@_0CC@OJMJ@context?9?$DOEip?5is?5bad?5code?5pointer@": 8223728,
+    "?Version_Name@@YIPBDXZ": 7418320,
+    "??_C@_0P@BFKO@?$AN?6Version?5?$CFs?$AN?6?$AA@": 8223712,
+    "?VerNum@@3VVersionClass@@A": 10751112,
+    "?Version_Name@VersionClass@@QAEPADXZ": 7417552,
+    "??_C@_0BG@PPDM@Internal?5Version?5?$CFs?$AN?6?$AA@": 8223688,
+    "?Build_Date_String@@YIXPADH@Z": 7567968,
+    "?Build_By_String@@YIPADPADH@Z": 7568128,
+    "?Build_Number_String@@YIPADPADH@Z": 7568080,
+    "??_C@_0BP@LJMN@Release?5Build?3?5?$CFs?5by?5?$CFs?5?9?5?$CFs?$AN?6?$AA@": 8223656,
+    "?Get_CPU_Type@@YIXAAHAA_NPADH@Z": 5057056,
+    "??_C@_03PEHN@Yes?$AA@": 8223652,
+    "??_C@_02JOHD@No?$AA@": 8223648,
+    "_VendorID": 8394149,
+    "?Get_CPU_Type_Name@@YIPBDXZ": 5057408,
+    "??_C@_0BN@BMBN@CPU?5?$CFs?0?5MMX?5?$CFs?0?5Vendor?3?5?$CFs?$AN?6?$AA@": 8223616,
+    "??_C@_0N@BNPN@?$AN?6Details?3?$AN?6?$AA@": 8223600,
+    "??_C@_0BC@ICBI@Register?5dump?4?4?4?6?$AA@": 8223580,
+    "??_C@_0BN@IPKL@Eip?3?$CF08X?7Esp?3?$CF08X?7Ebp?3?$CF08X?$AN?6?$AA@": 8223548,
+    "??_C@_0BN@BIDB@Eax?3?$CF08X?7Ebx?3?$CF08X?7Ecx?3?$CF08X?$AN?6?$AA@": 8223516,
+    "??_C@_0BN@GJMN@Edx?3?$CF08X?7Esi?3?$CF08X?7Edi?3?$CF08X?$AN?6?$AA@": 8223484,
+    "??_C@_0P@PIIH@EFlags?3?$CF08X?5?$AN?6?$AA@": 8223468,
+    "??_C@_0DH@DLPC@CS?3?$CF04x?5?5SS?3?$CF04x?5?5DS?3?$CF04x?5?5ES?3?$CF0@": 8223412,
+    "??_C@_0BD@GBIJ@EIP?5bytes?5dump?4?4?4?6?$AA@": 8223392,
+    "??_C@_0BN@CJDF@?$AN?6Bytes?5at?5CS?3EIP?5?$CI?$CF08X?$CJ?5?5?3?5?$AA@": 8223360,
+    "__imp__IsBadReadPtr@8": 7971160,
+    "??_C@_03HEHB@?$DP?$DP?5?$AA@": 8223356,
+    "??_C@_05DLFD@?$CF02X?5?$AA@": 8223348,
+    "??_C@_04FGNA@?$AN?6?$AN?6?$AA@": 8223340,
+    "??_C@_0P@PCFD@Stack?5dump?4?4?4?6?$AA@": 8223324,
+    "??_C@_0DD@BJGG@Stack?5dump?5?$CI?$CK?5indicates?5possible@": 8223272,
+    "??_C@_06OFEH@?$CF08X?3?5?$AA@": 8223264,
+    "??_C@_0L@LIP@?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$AN?6?$AA@": 8223252,
+    "??_C@_0M@LHM@?$CF08X?3?5?$CF08X?5?$AA@": 8223240,
+    "??_C@_0L@KNHL@DATA_PTR?$AN?6?$AA@": 8223228,
+    "??_C@_0L@JMHI@?$CF08X?3?5?$CF08X?$AA@": 8223216,
+    "??_C@_0N@IMBF@?5?9?5?$CFs?5?$CL?5?$CF08X?$AA@": 8223200,
+    "??_C@_02IGCE@?5?$CK?$AA@": 8223196,
+    "__imp__FreeLibrary@4": 7971348,
+    "??_C@_0M@CHFK@Exception?$CB?6?$AA@": 8224416,
+    "?Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z": 4947440,
+    "??_C@_0L@MMIA@except?4txt?$AA@": 8224404,
+    "__imp__CreateFileA@28": 7971248,
+    "__imp__WriteFile@20": 7971116,
+    "__imp__CloseHandle@4": 7971284,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
+    "?TileSurface@@3PAVSurface@@A": 8624452,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "?WinVersion@@3VWindowsVersionInfo@@A": 8625088,
+    "__imp__GetCurrentThreadId@0": 7971268,
+    "?MainThread@@3PAXA": 11689848,
+    "??_C@_0EI@FBEP@Can?8t?5bring?5up?5exception?5dialog?5@": 8224332,
+    "??_C@_0BE@KMPF@Exception_Dialog?$CI?$CJ?6?$AA@": 8224312,
+    "?Exception_Dialog@@YIHXZ": 4947184,
+    "?UnusedEHBool@@3_NA": 8219388,
+    "?g_TopWindow@@3PAUHWND__@@A": 11689428,
+    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "??_C@_0DE@DHCC@Error?5code?3?5?$DP?$DP?$DP?$DP?$DP?$AN?$AN?6Description?3@": 8219516,
+    "??_C@_0FC@OADN@Error?5code?3?5EXCEPTION_STACK_OVER@": 8219568,
+    "??_C@_0JF@HOAO@Error?5code?3?5EXCEPTION_SINGLE_STE@": 8219652,
+    "??_C@_0JN@KOBB@Error?5code?3?5EXCEPTION_PRIV_INSTR@": 8219804,
+    "??_C@_0JA@KN@Error?5code?3?5EXCEPTION_NONCONTINU@": 8219964,
+    "??_C@_0OE@JBMC@Error?5code?3?5EXCEPTION_INVALID_DI@": 8220108,
+    "??_C@_0JD@MKM@Error?5code?3?5EXCEPTION_INT_OVERFL@": 8220336,
+    "??_C@_0ID@PFBD@Error?5code?3?5EXCEPTION_INT_DIVIDE@": 8220484,
+    "??_C@_0BAJ@EKHI@Error?5code?3?5EXCEPTION_IN_PAGE_ER@": 8220616,
+    "??_C@_0GN@NDNK@Error?5code?3?5EXCEPTION_ILLEGAL_IN@": 8220884,
+    "??_C@_0JM@HIDG@Error?5code?3?5EXCEPTION_FLT_UNDERF@": 8220996,
+    "??_C@_0IG@BAJH@Error?5code?3?5EXCEPTION_FLT_STACK_@": 8221152,
+    "??_C@_0JO@NBGC@Error?5code?3?5EXCEPTION_FLT_OVERFL@": 8221288,
+    "??_C@_0HI@PJEN@Error?5code?3?5EXCEPTION_FLT_INVALI@": 8221448,
+    "??_C@_0JG@EGHI@Error?5code?3?5EXCEPTION_FLT_INEXAC@": 8221568,
+    "??_C@_0IP@KGDP@Error?5code?3?5EXCEPTION_FLT_DIVIDE@": 8221720,
+    "??_C@_0NE@DJI@Error?5code?3?5EXCEPTION_FLT_DENORM@": 8221864,
+    "??_C@_0BBC@DLMG@Error?5code?3?5EXCEPTION_DATATYPE_M@": 8222076,
+    "??_C@_0EO@IJID@Error?5code?3?5EXCEPTION_BREAKPOINT@": 8222352,
+    "??_C@_0LD@GMAJ@Error?5code?3?5EXCEPTION_ARRAY_BOUN@": 8222432,
+    "??_C@_0KF@KBPK@Error?5code?3?5EXCEPTION_ACCESS_VIO@": 8222612,
+    "??_C@_0BF@LOFK@SymGetModuleBaseType?$AA@": 8222780,
+    "??_C@_0BH@BGAC@SymFunctionTableAccess?$AA@": 8222804,
+    "??_C@_09CJDB@StackWalk?$AA@": 8222828,
+    "??_C@_0BA@OMLC@SymUnloadModule?$AA@": 8222840,
+    "??_C@_0O@HGIF@SymSetOptions?$AA@": 8222856,
+    "??_C@_0O@GFOP@SymLoadModule?$AA@": 8222872,
+    "??_C@_0O@FCHA@SymInitialize?$AA@": 8222888,
+    "??_C@_0BC@JLJA@SymGetSymFromAddr?$AA@": 8222904,
+    "??_C@_0L@CPNA@SymCleanup?$AA@": 8222924,
+    "?ExceptionReturnFrame@@3IA": 8805404,
+    "?ExceptionReturnAddress@@3IA": 8805400,
+    "?ExceptionReturnStack@@3IA": 8805396,
+    "_$E2": 4946432,
+    "_$E5": 4946464,
+    "_$E8": 4946512,
+    "_$E11": 4946544,
+    "_$E14": 4946576,
+    "_$E17": 4946608,
+    "_$E20": 4946640,
+    "_$E23": 4946672,
+    "_$E26": 4946736,
+    "_$E29": 4946784,
+    "_$E32": 4946832,
+    "_$E35": 4946880,
+    "_$E38": 4946896,
+    "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z": 4950000
+  },
+  "regions": [
+    {
+      "entry": 4946432,
+      "method": "004b7a00",
+      "body_bytes": 23,
+      "body_sha256": "37a77408eb98366811db967ba170fce38ea3f2d67f044a0f9e3356ddada2473a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b372ab98fe5a8fef426a8cead20e104bfdc5ad3ce94df0d696d4621793cb6e08",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805288,
+          "addend": 0,
+          "resolved": 8805288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805288,
+          "addend": 4,
+          "resolved": 8805292
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805288,
+          "addend": 8,
+          "resolved": 8805296
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805288,
+          "addend": 12,
+          "resolved": 8805300
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946464,
+      "method": "004b7a20",
+      "body_bytes": 40,
+      "body_sha256": "8d27ba90e898b95ee8b3fd7b6f82f608314a6c1552a24bb404920efb2de2918d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b4dd323e5dac8c048cfc345b505429172ee9e023331357fa6f751449a25370ef",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2926463
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 10706
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805312,
+          "addend": 0,
+          "resolved": 8805312
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946512,
+      "method": "004b7a50",
+      "body_bytes": 19,
+      "body_sha256": "79a307e2c8da009ee41d9c57cc0697941e2ae6658519e323558605b480338cbe",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1320d80c216ad452a80d2a81b6031e1502d80a6f936dc6f22e5695d3639c52a7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805312,
+          "addend": 0,
+          "resolved": 8805312
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7999032,
+          "addend": 0,
+          "resolved": 7999032
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8805384,
+          "addend": 0,
+          "resolved": 8805384
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946544,
+      "method": "004b7a70",
+      "body_bytes": 19,
+      "body_sha256": "4da359da137d7ec8bcdb41f919a26cfa8bc5c0c0896fbfb6001bea2a988078cd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "535e2cba62a778417b63b3cdcf509c3a2a551f3300b60d73084ed397f1efabce",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8805384,
+          "addend": 0,
+          "resolved": 8805384
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8805368,
+          "addend": 0,
+          "resolved": 8805368
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946576,
+      "method": "004b7a90",
+      "body_bytes": 19,
+      "body_sha256": "5ef0cded32fda386fc2733057f1c203db42226004f2aee3767adf73327131397",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a25fbe8ba4abe62844f456232ed50004577a67bbcb67b235a800fb122a84c6b8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999040,
+          "addend": 0,
+          "resolved": 7999040
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8805360,
+          "addend": 0,
+          "resolved": 8805360
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946608,
+      "method": "004b7ab0",
+      "body_bytes": 19,
+      "body_sha256": "cad7e650b591661f4cf8891167e75b44b04ba682918c09ac0da150962639eb09",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "350d477cb94c53abfc371faf4b6e22e10597eb9cbd3951555618b72f5e4953df",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999040,
+          "addend": 0,
+          "resolved": 7999040
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8805320,
+          "addend": 0,
+          "resolved": 8805320
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946640,
+      "method": "004b7ad0",
+      "body_bytes": 19,
+      "body_sha256": "e4e503b8876da8d66e5fadbbbaf052b6173f6136e60efe3d9e2d25aa200ff7e7",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "dccc4d6c18f4c7b2045c282ecf073699918c807a5bbd38b8a3b1c9f60a973e5d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7999040,
+          "addend": 0,
+          "resolved": 7999040
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8739744,
+          "addend": 0,
+          "resolved": 8739744
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946672,
+      "method": "004b7af0",
+      "body_bytes": 49,
+      "body_sha256": "80c2c3605a293e6f140351966b4712d5df496b3f14620c6b086800693ac40620",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ab7a9aab36c77c02c24148520ee24693daa06f78ccfc30e8cb9473650ff8a71a",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8739744,
+          "addend": 0,
+          "resolved": 8739744
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8805320,
+          "addend": 0,
+          "resolved": 8805320
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 10777
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805312,
+          "addend": 0,
+          "resolved": 8805312
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2913781
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805392,
+          "addend": 0,
+          "resolved": 8805392
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946736,
+      "method": "004b7b30",
+      "body_bytes": 33,
+      "body_sha256": "17091a64b2e6ce88a4d274f682b6de5600039b0be8aa392affcfacb0dd79ef4c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ea0792c56868e21e225c3e22a48510ea953105f600d8345ea88ac03ee9173fcd",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805392,
+          "addend": 0,
+          "resolved": 8805392
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 10857
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8805328,
+          "addend": 0,
+          "resolved": 8805328
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946784,
+      "method": "004b7b60",
+      "body_bytes": 44,
+      "body_sha256": "7f8498f087af74ba6e9a8d12da1ad3590cf0cc3838efff084c6e8809e6ced4f4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1a55a9fe8ce1396a02841ae542b0ee752650dac91a5b02ac991454057045e19a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805392,
+          "addend": 0,
+          "resolved": 8805392
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8805312,
+          "addend": 0,
+          "resolved": 8805312
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 10798
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8805352,
+          "addend": 0,
+          "resolved": 8805352
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946832,
+      "method": "004b7b90",
+      "body_bytes": 39,
+      "body_sha256": "dbf3158201080236064bf683046142a081aa757d6771853073c38d529d56ad8c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "96b1c37e384cdaf5116ca0fef98101454d9d97025683df66232b49f88af176e3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8805392,
+          "addend": 0,
+          "resolved": 8805392
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2913632
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8805376,
+          "addend": 0,
+          "resolved": 8805376
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946880,
+      "method": "004b7bc0",
+      "body_bytes": 15,
+      "body_sha256": "565238137b53e687484690d45924e9d48f611b20495db0aba391af8db7c5ca72",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b04416101f2f381b46be296c18db0017c386adc330abbb5dca71ab98920b0e64",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805304,
+          "addend": 0,
+          "resolved": 8805304
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8805304,
+          "addend": 2,
+          "resolved": 8805306
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946896,
+      "method": "004b7bd0",
+      "body_bytes": 18,
+      "body_sha256": "25307b8bff8a7aeada518a739b562911ee661c28f0319b0c89c4f0a2acb8a149",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6da16a98fe0bb7f6663931a3bab41006986deb84816bb58285298410fd545444",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805336,
+          "addend": 0,
+          "resolved": 8805336
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805336,
+          "addend": 4,
+          "resolved": 8805340
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8805336,
+          "addend": 8,
+          "resolved": 8805344
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4946928,
+      "method": "004b7bf0",
+      "body_bytes": 255,
+      "body_sha256": "1a20b7313f223714d49e78b5b862329ad809ee9a10453718dd671a9dcb4eab48",
+      "padding_bytes": 1,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "d9185d56ebcd405f2d7a9d4a62dc5b759d707df9b3ca9018fb7e88eb03b2cafb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Exception_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Exception_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_C@_0P@EKKE@WM_INITDIALOG?6?$AA@",
+          "target": 8223052,
+          "addend": 0,
+          "resolved": 8223052
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294241492
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "__imp__SetDlgItemTextA@12",
+          "target": 7971776,
+          "addend": 0,
+          "resolved": 7971776
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "__imp__SetFocus@4",
+          "target": 7971724,
+          "addend": 0,
+          "resolved": 7971724
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z",
+          "target": 7565440,
+          "addend": 0,
+          "resolved": 2618420
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?Add_Audio_File_Window@@YIXPAUHWND__@@@Z",
+          "target": 5384992,
+          "addend": 0,
+          "resolved": 437956
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "__imp__EndDialog@8",
+          "target": 7971772,
+          "addend": 0,
+          "resolved": 7971772
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "?Remove_Audio_File_Window@@YIXPAUHWND__@@@Z",
+          "target": 5385088,
+          "addend": 0,
+          "resolved": 438023
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "__imp__EndDialog@8",
+          "target": 7971772,
+          "addend": 0,
+          "resolved": 7971772
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "??_C@_06HNBA@Bummer?$AA@",
+          "target": 8223044,
+          "addend": 0,
+          "resolved": 8223044
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "??_C@_0GK@BECN@Sorry?0?5you?5can?5only?5attempt?5an?5e@",
+          "target": 8222936,
+          "addend": 0,
+          "resolved": 8222936
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "?On_WM_MOVING@@YI_NPAUHWND__@@IJ@Z",
+          "target": 7564672,
+          "addend": 0,
+          "resolved": 2617498
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4946928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4947184,
+      "method": "004b7cf0",
+      "body_bytes": 247,
+      "body_sha256": "2c4ff75a3f1f48601e7e44f0b3310697e9d4eaad80344cbbd6a2974f1105e92c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "e090db3d70456a16a4e3900b1ccad8187799d0c0f868a143ba8d18089bd7d074",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Exception_Dialog@@YIHXZ",
+      "symbol_prefix": "?Exception_Dialog@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 20,
+          "symbol": "?Audio_File_Flush@@YIXXZ",
+          "target": 5385744,
+          "addend": 0,
+          "resolved": 438553
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?ExceptionRecursions@@3HA",
+          "target": 8219384,
+          "addend": 0,
+          "resolved": 8219384
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "__imp__ShowCursor@4",
+          "target": 7971788,
+          "addend": 0,
+          "resolved": 7971788
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Fetch_Resource@@YIPBXPBD0@Z",
+          "target": 4805856,
+          "addend": 0,
+          "resolved": 4294825910
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "??_C@_0BA@JDHI@Resource?5found?6?$AA@",
+          "target": 8223180,
+          "addend": 0,
+          "resolved": 8223180
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294241206
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?ProgramInstance@@3PAUHINSTANCE__@@A",
+          "target": 11690368,
+          "addend": 0,
+          "resolved": 11690368
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?Exception_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 4946928,
+          "addend": 0,
+          "resolved": 4946928
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "__imp__DialogBoxIndirectParamA@20",
+          "target": 7971784,
+          "addend": 0,
+          "resolved": 7971784
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "??_C@_0BE@DPK@Resource?5not?5found?6?$AA@",
+          "target": 8223160,
+          "addend": 0,
+          "resolved": 8223160
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294241155
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?ProgramInstance@@3PAUHINSTANCE__@@A",
+          "target": 11690368,
+          "addend": 0,
+          "resolved": 11690368
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Exception_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 4946928,
+          "addend": 0,
+          "resolved": 4946928
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "__imp__DialogBoxParamA@20",
+          "target": 7971780,
+          "addend": 0,
+          "resolved": 7971780
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "__imp__ExitProcess@4",
+          "target": 7971332,
+          "addend": 0,
+          "resolved": 7971332
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "__imp__AllocConsole@0",
+          "target": 7971336,
+          "addend": 0,
+          "resolved": 7971336
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "__imp__FreeConsole@0",
+          "target": 7971240,
+          "addend": 0,
+          "resolved": 7971240
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "??_C@_0FL@FHBO@Error?5?9?5Recursive?5exception?5dete@",
+          "target": 8223068,
+          "addend": 0,
+          "resolved": 8223068
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "__cprintf",
+          "target": 7956244,
+          "addend": 0,
+          "resolved": 3008842
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 233,
+          "kind": 20,
+          "symbol": "__getch",
+          "target": 7955447,
+          "addend": 0,
+          "resolved": 3008026
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4947184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4947440,
+      "method": "004b7df0",
+      "body_bytes": 2556,
+      "body_sha256": "b98812c4607f6b3d1f96b6572d01475c01e61952c8ca2084b22d8bfa71710842",
+      "padding_bytes": 4,
+      "full_extent_bytes": 2560,
+      "full_extent_sha256": "74ddd5336642d62ebed0009e32722d2e61fa8c37ccdb48dbe217b3e6ad290210",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z",
+      "symbol_prefix": "?Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_C@_0BF@GGFI@Dump?5exception?5info?6?$AA@",
+          "target": 8224288,
+          "addend": 0,
+          "resolved": 8224288
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294241000
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "??_C@_0N@MLEM@IMAGEHLP?4DLL?$AA@",
+          "target": 8224272,
+          "addend": 0,
+          "resolved": 8224272
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "__imp__LoadLibraryA@4",
+          "target": 7971344,
+          "addend": 0,
+          "resolved": 7971344
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "??_C@_0DE@DDMG@Found?5IMAGEHLP?4DLL?5?9?5linking?5to?5@",
+          "target": 8224220,
+          "addend": 0,
+          "resolved": 8224220
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240952
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "__imp__GetProcAddress@8",
+          "target": 7971392,
+          "addend": 0,
+          "resolved": 7971392
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 0,
+          "resolved": 8805408
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "_ImagehelpFunctionNames",
+          "target": 8219392,
+          "addend": 0,
+          "resolved": 8219392
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "??_C@_0BN@MGC@Unable?5to?5load?5IMAGEHLP?4DLL?6?$AA@",
+          "target": 8224188,
+          "addend": 0,
+          "resolved": 8224188
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240903
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 16,
+          "resolved": 8805424
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 8,
+          "resolved": 8805416
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentProcess@0",
+          "target": 7971220,
+          "addend": 0,
+          "resolved": 7971220
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 8,
+          "resolved": 8805416
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@MAEJ@Symbols?5are?5available?$AN?6?6?$AA@",
+          "target": 8224160,
+          "addend": 0,
+          "resolved": 8224160
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240822
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 16,
+          "resolved": 8805424
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "__imp__GetModuleFileNameA@12",
+          "target": 7971224,
+          "addend": 0,
+          "resolved": 7971224
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 12,
+          "resolved": 8805420
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 12,
+          "resolved": 8805420
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "??_C@_0DA@CNMN@SymLoad?5failed?5for?5module?5?$CFs?5wit@",
+          "target": 8224112,
+          "addend": 0,
+          "resolved": 8224112
+        },
+        {
+          "offset": 308,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240712
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "??_C@_0BP@CNEP@Exception?5is?5access?5violation?6?$AA@",
+          "target": 8224080,
+          "addend": 0,
+          "resolved": 8224080
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240665
+        },
+        {
+          "offset": 386,
+          "kind": 6,
+          "symbol": "??_C@_0CI@OLNB@SymInitialize?5failed?5with?5code?5?$CF@",
+          "target": 8224040,
+          "addend": 0,
+          "resolved": 8224040
+        },
+        {
+          "offset": 391,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240629
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "??_C@_0BG@OGEF@Exception?5code?5is?5?$CFd?6?$AA@",
+          "target": 8224016,
+          "addend": 0,
+          "resolved": 8224016
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240613
+        },
+        {
+          "offset": 415,
+          "kind": 6,
+          "symbol": "_?_codes@?1??Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z@4QBIB",
+          "target": 7999048,
+          "addend": 0,
+          "resolved": 7999048
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "_?_codes@?1??Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z@4QBIB",
+          "target": 7999048,
+          "addend": 0,
+          "resolved": 7999048
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "??_C@_0BN@ODMO@Found?5exception?5description?6?$AA@",
+          "target": 8223984,
+          "addend": 0,
+          "resolved": 8223984
+        },
+        {
+          "offset": 459,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240561
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "_?_code_txt@?1??Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z@4PAPBDA",
+          "target": 8219432,
+          "addend": 0,
+          "resolved": 8219432
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 485,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "??_C@_02PIMC@?$AN?6?$AA@",
+          "target": 8223980,
+          "addend": 0,
+          "resolved": 8223980
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 542,
+          "kind": 6,
+          "symbol": "??_C@_02PIMC@?$AN?6?$AA@",
+          "target": 8223980,
+          "addend": 0,
+          "resolved": 8223980
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "??_C@_0BF@CLDO@Access?5address?3?$CF08X?5?$AA@",
+          "target": 8223956,
+          "addend": 0,
+          "resolved": 8223956
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 629,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 648,
+          "kind": 6,
+          "symbol": "??_C@_0BC@MEIE@was?5written?5to?4?$AN?6?$AA@",
+          "target": 8223936,
+          "addend": 0,
+          "resolved": 8223936
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 674,
+          "kind": 6,
+          "symbol": "??_C@_0BC@MEIE@was?5written?5to?4?$AN?6?$AA@",
+          "target": 8223936,
+          "addend": 0,
+          "resolved": 8223936
+        },
+        {
+          "offset": 681,
+          "kind": 6,
+          "symbol": "??_C@_0BB@IKIB@was?5read?5from?4?$AN?6?$AA@",
+          "target": 8223916,
+          "addend": 0,
+          "resolved": 8223916
+        },
+        {
+          "offset": 690,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "??_C@_0BB@IKIB@was?5read?5from?4?$AN?6?$AA@",
+          "target": 8223916,
+          "addend": 0,
+          "resolved": 8223916
+        },
+        {
+          "offset": 712,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 718,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 789,
+          "kind": 6,
+          "symbol": "__imp__IsBadCodePtr@4",
+          "target": 7971156,
+          "addend": 0,
+          "resolved": 7971156
+        },
+        {
+          "offset": 802,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 4,
+          "resolved": 8805412
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentProcess@0",
+          "target": 7971220,
+          "addend": 0,
+          "resolved": 7971220
+        },
+        {
+          "offset": 839,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 4,
+          "resolved": 8805412
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@GKLA@Exception?5occurred?5at?5?$CF08X?5?9?5?$CFs?5@",
+          "target": 8223872,
+          "addend": 0,
+          "resolved": 8223872
+        },
+        {
+          "offset": 885,
+          "kind": 6,
+          "symbol": "??_C@_0BP@OOJK@Failed?5to?5get?5symbol?5for?5EIP?$AN?6?$AA@",
+          "target": 8223840,
+          "addend": 0,
+          "resolved": 8223840
+        },
+        {
+          "offset": 890,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240130
+        },
+        {
+          "offset": 895,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 4,
+          "resolved": 8805412
+        },
+        {
+          "offset": 910,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 916,
+          "kind": 6,
+          "symbol": "??_C@_0CM@NNMB@SymGetSymFromAddr?5failed?5with?5co@",
+          "target": 8223796,
+          "addend": 0,
+          "resolved": 8223796
+        },
+        {
+          "offset": 921,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240099
+        },
+        {
+          "offset": 940,
+          "kind": 6,
+          "symbol": "??_C@_0BN@LCNF@Exception?5occurred?5at?5?$CF08X?$AN?6?$AA@",
+          "target": 8223764,
+          "addend": 0,
+          "resolved": 8223764
+        },
+        {
+          "offset": 953,
+          "kind": 6,
+          "symbol": "??_C@_0CC@OJMJ@context?9?$DOEip?5is?5bad?5code?5pointer@",
+          "target": 8223728,
+          "addend": 0,
+          "resolved": 8223728
+        },
+        {
+          "offset": 958,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294240062
+        },
+        {
+          "offset": 966,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 997,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1003,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1008,
+          "kind": 20,
+          "symbol": "?Version_Name@@YIPBDXZ",
+          "target": 7418320,
+          "addend": 0,
+          "resolved": 2469868
+        },
+        {
+          "offset": 1018,
+          "kind": 6,
+          "symbol": "??_C@_0P@BFKO@?$AN?6Version?5?$CFs?$AN?6?$AA@",
+          "target": 8223712,
+          "addend": 0,
+          "resolved": 8223712
+        },
+        {
+          "offset": 1029,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1060,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1066,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1071,
+          "kind": 6,
+          "symbol": "?VerNum@@3VVersionClass@@A",
+          "target": 10751112,
+          "addend": 0,
+          "resolved": 10751112
+        },
+        {
+          "offset": 1076,
+          "kind": 20,
+          "symbol": "?Version_Name@VersionClass@@QAEPADXZ",
+          "target": 7417552,
+          "addend": 0,
+          "resolved": 2469032
+        },
+        {
+          "offset": 1086,
+          "kind": 6,
+          "symbol": "??_C@_0BG@PPDM@Internal?5Version?5?$CFs?$AN?6?$AA@",
+          "target": 8223688,
+          "addend": 0,
+          "resolved": 8223688
+        },
+        {
+          "offset": 1097,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1128,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1134,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1159,
+          "kind": 20,
+          "symbol": "?Build_Date_String@@YIXPADH@Z",
+          "target": 7567968,
+          "addend": 0,
+          "resolved": 2619365
+        },
+        {
+          "offset": 1184,
+          "kind": 20,
+          "symbol": "?Build_By_String@@YIPADPADH@Z",
+          "target": 7568128,
+          "addend": 0,
+          "resolved": 2619500
+        },
+        {
+          "offset": 1202,
+          "kind": 20,
+          "symbol": "?Build_Number_String@@YIPADPADH@Z",
+          "target": 7568080,
+          "addend": 0,
+          "resolved": 2619434
+        },
+        {
+          "offset": 1212,
+          "kind": 6,
+          "symbol": "??_C@_0BP@LJMN@Release?5Build?3?5?$CFs?5by?5?$CFs?5?9?5?$CFs?$AN?6?$AA@",
+          "target": 8223656,
+          "addend": 0,
+          "resolved": 8223656
+        },
+        {
+          "offset": 1223,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1254,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1260,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1290,
+          "kind": 20,
+          "symbol": "?Get_CPU_Type@@YIXAAHAA_NPADH@Z",
+          "target": 5057056,
+          "addend": 0,
+          "resolved": 108322
+        },
+        {
+          "offset": 1301,
+          "kind": 6,
+          "symbol": "??_C@_03PEHN@Yes?$AA@",
+          "target": 8223652,
+          "addend": 0,
+          "resolved": 8223652
+        },
+        {
+          "offset": 1308,
+          "kind": 6,
+          "symbol": "??_C@_02JOHD@No?$AA@",
+          "target": 8223648,
+          "addend": 0,
+          "resolved": 8223648
+        },
+        {
+          "offset": 1313,
+          "kind": 6,
+          "symbol": "_VendorID",
+          "target": 8394149,
+          "addend": 0,
+          "resolved": 8394149
+        },
+        {
+          "offset": 1319,
+          "kind": 20,
+          "symbol": "?Get_CPU_Type_Name@@YIPBDXZ",
+          "target": 5057408,
+          "addend": 0,
+          "resolved": 108645
+        },
+        {
+          "offset": 1329,
+          "kind": 6,
+          "symbol": "??_C@_0BN@BMBN@CPU?5?$CFs?0?5MMX?5?$CFs?0?5Vendor?3?5?$CFs?$AN?6?$AA@",
+          "target": 8223616,
+          "addend": 0,
+          "resolved": 8223616
+        },
+        {
+          "offset": 1340,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1371,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1377,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1382,
+          "kind": 6,
+          "symbol": "??_C@_0N@BNPN@?$AN?6Details?3?$AN?6?$AA@",
+          "target": 8223600,
+          "addend": 0,
+          "resolved": 8223600
+        },
+        {
+          "offset": 1391,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1408,
+          "kind": 6,
+          "symbol": "??_C@_0N@BNPN@?$AN?6Details?3?$AN?6?$AA@",
+          "target": 8223600,
+          "addend": 0,
+          "resolved": 8223600
+        },
+        {
+          "offset": 1413,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1419,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1424,
+          "kind": 6,
+          "symbol": "??_C@_0BC@ICBI@Register?5dump?4?4?4?6?$AA@",
+          "target": 8223580,
+          "addend": 0,
+          "resolved": 8223580
+        },
+        {
+          "offset": 1429,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294239591
+        },
+        {
+          "offset": 1459,
+          "kind": 6,
+          "symbol": "??_C@_0BN@IPKL@Eip?3?$CF08X?7Esp?3?$CF08X?7Ebp?3?$CF08X?$AN?6?$AA@",
+          "target": 8223548,
+          "addend": 0,
+          "resolved": 8223548
+        },
+        {
+          "offset": 1470,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1501,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1507,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1537,
+          "kind": 6,
+          "symbol": "??_C@_0BN@BIDB@Eax?3?$CF08X?7Ebx?3?$CF08X?7Ecx?3?$CF08X?$AN?6?$AA@",
+          "target": 8223516,
+          "addend": 0,
+          "resolved": 8223516
+        },
+        {
+          "offset": 1548,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1579,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1585,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1615,
+          "kind": 6,
+          "symbol": "??_C@_0BN@GJMN@Edx?3?$CF08X?7Esi?3?$CF08X?7Edi?3?$CF08X?$AN?6?$AA@",
+          "target": 8223484,
+          "addend": 0,
+          "resolved": 8223484
+        },
+        {
+          "offset": 1626,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1657,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1663,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1679,
+          "kind": 6,
+          "symbol": "??_C@_0P@PIIH@EFlags?3?$CF08X?5?$AN?6?$AA@",
+          "target": 8223468,
+          "addend": 0,
+          "resolved": 8223468
+        },
+        {
+          "offset": 1690,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1721,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1727,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1778,
+          "kind": 6,
+          "symbol": "??_C@_0DH@DLPC@CS?3?$CF04x?5?5SS?3?$CF04x?5?5DS?3?$CF04x?5?5ES?3?$CF0@",
+          "target": 8223412,
+          "addend": 0,
+          "resolved": 8223412
+        },
+        {
+          "offset": 1789,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1820,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 1826,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1831,
+          "kind": 6,
+          "symbol": "??_C@_0BD@GBIJ@EIP?5bytes?5dump?4?4?4?6?$AA@",
+          "target": 8223392,
+          "addend": 0,
+          "resolved": 8223392
+        },
+        {
+          "offset": 1836,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294239184
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "??_C@_0BN@CJDF@?$AN?6Bytes?5at?5CS?3EIP?5?$CI?$CF08X?$CJ?5?5?3?5?$AA@",
+          "target": 8223360,
+          "addend": 0,
+          "resolved": 8223360
+        },
+        {
+          "offset": 1881,
+          "kind": 6,
+          "symbol": "__imp__IsBadReadPtr@8",
+          "target": 7971160,
+          "addend": 0,
+          "resolved": 7971160
+        },
+        {
+          "offset": 1894,
+          "kind": 6,
+          "symbol": "??_C@_03HEHB@?$DP?$DP?5?$AA@",
+          "target": 8223356,
+          "addend": 0,
+          "resolved": 8223356
+        },
+        {
+          "offset": 1914,
+          "kind": 6,
+          "symbol": "??_C@_05DLFD@?$CF02X?5?$AA@",
+          "target": 8223348,
+          "addend": 0,
+          "resolved": 8223348
+        },
+        {
+          "offset": 1939,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1960,
+          "kind": 6,
+          "symbol": "??_C@_04FGNA@?$AN?6?$AN?6?$AA@",
+          "target": 8223340,
+          "addend": 0,
+          "resolved": 8223340
+        },
+        {
+          "offset": 1967,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 1972,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2003,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2009,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 2014,
+          "kind": 6,
+          "symbol": "??_C@_0P@PCFD@Stack?5dump?4?4?4?6?$AA@",
+          "target": 8223324,
+          "addend": 0,
+          "resolved": 8223324
+        },
+        {
+          "offset": 2019,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294239001
+        },
+        {
+          "offset": 2027,
+          "kind": 6,
+          "symbol": "??_C@_0DD@BJGG@Stack?5dump?5?$CI?$CK?5indicates?5possible@",
+          "target": 8223272,
+          "addend": 0,
+          "resolved": 8223272
+        },
+        {
+          "offset": 2036,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2053,
+          "kind": 6,
+          "symbol": "??_C@_0DD@BJGG@Stack?5dump?5?$CI?$CK?5indicates?5possible@",
+          "target": 8223272,
+          "addend": 0,
+          "resolved": 8223272
+        },
+        {
+          "offset": 2058,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2064,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 2076,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 2093,
+          "kind": 6,
+          "symbol": "__imp__IsBadReadPtr@8",
+          "target": 7971160,
+          "addend": 0,
+          "resolved": 7971160
+        },
+        {
+          "offset": 2107,
+          "kind": 6,
+          "symbol": "??_C@_06OFEH@?$CF08X?3?5?$AA@",
+          "target": 8223264,
+          "addend": 0,
+          "resolved": 8223264
+        },
+        {
+          "offset": 2122,
+          "kind": 6,
+          "symbol": "??_C@_0L@LIP@?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$DP?$AN?6?$AA@",
+          "target": 8223252,
+          "addend": 0,
+          "resolved": 8223252
+        },
+        {
+          "offset": 2137,
+          "kind": 6,
+          "symbol": "__imp__IsBadCodePtr@4",
+          "target": 7971156,
+          "addend": 0,
+          "resolved": 7971156
+        },
+        {
+          "offset": 2154,
+          "kind": 6,
+          "symbol": "??_C@_0M@LHM@?$CF08X?3?5?$CF08X?5?$AA@",
+          "target": 8223240,
+          "addend": 0,
+          "resolved": 8223240
+        },
+        {
+          "offset": 2169,
+          "kind": 6,
+          "symbol": "??_C@_0L@KNHL@DATA_PTR?$AN?6?$AA@",
+          "target": 8223228,
+          "addend": 0,
+          "resolved": 8223228
+        },
+        {
+          "offset": 2184,
+          "kind": 6,
+          "symbol": "??_C@_0L@JMHI@?$CF08X?3?5?$CF08X?$AA@",
+          "target": 8223216,
+          "addend": 0,
+          "resolved": 8223216
+        },
+        {
+          "offset": 2207,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 4,
+          "resolved": 8805412
+        },
+        {
+          "offset": 2275,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentProcess@0",
+          "target": 7971220,
+          "addend": 0,
+          "resolved": 7971220
+        },
+        {
+          "offset": 2282,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 4,
+          "resolved": 8805412
+        },
+        {
+          "offset": 2311,
+          "kind": 6,
+          "symbol": "??_C@_0N@IMBF@?5?9?5?$CFs?5?$CL?5?$CF08X?$AA@",
+          "target": 8223200,
+          "addend": 0,
+          "resolved": 8223200
+        },
+        {
+          "offset": 2341,
+          "kind": 6,
+          "symbol": "??_C@_02IGCE@?5?$CK?$AA@",
+          "target": 8223196,
+          "addend": 0,
+          "resolved": 8223196
+        },
+        {
+          "offset": 2353,
+          "kind": 6,
+          "symbol": "??_C@_02PIMC@?$AN?6?$AA@",
+          "target": 8223980,
+          "addend": 0,
+          "resolved": 8223980
+        },
+        {
+          "offset": 2361,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2388,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 2398,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2408,
+          "kind": 6,
+          "symbol": "__imp__lstrcatA@8",
+          "target": 7971120,
+          "addend": 0,
+          "resolved": 7971120
+        },
+        {
+          "offset": 2439,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 0,
+          "resolved": 8805408
+        },
+        {
+          "offset": 2449,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentProcess@0",
+          "target": 7971220,
+          "addend": 0,
+          "resolved": 7971220
+        },
+        {
+          "offset": 2456,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 0,
+          "resolved": 8805408
+        },
+        {
+          "offset": 2469,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 20,
+          "resolved": 8805428
+        },
+        {
+          "offset": 2481,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentProcess@0",
+          "target": 7971220,
+          "addend": 0,
+          "resolved": 7971220
+        },
+        {
+          "offset": 2488,
+          "kind": 6,
+          "symbol": "?ImageHelp@@3UtImageHelpStruct@@A",
+          "target": 8805408,
+          "addend": 20,
+          "resolved": 8805428
+        },
+        {
+          "offset": 2503,
+          "kind": 6,
+          "symbol": "__imp__FreeLibrary@4",
+          "target": 7971348,
+          "addend": 0,
+          "resolved": 7971348
+        },
+        {
+          "offset": 2508,
+          "kind": 6,
+          "symbol": "??_C@_04FGNA@?$AN?6?$AN?6?$AA@",
+          "target": 8223340,
+          "addend": 0,
+          "resolved": 8223340
+        },
+        {
+          "offset": 2517,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 2534,
+          "kind": 6,
+          "symbol": "??_C@_04FGNA@?$AN?6?$AN?6?$AA@",
+          "target": 8223340,
+          "addend": 0,
+          "resolved": 8223340
+        },
+        {
+          "offset": 2539,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4947440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4950000,
+      "method": "004b87f0",
+      "body_bytes": 357,
+      "body_sha256": "1393cf39c7c8d214559ff22a02e18f4a56e037ed3e6514f9659126fd02f0a5ca",
+      "padding_bytes": 11,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "89d5c65b424ebf7502e563cfb2daf8c5949a6e51516a6e9465047f92614ad064",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z",
+      "symbol_prefix": "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_C@_0M@CHFK@Exception?$CB?6?$AA@",
+          "target": 8224416,
+          "addend": 0,
+          "resolved": 8224416
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294238450
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Audio_File_Flush@@YIXXZ",
+          "target": 5385744,
+          "addend": 0,
+          "resolved": 435722
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?ExceptionRecursions@@3HA",
+          "target": 8219384,
+          "addend": 0,
+          "resolved": 8219384
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?ExceptionRecursions@@3HA",
+          "target": 8219384,
+          "addend": 0,
+          "resolved": 8219384
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "?Dump_Exception_Info@@YIXPAU_EXCEPTION_POINTERS@@@Z",
+          "target": 4947440,
+          "addend": 0,
+          "resolved": 4294964694
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_C@_0L@MMIA@except?4txt?$AA@",
+          "target": 8224404,
+          "addend": 0,
+          "resolved": 8224404
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "__imp__CreateFileA@28",
+          "target": 7971248,
+          "addend": 0,
+          "resolved": 7971248
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "__imp__lstrlenA@4",
+          "target": 7971228,
+          "addend": 0,
+          "resolved": 7971228
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "_ExceptionText",
+          "target": 8739752,
+          "addend": 0,
+          "resolved": 8739752
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "__imp__WriteFile@20",
+          "target": 7971116,
+          "addend": 0,
+          "resolved": 7971116
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "?WinVersion@@3VWindowsVersionInfo@@A",
+          "target": 8625088,
+          "addend": 140,
+          "resolved": 8625228
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentThreadId@0",
+          "target": 7971268,
+          "addend": 0,
+          "resolved": 7971268
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?MainThread@@3PAXA",
+          "target": 11689848,
+          "addend": 0,
+          "resolved": 11689848
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "??_C@_0EI@FBEP@Can?8t?5bring?5up?5exception?5dialog?5@",
+          "target": 8224332,
+          "addend": 0,
+          "resolved": 8224332
+        },
+        {
+          "offset": 260,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294238200
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "??_C@_0BE@KMPF@Exception_Dialog?$CI?$CJ?6?$AA@",
+          "target": 8224312,
+          "addend": 0,
+          "resolved": 8224312
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294238183
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?Exception_Dialog@@YIHXZ",
+          "target": 4947184,
+          "addend": 0,
+          "resolved": 4294964191
+        },
+        {
+          "offset": 301,
+          "kind": 6,
+          "symbol": "?ExceptionRecursions@@3HA",
+          "target": 8219384,
+          "addend": 0,
+          "resolved": 8219384
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?UnusedEHBool@@3_NA",
+          "target": 8219388,
+          "addend": 0,
+          "resolved": 8219388
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "?ExceptionRecursions@@3HA",
+          "target": 8219384,
+          "addend": 0,
+          "resolved": 8219384
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?g_TopWindow@@3PAUHWND__@@A",
+          "target": 11689428,
+          "addend": 0,
+          "resolved": 11689428
+        },
+        {
+          "offset": 337,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 1338779
+        }
+      ],
+      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4950000,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

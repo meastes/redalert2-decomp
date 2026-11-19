@@ -10,7 +10,15 @@
 * "native": every changed path is native-only (native/, native tests, docs): native configure,
   compile and ctest only. It takes neither the full-build lock nor the whole-file gate; it rests
   on the last exact whole-file receipt for an ancestor of HEAD, which the native gate records.
+* "rebuild": every changed path is the rebuild tree's (rebuild/) or documentation: the rebuild
+  gate only (catalog, structure gate, the rebuild's whole-file build; private/tools/
+  land_rebuild_lane.sh), neither main's whole-file exact gate nor native ctest (the native tree
+  is generated from src/, which the rebuild never edits).
 * "none": documentation only.
+
+Shared tools (SHARED_PREFIXES: the canonical tools both trees run, and the toolchain pins) also
+need the rebuild gate: a change touching them runs both trees' gates ("rebuild_gate": true
+beside scope "exact").
 
 Which native tests (lane P2, 2026-11-16; the ctest labels of native/CMakeLists.txt):
 
@@ -32,10 +40,16 @@ REPOSITORY = Path(__file__).resolve().parents[2]
 # Paths the native tree alone reads; anything else that is not documentation counts as exact.
 NATIVE_PREFIXES = ('native/', 'tests/test_native', 'build-ios.command', 'play-native.command')
 DOC_PREFIXES = ('docs/', 'README', 'THIRD_PARTY.md', 'AGENTS.md', 'CLAUDE.md', '.gitignore')
+# The rebuild tree (AGENTS.md: on main in its own rebuild/ folder, gated separately).
+REBUILD_PREFIXES = ('rebuild/',)
+# Paths both trees' builds read: a change here runs main's gates and the rebuild gate.
+SHARED_PREFIXES = ('tools/original_target/', 'manifests/toolchain.json')
 
 
 def classify(path):
-    """'native', 'doc' or 'exact' for one repository path."""
+    """'native', 'rebuild', 'doc' or 'exact' for one repository path."""
+    if path.startswith(REBUILD_PREFIXES):
+        return 'rebuild'
     if path.startswith(NATIVE_PREFIXES):
         return 'native'
     if path.startswith(DOC_PREFIXES) or (path.endswith('.md') and '/' not in path):
@@ -68,7 +82,7 @@ def areas(paths):
     for p in paths:
         if p in SLOW_SCRIPTS:
             found.add(SLOW_SCRIPTS[p])
-        if classify(p) == 'doc':
+        if classify(p) in ('doc', 'rebuild'):
             continue
         for area, pattern in AREAS.items():
             if re.search(pattern, p, re.I):
@@ -96,7 +110,14 @@ def scope(paths):
         return 'exact'
     if 'native' in kinds:
         return 'native'
+    if 'rebuild' in kinds:
+        return 'rebuild'
     return 'none'
+
+
+def rebuild_gate(paths):
+    """Whether the change needs the rebuild gate: it touches rebuild/ or a shared tool."""
+    return any(p.startswith(REBUILD_PREFIXES + SHARED_PREFIXES) for p in paths)
 
 
 def changed_paths(base, repository=REPOSITORY):
@@ -138,7 +159,8 @@ def main():
     parser.add_argument('--tests', action='store_true', help='also print the native test tier and areas')
     args = parser.parse_args()
     paths = changed_paths(args.base)
-    out = dict(scope=scope(paths), paths=len(paths), exact_paths=[p for p in paths if classify(p) == 'exact'][:20])
+    out = dict(scope=scope(paths), rebuild_gate=rebuild_gate(paths), paths=len(paths),
+               exact_paths=[p for p in paths if classify(p) == 'exact'][:20])
     if args.tests:
         import native_gate
         chosen, touched, reason = tier(paths, 'auto', native_gate.read_history())

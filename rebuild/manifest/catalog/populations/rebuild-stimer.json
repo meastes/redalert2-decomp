@@ -1,0 +1,89 @@
+{
+  "id": "rebuild-stimer",
+  "population": {
+    "id": "rebuild-stimer",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "418424bf4c9c61e7a0474b0b5bfc63037e2f8e4d51e1fa25723ec51981297c38",
+    "historical_acceptance_sha256": "991a8f61ec140888a45039a31e53480ec9ea0622c408107f57f1f059803530e2"
+  },
+  "references": {
+    "__imp__timeGetTime@0": 7972132,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "??BSystemTimerClass@@QBEHXZ": 6923328
+  },
+  "regions": [
+    {
+      "entry": 6923312,
+      "method": "0069a430",
+      "body_bytes": 10,
+      "body_sha256": "eacc0f4e7d36978a9265ed6fc84c33e68a68d45d5df8de509e4ce19f1cba7081",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d9d6a165eb312b216473290d8e158ca15b2eea23c0c69e3eeae00446f8a27a4",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??RSystemTimerClass@@QBEHXZ",
+      "symbol_prefix": "??RSystemTimerClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        }
+      ],
+      "source_sha256": "c5c7b6c78c96b31a62dacf8e507df321065eab671740646930dc7caccba65b73",
+      "source": "rebuild/src/stimer.cpp",
+      "population": "rebuild-stimer",
+      "source_order": 6923312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6923328,
+      "method": "0069a440",
+      "body_bytes": 10,
+      "body_sha256": "eacc0f4e7d36978a9265ed6fc84c33e68a68d45d5df8de509e4ce19f1cba7081",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d9d6a165eb312b216473290d8e158ca15b2eea23c0c69e3eeae00446f8a27a4",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??BSystemTimerClass@@QBEHXZ",
+      "symbol_prefix": "??BSystemTimerClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        }
+      ],
+      "source_sha256": "c5c7b6c78c96b31a62dacf8e507df321065eab671740646930dc7caccba65b73",
+      "source": "rebuild/src/stimer.cpp",
+      "population": "rebuild-stimer",
+      "source_order": 6923328,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,0 +1,1280 @@
+{
+  "id": "rebuild--mixfile",
+  "population": {
+    "id": "rebuild--mixfile",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "6d59def5a89205cc3211d5b9da7c74a35a3129c095942e899696b373e94df68a",
+    "historical_acceptance_sha256": "ffdc5c3534b0bebf1fd2f3bb5ed67d6edbfa6ed30dc8d1b14187711c87fc3f1d"
+  },
+  "references": {
+    "_$E2": 4248144,
+    "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A": 8614992,
+    "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@": 7973428,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVMixFileClass@@@@6B@": 7973460,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E7": 4248272,
+    "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A": 8615040,
+    "_$E12": 4248400,
+    "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A": 8615016,
+    "_$E17": 4248528,
+    "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A": 8615072,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E4": 4248080,
+    "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249376,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z": 4249296,
+    "_$E9": 4248208,
+    "_$E14": 4248336,
+    "_$E19": 4248464,
+    "?Clear@?$DynamicVectorClass@PAVMixFileClass@@@@UAEXXZ": 4248592,
+    "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z": 4248640,
+    "?GetItem@?$VectorClass@PAVMixFileClass@@@@UBEPAVMixFileClass@@H@Z": 4248672,
+    "??8?$VectorClass@PAVMixFileClass@@@@UBE_NABV0@@Z": 4248688,
+    "?Resize@?$VectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z": 4248752,
+    "?Clear@?$VectorClass@PAVMixFileClass@@@@UAEXXZ": 4248928,
+    "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z": 4248976,
+    "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z": 4249040,
+    "?Resize@?$DynamicVectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z": 4249072,
+    "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z": 4249248
+  },
+  "regions": [
+    {
+      "entry": 4248080,
+      "method": "0040d210",
+      "body_bytes": 61,
+      "body_sha256": "68e1e8b2eab03f7d1e71391063adf522e2adfeedccd96b76284ec16b430dc87e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "de73a3168a13fa63592869a27513a42d309cf916a042c43324503a9f0548fc6c",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E2",
+          "target": 4248144,
+          "addend": 0,
+          "resolved": 4248144
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 4,
+          "resolved": 8614996
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 8,
+          "resolved": 8615000
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 12,
+          "resolved": 8615004
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 13,
+          "resolved": 8615005
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 0,
+          "resolved": 8614992
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973428,
+          "addend": 0,
+          "resolved": 7973428
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 20,
+          "resolved": 8615012
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 16,
+          "resolved": 8615008
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3626815
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248144,
+      "method": "0040d250",
+      "body_bytes": 59,
+      "body_sha256": "06181d9b834e187b77658db843614cd4a5df5a152c52b3bd4f13728f90192cc5",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0fb569f3555c76948cd9dde8abcbe59604655f7f257beef4a4a03f7329002ad3",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 4,
+          "resolved": 8614996
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 0,
+          "resolved": 8614992
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 13,
+          "resolved": 8615005
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3623623
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 4,
+          "resolved": 8614996
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 13,
+          "resolved": 8615005
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?ExpandMix@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8614992,
+          "addend": 8,
+          "resolved": 8615000
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248144,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248208,
+      "method": "0040d290",
+      "body_bytes": 61,
+      "body_sha256": "b177df60224852b6182e64a0fa8501db58ef6448c83e76889f62ed27f3e1b27f",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "622c552d214b33fa257f7e2948ac19a188955923afeb76c4ee5d13279b04f2dd",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E9",
+      "symbol_prefix": "_$E9",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E7",
+          "target": 4248272,
+          "addend": 0,
+          "resolved": 4248272
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 4,
+          "resolved": 8615044
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 8,
+          "resolved": 8615048
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 12,
+          "resolved": 8615052
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 13,
+          "resolved": 8615053
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 0,
+          "resolved": 8615040
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973428,
+          "addend": 0,
+          "resolved": 7973428
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 20,
+          "resolved": 8615060
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 16,
+          "resolved": 8615056
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3626687
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248272,
+      "method": "0040d2d0",
+      "body_bytes": 59,
+      "body_sha256": "9488c317698bdec8a38efc905acf8361e66371fd894acc5151a400413bd8df83",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "bfbb8070e52a1cd967961d4b2154fb5160d50b0ed2c8b8a283e7ff33c90d14fb",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E7",
+      "symbol_prefix": "_$E7",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 4,
+          "resolved": 8615044
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 0,
+          "resolved": 8615040
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 13,
+          "resolved": 8615053
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3623495
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 4,
+          "resolved": 8615044
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 13,
+          "resolved": 8615053
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?ScenarioMixFiles@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615040,
+          "addend": 8,
+          "resolved": 8615048
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248272,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248336,
+      "method": "0040d310",
+      "body_bytes": 61,
+      "body_sha256": "8f30c914107e99b4e269f58c69c2198bb45857c04e2f2a4da05f8a9ac2b9b9a8",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ebd6da034dcd03b3f402e41055fb9515fde011171dc1d828c4f5225ba1a158a8",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E12",
+          "target": 4248400,
+          "addend": 0,
+          "resolved": 4248400
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 4,
+          "resolved": 8615020
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 8,
+          "resolved": 8615024
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 12,
+          "resolved": 8615028
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 13,
+          "resolved": 8615029
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 0,
+          "resolved": 8615016
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973428,
+          "addend": 0,
+          "resolved": 7973428
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 20,
+          "resolved": 8615036
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 16,
+          "resolved": 8615032
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3626559
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248400,
+      "method": "0040d350",
+      "body_bytes": 59,
+      "body_sha256": "a0ea7e951a9c216d5f87c7b53b6cbe1172e05b920652921ae7b38edcd9b01196",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a0ba252fed77fe0cdfb62b65eef9f8e2d6adf3c97cef130e6654d2ab891c17e9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E12",
+      "symbol_prefix": "_$E12",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 4,
+          "resolved": 8615020
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 0,
+          "resolved": 8615016
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 13,
+          "resolved": 8615029
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3623367
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 4,
+          "resolved": 8615020
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 13,
+          "resolved": 8615029
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?MapsMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615016,
+          "addend": 8,
+          "resolved": 8615024
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248400,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248464,
+      "method": "0040d390",
+      "body_bytes": 61,
+      "body_sha256": "7a0fc1abf56f6e6109b5e2bfcc92085af4327078a8172fddb3a0f1a5b1e02f12",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f376ae4e28e7de43ca9e23a74338c93d67501fd52fbb6142b46320b9bff32dde",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E19",
+      "symbol_prefix": "_$E19",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E17",
+          "target": 4248528,
+          "addend": 0,
+          "resolved": 4248528
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 4,
+          "resolved": 8615076
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 8,
+          "resolved": 8615080
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 12,
+          "resolved": 8615084
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 13,
+          "resolved": 8615085
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 0,
+          "resolved": 8615072
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973428,
+          "addend": 0,
+          "resolved": 7973428
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 20,
+          "resolved": 8615092
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 16,
+          "resolved": 8615088
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3626431
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248528,
+      "method": "0040d3d0",
+      "body_bytes": 59,
+      "body_sha256": "9159ffff495b1ed04b6c0c60ea53c7d830e0edc1d6c261092e7dec52c3734d19",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5ab0eaed5a45aba4bc8efa15de884c4228e047d3fdb168067f29340091ecaa5e",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 4,
+          "resolved": 8615076
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 0,
+          "resolved": 8615072
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 13,
+          "resolved": 8615085
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3623239
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 4,
+          "resolved": 8615076
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 13,
+          "resolved": 8615085
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?MoviesMixLocal@@3V?$DynamicVectorClass@PAVMixFileClass@@@@A",
+          "target": 8615072,
+          "addend": 8,
+          "resolved": 8615080
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4248592,
+      "method": "0040d410",
+      "body_bytes": 42,
+      "body_sha256": "0c5ca8a6bb553eb62ee29232e2ad595a7e8f8511cca8c29f274058eeea81135d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e69fc9431dc080ebb2e27f5c225b20a50c637acd8a1b4c0a6c4d0922ea5ee164",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVMixFileClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVMixFileClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3623184
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248640,
+      "method": "0040d440",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248672,
+      "method": "0040d460",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVMixFileClass@@@@UBEPAVMixFileClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVMixFileClass@@@@UBEPAVMixFileClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248688,
+      "method": "0040d470",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVMixFileClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVMixFileClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248752,
+      "method": "0040d4b0",
+      "body_bytes": 174,
+      "body_sha256": "bac7222430d12ffa8e131c7b24386a638f1e8373f961f2f409a361f71df91031",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "d9c49ee2bfe9f98391e2e6e6f5d261881c941e7effc862cf982cd276e42eb144",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3623740
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622928
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248928,
+      "method": "0040d560",
+      "body_bytes": 39,
+      "body_sha256": "3fa72e7c96cb07b5472d3e12f25d61fe47bddeca9d8e4947aa73332d3f08a3df",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2d92980991cb2b21b959f93e5aaac3ae9fe2cb02816787c88633025b5d135dee",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVMixFileClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVMixFileClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622851
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4248976,
+      "method": "0040d590",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4248976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249040,
+      "method": "0040d5d0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVMixFileClass@@@@UAEHPBQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4249040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249072,
+      "method": "0040d5f0",
+      "body_bytes": 176,
+      "body_sha256": "03ff5c3dc90c9e1c5f121130c3c502698c25601da629d051500c87644901890d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "03ff5c3dc90c9e1c5f121130c3c502698c25601da629d051500c87644901890d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVMixFileClass@@@@UAE_NHPBQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3623424
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622621
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4249072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249248,
+      "method": "0040d6a0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVMixFileClass@@@@UAEHABQAVMixFileClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4249248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249296,
+      "method": "40d6d0",
+      "body_bytes": 73,
+      "body_sha256": "b7ab91a2d671c63c58e94ad147be3c8c4d0535e572aa9db4a5f4ac777ff27fd3",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "dc98604b0454e12fa57222f06eefd34599031d21df73718dabe77836b2baf03b",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622478
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622443
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4249296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3748"
+    },
+    {
+      "entry": 4249376,
+      "method": "40d720",
+      "body_bytes": 73,
+      "body_sha256": "726d240078ef00cd9726248e6acc6e746cc45e80a656cefd10889a1ab823ea9c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f991faba0037c07752490cee0da072a3cb31e0eebe0422054ce915e95f9229e3",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVMixFileClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVMixFileClass@@@@6B@",
+          "target": 7973460,
+          "addend": 0,
+          "resolved": 7973460
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622398
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3622363
+        }
+      ],
+      "source_sha256": "dd91842a319bee0c49a05932e594a3a4edf4736e22ba609c4afdda5a09910d63",
+      "source": "rebuild/src/_mixfile.cpp",
+      "population": "rebuild--mixfile",
+      "source_order": 4249376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

@@ -1,0 +1,374 @@
+{
+  "id": "rebuild-nullconn",
+  "population": {
+    "id": "rebuild-nullconn",
+    "inventory_sha256": "9beab8513dd053e35fe7193292a02a850206abd6c1f9266ee507ebd8c66f6218",
+    "gaps_sha256": "f3fc4f5809587122462251532e8b7751a3da499179cedf49c6020ab784b43ef6",
+    "historical_population_sha256": "e4ea3ea8aa2b56b5d2e00341aaa2eec4aa4b4580b827016391e0904df7eebf1c",
+    "historical_acceptance_sha256": "a90cbcd991182a41f1136d921b561eb751059df748f7b951bcdd121b813ff51e"
+  },
+  "references": {
+    "??0ConnectionClass@@QAE@HHHGIIIH@Z": 4722208,
+    "??_7NullModemConnClass@@6B@": 8025032,
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "??1ConnectionClass@@UAE@XZ": 4722336,
+    "?Init@ConnectionClass@@UAEXXZ": 4722384,
+    "?SerialPort@@3PAVWinModemClass@@A": 11688880,
+    "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z": 7556208,
+    "??0NullModemConnClass@@QAE@HHHG@Z": 6085440,
+    "?Service_Receive_Queue@ConnectionClass@@MAEHXZ": 4724064,
+    "?Service_Send_Queue@ConnectionClass@@MAEHXZ": 4723616,
+    "?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ": 4724048,
+    "?Service@ConnectionClass@@UAEHXZ": 4723568,
+    "?Get_Packet@ConnectionClass@@UAEHPAXPAH@Z": 4723424,
+    "?Receive_Packet@ConnectionClass@@UAEHPAXH@Z": 4722688,
+    "?Send_Packet@ConnectionClass@@UAEHPAXHHH@Z": 4722432,
+    "??_GNullModemConnClass@@UAEPAXI@Z": 6085840,
+    "??_R0?AVConnectionClass@@@8": 8204544,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVNullModemConnClass@@@8": 8287312,
+    "?Init@NullModemConnClass@@UAEXXZ": 6085824,
+    "??1NullModemConnClass@@UAE@XZ": 6085520,
+    "?Init@NullModemConnClass@@QAEXPAX@Z": 6085552,
+    "?Send@NullModemConnClass@@MAEHPADHPAXH_NG@Z": 6085584,
+    "?Compute_CRC@NullModemConnClass@@SIHPADH@Z": 6085760,
+    "?Packet_Overhead_Size@NullModemConnClass@@SIHXZ": 6085808
+  },
+  "regions": [
+    {
+      "entry": 6085440,
+      "method": "005cdb40",
+      "body_bytes": 78,
+      "body_sha256": "c57a60f5c74d44c70d9e878d104121a9c1c88aee5e80371ec4cad7778a35577f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "83f201fe6f5a53cee3a274545033d91cf863999ad2d20525ac1aa341bb48118e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0NullModemConnClass@@QAE@HHHG@Z",
+      "symbol_prefix": "??0NullModemConnClass@@QAE@HHHG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0ConnectionClass@@QAE@HHHGIIIH@Z",
+          "target": 4722208,
+          "addend": 0,
+          "resolved": 4293604023
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "??_7NullModemConnClass@@6B@",
+          "target": 8025032,
+          "addend": 0,
+          "resolved": 8025032
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1787029
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085520,
+      "method": "005cdb90",
+      "body_bytes": 30,
+      "body_sha256": "b23ba0e01e9238031ef59c4d36bbc1dfb8b0902e39fda080adf094a8f7f5435b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1d23733983bb45ac0d940caceeb63f85e4587680392cee246d775f8997b995e7",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1NullModemConnClass@@UAE@XZ",
+      "symbol_prefix": "??1NullModemConnClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7NullModemConnClass@@6B@",
+          "target": 8025032,
+          "addend": 0,
+          "resolved": 8025032
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1786265
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??1ConnectionClass@@UAE@XZ",
+          "target": 4722336,
+          "addend": 0,
+          "resolved": 4293604084
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085552,
+      "method": "005cdbb0",
+      "body_bytes": 19,
+      "body_sha256": "b657b0d2d5d32dbcbd7b9a0762f9bf4be1df8311f855b731d48cd9e205c7cc16",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "719690e1cc99eb264d6e3a75a9c11d5351934c0259dc9ef05995d88d067a8432",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@NullModemConnClass@@QAEXPAX@Z",
+      "symbol_prefix": "?Init@NullModemConnClass@@QAEXPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Init@ConnectionClass@@UAEXXZ",
+          "target": 4722384,
+          "addend": 0,
+          "resolved": 4293604120
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085584,
+      "method": "005cdbd0",
+      "body_bytes": 163,
+      "body_sha256": "d1373c6097c2a2f37f9935db1326bde1aebe0a2281a1345353de79e5a187cacf",
+      "padding_bytes": 13,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "8d5656c1cd04b0cba55d525135e940421b2b3644378749fb2d2e0f48f5aacf88",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Send@NullModemConnClass@@MAEHPADHPAXH_NG@Z",
+      "symbol_prefix": "?Send@NullModemConnClass@@MAEHPADHPAXH_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+          "target": 7556208,
+          "addend": 0,
+          "resolved": 1470473
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085760,
+      "method": "005cdc80",
+      "body_bytes": 37,
+      "body_sha256": "87a20d255080f79714220c6bb1c1267381961eaa828507d363c0afcb6bc77d1f",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e3c37a6624b86060323eb8496283402a4bb16dfcc54c485416792724a675cbec",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@NullModemConnClass@@SIHPADH@Z",
+      "symbol_prefix": "?Compute_CRC@NullModemConnClass@@SIHPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085808,
+      "method": "005cdcb0",
+      "body_bytes": 6,
+      "body_sha256": "0e16a5f4f32347b761b9ac66a92a90037631e1eda4d9cb38b43bc0b44d90d764",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ad5e04667b2ef8ae67a15a9b334092beaf248a2e0302531571220d3e8fb3e5b0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Packet_Overhead_Size@NullModemConnClass@@SIHXZ",
+      "symbol_prefix": "?Packet_Overhead_Size@NullModemConnClass@@SIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085824,
+      "method": "005cdcc0",
+      "body_bytes": 5,
+      "body_sha256": "a6824551eb9e5fdd0b338efd007c6659542761f51560fef16750f0213aeb40bd",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1a3dba32e26ae166b71c36ff13d4090a4e527288fde3eaf68f52081f026329f4",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@NullModemConnClass@@UAEXXZ",
+      "symbol_prefix": "?Init@NullModemConnClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Init@ConnectionClass@@UAEXXZ",
+          "target": 4722384,
+          "addend": 0,
+          "resolved": 4293603851
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085840,
+      "method": "005cdcd0",
+      "body_bytes": 50,
+      "body_sha256": "bc438b85d2483104a1373bba950ef5bd6ab2deea471c1bd126d87abb7fc51d0c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d8a8238184b1fc55f42c377632397d60bf76053e8480711356e6e2be228d55f6",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GNullModemConnClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GNullModemConnClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7NullModemConnClass@@6B@",
+          "target": 8025032,
+          "addend": 0,
+          "resolved": 8025032
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1785945
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??1ConnectionClass@@UAE@XZ",
+          "target": 4722336,
+          "addend": 0,
+          "resolved": 4293603764
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1785922
+        }
+      ],
+      "source_sha256": "5c53861ebde4b09e2599e620b5212cb8f5e0bfe7755f6dc1889665e66dc25711",
+      "source": "rebuild/src/nullconn.cpp",
+      "population": "rebuild-nullconn",
+      "source_order": 6085840,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

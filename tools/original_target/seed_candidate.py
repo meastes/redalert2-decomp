@@ -3582,6 +3582,7 @@ def main():
     parser.add_argument('--force', action='store_true', help='overwrite an existing scratch seed')
     parser.add_argument('--config', type=Path, help='compiler configuration; validates the seed and enables pass5 fallback')
     parser.add_argument('--no-compile-check', action='store_true', help='generate preferred source only, for diagnosing a typed export')
+    parser.add_argument('--even-accepted', action='store_true', help='seed an accepted entry too (rebuild trial: a fresh start from the decompiler output)')
     args = parser.parse_args()
     from inventory import Inventory
     inventory = Inventory()
@@ -3590,7 +3591,7 @@ def main():
     accepted = accepted_sources(catalog_io.load(catalog_io.locate(REPOSITORY), references=False))
     for item in args.entries:
         entry = int(item, 16)
-        if entry in accepted:
+        if entry in accepted and not args.even_accepted:
             print('%08x already accepted: %s' % (entry, accepted[entry])); continue
         path = args.output / ('%08x' % entry) / 'candidate.cpp'
         if path.exists() and not args.force:

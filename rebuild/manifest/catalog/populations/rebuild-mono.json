@@ -1,0 +1,1138 @@
+{
+  "id": "rebuild-mono",
+  "population": {
+    "id": "rebuild-mono",
+    "inventory_sha256": "3f54c0e551b036669c18b4d4a5d9e97c28493eca113b04be1d91fece82ac5cbd",
+    "gaps_sha256": "9ef6f5269597739e9db790831568d18a6c710427f5d7be98f87bb75e668ae6b1",
+    "historical_population_sha256": "105defe37e27be2b8883c72df102ce1344071ef865f7d0ca049d64055765fc4a",
+    "historical_acceptance_sha256": "ce142ba05db6b74fc7dd8724e87c2d6822e6d901e47cbb465217e02b07913eec"
+  },
+  "references": {
+    "_MonoMetrics": 10948256,
+    "?Refresh@MonoClass@@QAEXHHHH@Z": 5892752,
+    "?Enabled@MonoClass@@0_NA": 10948362,
+    "?Current@MonoClass@@2PAV1@A": 10948364,
+    "?Map_Character@MonoClass@@QAEDD@Z": 5892448,
+    "_vsprintf": 7883194,
+    "?Print@MonoClass@@QAEXPBD@Z": 5891792,
+    "_vswprintf": 7879256,
+    "??_C@_02GKFL@?$CFS?$AA@": 8268528,
+    "_sprintf": 7872756,
+    "_MonoTextColor": 10948072,
+    "__imp__SetBkColor@8": 7970924,
+    "_MonoBackColor": 10948096,
+    "__imp__SetTextColor@8": 7970920,
+    "__imp__TextOutA@20": 7970928,
+    "_MonoWindow": 10948368,
+    "__imp__GetDC@4": 7971928,
+    "__imp__SetBkMode@8": 7970940,
+    "_MonoFont": 10948372,
+    "__imp__SelectObject@8": 7970916,
+    "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z": 5892560,
+    "__imp__ReleaseDC@8": 7971960,
+    "??0MonoPoint@@QAE@HH@Z": 5890400,
+    "??0MonoClass@@QAE@H@Z": 5890448,
+    "??1MonoClass@@QAE@XZ": 5890592,
+    "?Get_Handle@MonoClass@@QBEHXZ": 5890608,
+    "?Set_Cursor@MonoClass@@QAEXHH@Z": 5890624,
+    "?Sub_Window@MonoClass@@QAEXHHHH@Z": 5890656,
+    "?Clear@MonoClass@@QAEXXZ": 5890704,
+    "?Is_Changed@MonoClass@@QBE_NXZ": 5890784,
+    "?View@MonoClass@@QAEXXZ": 5890800,
+    "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z": 5890928,
+    "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z": 5890960,
+    "?Scroll@MonoClass@@QAEXH@Z": 5891088,
+    "?Pan@MonoClass@@QAEXH@Z": 5891472,
+    "?Printf@MonoClass@@QAAXPBDZZ": 5892080,
+    "?Printf@MonoClass@@QAAXPBGZZ": 5892160,
+    "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z": 5892256,
+    "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z": 5892320
+  },
+  "regions": [
+    {
+      "entry": 5890400,
+      "method": "0059e160",
+      "body_bytes": 48,
+      "body_sha256": "6adbe61c469046f7c37775fe2c4210168b8fc721e799269657695324fff153c4",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6adbe61c469046f7c37775fe2c4210168b8fc721e799269657695324fff153c4",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MonoPoint@@QAE@HH@Z",
+      "symbol_prefix": "??0MonoPoint@@QAE@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 24,
+          "resolved": 10948280
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 16,
+          "resolved": 10948272
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890448,
+      "method": "0059e190",
+      "body_bytes": 132,
+      "body_sha256": "91b44c00b4cb6cb93c088306cf977f299d6fb3a40554acc5967346f7d604961a",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "f7c0bd7b8f21b1277cf9de6e1136b7e5ef8212d2b19d115c4d49f334b14971d6",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MonoClass@@QAE@H@Z",
+      "symbol_prefix": "??0MonoClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 2181
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890592,
+      "method": "0059e220",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MonoClass@@QAE@XZ",
+      "symbol_prefix": "??1MonoClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890592,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890608,
+      "method": "0059e230",
+      "body_bytes": 7,
+      "body_sha256": "0ea5432c73fda96fb43373dc70938ab0f5d757dcddc34ca69c9102c34e0c083c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e1e0115de33db2594bb044aced52eeb609be7189cf26e9dac360370bb529cc2a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Handle@MonoClass@@QBEHXZ",
+      "symbol_prefix": "?Get_Handle@MonoClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890624,
+      "method": "0059e240",
+      "body_bytes": 23,
+      "body_sha256": "1035f9fdb1fbad7fd68e5ea66a7b28e35c8362e0ca85916ca1d307b51e408073",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2fb2a42afd8f6f627d42d6643005a9532d29bde7d8962a98138bfd6e712b86d5",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Cursor@MonoClass@@QAEXHH@Z",
+      "symbol_prefix": "?Set_Cursor@MonoClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890656,
+      "method": "0059e260",
+      "body_bytes": 43,
+      "body_sha256": "2f71ed988245d2a8cac8739449a42342ec976446b6ea4d348450f20dd40cb5ec",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0ae83aedb38416826f3c64524102a427ee891526086c0ca2be340a0c3c2c446d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Sub_Window@MonoClass@@QAEXHHHH@Z",
+      "symbol_prefix": "?Sub_Window@MonoClass@@QAEXHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890704,
+      "method": "0059e290",
+      "body_bytes": 72,
+      "body_sha256": "7e91c3752d0c6fb5ae46a39bd978d0ac21833723a23ee3e972a78c840d32360b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "78ffdaa68399f37c24ca1db1fc9fde220d6f1d1fbda14ec5dde3aeb2c7a16f52",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@MonoClass@@QAEXXZ",
+      "symbol_prefix": "?Clear@MonoClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1980
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890784,
+      "method": "0059e2e0",
+      "body_bytes": 7,
+      "body_sha256": "63bcc71db7dafae0e3821292d5b3991c0f4b765708cde99b74ae64d3088c9d45",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8708dcdca595159bd55216c5061cc8f5a2fe581869be8b38d12460940d00f48c",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Changed@MonoClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Changed@MonoClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890784,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 5890800,
+      "method": "0059e2f0",
+      "body_bytes": 114,
+      "body_sha256": "1d9758bd54836085fa113b207ba15b26a1ec1fe19380c96f8c87feeb0a53de7c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "c7ee9993ad68fd3ba868801fc6509b7f396d27762d2a79533cc359c8f3246daf",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?View@MonoClass@@QAEXXZ",
+      "symbol_prefix": "?View@MonoClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1857
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1840
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5890928,
+      "method": "0059e370",
+      "body_bytes": 22,
+      "body_sha256": "fca6344243c6a9dbf4f6af441ca2f879ca168c48ad804d52dcadac145102b975",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "62e088469dbf86bfed1f2a6a15b9bbe547c59eaa67bbe1c59f5be969b3cc3ebf",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Set_Default_Attribute@MonoClass@@QAEXW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-148"
+    },
+    {
+      "entry": 5890960,
+      "method": "0059e390",
+      "body_bytes": 121,
+      "body_sha256": "b6f985ffb29afcce90624b6d3782963ee3fa884ce4843e85d5645958d4f32a94",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e208b2fdf90dc74bcfcf505a3f3dc6629831b76bfa982c98c6218be525f74f00",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Fill_Attrib@MonoClass@@QAEXHHHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 111,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1677
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5890960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891088,
+      "method": "0059e410",
+      "body_bytes": 378,
+      "body_sha256": "d381ca2b8cf529a6e0bc5e4c3d26dd7727080243f6cd5c9475707c80be827c81",
+      "padding_bytes": 6,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "15621bc7fb3eb0295402ea9eec34eb6c5eff3426bd6bcc552f41c3db53e7e05d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Scroll@MonoClass@@QAEXH@Z",
+      "symbol_prefix": "?Scroll@MonoClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 1296
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891472,
+      "method": "0059e590",
+      "body_bytes": 307,
+      "body_sha256": "a9484e815c5bf7b82da22d1601e714f665e4c138af4b20c5c51dc78f11140c60",
+      "padding_bytes": 13,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "b5cedd7f7429bf84249611afade2b05d2c3ed7629a56c205d7c72dab0629cc18",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pan@MonoClass@@QAEXH@Z",
+      "symbol_prefix": "?Pan@MonoClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 981
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5891792,
+      "method": "0059e6d0",
+      "body_bytes": 287,
+      "body_sha256": "3659a29354a77a1dabe1bbdf28de0e9953955ce633af7884924361fd8caf1084",
+      "padding_bytes": 1,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "ca02b52fa533b0bfc690a1ae7023a6737bff6cb328eaa02048e6e0696643d270",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+      "symbol_prefix": "?Print@MonoClass@@QAEXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?Map_Character@MonoClass@@QAEDD@Z",
+          "target": 5892448,
+          "addend": 0,
+          "resolved": 481
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+          "target": 5892752,
+          "addend": 0,
+          "resolved": 683
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5891792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892080,
+      "method": "0059e7f0",
+      "body_bytes": 76,
+      "body_sha256": "6e4d89b4325039daebbb49acc2a26439a1f14c6360dc47b7ab6bb44c7885a9e8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "19465f5c3254f5e50d07e8dd008a8e11562f5c4d35ac047497b96941bd9ec9f7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Printf@MonoClass@@QAAXPBDZZ",
+      "symbol_prefix": "?Printf@MonoClass@@QAAXPBDZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "_vsprintf",
+          "target": 7883194,
+          "addend": 0,
+          "resolved": 1991073
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966939
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892160,
+      "method": "0059e840",
+      "body_bytes": 94,
+      "body_sha256": "fbc116e5feb91a200175233c468e65fb2e0420cc755821437d22567182b1babd",
+      "padding_bytes": 2,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "67138f3a3b363d3165434fd38f93761a86807157ff792d6749680b767f771199",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Printf@MonoClass@@QAAXPBGZZ",
+      "symbol_prefix": "?Printf@MonoClass@@QAAXPBGZZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_vswprintf",
+          "target": 7879256,
+          "addend": 0,
+          "resolved": 1987052
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_C@_02GKFL@?$CFS?$AA@",
+          "target": 8268528,
+          "addend": 0,
+          "resolved": 8268528
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1980529
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966841
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892256,
+      "method": "0059e8a0",
+      "body_bytes": 61,
+      "body_sha256": "2de2ffb3ba639c8cc35b996905c13d3008f0e8311c691a95f28dd8d14e9cf128",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7a970c721d70c2c1d0d3bc8e9150f4eac220a0c52813495d682014efc662229e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Text_Print@MonoClass@@QAEXPBDHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966774
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892320,
+      "method": "0059e8e0",
+      "body_bytes": 114,
+      "body_sha256": "118178ab31058b5213af4ebb94584702b280766c3e87c1e23092d9f332ec2375",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "cb716f2e3c276e54350285921b22b542b11e15ced8adc7496a41b7d989f87cc9",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z",
+      "symbol_prefix": "?Text_Print@MonoClass@@QAEXPBGHHW4MonoAttribute@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_C@_02GKFL@?$CFS?$AA@",
+          "target": 8268528,
+          "addend": 0,
+          "resolved": 8268528
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 1980347
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Print@MonoClass@@QAEXPBD@Z",
+          "target": 5891792,
+          "addend": 0,
+          "resolved": 4294966664
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892320,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-148"
+    },
+    {
+      "entry": 5892448,
+      "method": "0059e960",
+      "body_bytes": 101,
+      "body_sha256": "dcb43e89366b33e61a1ad031bfbbd41d65c9e83e89e85d8aee6b24841ca9e640",
+      "padding_bytes": 11,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "37f67707efe1fea8781bdba4444f248424ea8804d2a774a974f7eb53d08af232",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Map_Character@MonoClass@@QAEDD@Z",
+      "symbol_prefix": "?Map_Character@MonoClass@@QAEDD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
+      "entry": 5892560,
+      "method": "0059e9d0",
+      "body_bytes": 187,
+      "body_sha256": "7fcfd5f723226d6061b3b1edf0c4c70b035134b97b82648627f35a7af2c05ba7",
+      "padding_bytes": 5,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "464734c57a44fd294c5ba38cd08cb10ec085c6a099dc190ba6aaf3e3703ad3ac",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+      "symbol_prefix": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__imp__SetTextColor@8",
+          "target": 7970920,
+          "addend": 0,
+          "resolved": 7970920
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 0,
+          "resolved": 10948256
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 24,
+          "resolved": 10948280
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_MonoMetrics",
+          "target": 10948256,
+          "addend": 16,
+          "resolved": 10948272
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "__imp__TextOutA@20",
+          "target": 7970928,
+          "addend": 0,
+          "resolved": 7970928
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5892752,
+      "method": "0059ea90",
+      "body_bytes": 208,
+      "body_sha256": "7d64affa26612a5bbd26f048b0b59f0ef96308238306cce74a03763e9ae1be29",
+      "padding_bytes": 0,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "7d64affa26612a5bbd26f048b0b59f0ef96308238306cce74a03763e9ae1be29",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Refresh@MonoClass@@QAEXHHHH@Z",
+      "symbol_prefix": "?Refresh@MonoClass@@QAEXHHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Enabled@MonoClass@@0_NA",
+          "target": 10948362,
+          "addend": 0,
+          "resolved": 10948362
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Current@MonoClass@@2PAV1@A",
+          "target": 10948364,
+          "addend": 0,
+          "resolved": 10948364
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "__imp__GetDC@4",
+          "target": 7971928,
+          "addend": 0,
+          "resolved": 7971928
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "__imp__SetBkMode@8",
+          "target": 7970940,
+          "addend": 0,
+          "resolved": 7970940
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_MonoBackColor",
+          "target": 10948096,
+          "addend": 0,
+          "resolved": 10948096
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "__imp__SetBkColor@8",
+          "target": 7970924,
+          "addend": 0,
+          "resolved": 7970924
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "_MonoTextColor",
+          "target": 10948072,
+          "addend": 0,
+          "resolved": 10948072
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "__imp__SetTextColor@8",
+          "target": 7970920,
+          "addend": 0,
+          "resolved": 7970920
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "_MonoFont",
+          "target": 10948372,
+          "addend": 0,
+          "resolved": 10948372
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "__imp__SelectObject@8",
+          "target": 7970916,
+          "addend": 0,
+          "resolved": 7970916
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "?Draw_Character@MonoClass@@QAEXPAUHDC__@@HH@Z",
+          "target": 5892560,
+          "addend": 0,
+          "resolved": 4294966950
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "__imp__SelectObject@8",
+          "target": 7970916,
+          "addend": 0,
+          "resolved": 7970916
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "_MonoWindow",
+          "target": 10948368,
+          "addend": 0,
+          "resolved": 10948368
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "__imp__ReleaseDC@8",
+          "target": 7971960,
+          "addend": 0,
+          "resolved": 7971960
+        }
+      ],
+      "source_sha256": "4a7e94aaf2be60281de19251daedcb6e99ae79fa110cc9eea190c749d62ec592",
+      "source": "rebuild/src/mono.cpp",
+      "population": "rebuild-mono",
+      "source_order": 5892752,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

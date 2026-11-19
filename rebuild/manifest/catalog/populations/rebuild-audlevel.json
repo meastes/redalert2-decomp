@@ -1,0 +1,252 @@
+{
+  "id": "rebuild-audlevel",
+  "population": {
+    "id": "rebuild-audlevel",
+    "inventory_sha256": "a45d5b50339e4743f2581a15f92520288f287f2ac61c9894dee5b43f3d35292a",
+    "gaps_sha256": "160301d818f638f5b8e556c147d49a4071d07302391bdf2d6464a5a403b70bfe",
+    "historical_population_sha256": "6eccbc9558e2ad339250c4fda4e6ebecd873bd8638d9637b156a171164da314f",
+    "historical_acceptance_sha256": "2b120fbab6df7f6efeb45ec5e4c86e71305099b33499cf373070f3492e53652b"
+  },
+  "references": {
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z": 4223216,
+    "?AudioLevelInit@@YIXPAUAudioLevel@@H@Z": 4223024,
+    "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z": 4223104,
+    "?AudioLevelForce@@YIXPAUAudioLevel@@@Z": 4223120,
+    "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
+    "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z": 4223184,
+    "?AudioLevelGetVal@@YIHPAUAudioLevel@@@Z": 4223456
+  },
+  "regions": [
+    {
+      "entry": 4223024,
+      "method": "00407030",
+      "body_bytes": 66,
+      "body_sha256": "3ab5d4e7072371a22cd26ec51c48cccf1b5a1ecf3c2a7c38781cf6a39db853b2",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "bf2c003ec92574812e2346477613416d1e71c650dc27296f35e79fba91f04428",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelInit@@YIXPAUAudioLevel@@H@Z",
+      "symbol_prefix": "?AudioLevelInit@@YIXPAUAudioLevel@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 8847
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+          "target": 4223216,
+          "addend": 0,
+          "resolved": 126
+        }
+      ],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223024,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-953"
+    },
+    {
+      "entry": 4223104,
+      "method": "00407080",
+      "body_bytes": 13,
+      "body_sha256": "f3cf6cff7f4252474ca49634f43eb29e8ae46907b044e6f15626cb8a7531c79d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ba8317dfb327d426ec5d0b3c2b80e9e7d9e93afedf4fc96643ace6527e6c0e69",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+      "symbol_prefix": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223104,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4368"
+    },
+    {
+      "entry": 4223120,
+      "method": "00407090",
+      "body_bytes": 7,
+      "body_sha256": "464dcf96fa172d1aebd4e3e4856fe04d842e717c99f5214a7b707e31591b6239",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8e1685338826e8719c2b05db17c67497e65f304aa387400f2265649952f2747d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelForce@@YIXPAUAudioLevel@@@Z",
+      "symbol_prefix": "?AudioLevelForce@@YIXPAUAudioLevel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4223136,
+      "method": "004070a0",
+      "body_bytes": 43,
+      "body_sha256": "7ddbd956e212c6229e8527945122f0b0b902c69b21f382423abd6d7e8212e3c9",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "73d348aea96ed6af251206d281898710fd661ca1dccc4f04ebd02195b21189f9",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+      "symbol_prefix": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 8724
+        }
+      ],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223136,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4368"
+    },
+    {
+      "entry": 4223184,
+      "method": "004070d0",
+      "body_bytes": 31,
+      "body_sha256": "b585c6fb0ff6623dc2f061331fd5c83774bbc5009f1d6957d17b10f02c76ecd7",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "03d0d46f0e2fb8b2fb94e391e02415371fd4c5657f9c43820e1b5da5ca2bc022",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z",
+      "symbol_prefix": "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223184,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4368"
+    },
+    {
+      "entry": 4223216,
+      "method": "004070f0",
+      "body_bytes": 229,
+      "body_sha256": "1f9938905f5cd737b31031618bd6167dc1ba795c8ab285981b4df2f2e1c7189c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "7076f44d176e3bc1ae4a10c5dc3eb46dcce9a50cbb9ef6422f73c7f3deda6dfc",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+      "symbol_prefix": "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 8617
+        }
+      ],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4223456,
+      "method": "004071e0",
+      "body_bytes": 7,
+      "body_sha256": "baa8db3f76c9be7769eb70322f3e749ee092b6d09377914a99c7c97e673fc700",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "bebdb21ab61c2a86cdfe92f38646502afccc1fc11c296b6db76064a4bc147dd6",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLevelGetVal@@YIHPAUAudioLevel@@@Z",
+      "symbol_prefix": "?AudioLevelGetVal@@YIHPAUAudioLevel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dcf10a71b4ad748bc80ad61a9ac692b793f726d330ba485e887c38389aa1604a",
+      "source": "rebuild/src/audlevel.cpp",
+      "population": "rebuild-audlevel",
+      "source_order": 4223456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    }
+  ]
+}

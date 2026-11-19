@@ -1,0 +1,2712 @@
+{
+  "id": "rebuild-taskforc",
+  "population": {
+    "id": "rebuild-taskforc",
+    "inventory_sha256": "b02f6b8ce9a2c6c484cddaa9a107895bd2e5fe0d5b6df0306ed1c41eaf0c55d2",
+    "gaps_sha256": "06c00562c5e17a32e59fe2d55d81a7b60ffa68113c44d4dbe6b5bac9c20ff376",
+    "historical_population_sha256": "b10a3d857cf6cd8834278286007985f97f310d806cb26e44c0475e35640d0c4c",
+    "historical_acceptance_sha256": "dba3b35fbb510f31ce9a95ba88029dab2267136274f837ec7435d0ce6023e98f"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11272160,
+    "_ISO_TILE_SIZE": 8046688,
+    "_LEPTONS_PER_PIXEL": 11272232,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11272216,
+    "_ONE_RAD": 8046696,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11272208,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11272168,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11272128,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11272240,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11272176,
+    "_CELL_DIAG_SLOPE_ANGLE": 11272200,
+    "_BRIDGE_LEPTON_HEIGHT": 11272224,
+    "_CELL_NONE": 11272152,
+    "_COORD_NONE": 11272184,
+    "_RECT_NONE": 11272136,
+    "??0AbstractTypeClass@@QAE@PBD@Z": 4261248,
+    "??_7TaskForceClass@@6BIPersistStream@@@": 8046752,
+    "??_7TaskForceClass@@6BIRTTITypeInfo@@@": 8046724,
+    "??_7TaskForceClass@@6BINoticeSink@@@": 8046716,
+    "??_7TaskForceClass@@6BINoticeSource@@@": 8046708,
+    "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A": 10750096,
+    "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z": 4261600,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "??1AbstractTypeClass@@UAE@XZ": 4261696,
+    "??_7INoticeSink@@6B@": 7974468,
+    "??_7INoticeSource@@6B@": 7974460,
+    "??_7AbstractClass@@6BIPersistStream@@@": 7974360,
+    "??_7AbstractClass@@6BIRTTITypeInfo@@@": 7974332,
+    "??_7AbstractClass@@6BINoticeSink@@@": 7974324,
+    "??_7AbstractClass@@6BINoticeSource@@@": 7974316,
+    "??0TaskForceClass@@QAE@ABV0@@Z": 7039440,
+    "_stricmp": 7872288,
+    "??_C@_0L@DFCE@TaskForces?$AA@": 8351136,
+    "?Entry_Count@INIClass@@QBEHPBD@Z": 5294848,
+    "?Get_Entry@INIClass@@QBEPBDPBDH@Z": 5295616,
+    "??_C@_00A@?$AA@": 8635740,
+    "?Get_String@INIClass@@QBEHPBD00PADH@Z": 5302688,
+    "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
+    "??_C@_04KIKH@none?$AA@": 8184044,
+    "??2@YAPAXI@Z": 7872535,
+    "??0TaskForceClass@@QAE@PBD@Z": 7039056,
+    "?ahtoi@@YIHPBD@Z": 4268944,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z": 6945696,
+    "?Clear@INIClass@@QAE_NPBD0@Z": 5290400,
+    "??_C@_02MECO@?$CFd?$AA@": 8186300,
+    "_sprintf": 7872756,
+    "?strtrim@@YIPADPAD@Z": 7270160,
+    "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
+    "?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z": 4261856,
+    "??0EnlistedMemberClass@@QAE@PBD@Z": 4933728,
+    "??_C@_05GGEJ@Group?$AA@": 8351148,
+    "?Get_Int@INIClass@@QBEHPBD0H@Z": 5298160,
+    "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z": 4262160,
+    "?Build_INI_Entry@EnlistedMemberClass@@QBEPBDXZ": 4933888,
+    "?Put_Int@INIClass@@QAE_NPBD0HH@Z": 5297888,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "_CLSID_TaskForceClass": 8002784,
+    "?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z": 4262240,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 7038560,
+    "_$E5": 7038608,
+    "_$E8": 7038640,
+    "_$E11": 7038672,
+    "_$E14": 7038704,
+    "_$E17": 7038736,
+    "_$E20": 7038768,
+    "_$E23": 7038832,
+    "_$E26": 7038880,
+    "_$E29": 7038928,
+    "_$E32": 7038976,
+    "_$E35": 7038992,
+    "_$E38": 7039024,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GTaskForceClass@@UAEPAXI@Z": 7041456,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_R0?AVINoticeSource@@@8": 8184264,
+    "??_R0?AVINoticeSink@@@8": 8181272,
+    "??_R0?AUIRTTITypeInfo@@@8": 8184296,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVAbstractClass@@@8": 8184384,
+    "??_R0?AVAbstractTypeClass@@@8": 8184416,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVTaskForceClass@@@8": 8351104,
+    "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
+    "?Fetch_RTTI@TaskForceClass@@UBE?AW4RTTIType@@XZ": 7041424,
+    "?Fetch_Object_Size@TaskForceClass@@UBEHXZ": 7041440,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0TaskForceClass@@QAE@ABVNoInitClass@@@Z": 7039264,
+    "??1TaskForceClass@@UAE@XZ": 7039312,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??_GAbstractClass@@UAEPAXI@Z": 4260672,
+    "__purecall": 4950368,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "??4TaskForceClass@@QAE?AV0@ABV0@@Z": 7039680,
+    "?Required_Object_Count@TaskForceClass@@QBEHXZ": 7039792,
+    "?From_Name@TaskForceClass@@SIPAV1@PBD@Z": 7039824,
+    "?From_Given_Name@TaskForceClass@@SIPAV1@PBD@Z": 7039904,
+    "?Read_All@TaskForceClass@@SIXABVCCINIClass@@W4INIScopeType@@@Z": 7039984,
+    "?Write_All@TaskForceClass@@SIXAAVCCINIClass@@W4INIScopeType@@@Z": 7040272,
+    "?Read_INI@TaskForceClass@@UAE_NABVCCINIClass@@@Z": 7040496,
+    "?Write_INI@TaskForceClass@@UBE_NAAVCCINIClass@@@Z": 7040720,
+    "?Has_Only_Infantry@TaskForceClass@@QBE_NXZ": 7040880,
+    "?Find_Or_Make@TaskForceClass@@SIPAV1@PBD@Z": 7040944,
+    "?Save@TaskForceClass@@UAGJPAUIStream@@H@Z": 7041088,
+    "?Load@TaskForceClass@@UAGJPAUIStream@@@Z": 7041120,
+    "?GetClassID@TaskForceClass@@UAGJPAU_GUID@@@Z": 7041232,
+    "?Compute_CRC@TaskForceClass@@UBEXAAVCRCEngine@@@Z": 7041296,
+    "?Needed_Tech_Level@TaskForceClass@@QBEHXZ": 7041344,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 7038560,
+      "method": "006b6660",
+      "body_bytes": 40,
+      "body_sha256": "38e6ab27ea348a485006e25a3f02ec3b760133c9786e624d472a5de3659044df",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "689fe2172be223640d9545884472bb9a6c612c619f2f553f2b01ef72108531dd",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 834367
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292885906
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272160,
+          "addend": 0,
+          "resolved": 11272160
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038608,
+      "method": "006b6690",
+      "body_bytes": 19,
+      "body_sha256": "e872a531f1eb899b8f35c4bdad5e9ff5e80ab5a075952e115d6e47d685f53666",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9552b4c060ad07e1cb9283db67f0db90885a1137da7247955863f1270f9ec368",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272160,
+          "addend": 0,
+          "resolved": 11272160
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8046688,
+          "addend": 0,
+          "resolved": 8046688
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11272232,
+          "addend": 0,
+          "resolved": 11272232
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038640,
+      "method": "006b66b0",
+      "body_bytes": 19,
+      "body_sha256": "cc9dd2a4f10dc55394c2e35eee906fc229733495f8ec6b8acf858368044f1317",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4846d8a27f7b334e89d4824aec37db4a4bfda77401631ad2b86326775fe0459d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11272232,
+          "addend": 0,
+          "resolved": 11272232
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11272216,
+          "addend": 0,
+          "resolved": 11272216
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038672,
+      "method": "006b66d0",
+      "body_bytes": 19,
+      "body_sha256": "df237ca64a17cd809b07745c69b2a498d422955e9eaedd203859343643ee4970",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "75f8c00fab720f6d30e17d378369ec5945af113fcc3eb0f43c4be88232f37582",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8046696,
+          "addend": 0,
+          "resolved": 8046696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11272208,
+          "addend": 0,
+          "resolved": 11272208
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038704,
+      "method": "006b66f0",
+      "body_bytes": 19,
+      "body_sha256": "7d6d9fe92316c0e4551950bfec5ae261f128819d915ee57aa6a8303f252a6eeb",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cf823c1902d0efdc3c6510fe8abf2511e627a427702b746bc90373b8407e3cf1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8046696,
+          "addend": 0,
+          "resolved": 8046696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272168,
+          "addend": 0,
+          "resolved": 11272168
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038736,
+      "method": "006b6710",
+      "body_bytes": 19,
+      "body_sha256": "439d7594a137dcaf5164633db949554d47b359bb10f17a38ccd66ce2e135ec0d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d3a123deaafb35b0e48606c4c168f0a64ff9896fb2328becaa9f88864e3df5d6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8046696,
+          "addend": 0,
+          "resolved": 8046696
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272128,
+          "addend": 0,
+          "resolved": 11272128
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038768,
+      "method": "006b6730",
+      "body_bytes": 49,
+      "body_sha256": "f750aacfeca5c3f43f3b593dd6b057fb40856b7cc60a4fb74cfc65b6ea60ba3b",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "29eea356d696f5f22540b6ac89bf9f1acdcdb5f6bc63fa94f9123b9e9c639fcc",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272128,
+          "addend": 0,
+          "resolved": 11272128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272168,
+          "addend": 0,
+          "resolved": 11272168
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292885977
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272160,
+          "addend": 0,
+          "resolved": 11272160
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 821685
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272240,
+          "addend": 0,
+          "resolved": 11272240
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038832,
+      "method": "006b6770",
+      "body_bytes": 33,
+      "body_sha256": "5b6cb3e1e1a9ca097f1f4b52be5310c8712d6f850cd292b7893a7f943e15b1d4",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8389d8ec257d48fe171ffabb64b1966cb6e665d865ed48270211db5c6a6dba97",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272240,
+          "addend": 0,
+          "resolved": 11272240
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292886057
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11272176,
+          "addend": 0,
+          "resolved": 11272176
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038880,
+      "method": "006b67a0",
+      "body_bytes": 44,
+      "body_sha256": "733c6a5b062f2175adcb3b80204ebd6133d0b4162bebbf6f426310461b2b2903",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8f02d8ead06f8102f6694f3bd68c1651d7cbbbdc5d9e16fc976ab23ba9776c27",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272240,
+          "addend": 0,
+          "resolved": 11272240
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272160,
+          "addend": 0,
+          "resolved": 11272160
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292885998
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11272200,
+          "addend": 0,
+          "resolved": 11272200
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038928,
+      "method": "006b67d0",
+      "body_bytes": 39,
+      "body_sha256": "96317eb308bcf41c5b8f61cc0ab4543d2760b4db7ff289df73514ac418739cf8",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "be5f5998af4a82f88c6926dfc071174fea86ce6c16d61c38e3f8398c76d60cf1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272240,
+          "addend": 0,
+          "resolved": 11272240
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 821536
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11272224,
+          "addend": 0,
+          "resolved": 11272224
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038976,
+      "method": "006b6800",
+      "body_bytes": 15,
+      "body_sha256": "3bbf7a199bd4451bb9f4e459c79a72c869676dfee7380715f27f3d7aadcca10b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "aaa69964a365617302b5a3769b2860b25cc54d76316ced24866a59e35d81e5ba",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272152,
+          "addend": 0,
+          "resolved": 11272152
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272152,
+          "addend": 2,
+          "resolved": 11272154
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7038992,
+      "method": "006b6810",
+      "body_bytes": 18,
+      "body_sha256": "c0d69c1c2ad4c37e1472509dbc1bbd41ed7946a95dd28fc343f70fa3e767a07b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6c6f28bdde838397c45427850fffc1b3ec6528d1b8daa31a681f2c7d3a3f1e5c",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272184,
+          "addend": 0,
+          "resolved": 11272184
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272184,
+          "addend": 4,
+          "resolved": 11272188
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272184,
+          "addend": 8,
+          "resolved": 11272192
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7038992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039024,
+      "method": "006b6830",
+      "body_bytes": 23,
+      "body_sha256": "e303cd52c5a88ccda3e40547d886a7ce5055be6314fca3a7a3f1ff402bd102a9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1ff26ffded87512569bd2d058d9ed3e6cea2885e4fa58d10fd3dc9724b22de0f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272136,
+          "addend": 0,
+          "resolved": 11272136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272136,
+          "addend": 4,
+          "resolved": 11272140
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272136,
+          "addend": 8,
+          "resolved": 11272144
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272136,
+          "addend": 12,
+          "resolved": 11272148
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039056,
+      "method": "006b6850",
+      "body_bytes": 194,
+      "body_sha256": "7a4b7b8250f1291658f04c3514dcff1a6980c8b3c5732fd172b5aa1ab11df6b7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "dca0f049b76b83fa215ec6a89ee21e273fdad084bb6469adad7f479dea8d47f2",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TaskForceClass@@QAE@PBD@Z",
+      "symbol_prefix": "??0TaskForceClass@@QAE@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??0AbstractTypeClass@@QAE@PBD@Z",
+          "target": 4261248,
+          "addend": 0,
+          "resolved": 4292189473
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 8,
+          "resolved": 10750104
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 13,
+          "resolved": 10750109
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 20,
+          "resolved": 10750116
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039264,
+      "method": "006b6920",
+      "body_bytes": 46,
+      "body_sha256": "10cc070ce8f61ae5948816094d54f79dea5d8c0c62c1a4277bc2109e8cdcce2b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e6a248e407e59c61a5dca01f4310b3ee5d61485adf1c17bd708fe3bacfc727da",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TaskForceClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0TaskForceClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4261600,
+          "addend": 0,
+          "resolved": 4292189619
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039312,
+      "method": "006b6950",
+      "body_bytes": 121,
+      "body_sha256": "11b51927fba1ec3bacbe1d5852a8ea615018baa18c0cc79341e74f1698ab92cd",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "2b100457b4dfd0e5d3d28542e89bf72b94dda3900627f03ad0fb638cd493274a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1TaskForceClass@@UAE@XZ",
+      "symbol_prefix": "??1TaskForceClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 221722
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1AbstractTypeClass@@UAE@XZ",
+          "target": 4261696,
+          "addend": 0,
+          "resolved": 4292189562
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039440,
+      "method": "006b69d0",
+      "body_bytes": 240,
+      "body_sha256": "412cd4195275b5be2a8ef009c4620a268aefb8671bdb37c342e688301f2c0cb8",
+      "padding_bytes": 0,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "412cd4195275b5be2a8ef009c4620a268aefb8671bdb37c342e688301f2c0cb8",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TaskForceClass@@QAE@ABV0@@Z",
+      "symbol_prefix": "??0TaskForceClass@@QAE@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7INoticeSink@@6B@",
+          "target": 7974468,
+          "addend": 0,
+          "resolved": 7974468
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_7INoticeSource@@6B@",
+          "target": 7974460,
+          "addend": 0,
+          "resolved": 7974460
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "??_7AbstractClass@@6BIPersistStream@@@",
+          "target": 7974360,
+          "addend": 0,
+          "resolved": 7974360
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_7AbstractClass@@6BIRTTITypeInfo@@@",
+          "target": 7974332,
+          "addend": 0,
+          "resolved": 7974332
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7AbstractClass@@6BINoticeSink@@@",
+          "target": 7974324,
+          "addend": 0,
+          "resolved": 7974324
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "??_7AbstractClass@@6BINoticeSource@@@",
+          "target": 7974316,
+          "addend": 0,
+          "resolved": 7974316
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039680,
+      "method": "006b6ac0",
+      "body_bytes": 111,
+      "body_sha256": "0c5808a610de36137555d717661f18338ea82b4712045a046ca4c60166ee9573",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "3be982988d69917a87954e06d2a040b4d486498fb5b27e293e97f52a25e2b58f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??4TaskForceClass@@QAE?AV0@ABV0@@Z",
+      "symbol_prefix": "??4TaskForceClass@@QAE?AV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??0TaskForceClass@@QAE@ABV0@@Z",
+          "target": 7039440,
+          "addend": 0,
+          "resolved": 4294966951
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039792,
+      "method": "006b6b30",
+      "body_bytes": 31,
+      "body_sha256": "1c5b19014d29bc0ddb4934e4fc1ee1e06836ed261f820085ea3ccc92cab5c4c0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b891c490af822000fb962dd42b719e92719458246488d6b0490e0699de81dc52",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Required_Object_Count@TaskForceClass@@QBEHXZ",
+      "symbol_prefix": "?Required_Object_Count@TaskForceClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039824,
+      "method": "006b6b50",
+      "body_bytes": 71,
+      "body_sha256": "bbf7a68a9cfcb4264ba0a35a7ced249f88077e60bb8e1f6c56332c6a43580b5b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "942e4c5f99a596ebc265bac255053f5dead03960e8cb555f5e72589e713657fd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?From_Name@TaskForceClass@@SIPAV1@PBD@Z",
+      "symbol_prefix": "?From_Name@TaskForceClass@@SIPAV1@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 832427
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039904,
+      "method": "006b6ba0",
+      "body_bytes": 71,
+      "body_sha256": "28456c9d6ad57b07c867a752bec6ee0f66b16ae873222985f9ba669ca8143340",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2eb1b1a0e6776f0bfe9cba47c7f595d8fcb11d568997c85d70f7a28f348a25b2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?From_Given_Name@TaskForceClass@@SIPAV1@PBD@Z",
+      "symbol_prefix": "?From_Given_Name@TaskForceClass@@SIPAV1@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 832347
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7039984,
+      "method": "006b6bf0",
+      "body_bytes": 280,
+      "body_sha256": "09b63609464a3bcb18fc1f08fe0cad7e665c32cb9e56bcd308fca497b5505d51",
+      "padding_bytes": 8,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "19986361f9ab7bdb7e9ca22f1d8e4b9496eb0248837194df7993d4b9b3d386c2",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_All@TaskForceClass@@SIXABVCCINIClass@@W4INIScopeType@@@Z",
+      "symbol_prefix": "?Read_All@TaskForceClass@@SIXABVCCINIClass@@W4INIScopeType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+          "target": 5294848,
+          "addend": 0,
+          "resolved": 4293222139
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+          "target": 5295616,
+          "addend": 0,
+          "resolved": 4293222878
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293229925
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+          "target": 8183500,
+          "addend": 0,
+          "resolved": 8183500
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 832206
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "??_C@_04KIKH@none?$AA@",
+          "target": 8184044,
+          "addend": 0,
+          "resolved": 8184044
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 832184
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 832143
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 832363
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??0TaskForceClass@@QAE@PBD@Z",
+          "target": 7039056,
+          "addend": 0,
+          "resolved": 4294966161
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?ahtoi@@YIHPBD@Z",
+          "target": 4268944,
+          "addend": 0,
+          "resolved": 4292196022
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 241,
+          "kind": 20,
+          "symbol": "?Here_I_Am@SwizzleManagerClass@@UAGJJPAX@Z",
+          "target": 6945696,
+          "addend": 0,
+          "resolved": 4294872763
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7039984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7040272,
+      "method": "006b6d10",
+      "body_bytes": 213,
+      "body_sha256": "717a8b84b6f7c27137ea77a9269aabf0c0ff4738429bde78cc598a96bd6874e9",
+      "padding_bytes": 11,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "7d47450188a7931b6fb3b83092eb674fed795c82ba08b975c87a17af26b721cc",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Write_All@TaskForceClass@@SIXAAVCCINIClass@@W4INIScopeType@@@Z",
+      "symbol_prefix": "?Write_All@TaskForceClass@@SIXAAVCCINIClass@@W4INIScopeType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Entry_Count@INIClass@@QBEHPBD@Z",
+          "target": 5294848,
+          "addend": 0,
+          "resolved": 4293221849
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Get_Entry@INIClass@@QBEPBDPBDH@Z",
+          "target": 5295616,
+          "addend": 0,
+          "resolved": 4293222596
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293229643
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+          "target": 5290400,
+          "addend": 0,
+          "resolved": 4293217341
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+          "target": 5290400,
+          "addend": 0,
+          "resolved": 4293217322
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "??_C@_02MECO@?$CFd?$AA@",
+          "target": 8186300,
+          "addend": 0,
+          "resolved": 8186300
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 832330
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?strtrim@@YIPADPAD@Z",
+          "target": 7270160,
+          "addend": 0,
+          "resolved": 229722
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "??_C@_0L@DFCE@TaskForces?$AA@",
+          "target": 8351136,
+          "addend": 0,
+          "resolved": 8351136
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+          "target": 5301744,
+          "addend": 0,
+          "resolved": 4293228581
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7040272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7040496,
+      "method": "006b6df0",
+      "body_bytes": 218,
+      "body_sha256": "9c85001802afd4cc31c34b71af2fa35d40c4dbe24df0c9fe64df83741849edd9",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "573da097d3330ee1545fdb394bf4c34ff5fa1cd8dc29a7f17463735a9ca67b39",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read_INI@TaskForceClass@@UAE_NABVCCINIClass@@@Z",
+      "symbol_prefix": "?Read_INI@TaskForceClass@@UAE_NABVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z",
+          "target": 4261856,
+          "addend": 0,
+          "resolved": 4292188633
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_C@_02MECO@?$CFd?$AA@",
+          "target": 8186300,
+          "addend": 0,
+          "resolved": 8186300
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 832200
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4293229397
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "??0EnlistedMemberClass@@QAE@PBD@Z",
+          "target": 4933728,
+          "addend": 0,
+          "resolved": 4292860419
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "??_C@_05GGEJ@Group?$AA@",
+          "target": 8351148,
+          "addend": 0,
+          "resolved": 8351148
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4293224776
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7040496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7040720,
+      "method": "006b6ed0",
+      "body_bytes": 158,
+      "body_sha256": "605e92719c96b1ad0a5fc5708587dbff9deb4562356eb8bca6c96c01ec672114",
+      "padding_bytes": 2,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "f344646e57cf9cf3f64f903b9b1fdd1259b41cd0e5a195858db8c526403700c9",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Write_INI@TaskForceClass@@UBE_NAAVCCINIClass@@@Z",
+      "symbol_prefix": "?Write_INI@TaskForceClass@@UBE_NAAVCCINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Write_INI@AbstractTypeClass@@UBE_NAAVCCINIClass@@@Z",
+          "target": 4262160,
+          "addend": 0,
+          "resolved": 4292188719
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_C@_02MECO@?$CFd?$AA@",
+          "target": 8186300,
+          "addend": 0,
+          "resolved": 8186300
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 831989
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?Build_INI_Entry@EnlistedMemberClass@@QBEPBDXZ",
+          "target": 4933888,
+          "addend": 0,
+          "resolved": 4292860397
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+          "target": 5301744,
+          "addend": 0,
+          "resolved": 4293228236
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?Clear@INIClass@@QAE_NPBD0@Z",
+          "target": 5290400,
+          "addend": 0,
+          "resolved": 4293216874
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "??_C@_05GGEJ@Group?$AA@",
+          "target": 8351148,
+          "addend": 0,
+          "resolved": 8351148
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4293224328
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7040720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7040880,
+      "method": "006b6f70",
+      "body_bytes": 61,
+      "body_sha256": "cdfb55052b955080aa990ecb9f69f673300b105f0d5208770b5a7c3437557a25",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "54b1381188cf0cf87ba1662f51b28ef0f08aa58eabb106230bd07afd1a62bfa8",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Has_Only_Infantry@TaskForceClass@@QBE_NXZ",
+      "symbol_prefix": "?Has_Only_Infantry@TaskForceClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7040880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7040944,
+      "method": "006b6fb0",
+      "body_bytes": 131,
+      "body_sha256": "cedc40d6d031f4b540cd82dae423c3174a86e21dd63918aefc5a1076ce414ae5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "d9809b670382e52172dc5072447a432cbbb74929c4e598ae582c11f59d81703a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Find_Or_Make@TaskForceClass@@SIPAV1@PBD@Z",
+      "symbol_prefix": "?Find_Or_Make@TaskForceClass@@SIPAV1@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "??_C@_06CPHF@?$DMnone?$DO?$AA@",
+          "target": 8183500,
+          "addend": 0,
+          "resolved": 8183500
+        },
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 831329
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_C@_04KIKH@none?$AA@",
+          "target": 8184044,
+          "addend": 0,
+          "resolved": 8184044
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 831311
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 831275
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 831495
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??0TaskForceClass@@QAE@PBD@Z",
+          "target": 7039056,
+          "addend": 0,
+          "resolved": 4294965297
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7040944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041088,
+      "method": "006b7040",
+      "body_bytes": 29,
+      "body_sha256": "039926749def9b26505eaf1c0087feb560708ef627ca5406a09dbef6543f7883",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "71552bc182e6387d69be86a5e383cbe42ed9d8d8ff03f6a90aa53f4d22833f64",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@TaskForceClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@TaskForceClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4292186220
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041120,
+      "method": "006b7060",
+      "body_bytes": 99,
+      "body_sha256": "98fb6aae9b05ea6f2f74ef4d9d8335a7997a621de10a8e0429f6649432d4f09b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "5f834c0cc07a2984c239eb3aea5b7f45dd31e89a49a0b9475c55df6f31208b48",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TaskForceClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TaskForceClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4292186288
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??0AbstractTypeClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4261600,
+          "addend": 0,
+          "resolved": 4292187740
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 4294871658
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041232,
+      "method": "006b70d0",
+      "body_bytes": 56,
+      "body_sha256": "6d6b475e177add7be354b2dc8dfe87c853e4fda68973673815179856ea50909a",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1c45b0868c7763f506d3b13fe6654b49bac538f49f654698c288ccfef3b60382",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TaskForceClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TaskForceClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TaskForceClass",
+          "target": 8002784,
+          "addend": 0,
+          "resolved": 8002784
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TaskForceClass",
+          "target": 8002784,
+          "addend": 4,
+          "resolved": 8002788
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TaskForceClass",
+          "target": 8002784,
+          "addend": 8,
+          "resolved": 8002792
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TaskForceClass",
+          "target": 8002784,
+          "addend": 12,
+          "resolved": 8002796
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041296,
+      "method": "006b7110",
+      "body_bytes": 47,
+      "body_sha256": "e53a7589cb1048fd128665c66df78c682590c36368d6e204c51a5f5c60d71dd8",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "998be7909e02448983635c5995f299e6688499a3c5043928f3758ede7b45f57d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@TaskForceClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@TaskForceClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4262240,
+          "addend": 0,
+          "resolved": 4292188226
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292726276
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292726262
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041344,
+      "method": "006b7140",
+      "body_bytes": 65,
+      "body_sha256": "b4f1c6f4d7bf5470406e4360eeb3f00839de14a85ef99dbe980f0ce606bc9758",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6488f6dae61ab5701959fd49e7003c779fcefa7c324ce76748ee7498c7437d8f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Needed_Tech_Level@TaskForceClass@@QBEHXZ",
+      "symbol_prefix": "?Needed_Tech_Level@TaskForceClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041424,
+      "method": "006b7190",
+      "body_bytes": 6,
+      "body_sha256": "f98d08691646914db28cedcf7743fd82ba7c323184fd63f58d45c5c6fb791eb8",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6d6b16c4d472c6358de7822265d3c9f8a0ff34c64ba4c7910b90625028f3803a",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@TaskForceClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@TaskForceClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041440,
+      "method": "006b71a0",
+      "body_bytes": 6,
+      "body_sha256": "fe9f13fe72b48610ed632ab8b879dbd057b6906e35aa15504bc966780729b8a5",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1b003001f40ff3cc42a18d904e2f4cb7549d949dbb7ed6a1c7a39cc94a90c2bc",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TaskForceClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TaskForceClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7041456,
+      "method": "006b71b0",
+      "body_bytes": 141,
+      "body_sha256": "3afde642869ed8263f4727cee3ff130984ec54c0fae744e645ccc3166e958f40",
+      "padding_bytes": 3,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "9fcfff31cf7ec1a7cfce239f3afa784c6b28b2bbad3155a9f9325ed449ee7407",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTaskForceClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTaskForceClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIPersistStream@@@",
+          "target": 8046752,
+          "addend": 0,
+          "resolved": 8046752
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BIRTTITypeInfo@@@",
+          "target": 8046724,
+          "addend": 0,
+          "resolved": 8046724
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSink@@@",
+          "target": 8046716,
+          "addend": 0,
+          "resolved": 8046716
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7TaskForceClass@@6BINoticeSource@@@",
+          "target": 8046708,
+          "addend": 0,
+          "resolved": 8046708
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 219578
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 0,
+          "resolved": 10750096
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 4,
+          "resolved": 10750100
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?TaskForces@@3V?$DynamicVectorClass@PAVTaskForceClass@@@@A",
+          "target": 10750096,
+          "addend": 16,
+          "resolved": 10750112
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1AbstractTypeClass@@UAE@XZ",
+          "target": 4261696,
+          "addend": 0,
+          "resolved": 4292187418
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 830216
+        }
+      ],
+      "source_sha256": "fe3f3ee9919c8fb6479d431b2dde4f7a27ae16b586858b60bb670d19245b9ae0",
+      "source": "rebuild/src/taskforc.cpp",
+      "population": "rebuild-taskforc",
+      "source_order": 7041456,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "rebuild-lcwuncmp",
+  "population": {
+    "id": "rebuild-lcwuncmp",
+    "inventory_sha256": "e66455ad136c1deaafd9694d7c526015ed77029893af5c96ec01eee96320dc76",
+    "gaps_sha256": "2c7363d977a65475a8b752d3f4c7de7c188bc3fda4459b6d7cf85a8ecf3ceddd",
+    "historical_population_sha256": "814982865ca2b2dc27d8e8b8ce4430117245e55ffa236e387297ddf75a6585db",
+    "historical_acceptance_sha256": "85d7b06ea2b92c469b71fa12c5bd106d95f0215a3fe812e9aa130e9e8c15089e"
+  },
+  "references": {
+    "_LCW_Uncompress": 5461296
+  },
+  "regions": [
+    {
+      "entry": 5461296,
+      "method": "00535530",
+      "body_bytes": 482,
+      "body_sha256": "c5d4e03c7b3651aa5a86c735a67da903dd9564ff2cbed2dfe7508a85c2d9a265",
+      "padding_bytes": 14,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "73467882091c1676fa51f13a6c937f74d4c8903010ca394bba8a8f9ecbcd21d2",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_LCW_Uncompress",
+      "symbol_prefix": "_LCW_Uncompress",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "339029c879853aefe5c48164bcff76f07a6547ebe6990b6d4136fdc91373d6c8",
+      "source": "rebuild/src/lcwuncmp.cpp",
+      "population": "rebuild-lcwuncmp",
+      "source_order": 5461296,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

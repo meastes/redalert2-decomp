@@ -1,0 +1,1281 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 OpenTS contributors
+ *
+ * See LICENSE.md for applicable additional terms and warranty disclaimers.
+ ******************************************************************************/
+
+#define INCLUDE_COM
+#include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
+
+#include "wave.h"
+
+#include "_logic.h"
+#include "_map.h"
+#include "_rect.h"
+#include "_rules.h"
+#include "_surface.h"
+#include "_tactica.h"
+#include "_zbuffer.h"
+#include "ccrand.h"
+#include "cell.h"
+#include "combat.h"
+#include "dsurface.h"
+#include "fastmath.h"
+#include "globals.h"
+#include "goptions.h"
+#include "logic.h"
+#include "overtype.h"
+#include "rules.h"
+#include "scenario.h"
+#include "sun.h"
+#include "swizzle.h"
+#include "tactical.h"
+#include "techno.h"
+#include "tracker.h"
+#include "vector.h"
+#include "warhead.h"
+#include "weapon.h"
+#include "zbuffer.h"
+
+
+FacingType Facing_Between_Points(Point2D const & pt1, Point2D const & pt2);
+
+enum {
+	_RADIUS_TABLE_SIZE = 300,
+	_SINE_TABLE_SIZE = 500,
+	_INTENSITY_TABLE_SIZE = 13,
+	_INTENSITY_TABLE_OFFSET = 110,
+};
+
+unsigned short RadiusTable[_RADIUS_TABLE_SIZE][_RADIUS_TABLE_SIZE];
+short SineTable[_SINE_TABLE_SIZE];
+int IntensityTable[_INTENSITY_TABLE_SIZE];
+
+bool _tables_calculated = false;
+
+const float WaveStep = 0.05f;
+
+// RA2: the executable expands the table building into both constructors and also keeps WaveClass::Init_Statics (0x721BF0) as a function of its own; one inline helper does both
+static inline void Build_Shared_Tables(void); // RA2: as above
+
+
+/// <summary>
+/// Creates a wave between the firing object and its target.
+/// The geometry is built, the wave is placed upon the map, and it is added to the global
+/// wave list so that it will be processed and drawn. A sonic wave grows out from the firer,
+/// while a laser wave springs up at its full length straight away.
+/// </summary>
+/// <param name="source">The object that is firing the wave.</param>
+/// <param name="target">The object that the wave is aimed at.</param>
+WaveClass::WaveClass(Coord const & source_coord, Coord const & target_coord, TechnoClass * source, WaveType type, TechnoClass * target) :
+	BASECLASS(),
+	Target(target),
+	Type(type),
+	IsWaveActive(true),
+	IsWaveFading(false), // RA2: the constructor clears the byte at +0x119
+	WaveEC(100),
+	WaveProgress(0),
+	FadeProgress(0),
+	LaserEC(0),
+	Source(source),
+	AffectedCells(5)
+{
+	if (source_coord == target_coord) { // RA2: a wave with equal endpoints deletes itself and returns before anything else
+		Delete_Me(); // RA2: as above
+		return; // RA2: as above
+	}
+
+	Create_ID();
+	Waves.Add(this);
+
+	if (!_tables_calculated) {
+		Build_Shared_Tables(); // RA2: table building expanded in place
+	}
+
+	Build_Wave_Shape(source_coord, target_coord);
+	DrawData.Points = NULL;
+	Direction = Facing_Between_Points(WaveStartMiddle, WaveEndRight);
+	Unlimbo(StartCoord);
+
+	switch (Type) {
+		case WAVE_SONIC:
+			break;
+
+		case WAVE_BIG_LASER:
+		case WAVE_LASER:
+			WaveProgress = 1.0;
+			LaserEC = 160;
+			WaveShape.Vertices[PolygonShapeStruct::END_LEFT] = WaveEndLeft;
+			WaveShape.Vertices[PolygonShapeStruct::END_MIDDLE] = WaveEndMiddle;
+			WaveShape.Vertices[PolygonShapeStruct::END_RIGHT] = WaveEndRight;
+			break;
+	}
+
+	Wave_Shape_AI();
+}
+
+
+/// <summary>
+/// Constructs a bare wave object.
+/// This constructor is used by the save game loader, which fills the object in from the
+/// stream afterwards. No geometry is built here.
+/// </summary>
+WaveClass::WaveClass(void) :
+	BASECLASS(),
+	Target(NULL),
+	IsWaveActive(true),
+	IsWaveFading(false), // RA2: the constructor clears the byte at +0x119
+	WaveEC(100),
+	WaveProgress(0),
+	FadeProgress(0),
+	LaserEC(0),
+	Source(NULL),
+	AffectedCells(5)
+{
+	Waves.Add(this);
+
+	if (!_tables_calculated) {
+		Build_Shared_Tables(); // RA2: table building expanded in place
+	}
+}
+
+
+/// <summary>
+/// Removes the wave from the game.
+/// </summary>
+WaveClass::~WaveClass(void)
+{
+	Detach_This_From_All(this, true);
+	Waves.Delete(this);
+	AffectedCells.Clear();
+}
+
+
+/// <summary>
+/// Distorts one screen pixel for the sonic wave.
+/// The pixel is replaced by one lifted from a short way along the wave's line of travel and
+/// is tinted toward green and blue. This is what makes the terrain appear to ripple. How
+/// far off the sample is taken depends upon where the pixel sits within the wave.
+/// </summary>
+/// <param name="x">The screen column of the pixel.</param>
+/// <param name="xoff">The horizontal offset of the wave upon the screen.</param>
+/// <param name="y">The row of the pixel within the wave.</param>
+/// <param name="buffer">Pointer to the screen pixel to distort.</param>
+void WaveClass::Set_Sonic_Pixel(int x, int xoff, int y, unsigned short * buffer) const
+{
+	int radius = RadiusTable[y][abs(x - WaveStartMiddle.X - xoff)];
+	int amplitude = abs(SineTable[WaveEC + radius]);
+	unsigned short color = buffer[WaveIntensityTable[amplitude]];
+	int mult = IntensityTable[amplitude];
+
+	RGBClass rgb = DSurface::Deconstruct_Hicolor_Pixel(color);
+	int red = rgb.Get_Red();
+	int green = rgb.Get_Green();
+	int blue = rgb.Get_Blue();
+	green += ((green * mult) >> 8);
+	blue += ((blue * mult) >> 8);
+
+	*buffer = DSurface::Build_Hicolor_Pixel(red, MIN(255, green), MIN(255, blue));
+}
+
+
+/// <summary>
+/// Brightens one screen pixel for the laser wave.
+/// Only the red component of the pixel is raised, which is what gives the laser its color
+/// over whatever terrain happens to lie underneath it.
+/// </summary>
+/// <param name="buffer">Pointer to the screen pixel to brighten.</param>
+/// <param name="mult">The strength of the brightening. The wave fades this out
+/// over its life.</param>
+void WaveClass::Set_Laser_Pixel(unsigned short * buffer, int mult) const
+{
+	RGBClass rgb = DSurface::Deconstruct_Hicolor_Pixel(*buffer);
+	int red = rgb.Get_Red();
+	int green = rgb.Get_Green();
+	int blue = rgb.Get_Blue();
+	red += ((mult * 64) >> 8); // RA2: red brightens by a fixed 64/256 of the multiplier
+	blue += ((mult * 96) >> 8); // RA2: and blue by 96/256
+	*buffer = DSurface::Build_Hicolor_Pixel(MIN(255, red), MIN(255, green), MIN(255, blue));
+}
+
+
+static inline void Build_Shared_Tables(void) // RA2: as above
+{
+	const double _sine_duration = 0.125;
+	const double _sine_amplitude = 12;
+	const double _offset = 0.49;
+
+	_tables_calculated = true;
+
+	for (int x = 0; x < _RADIUS_TABLE_SIZE; x++) {
+		for (int y = 0; y < _RADIUS_TABLE_SIZE; y++) {
+			RadiusTable[x][y] = fastmath::sqrt(x * x + y * y);
+		}
+	}
+
+	int i;
+	for (i = 0; i < _SINE_TABLE_SIZE; i++) {
+		SineTable[i] = (short)(fastmath::sin(i * _sine_duration) * _sine_amplitude + _offset);
+	}
+
+	for (i = 0; i < _INTENSITY_TABLE_SIZE; i++) {
+		IntensityTable[i] = _INTENSITY_TABLE_OFFSET + (i * 8);
+	}
+}
+
+
+/// <summary>
+/// Builds the lookup tables that every sonic wave shares.
+/// The radius, sine and intensity tables are the same for all waves, so the first wave to
+/// come along builds them and every wave after that makes free with them.
+/// </summary>
+void WaveClass::Init_Statics(void) // RA2: as above
+{
+	Build_Shared_Tables(); // RA2: the table building moved into the helper above
+}
+
+
+/// <summary>
+/// Builds the pixel offset tables that the sonic wave is drawn with.
+/// The distortion lifts its pixels from a short way along the wave's line of travel, so the
+/// offsets depend both upon the pitch of the surface being drawn to and upon the direction
+/// the wave is heading in.
+/// </summary>
+/// <remarks>The drawing routine reads these tables, so build them first.</remarks>
+void WaveClass::Init_Offset_Tables(void)
+{
+	int stride = LogicalSurface->Stride() >> 1;
+
+	DirectionStrides[FACING_N]		= -stride;
+	DirectionStrides[FACING_NE]	= 1 - stride;
+
+	DirectionStrides[FACING_E]		= 1;
+	DirectionStrides[FACING_SE]	= stride + 1;
+
+	DirectionStrides[FACING_S]		= stride;
+	DirectionStrides[FACING_SW]	= stride - 1;
+
+	DirectionStrides[FACING_W]		= -1;
+	DirectionStrides[FACING_NW]	= -1 - stride;
+
+	WaveIntensityTable[0]	= 0;
+	WaveIntensityTable[1]	= 0;
+
+	WaveIntensityTable[2]	= 1 * DirectionStrides[Direction];
+	WaveIntensityTable[3]	= 1 * DirectionStrides[Direction];
+	WaveIntensityTable[4]	= 1 * DirectionStrides[Direction];
+	WaveIntensityTable[5]	= 1 * DirectionStrides[Direction];
+	WaveIntensityTable[6]	= 1 * DirectionStrides[Direction];
+
+	WaveIntensityTable[7]	= 2 * DirectionStrides[Direction];
+	WaveIntensityTable[8]	= 2 * DirectionStrides[Direction];
+	WaveIntensityTable[9]	= 2 * DirectionStrides[Direction];
+
+	WaveIntensityTable[10]	= 3 * DirectionStrides[Direction];
+	WaveIntensityTable[11]	= 3 * DirectionStrides[Direction];
+	WaveIntensityTable[12]	= 3 * DirectionStrides[Direction];
+}
+
+
+/// <summary>
+/// Determines the facing from one screen point toward another.
+/// This routine works in screen space, so the facing it returns is the direction the wave
+/// appears to travel in rather than the direction it travels upon the map.
+/// </summary>
+/// <returns>Returns with the nearest of the eight facings.</returns>
+FacingType Facing_Between_Points(Point2D const & pt1, Point2D const & pt2)
+{
+	int xdiff = pt2.X - pt1.X;
+	int ydiff = pt1.Y - pt2.Y;
+
+	double tangent = fastmath::sin(DEG_TO_RAD(22.5)) / fastmath::cos(DEG_TO_RAD(22.5));
+
+	if (xdiff != 0) {
+		double slope = (double)ydiff / (double)xdiff;
+
+		if (slope < 1.0 / tangent && slope >= tangent) {
+			return((xdiff > 0) ? FACING_NE : FACING_SW);
+		}
+
+		if (slope < tangent && slope >= -tangent) {
+			return((xdiff > 0) ? FACING_E : FACING_W);
+		}
+
+		if (slope < -tangent && slope >= -1.0 / tangent) {
+			return((xdiff > 0) ? FACING_SE : FACING_NW);
+		}
+	}
+	return((ydiff > 0) ? FACING_N : FACING_S);
+}
+
+
+/// <summary>
+/// Inflicts the wave's damage upon one cell.
+/// Everything standing in the cell takes the firing weapon's ambient damage, walls are worn
+/// down, chain reactive overlay is set off, and a destroyable cliff may be brought down.
+/// The object that fired the wave is never harmed by its own weapon.
+/// </summary>
+/// <param name="coord">The coordinate of the cell to damage.</param>
+void WaveClass::Sonic_Damage(Coord const & coord)
+{
+	if (Source != NULL) {
+		CellClass *cptr = &Map[coord.As_Cell()];
+
+		WeaponTypeClass * weapon = Source->PrimaryWeapon;
+		WarheadTypeClass const * warhead = weapon->WarheadPtr;
+
+		int damage = weapon->AmbientDamage;
+
+		bool isbridge = (cptr->IsUnderBridge && StartCoord.Z >= LEVEL_LEPTON_H * (cptr->Height + BRIDGE_CELL_HEIGHT));
+
+		ObjectClass * obj = cptr->Cell_Occupier(isbridge);
+		while (obj != NULL) {
+			if (obj != Source) {
+				if (obj->IsActive && obj->IsDown && !obj->IsInLimbo && obj->Strength > 0) {
+					obj->Take_Damage(damage, 0, warhead, Source);
+				}
+			}
+			obj = obj->Next;
+		}
+
+		if (cptr->Overlay != OVERLAY_NONE) {
+			OverlayTypeClass *optr = OverlayTypes[cptr->Overlay];
+			if (optr->IsChainReaction) {
+				Cell cell = cptr->CellID;
+				Chain_Reaction_Damage(cell);
+			}
+			if (optr->IsWall) {
+				cptr->Reduce_Wall(weapon->AmbientDamage);
+			}
+		}
+
+		if (cptr->Is_Tile_Destroyable_Cliff()) {
+			int chance = Rule->CollapseChance;
+			if (Random_Pick(0, 99) < chance) {
+				Map.Collapse_Cliff(cptr);
+			}
+		}
+	}
+}
+
+
+/// <summary>
+/// Adds a cell to the list of cells this wave is affecting.
+/// A cell is only recorded once, however many times the wave sweeps across it.
+/// </summary>
+void WaveClass::Sonic_Add_Cell(Cell const & cell)
+{
+	CellClass * cptr = &Map[cell];
+	if (AffectedCells.ID(cptr) == -1) {
+		AffectedCells.Add(cptr);
+	}
+}
+
+
+/// <summary>
+/// Interpolates between two coordinates.
+/// </summary>
+/// <param name="t">The fraction of the way from the first coordinate to the second.</param>
+/// <returns>Returns with the coordinate that lies that far along the line between them.</returns>
+Coord Lerp(Coord const & a, Coord const & b, float t)
+{
+	double inv = 1.0 - t;
+	return(Coord(int((a.X * inv) + (b.X * t)),
+				 int((a.Y * inv) + (b.Y * t)),
+				 int((a.Z * inv) + (b.Z * t))));
+}
+
+
+/// <summary>
+/// Interpolates between two screen points.
+/// </summary>
+/// <param name="t">The fraction of the way from the first point to the second.</param>
+/// <returns>Returns with the point that lies that far along the line between them.</returns>
+Point2D Lerp(Point2D const & a, Point2D const & b, float t)
+{
+	double inv = 1.0 - t;
+	int x = int((a.X * inv) + (b.X * t));
+	int y = int((a.Y * inv) + (b.Y * t));
+	return(Point2D(x,y));
+}
+
+
+/// <summary>
+/// Removes the specified object from this wave's records.
+/// This routine is called when an object is about to leave the game, so that the wave is
+/// not left pointing at it.
+/// </summary>
+/// <param name="target">The object that is going away.</param>
+void WaveClass::Detach(AbstractClass const * target, bool all)
+{
+	BASECLASS::Detach(target, all);
+
+	if (Source == target) {
+		Source = NULL;
+	}
+	if (Target == target) {
+		Target = NULL;
+	}
+}
+
+
+/// <summary>
+/// Reads the wave in from the save game stream.
+/// The base object is read first and then the cells that the wave was affecting. Every
+/// object pointer is handed to the swizzler so that it can be remapped once the whole save
+/// game has been loaded.
+/// </summary>
+/// <returns>Returns with S_OK, or the failure code of the first read that failed.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 305 bytes differ (adopted text)
+HRESULT STDMETHODCALLTYPE WaveClass::Load(IStream * stream)
+{
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) WaveClass(NoInitClass());
+
+		WaveShape.Vertices = &ActiveWaveStartMiddle;
+
+		Swizzle_Pointer(&Target);
+		Swizzle_Pointer(&Source);
+
+		int index;
+		int count;
+
+		result = stream->Read(&count, sizeof(count), NULL);
+		if (FAILED(result)) {
+			return(result);
+		}
+
+		for (index = 0; index < count; index++) {
+			CellClass * obj;
+			result = stream->Read(&obj, sizeof(obj), NULL);
+			if (FAILED(result)) {
+				return(result);
+			}
+			AffectedCells.Add(obj);
+		}
+
+		for (index = 0; index < count; index++) {
+			Swizzle_Pointer(&AffectedCells[index]);
+		}
+	}
+	return(result);
+}
+#endif
+
+
+/// <summary>
+/// Writes the wave out to the save game stream.
+/// The cells that the wave is currently affecting are written after the base object's own
+/// data.
+/// </summary>
+/// <returns>Returns with S_OK, or the failure code of the first write that failed.</returns>
+HRESULT STDMETHODCALLTYPE WaveClass::Save(IStream * stream, BOOL cleardirty)
+{
+	HRESULT result = BASECLASS::Save(stream, cleardirty);
+
+	int count = AffectedCells.Count();
+	result = stream->Write(&count, sizeof(count), NULL);
+	if (FAILED(result)) {
+		return(result);
+	}
+
+	for (int index = 0; index < count; index++) {
+		result = stream->Write(&AffectedCells[index], sizeof(AffectedCells[index]), NULL);
+		if (FAILED(result)) {
+			return(result);
+		}
+	}
+	return(result);
+}
+
+
+/// <summary>
+/// Fetches the class identifier of this object.
+/// This routine is part of the persistence interface. The save game loader uses the
+/// identifier to recreate the object as the right kind of class.
+/// </summary>
+/// <param name="retval">Pointer to the buffer to store the class identifier in.</param>
+/// <returns>Returns with S_OK, or E_POINTER if no buffer was supplied.</returns>
+HRESULT STDMETHODCALLTYPE WaveClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_WaveClass;
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Fetches the size of this object as it is written to the save game file.
+/// </summary>
+/// <returns>Returns with the number of bytes this object occupies.</returns>
+int WaveClass::Fetch_Object_Size(void) const // RA2: takes no argument
+{
+	return(sizeof(*this));
+}
+
+
+/// <summary>
+/// Determines which display layer the wave belongs to.
+/// </summary>
+/// <returns>Returns with the air layer, so that the wave draws over ground objects.</returns>
+LayerType WaveClass::In_Which_Layer(void) const
+{
+	return(LAYER_AIR);
+}
+
+
+/// <summary>
+/// Fetches the object type class that this object was built from.
+/// </summary>
+/// <returns>Returns with NULL, since a wave has no type class behind it.</returns>
+ObjectTypeClass const * WaveClass::Class_Of(void) const
+{
+	return(NULL);
+}
+
+
+/// <summary>
+/// Places the wave into the game world.
+/// This routine puts the wave onto the map and submits it to the display and logic layers
+/// so that it will be drawn and processed from now on.
+/// </summary>
+/// <param name="coord">The coordinate to place the wave at.</param>
+/// <returns>bool; Was the wave successfully placed?</returns>
+bool WaveClass::Unlimbo(Coord const & coord, Dir256 facing)
+{
+	if (GameActive && IsInLimbo && !IsDown) {
+		if (ScenarioInit || Can_Enter_Cell(&Map[coord], FACING_NONE, coord.Z) == MOVE_OK) {
+			IsInLimbo = false;
+			IsToDisplay = false;
+			PositionCoord = coord;
+
+			if (Mark(MARK_DOWN)) {
+				if (IsActive) {
+					if (In_Which_Layer() != LAYER_NONE) {
+						Map.Submit(this);
+					}
+					Logic.Submit(this);
+				}
+				return(true);
+			}
+		}
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// Removes the wave from the game world.
+/// This routine takes the wave back off the map and out of the display and logic layers so
+/// that it is neither drawn nor processed any longer.
+/// </summary>
+/// <returns>bool; Was the wave removed?</returns>
+bool WaveClass::Limbo(void)
+{
+	if (GameActive && !IsInLimbo) {
+
+		Detach_All();
+		Mark(MARK_UP);
+
+		Map.Remove(this);
+		Logic.Remove(this);
+
+		Hidden();
+		IsInLimbo = true;
+		IsToDisplay = false;
+		return(true);
+	}
+	return(false);
+}
+
+
+/// <summary>
+/// Draws the wave to the screen.
+/// This routine is called by the display layer and dispatches to the drawing handler for
+/// this wave's type. A wave that lies entirely under the fog of war is not drawn.
+/// </summary>
+/// <param name="point">The screen point that the wave's origin lands upon.</param>
+/// <param name="cliprect">The clipping rectangle to draw within.</param>
+void WaveClass::Draw_It(Point2D const & point, Rect const & cliprect) const
+{
+	if (Scen->Special.IsFogOfWar && Map.Is_Fogged(StartCoord) && Map.Is_Fogged(EndCoord)) return;
+
+	switch (Type) {
+		case WAVE_SONIC:
+			((WaveClass *)this)->Draw_Sonic(point, cliprect);
+			break;
+		case WAVE_BIG_LASER:
+		case WAVE_LASER:
+			((WaveClass *)this)->Draw_Laser(point, cliprect);
+			break;
+	}
+}
+
+
+
+
+/// <summary>
+/// Draws the sonic wave.
+/// The wave distorts the screen pixels it covers rather than replacing them, so that the
+/// terrain appears to ripple as the wave passes over it. Pixels hidden behind nearer ground
+/// or objects are left alone.
+/// </summary>
+/// <param name="point">The screen point that the wave's origin lands upon.</param>
+/// <param name="cliprect">The clipping rectangle to draw within.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (007225b0 has no row)
+void WaveClass::Draw_Sonic(Point2D const & point, Rect const & cliprect)
+{
+	int zpix = Tactical::Z_Lepton_To_Pixel(StartCoord.Z);
+
+	unsigned short * surfptr = (unsigned short *)LogicalSurface->Lock();
+	if (surfptr != NULL) {
+
+		int top = cliprect.Y + 3;
+		int bottom = cliprect.Y + cliprect.Height - 3;
+		int left = cliprect.X + 3;
+		int right = cliprect.X + cliprect.Width - 3;
+
+		int xoff = point.X - WaveStartMiddle.X;
+		int yoff = point.Y - WaveStartMiddle.Y;
+
+		Rasterize_Polygon(WaveShape, DrawData);
+
+		if (DrawData.Points != NULL) {
+
+			int starty = yoff + TacticalRect.Y + DrawData.BaseY;
+			int endy = MIN(DrawData.Count + starty - 1, cliprect.Height + cliprect.Y);
+
+			Init_Offset_Tables();
+
+			if (Direction > FACING_NE && Direction < FACING_W) {
+				unsigned short base_z = DepthBuffer->Get_Scroll_Delta(zpix);
+				unsigned short zval = base_z - starty - 2;
+				unsigned int zoffset = DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - TacticalRect.Y));
+				int width = LogicalSurface->Get_Width();
+				int zwidth = DepthBuffer->Get_Buffer_Width();
+
+				if (zoffset + 2 * (width + zwidth * (endy - starty + 1)) < DepthBuffer->Get_Buffer_End()) {
+
+					int stride = LogicalSurface->Stride() >> 1;
+					unsigned short * dest = surfptr + starty * stride;
+					Point2D * points = DrawData.Points;
+
+					for (int y = starty; y <= endy; y++) {
+						if (y >= top && y <= bottom) {
+							int xstop = xoff + points->Y;
+							if (xstop >= right) {
+								xstop = right;
+							}
+							int xstart = left;
+							if (points->X + xoff > left) {
+								xstart = points->X + xoff;
+							}
+
+							zoffset += 2 * xstart;
+							dest += xstart;
+
+							int x;
+							int ypos = abs(y - yoff - WaveStartMiddle.Y);
+							for (x = xstart; x <= xstop; x++) {
+								if (*(unsigned short *)zoffset > zval) {
+									Set_Sonic_Pixel(x, xoff, ypos, dest);
+								}
+								zoffset += 2;
+								dest++;
+							}
+							zoffset -= 2 * x;
+							dest -= x;
+						}
+						dest += stride;
+						zoffset += 2 * zwidth;
+						zval--;
+						points++;
+					}
+
+				} else {
+
+					int index = 0;
+					for (int y = starty; y <= endy; y++) {
+						if (y >= cliprect.Y + 2 && y <= cliprect.Y + cliprect.Height - 2) {
+							Point2D * entry = &DrawData.Points[index];
+							int xstop = xoff + entry->Y;
+							if (xstop >= cliprect.X + cliprect.Width - 2) {
+								xstop = cliprect.X + cliprect.Width - 2;
+							}
+							int xstart = cliprect.X + 2;
+							if (entry->X + xoff > cliprect.X + 2) {
+								xstart = entry->X + xoff;
+							}
+
+							int xpos = xstart;
+							unsigned short * dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
+							int zy = y - TacticalRect.Y;
+							int ypos = abs(y - yoff - WaveStartMiddle.Y);
+							for (int x = xstart; x <= xstop; x++) {
+								if (*(unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(xpos, zy)) > zval) {
+									Set_Sonic_Pixel(x, xoff, ypos, dest);
+								}
+								xpos++;
+								dest++;
+							}
+						}
+						zval--;
+						index++;
+					}
+				}
+
+			} else {
+
+				unsigned int zoffset = DepthBuffer->Get_Buffer_Offset(Point2D(0, starty - TacticalRect.Y));
+				int width = LogicalSurface->Get_Width();
+				int rows = endy - starty;
+				int zwidth = DepthBuffer->Get_Buffer_Width();
+
+				if (zoffset + 2 * (width + zwidth * (rows + 1)) < DepthBuffer->Get_Buffer_End()) {
+
+					int stride = LogicalSurface->Stride() >> 1;
+					unsigned short * dest = surfptr + endy * stride;
+					Point2D * points = &DrawData.Points[rows];
+					unsigned short base_z = DepthBuffer->Get_Scroll_Delta(endy);
+					unsigned short zval = base_z - zpix - 2;
+					unsigned short * zptr = (unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(0, endy - TacticalRect.Y));
+
+					for (int y = endy; y >= starty; y--) {
+						if (y >= top && y <= bottom) {
+							int xstart = xoff + points->Y;
+							if (xstart >= right) {
+								xstart = right;
+							}
+							int xstop = xoff + points->X;
+							if (xstop <= left) {
+								xstop = left;
+							}
+
+							dest += xstart;
+							zptr += xstart;
+
+							int x;
+							int ypos = abs(y - yoff - WaveStartMiddle.Y);
+							for (x = xstart; x >= xstop; x--) {
+								if (*zptr > zval) {
+									Set_Sonic_Pixel(x, xoff, ypos, dest);
+								}
+								zptr--;
+								dest--;
+							}
+							zptr -= x;
+							dest -= x;
+						}
+						dest -= stride;
+						zval++;
+						points--;
+						zptr -= zwidth;
+					}
+
+				} else {
+
+					unsigned short base_z = DepthBuffer->Get_Scroll_Delta(endy);
+					unsigned short zval = base_z - zpix - 2;
+					int index = rows;
+					for (int y = endy; y >= starty; y--) {
+						if (y >= cliprect.Y + 2 && y <= cliprect.Y + cliprect.Height - 2) {
+							Point2D * entry = &DrawData.Points[index];
+							int xstart = entry->Y + xoff;
+							if (xstart >= cliprect.X + cliprect.Width - 2) {
+								xstart = cliprect.X + cliprect.Width - 2;
+							}
+							int xstop = xoff + entry->X;
+							if (xstop <= cliprect.X + 2) {
+								xstop = cliprect.X + 2;
+							}
+
+							unsigned short * dest = surfptr + xstart + y * (LogicalSurface->Stride() >> 1);
+							int zy = y - TacticalRect.Y;
+							int xpos = xstart;
+							int ypos = abs(y - yoff - WaveStartMiddle.Y);
+							for (int x = xstart; x >= xstop; x--) {
+								if (*(unsigned short *)DepthBuffer->Get_Buffer_Offset(Point2D(xpos, zy)) > zval) {
+									Set_Sonic_Pixel(x, xoff, ypos, dest);
+								}
+								xpos--;
+								dest--;
+							}
+						}
+						zval++;
+						index--;
+					}
+				}
+			}
+		}
+
+		LogicalSurface->Unlock();
+
+		if (DrawData.Points != NULL) {
+			delete [] DrawData.Points;
+			DrawData.Points = NULL;
+		}
+	}
+}
+#endif
+
+
+
+
+/// <summary>
+/// Draws the laser wave.
+/// The wave brightens the screen pixels it covers rather than replacing them, so that the
+/// beam reads as a glow lying over the terrain. Pixels hidden behind nearer ground or
+/// objects are left alone. Nothing is drawn at all unless the player is running at the
+/// highest detail level.
+/// </summary>
+/// <param name="point">The screen point that the wave's origin lands upon.</param>
+/// <param name="cliprect">The clipping rectangle to draw within.</param>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00722cb0 has no row)
+void WaveClass::Draw_Laser(Point2D const & point, Rect const & cliprect)
+{
+	if (Options.DetailLevel == 2) {
+		int zpix = Tactical::Z_Lepton_To_Pixel(StartCoord.Z);
+
+		unsigned short * buffer = (unsigned short *)LogicalSurface->Lock();
+		if (buffer != NULL) {
+			int top = cliprect.Y;
+			int bottom = cliprect.Y + cliprect.Height;
+			int left = cliprect.X;
+			int right = cliprect.X + cliprect.Width;
+
+			int xoff = point.X - WaveStartMiddle.X;
+			int yoff = point.Y - WaveStartMiddle.Y + TacticalRect.Y;
+
+			Rasterize_Polygon(WaveShape, DrawData);
+
+			if (DrawData.Points != NULL) {
+				int ystart = yoff + DrawData.BaseY;
+				int yend = MIN(DrawData.Count + ystart - 1, cliprect.Y + cliprect.Height);
+
+				unsigned short base_z = DepthBuffer->Get_Scroll_Delta(ystart); // RA2: the executable takes the depth from the first row, clamps with MIN/MAX, and walks the wrapped spans with a counted do-while
+				unsigned short depth = base_z - zpix - 2; // RA2: as above
+				unsigned int zoff = DepthBuffer->Get_Buffer_Offset(Point2D(0, ystart - TacticalRect.Y));
+				int y; // RA2: as above
+				int surfwidth = LogicalSurface->Get_Width();
+
+				if (zoff + 2 * (surfwidth + (yend - ystart + 1) * DepthBuffer->Get_Buffer_Width()) < DepthBuffer->Get_Buffer_End()) { // RA2: as above
+					int zwidth = DepthBuffer->Get_Buffer_Width(); // RA2: as above
+					int stride = LogicalSurface->Stride() >> 1;
+					unsigned short * scrptr = &buffer[ystart * stride];
+					Point2D * points = DrawData.Points;
+
+					for (y = ystart; y <= yend; y++) { // RA2: as above
+						if (y >= top && y <= bottom) {
+							int xstop = MIN(points->Y + xoff, right); // RA2: as above
+							int xstart = MAX(points->X + xoff, left); // RA2: as above
+
+							zoff += 2 * xstart;
+							scrptr += xstart;
+
+							int x = xstart;
+							for (; x <= xstop; x++) {
+								if (*(unsigned short *)zoff > depth) {
+									Set_Laser_Pixel(scrptr, LaserEC);
+								}
+								zoff += 2;
+								scrptr++;
+							}
+
+							zoff -= 2 * x;
+							scrptr -= x;
+						}
+						scrptr += stride;
+						zoff += 2 * zwidth;
+						depth--;
+						points++;
+					}
+				} else {
+					int i = 0;
+					for (y = ystart; y <= yend; y++, i++) { // RA2: as above
+						if (y >= cliprect.Y + 2 && y <= cliprect.Y + cliprect.Height - 2) {
+							Point2D const & span = DrawData.Points[i]; // RA2: as above
+							int xstop = MIN(span.Y + xoff, cliprect.Width + cliprect.X - 2); // RA2: as above
+							int xstart = MAX(span.X + xoff, cliprect.X + 2); // RA2: as above
+
+							unsigned short * scrptr = &buffer[xstart + y * (LogicalSurface->Stride() >> 1)];
+							Point2D zpos(xstart, y - TacticalRect.Y); // RA2: as above
+
+							if (zpos.X <= xstop) { // RA2: as above
+								int remaining = xstop - zpos.X + 1; // RA2: as above
+								do { // RA2: as above
+									if (*(unsigned short *)DepthBuffer->Get_Buffer_Offset(zpos) > depth) { // RA2: as above
+										Set_Laser_Pixel(scrptr, LaserEC); // RA2: as above
+									}
+									zpos.X++; // RA2: as above
+									scrptr++; // RA2: as above
+								} while (--remaining != 0); // RA2: as above
+							}
+						}
+						depth--;
+					}
+				}
+			}
+
+			LogicalSurface->Unlock();
+
+			if (DrawData.Points != NULL) {
+				delete [] DrawData.Points;
+				DrawData.Points = NULL;
+			}
+		}
+	}
+}
+#endif
+
+
+
+
+
+
+/// <summary>
+/// Handles the per frame logic for the wave.
+/// This routine is called by the logic layer and merely dispatches to the handler for this
+/// wave's type.
+/// </summary>
+void WaveClass::AI(void)
+{
+	switch (Type) {
+		case WAVE_SONIC:
+			Sonic_AI();
+			break;
+		case WAVE_BIG_LASER:
+		case WAVE_LASER:
+			Laser_AI();
+			break;
+	}
+}
+
+
+/// <summary>
+/// Handles the per frame logic for a sonic wave.
+/// The wave geometry is brought up to date, every cell currently lying under the wave is
+/// damaged, and the wave removes itself from the game once it has run its course.
+/// </summary>
+void WaveClass::Sonic_AI(void)
+{
+	Wave_Shape_AI();
+	for (int i = 0; i < AffectedCells.Count(); i++) {
+		Sonic_Damage(AffectedCells[i]->Cell_Coord());
+	}
+	WaveEC -= 1;
+	if (WaveEC < 0) {
+		Delete_Me();
+	} else {
+		BASECLASS::AI();
+	}
+}
+
+
+
+
+
+/// <summary>
+/// Handles the per frame logic for a laser wave.
+/// A laser wave inflicts no damage of its own. It merely dims until it is too faint to be
+/// worth drawing, at which point it removes itself from the game.
+/// </summary>
+void WaveClass::Laser_AI(void)
+{
+	LaserEC -= 6;
+	if (LaserEC < 32) {
+		Delete_Me();
+	}
+}
+
+
+/// <summary>
+/// RA2
+/// </summary>
+static inline bool _Differs(Cell const & a, Cell const & b) // RA2: cells compared by value
+{
+	return a != b; // RA2: by value
+}
+
+
+/// <summary>
+/// RA2
+/// </summary>
+static inline void _Set(Cell & c, Coord const & coord) // RA2: a cell set from a coordinate
+{
+	c = coord.As_Cell(); // RA2: by value
+}
+
+
+/// <summary>
+/// RA2
+/// </summary>
+static inline bool _Differs(Cell const & a, Coord const & c) // RA2: a cell compared with a coordinate's cell
+{
+	return a != c.As_Cell(); // RA2: by value
+}
+
+
+/// <summary>
+/// Rebuilds the list of cells the wave covers.
+/// This routine walks the length of the wave and collects the cells it passes over. The
+/// sonic damage pass works from that list, so it is refreshed as the wave grows and fades.
+/// </summary>
+void WaveClass::Wave_Recalc_Affected_Cells(void)
+{
+	AffectedCells.Clear();
+
+	if (IsWaveActive) {
+		Cell start = StartCoord.As_Cell();
+
+		for (double t = WaveStep; t <= ((WaveStep / 2.0) + WaveProgress); t += WaveStep) {
+			Coord coord = Lerp(StartCoord, EndCoord, t);
+			Cell cell = coord.As_Cell();
+			if (start != cell) {
+				start = coord.As_Cell(); // RA2: the start cell from the coordinate
+				Sonic_Add_Cell(start);
+			}
+		}
+	} else {
+		Cell left = WaveEndLeftCoord.As_Cell();
+		Cell right = WaveEndRightCoord.As_Cell();
+		Cell middle = EndCoord.As_Cell();
+
+		for (double t = FadeProgress; t <= ((WaveStep / 2.0) + WaveProgress); t += WaveStep) {
+			Coord coord = COORD_NONE;
+
+			if (Direction < FACING_S) {
+				coord = Lerp(WaveStartLeftCoord, WaveEndLeftCoord, t);
+				if (left != coord.As_Cell()) {
+					left = coord.As_Cell();
+					Sonic_Add_Cell(left);
+				}
+			}
+
+			coord = Lerp(StartCoord, EndCoord, t);
+			if (_Differs(middle, coord.As_Cell())) { // RA2: through _Differs
+				_Set(middle, coord); // RA2: through _Set
+				Sonic_Add_Cell(middle);
+			}
+
+			if (Direction >= FACING_S) {
+				coord = Lerp(WaveStartRightCoord, WaveEndRightCoord, t);
+				if (_Differs(right, coord)) { // RA2: through _Differs
+					_Set(right, coord); // RA2: through _Set
+					Sonic_Add_Cell(right);
+				}
+			}
+		}
+	}
+}
+
+
+
+
+static const float WaveLengthFactor[] = { 1.0f, 1.05f, 1.05f };
+
+
+/// <summary>
+/// Builds the geometry of the wave.
+/// This routine spans the wave between the firing point and the target, sizing it from the
+/// template for its wave type, rotating it to lie along the line of fire, and converting
+/// each corner into the screen points that the drawing routines rasterize from.
+/// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 94 bytes differ (the first Coord_To_Pixel and the end corners are scheduled differently)
+void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & target_coord) // RA2: defined before Wave_Shape_AI, at 0x7238B0
+{
+	static Vector3 WaveSize[WAVE_COUNT][4] = {
+		{
+			Vector3(-30.0, -100.0, 0.0),	/// END_LEFT
+			Vector3(-30.0, 100.0, 0.0),		/// END_RIGHT
+			Vector3(30.0, -100.0, 0.0),		/// START_LEFT
+			Vector3(30.0, 100.0, 0.0)		/// START_RIGHT
+		},
+		{
+			Vector3(-34.0, -44.0, 0.0),		/// END_LEFT
+			Vector3(-34.0, 44.0, 0.0),		/// END_RIGHT
+			Vector3(34.0, -44.0, 0.0),		/// START_LEFT
+			Vector3(34.0, 44.0, 0.0)		/// START_RIGHT
+		},
+		{
+			Vector3(-27.0, -34.0, 0.0),		/// END_LEFT
+			Vector3(-27.0, 34.0, 0.0),		/// END_RIGHT
+			Vector3(27.0, -34.0, 0.0),		/// START_LEFT
+			Vector3(27.0, 34.0, 0.0)		/// START_RIGHT
+		}
+	};
+
+	Coord start_coord = source_coord;
+	Coord end_coord = Lerp(start_coord, target_coord, WaveLengthFactor[Type]);
+	if (Type == WAVE_SONIC) {
+		end_coord.Z += 50;
+	}
+
+	start_coord = Lerp(target_coord, start_coord, WaveLengthFactor[Type]);
+
+	TPoint3D<float> planar_delta(start_coord.X - end_coord.X, start_coord.Y - end_coord.Y, 0); // RA2: the 2D delta is a float vector, built before the length is taken
+	int distance2d = (int)fastmath::sqrt((double)planar_delta.Y * planar_delta.Y + (double)planar_delta.X * planar_delta.X); // RA2: the length is taken inline from the float components, Y first
+
+	/// Set initial coordinates
+	StartCoord = start_coord;
+	PositionCoord = StartCoord;
+	EndCoord = end_coord;
+
+	WaveShape.Count = 6;
+	WaveShape.Vertices = &ActiveWaveStartMiddle;
+
+	/// Calculate wave points
+	TacticalMap->Coord_To_Pixel(start_coord, WaveStartMiddle);
+	TacticalMap->Coord_To_Pixel(end_coord, WaveEndMiddle);
+
+	WaveShape.Vertices[PolygonShapeStruct::END_MIDDLE]   = WaveEndMiddle;
+	WaveShape.Vertices[PolygonShapeStruct::START_MIDDLE] = WaveStartMiddle;
+
+	double distance2d_f = distance2d;
+
+	Vector3 end_left 	= WaveSize[Type][0] + Vector3(distance2d_f, 0, 0);
+	Vector3 end_right 	= WaveSize[Type][1] + Vector3(distance2d_f, 0, 0);
+	Vector3 start_left 	= WaveSize[Type][2] + Vector3(0, 0, 0);
+	Vector3 start_right = WaveSize[Type][3] + Vector3(0, 0, 0);
+
+	double dz = end_coord.Z - start_coord.Z;
+
+	end_left.Z 		= end_left.X 	* dz / distance2d_f + start_coord.Z;
+	end_right.Z 	= end_right.X 	* dz / distance2d_f + start_coord.Z;
+	start_left.Z 	= start_left.X 	* dz / distance2d_f + start_coord.Z;
+	start_right.Z 	= start_right.X * dz / distance2d_f + start_coord.Z;
+
+	TPoint3D<float> heading(end_coord.X - start_coord.X, end_coord.Y - start_coord.Y, 0); // RA2: the heading is a float vector with no height
+	double dx = heading.X; // RA2: as above
+	double dist = heading.Length(); // RA2: the length comes from the vector's own Length
+	if (dist < dx) dx = dist;
+	if (-dx > dist) dx = -dist;
+
+	double theta = fastmath::acos(dx / dist);
+	if (start_coord.Y > end_coord.Y) {
+		theta = -theta;
+	}
+
+	/// Calculate wave vectors
+	Matrix3D matrix;
+	matrix.Make_Identity();
+	matrix.Rotate_Z(theta);
+
+	end_left 	= matrix * end_left;
+	end_right 	= matrix * end_right;
+	start_left 	= matrix * start_left;
+	start_right = matrix * start_right;
+
+	/// Set wave coordinates
+	WaveEndLeftCoord 	= Coord(start_coord.X + end_left.X,    start_coord.Y + end_left.Y,    end_left.Z);
+	WaveEndRightCoord 	= Coord(start_coord.X + end_right.X,   start_coord.Y + end_right.Y,   end_right.Z);
+	WaveStartLeftCoord 	= Coord(start_coord.X + start_left.X,  start_coord.Y + start_left.Y,  start_left.Z);
+	WaveStartRightCoord = Coord(start_coord.X + start_right.X, start_coord.Y + start_right.Y, start_right.Z);
+
+	/// Convert coordinates to pixels
+	TacticalMap->Coord_To_Pixel(WaveEndLeftCoord, WaveEndLeft);
+	TacticalMap->Coord_To_Pixel(WaveEndRightCoord, WaveEndRight);
+	TacticalMap->Coord_To_Pixel(WaveStartLeftCoord, WaveStartLeft);
+	TacticalMap->Coord_To_Pixel(WaveStartRightCoord, WaveStartRight);
+
+	/// Set wave points
+	WaveShape.Vertices[PolygonShapeStruct::END_LEFT] = WaveEndLeft;
+	WaveShape.Vertices[PolygonShapeStruct::END_RIGHT] = WaveEndRight;
+	WaveShape.Vertices[PolygonShapeStruct::START_RIGHT] = WaveStartRight;
+	WaveShape.Vertices[PolygonShapeStruct::START_LEFT] = WaveStartLeft;
+
+	/// Copy facing
+	Facing = Source->SecondaryFacing;
+}
+#endif
+
+
+
+/// <summary>
+/// Handles the per frame update of the wave geometry.
+/// This routine keeps the wave anchored to the object that fired it and to the object it
+/// was aimed at. While that link holds, the shape is rebuilt and its leading edge is drawn
+/// further out until the wave has reached its full length. Once the link is broken the
+/// trailing edge is drawn in after it, and the wave removes itself when nothing of it is
+/// left. The list of cells the wave covers is refreshed before returning.
+/// </summary>
+void WaveClass::Wave_Shape_AI(void) // RA2: defined after Wave_Recalc_Affected_Cells, at 0x00724200
+{
+	if (WaveProgress - FadeProgress > 0.1 && Type == WAVE_SONIC) { // RA2: a sonic wave that has grown past a tenth of its length starts fading
+		IsWaveFading = true; // RA2: as above
+	}
+
+	do { // RA2: a shared exit without goto
+		if (Target != NULL && Source != NULL && WaveEC != (int)(1.0 / WaveStep) && Source->TarCom == Target) { // RA2: as above
+			if ((Source->PositionCoord - Target->As_Coord()).Length() <= CELL_LEPTON_DIAG * 6.0) { // RA2: the tether holds while the wave is within six cell diagonals
+				break; // RA2: as above
+			}
+		}
+		IsWaveActive = false; // RA2: a broken tether ends the growth
+		IsWaveFading = true; // RA2: a broken tether starts the fade as well
+	} while (false); // RA2: as above
+
+	if (IsWaveActive) {
+		Build_Wave_Shape(Source->Fire_Coord(0), Target->As_Coord());
+	}
+
+	if (WaveProgress < 1.0 && IsWaveActive) {
+		WaveProgress += WaveStep;
+		if (WaveProgress > 0.98) {
+			WaveProgress = 1.0;
+		}
+		WaveShape.Vertices[PolygonShapeStruct::END_LEFT] = Lerp(WaveStartLeft, WaveEndLeft, WaveProgress);
+		WaveShape.Vertices[PolygonShapeStruct::END_MIDDLE] = Lerp(WaveStartMiddle, WaveEndMiddle, WaveProgress);
+		WaveShape.Vertices[PolygonShapeStruct::END_RIGHT] = Lerp(WaveStartRight, WaveEndRight, WaveProgress);
+	}
+
+	if (IsWaveFading && FadeProgress <= WaveStep * 0.5 + WaveProgress) { // RA2: the fade runs off its own flag, not off the tether
+		FadeProgress += WaveStep; // RA2: as above
+		if (FadeProgress >= WaveProgress) { // RA2: as above
+			Delete_Me(); // RA2: as above
+			return; // RA2: as above
+		}
+		WaveShape.Vertices[PolygonShapeStruct::START_RIGHT] = Lerp(WaveStartRight, WaveEndRight, FadeProgress); // RA2: as above
+		WaveShape.Vertices[PolygonShapeStruct::START_MIDDLE] = Lerp(WaveStartMiddle, WaveEndMiddle, FadeProgress); // RA2: as above
+		WaveShape.Vertices[PolygonShapeStruct::START_LEFT] = Lerp(WaveStartLeft, WaveEndLeft, FadeProgress); // RA2: as above
+	}
+
+	Wave_Recalc_Affected_Cells();
+}
+
+
+
+/// <summary>
+/// RA2
+/// </summary>
+static inline void Lerp_From(Coord & point, Coord const & origin, float t) // RA2: a point pulled toward an origin
+{
+	double inv = 1.0 - t; // RA2: the remaining weight
+	point = Coord(origin.X * inv + point.X * t, origin.Y * inv + point.Y * t, origin.Z * inv + point.Z * t); // RA2: blended per axis
+}
+
+
+
+
+
+
+
+
+
+
+
+/// <summary>
+/// Fetches the RTTI type of this object.
+/// </summary>
+/// <returns>Returns with the RTTI identifier that marks this object as a wave.</returns>
+RTTIType WaveClass::Fetch_RTTI(void) const // RA2: defined last
+{
+	return(RTTI_WAVE);
+}
+
+

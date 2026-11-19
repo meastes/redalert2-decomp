@@ -1,0 +1,1014 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/TECHNO.H 1     3/03/97 10:25a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : TECHNO.H                                                     *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : April 14, 1994                                               *
+ *                                                                                             *
+ *                  Last Update : April 14, 1994   [JLB]                                       *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#pragma once
+
+#include "_voxel.h"
+#include "cargo.h"
+#include "comtypes.h"
+#include "door.h"
+#include "facing.h"
+#include "flasher.h"
+#include "ftimer.h"
+#include "globals.h"
+#include "house.h"
+#include "matrix3d.h"
+#include "point.h"
+#include "radio.h"
+#include "stage.h"
+#include "stbuffer.h"
+#include "storage.h"
+#include "techtype.h" /// This class uses TechnoTypeClass members inline, so the full definition is needed.
+#include "timer.h"
+#include "vector.h" // RA2: DynamicVectorClass
+#include "veteran.h"
+
+#include "cloak.hh"
+#include "detected.hh"
+#include "draw.hh"
+#include "fire.hh"
+#include "infantry.hh"
+#include "particle.hh"
+#include "talk.hh"
+#include "threat.hh"
+#include "zgrad.hh"
+
+
+class LaserDrawClass;
+class EBolt; // RA2
+class ParticleSystemClass;
+class WaveClass;
+class WeaponTypeClass;
+class ShapeSet;
+struct WeaponDataStruct;
+class TemporalClass; // RA2
+class CaptureManagerClass; // RA2
+class SpawnManagerClass; // RA2
+class PlanningTokenClass; // RA2
+class ObjectTypeClass; // RA2
+
+
+/*
+**	RA2: the state of one recoiling part, a turret or its barrel, as it is pushed back by
+**	firing and returns to rest.
+*/
+struct RecoilData
+{
+	TurretControl Turret;
+	float TravelPerFrame;
+	float TravelSoFar;
+	int State;
+	int TravelFramesLeft;
+
+	void Fire(void); // RA2: 0x6D8B90
+	void Update(void); // RA2: 0x6D8BC0
+
+	RecoilData(void)
+	{
+		Turret.Travel = 2;
+		Turret.CompressFrames = 1;
+		Turret.RecoverFrames = 1;
+		Turret.HoldFrames = 1;
+		TravelSoFar = 0;
+		State = 0;
+	}
+};
+
+
+/****************************************************************************
+**	This is the common data between building and units.
+*/
+class TechnoClass :	public RadioClass,
+					public FlasherClass,
+					public StageClass
+{
+		typedef RadioClass BASECLASS;
+
+	public:
+		enum {
+			RAILGUN_STEPS = 50,
+		};
+		CargoClass Cargo; // RA2: +0xF8; ActLike moved after CurrentRanking
+
+		int CurrentTurretNumber; // RA2: +0x100; -1 when constructed
+
+		int LastTurretNumber; // RA2: +0x104; CurrentTurretNumber when last checked for a turret change
+
+		AnimClass * BehindAnim; // RA2: +0x108; cleared by Detach
+
+		int CurrentWeaponNumber; // RA2: +0x10C; set with CurrentTurretNumber
+
+		int CurrentRanking; // RA2: +0x110; -1 when constructed; compared with the veterancy rank by AI
+
+		/*
+		**	This is the house that originally owned this factory. Objects buildable
+		**	by this house type will be produced from this factory regardless of who
+		**	the current owner is.
+		*/
+		HousesType ActLike; // RA2: +0x114
+
+		VeterancyClass Veterancy;
+
+		/*
+		 * These are this object's own armor and firepower multipliers. They are 1.0 unless a
+		 * crate powerup has changed them, and they scale on top of the house's biases of the
+		 * same name, so a crated unit is tougher or hits harder than others of its type.
+		 */
+		double ArmorBias;
+		double FirepowerBias;
+
+		/*
+		**	Idle animations (if any are supported by the object type) are regulated by
+		**	this timer. When the timer expires an idle animation occurs. Then the
+		**	timer is reinitialized to some random (bounded) setting.
+		*/
+		CDTimerClass<FrameTimerClass> IdleTimer;
+
+		/*
+		 * This is the countdown that blinks this object on the radar after it takes damage, so
+		 * the player can see at a glance where he is being attacked.
+		 */
+		CDTimerClass<FrameTimerClass> RadarFlashTimer;
+
+		CDTimerClass<FrameTimerClass> TargetingTimer; // RA2: +0x148; 45 when constructed
+
+		CDTimerClass<FrameTimerClass> IronCurtainTimer; // RA2: +0x154
+
+		CDTimerClass<FrameTimerClass> IronTintTimer; // RA2: +0x160
+
+		int IronTintStage; // RA2: +0x16C; steps 1 to 10 through the Iron Curtain tint
+
+		bool Disguised; // RA2: +0x170
+
+		unsigned DisguiseCreationFrame; // RA2: +0x174
+
+		CDTimerClass<FrameTimerClass> InfantryBlinkTimer; // RA2: +0x178
+
+		CDTimerClass<FrameTimerClass> DisguiseBlinkTimer; // RA2: +0x184
+
+		bool UnlimboingInfantry; // RA2: +0x190
+
+		CDTimerClass<FrameTimerClass> ReloadTimer; // RA2: +0x194
+
+		/*
+		 * This is where this object last plotted on the radar, in radar pixels. The radar's
+		 * tracking table is keyed by it, so a moved object untracks here before plotting anew.
+		 */
+		Point2D RadarPos;
+
+		/*
+		**	This is a list of bits of which houses are spying on this building,
+		**	if in fact this is a building.
+		*/
+		unsigned SpiedBy;
+
+		/*
+		**	If this object is part of a pseudo-team that the player is managing, then
+		**	this will be set to the team number (0 - 9). If it is not part of any
+		**	pseudo-team, then the number will be -1.
+		*/
+		int Group;
+
+		/*
+		**	For units in area guard mode, this is the recorded home position. The guarding
+		**	unit will try to stay near this location in the course of it's maneuvers. This is
+		**	also used to record a pending transport for those passengers that are waiting for
+		**	the transport to become available. It is also used by harvesters so that they know
+		**	where to head back to after unloading.
+		*/
+		AbstractClass * ArchivedTarget;
+
+		/*
+		**	This is the house that the unit belongs to.
+		*/
+		HouseClass * House;
+
+		/*
+		**	This records the current cloak state for this vehicle.
+		*/
+		CloakType Cloak;
+		StageClass CloakingDevice;
+		CDTimerClass<FrameTimerClass> CloakDelay;
+
+		/*
+		 * This shifts where this object samples the "predator" distortion pattern it is drawn
+		 * with while cloaked, so that two cloaked objects do not shimmer in step.
+		 */
+		float PredatorOffset;
+
+		bool IsSightRevealed; // RA2: +0x1E4; set when sight is revealed at LastSightCoords, cleared when it is taken back
+
+		Coord LastSightCoords; // RA2: +0x1E8
+
+		int LastSightRange; // RA2: +0x1F4
+
+		int LastSightHeight; // RA2: +0x1F8
+
+		bool GapSuperCharged; // RA2: +0x1FC
+
+		bool GeneratingGap; // RA2: +0x1FD
+
+		int GapRadius; // RA2: +0x200
+
+		bool BeingWarpedOut; // RA2: +0x204
+
+		bool WarpingOut; // RA2: +0x205
+
+		bool Unused_206; // RA2: +0x206; set by the constructor only, never read
+
+		TemporalClass * TemporalImUsing; // RA2: +0x208
+
+		TemporalClass * TemporalTargetingMe; // RA2: +0x20C
+
+		bool IsImmobilized; // RA2: +0x210
+
+		int TeleportState; // RA2: +0x214; reinforcements set 3; the teleport locomotor starts its state from it
+
+		int ChronoLockRemaining; // RA2: +0x218
+
+		Coord ChronoDestCoords; // RA2: +0x21C
+
+		/* (Targeting Computer)
+		**	This is the target value for the item that this vehicle should ATTACK. If this
+		**	is a vehicle with a turret, then it may differ from its movement destination.
+		*/
+		AbstractClass * TarCom; // RA2: +0x228
+		AbstractClass * SuspendedTarCom;
+
+		CaptureManagerClass * CaptureManager; // RA2: +0x230
+
+		TechnoClass * MindControlledBy; // RA2: +0x234
+
+		SpawnManagerClass * SpawnManager; // RA2: +0x238
+
+		TechnoClass * SpawnOwner; // RA2: +0x23C
+
+		/*
+		 * This is the nose-up pitch of this aircraft, expressed in radians. A dropship pitches
+		 * up as it flares to a stop, and counts as still moving until it eases level again.
+		 */
+		float PitchAngle; // RA2: +0x240
+
+		/*
+		**	This is the arming countdown. It represents the time necessary
+		**	to reload the weapon.
+		*/
+		CDTimerClass<FrameTimerClass> Arm;
+
+		int ChargeTurretDelay; // RA2: +0x250
+
+		/*
+		**	The number of shot this object can fire before running out of ammo. If this
+		**	value is zero, then firing is not allowed. If -1, then there is no ammunition
+		**	limit.
+		*/
+		int Ammo;
+
+		/*
+		**	This is the amount of money spent to produce this object. This value really
+		**	only comes into play for the case of buildings that have special "free"
+		**	objects available when purchased at the more expensive rate.
+		*/
+		int PurchasePrice;
+
+		/*
+		 * These are the particle systems attached to this object -- one slot per kind, such as
+		 * its damage smoke or the trail of its railgun. An occupied slot blocks another system
+		 * of that kind, and for a weapon effect it also holds off the weapon that spawned it.
+		 */
+		ParticleSystemClass * ParticleSystems[8]; // RA2: eight, not ATTACHED_PARTICLE_COUNT
+
+		/*
+		 * This is the sonic wave this object has in flight. A sonic weapon cannot fire again
+		 * while its wave lives, so an object only ever has one of them in the air at a time.
+		 */
+		WaveClass * Wave;
+
+		/*
+		 * These are the angles this object is presently tipped at, expressed in radians --
+		 * sideways rolls it about its length, forwards pitches it nose down. The rocking rates
+		 * advance them each frame, and the object is drawn tipped to match.
+		 */
+		float AngleRotatedSideways;
+		float AngleRotatedForwards;
+
+		/*
+		 * These are the rates at which the object is presently tipping, expressed in radians of
+		 * rotation per game frame. Something jolting the object sets them, and each frame they
+		 * are eased back toward zero so that the rocking dies away of its own accord.
+		 */
+		float RockingSidewaysPerFrame;
+		float RockingForwardsPerFrame;
+
+		/*
+		 * If infantry has taken this object over, then this records the type of infantry that
+		 * entered it. The same soldier steps back out if the object is later destroyed, and a
+		 * hijacked vehicle counts against that infantry type's build limit while it lives.
+		 */
+		InfantryType EnteredByInfType;
+
+		/*
+		**	This is a count of the # of loads of the various minerals that the
+		**	unit has harvested.
+		*/
+		StorageClass Storage;
+
+		unsigned Unused_2A4; // RA2: +0x2A4; never used
+
+		/*
+		 * This is the door, hatch, or bay of this object. It swings open and shut at the rate
+		 * the object's type specifies, and whatever is trying to get out or in waits until this
+		 * reports that the door has finished moving.
+		 */
+		DoorClass Door;
+
+		/*
+		 * This is the elevation of this object's gun barrel, which swings toward a desired
+		 * pitch at its own rate just as a turret turns. Level is DIR_E, and artillery lowers
+		 * the barrel back to its type's StartPitch once it has stopped firing.
+		 */
+		FacingClass BarrelPitch;
+
+		/*
+		**	This is the visible facing for the unit or building.
+		*/
+		FacingClass PrimaryFacing;
+
+		/*
+		**	This is the facing of the turret. It can be, and usually is,
+		**	rotated independently of the body it is attached to.
+		*/
+		FacingClass SecondaryFacing;
+
+		/*
+		 * This is the index of the next shot within a burst, for those units or buildings that
+		 * fire several shots in quick succession. It counts up as each shot leaves and wraps
+		 * back to zero at the weapon's burst count. While it is part way through a burst the
+		 * short burst rearm timing is used rather than the regular rate of fire, and alternate
+		 * shots are fired from the opposite side of the barrel.
+		 */
+		int BurstIndex;
+
+		/*
+		 * This is the countdown that keeps the targeting laser drawn from this object to
+		 * whatever it is shooting at. It is restarted with every shot, but only for the object
+		 * types that sport such a laser and only while the player is in control of them.
+		 */
+		CDTimerClass<FrameTimerClass> TargetingLaserTimer;
+
+		/*
+		 * This is the index used to pick which of a weapon's several firing sounds this object
+		 * plays. It is rolled once when the object is created and never rerolled, so each
+		 * object keeps one voice out of the selection instead of every one sounding alike.
+		 */
+		unsigned short SoundRandomSeed;
+
+		/*
+		 * This is the screen row below which a sinking object is clipped away, recalculated as
+		 * it is drawn. Cutting the image off rather than shrinking it is what makes the object
+		 * appear to slide beneath the surface.
+		 */
+		short SinkingYOffset;
+
+		bool CountedAsOwned; // RA2: +0x324
+
+		/*
+		 * If this object is sinking out of sight, as a vehicle does when it breaks through the
+		 * ice, then this flag will be true. A sinking object keels forward, is clipped off at
+		 * the waterline, and is stunned so that it takes no further orders on the way down.
+		 */
+		bool IsSinking;
+
+		bool WasSinkingAlready; // RA2: +0x326
+
+		/*
+		 * If this object should call the rest of its base to its aid when attacked, then this flag
+		 * will be true. It is the per-object counterpart of the type's IsToProtect.
+		 */
+		bool IsNeedingRescue;
+
+		/*
+		**	If this techno object has detected that it has outlived its
+		**	purpose, then this flag will be true. Such object will either
+		**	be sold or sacrificed at the first opportunity.
+		*/
+		bool IsUseless;
+
+		/*
+		**	This flag will be true if the object has been damaged with malice.
+		**	Damage received due to friendly fire or wear and tear does not count.
+		**	The computer is not allowed to sell a building unless it has been
+		**	damaged with malice.
+		*/
+		bool IsTickedOff;
+
+		/*
+		**	If this object has inherited the ability to cloak, then this bit will
+		**	be set to true.
+		*/
+		bool IsCloakable;
+
+		/*
+		**	If this object is designated as special then this flag will be true. For
+		**	buildings, this means that it is the primary factory. For units, it means
+		**	that the unit is the team leader.
+		*/
+		bool IsLeader;
+
+		/*
+		**	Certain units are flagged as "loaners".  These units are typically transports that
+		**	are created solely for the purpose of delivering reinforcements.  Such "loaner"
+		**	units are not owned by the player and thus cannot be directly controlled.  These
+		**	units will leave the game as soon as they have fulfilled their purpose.
+		*/
+		bool IsALoaner;
+
+		/*
+		**	Once a unit enters the map, then this flag is set. This flag is used to make
+		**	sure that a unit doesn't leave the map once it enters the map.
+		*/
+		bool IsLocked;
+
+		RecoilData TurretRecoil; // RA2: +0x330; replaces IsInRecoilState
+
+		RecoilData BarrelRecoil; // RA2: +0x350
+
+		/*
+		**	If this unit is "loosely attached" to another unit it is given special
+		**	processing. A unit is in such a condition when it is in the process of
+		**	unloading from a transport type object. During the unloading process
+		**	the transport object must stay still until the unit is free and clear.
+		**	At that time it radios the transport object and the "tether" is broken -
+		**	freeing both the unit and the transport object.
+		*/
+		bool IsTethered; // RA2: +0x370
+
+		bool IsAlternativeTether; // RA2: +0x371
+
+		/*
+		**	Is this object owned by the player?  If not, then it is owned by the computer
+		**	or remote opponent. This flag facilitates the many logic differences when dealing
+		**	with player's or computer's units or buildings.
+		*/
+		bool IsOwnedByPlayer;
+
+		/*
+		**	The more sophisticated game objects must keep track of whether they are discovered
+		**	or not. This is because the state of discovery can often control how the object
+		**	behaves. In addition, this fact is used in radar and user I/O processing.
+		*/
+		bool IsDiscoveredByPlayer;
+
+		/*
+		**	This is used to control the computer recognizing this object.
+		*/
+		bool IsDiscoveredByComputer;
+
+		/*
+		**	Some game objects can be of the "lemon" variety. This means that they take damage
+		**	even when everything is ok. This adds a little variety to the game.
+		*/
+		bool IsALemon;
+
+		unsigned char Cooldown; // RA2: +0x376; counted down by one every AI frame
+
+		/// Unused
+		unsigned char Unused1;
+
+		/*
+		 * This is the bonus added to this object's sight range, expressed as a percentage of
+		 * the range its type normally has. An object standing high up can see further, so the
+		 * bonus is derived from its height each time it looks, and a bonus that has grown since
+		 * the last look forces a full reveal rather than an incremental one.
+		 */
+		char SightIncrease;
+
+		/*
+		 * These flags control whether this object may be drafted into a team. Both are true by
+		 * default and both travel with the object in the scenario, so a map can hold a
+		 * particular unit back from teams without changing its type.
+		 */
+		bool IsTeamRecruitable;			/// For teams built from a team type.
+		bool IsAutocreateRecruitable;	/// For teams the computer autocreates.
+
+		/*
+		 * If this object is currently listed in the radar's tracking table, then this flag will
+		 * be true. That table is what lets the radar tell what is standing at a given radar
+		 * pixel, and this flag keeps an object from being entered or removed from it twice.
+		 */
+		bool IsRadarTracked;
+
+		/*
+		 * If this unit is being carried by a transport, then this flag will be true. The unit
+		 * is in "limbo" while it rides, so the flag serves to lift its shadow clear of the
+		 * transport carrying it.
+		 */
+		bool IsInTransport;
+
+		/*
+		 * If this object is tumbling freely, as a shot down aircraft does on its way to the
+		 * ground, then this flag will be true. While it is set the rocking angles are advanced
+		 * without the clamping and damping that would otherwise settle the object level again.
+		 */
+		bool IsRocking;
+
+		bool WasCrashingAlready; // RA2: +0x37E
+
+		/*
+		 * If this object is carrying out the patrol mission, then this flag will be true. It
+		 * is cleared when the player hands the object an ordinary waypoint path, which is how
+		 * a patrol is broken off in favor of a one way trip.
+		 */
+		bool IsOnPatrol; // RA2: +0x37F
+
+		bool IsMouseHovering; // RA2: +0x380; cleared at the start of AI
+
+		bool ShouldBeReselectOnUnlimbo; // RA2: +0x381
+
+		TeamClass * OldTeam; // RA2: +0x384
+
+		/*
+		 * If the waypoint path this object is following is a patrol loop rather than a one
+		 * shot route, then this flag will be true. It keeps the patrol cursor offered over the
+		 * map so that further legs can be added without holding the modifier keys down.
+		 */
+		bool IsOnWaypointPatrol; // RA2: +0x388
+
+		int RadialFireSegment; // RA2: +0x38C; the segment of the RadialFireSegments fan the next shot goes to
+
+		mutable DynamicVectorClass<int> CurrentTargetThreatValues; // RA2: +0x390
+
+		mutable DynamicVectorClass<AbstractClass *> CurrentTargets; // RA2: +0x3A8
+
+		mutable DynamicVectorClass<AbstractClass *> AttackedTargets; // RA2: +0x3C0
+
+		AudioController TurretRotateSoundController; // RA2: +0x3D8
+
+		int IsTurretRotateSoundPlaying; // RA2: +0x3EC
+
+		int TurretIsRotating; // RA2: +0x3F0
+
+		int LastTargetScanFrame; // RA2: +0x3F4; Frame when AI last looked for an opportunity target
+
+		TechnoClass * QueueUpToEnter; // RA2: +0x3F8
+
+		/*
+		 * This is the number of game frames this object remains stunned, counted down one per
+		 * frame. A stunned object cannot move, fire, or produce, which is how an EM pulse and
+		 * a plunge through the ice take their victims out of the fight.
+		 */
+		int StunDuration; // RA2: +0x3FC
+
+		unsigned ThreatPosed; // RA2: +0x400
+
+		bool ShouldLoseTargetNow; // RA2: +0x404
+
+		PlanningTokenClass * PlanningToken; // RA2: +0x408
+
+		ObjectTypeClass * Disguise; // RA2: +0x40C
+
+		HouseClass * DisguisedAsHouse; // RA2: +0x410
+
+		/*---------------------------------------------------------------------
+		**	Constructors, Destructors, and overloaded operators.
+		*/
+		TechnoClass(HouseClass * house=0);
+		TechnoClass(NoInitClass const & x);
+		virtual ~TechnoClass(void) override;
+
+		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
+		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override; // RA2: 0x6D6A80; TechnoClass's own Save (between RadioClass's and the derived classes')
+
+		/*
+		**	Query functions.
+		*/
+		virtual void Compute_CRC(CRCEngine &) const override;
+		virtual TechnoTypeClass const * Techno_Type_Class(void) const override;
+
+		/*
+		**	RA2: the virtual functions TechnoClass adds, in RA2's vtable order (+0x264 on).
+		*/
+		virtual bool Is_Move_Override(void) const;
+		virtual bool Is_Allowed_To_Recloak(void) const;
+		virtual bool Can_Scatter(void) const;
+		virtual bool Is_In_Team(void) const;
+		virtual bool Should_Self_Heal_Now(void) const;
+		virtual bool Is_Voxel_Loaded(void) const;
+		virtual bool Is_Ready_To_Move(void) const;
+		virtual bool Is_Ready_To_Cloak(void) const;
+		virtual bool Should_Uncloak(void) const;
+		virtual DirType Turret_Facing(void) const;
+		virtual bool Is_Weapon_Equipped(void) const;
+		virtual bool Is_On_Elevation(void) const;
+		virtual double Tiberium_Load(void) const;
+		virtual int Pip_Count(void) const;
+		virtual int Refund_Amount(void) const;
+		virtual int Risk(void) const;
+		void Add_Cell_Threat(CellClass * cell); // RA2: 0x6D95A0, stores Risk() in ThreatPosed and adds it to the cell for Owner()
+		void Remove_Cell_Threat(CellClass * cell); // RA2: 0x6D95D0, takes ThreatPosed off the cell again and clears it
+		virtual bool Is_In_Same_Zone_As(ObjectClass const * object) const;
+		virtual DirType Barrel_Pitch(AbstractClass * target) const;
+		virtual bool Is_In_Same_Zone(Coord const & coord) const;
+		virtual int How_Many_Survivors(void) const;
+		virtual void Scatter_Incoming_Infantry(void) const;
+		virtual int What_Weapon_Should_I_Use(AbstractClass * target) const; // RA2: virtual
+		virtual int SelectNavalTargeting(AbstractClass * target) const; // RA2
+		virtual int Get_Z_Adjust(void) const;
+		virtual ZGradientType Get_Z_Gradient(void) const {return(ZGRAD_90DEG);}
+		virtual Cell GetLastFlightMapCoords(void) const; // RA2
+		virtual void SetLastFlightMapCoords(Cell coord); // RA2
+		virtual Cell Find_Exit_Cell(TechnoClass const * techno) const;
+		virtual Coord Turret_Coord(int which=0) const;
+		virtual FacingType Desired_Load_Dir(ObjectClass * , Cell & moveto) const;
+		virtual DirType Fire_Direction(void) const;
+		virtual InfantryTypeClass const * Crew_Type(void) const;
+		virtual bool Can_Attack_Now(void) const;
+		virtual bool Can_Deploy_Now(void) const;
+		virtual int Rearm_Delay(int which=0) const;
+		virtual int Threat_Range(int control) const;
+		virtual bool Is_Allowed_To_Leave_Map(void) const;
+		virtual bool Is_Radar_Visible(DetectedType & detected) const;
+		virtual bool Is_Sensed_By_Player(void) const;
+		virtual bool Is_Sensed_By_House(HouseClass const * house) const;
+		virtual bool Is_Renovator(void) const;
+		virtual void Advance_Waypoint_Path(void);
+		virtual bool IsPowerOnline(void) const; // RA2
+		virtual void Response_Select(void);
+		virtual void Response_Move(void);
+		virtual void Response_Attack(void);
+		virtual bool ClickedEvent(int event); // RA2
+		virtual bool Player_Assign_Mission(MissionType order, AbstractClass * target=NULL, AbstractClass * destination=NULL, AbstractClass * nearby=NULL); // RA2: fourth argument, returns bool
+		virtual bool IsUnderEMP(void) const; // RA2
+		virtual bool IsParalyzed(void) const; // RA2
+		// RA2: vtable +0x32C is a virtual neither Tiberian Sun nor Yuri's Revenge has; it returns whether a timer at +0x154 is still running.
+		virtual bool Unknown_Virtual_32C(void) const {return(IronCurtainTimer.Value() > 0);} // RA2: inline (one copy, 0x41B390)
+		virtual bool CanCheer(void) const; // RA2
+		virtual void Cheer(void); // RA2
+		virtual int Get_Max_Speed(void) const;
+		virtual void Reduce_Ammunition(void);
+		virtual bool CanDisguiseAs(AbstractClass * target) const; // RA2
+		virtual bool Target_Something_Nearby(Coord const & coord, ThreatType threat=THREAT_NORMAL);
+		virtual void Stun(void);
+		virtual bool TriggersCellInset(AbstractClass * target); // RA2
+		virtual bool In_Range(AbstractClass * target, int which=0) const;
+		virtual bool IsCloseEnoughToAttack(AbstractClass * target) const; // RA2
+		virtual bool IsCloseEnoughToAttackCoords(Coord const & coord) const; // RA2
+		virtual bool InAuxiliarySearchRange(AbstractClass * target) const; // RA2
+		virtual void Death_Announcement(TechnoClass const * source=0) const = 0;
+		virtual int GetFireErrorWithoutRange(AbstractClass * target, int which) const; // RA2
+		virtual FireErrorType Can_Fire(AbstractClass * target, int which=0, bool ignoreRange=false) const; // RA2: ignoreRange
+		virtual AbstractClass * Greatest_Threat(ThreatType threat, Coord const & coord, bool) const;
+		virtual void Assign_Target(AbstractClass * target);
+		virtual BulletClass * Fire_At(AbstractClass * target, int which=0);
+		virtual bool Captured(HouseClass * newowner, bool announce = true); // RA2: announce
+		virtual void Rock(Coord const & coord, float force);
+		virtual bool Crash(ObjectClass * killer); // RA2
+		virtual bool IsAreaFire(void) const; // RA2
+		virtual int IsNotSprayAttack(void) const; // RA2
+		virtual int GetSecondaryWeaponIndex(void) const; // RA2
+		virtual int IsNotSprayAttack2(void) const; // RA2
+		virtual WeaponDataStruct const * GetDeployWeapon(void) const; // RA2
+		bool Is_Weapon_Valid(WeaponDataStruct const * weapon) const; // RA2: 0x6D8640
+		virtual WeaponDataStruct const * GetTurretWeapon(void) const; // RA2
+		virtual WeaponDataStruct const * Get_Class_Weapon_Data(int which=0) const;
+		virtual bool Is_Turret_Equipped(void) const;
+		virtual void Renovate(void);
+		virtual void Cloaking_AI(bool=false);
+		virtual void CreateGap(void); // RA2
+		virtual void DestroyGap(void); // RA2
+		virtual void Rocking_AI(void); // RA2: ahead of Try_To_Cloak (vtable order)
+		virtual void Try_To_Cloak(void);
+		virtual void Reload(void); // RA2
+		void Start_Reload_Timer(void); // RA2: 0x6C8300
+		virtual void Reacquire_Target(void) {} // RA2: inline (one copy, 0x41B400); infantry looks for a new target
+		virtual Coord GetAttackCoordinates(void) const; // RA2
+		void Draw_Link_Line(Coord start, Coord end, RGBClass color) const; // RA2: 0x6D0990
+		void Draw_Shaded_Line(Coord start, Coord end, RGBClass color, bool shadow) const; // RA2: 0x6D0DC0
+		int Elevation_Bonus(void); // RA2: 0x6CD6F0
+		int FireDeathWeapon(int additional_damage); // RA2: 0x6D7E20
+		bool Has_Turret_Tooltips(void); // RA2: 0x6D83D0
+		bool Has_Turret_Weapons(void); // RA2: 0x6D83E0
+		void Set_Current_Weapon(int which); // RA2: 0x6D83F0
+		bool Has_Current_Turret(void) const; // RA2: 0x6D8460
+		int Get_Current_Turret_Number(void) const; // RA2: 0x6D8470
+		int Turret_Changed(void); // RA2: 0x6D8480
+		int Get_Current_Weapon_Number(void); // RA2: 0x6D84A0
+		int Is_Valid_Weapon_Index(int which); // RA2: 0x6D85E0
+		int Has_Turret_Weapon(void) const; // RA2: 0x6D8660
+		int GetEffectTintIntensity(int brightness) const; // RA2: 0x6D86F0
+		void Update_Iron_Tint(void); // RA2: 0x6D8820
+		void UpdateThreatInCell(CellClass * cell); // RA2: 0x6D9610
+		void Shorten_Targeting_Timer(void); // RA2: 0x6D96A0; a TargetingTimer above 10 frames restarts at Random(4, 8)
+		void Set_Targeting_Timer(int delay); // RA2: 0x6D9670; TargetingTimer becomes a fresh timer of the delay
+		void Draw_Behind_Marker(Point2D const & point, Rect const * window); // RA2: 0x6D9080; creates the behind animation or draws the fallback brackets
+		void Set_Planning_Token(PlanningTokenClass * token); // RA2: 0x6D1420
+		PlanningTokenClass * Get_Planning_Token(void); // RA2: 0x6D1430
+		void Select_Planning_Members(void); // RA2: 0x6145E0; when planning mode is active (guarded against re-entry), selects every member of the last node of this object's planning token
+		bool Has_Planning_Nodes(void); // RA2: 0x6D1440
+		bool Next_Planning_Node(void); // RA2: 0x6D1470
+		bool TryNextPlanningTokenNode(void); // RA2: 0x615360
+		virtual void * GetRemapColour(void) const override; // RA2: 0x6D1480
+		virtual bool IsNotWarpingIn(void) const; // RA2
+		virtual void Draw_Action_Line(bool force, int unknown) const; // RA2: two arguments
+		void Draw_Action_Line(Coord start, Coord end, RGBClass color, unsigned char dashed, unsigned char shadow) const; // RA2: 0x6D0510; declared after the virtual (vtable order)
+		virtual unsigned GetDisguiseFlags(unsigned flags) const; // RA2
+		virtual bool IsClearlyVisibleTo(HouseClass * house) const; // RA2
+		virtual void Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int key, VoxelIndexClass * cache, Rect const & cliprect, Point2D const & point, Matrix3D const & matrix, int brightness, ShapeFlags_Type negflags) const;
+		virtual void Unknown_Virtual_3DC(unsigned, unsigned); // RA2
+		virtual void Draw_Health_Bar(Point2D const & point, Rect const & rect, bool sensed_underground) const;
+		virtual void Draw_Pips(Point2D const & bottomleft, Point2D const & bottomright, Rect const & rect) const;
+		virtual void DrawVeterancyPips(Point2D const & point, Rect const & rect) const; // RA2
+		virtual void Draw_Text_Overlay(Point2D const & point1, Point2D const & point2, Rect const & rect) const;
+		virtual void Do_Uncloak(bool silent=false);
+		virtual void Do_Cloak(bool silent=false);
+		virtual int Apparent_Brightness(int brightness = 1000) const;
+		virtual unsigned DisguiseAs(AbstractClass * target); // RA2
+		virtual bool IsDisguised(void) const override {return(Disguised);} // RA2: inline (one copy, 0x41B410)
+		virtual bool IsDisguisedAs(HouseClass * house) const override {return(Disguised);} // RA2: inline (one copy, 0x41B420)
+		virtual void ClearDisguise(void); // RA2
+		virtual bool Is_Ready_To_Random_Animate(void) const;
+		virtual bool Random_Animate(void) {return(false);}
+		virtual void Set_Follow_Target(AbstractClass * target); // RA2
+		virtual void Assign_Destination(AbstractClass * target, bool = true);
+		virtual bool Enter_Idle_Mode(bool initial=false, bool = true);
+		virtual void UpdateSight(bool, bool, bool, HouseClass *); // RA2: four arguments
+		virtual void RemoveSight(bool, bool, bool, HouseClass *); // RA2: takes back what UpdateSight revealed
+		virtual void Radar_Track(void);
+		virtual void Radar_Untrack(void);
+		virtual void Plot_On_Radar(void) const;
+		virtual void IronCurtain(int duration) override; // RA2: 0x6D86B0
+		virtual void Update_Radar_Position(bool force_update=false);
+		virtual int RespondMegaEventMission(EventClass * event); // RA2: the MegaMission EventClass
+		virtual void ClearMegaMissionData(void); // RA2
+		virtual bool HaveMegaMission(void) const; // RA2
+		virtual bool HaveAttackMoveTarget(void) const; // RA2
+		virtual int GetMegaMission(void) const; // RA2
+		virtual Coord GetAttackMoveCoords(void); // RA2
+		virtual bool CanUseWaypoint(void) const; // RA2
+		virtual bool CanAttackOnTheMove(void) const; // RA2
+		virtual bool MegaMissionIsAttackMove(void) const; // RA2
+		virtual bool ContinueMegaMission(void); // RA2
+		virtual void UpdateAttackMove(void); // RA2
+		virtual bool RefreshMegaMission(void); // RA2
+
+		double Weed_Load(void) const; // RA2: not a virtual
+
+		int Get_Collateral_Damage(void) const; // RA2: not a virtual
+		bool Is_Z_Fudge_Bridge(void) const;
+		bool Was_Z_Fudge_Bridge(void) const;
+		int Get_Z_Fudge_Column(void) const;
+		int Get_Z_Fudge_Tunnel(void) const;
+		int Get_Z_Fudge_Cliff(void) const;
+
+		BuildingClass * Find_Docking_Bay(BuildingTypeClass const * b, bool friendly = false, bool evenoccupied = false) const; // RA2: not a virtual
+
+
+
+		bool Is_Allowed_To_Retaliate(TechnoClass const * source, WarheadTypeClass const * warhead) const;
+		virtual bool Is_Players_Army(void) const override;
+		int Combat_Damage(int which=-1) const;
+
+		Cell Nearby_Location(TechnoClass const * from=NULL) const;
+		//bool Is_Visible_On_Radar(void) const;
+		int Anti_Air(void) const;
+		int Anti_Armor(void) const;
+		int Anti_Infantry(void) const;
+		int Time_To_Build(void) const;
+		virtual ActionType What_Action(ObjectClass const *, bool disallow_force = false) const override;
+		virtual ActionType What_Action(Cell const &, bool check_fog = false, bool disallow_force = false) const override;
+		virtual Coord Fire_Coord(int which) const override;
+
+		virtual HousesType Owner(void) const override;
+		virtual HouseClass * Owner_HouseClass(void) const override;
+		virtual bool Can_Player_Fire(void) const override;
+		virtual bool Can_Player_Move(void) const override;
+		virtual bool Can_Repair(void) const override;
+		virtual bool IsBeingWarpedOut(void) const override; // RA2: 0x6D6DF0
+		virtual bool IsWarpingIn(void) const override; // RA2: 0x6D6E00
+		virtual bool IsWarpingSomethingOut(void) const override; // RA2: 0x6D6E10
+		virtual bool IsNotWarping(void) const override; // RA2: 0x6D6E30
+		virtual int Value(void) const override;
+		virtual int Get_Ownable(void) const override;
+		virtual VisualType Visual_Character(bool raw = false, HouseClass const * = NULL) const override;
+
+		/*
+		**	User I/O.
+		*/
+		virtual void Clicked_As_Target(int count = 7) override;
+		virtual bool Select(void) override;
+		Coord Predict_Target_Coord(void) const;
+
+		/*
+		**	Combat related.
+		*/
+		double Area_Modify(Cell const & cell) const;
+		void Base_Is_Attacked(TechnoClass const * enemy);
+		void Kill_Cargo(TechnoClass * source);
+		virtual void Record_The_Kill(TechnoClass * source) override;
+		virtual bool In_Range(Coord const & coord, int which=0) const override;
+		virtual void Override_Mission(MissionType mission, AbstractClass * tarcom, AbstractClass * navcom) override;
+		virtual bool Restore_Mission(void) override;
+		virtual int Weapon_Range(int which) const override;
+		void Set_Owner(HouseClass * newowner);
+		LaserDrawClass * Laser_Zap(AbstractClass * target, int which, WeaponTypeClass const * weapon, Coord const & source_coord); // RA2: not a virtual
+		EBolt * Electric_Zap(AbstractClass * target, WeaponTypeClass const * weapon, Coord const & source_coord); // RA2: 0x6CA020
+		EBolt * Electric_Zap(AbstractClass * target); // RA2: 0x6CA130
+		void Rad_Zap(AbstractClass * target, int kind); // RA2: 0x6CA1D0
+		void Rad_Eruption(int spread); // RA2: 0x6CA340
+		int Expected_Damage(TechnoClass * target, WeaponTypeClass const * weapon); // RA2: 0x6CA6C0
+		int Get_Sight_Bonus(Coord const & coord);
+		bool Can_Scan_For_Target(void); // RA2: 0x6D40C0
+		bool TargetingTimerFinished(void); // RA2: 0x6D9710 (YR name), no definition yet: the targeting timer has run out; read by FootClass::Do_MISSION_GUARD_AREA
+		bool Should_Scan_For_Target(void); // RA2: 0x6D4180
+		bool Scan_For_Target(void); // RA2: 0x6D4310
+		int Is_Moving_Guarding_Or_Harvesting(void) const; // RA2: 0x6D4390
+		int Is_Passive_Mission(void) const; // RA2: 0x6D43B0
+		void Distribute_Fire(void); // RA2: 0x6D4400
+		int Is_Not_Guard_Or_Sticky(MissionType mission); // RA2: 0x6D46B0
+		int Elevation_Range_Bonus_3D(ObjectClass * object) const; // RA2: 0x6C48F0
+		int Elevation_Range_Bonus(ObjectClass * object) const; // RA2: 0x6C4A70
+		bool In_Range(Coord const * coord, AbstractClass * target, WeaponTypeClass const * weapon) const; // RA2: 0x6C4BB0
+		static void Remove_Target(AbstractClass * target);
+		bool Has_Ability(AbilityType ability) const;
+		bool Should_Use_High_Arc(int which) const;
+		double Target_Threat(TechnoClass * target, Coord const & firing_coord = COORD_NONE) const;
+
+		virtual ResultType Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source=0, bool forced=false, bool=false) override;
+		bool Evaluate_Cell(ThreatType method, int mask, Cell const & cell, int range, TechnoClass const ** object, int & value, int zone=0) const;
+		bool Evaluate_Object(ThreatType method, int mask, int range, TechnoClass const * object, int & value, int zone=-1, Coord const & coord=COORD_NONE) const;
+		int Evaluate_Just_Cell(Cell const & cell) const;
+
+		void Assign_Archive_Target(AbstractClass * target);
+		AbstractClass * Fetch_Archive_Target(void) const { return(ArchivedTarget); }
+		__declspec( property( get=Fetch_Archive_Target, put=Assign_Archive_Target) ) AbstractClass * ArchiveTarget;
+
+		Coord Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, WeaponTypeClass *weapon);
+
+		inline WeaponTypeClass * Get_Primary_Weapon(void) const { const WeaponDataStruct * wdata = Get_Class_Weapon_Data(0); return(wdata->Weapon); }
+		inline WeaponTypeClass * Get_Secondary_Weapon(void) const { const WeaponDataStruct * wdata = Get_Class_Weapon_Data(1); return(wdata->Weapon); }
+		__declspec( property( get=Get_Primary_Weapon) ) WeaponTypeClass * PrimaryWeapon;
+		__declspec( property( get=Get_Secondary_Weapon) ) WeaponTypeClass * SecondaryWeapon;
+
+		/*
+		**	AI.
+		*/
+		virtual void AI(void) override;
+		virtual bool Revealed(HouseClass * house) override;
+		virtual RadioMessageType Receive_Message(RadioClass * from, RadioMessageType message, int & param) override;
+
+		/*
+		**	Scenario and debug support.
+		*/
+#ifdef _DEBUG
+		virtual void Debug_Dump(MonoClass *mono) const override;
+#endif
+
+		/*
+		**	Display and rendering support functionality. Supports imagery and how
+		**	object interacts with the map and thus indirectly controls rendering.
+		*/
+		void Techno_Draw_Object(ShapeSet const * shapefile, int shapenum, Point2D const & drawpoint, Rect const & rect, Dir256 rotation=DIR_N, int scale=0x0100, int zadjust=0, ZGradientType zgrad=ZGRAD_GROUND, bool=false, int brightness=0, ShapeSet const * zshapefile=0, int zshapenum=0, Point2D zoff = Point2D(0,0), ShapeFlags_Type negflags=SHAPE_NORMAL) const;
+
+		virtual void Draw_Pre_Render(Point2D const & point, Rect const & cliprect) const override;
+		virtual void Draw_Post_Render(Point2D const & point, Rect const & cliprect) const override;
+
+
+		void Techno_Blit_Voxel(StaticBufferClass::Entry const & cache, Point2D const & point, Rect const & cliprect, ShapeFlags_Type flags, int brightness) const;
+		void Techno_Draw_Voxel_Shadow(VoxelDataStruct const & voxeldata, int layer_index, int key, VoxelIndexClass * cache, Rect const & cliprect, Point2D const & point, Matrix3D const & matrix, bool force_cache, Surface * surface, unsigned shadow_x, unsigned shadow_y) const; // RA2: 0x6D21E0 takes three more arguments (ret 44); FootClass::Draw_Voxel_Shadow calls it
+		SurfaceRegion Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int frame, ShapeFlags_Type flags, int brightness) const;
+		SurfaceRegion Techno_Render_Voxel_Shadow(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int layer_index, ShapeFlags_Type flags, bool cached, Surface * surface, unsigned shadow_x, unsigned shadow_y) const; // RA2: 0x6D2810 also takes the shadow surface and the two offsets (ret 40) and passes them to Prep_For_Shadow
+
+		void Draw_Health_Bar_Old(Point2D const & point, Rect const & rect) const; // RA2: not a virtual
+		virtual void Hidden(void) override;
+		virtual bool Mark(MarkType mark=MARK_CHANGE) override;
+		virtual int Exit_Object(TechnoClass *) override;
+		virtual void Do_Shimmer(void) override;
+		int Get_Predator_Offset(void) const;
+		void Calculate_Sinking_Offset(short height, int y);
+		void Draw_Target_Laser(void) const;
+		static void Draw_Double_Selection_Bracket(Coord const & coord1, Coord const & coord2, int color);
+		static void Draw_Single_Selection_Bracket(Coord const & coord1, Coord const & coord2, int color);
+
+		/*
+		**	Movement and animation.
+		*/
+		virtual void Per_Cell_Process(PCPType why) override;
+		virtual void Look(bool incremental=false, bool dontmap=false) override;
+		static void Set_Talker(TechnoClass * techno, TalkType bubble=TALK_NONE);
+		static void Set_Action_Lines(bool on);
+		void Remove_Damage_Particle(void);
+		bool Enter_Object_Nearby(void);
+		bool Move_To_Object_Nearby(void);
+
+		/*
+		**	Map entry and exit logic.
+		*/
+		virtual bool Limbo(void) override;
+		virtual bool Unlimbo(Coord const & , Dir256 facing=DIR_N) override;
+		virtual void Init(void) override;
+		virtual void Detach(AbstractClass const * target, bool all) override;
+
+		/*
+		 * This is the countdown that keeps the action line of a selected object on screen. It
+		 * is restarted whenever the player issues an order, so the line showing where that
+		 * order is headed fades away shortly after it has been read.
+		 */
+		static CDTimerClass<FrameTimerClass> ActionLineTimer;
+
+		/*
+		 * If the player has asked for action lines to be drawn, then this flag will be true.
+		 * It follows the matching game option, so turning that option off suppresses the
+		 * lines for every object at once.
+		 */
+		static bool ActionLines;
+
+		static void Reset_Action_Line_Timer(void);
+
+		/*
+		 * These record the one talk bubble the game can display -- which bubble to draw, the
+		 * object it hovers over, and how long it lingers. They are set together when a script
+		 * puts words in an object's mouth and cleared together when it falls silent.
+		 */
+		static TalkType TalkBubbleType;
+		static TechnoClass * TalkBubbleOwner;
+		static CDTimerClass<SystemTimerClass> TalkBubbleTimer;
+
+		/*
+		**	Facing translation tables that fix the flaw with 3D studio when
+		**	it renders 45 degree angles.
+		*/
+		static int const BodyShape[FACING_COUNT * 4];
+};
+
+inline bool TechnoClass::Is_Allowed_To_Leave_Map(void) const { return(false); }
+inline bool TechnoClass::Is_Renovator(void) const { return(false); }
+inline bool TechnoClass::Is_Turret_Equipped(void) const { return(TClass->IsTurretEquipped); }
+inline bool TechnoClass::Is_Move_Override(void) const { return(false); }
+inline bool TechnoClass::Is_In_Team(void) const { return(false); }
+inline bool TechnoClass::Is_Ready_To_Move(void) const { return(true); }
+
+
+inline DirType TechnoClass::Turret_Facing(void) const
+{
+	return(PrimaryFacing.Current());
+}
+
+
+inline void TechnoClass::Advance_Waypoint_Path(void)
+{
+
+}
+
+
+inline void TechnoClass::Draw_Action_Line(bool force, int unknown) const
+{
+
+}
+
+
+inline bool TechnoClass::Is_In_Same_Zone_As(ObjectClass const * object) const
+{
+	return(true);
+}
+
+
+inline TechnoClass * AbstractClass::As_TechnoClass(void)
+{
+	return(dynamic_cast<TechnoClass *>(this));
+}
+
+
+inline TechnoClass const * AbstractClass::As_TechnoClass(void) const
+{
+	return(dynamic_cast<TechnoClass const *>(this));
+}

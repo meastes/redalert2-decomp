@@ -1,0 +1,1328 @@
+{
+  "id": "rebuild-delay",
+  "population": {
+    "id": "rebuild-delay",
+    "inventory_sha256": "cc09830fa7ef0ddee7c93867f5654aa3f393058cabcb73486fad0310480f424d",
+    "gaps_sha256": "dcb030c50674df8a417424f1994ad9399e7443314c72e846ff231468a8465a6b",
+    "historical_population_sha256": "0eb9ad77d195bda15ce26e6787058d6b6bcafa6fabe7333dce3c14a983213074",
+    "historical_acceptance_sha256": "3da0f8cabc40a882df18899f884b4e985e28d5228670c8ba4893af0d8a57696e"
+  },
+  "references": {
+    "_RECT_NONE": 8725496,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8725520,
+    "_ISO_TILE_SIZE": 7989120,
+    "_LEPTONS_PER_PIXEL": 8725592,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8725576,
+    "_ONE_RAD": 7989128,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8725568,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8725528,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8725488,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8725600,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8725536,
+    "_CELL_DIAG_SLOPE_ANGLE": 8725560,
+    "_BRIDGE_LEPTON_HEIGHT": 8725584,
+    "_CELL_NONE": 8725512,
+    "_COORD_NONE": 8725544,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "?Frame@@3HA": 10751276,
+    "__real@8@4008e100000000000000": 7976456,
+    "_$E2": 4810784,
+    "_$E5": 4810816,
+    "_$E8": 4810864,
+    "_$E11": 4810896,
+    "_$E14": 4810928,
+    "_$E17": 4810960,
+    "_$E20": 4810992,
+    "_$E23": 4811024,
+    "_$E26": 4811088,
+    "_$E29": 4811136,
+    "_$E32": 4811184,
+    "_$E35": 4811232,
+    "_$E38": 4811248,
+    "?Delay@@YIXH@Z": 4811296,
+    "??0DelayTimerClass@@QAE@XZ": 4811376,
+    "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ": 4811408,
+    "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ": 4811440,
+    "?Has_Ended@DelayTimerClass@@QBE_NXZ": 4811472,
+    "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ": 4811568,
+    "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ": 4811600,
+    "?Count_Up@DelayTimerClass@@QAEXN@Z": 4811632,
+    "?Count_Down@DelayTimerClass@@QAEXN@Z": 4811712,
+    "?Reverse@DelayTimerClass@@QAEXXZ": 4811792,
+    "?End_Count_Up@DelayTimerClass@@QAEXXZ": 4811856,
+    "?End_Count_Down@DelayTimerClass@@QAEXXZ": 4811872,
+    "?Percent_Complete@DelayTimerClass@@QBENXZ": 4811888,
+    "?End_Count@DelayTimerClass@@QAEXXZ": 4812000
+  },
+  "regions": [
+    {
+      "entry": 4810784,
+      "method": "00496820",
+      "body_bytes": 23,
+      "body_sha256": "ab92522af54296066702289b5412aacbfd488aa08576b7a0f585098d1d15f787",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e8287bab2bb2886f725bf26eacbbcc37c5a45541a13d66ccbf7c3c65242622ab",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725496,
+          "addend": 0,
+          "resolved": 8725496
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725496,
+          "addend": 4,
+          "resolved": 8725500
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725496,
+          "addend": 8,
+          "resolved": 8725504
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725496,
+          "addend": 12,
+          "resolved": 8725508
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810816,
+      "method": "00496840",
+      "body_bytes": 40,
+      "body_sha256": "cf76d5881299ebf78e5f816d3a827991744b896b06961a1c46c5bb1329f7ee97",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "71cbc1dd22cd4bc394e8738d1bb4556144bdb515ed7fa23d3f3af92d44ec7d1e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3062111
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 146354
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8725520,
+          "addend": 0,
+          "resolved": 8725520
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810864,
+      "method": "00496870",
+      "body_bytes": 19,
+      "body_sha256": "e3026346346a18bf0760ce33f5ab7a425b3e5aa23a3b8f1ed14ca4aa118cd673",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "be966a541dc63aca357c66cc7f0b18f457d3c985682a34f0abd5a2b10acc5089",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8725520,
+          "addend": 0,
+          "resolved": 8725520
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7989120,
+          "addend": 0,
+          "resolved": 7989120
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8725592,
+          "addend": 0,
+          "resolved": 8725592
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810896,
+      "method": "00496890",
+      "body_bytes": 19,
+      "body_sha256": "ec644a349dccefda76aa022b071309d1cbe69295b0d1a2a3c7532acf293e9756",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8499885e833aa47891c8447242585aab5901b0e1fd70819b8c84e7be570847cc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8725592,
+          "addend": 0,
+          "resolved": 8725592
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8725576,
+          "addend": 0,
+          "resolved": 8725576
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810928,
+      "method": "004968b0",
+      "body_bytes": 19,
+      "body_sha256": "72559967db5f5d755daecc97f8996dcbdc934e2aeed8c509a94000dbb7bf5671",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1fe07c1bd61d74ebe077b5eefc6e18a9f4b25754b7d50fe324663b7c04512405",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7989128,
+          "addend": 0,
+          "resolved": 7989128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8725568,
+          "addend": 0,
+          "resolved": 8725568
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810960,
+      "method": "004968d0",
+      "body_bytes": 19,
+      "body_sha256": "7028749922bc431e0cfd1fe90ae8d2d163987031ed9f2ef2425a532903838b77",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bee46694787530050bd33520dec8fd6246dd27e5db45e5a3b98651c9fe7d496e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7989128,
+          "addend": 0,
+          "resolved": 7989128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8725528,
+          "addend": 0,
+          "resolved": 8725528
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4810992,
+      "method": "004968f0",
+      "body_bytes": 19,
+      "body_sha256": "5cdbbffc0b09646572766f9140e7d42efe672947c07841bb28642d71b86eb796",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5dac18c5e96279af3f088bf2243fab8883ff127c1ff7d8e889c1c19adae3924c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7989128,
+          "addend": 0,
+          "resolved": 7989128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8725488,
+          "addend": 0,
+          "resolved": 8725488
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4810992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811024,
+      "method": "00496910",
+      "body_bytes": 49,
+      "body_sha256": "daa650eeb85d0790a651b297a6f84c460b5f1bded281bd4634dc3810aafb9398",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f03c3cc73b5c4d94dfb1ad0f5c1b9fdb318ee686a8e13e8b3b61b5b593aa8237",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8725488,
+          "addend": 0,
+          "resolved": 8725488
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8725528,
+          "addend": 0,
+          "resolved": 8725528
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 146425
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8725520,
+          "addend": 0,
+          "resolved": 8725520
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3049429
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8725600,
+          "addend": 0,
+          "resolved": 8725600
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811088,
+      "method": "00496950",
+      "body_bytes": 33,
+      "body_sha256": "c25653b34db0fac086473f4d944a1eb67e4deb94ed09ccdd5b6023351bdfb5bc",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "682127b6068beca0bc8ed5d59dbf8ce7d36be83aa9f03178201ee473402d88fc",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8725600,
+          "addend": 0,
+          "resolved": 8725600
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 146505
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8725536,
+          "addend": 0,
+          "resolved": 8725536
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811136,
+      "method": "00496980",
+      "body_bytes": 44,
+      "body_sha256": "9df5a7336b347d3b3a551d9e228808f2148db11b744e0c01d0dcde9efb24eebd",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c62b072b8a395ca3371155f0bc4e436f3b10931dd2d1d2309143fb9070203c39",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8725600,
+          "addend": 0,
+          "resolved": 8725600
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8725520,
+          "addend": 0,
+          "resolved": 8725520
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 146446
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8725560,
+          "addend": 0,
+          "resolved": 8725560
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811184,
+      "method": "004969b0",
+      "body_bytes": 39,
+      "body_sha256": "cfc63c388c1742e409feb3ccda9decad4089164707e224fd6c3692daf5b284c1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "79301c415a867860437a7c611cbc468b2dca1b2de3fbe83fa92a011078797aa2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8725600,
+          "addend": 0,
+          "resolved": 8725600
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3049280
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8725584,
+          "addend": 0,
+          "resolved": 8725584
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811232,
+      "method": "004969e0",
+      "body_bytes": 15,
+      "body_sha256": "3335f28b44775af3f3137b9f1b89a2e931879af1ec10a33703890d190e2ec17c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e775b4ec4a77f0dafb4fde054fe15fd4e2efb139d79c16eb1a4e0abedb41a082",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8725512,
+          "addend": 0,
+          "resolved": 8725512
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8725512,
+          "addend": 2,
+          "resolved": 8725514
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811248,
+      "method": "004969f0",
+      "body_bytes": 18,
+      "body_sha256": "ca9a5229be606304888bbc1665cdeb85b19a18f3be23e1e30bb34e92fca028ff",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "33001a6ed7c99ac12d5f7ab397a1c685d7c40b9c14fd41581a7ffa47042580ab",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8725544,
+          "addend": 0,
+          "resolved": 8725544
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8725544,
+          "addend": 4,
+          "resolved": 8725548
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8725544,
+          "addend": 8,
+          "resolved": 8725552
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811296,
+      "method": "00496a20",
+      "body_bytes": 70,
+      "body_sha256": "1154d1869708555329f9601a582416f2501fc5946d1069e17a98fe6bbdeb1d6b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0a7bc64dd8fd0b6465ca9cb65b52d02f01a31ee353e3cefacfb84f4f80a1ce26",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Delay@@YIXH@Z",
+      "symbol_prefix": "?Delay@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2112001
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 2111977
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811376,
+      "method": "00496a70",
+      "body_bytes": 26,
+      "body_sha256": "ae89e7aef66e7585d7121c07196b857a5acdfbf5924d22529a94a8c08994c1c0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9b46740cffa892183766ca98421b80ce1a24454447e7ebce684a7b62f56bfc5d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0DelayTimerClass@@QAE@XZ",
+      "symbol_prefix": "??0DelayTimerClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811408,
+      "method": "00496a90",
+      "body_bytes": 20,
+      "body_sha256": "0dbaee3a6e870f4024a4b550cbc2b5f2a4ce7426f7e3527d14cf892a0253c192",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "85f12c0d495fa352448882c68c435d9354900e8157ff11d368ee982a78f2495c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Up_Active@DelayTimerClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811440,
+      "method": "00496ab0",
+      "body_bytes": 20,
+      "body_sha256": "bee3e7455f8006bd5ab06c6acf8e0a88682d9ce1d63987cbfedb3a2911121a8b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bb716eb5d3a07f578d4d3e71ef965df03e4b61feed95d34879dfe9b596534f26",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Down_Active@DelayTimerClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811472,
+      "method": "00496ad0",
+      "body_bytes": 92,
+      "body_sha256": "2e848fbfbff004fc1c7af8093ff0526548510266d2a75a5dd25e7bb818020f05",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "6c0b128682023eeda68db9b59cbad1ab0c439f96ca29f6f94f90f52cb51156db",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Has_Ended@DelayTimerClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811568,
+      "method": "00496b30",
+      "body_bytes": 19,
+      "body_sha256": "6a26eb770118f1dcebd7b5add4f668ddc354eea837c2d7e5db3990debcc798c3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5bdaad42916a96446c2d77db77149361acebd3e9e18bba66aeb369e3ee56b08d",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Up_Complete@DelayTimerClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811600,
+      "method": "00496b50",
+      "body_bytes": 20,
+      "body_sha256": "f43561275e8a41e9927d7279adb1f87d8b50f3710e9c15b597c416c2c7ab3134",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50290144025179028a3ef1e38407a31965879ddd40270b4066b933070335dc5d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+      "symbol_prefix": "?Is_Count_Down_Complete@DelayTimerClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811632,
+      "method": "00496b70",
+      "body_bytes": 75,
+      "body_sha256": "7aa5f41a72f321a3f1a86ade48c6e1a15a12a14181a163508b7ea16fb3c16c6f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9419431e8163595bc651122604f05e5ffa04e0985a51f07888fa7e4666bf5b9d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+      "symbol_prefix": "?Count_Up@DelayTimerClass@@QAEXN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3048824
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811712,
+      "method": "00496bc0",
+      "body_bytes": 76,
+      "body_sha256": "3cad3aad0760e288fe86a21555d436a84756eb77bfc618e38bbf066981fc93b8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9f8dd16f355002fe77260db7c1d726e9ea63ee8dc17bc29b47208fa9c745b420",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+      "symbol_prefix": "?Count_Down@DelayTimerClass@@QAEXN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3048743
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811792,
+      "method": "00496c10",
+      "body_bytes": 58,
+      "body_sha256": "dd85a0454cdbb2a48b7a9f7ccde96aea7a30fc235c24e8ebc4c3130a58ebd08d",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c7a7201c24cf2b7778054e19eb9b1a5c32e8c23be85a02681e8ee1182330b9d6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reverse@DelayTimerClass@@QAEXXZ",
+      "symbol_prefix": "?Reverse@DelayTimerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4811856,
+      "method": "00496c50",
+      "body_bytes": 9,
+      "body_sha256": "f1d7e973e0a185fff45c5fcb96bc9d4bf166e078fa2f70ecd118afadfe6bff35",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91daddb8d5be93226d64b43562d3dcc6529895e879d986c701718a33f12c4d41",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Count_Up@DelayTimerClass@@QAEXXZ",
+      "symbol_prefix": "?End_Count_Up@DelayTimerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811856,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4811872,
+      "method": "00496c60",
+      "body_bytes": 9,
+      "body_sha256": "0b04b0080e68d6cdf1fa24bbfc761edbdc29384c98322327938b4cd593847246",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "98ada643b8e8d1e241d8ad914c39effa7b51320b5f4b52f6f9bd5fd532edb91e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Count_Down@DelayTimerClass@@QAEXXZ",
+      "symbol_prefix": "?End_Count_Down@DelayTimerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4811888,
+      "method": "00496c70",
+      "body_bytes": 108,
+      "body_sha256": "9f5022aa1fd3effa5091755317b880dd708f5f9ecb8aa246e9b6b7ea516923bd",
+      "padding_bytes": 4,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6501ca7851ef2c5d07073afae72ef738f28abfa4a72cfe8ccf51421e9be38693",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+      "symbol_prefix": "?Percent_Complete@DelayTimerClass@@QBENXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        }
+      ],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4811888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4812000,
+      "method": "00496ce0",
+      "body_bytes": 38,
+      "body_sha256": "23e185c42de1c000cbc363d7edbad83994426dfdb3644430f3162d1b0cd427c1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a8cb9b3a921c645e9a55d6296c9cb50fd8cf2822487e4265bd517eff31c23ba9",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Count@DelayTimerClass@@QAEXXZ",
+      "symbol_prefix": "?End_Count@DelayTimerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "41b13eb3a6c067b677310974929cb53bee313477b150a625b3e553a48a6d6165",
+      "source": "rebuild/src/delay.cpp",
+      "population": "rebuild-delay",
+      "source_order": 4812000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    }
+  ]
+}

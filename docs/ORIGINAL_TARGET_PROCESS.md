@@ -107,6 +107,26 @@ source or build-logic changes; it must reproduce the complete packaged file.
 Run `status.py --write` and `source_index.py`, update `HANDOFF.md` in a few
 lines, commit.
 
+**Two trees, two gates (user, 2026-11-19).** The rebuild tree lives on main in `rebuild/`
+beside `src/` and is gated separately. `tools/original_target/gate_scope.py --base REV` decides:
+
+- Only `rebuild/` (and docs) changed: scope `rebuild`. Run the rebuild gate only: `rebuild.py
+  catalog` (with `RA2_TREE=rebuild`), the structure gate, and the rebuild's whole-file build
+  (`build.py --config build/r/rebuild-config.json --manifest rebuild/manifest/catalog`), as the
+  owner's rebuild landing script does. Neither main's whole-file build nor native ctest: the
+  native tree is generated from `src/`, which the rebuild never edits.
+- A shared tool changed (`tools/original_target/`, `manifests/toolchain.json`; gate_scope
+  prints `"rebuild_gate": true` beside scope `exact`): both trees' gates, main's whole-file
+  exact build with the strict audit and native ctest, and the rebuild gate.
+- `src/`, main's manifests, `build.command` or `native/`: main's gates as before (`exact` or
+  `native`).
+
+Shared-tool behaviour the rebuild needs is switched by `RA2_TREE=rebuild` (`tree.py`) or by an
+opt-in row field that main's manifests never carry (`data_pending`, `data_bound_by_rows`,
+`data_bound_by_group`, `data_bound_by: unplaced-unreferenced`); main's acceptance model is
+unchanged. Numbers stay separate: STATUS shows main's and the rebuild's side by side, never
+added. Rebuild-only commits publish at most hourly.
+
 ## Accounting
 
 The canonical manifest and git history are the record. `status.py` reports

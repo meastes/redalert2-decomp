@@ -1,0 +1,5375 @@
+{
+  "id": "rebuild-hover",
+  "population": {
+    "id": "rebuild-hover",
+    "inventory_sha256": "2453ae9d9fc846cb9decec4f09948e35a35128aa5036ab4731d2499b59503014",
+    "gaps_sha256": "e3abcf5a8d4815be993570e83c2b3721307b00b8a8f98d2f6d8b258eba01c519",
+    "historical_population_sha256": "c86ac799601c2de4ee504185f0fe0a1be1336961a4b73ebcff3bb43e75a94e1b",
+    "historical_acceptance_sha256": "94dfd0df362fd8d9903ad48d6c875168d63a817bb3fa935a2c57fe8632fee088"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10752104,
+    "_ISO_TILE_SIZE": 8008152,
+    "_LEPTONS_PER_PIXEL": 10752176,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10752160,
+    "_ONE_RAD": 8008160,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10752152,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10752112,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10752072,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10752184,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10752120,
+    "_CELL_DIAG_SLOPE_ANGLE": 10752144,
+    "_BRIDGE_LEPTON_HEIGHT": 10752168,
+    "_CELL_NONE": 10752096,
+    "_COORD_NONE": 10752128,
+    "_RECT_NONE": 10752080,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "??0FacingClass@@QAE@H@Z": 4950512,
+    "??_7HoverLocomotionClass@@6BIPersistStream@@@": 8008372,
+    "??_7HoverLocomotionClass@@6BILocomotion@@@": 8008172,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@3fff8cccccccccccd000": 8008416,
+    "?Frame@@3HA": 10751276,
+    "__real@8@4008e100000000000000": 7976456,
+    "__real@8@4001c90fdaa22168c000": 7981496,
+    "?sin@fastmath@@YANN@Z": 4957312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "__real@8@3ff7a3d70a3d70a3d800": 7983472,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "__real@8@bffcc90fdaa22168c000": 7983248,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?cos@fastmath@@YANN@Z": 4957392,
+    "__real@4@00000000000000000000": 7972664,
+    "?Translate_Z@Matrix3D@@QAEXM@Z": 5833184,
+    "?Translate_X@Matrix3D@@QAEXM@Z": 5833088,
+    "?Translate_Y@Matrix3D@@QAEXM@Z": 5833136,
+    "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
+    "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z": 5832208,
+    "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "__real@8@00000000000000000000": 7976464,
+    "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
+    "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z": 5234928,
+    "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z": 5229504,
+    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "??8?$TPoint2D@H@@QBE_NABV0@@Z": 4979552,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ": 5234640,
+    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
+    "?Is_On_Priority_Mission@FootClass@@QBE_NXZ": 5016928,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Scan_Limit@TeamClass@@QAEXXZ": 7055920,
+    "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
+    "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z": 6516240,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "_CLSID_HoverLocomotion": 8003456,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "??_7LocomotionClass@@6BIPersistStream@@@": 8008628,
+    "??_7LocomotionClass@@6BILocomotion@@@": 8008428,
+    "??0FacingClass@@QAE@XZ": 4950480,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 5224160,
+    "_$E5": 5224208,
+    "_$E8": 5224240,
+    "_$E11": 5224272,
+    "_$E14": 5224304,
+    "_$E17": 5224336,
+    "_$E20": 5224368,
+    "_$E23": 5224432,
+    "_$E26": 5224480,
+    "_$E29": 5224528,
+    "_$E32": 5224576,
+    "_$E35": 5224592,
+    "_$E38": 5224624,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0HoverLocomotionClass@@QAE@XZ": 5224656,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494016,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Process@HoverLocomotionClass@@UAGEXZ": 5226432,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "??_GHoverLocomotionClass@@UAEPAXI@Z": 5238480,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVHoverLocomotionClass@@@8": 8236656,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Fetch_Object_Size@HoverLocomotionClass@@UBEHXZ": 5238464,
+    "?Link_To_Object@HoverLocomotionClass@@UAGJPAX@Z": 5224800,
+    "??1HoverLocomotionClass@@UAE@XZ": 5224880,
+    "?Gravity_AI@HoverLocomotionClass@@AAEXXZ": 5224912,
+    "?Draw_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5225456,
+    "?Shadow_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5226320,
+    "?Is_Moving@HoverLocomotionClass@@UAGEXZ": 5228672,
+    "?Is_Moving_Now@HoverLocomotionClass@@UAGEXZ": 5228752,
+    "?Destination@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ": 5228800,
+    "?Head_To_Coord@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ": 5228896,
+    "?Move_To@HoverLocomotionClass@@UAGXUCoordStruct@@@Z": 5229024,
+    "?Stop@HoverLocomotionClass@@AAEXXZ": 5233232,
+    "?Stop_Driver@HoverLocomotionClass@@AAEXXZ": 5233280,
+    "?Motion_AI@HoverLocomotionClass@@AAEXXZ": 5233392,
+    "?Stop_Moving@HoverLocomotionClass@@UAGXXZ": 5234496,
+    "?Do_Turn@HoverLocomotionClass@@UAGXUDirStruct@@@Z": 5234576,
+    "?Is_Moving1@HoverLocomotionClass@@AAE_NXZ": 5234624,
+    "?Power_Off@HoverLocomotionClass@@UAGEXZ": 5236736,
+    "?Is_Powered@HoverLocomotionClass@@UAGEXZ": 5236864,
+    "?Is_Ion_Sensitive@HoverLocomotionClass@@UAGEXZ": 5236912,
+    "?Push@HoverLocomotionClass@@UAGEUDirStruct@@@Z": 5237280,
+    "?Shove@HoverLocomotionClass@@UAGEUDirStruct@@@Z": 5237712,
+    "?Do_Shove@HoverLocomotionClass@@AAEXXZ": 5237808,
+    "?GetClassID@HoverLocomotionClass@@UAGJPAU_GUID@@@Z": 5237888,
+    "?Load@HoverLocomotionClass@@UAGJPAUIStream@@@Z": 5237952,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Do_Turn@LocomotionClass@@UAGXUDirStruct@@@Z": 5494064,
+    "?Stop_Moving@LocomotionClass@@UAGXXZ": 5494080,
+    "?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494096,
+    "?Process@LocomotionClass@@UAGEXZ": 5494112,
+    "?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494176,
+    "?Destination@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494128,
+    "?Is_Moving@LocomotionClass@@UAGEXZ": 5494224,
+    "??_GLocomotionClass@@UAEPAXI@Z": 5238528,
+    "__purecall": 4950368,
+    "?Is_Moving_Now@LocomotionClass@@UAGEXZ": 4875664,
+    "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
+    "?Is_Moving_Here@LocomotionClass@@UAGEUCoordStruct@@@Z": 4875696,
+    "?In_Which_Layer@HoverLocomotionClass@@UAG?AW4LayerType@@XZ": 5238032,
+    "?Start@HoverLocomotionClass@@AAEXXZ": 5238048,
+    "?Mark_All_Occupation_Bits@HoverLocomotionClass@@UAGXH@Z": 5238224,
+    "?Is_Moving_Here@HoverLocomotionClass@@UAGEUCoordStruct@@@Z": 5238304,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904
+  },
+  "regions": [
+    {
+      "entry": 5224160,
+      "method": "004fb6e0",
+      "body_bytes": 40,
+      "body_sha256": "b312c178707e0238a2fb9d6b2140dac63c012815b4d00d713f7c6fb187db99db",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a69589e7c9d01bedb1592c3cec7ff383f30b4789507184d53f58ecd77411443a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2648767
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294700306
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10752104,
+          "addend": 0,
+          "resolved": 10752104
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224208,
+      "method": "004fb710",
+      "body_bytes": 19,
+      "body_sha256": "302c0f31896b424249acaff19cea93320b4426162193227d0bf40e139c592554",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "be0008a050862b1d5e00384f210ce74bcd121d8ffa743bd02b73fec3f3a90d3c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10752104,
+          "addend": 0,
+          "resolved": 10752104
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8008152,
+          "addend": 0,
+          "resolved": 8008152
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10752176,
+          "addend": 0,
+          "resolved": 10752176
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224240,
+      "method": "004fb730",
+      "body_bytes": 19,
+      "body_sha256": "a48a9f51804df8f1d82b0c96d7bf5c564c4479b7186e6de49e4a29325aec7619",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "91e85bf1fa9f32933e68302328b129c3a1efb84f711d69e22f15637ae206d67b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10752176,
+          "addend": 0,
+          "resolved": 10752176
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10752160,
+          "addend": 0,
+          "resolved": 10752160
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224272,
+      "method": "004fb750",
+      "body_bytes": 19,
+      "body_sha256": "2ed252e85be74e28d3919b4701026288c9cdbd38583ed33d265c772f52720259",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b15b25ce6da937c8b5eb3667d93f277bd8aedb7edf2a7be73026532a715deb6b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8008160,
+          "addend": 0,
+          "resolved": 8008160
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10752152,
+          "addend": 0,
+          "resolved": 10752152
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224304,
+      "method": "004fb770",
+      "body_bytes": 19,
+      "body_sha256": "49a120a6561bc374c63f2ea5b37a2a4f484d77843af3280dff9836c09d019fc8",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a01864f77fa5ba0b66b9c680cb41080d5c77c987191c16fa9a692430a17b4bb7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8008160,
+          "addend": 0,
+          "resolved": 8008160
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10752112,
+          "addend": 0,
+          "resolved": 10752112
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224336,
+      "method": "004fb790",
+      "body_bytes": 19,
+      "body_sha256": "e63d89997633a8565b242fcc488230063b8d7b969cbc9ef2d3b5c9f5a4d96eea",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "341f7afc758ffa3bbca4aff9aa3e1e98cdab912960626a70a6d48a1bb201fda2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8008160,
+          "addend": 0,
+          "resolved": 8008160
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10752072,
+          "addend": 0,
+          "resolved": 10752072
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224368,
+      "method": "004fb7b0",
+      "body_bytes": 49,
+      "body_sha256": "c53b1247443b0a1dd4ee2432ae9e4735026c97a1d79ad270f528d9252e219f00",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "050b247f99423bf834766b4d2bedc61a68d92d86cd9ae4a9aaa2722bab347421",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10752072,
+          "addend": 0,
+          "resolved": 10752072
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10752112,
+          "addend": 0,
+          "resolved": 10752112
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294700377
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10752104,
+          "addend": 0,
+          "resolved": 10752104
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2636085
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224432,
+      "method": "004fb7f0",
+      "body_bytes": 33,
+      "body_sha256": "71d9aa84676de75fb6ebda9945994dacb9c962d5966273730836a7976c4e6870",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "265f899b302c593ddb344915f520a6f97cbedf09252fad30b46b8a9c1317c67d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294700457
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10752120,
+          "addend": 0,
+          "resolved": 10752120
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224480,
+      "method": "004fb820",
+      "body_bytes": 44,
+      "body_sha256": "5389be8032d8afbbfaeed0de51c90832cd3ca3317d4def42cea1872e7d20f8c4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "464687a24f0efd060d6c7a8b00334bda874b7ea2b7b621732eba034b6b198f1b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10752104,
+          "addend": 0,
+          "resolved": 10752104
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294700398
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10752144,
+          "addend": 0,
+          "resolved": 10752144
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224528,
+      "method": "004fb850",
+      "body_bytes": 39,
+      "body_sha256": "e069fee6cd4627348d53950b5c2a62d20c33d6026f9848087c4786610888e562",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6489f0cd60bd759e81085ac4fd53e85637773a4886616c9f286e6a9ec88e6497",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2635936
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10752168,
+          "addend": 0,
+          "resolved": 10752168
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224576,
+      "method": "004fb880",
+      "body_bytes": 15,
+      "body_sha256": "9344c8cea59218cd4670daa8aab37bde091cf335912baf84c911684377256de0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "dad2eaad1902cd91a885c40441e0b2f7eb5008a69dad3f22eb7a3517b8bc074e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10752096,
+          "addend": 0,
+          "resolved": 10752096
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10752096,
+          "addend": 2,
+          "resolved": 10752098
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224592,
+      "method": "004fb890",
+      "body_bytes": 18,
+      "body_sha256": "2bc7b3cf7773e931560e5bcd25f53d133a03680364c10c72c44cb8e8c6972b67",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9b02f59c114a8869f220fcee7a2ef7f1ea625c6126faeeaddd67a72f8894a86a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224624,
+      "method": "004fb8b0",
+      "body_bytes": 23,
+      "body_sha256": "96820507d40fcffaf0d89983aef1e7c971b587ded46517e42e27a74d6b838f6f",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "969e589a55f05e9c5edb337e74aa13713c61dccbe9901ca6e6f111515dc0cd87",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10752080,
+          "addend": 0,
+          "resolved": 10752080
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10752080,
+          "addend": 4,
+          "resolved": 10752084
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10752080,
+          "addend": 8,
+          "resolved": 10752088
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10752080,
+          "addend": 12,
+          "resolved": 10752092
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224656,
+      "method": "004fb8d0",
+      "body_bytes": 131,
+      "body_sha256": "6a32a86589f97ad3c0d527f5cd8ed027abdb1f4003da3320c435f9fe5a70bb86",
+      "padding_bytes": 13,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "61712d12ad4c24050f76351f1a0434fd859c40939ea5be7575aa59469d11cfad",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0HoverLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0HoverLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 268007
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??0FacingClass@@QAE@H@Z",
+          "target": 4950512,
+          "addend": 0,
+          "resolved": 4294693076
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BIPersistStream@@@",
+          "target": 8008372,
+          "addend": 0,
+          "resolved": 8008372
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BILocomotion@@@",
+          "target": 8008172,
+          "addend": 0,
+          "resolved": 8008172
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224800,
+      "method": "004fb960",
+      "body_bytes": 77,
+      "body_sha256": "1ac81eee2529de363db3607351f308adfe81cdb58dd1c65b2a3b49df6153c83b",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "24b815f459a15ea78693198c6487773a77db4195aecb4a7e9c1df6b1704279f6",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Link_To_Object@HoverLocomotionClass@@UAGJPAX@Z",
+      "symbol_prefix": "?Link_To_Object@HoverLocomotionClass@@UAGJPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?Link_To_Object@LocomotionClass@@UAGJPAX@Z",
+          "target": 5492752,
+          "addend": 0,
+          "resolved": 267931
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "??0FacingClass@@QAE@H@Z",
+          "target": 4950512,
+          "addend": 0,
+          "resolved": 4294692956
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224880,
+      "method": "004fb9b0",
+      "body_bytes": 18,
+      "body_sha256": "efbd0284dd5e2bf379a877676bbd785897143d1dc90d41f2e7bd414c70bacd3d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6b97fc6f0be72f3cfc4d6d54787d3367d6630280df3fdb994bb43cb7c71e41ac",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1HoverLocomotionClass@@UAE@XZ",
+      "symbol_prefix": "??1HoverLocomotionClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BIPersistStream@@@",
+          "target": 8008372,
+          "addend": 0,
+          "resolved": 8008372
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BILocomotion@@@",
+          "target": 8008172,
+          "addend": 0,
+          "resolved": 8008172
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 267822
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5224912,
+      "method": "004fb9d0",
+      "body_bytes": 529,
+      "body_sha256": "95a29922af81280e850599f4bc61d2de05a02a9f674026f3e43c284b3e08a38e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "c3cdb6b8feb54c70487b378979919f5243c64ade86d5664ace3161ebf8909e16",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Gravity_AI@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Gravity_AI@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 387158
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 164,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 387080
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2635380
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "__real@8@3fff8cccccccccccd000",
+          "target": 8008416,
+          "addend": 0,
+          "resolved": 8008416
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 246,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2635312
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294699388
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2635262
+        },
+        {
+          "offset": 369,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 386,
+          "kind": 20,
+          "symbol": "?Is_Powered@LocomotionClass@@UAGEXZ",
+          "target": 5493296,
+          "addend": 0,
+          "resolved": 267994
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 490,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5224912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5225456,
+      "method": "004fbbf0",
+      "body_bytes": 851,
+      "body_sha256": "2f24d1dfbb951ca725c317bfebf9f1584e817648e11d950636e95b628abc08c3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 864,
+      "full_extent_sha256": "880d158365be03e31b43d2e378df8f1dace18c99df0fe38ef55ed094bff6f4f8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Draw_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__real@8@3ff7a3d70a3d70a3d800",
+          "target": 7983472,
+          "addend": 0,
+          "resolved": 7983472
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "__real@8@3ff7a3d70a3d70a3d800",
+          "target": 7983472,
+          "addend": 0,
+          "resolved": 7983472
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 312208
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+          "target": 7441760,
+          "addend": 0,
+          "resolved": 2216155
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294692667
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "__real@8@bffcc90fdaa22168c000",
+          "target": 7983248,
+          "addend": 0,
+          "resolved": 7983248
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 609490
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294692579
+        },
+        {
+          "offset": 334,
+          "kind": 20,
+          "symbol": "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492784,
+          "addend": 0,
+          "resolved": 266990
+        },
+        {
+          "offset": 368,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 606972
+        },
+        {
+          "offset": 377,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 606963
+        },
+        {
+          "offset": 439,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294698789
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294698688
+        },
+        {
+          "offset": 481,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294698747
+        },
+        {
+          "offset": 502,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294698646
+        },
+        {
+          "offset": 528,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2634508
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2634491
+        },
+        {
+          "offset": 562,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2634474
+        },
+        {
+          "offset": 581,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2634455
+        },
+        {
+          "offset": 598,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2634438
+        },
+        {
+          "offset": 619,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 644,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 677,
+          "kind": 20,
+          "symbol": "?Translate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5833184,
+          "addend": 0,
+          "resolved": 607047
+        },
+        {
+          "offset": 694,
+          "kind": 20,
+          "symbol": "?Translate_X@Matrix3D@@QAEXM@Z",
+          "target": 5833088,
+          "addend": 0,
+          "resolved": 606934
+        },
+        {
+          "offset": 711,
+          "kind": 20,
+          "symbol": "?Translate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5833136,
+          "addend": 0,
+          "resolved": 606965
+        },
+        {
+          "offset": 730,
+          "kind": 20,
+          "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+          "target": 5834592,
+          "addend": 0,
+          "resolved": 608402
+        },
+        {
+          "offset": 749,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 608671
+        },
+        {
+          "offset": 764,
+          "kind": 20,
+          "symbol": "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492784,
+          "addend": 0,
+          "resolved": 266560
+        },
+        {
+          "offset": 774,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z",
+          "target": 5832208,
+          "addend": 0,
+          "resolved": 605974
+        },
+        {
+          "offset": 803,
+          "kind": 20,
+          "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+          "target": 5837184,
+          "addend": 0,
+          "resolved": 610921
+        },
+        {
+          "offset": 817,
+          "kind": 20,
+          "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+          "target": 5837184,
+          "addend": 0,
+          "resolved": 610907
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5225456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5226320,
+      "method": "004fbf50",
+      "body_bytes": 103,
+      "body_sha256": "cbde8fb561225c9f54878e6520510c2d38bd265e15fd6f40fe61039d47e8cc4a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "6a1540daf67e1d1e3c7b9e00bb8867118ac78b5911274c87b33dce2cf19c3590",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shadow_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "symbol_prefix": "?Shadow_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__real@8@3ff7a3d70a3d70a3d800",
+          "target": 7983472,
+          "addend": 0,
+          "resolved": 7983472
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__real@8@3ff7a3d70a3d70a3d800",
+          "target": 7983472,
+          "addend": 0,
+          "resolved": 7983472
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z",
+          "target": 5492944,
+          "addend": 0,
+          "resolved": 266544
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5226320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5228672,
+      "method": "004fc880",
+      "body_bytes": 75,
+      "body_sha256": "9ab59382d32d8769cad5c21293b7effe1a496ff4a5b02fda7678ed89f9507f44",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "366636aca931db1b0f7ee8c221bb53131231581dc32d71045ce40ae4b149f4d1",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5228672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5228752,
+      "method": "004fc8d0",
+      "body_bytes": 46,
+      "body_sha256": "e7e253f2e85a7301a6e7b0778e8f585939c49e976993722682eeda2a77dee489",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0dd406fce900b2a299cac92828dae3e8543453ec976fc86c2bbb5370773a574b",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5228752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5228800,
+      "method": "004fc900",
+      "body_bytes": 92,
+      "body_sha256": "d503e05dc1ff6cd48592e7d7f3319eff5b52bcf7e8e864d20cab139b4ddbc7a4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "691195f2b5c8cc27b355749d01905fe1afb1875358d64067792d2269e87118ce",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5228800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5228896,
+      "method": "004fc960",
+      "body_bytes": 113,
+      "body_sha256": "4a004c27bd23b89245def83a81596a05b52b68f522ff37db389775cd274a598a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "47b281239e5adbf87e092ea69da5ec9a0ed3eddd6b703f262218eb2ab6800620",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Head_To_Coord@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Head_To_Coord@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5228896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5229024,
+      "method": "004fc9e0",
+      "body_bytes": 474,
+      "body_sha256": "8e51854628db82a4c077fd66ababd9d2c5be56ed4b9cfc6ad7015d0cc14bed82",
+      "padding_bytes": 6,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "bfd2115859487e8fef09ecf93dc097bf40aa0ac8194e8ee80132dcb650ca1a7f",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@HoverLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@HoverLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ",
+          "target": 5373056,
+          "addend": 0,
+          "resolved": 143943
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 383026
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 308624
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10752168,
+          "addend": 0,
+          "resolved": 10752168
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 5650
+        },
+        {
+          "offset": 259,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 217
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 447,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 5453
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 16
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5229024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5229504,
+      "method": "004fcbc0",
+      "body_bytes": 3728,
+      "body_sha256": "9f473a5e7e016c0e3123281e896c79c29987f432481bf8e30bacea9fb0c57800",
+      "padding_bytes": 0,
+      "full_extent_bytes": 3728,
+      "full_extent_sha256": "9f473a5e7e016c0e3123281e896c79c29987f432481bf8e30bacea9fb0c57800",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 32,
+      "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+      "symbol_prefix": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 308044
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 16,
+          "resolved": 8806872
+        },
+        {
+          "offset": 336,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 4,
+          "resolved": 8806860
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 605,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 610,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 307786
+        },
+        {
+          "offset": 617,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4294414131
+        },
+        {
+          "offset": 744,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 749,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 381903
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 829,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 381823
+        },
+        {
+          "offset": 883,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 891,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 902,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1005,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1013,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 2,
+          "resolved": 8723058
+        },
+        {
+          "offset": 1054,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1062,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 381590
+        },
+        {
+          "offset": 1100,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 1119,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10752168,
+          "addend": 0,
+          "resolved": 10752168
+        },
+        {
+          "offset": 1132,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1139,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 307145
+        },
+        {
+          "offset": 1146,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4294417538
+        },
+        {
+          "offset": 1198,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1205,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1214,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1333,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 4,
+          "resolved": 8723140
+        },
+        {
+          "offset": 1347,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 1355,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294042913
+        },
+        {
+          "offset": 1378,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1390,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 306894
+        },
+        {
+          "offset": 1482,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 882242
+        },
+        {
+          "offset": 1498,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1503,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 306893
+        },
+        {
+          "offset": 1533,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5233200,
+          "addend": 0,
+          "resolved": 5233200
+        },
+        {
+          "offset": 1539,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1544,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 306740
+        },
+        {
+          "offset": 1551,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4294423917
+        },
+        {
+          "offset": 1597,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1609,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1621,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1643,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1652,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1661,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1672,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1711,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 3709
+        },
+        {
+          "offset": 1719,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 4294965573
+        },
+        {
+          "offset": 1739,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1750,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1759,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1792,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1804,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1817,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1840,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1848,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1857,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1879,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1889,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1898,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1915,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1920,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 383372
+        },
+        {
+          "offset": 1955,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1971,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2001,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2012,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2023,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2056,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2068,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2081,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2102,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2110,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2119,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2130,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2171,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 3249
+        },
+        {
+          "offset": 2179,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 4294965113
+        },
+        {
+          "offset": 2240,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294042028
+        },
+        {
+          "offset": 2269,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294042335
+        },
+        {
+          "offset": 2275,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2330,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 2366,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2371,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 305913
+        },
+        {
+          "offset": 2427,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2432,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 305852
+        },
+        {
+          "offset": 2474,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2479,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 305805
+        },
+        {
+          "offset": 2500,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 2526,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2536,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2542,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 305742
+        },
+        {
+          "offset": 2549,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294415207
+        },
+        {
+          "offset": 2555,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2565,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2574,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2612,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2624,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2636,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2664,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2672,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2680,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2871,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2880,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2892,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2937,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2949,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 2962,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 2983,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 2991,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 3000,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 3011,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3052,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 2368
+        },
+        {
+          "offset": 3060,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 4294964232
+        },
+        {
+          "offset": 3091,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3104,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305292
+        },
+        {
+          "offset": 3111,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294393925
+        },
+        {
+          "offset": 3131,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3144,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305252
+        },
+        {
+          "offset": 3151,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294393885
+        },
+        {
+          "offset": 3166,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 4294868318
+        },
+        {
+          "offset": 3204,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3209,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305187
+        },
+        {
+          "offset": 3216,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294393820
+        },
+        {
+          "offset": 3251,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3256,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305140
+        },
+        {
+          "offset": 3275,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3281,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305115
+        },
+        {
+          "offset": 3290,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 3323,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3328,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 305068
+        },
+        {
+          "offset": 3358,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 3368,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 3376,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 3414,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 3426,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 3438,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 3460,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 3468,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 3476,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 3508,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 3513,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3546,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3593,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 3659,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 1761
+        },
+        {
+          "offset": 3681,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 1739
+        },
+        {
+          "offset": 3696,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5232204,
+          "addend": 0,
+          "resolved": 5232204
+        },
+        {
+          "offset": 3700,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5231041,
+          "addend": 0,
+          "resolved": 5231041
+        },
+        {
+          "offset": 3704,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5232861,
+          "addend": 0,
+          "resolved": 5232861
+        },
+        {
+          "offset": 3708,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5231381,
+          "addend": 0,
+          "resolved": 5231381
+        },
+        {
+          "offset": 3712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5232373,
+          "addend": 0,
+          "resolved": 5232373
+        },
+        {
+          "offset": 3716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5232373,
+          "addend": 0,
+          "resolved": 5232373
+        },
+        {
+          "offset": 3720,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5231492,
+          "addend": 0,
+          "resolved": 5231492
+        },
+        {
+          "offset": 3724,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5231041,
+          "addend": 0,
+          "resolved": 5231041
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5229504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5233232,
+      "method": "004fda50",
+      "body_bytes": 48,
+      "body_sha256": "02aca83457ae7d00fbdd7168aa5b6c42b385ea1a54b4f1eeed9eb8459a1e0221",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "02aca83457ae7d00fbdd7168aa5b6c42b385ea1a54b4f1eeed9eb8459a1e0221",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Stop@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5233232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5233280,
+      "method": "004fda80",
+      "body_bytes": 111,
+      "body_sha256": "e115f7cf2a93ef288168dc5eccb4c48e1d1c4c921eba11e7c2410ff267fd9c34",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "93d903e987b32c28d98967349e37df19428388c83e0a1be72a20de7008451753",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Driver@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Stop_Driver@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5233280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5233392,
+      "method": "004fdaf0",
+      "body_bytes": 1094,
+      "body_sha256": "dfe4d2e3968b340a491b1797f2726d476d5e477bc313b7b0ebbf99f14d142fc3",
+      "padding_bytes": 10,
+      "full_extent_bytes": 1104,
+      "full_extent_sha256": "86326119b0690746c175cc39ce18a39e5b71ca621ac930850aca21e7095cf2f3",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Motion_AI@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Motion_AI@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "??8?$TPoint2D@H@@QBE_NABV0@@Z",
+          "target": 4979552,
+          "addend": 0,
+          "resolved": 4294713356
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294691472
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2626956
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294684297
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4294684507
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294684687
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294040359
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 499,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294690601
+        },
+        {
+          "offset": 507,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2626593
+        },
+        {
+          "offset": 576,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 667,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 683,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 701,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 739,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 751,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 757,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 766,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 784,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 796,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 874,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 938,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294690658
+        },
+        {
+          "offset": 944,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 953,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 958,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2626142
+        },
+        {
+          "offset": 990,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294683486
+        },
+        {
+          "offset": 1017,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1030,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1042,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1073,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 459
+        },
+        {
+          "offset": 1082,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 4294962322
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5233392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5234496,
+      "method": "004fdf40",
+      "body_bytes": 77,
+      "body_sha256": "269e9928860b3776f099b41623fa90ee2e9ad9fb928de95cc4fa0cb5d6b72114",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2f86f05f434b907f32951b26d575ca751cafa4f18aab3b7f3efca1dd59709415",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@HoverLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@HoverLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5234496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5234576,
+      "method": "004fdf90",
+      "body_bytes": 34,
+      "body_sha256": "bf4549b24bc83f9e2f900a2a4ea6d072d0cd32576af2a1f461f08504f17f899d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "41876d1da6cdef23dc0f3f4c741b0d3ea825e3409012a693874a276c6dd01df0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@HoverLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@HoverLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4294683265
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5234576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5234624,
+      "method": "004fdfc0",
+      "body_bytes": 15,
+      "body_sha256": "40ba73a936ef9fd2d18aa382014832222b284d9edd8157fbf59b6f49983e51f3",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d4009b1e610d401d3ee866f51986c92833d062114dd5b45d4437200cbc41a80d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving1@HoverLocomotionClass@@AAE_NXZ",
+      "symbol_prefix": "?Is_Moving1@HoverLocomotionClass@@AAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5234624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5234640,
+      "method": "004fdfd0",
+      "body_bytes": 283,
+      "body_sha256": "cbf554d37542099ea17267690de47dfad8e29f0fa2bb38d4a757600bc81123c4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "2e7a3e004c4d31fcc263819ad2ba9f828253c77cc3d160c59390d3b590359e3f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ",
+      "symbol_prefix": "?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294689672
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2625664
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5234640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5234928,
+      "method": "004fe0f0",
+      "body_bytes": 1803,
+      "body_sha256": "5ff96c4036d6714aebb751b6146e62e38ce2e965247c516dcc0c5ac0a253ee33",
+      "padding_bytes": 5,
+      "full_extent_bytes": 1808,
+      "full_extent_sha256": "9ac52d90c035d57d819953c2c8c7b6f5af2592e69a528d760b210ac579a3e209",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+      "symbol_prefix": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ",
+          "target": 5234640,
+          "addend": 0,
+          "resolved": 4294966994
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 4294724957
+        },
+        {
+          "offset": 444,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 450,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 462,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 467,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2625097
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?Is_On_Priority_Mission@FootClass@@QBE_NXZ",
+          "target": 5016928,
+          "addend": 0,
+          "resolved": 4294748753
+        },
+        {
+          "offset": 594,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294038250
+        },
+        {
+          "offset": 659,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294688905
+        },
+        {
+          "offset": 667,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2624897
+        },
+        {
+          "offset": 673,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 807,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 830,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 2185598
+        },
+        {
+          "offset": 908,
+          "kind": 20,
+          "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
+          "target": 7055920,
+          "addend": 0,
+          "resolved": 1820080
+        },
+        {
+          "offset": 930,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 957,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 979,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 987,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 995,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1020,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1026,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1038,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 1043,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2624521
+        },
+        {
+          "offset": 1133,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1174,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1183,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 377037
+        },
+        {
+          "offset": 1207,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 877093
+        },
+        {
+          "offset": 1226,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1233,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 301739
+        },
+        {
+          "offset": 1261,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1266,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 301706
+        },
+        {
+          "offset": 1337,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1358,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 375870
+        },
+        {
+          "offset": 1365,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 1388,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294389760
+        },
+        {
+          "offset": 1411,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 4294864649
+        },
+        {
+          "offset": 1511,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294688053
+        },
+        {
+          "offset": 1519,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2624045
+        },
+        {
+          "offset": 1525,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1545,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1280019
+        },
+        {
+          "offset": 1596,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1637,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 301223
+        },
+        {
+          "offset": 1731,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 1771,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1776,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294410556
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5234928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5236736,
+      "method": "004fe800",
+      "body_bytes": 120,
+      "body_sha256": "c5f0d1c5a26dd6d4867cb8a4060197191d7cd02151cc7d6805934cd5c326c808",
+      "padding_bytes": 8,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "8b7c64a3700c3b7acf95ccd59e3aa9c5043afc1d2f5e0edf5dbbcf888ea4d0fa",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Power_Off@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Power_Off@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1286246
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1286223
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?Power_Off@LocomotionClass@@UAGEXZ",
+          "target": 5493264,
+          "addend": 0,
+          "resolved": 256412
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5236736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5236864,
+      "method": "004fe880",
+      "body_bytes": 42,
+      "body_sha256": "1ac9d5d3530d71aad231abae559fde3fdd04e4f0c5172d36f68cc67063639887",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8a89fdd73dad9315033ca6ee67569727dd533847223b7df35197f8210bc94310",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Powered@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Powered@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Is_Powered@LocomotionClass@@UAGEXZ",
+          "target": 5493296,
+          "addend": 0,
+          "resolved": 256421
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5236864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5236912,
+      "method": "004fe8b0",
+      "body_bytes": 360,
+      "body_sha256": "388ade9317cc06efd6a7cb56661e7309fad8dc706b240c94e7ea22e0dfbbfbe9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "ebf44d3eac7979d3b35bb59bd605f31529e1fceb753a9b30a8d1bcbe7f5775f6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ion_Sensitive@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Ion_Sensitive@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1279568
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z",
+          "target": 6516240,
+          "addend": 0,
+          "resolved": 1279298
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z",
+          "target": 6516240,
+          "addend": 0,
+          "resolved": 1279276
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 300759
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4294389376
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5236912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5237280,
+      "method": "004fea20",
+      "body_bytes": 430,
+      "body_sha256": "2b60bddfe855f673d9a1afef14e09373d16f8be1d02e7fa01fa6c3eb64d73896",
+      "padding_bytes": 2,
+      "full_extent_bytes": 432,
+      "full_extent_sha256": "c69fc9dd696bc394f367c5fe5ebfa4758926e08d24c1e44be24d1db92684a2b0",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Push@HoverLocomotionClass@@UAGEUDirStruct@@@Z",
+      "symbol_prefix": "?Push@HoverLocomotionClass@@UAGEUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 132,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 300488
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 374597
+        },
+        {
+          "offset": 313,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10752168,
+          "addend": 0,
+          "resolved": 10752168
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5237280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5237712,
+      "method": "004febd0",
+      "body_bytes": 93,
+      "body_sha256": "d7c8ae46bfcf4dd4477457fd70b7dbc82e0d833642fe3839a882a22f42536fb9",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "3a927330cdd826ae6c272d8f358578bfa369f7d6df7f78ba4a1bd88d11f83d07",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shove@HoverLocomotionClass@@UAGEUDirStruct@@@Z",
+      "symbol_prefix": "?Shove@HoverLocomotionClass@@UAGEUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1285283
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1285260
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5237712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5237808,
+      "method": "004fec30",
+      "body_bytes": 66,
+      "body_sha256": "e603ee812ce1b798393b989d107726369792382b8db16b104c01bd9cd486b115",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d8f112374e6bde386a848e8f8646fbcd8578805e421549ec5f8dbf6cebf15cf7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Shove@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Do_Shove@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1285205
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1285181
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5237808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5237888,
+      "method": "004fec80",
+      "body_bytes": 56,
+      "body_sha256": "4a2fdf015c066ed70c89591f956773fb9560e903f622ef020fb52ec3b099b639",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3323a2d3d470d35eba92f3c1bc083c74ad886ce34d6fef7b70995fd87666e9b2",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@HoverLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@HoverLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_HoverLocomotion",
+          "target": 8003456,
+          "addend": 0,
+          "resolved": 8003456
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_HoverLocomotion",
+          "target": 8003456,
+          "addend": 4,
+          "resolved": 8003460
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_HoverLocomotion",
+          "target": 8003456,
+          "addend": 8,
+          "resolved": 8003464
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_HoverLocomotion",
+          "target": 8003456,
+          "addend": 12,
+          "resolved": 8003468
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5237888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5237952,
+      "method": "004fecc0",
+      "body_bytes": 68,
+      "body_sha256": "c50db78e672d1ef0af166cc6bcb06bf732d04f1ecd14c2c46e25b1b4a1408557",
+      "padding_bytes": 12,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3ab734579953baebfa5853dc9cc5051905e3adc2d525a75a93afa2ef15df4210",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@HoverLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@HoverLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 255727
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BIPersistStream@@@",
+          "target": 8008628,
+          "addend": 0,
+          "resolved": 8008628
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BILocomotion@@@",
+          "target": 8008428,
+          "addend": 0,
+          "resolved": 8008428
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??0FacingClass@@QAE@XZ",
+          "target": 4950480,
+          "addend": 0,
+          "resolved": 4294679776
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BIPersistStream@@@",
+          "target": 8008372,
+          "addend": 0,
+          "resolved": 8008372
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BILocomotion@@@",
+          "target": 8008172,
+          "addend": 0,
+          "resolved": 8008172
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5237952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238032,
+      "method": "004fed10",
+      "body_bytes": 8,
+      "body_sha256": "7ed463946b38cd0ba3a93864b2a1645cbebc5c5f2b63caf2d8a10bb2ad836d21",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c826b0c38d0fc905554442fe25640d95c7e8b7e66c0d87901741ed9127171155",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@HoverLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@HoverLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238048,
+      "method": "004fed20",
+      "body_bytes": 169,
+      "body_sha256": "b57fb342ab9f091c06d0afaeee00660ab0ddcd2b55baa36be7e118df76962210",
+      "padding_bytes": 7,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "98ad2b237e8c9fb6a21e602dc9c4eccc51c569173adcfd048b2a5e64efc1b787",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start@HoverLocomotionClass@@AAEXXZ",
+      "symbol_prefix": "?Start@HoverLocomotionClass@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 4294964024
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 4294958587
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238224,
+      "method": "004fedd0",
+      "body_bytes": 70,
+      "body_sha256": "23cb4cf81db35714cc58f24739ae49d6ae449f1cbf436f57f8905994ec80d537",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6fbd4e7494e486044aa040a6bd69012b2b100e1fed5468c63f3d548644ef5477",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_All_Occupation_Bits@HoverLocomotionClass@@UAGXH@Z",
+      "symbol_prefix": "?Mark_All_Occupation_Bits@HoverLocomotionClass@@UAGXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238304,
+      "method": "004fee20",
+      "body_bytes": 153,
+      "body_sha256": "37489b52e63638a2605470c29ad1586beaf581ef0a53c0d5de6ad8737f750c58",
+      "padding_bytes": 7,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "b59e275e9cb865aa430a668575dcb78d0c30f5e78e1e44189ffcc5e7db7f2aab",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Here@HoverLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "symbol_prefix": "?Is_Moving_Here@HoverLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238464,
+      "method": "004feec0",
+      "body_bytes": 6,
+      "body_sha256": "bd65397dd8a034381cd098249dde8ecf40b5c84954318b0e59e6828af94420d0",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ef8f1dd3c412fa60f1f7531ef50cbc236c20b30f64b7f82c6b87112e09c9e359",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@HoverLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@HoverLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238480,
+      "method": "004feed0",
+      "body_bytes": 43,
+      "body_sha256": "0110930ede4cbd2d35b9f8b143b331c88954e7278a3ec7c8e19c2fc8e07b588e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a6194512f537a2f6e36a050e20334b47bd751a4694f166be14be700124528c85",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GHoverLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GHoverLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BIPersistStream@@@",
+          "target": 8008372,
+          "addend": 0,
+          "resolved": 8008372
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7HoverLocomotionClass@@6BILocomotion@@@",
+          "target": 8008172,
+          "addend": 0,
+          "resolved": 8008172
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 254219
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2633289
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5238528,
+      "method": "004fef00",
+      "body_bytes": 30,
+      "body_sha256": "317be06c82f51b4d927c6237f3942dd2dbf259c9e6fd8f415091b5be893068c6",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ad700e6224dabc3f3bad81176623157161c6fc887061c201fd44b1046f7cac30",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 254184
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2633254
+        }
+      ],
+      "source_sha256": "97fc91ae98e5341b4c6c5be15f1cfa7269f99bd887fb60e871b311b151b5f595",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    }
+  ]
+}

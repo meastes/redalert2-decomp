@@ -1,0 +1,1940 @@
+{
+  "id": "rebuild-ahandle",
+  "population": {
+    "id": "rebuild-ahandle",
+    "inventory_sha256": "a9397d24c9d7941a9445b82383ce1a36c4cd6706d3e55f562efe39def8bfcf67",
+    "gaps_sha256": "d2d34769a4abc1022b8b69d400106ea3b075dbc1c96dcd3b9c094ed886ed8e5d",
+    "historical_population_sha256": "7afc3a4f4783d38c211503955a3df9a2f6ad4d53bf35127d1291f98b884982fc",
+    "historical_acceptance_sha256": "64e6f7c793fc05fce359f0798040dcf601e684a8f6f2c34551750af9bd38e03f"
+  },
+  "references": {
+    "_RECT_NONE": 8625504,
+    "?_handles@@3PAUAhandle@@A": 8625552,
+    "??_C@_0BF@NEEF@Ahandle?3?5Paused?5?$CFld?6?$AA@": 8184568,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?Get_Game_Time_50@@YIIXZ": 5046416,
+    "__imp__EnterCriticalSection@4": 7971292,
+    "__imp__LeaveCriticalSection@4": 7971296,
+    "?Simple_Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z": 4268736,
+    "?Open_Audio_Handler@@YAJPAU_VQAHandleP@@PAUAhandleInitParams@@J@Z": 4266144,
+    "??_C@_0BK@FGKB@Closing?5VQ?5audio?5handler?6?$AA@": 8184756,
+    "??_C@_0BE@DLFF@Stop_Audio_Handler?6?$AA@": 8184736,
+    "??_C@_0BH@ODEJ@Calling?5timeKillEvent?6?$AA@": 8184712,
+    "__imp__timeKillEvent@4": 7972124,
+    "??_C@_0BH@PFLJ@Calling?5timeEndPeriod?6?$AA@": 8184688,
+    "__imp__timeEndPeriod@4": 7972128,
+    "??_C@_0CG@DAHL@Deleting?5the?5critical?5section?5ob@": 8184648,
+    "__imp__DeleteCriticalSection@4": 7971288,
+    "??_C@_0BM@HEDI@VQ?5audio?5handler?5closed?5OK?6?$AA@": 8184620,
+    "?Start_Audio_Handler@@YAJPAU_VQAHandleP@@@Z": 4266864,
+    "?Load_Audio_Handler@@YAJPAU_VQAHandleP@@PAXJ@Z": 4267392,
+    "??_C@_0BK@FKKL@Ahandle?3?5PauseAdjust?5?$CFld?6?$AA@": 8184592,
+    "?GetDirectSoundObject@@YIPAXXZ": 4236992,
+    "??_C@_0BK@DOOH@Opening?5VQ?5audio?5handler?6?$AA@": 8184972,
+    "__imp__GetCurrentThreadId@0": 7971268,
+    "??_C@_0BL@MFKE@Current?5thread?5ID?5is?5?$CF08x?6?$AA@": 8184944,
+    "?AudioDeviceAvailable@@YIHXZ": 4222768,
+    "__imp__InitializeCriticalSection@4": 7971304,
+    "??_C@_0EH@IGGP@Ahandle?5detected?5emulated?5sound?5@": 8184872,
+    "??_C@_0BJ@HECC@Calling?5timeBeginPeriod?6?$AA@": 8184844,
+    "?_AHandleCallbackFunc1@@3P6AJPAU_VQAHandle@@@ZA": 8625540,
+    "?_AHandleCallbackFunc2@@3P6AJPAU_VQAHandle@@PAX@ZA": 8625544,
+    "__imp__timeBeginPeriod@4": 7972140,
+    "??_C@_0CA@COBC@Creating?5VQ?5audio?5timer?5thread?6?$AA@": 8184812,
+    "?AudioCallback@@YGXIIKKK@Z": 4268320,
+    "__imp__timeSetEvent@20": 7972136,
+    "??_C@_0BM@NCNN@VQ?5audio?5handler?5opened?5OK?6?$AA@": 8184784,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "__real@4@4006ff00000000000000": 7975080,
+    "__ftol": 7860496,
+    "?Convert_HMI_To_Direct_Sound_Volume@@YIHH@Z": 4237344,
+    "__real@4@40078000000000000000": 7975084,
+    "__imp__InterlockedIncrement@4": 7971260,
+    "__imp__InterlockedDecrement@4": 7971264,
+    "_$E2": 4264960,
+    "?Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z": 4264992,
+    "?Stream_Audio_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z": 4265376,
+    "?Close_Audio_Handler@@YAJPAU_VQAHandleP@@@Z": 4266592,
+    "?Pause_Audio_Handler@@YAJPAU_VQAHandleP@@@Z": 4267952,
+    "?Play_Audio_Handler@@YAJPAU_VQAHandleP@@@Z": 4268032,
+    "?Stop_Audio_Handler@@YAJPAU_VQAHandleP@@@Z": 4268192,
+    "?Pause_All_Audio_Handler@@YIXXZ": 4268752,
+    "?Resume_All_Audio_Handler@@YIXXZ": 4268832,
+    "?Lock_Audio_Handler@@YAJXZ": 4268912,
+    "?Unlock_Audio_Handler@@YAJXZ": 4268928
+  },
+  "regions": [
+    {
+      "entry": 4264960,
+      "method": "411400",
+      "body_bytes": 23,
+      "body_sha256": "86d7e34071ff6f585bf58df01c2c719c98142d27599fa9721840fe6b11cd8ee0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "04682880d74409c6009ba6fad94c675b186c03f68ffd1e3f13f7e49a120b92cd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625504,
+          "addend": 0,
+          "resolved": 8625504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625504,
+          "addend": 4,
+          "resolved": 8625508
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625504,
+          "addend": 8,
+          "resolved": 8625512
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625504,
+          "addend": 12,
+          "resolved": 8625516
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4264960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 4264992,
+      "method": "00411420",
+      "body_bytes": 369,
+      "body_sha256": "25fc50cfcd2a249da957f6d2350ddc39984f1292cda4c04a8102182b896eaaa3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "9166abecdec4732e5bbf10a580ef53de4b3e851b11fec7a79389c1fe21add0e1",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_C@_0BF@NEEF@Ahandle?3?5Paused?5?$CFld?6?$AA@",
+          "target": 8184568,
+          "addend": 0,
+          "resolved": 8184568
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294923420
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Get_Game_Time_50@@YIIXZ",
+          "target": 5046416,
+          "addend": 0,
+          "resolved": 781353
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4264992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4265376,
+      "method": "004115a0",
+      "body_bytes": 768,
+      "body_sha256": "d44cc0768f0f9580860ff74c96b24b51dda29448c84c2d4f17777f251adc6d51",
+      "padding_bytes": 0,
+      "full_extent_bytes": 768,
+      "full_extent_sha256": "d44cc0768f0f9580860ff74c96b24b51dda29448c84c2d4f17777f251adc6d51",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 32,
+      "symbol": "?Stream_Audio_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "symbol_prefix": "?Stream_Audio_Handler@@YAJPAU_VQAHandle@@JPAXJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4266112,
+          "addend": 0,
+          "resolved": 4266112
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Simple_Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z",
+          "target": 4268736,
+          "addend": 0,
+          "resolved": 4268736
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Open_Audio_Handler@@YAJPAU_VQAHandleP@@PAUAhandleInitParams@@J@Z",
+          "target": 4266144,
+          "addend": 0,
+          "resolved": 697
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FGKB@Closing?5VQ?5audio?5handler?6?$AA@",
+          "target": 8184756,
+          "addend": 0,
+          "resolved": 8184756
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922999
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "??_C@_0BE@DLFF@Stop_Audio_Handler?6?$AA@",
+          "target": 8184736,
+          "addend": 0,
+          "resolved": 8184736
+        },
+        {
+          "offset": 147,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922937
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "??_C@_0BH@ODEJ@Calling?5timeKillEvent?6?$AA@",
+          "target": 8184712,
+          "addend": 0,
+          "resolved": 8184712
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922829
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "__imp__timeKillEvent@4",
+          "target": 7972124,
+          "addend": 0,
+          "resolved": 7972124
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "??_C@_0BH@PFLJ@Calling?5timeEndPeriod?6?$AA@",
+          "target": 8184688,
+          "addend": 0,
+          "resolved": 8184688
+        },
+        {
+          "offset": 281,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922803
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "__imp__timeEndPeriod@4",
+          "target": 7972128,
+          "addend": 0,
+          "resolved": 7972128
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "??_C@_0CG@DAHL@Deleting?5the?5critical?5section?5ob@",
+          "target": 8184648,
+          "addend": 0,
+          "resolved": 8184648
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922779
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "__imp__DeleteCriticalSection@4",
+          "target": 7971288,
+          "addend": 0,
+          "resolved": 7971288
+        },
+        {
+          "offset": 326,
+          "kind": 6,
+          "symbol": "??_C@_0BM@HEDI@VQ?5audio?5handler?5closed?5OK?6?$AA@",
+          "target": 8184620,
+          "addend": 0,
+          "resolved": 8184620
+        },
+        {
+          "offset": 331,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922753
+        },
+        {
+          "offset": 352,
+          "kind": 20,
+          "symbol": "?Start_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+          "target": 4266864,
+          "addend": 0,
+          "resolved": 1132
+        },
+        {
+          "offset": 380,
+          "kind": 20,
+          "symbol": "?Load_Audio_Handler@@YAJPAU_VQAHandleP@@PAXJ@Z",
+          "target": 4267392,
+          "addend": 0,
+          "resolved": 1632
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 423,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 460,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 492,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 524,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 549,
+          "kind": 20,
+          "symbol": "?Get_Game_Time_50@@YIIXZ",
+          "target": 5046416,
+          "addend": 0,
+          "resolved": 780487
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FKKL@Ahandle?3?5PauseAdjust?5?$CFld?6?$AA@",
+          "target": 8184592,
+          "addend": 0,
+          "resolved": 8184592
+        },
+        {
+          "offset": 566,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922518
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 606,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 671,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 724,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265404,
+          "addend": 0,
+          "resolved": 4265404
+        },
+        {
+          "offset": 740,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265427,
+          "addend": 0,
+          "resolved": 4265427
+        },
+        {
+          "offset": 744,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265455,
+          "addend": 0,
+          "resolved": 4265455
+        },
+        {
+          "offset": 748,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265722,
+          "addend": 0,
+          "resolved": 4265722
+        },
+        {
+          "offset": 752,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265740,
+          "addend": 0,
+          "resolved": 4265740
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265768,
+          "addend": 0,
+          "resolved": 4265768
+        },
+        {
+          "offset": 760,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4266003,
+          "addend": 0,
+          "resolved": 4266003
+        },
+        {
+          "offset": 764,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4265848,
+          "addend": 0,
+          "resolved": 4265848
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4265376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4266144,
+      "method": "004118a0",
+      "body_bytes": 447,
+      "body_sha256": "8c0be998cd120a7e25ab4676cc9eaf5429cb92d8c98bd17bc07b7c1e29b8d5a5",
+      "padding_bytes": 1,
+      "full_extent_bytes": 448,
+      "full_extent_sha256": "05265aadf686be817176bd7df645a90ec1c754ec73eeeaa3e42dd2be0e28b82b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Audio_Handler@@YAJPAU_VQAHandleP@@PAUAhandleInitParams@@J@Z",
+      "symbol_prefix": "?Open_Audio_Handler@@YAJPAU_VQAHandleP@@PAUAhandleInitParams@@J@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?GetDirectSoundObject@@YIPAXXZ",
+          "target": 4236992,
+          "addend": 0,
+          "resolved": 4294938134
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_C@_0BK@DOOH@Opening?5VQ?5audio?5handler?6?$AA@",
+          "target": 8184972,
+          "addend": 0,
+          "resolved": 8184972
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922296
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__imp__GetCurrentThreadId@0",
+          "target": 7971268,
+          "addend": 0,
+          "resolved": 7971268
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_C@_0BL@MFKE@Current?5thread?5ID?5is?5?$CF08x?6?$AA@",
+          "target": 8184944,
+          "addend": 0,
+          "resolved": 8184944
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922276
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?AudioDeviceAvailable@@YIHXZ",
+          "target": 4222768,
+          "addend": 0,
+          "resolved": 4294923868
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 188,
+          "resolved": 8625740
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "__imp__InitializeCriticalSection@4",
+          "target": 7971304,
+          "addend": 0,
+          "resolved": 7971304
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "??_C@_0EH@IGGP@Ahandle?5detected?5emulated?5sound?5@",
+          "target": 8184872,
+          "addend": 0,
+          "resolved": 8184872
+        },
+        {
+          "offset": 287,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294922029
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@HECC@Calling?5timeBeginPeriod?6?$AA@",
+          "target": 8184844,
+          "addend": 0,
+          "resolved": 8184844
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc1@@3P6AJPAU_VQAHandle@@@ZA",
+          "target": 8625540,
+          "addend": 0,
+          "resolved": 8625540
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc2@@3P6AJPAU_VQAHandle@@PAX@ZA",
+          "target": 8625544,
+          "addend": 0,
+          "resolved": 8625544
+        },
+        {
+          "offset": 348,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921968
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "__imp__timeBeginPeriod@4",
+          "target": 7972140,
+          "addend": 0,
+          "resolved": 7972140
+        },
+        {
+          "offset": 371,
+          "kind": 6,
+          "symbol": "??_C@_0CA@COBC@Creating?5VQ?5audio?5timer?5thread?6?$AA@",
+          "target": 8184812,
+          "addend": 0,
+          "resolved": 8184812
+        },
+        {
+          "offset": 376,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921940
+        },
+        {
+          "offset": 387,
+          "kind": 6,
+          "symbol": "?AudioCallback@@YGXIIKKK@Z",
+          "target": 4268320,
+          "addend": 0,
+          "resolved": 4268320
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "__imp__timeSetEvent@20",
+          "target": 7972136,
+          "addend": 0,
+          "resolved": 7972136
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "??_C@_0BM@NCNN@VQ?5audio?5handler?5opened?5OK?6?$AA@",
+          "target": 8184784,
+          "addend": 0,
+          "resolved": 8184784
+        },
+        {
+          "offset": 410,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921906
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4266144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4266592,
+      "method": "00411a60",
+      "body_bytes": 271,
+      "body_sha256": "7405b3416574113cf310f61c61f94a94c89507a8115a7cf2e5c57d6cd915f6a9",
+      "padding_bytes": 1,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "987b3716807f54b977fc5b856b2553ddc16a556d0f88f4fc58bd33517f41e5db",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Close_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FGKB@Closing?5VQ?5audio?5handler?6?$AA@",
+          "target": 8184756,
+          "addend": 0,
+          "resolved": 8184756
+        },
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921860
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_C@_0BE@DLFF@Stop_Audio_Handler?6?$AA@",
+          "target": 8184736,
+          "addend": 0,
+          "resolved": 8184736
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921797
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "??_C@_0BH@ODEJ@Calling?5timeKillEvent?6?$AA@",
+          "target": 8184712,
+          "addend": 0,
+          "resolved": 8184712
+        },
+        {
+          "offset": 181,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921687
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "__imp__timeKillEvent@4",
+          "target": 7972124,
+          "addend": 0,
+          "resolved": 7972124
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_0BH@PFLJ@Calling?5timeEndPeriod?6?$AA@",
+          "target": 8184688,
+          "addend": 0,
+          "resolved": 8184688
+        },
+        {
+          "offset": 207,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921661
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "__imp__timeEndPeriod@4",
+          "target": 7972128,
+          "addend": 0,
+          "resolved": 7972128
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "??_C@_0CG@DAHL@Deleting?5the?5critical?5section?5ob@",
+          "target": 8184648,
+          "addend": 0,
+          "resolved": 8184648
+        },
+        {
+          "offset": 231,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921637
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "__imp__DeleteCriticalSection@4",
+          "target": 7971288,
+          "addend": 0,
+          "resolved": 7971288
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_C@_0BM@HEDI@VQ?5audio?5handler?5closed?5OK?6?$AA@",
+          "target": 8184620,
+          "addend": 0,
+          "resolved": 8184620
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921610
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4266592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4266864,
+      "method": "00411b70",
+      "body_bytes": 527,
+      "body_sha256": "8bf33c484ebfbec95212cb2d26d0fa7571ab66be8e015faf4329a15205919f3e",
+      "padding_bytes": 1,
+      "full_extent_bytes": 528,
+      "full_extent_sha256": "d529c7ccee62768f6c96a7bec6d49f0bf437339e7db57c9d5a14875d1861d240",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Start_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?Get_Game_Time_50@@YIIXZ",
+          "target": 5046416,
+          "addend": 0,
+          "resolved": 779452
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FKKL@Ahandle?3?5PauseAdjust?5?$CFld?6?$AA@",
+          "target": 8184592,
+          "addend": 0,
+          "resolved": 8184592
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294921483
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "?GetDirectSoundObject@@YIPAXXZ",
+          "target": 4236992,
+          "addend": 0,
+          "resolved": 4294937060
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 406,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc1@@3P6AJPAU_VQAHandle@@@ZA",
+          "target": 8625540,
+          "addend": 0,
+          "resolved": 8625540
+        },
+        {
+          "offset": 413,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc1@@3P6AJPAU_VQAHandle@@@ZA",
+          "target": 8625540,
+          "addend": 0,
+          "resolved": 8625540
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 48,
+          "resolved": 10750792
+        },
+        {
+          "offset": 452,
+          "kind": 6,
+          "symbol": "__real@4@4006ff00000000000000",
+          "target": 7975080,
+          "addend": 0,
+          "resolved": 7975080
+        },
+        {
+          "offset": 457,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3593171
+        },
+        {
+          "offset": 477,
+          "kind": 20,
+          "symbol": "?Convert_HMI_To_Direct_Sound_Volume@@YIHH@Z",
+          "target": 4237344,
+          "addend": 0,
+          "resolved": 4294937295
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4266864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4267392,
+      "method": "00411d80",
+      "body_bytes": 546,
+      "body_sha256": "d02908c721abadda8321c1135799a70f1117c016a525d22f910471ebb1378b3e",
+      "padding_bytes": 14,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "b6dfd3a61463b29b44b44bb608bf20b65a96299dcfb3c768e630791e158c9e30",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Audio_Handler@@YAJPAU_VQAHandleP@@PAXJ@Z",
+      "symbol_prefix": "?Load_Audio_Handler@@YAJPAU_VQAHandleP@@PAXJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 48,
+          "resolved": 10750792
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "__real@4@40078000000000000000",
+          "target": 7975084,
+          "addend": 0,
+          "resolved": 7975084
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 48,
+          "resolved": 10750792
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "__real@4@4006ff00000000000000",
+          "target": 7975080,
+          "addend": 0,
+          "resolved": 7975080
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3592963
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?Convert_HMI_To_Direct_Sound_Volume@@YIHH@Z",
+          "target": 4237344,
+          "addend": 0,
+          "resolved": 4294937089
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 251,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4267392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4267952,
+      "method": "00411fb0",
+      "body_bytes": 80,
+      "body_sha256": "736271fd9bd8f8146847ca541a5973b6af54caea0f63f619831c282118c0e137",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "736271fd9bd8f8146847ca541a5973b6af54caea0f63f619831c282118c0e137",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pause_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Pause_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4267952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268032,
+      "method": "00412000",
+      "body_bytes": 152,
+      "body_sha256": "29695e555ea7e383b12d7e0eb8f4fb96108159ca44cb922b207c1dd7313a88cf",
+      "padding_bytes": 8,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "5ca97ac954c2a357b8ba356f61bb37e1b7ef7d2f04d289b47749b421576b8657",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Play_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Play_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Get_Game_Time_50@@YIIXZ",
+          "target": 5046416,
+          "addend": 0,
+          "resolved": 778299
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FKKL@Ahandle?3?5PauseAdjust?5?$CFld?6?$AA@",
+          "target": 8184592,
+          "addend": 0,
+          "resolved": 8184592
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294920330
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268192,
+      "method": "004120a0",
+      "body_bytes": 124,
+      "body_sha256": "64cbfae71ace3173e9856d17af71cc41b03d5c6f6282f5297272475ee64181f0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "99912c1123de6182e8acc12a10cfb0518182da77ef37cd22072d60c1249e8b34",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Stop_Audio_Handler@@YAJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268320,
+      "method": "00412120",
+      "body_bytes": 416,
+      "body_sha256": "44004894dce950a3ec8fc703d1cb6977c48ede70a3c584580ed386bb46585642",
+      "padding_bytes": 0,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "44004894dce950a3ec8fc703d1cb6977c48ede70a3c584580ed386bb46585642",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioCallback@@YGXIIKKK@Z",
+      "symbol_prefix": "?AudioCallback@@YGXIIKKK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__imp__InterlockedIncrement@4",
+          "target": 7971260,
+          "addend": 0,
+          "resolved": 7971260
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc2@@3P6AJPAU_VQAHandle@@PAX@ZA",
+          "target": 8625544,
+          "addend": 0,
+          "resolved": 8625544
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?_AHandleCallbackFunc1@@3P6AJPAU_VQAHandle@@@ZA",
+          "target": 8625540,
+          "addend": 0,
+          "resolved": 8625540
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "__imp__InterlockedDecrement@4",
+          "target": 7971264,
+          "addend": 0,
+          "resolved": 7971264
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "__imp__InterlockedDecrement@4",
+          "target": 7971264,
+          "addend": 0,
+          "resolved": 7971264
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268736,
+      "method": "004122c0",
+      "body_bytes": 5,
+      "body_sha256": "0fdd4e77cc403ca43270f18b7e6c71010d0f225aca640e48cbe6ccf3f226447a",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "40969257d45cbba636ea25067a34b9d0d4db29d5cd627cce761db3404815dbe0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Simple_Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?Simple_Timer_Callback_Audio_Handler@@YAKPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Get_Game_Time_50@@YIIXZ",
+          "target": 5046416,
+          "addend": 0,
+          "resolved": 777675
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268752,
+      "method": "004122d0",
+      "body_bytes": 67,
+      "body_sha256": "1b4bf4378dba21c00ccb9dfad5d6ec1a9be3d41a07ca02986363c4f7625855ec",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1dd2b7b58b9873de3017b7e7db8d58648bfa48a2061b92af68c3b1c1c1fb4219",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pause_All_Audio_Handler@@YIXXZ",
+      "symbol_prefix": "?Pause_All_Audio_Handler@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 160,
+          "resolved": 8625712
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 160,
+          "resolved": 8625712
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268832,
+      "method": "00412320",
+      "body_bytes": 73,
+      "body_sha256": "e641fab07ce5944eaf5772c62c9dae2c2225c7ad90b853fff62aa406d3e6e5eb",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e651cc0ef76bfb88a7ef4afbade2783ca869b786937d8db451b1834b85b250b7",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resume_All_Audio_Handler@@YIXXZ",
+      "symbol_prefix": "?Resume_All_Audio_Handler@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 0,
+          "resolved": 8625552
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 160,
+          "resolved": 8625712
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 140,
+          "resolved": 8625692
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 160,
+          "resolved": 8625712
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?_handles@@3PAUAhandle@@A",
+          "target": 8625552,
+          "addend": 40,
+          "resolved": 8625592
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268912,
+      "method": "00412370",
+      "body_bytes": 6,
+      "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a9bd1333a736806794087fa4c01765e17a6ad5adb9bf4b29fe6565e591b0e6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Lock_Audio_Handler@@YAJXZ",
+      "symbol_prefix": "?Lock_Audio_Handler@@YAJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4268928,
+      "method": "00412380",
+      "body_bytes": 6,
+      "body_sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a9bd1333a736806794087fa4c01765e17a6ad5adb9bf4b29fe6565e591b0e6f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Unlock_Audio_Handler@@YAJXZ",
+      "symbol_prefix": "?Unlock_Audio_Handler@@YAJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "81fefcce39fc951dba771850038284361c0a76628d3ddace0b86a482dc3dbe36",
+      "source": "rebuild/src/ahandle.cpp",
+      "population": "rebuild-ahandle",
+      "source_order": 4268928,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

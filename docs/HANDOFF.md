@@ -5,6 +5,20 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## The rebuild is on main (2026-11-19, user)
+
+`rebuild-trial` (tip 1a05e4e1c, tag `rebuild-trial-premerge`) is merged into main with full history
+(no squash). The rebuild lives in `rebuild/` beside `src/` and is gated separately
+(AGENTS.md; ORIGINAL_TARGET_PROCESS.md "Two trees, two gates"): `gate_scope.py` prints scope
+`rebuild` for a rebuild-only change (rebuild gate only: catalog, structure gate, rebuild whole-file
+build) and `"rebuild_gate": true` when a shared tool changes (both trees' gates). `src/` stays the
+exact-match record the ports build from. STATUS shows both trees side by side. Rebuild numbers at the
+merge (last gated landing 17:34Z): 68.59% from source, 71.40% reproduced, 15,455 functions in 421 units.
+Shared-tool rule: rebuild-only behaviour is switched by `RA2_TREE=rebuild` or a per-row opt-in field
+main's manifests never carry; the run-anchored data-binding fallback is now `RA2_TREE=rebuild` only.
+Once main carries the merge, rebuild lanes branch from main and land on main. Rebuild-only commits publish
+at most hourly.
+
 ## Account 1 parked (2026-11-19 ~08:20Z): start here on account 2
 
 **Usage plan (review session, from the user's readings):** account 1 stops at about 95-96% (84% at 18:50Z; points expire Sun 14:00Z). Account 2 was at 1% (resets Monday) and has about 96 points until Sun 14:00Z, roughly one point an hour. Start on account 2 with: the rebuild lane (held units and unblockers, then code outside every unit), the landing helper (refetch both workers first, `build/c2land-RESUME.md`), and one port lane from `docs/PORTS_REMAINING.md` in its suggested order. Take a rate reading after the first hours; add a second port or unblocker lane only if 97% projects later than Sun 14:00Z and the memory guard allows. Two Codex workers, no more (user). This session can't read the meter: ask the user or the review session.

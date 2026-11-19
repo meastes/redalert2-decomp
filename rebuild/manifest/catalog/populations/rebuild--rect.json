@@ -1,0 +1,200 @@
+{
+  "id": "rebuild--rect",
+  "population": {
+    "id": "rebuild--rect",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "3b680cac7052bd14c77c12858876064082169bdae2ffb2242f72b049bdbc5a53",
+    "historical_acceptance_sha256": "00c1c9c25f1d21f3da18e210e6b8cc4e224264c63f7dc3d2bf3de0b9a24d487e"
+  },
+  "references": {
+    "_RECT_NONE": 8623632,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?VisibleRect@@3V?$TRect@H@@A": 8623680,
+    "_$E2": 4249808,
+    "_$E5": 4249840,
+    "_$E8": 4249888
+  },
+  "regions": [
+    {
+      "entry": 4249808,
+      "method": "0040d8d0",
+      "body_bytes": 23,
+      "body_sha256": "a23aeb399be150349b141071978399d5dd57f0b1e65ee9aaec6f0213e86e9d98",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "14b43e6eb0180ca20a43e886ec646d8c6297455bf677d5a889734c71365055ca",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623632,
+          "addend": 0,
+          "resolved": 8623632
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623632,
+          "addend": 4,
+          "resolved": 8623636
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623632,
+          "addend": 8,
+          "resolved": 8623640
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623632,
+          "addend": 12,
+          "resolved": 8623644
+        }
+      ],
+      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source": "rebuild/src/_rect.cpp",
+      "population": "rebuild--rect",
+      "source_order": 4249808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249840,
+      "method": "0040d8f0",
+      "body_bytes": 33,
+      "body_sha256": "4c978622f8cf04a0e20d0a5bfd4a4a7f90a72259b4126c4815a43c04132461c1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "17debb8c74298922f445fcda322a664d5cb42199be5343c2a3eb14dc0495719f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 12,
+          "resolved": 8623676
+        }
+      ],
+      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source": "rebuild/src/_rect.cpp",
+      "population": "rebuild--rect",
+      "source_order": 4249840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249888,
+      "method": "0040d920",
+      "body_bytes": 33,
+      "body_sha256": "1f3144e920f17e7c1e3b1256d681da5aad2503e1f08b735498ef0b1c821900ef",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9de857212757f164994068f079c4b6fbfc21bd9f2ca245ee430401903ef30950",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 8,
+          "resolved": 8623688
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 0,
+          "resolved": 8623680
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 4,
+          "resolved": 8623684
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 12,
+          "resolved": 8623692
+        }
+      ],
+      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source": "rebuild/src/_rect.cpp",
+      "population": "rebuild--rect",
+      "source_order": 4249888,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

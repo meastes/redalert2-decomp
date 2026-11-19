@@ -1,0 +1,60 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                     $Archive:: /G/wwlib/msgloop.h                                          $*
+ *                                                                                             *
+ *                      $Author:: Eric_c                                                      $*
+ *                                                                                             *
+ *                     $Modtime:: 4/02/99 11:59a                                              $*
+ *                                                                                             *
+ *                    $Revision:: 3                                                           $*
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#pragma once
+
+#include <windows.h>
+
+// Main message handler.
+void Windows_Message_Handler(void);
+
+// Modeless dialog box support routines.
+void Remove_Modeless_Dialog(HWND dialog);
+void Add_Modeless_Dialog(HWND dialog);
+HWND Get_Modeless_Dialog_From_Name(const char *name);
+
+// Accelerator keys support routines.
+void Add_Accelerator(HWND window, HACCEL accelerator);
+void Remove_Accelerator(HACCEL accelerator);
+
+// General purpose message intercept handler.
+extern bool (*Message_Intercept_Handler)(MSG &msg);
+
+// RA2: message queue wrappers; the get waits by peeking with removal and returns zero on WM_QUIT.
+int Peek_Windows_Message(MSG * msg, HWND window, unsigned filter_min, unsigned filter_max, unsigned remove);
+int Get_Input_Record_Mode(void); // RA2: the input recording mode that Peek_Windows_Message and Get_Key_State follow (0 none, 1 recording, 2 playing back), the global at 0x00A522AC, at 0x00522E80
+int Get_Windows_Message(MSG * msg, HWND window, unsigned filter_min, unsigned filter_max);
+extern int MessageLoopCount; // RA2: counts the calls of Windows_Message_Handler
+
+// RA2: passes the launcher's messages on to the copy protection.
+namespace CopyProtection {
+	void DispatchLauncherMessage(MSG * msg);
+}

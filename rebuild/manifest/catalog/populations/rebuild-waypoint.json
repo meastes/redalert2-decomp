@@ -1,0 +1,3359 @@
+{
+  "id": "rebuild-waypoint",
+  "population": {
+    "id": "rebuild-waypoint",
+    "inventory_sha256": "8d1b45474afd9ec345a912473613db763c887c4557db7dc025d12219669cbc2e",
+    "gaps_sha256": "64bd87b6ba4b194094225bcacaa6562eb1034927d7c08c310257405d7923f7f0",
+    "historical_population_sha256": "0cd7563844223770a46068e2783e6edb19715ee875e9b154e0618144f9d3f213",
+    "historical_acceptance_sha256": "a359a85136fcedefa689d90c954ebb1c5f091c5002713823124f11b1c5e92730"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11687288,
+    "_ISO_TILE_SIZE": 8056488,
+    "_LEPTONS_PER_PIXEL": 11687384,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11687368,
+    "_ONE_RAD": 8056496,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11687360,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11687296,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11687256,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11687392,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11687304,
+    "_CELL_DIAG_SLOPE_ANGLE": 11687352,
+    "_BRIDGE_LEPTON_HEIGHT": 11687380,
+    "_CELL_NONE": 11687280,
+    "_COORD_NONE": 11687336,
+    "_RECT_NONE": 11687264,
+    "_$E42": 7489968,
+    "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A": 11687312,
+    "??_7?$DynamicVectorClass@PAVWaypointPathClass@@@@6B@": 8056508,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVWaypointPathClass@@@@6B@": 8056540,
+    "??3@YAXPAX@Z": 7871803,
+    "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA": 11687376,
+    "??_C@_02JBML@?$CFc?$AA@": 8369308,
+    "__imp__wsprintfA": 7972004,
+    "??_C@_04LKNH@?$CFc?$CFc?$AA@": 8369300,
+    "_isalpha": 7875342,
+    "_toupper": 7875027,
+    "??0AbstractClass@@QAE@XZ": 4259600,
+    "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@": 8056716,
+    "??_7WaypointPathClass@@6BIPersistStream@@@": 8056616,
+    "??_7WaypointPathClass@@6BIRTTITypeInfo@@@": 8056588,
+    "??_7WaypointPathClass@@6BINoticeSink@@@": 8056580,
+    "??_7WaypointPathClass@@6BINoticeSource@@@": 8056572,
+    "??0AbstractClass@@QAE@ABVNoInitClass@@@Z": 4259680,
+    "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z": 7261072,
+    "??_7?$VectorClass@VWaypointClass@@@@6B@": 8056748,
+    "??1AbstractClass@@UAE@XZ": 4259728,
+    "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z": 4260272,
+    "??RCRCEngine@@QAEXH@Z": 4800304,
+    "_CLSID_WaypointPath": 8003008,
+    "?Load@AbstractClass@@UAGJPAUIStream@@@Z": 4260128,
+    "??0?$VectorClass@VWaypointClass@@@@QAE@HPBVWaypointClass@@@Z": 7494464,
+    "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
+    "??2@YAPAXI@Z": 7872535,
+    "??0Coord@@QAE@HHH@Z": 4409376,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "??_EWaypointClass@@QAEPAXI@Z": 4307088,
+    "_$E2": 7489408,
+    "_$E5": 7489456,
+    "_$E8": 7489488,
+    "_$E11": 7489520,
+    "_$E14": 7489552,
+    "_$E17": 7489584,
+    "_$E20": 7489616,
+    "_$E23": 7489680,
+    "_$E26": 7489728,
+    "_$E29": 7489776,
+    "_$E32": 7489824,
+    "_$E35": 7489840,
+    "_$E38": 7489872,
+    "_$E44": 7489904,
+    "??_G?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z": 7494384,
+    "??_G?$VectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z": 7494304,
+    "?Waypoint_To_Name@@YIPBDH@Z": 7490032,
+    "?Waypoint_From_Name@@YIHPBD@Z": 7490160,
+    "??0WaypointClass@@QAE@XZ": 7490256,
+    "??0WaypointClass@@QAE@ABVCoord@@@Z": 7490272,
+    "??1WaypointClass@@QAE@XZ": 7490304,
+    "??0WaypointPathClass@@QAE@XZ": 7490320,
+    "??_G?$DynamicVectorClass@VWaypointClass@@@@UAEPAXI@Z": 7492560,
+    "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
+    "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
+    "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
+    "?Fetch_ID@AbstractClass@@UBGHXZ": 4259776,
+    "?What_Am_I@AbstractClass@@UBGHXZ": 4259760,
+    "?AI@AbstractClass@@UAEXXZ": 4260624,
+    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
+    "?In_Air@AbstractClass@@UBE_NXZ": 4260560,
+    "?On_Ground@AbstractClass@@UBE_NXZ": 4260544,
+    "?Destination_Coord@AbstractClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4260496,
+    "?Center_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260448,
+    "?Is_Inactive@AbstractClass@@UBE_NXZ": 4260320,
+    "?Fetch_Heap_ID@AbstractClass@@UBEHXZ": 4260432,
+    "?Owner_HouseClass@AbstractClass@@UBEPAVHouseClass@@XZ": 4260416,
+    "?Owner@AbstractClass@@UBE?AW4HousesType@@XZ": 4260400,
+    "?Detach@AbstractClass@@UAEXPBV1@_N@Z": 4260384,
+    "?Init@AbstractClass@@UAEXXZ": 4260368,
+    "??_GWaypointPathClass@@UAEPAXI@Z": 7492096,
+    "?GetSizeMax@AbstractClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 4260224,
+    "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
+    "?Release@AbstractClass@@UAGKXZ": 4260016,
+    "?AddRef@AbstractClass@@UAGKXZ": 4260000,
+    "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
+    "??_G?$VectorClass@VWaypointClass@@@@UAEPAXI@Z": 7492656,
+    "??0WaypointPathClass@@QAE@ABVNoInitClass@@@Z": 7490480,
+    "??0WaypointPathClass@@QAE@H@Z": 7490544,
+    "??1WaypointPathClass@@UAE@XZ": 7490720,
+    "?Get_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@H@Z": 7490912,
+    "?Add_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z": 7490944,
+    "?Select_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z": 7491120,
+    "?Replace_Waypoint@WaypointPathClass@@QAEXHABVCoord@@@Z": 7491280,
+    "?Delete_Waypoint@WaypointPathClass@@QAEXH@Z": 7491344,
+    "?Get_Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PAV2@@Z": 7491456,
+    "?Clear@WaypointPathClass@@QAEXXZ": 7491520,
+    "?Compute_CRC@WaypointPathClass@@UBEXAAVCRCEngine@@@Z": 7491552,
+    "?GetClassID@WaypointPathClass@@UAGJPAU_GUID@@@Z": 7491600,
+    "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z": 7491664,
+    "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z": 7491952,
+    "?Fetch_Object_Size@WaypointPathClass@@UBEHXZ": 7492064,
+    "?Fetch_RTTI@WaypointPathClass@@UBE?AW4RTTIType@@XZ": 7492080,
+    "?Clear@?$DynamicVectorClass@VWaypointClass@@@@UAEXXZ": 7492304,
+    "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z": 7492368,
+    "?GetItem@?$VectorClass@VWaypointClass@@@@UBE?AVWaypointClass@@H@Z": 7492416,
+    "?Clear@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEXXZ": 7492464,
+    "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z": 7492512,
+    "?GetItem@?$VectorClass@PAVWaypointPathClass@@@@UBEPAVWaypointPathClass@@H@Z": 7492544,
+    "??8?$VectorClass@VWaypointClass@@@@UBE_NABV0@@Z": 7492752,
+    "?Resize@?$VectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z": 7492848,
+    "?Clear@?$VectorClass@VWaypointClass@@@@UAEXXZ": 7493120,
+    "?ID@?$VectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z": 7493184,
+    "?ID@?$VectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z": 7493264,
+    "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z": 7493312,
+    "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z": 7493632,
+    "??8?$VectorClass@PAVWaypointPathClass@@@@UBE_NABV0@@Z": 7493696,
+    "?Resize@?$VectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z": 7493760,
+    "?Clear@?$VectorClass@PAVWaypointPathClass@@@@UAEXXZ": 7493936,
+    "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z": 7493984,
+    "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z": 7494048,
+    "?Resize@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z": 7494080,
+    "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z": 7494256,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
+    "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
+    "?Release@AbstractClass@@W3AGKXZ": 4260768
+  },
+  "regions": [
+    {
+      "entry": 7489408,
+      "method": "00724780",
+      "body_bytes": 40,
+      "body_sha256": "cf445e00758e89c1f0a1992f0f6af036cf963d2ee0ff49ef7421721309fca900",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "134006f3835723bc8a8a42da62ab45d370dc11887c5c7ec8a57def66a393f5fa",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 383519
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292435058
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687288,
+          "addend": 0,
+          "resolved": 11687288
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489456,
+      "method": "007247b0",
+      "body_bytes": 19,
+      "body_sha256": "37d894c00b2d29ce13629b74eb065af6a6a1a71fccbe86d0d1cc5a450e95a31b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ff1401975e14839c90db5b4a9c640d76ca3ae3bf5fba9448b0b41047f78f1ba2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687288,
+          "addend": 0,
+          "resolved": 11687288
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8056488,
+          "addend": 0,
+          "resolved": 8056488
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687384,
+          "addend": 0,
+          "resolved": 11687384
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489488,
+      "method": "007247d0",
+      "body_bytes": 19,
+      "body_sha256": "e418ab27e09acc111c8e88590fb5a90742788d1120cea87aa72a2411fce383c0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ea63aa109682c032bc093d847710feeaf15ab48743812985c44e5809166884d5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11687384,
+          "addend": 0,
+          "resolved": 11687384
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11687368,
+          "addend": 0,
+          "resolved": 11687368
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489520,
+      "method": "007247f0",
+      "body_bytes": 19,
+      "body_sha256": "33693cde7fba4877eaba04e471a3283b6718fa6572e39411da8d43092c6301fd",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "cc4b16c7b56e4ace96d6a42b409ffe777165386ea359c7268c424e1adf655200",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056496,
+          "addend": 0,
+          "resolved": 8056496
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11687360,
+          "addend": 0,
+          "resolved": 11687360
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489552,
+      "method": "00724810",
+      "body_bytes": 19,
+      "body_sha256": "7b344606eeaf7c6c04b4399d203ad7212312d882c8fb372d75408924a9009bb3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "482f0fb8a3c6e074372449b9b2a1776e15bc95ef3a684a390d853d8dbeebc619",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056496,
+          "addend": 0,
+          "resolved": 8056496
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687296,
+          "addend": 0,
+          "resolved": 11687296
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489584,
+      "method": "00724830",
+      "body_bytes": 19,
+      "body_sha256": "5dc3647f34dfdd084b3507bc023dc434385222cf3c9b5210c807264cb01f9a8c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fcc597e1b25220351988ba334ad4e19d5edf142f82fb89679d1c7fd264ee2797",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8056496,
+          "addend": 0,
+          "resolved": 8056496
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687256,
+          "addend": 0,
+          "resolved": 11687256
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489616,
+      "method": "00724850",
+      "body_bytes": 49,
+      "body_sha256": "ad6a7d0f2a6ea2a18efea8beb6d0036f5095bdbc9d67f1d81c034e347ebbf739",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ecc62523fe9c6f39dca34adb8d2e9c3fb3020afd9339b6147e7f2fa609efef1f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687256,
+          "addend": 0,
+          "resolved": 11687256
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687296,
+          "addend": 0,
+          "resolved": 11687296
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292435129
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687288,
+          "addend": 0,
+          "resolved": 11687288
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 370837
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687392,
+          "addend": 0,
+          "resolved": 11687392
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489680,
+      "method": "00724890",
+      "body_bytes": 33,
+      "body_sha256": "5801a554944b7da7335a1827364001a4acb9062e82b5dad7b0b1625d7c09730d",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "fca87ad3860fa8bf88bbc72093c9b50580b94081154e6a0fab001051ba8d131d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687392,
+          "addend": 0,
+          "resolved": 11687392
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292435209
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11687304,
+          "addend": 0,
+          "resolved": 11687304
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489728,
+      "method": "007248c0",
+      "body_bytes": 44,
+      "body_sha256": "f548984446229edbe557e526055d305ab83541c566d59985cd22a79aaca47327",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "de4de034a506f048ae110d6efcd90718072bb476d071f8368c0db6e81e889c2f",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687392,
+          "addend": 0,
+          "resolved": 11687392
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687288,
+          "addend": 0,
+          "resolved": 11687288
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292435150
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11687352,
+          "addend": 0,
+          "resolved": 11687352
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489776,
+      "method": "007248f0",
+      "body_bytes": 39,
+      "body_sha256": "5aba27b31f1f8f6328a67dbffbd4dd71cb5ac85bdd6d7ff101d36b930301e913",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5d8fd29cbdc07536480f130bfd6446a30dca69fd9a4224267f4e04e95399c9ce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11687392,
+          "addend": 0,
+          "resolved": 11687392
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 370688
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11687380,
+          "addend": 0,
+          "resolved": 11687380
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489824,
+      "method": "00724920",
+      "body_bytes": 15,
+      "body_sha256": "3f29af0f82c8ea685e5e3344bc561b8ccb25dae3c4e4e8380878fd8a14996966",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f3bd04e670bc66bc571ac8a304f655c53a1fa15290d979cac5ca6fc67bc997f4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687280,
+          "addend": 0,
+          "resolved": 11687280
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687280,
+          "addend": 2,
+          "resolved": 11687282
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489824,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489840,
+      "method": "00724930",
+      "body_bytes": 18,
+      "body_sha256": "142890e16de5b95241925b1be5995b967c386c5b6473567d5f2324816544a270",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6c8dd92e319584c4caaea4e88d17596b7ef08c1280fa9c05487c0c26289faeab",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687336,
+          "addend": 0,
+          "resolved": 11687336
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687336,
+          "addend": 4,
+          "resolved": 11687340
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687336,
+          "addend": 8,
+          "resolved": 11687344
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489872,
+      "method": "00724950",
+      "body_bytes": 23,
+      "body_sha256": "7ea5c9a925b15f05fcbd5b183d291371f7c4efe5e2e5d7adfd9626145f2befe0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "35902af16afd301a74f62c67086dc6be4c3d7db80342e4e5451cf25e7fb80b39",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687264,
+          "addend": 0,
+          "resolved": 11687264
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687264,
+          "addend": 4,
+          "resolved": 11687268
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687264,
+          "addend": 8,
+          "resolved": 11687272
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687264,
+          "addend": 12,
+          "resolved": 11687276
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489904,
+      "method": "00724970",
+      "body_bytes": 61,
+      "body_sha256": "681f724c6145328573a12a1d62002814b3e2075bd321f98fa2216d2363b1b435",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0976aab3c54ec133aca08567d26e18c340efc614062b8338bf5a09e1c8041922",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E44",
+      "symbol_prefix": "_$E44",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_$E42",
+          "target": 7489968,
+          "addend": 0,
+          "resolved": 7489968
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 8,
+          "resolved": 11687320
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 12,
+          "resolved": 11687324
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 13,
+          "resolved": 11687325
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVWaypointPathClass@@@@6B@",
+          "target": 8056508,
+          "addend": 0,
+          "resolved": 8056508
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 20,
+          "resolved": 11687332
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 384991
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7489968,
+      "method": "007249b0",
+      "body_bytes": 59,
+      "body_sha256": "08e03193ded480938e463864be5a69bef95ea319fdea90efe298476472f5203f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "426c5fa819d0d433e09fad8f6c6acf32aad5caef8288c9cd6aa1a0bd4700a815",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E42",
+      "symbol_prefix": "_$E42",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVWaypointPathClass@@@@6B@",
+          "target": 8056540,
+          "addend": 0,
+          "resolved": 8056540
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 13,
+          "resolved": 11687325
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 381799
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 13,
+          "resolved": 11687325
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 8,
+          "resolved": 11687320
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7489968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490032,
+      "method": "007249f0",
+      "body_bytes": 113,
+      "body_sha256": "b5ebcdc6c675432555a659ad1760ff88e970a5be0024c7d40877ac1abf2c8df7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "f0c4f9f2e3129f39bde89524917ee732108b503e497242f3e0a975bbf48dcc42",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Waypoint_To_Name@@YIPBDH@Z",
+      "symbol_prefix": "?Waypoint_To_Name@@YIPBDH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_C@_02JBML@?$CFc?$AA@",
+          "target": 8369308,
+          "addend": 0,
+          "resolved": 8369308
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "??_C@_04LKNH@?$CFc?$CFc?$AA@",
+          "target": 8369300,
+          "addend": 0,
+          "resolved": 8369300
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "_?_string@?1??Waypoint_To_Name@@YIPBDH@Z@4PADA",
+          "target": 11687376,
+          "addend": 0,
+          "resolved": 11687376
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490160,
+      "method": "00724a70",
+      "body_bytes": 85,
+      "body_sha256": "bb7619e6807063deb536b2364aa0c0af4b75cf5b1085e9eca2665b0bcc526637",
+      "padding_bytes": 11,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "85cbe25c510ffc5d284d108e8bee7c7d3faec9be1e9e928830b9b1d2efed41a9",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Waypoint_From_Name@@YIHPBD@Z",
+      "symbol_prefix": "?Waypoint_From_Name@@YIHPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "_isalpha",
+          "target": 7875342,
+          "addend": 0,
+          "resolved": 385166
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "_toupper",
+          "target": 7875027,
+          "addend": 0,
+          "resolved": 384835
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "_isalpha",
+          "target": 7875342,
+          "addend": 0,
+          "resolved": 385135
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "_toupper",
+          "target": 7875027,
+          "addend": 0,
+          "resolved": 384803
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490256,
+      "method": "00724ad0",
+      "body_bytes": 13,
+      "body_sha256": "1e09d34a9de7a48bd061703ef73f341df8596595468b282c5f19c36b6bf0b98d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "98b4b73d3ab83a9851170d7c7bcd8fcacb6654a89f1814fa5606484ec5367dbe",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WaypointClass@@QAE@XZ",
+      "symbol_prefix": "??0WaypointClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490272,
+      "method": "00724ae0",
+      "body_bytes": 29,
+      "body_sha256": "c9468e688f6871b960ed94d3df741760b810c0f592b1145f325575a864da8542",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "65f74a8c9f7edb83d928372f39256e3b8b3ceceaacd860650ebba222025d5930",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WaypointClass@@QAE@ABVCoord@@@Z",
+      "symbol_prefix": "??0WaypointClass@@QAE@ABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490304,
+      "method": "00724b00",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1WaypointClass@@QAE@XZ",
+      "symbol_prefix": "??1WaypointClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490320,
+      "method": "00724b10",
+      "body_bytes": 159,
+      "body_sha256": "81a0b42b1f9afba39843ce8924a206ab4d6d6ef3036be2086b4ba7b92ca4cb71",
+      "padding_bytes": 1,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "2f2a08acf13f1152337f985d32bf2685f8b0365b8df667de9b6f4f256faea946",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WaypointPathClass@@QAE@XZ",
+      "symbol_prefix": "??0WaypointPathClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4291736568
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@",
+          "target": 8056716,
+          "addend": 0,
+          "resolved": 8056716
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 8,
+          "resolved": 11687320
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 13,
+          "resolved": 11687325
+        },
+        {
+          "offset": 102,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 20,
+          "resolved": 11687332
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490480,
+      "method": "00724bb0",
+      "body_bytes": 53,
+      "body_sha256": "65dd264ed436c778b86352dd384f654f22546ca5e52386e18560876a0150b093",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c14476eb729bee3cbfc5621434e125d1d96d09ddfc0cc66966ca16f50fd7ef6f",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WaypointPathClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0WaypointPathClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4291736483
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@",
+          "target": 8056716,
+          "addend": 0,
+          "resolved": 8056716
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490544,
+      "method": "00724bf0",
+      "body_bytes": 175,
+      "body_sha256": "f965e948def45167a7b3a6e26c0b28d506419ae7ff58df64b76ded6de201f511",
+      "padding_bytes": 1,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "0ed27eea5f914235f56c4b510a91f66666fb7129cbe5667c950b32f29d755352",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WaypointPathClass@@QAE@H@Z",
+      "symbol_prefix": "??0WaypointPathClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@XZ",
+          "target": 4259600,
+          "addend": 0,
+          "resolved": 4291736344
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@",
+          "target": 8056716,
+          "addend": 0,
+          "resolved": 8056716
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 8,
+          "resolved": 11687320
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 13,
+          "resolved": 11687325
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 20,
+          "resolved": 11687332
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490720,
+      "method": "00724ca0",
+      "body_bytes": 180,
+      "body_sha256": "8c3e0d62235c030cf9a5a9975f7b191322317617fc4f1b99f268285b8c3489a3",
+      "padding_bytes": 12,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "c4d2cdb057cf3834ad219527799fbfa6a6596eeda2ce3e42ebd8fa45e3ab389a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1WaypointPathClass@@UAE@XZ",
+      "symbol_prefix": "??1WaypointPathClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 4294737610
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWaypointClass@@@@6B@",
+          "target": 8056748,
+          "addend": 0,
+          "resolved": 8056748
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 380934
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4291736127
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490720,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490912,
+      "method": "00724d60",
+      "body_bytes": 30,
+      "body_sha256": "5a3372e16aa2b87ec6f368fae06b32e9f3679fd9aa5b65338123e8b7abc7e032",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "dec3bf6c7a094a4a82449374aa402f5cad7539ce06351e2cc490fcc67f53e5c6",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@H@Z",
+      "symbol_prefix": "?Get_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7490944,
+      "method": "00724d80",
+      "body_bytes": 172,
+      "body_sha256": "61ef697dbe373d3cda76b01b2c2b302d1457199f6135693d249655065f92c105",
+      "padding_bytes": 4,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "33814a7bb961e49b82e268e6028d7f89eba2657ff951d223d5a0ec7dc47894a5",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z",
+      "symbol_prefix": "?Add_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7490944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491120,
+      "method": "00724e30",
+      "body_bytes": 152,
+      "body_sha256": "e626a3208c42965e343b3d01faaf636b59f5c7c6dc1d95a19110b1436e6fa849",
+      "padding_bytes": 8,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "7fbcb82866f4aaa7406e2208a80bfb9879ead26bb2a367e50c596d7510a3a805",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z",
+      "symbol_prefix": "?Select_Waypoint@WaypointPathClass@@QAE_NABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491280,
+      "method": "00724ed0",
+      "body_bytes": 49,
+      "body_sha256": "243db4e824478334cbf24347846f5930350224b68a34ef00f0a9db7772aa4bfa",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "51f95f8995e13a1dd06f6809ed0a5807b1949641a1894b0f02230181a961f0c3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Replace_Waypoint@WaypointPathClass@@QAEXHABVCoord@@@Z",
+      "symbol_prefix": "?Replace_Waypoint@WaypointPathClass@@QAEXHABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491344,
+      "method": "00724f10",
+      "body_bytes": 100,
+      "body_sha256": "b6ca39cf2bb14485d057ee44496648feaa911ddb50066056adb1318de33b643f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "3225a5c2f84001e39d6db868adb4d2c78e988bb053676294b653fcbec3f05336",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Delete_Waypoint@WaypointPathClass@@QAEXH@Z",
+      "symbol_prefix": "?Delete_Waypoint@WaypointPathClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491456,
+      "method": "00724f80",
+      "body_bytes": 61,
+      "body_sha256": "9ad6e06b3471a073e6f8dc95dc6c3e9f199593f39c8704069aaf170eb54954b3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7d20fcc1d716572c80c8b01a51f3211de67e3301e0729f003663d304712463fc",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PAV2@@Z",
+      "symbol_prefix": "?Get_Next_Waypoint@WaypointPathClass@@QAEPAVWaypointClass@@PAV2@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491520,
+      "method": "00724fc0",
+      "body_bytes": 21,
+      "body_sha256": "f76264926a710470d2df77e1766e5b95853999d9ef707297dfd042f200433b82",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "84276569ad9bd9daceaf6a44c19c95083ecc30367035602181b998e3288789ec",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@WaypointPathClass@@QAEXXZ",
+      "symbol_prefix": "?Clear@WaypointPathClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491552,
+      "method": "00724fe0",
+      "body_bytes": 41,
+      "body_sha256": "e977c015b498961622032dab7be2f4e00a8772b2af6cabf4aa6b7f3c3b699c28",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8f6eadc33af6e21ca95312abf572e06164a09003d19e3e22b4df25fba143b399",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Compute_CRC@WaypointPathClass@@UBEXAAVCRCEngine@@@Z",
+      "symbol_prefix": "?Compute_CRC@WaypointPathClass@@UBEXAAVCRCEngine@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Compute_CRC@AbstractClass@@UBEXAAVCRCEngine@@@Z",
+          "target": 4260272,
+          "addend": 0,
+          "resolved": 4291736002
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292276023
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??RCRCEngine@@QAEXH@Z",
+          "target": 4800304,
+          "addend": 0,
+          "resolved": 4292276012
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491600,
+      "method": "00725010",
+      "body_bytes": 56,
+      "body_sha256": "8c1b24831735e8a2bc27ae3aabe0e4c7173e09a201bc922421d6bfe5bf22256c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "a8df4edbe2a6e7c3394c70512bee4a0b3ca5aa0c89b83b0e3626f034a56dedbd",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@WaypointPathClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@WaypointPathClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_WaypointPath",
+          "target": 8003008,
+          "addend": 0,
+          "resolved": 8003008
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_WaypointPath",
+          "target": 8003008,
+          "addend": 4,
+          "resolved": 8003012
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_WaypointPath",
+          "target": 8003008,
+          "addend": 8,
+          "resolved": 8003016
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_WaypointPath",
+          "target": 8003008,
+          "addend": 12,
+          "resolved": 8003020
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491664,
+      "method": "00725050",
+      "body_bytes": 276,
+      "body_sha256": "110a15c8bdce532d834ae76021a824d4005526939f5c903fa43961e5c60c2d9b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "7e6b2cfbd7731a0f636ed7b41b9caa423359d06f2d39254ee85177300e7d8ac0",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@WaypointPathClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Load@AbstractClass@@UAGJPAUIStream@@@Z",
+          "target": 4260128,
+          "addend": 0,
+          "resolved": 4291735738
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??0AbstractClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 4259680,
+          "addend": 0,
+          "resolved": 4291735264
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@",
+          "target": 8056716,
+          "addend": 0,
+          "resolved": 8056716
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@VWaypointClass@@@@QAE@HPBVWaypointClass@@@Z",
+          "target": 7494464,
+          "addend": 0,
+          "resolved": 2680
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VWaypointClass@@@@6B@",
+          "target": 8056716,
+          "addend": 0,
+          "resolved": 8056716
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7491952,
+      "method": "00725170",
+      "body_bytes": 109,
+      "body_sha256": "f042cc17127d9f208c6925426da5d6934830f65f103ebf13f8f2be5c003d7d69",
+      "padding_bytes": 3,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "f0d036ca578c5b4795f62873411a50c6f0de491beac382cee054317e98b97c43",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@WaypointPathClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?Save@AbstractClass@@UAGJPAUIStream@@H@Z",
+          "target": 4260032,
+          "addend": 0,
+          "resolved": 4291735352
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7491952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492064,
+      "method": "007251e0",
+      "body_bytes": 6,
+      "body_sha256": "723df933eda7d61fc05ca08afd21570004fa576d70811cd7f6bdfe8a19515f97",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "444937c9273bbf7be8e69ecb8c76ecd2c281e7ca97e677c1d58e854b762adf48",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@WaypointPathClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@WaypointPathClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492080,
+      "method": "007251f0",
+      "body_bytes": 6,
+      "body_sha256": "89828b08970a0732097f34f447e76ba1386e992c52a39c1ca9309768621b2113",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "278d2c8bbb6f5802512af5c16ac6292b1cae23d697f70315cff86f9438d1d04f",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_RTTI@WaypointPathClass@@UBE?AW4RTTIType@@XZ",
+      "symbol_prefix": "?Fetch_RTTI@WaypointPathClass@@UBE?AW4RTTIType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492096,
+      "method": "00725200",
+      "body_bytes": 200,
+      "body_sha256": "8efe45ee5c304a3a97fd82cfbef7935971ea41d340ce79a78c5cd5377fd3694b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "f1367f659a70f55ffb463d66d905de1f417c4b1c7101b0ef3ac04d548c899155",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GWaypointPathClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GWaypointPathClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIPersistStream@@@",
+          "target": 8056616,
+          "addend": 0,
+          "resolved": 8056616
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BIRTTITypeInfo@@@",
+          "target": 8056588,
+          "addend": 0,
+          "resolved": 8056588
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSink@@@",
+          "target": 8056580,
+          "addend": 0,
+          "resolved": 8056580
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "??_7WaypointPathClass@@6BINoticeSource@@@",
+          "target": 8056572,
+          "addend": 0,
+          "resolved": 8056572
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Detach_This_From_All@@YIXPBVAbstractClass@@_N@Z",
+          "target": 7261072,
+          "addend": 0,
+          "resolved": 4294736234
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 0,
+          "resolved": 11687312
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 4,
+          "resolved": 11687316
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?WaypointPaths@@3V?$DynamicVectorClass@PAVWaypointPathClass@@@@A",
+          "target": 11687312,
+          "addend": 16,
+          "resolved": 11687328
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWaypointClass@@@@6B@",
+          "target": 8056748,
+          "addend": 0,
+          "resolved": 8056748
+        },
+        {
+          "offset": 145,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379558
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "??1AbstractClass@@UAE@XZ",
+          "target": 4259728,
+          "addend": 0,
+          "resolved": 4291734751
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379517
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492304,
+      "method": "007252d0",
+      "body_bytes": 53,
+      "body_sha256": "dc7a495073a1972eb311925322c38964133124991ec2f2e8b0c3254e5639cb5f",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b0f39f363ba29d1bf72d0670e48be821334f51466161b6361fa926501d97e228",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@VWaypointClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@VWaypointClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379461
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492368,
+      "method": "00725310",
+      "body_bytes": 36,
+      "body_sha256": "9dcefccc4d67c0cb9c6f89fd70c7f511db358042a092bd600df3de62832feb54",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "68ffc8ce258c8e5594dacacb26abcaff55e8620a198e68d48fba0c8b750352fd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492416,
+      "method": "00725340",
+      "body_bytes": 40,
+      "body_sha256": "0a628aea233e5e008872b6299e87205d87498a61c1deb0804f83daa179addb82",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e55485338a5167962b08348dfa4c034063dffa5fff41bb840289861761102e8f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@VWaypointClass@@@@UBE?AVWaypointClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@VWaypointClass@@@@UBE?AVWaypointClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492464,
+      "method": "00725370",
+      "body_bytes": 42,
+      "body_sha256": "a36bf355a7fb78f7ccf0652f6529c022df327464bb8e5be36659a94b8044672a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1fa01bdc8bb5505ef777ce8a4c8b031ff6edbc4f3ed73d2454eea02ce40fb19e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379312
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492512,
+      "method": "007253a0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492544,
+      "method": "007253c0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVWaypointPathClass@@@@UBEPAVWaypointPathClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVWaypointPathClass@@@@UBEPAVWaypointPathClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492560,
+      "method": "007253d0",
+      "body_bytes": 84,
+      "body_sha256": "27877c8d4dd9ef28d63146b5ed1cff992ffe135194b24256dd56bf59d35cf4b9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "2a87f8142dd36a0d41e98f3f5b38465d11d82a028e7166b88c005e07d4fdc38d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@VWaypointClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@VWaypointClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWaypointClass@@@@6B@",
+          "target": 8056748,
+          "addend": 0,
+          "resolved": 8056748
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379203
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379168
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492656,
+      "method": "00725430",
+      "body_bytes": 84,
+      "body_sha256": "c0cba3a01d5466083c8c06b78f04e1469fe6b87c489964f6bbf5c9b6f0718f26",
+      "padding_bytes": 12,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "4afaed7159611904a66661c672bb5268ba82c51ff06e98ae902b17a2f9c2fa0b",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@VWaypointClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@VWaypointClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWaypointClass@@@@6B@",
+          "target": 8056748,
+          "addend": 0,
+          "resolved": 8056748
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379107
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 379072
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492752,
+      "method": "00725490",
+      "body_bytes": 92,
+      "body_sha256": "7fecea8addb8c18895818c1b28b6f6a75c66def1aa8aebd06920f05826f3b8f4",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ab430173e2f0ea084db3e80dee6a16a5ab45e25bd68622cc75e01269bf5ca1da",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@VWaypointClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@VWaypointClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7492848,
+      "method": "007254f0",
+      "body_bytes": 270,
+      "body_sha256": "5c923448b4410a93510e83727d3e93804f81280b79fe6ad26253a7c8b2f953ec",
+      "padding_bytes": 2,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "e29e40dd3f290c75b32380ffd38b6591a5236a848e5289fbb01d0a4fcddf1b32",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 379639
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 378736
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7492848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493120,
+      "method": "00725600",
+      "body_bytes": 50,
+      "body_sha256": "118b968d14ee93c1d41182a0c4c8ba9ea296be08a537b9b0eab4786084c0aca4",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "dc2b1829ff60c9a9123f27a71af104bb4eb7c89181e164459a8b5966002dd9eb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@VWaypointClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@VWaypointClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 378648
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493184,
+      "method": "00725640",
+      "body_bytes": 80,
+      "body_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ce7929f88c214ac4b7ce4d0c5450c8214825282f86e39e892c56d631b8f5a1ec",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493264,
+      "method": "00725690",
+      "body_bytes": 36,
+      "body_sha256": "9dcefccc4d67c0cb9c6f89fd70c7f511db358042a092bd600df3de62832feb54",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "68ffc8ce258c8e5594dacacb26abcaff55e8620a198e68d48fba0c8b750352fd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@VWaypointClass@@@@UAEHPBVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493312,
+      "method": "007256c0",
+      "body_bytes": 306,
+      "body_sha256": "dfc9b91b95d3ce0ae874b29e9fe92eb47087fb654799393caeb6a389b8f74254",
+      "padding_bytes": 14,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "a62b7eae2524745d91b6cd552d24461d66b5b667fe46bf9921c1fe78bdc9fd70",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@VWaypointClass@@@@UAE_NHPBVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 379176
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@HHH@Z",
+          "target": 4409376,
+          "addend": 0,
+          "resolved": 4291883274
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4291780329
+        },
+        {
+          "offset": 237,
+          "kind": 20,
+          "symbol": "??_EWaypointClass@@QAEPAXI@Z",
+          "target": 4307088,
+          "addend": 0,
+          "resolved": 4291780831
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493632,
+      "method": "00725800",
+      "body_bytes": 64,
+      "body_sha256": "1ad91110d3e1316a78594bfa7522d2620215b24e678d7a4ee725d11b58a81bb7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1ad91110d3e1316a78594bfa7522d2620215b24e678d7a4ee725d11b58a81bb7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@VWaypointClass@@@@UAEHABVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493696,
+      "method": "00725840",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVWaypointPathClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVWaypointPathClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493760,
+      "method": "00725880",
+      "body_bytes": 174,
+      "body_sha256": "0e883db82ebde2415b83665b7d3d0f65abe63dc6c55503384cf00ad2bd7e7314",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "7146b6280a736f0b81d43bcf4864ffe175bd1455989ad05e0c91c1afc097c701",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 378732
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377920
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493936,
+      "method": "00725930",
+      "body_bytes": 39,
+      "body_sha256": "9ec22cc9cf572fa1e46e5ffc3f8a6f8357c4458479fb6e8fd972bb1ad60a2969",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0e3789ba73910108853a8e79227d937f0611e610d0814067e707dd8e16595e0a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVWaypointPathClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVWaypointPathClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377843
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7493984,
+      "method": "00725960",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7493984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494048,
+      "method": "007259a0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVWaypointPathClass@@@@UAEHPBQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494080,
+      "method": "007259c0",
+      "body_bytes": 176,
+      "body_sha256": "b6ba023060a8adf02789c9057c2aa7b107f7c0cb4fced40393ef297919c81471",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "b6ba023060a8adf02789c9057c2aa7b107f7c0cb4fced40393ef297919c81471",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAE_NHPBQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 378416
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377613
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494256,
+      "method": "00725a70",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEHABQAVWaypointPathClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494304,
+      "method": "00725aa0",
+      "body_bytes": 73,
+      "body_sha256": "1e707dca99f70247a5f5a805decb08bbf62d2e388705d6dc9dd17b1b9df94958",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f360098aa9fdf00a0c2ee7c23b9b8c888ad17be73adab691acabbaebf94b9b8e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVWaypointPathClass@@@@6B@",
+          "target": 8056540,
+          "addend": 0,
+          "resolved": 8056540
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377470
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377435
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494384,
+      "method": "00725af0",
+      "body_bytes": 73,
+      "body_sha256": "be806acfec450a24a376680dcbc3456b2830e704021427de95fc991e14ed904c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "152ba6e395e0150444269ec536515d0540c339e2f8220da7a9b3f95843f83e98",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVWaypointPathClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVWaypointPathClass@@@@6B@",
+          "target": 8056540,
+          "addend": 0,
+          "resolved": 8056540
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377390
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 377355
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7494464,
+      "method": "00725b40",
+      "body_bytes": 166,
+      "body_sha256": "1fe462020d685a278fb5f6035881fb9bb65fc22b7984b4a7898a5c61889c64cb",
+      "padding_bytes": 10,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "d375c1ee22018413825aaf8279d4e8afd9c814bcb352373c452586192d0f95f5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@VWaypointClass@@@@QAE@HPBVWaypointClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@VWaypointClass@@@@QAE@HPBVWaypointClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VWaypointClass@@@@6B@",
+          "target": 8056748,
+          "addend": 0,
+          "resolved": 8056748
+        },
+        {
+          "offset": 94,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 377973
+        }
+      ],
+      "source_sha256": "8e58891507f05acde13a5ca1559de56fb89fb9e29544b900a267c4d5e93e9394",
+      "source": "rebuild/src/waypoint.cpp",
+      "population": "rebuild-waypoint",
+      "source_order": 7494464,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

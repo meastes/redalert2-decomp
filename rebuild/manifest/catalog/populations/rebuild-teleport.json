@@ -1,0 +1,3718 @@
+{
+  "id": "rebuild-teleport",
+  "population": {
+    "id": "rebuild-teleport",
+    "inventory_sha256": "b7af94f6537ec610a75ecf9c3267be31ec20a9418c7f5e7c77557db0df4540f6",
+    "gaps_sha256": "95a23856959aae32954a28c625316245a5dfb6498f4da1f656b5bb8d2d584f2a",
+    "historical_population_sha256": "d9bca0f557b88478f587686d2100ed3aeebc788cc1dd3d91d00a80e134269c25",
+    "historical_acceptance_sha256": "675705500902220d210097d1966b23f54d64cd07af1404beb10a902aa78241eb"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11272808,
+    "_ISO_TILE_SIZE": 8049008,
+    "_LEPTONS_PER_PIXEL": 11272880,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11272864,
+    "_ONE_RAD": 8049016,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11272856,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11272816,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11272776,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11272888,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11272824,
+    "_CELL_DIAG_SLOPE_ANGLE": 11272848,
+    "_BRIDGE_LEPTON_HEIGHT": 11272872,
+    "_CELL_NONE": 11272800,
+    "_COORD_NONE": 11272832,
+    "_RECT_NONE": 11272784,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "?Frame@@3HA": 10751276,
+    "??_7TeleportLocomotionClass@@6BIPersistStream@@@": 8049264,
+    "??_7TeleportLocomotionClass@@6BILocomotion@@@": 8049064,
+    "??_7TeleportLocomotionClass@@6B@": 8049028,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z": 7210672,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Is_Bridge_Here@CellClass@@QBE_NXZ": 4688080,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
+    "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z": 5571296,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?Is_Tile_With_Water@CellClass@@QBE_NXZ": 4700128,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
+    "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z": 7175296,
+    "?Bullets@@3V?$DynamicVectorClass@PAVBulletClass@@@@A": 10751208,
+    "?LoseTarget@BulletClass@@QAEXXZ": 4592752,
+    "??2@YAPAXI@Z": 7872535,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?ExitUnit@ParasiteClass@@QAEXXZ": 6321216,
+    "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z": 7421536,
+    "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
+    "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z": 7208704,
+    "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
+    "?Check_Landing@TeleportLocomotionClass@@QAEXVCoord@@@Z": 7210032,
+    "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
+    "_CLSID_TeleportLocomotion": 8003536,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "??_7LocomotionClass@@6BIPersistStream@@@": 8008628,
+    "??_7LocomotionClass@@6BILocomotion@@@": 8008428,
+    "_IID_ILocomotion": 8018064,
+    "__imp__OleLoadFromStream@12": 7972332,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "__GUID_00000109_0000_0000_c000_000000000046": 8216376,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869392,
+    "?_com_issue_error@@YGXJ@Z": 7952704,
+    "__imp__OleSaveToStream@8": 7972328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "_IID_IPiggyback": 8003664,
+    "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 4541424,
+    "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869376,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7215360,
+    "?AddRef@TeleportLocomotionClass@@UAGKXZ": 7216032,
+    "?Release@TeleportLocomotionClass@@UAGKXZ": 7216048,
+    "_$E2": 7207600,
+    "_$E5": 7207648,
+    "_$E8": 7207680,
+    "_$E11": 7207712,
+    "_$E14": 7207744,
+    "_$E17": 7207776,
+    "_$E20": 7207808,
+    "_$E23": 7207872,
+    "_$E26": 7207920,
+    "_$E29": 7207968,
+    "_$E32": 7208016,
+    "_$E35": 7208032,
+    "_$E38": 7208064,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0TeleportLocomotionClass@@QAE@XZ": 7208096,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Immediate_Destination@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494016,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Head_To_Coord@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494176,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??_GTeleportLocomotionClass@@UAEPAXI@Z": 7216112,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "??_R0?AUIPiggyback@@@8": 8216240,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVTeleportLocomotionClass@@@8": 8356080,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Is_Moving_Now@LocomotionClass@@UAGEXZ": 4875664,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Is_Moving_Here@LocomotionClass@@UAGEUCoordStruct@@@Z": 4875696,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Is_Really_Moving_Now@LocomotionClass@@UAGEXZ": 4869136,
+    "?Stop_Movement_Animation@LocomotionClass@@UAGXXZ": 4869200,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ": 7216064,
+    "?Is_Moving@TeleportLocomotionClass@@UAGEXZ": 7208224,
+    "?Is_Stationary@TeleportLocomotionClass@@UAEEXZ": 7208240,
+    "?Destination@TeleportLocomotionClass@@UAG?AUCoordStruct@@XZ": 7208256,
+    "?Move_To@TeleportLocomotionClass@@UAGXUCoordStruct@@@Z": 7208352,
+    "?Stop_Moving@TeleportLocomotionClass@@UAGXXZ": 7208656,
+    "?Do_Turn@TeleportLocomotionClass@@UAGXUDirStruct@@@Z": 7212512,
+    "?Process@TeleportLocomotionClass@@UAGEXZ": 7212560,
+    "?Process_Delay@TeleportLocomotionClass@@UAGXXZ": 7214832,
+    "?GetClassID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z": 7214896,
+    "?Load@TeleportLocomotionClass@@UAGJPAUIStream@@@Z": 7214960,
+    "?Do_Turn@LocomotionClass@@UAGXUDirStruct@@@Z": 5494064,
+    "?Stop_Moving@LocomotionClass@@UAGXXZ": 5494080,
+    "?Move_To@LocomotionClass@@UAGXUCoordStruct@@@Z": 5494096,
+    "?Process@LocomotionClass@@UAGEXZ": 5494112,
+    "?Destination@LocomotionClass@@UAG?AUCoordStruct@@XZ": 5494128,
+    "?Is_Moving@LocomotionClass@@UAGEXZ": 5494224,
+    "??_GLocomotionClass@@UAEPAXI@Z": 5238528,
+    "__purecall": 4950368,
+    "?Mark_All_Occupation_Bits@LocomotionClass@@UAGXH@Z": 4875680,
+    "?Save@TeleportLocomotionClass@@UAGJPAUIStream@@H@Z": 7215120,
+    "?In_Which_Layer@TeleportLocomotionClass@@UAG?AW4LayerType@@XZ": 7215344,
+    "?Begin_Piggyback@TeleportLocomotionClass@@UAGJPAUILocomotion@@@Z": 7215456,
+    "?End_Piggyback@TeleportLocomotionClass@@UAGJPAPAUILocomotion@@@Z": 7215536,
+    "?Is_Ok_To_End@TeleportLocomotionClass@@UAGEXZ": 7215600,
+    "?Piggyback_CLSID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z": 7215680,
+    "?Mark_All_Occupation_Bits@TeleportLocomotionClass@@UAGXH@Z": 7215952,
+    "?Fetch_Object_Size@TeleportLocomotionClass@@UBEHXZ": 7216096,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 4979872,
+    "?AddRef@LocomotionClass@@W3AGKXZ": 4979888,
+    "?Release@LocomotionClass@@W3AGKXZ": 4979904,
+    "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 7216160,
+    "?AddRef@TeleportLocomotionClass@@W3AGKXZ": 7216176,
+    "?Release@TeleportLocomotionClass@@W3AGKXZ": 7216192,
+    "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z": 7216208,
+    "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ": 7216224,
+    "?Release@TeleportLocomotionClass@@WBI@AGKXZ": 7216240
+  },
+  "regions": [
+    {
+      "entry": 7207600,
+      "method": "006dfab0",
+      "body_bytes": 40,
+      "body_sha256": "11c5547e214623a91794fbe57dea1cf482540b3abd94a085fde24a35a5ca7503",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9188370295fcc5c90ef4a64ce3ea42f790ff149017537f6a8cfdff0910f46d98",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 665327
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292716866
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272808,
+          "addend": 0,
+          "resolved": 11272808
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207648,
+      "method": "006dfae0",
+      "body_bytes": 19,
+      "body_sha256": "a5f843fadd275df6a601a51e01b92c9a65ea17b53fbd9950d3e2b0da21163159",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "db93d2220c9d16b39607d82554571af4d8d40b80a6eba04548a77021939a6488",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272808,
+          "addend": 0,
+          "resolved": 11272808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8049008,
+          "addend": 0,
+          "resolved": 8049008
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11272880,
+          "addend": 0,
+          "resolved": 11272880
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207680,
+      "method": "006dfb00",
+      "body_bytes": 19,
+      "body_sha256": "bf9f11f39ee26a1e3124699f320db17e7a471bdb40e625e4405e6a3a4d1f923f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9239da90555c2bf669ddc7e8b2c351ec2f1193b913e6fddff83131442793600e",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11272880,
+          "addend": 0,
+          "resolved": 11272880
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11272864,
+          "addend": 0,
+          "resolved": 11272864
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207712,
+      "method": "006dfb20",
+      "body_bytes": 19,
+      "body_sha256": "4f10fcce0b6f13d08e5e837d4061bc819785bd95408b17a55f05d515ae59c42b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c0bc55373c6dd126fc313cee115163d5253c900d0563d3deee9cfc2c51c13002",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049016,
+          "addend": 0,
+          "resolved": 8049016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11272856,
+          "addend": 0,
+          "resolved": 11272856
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207744,
+      "method": "006dfb40",
+      "body_bytes": 19,
+      "body_sha256": "85f168d53f00002dc5eda4012bf076642a41a1bdefee4737b6754b5cd33d8286",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "840ebc21c5a3a55ecccd5a7f4feb010e165b80b1abe8c324a5bce34150b34360",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049016,
+          "addend": 0,
+          "resolved": 8049016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272816,
+          "addend": 0,
+          "resolved": 11272816
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207776,
+      "method": "006dfb60",
+      "body_bytes": 19,
+      "body_sha256": "45e767dc11bb4f3c1e556271f308ce8e26a2511f2d4339c89d4c1272bbcfabe3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "13bebd456128bf1d0cfe9d493db60c03740864d2ac5617dbfdb13d1245f9ddc6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8049016,
+          "addend": 0,
+          "resolved": 8049016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272776,
+          "addend": 0,
+          "resolved": 11272776
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207808,
+      "method": "006dfb80",
+      "body_bytes": 49,
+      "body_sha256": "9bf802f741cbdcfcc84de291fc3fb0a6fa877a47e86539a0022be86118687525",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "71fb9d0e2d720a6ec1de22e8cacc01d5b6e32a83c5fcd8d9148a596d9ec20935",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11272776,
+          "addend": 0,
+          "resolved": 11272776
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11272816,
+          "addend": 0,
+          "resolved": 11272816
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292716937
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272808,
+          "addend": 0,
+          "resolved": 11272808
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 652645
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272888,
+          "addend": 0,
+          "resolved": 11272888
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207872,
+      "method": "006dfbc0",
+      "body_bytes": 33,
+      "body_sha256": "082bf63e0ef55e09145605b86f1ae50766d3ba939a6f7d3d860206dbbd63205a",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "21241117270c7e69064a61f6fd3e35f7895607c88279312a294f57951e917797",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272888,
+          "addend": 0,
+          "resolved": 11272888
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292717017
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11272824,
+          "addend": 0,
+          "resolved": 11272824
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207920,
+      "method": "006dfbf0",
+      "body_bytes": 44,
+      "body_sha256": "b181fb5cbc91110d7839e3a0148fc58e0903199c4ae7403f11a02723d4351638",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "91f91cd4324ddd9f8fecd0aaed3ae47a587665da10bb1f09388728c403513309",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272888,
+          "addend": 0,
+          "resolved": 11272888
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11272808,
+          "addend": 0,
+          "resolved": 11272808
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292716958
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11272848,
+          "addend": 0,
+          "resolved": 11272848
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7207968,
+      "method": "006dfc20",
+      "body_bytes": 39,
+      "body_sha256": "1c205b471fc5152dffb5d822d92e1a4bef4f15fb3e862454db2d6e34ac5cb1b7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a2ebf1b738c2092fb322fe66401f387de2b4ef2bb42c694274f2d20049a4e2ce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272888,
+          "addend": 0,
+          "resolved": 11272888
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 652496
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11272872,
+          "addend": 0,
+          "resolved": 11272872
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7207968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208016,
+      "method": "006dfc50",
+      "body_bytes": 15,
+      "body_sha256": "66b2322302e381c560ca33e18bd9ab720ba19bcad4860b8af13860878ef95a7c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "05b44778818d3991c12b9a0f5acc61669831ddb5023cdd22212b9fce27c19b29",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 0,
+          "resolved": 11272800
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 2,
+          "resolved": 11272802
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208032,
+      "method": "006dfc60",
+      "body_bytes": 18,
+      "body_sha256": "1e9c4aaa44998a37ba1807fc5231f5733c68b6f541f592bc1d426e92ff389f84",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b5604d7ba39ec64e6f249246ad782d3509ad00f69d646e58a36bf29355ad53fb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208064,
+      "method": "006dfc80",
+      "body_bytes": 23,
+      "body_sha256": "9025d13cfbeedfffeac9a98e0779adbab20f0f50230c113248e716375cd72eba",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c6a27f0ca175e1ce851c14a7799d8f26020ae09169ba3fbeca01add9cf2b3468",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272784,
+          "addend": 0,
+          "resolved": 11272784
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272784,
+          "addend": 4,
+          "resolved": 11272788
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272784,
+          "addend": 8,
+          "resolved": 11272792
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11272784,
+          "addend": 12,
+          "resolved": 11272796
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208096,
+      "method": "006dfca0",
+      "body_bytes": 118,
+      "body_sha256": "5117c67ebcce97b15a74a1fbb8a402b27b87bdbc226cecb2df655b3c36e30ee5",
+      "padding_bytes": 10,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "575de4d779623bd0eed56512192ceefc10a42a27b4ec6aeb4ca669a2c1855480",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TeleportLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0TeleportLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 4293251864
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6BIPersistStream@@@",
+          "target": 8049264,
+          "addend": 0,
+          "resolved": 8049264
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6BILocomotion@@@",
+          "target": 8049064,
+          "addend": 0,
+          "resolved": 8049064
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6B@",
+          "target": 8049028,
+          "addend": 0,
+          "resolved": 8049028
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208224,
+      "method": "006dfd20",
+      "body_bytes": 14,
+      "body_sha256": "23d3ee737cd9a0d7aca97885f0efb8765b51c1006c0ec76b78d18973514e62b2",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3bfa944ea936da246bcfce49cc2231a1480686c7a8db30e959f25d28835ad717",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@TeleportLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@TeleportLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208240,
+      "method": "006dfd30",
+      "body_bytes": 15,
+      "body_sha256": "3b6f3791c7e83ddbe1011c72053f8bcbbea240dacbe17e7baa8c7c73df025b38",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5942cb52bf8c913beee350f521acbcc2efc4869c6ee6e2c14f743604a06c9951",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Stationary@TeleportLocomotionClass@@UAEEXZ",
+      "symbol_prefix": "?Is_Stationary@TeleportLocomotionClass@@UAEEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208256,
+      "method": "006dfd40",
+      "body_bytes": 82,
+      "body_sha256": "08cb08464531989d9b933fff2efaa2b0c204e546c9d5046ebc2b2646a8c8f4bf",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "ca3df6f9a1e2af295845ba04b62096f0deb6df9fdd6c19a9c2abfe1a5c0103d7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@TeleportLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@TeleportLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208352,
+      "method": "006dfda0",
+      "body_bytes": 291,
+      "body_sha256": "e7e450be2c9f3022cc6528d6cb0c60624020dbcbea19f6691f438df0d8b4bd2a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "cb2fe70542fc5329f0fff37b10e0e4640a9ef9f7273d1e5768e50c57f40b20cf",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@TeleportLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@TeleportLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296590
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4292438748
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z",
+          "target": 7210672,
+          "addend": 0,
+          "resolved": 2143
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208656,
+      "method": "006dfed0",
+      "body_bytes": 45,
+      "body_sha256": "1e8c6c1da00b6894d0c3f3a68042dc3cd4bf5fd06c3b9763dc774e7e2f5dd8cc",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4282135e7cd00faf2620f1482e431262542945ae30036e9df70a2f5a422db8f9",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@TeleportLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@TeleportLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7208704,
+      "method": "006dff00",
+      "body_bytes": 1325,
+      "body_sha256": "7b529e3be4f7efd8023212c49b1a76b40076621b333169101e024521f3b3eb0e",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "2f67177f3a9ad9323e573b8d23c618bb459d5cc272e016b52985f83c6e636131",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+      "symbol_prefix": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296348
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296322
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296299
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293296278
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 335,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 482,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295898
+        },
+        {
+          "offset": 502,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 508,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295872
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295891
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "?Is_Bridge_Here@CellClass@@QBE_NXZ",
+          "target": 4688080,
+          "addend": 0,
+          "resolved": 4688080
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 813,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 822,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295670
+        },
+        {
+          "offset": 854,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 859,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z",
+          "target": 5568752,
+          "addend": 0,
+          "resolved": 4293326481
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 881,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293329003
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 902,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295478
+        },
+        {
+          "offset": 950,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 955,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293295537
+        },
+        {
+          "offset": 1019,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 1034,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 1046,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 1136,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1141,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293369607
+        },
+        {
+          "offset": 1147,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1155,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295225
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11272872,
+          "addend": 0,
+          "resolved": 11272872
+        },
+        {
+          "offset": 1219,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 1235,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 1248,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7208704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7210032,
+      "method": "006e0430",
+      "body_bytes": 627,
+      "body_sha256": "a6426cec54b72e569b461c6703691aaa81747750ef7f6db7c27e97f1e8f4a6f0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 640,
+      "full_extent_sha256": "f588a44b2d1585d5d57deda748cc7680d4675501e7dc05f7e078ca51c46de554",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Check_Landing@TeleportLocomotionClass@@QAEXVCoord@@@Z",
+      "symbol_prefix": "?Check_Landing@TeleportLocomotionClass@@QAEXVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293295035
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293294904
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293294881
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293294917
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293294747
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293294724
+        },
+        {
+          "offset": 438,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293294721
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 531,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293294633
+        },
+        {
+          "offset": 538,
+          "kind": 20,
+          "symbol": "?Is_Tile_With_Water@CellClass@@QBE_NXZ",
+          "target": 4700128,
+          "addend": 0,
+          "resolved": 4292456850
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7210032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7210672,
+      "method": "006e06b0",
+      "body_bytes": 1837,
+      "body_sha256": "b8918a2914e32c4cce9a8018e5dbdf017732bfd595db129ba507f6009e04323b",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1840,
+      "full_extent_sha256": "c0332161df0ef662b70f4fca1162850413840416c3dc53f585b5d242c905591b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z",
+      "symbol_prefix": "?Pick_Arrival@TeleportLocomotionClass@@QAE_NABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 180,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293294232
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 231,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293368549
+        },
+        {
+          "offset": 238,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11272888,
+          "addend": 0,
+          "resolved": 11272888
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 586,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293293826
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4292415147
+        },
+        {
+          "offset": 654,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 659,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293293753
+        },
+        {
+          "offset": 666,
+          "kind": 20,
+          "symbol": "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z",
+          "target": 4678832,
+          "addend": 0,
+          "resolved": 4292434786
+        },
+        {
+          "offset": 754,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293293765
+        },
+        {
+          "offset": 779,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 788,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 797,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 809,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 815,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293293597
+        },
+        {
+          "offset": 834,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 851,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 1001,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1006,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293293406
+        },
+        {
+          "offset": 1071,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1076,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293293448
+        },
+        {
+          "offset": 1109,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1114,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z",
+          "target": 5568752,
+          "addend": 0,
+          "resolved": 4293324258
+        },
+        {
+          "offset": 1147,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1152,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293326764
+        },
+        {
+          "offset": 1161,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 0,
+          "resolved": 11272800
+        },
+        {
+          "offset": 1179,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 2,
+          "resolved": 11272802
+        },
+        {
+          "offset": 1195,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1200,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293293324
+        },
+        {
+          "offset": 1238,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1243,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293293281
+        },
+        {
+          "offset": 1250,
+          "kind": 20,
+          "symbol": "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z",
+          "target": 4678832,
+          "addend": 0,
+          "resolved": 4292434202
+        },
+        {
+          "offset": 1352,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 0,
+          "resolved": 11272800
+        },
+        {
+          "offset": 1379,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 2,
+          "resolved": 11272802
+        },
+        {
+          "offset": 1408,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1413,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293293111
+        },
+        {
+          "offset": 1443,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1448,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z",
+          "target": 5568752,
+          "addend": 0,
+          "resolved": 4293323924
+        },
+        {
+          "offset": 1520,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1525,
+          "kind": 20,
+          "symbol": "?Nearby_Location@MapClass@@QBE?AVCell@@ABV2@W4SpeedType@@HW4MZoneType@@_NVPoint2D@@333303@Z",
+          "target": 5571296,
+          "addend": 0,
+          "resolved": 4293326391
+        },
+        {
+          "offset": 1538,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 0,
+          "resolved": 11272800
+        },
+        {
+          "offset": 1551,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11272800,
+          "addend": 2,
+          "resolved": 11272802
+        },
+        {
+          "offset": 1583,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1589,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293292935
+        },
+        {
+          "offset": 1670,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1681,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293367099
+        },
+        {
+          "offset": 1722,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 1735,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 1748,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7210672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7212512,
+      "method": "006e0de0",
+      "body_bytes": 34,
+      "body_sha256": "63ca0c3b5288ac00aa25fcb7d0c1e70a85de880c18b15b2268ca155704b3ffb6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "47387b7a4987d27ffe50486e33e2b8125e79f3bae84c930e9dc8eb6927debb89",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@TeleportLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@TeleportLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950576,
+          "addend": 0,
+          "resolved": 4292705329
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7212512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7212560,
+      "method": "006e0e10",
+      "body_bytes": 2267,
+      "body_sha256": "752dca6886cc512f34666310535aa6b537c1efd8b63653a6b0ed498ccaedf83d",
+      "padding_bytes": 5,
+      "full_extent_bytes": 2272,
+      "full_extent_sha256": "cb3a4ed80cf0ac8348b3cda6c3730a8801e8625850f65d8040044dba42f41549",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@TeleportLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@TeleportLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 0,
+          "resolved": 11272832
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 4,
+          "resolved": 11272836
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11272832,
+          "addend": 8,
+          "resolved": 11272840
+        },
+        {
+          "offset": 216,
+          "kind": 20,
+          "symbol": "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z",
+          "target": 7175296,
+          "addend": 0,
+          "resolved": 4294929812
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?Bullets@@3V?$DynamicVectorClass@PAVBulletClass@@@@A",
+          "target": 10751208,
+          "addend": 16,
+          "resolved": 10751224
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?Bullets@@3V?$DynamicVectorClass@PAVBulletClass@@@@A",
+          "target": 10751208,
+          "addend": 4,
+          "resolved": 10751212
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "?LoseTarget@BulletClass@@QAEXXZ",
+          "target": 4592752,
+          "addend": 0,
+          "resolved": 4292347229
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 659703
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292080042
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292711501
+        },
+        {
+          "offset": 439,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 647493
+        },
+        {
+          "offset": 449,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 493,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 568,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 608,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 735,
+          "kind": 20,
+          "symbol": "?ExitUnit@ParasiteClass@@QAEXXZ",
+          "target": 6321216,
+          "addend": 0,
+          "resolved": 4294075213
+        },
+        {
+          "offset": 778,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 828,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 208144
+        },
+        {
+          "offset": 898,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 903,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293291733
+        },
+        {
+          "offset": 1000,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1050,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 207922
+        },
+        {
+          "offset": 1080,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4292434548
+        },
+        {
+          "offset": 1105,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 658866
+        },
+        {
+          "offset": 1163,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1177,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292079203
+        },
+        {
+          "offset": 1247,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1332,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 658639
+        },
+        {
+          "offset": 1388,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1402,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292078978
+        },
+        {
+          "offset": 1444,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1493,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 207479
+        },
+        {
+          "offset": 1569,
+          "kind": 20,
+          "symbol": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+          "target": 7208704,
+          "addend": 0,
+          "resolved": 4294961867
+        },
+        {
+          "offset": 1643,
+          "kind": 20,
+          "symbol": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+          "target": 7208704,
+          "addend": 0,
+          "resolved": 4294961793
+        },
+        {
+          "offset": 1655,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1724,
+          "kind": 20,
+          "symbol": "?Clear_Arrival@TeleportLocomotionClass@@QAE_NVCoord@@_N@Z",
+          "target": 7208704,
+          "addend": 0,
+          "resolved": 4294961712
+        },
+        {
+          "offset": 1859,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1908,
+          "kind": 20,
+          "symbol": "?PlayAt@VocClass@@SIPAXHABVCoord@@PAUAudioController@@@Z",
+          "target": 7421536,
+          "addend": 0,
+          "resolved": 207064
+        },
+        {
+          "offset": 1932,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1937,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4293365947
+        },
+        {
+          "offset": 1992,
+          "kind": 20,
+          "symbol": "?Check_Landing@TeleportLocomotionClass@@QAEXVCoord@@@Z",
+          "target": 7210032,
+          "addend": 0,
+          "resolved": 4294962772
+        },
+        {
+          "offset": 2031,
+          "kind": 20,
+          "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 7171664,
+          "addend": 0,
+          "resolved": 4294924365
+        },
+        {
+          "offset": 2053,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2084,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 657887
+        },
+        {
+          "offset": 2140,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2154,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4292078226
+        },
+        {
+          "offset": 2221,
+          "kind": 20,
+          "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 7171664,
+          "addend": 0,
+          "resolved": 4294924175
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7212560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7214832,
+      "method": "006e16f0",
+      "body_bytes": 59,
+      "body_sha256": "74526fc439755317aa4a7de8303a43cd9094596d248eb85aaebdf1bc73bb92cd",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b82fbf67950c4d1673de45e9111da5ff83581b0c6b15241fcba1b620751ba041",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process_Delay@TeleportLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Process_Delay@TeleportLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7214832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7214896,
+      "method": "006e1730",
+      "body_bytes": 56,
+      "body_sha256": "b508b27f30955afe9fe1bd7ab1924a2bb6aebb165538f7a6afa3a1bb96d3298b",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0c4bd3363febec6e7f0fb126837373eee6fec885c8c24cfca2654c75b55dc9b3",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_TeleportLocomotion",
+          "target": 8003536,
+          "addend": 0,
+          "resolved": 8003536
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_TeleportLocomotion",
+          "target": 8003536,
+          "addend": 4,
+          "resolved": 8003540
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_TeleportLocomotion",
+          "target": 8003536,
+          "addend": 8,
+          "resolved": 8003544
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_TeleportLocomotion",
+          "target": 8003536,
+          "addend": 12,
+          "resolved": 8003548
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7214896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7214960,
+      "method": "006e1770",
+      "body_bytes": 155,
+      "body_sha256": "d377518c83a0a1d413f248c0f0cac7c5df0949698bc8a26d95bfb520ad481f95",
+      "padding_bytes": 5,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "ab1715e8e982f837de316154b80f47744eae4c6142af80cccf85566174fc81e2",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@TeleportLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@TeleportLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 4293246014
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BIPersistStream@@@",
+          "target": 8008628,
+          "addend": 0,
+          "resolved": 8008628
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7LocomotionClass@@6BILocomotion@@@",
+          "target": 8008428,
+          "addend": 0,
+          "resolved": 8008428
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6BIPersistStream@@@",
+          "target": 8049264,
+          "addend": 0,
+          "resolved": 8049264
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6BILocomotion@@@",
+          "target": 8049064,
+          "addend": 0,
+          "resolved": 8049064
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7TeleportLocomotionClass@@6B@",
+          "target": 8049028,
+          "addend": 0,
+          "resolved": 8049028
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "_IID_ILocomotion",
+          "target": 8018064,
+          "addend": 0,
+          "resolved": 8018064
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "__imp__OleLoadFromStream@12",
+          "target": 7972332,
+          "addend": 0,
+          "resolved": 7972332
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7214960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215120,
+      "method": "006e1810",
+      "body_bytes": 223,
+      "body_sha256": "a95ca391a424190954aaed5c67bee528ec9b5221170755d7054df47be4e1dc12",
+      "padding_bytes": 1,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "acd76db435fa7b7c7accaf4f9a9cd2b43480a4d443715f46c6205eece84ff357",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@TeleportLocomotionClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@TeleportLocomotionClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z",
+          "target": 5493600,
+          "addend": 0,
+          "resolved": 4293245753
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "__GUID_00000109_0000_0000_c000_000000000046",
+          "target": 8216376,
+          "addend": 0,
+          "resolved": 8216376
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869392,
+          "addend": 0,
+          "resolved": 4292621459
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 737425
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "__imp__OleSaveToStream@8",
+          "target": 7972328,
+          "addend": 0,
+          "resolved": 7972328
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215344,
+      "method": "006e18f0",
+      "body_bytes": 8,
+      "body_sha256": "7ed463946b38cd0ba3a93864b2a1645cbebc5c5f2b63caf2d8a10bb2ad836d21",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c826b0c38d0fc905554442fe25640d95c7e8b7e66c0d87901741ed9127171155",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@TeleportLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@TeleportLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215360,
+      "method": "006e1900",
+      "body_bytes": 93,
+      "body_sha256": "0520d9efec764058eedf66464e96593489dc106510cbed24a02d4cd21b352d68",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "5e7912a483f5d2a641d003f03b83ae848c07e4d99ba677458db7cf61d0fe54e4",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 5493424,
+          "addend": 0,
+          "resolved": 4293245337
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_IID_IPiggyback",
+          "target": 8003664,
+          "addend": 0,
+          "resolved": 8003664
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215456,
+      "method": "006e1960",
+      "body_bytes": 67,
+      "body_sha256": "cf9c9e664ec88b141a642fda72fcb1ffb8a7074dc0433a251cb5ec9a6d004f9d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3d52f8ae7eef425a6a4d0dfbe72a94e6bfbaea28b930db36db2fe5e64b08d7fa",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Begin_Piggyback@TeleportLocomotionClass@@UAGJPAUILocomotion@@@Z",
+      "symbol_prefix": "?Begin_Piggyback@TeleportLocomotionClass@@UAGJPAUILocomotion@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215536,
+      "method": "006e19b0",
+      "body_bytes": 49,
+      "body_sha256": "a35136982d7351edd60a3a2289d72584c7f57ef96f4039319a7ea8a550694ca8",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b9549d8e72fbd1f386d29659adbdfb4cd76ac962c7e0aaace9a3ce0f0aefc445",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Piggyback@TeleportLocomotionClass@@UAGJPAPAUILocomotion@@@Z",
+      "symbol_prefix": "?End_Piggyback@TeleportLocomotionClass@@UAGJPAPAUILocomotion@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215600,
+      "method": "006e19f0",
+      "body_bytes": 65,
+      "body_sha256": "3d5725ce75028000691df5ff1eb7b6b457ebaf4e8ee2f7007d01d6aa3729e1c7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "902f8107061fbc29a1acd918614c579e81d31f6656a20142edca02cafd373c05",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ok_To_End@TeleportLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Ok_To_End@TeleportLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215680,
+      "method": "006e1a40",
+      "body_bytes": 267,
+      "body_sha256": "561fb731b246b7c7bb9b5ae2a49979eb1a2d9746f6933550f3d433337f417e06",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "a8f55303f9bfef5e81cb5bf53fb78fd6605452628e04f2fa97c4808a0fb337d3",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Piggyback_CLSID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?Piggyback_CLSID@TeleportLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541424,
+          "addend": 0,
+          "resolved": 4292292982
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 736949
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "__GUID_0000010c_0000_0000_c000_000000000046",
+          "target": 8188424,
+          "addend": 0,
+          "resolved": 8188424
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869376,
+          "addend": 0,
+          "resolved": 4292620820
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869376,
+          "addend": 0,
+          "resolved": 4292620798
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 736805
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7215952,
+      "method": "006e1b50",
+      "body_bytes": 70,
+      "body_sha256": "23cb4cf81db35714cc58f24739ae49d6ae449f1cbf436f57f8905994ec80d537",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6fbd4e7494e486044aa040a6bd69012b2b100e1fed5468c63f3d548644ef5477",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_All_Occupation_Bits@TeleportLocomotionClass@@UAGXH@Z",
+      "symbol_prefix": "?Mark_All_Occupation_Bits@TeleportLocomotionClass@@UAGXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7215952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216032,
+      "method": "006e1ba0",
+      "body_bytes": 13,
+      "body_sha256": "ceeb75f050e543191cd8446fa05f52edfb84dccf9c61f544b69b18c18f86e433",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "25712b73e4411188f23ab05756a52210d853d5b87a4fd52d879e274963f0baf8",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@LocomotionClass@@UAGKXZ",
+          "target": 5493328,
+          "addend": 0,
+          "resolved": 4293244582
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216048,
+      "method": "006e1bb0",
+      "body_bytes": 13,
+      "body_sha256": "d0e713121a3df78fb626d49fa368c82f08aeceeda92f2a39d901c41a84aeec0a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1d9ab1b7cc6d42bf25e22faf0a579fab0d488f5cc966bc1b4bb0c587f55c5558",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@TeleportLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?Release@TeleportLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@LocomotionClass@@UAGKXZ",
+          "target": 5493360,
+          "addend": 0,
+          "resolved": 4293244598
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216064,
+      "method": "006e1bc0",
+      "body_bytes": 17,
+      "body_sha256": "6d36284aedb9dfdba0ec5fddf660b9639d6650c7cb11279d267efc40bad78003",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "eac99fc0549d34a4e34c7ad8eb5f1673d50572e162795c9e9db4b77d213c6a36",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Piggybacking@TeleportLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216096,
+      "method": "006e1be0",
+      "body_bytes": 6,
+      "body_sha256": "c1bfd67c25aaede1d9c48e76364717580dd0d77be888b35de50f4c0531c61c19",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a149db0a5d2cd3f45ad254bcef61043b9207396d3f9420960db71a1ecef78a33",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@TeleportLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@TeleportLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216112,
+      "method": "006e1bf0",
+      "body_bytes": 45,
+      "body_sha256": "5d11e8a374a4453b2e1dbb923a03da2b23eccb99c886e2e8d3f6372e499b3b1f",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "afebe3e1df36b559a190b08c71991769d9f0af211f9ff4615c1aa4534f40a0da",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTeleportLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTeleportLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4293243881
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 655655
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216160,
+      "method": "006e1c20",
+      "body_bytes": 10,
+      "body_sha256": "b148db05ecfc5af9e84c483d54582a9e8128c263c6f12f703e62cdab5fad7a71",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "b148db05ecfc5af9e84c483d54582a9e8128c263c6f12f703e62cdab5fad7a71",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@TeleportLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7215360,
+          "addend": 0,
+          "resolved": 4294966486
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216176,
+      "method": "006e1c30",
+      "body_bytes": 10,
+      "body_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@TeleportLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@TeleportLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216032,
+          "addend": 0,
+          "resolved": 4294967142
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216192,
+      "method": "006e1c40",
+      "body_bytes": 10,
+      "body_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "3aa7164cc9c3bb73b2d5d4a297e0e85d03efef51f1944964296a0137300d9315",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@TeleportLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@TeleportLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216048,
+          "addend": 0,
+          "resolved": 4294967142
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216208,
+      "method": "006e1c50",
+      "body_bytes": 10,
+      "body_sha256": "f8853d73f00af5e7dcf4309aa96a9bdeaea2ef0d2d031329339a5d8230c12c37",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "f8853d73f00af5e7dcf4309aa96a9bdeaea2ef0d2d031329339a5d8230c12c37",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@TeleportLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@TeleportLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7215360,
+          "addend": 0,
+          "resolved": 4294966438
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216224,
+      "method": "006e1c60",
+      "body_bytes": 10,
+      "body_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@TeleportLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216032,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7216240,
+      "method": "006e1c70",
+      "body_bytes": 10,
+      "body_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "5c8ec6e3d368496811c5ac5f26ddf3a0b60e0fde8b8ffcecf7e49306a5eaec4f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@TeleportLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@TeleportLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@TeleportLocomotionClass@@UAGKXZ",
+          "target": 7216048,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "00e2def383259764ba9d17585e920f048585852b12fd9bd712341020155f1150",
+      "source": "rebuild/src/teleport.cpp",
+      "population": "rebuild-teleport",
+      "source_order": 7216240,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

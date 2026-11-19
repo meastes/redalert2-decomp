@@ -186,6 +186,26 @@ inspection tools; VC6 and CrossOver are legitimate user-supplied local build too
   Adopted 2026-11-15 (lane M1 batch p3, names only): 18 function names from ra2-decomp's byte-identical twins in units
   without a TibSun/mischa85 counterpart, each name also present in the TibSun archive or mischa85 (YRpp-only names left out).
 
+## Rebuild tree (`rebuild/`, on main since 2026-11-19; formerly branch `rebuild-trial`)
+
+The rebuild trial (user decision 2026-11-17) is a fresh tree with one source per original unit. Most of its text
+is adopted whole-file from **mischa85/RedAlert2** (`github.com/mischa85/RedAlert2`; commits 32ed14c and 6dee74a, as
+recorded per file). That project builds on the **TibSun reconstruction** (OpenTS-Developers/TibSun, Electronic Arts
+source code released under the GPL), **ra2-decomp** (gibbo101/ra2-decomp) and, for the Westwood Online headers,
+**electronicarts/CnC_Renegade**. The licence is GPL-3.0-or-later. Electronic Arts' GPL section 7 additional terms
+apply to the files that carry an Electronic Arts copyright line.
+
+- `rebuild/manifest/adopted.csv` indexes every adopted file: origin, origin commit, origin path and the SHA-256
+  of the file as adopted.
+- Each adopted file keeps its own SPDX and copyright lines. A file whose origin had no notice got one line naming
+  its origin (`rebuild/src/mono.cpp`).
+- `rebuild/LICENSE.md` is mischa85's LICENSE.md, copied unchanged: the GPL text plus Electronic Arts' section 7
+  terms that the adopted files refer to.
+- `rebuild/manifest/provenance.csv` gives the source of each accepted function's text: a (adopted), b (reshaped
+  from this repository's main tree) or c (written fresh from the seed and the class layout).
+- Acceptance is the main tree's exact standard: every accepted row is checked against the original bytes, and the
+  rebuild tree must pass the whole-file exact build.
+
 ## Native linked libraries (tested development versions)
 
 | Library | Version | License | Use |

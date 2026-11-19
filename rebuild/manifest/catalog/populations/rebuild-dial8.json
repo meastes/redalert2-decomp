@@ -1,0 +1,476 @@
+{
+  "id": "rebuild-dial8",
+  "population": {
+    "id": "rebuild-dial8",
+    "inventory_sha256": "cc09830fa7ef0ddee7c93867f5654aa3f393058cabcb73486fad0310480f424d",
+    "gaps_sha256": "dcb030c50674df8a417424f1994ad9399e7443314c72e846ff231468a8465a6b",
+    "historical_population_sha256": "0eb9ad77d195bda15ce26e6787058d6b6bcafa6fabe7333dce3c14a983213074",
+    "historical_acceptance_sha256": "3da0f8cabc40a882df18899f884b4e985e28d5228670c8ba4893af0d8a57696e"
+  },
+  "references": {
+    "_RECT_NONE": 8725608,
+    "??0ControlClass@@QAE@IHHHHI_N@Z": 4731952,
+    "??_7Dial8Class@@6B@": 7989140,
+    "_?is_sel@?1??Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z@4HA": 8725624,
+    "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z": 4732080,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "__ftol": 7860496,
+    "?Get_Color_Scheme@GadgetClass@@SIHXZ": 5042112,
+    "?Draw_Me@ControlClass@@UAEHH@Z": 4732208,
+    "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z": 4813776,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "_$E2": 4812048,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0Dial8Class@@QAE@HHHHHW4Dir256@@@Z": 4812080,
+    "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z": 4732176,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?Get_ID@ControlClass@@MBEIXZ": 4732192,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z": 5476544,
+    "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z": 5476576,
+    "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_R0?AVControlClass@@@8": 8204112,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVDial8Class@@@8": 8215608,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "??3@YAXPAX@Z": 7871803,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "?Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z": 4812768,
+    "?Draw_Me@Dial8Class@@UAEHH@Z": 4813104,
+    "?Get_Direction@Dial8Class@@QBE?AW4Dir256@@XZ": 4813520,
+    "?Set_Direction@Dial8Class@@QAEXW4Dir256@@@Z": 4813536
+  },
+  "regions": [
+    {
+      "entry": 4812048,
+      "method": "496d10",
+      "body_bytes": 23,
+      "body_sha256": "bd20091114d27d4511e3c3f818952ad943fa869d2fe39a8a3acd9a877673a4ee",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4f0e735a1a2232a2cb23a5c61b3db6450ce63873da61c81bf672685757c63519",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725608,
+          "addend": 0,
+          "resolved": 8725608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725608,
+          "addend": 4,
+          "resolved": 8725612
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725608,
+          "addend": 8,
+          "resolved": 8725616
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8725608,
+          "addend": 12,
+          "resolved": 8725620
+        }
+      ],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4812048,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 4812080,
+      "method": "00496d30",
+      "body_bytes": 688,
+      "body_sha256": "c2c8015b728a6110fc5ca39394e32f571ad65dea02764561d09038f6f3510c53",
+      "padding_bytes": 0,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "c2c8015b728a6110fc5ca39394e32f571ad65dea02764561d09038f6f3510c53",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Dial8Class@@QAE@HHHHHW4Dir256@@@Z",
+      "symbol_prefix": "??0Dial8Class@@QAE@HHHHHW4Dir256@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "??0ControlClass@@QAE@IHHHHI_N@Z",
+          "target": 4731952,
+          "addend": 0,
+          "resolved": 4294887126
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_7Dial8Class@@6B@",
+          "target": 7989140,
+          "addend": 0,
+          "resolved": 7989140
+        }
+      ],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4812080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4812768,
+      "method": "00496fe0",
+      "body_bytes": 321,
+      "body_sha256": "7fffdfe33b7bf1a72d6451ff533a261e900ee419f33a1118f7fa0d95d405d9f3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "24e5cb61d43bc49df998120ac90f4e8fd7c8cab5235676df8ff8b1ea5dc4346d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z",
+      "symbol_prefix": "?Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_?is_sel@?1??Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z@4HA",
+          "target": 8725624,
+          "addend": 0,
+          "resolved": 8725624
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_?is_sel@?1??Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z@4HA",
+          "target": 8725624,
+          "addend": 0,
+          "resolved": 8725624
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_?is_sel@?1??Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z@4HA",
+          "target": 8725624,
+          "addend": 0,
+          "resolved": 8725624
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4294886521
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 144756
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3047536
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4294886333
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?Action@ControlClass@@MAEHIAAW4KeyNumType@@@Z",
+          "target": 4732080,
+          "addend": 0,
+          "resolved": 4294886300
+        }
+      ],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4812768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4813104,
+      "method": "00497130",
+      "body_bytes": 413,
+      "body_sha256": "174761ae6597cb428666a409c082aa77949d8e7bbf91cd48b014dfb6b185202d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "de61b8302eecbc8501d7f458586d43dc08d6a7811f068b141069d16f1c261e92",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@Dial8Class@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@Dial8Class@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 228997
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+          "target": 4732208,
+          "addend": 0,
+          "resolved": 4294886373
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 582
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 530
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?NormalDrawer@@3PAVConvertClass@@A",
+          "target": 8594372,
+          "addend": 0,
+          "resolved": 8594372
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4813104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4813520,
+      "method": "004972d0",
+      "body_bytes": 7,
+      "body_sha256": "e1238c9b9be7800f8d11688bbb8f9df8dc6bacf9dad7dd0691c3d12f7acd53f6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "026135cd52ddf9beb28869bc3c6b245bba21d4f7361763d8d94388cf6a4ab9b6",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Direction@Dial8Class@@QBE?AW4Dir256@@XZ",
+      "symbol_prefix": "?Get_Direction@Dial8Class@@QBE?AW4Dir256@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4813520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4813536,
+      "method": "004972e0",
+      "body_bytes": 52,
+      "body_sha256": "5732295cf8d7d4904aa86deef0a2b1ddb509ac93832f46aa88a64bfe47bf0951",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "87c21ee80a09f5ab2817de593189859f38c6e13cde4beda767ab19a02fce82bc",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Direction@Dial8Class@@QAEXW4Dir256@@@Z",
+      "symbol_prefix": "?Set_Direction@Dial8Class@@QAEXW4Dir256@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4813536,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

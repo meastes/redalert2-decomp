@@ -1,0 +1,51 @@
+{
+  "id": "rebuild-vqalib-config",
+  "population": {
+    "id": "rebuild-vqalib-config",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "2a561c552dc868adf84dfd89e755da70bb14b62a4f11cc1e1999e90735b9ddf4",
+    "historical_acceptance_sha256": "70bce09a9aedeeb5acd9e44f6262660db4d11cda534a5997296d15ac926c4661"
+  },
+  "references": {
+    "__defaultconfig": 8393840,
+    "?VQA_DefaultConfig@@YIXPAU_VQAConfig@@@Z": 7829584
+  },
+  "regions": [
+    {
+      "entry": 7829584,
+      "method": "00777850",
+      "body_bytes": 19,
+      "body_sha256": "e266fc9af7c8d0c33899f9ee77f88c31fd239b84915f7cef447b432cff98c6e5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "03cfd813c17ba8f266139652a7341080fa6d1f773290e7c60a29bdf9be834d1f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_DefaultConfig@@YIXPAU_VQAConfig@@@Z",
+      "symbol_prefix": "?VQA_DefaultConfig@@YIXPAU_VQAConfig@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "__defaultconfig",
+          "target": 8393840,
+          "addend": 0,
+          "resolved": 8393840
+        }
+      ],
+      "source_sha256": "3e18a401d042c5d67344b4a247bd8fdcbe9836e8e3eeed7e02019d342a4aed95",
+      "source": "rebuild/src/vqalib_config.cpp",
+      "population": "rebuild-vqalib-config",
+      "source_order": 7829584,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -19,6 +19,25 @@ layout      The symbol lies in an initialised, non-code section of the object th
             section end. The section itself is compared byte for byte by the
             caller (the audit's relocated_data_duplicate, the ledger's
             prove_data). An open edge refuses.
+            Run-anchored fallback, rebuild tree only (docs/DECISIONS.md, "Rebuild data no exact code
+            refers to", A; review session 2026-11-19), used only when the whole
+            section does not bind as above (its bound symbols disagree on one base,
+            because a parked function's data is missing from the object): the
+            nearest reference-bound symbols of the same section below and above the
+            symbol (in the object's order) agree on one base; no pending data range
+            (B below) lies between the lower anchor's start and the upper anchor's
+            end; every symbol between the anchors is reference-bound or itself
+            declared layout; and no reference-bound address or independently known
+            item starts inside the symbol's derived extent. The items between the
+            anchors then fill the distance exactly; the caller compares the bytes.
+
+Pending data ranges (the same ruling, B; row field `data_pending`: [{address, size, owner}],
+            opt-in per source, the same on every row): data the original holds only
+            because a parked function emits it (a function-local static, a literal).
+            Never defined in source; the bytes stay original scaffolding, earn
+            nothing, and are counted. A range closes when its owner lands: the audit
+            refuses a range whose owner is an accepted row of the source, and one
+            that overlaps a symbol the object binds.
 
 elimination The symbol is the only symbol of a zero-filled (.bss) section of the
             object that the references do not bind; every other symbol of the
@@ -32,15 +51,105 @@ elimination The symbol is the only symbol of a zero-filled (.bss) section of the
             It earns nothing by itself (zero bytes); it only lets a pointer to
             the symbol resolve.
 
+unplaced-unreferenced (docs/DECISIONS.md, "A zero-initialised .bss object whose existence is
+            evidenced by exact code rows but whose address nothing references"; user decision
+            2026-11-18, opt-in per source, each use an owner decision) The symbol stays
+            without an address. It must be defined in a zero-filled (.bss) section of the
+            object; no relocation of the object may target it; the rows that evidence it
+            (row field `data_bound_by_rows`: {symbol: [entry, ...]}) must be accepted rows of
+            the same source; and at every audit the unit's unclaimed, unreferenced bss gaps
+            (holes in the span of its reference-bound bss symbols, alignment fill excluded,
+            that no 4-byte value of the original image points into) must hold all such
+            symbols of the object jointly, one symbol per gap. It earns nothing and compares
+            no byte of the image.
+
+Header select-any groups (docs/DECISIONS.md, "Unreferenced zero-initialised select-any COMDAT .bss
+            objects emitted by a system or library header"; review session 2026-11-19; opt-in per source,
+            row field `data_bound_by_group`: [{symbols: [name, ...], header, rows: [entry, ...]}], each
+            symbol also declared `layout`): unreferenced zero-filled select-any objects a header emits
+            bind as one group to an exact hole. Each symbol is the only symbol of a COMDAT .bss section
+            of the object, no relocation of the object targets it, and its name is not written in the
+            source; the evidencing rows (the header's use) are accepted rows of the source. The hole is
+            a gap between the object's reference-bound .bss items (alignment fill below the first
+            symbol's alignment allowed) that no 4-byte value of the image points into, and the group laid
+            out in the object's order, each symbol at its own alignment, fills it exactly; exactly one
+            such hole exists in the unit's .bss range. The addresses are our object's emission order (a
+            hypothesis: the linker orders separate COMDATs); zero bytes, nothing credited.
+
 Extents are never taken from the candidate's bytes: the anchors are independent and
 every byte between them is compared.
 """
-LAYOUT, ELIMINATION = 'layout', 'elimination'
-KINDS = (LAYOUT, ELIMINATION)
+LAYOUT, ELIMINATION, UNPLACED = 'layout', 'elimination', 'unplaced-unreferenced'
+KINDS = (LAYOUT, ELIMINATION, UNPLACED)
 
 
 class BindingRefused(ValueError):
     pass
+
+
+def pending(rows):
+    """[(address, size, owner)] of the one `data_pending` declaration of a source's rows."""
+    found = None
+    for row in rows:
+        value = row.get('data_pending')
+        if value is None:
+            continue
+        if not isinstance(value, list) or not value:
+            raise BindingRefused('data_pending must be a non-empty list of {address, size, owner}')
+        ranges = []
+        for item in value:
+            if not isinstance(item, dict) or set(item) != {'address', 'size', 'owner'} or \
+                    not isinstance(item['size'], int) or item['size'] <= 0:
+                raise BindingRefused('data_pending entries are {address, size, owner} with a positive size')
+            ranges.append((int(item['address'], 16), item['size'], int(item['owner'], 16)))
+        if found is not None and found != ranges:
+            raise BindingRefused('data_pending differs between rows')
+        found = ranges
+    return found or []
+
+
+def check_pending(ranges, accepted_entries, bound):
+    """Refuse a pending range whose owner landed or that overlaps a bound symbol.
+
+    bound: [(address, extent)] of the object's symbols bound to image addresses."""
+    for address, size, owner in ranges:
+        if owner in accepted_entries:
+            raise BindingRefused('pending data %08x+%d: its owner %08x is an accepted row (close the range)'
+                                 % (address, size, owner))
+        for start, extent in bound:
+            if start < address + size and address < start + extent:
+                raise BindingRefused('pending data %08x+%d overlaps a bound symbol at %08x' % (address, size, start))
+
+
+def run_anchored(coff, index, name, references, pending_ranges, layout_names, starts):
+    """(address, detail) of a layout symbol bound by its nearest bound neighbours, or BindingRefused."""
+    section = coff.sections[index - 1]
+    symbols = section_symbols(coff, index)
+    extents = {n: (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - v
+               for i, (v, n) in enumerate(symbols)}
+    position = next(i for i, (v, n) in enumerate(symbols) if n == name)
+    below = next((i for i in range(position - 1, -1, -1) if symbols[i][1] in references), None)
+    above = next((i for i in range(position + 1, len(symbols)) if symbols[i][1] in references), None)
+    if below is None or above is None:
+        raise BindingRefused('%s: no bound symbol of its section on %s side' % (name, 'the lower' if below is None else 'the upper'))
+    (low_value, low_name), (high_value, high_name) = symbols[below], symbols[above]
+    base = references[low_name] - low_value
+    if references[high_name] - high_value != base:
+        raise BindingRefused('%s: its anchors %s and %s disagree on the base' % (name, low_name, high_name))
+    loose = [n for v, n in symbols[below + 1:above] if n not in references and n not in layout_names]
+    if loose:
+        raise BindingRefused('%s: unbound symbols between its anchors: %s' % (name, loose[:3]))
+    run = (references[low_name], references[high_name] + extents[high_name])
+    for address, size, owner in pending_ranges:
+        if address < run[1] and run[0] < address + size:
+            raise BindingRefused('%s: pending data %08x+%d lies between its anchors' % (name, address, size))
+    address = base + symbols[position][0]
+    end = address + extents[name]
+    claims = {a for n, a in references.items() if n != name} | set(starts)
+    if any(address <= a < end for a in claims):
+        raise BindingRefused('%s: an independently known item starts inside %08x-%08x' % (name, address, end))
+    return address, dict(section=index, base=base, size=section['size'], run_anchors=(low_name, high_name),
+                         run=run)
 
 
 def declared(rows):
@@ -51,15 +160,30 @@ def declared(rows):
         if value is None:
             continue
         if not isinstance(value, dict) or not value or any(v not in KINDS for v in value.values()):
-            raise BindingRefused('data_bound_by must map symbols to "layout" or "elimination"')
+            raise BindingRefused('data_bound_by must map symbols to "layout", "elimination" or "%s"' % UNPLACED)
         note = row.get('data_bound_by_note')
         if not isinstance(note, str) or not note.strip():
             raise BindingRefused('data_bound_by needs a non-empty data_bound_by_note')
+        evidence = row.get('data_bound_by_rows') or {}
         for name, kind in value.items():
             if found.get(name, kind) != kind:
                 raise BindingRefused('data_bound_by differs between rows for %s' % name)
+            if (kind == UNPLACED) != bool(evidence.get(name)):
+                raise BindingRefused('%s: data_bound_by_rows names the evidencing rows of an %s symbol, and only those'
+                                     % (name, UNPLACED))
             found[name] = kind
+        if set(evidence) - set(value):
+            raise BindingRefused('data_bound_by_rows names undeclared symbols')
     return found
+
+
+def evidence_rows(rows):
+    """{symbol: [entry, ...]} of the `data_bound_by_rows` declaration of a source's rows."""
+    for row in rows:
+        if row.get('data_bound_by_rows'):
+            return {name: [int(e, 16) if isinstance(e, str) else e for e in entries]
+                    for name, entries in row['data_bound_by_rows'].items()}
+    return {}
 
 
 def alignment(flags):
@@ -111,22 +235,114 @@ def enclosed(base, size, align, below_ends, above_starts, original):
     return max(lower), min(upper)
 
 
-def bind(coff, declared_bindings, references, original, below_ends, above_starts):
+def groups(rows):
+    """The one `data_bound_by_group` declaration of a source's rows ([] when none)."""
+    found = None
+    for row in rows:
+        value = row.get('data_bound_by_group')
+        if value is None:
+            continue
+        if not isinstance(value, list) or not value or any(
+                not isinstance(g, dict) or set(g) != {'symbols', 'header', 'rows'} or not g['symbols'] or
+                not isinstance(g['header'], str) or not g['header'].strip() or not g['rows'] for g in value):
+            raise BindingRefused('data_bound_by_group entries are {symbols, header, rows}, all non-empty')
+        if found is not None and found != value:
+            raise BindingRefused('data_bound_by_group differs between rows')
+        found = value
+    return found or []
+
+
+def group_hole(coff, group, references, pointed, accepted_entries, source_text=''):
+    """{symbol: (address, detail)} for one header select-any group, or BindingRefused."""
+    names = group['symbols']
+    rows = [int(e, 16) if isinstance(e, str) else e for e in group['rows']]
+    missing = [e for e in rows if e not in accepted_entries]
+    if missing:
+        raise BindingRefused('%s: evidencing rows not accepted rows of the source: %s' %
+                             (names[0], ' '.join('%08x' % e for e in missing)))
+    targeted = {coff.symbols[x]['name'] for s in coff.sections for _, x, _ in s['relocs']}
+    layout = []
+    for name in names:
+        if name in references:
+            raise BindingRefused('%s: declared in a group but already bound by a reference' % name)
+        if name in targeted:
+            raise BindingRefused('%s: a relocation of the object targets it' % name)
+        plain = name.lstrip('?_').split('@')[0]
+        if plain and source_text and plain in source_text:
+            raise BindingRefused('%s: its name is written in the source (a group is header-emitted only)' % name)
+        index = defining_section(coff, name)
+        section = coff.sections[index - 1]
+        if not section['flags'] & 0x80 or section['flags'] & 0x60 or not section['flags'] & 0x1000:
+            raise BindingRefused('%s: not a select-any (COMDAT) zero-filled section' % name)
+        if [n for _, n in section_symbols(coff, index)] != [name]:
+            raise BindingRefused('%s: not the only symbol of its section' % name)
+        layout.append((name, section['size'], alignment(section['flags'])))
+    items = []
+    for index, section in enumerate(coff.sections, 1):
+        if not section['flags'] & 0x80 or section['flags'] & 0x60:
+            continue
+        symbols = section_symbols(coff, index)
+        for i, (value, name) in enumerate(symbols):
+            if name in references:
+                extent = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
+                items.append((references[name], max(extent, 1)))
+    if not items:
+        raise BindingRefused('%s: no .bss symbol of the object is bound' % names[0])
+    items.sort()
+    low, high = items[0][0], max(a + e for a, e in items)
+    hits = pointed(low, high)
+    holes, cursor = [], None
+    for (address, extent), following in zip(items, [a for a, _ in items[1:]] + [None]):
+        end = address + extent if following is None else min(address + extent, following)
+        if following is not None and following > end:
+            holes.append((end, following))
+
+    def fit(start, stop):
+        out, cursor = [], start
+        for name, size, align in layout:
+            cursor = (cursor + align - 1) // align * align
+            out.append((name, cursor))
+            cursor += size
+        return out if out[0][1] - start < layout[0][2] and cursor == stop else None
+    found = [(a, b, fit(a, b)) for a, b in holes if not any(a <= p < b for p in hits)]
+    found = [f for f in found if f[2]]
+    if len(found) != 1:
+        raise BindingRefused('%s: %d exact unreferenced holes for the group in the unit\'s .bss %08x-%08x'
+                             % (' '.join(names), len(found), low, high))
+    start, stop, placed = found[0]
+    return {name: (address, dict(group=names, hole=('%08x' % start, '%08x' % stop), header=group['header'],
+                                 order='hypothesis: our object\'s emission order'))
+            for name, address in placed}
+
+
+def bind(coff, declared_bindings, references, original, below_ends, above_starts, pending_ranges=(), grouped=()):
     """{symbol: (address, kind, detail)} for the declared symbols, or BindingRefused.
 
     references: name -> original address (the population's table, RTTI layout included);
     below_ends / above_starts: end and start addresses of independently known items
     (other units' proven copies, RTTI structures, reference-bound items)."""
     out = {}
-    layout = [n for n, k in declared_bindings.items() if k == LAYOUT]
+    layout = [n for n, k in declared_bindings.items() if k == LAYOUT and n not in grouped]
     elimination = [n for n, k in declared_bindings.items() if k == ELIMINATION]
     for name in layout:
         if name in references:
             raise BindingRefused('%s: declared layout but already bound by a reference' % name)
         index = defining_section(coff, name)
-        base, symbols = layout_base(coff, index, references)
         section = coff.sections[index - 1]
-        low, high = enclosed(base, section['size'], alignment(section['flags']), below_ends, above_starts, original)
+        try:
+            base, symbols = layout_base(coff, index, references)
+            low, high = enclosed(base, section['size'], alignment(section['flags']), below_ends, above_starts, original)
+        except BindingRefused as whole:
+            import tree
+            if not tree.REBUILD:
+                raise   # the run-anchored fallback is the rebuild's ruling A (DECISIONS); main's tree keeps whole-section binding only
+            try:
+                address, detail = run_anchored(coff, index, name, references, pending_ranges, set(layout),
+                                               above_starts)
+            except BindingRefused as local:
+                raise BindingRefused('%s (whole section: %s)' % (local, whole))
+            out[name] = (address, LAYOUT, detail)
+            continue
         value = next(v for v, n in symbols if n == name)
         out[name] = (base + value, LAYOUT, dict(section=index, base=base, size=section['size'],
                                                  lower_anchor=low, upper_anchor=high))
@@ -173,6 +389,61 @@ def bind(coff, declared_bindings, references, original, below_ends, above_starts
             if not (last_in_object and end == high or first_in_object and start == low):
                 raise BindingRefused('%s: the object does not put it where the hole lies' % name)
             out[name] = (start, ELIMINATION, dict(section=index, span=(low, high), hole=(start, end)))
+    return out
+
+
+def unplaced(coff, names, references, evidence, accepted_entries, referenced):
+    """{symbol: detail} for the declared unplaced-unreferenced symbols, or BindingRefused.
+
+    evidence: symbol -> [entry, ...] (data_bound_by_rows); accepted_entries: entries of the
+    source's accepted rows; referenced(low, high) -> the set of addresses in [low, high) that a
+    4-byte value of the original image equals."""
+    out = {}
+    if not names:
+        return out
+    targeted = {coff.symbols[x]['name'] for s in coff.sections for _, x, _ in s['relocs']}
+    gaps_of = {}
+    for name in names:
+        if name in references:
+            raise BindingRefused('%s: declared %s but bound by a reference' % (name, UNPLACED))
+        if name in targeted:
+            raise BindingRefused('%s: a relocation of the object targets it' % name)
+        rows = evidence.get(name) or []
+        missing = [e for e in rows if e not in accepted_entries]
+        if not rows or missing:
+            raise BindingRefused('%s: evidencing rows not accepted rows of the source: %s' %
+                                 (name, ' '.join('%08x' % e for e in missing) or 'none named'))
+        index = defining_section(coff, name)
+        section = coff.sections[index - 1]
+        if not section['flags'] & 0x80 or section['flags'] & 0x60 or section['relocs']:
+            raise BindingRefused('%s: not in a zero-filled (.bss) section' % name)
+        symbols = section_symbols(coff, index)
+        extents = {n: (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - v
+                   for i, (v, n) in enumerate(symbols)}
+        if index not in gaps_of:
+            bound = sorted((references[n], n) for v, n in symbols if n in references)
+            if not bound:
+                raise BindingRefused('%s: no symbol of its bss section is bound' % name)
+            holes = []
+            for (address, n), (following, _) in zip(bound, bound[1:] + [(None, None)]):
+                end = address + extents[n] if following is None else min(address + extents[n], following)
+                if following is not None and following > end:
+                    holes.append((end, following))
+            low, high = bound[0][0], bound[-1][0] + extents[bound[-1][1]]
+            pointed = referenced(low, high)
+            free = [(a, b) for a, b in holes if not (b - a < 8 and b % 8 == 0 and a % 8)
+                    and not any(a <= p < b for p in pointed)]
+            gaps_of[index] = (free, (low, high))
+        out[name] = dict(section=index, extent=extents[name], rows=['%08x' % e for e in rows])
+    for index, (free, span) in gaps_of.items():
+        mine = sorted((d['extent'], n) for n, d in out.items() if d['section'] == index)[::-1]
+        sizes = sorted((b - a for a, b in free), reverse=True)
+        if len(sizes) < len(mine) or any(size < need for size, (need, _) in zip(sizes, mine)):
+            raise BindingRefused('%s: the unit\'s %d unclaimed, unreferenced bss gaps in %08x-%08x cannot hold '
+                                 'them jointly' % (' '.join(n for _, n in mine), len(free), span[0], span[1]))
+        for _, n in mine:
+            out[n].update(span=['%08x' % span[0], '%08x' % span[1]],
+                          gaps=['%08x+%d' % (a, b - a) for a, b in free])
     return out
 
 

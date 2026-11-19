@@ -1,0 +1,78 @@
+{
+  "id": "rebuild-dllver",
+  "population": {
+    "id": "rebuild-dllver",
+    "inventory_sha256": "bf4054f37ca7a8ba5485843832fa7f33c42a7b39491f8c0ee8fd836f18f78a96",
+    "gaps_sha256": "0361cbcbffd2830827efe0f9a8f83c60174ef09ae578fa2a6ca71e8515894f23",
+    "historical_population_sha256": "454dced722d028e705e2b4c92d61d4513cc78c533194bae9d2f37463522ad992",
+    "historical_acceptance_sha256": "e6f9c45463d695b7b3d921482a871af23198cfe0a226c458064a43a3e1af4215"
+  },
+  "references": {
+    "__imp__LoadLibraryA@4": 7971344,
+    "??_C@_0O@CDEE@DllGetVersion?$AA@": 8216220,
+    "__imp__GetProcAddress@8": 7971392,
+    "__imp__FreeLibrary@4": 7971348,
+    "?GetDllVersion@@YIKPBD@Z": 4845056
+  },
+  "regions": [
+    {
+      "entry": 4845056,
+      "method": "0049ee00",
+      "body_bytes": 116,
+      "body_sha256": "03cc9e4be3072700bb7ce4fe8aa74d650ae961bb18cf9129f2fff03fea47870f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "5eaf49a4d62bb9d24d4c0ae0306e0e0a0b10260130235b2fcafe238088bbd54d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetDllVersion@@YIKPBD@Z",
+      "symbol_prefix": "?GetDllVersion@@YIKPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "__imp__LoadLibraryA@4",
+          "target": 7971344,
+          "addend": 0,
+          "resolved": 7971344
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_C@_0O@CDEE@DllGetVersion?$AA@",
+          "target": 8216220,
+          "addend": 0,
+          "resolved": 8216220
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__GetProcAddress@8",
+          "target": 7971392,
+          "addend": 0,
+          "resolved": 7971392
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__imp__FreeLibrary@4",
+          "target": 7971348,
+          "addend": 0,
+          "resolved": 7971348
+        }
+      ],
+      "source_sha256": "35a61958af0c61c658d24b614f4acbe06bec353c7649899d8758d068af6a086f",
+      "source": "rebuild/src/dllver.cpp",
+      "population": "rebuild-dllver",
+      "source_order": 4845056,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

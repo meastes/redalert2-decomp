@@ -153,6 +153,13 @@ class GateScopeTests(unittest.TestCase):
         self.assertEqual(gate_scope.scope(['manifests/original_target/index.json']), 'exact')
         self.assertEqual(gate_scope.scope(['docs/STATUS.md', 'AGENTS.md']), 'none')
         self.assertEqual(gate_scope.scope([]), 'none')
+        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'docs/STATUS.md']), 'rebuild')
+        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'native/x.cpp']), 'native')
+        self.assertEqual(gate_scope.scope(['rebuild/src/facing.cpp', 'tools/original_target/canonical.py']), 'exact')
+        self.assertTrue(gate_scope.rebuild_gate(['tools/original_target/canonical.py']))
+        self.assertTrue(gate_scope.rebuild_gate(['manifests/toolchain.json']))
+        self.assertTrue(gate_scope.rebuild_gate(['rebuild/manifest/units.json']))
+        self.assertFalse(gate_scope.rebuild_gate(['src/recovered/a.cpp', 'manifests/original_target/index.json']))
 
     def test_changed_paths_and_resting_receipt(self):
         with tempfile.TemporaryDirectory() as tmp:

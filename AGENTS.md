@@ -75,10 +75,14 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   byte, and the work can resume. User decision (2026-11-17, amended 2026-11-18): the
   rebuild is the standing matching effort (one Mac lane plus the Windows workers; structure
   checks are landing gates): a tree from the Tiberian Sun layout, mischa85's matched modules
-  as the unit map, main's accepted source as the answer key, text adopted with attribution;
-  its own `rebuild/` folder on branch `rebuild-trial`, never main's `src/`, until it reaches
-  main's matched bytes; whether it then replaces main's `src/` is the user's decision at that
-  point. From every commit: one source file per original unit, one header and one definition
+  as the unit map, main's accepted source as the answer key, text adopted with attribution.
+  User decision (2026-11-19): The rebuild lives on main in its own `rebuild/` folder beside
+  `src/`, built and gated separately: a commit touching only `rebuild/` runs the rebuild gate
+  (catalog, structure gate, whole-file build); a commit touching shared tools runs both trees'
+  gates. `src/` stays the complete exact-match record the ports build from. Whether the
+  rebuild replaces `src/` remains the user's decision at parity of main's matched bytes.
+  Rebuild-only commits publish at most hourly.
+  From every commit: one source file per original unit, one header and one definition
   per class, no per-unit views or `RA2_` switches, members as members, address-suffixed names
   minimal and never growing silently, no tool data inside sources. Acceptance is main's exact
   standard; no native-compile requirement. No separate assessment reports: the normal status

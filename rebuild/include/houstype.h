@@ -1,0 +1,165 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+#pragma once
+
+#include "abstype.h"
+#include "typelist.h" // RA2: TypeList
+
+#include "house.hh"
+#include "side.hh"
+
+/**********************************************************************
+**	Each house has certain unalienable characteristics. This structure
+**	elaborates these.
+*/
+class InfantryTypeClass; // RA2
+class UnitTypeClass; // RA2
+class AircraftTypeClass; // RA2
+
+class HouseTypeClass : public AbstractTypeClass
+{
+		typedef AbstractTypeClass BASECLASS;
+
+	public:
+		struct CountryName // RA2
+		{
+			char Buffer[25];
+			CountryName(void) { Buffer[0] = '\0'; } // RA2: as in ra2-decomp include/houstype.h
+			CountryName(NoInitClass const &) {} // RA2: as above
+			CountryName(char const * name) { if (name == NULL) { Buffer[0] = '\0'; } else { strncpy(Buffer, name, sizeof(Buffer)-1); Buffer[sizeof(Buffer)-1] = '\0'; } } // RA2: as above
+			CountryName & operator=(CountryName const & that) { if (&that != this) { memcpy(Buffer, that.Buffer, sizeof(Buffer)); } return(*this); } // RA2: as above
+		};
+		CountryName ParentCountry; // RA2: +0x98
+
+
+		/*
+		**	This is the house number (enum). This is a unique identification
+		**	number for the house.
+		*/
+		HousesType HeapID;
+		HousesType House;
+
+		/*
+		 * This is the side this house fights for, expressed as an index into the Sides list.
+		 * The house is added to that side's roster as the rules are read, and the side then
+		 * decides such things as which music it may play. If SIDE_NONE, then it belongs to
+		 * no side.
+		 */
+		SideType Side;
+
+		/*
+		**	This points to the default remap table for this house.
+		*/
+		int Scheme;
+
+		/*
+		**	This controls the various general adjustments to the house owned
+		**	unit and building ratings. The default value for these ratings is
+		**	a fixed point number of 1.0.
+		*/
+		double FirepowerBias;
+		double GroundspeedBias;
+		double AirspeedBias;
+		double ArmorBias;
+		double ROFBias;
+		double CostBias;
+		double BuildSpeedBias;
+
+		float ArmorInfantryMult; // RA2: +0x100
+		float ArmorUnitsMult; // RA2
+		float ArmorAircraftMult; // RA2
+		float ArmorBuildingsMult; // RA2
+		float ArmorDefensesMult; // RA2
+		float CostInfantryMult; // RA2
+		float CostUnitsMult; // RA2
+		float CostAircraftMult; // RA2
+		float CostBuildingsMult; // RA2
+		float CostDefensesMult; // RA2
+		float SpeedInfantryMult; // RA2
+		float SpeedUnitsMult; // RA2
+		float SpeedAircraftMult; // RA2
+		float BuildtimeInfantryMult; // RA2
+		float BuildtimeUnitsMult; // RA2
+		float BuildtimeAircraftMult; // RA2
+		float BuildtimeBuildingsMult; // RA2
+		float BuildtimeDefensesMult; // RA2
+		float IncomeMult; // RA2
+		TypeList<InfantryTypeClass const *> VeteranInfantry; // RA2: +0x14C
+		TypeList<UnitTypeClass const *> VeteranUnits; // RA2: +0x168
+		TypeList<AircraftTypeClass const *> VeteranAircraft; // RA2: +0x184
+
+		/*
+		**	This is the filename suffix to use when creating a house specific
+		**	file name. It is three characters long.
+		*/
+		char Suffix[4];
+
+		/*
+		**	This is a unique ASCII character used when constructing filenames. It
+		**	serves a similar purpose as the "Suffix" element, but is only one
+		**	character long.
+		*/
+		char Prefix;
+
+		/*
+		 * If this house may be picked as a country by a player setting up a multiplayer or
+		 * skirmish game, then this flag will be true. It is what keeps the story only houses
+		 * out of the country lists offered in the lobby.
+		 */
+		bool IsMultiplay;
+
+		/*
+		 * If this house takes no part in the multiplayer contest, then this flag will be
+		 * true. A passive house is not treated as an opponent -- it is left out of the
+		 * victory test and the score screen, and the computer players will not hunt for it.
+		 */
+		bool IsMultiplayPassive;
+
+		/*
+		 * If a wall may be credited to this house, then this flag will be true. A wall
+		 * section belongs to whichever wall owning house has a building nearest it, so a
+		 * house without this flag never inherits the walls around it.
+		 */
+		bool IsWallOwner;
+
+		/// Unused
+		bool IsSmartAI;
+
+		//------------------------------------------------------------------------
+		HouseTypeClass(NoInitClass const & x);
+		HouseTypeClass(char const * ininame = NULL);
+		virtual ~HouseTypeClass() override;
+
+		virtual HRESULT STDMETHODCALLTYPE GetClassID(CLSID * retval) override;
+		virtual HRESULT STDMETHODCALLTYPE IsDirty(void) override;
+		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
+		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override;
+		virtual HRESULT STDMETHODCALLTYPE GetSizeMax(ULARGE_INTEGER *pcbSize) override;
+
+		virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, LPVOID * ppvObject) override;
+		virtual ULONG STDMETHODCALLTYPE AddRef(void) override;
+		virtual ULONG STDMETHODCALLTYPE Release(void) override;
+
+		virtual RTTIType Fetch_RTTI(void) const override;
+		virtual int Fetch_Object_Size(void) const override; // RA2: no argument
+		virtual void Compute_CRC(CRCEngine &) const override;
+		virtual int Fetch_Heap_ID(void) const override;
+
+		static HousesType From_Name(char const * name);
+		static void One_Time(void);
+		static HouseTypeClass * Find_Or_Make(char const * ininame);
+
+		virtual bool Read_INI(CCINIClass const & ini) override;
+};

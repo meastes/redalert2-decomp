@@ -642,9 +642,27 @@ class Audit:
         enclosed section layout or by bss elimination, added to the population's references
         for this object's data checks, which still compare every byte. Any failed condition
         refuses. Recorded in the audit result under data_bound_by."""
+        done = self.__dict__.setdefault('_data_bound_objects', set())
+        if (id(coff), id(candidates)) in done:
+            return      # bound once per object; a later row of a refused object sees the same bindings
+        done.add((id(coff), id(candidates)))
         declared = data_bindings.declared(candidates.values())
         defined = {s['name'] for s in coff.symbols.values() if s['section'] > 0}
         declared = {n: k for n, k in declared.items() if n in defined}
+        # Pending data ranges owned by parked functions (docs/DECISIONS.md, "Rebuild data no exact
+        # code refers to", B): never defined, closed when the owner lands; recorded, never credited.
+        pending = data_bindings.pending(candidates.values())
+        if pending:
+            references = self.merged_references(candidates)
+            extents = {}
+            for index, section in enumerate(coff.sections, 1):
+                symbols = data_bindings.section_symbols(coff, index)
+                for i, (value, name) in enumerate(symbols):
+                    extents[name] = (symbols[i + 1][0] if i + 1 < len(symbols) else section['size']) - value
+            data_bindings.check_pending(pending, {c['entry'] for c in candidates.values()},
+                                        [(references[n], e) for n, e in extents.items() if n in references])
+            self.__dict__.setdefault('data_pending', {}).update(
+                {'%08x' % a: dict(bytes=s, owner='%08x' % o) for a, s, o in pending})
         if not declared:
             return
         references = self.merged_references(candidates)
@@ -663,11 +681,49 @@ class Audit:
 
         def original(va, count):
             return self.original(va, count)
-        bound = data_bindings.bind(coff, declared, table, original, ends, starts)
+        group_list = data_bindings.groups(candidates.values())
+        grouped = {n for g in group_list for n in g['symbols']}
+        if grouped - {n for n, k in declared.items() if k == data_bindings.LAYOUT}:
+            raise data_bindings.BindingRefused('data_bound_by_group symbols must be declared layout')
+        bound = data_bindings.bind(coff, declared, table, original, ends, starts, pending, grouped)
+        if group_list:
+            text = ''.join((Path(self.repository) / s).read_text(errors='replace') for s in
+                           sorted({c['source'] for c in candidates.values()}))
+            entries = {c['entry'] for c in candidates.values()}
+            for group in group_list:
+                for name, (address, detail) in data_bindings.group_hole(
+                        coff, group, table, self.image_pointers, entries, text).items():
+                    bound[name] = (address, data_bindings.LAYOUT, detail)
         for name, (address, kind, detail) in bound.items():
             references[name] = address
             self.__dict__.setdefault('data_bound_by', {})[name] = dict(address='%08x' % address, kind=kind,
                                                                          bytes=extents.get(name, 0))
+        # Unplaced-unreferenced objects (opt-in per source): no address, nothing compared or credited;
+        # zero_fill_duplicate leaves them out of its bound-symbol test for this object only.
+        names = [n for n, k in declared.items() if k == data_bindings.UNPLACED]
+        if names:
+            found = data_bindings.unplaced(coff, names, references, data_bindings.evidence_rows(candidates.values()),
+                                           {c['entry'] for c in candidates.values()}, self.image_pointers)
+            for name, detail in found.items():
+                self.__dict__.setdefault('data_unplaced', set()).add((id(coff), name))
+                self.__dict__.setdefault('data_bound_by', {})[name] = dict(detail, address=None, kind=data_bindings.UNPLACED,
+                                                                             bytes=0)
+
+    def image_pointers(self, low, high):
+        """Addresses in [low, high) that some 4-byte little-endian value of the original image's
+        sections equals, at any byte offset (an over-approximation of the references to them)."""
+        from array import array
+        cache = self.__dict__.setdefault('_image_pointers', {})
+        if (low, high) not in cache:
+            found = set()
+            for section in self.pe.sections:
+                data = section.get_data()
+                for shift in range(4):
+                    words = array('I')
+                    words.frombytes(data[shift:shift + (len(data) - shift) // 4 * 4])
+                    found.update(v for v in words if low <= v < high)
+            cache[(low, high)] = found
+        return cache[(low, high)]
 
     def defined_data_duplicate(self, coff, index, section, candidates):
         """Initialized data a unit defines (a table written out in source).
@@ -835,7 +891,10 @@ class Audit:
         if not defined or defined[0][0] != 0:
             return False
         references = self.merged_references(candidates)
+        unplaced = getattr(self, 'data_unplaced', ())
         for position, (value, name) in enumerate(defined):
+            if (id(coff), name) in unplaced:
+                continue        # data_bindings.unplaced: no address, nothing compared
             size = (defined[position + 1][0] if position + 1 < len(defined) else section['size']) - value
             address = references.get(name)
             if address is None or address < self.base or size <= 0:
@@ -908,6 +967,26 @@ class Audit:
             code = self.pe.get_section_by_rva((address - self.base) & 0xffffffff) if address else None
             if address is None or address in claimed or code is None or not code.Characteristics & 0x20:
                 return False
+            # Only a select-any COMDAT (an inline function or template instance, which every object
+            # that uses it emits) has a linker-discarded duplicate; /Gy gives an external function a
+            # no-duplicates COMDAT, which is never omitted this way (review ruling 2026-11-18). The
+            # landed units that still omit one are recorded (kept_elsewhere_compared, marked
+            # external-function-not-select-any) until their drafts are guarded (lane R7).
+            records = [s for s in coff.symbols.values() if s['section'] == index and s['storage'] == 3
+                       and s['type'] == 0 and len(s['auxiliary']) == 18]
+            selection = records[0]['auxiliary'][14] if len(records) == 1 else None
+            # The kept copy is compared with ours modulo relocations; a difference is recorded as a
+            # finding (the kept copy may be another object's inline expansion), not a refusal.
+            data = bytearray(section['data'])
+            kept = bytearray(self.original(address, len(data))) if \
+                address - self.base + len(data) <= code.VirtualAddress + code.SizeOfRawData else bytearray()
+            for offset, _, _ in section['relocs']:
+                data[offset:offset + 4] = kept[offset:offset + 4] = bytes(4)
+            if not hasattr(self, 'kept_elsewhere_compared'):
+                self.kept_elsewhere_compared = {}
+            self.kept_elsewhere_compared[names[0]] = '%08x %s%s' % (
+                address, 'equal-modulo-relocations' if data == kept else 'differs',
+                '' if selection == 2 else ' external-function-not-select-any')
         if names[0].startswith(('??_G', '??_E')):
             references = self.merged_references(candidates)
             aliases = {names[0], '??_E' + names[0][4:], '??_G' + names[0][4:]}
@@ -1142,6 +1221,8 @@ class Audit:
         return dict(status='verified-exact-intervals-and-provenance', manifest=str(self.path(manifest_path)), manifest_sha256=manifest_sha256, executable_sha256=TARGET_SHA256, **totals, source_function_boundaries_certified=False, regions=result,
                     discarded_compiler_output=getattr(self, 'discarded_outputs', {}),
                     compiler_generated_kept_elsewhere=sorted(set(getattr(self, 'kept_elsewhere_omitted', []))),
+                    **({'kept_elsewhere_compared': dict(sorted(self.kept_elsewhere_compared.items()))}
+                       if getattr(self, 'kept_elsewhere_compared', None) else {}),
                     **({'rtti_original_copies': {n: '%08x' % a for n, a in sorted(self.rtti_original_copies.items())}}
                        if getattr(self, 'rtti_original_copies', None) else {}),
                     **({'rtti_known_differences': dict(sorted(self.rtti_known_differences.items()))}
@@ -1149,7 +1230,9 @@ class Audit:
                     **({'data_original_copies': {n: '%08x' % a for n, a in sorted(self.data_original_copies.items())}}
                        if getattr(self, 'data_original_copies', None) else {}),
                     **({'data_bound_by': dict(sorted(self.data_bound_by.items()))}
-                       if getattr(self, 'data_bound_by', None) else {}))
+                       if getattr(self, 'data_bound_by', None) else {}),
+                    **({'data_pending': dict(sorted(self.data_pending.items()))}
+                       if getattr(self, 'data_pending', None) else {}))
 
 
 def main():

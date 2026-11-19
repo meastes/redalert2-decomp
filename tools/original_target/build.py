@@ -2,6 +2,7 @@
 """Fresh accepted-only compile, strict V4 comparison, fixed-address link/package.
 All authored execution dependencies are tracked. Proprietary inputs stay private.
 """
+import tree
 import argparse
 from collections import OrderedDict
 from contextlib import contextmanager
@@ -181,6 +182,8 @@ def defines_sdk_switch(data):
     """Whether a unit text defines the RA2_SDK_HEADERS migration switch (a
     converted unit: its compile also searches the pinned SDK header tree)."""
     import re
+    if tree.REBUILD:
+        return True         # rebuild tree: every unit searches the pinned system headers (tree.py)
     return re.search(rb'^[ \t]*#[ \t]*define[ \t]+RA2_SDK_HEADERS\b', data, flags=re.M) is not None
 
 
@@ -196,6 +199,16 @@ def sdk_directory(config):
     directory = Path(config.get('sdk_include_directory') or REPOSITORY/sdk_pin_record()['default_directory'])
     if str(directory) not in _SDK_VERIFIED:
         _SDK_VERIFIED[str(directory)] = verify_sdk_tree(directory, files)
+    return directory
+
+
+def atl_directory(config):
+    """Local pinned ATL header tree (config atl_include_directory, else the manifest's
+    default_directory), verified against manifests/toolchain.json atl_headers once per process."""
+    from canonical import atl_pin, atl_pin_record, verify_sdk_tree
+    directory = Path(config.get('atl_include_directory') or REPOSITORY/atl_pin_record()['default_directory'])
+    if 'atl:' + str(directory) not in _SDK_VERIFIED:
+        _SDK_VERIFIED['atl:' + str(directory)] = verify_sdk_tree(directory, atl_pin(), 'atl_headers')
     return directory
 
 
@@ -239,7 +252,7 @@ def link_directory(link, target):
         os.symlink(target, link)
 
 
-def stage_fixed(units, sdk=None):
+def stage_fixed(units, sdk=None, atl=None):
     """Stage each unit's source under one fixed-layout root; returns (root, [staged unit])."""
     import hashlib
     require(len(units) <= FIXED_UNITS, 'Too many units for one fixed compile root')
@@ -249,9 +262,11 @@ def stage_fixed(units, sdk=None):
     if root.exists():
         shutil.rmtree(root)
     root.mkdir(parents=True)
-    link_directory(root / 'src', REPOSITORY / 'src')
+    link_directory(root / 'src', REPOSITORY / tree.INCLUDE_ROOT)
     if sdk is not None:
         link_directory(root / 'sdk', Path(sdk))
+    if atl is not None:
+        link_directory(root / 'atl', Path(atl))
     staged = []
     for index, unit in enumerate(units):
         folder = root / ('g%04d' % index)
@@ -268,14 +283,14 @@ def unstage_fixed(root, units, staged):
             Path(unit['obj']).unlink()
         if stage['obj'].exists():
             shutil.copyfile(stage['obj'], unit['obj'])
-    for link in ('src', 'sdk'):
+    for link in ('src', 'sdk', 'atl'):
         target = root / link
         if target.is_symlink() or (NATIVE and target.exists()):
             os.rmdir(target) if NATIVE else target.unlink()
     shutil.rmtree(root, ignore_errors=True)
 
 
-def unit_lines(unit, path, include, compiler, sdk=None):
+def unit_lines(unit, path, include, compiler, sdk=None, atl=None):
     """Cmd lines for one compile unit (dict: cwd, source, obj, log, returncode,
     args, optional sdk). The compiler runs from the unit's directory with a relative source
     name: VC6 records the source name as given in the object's .file symbol,
@@ -289,6 +304,7 @@ def unit_lines(unit, path, include, compiler, sdk=None):
         cwd, obj = fixed_path_text(unit['cwd']), fixed_path_text(unit['obj'])
         include = fixed_path_text(Path(unit['cwd']).parent / 'src')
         sdk = fixed_path_text(Path(unit['cwd']).parent / 'sdk') if unit.get('sdk') else sdk
+        atl = fixed_path_text(Path(unit['cwd']).parent / 'atl') if unit.get('atl') else atl
     else:
         cwd, obj = path(unit['cwd']), path(unit['obj'])
     # A /GR compile outside the fixed layout would make its RTTI depend on where it ran.
@@ -296,6 +312,8 @@ def unit_lines(unit, path, include, compiler, sdk=None):
                                           fixed_layout_ok(cwd, obj, include)),
             '/GR compile outside the fixed compile folder: %s' % cwd)
     extra = ['/I'+sdk] if unit.get('sdk') else []
+    require(not unit.get('atl') or atl, 'ATL unit without an ATL header directory')
+    extra += ['/I'+atl] if unit.get('atl') else []
     args = [*unit['args'], '/I'+include, *extra, '/Fo'+obj, source]
     return ['cd /d "%s"' % cwd,
             '"'+compiler+'" '+' '.join('"'+a+'"' for a in args)+' >"'+path(unit['log'])+'" 2>&1',
@@ -307,10 +325,15 @@ def compile_units(config, directory, units, name, parallel=True, timeout=3600, h
     locally: `parallel_sessions` Wine sessions, or one session if not
     `parallel`. An unreachable or failing remote host falls back to local."""
     import remote_compile
+    from canonical import uses_atl
     for unit in units:
         unit['sdk'] = defines_sdk_switch(Path(unit['source']).read_bytes())
+        unit['atl'] = uses_atl(Path(unit['source']).read_bytes())
     sdk = sdk_directory(config) if any(u['sdk'] for u in units) else None
+    atl = atl_directory(config) if any(u['atl'] for u in units) else None
     spec, fallback = remote_compile.settings(config), None
+    if spec and atl is not None:
+        spec, fallback = None, 'an ATL unit compiles only locally (the remote stage has no ATL tree)'
     if spec and units and any('/GR' in u['args'] for u in units):
         spec, fallback = None, 'a /GR unit compiles only at the fixed local folder'
     if spec and units:
@@ -323,10 +346,10 @@ def compile_units(config, directory, units, name, parallel=True, timeout=3600, h
         except remote_compile.Unavailable as error:
             fallback = str(error)
             print('remote compile unavailable (%s); compiling locally' % fallback, file=sys.stderr, flush=True)
-    root, staged = stage_fixed(units, sdk)
+    root, staged = stage_fixed(units, sdk, atl)
     try:
-        rendered = [unit_lines(u, win, win(REPOSITORY/'src'), win(Path(config['compiler_directory'])/'CL.EXE'),
-                               win(sdk) if sdk else None)
+        rendered = [unit_lines(u, win, win(REPOSITORY/tree.INCLUDE_ROOT), win(Path(config['compiler_directory'])/'CL.EXE'),
+                               win(sdk) if sdk else None, win(atl) if atl else None)
                     for u in staged]
         if parallel:
             # Sessions run in the root, so their TMP folders (root\\tmp-N) keep one length too:
@@ -398,6 +421,10 @@ def group_cache_key(source, args, closure, headers, pinned):
     if defines_sdk_switch(source):
         from canonical import sdk_pin, sdk_tree_digest
         key['sdk_headers'] = sdk_tree_digest(sdk_pin())
+    from canonical import uses_atl
+    if uses_atl(source):
+        from canonical import atl_pin, sdk_tree_digest
+        key['atl_headers'] = sdk_tree_digest(atl_pin())
     return sha(json.dumps(key, sort_keys=True).encode())
 
 

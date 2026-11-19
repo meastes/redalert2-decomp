@@ -625,9 +625,16 @@ def member_counterparts(regions, unit_of, references):
             continue
         hits = {}
         if names is not None and row['entry'] in names:
+            # mischa85 names.csv decorates the same executable's function at this address: address
+            # evidence decides, and the name match in the TibSun / ra2-decomp files is not consulted
+            # (a same-named free function beside a member, as Version_Name in version.cpp; lane R5).
             name, cls, member = symbol_parts(names[row['entry']])
             if member and not STAND_IN_CLASS.search(cls):
                 hits['mischa85'] = '%s::%s' % (cls, name)
+                rows.append(dict(entry='%08x' % row['entry'], ours=row.get('symbol'), kind=ours_kind,
+                                 unit=unit_of.get(row['entry']), source=row['source'],
+                                 bytes=row.get('body_bytes', 0), counterparts=hits))
+            continue
         unit = unit_of.get(row['entry'])
         stem = unit.rsplit('/', 1)[-1].lower() if unit else None
         want = base_name(ours)

@@ -1,0 +1,239 @@
+{
+  "id": "rebuild-rc-ptr-base",
+  "population": {
+    "id": "rebuild-rc-ptr-base",
+    "inventory_sha256": "4cf028dc0cfa5984694c1a708edc47f5598e0c9b2fe4f446af475467e17f15ff",
+    "gaps_sha256": "a6baab4335b570045d6f9e8c4fa8338bdb41f2cbf4f1dae35d9c9e4b1e17fb46",
+    "historical_population_sha256": "b46041500bbe991fcdf211254ab4f7d49a41aa6b160d77e89e495e6271c49884",
+    "historical_acceptance_sha256": "701a60e81d8e804b4efe173794d02840d5162bcf8669c4872899199ce5bd7910"
+  },
+  "references": {
+    "??_7rc_ptr_base@@6B@": 8031500,
+    "??3@YAXPAX@Z": 7871803,
+    "??0rc_ptr_base@@QAE@XZ": 6526176,
+    "??_Grc_ptr_base@@UAEPAXI@Z": 6526336,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVrc_ptr_base@@@8": 8248008,
+    "??0rc_ptr_base@@QAE@PAVrc_object@@@Z": 6526192,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "?Assign@rc_ptr_base@@QAEXPAX@Z": 6526256,
+    "??0rc_ptr_base@@QAE@ABV0@@Z": 6526304
+  },
+  "regions": [
+    {
+      "entry": 6526176,
+      "method": "006394e0",
+      "body_bytes": 16,
+      "body_sha256": "f01686eff11baf5aa3e51758f7f3155e4f631a3d2aa43ffd41d533ab4b4df476",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f01686eff11baf5aa3e51758f7f3155e4f631a3d2aa43ffd41d533ab4b4df476",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0rc_ptr_base@@QAE@XZ",
+      "symbol_prefix": "??0rc_ptr_base@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526192,
+      "method": "006394f0",
+      "body_bytes": 25,
+      "body_sha256": "2a8a611c71d60ef56011b104f00f71fda34bf952548205e29881f4a7d5e02a92",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e1b833af6c4a407f745e7adf723a692f3d22ef8b6f5f6cd4c60a28460c8260bd",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0rc_ptr_base@@QAE@PAVrc_object@@@Z",
+      "symbol_prefix": "??0rc_ptr_base@@QAE@PAVrc_object@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526224,
+      "method": "00639510",
+      "body_bytes": 28,
+      "body_sha256": "44c2f71b5ca6edb2580ba369503484dddbb7333404077ea27ecdbc6a2607c88c",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7c584cdff5c106a04be5ade4f97322fc8af4d6b3fc3b31cdfdd115755cdb1d4d",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1rc_ptr_base@@UAE@XZ",
+      "symbol_prefix": "??1rc_ptr_base@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526256,
+      "method": "00639530",
+      "body_bytes": 47,
+      "body_sha256": "e5361838c1f166effbead59d7da6a849002b093f5679202f0cf4570073485914",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8d9c61bdc693ffd77fd08aa34d6e8200d29563f6bbe7131bc2651455afd5f93d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+      "symbol_prefix": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526304,
+      "method": "00639560",
+      "body_bytes": 30,
+      "body_sha256": "d919cbc6d361d509ca482673434f14cfd1e6c5894eaed67bde018d4f2702d76a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bba54f4729fea926d5ad633a2d7f6a8e3816575b7af76da66cf7f4c93f58e00b",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0rc_ptr_base@@QAE@ABV0@@Z",
+      "symbol_prefix": "??0rc_ptr_base@@QAE@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526336,
+      "method": "00639580",
+      "body_bytes": 50,
+      "body_sha256": "3a80e20f2d861f9fcc01efe36631ff8c7303120d5668165bbde67caebeafdcd0",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "734587c52502ac234722d5236b39818cff6dc0df5635f5cd4586ae659ba434d9",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_Grc_ptr_base@@UAEPAXI@Z",
+      "symbol_prefix": "??_Grc_ptr_base@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7rc_ptr_base@@6B@",
+          "target": 8031500,
+          "addend": 0,
+          "resolved": 8031500
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1345426
+        }
+      ],
+      "source_sha256": "b38a936079414608943fa97f2d2ac53ef34a742cf5482607ff49b338ad35c4fa",
+      "source": "rebuild/src/rc_ptr_base.cpp",
+      "population": "rebuild-rc-ptr-base",
+      "source_order": 6526336,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

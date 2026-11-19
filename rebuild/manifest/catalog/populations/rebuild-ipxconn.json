@@ -1,0 +1,1668 @@
+{
+  "id": "rebuild-ipxconn",
+  "population": {
+    "id": "rebuild-ipxconn",
+    "inventory_sha256": "47e1aad637a5e1458d671aadefa774e61cfe205e3989731206bf6d272cc33538",
+    "gaps_sha256": "6ceed163f7b0c07861d2ce36db3610dd0fed8a08dfb2d2665e32ac61addc4012",
+    "historical_population_sha256": "d250e4ecedeec962a38d98cccbfd785165459c466053e07a18b4777fa0088777",
+    "historical_acceptance_sha256": "806c079cd3371f3b3e497eaa633c4dc179999ff5bbcad33aecda009671a567b9"
+  },
+  "references": {
+    "_RECT_NONE": 10822520,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10822544,
+    "_ISO_TILE_SIZE": 8013360,
+    "_LEPTONS_PER_PIXEL": 10822648,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10822632,
+    "_ONE_RAD": 8013368,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10822616,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10822560,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10822504,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10822656,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10822568,
+    "_CELL_DIAG_SLOPE_ANGLE": 10822600,
+    "_BRIDGE_LEPTON_HEIGHT": 10822640,
+    "_CELL_NONE": 10822536,
+    "_COORD_NONE": 10822584,
+    "??0ConnectionClass@@QAE@HHHGIIIH@Z": 4722208,
+    "??0IPXAddressClass@@QAE@XZ": 5387280,
+    "??_7IPXConnClass@@6B@": 8013380,
+    "_wcscpy": 7878281,
+    "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
+    "?Init@ConnectionClass@@UAEXXZ": 4722384,
+    "?Socket@IPXConnClass@@1GA": 10822608,
+    "?ConnectionNum@IPXConnClass@@1HA": 10822576,
+    "?ListenHeader@IPXConnClass@@1PAUIPXHeaderType@@A": 10822596,
+    "?SendHeader@IPXConnClass@@1PAUIPXHeaderType@@A": 10822624,
+    "?ListenBuf@IPXConnClass@@1PADA": 10822552,
+    "?SendBuf@IPXConnClass@@1PADA": 10822512,
+    "?PacketLen@IPXConnClass@@1HA": 10822612,
+    "?Configured@IPXConnClass@@1HA": 10822660,
+    "?PacketTransport@@3PAVWinsockInterfaceClass@@A": 8625232,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "?SocketOpen@IPXConnClass@@1HA": 10822664,
+    "?Listening@IPXConnClass@@1HA": 10822668,
+    "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?OwnerTalk@@3VOwnerTalkClass@@A": 11234584,
+    "?Mask_From_ID@OwnerTalkClass@@QAEEH@Z": 6550720,
+    "?LoopbackPort@@3HA": 8347868,
+    "??8IPXAddressClass@@QAE_NAAV0@@Z": 5387728,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "?Ipx@@3VIPXManagerClass@@A": 10750328,
+    "?Index_Of_Connection@IPXManagerClass@@UAEHPAVIPXConnClass@@@Z": 5396400,
+    "?Num_Connections@IPXManagerClass@@UAEHXZ": 5396176,
+    "?Connection_ID@IPXManagerClass@@UAEHH@Z": 5396192,
+    "?Player_Port@SessionClass@@QAEGH@Z": 6762320,
+    "??1ConnectionClass@@UAE@XZ": 4722336,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 5388672,
+    "_$E5": 5388704,
+    "_$E8": 5388752,
+    "_$E11": 5388784,
+    "_$E14": 5388816,
+    "_$E17": 5388848,
+    "_$E20": 5388880,
+    "_$E23": 5388912,
+    "_$E26": 5388976,
+    "_$E29": 5389024,
+    "_$E32": 5389072,
+    "_$E35": 5389120,
+    "_$E38": 5389136,
+    "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z": 5389168,
+    "?Service_Receive_Queue@ConnectionClass@@MAEHXZ": 4724064,
+    "?Service_Send_Queue@ConnectionClass@@MAEHXZ": 4723616,
+    "?Discard_Undeliverable_Packets@ConnectionClass@@UAEHXZ": 4724048,
+    "?Service@ConnectionClass@@UAEHXZ": 4723568,
+    "?Get_Packet@ConnectionClass@@UAEHPAXPAH@Z": 4723424,
+    "?Receive_Packet@ConnectionClass@@UAEHPAXH@Z": 4722688,
+    "?Send_Packet@ConnectionClass@@UAEHPAXHHH@Z": 4722432,
+    "??_GIPXConnClass@@UAEPAXI@Z": 5390224,
+    "?Init@IPXConnClass@@UAEXXZ": 5389344,
+    "?Configure@IPXConnClass@@SIXGHPAUIPXHeaderType@@0PAD1H@Z": 5389360,
+    "?Start_Listening@IPXConnClass@@SIHXZ": 5389440,
+    "?Stop_Listening@IPXConnClass@@SIHXZ": 5389552,
+    "?Send@IPXConnClass@@MAEHPADHPAXH_NG@Z": 5389584,
+    "?Open_Socket@IPXConnClass@@KIHG@Z": 5389616,
+    "?Close_Socket@IPXConnClass@@KIXG@Z": 5389680,
+    "?Send_To@IPXConnClass@@MAEHPADHPAVIPXAddressClass@@QAE_NG@Z": 5389712,
+    "?Broadcast@IPXConnClass@@KIHPADH@Z": 5390192,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 5388672,
+      "method": "00523980",
+      "body_bytes": 23,
+      "body_sha256": "8a16c3d7826dc8498b35c014ef7f226a0518d9a3b4ff19d54f47da051991f97a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3a7ea47ace1e6373cf37a17e4b0fb5b2207d4fcbb822f93fe7559fab9b395deb",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10822520,
+          "addend": 0,
+          "resolved": 10822520
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10822520,
+          "addend": 4,
+          "resolved": 10822524
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10822520,
+          "addend": 8,
+          "resolved": 10822528
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10822520,
+          "addend": 12,
+          "resolved": 10822532
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388704,
+      "method": "005239a0",
+      "body_bytes": 40,
+      "body_sha256": "0849af2310f681c36136bab5eacecabbc981cc185932c49f686c284d2a6b1a8c",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4143a2ccb29ab46de37e5a4c9e3597156f7750295c83fbeff7932e01c65b84f7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 2484223
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294535762
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10822544,
+          "addend": 0,
+          "resolved": 10822544
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388752,
+      "method": "005239d0",
+      "body_bytes": 19,
+      "body_sha256": "18e71a62e46d69afcec58dd416a077e3768eb4f13e058915d0c48ce809a4216e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "901f5496628bc9bcfaef8968482e8699bfe1aa77a0c20dc209fe42620f89e832",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10822544,
+          "addend": 0,
+          "resolved": 10822544
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8013360,
+          "addend": 0,
+          "resolved": 8013360
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10822648,
+          "addend": 0,
+          "resolved": 10822648
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388784,
+      "method": "005239f0",
+      "body_bytes": 19,
+      "body_sha256": "bb0bc315e073bd775ae49297e8731f1c901d0bb03e9f096adef09bb6d7d5960e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "10d9d694afa00da259e1f59e88dd938ccb6fd5b4e333a7d3fdbb0e2b85491dd1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10822648,
+          "addend": 0,
+          "resolved": 10822648
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10822632,
+          "addend": 0,
+          "resolved": 10822632
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388816,
+      "method": "00523a10",
+      "body_bytes": 19,
+      "body_sha256": "b923de4b5fb9788c6c1b0f20458d24c71b59ea4643b68f21ce2a3ac6c1cbb194",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f007b83e7a6215f82ba0d821258f4b12cb51da83f58ccd732a8dc085d46986c1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013368,
+          "addend": 0,
+          "resolved": 8013368
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10822616,
+          "addend": 0,
+          "resolved": 10822616
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388848,
+      "method": "00523a30",
+      "body_bytes": 19,
+      "body_sha256": "a55159ebe7839bedef2f92dc514ba82050b98616eaaba4417bbf4f03a5415626",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "72513d9508c0549ed3f242a2bbf7b141e01acd5923d4774af7a0c8c49bfe2857",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013368,
+          "addend": 0,
+          "resolved": 8013368
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10822560,
+          "addend": 0,
+          "resolved": 10822560
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388880,
+      "method": "00523a50",
+      "body_bytes": 19,
+      "body_sha256": "e5aab87753befbde364d422517da2c7dd3a39683cffd428e87ebc6847a52d647",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8d4ef9205fd8a53b0bde0826f15bd785069e298d6eefe8eb386b4ac684981113",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8013368,
+          "addend": 0,
+          "resolved": 8013368
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10822504,
+          "addend": 0,
+          "resolved": 10822504
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388912,
+      "method": "00523a70",
+      "body_bytes": 49,
+      "body_sha256": "6130682e6a6d1c15cb69c7d26f7bb1af7732aeba6c627e401e3b786ab4fe9a85",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "7b4cdaa0773416fb1991ec439b368bd9cd457dc3c16f66a5568b7a37af601d17",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10822504,
+          "addend": 0,
+          "resolved": 10822504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10822560,
+          "addend": 0,
+          "resolved": 10822560
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294535833
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10822544,
+          "addend": 0,
+          "resolved": 10822544
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2471541
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10822656,
+          "addend": 0,
+          "resolved": 10822656
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388976,
+      "method": "00523ab0",
+      "body_bytes": 33,
+      "body_sha256": "9307768734d1a032286f1178b5bb4a6f0b1e78d181cece9041a33c63327df66c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "557023a1306cbd9ab13ea6a5541d3786d770cd1ab3662367df5fad02e1d730b5",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10822656,
+          "addend": 0,
+          "resolved": 10822656
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294535913
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10822568,
+          "addend": 0,
+          "resolved": 10822568
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5388976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389024,
+      "method": "00523ae0",
+      "body_bytes": 44,
+      "body_sha256": "21f4f395eb7467f3cd2ee6383c2232a0dc029260b3356973b8a95f08fa4922a0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "105ffe68bfb9460156e986bda0a897aa840ea66567181772dac51e1f8a2194f7",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10822656,
+          "addend": 0,
+          "resolved": 10822656
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10822544,
+          "addend": 0,
+          "resolved": 10822544
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294535854
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10822600,
+          "addend": 0,
+          "resolved": 10822600
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389072,
+      "method": "00523b10",
+      "body_bytes": 39,
+      "body_sha256": "627f4b7282239c697812e949791827aabbb1b9f6cacad7e435ea0a2959487002",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4b5ed44afd57499018c55560cb39e93e9272c62956dbf60b16240dec13b6255e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10822656,
+          "addend": 0,
+          "resolved": 10822656
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2471392
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10822640,
+          "addend": 0,
+          "resolved": 10822640
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389120,
+      "method": "00523b40",
+      "body_bytes": 15,
+      "body_sha256": "94632a829306400dc3a32886eb111b9fdd6d676748201ded067055d62a51e193",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0c0b8f87fb512a698b82626638d3fec6059366ad94a787b651783f61f42cbf19",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10822536,
+          "addend": 0,
+          "resolved": 10822536
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10822536,
+          "addend": 2,
+          "resolved": 10822538
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389136,
+      "method": "00523b50",
+      "body_bytes": 18,
+      "body_sha256": "5274e32b114907fcd78d9a25fdb73fc5fdc80f3bd1f8cafd3443d8a845a004ac",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "042af0f7633027ea807ba18e59d4d81b3f6ad1bd3b36eecc61540b509f1cf64e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10822584,
+          "addend": 0,
+          "resolved": 10822584
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10822584,
+          "addend": 4,
+          "resolved": 10822588
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10822584,
+          "addend": 8,
+          "resolved": 10822592
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389168,
+      "method": "00523b70",
+      "body_bytes": 163,
+      "body_sha256": "4dfbd96ba81b1fa066c03d427fb75dffa444e2203266d25251df131431133938",
+      "padding_bytes": 13,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "5ba65e97c3f3bafbba71b7cafe418fdf2c49393ba5fb48fff01a6cbd4d429119",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+      "symbol_prefix": "??0IPXConnClass@@QAE@HHHGPAVIPXAddressClass@@HPBGH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "??0ConnectionClass@@QAE@HHHGIIIH@Z",
+          "target": 4722208,
+          "addend": 0,
+          "resolved": 4294300291
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "??0IPXAddressClass@@QAE@XZ",
+          "target": 5387280,
+          "addend": 0,
+          "resolved": 4294965353
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_7IPXConnClass@@6B@",
+          "target": 8013380,
+          "addend": 0,
+          "resolved": 8013380
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 2489005
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+          "target": 5387520,
+          "addend": 0,
+          "resolved": 4294965520
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389344,
+      "method": "00523c20",
+      "body_bytes": 5,
+      "body_sha256": "ab6d65e406ba234710c9b6cc0362326552736c9ba034d79ea5457371e069df51",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b330e825a80df54b4e1a5d31e340a259b455a330000c7aa8a663af6fc2ffc1f3",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@IPXConnClass@@UAEXXZ",
+      "symbol_prefix": "?Init@IPXConnClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Init@ConnectionClass@@UAEXXZ",
+          "target": 4722384,
+          "addend": 0,
+          "resolved": 4294300331
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389360,
+      "method": "00523c30",
+      "body_bytes": 74,
+      "body_sha256": "1abf5eaafd5fb8bfdbf973a7b9ab20065949dbf691c7212e0f6b7c4c33928bda",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1029b2bf028d1bafad62ea5ac7e4cd1efa1edcf4c757b37dfa48b74175ddc385",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Configure@IPXConnClass@@SIXGHPAUIPXHeaderType@@0PAD1H@Z",
+      "symbol_prefix": "?Configure@IPXConnClass@@SIXGHPAUIPXHeaderType@@0PAD1H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?Socket@IPXConnClass@@1GA",
+          "target": 10822608,
+          "addend": 0,
+          "resolved": 10822608
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?ConnectionNum@IPXConnClass@@1HA",
+          "target": 10822576,
+          "addend": 0,
+          "resolved": 10822576
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?ListenHeader@IPXConnClass@@1PAUIPXHeaderType@@A",
+          "target": 10822596,
+          "addend": 0,
+          "resolved": 10822596
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?SendHeader@IPXConnClass@@1PAUIPXHeaderType@@A",
+          "target": 10822624,
+          "addend": 0,
+          "resolved": 10822624
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?ListenBuf@IPXConnClass@@1PADA",
+          "target": 10822552,
+          "addend": 0,
+          "resolved": 10822552
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?SendBuf@IPXConnClass@@1PADA",
+          "target": 10822512,
+          "addend": 0,
+          "resolved": 10822512
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?PacketLen@IPXConnClass@@1HA",
+          "target": 10822612,
+          "addend": 0,
+          "resolved": 10822612
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?Configured@IPXConnClass@@1HA",
+          "target": 10822660,
+          "addend": 0,
+          "resolved": 10822660
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389440,
+      "method": "00523c80",
+      "body_bytes": 106,
+      "body_sha256": "23bc87c2e5cd268c71ae552f38d594bc4c7b9b454ab644bfe86155a32d54cecb",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "25d245c5a56c1403392ac86dd03418094740c01045c48590d72d425dcaae33b7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Listening@IPXConnClass@@SIHXZ",
+      "symbol_prefix": "?Start_Listening@IPXConnClass@@SIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 72,
+          "resolved": 10750816
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?Socket@IPXConnClass@@1GA",
+          "target": 10822608,
+          "addend": 0,
+          "resolved": 10822608
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?SocketOpen@IPXConnClass@@1HA",
+          "target": 10822664,
+          "addend": 0,
+          "resolved": 10822664
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Listening@IPXConnClass@@1HA",
+          "target": 10822668,
+          "addend": 0,
+          "resolved": 10822668
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?SocketOpen@IPXConnClass@@1HA",
+          "target": 10822664,
+          "addend": 0,
+          "resolved": 10822664
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389552,
+      "method": "00523cf0",
+      "body_bytes": 31,
+      "body_sha256": "fed8db8729e6716a6bb165e5f5f226d5b3858d427f7afb0d39af28bebf282417",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1e66aeeaeef12b4bba913a1de146fe1d3921b81b4ecaeea98db5e45b8c68e1a8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Listening@IPXConnClass@@SIHXZ",
+      "symbol_prefix": "?Stop_Listening@IPXConnClass@@SIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Listening@IPXConnClass@@1HA",
+          "target": 10822668,
+          "addend": 0,
+          "resolved": 10822668
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389584,
+      "method": "00523d10",
+      "body_bytes": 31,
+      "body_sha256": "ec65a54727c22124d4933b040d461b15f18f38a307172c20b19a9aba5158b529",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "af3d7a3db7bc04f2054885db5fea69ddf6c9c607ada7c6113e93161bf916a35f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Send@IPXConnClass@@MAEHPADHPAXH_NG@Z",
+      "symbol_prefix": "?Send@IPXConnClass@@MAEHPADHPAXH_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389616,
+      "method": "00523d30",
+      "body_bytes": 51,
+      "body_sha256": "b4993f4934dd2f69fe2b0386c32be0a365f1219b0468e2a98b6ea22850cfc354",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e09b0047d3e744b6f927e59208b6e330d7a3b9390cb4b32c7a86d25fa6a5ff72",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Socket@IPXConnClass@@KIHG@Z",
+      "symbol_prefix": "?Open_Socket@IPXConnClass@@KIHG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 72,
+          "resolved": 10750816
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?SocketOpen@IPXConnClass@@1HA",
+          "target": 10822664,
+          "addend": 0,
+          "resolved": 10822664
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389680,
+      "method": "00523d70",
+      "body_bytes": 22,
+      "body_sha256": "513f02806e9608da872f05aaedda2f96f402374b39882766a332ba85fefcf23f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d046aa73e4e0816ee4f2041bd285fe9cfe9f4e798d82606d027400781c92a48c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_Socket@IPXConnClass@@KIXG@Z",
+      "symbol_prefix": "?Close_Socket@IPXConnClass@@KIXG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?SocketOpen@IPXConnClass@@1HA",
+          "target": 10822664,
+          "addend": 0,
+          "resolved": 10822664
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5389712,
+      "method": "00523d90",
+      "body_bytes": 468,
+      "body_sha256": "88723ce22005ab2e82e6885749ad2325424b7265f9d8334d9ac8cfe8e81d8926",
+      "padding_bytes": 12,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "d2cf63bda674d0eccd8253c24b3586a7f12f85cc200756863e5f34c9070f8dfe",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Send_To@IPXConnClass@@MAEHPADHPAVIPXAddressClass@@QAE_NG@Z",
+      "symbol_prefix": "?Send_To@IPXConnClass@@MAEHPADHPAVIPXAddressClass@@QAE_NG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??0IPXAddressClass@@QAE@XZ",
+          "target": 5387280,
+          "addend": 0,
+          "resolved": 4294964846
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+          "target": 5387520,
+          "addend": 0,
+          "resolved": 4294965037
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+          "target": 5387392,
+          "addend": 0,
+          "resolved": 4294964882
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?Mask_From_ID@OwnerTalkClass@@QAEEH@Z",
+          "target": 6550720,
+          "addend": 0,
+          "resolved": 1160862
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10516,
+          "resolved": 10746796
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10520,
+          "resolved": 10746800
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10524,
+          "resolved": 10746804
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "?LoopbackPort@@3HA",
+          "target": 8347868,
+          "addend": 0,
+          "resolved": 8347868
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10528,
+          "resolved": 10746808
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+          "target": 5387728,
+          "addend": 0,
+          "resolved": 4294965090
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+          "target": 5387920,
+          "addend": 0,
+          "resolved": 4294965257
+        },
+        {
+          "offset": 254,
+          "kind": 6,
+          "symbol": "?LoopbackPort@@3HA",
+          "target": 8347868,
+          "addend": 0,
+          "resolved": 8347868
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10540,
+          "resolved": 10746820
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 323,
+          "kind": 20,
+          "symbol": "?Index_Of_Connection@IPXManagerClass@@UAEHPAVIPXConnClass@@@Z",
+          "target": 5396400,
+          "addend": 0,
+          "resolved": 6361
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10540,
+          "resolved": 10746820
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "?Num_Connections@IPXManagerClass@@UAEHXZ",
+          "target": 5396176,
+          "addend": 0,
+          "resolved": 6087
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 388,
+          "kind": 20,
+          "symbol": "?Connection_ID@IPXManagerClass@@UAEHH@Z",
+          "target": 5396192,
+          "addend": 0,
+          "resolved": 6088
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Player_Port@SessionClass@@QAEGH@Z",
+          "target": 6762320,
+          "addend": 0,
+          "resolved": 1372205
+        },
+        {
+          "offset": 406,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10540,
+          "resolved": 10746820
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5389712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5390192,
+      "method": "00523f70",
+      "body_bytes": 25,
+      "body_sha256": "190d9992d131ce2f384d9bbf14d01e24da4a0a2b244253dea93777a4b84fff7c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "99753f5481319d3748a98ad210639db2ae42155484d115650eca381ca1bfc2b8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Broadcast@IPXConnClass@@KIHPADH@Z",
+      "symbol_prefix": "?Broadcast@IPXConnClass@@KIHPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5390192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5390224,
+      "method": "00523f90",
+      "body_bytes": 36,
+      "body_sha256": "c5466bff74a3733359ee2c729f10b5ad244580d47973fb95232145702af65fb2",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "80499953fd16d642571de5da96ba94fbd8b08770a1e76daaf3f64779bcff33c8",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GIPXConnClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GIPXConnClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7IPXConnClass@@6B@",
+          "target": 8013380,
+          "addend": 0,
+          "resolved": 8013380
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1ConnectionClass@@UAE@XZ",
+          "target": 4722336,
+          "addend": 0,
+          "resolved": 4294299394
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2481552
+        }
+      ],
+      "source_sha256": "6eecf0a473e912a769477c391e8f356f2227d6853856d871f59961142cb6d763",
+      "source": "rebuild/src/ipxconn.cpp",
+      "population": "rebuild-ipxconn",
+      "source_order": 5390224,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

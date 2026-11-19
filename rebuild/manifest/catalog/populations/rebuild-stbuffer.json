@@ -1,0 +1,277 @@
+{
+  "id": "rebuild-stbuffer",
+  "population": {
+    "id": "rebuild-stbuffer",
+    "inventory_sha256": "e9a55a8f9951fb06fd56b0666e08d6781cfbfb37efebd33374edf399999095d1",
+    "gaps_sha256": "f53e56d4c1204421bf2fe49d076415f406a70a2dae26d50a4bbf4be54508e869",
+    "historical_population_sha256": "2c8ed8a9147f9a19f552070e9fd9f76b000dbeb88ef41f908c4902334557bb24",
+    "historical_acceptance_sha256": "f6cca6d5b4f0e5e43153259ef2bfa3048443d1d5f130b28e2d9f9d02bffc73af"
+  },
+  "references": {
+    "_RECT_NONE": 11261240,
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "?Top_Left@?$TRect@H@@QBE?AV?$TPoint2D@H@@XZ": 4412768,
+    "_CompressionBuffer": 11261256,
+    "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z": 6541744,
+    "_$E2": 6922624,
+    "??0StaticBufferClass@@QAE@H@Z": 6922656,
+    "??1StaticBufferClass@@QAE@XZ": 6922688,
+    "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z": 6922704,
+    "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABV?$TRect@H@@FF@Z": 6923008
+  },
+  "regions": [
+    {
+      "entry": 6922624,
+      "method": "0069a180",
+      "body_bytes": 23,
+      "body_sha256": "8b4210ed2903206d7e00f22e7ea08c396bc72a173c917c0febaa237199c7ff77",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "152df7ea7c7373350886da69083639b9fbe01a8cc73f4bbb9f984c9855d348be",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261240,
+          "addend": 0,
+          "resolved": 11261240
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261240,
+          "addend": 4,
+          "resolved": 11261244
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261240,
+          "addend": 8,
+          "resolved": 11261248
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11261240,
+          "addend": 12,
+          "resolved": 11261252
+        }
+      ],
+      "source_sha256": "a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42",
+      "source": "rebuild/src/stbuffer.cpp",
+      "population": "rebuild-stbuffer",
+      "source_order": 6922624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6922656,
+      "method": "0069a1a0",
+      "body_bytes": 30,
+      "body_sha256": "3d7991a92c05b1e8d7fd433fb35e8b1e404b43f1e3baba4eeb9e003b3e734115",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4709530cc268028b598ae8a84202a31a36b91c31a1818e6ad75fd85f9c70c395",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0StaticBufferClass@@QAE@H@Z",
+      "symbol_prefix": "??0StaticBufferClass@@QAE@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 949864
+        }
+      ],
+      "source_sha256": "a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42",
+      "source": "rebuild/src/stbuffer.cpp",
+      "population": "rebuild-stbuffer",
+      "source_order": 6922656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6922688,
+      "method": "0069a1c0",
+      "body_bytes": 15,
+      "body_sha256": "5cd4e1179781609736bdcff183003b457353acca214c7664257ba28602d2e4f6",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "52ac2a0f13d97de319dd6e9afe55406710fea6e9e6c3b8bb5d20c6ccf21fe578",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1StaticBufferClass@@QAE@XZ",
+      "symbol_prefix": "??1StaticBufferClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 949102
+        }
+      ],
+      "source_sha256": "a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42",
+      "source": "rebuild/src/stbuffer.cpp",
+      "population": "rebuild-stbuffer",
+      "source_order": 6922688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6922704,
+      "method": "0069a1d0",
+      "body_bytes": 304,
+      "body_sha256": "f32cf181cf42427e6ebf7022ae97959398a165e6c5d40c9c15c4d471cae9dfdc",
+      "padding_bytes": 0,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "f32cf181cf42427e6ebf7022ae97959398a165e6c5d40c9c15c4d471cae9dfdc",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z",
+      "symbol_prefix": "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABUSurfaceRegion@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Top_Left@?$TRect@H@@QBE?AV?$TPoint2D@H@@XZ",
+          "target": 4412768,
+          "addend": 0,
+          "resolved": 4292457257
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "_CompressionBuffer",
+          "target": 11261256,
+          "addend": 0,
+          "resolved": 11261256
+        },
+        {
+          "offset": 171,
+          "kind": 20,
+          "symbol": "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z",
+          "target": 6541744,
+          "addend": 0,
+          "resolved": 4294586161
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_CompressionBuffer",
+          "target": 11261256,
+          "addend": 0,
+          "resolved": 11261256
+        }
+      ],
+      "source_sha256": "a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42",
+      "source": "rebuild/src/stbuffer.cpp",
+      "population": "rebuild-stbuffer",
+      "source_order": 6922704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6923008,
+      "method": "0069a300",
+      "body_bytes": 304,
+      "body_sha256": "35512385e4c7df08f5759b4b02141a983bdf7edb3d629dc3c74779ca71e49fa6",
+      "padding_bytes": 0,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "35512385e4c7df08f5759b4b02141a983bdf7edb3d629dc3c74779ca71e49fa6",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABV?$TRect@H@@FF@Z",
+      "symbol_prefix": "?Add@StaticBufferClass@@QAEPAUEntry@1@AAVSurface@@ABV?$TRect@H@@FF@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?Top_Left@?$TRect@H@@QBE?AV?$TPoint2D@H@@XZ",
+          "target": 4412768,
+          "addend": 0,
+          "resolved": 4292456952
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "_CompressionBuffer",
+          "target": 11261256,
+          "addend": 0,
+          "resolved": 11261256
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?Line_Compress@RLEEngine@@QBEHPBXPAXH@Z",
+          "target": 6541744,
+          "addend": 0,
+          "resolved": 4294585856
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_CompressionBuffer",
+          "target": 11261256,
+          "addend": 0,
+          "resolved": 11261256
+        }
+      ],
+      "source_sha256": "a3cf7fb9f79fc67f9cda14baf90a37424c12edbdc513594da40e2bef2dfabc42",
+      "source": "rebuild/src/stbuffer.cpp",
+      "population": "rebuild-stbuffer",
+      "source_order": 6923008,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

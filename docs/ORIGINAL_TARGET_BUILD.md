@@ -210,7 +210,11 @@ records the same stages.
 docs) is scope `native`: native gate only, no full-build lock, no whole-file build; its receipt
 names the last exact whole-file receipt for an ancestor of HEAD (`rests_on_whole_file_receipt`).
 Anything that touches `src/`, `manifests/`, the build tools or `build.command` is scope `exact`:
-whole-file exact gate, then native compile and ctest. join_gate.py applies it (`--scope auto`).
+whole-file exact gate, then native compile and ctest. join_gate.py applies it (`--scope auto`). A change touching only
+`rebuild/` (and docs) is scope `rebuild`: the rebuild gate alone (join_gate.py records it and runs
+nothing of main's); a change to `tools/original_target/` or `manifests/toolchain.json` also prints
+`"rebuild_gate": true`, and the rebuild gate runs beside main's (ORIGINAL_TARGET_PROCESS.md, "Two
+trees, two gates").
 
 **Locks.** build.py takes the shared full-build lock itself (the mkdir lock of
 private/tools/fullbuild_lock.sh, build/owner-watch/fullbuild.lock in the main checkout, reentrant

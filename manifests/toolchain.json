@@ -1037,5 +1037,35 @@
       "streambuf": "bda0617fd167fa208145f28ee13ce70d1eec5c97c0a08ec3c823158ef49e3365",
       "strstream": "9be64c4536f1f2173ba14e729629a430670828965d27b6e59034139e866d04de"
     }
+  },
+  "atl_headers": {
+    "name": "VC98 ATL/INCLUDE tree (ATL 3.0), Visual Studio 6.0 Enterprise CD1: the RTM set, not the SP3 overlay",
+    "media_sha256": "d38250b86c3bef0d8123cade40abd1728a776e22e9633683c3e311a913ae0347",
+    "status": "hypothesis",
+    "note": "Pinned 2026-11-19 for the rebuild tree (docs/DECISIONS.md row 22, 'Compiler-product headers beyond VC98/INCLUDE'). The RTM set is pinned. SP3 (VS6SP3_5.EXE, receipt private/vc98-atl-20261110/receipt-sp3.json) replaces ATLBASE.H, ATLCOM.H, ATLDB.H, ATLDBCLI.H, ATLIMPL.CPP and VC98/INCLUDE/OLEAUTO.H; SP3's ATLBASE.H calls the four-argument VarCmp of SP3's OLEAUTO.H, so it does not compile against the pinned CD1 SDK set alone. Compared on wonline (lane R35) with SP3's OLEAUTO.H from the SP3 media already held: every ATL row (AtlAdvise, AtlModuleInit, AtlModuleTerm, the CComObject members, CComPtr destructors, ??_Estringdispid) and Startup_Chat compile to the same bytes under both sets; only Draw_Player_List (0x73FEE0, a declaration-count-sensitive row) flips, exact under RTM and off under SP3. The image does not settle the level by ATL code; RTM stays because it keeps the SDK pin unchanged and every row exact. Searched after the SDK set, only by units that include the wrapper header (canonical.ATL_WRAPPERS). The files stay private; only their hashes are tracked.",
+    "default_directory": "private/vc98-atl-20261110/rtm/VC98/ATL/INCLUDE",
+    "file_count": 19,
+    "tree_sha256": "14780004e839b7b34511e27171f6c070b5a3a20ac86c5e581443eec1e01bae5f",
+    "files": {
+      "ATLBASE.H": "88e6b18118fd470159301c46ccdb43195f0abfa2c8b27132e950129034b0d941",
+      "ATLCOM.H": "35fbe5af89582482918bd9e0e43b54bdce58a4cce711bb2f097386d23cd7bbd8",
+      "ATLCONV.CPP": "2e5f8f37c76a92b048804c715e1582f673e98b117bc8f368ba1b34d2f96617f5",
+      "ATLCONV.H": "0a59de6e21741893baca7671ae911face1739000679f856bb2b4453fa58c85bb",
+      "ATLCTL.CPP": "2e5f8f37c76a92b048804c715e1582f673e98b117bc8f368ba1b34d2f96617f5",
+      "ATLCTL.H": "edf393095b0822b3445cd4c6ef8536473fe8cc76f2dc00a1b2ffa2ae16ee1bba",
+      "ATLDB.H": "25dbcfda10ec4d9c2d4b0cd916cd337c293d199a53b83510008a1c4c7a286dd2",
+      "ATLDBCLI.H": "914ea2cc6d122ceee69afb5544a8a0f4ceb859cdd3a57d3a6d0f6b50e72b5fea",
+      "ATLDBSCH.H": "5486c913ec80fe0ab9ec91806814ef8bbfaf7dfc185fddd96e70c45ea24a2012",
+      "ATLDEF.H": "2109fba25be179cc7153ca838d640bfde6118bec95241fd1062301c5a3feca71",
+      "ATLHOST.H": "cae302174e854cd9fd003d5fd0698b6bb142aa80e2fdc0b7ea6663d07cf55eeb",
+      "ATLIFACE.H": "77df6591eba30353684f446bb6745a0f2a3d34a3d1157166e4a687d88ecf7da9",
+      "ATLIFACE.IDL": "f37b8446e80dc040201ecc8f3394c1853e48ea78c6bfdf6dca1739fc8e4c27de",
+      "ATLIMPL.CPP": "56abd6adad89555494aa5c1e563c77e84b7e0ba377c0b3dfc4f562853d1546bd",
+      "ATLSNAP.H": "7a291e1a789494fa85af02d94c96d870ef36ea1937f545e803f6f6496a56dffe",
+      "ATLWIN.CPP": "2e5f8f37c76a92b048804c715e1582f673e98b117bc8f368ba1b34d2f96617f5",
+      "ATLWIN.H": "f5b790d8e8a0f929587a9a6ffa437ec5e7e539abf7e34292c03e829d3d0b442d",
+      "STATREG.CPP": "2e5f8f37c76a92b048804c715e1582f673e98b117bc8f368ba1b34d2f96617f5",
+      "STATREG.H": "4e70976e117ea5d4dff0455b96edc7eeac3315d8cef7156822d568ddc7d90570"
+    }
   }
 }

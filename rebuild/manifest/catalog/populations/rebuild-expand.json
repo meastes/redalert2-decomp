@@ -1,0 +1,135 @@
+{
+  "id": "rebuild-expand",
+  "population": {
+    "id": "rebuild-expand",
+    "inventory_sha256": "3f886a4a417326746509dc3af366035ccaab8fe078a53555cfd0f36ad413b186",
+    "gaps_sha256": "aad462d2e2bee068931e9cd1d73831f117444b1901ed359595d5767bbae283c0",
+    "historical_population_sha256": "221f986f37070e38c1cff407c9458d19ca39b8e001ecf71adc0856babfe55f0d",
+    "historical_acceptance_sha256": "9cc3081f30fd439b243dda51bf024242b5e61368ba24434608ecc38e0fbf6db4"
+  },
+  "references": {
+    "??_C@_0L@FPAE@EXPAND?4DAT?$AA@": 8224428,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?Expansion_Present@@YI_NXZ": 4950384,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "??3@YAXPAX@Z": 7871803,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832
+  },
+  "regions": [
+    {
+      "entry": 4950384,
+      "method": "004b8970",
+      "body_bytes": 80,
+      "body_sha256": "103961a5f27e5fd86226b05fdde03de3ed20099b8141bd3989675400ab30844d",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "103961a5f27e5fd86226b05fdde03de3ed20099b8141bd3989675400ab30844d",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Expansion_Present@@YI_NXZ",
+      "symbol_prefix": "?Expansion_Present@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_C@_0L@FPAE@EXPAND?4DAT?$AA@",
+          "target": 8224428,
+          "addend": 0,
+          "resolved": 8224428
+        },
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4294641102
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+          "target": 4624800,
+          "addend": 0,
+          "resolved": 4294641683
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4294441576
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4294404503
+        }
+      ],
+      "source_sha256": "fef2afccd8db925c9360b873186aa6332bc36277ffbbf923de45c7d811279f16",
+      "source": "rebuild/src/expand.cpp",
+      "population": "rebuild-expand",
+      "source_order": 4950384,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

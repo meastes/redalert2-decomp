@@ -1,0 +1,99 @@
+start_utc,end_utc,class,activity
+18:17,18:28,tooling,worktree; tree switch in main's tools; rebuild.py (adopt/init/check); flasher and facing adopted and exact
+18:28,18:40,b,house: Update_Present_Super_Weapons; Begin_Production; reference learning added
+18:40,19:07,tooling,first whole-file build; generated data off; .c headers; catalog writer; XCU table; vtable slot binding; house partial acceptance
+18:52,19:00,b,house: Suspend_Production; MPlayer_Defeated; Place_Object; AI_Building (interleaved with the tooling above)
+19:07,19:17,a,ccini adopted; /Gr+/GR option set; data binding tool
+19:17,19:26,c,kamikaze written fresh
+19:26,19:43,c,spawnmanager written fresh
+19:43,19:47,support,header closures for the worker slices
+19:47,20:00,tooling,first adoption batch (range rule flawed, stopped); catalog cache; census adapter
+19:52,20:00,b,house: AI_Takeover; Add_Wall_Nodes (interleaved)
+20:00,20:06,c,capmgr written fresh
+20:06,,a,adoption batch over 233 mischa85-matched units (background)
+20:09,20:13,c,temporal written fresh (checked after the batch)
+20:13,20:18,c,temporal checked by probe (17 of 22 exact, five parked)
+20:34,21:38,a,adoption batches resumed after the restart; vtable binding and header-static prologue over all units; inline-asm and data guards in the catalog
+21:38,21:55,support,codex1 deliveries fetched, merged and re-accepted; initializer names per unit (resolver fix); XCU re-naming over 118 units
+21:56,22:20,support,lane R2: stale per-unit bindings found as the initializer blocker (reset_refs, reinit over 167 held units); duplicate classes 18 to 0 (no row lost); structure gate in the catalog step
+22:20,22:39,support,91 large mischa85 units adopted to a stage, their 7 duplicate classes conformed; 117 stray externs moved to headers (0 rows lost); whole-file exact with 129 units; README, LICENSE, THIRD_PARTY for publishing
+22:41,23:45,a,large mischa85 units: extern mover with type-aware homes, per-unit inline-virtual binding from vtable slots, initializer runs filed under the unit in main, draft guards with refinement; 50 units through the pipeline, 11 land whole (143 units whole-file exact); build-refused units held
+23:45,00:00,support,worker merges (codex1 r2060-r2067, codex2 r2876-r2888) gated, sync to the Windows mirror
+00:00,00:28,a,last 40 staged units through the pipeline (worker-claimed units dropped), guard fixes (comment semicolons, file statics, take-back), build-refused holds; 190 units whole-file exact
+00:28,00:45,support,guard.py also guards functions no original row matches (unplaced); re-guard of techno, unit, infantry, aircraft, rules, netshare, foot; foot held by the build (a function-local static table unbound); assessment
+00:38,01:10,tooling,lane R3: initializer-table groups in init and xcu; prologue variants (geometry only / rect only) ranked by exact rows less stray initializers; tail.py (trailing compiler copies); guard of functions without an independent bound; locked per-unit manifest writes; gap padding from the frozen gap inventory; re-init of 186 held units
+01:10,01:20,c,radbeam written fresh from the seed and radbeam.h (45 of 48 rows; Update_All/Draw_Pulse/Start_Pass parked)
+01:20,01:40,support,worker merge (codex1 r2068-r2074, codex2 r2889-r2899) gated (wfm1), mirror sync, codex1 slice 2 (class-b carry on planmgr taction queue unit)
+01:40,02:06,tooling,phase 2 over 183 held units (trailing copies, prologue, re-guard); lane work rebased onto the merge; build-refused holds; whole-file exact wf28
+02:06,02:20,support,worker merges (codex2 r2900-r2903, codex1 unit) gated; codex2 slice 3; codex2 audio header closures (AudioData, vqalib/iff.h)
+02:20,02:26,a,aircraft lands (TibSun FootClass::On_Ground override dropped; Fire_At guarded; GotHijacked slot binding dropped); review items: progress tree column, parked defined, address-suffixed total budgeted (Presentation renamed), README wording
+02:26,02:52,b,class b over the largest and the nearest parked functions of landed units: 7 attempted (Explosion_Damage, AI_Unit, Do_MISSION_ENTER, Read_INI, TMission_LOSE, Presentation (campscor), removeChar), 1 exact after edits (Do_MISSION_ENTER), 6 parked with reasons; recheck of all landed units after the combat.h/map.h changes
+02:53,03:05,tooling,lane R4: diagnosis of the initializer and unbound holds (alignment NOPs past main's bound; heads of object contributions left to mischa85's unk_ gaps; stale guards); aligned-split padding (DECISIONS 2026-11-14 (4)); init --auto head walk; unguard.py; atomic manifest writes
+02:58,03:02,support,worker branches fetched (codex1 50b621527, codex2 fd08813a2) by bundle; merge left to the owner
+03:00,03:20,c,LogicClass::AI written fresh from the Ghidra seed and landed layouts (offsets probed from the headers); exact after one comparison swap; logic unit lands with it (Detail/FPSCounter declarations moved to headers, LastFramesPerSecond is FPSCounter::CurrentFrameRate)
+03:05,04:12,tooling,phase over 147 held units (re-init, learn, initializer names, aligned padding, vtable slots, prologue, unplaced and small-score unguard trials, guard); evidenced inline-asm flags carried from main's rows; partial_ok for units whose misses are not emitted
+03:10,03:35,b,class b: 4 attempted (Input, GenerateStartingUnits, AI_Unit, Request_To_Join), 1 exact after edits (Input), 3 parked; map.h Place_Firestorm_Wall/Place_Wall take non-const types per the original mangling
+04:12,04:30,support,gated landing: build-refused units held (12), whole-file exact wf45, census within budget
+04:30,04:50,tooling,lane R4 batch 2 on rebuild-r4: LEVEL_LEPTON_H leaves globals.h (owner ruling); geoconst2.h defines it for its users; phase over the 45 units that reach globals.h without geometry.h; tool docstrings reworded to the standing effort
+04:50,05:05,a,staged units: sidebar and event land in the tree (held: sidebar one initializer, event's data tables need RA2's longer event list); map lands in the tree with geometry.h (211/233 rows; held by three initializers); tactical, init and ownrdraw parked (move_externs takes a same-named declaration from the wrong header); uicmnds parked
+05:05,05:12,support,version held by the structure gate (free Version_Name beside VersionClass::Version_Name); build-refused holds; whole-file exact wf51
+05:02,05:12,tooling,lane R5 on rebuild-r5: census free-vs-member decides by mischa85's names.csv address where it names the row (name match only without one; owner ruling); version lands
+05:12,05:30,tooling,move_externs: same-named declarations matched by type shape and scope (no class members or overloads; namespace members moved as namespace members; forwards for any home header; includes in the file head); tactical/init/ownrdraw compile in the tree
+05:30,05:45,b,init .data order (MovieListChoice after the selection sounds; campaign names as literals); tactical file statics in the original's order, atexit rows and guard bytes bound (atexit.py), Tactical::Tactical from main; init and tactical land
+05:45,06:00,b,sidebar widened to main's tail rows; SelectClass 60x48 (ra2-decomp); SelectClass Mouse_Enter/Mouse_Leave from main; TibSun-only shape statics left undefined; AbilityName bound to its table (0x7F9978); sidebar lands
+06:00,06:10,support,whole-file exact wf05 (297 units, 7620 rows); provenance for version/init/tactical/sidebar; census within budget (externs 12)
+06:10,06:18,a,event: EventLength/EventNames conformed to RA2's 46 events (DETONATE after DEPLOY, nine RA2 events after LATENCYFUDGE; bytes equal the original's tables); event lands
+06:18,06:26,tooling,map: file tables in the original's initializer order (RegionQuadrantOffsets after ShorePieceOffsets), MapClass() sets MaxLevel (main), MZonePassability conformed to RA2's 12x8 table, Subzone_Span guarded, data bound per symbol (databind); still held: its 8 KB static Cell-table initializer differs in register allocation (Unaccounted emitted code)
+06:26,06:38,b,b attempts: Explosion_Damage (TPoint3D out-of-class trial, no change; parked), Init_Game (stack layout differs; parked); MapClass() from main (exact, map held)
+06:38,06:45,tooling,ownrdraw: ODTooltip defined before Tooltip(); GeoZero leaves geoconst1.h (the nine other includers include geozero.h before it); hdrstatic.py binds per-unit header constants; dictionary bindings pinned (two wrong inferred symbols.csv lines removed); 140/147, still held (29 namespace helpers have no row); whole-file exact wf11
+06:50,06:58,support,lane R6 on rebuild-r6 (worktree, build config from lane R5, caches); full recheck of the 408 units (last/ objects of lane R5 were pruned)
+06:58,07:02,a,map: the static Cell-table initializer was short of RadiusOffset's eleventh ring (309 of the executable's 369 cells, RadiusCount already had the twelfth entry); with main's ring the initializer's inline budget runs out where the original's does (288 of 369 expanded); map lands (218/233, the rest parked)
+07:02,07:08,tooling,guard.py finds definitions inside namespace blocks (and class members inside them), leaves a prototype when the definition was the only declaration, and --callers guards the drafts that call an unbound function out of line; ownrdraw: 6 non-exact callers guarded, Dictionary<unsigned,WinData>::shrink bound to main's row 0x6027E0; still held: 20 unreferenced functions the exact rows expand inline (the original linker dropped them, /OPT:REF; build-model question) and the control registry's atexit destructor (??_GWideWstring kept out of line in the original)
+07:08,07:10,support,whole-file exact wf01 (300 units, 7,872 rows; dib, codex2's, enters unchanged); census within budget
+07:10,07:22,b,Explosion_Damage: the TPoint3D constructor and Length are already out of line at the aircraft-tracker sites in this tree (the W rule pushes them out); TibSun's TPoint3D<float> rocker form and (coord - center).Length() at the cell sites halve the diff (449 to 225 lines); the three cell sites still expand the constructor (the original calls it; frame 0xCC against 0xAC); parked with the trial log
+07:22,07:40,tooling,ownrdraw evidence for the review (no /OPT:REF, no ICF: main's uncalled-copies rows); the 19 unreferenced helpers inline, Copy_List bound to main's 0x600460, the dropdown globals bound from main's exact 0x5EAD20, the no-row window procedures and Draw_Edit_Text (another unit's, 0x600830) guarded; ownrdraw still refused by the build: its control-registry atexit destructor (_$E173) differs; terrain (Is_Animating in its class, ra2-decomp) and alphalighting (inline empty destructor) land; palette's SchemeTable Find/Next bound to main's rows; whole-file exact wf03 (302 units, 7,918 rows)
+07:40,07:48,support,merge of rebuild-trial 11278a1f6 (codex1's terrain text taken over this lane's); bullet (codex1) refused by the whole-file build for its merged text, held; whole-file exact wf05 (307 units, 8,145 rows)
+07:50,08:05,b,Init_Game unguarded trial (diff 34/37 lines: unbound statics and the SOUND.INI failure-path destructor); Init_Heaps/Init_Threads and named-local trials; parked with notes
+08:05,08:30,c,class c: KamikazeClass::Update (187 B) written fresh, 11 variants, best two instructions off, parked (b_log_r6.csv)
+08:30,08:55,tooling,held-unit initializer bucket: rename_bound.py gives a row whose name went stale the object function the unit's own bindings already place at its entry, so check --learn compares it and infers the data it differs by (the $S guard flags of function statics); with xcu.py over the 87 held non-worker units: about 40 rows gain, empulse, light and laser land, scroll refused by the build (.data of a function static) and held; whole-file exact wf07 (310 units, 8,239 rows)
+10:40,10:52,c,mpobserver written fresh (Megawealth and the observer team, 7 functions, 0.6 KB with initializers): exact on the first check; unit lands 20/20 (b_log_r9.csv)
+10:55,11:10,c,mpunholyalliance written fresh (UnholyAlliance, 7 functions, 0.8 KB with initializers): three variants of SpawnBaseUnits and one of CheckStartConditions; unit lands 20/20 (b_log_r9.csv)
+10:58,11:05,tooling,check results imported from lane-r9 (catalog equal before any change)
+11:05,11:15,b,shared-header blockers: Coord::operator+, Random_Pick via Scen->Random(), Vector3 initializer lists: none changes its target function's code; not kept (b_log_r10.csv)
+11:15,11:27,b,near-miss sweep of 40 parked functions in landed non-worker units; Region_Threat, Destroy_Low_Bridge_Near, Suggested_New_Team, Process_Landing tried and parked (b_log_r10.csv)
+11:27,11:36,c,mpsiege written fresh (MultiplayerSiege, 11 functions, 1.8 KB with initializers): three variants; unit lands 24/24 (b_log_r10.csv)
+11:37,11:43,b,map: Sight_From and RevealArea1 exact from main's form (+2 rows); Pick_Random_Tile_Variant and ownrdraw's registry destructor tried and parked (b_log_r10.csv)
+11:44,11:53,tooling,review items: process chatter out of 14 files, census placeholder/inherited budgets, GEOMETRY_H dropped in 5 sources, conio.h in except, tab pass over unvqtblc and voxel; all objects identical, whole-file exact (wf03)
+11:55,11:58,b,TPoint3D constructor out-of-line experiment (point.h) for Fire_AI: not kept (b_log_r10.csv)
+11:58,12:03,tooling,lane R11 worktree; lane-r10 checks imported; census: RA2_NON_MATCHING guards reported beside the parked tail (not gated), Unknown* definition aligned (56)
+12:03,12:11,b,point.h TPoint3D<int>(x, y, z) out of line (explicit specialization tried; contradicted by 0x434820) and Fire_AI's Move_Coord form (80 -> 74 lines) (b_log_r11.csv)
+12:11,12:27,b,Movement_AI exact (3.7 KB); Destroy_Bridge2_Near, Region_Threat, Suggested_New_Team, Spark_AI, Fire_At (velocity bindings), Read_INI parked (b_log_r11.csv)
+12:27,12:48,b,sweep of 126 parked rows in non-worker units; Command_Cheer, Capture, Kamikaze Update, Process_Tunneling, LetGo, Draw_Me, Flag_Cell, TemporalClass::Fire exact; Railgun_AI 311 -> 23 bytes (b_log_r11.csv)
+12:48,12:57,c,stlscore written fresh (STLScoreScreen and the score dialog, 1.9 KB with initializers): 15/18 -> 18/18 (b_log_r11.csv)
+12:57,13:02,tooling,catalog 331 units / 8,936 rows; whole-file exact (wf01)
+13:09,13:13,tooling,lane R12 worktree; lane-r11 checks imported; catalog regenerated unchanged (331 units / 8,936 rows)
+13:13,13:30,b,Read_INI exact (ra2-decomp's strength line); Fire_At, Destroy_Bridge2_Near (438 -> 12) and its twin, Spark_AI, WaveClass::Load, trimTrailing parked (b_log_r12.csv)
+13:30,13:36,tooling,held non-worker units: ownrdraw and wonline blockers listed, none cheap (b_log_r12.csv)
+13:36,13:43,c,wdtprops written fresh (CampaignProperties, 22/22 rows) (b_log_r12.csv)
+13:43,13:46,tooling,catalog 332 units / 8,959 rows; whole-file exact (wf01)
+13:46,13:59,b,parked sweep in non-worker units: Start_Pass, JustLetGo, Reposition_Sidebar exact (class b), Zoom_Mode_Control (class c); Draw_Pulse 17 -> 9, Build_Wave_Shape 253 -> 94; campscor, Update_All, SidebarClass(NoInitClass), Start_Of_Move parked (b_log_r12.csv)
+13:59,14:03,tooling,catalog 332 units / 8,963 rows; whole-file exact (wf02)
+13:58,14:06,tooling,judgment-call flags: provenance judgment column, census and progress line (b_log_r13.csv)
+14:06,14:31,b,wonline 12 -> 159/161: current mischa85 text, the file's globals in initializer order, Encode_Game_Options / Handle_User_Leave / Reset_WOL_Globals exact from main's forms; held on its OLEInitializer object (b_log_r13.csv)
+14:31,14:45,tooling,inline_probe.py: Fire_At, RadBeam::Update_All, Reset_WOL_Globals probed (b_log_r13.csv)
+14:45,14:53,tooling,all 413 units re-checked, catalog 332 units / 8,963 rows; whole-file exact (wf01)
+14:55,15:10,tooling,lane R14 worktree; lane-r13's config copied; all 413 units re-checked (b_log_r14.csv)
+14:57,15:00,tooling,wonline g_OLEInitializer: case B evidence and the no-unique-slot report to the owner
+15:00,15:20,a,Fire_At exact with ra2-decomp's forms (TVelocity3D constructor in velocity.h; Reveal_Aircraft_Coord); tree-wide re-check (b_log_r14.csv)
+15:05,15:25,tooling,unplaced-unreferenced binding (verify_manifest/data_bindings/canonical/status; rebuild catalog, census, progress); wonline lands; whole-file exact (wf01); negative test
+15:13,15:25,c,mpmanbattle (MultiplayerManBattle) new unit 3/3
+15:28,15:40,tooling,parked-tail triage with inline_probe.py (b_log_r14.csv); Render Intersect header test (reverted); census fallback
+15:30,15:34,b,Destroy_Bridge2_Near / Destroy_Low_Bridge_Near operator+ header forms (none kept)
+22:55,23:10,a,lane R22: mapgen 0.7/15.0 named function constants (Generate_Vegetation and Generate_Arctic_Vegetation exact; 203/217)
+23:10,23:35,b,lane R22: wonline Run_Lobby_Session probes (declaration count 0..60, mid-file includes, ATL include path): parked
+00:27,00:50,b,lane R24: dropship widened to 0x4AA2B0 (Draw_Cost and Draw_Unit_Info exact from main; Dropship_Screen parked, exact only under an unsigned vector index)
+00:50,01:55,a,lane R24: _alpha and _logic units (header include trims), _vanim parked for a ruling, stale guards (taction 17, voc 1), mapgen road tables bound
+01:55,02:30,b,lane R24: mapgen audit needs written into its held note, _vanim ruling checked (no single header), missile unit, small drafts (removeChar, Pick_Lobby, Initialize, Search_For_Tiberium_Weighted) parked with reasons
+02:30,03:20,b,lane R24: houstype constructor and Load (RA2 forms), const tried and held (TibSun tables), sidebar NoInit probe (radar.h, worker unit), vector constructor pattern surveyed
+03:20,03:55,b,lane R24: radar.h NoInit (sidebar), TActionClass constructor, TechnoClass NoInit improved, WaveClass::Load and the out-of-line template pattern noted
+03:55,04:25,b,lane R24: WDT Map::Load (rc_ptr operator->), wdtsel Select_Territory and Present_Ticks (widewstring.h declarations), Region_Threat parked; resume note

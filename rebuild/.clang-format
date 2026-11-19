@@ -1,0 +1,58 @@
+# House format of the rebuild tree (lane F1, 2026-11-19), derived from the adopted Westwood/Tiberian Sun
+# text: tabs, attached braces on statements, function and class braces on their own line, `Type * name`,
+# indented access labels and case labels. No include sorting, no comment reflow, no column limit.
+# rebuild/tools/fmtnew.py applies it only to the lines a change adds, and only as whitespace edits that
+# keep every line where it was; `return(x)` and `operator == (` keep their spacing there.
+Language: Cpp
+BasedOnStyle: LLVM
+ColumnLimit: 0
+UseTab: ForContinuationAndIndentation
+IndentWidth: 4
+TabWidth: 4
+ContinuationIndentWidth: 4
+SortIncludes: Never
+ReflowComments: false
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterEnum: false
+  AfterFunction: true
+  AfterNamespace: false
+  AfterControlStatement: Never
+  BeforeElse: false
+  BeforeCatch: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+PointerAlignment: Middle
+IndentAccessModifiers: true
+IndentCaseLabels: true
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortBlocksOnASingleLine: Always
+AllowShortLoopsOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+KeepEmptyLines:
+  AtEndOfFile: true
+  AtStartOfBlock: true
+  AtStartOfFile: true
+MaxEmptyLinesToKeep: 100
+AlignTrailingComments:
+  Kind: Leave
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
+AlignEscapedNewlines: DontAlign
+AlignOperands: DontAlign
+Cpp11BracedListStyle: false
+AllowShortNamespacesOnASingleLine: true
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerIndentWidth: 4
+PackConstructorInitializers: Never
+BreakInheritanceList: AfterColon
+AlignAfterOpenBracket: DontAlign
+SpaceBeforeParens: ControlStatements
+FixNamespaceComments: false
+SpaceAfterTemplateKeyword: false
+IndentPPDirectives: None
+...

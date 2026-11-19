@@ -26,6 +26,9 @@ def require(condition, message):
 
 
 def load():
+    import tree
+    if tree.REBUILD:
+        return None     # rebuild tree (tree.py): main's generated data modules bind main's names; data stays original
     if not MANIFEST.exists():
         return None
     doc = json.loads(MANIFEST.read_text())

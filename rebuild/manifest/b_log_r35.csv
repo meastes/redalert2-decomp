@@ -1,0 +1,11 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+wonline,00741300,Startup_Chat exact,976,a,edit,40,"TibSun text with the real ATL headers; != NULL / strlen() != 0 (inline budget probe: +1/+2/+3 dead stores off/exact/off); calibration used"
+wonline,00742080,Shutdown_Chat exact,496,a,yes,2,"TibSun text, _Module.Term()"
+wonline,0075d0d0,AtlAdvise exact,130,a,yes,0,"ATL 3.0 atlbase.h (RTM pin)"
+wonline,0075d160,AtlModuleInit exact,136,a,yes,0,"ATL 3.0 atlbase.h"
+wonline,00765990,AtlModuleTerm exact,193,a,yes,0,"ATL 3.0 atlbase.h"
+wonline,0073a680,??_Estringdispid@CComTypeInfoHolder exact,106,a,yes,20,"atlcom.h; row bounded by the exact neighbours and seeded-pass5-aligned (owner, DECISIONS row 22); rebuild_catalog frozen_bound"
+wonline,00765e30,template copies and the Download sink CComObject members to 0x7683B0 exact,2879,a,yes,10,"range widened; 33 rows incl. CComObject<CDownloadEventSink> ctor/AddRef/Release/QI"
+wonline,(data),ATL select-any .bss group 0xB2ACAC-0xB2ACBF,0,a,yes,30,"ATL_CREATE_OBJECT + m_libid by exact hole (review session ruling); data_bindings.group_hole, row field data_bound_by_group"
+wonline,(header),wolapi.h in namespace WOL,0,a,edit,30,"the image RTTI names WOL::IChatEvent/INetUtilEvent/IDownloadEvent (Renegade WWOnline wraps the include the same way); forward declarations in netshare.h, playerprofile.h, wonline.h; 26 includers rechecked, none lost"
+(resume),,lane R35 resume note,0,,,0,"Batch 1 gated: wonline 331/432 to 0x7683B0 with the real ATL headers (whole-file exact). Next: sink bodies in-class in TibSun order; RA2 IChatEvent slots (build/r35/RESUME.md)"

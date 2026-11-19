@@ -1,0 +1,2909 @@
+{
+  "id": "rebuild-wsproto",
+  "population": {
+    "id": "rebuild-wsproto",
+    "inventory_sha256": "8123e43e975adfdec36fcb2f277ae221d3b2dd8ea22dcc7da0a71d661dfe4696",
+    "gaps_sha256": "9772e28b0629154cf368f017f6b3eec17bdff5a99c1871e5fe89bb358c7e751a",
+    "historical_population_sha256": "0704066cc512c8be002502a95487a589f76bb0241081fce7e32cb46185e10273",
+    "historical_acceptance_sha256": "6ef5084e445ebc4c3b3d024cc820612fc08fdcb1c28ffb0d683a61cb0c86ea81"
+  },
+  "references": {
+    "_RECT_NONE": 11710000,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11710024,
+    "_ISO_TILE_SIZE": 8059496,
+    "_LEPTONS_PER_PIXEL": 11710096,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11710080,
+    "_ONE_RAD": 8059504,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11710072,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11710032,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11709992,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11710104,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11710040,
+    "_CELL_DIAG_SLOPE_ANGLE": 11710064,
+    "_BRIDGE_LEPTON_HEIGHT": 11710088,
+    "_CELL_NONE": 11710016,
+    "_COORD_NONE": 11710048,
+    "??_7?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@": 8059612,
+    "??_7WinsockInterfaceClass@@6B@": 8059516,
+    "??_C@_0BO@KMPH@WinsockInterface?5constructed?6?$AA@": 8391528,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "_WSACleanup@0": 7871418,
+    "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@": 8059644,
+    "??3@YAXPAX@Z": 7871803,
+    "_closesocket@4": 7871382,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "_WSAAsyncSelect@16": 7871424,
+    "_WSAGetLastError@0": 7871358,
+    "??_C@_0DI@PEAJ@Async?5select?5failed?5on?5primary?5s@": 8391620,
+    "??_C@_0DK@HMNL@Async?5select?5failed?5on?5alternate@": 8391560,
+    "__chkstk": 7878736,
+    "??_C@_0BI@NICH@WinsockInterface?5init?4?6?$AA@": 8392008,
+    "??_C@_0CG@BCAM@WinsockInterface?5already?5initial@": 8391968,
+    "?PacketLossPercent@@3HA": 11710112,
+    "?IsPacketLossReported@@3_NA": 11710108,
+    "??_C@_04PAEN@Note?$AA@": 8215028,
+    "??_C@_0CO@MEGD@Warning?5?9?5Packet?5Loss?5Simulation@": 8391920,
+    "__imp__MessageBoxA@16": 7971964,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_0BK@GKJF@About?5to?5call?5WSAStartup?6?$AA@": 8391892,
+    "_WSAStartup@8": 7871436,
+    "??_C@_0CP@NEHJ@Winsock?5failed?5to?5initialise?5?9?5e@": 8391844,
+    "??_C@_0BI@CLP@Winsock?5initialised?5OK?6?$AA@": 8391820,
+    "??_C@_0BK@DKHE@Winsock?5version?5is?5?$CFd?4?$CFd?6?$AA@": 8391792,
+    "_WS_Protocol_List": 8391344,
+    "_EnumProtocolsA@12": 7871430,
+    "??_C@_0CJ@HBNO@Found?5protocol?5?$CFs?0?5max?5frame?5siz@": 8391748,
+    "??_C@_0CE@NLAI@Failed?5to?5get?5protocol?5enumerati@": 8391712,
+    "??_C@_0CC@JADJ@Winsock?5version?5is?5less?5than?51?41@": 8391676,
+    "?Add_CRC@@YIXPAII@Z": 6464320,
+    "??_C@_0BN@DELG@Error?5in?5Winsock?5packet?5CRC?6?$AA@": 8392032,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
+    "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z": 7779232,
+    "__imp__SendMessageA@16": 7972000,
+    "_getsockopt@20": 7871376,
+    "_setsockopt@20": 7871400,
+    "_?socket_receive_buffer_size@?1??Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z@4HA": 8391360,
+    "??_C@_0DI@PGAN@Failed?5to?5set?5socket?5option?5SO_R@": 8392184,
+    "??_C@_0CA@CCIN@Socket?5option?5SO_RCVBUF?5set?5OK?6?$AA@": 8392152,
+    "_?socket_transmit_buffer_size@?1??Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z@4HA": 8391356,
+    "??_C@_0DI@KKO@Failed?5to?5set?5socket?5option?5SO_S@": 8392096,
+    "??_C@_0CA@BIBE@Socket?5option?5SO_SNDBUF?5set?5OK?6?$AA@": 8392064,
+    "_gethostname@8": 7871442,
+    "??_C@_0EB@GDGN@Error?5?9?5WinsockInterface?5Unable?5@": 8392276,
+    "??_C@_0CC@CKAA@WinsockInterface?5Host?5name?5is?5?$CFs@": 8392240,
+    "_$E2": 7776912,
+    "_$E5": 7776944,
+    "_$E8": 7776992,
+    "_$E11": 7777024,
+    "_$E14": 7777056,
+    "_$E17": 7777088,
+    "_$E20": 7777120,
+    "_$E23": 7777152,
+    "_$E26": 7777216,
+    "_$E29": 7777264,
+    "_$E32": 7777312,
+    "_$E35": 7777360,
+    "_$E38": 7777376,
+    "??0WinsockInterfaceClass@@QAE@XZ": 7777408,
+    "??_G?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z": 7781904,
+    "??_GWinsockInterfaceClass@@UAEPAXI@Z": 7780928,
+    "?Set_Broadcast_Address@WinsockInterfaceClass@@UAEXPBDG@Z": 7776768,
+    "?Clear_Broadcast_Addresses@WinsockInterfaceClass@@UAEXXZ": 7776784,
+    "?Get_Protocol@WinsockInterfaceClass@@UAE?AW4ProtocolEnum@@XZ": 7780864,
+    "?Protocol_Event_Message@WinsockInterfaceClass@@UAEHI@Z": 7780880,
+    "?Open_Socket@WinsockInterfaceClass@@UAE_NI@Z": 7780896,
+    "?Message_Handler@WinsockInterfaceClass@@UAEHPAUHWND__@@IIJ@Z": 7780912,
+    "?Get_Num_Local_Addresses@WinsockInterfaceClass@@UAEHXZ": 7776800,
+    "?Get_Local_Address@WinsockInterfaceClass@@UAEPAEH@Z": 7776816,
+    "?Set_NetCard@WinsockInterfaceClass@@UAEXH@Z": 7776832,
+    "??_G?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z": 7781824,
+    "??1WinsockInterfaceClass@@UAE@XZ": 7777648,
+    "?Close@WinsockInterfaceClass@@QAEXXZ": 7777808,
+    "?Close_Socket@WinsockInterfaceClass@@UAEXXZ": 7777856,
+    "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ": 7777920,
+    "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ": 7778064,
+    "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778144,
+    "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ": 7778256,
+    "?Init@WinsockInterfaceClass@@QAE_NXZ": 7778464,
+    "?Build_Packet_CRC@WinsockInterfaceClass@@MAEXPAUWinsockBufferType@1@@Z": 7778960,
+    "?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z": 7779088,
+    "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ": 7779584,
+    "?Read@WinsockInterfaceClass@@UAEHPAXAAH01AAG@Z": 7779744,
+    "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z": 7779952,
+    "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z": 7780256,
+    "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z": 7780512,
+    "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z": 7780592,
+    "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z": 7780752,
+    "?Clear@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ": 7781120,
+    "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
+    "?GetItem@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBEPAUWinsockBufferType@WinsockInterfaceClass@@H@Z": 7781200,
+    "??8?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBE_NABV0@@Z": 7781216,
+    "?Resize@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781280,
+    "?Clear@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ": 7781456,
+    "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781504,
+    "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781568,
+    "?Resize@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781600,
+    "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781776,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056
+  },
+  "regions": [
+    {
+      "entry": 7776912,
+      "method": "0076aa90",
+      "body_bytes": 23,
+      "body_sha256": "1ab8effa3997e2c93cfc6cdb5d84072889f60069b8fa483b006f3a4fde691ca5",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "7e79a7213848d1cd0800212c2aefa45f3bd1ea8be9fc8d6a2083b4bbb273e2dc",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710000,
+          "addend": 0,
+          "resolved": 11710000
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710000,
+          "addend": 4,
+          "resolved": 11710004
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710000,
+          "addend": 8,
+          "resolved": 11710008
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11710000,
+          "addend": 12,
+          "resolved": 11710012
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7776912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7776944,
+      "method": "0076aab0",
+      "body_bytes": 40,
+      "body_sha256": "7cfd16e3c436736f89d32861eb474964e808efcc6f19d8f36b4c3c75b0f3ea86",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3df0cdc90a6a5abe9bf73e4d0caa840ab045d4fbb0ff8b6f1dac60654f9486f8",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 95983
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292147522
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710024,
+          "addend": 0,
+          "resolved": 11710024
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7776944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7776992,
+      "method": "0076aae0",
+      "body_bytes": 19,
+      "body_sha256": "90020232abcfaae5d3f25320b7f49151ffdccd9d7f5b89c410e1199cfc63aa8b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "88590940d7ad3bdd4c90bf361a1fd2716c533a9f900ba171b991a1a956bab037",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710024,
+          "addend": 0,
+          "resolved": 11710024
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8059496,
+          "addend": 0,
+          "resolved": 8059496
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11710096,
+          "addend": 0,
+          "resolved": 11710096
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7776992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777024,
+      "method": "0076ab00",
+      "body_bytes": 19,
+      "body_sha256": "b758eed4ab034d48e7f6b8ea3f0ee1bd6621636203c9ba9b34069308a47b906e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fb6733a8c3f1f5536eb3587e7ce7a5324a7e7a3caf73aaa4bcc2a9b3960a1b47",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11710096,
+          "addend": 0,
+          "resolved": 11710096
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11710080,
+          "addend": 0,
+          "resolved": 11710080
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777056,
+      "method": "0076ab20",
+      "body_bytes": 19,
+      "body_sha256": "5648b88e3d4a36d0aed32cb0845eb2acb2d167235e4b91f5cf5b2ed66d4f6693",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "dc9d50de7b3d798ed35fef4ad55a32f2b4af712e01fd7b4f199d35dc2d7a1d07",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059504,
+          "addend": 0,
+          "resolved": 8059504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11710072,
+          "addend": 0,
+          "resolved": 11710072
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777088,
+      "method": "0076ab40",
+      "body_bytes": 19,
+      "body_sha256": "6455e496bf0cd62b62ada859d443163075c78601ae9d137cf6685a205855cc06",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "df9e20828bb3422f0f7eb9cac40b3535bbacf781a887121e0d3a4be3420d4aa8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059504,
+          "addend": 0,
+          "resolved": 8059504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11710032,
+          "addend": 0,
+          "resolved": 11710032
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777120,
+      "method": "0076ab60",
+      "body_bytes": 19,
+      "body_sha256": "de85839f5a65cb3790aa7f2313ea3e14056685d432dc749815d8bb0ee4ecadd6",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8064672278c247d712939a8e8935101dd3a48b479b99b523e50ded397bf73d15",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8059504,
+          "addend": 0,
+          "resolved": 8059504
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11709992,
+          "addend": 0,
+          "resolved": 11709992
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777152,
+      "method": "0076ab80",
+      "body_bytes": 49,
+      "body_sha256": "f341cccdb2551a651642a00a3d43e6871f00f68e3b16139a20163d3638aa8f29",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ad9c231d1bb6673616db45192f919da541fde344ffa309acfe269ee7c366e48e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11709992,
+          "addend": 0,
+          "resolved": 11709992
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11710032,
+          "addend": 0,
+          "resolved": 11710032
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292147593
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710024,
+          "addend": 0,
+          "resolved": 11710024
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 83301
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710104,
+          "addend": 0,
+          "resolved": 11710104
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777152,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777216,
+      "method": "0076abc0",
+      "body_bytes": 33,
+      "body_sha256": "99d449d68a373b8bb3df7496f894711156a62380036f06f131297ae56ae31b48",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ac3486c48b479089d631c6f3319867faa470c15505703a228e419dac949e7d26",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710104,
+          "addend": 0,
+          "resolved": 11710104
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292147673
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11710040,
+          "addend": 0,
+          "resolved": 11710040
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777264,
+      "method": "0076abf0",
+      "body_bytes": 44,
+      "body_sha256": "1fd99fe2ca62184f0d5d464540d55934f78fdf39f46f2a0081c595facaa99ddb",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d9f4fd879004d47304ff3040ea107b8077ec11d1da20c195c79a58485ae22926",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710104,
+          "addend": 0,
+          "resolved": 11710104
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11710024,
+          "addend": 0,
+          "resolved": 11710024
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292147614
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11710064,
+          "addend": 0,
+          "resolved": 11710064
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777312,
+      "method": "0076ac20",
+      "body_bytes": 39,
+      "body_sha256": "3d6942d7cbf7e7753fa3d68540967f3ca34e913f5f0d8fe277d6c14942c5fffc",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "30ca2a2cf871f75cd469604f94d8ccd7e7eccd1c2c750efad81a81ef7cf7a3da",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11710104,
+          "addend": 0,
+          "resolved": 11710104
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 83152
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11710088,
+          "addend": 0,
+          "resolved": 11710088
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777360,
+      "method": "0076ac50",
+      "body_bytes": 15,
+      "body_sha256": "c1c951907391f27ac040899246c67e4ed6349ae2d0451d08e614713110e9722c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e1305019407e3c3497d39e7f5b3e3a21a7ebd32a988b8295db96108850f7cb7f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11710016,
+          "addend": 0,
+          "resolved": 11710016
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11710016,
+          "addend": 2,
+          "resolved": 11710018
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777376,
+      "method": "0076ac60",
+      "body_bytes": 18,
+      "body_sha256": "38e5af6709b6cf89e2d8b9c8727d7a6a29af007dfe0dd7be3e9fd1b3ec805d09",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1da28ad3949d289d5ce2809f759fe6f4c13088879849ffda2294c51e3954c94e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710048,
+          "addend": 0,
+          "resolved": 11710048
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710048,
+          "addend": 4,
+          "resolved": 11710052
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11710048,
+          "addend": 8,
+          "resolved": 11710056
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777408,
+      "method": "0076ac80",
+      "body_bytes": 232,
+      "body_sha256": "c14054a3ae0a5b81c90f523c8d2dd2711161c2a209f9450999bb74e1e8c8f8ff",
+      "padding_bytes": 8,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "6f0e5494ccc9657edde40d86eaaf2000fc5450b3dee072f2771334b88a767a17",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WinsockInterfaceClass@@QAE@XZ",
+      "symbol_prefix": "??0WinsockInterfaceClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059612,
+          "addend": 0,
+          "resolved": 8059612
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "??_7WinsockInterfaceClass@@6B@",
+          "target": 8059516,
+          "addend": 0,
+          "resolved": 8059516
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "??_C@_0BO@KMPH@WinsockInterface?5constructed?6?$AA@",
+          "target": 8391528,
+          "addend": 0,
+          "resolved": 8391528
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291410832
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777648,
+      "method": "0076ad70",
+      "body_bytes": 160,
+      "body_sha256": "ca0aae9a486eeed2be5fed4969c9a6dc89e5278cad9138b206b7274e5ba626cc",
+      "padding_bytes": 0,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "ca0aae9a486eeed2be5fed4969c9a6dc89e5278cad9138b206b7274e5ba626cc",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1WinsockInterfaceClass@@UAE@XZ",
+      "symbol_prefix": "??1WinsockInterfaceClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7WinsockInterfaceClass@@6B@",
+          "target": 8059516,
+          "addend": 0,
+          "resolved": 8059516
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_7WinsockInterfaceClass@@6B@",
+          "target": 8059516,
+          "addend": 32,
+          "resolved": 8059548
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "_WSACleanup@0",
+          "target": 7871418,
+          "addend": 0,
+          "resolved": 93730
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 94084
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 94047
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 94010
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777808,
+      "method": "0076ae10",
+      "body_bytes": 39,
+      "body_sha256": "c5a4725a778608eaf70bb91d6ccc92788d6d7c1131221b800be7305b1bcda3c0",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6263cd16b8cb4f27cc12cdd68383368761dcfa87af5e15d6110997c2b9ea9714",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close@WinsockInterfaceClass@@QAEXXZ",
+      "symbol_prefix": "?Close@WinsockInterfaceClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_WSACleanup@0",
+          "target": 7871418,
+          "addend": 0,
+          "resolved": 93580
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777856,
+      "method": "0076ae40",
+      "body_bytes": 59,
+      "body_sha256": "4b6027a9f2a81d7671ad6b6164e5ad4e258d3c84de3ab34ac63f2270be230c31",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "73639d62d448654dba4a69121e0539c6f1fbcc0b21632ae2717ba2e9acdfa902",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Close_Socket@WinsockInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Close_Socket@WinsockInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 93506
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "_closesocket@4",
+          "target": 7871382,
+          "addend": 0,
+          "resolved": 93479
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7777920,
+      "method": "0076ae80",
+      "body_bytes": 132,
+      "body_sha256": "aabccb73538128cce34f81cda2a5efe8ea7b9ecc6f50ebf6021f90dd61315097",
+      "padding_bytes": 12,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "e028c29c18b14820996850de76e7f63ec36fdbc789912f815f6978a41f08e982",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ",
+      "symbol_prefix": "?Start_Listening@WinsockInterfaceClass@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 93472
+        },
+        {
+          "offset": 38,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 93396
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_C@_0DI@PEAJ@Async?5select?5failed?5on?5primary?5s@",
+          "target": 8391620,
+          "addend": 0,
+          "resolved": 8391620
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291410491
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 93404
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 93328
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "??_C@_0DK@HMNL@Async?5select?5failed?5on?5alternate@",
+          "target": 8391560,
+          "addend": 0,
+          "resolved": 8391560
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291410423
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7777920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7778064,
+      "method": "0076af10",
+      "body_bytes": 69,
+      "body_sha256": "5aef7f30160d30fbe025fdfce4d11cfd7681a00ee26df28bd6612cdf4595f369",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "2350a87c705401420c21aed7914b8f2853dc0148ff0921058d5af68e97dfd8a9",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Stop_Listening@WinsockInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 93325
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "_WSAAsyncSelect@16",
+          "target": 7871424,
+          "addend": 0,
+          "resolved": 93292
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7778064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7778144,
+      "method": "0076af60",
+      "body_bytes": 105,
+      "body_sha256": "b7f3ca3a34380d16c0e4dec7cdfb1f7e7a6b611e5b7e502c03aef00cabf848c2",
+      "padding_bytes": 7,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "62d0c2cf522e00a79de701570ff4528fd9cee827365d2501a530b992b5b82aad",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Discard_In_Buffers@WinsockInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 93632
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7778144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7778256,
+      "method": "0076afd0",
+      "body_bytes": 201,
+      "body_sha256": "5cf01206b49b5de6e0f33894cf527a8d6b51ed02ff2606c54176e62bb35d4baf",
+      "padding_bytes": 7,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "14d52568362a5bf3b6f7d889fb40b31639a3757db8d546b522d1a52afdbc6ff5",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ",
+      "symbol_prefix": "?Discard_Out_Buffers@WinsockInterfaceClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 93520
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 93424
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7778256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7778464,
+      "method": "0076b0a0",
+      "body_bytes": 486,
+      "body_sha256": "6f9c490abd76195f89896fec4670ad16c04cf4483599a3e37922a6636fb5a3e6",
+      "padding_bytes": 10,
+      "full_extent_bytes": 496,
+      "full_extent_sha256": "24ef794c85137f6429d2e2224cd0ed5d44a243e8f2a0535a3d8c310983e6d861",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+      "symbol_prefix": "?Init@WinsockInterfaceClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "__chkstk",
+          "target": 7878736,
+          "addend": 0,
+          "resolved": 100262
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_C@_0BI@NICH@WinsockInterface?5init?4?6?$AA@",
+          "target": 8392008,
+          "addend": 0,
+          "resolved": 8392008
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409976
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_C@_0CG@BCAM@WinsockInterface?5already?5initial@",
+          "target": 8391968,
+          "addend": 0,
+          "resolved": 8391968
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409953
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?PacketLossPercent@@3HA",
+          "target": 11710112,
+          "addend": 0,
+          "resolved": 11710112
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "?IsPacketLossReported@@3_NA",
+          "target": 11710108,
+          "addend": 0,
+          "resolved": 11710108
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_04PAEN@Note?$AA@",
+          "target": 8215028,
+          "addend": 0,
+          "resolved": 8215028
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_C@_0CO@MEGD@Warning?5?9?5Packet?5Loss?5Simulation@",
+          "target": 8391920,
+          "addend": 0,
+          "resolved": 8391920
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?IsPacketLossReported@@3_NA",
+          "target": 11710108,
+          "addend": 0,
+          "resolved": 11710108
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "__imp__MessageBoxA@16",
+          "target": 7971964,
+          "addend": 0,
+          "resolved": 7971964
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 93951
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "??_C@_0BK@GKJF@About?5to?5call?5WSAStartup?6?$AA@",
+          "target": 8391892,
+          "addend": 0,
+          "resolved": 8391892
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409837
+        },
+        {
+          "offset": 173,
+          "kind": 20,
+          "symbol": "_WSAStartup@8",
+          "target": 7871436,
+          "addend": 0,
+          "resolved": 92795
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "??_C@_0CP@NEHJ@Winsock?5failed?5to?5initialise?5?9?5e@",
+          "target": 8391844,
+          "addend": 0,
+          "resolved": 8391844
+        },
+        {
+          "offset": 188,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409808
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 93141
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "??_C@_0BI@CLP@Winsock?5initialised?5OK?6?$AA@",
+          "target": 8391820,
+          "addend": 0,
+          "resolved": 8391820
+        },
+        {
+          "offset": 218,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409778
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "??_C@_0BK@DKHE@Winsock?5version?5is?5?$CFd?4?$CFd?6?$AA@",
+          "target": 8391792,
+          "addend": 0,
+          "resolved": 8391792
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409713
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "_WS_Protocol_List",
+          "target": 8391344,
+          "addend": 0,
+          "resolved": 8391344
+        },
+        {
+          "offset": 321,
+          "kind": 20,
+          "symbol": "_EnumProtocolsA@12",
+          "target": 7871430,
+          "addend": 0,
+          "resolved": 92641
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@HBNO@Found?5protocol?5?$CFs?0?5max?5frame?5siz@",
+          "target": 8391748,
+          "addend": 0,
+          "resolved": 8391748
+        },
+        {
+          "offset": 359,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409637
+        },
+        {
+          "offset": 422,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 92913
+        },
+        {
+          "offset": 442,
+          "kind": 6,
+          "symbol": "??_C@_0CE@NLAI@Failed?5to?5get?5protocol?5enumerati@",
+          "target": 8391712,
+          "addend": 0,
+          "resolved": 8391712
+        },
+        {
+          "offset": 447,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409549
+        },
+        {
+          "offset": 457,
+          "kind": 6,
+          "symbol": "??_C@_0CC@JADJ@Winsock?5version?5is?5less?5than?51?41@",
+          "target": 8391676,
+          "addend": 0,
+          "resolved": 8391676
+        },
+        {
+          "offset": 462,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409534
+        },
+        {
+          "offset": 468,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 92867
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7778464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7778960,
+      "method": "0076b290",
+      "body_bytes": 113,
+      "body_sha256": "68c9538fc4f8c4d84b161e3d91d6544a197b111621361af5e9901a302fe011cb",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "545167e2db98394213dd733ba9ae38f15a1b966d90f438ced267e82cc1fd6297",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_Packet_CRC@WinsockInterfaceClass@@MAEXPAUWinsockBufferType@1@@Z",
+      "symbol_prefix": "?Build_Packet_CRC@WinsockInterfaceClass@@MAEXPAUWinsockBufferType@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Add_CRC@@YIXPAII@Z",
+          "target": 6464320,
+          "addend": 0,
+          "resolved": 4293652605
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?Add_CRC@@YIXPAII@Z",
+          "target": 6464320,
+          "addend": 0,
+          "resolved": 4293652550
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7778960,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7779088,
+      "method": "0076b310",
+      "body_bytes": 144,
+      "body_sha256": "06d178a13070d6c91d9d568e5dd04cdc327ae7f7d217d0b9ef1f0c8f1b1c52c2",
+      "padding_bytes": 0,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "06d178a13070d6c91d9d568e5dd04cdc327ae7f7d217d0b9ef1f0c8f1b1c52c2",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z",
+      "symbol_prefix": "?Passes_CRC_Check@WinsockInterfaceClass@@MAE_NPAUWinsockBufferType@1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Add_CRC@@YIXPAII@Z",
+          "target": 6464320,
+          "addend": 0,
+          "resolved": 4293652475
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?Add_CRC@@YIXPAII@Z",
+          "target": 6464320,
+          "addend": 0,
+          "resolved": 4293652422
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_C@_0BN@DELG@Error?5in?5Winsock?5packet?5CRC?6?$AA@",
+          "target": 8392032,
+          "addend": 0,
+          "resolved": 8392032
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291409241
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7779088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7779232,
+      "method": "0076b3a0",
+      "body_bytes": 338,
+      "body_sha256": "e0b99fdc57f5dcbd59c306f3908869c526a051b49eb631ac6439cf56e84d5971",
+      "padding_bytes": 14,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "a9fd5e3a8e12d7d7ef13641ecdedc12b23d9f8dbeab753af9d8701e81755fc27",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z",
+      "symbol_prefix": "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 93262
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 93101
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7779232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7779584,
+      "method": "0076b500",
+      "body_bytes": 156,
+      "body_sha256": "75374e4cfba648cf0a1d6a996f45b07900325c8ce855b713cfe9964549999a7d",
+      "padding_bytes": 4,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "86b977892e91f0e3598156d76e3ea1e94b7d37761b129b09620650e67841180d",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ",
+      "symbol_prefix": "?Get_New_In_Buffer@WinsockInterfaceClass@@IAEPAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 92920
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7779584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7779744,
+      "method": "0076b5a0",
+      "body_bytes": 202,
+      "body_sha256": "ba67520a4fdde3e28cfb14ea81a08cbf8330d2327bc67dbbe2c5c395cb4cd5eb",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "63c3b187877161f3515412bcb7b36bd607c20f0734360d52a3867f893631f2b1",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Read@WinsockInterfaceClass@@UAEHPAXAAH01AAG@Z",
+      "symbol_prefix": "?Read@WinsockInterfaceClass@@UAEHPAXAAH01AAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 4292635938
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 91893
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7779744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7779952,
+      "method": "0076b670",
+      "body_bytes": 289,
+      "body_sha256": "2b05d145d0305ccb002d5720b8357e1632dbf4ba01cd768df1d460a01689e73b",
+      "padding_bytes": 15,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "abb4cd2003fbc2c5015e52ba84afa95f88f506c1f3a17b27e80c651911e114d3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z",
+      "symbol_prefix": "?WriteTo@WinsockInterfaceClass@@UAEXPAXH0H_N1G@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z",
+          "target": 7779232,
+          "addend": 0,
+          "resolved": 4294966560
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 267,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 4292635462
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7779952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780256,
+      "method": "0076b7a0",
+      "body_bytes": 251,
+      "body_sha256": "0e546b027dfd4374fe035e4fe4b0a9767624e4f0d8035f27aff79228a56ec32a",
+      "padding_bytes": 5,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "deed7f09206551bb5b38408efb2d67a4b8517890743fa33ff0de568f0fcaebad",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z",
+      "symbol_prefix": "?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "?Get_New_Out_Buffer@WinsockInterfaceClass@@IAEPAX_N@Z",
+          "target": 7779232,
+          "addend": 0,
+          "resolved": 4294966256
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 4292635196
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780512,
+      "method": "0076b8a0",
+      "body_bytes": 79,
+      "body_sha256": "13eae38841aa3f4da93417446282cd68ebd195016ed2c4a9348704c75dee4885",
+      "padding_bytes": 1,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1247b18db34fe2e52ce9fc5c0c12e417ecb871c6cf4df1ff59059aed838cf8f0",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z",
+      "symbol_prefix": "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "_getsockopt@20",
+          "target": 7871376,
+          "addend": 0,
+          "resolved": 90824
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 90814
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780592,
+      "method": "0076b8f0",
+      "body_bytes": 149,
+      "body_sha256": "06effdd3c4ccb987e27f653e29f14639552c15bb8d99f6a30468360dde08a0ec",
+      "padding_bytes": 11,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "b568f446c4a95433431597ec1971470bddaefee801c4f13a2453d046d51bf37d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+      "symbol_prefix": "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_?socket_receive_buffer_size@?1??Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z@4HA",
+          "target": 8391360,
+          "addend": 0,
+          "resolved": 8391360
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 90769
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 90717
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_C@_0DI@PGAN@Failed?5to?5set?5socket?5option?5SO_R@",
+          "target": 8392184,
+          "addend": 0,
+          "resolved": 8392184
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407812
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "??_C@_0CA@CCIN@Socket?5option?5SO_RCVBUF?5set?5OK?6?$AA@",
+          "target": 8392152,
+          "addend": 0,
+          "resolved": 8392152
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407797
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "_?socket_transmit_buffer_size@?1??Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z@4HA",
+          "target": 8391356,
+          "addend": 0,
+          "resolved": 8391356
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "_setsockopt@20",
+          "target": 7871400,
+          "addend": 0,
+          "resolved": 90707
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 90654
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "??_C@_0DI@KKO@Failed?5to?5set?5socket?5option?5SO_S@",
+          "target": 8392096,
+          "addend": 0,
+          "resolved": 8392096
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407749
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "??_C@_0CA@BIBE@Socket?5option?5SO_SNDBUF?5set?5OK?6?$AA@",
+          "target": 8392064,
+          "addend": 0,
+          "resolved": 8392064
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407731
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780752,
+      "method": "0076b990",
+      "body_bytes": 66,
+      "body_sha256": "f49a4d0162cbd223b002ac15ed26c30bc7656dd9738c56a747a07a48327ca3f7",
+      "padding_bytes": 14,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "dde72eb5c64dc268e7023c7f2cdb671ffe0eca180bda6ab29c02606cb88d61d0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z",
+      "symbol_prefix": "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "_gethostname@8",
+          "target": 7871442,
+          "addend": 0,
+          "resolved": 90674
+        },
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "_WSAGetLastError@0",
+          "target": 7871358,
+          "addend": 0,
+          "resolved": 90580
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_C@_0EB@GDGN@Error?5?9?5WinsockInterface?5Unable?5@",
+          "target": 8392276,
+          "addend": 0,
+          "resolved": 8392276
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407675
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "??_C@_0CC@CKAA@WinsockInterface?5Host?5name?5is?5?$CFs@",
+          "target": 8392240,
+          "addend": 0,
+          "resolved": 8392240
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291407655
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780864,
+      "method": "0076ba00",
+      "body_bytes": 3,
+      "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "33cb7c6b5695e070548b4e7f33d43173b10670c306067b684edf21470a662ef2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Protocol@WinsockInterfaceClass@@UAE?AW4ProtocolEnum@@XZ",
+      "symbol_prefix": "?Get_Protocol@WinsockInterfaceClass@@UAE?AW4ProtocolEnum@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780880,
+      "method": "0076ba10",
+      "body_bytes": 5,
+      "body_sha256": "5fed5afb29946811bf02359627a94bc01d08d31b779528feaadde3866af9c855",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3004f92f58d17d5816db8b502d475d818e57c2ba54e31a90c4f95edece32ad1b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Protocol_Event_Message@WinsockInterfaceClass@@UAEHI@Z",
+      "symbol_prefix": "?Protocol_Event_Message@WinsockInterfaceClass@@UAEHI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780896,
+      "method": "0076ba20",
+      "body_bytes": 5,
+      "body_sha256": "cc0e3cb106eb0fdec984d44a563d98c3da80700bbb8d2be4e66ebd54a9919626",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9fa697955e6e50ca514c5e17cfc025b33f6dcb749299caabf3bb95c6a10fda65",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Open_Socket@WinsockInterfaceClass@@UAE_NI@Z",
+      "symbol_prefix": "?Open_Socket@WinsockInterfaceClass@@UAE_NI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780912,
+      "method": "0076ba30",
+      "body_bytes": 8,
+      "body_sha256": "f149eee3ebc099f7320e421de552a5eb3a67cb0b057f162bce69c7210154c9e7",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b059208aa0a8eb94a84ef0fbaf34c66a6b94fbf64e6a5d82ef02d98e4fdb353a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Message_Handler@WinsockInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Message_Handler@WinsockInterfaceClass@@UAEHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780928,
+      "method": "0076ba40",
+      "body_bytes": 181,
+      "body_sha256": "ebc379d24882a1cfe85ec6feca85b297a7746c524f936f83892cbcb665c27fd3",
+      "padding_bytes": 11,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "5271f78baae905fac669d566091a7526726d77c1940deca5430914fb8dce58f7",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GWinsockInterfaceClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GWinsockInterfaceClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7WinsockInterfaceClass@@6B@",
+          "target": 8059516,
+          "addend": 0,
+          "resolved": 8059516
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_7WinsockInterfaceClass@@6B@",
+          "target": 8059516,
+          "addend": 32,
+          "resolved": 8059548
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "_WSACleanup@0",
+          "target": 7871418,
+          "addend": 0,
+          "resolved": 90450
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90804
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90767
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90730
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90704
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7781120,
+      "method": "76bb00",
+      "body_bytes": 42,
+      "body_sha256": "17b4972b368da83a5872fee55345d6e73806c860e53e5098d43652935ffcf724",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "146235d5dddacef0098a0e79f6a4af00fba439d70533015f84ff44c776693657",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90656
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 7781168,
+      "method": "0076bb30",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781168,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4498"
+    },
+    {
+      "entry": 7781200,
+      "method": "0076bb50",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBEPAUWinsockBufferType@WinsockInterfaceClass@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBEPAUWinsockBufferType@WinsockInterfaceClass@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781200,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781216,
+      "method": "0076bb60",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781216,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781280,
+      "method": "0076bba0",
+      "body_bytes": 174,
+      "body_sha256": "620500c561dc1ecb86751a4233b1954a587ba357af81ac91ba4689b8920424ee",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "179cb291b93650e20295cc09ba000ea0551bf88459c776ebe2d1523e11901faf",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 91212
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90400
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781280,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781456,
+      "method": "0076bc50",
+      "body_bytes": 39,
+      "body_sha256": "f2bbbc2fcf5a1af686334cc5c395c56b82bc9ab02b9a13b3dbd5214969ffe145",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8bca0a37acb4bbe3692b8a6ab15e71c3f58e636c62e6c70ac935f847ba0b92e2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90323
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781504,
+      "method": "0076bc80",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781568,
+      "method": "0076bcc0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7781600,
+      "method": "0076bce0",
+      "body_bytes": 176,
+      "body_sha256": "30d55767dc87100032a636218ebcbba835489aef281432a7b4d8097e8ca80be1",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "30d55767dc87100032a636218ebcbba835489aef281432a7b4d8097e8ca80be1",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAE_NHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 90896
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 90093
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7781776,
+      "method": "0076bd90",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHABQAUWinsockBufferType@WinsockInterfaceClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4501"
+    },
+    {
+      "entry": 7781824,
+      "method": "76bdc0",
+      "body_bytes": 73,
+      "body_sha256": "cfe24886361a7e3e6075ec1fe6e0f8e70f609a4bceafeb64857a271bcfff9498",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d1807cb30994c17e47cb36c01fd9f147d684adfdfb6460eb0286f02e5f9c836f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89950
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89915
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7781904,
+      "method": "76be10",
+      "body_bytes": 73,
+      "body_sha256": "52a05736a3de22edb9cf843d94b69aeaf622a1cdd561f3180e429868dfae1c70",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1ad90d35999c29de01fb19ae21631c44a779924415d7088ace53fdeef185910e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@6B@",
+          "target": 8059644,
+          "addend": 0,
+          "resolved": 8059644
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89870
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 89835
+        }
+      ],
+      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7781904,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-12"
+    }
+  ]
+}

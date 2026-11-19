@@ -1,0 +1,237 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/ABSTRACT.H 1     3/03/97 10:24a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : ABSTRACT.H                                                   *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : 01/26/95                                                     *
+ *                                                                                             *
+ *                  Last Update : January 26, 1995 [JLB]                                       *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#pragma once
+
+#include "coord.h"
+#include "globals.h"
+#include "irtti.h"
+#include "noinit.h"
+#include "stimer.h"
+
+#include "house.hh"
+#include "rtti.hh"
+
+class AbstractTypeClass;
+class CRCEngine;
+class HouseClass;
+class UnitClass;
+class TagClass;
+class ObjectClass;
+class TechnoClass;
+class InfantryClass;
+class FootClass;
+class CellClass;
+class BuildingClass;
+class BuildingTypeClass;
+class AircraftClass;
+class IsometricTileClass;
+class MonoClass;
+
+/*
+**	This class is the base class for all game objects that have an existence on the
+**	battlefield.
+*/
+// RA2: AbstractClass has two more base classes, which RTTI names INoticeSink and INoticeSource
+// RA2: (this-offsets 8 and 12). Each has one virtual; their names and parameter types are not known.
+class INoticeSink
+{
+	public:
+		// RA2: returns bool and takes 8 bytes of arguments (AbstractClass's version: xor al, al; ret 8).
+		virtual bool Unknown_Virtual_0(int, int) = 0;
+};
+
+class INoticeSource
+{
+	public:
+		// RA2: returns nothing and takes 4 bytes of arguments (AbstractClass's version: ret 4).
+		virtual void Unknown_Virtual_0(int) = 0;
+};
+
+/*
+**	RA2: what kind of object an AbstractClass is, tested where TibSun used dynamic_cast
+**	(names after YRpp's AbstractFlags).
+*/
+enum AbstractFlagType {
+	ABSTRACT_TECHNO=0x01,
+	ABSTRACT_OBJECT=0x02,
+	ABSTRACT_FOOT=0x04
+};
+
+class AbstractClass : public IPersistStream, public IRTTITypeInfo, public INoticeSink, public INoticeSource // RA2: INoticeSink and INoticeSource added
+{
+	public:
+
+	protected:
+		/*
+		 * Making these const is abusing bad undefined behavior or a compiler bug,
+		 * makes it not use the interface Load Save for calls to AbstractClass
+		 * FUNCTIONS IN CPP MUST NOT BE CONST FOR IT TO LINK
+		 */
+		HRESULT STDMETHODCALLTYPE Load(IStream * stream) const;
+		HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) const;
+
+	public:
+
+		/*
+		**	This specifies the type of object and the unique ID number
+		**	associated with it. The ID number happens to match the index into
+		**	the object heap appropriate for this object type.
+		*/
+		__declspec(property(get = Fetch_RTTI)) RTTIType RTTI;
+		int ID;
+
+		// RA2: +0x14 holds flags (AbstractFlagType); the constructor clears the low three bits.
+		unsigned char AbstractFlags; // RA2: a whole byte; copies of an object copy all of it
+
+		// RA2: +0x18 is a 4-byte member the constructor sets to 0. Its name and type are not known.
+		int Unknown_18;
+
+		/*
+		 * This is the count of outstanding COM references to this object. Only projectiles
+		 * are genuinely reference counted -- everything else answers 1 to AddRef and to
+		 * Release -- so elsewhere it merely rides along, preserved by hand across a load.
+		 */
+		LONG RefCount;
+
+		/*
+		 * If this object has changed since it was last written out, then this flag will be
+		 * true. Save clears it on request and IsDirty reports it, as IPersistStream asks.
+		 */
+		bool Dirty;
+
+		/*
+		**	Constructor & destructors.
+		*/
+		AbstractClass(void);
+		AbstractClass(NoInitClass const & x);
+		virtual ~AbstractClass(void);
+
+		// RA2: AbstractClass's versions of the INoticeSink and INoticeSource virtuals.
+		virtual bool Unknown_Virtual_0(int, int) override;
+		virtual void Unknown_Virtual_0(int) override;
+
+		virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, LPVOID * ppvObject) override;
+		virtual ULONG STDMETHODCALLTYPE AddRef(void) override;
+		virtual ULONG STDMETHODCALLTYPE Release(void) override;
+
+		virtual HRESULT STDMETHODCALLTYPE IsDirty(void) override;
+		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override = 0;
+		virtual HRESULT STDMETHODCALLTYPE Save(IStream * stream, BOOL cleardirty) override = 0;
+		virtual HRESULT STDMETHODCALLTYPE GetSizeMax(ULARGE_INTEGER *pcbSize) override;
+
+		virtual int STDMETHODCALLTYPE What_Am_I(void) const override;
+		virtual int STDMETHODCALLTYPE Fetch_ID(void) const override;
+		virtual void STDMETHODCALLTYPE Create_ID(void) override;
+
+		AbstractClass & operator = (const AbstractClass & that)
+		{
+			ID = that.ID;
+			RefCount = that.RefCount;
+			Dirty = that.Dirty;
+			return(*this);
+		}
+
+		virtual void Init(void);
+		virtual void Detach(AbstractClass const * target, bool all = true);
+
+		/*
+		**	Query functions.
+		*/
+		virtual RTTIType Fetch_RTTI(void) const = 0;
+		virtual int Fetch_Object_Size(void) const = 0; // RA2: no argument; every override returns with a plain ret
+		// RA2: Get_Object_Size_Delta is not in RA2's vtables (Compute_CRC follows Fetch_Object_Size).
+		virtual void Compute_CRC(CRCEngine &) const;
+
+		virtual HousesType Owner(void) const;
+		virtual HouseClass * Owner_HouseClass(void) const;
+
+		virtual int Fetch_Heap_ID(void) const;
+
+		virtual bool Is_Inactive(void) const;
+
+		bool Is_Techno(void) const;
+
+		/*
+		**	Coordinate query support functions.
+		*/
+		virtual Coord Center_Coord(void) const;
+		virtual Coord Destination_Coord(TechnoClass * docker = NULL) const; // RA2: the object about to dock (YR name)
+
+		virtual bool On_Ground(void) const;
+		virtual bool In_Air(void) const;
+
+		virtual Coord As_Coord(void) const;
+
+		/*
+		**	AI.
+		*/
+		virtual void AI(void);
+
+		/*
+		**	Scenario and debug support.
+		*/
+#ifdef _DEBUG
+		virtual void Debug_Dump(MonoClass *mono) const {};
+#endif
+
+		/*
+		 * Dynamic casts from AbstractClass to derived class.
+		 *
+		 * These must only be implemented in their respective modules!
+		 */
+		UnitClass * As_UnitClass(void);
+		TagClass * As_TagClass(void);
+		ObjectClass * As_ObjectClass(void);
+		InfantryClass * As_InfantryClass(void);
+		TechnoClass * As_TechnoClass(void);
+		FootClass * As_FootClass(void);
+		CellClass * As_CellClass(void);
+		BuildingClass * As_BuildingClass(void);
+		BuildingTypeClass * As_BuildingTypeClass(void);
+		AircraftClass * As_AircraftClass(void);
+		AbstractTypeClass * As_AbstractTypeClass(void);
+		IsometricTileClass * As_IsometricTileClass(void);
+
+		const UnitClass * As_UnitClass(void) const;
+		const TagClass * As_TagClass(void) const;
+		const ObjectClass * As_ObjectClass(void) const;
+		const InfantryClass * As_InfantryClass(void) const;
+		const TechnoClass * As_TechnoClass(void) const;
+		const FootClass * As_FootClass(void) const;
+		const CellClass * As_CellClass(void) const;
+		const BuildingClass * As_BuildingClass(void) const;
+		const BuildingTypeClass * As_BuildingTypeClass(void) const;
+		const AircraftClass * As_AircraftClass(void) const;
+		const AbstractTypeClass * As_AbstractTypeClass(void) const;
+		const IsometricTileClass * As_IsometricTileClass(void) const;
+};

@@ -1,0 +1,941 @@
+{
+  "id": "rebuild-msfont",
+  "population": {
+    "id": "rebuild-msfont",
+    "inventory_sha256": "444eb6a5142ba29a3192042af048616aa87768604b381268127c2135073262a8",
+    "gaps_sha256": "12f2c02ea775eecfe7bf3597ff79796cd5098a4439a2ccae9a392b0a257e175c",
+    "historical_population_sha256": "92e1766d1ca4645034f3d5c2457829663ed1825f7877d3c5755803c826a5e945",
+    "historical_acceptance_sha256": "dbc9993515fc261ccba40022af65e7a227ae9c1ce1bbf839e11c7472463c4d1d"
+  },
+  "references": {
+    "_RECT_NONE": 10950728,
+    "??_7MSFont@@6B@": 8024248,
+    "?Init@MSFont@@QAE_N_N@Z": 5980112,
+    "_InstanceCount": 10950744,
+    "_Sounds": 10950752,
+    "??3@YAXPAX@Z": 7871803,
+    "??0CCFileClass@@QAE@XZ": 4624336,
+    "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@": 8281548,
+    "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z": 4805168,
+    "??_C@_0CC@ELIN@MSFont?3?5AllocLoaded?5FULLFNT3?4SHP@": 8281512,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0N@IKPJ@SIDEFNT3?4PAL?$AA@": 8281496,
+    "??_C@_0N@HGLH@FULLFNT3?4PAL?$AA@": 8281480,
+    "?CCPalette@@3VPaletteClass@@A": 8619792,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "??2@YAPAXI@Z": 7872535,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "??0ConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@H_N@Z": 4732496,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?AudioDeviceAvailable@@YIHXZ": 4222768,
+    "_wcslen": 7878149,
+    "__imp__CharToOemBuffA@12": 7972084,
+    "??_C@_08KGPM@Denzil?$CB?6?$AA@": 8281564,
+    "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "??1MSFont@@UAE@XZ": 5980016,
+    "_$E7": 5979936,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0MSFont@@QAE@_N@Z": 5979968,
+    "??_GMSFont@@UAEPAXI@Z": 5981808,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVMSFont@@@8": 8281456,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Get_String_Rect@MSFont@@QAEXPBGAAV?$TRect@H@@@Z": 5980656,
+    "?Get_String_Width@MSFont@@UAEHPBG@Z": 5980832,
+    "?Get_Character_Width@MSFont@@UAEHG@Z": 5980928,
+    "?Draw_Character@MSFont@@UAEXPAVSurface@@GHHH_N@Z": 5981136,
+    "?Draw_String@MSFont@@UAEXPAVSurface@@PBGHHH@Z": 5981424
+  },
+  "regions": [
+    {
+      "entry": 5979936,
+      "method": "005b3f20",
+      "body_bytes": 23,
+      "body_sha256": "f82e39a591b95e40415a937436d48746146588a479556de31548d8fcd45f61fe",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "60094999f12a373fc670f2c1301f71090ee0492579b9556a6a7255ac9e668a30",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E7",
+      "symbol_prefix": "_$E7",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 0,
+          "resolved": 10950728
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 4,
+          "resolved": 10950732
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 8,
+          "resolved": 10950736
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 12,
+          "resolved": 10950740
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5979936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5979968,
+      "method": "005b3f40",
+      "body_bytes": 47,
+      "body_sha256": "c5abeac570f9af5d87d5f2edf00c660fb4bc1151a64bbc0af221dbc2a611de04",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "360ae8bdebe16232ce6304db091206c79df4f3c0d3a26fac36408a914ba1ab29",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MSFont@@QAE@_N@Z",
+      "symbol_prefix": "??0MSFont@@QAE@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_7MSFont@@6B@",
+          "target": 8024248,
+          "addend": 0,
+          "resolved": 8024248
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Init@MSFont@@QAE_N_N@Z",
+          "target": 5980112,
+          "addend": 0,
+          "resolved": 114
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_InstanceCount",
+          "target": 10950744,
+          "addend": 0,
+          "resolved": 10950744
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_InstanceCount",
+          "target": 10950744,
+          "addend": 0,
+          "resolved": 10950744
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5979968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5980016,
+      "method": "005b3f70",
+      "body_bytes": 93,
+      "body_sha256": "764611322d70dba7350a53e908a845c8f603537f0a6d860322c1ca3cba579583",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "93f118d04a8bae963ae7acc23bb4fc121a9a607cbbfb0ec57fd1e70e7ff39f5a",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MSFont@@UAE@XZ",
+      "symbol_prefix": "??1MSFont@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MSFont@@6B@",
+          "target": 8024248,
+          "addend": 0,
+          "resolved": 8024248
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_InstanceCount",
+          "target": 10950744,
+          "addend": 0,
+          "resolved": 10950744
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_InstanceCount",
+          "target": 10950744,
+          "addend": 0,
+          "resolved": 10950744
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_Sounds",
+          "target": 10950752,
+          "addend": 0,
+          "resolved": 10950752
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "_Sounds",
+          "target": 10950752,
+          "addend": 24,
+          "resolved": 10950776
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891706
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5980016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5980112,
+      "method": "005b3fd0",
+      "body_bytes": 542,
+      "body_sha256": "0a74b8ab4460c9a697e2f200763233a5b22877166aaef37045cef9aad419def7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 544,
+      "full_extent_sha256": "970158fd74b2eb765137c61a0889c202c99d0a092ab0bcd4c30c3da8be34eeb7",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init@MSFont@@QAE_N_N@Z",
+      "symbol_prefix": "?Init@MSFont@@QAE_N_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@XZ",
+          "target": 4624336,
+          "addend": 0,
+          "resolved": 4293611503
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_InstanceCount",
+          "target": 10950744,
+          "addend": 0,
+          "resolved": 10950744
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@",
+          "target": 8281548,
+          "addend": 0,
+          "resolved": 8281548
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4294842051
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@",
+          "target": 8281548,
+          "addend": 0,
+          "resolved": 8281548
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+          "target": 4653392,
+          "addend": 0,
+          "resolved": 4293640510
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 4293792277
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "??_C@_0CC@ELIN@MSFont?3?5AllocLoaded?5FULLFNT3?4SHP@",
+          "target": 8281512,
+          "addend": 0,
+          "resolved": 8281512
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293208260
+        },
+        {
+          "offset": 112,
+          "kind": 6,
+          "symbol": "??_C@_0N@IKPJ@SIDEFNT3?4PAL?$AA@",
+          "target": 8281496,
+          "addend": 0,
+          "resolved": 8281496
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_0N@HGLH@FULLFNT3?4PAL?$AA@",
+          "target": 8281480,
+          "addend": 0,
+          "resolved": 8281480
+        },
+        {
+          "offset": 128,
+          "kind": 20,
+          "symbol": "?Set_Name@CDFileClass@@UAEPBDPBD@Z",
+          "target": 4653392,
+          "addend": 0,
+          "resolved": 4293640444
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 4293792211
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "?CCPalette@@3VPaletteClass@@A",
+          "target": 8619792,
+          "addend": 0,
+          "resolved": 8619792
+        },
+        {
+          "offset": 277,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 337,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 360,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1891327
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1892049
+        },
+        {
+          "offset": 386,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "?CCPalette@@3VPaletteClass@@A",
+          "target": 8619792,
+          "addend": 0,
+          "resolved": 8619792
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?CCPalette@@3VPaletteClass@@A",
+          "target": 8619792,
+          "addend": 0,
+          "resolved": 8619792
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "??0ConvertClass@@QAE@ABVPaletteClass@@0ABVSurface@@H_N@Z",
+          "target": 4732496,
+          "addend": 0,
+          "resolved": 4293719269
+        },
+        {
+          "offset": 430,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 439,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293411461
+        },
+        {
+          "offset": 451,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293374388
+        },
+        {
+          "offset": 489,
+          "kind": 20,
+          "symbol": "?AudioDeviceAvailable@@YIHXZ",
+          "target": 4222768,
+          "addend": 0,
+          "resolved": 4293209459
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 510,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293411390
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293374317
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5980112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5980656,
+      "method": "005b41f0",
+      "body_bytes": 168,
+      "body_sha256": "a46f72f6fa526d318cf8bb38938061b2fb4f7d428e91261f5da908e3168c164d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "d8dfca172e99b8c7c23b21ce5aa3ebb8df45f15894d64a324479e325fed9d71c",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_String_Rect@MSFont@@QAEXPBGAAV?$TRect@H@@@Z",
+      "symbol_prefix": "?Get_String_Rect@MSFont@@QAEXPBGAAV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 1897467
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5980656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5980832,
+      "method": "005b42a0",
+      "body_bytes": 91,
+      "body_sha256": "148fc6fdf27086c892e086344d653bb269a79f926f2e4cf581324927ed6d806d",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "131c154a32ed1259fcaf6afd6bbc76a1242be58f984edae3d983a0cb9daaac79",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_String_Width@MSFont@@UAEHPBG@Z",
+      "symbol_prefix": "?Get_String_Width@MSFont@@UAEHPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5980832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5980928,
+      "method": "005b4300",
+      "body_bytes": 207,
+      "body_sha256": "5b4c7cf7c5cb4d6d3199a3031e8e24f7519772ff88c8ae2b8e5371a5fe7d94a2",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "f621623c728809483139019348e5a1f3bdfc92c5a709761d9f97763df75c838b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Character_Width@MSFont@@UAEHG@Z",
+      "symbol_prefix": "?Get_Character_Width@MSFont@@UAEHG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__CharToOemBuffA@12",
+          "target": 7972084,
+          "addend": 0,
+          "resolved": 7972084
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 8,
+          "resolved": 10950736
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 12,
+          "resolved": 10950740
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 0,
+          "resolved": 10950728
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 4,
+          "resolved": 10950732
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5980928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5981136,
+      "method": "005b43d0",
+      "body_bytes": 285,
+      "body_sha256": "3d380a1b6066bfd5996a2ade94e267d9ff88fbe81e3456f881690dc0f7850395",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "87821b83addbaea6c5cca57a4eea619d9b037b5d62012023d66b8e4f219fe559",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Character@MSFont@@UAEXPAVSurface@@GHHH_N@Z",
+      "symbol_prefix": "?Draw_Character@MSFont@@UAEXPAVSurface@@GHHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_C@_08KGPM@Denzil?$CB?6?$AA@",
+          "target": 8281564,
+          "addend": 0,
+          "resolved": 8281564
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293207294
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "__imp__CharToOemBuffA@12",
+          "target": 7972084,
+          "addend": 0,
+          "resolved": 7972084
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 4,
+          "resolved": 10950732
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 8,
+          "resolved": 10950736
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 0,
+          "resolved": 10950728
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 12,
+          "resolved": 10950740
+        },
+        {
+          "offset": 272,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4293831100
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5981136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5981424,
+      "method": "005b44f0",
+      "body_bytes": 372,
+      "body_sha256": "1568ca55bfd5c86bf5cc4eea46cac96dab34d3c68a11d4f86da717d584cb6058",
+      "padding_bytes": 12,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "2b0ac325a0ef31d9038bea8cc39a72bf1b83e5863fa22294db971fcbeeda347f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_String@MSFont@@UAEXPAVSurface@@PBGHHH@Z",
+      "symbol_prefix": "?Draw_String@MSFont@@UAEXPAVSurface@@PBGHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "__imp__CharToOemBuffA@12",
+          "target": 7972084,
+          "addend": 0,
+          "resolved": 7972084
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 4,
+          "resolved": 10950732
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 0,
+          "resolved": 10950728
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 8,
+          "resolved": 10950736
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10950728,
+          "addend": 12,
+          "resolved": 10950740
+        },
+        {
+          "offset": 319,
+          "kind": 20,
+          "symbol": "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z",
+          "target": 4845216,
+          "addend": 0,
+          "resolved": 4293830765
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5981424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5981808,
+      "method": "005b4670",
+      "body_bytes": 30,
+      "body_sha256": "e3498dc1b2c4a50998e74424d5a20f124a58acd647b9349127aa3cb0f06a5f9d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6be2d6909dd4c611f98f6c78c898af6d9aee617557232af1cb8a010e95207f0e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMSFont@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMSFont@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1MSFont@@UAE@XZ",
+          "target": 5980016,
+          "addend": 0,
+          "resolved": 4294965496
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1889974
+        }
+      ],
+      "source_sha256": "ba97b1f2de7343276feb57b37b1edfe861359f47616831513ee3c2ee22bd8aaf",
+      "source": "rebuild/src/msfont.cpp",
+      "population": "rebuild-msfont",
+      "source_order": 5981808,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

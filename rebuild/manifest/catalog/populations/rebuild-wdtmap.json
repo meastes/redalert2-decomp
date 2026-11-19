@@ -1,0 +1,5414 @@
+{
+  "id": "rebuild-wdtmap",
+  "population": {
+    "id": "rebuild-wdtmap",
+    "inventory_sha256": "d3236998f6fc340b5517322c89b6788a52273f1926683d82baf03ef8320f59ca",
+    "gaps_sha256": "5ee124693bbd15a7350caf9a2abc750a4c20f2812854a28c563d2e3ed9116ff9",
+    "historical_population_sha256": "31872059d7dabbd894d18b639ae4630ded54be2983611bbf3d9cc851d31a181e",
+    "historical_acceptance_sha256": "a39457694e7f3ac894e6d6416e11a5ce4f840141012b4c317638b11abdd17043"
+  },
+  "references": {
+    "_RECT_NONE": 11687912,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11687936,
+    "_ISO_TILE_SIZE": 8057256,
+    "_LEPTONS_PER_PIXEL": 11688008,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11687992,
+    "_ONE_RAD": 8057264,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11687984,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11687944,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11687904,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11688016,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11687952,
+    "_CELL_DIAG_SLOPE_ANGLE": 11687976,
+    "_BRIDGE_LEPTON_HEIGHT": 11688000,
+    "_CELL_NONE": 11687928,
+    "_COORD_NONE": 11687960,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "??_7MSFrameAnim@@6B@": 8057276,
+    "??1MSAnim@@UAE@XZ": 5949072,
+    "?FrameAdvanceDraws@@3_NA": 8371460,
+    "?Draw_Interface_Frame@@YIXPAVSurface@@ABV?$TRect@H@@_N@Z": 7288400,
+    "?FrameRedrawDraws@@3_NA": 8371461,
+    "??2@YAPAXI@Z": 7872535,
+    "??0Map@WorldDominationTour@@QAE@HHH@Z": 7508784,
+    "??0rc_ptr_base@@QAE@XZ": 6526176,
+    "??_7?$rc_ptr@VMap@WorldDominationTour@@@@6B@": 8057316,
+    "?Assign@rc_ptr_base@@QAEXPAX@Z": 6526256,
+    "??_C@_00A@?$AA@": 8635740,
+    "??_7ReferenceCounted@@6B@": 8031508,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7518992,
+    "??_7?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057372,
+    "??_7?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057340,
+    "??_7Map@WorldDominationTour@@6B@": 8057324,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??3@YAXPAX@Z": 7871803,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@": 8057436,
+    "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@": 8057404,
+    "??1ReferenceCounted@@UAE@XZ": 6526736,
+    "??0Wstring@@QAE@XZ": 7788816,
+    "??_C@_04CKLG@MAPS?$AA@": 8372348,
+    "?Wstring_FromInt@@YI?AVWstring@@H@Z": 7796096,
+    "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z": 5303104,
+    "?Faction_Name@@YIABVWstring@@H@Z": 7767456,
+    "?VideoModeWidth@@3HA": 8725472,
+    "??_C@_04HBPG@Art_?$AA@": 8372340,
+    "??H@YI?AVWstring@@PBDABV0@@Z": 7796400,
+    "??_C@_07MPGH@Art_800?$AA@": 8372332,
+    "??_C@_04BBDK@Size?$AA@": 8216104,
+    "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z": 5306368,
+    "??_C@_0M@JGGP@SideBarSize?$AA@": 8372320,
+    "??_C@_0M@OMFK@HelpBarSize?$AA@": 8372308,
+    "??_C@_08MIOO@TextRect?$AA@": 8280680,
+    "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z": 5300080,
+    "??_C@_0M@HIFL@TooltipRect?$AA@": 8372296,
+    "??_C@_09LAKB@TitleRect?$AA@": 8372284,
+    "??_C@_0N@GGBF@BackTextRect?$AA@": 8372268,
+    "??_C@_07KCJC@Opening?$AA@": 8372260,
+    "?length@Wstring@@QBEIXZ": 7792544,
+    "??0MSBinkAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABV?$TRect@H@@_N@Z": 5953760,
+    "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z": 5975392,
+    "??_C@_0L@BJIH@Background?$AA@": 8232332,
+    "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z": 5961616,
+    "??_C@_08OADD@ClickMap?$AA@": 8281124,
+    "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
+    "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z": 6344976,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "??_C@_07FLDC@SideBar?$AA@": 8372252,
+    "??_C@_07KKOL@HelpBar?$AA@": 8372244,
+    "??_C@_0BE@NKMC@BackButtonRectangle?$AA@": 8372224,
+    "??_C@_0BB@ECNH@BackButtonOrigin?$AA@": 8372204,
+    "??_C@_0N@EJBG@sdbtnanm?4pal?$AA@": 8372188,
+    "??_C@_0BC@GHHL@BackButtonPalette?$AA@": 8372168,
+    "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z": 5948768,
+    "??_C@_0BG@IAGB@BackButtonNormalFrame?$AA@": 8372144,
+    "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z": 5298640,
+    "??_C@_0BJ@BJJM@BackButtonDepressedFrame?$AA@": 8372116,
+    "??_C@_0L@FLDE@BackButton?$AA@": 8372104,
+    "??0MSOverlayAnim@@QAE@ABVWstring@@HHPAVConvertClass@@HPAV?$DynamicVectorClass@PAVMSAnim@@@@_NI3@Z": 5952368,
+    "??_C@_0BG@MOID@BackButtonHighlighted?$AA@": 8372080,
+    "??_C@_0O@MGKE@OverlayPrefix?$AA@": 8372064,
+    "??_C@_0P@GGFL@OverlayPalette?$AA@": 8372048,
+    "??_C@_04FGEK@WDT?3?$AA@": 8372040,
+    "??HWstring@@QBE?AV0@ABV0@@Z": 7791040,
+    "??_C@_0O@GJKG@NameKeyPrefix?$AA@": 8372024,
+    "??_C@_0P@LNCF@DefaultPalette?$AA@": 8372008,
+    "?Get_Drawer@Map@WorldDominationTour@@QAEPAVConvertClass@@ABVWstring@@@Z": 7513360,
+    "??_C@_04OKCJ@Logo?$AA@": 8372000,
+    "?Load_Anim@Map@WorldDominationTour@@QAEPAVMSAnim@@AAVINIClass@@ABVWstring@@1PAVConvertClass@@@Z": 7512704,
+    "??_C@_09FBNK@Animation?$AA@": 8371988,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "?Wstring_FromInt@@YI?AVWstring@@HH@Z": 7796240,
+    "??_C@_09FECI@Territory?$AA@": 8371976,
+    "?Create@Territory@WorldDominationTour@@SI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@HABVINIClass@@ABVWstring@@11@Z": 7539584,
+    "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@": 8057468,
+    "??1rc_ptr_base@@UAE@XZ": 6526224,
+    "?Create_Owner_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z": 7540224,
+    "?Create_Highlight_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z": 7540416,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "??_C@_01KMAE@?0?$AA@": 8186304,
+    "?getToken@Wstring@@QBEHHPBDAAV1@@Z": 7795200,
+    "??9Wstring@@QBE_NPBD@Z": 7789280,
+    "?toInt@Wstring@@QBEHXZ": 7796080,
+    "??0MSShapeAnim@@QAE@ABVWstring@@HHPAVConvertClass@@H_NW4ShapeFlags_Type@@@Z": 5949088,
+    "??8Wstring@@QBE_NABV0@@Z": 7789168,
+    "??0Wstring@@QAE@ABV0@@Z": 7788928,
+    "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z": 7546624,
+    "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z": 5975856,
+    "?Set_Frame@MSOverlayAnim@@QAEXH@Z": 5953568,
+    "?Broadcast@MSEngine@@QAEXPAX@Z": 5978112,
+    "?Redraw@MSEngine@@QAEXXZ": 5975952,
+    "??1Map@WorldDominationTour@@UAE@XZ": 7508976,
+    "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ": 7518960,
+    "_$E2": 7507920,
+    "_$E5": 7507952,
+    "_$E8": 7508000,
+    "_$E11": 7508032,
+    "_$E14": 7508064,
+    "_$E17": 7508096,
+    "_$E20": 7508128,
+    "_$E23": 7508160,
+    "_$E26": 7508224,
+    "_$E29": 7508272,
+    "_$E32": 7508320,
+    "_$E35": 7508368,
+    "_$E38": 7508384,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0MSFrameAnim@@QAE@XZ": 7508416,
+    "??_GMSFrameAnim@@UAEPAXI@Z": 7515904,
+    "?Set_Active@MSAnim@@UAEX_N@Z": 5962752,
+    "?Pause@MSAnim@@UAEXXZ": 5962768,
+    "?Resume@MSAnim@@UAEXXZ": 5962848,
+    "?Has_Finished@MSAnim@@UBE_NXZ": 5962880,
+    "?Restore@MSAnim@@UAEXABV?$TRect@H@@@Z": 5962896,
+    "??1MSFrameAnim@@UAE@XZ": 7508464,
+    "?Advance@MSFrameAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z": 7508480,
+    "?Redraw@MSFrameAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z": 7508512,
+    "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ": 7508656,
+    "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z": 7508704,
+    "??_G?$rc_ptr@VMap@WorldDominationTour@@@@UAEPAXI@Z": 7516352,
+    "??_GMap@WorldDominationTour@@UAEPAXI@Z": 7515952,
+    "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518800,
+    "??_G?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518640,
+    "?Release@ReferenceCounted@@UAEXXZ": 6526752,
+    "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "??_G?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z": 7518448,
+    "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z": 7518720,
+    "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z": 7509264,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "??0NamedValue@@QAE@ABVWstring@@H@Z": 7513568,
+    "??1AnimationPalette@Map@WorldDominationTour@@QAE@XZ": 7513600,
+    "?Start_Intro@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z": 7513632,
+    "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513696,
+    "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513808,
+    "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513888,
+    "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513968,
+    "??0Centroid@WorldDominationTour@@QAE@XZ": 7514032,
+    "??YCentroid@WorldDominationTour@@QAEABV01@ABVPoint2D@@@Z": 7514048,
+    "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ": 7514096,
+    "??8Centroid@WorldDominationTour@@QBE_NABV01@@Z": 7514176,
+    "?Territory_Of_Color@@YIII@Z": 7514224,
+    "?Clear@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ": 7516032,
+    "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516080,
+    "?GetItem@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z": 7516112,
+    "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7516160,
+    "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7516208,
+    "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z": 7516240,
+    "??8?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE_NABV0@@Z": 7516432,
+    "?Resize@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516512,
+    "?Clear@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ": 7516800,
+    "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516848,
+    "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516912,
+    "?Resize@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7516944,
+    "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7517232,
+    "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z": 7517280,
+    "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517344,
+    "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ": 7517520,
+    "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517568,
+    "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517632,
+    "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517664,
+    "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z": 7517840,
+    "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
+    "??_7?$rc_ptr@VWDTTerritory@@@@6B@": 8013100,
+    "??_E?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z": 7499616,
+    "??_7?$rc_ptr@VConflict@WorldDominationTour@@@@6B@": 8056812,
+    "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z": 7518528,
+    "??_E?$rc_ptr@VGameOption@WorldDominationTour@@@@UAEPAXI@Z": 7504800,
+    "??_7?$rc_ptr@VGameOption@WorldDominationTour@@@@6B@": 8057052,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104
+  },
+  "regions": [
+    {
+      "entry": 7507920,
+      "method": "00728fd0",
+      "body_bytes": 23,
+      "body_sha256": "6cd348da0ff82fcde0e0889a1878f9431ac250ab0e4b60d13e8e1644c520df23",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c92b41408898442676cb45dcdc8301c877ec11927db7d9911a4718f9ca680a96",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687912,
+          "addend": 0,
+          "resolved": 11687912
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687912,
+          "addend": 4,
+          "resolved": 11687916
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687912,
+          "addend": 8,
+          "resolved": 11687920
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11687912,
+          "addend": 12,
+          "resolved": 11687924
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7507920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7507952,
+      "method": "00728ff0",
+      "body_bytes": 40,
+      "body_sha256": "f98130b7446ffddf530f12d6ef1edb22da01eece5ae2b370b164f4c702e90790",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d9e01fa89bfd28249295e3e8cc9338457e827bed93f238f6d89ac36da6e562ad",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 364975
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292416514
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687936,
+          "addend": 0,
+          "resolved": 11687936
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7507952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508000,
+      "method": "00729020",
+      "body_bytes": 19,
+      "body_sha256": "2dc13648295721f24eec4b06f9c4ec1a736e7993b06e6db79822d2cff4d6fb1a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "29205321f3dce2013d73bab8729bc7fde92ff460f238b60ae7cbfcdbfeb1dd38",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687936,
+          "addend": 0,
+          "resolved": 11687936
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8057256,
+          "addend": 0,
+          "resolved": 8057256
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688008,
+          "addend": 0,
+          "resolved": 11688008
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508032,
+      "method": "00729040",
+      "body_bytes": 19,
+      "body_sha256": "b401f2c6991a004bcdeee81d157cdfaa6c92f0a9809df6cef01905bfa5cefe39",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bcaee41b5556074f7b40984b4c63ec6926f38e2eddfc1ff176473a28238c11b9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11688008,
+          "addend": 0,
+          "resolved": 11688008
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11687992,
+          "addend": 0,
+          "resolved": 11687992
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508064,
+      "method": "00729060",
+      "body_bytes": 19,
+      "body_sha256": "bfe9dcbb552a4fffb4d1d4a457e8c0415684604d85ea9828ae5d98c0a1e0803b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9222205d39aa7fb26f10001c3704e41898e415a79b54268e6329f89c8b42d43c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057264,
+          "addend": 0,
+          "resolved": 8057264
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11687984,
+          "addend": 0,
+          "resolved": 11687984
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508096,
+      "method": "00729080",
+      "body_bytes": 19,
+      "body_sha256": "9defff4b3d65b03f484949f54f72565d7faf97e7ae770a518957d4947088f67b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4eb2f258eab190e313e77136231ec27eff6b656a2f46ef6e19a1551914582422",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057264,
+          "addend": 0,
+          "resolved": 8057264
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687944,
+          "addend": 0,
+          "resolved": 11687944
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508128,
+      "method": "007290a0",
+      "body_bytes": 19,
+      "body_sha256": "33b5df9e2360fd27ba6b3b117d790fa3c870f3e0072a41b43bbb10a085c6ef19",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bc19ca1d03efc400115103f1e5c10fd33b1af491283e244edb1bfb2aa52aacfb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8057264,
+          "addend": 0,
+          "resolved": 8057264
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687904,
+          "addend": 0,
+          "resolved": 11687904
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508160,
+      "method": "007290c0",
+      "body_bytes": 49,
+      "body_sha256": "a703a2e378d0eabf15ccf40e7cd70c2b1d233235c7eaf688f2a7e40de304ffd1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3e2aa84ec07cb17a08aca38d88c3d3256518175c4e5801dcd62e0755bd7e925f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11687904,
+          "addend": 0,
+          "resolved": 11687904
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11687944,
+          "addend": 0,
+          "resolved": 11687944
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292416585
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687936,
+          "addend": 0,
+          "resolved": 11687936
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 352293
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688016,
+          "addend": 0,
+          "resolved": 11688016
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508224,
+      "method": "00729100",
+      "body_bytes": 33,
+      "body_sha256": "9711870dd496b032600c2e08675e5d1b5b12193493b1f5f9c48995608307da67",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9ab4e40a81ba2cfc905284c318effaff648cfdaa634384da73b3742ac0aec50d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688016,
+          "addend": 0,
+          "resolved": 11688016
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292416665
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11687952,
+          "addend": 0,
+          "resolved": 11687952
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508272,
+      "method": "00729130",
+      "body_bytes": 44,
+      "body_sha256": "3c0b5739d2a27a76b40dbe066e19e66bcf2c8be0084d82b2781ef34a4dcaa4c7",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "117c8af265e410f8c1fd53dba273b50cc3b780bd9f00031eb2f1ed09bc246835",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688016,
+          "addend": 0,
+          "resolved": 11688016
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11687936,
+          "addend": 0,
+          "resolved": 11687936
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292416606
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11687976,
+          "addend": 0,
+          "resolved": 11687976
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508320,
+      "method": "00729160",
+      "body_bytes": 39,
+      "body_sha256": "de07c23a9bbc287afcc6b2d614cb17c5e7b1af0b7b6357d88e15cdc389bd65e9",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "23f688a4c0de1f3abaa8793a8d1b8237e12548146cbd8b9d2bc776b4a9a0ecb4",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11688016,
+          "addend": 0,
+          "resolved": 11688016
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 352144
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11688000,
+          "addend": 0,
+          "resolved": 11688000
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508368,
+      "method": "00729190",
+      "body_bytes": 15,
+      "body_sha256": "2c387a2db797b9b60f58e95dcf87e40dd0410a2d5afca4b4f23269d9d3fc693b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "e9f0213c56d1a6f309912723d5483efbc6b3bbd090e312e5c6386bd0ba5a15bb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687928,
+          "addend": 0,
+          "resolved": 11687928
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11687928,
+          "addend": 2,
+          "resolved": 11687930
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508384,
+      "method": "007291a0",
+      "body_bytes": 18,
+      "body_sha256": "6f9961b42b6192d2287fcc1d737c4498ea48d9c91476469fc4f0277897e03a8c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5e21ac48364f0c06ad13dab16362fe6888b2a3f08a6d3f536623f488eda1ef43",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687960,
+          "addend": 0,
+          "resolved": 11687960
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687960,
+          "addend": 4,
+          "resolved": 11687964
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11687960,
+          "addend": 8,
+          "resolved": 11687968
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508416,
+      "method": "007291c0",
+      "body_bytes": 40,
+      "body_sha256": "89a1ead5a51b7e30a9bf4dc202238700c251a6067b7e76e8706eda7a85aa5d86",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "784401eedae9aa6cebe7f61dcb6413872bd32be57306c25cf6ad763466ac8c74",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MSFrameAnim@@QAE@XZ",
+      "symbol_prefix": "??0MSFrameAnim@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 4294382169
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_7MSFrameAnim@@6B@",
+          "target": 8057276,
+          "addend": 0,
+          "resolved": 8057276
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508464,
+      "method": "007291f0",
+      "body_bytes": 11,
+      "body_sha256": "2532dd8849740911ac08616e09a152427ba361841f3d4c73804002be607ab142",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ba4e03b11809e5623c50356e48b8ab6d27cdac95627385c6aeb30de208a0784c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MSFrameAnim@@UAE@XZ",
+      "symbol_prefix": "??1MSFrameAnim@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7MSFrameAnim@@6B@",
+          "target": 8057276,
+          "addend": 0,
+          "resolved": 8057276
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1MSAnim@@UAE@XZ",
+          "target": 5949072,
+          "addend": 0,
+          "resolved": 4293407893
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508464,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 7508480,
+      "method": "00729200",
+      "body_bytes": 29,
+      "body_sha256": "6f95f3a100f73aa4039f75bbf169ba617a529133d4fc626c936e18fbd26cbfc6",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "72fb51b4916c510fb26cd7df92fab0410812b54769237f6159781d7284c7b180",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Advance@MSFrameAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z",
+      "symbol_prefix": "?Advance@MSFrameAnim@@UAE_NPAVSurface@@AAV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?FrameAdvanceDraws@@3_NA",
+          "target": 8371460,
+          "addend": 0,
+          "resolved": 8371460
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "?Draw_Interface_Frame@@YIXPAVSurface@@ABV?$TRect@H@@_N@Z",
+          "target": 7288400,
+          "addend": 0,
+          "resolved": 4294747192
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508480,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2332"
+    },
+    {
+      "entry": 7508512,
+      "method": "00729220",
+      "body_bytes": 138,
+      "body_sha256": "a6a37de214a7ab7b7f79e10129c7f6d2f3507b2159fa03e0e209197cf6d3f326",
+      "padding_bytes": 6,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "cc6bb8de609519ac2659c075a97c2327b6e46b729463082e7b99c3af858e8f56",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Redraw@MSFrameAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z",
+      "symbol_prefix": "?Redraw@MSFrameAnim@@UAEXPAVSurface@@PBV?$TRect@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?FrameRedrawDraws@@3_NA",
+          "target": 8371461,
+          "addend": 0,
+          "resolved": 8371461
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Draw_Interface_Frame@@YIXPAVSurface@@ABV?$TRect@H@@_N@Z",
+          "target": 7288400,
+          "addend": 0,
+          "resolved": 4294747099
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Draw_Interface_Frame@@YIXPAVSurface@@ABV?$TRect@H@@_N@Z",
+          "target": 7288400,
+          "addend": 0,
+          "resolved": 4294747054
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508656,
+      "method": "007292b0",
+      "body_bytes": 40,
+      "body_sha256": "a3fb6f1db853a4f00c6911ecf91ab0f08af765272f231fe284677d218e219045",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "0fbf81cba6c48282d3e4d366f28e4b10360f573bee4afef5389aea50b998a5be",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ",
+      "symbol_prefix": "?Get_Rect@MSFrameAnim@@UBE?AV?$TRect@H@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508704,
+      "method": "007292e0",
+      "body_bytes": 75,
+      "body_sha256": "c1cfae9a4305d786e38e2534020c7a067f510f0ae3143b109d1de75608639321",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f4340a2c1af0e550d371a883449123b8316c8b1f0618dd5857a8cfe6914a8dac",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z",
+      "symbol_prefix": "?Create@Map@WorldDominationTour@@SI?AV?$rc_ptr@VMap@WorldDominationTour@@@@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 363815
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0Map@WorldDominationTour@@QAE@HHH@Z",
+          "target": 7508784,
+          "addend": 0,
+          "resolved": 39
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293984714
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VMap@WorldDominationTour@@@@6B@",
+          "target": 8057316,
+          "addend": 0,
+          "resolved": 8057316
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293984780
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508784,
+      "method": "00729330",
+      "body_bytes": 179,
+      "body_sha256": "1ccc435658e6f572c88186d7337d1b7b400882949b2dcb183da57a07796fed9c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "03f0760905545b3d4caba70639dfd936972e27d910fcf00dbc0bbbf5ba75157c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Map@WorldDominationTour@@QAE@HHH@Z",
+      "symbol_prefix": "??0Map@WorldDominationTour@@QAE@HHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279983
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+          "target": 7518992,
+          "addend": 0,
+          "resolved": 10131
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@",
+          "target": 8057372,
+          "addend": 0,
+          "resolved": 8057372
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "target": 8057340,
+          "addend": 0,
+          "resolved": 8057340
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "??_7Map@WorldDominationTour@@6B@",
+          "target": 8057324,
+          "addend": 0,
+          "resolved": 8057324
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7508976,
+      "method": "007293f0",
+      "body_bytes": 276,
+      "body_sha256": "d60b91efe8d225fc59bc40f438015c92b12397c9f01497520eb30131d8b2b375",
+      "padding_bytes": 12,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "c924235bd7a12be3ef41a1f7ccd90875a9bd2f0f5c5becdfdfdb051e811ce750",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Map@WorldDominationTour@@UAE@XZ",
+      "symbol_prefix": "??1Map@WorldDominationTour@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7Map@WorldDominationTour@@6B@",
+          "target": 8057324,
+          "addend": 0,
+          "resolved": 8057324
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279963
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 362736
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "target": 8057436,
+          "addend": 0,
+          "resolved": 8057436
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 362628
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@",
+          "target": 8057404,
+          "addend": 0,
+          "resolved": 8057404
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279782
+        },
+        {
+          "offset": 269,
+          "kind": 20,
+          "symbol": "??1ReferenceCounted@@UAE@XZ",
+          "target": 6526736,
+          "addend": 0,
+          "resolved": 4293984783
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7508976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7509264,
+      "method": "00729510",
+      "body_bytes": 3440,
+      "body_sha256": "4a23c0b581f8223d6eeef9941027568dca89293f5a4fce1e1f9451aa3603f172",
+      "padding_bytes": 0,
+      "full_extent_bytes": 3440,
+      "full_extent_sha256": "4a23c0b581f8223d6eeef9941027568dca89293f5a4fce1e1f9451aa3603f172",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z",
+      "symbol_prefix": "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 279531
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279533
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_C@_04CKLG@MAPS?$AA@",
+          "target": 8372348,
+          "addend": 0,
+          "resolved": 8372348
+        },
+        {
+          "offset": 45,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279519
+        },
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@H@Z",
+          "target": 7796096,
+          "addend": 0,
+          "resolved": 286761
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292761045
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279660
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279651
+        },
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279642
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 279425
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279427
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?Faction_Name@@YIABVWstring@@H@Z",
+          "target": 7767456,
+          "addend": 0,
+          "resolved": 258033
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292760964
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279579
+        },
+        {
+          "offset": 186,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 279362
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279364
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@H@Z",
+          "target": 7796096,
+          "addend": 0,
+          "resolved": 286603
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "??_C@_04HBPG@Art_?$AA@",
+          "target": 8372340,
+          "addend": 0,
+          "resolved": 8372340
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 286892
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292760879
+        },
+        {
+          "offset": 267,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279489
+        },
+        {
+          "offset": 276,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279480
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279471
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 306,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 315,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279249
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "??_C@_07MPGH@Art_800?$AA@",
+          "target": 8372332,
+          "addend": 0,
+          "resolved": 8372332
+        },
+        {
+          "offset": 329,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279235
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292760776
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279391
+        },
+        {
+          "offset": 374,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279382
+        },
+        {
+          "offset": 379,
+          "kind": 6,
+          "symbol": "??_C@_04BBDK@Size?$AA@",
+          "target": 8216104,
+          "addend": 0,
+          "resolved": 8216104
+        },
+        {
+          "offset": 404,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279160
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5306368,
+          "addend": 0,
+          "resolved": 4292763965
+        },
+        {
+          "offset": 453,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279303
+        },
+        {
+          "offset": 460,
+          "kind": 6,
+          "symbol": "??_C@_0M@JGGP@SideBarSize?$AA@",
+          "target": 8372320,
+          "addend": 0,
+          "resolved": 8372320
+        },
+        {
+          "offset": 477,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279087
+        },
+        {
+          "offset": 504,
+          "kind": 20,
+          "symbol": "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5306368,
+          "addend": 0,
+          "resolved": 4292763892
+        },
+        {
+          "offset": 526,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279230
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "??_C@_0M@OMFK@HelpBarSize?$AA@",
+          "target": 8372308,
+          "addend": 0,
+          "resolved": 8372308
+        },
+        {
+          "offset": 548,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 279016
+        },
+        {
+          "offset": 575,
+          "kind": 20,
+          "symbol": "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5306368,
+          "addend": 0,
+          "resolved": 4292763821
+        },
+        {
+          "offset": 597,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279159
+        },
+        {
+          "offset": 603,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 625,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 685,
+          "kind": 6,
+          "symbol": "??_C@_08MIOO@TextRect?$AA@",
+          "target": 8280680,
+          "addend": 0,
+          "resolved": 8280680
+        },
+        {
+          "offset": 697,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278867
+        },
+        {
+          "offset": 723,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 4292757385
+        },
+        {
+          "offset": 756,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 279000
+        },
+        {
+          "offset": 777,
+          "kind": 6,
+          "symbol": "??_C@_0M@HIFL@TooltipRect?$AA@",
+          "target": 8372296,
+          "addend": 0,
+          "resolved": 8372296
+        },
+        {
+          "offset": 789,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278775
+        },
+        {
+          "offset": 818,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 4292757290
+        },
+        {
+          "offset": 851,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278905
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "??_C@_09LAKB@TitleRect?$AA@",
+          "target": 8372284,
+          "addend": 0,
+          "resolved": 8372284
+        },
+        {
+          "offset": 884,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278680
+        },
+        {
+          "offset": 913,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 4292757195
+        },
+        {
+          "offset": 946,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278810
+        },
+        {
+          "offset": 967,
+          "kind": 6,
+          "symbol": "??_C@_0N@GGBF@BackTextRect?$AA@",
+          "target": 8372268,
+          "addend": 0,
+          "resolved": 8372268
+        },
+        {
+          "offset": 979,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278585
+        },
+        {
+          "offset": 1008,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 4292757100
+        },
+        {
+          "offset": 1041,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278715
+        },
+        {
+          "offset": 1069,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 278479
+        },
+        {
+          "offset": 1074,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 1083,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278481
+        },
+        {
+          "offset": 1088,
+          "kind": 6,
+          "symbol": "??_C@_07KCJC@Opening?$AA@",
+          "target": 8372260,
+          "addend": 0,
+          "resolved": 8372260
+        },
+        {
+          "offset": 1097,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278467
+        },
+        {
+          "offset": 1124,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292760008
+        },
+        {
+          "offset": 1133,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278623
+        },
+        {
+          "offset": 1142,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278614
+        },
+        {
+          "offset": 1151,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 282125
+        },
+        {
+          "offset": 1191,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 362076
+        },
+        {
+          "offset": 1218,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 1235,
+          "kind": 20,
+          "symbol": "??0MSBinkAnim@@QAE@ABVWstring@@PAVSurface@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABV?$TRect@H@@_N@Z",
+          "target": 5953760,
+          "addend": 0,
+          "resolved": 4293410553
+        },
+        {
+          "offset": 1246,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293432174
+        },
+        {
+          "offset": 1268,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293432152
+        },
+        {
+          "offset": 1282,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 1291,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278273
+        },
+        {
+          "offset": 1296,
+          "kind": 6,
+          "symbol": "??_C@_0L@BJIH@Background?$AA@",
+          "target": 8232332,
+          "addend": 0,
+          "resolved": 8232332
+        },
+        {
+          "offset": 1305,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278259
+        },
+        {
+          "offset": 1332,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292759800
+        },
+        {
+          "offset": 1341,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278415
+        },
+        {
+          "offset": 1350,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278406
+        },
+        {
+          "offset": 1357,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 361910
+        },
+        {
+          "offset": 1383,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 4293418261
+        },
+        {
+          "offset": 1421,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293431999
+        },
+        {
+          "offset": 1432,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278132
+        },
+        {
+          "offset": 1437,
+          "kind": 6,
+          "symbol": "??_C@_08OADD@ClickMap?$AA@",
+          "target": 8281124,
+          "addend": 0,
+          "resolved": 8281124
+        },
+        {
+          "offset": 1446,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278118
+        },
+        {
+          "offset": 1473,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292759659
+        },
+        {
+          "offset": 1482,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278274
+        },
+        {
+          "offset": 1491,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278265
+        },
+        {
+          "offset": 1505,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@ABVWstring@@@Z",
+          "target": 4624272,
+          "addend": 0,
+          "resolved": 4292080795
+        },
+        {
+          "offset": 1520,
+          "kind": 20,
+          "symbol": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+          "target": 6344976,
+          "addend": 0,
+          "resolved": 4293801484
+        },
+        {
+          "offset": 1532,
+          "kind": 20,
+          "symbol": "?Close@CCFileClass@@UAEXXZ",
+          "target": 4624880,
+          "addend": 0,
+          "resolved": 4292081376
+        },
+        {
+          "offset": 1537,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 1554,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 278010
+        },
+        {
+          "offset": 1559,
+          "kind": 6,
+          "symbol": "??_C@_07FLDC@SideBar?$AA@",
+          "target": 8372252,
+          "addend": 0,
+          "resolved": 8372252
+        },
+        {
+          "offset": 1568,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277996
+        },
+        {
+          "offset": 1595,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292759537
+        },
+        {
+          "offset": 1604,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278152
+        },
+        {
+          "offset": 1613,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 278143
+        },
+        {
+          "offset": 1622,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 281654
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 1674,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 361593
+        },
+        {
+          "offset": 1704,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 4293417940
+        },
+        {
+          "offset": 1730,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293431690
+        },
+        {
+          "offset": 1735,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 1744,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277820
+        },
+        {
+          "offset": 1749,
+          "kind": 6,
+          "symbol": "??_C@_07KKOL@HelpBar?$AA@",
+          "target": 8372244,
+          "addend": 0,
+          "resolved": 8372244
+        },
+        {
+          "offset": 1758,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277806
+        },
+        {
+          "offset": 1785,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292759347
+        },
+        {
+          "offset": 1794,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277962
+        },
+        {
+          "offset": 1803,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277953
+        },
+        {
+          "offset": 1812,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 281464
+        },
+        {
+          "offset": 1823,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 361444
+        },
+        {
+          "offset": 1852,
+          "kind": 20,
+          "symbol": "??0MSPCXAnim@@QAE@ABVWstring@@PAV?$DynamicVectorClass@PAVMSAnim@@@@ABVPoint2D@@_N@Z",
+          "target": 5961616,
+          "addend": 0,
+          "resolved": 4293417792
+        },
+        {
+          "offset": 1870,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293431550
+        },
+        {
+          "offset": 1875,
+          "kind": 6,
+          "symbol": "??_C@_0BE@NKMC@BackButtonRectangle?$AA@",
+          "target": 8372224,
+          "addend": 0,
+          "resolved": 8372224
+        },
+        {
+          "offset": 1884,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277680
+        },
+        {
+          "offset": 1910,
+          "kind": 20,
+          "symbol": "?Get_Rect@INIClass@@QBE?BV?$TRect@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5300080,
+          "addend": 0,
+          "resolved": 4292756198
+        },
+        {
+          "offset": 1943,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277813
+        },
+        {
+          "offset": 1948,
+          "kind": 6,
+          "symbol": "??_C@_0BB@ECNH@BackButtonOrigin?$AA@",
+          "target": 8372204,
+          "addend": 0,
+          "resolved": 8372204
+        },
+        {
+          "offset": 1957,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277607
+        },
+        {
+          "offset": 1997,
+          "kind": 20,
+          "symbol": "?Get_Point@INIClass@@QBE?BV?$TPoint2D@H@@ABVWstring@@0ABV2@@Z",
+          "target": 5306368,
+          "addend": 0,
+          "resolved": 4292762399
+        },
+        {
+          "offset": 2019,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277737
+        },
+        {
+          "offset": 2053,
+          "kind": 6,
+          "symbol": "??_C@_0N@EJBG@sdbtnanm?4pal?$AA@",
+          "target": 8372188,
+          "addend": 0,
+          "resolved": 8372188
+        },
+        {
+          "offset": 2073,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277491
+        },
+        {
+          "offset": 2078,
+          "kind": 6,
+          "symbol": "??_C@_0BC@GHHL@BackButtonPalette?$AA@",
+          "target": 8372168,
+          "addend": 0,
+          "resolved": 8372168
+        },
+        {
+          "offset": 2087,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277477
+        },
+        {
+          "offset": 2114,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292759018
+        },
+        {
+          "offset": 2123,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277633
+        },
+        {
+          "offset": 2132,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277624
+        },
+        {
+          "offset": 2154,
+          "kind": 20,
+          "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
+          "target": 5948768,
+          "addend": 0,
+          "resolved": 4293404642
+        },
+        {
+          "offset": 2159,
+          "kind": 6,
+          "symbol": "??_C@_0BG@IAGB@BackButtonNormalFrame?$AA@",
+          "target": 8372144,
+          "addend": 0,
+          "resolved": 8372144
+        },
+        {
+          "offset": 2171,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277393
+        },
+        {
+          "offset": 2192,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z",
+          "target": 5298640,
+          "addend": 0,
+          "resolved": 4292754476
+        },
+        {
+          "offset": 2204,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277552
+        },
+        {
+          "offset": 2209,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@BJJM@BackButtonDepressedFrame?$AA@",
+          "target": 8372116,
+          "addend": 0,
+          "resolved": 8372116
+        },
+        {
+          "offset": 2218,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277346
+        },
+        {
+          "offset": 2239,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHABVWstring@@0H@Z",
+          "target": 5298640,
+          "addend": 0,
+          "resolved": 4292754429
+        },
+        {
+          "offset": 2251,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277505
+        },
+        {
+          "offset": 2256,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 2265,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277299
+        },
+        {
+          "offset": 2270,
+          "kind": 6,
+          "symbol": "??_C@_0L@FLDE@BackButton?$AA@",
+          "target": 8372104,
+          "addend": 0,
+          "resolved": 8372104
+        },
+        {
+          "offset": 2279,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277285
+        },
+        {
+          "offset": 2306,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758826
+        },
+        {
+          "offset": 2315,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277441
+        },
+        {
+          "offset": 2324,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277432
+        },
+        {
+          "offset": 2333,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 280943
+        },
+        {
+          "offset": 2344,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 360923
+        },
+        {
+          "offset": 2394,
+          "kind": 20,
+          "symbol": "??0MSOverlayAnim@@QAE@ABVWstring@@HHPAVConvertClass@@HPAV?$DynamicVectorClass@PAVMSAnim@@@@_NI3@Z",
+          "target": 5952368,
+          "addend": 0,
+          "resolved": 4293408002
+        },
+        {
+          "offset": 2414,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293431006
+        },
+        {
+          "offset": 2419,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 2428,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277136
+        },
+        {
+          "offset": 2433,
+          "kind": 6,
+          "symbol": "??_C@_0BG@MOID@BackButtonHighlighted?$AA@",
+          "target": 8372080,
+          "addend": 0,
+          "resolved": 8372080
+        },
+        {
+          "offset": 2442,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277122
+        },
+        {
+          "offset": 2469,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758663
+        },
+        {
+          "offset": 2478,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277278
+        },
+        {
+          "offset": 2487,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277269
+        },
+        {
+          "offset": 2498,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277066
+        },
+        {
+          "offset": 2503,
+          "kind": 6,
+          "symbol": "??_C@_0O@MGKE@OverlayPrefix?$AA@",
+          "target": 8372064,
+          "addend": 0,
+          "resolved": 8372064
+        },
+        {
+          "offset": 2512,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 277052
+        },
+        {
+          "offset": 2538,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758594
+        },
+        {
+          "offset": 2547,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277209
+        },
+        {
+          "offset": 2556,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277200
+        },
+        {
+          "offset": 2567,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276997
+        },
+        {
+          "offset": 2572,
+          "kind": 6,
+          "symbol": "??_C@_0P@GGFL@OverlayPalette?$AA@",
+          "target": 8372048,
+          "addend": 0,
+          "resolved": 8372048
+        },
+        {
+          "offset": 2581,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276983
+        },
+        {
+          "offset": 2608,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758524
+        },
+        {
+          "offset": 2617,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277139
+        },
+        {
+          "offset": 2626,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277130
+        },
+        {
+          "offset": 2635,
+          "kind": 20,
+          "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
+          "target": 5948768,
+          "addend": 0,
+          "resolved": 4293404161
+        },
+        {
+          "offset": 2650,
+          "kind": 6,
+          "symbol": "??_C@_04FGEK@WDT?3?$AA@",
+          "target": 8372040,
+          "addend": 0,
+          "resolved": 8372040
+        },
+        {
+          "offset": 2662,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276902
+        },
+        {
+          "offset": 2669,
+          "kind": 20,
+          "symbol": "??HWstring@@QBE?AV0@ABV0@@Z",
+          "target": 7791040,
+          "addend": 0,
+          "resolved": 279103
+        },
+        {
+          "offset": 2678,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277078
+        },
+        {
+          "offset": 2683,
+          "kind": 6,
+          "symbol": "??_C@_0O@GJKG@NameKeyPrefix?$AA@",
+          "target": 8372024,
+          "addend": 0,
+          "resolved": 8372024
+        },
+        {
+          "offset": 2692,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276872
+        },
+        {
+          "offset": 2719,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758413
+        },
+        {
+          "offset": 2728,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 277028
+        },
+        {
+          "offset": 2747,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276817
+        },
+        {
+          "offset": 2752,
+          "kind": 6,
+          "symbol": "??_C@_0P@LNCF@DefaultPalette?$AA@",
+          "target": 8372008,
+          "addend": 0,
+          "resolved": 8372008
+        },
+        {
+          "offset": 2761,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276803
+        },
+        {
+          "offset": 2788,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758344
+        },
+        {
+          "offset": 2802,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276954
+        },
+        {
+          "offset": 2811,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276945
+        },
+        {
+          "offset": 2827,
+          "kind": 20,
+          "symbol": "?Get_Drawer@Map@WorldDominationTour@@QAEPAVConvertClass@@ABVWstring@@@Z",
+          "target": 7513360,
+          "addend": 0,
+          "resolved": 1265
+        },
+        {
+          "offset": 2836,
+          "kind": 6,
+          "symbol": "??_C@_04OKCJ@Logo?$AA@",
+          "target": 8372000,
+          "addend": 0,
+          "resolved": 8372000
+        },
+        {
+          "offset": 2845,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276719
+        },
+        {
+          "offset": 2868,
+          "kind": 20,
+          "symbol": "?Load_Anim@Map@WorldDominationTour@@QAEPAVMSAnim@@AAVINIClass@@ABVWstring@@1PAVConvertClass@@@Z",
+          "target": 7512704,
+          "addend": 0,
+          "resolved": 568
+        },
+        {
+          "offset": 2879,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276877
+        },
+        {
+          "offset": 2896,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293430524
+        },
+        {
+          "offset": 2909,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@H@Z",
+          "target": 7796096,
+          "addend": 0,
+          "resolved": 283919
+        },
+        {
+          "offset": 2915,
+          "kind": 6,
+          "symbol": "??_C@_09FBNK@Animation?$AA@",
+          "target": 8371988,
+          "addend": 0,
+          "resolved": 8371988
+        },
+        {
+          "offset": 2924,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 284208
+        },
+        {
+          "offset": 2934,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 277414
+        },
+        {
+          "offset": 2943,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276813
+        },
+        {
+          "offset": 2952,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276804
+        },
+        {
+          "offset": 2975,
+          "kind": 20,
+          "symbol": "?Load_Anim@Map@WorldDominationTour@@QAEPAVMSAnim@@AAVINIClass@@ABVWstring@@1PAVConvertClass@@@Z",
+          "target": 7512704,
+          "addend": 0,
+          "resolved": 461
+        },
+        {
+          "offset": 2992,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 4293430428
+        },
+        {
+          "offset": 3015,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276549
+        },
+        {
+          "offset": 3038,
+          "kind": 20,
+          "symbol": "?Wstring_FromInt@@YI?AVWstring@@HH@Z",
+          "target": 7796240,
+          "addend": 0,
+          "resolved": 283934
+        },
+        {
+          "offset": 3044,
+          "kind": 6,
+          "symbol": "??_C@_09FECI@Territory?$AA@",
+          "target": 8371976,
+          "addend": 0,
+          "resolved": 8371976
+        },
+        {
+          "offset": 3053,
+          "kind": 20,
+          "symbol": "??H@YI?AVWstring@@PBDABV0@@Z",
+          "target": 7796400,
+          "addend": 0,
+          "resolved": 284079
+        },
+        {
+          "offset": 3066,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292758066
+        },
+        {
+          "offset": 3082,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276674
+        },
+        {
+          "offset": 3091,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276665
+        },
+        {
+          "offset": 3100,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276656
+        },
+        {
+          "offset": 3134,
+          "kind": 20,
+          "symbol": "?Create@Territory@WorldDominationTour@@SI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@HABVINIClass@@ABVWstring@@11@Z",
+          "target": 7539584,
+          "addend": 0,
+          "resolved": 27182
+        },
+        {
+          "offset": 3206,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293981078
+        },
+        {
+          "offset": 3218,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 3223,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293981029
+        },
+        {
+          "offset": 3278,
+          "kind": 20,
+          "symbol": "?Create_Owner_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z",
+          "target": 7540224,
+          "addend": 0,
+          "resolved": 27678
+        },
+        {
+          "offset": 3322,
+          "kind": 20,
+          "symbol": "?Create_Highlight_Anim@Territory@WorldDominationTour@@QAEXPAVMSEngine@@PAVConvertClass@@ABVPoint2D@@@Z",
+          "target": 7540416,
+          "addend": 0,
+          "resolved": 27826
+        },
+        {
+          "offset": 3339,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276417
+        },
+        {
+          "offset": 3354,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 3370,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4291879378
+        },
+        {
+          "offset": 3382,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 3387,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4291842305
+        },
+        {
+          "offset": 3396,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276360
+        },
+        {
+          "offset": 3405,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276351
+        },
+        {
+          "offset": 3414,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276342
+        },
+        {
+          "offset": 3423,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276333
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7509264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7512704,
+      "method": "0072a280",
+      "body_bytes": 651,
+      "body_sha256": "c545cf75a3b531501dc2c52eeb18cc0c76a7cf27e15594605ad2f7ddb072677e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 656,
+      "full_extent_sha256": "54e1f6dee95713ec63c609f5bb76771e8252cad3fa94ccf190c94250ad492c39",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Anim@Map@WorldDominationTour@@QAEPAVMSAnim@@AAVINIClass@@ABVWstring@@1PAVConvertClass@@@Z",
+      "symbol_prefix": "?Load_Anim@Map@WorldDominationTour@@QAEPAVMSAnim@@AAVINIClass@@ABVWstring@@1PAVConvertClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 276091
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 276096
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHABVWstring@@00AAV2@@Z",
+          "target": 5303104,
+          "addend": 0,
+          "resolved": 4292757626
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 276236
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 276011
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 276002
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 275993
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 275984
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 275975
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 282338
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 282318
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 194,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 282298
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 282278
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "??_C@_01KMAE@?0?$AA@",
+          "target": 8186304,
+          "addend": 0,
+          "resolved": 8186304
+        },
+        {
+          "offset": 234,
+          "kind": 20,
+          "symbol": "?getToken@Wstring@@QBEHHPBDAAV1@@Z",
+          "target": 7795200,
+          "addend": 0,
+          "resolved": 282258
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "??9Wstring@@QBE_NPBD@Z",
+          "target": 7789280,
+          "addend": 0,
+          "resolved": 276327
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 283110
+        },
+        {
+          "offset": 278,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 283094
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "??9Wstring@@QBE_NPBD@Z",
+          "target": 7789280,
+          "addend": 0,
+          "resolved": 276271
+        },
+        {
+          "offset": 314,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 279522
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "?toInt@Wstring@@QBEHXZ",
+          "target": 7796080,
+          "addend": 0,
+          "resolved": 283045
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "??9Wstring@@QBE_NPBD@Z",
+          "target": 7789280,
+          "addend": 0,
+          "resolved": 276232
+        },
+        {
+          "offset": 353,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 279483
+        },
+        {
+          "offset": 369,
+          "kind": 20,
+          "symbol": "?Get_Drawer@Map@WorldDominationTour@@QAEPAVConvertClass@@ABVWstring@@@Z",
+          "target": 7513360,
+          "addend": 0,
+          "resolved": 283
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@ABVWstring@@@Z",
+          "target": 4624272,
+          "addend": 0,
+          "resolved": 4292078464
+        },
+        {
+          "offset": 424,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 440,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4291878868
+        },
+        {
+          "offset": 452,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 457,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4291841795
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 359351
+        },
+        {
+          "offset": 503,
+          "kind": 20,
+          "symbol": "??0MSShapeAnim@@QAE@ABVWstring@@HHPAVConvertClass@@H_NW4ShapeFlags_Type@@@Z",
+          "target": 5949088,
+          "addend": 0,
+          "resolved": 4293403173
+        },
+        {
+          "offset": 518,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275798
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275789
+        },
+        {
+          "offset": 536,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275780
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275771
+        },
+        {
+          "offset": 554,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275762
+        },
+        {
+          "offset": 563,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275753
+        },
+        {
+          "offset": 587,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275729
+        },
+        {
+          "offset": 596,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275720
+        },
+        {
+          "offset": 605,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275711
+        },
+        {
+          "offset": 614,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275702
+        },
+        {
+          "offset": 623,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275693
+        },
+        {
+          "offset": 632,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275684
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7512704,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7513360,
+      "method": "0072a510",
+      "body_bytes": 196,
+      "body_sha256": "5d67d9cd3d87cbd47aa2b72935a3a0e32e5f91f8c36317d554fa281a494471c9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "d006ca3cdbc52c68a43357e39041af98fac52fc3dc37dcfc151f92078d084464",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Drawer@Map@WorldDominationTour@@QAEPAVConvertClass@@ABVWstring@@@Z",
+      "symbol_prefix": "?Get_Drawer@Map@WorldDominationTour@@QAEPAVConvertClass@@ABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NABV0@@Z",
+          "target": 7789168,
+          "addend": 0,
+          "resolved": 275772
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z",
+          "target": 5948768,
+          "addend": 0,
+          "resolved": 4293402645
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 359103
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@ABV0@@Z",
+          "target": 7788928,
+          "addend": 0,
+          "resolved": 275479
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7513568,
+      "method": "0072a5e0",
+      "body_bytes": 26,
+      "body_sha256": "288ee71c1969c4bd8761a0e6a9cd8a6c9698bb0254b31538b4aa6a10d10bc9ed",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2cb1c40dedc78625f923dae4f13d1cf16f7934794ba933c9288a98928acb1237",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0NamedValue@@QAE@ABVWstring@@H@Z",
+      "symbol_prefix": "??0NamedValue@@QAE@ABVWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@ABV0@@Z",
+          "target": 7788928,
+          "addend": 0,
+          "resolved": 275347
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-957"
+    },
+    {
+      "entry": 7513600,
+      "method": "0072a600",
+      "body_bytes": 25,
+      "body_sha256": "10ccfae54b3d05012406bbad537bcb788b2aa3bdf72e2e014ce7ecbe765f8598",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0ad41657c3538fe57cc47e0e6292645cd87ffbfcd1b483e6ac333057a8e8c2f0",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1AnimationPalette@Map@WorldDominationTour@@QAE@XZ",
+      "symbol_prefix": "??1AnimationPalette@Map@WorldDominationTour@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 275401
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7513632,
+      "method": "0072a620",
+      "body_bytes": 61,
+      "body_sha256": "5d2e6f9098572b39c93054cb12ecd99a07715ba0e276cec859a29921048a4df3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "ed4b45f6f08867cbcf5b052e5e27271a423a90cf614cf38abda049ed80ad811a",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Intro@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
+      "symbol_prefix": "?Start_Intro@Map@WorldDominationTour@@QAEXPAVMSEngine@@PAVVoices@2@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z",
+          "target": 7546624,
+          "addend": 0,
+          "resolved": 32967
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z",
+          "target": 5975856,
+          "addend": 0,
+          "resolved": 4293429477
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7513696,
+      "method": "0072a660",
+      "body_bytes": 106,
+      "body_sha256": "51d1aa0aedc3e902f5ff7a15767277131a5b438e166de04feac68148f8941ed8",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "7af837dc2d4b2aaee2739a4265dd38dcb8f7f35c8ab50abffd579fdb44958c3d",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+      "symbol_prefix": "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7513808,
+      "method": "0072a6d0",
+      "body_bytes": 69,
+      "body_sha256": "62615501e7571935c5e4b7ee1788253dcf31c851fcb780386d1b11cd9604ab30",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d1f38b9f61990ed68664f0420e30da6d2489e3a6e8035a19488a951c14a211e8",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+      "symbol_prefix": "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Set_Frame@MSOverlayAnim@@QAEXH@Z",
+          "target": 5953568,
+          "addend": 0,
+          "resolved": 4293407013
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Broadcast@MSEngine@@QAEXPAX@Z",
+          "target": 5978112,
+          "addend": 0,
+          "resolved": 4293431542
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?Redraw@MSEngine@@QAEXXZ",
+          "target": 5975952,
+          "addend": 0,
+          "resolved": 4293429375
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513808,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1648"
+    },
+    {
+      "entry": 7513888,
+      "method": "0072a720",
+      "body_bytes": 69,
+      "body_sha256": "33f88b8ce9d29079c821aa0207eb56c2e08bdaf90d75d5eaffc3ab2e0d1bc11f",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6016fd804c1398b6b3ac93569df7ff0a8817688c33bb164e68bc53317f33bd55",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+      "symbol_prefix": "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "?Set_Frame@MSOverlayAnim@@QAEXH@Z",
+          "target": 5953568,
+          "addend": 0,
+          "resolved": 4293406933
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?Broadcast@MSEngine@@QAEXPAX@Z",
+          "target": 5978112,
+          "addend": 0,
+          "resolved": 4293431462
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?Redraw@MSEngine@@QAEXXZ",
+          "target": 5975952,
+          "addend": 0,
+          "resolved": 4293429295
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1648"
+    },
+    {
+      "entry": 7513968,
+      "method": "0072a770",
+      "body_bytes": 59,
+      "body_sha256": "46d7d884692c4cdd1ddfd63493684496325bc26d7d1f79dad17a56aaec16bf95",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5301d23c234e01b9b0fea8ef4286e3111a0820e53e91987aa31d68ed313273ea",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+      "symbol_prefix": "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7513968,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-123"
+    },
+    {
+      "entry": 7514032,
+      "method": "0072a7b0",
+      "body_bytes": 13,
+      "body_sha256": "1e09d34a9de7a48bd061703ef73f341df8596595468b282c5f19c36b6bf0b98d",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "98b4b73d3ab83a9851170d7c7bcd8fcacb6654a89f1814fa5606484ec5367dbe",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Centroid@WorldDominationTour@@QAE@XZ",
+      "symbol_prefix": "??0Centroid@WorldDominationTour@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7514048,
+      "method": "0072a7c0",
+      "body_bytes": 37,
+      "body_sha256": "5e7ff3da6f6532470977f1879aa659d00e5474c5dd53c662e9d454ad863c4d80",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cff958f44239dedd438ebd0e0a4a26eaa3b9b6897714c124bae700a74bb60167",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??YCentroid@WorldDominationTour@@QAEABV01@ABVPoint2D@@@Z",
+      "symbol_prefix": "??YCentroid@WorldDominationTour@@QAEABV01@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7514096,
+      "method": "0072a7f0",
+      "body_bytes": 71,
+      "body_sha256": "988930af3fc2ab7d7abe37147eab1dbc7336a3274f0cc38ea06e19f0eaf60903",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f0ffe284a19ee6222dde6b6b271bb99a233a86354e8ad59702bd0de986ec9122",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ",
+      "symbol_prefix": "?Center_Point@Centroid@WorldDominationTour@@QBE?AVPoint2D@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7514176,
+      "method": "0072a840",
+      "body_bytes": 46,
+      "body_sha256": "1337fe9dda9c308cb00143dff2d52f19786db646cf79ff2afbcc80781b7a74a4",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5ef490ed0c0012d11785f2202e2b13f5ac937ffa46caf446e43e9b2fb802f6f2",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8Centroid@WorldDominationTour@@QBE_NABV01@@Z",
+      "symbol_prefix": "??8Centroid@WorldDominationTour@@QBE_NABV01@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514176,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7514224,
+      "method": "0072a870",
+      "body_bytes": 13,
+      "body_sha256": "6d9cd0fa4049867c1e287f63e0893d71c654dace8aa3070147cefa0a56678f12",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7506ba23dff3f9c5f753a231420ffdc66af4525eb03169ba2285a0e62ef189dc",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Territory_Of_Color@@YIII@Z",
+      "symbol_prefix": "?Territory_Of_Color@@YIII@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7514224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7515904,
+      "method": "0072af00",
+      "body_bytes": 36,
+      "body_sha256": "5a1fe7e8a1a10a996da6a795280fa21f83eeef8fc01f97a391534a52e532a242",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "94a6a67836af73bbe4490ca9acf396dd3d51d2e0334f4342337d03fb83977741",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMSFrameAnim@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMSFrameAnim@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MSFrameAnim@@6B@",
+          "target": 8057276,
+          "addend": 0,
+          "resolved": 8057276
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1MSAnim@@UAE@XZ",
+          "target": 5949072,
+          "addend": 0,
+          "resolved": 4293400450
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 355872
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7515904,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7515952,
+      "method": "0072af30",
+      "body_bytes": 30,
+      "body_sha256": "f2aa64f5417f0d473e36e385a1e2f83f3a2f10999f89ec191e6d6e7eb10c22ca",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "c2b76ca39b56dc385dc0f176d172f10b8c0d4b153701c588db7e46c80d2261e6",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMap@WorldDominationTour@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMap@WorldDominationTour@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1Map@WorldDominationTour@@UAE@XZ",
+          "target": 7508976,
+          "addend": 0,
+          "resolved": 4294960312
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 355830
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7515952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7516032,
+      "method": "0072af80",
+      "body_bytes": 43,
+      "body_sha256": "48610c29e7a5d4cefba3d64b58fd183e3031e8a8a747301896a619c4e7e5f27b",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b943d2f9ad5d5667e5ef923c20a0f4a7c1e1dcb83d1dc100375d9a1366291b6b",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516080,
+      "method": "0072afb0",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516080,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516112,
+      "method": "0072afd0",
+      "body_bytes": 47,
+      "body_sha256": "60de8d083d13345fad0d9f08f2ade8c68257598c8148e82e2fcafe12559b3a95",
+      "padding_bytes": 1,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "97cb3650c16e54f321977be31541788519f187aa9edc807c5fc7f97f2a319b6c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293977337
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293977400
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516112,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516160,
+      "method": "0072b000",
+      "body_bytes": 42,
+      "body_sha256": "451eb846092046f83e27476a6c7a6059cf6bc14f5870050512f29799a83ef4ee",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3541420d3bd7d315bfccb8086b9e67496e6dff76fc314ae0d5320d87d104dd42",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 355616
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516160,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516208,
+      "method": "0072b030",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516240,
+      "method": "0072b050",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBEPAVAnimationPalette@Map@WorldDominationTour@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516240,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516352,
+      "method": "0072b0c0",
+      "body_bytes": 36,
+      "body_sha256": "696d8abfe61fbaa1ab2d781ceb64506607c08d73da0255b91aabef3628a98006",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "e78b88e9da1536e76d33cbaa60bb2039bd271beeaa34ac74301388deeda0800b",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$rc_ptr@VMap@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$rc_ptr@VMap@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VMap@WorldDominationTour@@@@6B@",
+          "target": 8057316,
+          "addend": 0,
+          "resolved": 8057316
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293977154
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 355424
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-66"
+    },
+    {
+      "entry": 7516432,
+      "method": "0072b110",
+      "body_bytes": 70,
+      "body_sha256": "32b3a7c3ebf46f5bb251418608db3aa033113ebfc9316dbfd9203cb0974097d2",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "9dc8cb1fc258301f6358ad5ea496e7e4f627e05dd43ee4fa52799d43afadc9e8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516512,
+      "method": "0072b160",
+      "body_bytes": 282,
+      "body_sha256": "36fb66b7890301cf81ffce34b0b0758b32a0f7291b252ecdb896efbafe9ff15e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "e22227c9d84e031dd25ef5d9b2d4f933e67138ec606267b5b18c650e67326eaa",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 355979
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293976883
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 121,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293976835
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293976841
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516512,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516800,
+      "method": "0072b280",
+      "body_bytes": 40,
+      "body_sha256": "e1e726adcab65c96c4727ed7b00e7c6f820972aa385f7d02bb01dd05feaac921",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8230d93ecd046519a1228beb5e8cbed35b12310bf5ad000617916c07b45e6f36",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516848,
+      "method": "0072b2b0",
+      "body_bytes": 55,
+      "body_sha256": "fed1782a4b5817954d2002aa7f8c50b4aa0f664e16627a3bf81ef0c6f0071255",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "693b7ee0f427b8243f52abfca083bc3c73e11ebb9cc1d983e174286ca8b4fdd8",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7516912,
+      "method": "0072b2f0",
+      "body_bytes": 27,
+      "body_sha256": "b5dbb22bab6aedc462b40d12ffee42a1fd4725233b80807364583e3679159ad4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f63073e6c4fb1f4514402df2f62b2b1af0426c2fe22eebf79b47303169753168",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516912,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7516944,
+      "method": "0072b310",
+      "body_bytes": 285,
+      "body_sha256": "a4e414c797e2c26e8d27600c5ac3e5f02c9fd7429807bfd4cc3d0a75ee80170b",
+      "padding_bytes": 3,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "7819e40a15e820f278a692361d98733e01c597b2dcf732342bb2df39f5bd34f1",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAE_NHPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 355547
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ",
+          "target": 7518960,
+          "addend": 0,
+          "resolved": 1939
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293976405
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293976421
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7516944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7517232,
+      "method": "0072b430",
+      "body_bytes": 42,
+      "body_sha256": "6d44d001684a46726dc9a11537f6686d603d332f214242f118cd18b3e79a8c3f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c84547dff1b025a60d5660761515556d1870fae7871674926429b30bbb308ef2",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEHABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2187"
+    },
+    {
+      "entry": 7517280,
+      "method": "0072b460",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517280,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517344,
+      "method": "0072b4a0",
+      "body_bytes": 174,
+      "body_sha256": "e23c7fdc1fdefba57e09adf8abaf0e013febb071edf8fac4c7d699d8ef49488a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "8ecbf90cd3ebe905b0de9e80117595ed288717472b9d3dc0fbc86b91e0da6ac8",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 355148
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 354336
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517520,
+      "method": "0072b550",
+      "body_bytes": 39,
+      "body_sha256": "96e644a5bfc3bbfa7112b9e082e4dfda3f1c87c86acfaf221bc8bea9aae53b37",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3488e33ddb03dc3bfd1709047148405cfc1b63cfcdf120833cb31bee72b1b53f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 354259
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517568,
+      "method": "0072b580",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517632,
+      "method": "0072b5c0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517632,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517664,
+      "method": "0072b5e0",
+      "body_bytes": 176,
+      "body_sha256": "eee379d45e2c9b8cbe6c4d99bb019ac326a3762bd4a73a3f04785d3d678267dc",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "eee379d45e2c9b8cbe6c4d99bb019ac326a3762bd4a73a3f04785d3d678267dc",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAE_NHPBQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 354832
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 354029
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517664,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7517840,
+      "method": "0072b690",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEHABQAVAnimationPalette@Map@WorldDominationTour@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7517840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1622"
+    },
+    {
+      "entry": 7518448,
+      "method": "0072b8f0",
+      "body_bytes": 74,
+      "body_sha256": "35efbe2be5f55926203d6dbce155de652031d8274ae369f33fb3131bd685e377",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a616b3a1f14cdeccea531f514aac20f326cea352294c15aecd863c145d244ed9",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@",
+          "target": 8057404,
+          "addend": 0,
+          "resolved": 8057404
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353290
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518448,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7518528,
+      "method": "0072b940",
+      "body_bytes": 106,
+      "body_sha256": "47026039244d523f178c3d030a916efcd9206c61055b7967797798cd5dab220e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "0bd6e85d0440a66814e3a6c72db32c08c621547855b238cffb9084d8894de996",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_E?$rc_ptr@VTerritory@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293974946
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353214
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293974907
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353179
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7518640,
+      "method": "0072b9b0",
+      "body_bytes": 74,
+      "body_sha256": "0220be47ed1e4c728363bf7806f925c44ae41c19a2f46a73fa388a47a9d6f4d0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d2310e45cbb6886eb768a6d0b44131ed73c7abb30c52a58a04a41105e591977c",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@",
+          "target": 8057404,
+          "addend": 0,
+          "resolved": 8057404
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353098
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7518720,
+      "method": "72ba00",
+      "body_bytes": 73,
+      "body_sha256": "d2cb5a17d6c6d2d5d52382739474355cc4f4c8e8c4160c7288b8e094001af7be",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "25938c29a70943c7b353409b9e79373f7c8ad285ab60a255fec9945857ec94b2",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "target": 8057436,
+          "addend": 0,
+          "resolved": 8057436
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353054
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 353019
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7518800,
+      "method": "72ba50",
+      "body_bytes": 73,
+      "body_sha256": "9b5e13b3d5ebf1a72443608376087a64d64232bb15559d6878f069abd123207a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4ad792d924964e351d5b63d5215f4910ede7f4eac9e126c14f002f0b373ec17f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVAnimationPalette@Map@WorldDominationTour@@@@6B@",
+          "target": 8057436,
+          "addend": 0,
+          "resolved": 8057436
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 352974
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 352939
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518800,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 7518960,
+      "method": "72baf0",
+      "body_bytes": 18,
+      "body_sha256": "96c07b45344a42396b71c2364906bf1e2b7acade9d33065f52fd0c4495272f23",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3eb1a572512e541ebf5228a01d8ee3b3af35cefa0d86134fc0d8df30c444a99a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ",
+      "symbol_prefix": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293974504
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 7518992,
+      "method": "0072bb10",
+      "body_bytes": 189,
+      "body_sha256": "2ae08ae3ac220d864ae01a09d1c8e196961130adab0bbf5f030acb03816e0304",
+      "padding_bytes": 3,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "796e4ad5281c246b7c6895df0828f47eef751702fb0d87f2e81dc6d531a83a42",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "symbol_prefix": "??0?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@QAE@HPBV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@6B@",
+          "target": 8057404,
+          "addend": 0,
+          "resolved": 8057404
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293974405
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 353431
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293974337
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        }
+      ],
+      "source_sha256": "cab6bfc90691d81be00f45c57af696d7477119bb4dcaeef51f8ffa37f2b5ab3b",
+      "source": "rebuild/src/wdtmap.cpp",
+      "population": "rebuild-wdtmap",
+      "source_order": 7518992,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

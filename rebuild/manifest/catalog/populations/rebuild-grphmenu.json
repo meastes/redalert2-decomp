@@ -1,0 +1,1891 @@
+{
+  "id": "rebuild-grphmenu",
+  "population": {
+    "id": "rebuild-grphmenu",
+    "inventory_sha256": "94019ab436507604bdf8cd89e53c9ab4a0518a4a7f3694cb2a54c0098d9ec305",
+    "gaps_sha256": "0a2756f2763527d0d8f18695249008de07d1452e0405ff5621660e9bda0f065e",
+    "historical_population_sha256": "bc67fe69bd654b9de57e5e53d0b14f1460803677a768d3dc1fe17acfc1579453",
+    "historical_acceptance_sha256": "1aed64ae2a6cafee22aa18306a922012f2b0f609b5f826d4ab7bb56d97eb9ebf"
+  },
+  "references": {
+    "_RECT_NONE": 10751528,
+    "??0CCFileClass@@QAE@ABVWstring@@@Z": 4624272,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "??_7GenericNode@@6B@": 7973628,
+    "??0GenericNode@@QAE@XZ": 4252000,
+    "??_7GenericList@@6B@": 7973620,
+    "?Link@GenericNode@@QAEXPAV1@@Z": 4252032,
+    "??_7?$List@PAUINISection@INIClass@@@@6B@": 7973612,
+    "??_7INIClass@@6B@": 8006452,
+    "?Load@INIClass@@QAEHAAVFileClass@@_N@Z": 5290976,
+    "?_Graphic_Menu@@YIPAVGraphicMenu@@AAVINIClass@@ABVWstring@@@Z": 5104512,
+    "??1INIClass@@UAE@XZ": 5290192,
+    "??0MSEngine@@QAE@XZ": 5975008,
+    "??_C@_09KEDK@Title?4PCX?$AA@": 8232352,
+    "??0Wstring@@QAE@PBD@Z": 7788832,
+    "??_C@_05MDNJ@Intro?$AA@": 8232344,
+    "??_7?$DynamicVectorClass@PAVGraphicMenuItem@@@@6B@": 8006468,
+    "??_7GraphicMenu@@6B@": 8006460,
+    "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@": 8006532,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "??_7?$VectorClass@PAVGraphicMenuItem@@@@6B@": 8006500,
+    "??3@YAXPAX@Z": 7871803,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??1MSEngine@@UAE@XZ": 5975152,
+    "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z": 5112192,
+    "?get@Wstring@@QBEPADXZ": 7792368,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z": 7243024,
+    "?Play_Song@ThemeClass@@QAEHW4ThemeType@@@Z": 7241392,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
+    "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z": 5975856,
+    "?Restore_Anims@MSEngine@@QAEXABV?$TRect@H@@@Z": 5978112,
+    "?Restore_And_Advance@MSEngine@@QAEXXZ": 5975952,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Wait_For_Focus@MSEngine@@QAEXXZ": 5977712,
+    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
+    "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
+    "?Set_Selected@GraphicMenuItem@@QAEX_N@Z": 5112160,
+    "?Wait_Delay@MSEngine@@QAEXH@Z": 5977424,
+    "?Release_Mouse@OwnerDraw@@YIHXZ": 6288848,
+    "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
+    "?Replace_Anim@MSEngine@@QAEXPAVMSAnim@@0@Z": 5975504,
+    "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z": 5975392,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "??1GraphicMenu@@UAE@XZ": 5105792,
+    "??2@YAPAXI@Z": 7872535,
+    "_$E2": 5104192,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Do_Graphic_Menu@@YIPAVGraphicMenu@@ABVWstring@@0@Z": 5104224,
+    "??_GINIClass@@UAEPAXI@Z": 5107440,
+    "??_R0?AVINIClass@@@8": 8183560,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "??_GGenericNode@@UAEPAXI@Z": 4252112,
+    "??_R0?AVGenericNode@@@8": 8183616,
+    "??_GGenericList@@UAEPAXI@Z": 4252192,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
+    "??_R0?AVGenericList@@@8": 8183648,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "??0GraphicMenu@@QAE@XZ": 5105696,
+    "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z": 5108368,
+    "??_GGraphicMenu@@UAEPAXI@Z": 5107472,
+    "??_R0?AVGraphicMenu@@@8": 8232264,
+    "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z": 5108288,
+    "??_G?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEPAXI@Z": 5107616,
+    "?Set_Item_Enabled@GraphicMenu@@QAEXH_N@Z": 5106016,
+    "?Presentation@GraphicMenu@@QAEHXZ": 5106144,
+    "?Set_Animation@GraphicMenu@@QAEXPAVMSAnim@@@Z": 5106976,
+    "?Set_Theme_Name@GraphicMenu@@QAEXABVWstring@@@Z": 5107040,
+    "?Add_Item@GraphicMenu@@QAEXPAVGraphicMenuItem@@@Z": 5107056,
+    "?Get_Item_Under_Mouse@GraphicMenu@@QAEPAVGraphicMenuItem@@ABVPoint2D@@@Z": 5107136,
+    "?Get_Item_For_Key@GraphicMenu@@QAEPAVGraphicMenuItem@@W4KeyNumType@@@Z": 5107280,
+    "?Set_Background_Name@GraphicMenu@@QAEXABVWstring@@@Z": 5107424,
+    "?Clear@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEXXZ": 5107504,
+    "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z": 5107552,
+    "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z": 5107584,
+    "??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ": 5107600,
+    "??E?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ": 5108256,
+    "??F?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ": 5108272,
+    "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z": 5107648,
+    "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z": 5107712,
+    "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ": 5107888,
+    "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z": 5107936,
+    "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z": 5108000,
+    "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z": 5108032,
+    "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z": 5108208
+  },
+  "regions": [
+    {
+      "entry": 5104192,
+      "method": "004de240",
+      "body_bytes": 23,
+      "body_sha256": "3418790ab20d4eee094e10277d3eda115e3edc22058f8cf4a06a294ca47657be",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "966bd8cd40bf967c4706762b9e08723dbdbf4cede15a5d6a41af08ce31c845b9",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751528,
+          "addend": 0,
+          "resolved": 10751528
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751528,
+          "addend": 4,
+          "resolved": 10751532
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751528,
+          "addend": 8,
+          "resolved": 10751536
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10751528,
+          "addend": 12,
+          "resolved": 10751540
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5104192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5104224,
+      "method": "004de260",
+      "body_bytes": 278,
+      "body_sha256": "afb25813f3dc6b28cff8a3c6434c22a428a1901b30494c76fc03ba9cd5bd155f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "5be765c3381b75c305d51a3ac5076af375a852a0b0082812c3083a6b3b302b1d",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Graphic_Menu@@YIPAVGraphicMenu@@ABVWstring@@0@Z",
+      "symbol_prefix": "?Do_Graphic_Menu@@YIPAVGraphicMenu@@ABVWstring@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@ABVWstring@@@Z",
+          "target": 4624272,
+          "addend": 0,
+          "resolved": 4294487324
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Is_Available@CCFileClass@@UAE_NH@Z",
+          "target": 4624800,
+          "addend": 0,
+          "resolved": 4294487840
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4294287729
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4294250656
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "??_7GenericNode@@6B@",
+          "target": 7973628,
+          "addend": 0,
+          "resolved": 7973628
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "??0GenericNode@@QAE@XZ",
+          "target": 4252000,
+          "addend": 0,
+          "resolved": 4294114956
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "??_7GenericList@@6B@",
+          "target": 7973620,
+          "addend": 0,
+          "resolved": 7973620
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?Link@GenericNode@@QAEXPAV1@@Z",
+          "target": 4252032,
+          "addend": 0,
+          "resolved": 4294114966
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "??_7?$List@PAUINISection@INIClass@@@@6B@",
+          "target": 7973612,
+          "addend": 0,
+          "resolved": 7973612
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "??_7INIClass@@6B@",
+          "target": 8006452,
+          "addend": 0,
+          "resolved": 8006452
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "?Load@INIClass@@QAEHAAVFileClass@@_N@Z",
+          "target": 5290976,
+          "addend": 0,
+          "resolved": 186559
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "?_Graphic_Menu@@YIPAVGraphicMenu@@AAVINIClass@@ABVWstring@@@Z",
+          "target": 5104512,
+          "addend": 0,
+          "resolved": 80
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "??1INIClass@@UAE@XZ",
+          "target": 5290192,
+          "addend": 0,
+          "resolved": 185745
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 246,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4294287542
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 263,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4294250469
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5104224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5105696,
+      "method": "004de820",
+      "body_bytes": 82,
+      "body_sha256": "f728c9cedf189534e7a03ef6bf30ff6d565a126c9615f3b020fe1c7c313cbc47",
+      "padding_bytes": 14,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "46651b6322884b8c67179d345e3b1e7bb2c4b5594ecad372b6b9977cefbc4c55",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0GraphicMenu@@QAE@XZ",
+      "symbol_prefix": "??0GraphicMenu@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??0MSEngine@@QAE@XZ",
+          "target": 5975008,
+          "addend": 0,
+          "resolved": 869301
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_C@_09KEDK@Title?4PCX?$AA@",
+          "target": 8232352,
+          "addend": 0,
+          "resolved": 8232352
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2683112
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_C@_05MDNJ@Intro?$AA@",
+          "target": 8232344,
+          "addend": 0,
+          "resolved": 8232344
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 2683099
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVGraphicMenuItem@@@@6B@",
+          "target": 8006468,
+          "addend": 0,
+          "resolved": 8006468
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_7GraphicMenu@@6B@",
+          "target": 8006460,
+          "addend": 0,
+          "resolved": 8006460
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5105696,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5105792,
+      "method": "004de880",
+      "body_bytes": 210,
+      "body_sha256": "eb66b914794d5bf51da9e170fb5dc4d39ee322f0e1e97f9177f9bc3469023695",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "b76eb25c638109c45c0c834079cc44cd27e0461c6a1ffcbba22b97f5257b4c8a",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1GraphicMenu@@UAE@XZ",
+      "symbol_prefix": "??1GraphicMenu@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7GraphicMenu@@6B@",
+          "target": 8006460,
+          "addend": 0,
+          "resolved": 8006460
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVGraphicMenuItem@@@@6B@",
+          "target": 8006500,
+          "addend": 0,
+          "resolved": 8006500
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2765844
+        },
+        {
+          "offset": 183,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2683045
+        },
+        {
+          "offset": 191,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 2683037
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??1MSEngine@@UAE@XZ",
+          "target": 5975152,
+          "addend": 0,
+          "resolved": 869157
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5105792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5106016,
+      "method": "004de960",
+      "body_bytes": 115,
+      "body_sha256": "4547c99c8b7c06b00e5bc1832ca9628dacf4404143ffbd30fb79f61c4df9d84e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "5c6283b0addc161d57e536a43b558efa003a71cd937f73b41a876e3f5f73cb18",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Item_Enabled@GraphicMenu@@QAEXH_N@Z",
+      "symbol_prefix": "?Set_Item_Enabled@GraphicMenu@@QAEXH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Set_Enabled@GraphicMenuItem@@QAEX_N@Z",
+          "target": 5112192,
+          "addend": 0,
+          "resolved": 6095
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5106016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5106144,
+      "method": "004de9e0",
+      "body_bytes": 826,
+      "body_sha256": "4e135ee4909e53de3f5da658b025bdcd03558bd50c6ba5bc25c292efbe1929d5",
+      "padding_bytes": 6,
+      "full_extent_bytes": 832,
+      "full_extent_sha256": "33f3512eddf3b75c6ea7bbd28877e2421adb28424e0ace04a3a88a99deca67ef",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Presentation@GraphicMenu@@QAEHXZ",
+      "symbol_prefix": "?Presentation@GraphicMenu@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?get@Wstring@@QBEPADXZ",
+          "target": 7792368,
+          "addend": 0,
+          "resolved": 2686207
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z",
+          "target": 7243024,
+          "addend": 0,
+          "resolved": 2136852
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Play_Song@ThemeClass@@QAEHW4ThemeType@@@Z",
+          "target": 7241392,
+          "addend": 0,
+          "resolved": 2135209
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 343975
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z",
+          "target": 5975856,
+          "addend": 0,
+          "resolved": 869586
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "?Restore_Anims@MSEngine@@QAEXABV?$TRect@H@@@Z",
+          "target": 5978112,
+          "addend": 0,
+          "resolved": 871815
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?Restore_And_Advance@MSEngine@@QAEXXZ",
+          "target": 5975952,
+          "addend": 0,
+          "resolved": 869648
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "?Wait_For_Focus@MSEngine@@QAEXXZ",
+          "target": 5977712,
+          "addend": 0,
+          "resolved": 871390
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 342024
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 248,
+          "kind": 20,
+          "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+          "target": 5448480,
+          "addend": 0,
+          "resolved": 342084
+        },
+        {
+          "offset": 302,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 441,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        },
+        {
+          "offset": 542,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+          "target": 5112160,
+          "addend": 0,
+          "resolved": 5445
+        },
+        {
+          "offset": 578,
+          "kind": 20,
+          "symbol": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+          "target": 5112160,
+          "addend": 0,
+          "resolved": 5434
+        },
+        {
+          "offset": 613,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 619,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        },
+        {
+          "offset": 716,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 731,
+          "kind": 20,
+          "symbol": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+          "target": 5112160,
+          "addend": 0,
+          "resolved": 5281
+        },
+        {
+          "offset": 746,
+          "kind": 20,
+          "symbol": "?Set_Selected@GraphicMenuItem@@QAEX_N@Z",
+          "target": 5112160,
+          "addend": 0,
+          "resolved": 5266
+        },
+        {
+          "offset": 755,
+          "kind": 20,
+          "symbol": "?Wait_Delay@MSEngine@@QAEXH@Z",
+          "target": 5977424,
+          "addend": 0,
+          "resolved": 870521
+        },
+        {
+          "offset": 784,
+          "kind": 20,
+          "symbol": "?Release_Mouse@OwnerDraw@@YIHXZ",
+          "target": 6288848,
+          "addend": 0,
+          "resolved": 1181916
+        },
+        {
+          "offset": 791,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 796,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 2134304
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5106144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5106976,
+      "method": "004ded20",
+      "body_bytes": 49,
+      "body_sha256": "65c42d467dccfdd11bed6cec6a9c8ab24cbbb6816f6bea5c09c678c22f76ea53",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "37f89219b06142d99fa29cce468a1a526515466d1cb3a2c31212a9c5bed591b0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Animation@GraphicMenu@@QAEXPAVMSAnim@@@Z",
+      "symbol_prefix": "?Set_Animation@GraphicMenu@@QAEXPAVMSAnim@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Replace_Anim@MSEngine@@QAEXPAVMSAnim@@0@Z",
+          "target": 5975504,
+          "addend": 0,
+          "resolved": 868503
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Add_Animation@MSEngine@@QAEHPAVMSAnim@@@Z",
+          "target": 5975392,
+          "addend": 0,
+          "resolved": 868375
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5106976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107040,
+      "method": "004ded60",
+      "body_bytes": 16,
+      "body_sha256": "1d7eeb72f46cc5fa195404f1368033cd044c85ee31ad0bdb8f2ba0f118f54db1",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1d7eeb72f46cc5fa195404f1368033cd044c85ee31ad0bdb8f2ba0f118f54db1",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Theme_Name@GraphicMenu@@QAEXABVWstring@@@Z",
+      "symbol_prefix": "?Set_Theme_Name@GraphicMenu@@QAEXABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 2682563
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107056,
+      "method": "004ded70",
+      "body_bytes": 71,
+      "body_sha256": "c4fe110691ccf41f9243b66e892ce49be89f574ccba0735fdf9d0609fc0f7b06",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "39b51316561199065442aebcd8c30296d9f4ba8c5b1679a239998b13a611348a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Item@GraphicMenu@@QAEXPAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?Add_Item@GraphicMenu@@QAEXPAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107136,
+      "method": "004dedc0",
+      "body_bytes": 139,
+      "body_sha256": "9a62ed3f54a8efcc1e13bb3c6c563eab6a1fc4915b246319be9a07d47bf62168",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "0106f65a6800ee0609c9c12c854450f45e644edc1546f281268bbd30db91746f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Item_Under_Mouse@GraphicMenu@@QAEPAVGraphicMenuItem@@ABVPoint2D@@@Z",
+      "symbol_prefix": "?Get_Item_Under_Mouse@GraphicMenu@@QAEPAVGraphicMenuItem@@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107280,
+      "method": "004dee50",
+      "body_bytes": 139,
+      "body_sha256": "377d670640569f5e6304e14164324c717973830ea696653fd2db73941cad1b42",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "b3533117f5b6e26e8f3514c3ec5e00876947c983ddd9055bf356951fb64f724c",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Item_For_Key@GraphicMenu@@QAEPAVGraphicMenuItem@@W4KeyNumType@@@Z",
+      "symbol_prefix": "?Get_Item_For_Key@GraphicMenu@@QAEPAVGraphicMenuItem@@W4KeyNumType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 4,
+          "resolved": 8006536
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107424,
+      "method": "004deee0",
+      "body_bytes": 16,
+      "body_sha256": "4041763f35aa82f180f82f43a8479bd0cc43ad47be5d8b252abbc6c54bcee51e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "4041763f35aa82f180f82f43a8479bd0cc43ad47be5d8b252abbc6c54bcee51e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Background_Name@GraphicMenu@@QAEXABVWstring@@@Z",
+      "symbol_prefix": "?Set_Background_Name@GraphicMenu@@QAEXABVWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 2682179
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5107440,
+      "method": "004deef0",
+      "body_bytes": 30,
+      "body_sha256": "242acf8fce974719f66eac3755f4aca584e36160ad730722edbc246281a9c704",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "344303ec4035dc202c4dcb59341e4c25b32dead8e102e93bda35c31d8f6329f3",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GINIClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GINIClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1INIClass@@UAE@XZ",
+          "target": 5290192,
+          "addend": 0,
+          "resolved": 182744
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2764342
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 5107472,
+      "method": "004def10",
+      "body_bytes": 30,
+      "body_sha256": "ccfc1260934ee2191dadbc2d8a138699185deb40af56d17a8a5919b387b07a99",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "58c652e1fedbfc40df3790a640a8a04a2c1399cb41a69c322abeca9d72433f8a",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GGraphicMenu@@UAEPAXI@Z",
+      "symbol_prefix": "??_GGraphicMenu@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GraphicMenu@@UAE@XZ",
+          "target": 5105792,
+          "addend": 0,
+          "resolved": 4294965608
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2764310
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 5107504,
+      "method": "004def30",
+      "body_bytes": 42,
+      "body_sha256": "7318646f2f593b09fdb583e6ad26cf2e26fda63d9700f92fdc88cd9bf0d39a34",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c4e87c12fa6e19f5726b003c6b54c69ff9de204aff6104ce0606f2b6c019aa92",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2764272
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107552,
+      "method": "004def60",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107584,
+      "method": "004def80",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAVGraphicMenuItem@@@@UBEPAVGraphicMenuItem@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107600,
+      "method": "004def90",
+      "body_bytes": 14,
+      "body_sha256": "65928e72743eaf9020009560cd7a304f982043da5d52b280521c28d758627639",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6e6072f8a70fc03a5bddce2ece34e019610941c429a8f6803f18ae4bd652db15",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ",
+      "symbol_prefix": "??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 5107616,
+      "method": "004defa0",
+      "body_bytes": 32,
+      "body_sha256": "0d76eba44176cc51537036b686c5d5500b071b63fc0e2c1ffc65a0d891c43b98",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0d76eba44176cc51537036b686c5d5500b071b63fc0e2c1ffc65a0d891c43b98",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@",
+          "target": 8006532,
+          "addend": 0,
+          "resolved": 8006532
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2764164
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-61"
+    },
+    {
+      "entry": 5107648,
+      "method": "004defc0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAVGraphicMenuItem@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107712,
+      "method": "004df000",
+      "body_bytes": 174,
+      "body_sha256": "d8f5e9cc0232c760c4437dd0a8d002235db2558def3a9519c2479b3ed95cb334",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "0f2d0f8fc5f8a359aa2371f06b55266d6656f32c435cd159da75f5b07cc26fc5",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2764780
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763968
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107888,
+      "method": "004df0b0",
+      "body_bytes": 39,
+      "body_sha256": "ff5a547a7cc52667a0e9bc6df588d9e9803d1c2339e2940daedb3ffb61d12082",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "50667f4d06e056bf4fdb680f995b81b26cbc3905136068ebbc1d1d40bb1b6547",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAVGraphicMenuItem@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763891
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5107936,
+      "method": "004df0e0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5107936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5108000,
+      "method": "004df120",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAVGraphicMenuItem@@@@UAEHPBQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2685"
+    },
+    {
+      "entry": 5108032,
+      "method": "004df140",
+      "body_bytes": 176,
+      "body_sha256": "e6026aadcd995fe378f73f626f21752dfbfccaa06a049e57b94655cbe27a5bfa",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "e6026aadcd995fe378f73f626f21752dfbfccaa06a049e57b94655cbe27a5bfa",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAE_NHPBQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2764464
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763661
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5108208,
+      "method": "004df1f0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEHABQAVGraphicMenuItem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1596"
+    },
+    {
+      "entry": 5108256,
+      "method": "4df220",
+      "body_bytes": 6,
+      "body_sha256": "14db3be74843d875a82d78d97382ed667f85eecbb309b4584b94beaa27676d12",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2b52fe92ab420b3b64fe68bc7ae3b694023146ceb9e26b177681ea7bc1f8d734",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??E?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??E?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108256,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 5108272,
+      "method": "4df230",
+      "body_bytes": 6,
+      "body_sha256": "f5d6ab61265ab17ba1aa24eec1dd3f880a3da42d1b1c807d32deaafa992aaa82",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "91a91676eb37e28fb88f9f6d0da9088cf2b2c06f7e1a18de246ed2f4e5ca1a27",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??F?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+      "symbol_prefix": "??F?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UAEAAV0@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108272,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 5108288,
+      "method": "4df240",
+      "body_bytes": 73,
+      "body_sha256": "0e9719d270da3aa794b399cbe3737c488d5aa56bc4c42aa15b77baed4cba42c2",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "3598eb625d4dd80b354581b28c8c0e7cb450d5412c0fd12b908805a1b607521e",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVGraphicMenuItem@@@@6B@",
+          "target": 8006500,
+          "addend": 0,
+          "resolved": 8006500
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763486
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763451
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 5108368,
+      "method": "4df290",
+      "body_bytes": 73,
+      "body_sha256": "8823485a413747995b59c4db95bdb648ee357a2e2c31565169a576c309e51373",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "432b3090e6506d9828f1f5e33e7104f4c98d467f4c75f9f1035740979aac5fec",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVGraphicMenuItem@@@@6B@",
+          "target": 8006500,
+          "addend": 0,
+          "resolved": 8006500
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763406
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2763371
+        }
+      ],
+      "source_sha256": "555a659cb067d0542e53aa29e6c6944e6561077cfaf3c41475be217c837176a9",
+      "source": "rebuild/src/grphmenu.cpp",
+      "population": "rebuild-grphmenu",
+      "source_order": 5108368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    }
+  ]
+}

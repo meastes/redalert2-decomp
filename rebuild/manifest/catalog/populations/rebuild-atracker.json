@@ -1,0 +1,1626 @@
+{
+  "id": "rebuild-atracker",
+  "population": {
+    "id": "rebuild-atracker",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "93b448f698a6d49a83fdb3db96db479e617011974d4f8bedf6e37f056aad8fb3",
+    "historical_acceptance_sha256": "11dad2ffa6a4c6940daea0775b156f259115c50248af6169c8092f48a8c46f39"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 8625776,
+    "_ISO_TILE_SIZE": 7975088,
+    "_LEPTONS_PER_PIXEL": 8635472,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 8635456,
+    "_ONE_RAD": 7975096,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 8635448,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 8625784,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 8625744,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 8635480,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 8625792,
+    "_CELL_DIAG_SLOPE_ANGLE": 8625816,
+    "_BRIDGE_LEPTON_HEIGHT": 8635464,
+    "_CELL_NONE": 8625768,
+    "_COORD_NONE": 8625800,
+    "_RECT_NONE": 8625752,
+    "?AircraftTracker@@3VAircraftTrackerClass@@A": 8625824,
+    "??0?$VectorClass@PAVTechnoClass@@@@QAE@HPBQAVTechnoClass@@@Z": 4242448,
+    "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@": 7972764,
+    "_$E144": 4269648,
+    "_atexit": 7874954,
+    "??_7?$VectorClass@PAVTechnoClass@@@@6B@": 7972860,
+    "??3@YAXPAX@Z": 7871803,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "_$E2": 4269024,
+    "_$E5": 4269072,
+    "_$E8": 4269104,
+    "_$E11": 4269136,
+    "_$E14": 4269168,
+    "_$E17": 4269200,
+    "_$E20": 4269232,
+    "_$E23": 4269296,
+    "_$E26": 4269344,
+    "_$E29": 4269392,
+    "_$E32": 4269440,
+    "_$E35": 4269456,
+    "_$E38": 4269488,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "_$E146": 4269520,
+    "??_G?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242368,
+    "??_7type_info@@6B@": 8066532,
+    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
+    "?Tracker_Debug_String@@YIXPBD@Z": 4269840,
+    "?Append_Bin@AircraftTrackerClass@@QAEXH@Z": 4269856,
+    "?Shift_Bin@AircraftTrackerClass@@QAEHHVPoint2D@@@Z": 4269984,
+    "?Region_Index@AircraftTrackerClass@@QAEHVCell@@@Z": 4270112,
+    "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z": 4272592,
+    "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z": 4272608,
+    "?Tracker_Return_750@@YIIXZ": 4272848,
+    "?IsJumpjet@AircraftTrackerClass@@QAE_NPAVTechnoClass@@@Z": 4272864,
+    "?Remove@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z": 4272912,
+    "?Load@AircraftTrackerClass@@QAEJPAUIStream@@@Z": 4273152,
+    "?Get@AircraftTrackerClass@@QAEPAVFootClass@@XZ": 4273376,
+    "?Clear@AircraftTrackerClass@@QAEXXZ": 4273472,
+    "?Save@AircraftTrackerClass@@QAEJPAUIStream@@@Z": 4273552,
+    "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z": 4273664,
+    "?Clear@?$DynamicVectorClass@PAVTechnoClass@@@@UAEXXZ": 4240816,
+    "?ID@?$DynamicVectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z": 4240864,
+    "?GetItem@?$VectorClass@PAVTechnoClass@@@@UBEPAVTechnoClass@@H@Z": 4240896,
+    "??8?$VectorClass@PAVTechnoClass@@@@UBE_NABV0@@Z": 4241520,
+    "?Resize@?$VectorClass@PAVTechnoClass@@@@UAE_NHPBQAVTechnoClass@@@Z": 4241584,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@PAVTechnoClass@@@@UAEXXZ": 4241760,
+    "?ID@?$VectorClass@PAVTechnoClass@@@@UAEHABQAVTechnoClass@@@Z": 4241808,
+    "?ID@?$VectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z": 4241872,
+    "?Resize@?$DynamicVectorClass@PAVTechnoClass@@@@UAE_NHPBQAVTechnoClass@@@Z": 4241904,
+    "?ID@?$DynamicVectorClass@PAVTechnoClass@@@@UAEHABQAVTechnoClass@@@Z": 4242080,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 4269024,
+      "method": "004123e0",
+      "body_bytes": 40,
+      "body_sha256": "2701401e21aaee13488f570338abb749046df2134583e1170fc607795f2b5962",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "01ed5462438eeb0129a4599d44f617a2b19160aa4092dd21f0cf1e7e5e6c1f26",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 3603903
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 688146
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8625776,
+          "addend": 0,
+          "resolved": 8625776
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269072,
+      "method": "00412410",
+      "body_bytes": 19,
+      "body_sha256": "988265cfb423d996edd921d6ba8baa7fe756285506613628b4ecea5f1e12af4a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a40b27532e08910548814128cba90d492510a3a27d6164a51863f1114f4b049c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8625776,
+          "addend": 0,
+          "resolved": 8625776
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 7975088,
+          "addend": 0,
+          "resolved": 7975088
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8635472,
+          "addend": 0,
+          "resolved": 8635472
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269072,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269104,
+      "method": "00412430",
+      "body_bytes": 19,
+      "body_sha256": "eb1366948fe1e5113d286548d02a9768233551f32dbbc3923649c6b14e928da1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5f989149b66e68a3be4565117fc8f74319d945e4938d4c33caefee28958bd0d8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 8635472,
+          "addend": 0,
+          "resolved": 8635472
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 8635456,
+          "addend": 0,
+          "resolved": 8635456
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269136,
+      "method": "00412450",
+      "body_bytes": 19,
+      "body_sha256": "9b3352107ec989a778000c4057d6d4ae87d9fab0abef4d990434ceaa37274b2b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6f759855dce7ddf7da5a1c83745bcc0ebdcf5fbd76a40ee5e38da480b4ede1be",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7975096,
+          "addend": 0,
+          "resolved": 7975096
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 8635448,
+          "addend": 0,
+          "resolved": 8635448
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269168,
+      "method": "00412470",
+      "body_bytes": 19,
+      "body_sha256": "3b5945f87375da29860b54eadd6eb61ca16a0ff970619b42b85e9aa16238a696",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "79434b7158e2a6bfbab0e44b2f99e38f6114d92665945ee0c9993517f56ea2e0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7975096,
+          "addend": 0,
+          "resolved": 7975096
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8625784,
+          "addend": 0,
+          "resolved": 8625784
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269200,
+      "method": "00412490",
+      "body_bytes": 19,
+      "body_sha256": "4205d34d2a51a081893e16f9e957b87fe9d531943975fe743649553e91d1d5ee",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ce04eec1a024c1e8297c45313f56a70a5fdca9373499459cdb66247aad1d6cd7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 7975096,
+          "addend": 0,
+          "resolved": 7975096
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8625744,
+          "addend": 0,
+          "resolved": 8625744
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269200,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269232,
+      "method": "004124b0",
+      "body_bytes": 49,
+      "body_sha256": "fb6c9bdb1913f0df8156199993d2e0b82f9bcff8c280cf79ec8f9640ae68dd19",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "11bff9c9fbd91f9f3e006691e6a689bd062ade430c6162594aa70bf7a79e57a0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 8625744,
+          "addend": 0,
+          "resolved": 8625744
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 8625784,
+          "addend": 0,
+          "resolved": 8625784
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 688217
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8625776,
+          "addend": 0,
+          "resolved": 8625776
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3591221
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8635480,
+          "addend": 0,
+          "resolved": 8635480
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269296,
+      "method": "004124f0",
+      "body_bytes": 33,
+      "body_sha256": "0ad0e0b7eb4ce352981ce6461f75f6b1be1856aa6b7e4a7f3e7e1dbdb3cf1404",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1bcb953b6219b083233cb8cc18a283b3aba34426a992b9518fd9b4189b9a7639",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8635480,
+          "addend": 0,
+          "resolved": 8635480
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 688297
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 8625792,
+          "addend": 0,
+          "resolved": 8625792
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269344,
+      "method": "00412520",
+      "body_bytes": 44,
+      "body_sha256": "3f77135e463e2d55beddb8adefcc5379bb2cee365d372704b3bc6961f7892ed7",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9e18a3eb37d6139d2b6350c54362e6a7b9d286bb760deae8da93969ac78540a2",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8635480,
+          "addend": 0,
+          "resolved": 8635480
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 8625776,
+          "addend": 0,
+          "resolved": 8625776
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 688238
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 8625816,
+          "addend": 0,
+          "resolved": 8625816
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269392,
+      "method": "00412550",
+      "body_bytes": 39,
+      "body_sha256": "ef51b1ac990af3806832552dd01f35ecaaa662095d233ccbefa291613df09687",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a7de74c633cb7bcdcec1ea31eb4730ce2d1bb78dfa32ae82a1d2ba54f4bb89b6",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8635480,
+          "addend": 0,
+          "resolved": 8635480
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3591072
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8635464,
+          "addend": 0,
+          "resolved": 8635464
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269440,
+      "method": "00412580",
+      "body_bytes": 15,
+      "body_sha256": "8eb79206707571b4ee604e7e0123f7b716788c0ce8f805d66c80685b5b836ad8",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "15076d1d0070f917e4cea7e052dc769ac9d8b0fb2856e84ba458107c2cf1f0bd",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8625768,
+          "addend": 0,
+          "resolved": 8625768
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8625768,
+          "addend": 2,
+          "resolved": 8625770
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269456,
+      "method": "00412590",
+      "body_bytes": 18,
+      "body_sha256": "9a4149e82ca508552ea5a5beb96add17d029b1a7be19f56dc8a5874dccf59a8a",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "404daf058bc32e0322c24a53ceb7f0dffd20c965e7d2bfc12deeb1abf8e7aacb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8625800,
+          "addend": 0,
+          "resolved": 8625800
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8625800,
+          "addend": 4,
+          "resolved": 8625804
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8625800,
+          "addend": 8,
+          "resolved": 8625808
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269488,
+      "method": "004125b0",
+      "body_bytes": 23,
+      "body_sha256": "dcf75b8d2ab543a709cdefa415f12cd9d534aeb5afdb5d9037bd0d9f85b607ff",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3612e256cc08cc5fb1f1b69f8b669cb8e98f51d8ac556c13630a0c0286e174c2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625752,
+          "addend": 0,
+          "resolved": 8625752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625752,
+          "addend": 4,
+          "resolved": 8625756
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625752,
+          "addend": 8,
+          "resolved": 8625760
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8625752,
+          "addend": 12,
+          "resolved": 8625764
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269520,
+      "method": "004125d0",
+      "body_bytes": 114,
+      "body_sha256": "de775568ddfaa56ed763248d15c0bc2937045173cbf029db2185e308c4bbb661",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "65b712d745969c0693489ebc1b326a2f009a1754643873013d296ccbfe4e1e7f",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E146",
+      "symbol_prefix": "_$E146",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVTechnoClass@@@@QAE@HPBQAVTechnoClass@@@Z",
+          "target": 4242448,
+          "addend": 0,
+          "resolved": 4294940200
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+          "target": 7972764,
+          "addend": 0,
+          "resolved": 7972764
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_$E144",
+          "target": 4269648,
+          "addend": 0,
+          "resolved": 4269648
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9604,
+          "resolved": 8635428
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9608,
+          "resolved": 8635432
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9612,
+          "resolved": 8635436
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9613,
+          "resolved": 8635437
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@",
+          "target": 7972764,
+          "addend": 0,
+          "resolved": 7972764
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9620,
+          "resolved": 8635444
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9616,
+          "resolved": 8635440
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 3605327
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269648,
+      "method": "00412650",
+      "body_bytes": 184,
+      "body_sha256": "5b945d33bd994713390e55824feb449403e2d298472469cfa3418b520d04cc95",
+      "padding_bytes": 8,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "844faa2f1ff8cada3a4817806962a07c0d5793b8fadbd04994ce51ba7e285965",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E144",
+      "symbol_prefix": "_$E144",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 0,
+          "resolved": 8625824
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9608,
+          "resolved": 8635432
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9604,
+          "resolved": 8635428
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVTechnoClass@@@@6B@",
+          "target": 7972860,
+          "addend": 0,
+          "resolved": 7972860
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9600,
+          "resolved": 8635424
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9613,
+          "resolved": 8635437
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3602045
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9604,
+          "resolved": 8635428
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9613,
+          "resolved": 8635437
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9608,
+          "resolved": 8635432
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?AircraftTracker@@3VAircraftTrackerClass@@A",
+          "target": 8625824,
+          "addend": 9604,
+          "resolved": 8635428
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3601990
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4269840,
+      "method": "00412710",
+      "body_bytes": 8,
+      "body_sha256": "f849d31da0c86a58f61189b03af8f183d0aa187e4a45ae69b51826b3802425b5",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5513e0c63128b080e3dc492be60bafaf5bb06c4d81bcc1bff0d2affb2f023dfb",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tracker_Debug_String@@YIXPBD@Z",
+      "symbol_prefix": "?Tracker_Debug_String@@YIXPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294918618
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269840,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-130"
+    },
+    {
+      "entry": 4269856,
+      "method": "00412720",
+      "body_bytes": 119,
+      "body_sha256": "eca8fb00b9eefe92f59553055f080ed95fd048c4e49d579652899b8ebef2a407",
+      "padding_bytes": 9,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "c7fab577e038fc8aa48fe3605a4468a78b8963e7ee26073132353a2e8693978e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Append_Bin@AircraftTrackerClass@@QAEXH@Z",
+      "symbol_prefix": "?Append_Bin@AircraftTrackerClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269856,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3943"
+    },
+    {
+      "entry": 4269984,
+      "method": "004127a0",
+      "body_bytes": 116,
+      "body_sha256": "82e9fdc781e0ecca02520567b42b73d3b9e830d9ae1537a8fa7e2e4c10ed5e9b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "be0a0045e7744bd1a5f645f404b7f3ed8e7a02484916941c6502f0fbb1530bad",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shift_Bin@AircraftTrackerClass@@QAEHHVPoint2D@@@Z",
+      "symbol_prefix": "?Shift_Bin@AircraftTrackerClass@@QAEHHVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4269984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4270112,
+      "method": "00412820",
+      "body_bytes": 128,
+      "body_sha256": "ad198638ae8f1be14365035b85696ce979b4b258a90a72b996a5d9a2e9462309",
+      "padding_bytes": 0,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "ad198638ae8f1be14365035b85696ce979b4b258a90a72b996a5d9a2e9462309",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Region_Index@AircraftTrackerClass@@QAEHVCell@@@Z",
+      "symbol_prefix": "?Region_Index@AircraftTrackerClass@@QAEHVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4270112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4272592,
+      "method": "004131d0",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z",
+      "symbol_prefix": "?Detach@AircraftTrackerClass@@QAEXPAVAbstractClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4272592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4272608,
+      "method": "004131e0",
+      "body_bytes": 236,
+      "body_sha256": "1d701ec58fec3918edb3f237f31cf971949085c01310e5b248ee1215ab338b48",
+      "padding_bytes": 4,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "e8226eda03707d0c7dee7671d324a8ae52035ca528e8930acc3638df9d83d481",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Add@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4272608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4272848,
+      "method": "004132d0",
+      "body_bytes": 6,
+      "body_sha256": "429e804122b07f2625dfca65f02490aede2c56303de7b7fe80c3f553dde6e1e7",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d7670145773439c0b166806cd483b988254fa9047f2e919d01163b4e6e285e4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Tracker_Return_750@@YIIXZ",
+      "symbol_prefix": "?Tracker_Return_750@@YIIXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4272848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4272864,
+      "method": "004132e0",
+      "body_bytes": 41,
+      "body_sha256": "949a23e300d64a7ee03dda20c1adf92eac66723b52a8bfb0eab54a3978d4a801",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f69e2177da12da359fcaa35c3a26e3c5bc65cfb10a092ce6006bc0aef8ff1f0d",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsJumpjet@AircraftTrackerClass@@QAE_NPAVTechnoClass@@@Z",
+      "symbol_prefix": "?IsJumpjet@AircraftTrackerClass@@QAE_NPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4272864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4272912,
+      "method": "00413310",
+      "body_bytes": 233,
+      "body_sha256": "54ba711517790bd75438345156ec0edc53757cd679fd9e974e313d1dc2050281",
+      "padding_bytes": 7,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "978be0ca64e3d24cc87d1f8a02c91925c7736ed9624233be0627a8bd28b8ff64",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+      "symbol_prefix": "?Remove@AircraftTrackerClass@@QAEXPAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8625768,
+          "addend": 0,
+          "resolved": 8625768
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4272912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4273152,
+      "method": "00413400",
+      "body_bytes": 218,
+      "body_sha256": "c434b146e691746515e0cfd15ea26a8c3c51a9675aa46856d232f0f33496006e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "b8eee4da93532f183127dc40bd6a33fd842c1abf9b34f64119ed88882170bcab",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 2672242
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4273152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3943"
+    },
+    {
+      "entry": 4273376,
+      "method": "004134e0",
+      "body_bytes": 91,
+      "body_sha256": "69b48477a82027ae2b3dea2ddd12bea5530669cc9b3d61f8987acccdc423ff01",
+      "padding_bytes": 5,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "51487f3fe60462daf8095b527ec83a531b36e2eaad912d6c4520d6c36fd7191d",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get@AircraftTrackerClass@@QAEPAVFootClass@@XZ",
+      "symbol_prefix": "?Get@AircraftTrackerClass@@QAEPAVFootClass@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4273376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4273472,
+      "method": "00413540",
+      "body_bytes": 77,
+      "body_sha256": "e254a48a0d2b621970e56f8f20e89c6d92f43b1d2af256a5851c0c15b865fb78",
+      "padding_bytes": 3,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4ee4ad47fc1260548d1975b27de2d314e579bdd7df13a2f9dd91e5df8e509909",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@AircraftTrackerClass@@QAEXXZ",
+      "symbol_prefix": "?Clear@AircraftTrackerClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4273472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3943"
+    },
+    {
+      "entry": 4273552,
+      "method": "00413590",
+      "body_bytes": 99,
+      "body_sha256": "7af01e58873b1727b5f9f233f1346270609a2aadd9a11ed6916a0d6c70363776",
+      "padding_bytes": 13,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "27e385c1821b9f5cbbc29cd216993f3215481032e75ceff04ed905231970698c",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+      "symbol_prefix": "?Save@AircraftTrackerClass@@QAEJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4273552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4273664,
+      "method": "00413600",
+      "body_bytes": 364,
+      "body_sha256": "86607014ddba870e03e2cbccf13a1420d1053846fc423dd249b2a51d029f5fe0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "e5e90f6a836d9651050df33549dea3f2df90d8d28bf74cac71a0772c69dcfcaa",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z",
+      "symbol_prefix": "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 296,
+          "resolved": 8594952
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 300,
+          "resolved": 8594956
+        }
+      ],
+      "source_sha256": "36b755977b8ccdfb1b8ac9cc664845d5ab2727f30c85a85b3c2c316fb92bedc1",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4273664,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

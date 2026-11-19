@@ -1,0 +1,2755 @@
+{
+  "id": "rebuild-walk",
+  "population": {
+    "id": "rebuild-walk",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "fdcf72bf686029820e5be4952c80565e96390a156049403836ea52cadf0d20d7",
+    "historical_acceptance_sha256": "6eee4a8f6df5b61a4655ffe8fed5a9d11d87f1ffacca8b210f67c76a86610e5c"
+  },
+  "references": {
+    "_RECT_NONE": 11505712,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11505736,
+    "_ISO_TILE_SIZE": 8055456,
+    "_LEPTONS_PER_PIXEL": 11505808,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11505792,
+    "_ONE_RAD": 8055464,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11505784,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11505744,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11505704,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11505816,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11505752,
+    "_CELL_DIAG_SLOPE_ANGLE": 11505776,
+    "_BRIDGE_LEPTON_HEIGHT": 11505800,
+    "_CELL_NONE": 11505728,
+    "_COORD_NONE": 11505760,
+    "??0LocomotionClass@@QAE@XZ": 5492672,
+    "??_7WalkLocomotionClass@@6BIPersistStream@@@": 8055712,
+    "??_7WalkLocomotionClass@@6BILocomotion@@@": 8055512,
+    "??_7WalkLocomotionClass@@6B@": 8055476,
+    "??1LocomotionClass@@UAE@XZ": 5492720,
+    "__real@8@00000000000000000000": 7976464,
+    "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z": 7463456,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z": 6957488,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
+    "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
+    "_CLSID_WalkLocomotion": 8003488,
+    "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
+    "_IID_ILocomotion": 8018064,
+    "__imp__OleLoadFromStream@12": 7972332,
+    "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z": 5493600,
+    "__GUID_00000109_0000_0000_c000_000000000046": 8216376,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869392,
+    "?_com_issue_error@@YGXJ@Z": 7952704,
+    "__imp__OleSaveToStream@8": 7972328,
+    "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 5493424,
+    "_IID_IPiggyback": 8003664,
+    "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 4541424,
+    "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869376,
+    "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
+    "?Release@LocomotionClass@@UAGKXZ": 5493360,
+    "??3@YAXPAX@Z": 7871803,
+    "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z": 7469744,
+    "?AddRef@WalkLocomotionClass@@UAGKXZ": 7470560,
+    "?Release@WalkLocomotionClass@@UAGKXZ": 7470576,
+    "_$E2": 7461904,
+    "_$E5": 7461936,
+    "_$E8": 7461984,
+    "_$E11": 7462016,
+    "_$E14": 7462048,
+    "_$E17": 7462080,
+    "_$E20": 7462112,
+    "_$E23": 7462144,
+    "_$E26": 7462208,
+    "_$E29": 7462256,
+    "_$E32": 7462304,
+    "_$E35": 7462352,
+    "_$E38": 7462368,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??0WalkLocomotionClass@@QAE@XZ": 7462400,
+    "?Can_Fire@LocomotionClass@@UAG?AW4FireErrorType@@XZ": 5494272,
+    "?Drawing_Code@LocomotionClass@@UAGHXZ": 5494256,
+    "?Apparent_Speed@LocomotionClass@@UAGHXZ": 5494288,
+    "?Force_New_Slope@LocomotionClass@@UAGXH@Z": 5494240,
+    "?Force_Track@LocomotionClass@@UAGXHUCoordStruct@@@Z": 5494032,
+    "?Shove@LocomotionClass@@UAGEUDirStruct@@@Z": 5493888,
+    "?Push@LocomotionClass@@UAGEUDirStruct@@@Z": 5493872,
+    "?Is_Ion_Sensitive@LocomotionClass@@UAGEXZ": 5493312,
+    "?Is_Powered@LocomotionClass@@UAGEXZ": 5493296,
+    "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
+    "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
+    "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
+    "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
+    "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
+    "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
+    "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
+    "?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493184,
+    "?Draw_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ": 5493968,
+    "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
+    "?Draw_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492784,
+    "?Is_To_Have_Shadow@LocomotionClass@@UAGEXZ": 5493984,
+    "?Can_Enter_Cell@LocomotionClass@@UAG?AW4MoveType@@UCellStruct@@@Z": 5494000,
+    "?Link_To_Object@LocomotionClass@@UAGJPAX@Z": 5492752,
+    "??_GWalkLocomotionClass@@UAEPAXI@Z": 7470656,
+    "?GetSizeMax@LocomotionClass@@UAGJPAT_ULARGE_INTEGER@@@Z": 5493824,
+    "??_R0?AUIPiggyback@@@8": 8216240,
+    "??_R0?AUILocomotion@@@8": 8216272,
+    "??_R0?AUIUnknown@@@8": 8181304,
+    "??_R0?AUIPersist@@@8": 8184328,
+    "??_R0?AUIPersistStream@@@8": 8184352,
+    "??_R0?AVLocomotionClass@@@8": 8216304,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVWalkLocomotionClass@@@8": 8368528,
+    "?IsDirty@LocomotionClass@@UAGJXZ": 4869104,
+    "?Get_Status@LocomotionClass@@UAGHXZ": 4869152,
+    "?Acquire_Hunter_Seeker_Target@LocomotionClass@@UAGXXZ": 4869168,
+    "?Is_Surfacing@LocomotionClass@@UAGEXZ": 4869184,
+    "?Will_Jump_Tracks@LocomotionClass@@UAGEXZ": 4875712,
+    "?Lock@LocomotionClass@@UAGXXZ": 4875728,
+    "?Unlock@LocomotionClass@@UAGXXZ": 4875744,
+    "?Get_Track_Number@LocomotionClass@@UAGHXZ": 4875760,
+    "?Get_Track_Index@LocomotionClass@@UAGHXZ": 4875776,
+    "?Get_Speed_Accum@LocomotionClass@@UAGHXZ": 4875792,
+    "?Is_Piggybacking@WalkLocomotionClass@@UAGEXZ": 7470592,
+    "?Stop_Movement_Animation@WalkLocomotionClass@@UAGXXZ": 7470624,
+    "?Fetch_Object_Size@WalkLocomotionClass@@UBEHXZ": 7470640,
+    "??1WalkLocomotionClass@@UAE@XZ": 7462512,
+    "?Is_Moving@WalkLocomotionClass@@UAGEXZ": 7462560,
+    "?Is_Moving_Now@WalkLocomotionClass@@UAGEXZ": 7462576,
+    "?Destination@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ": 7462672,
+    "?Head_To_Coord@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ": 7462768,
+    "?Process@WalkLocomotionClass@@UAGEXZ": 7462896,
+    "?Move_To@WalkLocomotionClass@@UAGXUCoordStruct@@@Z": 7462944,
+    "?Stop_Moving@WalkLocomotionClass@@UAGXXZ": 7463184,
+    "?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z": 7463280,
+    "?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z": 7463328,
+    "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z": 7468432,
+    "?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z": 7469312,
+    "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z": 7469376,
+    "?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z": 7469504,
+    "?In_Which_Layer@WalkLocomotionClass@@UAG?AW4LayerType@@XZ": 7469728,
+    "?Begin_Piggyback@WalkLocomotionClass@@UAGJPAUILocomotion@@@Z": 7469840,
+    "?End_Piggyback@WalkLocomotionClass@@UAGJPAPAUILocomotion@@@Z": 7469920,
+    "?Is_Ok_To_End@WalkLocomotionClass@@UAGEXZ": 7469984,
+    "?Piggyback_CLSID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z": 7470032,
+    "?Mark_All_Occupation_Bits@WalkLocomotionClass@@UAGXH@Z": 7470304,
+    "?Is_Moving_Here@WalkLocomotionClass@@UAGEUCoordStruct@@@Z": 7470384,
+    "?Is_Really_Moving_Now@WalkLocomotionClass@@UAGEXZ": 7470544,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "?QueryInterface@WalkLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": 7470736,
+    "?AddRef@WalkLocomotionClass@@W3AGKXZ": 7470752,
+    "?Release@WalkLocomotionClass@@W3AGKXZ": 7470768,
+    "?QueryInterface@WalkLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z": 7470784,
+    "?AddRef@WalkLocomotionClass@@WBI@AGKXZ": 7470800,
+    "?Release@WalkLocomotionClass@@WBI@AGKXZ": 7470816
+  },
+  "regions": [
+    {
+      "entry": 7461904,
+      "method": "0071dc10",
+      "body_bytes": 23,
+      "body_sha256": "5d0231457b9bd7bc158e7817441d6670fe4d69357d30efe5b37b3bcfd6d8240e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0ab1c78148911fe93cefb473c3b569e3177b8e64a238630076fa6ea1b07c9b58",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11505712,
+          "addend": 0,
+          "resolved": 11505712
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11505712,
+          "addend": 4,
+          "resolved": 11505716
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11505712,
+          "addend": 8,
+          "resolved": 11505720
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11505712,
+          "addend": 12,
+          "resolved": 11505724
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7461904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461936,
+      "method": "0071dc30",
+      "body_bytes": 40,
+      "body_sha256": "a2ca8542f4decca6ad078d67b9b35a8dd3e4f42b01c712924813386bf04190bb",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6969186d1a140b1c3a148da8dffa7875e22415ecde56b1227057823b977aa248",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 410991
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292462530
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11505736,
+          "addend": 0,
+          "resolved": 11505736
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7461936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7461984,
+      "method": "0071dc60",
+      "body_bytes": 19,
+      "body_sha256": "5c790aa414db56cc6fc76433add6f499b19e0a0faae693c56556197848c3524b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8125a9f8dc2f286422983646a07004bae9e855efe26551268f9bc5a349d0153b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11505736,
+          "addend": 0,
+          "resolved": 11505736
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8055456,
+          "addend": 0,
+          "resolved": 8055456
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11505808,
+          "addend": 0,
+          "resolved": 11505808
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7461984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462016,
+      "method": "0071dc80",
+      "body_bytes": 19,
+      "body_sha256": "85a2e1a38ed0d37f4d0da2887eb0dc29f89dc4d9f0b955413ea80d39a9e16096",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e189aa6a3b4f4943313611f8d347075b0c271d95ea8da42c85e3539cf4414b59",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11505808,
+          "addend": 0,
+          "resolved": 11505808
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11505792,
+          "addend": 0,
+          "resolved": 11505792
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462048,
+      "method": "0071dca0",
+      "body_bytes": 19,
+      "body_sha256": "7bcee2c1251ef13e470d756718fd6f9fccd445dbb543c1ea8e6b42883dedd364",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f6aa8c0379555226eb9179a298723eb65bd8d09ea3891232facb54e6714e86fb",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055464,
+          "addend": 0,
+          "resolved": 8055464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11505784,
+          "addend": 0,
+          "resolved": 11505784
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462080,
+      "method": "0071dcc0",
+      "body_bytes": 19,
+      "body_sha256": "af3e7e6b6d46796c2d3203b8d5615d88c949cd06852fdc0869e073f8ad155209",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "974337fb8ff5afd72d95aebc064c819af94d8164de30576b28230d9eec792c2f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055464,
+          "addend": 0,
+          "resolved": 8055464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11505744,
+          "addend": 0,
+          "resolved": 11505744
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462112,
+      "method": "0071dce0",
+      "body_bytes": 19,
+      "body_sha256": "da95d32a770bbe950049fd4bd4476b3689a5f08ed166a4eefe7918acd476046c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "889da7ef5722e763236afb911415eb799262b83aafa7f8c17c8da6f65c7487b3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055464,
+          "addend": 0,
+          "resolved": 8055464
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11505704,
+          "addend": 0,
+          "resolved": 11505704
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462144,
+      "method": "0071dd00",
+      "body_bytes": 49,
+      "body_sha256": "cb1331c49c82dd09cb78518162d0bc436279e763612278b1251a6393491d0369",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0dd889535a94eeb45c883691f5d94ff1c16ccaa7fdef6502526ef0e06742bded",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11505704,
+          "addend": 0,
+          "resolved": 11505704
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11505744,
+          "addend": 0,
+          "resolved": 11505744
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292462601
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11505736,
+          "addend": 0,
+          "resolved": 11505736
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 398309
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462208,
+      "method": "0071dd40",
+      "body_bytes": 33,
+      "body_sha256": "0a010c0f63782f560fff250da72edf7e73c114e59646f66952895e750e93f1a2",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cfdcffa4dd8164a67f1ed895bddb9dc24d6012ce1c23a5ee013189d21de36cd0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292462681
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11505752,
+          "addend": 0,
+          "resolved": 11505752
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462256,
+      "method": "0071dd70",
+      "body_bytes": 44,
+      "body_sha256": "cfd38c4fe62b8f3aa7a3befce6661c23398ccaabf98cbc36255351d222e1fdab",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a873d265dddd7f5390fddad854234578261dd16e854ee135308376d646c8897e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11505736,
+          "addend": 0,
+          "resolved": 11505736
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292462622
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11505776,
+          "addend": 0,
+          "resolved": 11505776
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462304,
+      "method": "0071dda0",
+      "body_bytes": 39,
+      "body_sha256": "31c5692365592b6376b2e77ac7b9737473e129155b5a9122770f89cc6ceb558d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cb492d39697eb119c200909225319e5018e40decf0375e7bb04342f984316a58",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 398160
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11505800,
+          "addend": 0,
+          "resolved": 11505800
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462352,
+      "method": "0071ddd0",
+      "body_bytes": 15,
+      "body_sha256": "3ccfca75a95ff9424e372ceab44ed002b8f0cc94e04e67fa58d8799e7f52e08a",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9c2e964172144f3d55f405a4053f3f785945d93689446a6cd646881661e28f2a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11505728,
+          "addend": 0,
+          "resolved": 11505728
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11505728,
+          "addend": 2,
+          "resolved": 11505730
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462368,
+      "method": "0071dde0",
+      "body_bytes": 18,
+      "body_sha256": "50d71ab95ff67fd3584432e73ceadf302e7edf089fe233de68c9849d1bcf2fa3",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "072f0419c58d64f69efe533cd1a16799f71f0f8870e15c4d63f65901a1433830",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462400,
+      "method": "0071de00",
+      "body_bytes": 103,
+      "body_sha256": "ceee534d2163482ca1a66b80f2a8f67ce673c63619ca9cb9ad952ceeb0a46496",
+      "padding_bytes": 9,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "d4119c820394a5f21f83eef1a27ec5b46b238bb57d40013987bcf53651ce316b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WalkLocomotionClass@@QAE@XZ",
+      "symbol_prefix": "??0WalkLocomotionClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0LocomotionClass@@QAE@XZ",
+          "target": 5492672,
+          "addend": 0,
+          "resolved": 4292997560
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BIPersistStream@@@",
+          "target": 8055712,
+          "addend": 0,
+          "resolved": 8055712
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BILocomotion@@@",
+          "target": 8055512,
+          "addend": 0,
+          "resolved": 8055512
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6B@",
+          "target": 8055476,
+          "addend": 0,
+          "resolved": 8055476
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462512,
+      "method": "0071de70",
+      "body_bytes": 45,
+      "body_sha256": "b00820b60e21a07217d00a5b4fb5f46e043c8205d60f8fce9693cc0867607677",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bc44dfb3aa225ad56d9a1bd4c0e705cc086b38594a2e3fee68a109499f76a28f",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1WalkLocomotionClass@@UAE@XZ",
+      "symbol_prefix": "??1WalkLocomotionClass@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BIPersistStream@@@",
+          "target": 8055712,
+          "addend": 0,
+          "resolved": 8055712
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BILocomotion@@@",
+          "target": 8055512,
+          "addend": 0,
+          "resolved": 8055512
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6B@",
+          "target": 8055476,
+          "addend": 0,
+          "resolved": 8055476
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4292997461
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462560,
+      "method": "0071dea0",
+      "body_bytes": 10,
+      "body_sha256": "fb3cb79d556a7a229f47df850b4b3c68d4eda4362cb36726eb8e2e8a79a2b95a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0faeaa7c06521f081bf5a56e718cd6105062858f40d3ac29bf76e3c64218118e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462576,
+      "method": "0071deb0",
+      "body_bytes": 86,
+      "body_sha256": "278a67b5d2df0a5f905068d0a686d7638840b5f778d8bc2ac1ecab4621b9ce4a",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "7d4cb55758ea00bc86013e07c25b6428635ba4ea497ce461bff2abdf8bdc5d19",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Now@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Moving_Now@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462672,
+      "method": "0071df10",
+      "body_bytes": 81,
+      "body_sha256": "eecf71e32edc32545e2415754df00eb7ad74cc0c145472eb3db96ca3c2bf50b1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "db004961bc77ad4fe760c747d06c29410e49133fc15554562383c606bce3e81d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destination@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Destination@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462768,
+      "method": "0071df70",
+      "body_bytes": 113,
+      "body_sha256": "19dd46eb580c049ea1731e605385b1bf0373ff590de4170263311916a6ac963b",
+      "padding_bytes": 15,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "5bd6fed35e945817ad2424ec602c3fc4b645d86e69bbc211f5aee92a0371a42c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Head_To_Coord@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "symbol_prefix": "?Head_To_Coord@WalkLocomotionClass@@UAG?AUCoordStruct@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462896,
+      "method": "0071dff0",
+      "body_bytes": 33,
+      "body_sha256": "f1610a9394eedd232b83489747f59d9cd588073d2f03eb8dafc859bccb22048c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c8c3d8bb3ee060831ea9b327a1d0d7f0c69cb8a947df3e1f6fea5676d62caf73",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Movement_AI@WalkLocomotionClass@@QAEX_N@Z",
+          "target": 7463456,
+          "addend": 0,
+          "resolved": 541
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7462944,
+      "method": "0071e020",
+      "body_bytes": 225,
+      "body_sha256": "78285800a9207bf96944a57eead97d073fe97c98995e18e4556c35f04bb0cb24",
+      "padding_bytes": 15,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "129d32ddf396ba395696b30e75707367963645e3fc8ba5d1d7fb70dce59cd15d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Move_To@WalkLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Move_To@WalkLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293041998
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Pixel_To_Z_Lepton@Tactical@@SIHH@Z",
+          "target": 6957488,
+          "addend": 0,
+          "resolved": 4294461673
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7462944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7463184,
+      "method": "0071e110",
+      "body_bytes": 95,
+      "body_sha256": "82650aec9de6c75581e86dbdb1ee04b89206980c99cede7f10cad724320270fe",
+      "padding_bytes": 1,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "c4ce4c668114c28b57758a54b3ca001aade5458e8ead0feb8f5d30ab8ca57fbd",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Moving@WalkLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Moving@WalkLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7463184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7463280,
+      "method": "0071e170",
+      "body_bytes": 34,
+      "body_sha256": "714365424399e51204a33f28100e34876d9a287c2d7f474ef3809a5738a6001d",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d2b16340ad272b347e014e6c392f1b0d2dccf91150bb9214fc7da363a5c56e66",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z",
+      "symbol_prefix": "?Do_Turn@WalkLocomotionClass@@UAGXUDirStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4292454785
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7463280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7463328,
+      "method": "0071e1a0",
+      "body_bytes": 114,
+      "body_sha256": "abbabd305f994b26c4501dbf3af0f12681b1c83863f5f5fdc75fa54f64dcc74b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "ae2ad6da9acb5b13fffeec41fde636c71ec6c755ebf7ceded71fecc7349c489e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "symbol_prefix": "?Force_Immediate_Destination@WalkLocomotionClass@@UAGXUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7463328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7468432,
+      "method": "0071f590",
+      "body_bytes": 876,
+      "body_sha256": "852e92f70947175f50d9d317d8a587c0a1932b0e5b8ad27afe35f87ca73055fb",
+      "padding_bytes": 4,
+      "full_extent_bytes": 880,
+      "full_extent_sha256": "641b7d2b10b680fa536355e18f2186191ea5c1a0baf931c336c0bd7b4cd3f810",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z",
+      "symbol_prefix": "?Mark_Head_To@WalkLocomotionClass@@QAE_NABVCoord@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293036169
+        },
+        {
+          "offset": 490,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 4292157490
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 514,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293036138
+        },
+        {
+          "offset": 560,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 565,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293110455
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 626,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293036026
+        },
+        {
+          "offset": 633,
+          "kind": 20,
+          "symbol": "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z",
+          "target": 4678832,
+          "addend": 0,
+          "resolved": 4292177059
+        },
+        {
+          "offset": 664,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 669,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293035983
+        },
+        {
+          "offset": 676,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4292179080
+        },
+        {
+          "offset": 696,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 706,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 715,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 0,
+          "resolved": 11505760
+        },
+        {
+          "offset": 773,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 4,
+          "resolved": 11505764
+        },
+        {
+          "offset": 786,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11505760,
+          "addend": 8,
+          "resolved": 11505768
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7468432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469312,
+      "method": "0071f900",
+      "body_bytes": 56,
+      "body_sha256": "5f9304e064c9eb24fdf2b4260236fe41966f0c454b5878c4b15ddd94a3450a11",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f2f9680997c8d4da36eed6af96c9d07d736bdcda080b2a92af352e50edf42e55",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?GetClassID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 0,
+          "resolved": 8003488
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 4,
+          "resolved": 8003492
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 8,
+          "resolved": 8003496
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 12,
+          "resolved": 8003500
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469376,
+      "method": "0071f940",
+      "body_bytes": 127,
+      "body_sha256": "9a3efd9f96cc4ad044b935d3de0b2ceee56648afe5b80d3f1027e3dc9d60d1b4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "88453c63b8f0c41999cb907f350b5325f19dbdc38e90daf0cd91702c35cdd70e",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@WalkLocomotionClass@@UAGJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "?Load@LocomotionClass@@UAGJPAUIStream@@@Z",
+          "target": 5493696,
+          "addend": 0,
+          "resolved": 4292991598
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BIPersistStream@@@",
+          "target": 8055712,
+          "addend": 0,
+          "resolved": 8055712
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BILocomotion@@@",
+          "target": 8055512,
+          "addend": 0,
+          "resolved": 8055512
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6B@",
+          "target": 8055476,
+          "addend": 0,
+          "resolved": 8055476
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "_IID_ILocomotion",
+          "target": 8018064,
+          "addend": 0,
+          "resolved": 8018064
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "__imp__OleLoadFromStream@12",
+          "target": 7972332,
+          "addend": 0,
+          "resolved": 7972332
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469504,
+      "method": "0071f9c0",
+      "body_bytes": 223,
+      "body_sha256": "a03b9ce6d681580ac634ec70cb066683099aa3296a3b987c064ff8c00d054f6c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "805e5b97ed26d9f19ffa7351e82cb9c9f2f540799b19926f5721b43086e8f75d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z",
+      "symbol_prefix": "?Save@WalkLocomotionClass@@UAGJPAUIStream@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?Save@LocomotionClass@@UAGJPAUIStream@@H@Z",
+          "target": 5493600,
+          "addend": 0,
+          "resolved": 4292991369
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "__GUID_00000109_0000_0000_c000_000000000046",
+          "target": 8216376,
+          "addend": 0,
+          "resolved": 8216376
+        },
+        {
+          "offset": 105,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersistStream@@$1?_GUID_00000109_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869392,
+          "addend": 0,
+          "resolved": 4292367075
+        },
+        {
+          "offset": 155,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 483041
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "__imp__OleSaveToStream@8",
+          "target": 7972328,
+          "addend": 0,
+          "resolved": 7972328
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469728,
+      "method": "0071faa0",
+      "body_bytes": 8,
+      "body_sha256": "7ed463946b38cd0ba3a93864b2a1645cbebc5c5f2b63caf2d8a10bb2ad836d21",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c826b0c38d0fc905554442fe25640d95c7e8b7e66c0d87901741ed9127171155",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?In_Which_Layer@WalkLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "symbol_prefix": "?In_Which_Layer@WalkLocomotionClass@@UAG?AW4LayerType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469744,
+      "method": "0071fab0",
+      "body_bytes": 93,
+      "body_sha256": "e29e10d16a5697111b86a7e360567f367d9f78f0968da61083f83e8abbb14bc3",
+      "padding_bytes": 3,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "c581f8dbb18bbfb70b19196ac737b89f47f798267faf23422eb2aa06c93a79fa",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?QueryInterface@LocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 5493424,
+          "addend": 0,
+          "resolved": 4292990953
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_IID_IPiggyback",
+          "target": 8003664,
+          "addend": 0,
+          "resolved": 8003664
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469840,
+      "method": "0071fb10",
+      "body_bytes": 67,
+      "body_sha256": "4062f85b1a05aeb3670d34b0c59484bfd59458225004432188655d262bd57652",
+      "padding_bytes": 13,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "289c048f79f726b380c1f0dc2f1d7d9f8fd80f284d7ecef216bbf901e81664ba",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Begin_Piggyback@WalkLocomotionClass@@UAGJPAUILocomotion@@@Z",
+      "symbol_prefix": "?Begin_Piggyback@WalkLocomotionClass@@UAGJPAUILocomotion@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469840,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469920,
+      "method": "0071fb60",
+      "body_bytes": 49,
+      "body_sha256": "540f420246c658f030515681a0cd9cf6010986671828b6b72fc0df0524241f49",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "422660391e47d95f7aa6819e89c32438e8f8d4f287b00dfc581ce7220f7bdb6e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?End_Piggyback@WalkLocomotionClass@@UAGJPAPAUILocomotion@@@Z",
+      "symbol_prefix": "?End_Piggyback@WalkLocomotionClass@@UAGJPAPAUILocomotion@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7469984,
+      "method": "0071fba0",
+      "body_bytes": 45,
+      "body_sha256": "45f1479901f49e8362751752b1080f8535053e739646530fa368aaf377891bd7",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "229df5aa373eee1aa814db2046cbcf4a2c3d1e0c3f0af00939f2f306633a53b7",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Ok_To_End@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Ok_To_End@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7469984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470032,
+      "method": "0071fbd0",
+      "body_bytes": 267,
+      "body_sha256": "96a7e31b31dbb0cd4ed67d8cab8008156faa058f4fd45ad2deaa4a00c703c25a",
+      "padding_bytes": 5,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "99caa76c45c8fb316911c7034c48d4a66b470e8028bb5aa03c831e36bac7d259",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Piggyback_CLSID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "symbol_prefix": "?Piggyback_CLSID@WalkLocomotionClass@@UAGJPAU_GUID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541424,
+          "addend": 0,
+          "resolved": 4292038630
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 482597
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "__GUID_0000010c_0000_0000_c000_000000000046",
+          "target": 8188424,
+          "addend": 0,
+          "resolved": 8188424
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869376,
+          "addend": 0,
+          "resolved": 4292366468
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869376,
+          "addend": 0,
+          "resolved": 4292366446
+        },
+        {
+          "offset": 215,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 482453
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470304,
+      "method": "0071fce0",
+      "body_bytes": 70,
+      "body_sha256": "23cb4cf81db35714cc58f24739ae49d6ae449f1cbf436f57f8905994ec80d537",
+      "padding_bytes": 10,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6fbd4e7494e486044aa040a6bd69012b2b100e1fed5468c63f3d548644ef5477",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mark_All_Occupation_Bits@WalkLocomotionClass@@UAGXH@Z",
+      "symbol_prefix": "?Mark_All_Occupation_Bits@WalkLocomotionClass@@UAGXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470384,
+      "method": "0071fd30",
+      "body_bytes": 153,
+      "body_sha256": "3c0e2a4e088164fd37dfa7764e6549f35d3a7634309bcb1dc9833699fdf4f1fb",
+      "padding_bytes": 7,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "97068e48a5ed418b5a98afaffc856fdffee244d36450b5298c7446170faeddf9",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Moving_Here@WalkLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "symbol_prefix": "?Is_Moving_Here@WalkLocomotionClass@@UAGEUCoordStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11505816,
+          "addend": 0,
+          "resolved": 11505816
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470544,
+      "method": "0071fdd0",
+      "body_bytes": 10,
+      "body_sha256": "2c4f80ce3902e4990a59a8dc3103338bfd80223770dd7d9cedbcc3b19f4e77a6",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "01371935a95266c4307384adced02c0fdd31cd56b637721826b3e648ec6d4ee7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Really_Moving_Now@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Really_Moving_Now@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470560,
+      "method": "0071fde0",
+      "body_bytes": 13,
+      "body_sha256": "262e25959515c656bf3ec9a5a11c6047a6ddfa6633ea0668c377644fe2e69a04",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "76e14f459137bd0d44d50670d2c935052ad784c6b1537f8a874a05e788253418",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@LocomotionClass@@UAGKXZ",
+          "target": 5493328,
+          "addend": 0,
+          "resolved": 4292990054
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470576,
+      "method": "0071fdf0",
+      "body_bytes": 13,
+      "body_sha256": "b6a441f9b1efbd23a870bbabd0060dab9d32e7f2525c34d2856f76cb44440f6c",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "25c29f37854f8b9a089c23c38016977b2c26dca55535216f282984784b82375d",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@WalkLocomotionClass@@UAGKXZ",
+      "symbol_prefix": "?Release@WalkLocomotionClass@@UAGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@LocomotionClass@@UAGKXZ",
+          "target": 5493360,
+          "addend": 0,
+          "resolved": 4292990070
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470592,
+      "method": "0071fe00",
+      "body_bytes": 17,
+      "body_sha256": "fa5d5a3a0ea47a33b5e80bfe5e2ed7293b7a2c5523c6ce64bcd0c4d00cb72afb",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "327b1c0aab81bdab3621cc9780246b0e08d02da6e7815fbf32acadc9504fdb25",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Piggybacking@WalkLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Is_Piggybacking@WalkLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470624,
+      "method": "0071fe20",
+      "body_bytes": 11,
+      "body_sha256": "c300adef292e3cd425148a885d1482e3c0aadfafca0eb2f01ee683e9978e336f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f5ab8734add09b3557d37dca468b2a1380d485f7e6f6dc1f958acc716eed7655",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Stop_Movement_Animation@WalkLocomotionClass@@UAGXXZ",
+      "symbol_prefix": "?Stop_Movement_Animation@WalkLocomotionClass@@UAGXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470640,
+      "method": "0071fe30",
+      "body_bytes": 6,
+      "body_sha256": "5950c81e5bc5ffdb7c747f59fda2d27f61e9db7aa61c7d12c0d33b6366cee794",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "42601c1d26d3611c6675a28058a47fa61785aa2df2b02a40e15c89edf2aa34f0",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@WalkLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@WalkLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470656,
+      "method": "0071fe40",
+      "body_bytes": 65,
+      "body_sha256": "2ec76e8846b4b76486cd25212c62bc29c66188b4e50afec56d9c9ece7c7257c1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "de27badc8ded793fa3a157e236d4ba9b0a0186e52e1a304c412f310afaa1ec41",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GWalkLocomotionClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GWalkLocomotionClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BIPersistStream@@@",
+          "target": 8055712,
+          "addend": 0,
+          "resolved": 8055712
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6BILocomotion@@@",
+          "target": 8055512,
+          "addend": 0,
+          "resolved": 8055512
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7WalkLocomotionClass@@6B@",
+          "target": 8055476,
+          "addend": 0,
+          "resolved": 8055476
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??1LocomotionClass@@UAE@XZ",
+          "target": 5492720,
+          "addend": 0,
+          "resolved": 4292989317
+        },
+        {
+          "offset": 52,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 401091
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470736,
+      "method": "0071fe90",
+      "body_bytes": 10,
+      "body_sha256": "0ff6d9d505608b5acb50ccff09795394cba01605803916eb770975408030697e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "0ff6d9d505608b5acb50ccff09795394cba01605803916eb770975408030697e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@WalkLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@WalkLocomotionClass@@W3AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7469744,
+          "addend": 0,
+          "resolved": 4294966294
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470752,
+      "method": "0071fea0",
+      "body_bytes": 10,
+      "body_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@WalkLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?AddRef@WalkLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470560,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470768,
+      "method": "0071feb0",
+      "body_bytes": 10,
+      "body_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "a1e5f677641e08cc992807e156345a588e0359c30da68e3a29240b19d442a946",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@WalkLocomotionClass@@W3AGKXZ",
+      "symbol_prefix": "?Release@WalkLocomotionClass@@W3AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470576,
+          "addend": 0,
+          "resolved": 4294967094
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470784,
+      "method": "0071fec0",
+      "body_bytes": 10,
+      "body_sha256": "cb525f57ea9d53540c5cf023887939e824218ce9a2fb21fd04867766771fd1b5",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "cb525f57ea9d53540c5cf023887939e824218ce9a2fb21fd04867766771fd1b5",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?QueryInterface@WalkLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "symbol_prefix": "?QueryInterface@WalkLocomotionClass@@WBI@AGJABU_GUID@@PAPAX@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?QueryInterface@WalkLocomotionClass@@UAGJABU_GUID@@PAPAX@Z",
+          "target": 7469744,
+          "addend": 0,
+          "resolved": 4294966246
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470800,
+      "method": "0071fed0",
+      "body_bytes": 10,
+      "body_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AddRef@WalkLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?AddRef@WalkLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?AddRef@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470560,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470800,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7470816,
+      "method": "0071fee0",
+      "body_bytes": 10,
+      "body_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_bytes": 0,
+      "full_extent_bytes": 10,
+      "full_extent_sha256": "68729780cef199b4e7a6972c8b40db9b62417abee7f6ec42908cbf60feb7b296",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@WalkLocomotionClass@@WBI@AGKXZ",
+      "symbol_prefix": "?Release@WalkLocomotionClass@@WBI@AGKXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?Release@WalkLocomotionClass@@UAGKXZ",
+          "target": 7470576,
+          "addend": 0,
+          "resolved": 4294967046
+        }
+      ],
+      "source_sha256": "9a46cadc1630a117568c66aa81d44a57344bb334740dca5bfb931babca360607",
+      "source": "rebuild/src/walk.cpp",
+      "population": "rebuild-walk",
+      "source_order": 7470816,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

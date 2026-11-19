@@ -1,0 +1,2670 @@
+{
+  "id": "rebuild-drv-dsnd",
+  "population": {
+    "id": "rebuild-drv-dsnd",
+    "inventory_sha256": "7109e31efdf9b9845f56a6d7173ad1a207d3aefd424af3a1f3b1c18124a8f943",
+    "gaps_sha256": "c2ed23246d4f80245e76945b36004de38c6c61af8e7ade9f909447e0a4ec49c7",
+    "historical_population_sha256": "efa01458601cf2fdc259fa7312d34f0bd777103bb57d651484c78c1c49e02f1f",
+    "historical_acceptance_sha256": "9aacd3262fc03ad6e38f0570bdb0615fb7108db317d9d51a253a2698b4b25210"
+  },
+  "references": {
+    "_thread_access": 8590736,
+    "__imp__InitializeCriticalSection@4": 7971304,
+    "?AUD_sound_object@@3PAUIDirectSound@@A": 8590764,
+    "_DirectSoundCreate@12": 7871454,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "_thread_created": 8590760,
+    "_drv_ref": 8590728,
+    "_driverThread": 8590688,
+    "?AUD_service_thread@@YGKPAUAudioThread@@@Z": 4232400,
+    "__imp__CreateThread@24": 7971308,
+    "__imp__SetThreadPriority@8": 7971312,
+    "__imp__GetLastError@0": 7971316,
+    "__imp__FormatMessageA@28": 7971320,
+    "??_C@_0DI@PNME@Unable?5to?5change?5the?5priority?5of@": 8180128,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "__imp__EnterCriticalSection@4": 7971292,
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z": 4208928,
+    "?AudioDeviceFirstChannel@@YIPAUAudioChannel@@PAUAudioDevice@@PAUAudioSearch@@@Z": 4208048,
+    "?AUD_fill_buffer@@YIHPAUAudioDriverChannel@@H@Z": 4233120,
+    "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z": 4208080,
+    "?AudioScoreAttribs@@3PAUAudioAttribs@@A": 8590420,
+    "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z": 4198528,
+    "?AudioSoundAttribs@@3PAUAudioAttribs@@A": 8590424,
+    "?AudioVoiceAttribs@@3PAUAudioAttribs@@A": 8590416,
+    "?AudioMasterAttribs@@3PAUAudioAttribs@@A": 8590412,
+    "?AudioFadeAttribs@@3PAUAudioAttribs@@A": 8590436,
+    "?AudioGroupAttribs1@@3PAUAudioAttribs@@A": 8590440,
+    "?AudioGroupAttribs2@@3PAUAudioAttribs@@A": 8590432,
+    "?AudioCompAttribs@@3PAUAudioAttribs@@A": 8590428,
+    "?AudioDeviceService@@YIHPAUAudioDevice@@@Z": 4208656,
+    "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z": 4198768,
+    "__imp__LeaveCriticalSection@4": 7971296,
+    "__imp__Sleep@4": 7971300,
+    "??_C@_0BB@OLEN@Restored?5buffer?6?$AA@": 8180272,
+    "?AUD_new_buffer_src@@YIXPAUAudioDriverChannel@@@Z": 4234080,
+    "??_C@_0BK@EALD@Failed?5to?5restore?5buffer?6?$AA@": 8180244,
+    "??_C@_0BH@FAOO@Failed?5to?5lock?5buffer?6?$AA@": 8180220,
+    "??_C@_0CD@CFEI@Buffer?5management?5out?5by?5?$CFd?5byte@": 8180184,
+    "?ADPCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z": 4234496,
+    "?IMA_decode_block@@YIHPAUAudioDriverChannel@@@Z": 4237712,
+    "?PCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z": 4234416,
+    "_free": 7874024,
+    "_malloc": 7874096,
+    "__imp__WaitForSingleObject@8": 7971280,
+    "__imp__CloseHandle@4": 7971284,
+    "__imp__DeleteCriticalSection@4": 7971288,
+    "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208752,
+    "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208800,
+    "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z": 4208832,
+    "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A": 8590768,
+    "??_C@_0CK@KNMJ@Unable?5to?5set?5the?5desired?5primar@": 8180292,
+    "??2@YAPAXI@Z": 7872535,
+    "?AudioChannelSetFormat@@YIHPAUAudioChannel@@PAUAudioFormat@@@Z": 4204544,
+    "??3@YAXPAX@Z": 7871803,
+    "??_C@_0BK@FIAO@Failed?5to?5prefill?5buffer?6?$AA@": 8180464,
+    "??_C@_0BN@ELOL@Sound?5frame?5size?5?$DN?5?$CFd?5bytes?6?$AA@": 8180432,
+    "??_C@_0CC@HKBA@Failed?5to?5create?5playback?5buffer@": 8180396,
+    "??_C@_0BO@KHOK@Sound?5buffer?5size?5?$DN?5?$CFd?5bytes?6?$AA@": 8180364,
+    "?audioUpdate@@YIHPAUAudioChannel@@@Z": 4236784,
+    "??_C@_0BK@HNLL@Failed?5to?5start?5playback?6?$AA@": 8180336,
+    "_AUD_log_table": 8179272,
+    "?AudioAttribsCalcPitch@@YIHPAUAudioAttribs@@H@Z": 4198800,
+    "?AudioGetDevice@@YIPAUAudioDevice@@XZ": 4222784,
+    "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z": 4238320,
+    "_imaStepSizeTable": 8179744,
+    "_imaIndexAdjustTable": 8179680,
+    "?AudioSystemDSD@@3PAUAudioSystemMaster@@A": 8179676,
+    "__AUD_system_master": 8179232,
+    "??_C@_0BJ@NGFD@Direct?5Sound?5Driver?5V2?40?$AA@": 8180100,
+    "__AUD_driver": 8179184,
+    "?audioLoad@@YIHPAUAudioSystem@@@Z": 4232080,
+    "?audioUnload@@YIXPAUAudioSystem@@@Z": 4235024,
+    "?audioOpen@@YIHPAUAudioDevice@@@Z": 4235184,
+    "?audioClose@@YIXPAUAudioDevice@@@Z": 4235568,
+    "?audioOpenChannel@@YIHPAUAudioChannel@@@Z": 4235648,
+    "?audioCloseChannel@@YIHPAUAudioChannel@@@Z": 4235760,
+    "?audioStart@@YIHPAUAudioChannel@@@Z": 4235872,
+    "?audioStop@@YIHPAUAudioChannel@@@Z": 4236592,
+    "?audioPause@@YIHPAUAudioChannel@@@Z": 4236656,
+    "?audioResume@@YIHPAUAudioChannel@@@Z": 4236688,
+    "?audioCheck@@YIHPAUAudioChannel@@@Z": 4236736,
+    "?audioQueueIt@@YIHPAUAudioChannel@@@Z": 4236944,
+    "?audioLock@@YIHPAUAudioChannel@@@Z": 4236960,
+    "?audioUnlock@@YIHPAUAudioChannel@@@Z": 4236976,
+    "?GetDirectSoundObject@@YIPAXXZ": 4236992,
+    "?GetPrimaryBuffer@@YIPAXXZ": 4237008,
+    "?AudioSetPrimaryFormat@@YIXHHH@Z": 4237024,
+    "?AudioSetDeviceFormat@@YIXXZ": 4237168,
+    "?AudioGetLogVolume@@YIHH@Z": 4237344,
+    "?AudioLoseFocus@@YIXXZ": 4237408,
+    "?AudioRegainFocus@@YIXXZ": 4237424,
+    "?AUD_service_attribs@@YIXPAUAudioDevice@@@Z": 4237504
+  },
+  "regions": [
+    {
+      "entry": 4232080,
+      "method": "00409390",
+      "body_bytes": 310,
+      "body_sha256": "6e47aa57c2a0a02c95e788f0448e6a9244defd42231d7311e56311eaa43e70ae",
+      "padding_bytes": 10,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "65ac6ffd14327ce318476d3f6dc483ab87999651b177f6543254f603794ec978",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioLoad@@YIHPAUAudioSystem@@@Z",
+      "symbol_prefix": "?audioLoad@@YIHPAUAudioSystem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "__imp__InitializeCriticalSection@4",
+          "target": 7971304,
+          "addend": 0,
+          "resolved": 7971304
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_DirectSoundCreate@12",
+          "target": 7871454,
+          "addend": 0,
+          "resolved": 3639339
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "_thread_created",
+          "target": 8590760,
+          "addend": 0,
+          "resolved": 8590760
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 0,
+          "resolved": 8590688
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 8,
+          "resolved": 8590696
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 24,
+          "resolved": 8590712
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 16,
+          "resolved": 8590704
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 20,
+          "resolved": 8590708
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 4,
+          "resolved": 8590692
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 36,
+          "resolved": 8590724
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 0,
+          "resolved": 8590688
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?AUD_service_thread@@YGKPAUAudioThread@@@Z",
+          "target": 4232400,
+          "addend": 0,
+          "resolved": 4232400
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "__imp__CreateThread@24",
+          "target": 7971308,
+          "addend": 0,
+          "resolved": 7971308
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 28,
+          "resolved": 8590716
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "_thread_created",
+          "target": 8590760,
+          "addend": 0,
+          "resolved": 8590760
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "__imp__SetThreadPriority@8",
+          "target": 7971312,
+          "addend": 0,
+          "resolved": 7971312
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "__imp__GetLastError@0",
+          "target": 7971316,
+          "addend": 0,
+          "resolved": 7971316
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "__imp__FormatMessageA@28",
+          "target": 7971320,
+          "addend": 0,
+          "resolved": 7971320
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "??_C@_0DI@PNME@Unable?5to?5change?5the?5priority?5of@",
+          "target": 8180128,
+          "addend": 0,
+          "resolved": 8180128
+        },
+        {
+          "offset": 268,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294956112
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4232080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4232400,
+      "method": "004094d0",
+      "body_bytes": 709,
+      "body_sha256": "6c6f3e0a22de2a2deccfefb820291078a01b9144b3eade4632db9df7519a049e",
+      "padding_bytes": 11,
+      "full_extent_bytes": 720,
+      "full_extent_sha256": "95fda04b66ff3eb005943a6f2a854cbcf1b49cb046fcc49b6493d66f0e22a5a0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AUD_service_thread@@YGKPAUAudioThread@@@Z",
+      "symbol_prefix": "?AUD_service_thread@@YGKPAUAudioThread@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 4294966704
+        },
+        {
+          "offset": 93,
+          "kind": 20,
+          "symbol": "?AudioServicePerform@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208928,
+          "addend": 0,
+          "resolved": 4294943727
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?AudioDeviceFirstChannel@@YIPAUAudioChannel@@PAUAudioDevice@@PAUAudioSearch@@@Z",
+          "target": 4208048,
+          "addend": 0,
+          "resolved": 4294942836
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "?AUD_fill_buffer@@YIHPAUAudioDriverChannel@@H@Z",
+          "target": 4233120,
+          "addend": 0,
+          "resolved": 388
+        },
+        {
+          "offset": 422,
+          "kind": 20,
+          "symbol": "?AudioDeviceNextChannel@@YIPAUAudioChannel@@PAUAudioSearch@@@Z",
+          "target": 4208080,
+          "addend": 0,
+          "resolved": 4294942550
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932969
+        },
+        {
+          "offset": 457,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 462,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932958
+        },
+        {
+          "offset": 468,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 473,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932947
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "?AudioMasterAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590412,
+          "addend": 0,
+          "resolved": 8590412
+        },
+        {
+          "offset": 484,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932936
+        },
+        {
+          "offset": 490,
+          "kind": 6,
+          "symbol": "?AudioFadeAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590436,
+          "addend": 0,
+          "resolved": 8590436
+        },
+        {
+          "offset": 495,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932925
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        },
+        {
+          "offset": 506,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932914
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs2@@3PAUAudioAttribs@@A",
+          "target": 8590432,
+          "addend": 0,
+          "resolved": 8590432
+        },
+        {
+          "offset": 517,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932903
+        },
+        {
+          "offset": 523,
+          "kind": 6,
+          "symbol": "?AudioCompAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590428,
+          "addend": 0,
+          "resolved": 8590428
+        },
+        {
+          "offset": 528,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294932892
+        },
+        {
+          "offset": 535,
+          "kind": 20,
+          "symbol": "?AudioDeviceService@@YIHPAUAudioDevice@@@Z",
+          "target": 4208656,
+          "addend": 0,
+          "resolved": 4294943013
+        },
+        {
+          "offset": 541,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 546,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933114
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 557,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933103
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 568,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933092
+        },
+        {
+          "offset": 574,
+          "kind": 6,
+          "symbol": "?AudioMasterAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590412,
+          "addend": 0,
+          "resolved": 8590412
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933081
+        },
+        {
+          "offset": 585,
+          "kind": 6,
+          "symbol": "?AudioFadeAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590436,
+          "addend": 0,
+          "resolved": 8590436
+        },
+        {
+          "offset": 590,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933070
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933059
+        },
+        {
+          "offset": 607,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs2@@3PAUAudioAttribs@@A",
+          "target": 8590432,
+          "addend": 0,
+          "resolved": 8590432
+        },
+        {
+          "offset": 612,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933048
+        },
+        {
+          "offset": 618,
+          "kind": 6,
+          "symbol": "?AudioCompAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590428,
+          "addend": 0,
+          "resolved": 8590428
+        },
+        {
+          "offset": 623,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294933037
+        },
+        {
+          "offset": 628,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4232400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4233120,
+      "method": "004097a0",
+      "body_bytes": 954,
+      "body_sha256": "82ac1a6d915f67abaac82a129270b7c5601b5ef39032d1ff19df8b7bb244bb3c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 960,
+      "full_extent_sha256": "08a87a51ef81b92cd03504af152043a2df1f528b4a520a213d7763a999e220f6",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AUD_fill_buffer@@YIHPAUAudioDriverChannel@@H@Z",
+      "symbol_prefix": "?AUD_fill_buffer@@YIHPAUAudioDriverChannel@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 4294965807
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "??_C@_0BB@OLEN@Restored?5buffer?6?$AA@",
+          "target": 8180272,
+          "addend": 0,
+          "resolved": 8180272
+        },
+        {
+          "offset": 330,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294955010
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "?AUD_new_buffer_src@@YIXPAUAudioDriverChannel@@@Z",
+          "target": 4234080,
+          "addend": 0,
+          "resolved": 414
+        },
+        {
+          "offset": 852,
+          "kind": 6,
+          "symbol": "??_C@_0BK@EALD@Failed?5to?5restore?5buffer?6?$AA@",
+          "target": 8180244,
+          "addend": 0,
+          "resolved": 8180244
+        },
+        {
+          "offset": 857,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294954483
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "??_C@_0BH@FAOO@Failed?5to?5lock?5buffer?6?$AA@",
+          "target": 8180220,
+          "addend": 0,
+          "resolved": 8180220
+        },
+        {
+          "offset": 872,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294954468
+        },
+        {
+          "offset": 885,
+          "kind": 6,
+          "symbol": "??_C@_0CD@CFEI@Buffer?5management?5out?5by?5?$CFd?5byte@",
+          "target": 8180184,
+          "addend": 0,
+          "resolved": 8180184
+        },
+        {
+          "offset": 890,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294954450
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4233120,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2212"
+    },
+    {
+      "entry": 4234080,
+      "method": "00409b60",
+      "body_bytes": 330,
+      "body_sha256": "895c5d7d044d3af72bbbab9ba8fac7d7e3de5a321fb46f535eb275579653935c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 336,
+      "full_extent_sha256": "3297962f06d72c8ecfe9c1fffe172618dbdfc5ff30ce641f18d3eba22a8dc3f3",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AUD_new_buffer_src@@YIXPAUAudioDriverChannel@@@Z",
+      "symbol_prefix": "?AUD_new_buffer_src@@YIXPAUAudioDriverChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?ADPCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+          "target": 4234496,
+          "addend": 0,
+          "resolved": 4234496
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "?ADPCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+          "target": 4234496,
+          "addend": 0,
+          "resolved": 4234496
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?IMA_decode_block@@YIHPAUAudioDriverChannel@@@Z",
+          "target": 4237712,
+          "addend": 0,
+          "resolved": 4237712
+        },
+        {
+          "offset": 168,
+          "kind": 6,
+          "symbol": "?PCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+          "target": 4234416,
+          "addend": 0,
+          "resolved": 4234416
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3639743
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "_malloc",
+          "target": 7874096,
+          "addend": 0,
+          "resolved": 3639800
+        },
+        {
+          "offset": 274,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3639666
+        },
+        {
+          "offset": 289,
+          "kind": 20,
+          "symbol": "_malloc",
+          "target": 7874096,
+          "addend": 0,
+          "resolved": 3639723
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4234080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4234416,
+      "method": "00409cb0",
+      "body_bytes": 76,
+      "body_sha256": "d65206fe31a2785d74dd64a4bdd8c1bb18be7b59922a2fd9a96aa3cce80d3ec6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4f358da29d74658c19eb450f8492c6934570b9769a7610574fe585cc4216f648",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?PCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+      "symbol_prefix": "?PCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4234416,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4234496,
+      "method": "00409d00",
+      "body_bytes": 524,
+      "body_sha256": "2240db8666f8ef7963c21a946ddf6f68b22df49cffb6d6002eb57fa34186e9cf",
+      "padding_bytes": 4,
+      "full_extent_bytes": 528,
+      "full_extent_sha256": "e84fb7c64c1e7c7147895f08a390799415a527316a4d7db2171f9accfc22a4b5",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 16,
+      "symbol": "?ADPCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+      "symbol_prefix": "?ADPCM_transfer@@YIHPAUAudioDriverChannel@@PAEPAH12@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4235004,
+          "addend": 0,
+          "resolved": 4235004
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4234597,
+          "addend": 0,
+          "resolved": 4234597
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4234732,
+          "addend": 0,
+          "resolved": 4234732
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4234866,
+          "addend": 0,
+          "resolved": 4234866
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4234909,
+          "addend": 0,
+          "resolved": 4234909
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4234496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-997"
+    },
+    {
+      "entry": 4235024,
+      "method": "00409f10",
+      "body_bytes": 148,
+      "body_sha256": "facaef79c29658357d47cece1150afe4b3fb1fd9ddba457db0054eef196004b9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "c4a86ef9326dd7e29371ba147d596b94dcf1924eb7f79ca7f414c7f9bdc5e988",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioUnload@@YIXPAUAudioSystem@@@Z",
+      "symbol_prefix": "?audioUnload@@YIXPAUAudioSystem@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_thread_created",
+          "target": 8590760,
+          "addend": 0,
+          "resolved": 8590760
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "_drv_ref",
+          "target": 8590728,
+          "addend": 0,
+          "resolved": 8590728
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 0,
+          "resolved": 8590688
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 8,
+          "resolved": 8590696
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 8,
+          "resolved": 8590696
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 28,
+          "resolved": 8590716
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "__imp__WaitForSingleObject@8",
+          "target": 7971280,
+          "addend": 0,
+          "resolved": 7971280
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 28,
+          "resolved": 8590716
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "__imp__CloseHandle@4",
+          "target": 7971284,
+          "addend": 0,
+          "resolved": 7971284
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "_thread_created",
+          "target": 8590760,
+          "addend": 0,
+          "resolved": 8590760
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "__imp__DeleteCriticalSection@4",
+          "target": 7971288,
+          "addend": 0,
+          "resolved": 7971288
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4235184,
+      "method": "00409fb0",
+      "body_bytes": 372,
+      "body_sha256": "6cc398aa58db3649d688d0eb77c435eaa51782d3f448ee471c621d3cd8bf2ac3",
+      "padding_bytes": 12,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "bf40d497dea466cbb313a73fdc5b67670c61654c05a20c335d0667fa071796bd",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioOpen@@YIHPAUAudioDevice@@@Z",
+      "symbol_prefix": "?audioOpen@@YIHPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?AudioServiceSetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208752,
+          "addend": 0,
+          "resolved": 4294940825
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?AudioServiceSetMustServiceInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208800,
+          "addend": 0,
+          "resolved": 4294940860
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?AudioServiceSetResetInterval@@YIXPAUAudioServiceInfo@@_K@Z",
+          "target": 4208832,
+          "addend": 0,
+          "resolved": 4294940879
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 32,
+          "resolved": 8590720
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "??_C@_0CK@KNMJ@Unable?5to?5set?5the?5desired?5primar@",
+          "target": 8180292,
+          "addend": 0,
+          "resolved": 8180292
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294953001
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4235568,
+      "method": "0040a130",
+      "body_bytes": 69,
+      "body_sha256": "4be650af92ca109045a73854992ef034ab2a20297083ddfcb57acee1bb9f5669",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "226696e6d671579cecd509e0d462c21824eebb00aa211d60144967f09c714bbd",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioClose@@YIXPAUAudioDevice@@@Z",
+      "symbol_prefix": "?audioClose@@YIXPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_driverThread",
+          "target": 8590688,
+          "addend": 32,
+          "resolved": 8590720
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4235648,
+      "method": "0040a180",
+      "body_bytes": 112,
+      "body_sha256": "9786175ef004bafcca5ffaf9f2b170b993ece3de70d7e79c48a419a75d749151",
+      "padding_bytes": 0,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "9786175ef004bafcca5ffaf9f2b170b993ece3de70d7e79c48a419a75d749151",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioOpenChannel@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioOpenChannel@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3636873
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?AudioChannelSetFormat@@YIHPAUAudioChannel@@PAUAudioFormat@@@Z",
+          "target": 4204544,
+          "addend": 0,
+          "resolved": 4294936085
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4235760,
+      "method": "0040a1f0",
+      "body_bytes": 110,
+      "body_sha256": "cd41b8719d6c59f9f344e3f985022216c195160ba37c68f5ba0586508380383f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "ee1dc25c78ad3e31b87b9a290427bf8616da296956a5a737962ec824cc092262",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioCloseChannel@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioCloseChannel@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3638234
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "_free",
+          "target": 7874024,
+          "addend": 0,
+          "resolved": 3638206
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3635948
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4235872,
+      "method": "0040a260",
+      "body_bytes": 714,
+      "body_sha256": "8d354126439c8fcef0fa58d6cab259e0922cd2bd989813af45a6d0aa2224f095",
+      "padding_bytes": 6,
+      "full_extent_bytes": 720,
+      "full_extent_sha256": "ecf218b451dffd639ff656989b138ec9e0171e63fc019ece202596c7848d58eb",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioStart@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioStart@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?AudioChannelSetFormat@@YIHPAUAudioChannel@@PAUAudioFormat@@@Z",
+          "target": 4204544,
+          "addend": 0,
+          "resolved": 4294935918
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 4294963138
+        },
+        {
+          "offset": 244,
+          "kind": 20,
+          "symbol": "?AUD_new_buffer_src@@YIXPAUAudioDriverChannel@@@Z",
+          "target": 4234080,
+          "addend": 0,
+          "resolved": 4294965256
+        },
+        {
+          "offset": 292,
+          "kind": 20,
+          "symbol": "?AUD_fill_buffer@@YIHPAUAudioDriverChannel@@H@Z",
+          "target": 4233120,
+          "addend": 0,
+          "resolved": 4294964248
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "??_C@_0BK@FIAO@Failed?5to?5prefill?5buffer?6?$AA@",
+          "target": 8180464,
+          "addend": 0,
+          "resolved": 8180464
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294952278
+        },
+        {
+          "offset": 534,
+          "kind": 6,
+          "symbol": "??_C@_0BN@ELOL@Sound?5frame?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+          "target": 8180432,
+          "addend": 0,
+          "resolved": 8180432
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294952046
+        },
+        {
+          "offset": 561,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        },
+        {
+          "offset": 591,
+          "kind": 6,
+          "symbol": "??_C@_0CC@HKBA@Failed?5to?5create?5playback?5buffer@",
+          "target": 8180396,
+          "addend": 0,
+          "resolved": 8180396
+        },
+        {
+          "offset": 603,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294951985
+        },
+        {
+          "offset": 629,
+          "kind": 6,
+          "symbol": "??_C@_0BO@KHOK@Sound?5buffer?5size?5?$DN?5?$CFd?5bytes?6?$AA@",
+          "target": 8180364,
+          "addend": 0,
+          "resolved": 8180364
+        },
+        {
+          "offset": 637,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294951951
+        },
+        {
+          "offset": 656,
+          "kind": 20,
+          "symbol": "?audioUpdate@@YIHPAUAudioChannel@@@Z",
+          "target": 4236784,
+          "addend": 0,
+          "resolved": 252
+        },
+        {
+          "offset": 679,
+          "kind": 6,
+          "symbol": "??_C@_0BK@HNLL@Failed?5to?5start?5playback?6?$AA@",
+          "target": 8180336,
+          "addend": 0,
+          "resolved": 8180336
+        },
+        {
+          "offset": 684,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294951904
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4235872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236592,
+      "method": "0040a530",
+      "body_bytes": 49,
+      "body_sha256": "409f8250ff5245ffa196bd8b0cdf9c5a92d081b2193bab84fc411f89d0a25e2c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "3d02c1ca59430dff5068781ca7972814b3d170a305c92ccfb71a0e7897cf71e3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioStop@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioStop@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236592,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236656,
+      "method": "0040a570",
+      "body_bytes": 22,
+      "body_sha256": "2e0489371f401563a6eff18c6e71b6ca0ad5609e8e77af952f7869b5eb58fcf1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "df477e2a059e397d9c8181b3544ade11d5d1a2891ff27d67de4b8724f2414787",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioPause@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioPause@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236656,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236688,
+      "method": "0040a590",
+      "body_bytes": 36,
+      "body_sha256": "a62c8165caf1b4394cad1ad3cebecda5cea66b7425e31a38271a54b0910352c7",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "b91ad98714aa0a302200987fc803c407143066014e3644222055ac84a741850c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioResume@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioResume@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236736,
+      "method": "0040a5c0",
+      "body_bytes": 42,
+      "body_sha256": "a0445de246cb00a38f5f8dc5a9735873eca1c7613014328a7770ff9f7279600a",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a2d1a9b7cf977838b725f4b47d7c03d56999422ec062ae88a969a9e14110815b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioCheck@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioCheck@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236784,
+      "method": "0040a5f0",
+      "body_bytes": 153,
+      "body_sha256": "24d65086fefb7877ae86c5c235e59f0e1ff5cf54ce8ef091f50c3ac8e1638908",
+      "padding_bytes": 7,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "a137a774106aba4a7e18a1bc668b6f4d28c3600660767a5a723f9bffe0e1e9a8",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioUpdate@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioUpdate@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_AUD_log_table",
+          "target": 8179272,
+          "addend": 0,
+          "resolved": 8179272
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_AUD_log_table",
+          "target": 8179272,
+          "addend": 400,
+          "resolved": 8179672
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "_AUD_log_table",
+          "target": 8179272,
+          "addend": 400,
+          "resolved": 8179672
+        },
+        {
+          "offset": 134,
+          "kind": 20,
+          "symbol": "?AudioAttribsCalcPitch@@YIHPAUAudioAttribs@@H@Z",
+          "target": 4198800,
+          "addend": 0,
+          "resolved": 4294929174
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4236944,
+      "method": "40a690",
+      "body_bytes": 6,
+      "body_sha256": "b2b7978d5d548f0933fc054ba2e7657de5e245a5b800da344066a18f5387ad08",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b104013911922f6e1c31264a6f2e4cfe70e0cae8e45c4aa6ea3aee274cfdcf13",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioQueueIt@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioQueueIt@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 4236960,
+      "method": "0040a6a0",
+      "body_bytes": 14,
+      "body_sha256": "3e8deb3a4765d6182ba94ee6f49541f41e827970267b5b7c165c9df4822766e2",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1ab8fc05dec6d01c3da2a2a05598f8f6d92800267b5bde9a555bfc0308dbc34c",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioLock@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioLock@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "__imp__EnterCriticalSection@4",
+          "target": 7971292,
+          "addend": 0,
+          "resolved": 7971292
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 4236976,
+      "method": "0040a6b0",
+      "body_bytes": 14,
+      "body_sha256": "862817e9af7ef956c7508d9bf58d4dd5fec8ad2fc06c31e99f38359104d85262",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8a0b73dae5dbab5c2022619d1003d472280c26029a528c21818fac4e76db141d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioUnlock@@YIHPAUAudioChannel@@@Z",
+      "symbol_prefix": "?audioUnlock@@YIHPAUAudioChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_thread_access",
+          "target": 8590736,
+          "addend": 0,
+          "resolved": 8590736
+        },
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "__imp__LeaveCriticalSection@4",
+          "target": 7971296,
+          "addend": 0,
+          "resolved": 7971296
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
+    },
+    {
+      "entry": 4236992,
+      "method": "0040a6c0",
+      "body_bytes": 6,
+      "body_sha256": "a0a4b398a036191a69db6e1e6ce4bf16c54b40efe31f567ecf7a7882d6932e7b",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b6f5fe691bfe94e5e7a705e52e2199e59f34eb6e1f0dee6d6a3ddb7f1f48398e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetDirectSoundObject@@YIPAXXZ",
+      "symbol_prefix": "?GetDirectSoundObject@@YIPAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AUD_sound_object@@3PAUIDirectSound@@A",
+          "target": 8590764,
+          "addend": 0,
+          "resolved": 8590764
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4236992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 4237008,
+      "method": "0040a6d0",
+      "body_bytes": 6,
+      "body_sha256": "bfecf839c8e5d1994d7cfd4c759909c9e9a454512ca35d1ec31cd6a9080c50ba",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "880b38c43582e69a910354d994cff1b60cc6aa66a8c40edda08b914753e14e48",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetPrimaryBuffer@@YIPAXXZ",
+      "symbol_prefix": "?GetPrimaryBuffer@@YIPAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237008,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 4237024,
+      "method": "0040a6e0",
+      "body_bytes": 133,
+      "body_sha256": "42f029ddf7c812ce78b9cf3c2409b1d892e71ee9f5357203474ec885a6fdc1b6",
+      "padding_bytes": 11,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "d44e059693eb2966cbc624ec8e672cd7d9d3f375d518175c2623259d56597f7d",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioSetPrimaryFormat@@YIXHHH@Z",
+      "symbol_prefix": "?AudioSetPrimaryFormat@@YIXHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237168,
+      "method": "0040a770",
+      "body_bytes": 171,
+      "body_sha256": "89104d9092313c6a2130fd3622eccd769c0b386b2705c8e9e0ffecbfa2811eb4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "8a336065cc1aab998e474a2b6abfc598dcedf2699cd375743b872f49bd9a3e09",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioSetDeviceFormat@@YIXXZ",
+      "symbol_prefix": "?AudioSetDeviceFormat@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "?AudioGetDevice@@YIPAUAudioDevice@@XZ",
+          "target": 4222784,
+          "addend": 0,
+          "resolved": 4294952903
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237344,
+      "method": "0040a820",
+      "body_bytes": 53,
+      "body_sha256": "c8fa37f2d94f11419221f63487254353d088259f89d046b241c198608284e44c",
+      "padding_bytes": 11,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0514e4cbb0be144b4cb073b85160b4bbc89d907d17a03583a9bef717bb9cfc1c",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioGetLogVolume@@YIHH@Z",
+      "symbol_prefix": "?AudioGetLogVolume@@YIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "_AUD_log_table",
+          "target": 8179272,
+          "addend": 0,
+          "resolved": 8179272
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "_AUD_log_table",
+          "target": 8179272,
+          "addend": 0,
+          "resolved": 8179272
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237408,
+      "method": "0040a860",
+      "body_bytes": 16,
+      "body_sha256": "33ce9c440208862e1a1ec83249bc88222685520282136cd1d7f829678986a434",
+      "padding_bytes": 0,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "33ce9c440208862e1a1ec83249bc88222685520282136cd1d7f829678986a434",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioLoseFocus@@YIXXZ",
+      "symbol_prefix": "?AudioLoseFocus@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237424,
+      "method": "0040a870",
+      "body_bytes": 65,
+      "body_sha256": "90fd73963cefbeca9ef567a8ef16b800271e5248df29b97164d1541edf8089f5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "47bb6dd8eeff851333328147fb01fdfc19168aed3402de2fb590c3f99d91ea6d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioRegainFocus@@YIXXZ",
+      "symbol_prefix": "?AudioRegainFocus@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?AUD_primary_buffer@@3PAUIDirectSoundBuffer@@A",
+          "target": 8590768,
+          "addend": 0,
+          "resolved": 8590768
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237504,
+      "method": "0040a8c0",
+      "body_bytes": 196,
+      "body_sha256": "e9f93e7de47eb9e8afa6f8ae25a8af410586ebf2f0a188c71aa09751a949149e",
+      "padding_bytes": 12,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "2d244541875186b828de93b37d687be3fc2ee24bad347173ab5b5d162c0c0c22",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AUD_service_attribs@@YIXPAUAudioDevice@@@Z",
+      "symbol_prefix": "?AUD_service_attribs@@YIXPAUAudioDevice@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928298
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928287
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928276
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?AudioMasterAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590412,
+          "addend": 0,
+          "resolved": 8590412
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928265
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?AudioFadeAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590436,
+          "addend": 0,
+          "resolved": 8590436
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928254
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928243
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs2@@3PAUAudioAttribs@@A",
+          "target": 8590432,
+          "addend": 0,
+          "resolved": 8590432
+        },
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928232
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?AudioCompAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590428,
+          "addend": 0,
+          "resolved": 8590428
+        },
+        {
+          "offset": 95,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294928221
+        },
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?AudioDeviceService@@YIHPAUAudioDevice@@@Z",
+          "target": 4208656,
+          "addend": 0,
+          "resolved": 4294938342
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928443
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 124,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928432
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928421
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?AudioMasterAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590412,
+          "addend": 0,
+          "resolved": 8590412
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928410
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "?AudioFadeAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590436,
+          "addend": 0,
+          "resolved": 8590436
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928399
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928388
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs2@@3PAUAudioAttribs@@A",
+          "target": 8590432,
+          "addend": 0,
+          "resolved": 8590432
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928377
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?AudioCompAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590428,
+          "addend": 0,
+          "resolved": 8590428
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?AudioAttribsUsed@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198768,
+          "addend": 0,
+          "resolved": 4294928366
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4237712,
+      "method": "0040a990",
+      "body_bytes": 606,
+      "body_sha256": "f9aade65be08843cc695c46afc32ac2d0318412b2c14a4224e02893c764f6dfe",
+      "padding_bytes": 2,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "b9c1fde8aefb7c6ab04c5dcc9ce97a322bb9111532655f44aac1884566c8ec97",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IMA_decode_block@@YIHPAUAudioDriverChannel@@@Z",
+      "symbol_prefix": "?IMA_decode_block@@YIHPAUAudioDriverChannel@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 279,
+          "kind": 20,
+          "symbol": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+          "target": 4238320,
+          "addend": 0,
+          "resolved": 325
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+          "target": 4238320,
+          "addend": 0,
+          "resolved": 303
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+          "target": 4238320,
+          "addend": 0,
+          "resolved": 146
+        },
+        {
+          "offset": 484,
+          "kind": 20,
+          "symbol": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+          "target": 4238320,
+          "addend": 0,
+          "resolved": 120
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4237712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-995"
+    },
+    {
+      "entry": 4238320,
+      "method": "0040abf0",
+      "body_bytes": 142,
+      "body_sha256": "5827a1c18df778d9ad5a6dcf19688e0dc6245aa9c7b4604e5d145987bf65d475",
+      "padding_bytes": 2,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "7d633a68e9769d8781bffe3a308ea88e9ca9358cc3450067a7adc8e8a830f136",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+      "symbol_prefix": "?ImaAdpcmDecode@@YIFEPAUIMA_DATA@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_imaStepSizeTable",
+          "target": 8179744,
+          "addend": 0,
+          "resolved": 8179744
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "_imaIndexAdjustTable",
+          "target": 8179680,
+          "addend": 0,
+          "resolved": 8179680
+        }
+      ],
+      "source_sha256": "696a2230b271988342f1ee874a652c654427dac66be4d3cc0774fed57b57a52c",
+      "source": "rebuild/src/drv_dsnd.cpp",
+      "population": "rebuild-drv-dsnd",
+      "source_order": 4238320,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

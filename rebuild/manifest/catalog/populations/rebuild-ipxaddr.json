@@ -1,0 +1,677 @@
+{
+  "id": "rebuild-ipxaddr",
+  "population": {
+    "id": "rebuild-ipxaddr",
+    "inventory_sha256": "82d76aac864d26e1a63b17341b43281aa316ce10c95f0d35474ebdba4d64c791",
+    "gaps_sha256": "04d36338335bdd7e43e23bfbef070ac0785ff73d83cba2e18e0315fd2eb8d76f",
+    "historical_population_sha256": "3da757ea69b548534d5076aaf36def6118cf1c1559c9a7b8097c2afd5c1152cb",
+    "historical_acceptance_sha256": "5dc41e629f6745c4fe298fb7d1ffb8784777f9ccf51e72148e4bec67056eb325"
+  },
+  "references": {
+    "?AddressProtocol@@3HA": 8248432,
+    "??_C@_0DE@BPMD@?$CF02X?5?$CF02X?5?$CF02X?5?$CF02X?5?3?5?$CF02X?5?$CF02X?5@": 8248456,
+    "_?_addr_str@?1??As_String@IPXAddressClass@@QAEPBDPAV2@@Z@4PADA": 10822372,
+    "_sprintf": 7872756,
+    "??_C@_0BB@IJI@?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?$AA@": 8248436,
+    "??0IPXAddressClass@@QAE@XZ": 5387280,
+    "??0IPXAddressClass@@QAE@QAE0G@Z": 5387328,
+    "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z": 5387392,
+    "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z": 5387456,
+    "?Get_Address@IPXAddressClass@@QAEXQAE0@Z": 5387520,
+    "?Get_Node@IPXAddressClass@@QAEXQAE@Z": 5387552,
+    "?Set_Node@IPXAddressClass@@QAEXQAE@Z": 5387584,
+    "?Is_Broadcast@IPXAddressClass@@QAEHXZ": 5387616,
+    "??8IPXAddressClass@@QAE_NAAV0@@Z": 5387728,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "??9IPXAddressClass@@QAE_NAAV0@@Z": 5387968,
+    "??OIPXAddressClass@@QAE_NAAV0@@Z": 5388160,
+    "??MIPXAddressClass@@QAE_NAAV0@@Z": 5388208,
+    "??PIPXAddressClass@@QAE_NAAV0@@Z": 5388256,
+    "??NIPXAddressClass@@QAE_NAAV0@@Z": 5388304,
+    "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z": 5388352,
+    "?Set_Address_Protocol@@YIXH@Z": 5388624,
+    "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640
+  },
+  "regions": [
+    {
+      "entry": 5387280,
+      "method": "00523410",
+      "body_bytes": 34,
+      "body_sha256": "bcfeede196a0b9856ff642be381ee47646fb136c0f93296ba31bd0d6aaff6899",
+      "padding_bytes": 14,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1e9d844259448bc1356059c83d78c21352ef753a27faafa713d10411dfcdffb1",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0IPXAddressClass@@QAE@XZ",
+      "symbol_prefix": "??0IPXAddressClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387280,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387328,
+      "method": "00523440",
+      "body_bytes": 63,
+      "body_sha256": "43a1a13fa60886efd6a028547a7b97dc131376642820d6d057e8c10fdb94cebd",
+      "padding_bytes": 1,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "58c3686a0a5eac9b72816f6757bab1b181461eef87cb823f9bc6bd35fe84355d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+      "symbol_prefix": "??0IPXAddressClass@@QAE@QAE0G@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387392,
+      "method": "00523480",
+      "body_bytes": 59,
+      "body_sha256": "21e88d9078ab6d4cf5444299d73e228dd3ec80b27b103fb75f5336b47b6a62a4",
+      "padding_bytes": 5,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9ef96c2a5162f6fc82063eeaad3fb6c4180e0c782417a05d13aeeed01d29e9a2",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+      "symbol_prefix": "?Set_Address@IPXAddressClass@@QAEXQAE0G@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387456,
+      "method": "005234c0",
+      "body_bytes": 55,
+      "body_sha256": "f4f87c6a647aed3ee4f63abc56e13728b6b9c75fecf3700237e9dfc45035d5cf",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e457b4be0c2b0cf1963b50a5a6c4e1e83832cbbf99f30ca41188e1671cdc91e1",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+      "symbol_prefix": "?Get_Address@IPXAddressClass@@QAEXQAE0PAG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387520,
+      "method": "00523500",
+      "body_bytes": 32,
+      "body_sha256": "af0ddd15e3a1fbbfabc8a56db862ae5c8f4ce763c2627f963c22ed4a57138d4c",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "af0ddd15e3a1fbbfabc8a56db862ae5c8f4ce763c2627f963c22ed4a57138d4c",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+      "symbol_prefix": "?Get_Address@IPXAddressClass@@QAEXQAE0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387552,
+      "method": "00523520",
+      "body_bytes": 22,
+      "body_sha256": "77f00e33bbff5efbb0940069de6664647d25e0b70db3ad29c1e2417836379118",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "4cb76c7181a4dc2b3545dfade7b9748c9cb365dc8d3f4245dc9ebe32572df36e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Node@IPXAddressClass@@QAEXQAE@Z",
+      "symbol_prefix": "?Get_Node@IPXAddressClass@@QAEXQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387584,
+      "method": "00523540",
+      "body_bytes": 22,
+      "body_sha256": "ec8a9bb5f9af2508be058bbc8abc89fb1f6595f0ecff401e1914066653b7e548",
+      "padding_bytes": 10,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2e1d97b788db2704d2f65a465912063c930cce117ff5a0dfb879e7e2965047f8",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+      "symbol_prefix": "?Set_Node@IPXAddressClass@@QAEXQAE@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387616,
+      "method": "00523560",
+      "body_bytes": 106,
+      "body_sha256": "20cb1a0cca8c03097e6cb4126d71bbaaba1c19a0317947ca01ef82ae92156ed4",
+      "padding_bytes": 6,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "01b8b2c83926c770e9ca37f9f62d6dce87a517bc89f145f8fec437d136688af7",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+      "symbol_prefix": "?Is_Broadcast@IPXAddressClass@@QAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387728,
+      "method": "005235d0",
+      "body_bytes": 177,
+      "body_sha256": "dde4a51786ab7450f852def1ce96f7bd674b65b0e9d5ae3e98acb8b75fbb036e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "02161e70e4e30b2c2ff15da023bed78a326cdf607dbe86d9a7c75de682cac715",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387920,
+      "method": "00523690",
+      "body_bytes": 45,
+      "body_sha256": "198755d22c34a038fc588883d1f14a734225deb9c41bf3db9b242bd20738ccff",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7ef8f1dcf8249325198e8ca376fa01d1b3a222ace1e03e296f6f75ff4d50fa89",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+      "symbol_prefix": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5387968,
+      "method": "005236c0",
+      "body_bytes": 177,
+      "body_sha256": "b58544cb4a9bce8daee2579dba985ab8de5165b5dc33d5343773cf8b1dff3f5b",
+      "padding_bytes": 15,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "c38967b6be57106deb700f1286eb82eccafb417c3f1faf21341ca56e91268c38",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??9IPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??9IPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5387968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388160,
+      "method": "00523780",
+      "body_bytes": 38,
+      "body_sha256": "e46a64ed9c674a0359e89a12ff5ed706d55c0d0a12a59bd2eaec2a3bb737f679",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "657b3f69df41884afde7e3143d79ba65bcf9f63dba681d5f5efc2a4474d34d61",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??OIPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??OIPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388208,
+      "method": "005237b0",
+      "body_bytes": 38,
+      "body_sha256": "b2e056f81950cbab02745fd399d4cec301716856a778992b6c8a04e8e2cb49bc",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "91b8e06babe419c24318bba876686e7019659852f98079d20629c26801d7892b",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??MIPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??MIPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388256,
+      "method": "005237e0",
+      "body_bytes": 38,
+      "body_sha256": "8239b671c7cb651c032346b858397b495e2e4e915f2e1ee8428a1a76f979e91d",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cc1a23fad4c64ed00d3fe61aeed81147672fcd015e72491fc133ffa05aa571b6",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??PIPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??PIPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388304,
+      "method": "00523810",
+      "body_bytes": 38,
+      "body_sha256": "675f78ada9ee0dae83420efa7c9fa9d34e02e57d497c75e31d0a2374fb4f2153",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ac1b2131d06852b307a735e4c27a4a47e0ee8c93626e53e19a12d1d6784945e5",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??NIPXAddressClass@@QAE_NAAV0@@Z",
+      "symbol_prefix": "??NIPXAddressClass@@QAE_NAAV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388352,
+      "method": "00523840",
+      "body_bytes": 258,
+      "body_sha256": "40cf6a82e1aa10d097f0125d20df2162bc93f053a51667cd678bb5543e71d234",
+      "padding_bytes": 14,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "00c82647373e0d586128bcaf70b2a175ba07c7457082af0a53ac0defdf4b0bc6",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+      "symbol_prefix": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "??_C@_0DE@BPMD@?$CF02X?5?$CF02X?5?$CF02X?5?$CF02X?5?3?5?$CF02X?5?$CF02X?5@",
+          "target": 8248456,
+          "addend": 0,
+          "resolved": 8248456
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "_?_addr_str@?1??As_String@IPXAddressClass@@QAEPBDPAV2@@Z@4PADA",
+          "target": 10822372,
+          "addend": 0,
+          "resolved": 10822372
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 2484234
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "_?_addr_str@?1??As_String@IPXAddressClass@@QAEPBDPAV2@@Z@4PADA",
+          "target": 10822372,
+          "addend": 0,
+          "resolved": 10822372
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "??_C@_0BB@IJI@?$CFd?4?$CFd?4?$CFd?4?$CFd?5?$DL?5?$CFd?$AA@",
+          "target": 8248436,
+          "addend": 0,
+          "resolved": 8248436
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "_?_addr_str@?1??As_String@IPXAddressClass@@QAEPBDPAV2@@Z@4PADA",
+          "target": 10822372,
+          "addend": 0,
+          "resolved": 10822372
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 2484160
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "_?_addr_str@?1??As_String@IPXAddressClass@@QAEPBDPAV2@@Z@4PADA",
+          "target": 10822372,
+          "addend": 0,
+          "resolved": 10822372
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388624,
+      "method": "00523950",
+      "body_bytes": 7,
+      "body_sha256": "53857c174a02e04941b32c15b2886629b7504caec5aaf245cd853612f9f3a074",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "81da7607740fefc8d430f11e3d497490c9e7856178bc1bb67c6e848043564bdb",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Address_Protocol@@YIXH@Z",
+      "symbol_prefix": "?Set_Address_Protocol@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388624,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5388640,
+      "method": "00523960",
+      "body_bytes": 20,
+      "body_sha256": "1af6ce6a6ba10f02ecdf7120df8a68cc00d939ebb647c4ffb7b1fd97586b8873",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8014e46391da5273906a8827d904707b3e4365e068467004232f0bb187e3b8ba",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+      "symbol_prefix": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?AddressProtocol@@3HA",
+          "target": 8248432,
+          "addend": 0,
+          "resolved": 8248432
+        }
+      ],
+      "source_sha256": "a983ed41b9e92b2b6d5da9b48168de7f3ac2e550e6d478041e597dbdbdb37f40",
+      "source": "rebuild/src/ipxaddr.cpp",
+      "population": "rebuild-ipxaddr",
+      "source_order": 5388640,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

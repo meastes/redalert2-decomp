@@ -1,0 +1,2110 @@
+{
+  "id": "rebuild-winfix",
+  "population": {
+    "id": "rebuild-winfix",
+    "inventory_sha256": "bd13b49f75d369a227e1906a60800e6c62aaf67bca75975f6039ed48be421b15",
+    "gaps_sha256": "279d62c1601ca48d0feda76075447ebd22fe4b49c7deebcbf298293298e5967c",
+    "historical_population_sha256": "e10e670191d4e55ee5f9efac4be3717fc27d7b28f1277fd4f2eae04202ab8982",
+    "historical_acceptance_sha256": "fe793fbe23976070183e21ff035d9f14ee458fbf365469271f10d2e82f071224"
+  },
+  "references": {
+    "_RECT_NONE": 11689752,
+    "__imp__SendMessageA@16": 7972000,
+    "?TreeView_DraggedItem@@3PAU_TREEITEM@@A": 11689780,
+    "?TreeView_ImageList@@3PAU_IMAGELIST@@A": 11689784,
+    "__imp__SetCapture@4": 7971824,
+    "__imp__ImageList_BeginDrag@16": 7970872,
+    "__imp__ImageList_DragEnter@12": 7970868,
+    "__imp__SetTimer@16": 7972052,
+    "_s_dragging": 11689772,
+    "?TreeView_LastHandle@@3PAUHWND__@@A": 11689776,
+    "__imp__ImageList_DragShowNolock@4": 7970856,
+    "?TreeView_get_item_data@@YI?AUitem_data@@K@Z": 7562384,
+    "__imp__LoadCursorA@8": 7971892,
+    "__imp__SetCursor@4": 7971896,
+    "__imp__GetWindowRect@8": 7971736,
+    "__imp__ImageList_DragMove@8": 7970864,
+    "__imp__ImageList_EndDrag@0": 7970880,
+    "__imp__ReleaseCapture@0": 7971816,
+    "__imp__ImageList_Destroy@4": 7970876,
+    "__imp__KillTimer@8": 7972036,
+    "__imp__GetWindowLongA@8": 7971980,
+    "__imp__ChildWindowFromPoint@12": 7971888,
+    "__imp__ClientToScreen@8": 7972012,
+    "__imp__GetCursorPos@4": 7971752,
+    "?TreeView_Text@@3PADA": 11689744,
+    "?strtrim@@YIPADPAD@Z": 7270160,
+    "__imp__GetWindowContextHelpId@4": 7971880,
+    "??_C@_07FMM@SUN?4HLP?$AA@": 8376468,
+    "__imp__WinHelpA@16": 7971884,
+    "__imp__GetClassNameA@12": 7972064,
+    "??_C@_0O@NCOE@SysTreeView32?$AA@": 8376508,
+    "?last_view_ini_section_name@@3PBDB": 11689768,
+    "??_C@_04BIHF@TV?$CFd?$AA@": 8376500,
+    "__imp__wsprintfA": 7972004,
+    "?Get_Bool@INIClass@@QBE_NPBD0_N@Z": 5305360,
+    "??_C@_0O@NFAI@SysListView32?$AA@": 8376484,
+    "??_C@_04GHME@LV?$CFd?$AA@": 8376476,
+    "?Get_Int@INIClass@@QBEHPBD0H@Z": 5298160,
+    "??_C@_01FIAI@X?$AA@": 8376528,
+    "??_C@_01PCJP@Y?$AA@": 8376524,
+    "__imp__GetSystemMetrics@4": 7971804,
+    "__imp__SetWindowPos@28": 7971792,
+    "?read_view_from_ini@@YGHPAUHWND__@@ABVINIClass@@@Z": 7563504,
+    "__imp__EnumChildWindows@12": 7972060,
+    "?Put_Bool@INIClass@@QAE_NPBD0_N@Z": 5305216,
+    "?Put_Int@INIClass@@QAE_NPBD0HH@Z": 5297888,
+    "?write_view_to_ini@@YGHPAUHWND__@@AAVINIClass@@@Z": 7564096,
+    "??_C@_04MOFI@?$CFs?$CFd?$AA@": 8376532,
+    "_?_buffer@?1??Make_Identifier@@YIPBDPADH@Z@4PADA": 11689712,
+    "??_C@_02MECO@?$CFd?$AA@": 8186300,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "__imp__RedrawWindow@16": 7971876,
+    "__imp__GetVersionExA@4": 7971196,
+    "_strncpy": 7873488,
+    "_?_ver95@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 8376400,
+    "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 11689456,
+    "_?_ver98@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 8376412,
+    "_?_verNT5@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 8376440,
+    "_?_verNT4@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 8376424,
+    "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z": 7565440,
+    "__imp__GetClientRect@8": 7972024,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?VideoModeWidth@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
+    "_?_unknown@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA": 8376456,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E3": 7561744,
+    "?TreeView_Begin_Drag@@YI_NPAUHWND__@@0PAUtagNMTREEVIEWA@@@Z": 7561776,
+    "?TreeView_End_Drag@@YI_NJ@Z": 7562016,
+    "?TreeView_handle_item_drag@@YIXH@Z": 7562608,
+    "?TreeView_On_Mouse_Move@@YI_NJ@Z": 7562864,
+    "?TreeView_set_item_image@@YI_NPAUHWND__@@PAUtagNMTREEVIEWA@@HH@Z": 7563088,
+    "?TreeView_set_edit_text@@YIXPAUHWND__@@PADI@Z": 7563184,
+    "?TreeView_set_item_text@@YIHPAUtagTVDISPINFOA@@@Z": 7563248,
+    "?On_WM_HELP@@YIHJ@Z": 7563392,
+    "?On_WM_CONTEXTMENU@@YIHI@Z": 7563424,
+    "?read_views_from_ini@@YIXPBDPAUHWND__@@ABVINIClass@@@Z": 7563888,
+    "?write_views_to_ini@@YIXPBDPAUHWND__@@AAVINIClass@@@Z": 7564496,
+    "?Make_Identifier@@YIPBDPADH@Z": 7564608,
+    "?On_WM_MOVING@@YI_NPAUHWND__@@IJ@Z": 7564672,
+    "?ComboBox_Find_Item_Data@@YIHPAUHWND__@@IJ@Z": 7564816,
+    "?Capture_Or_Release_Mouse@@YIXPAUHWND__@@F@Z": 7564912,
+    "?noop@@YIXXZ": 7564960,
+    "??0WindowsVersionInfo@@QAE@XZ": 7564976,
+    "?Version_String@WindowsVersionInfo@@QAEPADXZ": 7565120,
+    "?Center_Window_Within_Window@@YIXPAUHWND__@@@Z": 7565408,
+    "?Prefetch_Audio_Buffer@@YIXPADH@Z": 7565664
+  },
+  "regions": [
+    {
+      "entry": 7561744,
+      "method": "736210",
+      "body_bytes": 23,
+      "body_sha256": "c2d17ef6bd24a7d80c0484809f3100c7ef317d80e4252b6b82c87dc7ecef63d3",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b10f3b86103974cb28243b7a4e7573e419513deb9973f1478a99675c248253fd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E3",
+      "symbol_prefix": "_$E3",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11689752,
+          "addend": 0,
+          "resolved": 11689752
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11689752,
+          "addend": 4,
+          "resolved": 11689756
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11689752,
+          "addend": 8,
+          "resolved": 11689760
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11689752,
+          "addend": 12,
+          "resolved": 11689764
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7561744,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
+    },
+    {
+      "entry": 7561776,
+      "method": "00736230",
+      "body_bytes": 231,
+      "body_sha256": "49c74c9eafd8d0c78ec5d12afbba0794faa5c61e6ab5be97db54d2e54ef36319",
+      "padding_bytes": 9,
+      "full_extent_bytes": 240,
+      "full_extent_sha256": "47429131a8bd6fd16b5e00890e5011894facd56dd63e0871b1a12d8b30231039",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_Begin_Drag@@YI_NPAUHWND__@@0PAUtagNMTREEVIEWA@@@Z",
+      "symbol_prefix": "?TreeView_Begin_Drag@@YI_NPAUHWND__@@0PAUtagNMTREEVIEWA@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?TreeView_DraggedItem@@3PAU_TREEITEM@@A",
+          "target": 11689780,
+          "addend": 0,
+          "resolved": 11689780
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?TreeView_ImageList@@3PAU_IMAGELIST@@A",
+          "target": 11689784,
+          "addend": 0,
+          "resolved": 11689784
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "__imp__SetCapture@4",
+          "target": 7971824,
+          "addend": 0,
+          "resolved": 7971824
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "?TreeView_ImageList@@3PAU_IMAGELIST@@A",
+          "target": 11689784,
+          "addend": 0,
+          "resolved": 11689784
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "__imp__ImageList_BeginDrag@16",
+          "target": 7970872,
+          "addend": 0,
+          "resolved": 7970872
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragEnter@12",
+          "target": 7970868,
+          "addend": 0,
+          "resolved": 7970868
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "__imp__SetTimer@16",
+          "target": 7972052,
+          "addend": 0,
+          "resolved": 7972052
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 217,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7561776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7562016,
+      "method": "00736320",
+      "body_bytes": 362,
+      "body_sha256": "5d203ae38ab3440d83aed9fd2fb11375679ec16435ffac35c18b7ea61b54f0de",
+      "padding_bytes": 6,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "e446939f36a7fafca795df3b1da01aeca0a3320b316a3fc1dec9ce85921cb210",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_End_Drag@@YI_NJ@Z",
+      "symbol_prefix": "?TreeView_End_Drag@@YI_NJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragShowNolock@4",
+          "target": 7970856,
+          "addend": 0,
+          "resolved": 7970856
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?TreeView_get_item_data@@YI?AUitem_data@@K@Z",
+          "target": 7562384,
+          "addend": 0,
+          "resolved": 323
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "__imp__LoadCursorA@8",
+          "target": 7971892,
+          "addend": 0,
+          "resolved": 7971892
+        },
+        {
+          "offset": 115,
+          "kind": 6,
+          "symbol": "__imp__SetCursor@4",
+          "target": 7971896,
+          "addend": 0,
+          "resolved": 7971896
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "__imp__LoadCursorA@8",
+          "target": 7971892,
+          "addend": 0,
+          "resolved": 7971892
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "__imp__SetCursor@4",
+          "target": 7971896,
+          "addend": 0,
+          "resolved": 7971896
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragShowNolock@4",
+          "target": 7970856,
+          "addend": 0,
+          "resolved": 7970856
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragMove@8",
+          "target": 7970864,
+          "addend": 0,
+          "resolved": 7970864
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "__imp__ImageList_EndDrag@0",
+          "target": 7970880,
+          "addend": 0,
+          "resolved": 7970880
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "__imp__ReleaseCapture@0",
+          "target": 7971816,
+          "addend": 0,
+          "resolved": 7971816
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "?TreeView_ImageList@@3PAU_IMAGELIST@@A",
+          "target": 11689784,
+          "addend": 0,
+          "resolved": 11689784
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "__imp__ImageList_Destroy@4",
+          "target": 7970876,
+          "addend": 0,
+          "resolved": 7970876
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "?TreeView_ImageList@@3PAU_IMAGELIST@@A",
+          "target": 11689784,
+          "addend": 0,
+          "resolved": 11689784
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        },
+        {
+          "offset": 247,
+          "kind": 20,
+          "symbol": "?TreeView_get_item_data@@YI?AUitem_data@@K@Z",
+          "target": 7562384,
+          "addend": 0,
+          "resolved": 117
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "__imp__KillTimer@8",
+          "target": 7972036,
+          "addend": 0,
+          "resolved": 7972036
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 338,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7562016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7562384,
+      "method": "00736490",
+      "body_bytes": 214,
+      "body_sha256": "880d7bf73a3765dacf2ab5251c109157204c7627e6186969fe081894527823ec",
+      "padding_bytes": 10,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "e54498c46234268ea9ce34aee671b6b6415c4e4d045595bf65510c2ef597f67c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_get_item_data@@YI?AUitem_data@@K@Z",
+      "symbol_prefix": "?TreeView_get_item_data@@YI?AUitem_data@@K@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "__imp__ChildWindowFromPoint@12",
+          "target": 7971888,
+          "addend": 0,
+          "resolved": 7971888
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 153,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?TreeView_DraggedItem@@3PAU_TREEITEM@@A",
+          "target": 11689780,
+          "addend": 0,
+          "resolved": 11689780
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7562384,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7562608,
+      "method": "00736570",
+      "body_bytes": 246,
+      "body_sha256": "52f72e18975cfeb5a70aa3817cf295e8b95114298030e9fdc4a3a9510c1a90c4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "2b6f1647b64e3d117cf1ce4b4938bf081b7806cf54411cf1e03aed8e916ec77d",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_handle_item_drag@@YIXH@Z",
+      "symbol_prefix": "?TreeView_handle_item_drag@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "__imp__GetCursorPos@4",
+          "target": 7971752,
+          "addend": 0,
+          "resolved": 7971752
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 142,
+          "kind": 6,
+          "symbol": "__imp__SetTimer@16",
+          "target": 7972052,
+          "addend": 0,
+          "resolved": 7972052
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragShowNolock@4",
+          "target": 7970856,
+          "addend": 0,
+          "resolved": 7970856
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7562608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7562864,
+      "method": "00736670",
+      "body_bytes": 209,
+      "body_sha256": "0ab5c8ae1972e62c23ae6d22bc1b9231c09272f7cf0623dbb326fa2547bc12da",
+      "padding_bytes": 15,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "5404908282bde2411042bc754e9bd09c1a5ceb556e02d4c09ed2ed9cb4c0fb24",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_On_Mouse_Move@@YI_NJ@Z",
+      "symbol_prefix": "?TreeView_On_Mouse_Move@@YI_NJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_s_dragging",
+          "target": 11689772,
+          "addend": 0,
+          "resolved": 11689772
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragShowNolock@4",
+          "target": 7970856,
+          "addend": 0,
+          "resolved": 7970856
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?TreeView_get_item_data@@YI?AUitem_data@@K@Z",
+          "target": 7562384,
+          "addend": 0,
+          "resolved": 4294966772
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "__imp__LoadCursorA@8",
+          "target": 7971892,
+          "addend": 0,
+          "resolved": 7971892
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "__imp__SetCursor@4",
+          "target": 7971896,
+          "addend": 0,
+          "resolved": 7971896
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "__imp__LoadCursorA@8",
+          "target": 7971892,
+          "addend": 0,
+          "resolved": 7971892
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "__imp__SetCursor@4",
+          "target": 7971896,
+          "addend": 0,
+          "resolved": 7971896
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "__imp__ImageList_DragMove@8",
+          "target": 7970864,
+          "addend": 0,
+          "resolved": 7970864
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7562864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563088,
+      "method": "00736750",
+      "body_bytes": 88,
+      "body_sha256": "721ec287379b11bd1c7e0268fb9a3cae90a6f18efcc505cc1ff0234145597939",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "67dffe1d371feb00972aa1a8e30dc6d2a154f11b923a3916a591bd86d9ad3c7d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_set_item_image@@YI_NPAUHWND__@@PAUtagNMTREEVIEWA@@HH@Z",
+      "symbol_prefix": "?TreeView_set_item_image@@YI_NPAUHWND__@@PAUtagNMTREEVIEWA@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563184,
+      "method": "007367b0",
+      "body_bytes": 62,
+      "body_sha256": "a88da3067fc4fff13939a066922083954f458d353fc7af76fb2362121bf28240",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9801ea849e21632379b1851a8db356fe8caa13aa8917a0111b1948246535bf9f",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_set_edit_text@@YIXPAUHWND__@@PADI@Z",
+      "symbol_prefix": "?TreeView_set_edit_text@@YIXPAUHWND__@@PADI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?TreeView_Text@@3PADA",
+          "target": 11689744,
+          "addend": 0,
+          "resolved": 11689744
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563184,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563248,
+      "method": "007367f0",
+      "body_bytes": 138,
+      "body_sha256": "ec64f71192cda6f18e43dab77436f917bae733fb11a53b68ca147533e4e2099c",
+      "padding_bytes": 6,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "2bfb194fad4efeb679aeab2877dfaf2e9cc4008f538f29bf00fbf82cb518535a",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?TreeView_set_item_text@@YIHPAUtagTVDISPINFOA@@@Z",
+      "symbol_prefix": "?TreeView_set_item_text@@YIHPAUtagTVDISPINFOA@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?strtrim@@YIPADPAD@Z",
+          "target": 7270160,
+          "addend": 0,
+          "resolved": 4294674186
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?TreeView_Text@@3PADA",
+          "target": 11689744,
+          "addend": 0,
+          "resolved": 11689744
+        },
+        {
+          "offset": 65,
+          "kind": 6,
+          "symbol": "?TreeView_Text@@3PADA",
+          "target": 11689744,
+          "addend": 0,
+          "resolved": 11689744
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?TreeView_LastHandle@@3PAUHWND__@@A",
+          "target": 11689776,
+          "addend": 0,
+          "resolved": 11689776
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?TreeView_Text@@3PADA",
+          "target": 11689744,
+          "addend": 0,
+          "resolved": 11689744
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563248,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563392,
+      "method": "00736880",
+      "body_bytes": 28,
+      "body_sha256": "28a49c6154b67f3da051741bdc8a60135d0bf996e343b7a4f5179f3fa84d97a8",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ae0244e02e7aa52cc7b7907febc723d212ca00323fab946589af61120d311038",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_WM_HELP@@YIHJ@Z",
+      "symbol_prefix": "?On_WM_HELP@@YIHJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "__imp__GetWindowContextHelpId@4",
+          "target": 7971880,
+          "addend": 0,
+          "resolved": 7971880
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "??_C@_07FMM@SUN?4HLP?$AA@",
+          "target": 8376468,
+          "addend": 0,
+          "resolved": 8376468
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__imp__WinHelpA@16",
+          "target": 7971884,
+          "addend": 0,
+          "resolved": 7971884
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563392,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7563424,
+      "method": "007368a0",
+      "body_bytes": 72,
+      "body_sha256": "75d07009779449ed6b16b6ffd7d36542434a7392ee2d5519a5b66c465b19f6e0",
+      "padding_bytes": 8,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "60439245339716dddfa12df99bd4465af88ae90236e6bc808aebf7fe7705ea96",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_WM_CONTEXTMENU@@YIHI@Z",
+      "symbol_prefix": "?On_WM_CONTEXTMENU@@YIHI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "__imp__GetWindowContextHelpId@4",
+          "target": 7971880,
+          "addend": 0,
+          "resolved": 7971880
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_C@_07FMM@SUN?4HLP?$AA@",
+          "target": 8376468,
+          "addend": 0,
+          "resolved": 8376468
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "__imp__WinHelpA@16",
+          "target": 7971884,
+          "addend": 0,
+          "resolved": 7971884
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563424,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563504,
+      "method": "007368f0",
+      "body_bytes": 369,
+      "body_sha256": "9c930c078bfeec1ea15a473107baa532702dec74d560515b2b99b5b0c11dbae5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "07a05c91c3b0f6c8d4c2f368272988a4532967dc50b2cf606500269ca458a72d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?read_view_from_ini@@YGHPAUHWND__@@ABVINIClass@@@Z",
+      "symbol_prefix": "?read_view_from_ini@@YGHPAUHWND__@@ABVINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "__imp__GetClassNameA@12",
+          "target": 7972064,
+          "addend": 0,
+          "resolved": 7972064
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_C@_0O@NCOE@SysTreeView32?$AA@",
+          "target": 8376508,
+          "addend": 0,
+          "resolved": 8376508
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??_C@_04BIHF@TV?$CFd?$AA@",
+          "target": 8376500,
+          "addend": 0,
+          "resolved": 8376500
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4292708994
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "__imp__GetClassNameA@12",
+          "target": 7972064,
+          "addend": 0,
+          "resolved": 7972064
+        },
+        {
+          "offset": 209,
+          "kind": 6,
+          "symbol": "??_C@_0O@NFAI@SysListView32?$AA@",
+          "target": 8376484,
+          "addend": 0,
+          "resolved": 8376484
+        },
+        {
+          "offset": 269,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "??_C@_04GHME@LV?$CFd?$AA@",
+          "target": 8376476,
+          "addend": 0,
+          "resolved": 8376476
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 322,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4292701626
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7563888,
+      "method": "00736a70",
+      "body_bytes": 201,
+      "body_sha256": "adce9d15ab1b1e46697988a1573e7f7dd9df635750fe02f29348ca283d403eb7",
+      "padding_bytes": 7,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "90aa066827d8a6fa0b5ef92482a4848c62e4cc49da92d33a6277e1042593181c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?read_views_from_ini@@YIXPBDPAUHWND__@@ABVINIClass@@@Z",
+      "symbol_prefix": "?read_views_from_ini@@YIXPBDPAUHWND__@@ABVINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "??_C@_01FIAI@X?$AA@",
+          "target": 8376528,
+          "addend": 0,
+          "resolved": 8376528
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4292701515
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "??_C@_01PCJP@Y?$AA@",
+          "target": 8376524,
+          "addend": 0,
+          "resolved": 8376524
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4292701495
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "__imp__GetSystemMetrics@4",
+          "target": 7971804,
+          "addend": 0,
+          "resolved": 7971804
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "__imp__GetSystemMetrics@4",
+          "target": 7971804,
+          "addend": 0,
+          "resolved": 7971804
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "__imp__SetWindowPos@28",
+          "target": 7971792,
+          "addend": 0,
+          "resolved": 7971792
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?read_view_from_ini@@YGHPAUHWND__@@ABVINIClass@@@Z",
+          "target": 7563504,
+          "addend": 0,
+          "resolved": 7563504
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "__imp__EnumChildWindows@12",
+          "target": 7972060,
+          "addend": 0,
+          "resolved": 7972060
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7563888,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7564096,
+      "method": "00736b40",
+      "body_bytes": 398,
+      "body_sha256": "8206f2c699091bd30d52a0929458e380a2636931c742f8cbd876e5a9a9718e69",
+      "padding_bytes": 2,
+      "full_extent_bytes": 400,
+      "full_extent_sha256": "89fa0778d2e38fc6144c5c3684801275885aeda510f36171ce6ed4423209ae81",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?write_view_to_ini@@YGHPAUHWND__@@AAVINIClass@@@Z",
+      "symbol_prefix": "?write_view_to_ini@@YGHPAUHWND__@@AAVINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "__imp__GetClassNameA@12",
+          "target": 7972064,
+          "addend": 0,
+          "resolved": 7972064
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_C@_0O@NCOE@SysTreeView32?$AA@",
+          "target": 8376508,
+          "addend": 0,
+          "resolved": 8376508
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "??_C@_04BIHF@TV?$CFd?$AA@",
+          "target": 8376500,
+          "addend": 0,
+          "resolved": 8376500
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4292708195
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "__imp__GetClassNameA@12",
+          "target": 7972064,
+          "addend": 0,
+          "resolved": 7972064
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_C@_0O@NFAI@SysListView32?$AA@",
+          "target": 8376484,
+          "addend": 0,
+          "resolved": 8376484
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "??_C@_04GHME@LV?$CFd?$AA@",
+          "target": 8376476,
+          "addend": 0,
+          "resolved": 8376476
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 373,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4292700711
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7564496,
+      "method": "00736cd0",
+      "body_bytes": 98,
+      "body_sha256": "e98abda4f09fd8f4fd9d253c6cc0f63b18df8cc6155b8bb3fe8e365d0c92dc04",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "a5b7d5045cd8d3027c8fa893e9513aa6f112cde712b725897a6f4cd973567a06",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?write_views_to_ini@@YIXPBDPAUHWND__@@AAVINIClass@@@Z",
+      "symbol_prefix": "?write_views_to_ini@@YIXPBDPAUHWND__@@AAVINIClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "__imp__GetWindowRect@8",
+          "target": 7971736,
+          "addend": 0,
+          "resolved": 7971736
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "??_C@_01FIAI@X?$AA@",
+          "target": 8376528,
+          "addend": 0,
+          "resolved": 8376528
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4292700638
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "??_C@_01PCJP@Y?$AA@",
+          "target": 8376524,
+          "addend": 0,
+          "resolved": 8376524
+        },
+        {
+          "offset": 66,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4292700618
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?last_view_ini_section_name@@3PBDB",
+          "target": 11689768,
+          "addend": 0,
+          "resolved": 11689768
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?write_view_to_ini@@YGHPAUHWND__@@AAVINIClass@@@Z",
+          "target": 7564096,
+          "addend": 0,
+          "resolved": 7564096
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "__imp__EnumChildWindows@12",
+          "target": 7972060,
+          "addend": 0,
+          "resolved": 7972060
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1642"
+    },
+    {
+      "entry": 7564608,
+      "method": "00736d40",
+      "body_bytes": 56,
+      "body_sha256": "894f222ec9d73c45ee43da6a660273490c29e82868df7a06cab413e2139e53fa",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1436443b32a9a0bd242dccc1051d64c1c41bcd8b719cdb9ab3e7e41fa3c8dd1c",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Make_Identifier@@YIPBDPADH@Z",
+      "symbol_prefix": "?Make_Identifier@@YIPBDPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "??_C@_04MOFI@?$CFs?$CFd?$AA@",
+          "target": 8376532,
+          "addend": 0,
+          "resolved": 8376532
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "_?_buffer@?1??Make_Identifier@@YIPBDPADH@Z@4PADA",
+          "target": 11689712,
+          "addend": 0,
+          "resolved": 11689712
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "_?_buffer@?1??Make_Identifier@@YIPBDPADH@Z@4PADA",
+          "target": 11689712,
+          "addend": 0,
+          "resolved": 11689712
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_C@_02MECO@?$CFd?$AA@",
+          "target": 8186300,
+          "addend": 0,
+          "resolved": 8186300
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "_?_buffer@?1??Make_Identifier@@YIPBDPADH@Z@4PADA",
+          "target": 11689712,
+          "addend": 0,
+          "resolved": 11689712
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "__imp__wsprintfA",
+          "target": 7972004,
+          "addend": 0,
+          "resolved": 7972004
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_?_buffer@?1??Make_Identifier@@YIPBDPADH@Z@4PADA",
+          "target": 11689712,
+          "addend": 0,
+          "resolved": 11689712
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1642"
+    },
+    {
+      "entry": 7564672,
+      "method": "00736d80",
+      "body_bytes": 143,
+      "body_sha256": "92dc75fc7582e024f9d5b05a00c7f908adad811e1de8320afd24950f62195146",
+      "padding_bytes": 1,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "1b4ae1d675ce3544765d58568843d58d014171ccef4549c228a44e70e1678c53",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?On_WM_MOVING@@YI_NPAUHWND__@@IJ@Z",
+      "symbol_prefix": "?On_WM_MOVING@@YI_NPAUHWND__@@IJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "__imp__GetSystemMetrics@4",
+          "target": 7971804,
+          "addend": 0,
+          "resolved": 7971804
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2837"
+    },
+    {
+      "entry": 7564816,
+      "method": "00736e10",
+      "body_bytes": 84,
+      "body_sha256": "35fdcded7ddefbbab2b603ed7093d9905917c6d7ad1e00207f77c7e3483122a9",
+      "padding_bytes": 12,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "cef07c74f58d347449381fc8a7593e53d36785d33055a866ad512e17d9a910c8",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ComboBox_Find_Item_Data@@YIHPAUHWND__@@IJ@Z",
+      "symbol_prefix": "?ComboBox_Find_Item_Data@@YIHPAUHWND__@@IJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564816,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7564912,
+      "method": "00736e70",
+      "body_bytes": 48,
+      "body_sha256": "6f92a4a2b54cdb6c426972be9ede54792265e44597fb30f33d890f4b04a6ec51",
+      "padding_bytes": 0,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6f92a4a2b54cdb6c426972be9ede54792265e44597fb30f33d890f4b04a6ec51",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Capture_Or_Release_Mouse@@YIXPAUHWND__@@F@Z",
+      "symbol_prefix": "?Capture_Or_Release_Mouse@@YIXPAUHWND__@@F@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "__imp__RedrawWindow@16",
+          "target": 7971876,
+          "addend": 0,
+          "resolved": 7971876
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564912,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7564960,
+      "method": "00736ea0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?noop@@YIXXZ",
+      "symbol_prefix": "?noop@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564960,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
+    },
+    {
+      "entry": 7564976,
+      "method": "00736eb0",
+      "body_bytes": 139,
+      "body_sha256": "56c3cf2fd00c72633a526cd8e52a8841a3957e29d69a5b0763e85d8669f36f38",
+      "padding_bytes": 5,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "ada418f519747d6d8d3780485a9d148d6643389f6aa0b0e18aba96b111a22a14",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0WindowsVersionInfo@@QAE@XZ",
+      "symbol_prefix": "??0WindowsVersionInfo@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__imp__GetVersionExA@4",
+          "target": 7971196,
+          "addend": 0,
+          "resolved": 7971196
+        },
+        {
+          "offset": 115,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 308393
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7564976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3042"
+    },
+    {
+      "entry": 7565120,
+      "method": "00736f40",
+      "body_bytes": 275,
+      "body_sha256": "df5b17e9788a8d9c303e83af043a90c845a3c1ac4a5d560bdffe3938f417b57c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "b02b136496b9f4aa52bdcf17650d8f11228859aab552dfc1f6cd20083ba05457",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Version_String@WindowsVersionInfo@@QAEPADXZ",
+      "symbol_prefix": "?Version_String@WindowsVersionInfo@@QAEPADXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "_?_ver95@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 8376400,
+          "addend": 0,
+          "resolved": 8376400
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "_?_ver98@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 8376412,
+          "addend": 0,
+          "resolved": 8376412
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "_?_verNT5@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 8376440,
+          "addend": 0,
+          "resolved": 8376440
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        },
+        {
+          "offset": 188,
+          "kind": 6,
+          "symbol": "_?_verNT4@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 8376424,
+          "addend": 0,
+          "resolved": 8376424
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        },
+        {
+          "offset": 243,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        },
+        {
+          "offset": 263,
+          "kind": 6,
+          "symbol": "_?version@?1??Version_String@WindowsVersionInfo@@QAEPADXZ@4PADA",
+          "target": 11689456,
+          "addend": 0,
+          "resolved": 11689456
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7565120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7565408,
+      "method": "00737060",
+      "body_bytes": 27,
+      "body_sha256": "fc71bc3b121964825c7da492f8b7ca5075cdda5a71b89a663a649d5b79300b16",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "52032ecf96961aaa7ea22fda3ad784362eca25a6d565d257d1a91421a2ffdd45",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Center_Window_Within_Window@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Center_Window_Within_Window@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z",
+          "target": 7565440,
+          "addend": 0,
+          "resolved": 7
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7565408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7565440,
+      "method": "00737080",
+      "body_bytes": 218,
+      "body_sha256": "60ac04cc21ca5c3170e9de097afde3fb13fc48607d1c200b92e306a058ba6824",
+      "padding_bytes": 6,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "e13bce6369ddc3e77c2fd10af3569f38c1040dacfda0d45ce3c9a8f13f87996b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z",
+      "symbol_prefix": "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__imp__GetClientRect@8",
+          "target": 7972024,
+          "addend": 0,
+          "resolved": 7972024
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__imp__ClientToScreen@8",
+          "target": 7972012,
+          "addend": 0,
+          "resolved": 7972012
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "__imp__SetWindowPos@28",
+          "target": 7971792,
+          "addend": 0,
+          "resolved": 7971792
+        }
+      ],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7565440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7565664,
+      "method": "00737160",
+      "body_bytes": 75,
+      "body_sha256": "be6a9327965b0598338857f040a9f0c163387ab4492e264deedc26ab85098960",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "4db52f9f95af82b5d9f1d3efaf478401affc2872a5dfbc207528af4fd5509ffd",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Prefetch_Audio_Buffer@@YIXPADH@Z",
+      "symbol_prefix": "?Prefetch_Audio_Buffer@@YIXPADH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6b127846064dd79c869f5f9ab328b4ca700675b49791e21ef698e245ab23595c",
+      "source": "rebuild/src/winfix.cpp",
+      "population": "rebuild-winfix",
+      "source_order": 7565664,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

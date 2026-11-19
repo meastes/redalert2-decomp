@@ -1,0 +1,527 @@
+{
+  "id": "rebuild-textbtn",
+  "population": {
+    "id": "rebuild-textbtn",
+    "inventory_sha256": "5f018d0eb12e4185deef198546ca98564ab3708d85df1d256cdbf08202f638d0",
+    "gaps_sha256": "3781b688bb3b5698acdc04b3a75e465309e6ebea1af055c74ab8029aa2c49790",
+    "historical_population_sha256": "5919998c0a8fb37c7f31ea58afa02cc719ecc4c138f410271c0d1117e6c9c1a7",
+    "historical_acceptance_sha256": "68ae3234e74540b37bcf1555389b019e1684c51642a076ba7bbb472d25ca9572"
+  },
+  "references": {
+    "_RECT_NONE": 11274312,
+    "??0ToggleClass@@QAE@IHHHH@Z": 7254304,
+    "??_7TextButtonClass@@6B@": 8050532,
+    "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z": 4815440,
+    "?String_Pixel_Width@BitFont@@QAEHPBGH@Z": 4396688,
+    "?Draw_Me@ControlClass@@UAEHH@Z": 4732208,
+    "?Get_Color_Scheme@GadgetClass@@SIHXZ": 5042112,
+    "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z": 4813776,
+    "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@H@Z": 4815248,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 7238176,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??0TextButtonClass@@QAE@IPBGW4TextPrintType@@HHHH_N2@Z": 7238208,
+    "?Make_Peer@ControlClass@@UAEXAAVGadgetClass@@@Z": 4732176,
+    "?Clicked_On@GadgetClass@@EAEHAAW4KeyNumType@@IHH@Z": 5042400,
+    "?Action@ToggleClass@@MAEHIAAW4KeyNumType@@@Z": 7254400,
+    "?Sticky_Process@GadgetClass@@MAEXI@Z": 5043632,
+    "?Mouse_Leave@GadgetClass@@UAEXXZ": 5042704,
+    "?Mouse_Enter@GadgetClass@@UAEXXZ": 5042688,
+    "?Set_Size@GadgetClass@@UAEXHH@Z": 5043840,
+    "?Set_Position@GadgetClass@@UAEXHH@Z": 5043808,
+    "?Is_List_To_Redraw@GadgetClass@@UAEHXZ": 5043776,
+    "?Has_Focus@GadgetClass@@UAE_NXZ": 5043760,
+    "?Clear_Focus@GadgetClass@@UAEXXZ": 5043728,
+    "?Set_Focus@GadgetClass@@UAEXXZ": 5043680,
+    "?Flag_To_Redraw@GadgetClass@@UAEXXZ": 5043616,
+    "?Get_ID@ControlClass@@MBEIXZ": 4732192,
+    "?Enable@GadgetClass@@UAEXXZ": 5042496,
+    "?Disable@GadgetClass@@UAEXXZ": 5042512,
+    "?Extract_Gadget@GadgetClass@@UAEPAVControlClass@@I@Z": 5043552,
+    "?Delete_List@GadgetClass@@UAEXXZ": 5042608,
+    "?Draw_All@GadgetClass@@UAEX_N@Z": 5042784,
+    "?Input@GadgetClass@@UAE?AW4KeyNumType@@XZ": 5042992,
+    "?Remove@GadgetClass@@UAEPAVLinkClass@@XZ": 5042544,
+    "?Zap@LinkClass@@UAEXXZ": 5476336,
+    "?Tail_Of_List@LinkClass@@UAEAAV1@XZ": 5476464,
+    "?Head_Of_List@LinkClass@@UAEAAV1@XZ": 5476416,
+    "?Add_Head@LinkClass@@UAEAAV1@AAV1@@Z": 5476544,
+    "?Add_Tail@LinkClass@@UAEAAV1@AAV1@@Z": 5476576,
+    "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
+    "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
+    "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GTextButtonClass@@UAEPAXI@Z": 7238960,
+    "??_R0?AVLinkClass@@@8": 8198056,
+    "??_R0?AVGadgetClass@@@8": 8204080,
+    "??_R0?AVControlClass@@@8": 8204112,
+    "??_R0?AVToggleClass@@@8": 8216480,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVTextButtonClass@@@8": 8356592,
+    "?Flag_List_To_Redraw@GadgetClass@@UAEXXZ": 4708080,
+    "?LastList@GadgetClass@@1PAV1@A": 8806388,
+    "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
+    "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
+    "?Set_Style@TextButtonClass@@UAEXW4TextPrintType@@@Z": 7238944,
+    "??0TextButtonClass@@QAE@XZ": 7238352,
+    "?Draw_Me@TextButtonClass@@UAEHH@Z": 7238400,
+    "?Set_Text@TextButtonClass@@UAEXPBG_N@Z": 7238464,
+    "?Draw_Background@TextButtonClass@@MAEXXZ": 7238544,
+    "?Draw_Text@TextButtonClass@@MAEXPBG@Z": 7238752
+  },
+  "regions": [
+    {
+      "entry": 7238176,
+      "method": "006e7220",
+      "body_bytes": 23,
+      "body_sha256": "ad0058c68ea25cb916981a781b3925fab66c3f8282747407163f827369ba3c69",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "96c0739fecf0a4904dd3d4d888161d0453af5f3a1c706f37810431c0bc338150",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274312,
+          "addend": 0,
+          "resolved": 11274312
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274312,
+          "addend": 4,
+          "resolved": 11274316
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274312,
+          "addend": 8,
+          "resolved": 11274320
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11274312,
+          "addend": 12,
+          "resolved": 11274324
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238208,
+      "method": "006e7240",
+      "body_bytes": 136,
+      "body_sha256": "e0a31e4ddba97eeb4dac22e5bb978122aafbdd2cd1a160a32c295ca65776e1c7",
+      "padding_bytes": 8,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "be8d8c475f2369e7dc2c8808e97a9e07b39e6f9c6c221dbce1b0f821942171ee",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TextButtonClass@@QAE@IPBGW4TextPrintType@@HHHH_N2@Z",
+      "symbol_prefix": "??0TextButtonClass@@QAE@IPBGW4TextPrintType@@HHHH_N2@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??0ToggleClass@@QAE@IHHHH@Z",
+          "target": 7254304,
+          "addend": 0,
+          "resolved": 16058
+        },
+        {
+          "offset": 71,
+          "kind": 6,
+          "symbol": "??_7TextButtonClass@@6B@",
+          "target": 8050532,
+          "addend": 0,
+          "resolved": 8050532
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4292544441
+        },
+        {
+          "offset": 103,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4292125669
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238352,
+      "method": "006e72d0",
+      "body_bytes": 46,
+      "body_sha256": "b7f86d637511ba1748ea225d01da2d02ca3db1a3d828a5fafed1b521a352e772",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "91260a0b71478573d3a70e87240265a2d4f66e0386101767887088c2c659cb6e",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TextButtonClass@@QAE@XZ",
+      "symbol_prefix": "??0TextButtonClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 20,
+          "symbol": "??0ToggleClass@@QAE@IHHHH@Z",
+          "target": 7254304,
+          "addend": 0,
+          "resolved": 15934
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "??_7TextButtonClass@@6B@",
+          "target": 8050532,
+          "addend": 0,
+          "resolved": 8050532
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238400,
+      "method": "006e7300",
+      "body_bytes": 56,
+      "body_sha256": "31bf4d7468b288952f22a1f37cd3d64943ddfa86a35c367b65d86af0740aa3ed",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e9536eb4da2d7fae7d4894bdff623ab538fd6748a3e0f8805949c4f98970993d",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Me@TextButtonClass@@UAEHH@Z",
+      "symbol_prefix": "?Draw_Me@TextButtonClass@@UAEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "?Draw_Me@ControlClass@@UAEHH@Z",
+          "target": 4732208,
+          "addend": 0,
+          "resolved": 4292461091
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238464,
+      "method": "006e7340",
+      "body_bytes": 74,
+      "body_sha256": "9a0b9d82c7d930efa4b6f1ab5bc58dee387deb8f167470fd36942f32744f6579",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "44300774e59069a8bbd323b97d4660a36a6554dcc91914045e86d1f82d331d87",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Text@TextButtonClass@@UAEXPBG_N@Z",
+      "symbol_prefix": "?Set_Text@TextButtonClass@@UAEXPBG_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Font_From_TPF@@YIPAVBitFont@@W4TextPrintType@@@Z",
+          "target": 4815440,
+          "addend": 0,
+          "resolved": 4292544233
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?String_Pixel_Width@BitFont@@QAEHPBGH@Z",
+          "target": 4396688,
+          "addend": 0,
+          "resolved": 4292125466
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238544,
+      "method": "006e7390",
+      "body_bytes": 207,
+      "body_sha256": "af6df1c28159d77a31a1b79dbf40442a901f2eba7d7d1b3495fbe42e7da4a215",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "2a67c39ca7e1f7b10b10ec458e83b4e911b416bb4409fc7f004689ebbe9fedc4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Background@TextButtonClass@@MAEXXZ",
+      "symbol_prefix": "?Draw_Background@TextButtonClass@@MAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 4292770835
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "?Draw_Box@@YIXABV?$TRect@H@@W4BoxStyleEnum@@_N@Z",
+          "target": 4813776,
+          "addend": 0,
+          "resolved": 4292542326
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238752,
+      "method": "006e7460",
+      "body_bytes": 178,
+      "body_sha256": "8b5aeee4eb35ad3cd440db2c0f37bbb5281353c7fdf2c43781647254125890be",
+      "padding_bytes": 14,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "dd0b1756bf45d2b5b4898e743aa5d42d9bee49fc8c850732bd2a5c3c20549b17",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Text@TextButtonClass@@MAEXPBG@Z",
+      "symbol_prefix": "?Draw_Text@TextButtonClass@@MAEXPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "?Get_Color_Scheme@GadgetClass@@SIHXZ",
+          "target": 5042112,
+          "addend": 0,
+          "resolved": 4292770645
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 16,
+          "resolved": 11235080
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A",
+          "target": 11235064,
+          "addend": 4,
+          "resolved": 11235068
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?Simple_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@H@Z",
+          "target": 4815248,
+          "addend": 0,
+          "resolved": 4292543622
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238944,
+      "method": "006e7520",
+      "body_bytes": 10,
+      "body_sha256": "b357d4cd3d09e9e10b691b5334397effe14fc6bbc18804d51498330365e90ec5",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "be8c2a9264a126c48d50f0a7f7bb8fc464b39e86b91c6e86877f0700a2714413",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Style@TextButtonClass@@UAEXW4TextPrintType@@@Z",
+      "symbol_prefix": "?Set_Style@TextButtonClass@@UAEXW4TextPrintType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7238960,
+      "method": "006e7530",
+      "body_bytes": 30,
+      "body_sha256": "ebf7083045dfa753332939d4b22f47fe74f8081222034c2a4383e9fd7cc54b20",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8ac1e4e154d9599b7004573f605400d32912c75b3313bde73925ac5a3936f385",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTextButtonClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTextButtonClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 4292770632
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 632822
+        }
+      ],
+      "source_sha256": "73c7825c83b89d260abc0feca06b431399854f861aa981605502ac25be2eef70",
+      "source": "rebuild/src/textbtn.cpp",
+      "population": "rebuild-textbtn",
+      "source_order": 7238960,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

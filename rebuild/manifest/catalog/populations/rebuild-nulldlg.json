@@ -1,0 +1,5844 @@
+{
+  "id": "rebuild-nulldlg",
+  "population": {
+    "id": "rebuild-nulldlg",
+    "inventory_sha256": "fa287561134d029ebc5a267c4f3deebdeff573c0f000549b10db41d1864eaae7",
+    "gaps_sha256": "bd81d327a8f43f18b0d1d6b327bd664cccff8364330dfaa2fd052e0fff4091de",
+    "historical_population_sha256": "3a5001d8b5754378ddbf90b9d9c11d0683653569695d6c9e8ab63a563fd15d32",
+    "historical_acceptance_sha256": "30060dcd673865def331b3b7a8493f70ffe772b334e2fcdc983fa48df6426112"
+  },
+  "references": {
+    "_RECT_NONE": 10956136,
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10956192,
+    "_ISO_TILE_SIZE": 8025072,
+    "_LEPTONS_PER_PIXEL": 10956264,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10956248,
+    "_ONE_RAD": 8025080,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10956240,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10956200,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10956128,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10956272,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10956208,
+    "_CELL_DIAG_SLOPE_ANGLE": 10956232,
+    "_BRIDGE_LEPTON_HEIGHT": 10956256,
+    "_CELL_NONE": 10956188,
+    "_COORD_NONE": 10956216,
+    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z": 6089104,
+    "__imp__GetWindowLongA@8": 7971980,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?NullModem@@3VNullModemClass@@A": 10750504,
+    "?Detect_Port@NullModemClass@@QAE?AW4DetectPortType@@PAUSerialSettingsType@@@Z": 6095840,
+    "__imp__GetDlgItem@8": 7971996,
+    "__imp__EnableWindow@8": 7971984,
+    "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
+    "?Hangup_Modem@NullModemClass@@QAE_NXZ": 6101872,
+    "?Shutdown@NullModemClass@@QAEXXZ": 6096240,
+    "?Send_Message@NullModemClass@@QAEHPAXHH@Z": 6096368,
+    "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A": 8624512,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "?Service@NullModemClass@@UAEHXZ": 6096480,
+    "?Get_Modem_Status@NullModemClass@@QAEHXZ": 6102608,
+    "?Reconnect_Null_Modem@@YI_NXZ": 6090192,
+    "?DialSettings@@3PAUSerialSettingsType@@A": 10956228,
+    "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6090928,
+    "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6092672,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@": 8287420,
+    "??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@": 8284500,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "_swprintf": 7878500,
+    "??_C@_0O@JGPN@TXT_LEFT_GAME?$AA@": 8284464,
+    "?Delete_Connection@NullModemClass@@QAEHXZ": 6095712,
+    "_wcslen": 7878149,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "__real@8@4008e100000000000000": 7976456,
+    "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z": 5983648,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "_wcsicmp": 7955224,
+    "??3@YAXPAX@Z": 7871803,
+    "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
+    "??_C@_0BE@MJJO@TXT_JUST_YOU_AND_ME?$AA@": 8287440,
+    "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@": 8232084,
+    "?ModemDialogIsOpen@@3_NA": 10956484,
+    "??_C@_0L@NPIH@TXT_CANCEL?$AA@": 8239304,
+    "??_C@_0BO@DFHD@TXT_NULL_CONNERR_CHECK_CABLES?$AA@": 8287460,
+    "?Custom_Message_Box@OwnerDraw@@YIPAUHWND__@@PBG0PA_N@Z": 6291936,
+    "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
+    "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ": 6291664,
+    "?Get_Message@NullModemClass@@QAEHPAXPAH@Z": 6096432,
+    "??_C@_06DN@TXT_OK?$AA@": 8239348,
+    "??_C@_13ECNF@?$AA?5?$AA?$AA@": 8217844,
+    "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@": 8266284,
+    "?Process@WWMessageBox@@QAEHPBG000_N@Z": 5981872,
+    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "??_C@_0M@PAA@Dial?5Modem?6?$AA@": 8288224,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@": 8288176,
+    "??_C@_03BCLC@SET?$AA@": 8288172,
+    "??_C@_05HIBB@CLEAR?$AA@": 8288164,
+    "??_C@_08DDCK@CTS?3?5?$CFs?6?$AA@": 8288152,
+    "??_C@_08JHKL@DSR?3?5?$CFs?6?$AA@": 8288140,
+    "??_C@_08NOBA@?5RI?3?5?$CFs?6?$AA@": 8288128,
+    "??_C@_08HHPO@?5CD?3?5?$CFs?6?$AA@": 8288116,
+    "??_C@_0CE@FCOP@Modem?5already?5on?9line?5?9?5hanging?5@": 8288080,
+    "?Modem_Echo@@YIXD@Z": 6094192,
+    "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z": 6102304,
+    "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z": 6097312,
+    "??_C@_0BF@BBGJ@Detect_Modem?5failed?6?$AA@": 8288056,
+    "?Remove_Modem_Echo@NullModemClass@@QAEXXZ": 6102336,
+    "?Print_EchoBuf@NullModemClass@@QAEXXZ": 6102352,
+    "?Reset_EchoBuf@NullModemClass@@QAEXXZ": 6102432,
+    "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@": 8288032,
+    "??_C@_0BF@KPFB@Upshifting?5to?538400?6?$AA@": 8288008,
+    "??_C@_0BO@MCKI@Detect_Modem?5failed?5at?538400?6?$AA@": 8287976,
+    "??_C@_0BF@PLNI@Upshifting?5to?519200?6?$AA@": 8287952,
+    "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@": 8287920,
+    "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@": 8287896,
+    "??_C@_0P@CHNG@Ready?5to?5dial?6?$AA@": 8287880,
+    "_DialString": 10956152,
+    "?Dial_Modem@NullModemClass@@QAE?AW4DialStatusType@@PADW4DialMethodType@@_N@Z": 6099792,
+    "?Render@GScreenClass@@UAEXXZ": 5114672,
+    "??_C@_0CG@KOPL@Dial_Modem?5returned?5?8DIAL_CONNEC@": 8287840,
+    "??_C@_0CH@IIOE@Dial_Modem?5returned?5?8DIAL_NO_CAR@": 8287800,
+    "??_C@_0P@NPH@TXT_NO_CARRIER?$AA@": 8287784,
+    "??_C@_0CB@GNGL@Dial_Modem?5returned?5?8DIAL_BUSY?8?6@": 8287748,
+    "??_C@_0O@GKIA@TXT_LINE_BUSY?$AA@": 8287732,
+    "??_C@_0CC@CME@Dial_Modem?5returned?5?8DIAL_ERROR?8@": 8287696,
+    "??_C@_0BD@HMLB@TXT_NUMBER_INVALID?$AA@": 8287676,
+    "??_C@_0CE@HJFB@Dial_Modem?5returned?5?8DIAL_TIMEOU@": 8287640,
+    "??_C@_0BC@CENF@TXT_ERROR_TIMEOUT?$AA@": 8287620,
+    "??_C@_0CJ@GCIB@Dial_Modem?5returned?5?8DIAL_NO_DIA@": 8287576,
+    "??_C@_0BB@EDPM@TXT_NO_DIAL_TONE?$AA@": 8287556,
+    "??_C@_0CG@JPJK@Dial_Modem?5returned?5?8DIAL_CANCEL@": 8287516,
+    "??_C@_0BF@LNNF@TXT_DIALING_CANCELED?$AA@": 8287492,
+    "??_C@_0O@HFIE@Answer?5Modem?6?$AA@": 8288480,
+    "??_C@_0BB@JLFH@Ready?5to?5answer?6?$AA@": 8288460,
+    "?Answer_Modem@NullModemClass@@QAE?AW4DialStatusType@@_N@Z": 6100704,
+    "??_C@_0CI@DHCJ@Answer_Modem?5returned?5?8DIAL_CONN@": 8288420,
+    "??_C@_0CJ@MOHN@Answer_Modem?5returned?5?8DIAL_NO_C@": 8288376,
+    "??_C@_0CE@HAAD@Answer_Modem?5returned?5?8DIAL_ERRO@": 8288340,
+    "??_C@_0CG@LPOD@Answer_Modem?5returned?5?8DIAL_TIME@": 8288300,
+    "??_C@_0CI@GEI@Answer_Modem?5returned?5?8DIAL_CANC@": 8288260,
+    "??_C@_0BH@KPFE@TXT_ANSWERING_CANCELED?$AA@": 8288236,
+    "_$E2": 6085904,
+    "_$E5": 6085936,
+    "_$E8": 6085984,
+    "_$E11": 6086016,
+    "_$E14": 6086048,
+    "_$E17": 6086080,
+    "_$E20": 6086112,
+    "_$E23": 6086144,
+    "_$E26": 6086208,
+    "_$E29": 6086256,
+    "_$E32": 6086304,
+    "_$E35": 6086352,
+    "_$E38": 6086368,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 6088992,
+    "?Init_Null_Modem@@YI_NPAUSerialSettingsType@@@Z": 6089264,
+    "?Shutdown_Modem@@YIXXZ": 6089312,
+    "?Modem_Signoff@@YIXXZ": 6089360,
+    "?Reconnect_Modem@@YI_NXZ": 6089536,
+    "?Destroy_Null_Connection@@YIXHH@Z": 6089632,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7type_info@@6B@": 8066532,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "??2@YAPAXI@Z": 7872535,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
+  },
+  "regions": [
+    {
+      "entry": 6085904,
+      "method": "005cdd10",
+      "body_bytes": 23,
+      "body_sha256": "dbe61903e86de4f654c8ae8f21f10b8b066dd8071e92149dc68f9647082189d4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "06119370e86888a4d79cf86374df252e2e84c490063023ec902055623b3e7c9f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956136,
+          "addend": 0,
+          "resolved": 10956136
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956136,
+          "addend": 4,
+          "resolved": 10956140
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956136,
+          "addend": 8,
+          "resolved": 10956144
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956136,
+          "addend": 12,
+          "resolved": 10956148
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6085904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085936,
+      "method": "005cdd30",
+      "body_bytes": 40,
+      "body_sha256": "4610f1394598720f55f788a294c4701bde94ae2a680c999f181d8439ad0f0f9d",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "675767522b57184c33f731ea7066811aba1538934f9b94579165f40e42d8ec16",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1786991
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293838530
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956192,
+          "addend": 0,
+          "resolved": 10956192
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6085936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085984,
+      "method": "005cdd60",
+      "body_bytes": 19,
+      "body_sha256": "5c443491b636349bcc85ff10eb9d6b5cbb6c3d7c91d23055cb365fd0952d60b1",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d00f16cfc9f60f139f6d5fdec5e4c8794594347eed6b10d1d0714fe306e903a3",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956192,
+          "addend": 0,
+          "resolved": 10956192
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8025072,
+          "addend": 0,
+          "resolved": 8025072
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10956264,
+          "addend": 0,
+          "resolved": 10956264
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6085984,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086016,
+      "method": "005cdd80",
+      "body_bytes": 19,
+      "body_sha256": "04473f2a462d280cd689f3c86f4f60dbaaaebc6123a59bdb32fe5f5548d77fd4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "79e3508482a94b823e46c59de1e5bb5b1879ebf6f181813992b0e43685aa9e1f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10956264,
+          "addend": 0,
+          "resolved": 10956264
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10956248,
+          "addend": 0,
+          "resolved": 10956248
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086048,
+      "method": "005cdda0",
+      "body_bytes": 19,
+      "body_sha256": "92843a49589de3af49d097ffe35de247969b43d240ed84764041cc7b655c6b1d",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a15315feedae9520e90b8e200d078f57899988a78e4947f0f80f94b211a23651",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8025080,
+          "addend": 0,
+          "resolved": 8025080
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10956240,
+          "addend": 0,
+          "resolved": 10956240
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086080,
+      "method": "005cddc0",
+      "body_bytes": 19,
+      "body_sha256": "6c32597455007d7e2904991fde00bd056a9b1ecf1f9329f01d5bdce2dffe2688",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "00f84612ef3a40f059479b751f50d7e6373be013098de588f44926e08fd9baa8",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8025080,
+          "addend": 0,
+          "resolved": 8025080
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10956200,
+          "addend": 0,
+          "resolved": 10956200
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086112,
+      "method": "005cdde0",
+      "body_bytes": 19,
+      "body_sha256": "c3c27fe5c0fceeb4e172d94d276682965166f6b6df7b12dbe15881222082c102",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "05f7b29c75fe11f2d19d7070ec6bfc9c046a6c4566e2890650191c023936acf1",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8025080,
+          "addend": 0,
+          "resolved": 8025080
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10956128,
+          "addend": 0,
+          "resolved": 10956128
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086144,
+      "method": "005cde00",
+      "body_bytes": 49,
+      "body_sha256": "f328371f32f34972cdebb5ccf69a7d019327f7ffc5dfa697f443b2e2082d3cb3",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "6b820c8065d7d70439f41f12b5c1e23f95c3fd10af88074f0512f2655db3355b",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10956128,
+          "addend": 0,
+          "resolved": 10956128
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10956200,
+          "addend": 0,
+          "resolved": 10956200
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293838601
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956192,
+          "addend": 0,
+          "resolved": 10956192
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1774309
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956272,
+          "addend": 0,
+          "resolved": 10956272
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086208,
+      "method": "005cde40",
+      "body_bytes": 33,
+      "body_sha256": "5255e54ee4d76680b1c4e52b8a8d738e89b08dcdc71cbd13ed0ad1a578abb49c",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9e7eeb6ff82a9e79dc6e9d1e5f7b476ec187f76de5c8ea43ceabac8e2be4a2c3",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956272,
+          "addend": 0,
+          "resolved": 10956272
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293838681
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10956208,
+          "addend": 0,
+          "resolved": 10956208
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086256,
+      "method": "005cde70",
+      "body_bytes": 44,
+      "body_sha256": "51a814c66ff935346445e3d3f90923d92100dddb433e65f9fb529c371280bf45",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "25c85dac3be725a3720af857e2187d78d699b3c681c8c8f0a42ae6aa6475b1e1",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956272,
+          "addend": 0,
+          "resolved": 10956272
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956192,
+          "addend": 0,
+          "resolved": 10956192
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293838622
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10956232,
+          "addend": 0,
+          "resolved": 10956232
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086304,
+      "method": "005cdea0",
+      "body_bytes": 39,
+      "body_sha256": "7b9ff1a7242568549c3831b74db353e10da79079a7bf49432a626a3c21bdb596",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7c0c286847d1955367dfbebb54306d579bc440dd5a308ab1e56309b46c6509fd",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956272,
+          "addend": 0,
+          "resolved": 10956272
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1774160
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10956256,
+          "addend": 0,
+          "resolved": 10956256
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086304,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086352,
+      "method": "005cded0",
+      "body_bytes": 15,
+      "body_sha256": "0d50c41796616870a5309da458cb8fb1f851945b854395922e5a884b248e8798",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "64981f152869909071375016897cc489c0a4ce87b278cefeee17c541a06adfd7",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10956188,
+          "addend": 0,
+          "resolved": 10956188
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10956188,
+          "addend": 2,
+          "resolved": 10956190
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086352,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086368,
+      "method": "005cdee0",
+      "body_bytes": 18,
+      "body_sha256": "ee531cdfec2165ebd248f328f9034cfbe610d366f17275b2a225ac33065f3057",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d60b9093725d72f70046a0c75f08d58c6cc8549c0ff9a7a066bfa8b4d7af97a7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956216,
+          "addend": 0,
+          "resolved": 10956216
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956216,
+          "addend": 4,
+          "resolved": 10956220
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956216,
+          "addend": 8,
+          "resolved": 10956224
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6088992,
+      "method": "005ce920",
+      "body_bytes": 105,
+      "body_sha256": "d8d0be105e21019f95834f0b473ac6ca6bb63e85554adbe0893cbcd7c920ff42",
+      "padding_bytes": 7,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "84c8bf0d3e0a8a5c19780ba8885f6b5c0e88ab7f30c5feb2b592c5acb8f281a0",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 201154
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+          "target": 6089104,
+          "addend": 0,
+          "resolved": 55
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6088992,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6089104,
+      "method": "005ce990",
+      "body_bytes": 158,
+      "body_sha256": "9b2783c4b44b0f0498bd9a249b056ecd66dc3eb8cfd9e3174a1b76d8fb08b2d7",
+      "padding_bytes": 2,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "87676667e915b112488959a3d27b86fc288b0f8d393edc7eb698fe6403bccb70",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+      "symbol_prefix": "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10292,
+          "resolved": 10746572
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10296,
+          "resolved": 10746576
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?Detect_Port@NullModemClass@@QAE?AW4DetectPortType@@PAUSerialSettingsType@@@Z",
+          "target": 6095840,
+          "addend": 0,
+          "resolved": 6679
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089104,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6089264,
+      "method": "005cea30",
+      "body_bytes": 37,
+      "body_sha256": "77542035931b0509c53e945bb0a2a54327fc97f112d3bd12e4285795d2afe670",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "f5df59ad2670c0f64378bd22c59c31a255517c0f6a8ddc4426220bdfdb3ab066",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Null_Modem@@YI_NPAUSerialSettingsType@@@Z",
+      "symbol_prefix": "?Init_Null_Modem@@YI_NPAUSerialSettingsType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 5777
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089264,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3772"
+    },
+    {
+      "entry": 6089312,
+      "method": "005cea60",
+      "body_bytes": 38,
+      "body_sha256": "fa5da6af3cbd08c53aeda91d32b63e85e15e27319a256a87899296feb41864df",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "a3202bfe92a0bcf02d59cd9204a19c1cb987ffda939129eaa18a7007dd5bf6b1",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Shutdown_Modem@@YIXXZ",
+      "symbol_prefix": "?Shutdown_Modem@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 12532
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+          "target": 6096240,
+          "addend": 0,
+          "resolved": 6890
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089312,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6089360,
+      "method": "005cea90",
+      "body_bytes": 175,
+      "body_sha256": "ea86990d1964bd1fb82fb309f1adc66e210fde66da7224293524e3e04eea0a44",
+      "padding_bytes": 1,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "a268cdb5bc834b24218ac2cc9fa06db3a981a5d57e446301b818da520cecc934",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Modem_Signoff@@YIXXZ",
+      "symbol_prefix": "?Modem_Signoff@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+          "target": 6096368,
+          "addend": 0,
+          "resolved": 6945
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+          "target": 6096368,
+          "addend": 0,
+          "resolved": 6926
+        },
+        {
+          "offset": 83,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 89,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 833844
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 833810
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 6953
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089360,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6089536,
+      "method": "005ceb40",
+      "body_bytes": 96,
+      "body_sha256": "87c870f1d0797460d8bef98933ba758b4719dc2bb906e9b4db37faff4c74b27f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "87c870f1d0797460d8bef98933ba758b4719dc2bb906e9b4db37faff4c74b27f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 16,
+      "symbol": "?Reconnect_Modem@@YI_NXZ",
+      "symbol_prefix": "?Reconnect_Modem@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10400,
+          "resolved": 10746680
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6089616,
+          "addend": 0,
+          "resolved": 6089616
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?Get_Modem_Status@NullModemClass@@QAEHXZ",
+          "target": 6102608,
+          "addend": 0,
+          "resolved": 13042
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?Reconnect_Null_Modem@@YI_NXZ",
+          "target": 6090192,
+          "addend": 0,
+          "resolved": 617
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?DialSettings@@3PAUSerialSettingsType@@A",
+          "target": 10956228,
+          "addend": 0,
+          "resolved": 10956228
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+          "target": 6090928,
+          "addend": 0,
+          "resolved": 1340
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?Get_Modem_Status@NullModemClass@@QAEHXZ",
+          "target": 6102608,
+          "addend": 0,
+          "resolved": 13010
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?DialSettings@@3PAUSerialSettingsType@@A",
+          "target": 10956228,
+          "addend": 0,
+          "resolved": 10956228
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+          "target": 6092672,
+          "addend": 0,
+          "resolved": 3057
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6089570,
+          "addend": 0,
+          "resolved": 6089570
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6089570,
+          "addend": 0,
+          "resolved": 6089570
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6089556,
+          "addend": 0,
+          "resolved": 6089556
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6089588,
+          "addend": 0,
+          "resolved": 6089588
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6089632,
+      "method": "005ceba0",
+      "body_bytes": 554,
+      "body_sha256": "65f06f7e6a156f3229160a665a4fb568518d1f0dce598264997a0281c0034c27",
+      "padding_bytes": 6,
+      "full_extent_bytes": 560,
+      "full_extent_sha256": "8b8497f18d92a4290fb7531babb5547423faaa3bd683a565d9bccff72b289b75",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Destroy_Null_Connection@@YIXHH@Z",
+      "symbol_prefix": "?Destroy_Null_Connection@@YIXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 708,
+          "resolved": 10736988
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@",
+          "target": 8284500,
+          "addend": 0,
+          "resolved": 8284500
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1225403
+        },
+        {
+          "offset": 108,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 1788756
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "??_C@_0O@JGPN@TXT_LEFT_GAME?$AA@",
+          "target": 8284464,
+          "addend": 0,
+          "resolved": 8284464
+        },
+        {
+          "offset": 142,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1225358
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 1788711
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 168,
+          "kind": 20,
+          "symbol": "?Delete_Connection@NullModemClass@@QAEHXZ",
+          "target": 6095712,
+          "addend": 0,
+          "resolved": 5908
+        },
+        {
+          "offset": 178,
+          "kind": 20,
+          "symbol": "_wcslen",
+          "target": 7878149,
+          "addend": 0,
+          "resolved": 1788335
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1770651
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 244,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 4294861064
+        },
+        {
+          "offset": 249,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293991676
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "_wcsicmp",
+          "target": 7955224,
+          "addend": 0,
+          "resolved": 1865293
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1781839
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 342,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10212,
+          "resolved": 10746492
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10212,
+          "resolved": 10746492
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 386,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 411,
+          "kind": 20,
+          "symbol": "?AI_Takeover@HouseClass@@QAEXXZ",
+          "target": 5193840,
+          "addend": 0,
+          "resolved": 4294071089
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 708,
+          "resolved": 10736988
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 708,
+          "resolved": 10736988
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 446,
+          "kind": 6,
+          "symbol": "??_C@_0BE@MJJO@TXT_JUST_YOU_AND_ME?$AA@",
+          "target": 8287440,
+          "addend": 0,
+          "resolved": 8287440
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1225049
+        },
+        {
+          "offset": 461,
+          "kind": 6,
+          "symbol": "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@",
+          "target": 8232084,
+          "addend": 0,
+          "resolved": 8232084
+        },
+        {
+          "offset": 467,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 1788397
+        },
+        {
+          "offset": 473,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 495,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1770365
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 530,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 4294860778
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 542,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293991390
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6089632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6090192,
+      "method": "005cedd0",
+      "body_bytes": 727,
+      "body_sha256": "f96e9dbe6bdf5b1f292e929f2b3eaa4ce852f7423f9fb74e9d84a90c1fe1539c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 736,
+      "full_extent_sha256": "84b0ce38d18184add18a0f703c6a06953b039558fbe3a079b277e653787b79fa",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Reconnect_Null_Modem@@YI_NXZ",
+      "symbol_prefix": "?Reconnect_Null_Modem@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_C@_0L@NPIH@TXT_CANCEL?$AA@",
+          "target": 8239304,
+          "addend": 0,
+          "resolved": 8239304
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1224896
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_C@_0BO@DFHD@TXT_NULL_CONNERR_CHECK_CABLES?$AA@",
+          "target": 8287460,
+          "addend": 0,
+          "resolved": 8287460
+        },
+        {
+          "offset": 61,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1224872
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Custom_Message_Box@OwnerDraw@@YIPAUHWND__@@PBG0PA_N@Z",
+          "target": 6291936,
+          "addend": 0,
+          "resolved": 201663
+        },
+        {
+          "offset": 96,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 199052
+        },
+        {
+          "offset": 101,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 117,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 122,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832994
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 201325
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 174,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 6110
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 200,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832916
+        },
+        {
+          "offset": 207,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832877
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 284,
+          "resolved": 10736564
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+          "target": 6096368,
+          "addend": 0,
+          "resolved": 5868
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+          "target": 6096432,
+          "addend": 0,
+          "resolved": 5909
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 361,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832755
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 284,
+          "resolved": 10736564
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 464,
+          "kind": 20,
+          "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+          "target": 6096368,
+          "addend": 0,
+          "resolved": 5708
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 487,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 492,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832624
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 507,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 522,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832589
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 552,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 5732
+        },
+        {
+          "offset": 566,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 582,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 587,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 832529
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 642,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 650,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 655,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1224285
+        },
+        {
+          "offset": 662,
+          "kind": 6,
+          "symbol": "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@",
+          "target": 8266284,
+          "addend": 0,
+          "resolved": 8266284
+        },
+        {
+          "offset": 673,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 678,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1224262
+        },
+        {
+          "offset": 688,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294858284
+        },
+        {
+          "offset": 699,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 198225
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6090192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6090928,
+      "method": "005cf0b0",
+      "body_bytes": 1736,
+      "body_sha256": "fa897e077dcf89c4929cb8d5dbde047037c75ddb07531de1508df79c6181db26",
+      "padding_bytes": 8,
+      "full_extent_bytes": 1744,
+      "full_extent_sha256": "7467ec3a9db73366e8bb9a9cc841c12f31c9e7afdf4af80de5a5e2d16ce6eea6",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+      "symbol_prefix": "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0M@PAA@Dial?5Modem?6?$AA@",
+          "target": 8288224,
+          "addend": 0,
+          "resolved": 8288224
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097509
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?DialSettings@@3PAUSerialSettingsType@@A",
+          "target": 10956228,
+          "addend": 0,
+          "resolved": 10956228
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Get_Modem_Status@NullModemClass@@QAEHXZ",
+          "target": 6102608,
+          "addend": 0,
+          "resolved": 11619
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@",
+          "target": 8288176,
+          "addend": 0,
+          "resolved": 8288176
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097463
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "??_C@_08DDCK@CTS?3?5?$CFs?6?$AA@",
+          "target": 8288152,
+          "addend": 0,
+          "resolved": 8288152
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097434
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_C@_08JHKL@DSR?3?5?$CFs?6?$AA@",
+          "target": 8288140,
+          "addend": 0,
+          "resolved": 8288140
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097405
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "??_C@_08NOBA@?5RI?3?5?$CFs?6?$AA@",
+          "target": 8288128,
+          "addend": 0,
+          "resolved": 8288128
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097376
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "??_C@_08HHPO@?5CD?3?5?$CFs?6?$AA@",
+          "target": 8288116,
+          "addend": 0,
+          "resolved": 8288116
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097342
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "??_C@_0CE@FCOP@Modem?5already?5on?9line?5?9?5hanging?5@",
+          "target": 8288080,
+          "addend": 0,
+          "resolved": 8288080
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097292
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 10687
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 11092
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 292,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 6088
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "??_C@_0BF@BBGJ@Detect_Modem?5failed?6?$AA@",
+          "target": 8288056,
+          "addend": 0,
+          "resolved": 8288056
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097219
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 11078
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 336,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 11084
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 346,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 11154
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 390,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223801
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 426,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223778
+        },
+        {
+          "offset": 441,
+          "kind": 6,
+          "symbol": "??_C@_0BF@KPFB@Upshifting?5to?538400?6?$AA@",
+          "target": 8288008,
+          "addend": 0,
+          "resolved": 8288008
+        },
+        {
+          "offset": 446,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293097086
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 484,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 10456
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+          "target": 6096240,
+          "addend": 0,
+          "resolved": 4814
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 525,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 3615
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 540,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 10832
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 552,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 5828
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "??_C@_0BO@MCKI@Detect_Modem?5failed?5at?538400?6?$AA@",
+          "target": 8287976,
+          "addend": 0,
+          "resolved": 8287976
+        },
+        {
+          "offset": 570,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096962
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 583,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 10821
+        },
+        {
+          "offset": 588,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 10827
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 603,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 10897
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 626,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 639,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223565
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223542
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "??_C@_0BF@PLNI@Upshifting?5to?519200?6?$AA@",
+          "target": 8287952,
+          "addend": 0,
+          "resolved": 8287952
+        },
+        {
+          "offset": 682,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096850
+        },
+        {
+          "offset": 694,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 715,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 720,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 10220
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 730,
+          "kind": 20,
+          "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+          "target": 6096240,
+          "addend": 0,
+          "resolved": 4578
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 761,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 3379
+        },
+        {
+          "offset": 766,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 771,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 776,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 10596
+        },
+        {
+          "offset": 781,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 788,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 5592
+        },
+        {
+          "offset": 801,
+          "kind": 6,
+          "symbol": "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@",
+          "target": 8287920,
+          "addend": 0,
+          "resolved": 8287920
+        },
+        {
+          "offset": 806,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096726
+        },
+        {
+          "offset": 814,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 819,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 10585
+        },
+        {
+          "offset": 824,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 829,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 10591
+        },
+        {
+          "offset": 834,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 839,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 10661
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 870,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 875,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223329
+        },
+        {
+          "offset": 882,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 898,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223306
+        },
+        {
+          "offset": 915,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 920,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 10484
+        },
+        {
+          "offset": 925,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 930,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 10490
+        },
+        {
+          "offset": 935,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 940,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 10560
+        },
+        {
+          "offset": 947,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 963,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 971,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 976,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223228
+        },
+        {
+          "offset": 983,
+          "kind": 6,
+          "symbol": "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@",
+          "target": 8287896,
+          "addend": 0,
+          "resolved": 8287896
+        },
+        {
+          "offset": 994,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 999,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223205
+        },
+        {
+          "offset": 1009,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294857227
+        },
+        {
+          "offset": 1014,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1035,
+          "kind": 6,
+          "symbol": "??_C@_0P@CHNG@Ready?5to?5dial?6?$AA@",
+          "target": 8287880,
+          "addend": 0,
+          "resolved": 8287880
+        },
+        {
+          "offset": 1040,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096492
+        },
+        {
+          "offset": 1051,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1058,
+          "kind": 6,
+          "symbol": "_DialString",
+          "target": 10956152,
+          "addend": 0,
+          "resolved": 10956152
+        },
+        {
+          "offset": 1063,
+          "kind": 20,
+          "symbol": "?Dial_Modem@NullModemClass@@QAE?AW4DialStatusType@@PADW4DialMethodType@@_N@Z",
+          "target": 6099792,
+          "addend": 0,
+          "resolved": 7797
+        },
+        {
+          "offset": 1076,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1081,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293989555
+        },
+        {
+          "offset": 1086,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1091,
+          "kind": 20,
+          "symbol": "?Render@GScreenClass@@UAEXXZ",
+          "target": 5114672,
+          "addend": 0,
+          "resolved": 4293989945
+        },
+        {
+          "offset": 1107,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092636,
+          "addend": 0,
+          "resolved": 6092636
+        },
+        {
+          "offset": 1112,
+          "kind": 6,
+          "symbol": "??_C@_0CG@KOPL@Dial_Modem?5returned?5?8DIAL_CONNEC@",
+          "target": 8287840,
+          "addend": 0,
+          "resolved": 8287840
+        },
+        {
+          "offset": 1117,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096415
+        },
+        {
+          "offset": 1135,
+          "kind": 6,
+          "symbol": "??_C@_0CH@IIOE@Dial_Modem?5returned?5?8DIAL_NO_CAR@",
+          "target": 8287800,
+          "addend": 0,
+          "resolved": 8287800
+        },
+        {
+          "offset": 1140,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096392
+        },
+        {
+          "offset": 1150,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1158,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1174,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1179,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223025
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "??_C@_0P@NPH@TXT_NO_CARRIER?$AA@",
+          "target": 8287784,
+          "addend": 0,
+          "resolved": 8287784
+        },
+        {
+          "offset": 1197,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1202,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1223002
+        },
+        {
+          "offset": 1217,
+          "kind": 6,
+          "symbol": "??_C@_0CB@GNGL@Dial_Modem?5returned?5?8DIAL_BUSY?8?6@",
+          "target": 8287748,
+          "addend": 0,
+          "resolved": 8287748
+        },
+        {
+          "offset": 1222,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096310
+        },
+        {
+          "offset": 1232,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1240,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1256,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1261,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222943
+        },
+        {
+          "offset": 1268,
+          "kind": 6,
+          "symbol": "??_C@_0O@GKIA@TXT_LINE_BUSY?$AA@",
+          "target": 8287732,
+          "addend": 0,
+          "resolved": 8287732
+        },
+        {
+          "offset": 1279,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1284,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222920
+        },
+        {
+          "offset": 1299,
+          "kind": 6,
+          "symbol": "??_C@_0CC@CME@Dial_Modem?5returned?5?8DIAL_ERROR?8@",
+          "target": 8287696,
+          "addend": 0,
+          "resolved": 8287696
+        },
+        {
+          "offset": 1304,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096228
+        },
+        {
+          "offset": 1314,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1322,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1338,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1343,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222861
+        },
+        {
+          "offset": 1350,
+          "kind": 6,
+          "symbol": "??_C@_0BD@HMLB@TXT_NUMBER_INVALID?$AA@",
+          "target": 8287676,
+          "addend": 0,
+          "resolved": 8287676
+        },
+        {
+          "offset": 1361,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1366,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222838
+        },
+        {
+          "offset": 1381,
+          "kind": 6,
+          "symbol": "??_C@_0CE@HJFB@Dial_Modem?5returned?5?8DIAL_TIMEOU@",
+          "target": 8287640,
+          "addend": 0,
+          "resolved": 8287640
+        },
+        {
+          "offset": 1386,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096146
+        },
+        {
+          "offset": 1396,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1404,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1420,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1425,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222779
+        },
+        {
+          "offset": 1432,
+          "kind": 6,
+          "symbol": "??_C@_0BC@CENF@TXT_ERROR_TIMEOUT?$AA@",
+          "target": 8287620,
+          "addend": 0,
+          "resolved": 8287620
+        },
+        {
+          "offset": 1443,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1448,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222756
+        },
+        {
+          "offset": 1463,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@GCIB@Dial_Modem?5returned?5?8DIAL_NO_DIA@",
+          "target": 8287576,
+          "addend": 0,
+          "resolved": 8287576
+        },
+        {
+          "offset": 1468,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293096064
+        },
+        {
+          "offset": 1478,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1486,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1502,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1507,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222697
+        },
+        {
+          "offset": 1514,
+          "kind": 6,
+          "symbol": "??_C@_0BB@EDPM@TXT_NO_DIAL_TONE?$AA@",
+          "target": 8287556,
+          "addend": 0,
+          "resolved": 8287556
+        },
+        {
+          "offset": 1525,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1530,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222674
+        },
+        {
+          "offset": 1542,
+          "kind": 6,
+          "symbol": "??_C@_0CG@JPJK@Dial_Modem?5returned?5?8DIAL_CANCEL@",
+          "target": 8287516,
+          "addend": 0,
+          "resolved": 8287516
+        },
+        {
+          "offset": 1547,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095985
+        },
+        {
+          "offset": 1555,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1560,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 9380
+        },
+        {
+          "offset": 1566,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1587,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1592,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1598,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1606,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1611,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222593
+        },
+        {
+          "offset": 1618,
+          "kind": 6,
+          "symbol": "??_C@_0BF@LNNF@TXT_DIALING_CANCELED?$AA@",
+          "target": 8287492,
+          "addend": 0,
+          "resolved": 8287492
+        },
+        {
+          "offset": 1629,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1634,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222570
+        },
+        {
+          "offset": 1644,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294856592
+        },
+        {
+          "offset": 1654,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1659,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 9745
+        },
+        {
+          "offset": 1664,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1669,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 9751
+        },
+        {
+          "offset": 1674,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1679,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 9821
+        },
+        {
+          "offset": 1684,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1692,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1708,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092039,
+          "addend": 0,
+          "resolved": 6092039
+        },
+        {
+          "offset": 1712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092062,
+          "addend": 0,
+          "resolved": 6092062
+        },
+        {
+          "offset": 1716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092144,
+          "addend": 0,
+          "resolved": 6092144
+        },
+        {
+          "offset": 1720,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092226,
+          "addend": 0,
+          "resolved": 6092226
+        },
+        {
+          "offset": 1724,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092390,
+          "addend": 0,
+          "resolved": 6092390
+        },
+        {
+          "offset": 1728,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092308,
+          "addend": 0,
+          "resolved": 6092308
+        },
+        {
+          "offset": 1732,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6092469,
+          "addend": 0,
+          "resolved": 6092469
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6090928,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6092672,
+      "method": "005cf780",
+      "body_bytes": 1508,
+      "body_sha256": "7817f10d27b32dd82fa7ba8551eefe43f731887e3fc25d13f73f10e23072408c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1520,
+      "full_extent_sha256": "6f199ff1e3b5d2f2340f7aaad39ef0aea3b49ea7c67e2f052a1398dce503a7c7",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+      "symbol_prefix": "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0O@HFIE@Answer?5Modem?6?$AA@",
+          "target": 8288480,
+          "addend": 0,
+          "resolved": 8288480
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095765
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?DialSettings@@3PAUSerialSettingsType@@A",
+          "target": 10956228,
+          "addend": 0,
+          "resolved": 10956228
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Get_Modem_Status@NullModemClass@@QAEHXZ",
+          "target": 6102608,
+          "addend": 0,
+          "resolved": 9875
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@",
+          "target": 8288176,
+          "addend": 0,
+          "resolved": 8288176
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095719
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "??_C@_08DDCK@CTS?3?5?$CFs?6?$AA@",
+          "target": 8288152,
+          "addend": 0,
+          "resolved": 8288152
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095690
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_C@_08JHKL@DSR?3?5?$CFs?6?$AA@",
+          "target": 8288140,
+          "addend": 0,
+          "resolved": 8288140
+        },
+        {
+          "offset": 127,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095661
+        },
+        {
+          "offset": 135,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "??_C@_08NOBA@?5RI?3?5?$CFs?6?$AA@",
+          "target": 8288128,
+          "addend": 0,
+          "resolved": 8288128
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095632
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "??_C@_03BCLC@SET?$AA@",
+          "target": 8288172,
+          "addend": 0,
+          "resolved": 8288172
+        },
+        {
+          "offset": 179,
+          "kind": 6,
+          "symbol": "??_C@_05HIBB@CLEAR?$AA@",
+          "target": 8288164,
+          "addend": 0,
+          "resolved": 8288164
+        },
+        {
+          "offset": 185,
+          "kind": 6,
+          "symbol": "??_C@_08HHPO@?5CD?3?5?$CFs?6?$AA@",
+          "target": 8288116,
+          "addend": 0,
+          "resolved": 8288116
+        },
+        {
+          "offset": 190,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095598
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "??_C@_0CE@FCOP@Modem?5already?5on?9line?5?9?5hanging?5@",
+          "target": 8288080,
+          "addend": 0,
+          "resolved": 8288080
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095548
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 253,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 8943
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 9348
+        },
+        {
+          "offset": 285,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 292,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 4344
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "??_C@_0BF@BBGJ@Detect_Modem?5failed?6?$AA@",
+          "target": 8288056,
+          "addend": 0,
+          "resolved": 8288056
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095475
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 9334
+        },
+        {
+          "offset": 331,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 336,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 9340
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 346,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 9410
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 390,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222057
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 426,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1222034
+        },
+        {
+          "offset": 441,
+          "kind": 6,
+          "symbol": "??_C@_0BF@KPFB@Upshifting?5to?538400?6?$AA@",
+          "target": 8288008,
+          "addend": 0,
+          "resolved": 8288008
+        },
+        {
+          "offset": 446,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095342
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 479,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 484,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 8712
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 494,
+          "kind": 20,
+          "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+          "target": 6096240,
+          "addend": 0,
+          "resolved": 3070
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 525,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 1871
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 540,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 9088
+        },
+        {
+          "offset": 545,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 552,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 4084
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "??_C@_0BO@MCKI@Detect_Modem?5failed?5at?538400?6?$AA@",
+          "target": 8287976,
+          "addend": 0,
+          "resolved": 8287976
+        },
+        {
+          "offset": 570,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095218
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 583,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 9077
+        },
+        {
+          "offset": 588,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 593,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 9083
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 603,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 9153
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 626,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 639,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221821
+        },
+        {
+          "offset": 646,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 657,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221798
+        },
+        {
+          "offset": 677,
+          "kind": 6,
+          "symbol": "??_C@_0BF@PLNI@Upshifting?5to?519200?6?$AA@",
+          "target": 8287952,
+          "addend": 0,
+          "resolved": 8287952
+        },
+        {
+          "offset": 682,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293095106
+        },
+        {
+          "offset": 694,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9064,
+          "resolved": 10745344
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 715,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 720,
+          "kind": 20,
+          "symbol": "?Hangup_Modem@NullModemClass@@QAE_NXZ",
+          "target": 6101872,
+          "addend": 0,
+          "resolved": 8476
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 730,
+          "kind": 20,
+          "symbol": "?Shutdown@NullModemClass@@QAEXXZ",
+          "target": 6096240,
+          "addend": 0,
+          "resolved": 2834
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 761,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 1635
+        },
+        {
+          "offset": 766,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 771,
+          "kind": 6,
+          "symbol": "?Modem_Echo@@YIXD@Z",
+          "target": 6094192,
+          "addend": 0,
+          "resolved": 6094192
+        },
+        {
+          "offset": 776,
+          "kind": 20,
+          "symbol": "?Setup_Modem_Echo@NullModemClass@@QAEXP6IXD@Z@Z",
+          "target": 6102304,
+          "addend": 0,
+          "resolved": 8852
+        },
+        {
+          "offset": 781,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 788,
+          "kind": 20,
+          "symbol": "?Detect_Modem@NullModemClass@@QAE_NPAUSerialSettingsType@@_N@Z",
+          "target": 6097312,
+          "addend": 0,
+          "resolved": 3848
+        },
+        {
+          "offset": 801,
+          "kind": 6,
+          "symbol": "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@",
+          "target": 8287920,
+          "addend": 0,
+          "resolved": 8287920
+        },
+        {
+          "offset": 806,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094982
+        },
+        {
+          "offset": 814,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 819,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 8841
+        },
+        {
+          "offset": 824,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 829,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 8847
+        },
+        {
+          "offset": 834,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 839,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 8917
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 870,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 875,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221585
+        },
+        {
+          "offset": 882,
+          "kind": 6,
+          "symbol": "??_C@_0BG@JBNM@TXT_UNABLE_FIND_MODEM?$AA@",
+          "target": 8288032,
+          "addend": 0,
+          "resolved": 8288032
+        },
+        {
+          "offset": 893,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 898,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221562
+        },
+        {
+          "offset": 915,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 920,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 8740
+        },
+        {
+          "offset": 925,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 930,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 8746
+        },
+        {
+          "offset": 935,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 940,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 8816
+        },
+        {
+          "offset": 947,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 963,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 971,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 976,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221484
+        },
+        {
+          "offset": 983,
+          "kind": 6,
+          "symbol": "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@",
+          "target": 8287896,
+          "addend": 0,
+          "resolved": 8287896
+        },
+        {
+          "offset": 994,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 999,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221461
+        },
+        {
+          "offset": 1009,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294855483
+        },
+        {
+          "offset": 1014,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1035,
+          "kind": 6,
+          "symbol": "??_C@_0BB@JLFH@Ready?5to?5answer?6?$AA@",
+          "target": 8288460,
+          "addend": 0,
+          "resolved": 8288460
+        },
+        {
+          "offset": 1040,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094748
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1054,
+          "kind": 20,
+          "symbol": "?Answer_Modem@NullModemClass@@QAE?AW4DialStatusType@@_N@Z",
+          "target": 6100704,
+          "addend": 0,
+          "resolved": 6974
+        },
+        {
+          "offset": 1070,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6094152,
+          "addend": 0,
+          "resolved": 6094152
+        },
+        {
+          "offset": 1075,
+          "kind": 6,
+          "symbol": "??_C@_0CI@DHCJ@Answer_Modem?5returned?5?8DIAL_CONN@",
+          "target": 8288420,
+          "addend": 0,
+          "resolved": 8288420
+        },
+        {
+          "offset": 1080,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094708
+        },
+        {
+          "offset": 1098,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@MOHN@Answer_Modem?5returned?5?8DIAL_NO_C@",
+          "target": 8288376,
+          "addend": 0,
+          "resolved": 8288376
+        },
+        {
+          "offset": 1103,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094685
+        },
+        {
+          "offset": 1113,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1121,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1137,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1142,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221318
+        },
+        {
+          "offset": 1149,
+          "kind": 6,
+          "symbol": "??_C@_0P@NPH@TXT_NO_CARRIER?$AA@",
+          "target": 8287784,
+          "addend": 0,
+          "resolved": 8287784
+        },
+        {
+          "offset": 1160,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1165,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221295
+        },
+        {
+          "offset": 1180,
+          "kind": 6,
+          "symbol": "??_C@_0CE@HAAD@Answer_Modem?5returned?5?8DIAL_ERRO@",
+          "target": 8288340,
+          "addend": 0,
+          "resolved": 8288340
+        },
+        {
+          "offset": 1185,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094603
+        },
+        {
+          "offset": 1195,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1203,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1219,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1224,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221236
+        },
+        {
+          "offset": 1231,
+          "kind": 6,
+          "symbol": "??_C@_0BD@HMLB@TXT_NUMBER_INVALID?$AA@",
+          "target": 8287676,
+          "addend": 0,
+          "resolved": 8287676
+        },
+        {
+          "offset": 1242,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1247,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221213
+        },
+        {
+          "offset": 1262,
+          "kind": 6,
+          "symbol": "??_C@_0CG@LPOD@Answer_Modem?5returned?5?8DIAL_TIME@",
+          "target": 8288300,
+          "addend": 0,
+          "resolved": 8288300
+        },
+        {
+          "offset": 1267,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094521
+        },
+        {
+          "offset": 1277,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1285,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1301,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1306,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221154
+        },
+        {
+          "offset": 1313,
+          "kind": 6,
+          "symbol": "??_C@_0BC@CENF@TXT_ERROR_TIMEOUT?$AA@",
+          "target": 8287620,
+          "addend": 0,
+          "resolved": 8287620
+        },
+        {
+          "offset": 1324,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1329,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221131
+        },
+        {
+          "offset": 1341,
+          "kind": 6,
+          "symbol": "??_C@_0CI@GEI@Answer_Modem?5returned?5?8DIAL_CANC@",
+          "target": 8288260,
+          "addend": 0,
+          "resolved": 8288260
+        },
+        {
+          "offset": 1346,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293094442
+        },
+        {
+          "offset": 1356,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 1364,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1380,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1385,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221075
+        },
+        {
+          "offset": 1392,
+          "kind": 6,
+          "symbol": "??_C@_0BH@KPFE@TXT_ANSWERING_CANCELED?$AA@",
+          "target": 8288236,
+          "addend": 0,
+          "resolved": 8288236
+        },
+        {
+          "offset": 1403,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1408,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1221052
+        },
+        {
+          "offset": 1418,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294855074
+        },
+        {
+          "offset": 1428,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1433,
+          "kind": 20,
+          "symbol": "?Remove_Modem_Echo@NullModemClass@@QAEXXZ",
+          "target": 6102336,
+          "addend": 0,
+          "resolved": 8227
+        },
+        {
+          "offset": 1438,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1443,
+          "kind": 20,
+          "symbol": "?Print_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102352,
+          "addend": 0,
+          "resolved": 8233
+        },
+        {
+          "offset": 1448,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1453,
+          "kind": 20,
+          "symbol": "?Reset_EchoBuf@NullModemClass@@QAEXXZ",
+          "target": 6102432,
+          "addend": 0,
+          "resolved": 8303
+        },
+        {
+          "offset": 1458,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1466,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10280,
+          "resolved": 10746560
+        },
+        {
+          "offset": 1480,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6093746,
+          "addend": 0,
+          "resolved": 6093746
+        },
+        {
+          "offset": 1484,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6093769,
+          "addend": 0,
+          "resolved": 6093769
+        },
+        {
+          "offset": 1488,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6094099,
+          "addend": 0,
+          "resolved": 6094099
+        },
+        {
+          "offset": 1492,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6093851,
+          "addend": 0,
+          "resolved": 6093851
+        },
+        {
+          "offset": 1496,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6094099,
+          "addend": 0,
+          "resolved": 6094099
+        },
+        {
+          "offset": 1500,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6093933,
+          "addend": 0,
+          "resolved": 6093933
+        },
+        {
+          "offset": 1504,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6094012,
+          "addend": 0,
+          "resolved": 6094012
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6092672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6094192,
+      "method": "005cfd70",
+      "body_bytes": 54,
+      "body_sha256": "08b65e739af6f0d105215d508713531daa01b5b90ab76aa6b2c125c7204d9d5f",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "d928aa669ba695b1a63cfc8e3485f6d17139ea020f9568eaa86e7cdea20175b4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Modem_Echo@@YIXD@Z",
+      "symbol_prefix": "?Modem_Echo@@YIXD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 16,
+          "resolved": 10750520
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 20,
+          "resolved": 10750524
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 12,
+          "resolved": 10750516
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 20,
+          "resolved": 10750524
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 12,
+          "resolved": 10750516
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 20,
+          "resolved": 10750524
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 20,
+          "resolved": 10750524
+        }
+      ],
+      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6094192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4244"
+    }
+  ]
+}

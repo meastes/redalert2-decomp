@@ -1,0 +1,721 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/ADATA.CPP 3     3/07/97 4:27p Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : ADATA.CPP                                                    *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : May 30, 1994                                                 *
+ *                                                                                             *
+ *                  Last Update : July 9, 1996 [JLB]                                           *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   AnimTypeClass::AnimTypeClass -- Constructor for animation types.                          *
+ *   AnimTypeClass::One_Time -- Performs one time action for animation types.                  *
+ *   AnimTypeClass::Init -- Load any animation artwork that is theater specific.               *
+ *   Anim_Name -- Fetches the ASCII name of the animation type specified.                      *
+ *   AnimTypeClass::As_Reference -- Fetch a reference to the animation type specified.         *
+ *   AnimTypeClass::Init_Heap -- Initialize the animation type system.                         *
+ *   AnimTypeClass::operator new -- Allocate an animation type object from private pool.       *
+ *   AnimTypeClass::operator delete -- Returns an anim type class object back to the pool.     *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#define INCLUDE_COM
+#include "always.h"
+#include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "rect.h"
+
+#include "animtype.h"
+
+#include "_mixfile.h"
+#include "_rules.h"
+#include "_theater.h"
+#include "ccfile.h"
+#include "data.h"
+#include "dbgprint.h"
+#include "findmake.h"
+#include "globals.h"
+#include "incdec.h"
+#include "mixfile.h"
+#include "overtype.h"
+#include "rules.h"
+#include "scenario.h"
+#include "shapeset.h"
+#include "sun.h"
+#include "swizzle.h"
+#include "tracker.h"
+#include "warhead.h"
+
+void Generic_Theater_Name(char * name); // RA2: 0x5D7C20 (objtype.cpp)
+void Theater_Name_Fixup(char * name, TheaterType theater); // RA2: 0x5D7BD0 (objtype.cpp)
+
+AnimTypeClass * __fastcall Find_Or_Make_Type(char const * name, TypeList<AnimTypeClass *> & list); // RA2: 0x426890, the out-of-line TFind_Or_Make<AnimTypeClass> instance of the executable (outside the module)
+
+static inline AnimTypeClass const * Get_Anim_Type(CCINIClass const & ini, char const * section, char const * entry, AnimTypeClass const * defvalue) // RA2: the animation an INI entry names, else the default (the executable calls TFind_Or_Make at 0x426890 for it)
+{ // RA2: as above
+	char buffer[128]; // RA2: as above
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer)) != 0) { // RA2: as above
+		return(Find_Or_Make_Type(buffer, (TypeList<AnimTypeClass *> &)AnimTypes)); // RA2: as above
+	} // RA2: as above
+	return(defvalue); // RA2: as above
+} // RA2: as above
+
+namespace Unsorted { extern bool ArmageddonMode; }
+
+
+
+/***********************************************************************************************
+ * AnimTypeClass::AnimTypeClass -- Constructor for animation types.                            *
+ *                                                                                             *
+ *    This is the constructor for static objects that elaborate the various animation types    *
+ *    allowed in the game. Each animation in the game is of one of these types.                *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   08/23/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+AnimTypeClass::AnimTypeClass(char const *ininame) :
+	BASECLASS(ininame),
+	HeapID(ANIM_NONE),
+	Biggest(0),
+	Damage(0.0),
+	Delay(1),
+	Start(0),
+	LoopStart(0),
+	LoopEnd(0),
+	Stages(0),
+	Loops(0),
+	ChainTo(NULL), // RA2: AnimTypeClass at 0x424E30 has no Sound
+	DetailLevel(0),
+	TranslucencyDetailLevel(0),
+	RandomLoopDelayMin(0),
+	RandomLoopDelayMax(0),
+	RandomRateMin(0),
+	RandomRateMax(0),
+	Translucency(0),
+	Spawns(NULL),
+	SpawnCount(0),
+	StartSound(VOC_NONE),
+	BounceAnim(NULL), // RA2: AnimTypeClass at 0x424E30 has no BounceSound, ExpireSound
+	ExpireAnim(NULL),
+	TrailerAnim(NULL),
+	TrailerSeperation(0),
+	Elasticity(0.8f),
+	MinZVel(3.5),
+	MaxZVel(3.5),
+	MaxXYVel(15.0),
+	Warhead(NULL),
+	DamageRadius(0),
+	TiberiumSpawnType(NULL),
+	TiberiumSpreadRadius(0),
+	YSortAdjust(0),
+	YDrawOffset(0),
+	RunningFrames(0),
+	IsFlamingGuy(false),
+	IsVeins(false),
+	IsMeteor(false),
+	IsTiberiumChainReaction(false),
+	IsTiberium(false),
+	IsBouncer(false),
+	IsTiled(false),
+	IsShouldUseCellDrawer(true),
+	IsUseNormalLight(false),
+	IsDemandLoad(false),
+	IsFreeAfterPlaying(false),
+	IsAnimatedTiberium(false),
+	IsAltPalette(false),
+	IsNormalized(false),
+	IsFlat(false), // RA2: AnimTypeClass at 0x424E30 has no IsGroundLayer
+	IsTranslucent(false),
+	IsScorcher(false),
+	IsFlameThrower(false),
+	IsCraterForming(false),
+	IsSticky(false),
+	IsPingPong(false),
+	IsReverse(false),
+	IsShouldFogRemove(true), // RA2: AnimTypeClass at 0x424E30 matches only so
+	StopSound(VOC_NONE), // RA2: the RA2 fields, as RA2 initializes them
+	ZAdjust(0), // RA2: as above
+	HideIfNoOre(false), // RA2: as above
+	Layer(LAYER_AIR), // RA2: as above
+	ForceBigCraters(false), // RA2: as above
+	Shadow(false), // RA2: as above
+	PsiWarning(false) // RA2: as above
+{
+	Create_ID();
+	IsSentient = true;
+	IsStealthy = true;
+	IsSelectable = false;
+	IsLegalTarget = false;
+	IsInsignificant = true;
+	IsImmune = true;
+	IsFootprint = false;
+
+	AnimTypes.Add(this);
+	AbstractTypePtrTracker.Add(this);
+
+	if (ininame != NULL) {
+		Load_Image(THEATER_NONE);
+	}
+
+	HeapID = (AnimType)AnimTypes.ID(this);
+}
+
+
+/// <summary>
+/// Constructs an animation type without initializing it.
+/// This constructor is used when the object is about to be filled in wholesale from a save
+/// game stream, so that no effort is spent on values that are about to be overwritten.
+/// </summary>
+AnimTypeClass::AnimTypeClass(NoInitClass const & x) :
+	BASECLASS(x)
+{
+
+}
+
+
+/// <summary>
+/// Destroys this animation type.
+/// Any artwork that was demand loaded is released and the type removes itself from the
+/// heaps that track it.
+/// </summary>
+AnimTypeClass::~AnimTypeClass(void)
+{
+	AbstractTypePtrTracker.Delete(this); // RA2: no IsDemandLoad, ImageData (TibSun's use does not compile against RA2's declaration)
+	AnimTypes.Delete(this);
+}
+
+
+/***********************************************************************************************
+ * AnimTypeClass::Init -- Load any animation artwork that is theater specific.                 *
+ *                                                                                             *
+ *    This routine will examine all the animation types and for any that are theater           *
+ *    specific, it will fetch a pointer to the artwork appropriate for the theater specified.  *
+ *                                                                                             *
+ * INPUT:   theater  -- The theater to align the animation artwork with.                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   Call this routine when the theater changes.                                     *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/06/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+void AnimTypeClass::Init(TheaterType theater)
+{
+	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
+		for (int index = 0; index < AnimTypes.Count(); index++) { // RA2: as above
+			AnimTypeClass *anim = AnimTypes[index]; // RA2: as above
+			if (anim->IsNewTheater && anim->ImageData == 0) { // RA2: as above
+				anim->Load_Image(theater);
+			}
+		}
+		return; // RA2: as above
+	}
+
+	for (int index = 0; index < AnimTypes.Count(); index++) { // RA2: as above
+		AnimTypeClass *anim = AnimTypes[index]; // RA2: as above
+		if (!anim->IsDemandLoad) { // RA2: as above
+			if (anim->IsTheater) { // RA2: as above
+				if (anim->ImageData != 0 && anim->ImageAllocated) { // RA2: as above
+					operator delete((void *)anim->ImageData); // RA2: as above
+					anim->ImageAllocated = false; // RA2: as above
+				}
+				anim->ImageData = 0; // RA2: as above
+				char fullname[512]; // RA2: as above
+				_makepath(fullname, 0, 0, anim->Name(), Theaters[theater].Suffix); // RA2: as above
+				anim->ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
+				if (anim->ImageData == 0) { // RA2: as above
+					_makepath(fullname, 0, 0, anim->Name(), ".SHP"); // RA2: as above
+					anim->ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
+				}
+			} else if (anim->IsNewTheater) { // RA2: as above
+				anim->Load_Image(theater);
+			}
+		} else if (anim->IsTheater || anim->IsNewTheater) { // RA2: as above
+			if (anim->ImageData != 0 && anim->ImageAllocated) { // RA2: as above
+				operator delete((void *)anim->ImageData); // RA2: as above
+				anim->ImageAllocated = false; // RA2: as above
+			}
+			anim->ImageData = 0; // RA2: as above
+		}
+	}
+}
+
+
+
+/// <summary>
+/// Loads any theater specific artwork for this animation.
+/// This is the single animation counterpart of Init, used when an animation type comes
+/// into being after the theater has already been established.
+/// </summary>
+/// <param name="theater">The theater to align the animation artwork with.</param>
+void AnimTypeClass::Init_Theater(TheaterType theater)
+{
+	if (!Debug_Map && theater == LastTheater) { // RA2: RA2's form
+		return; // RA2: as above
+	}
+	if (IsTheater && !IsDemandLoad) { // RA2: as above
+		if (ImageData != 0 && ImageAllocated) { // RA2: as above
+			operator delete((void *)ImageData); // RA2: as above
+			ImageAllocated = false; // RA2: as above
+		}
+		ImageData = 0; // RA2: as above
+		char fullname[512]; // RA2: as above
+		_makepath(fullname, 0, 0, Name(), Theaters[theater].Suffix); // RA2: as above
+		ImageData = (void *)MixFileClass::Retrieve(fullname); // RA2: as above
+		return; // RA2: as above
+	}
+	if (IsNewTheater) { // RA2: as above
+		Load_Image(theater); // RA2: as above
+	}
+}
+
+
+
+/// <summary>
+/// Loads the artwork for this animation and takes its measurements.
+/// This routine fetches the shape file appropriate for the theater specified and then
+/// notes the animation's frame count and its largest frame, so that sensible values stand
+/// in for anything the rules did not bother to state.
+/// </summary>
+/// <param name="theater">The theater to align the animation artwork with.</param>
+void AnimTypeClass::Load_Image(TheaterType theater)
+{ // RA2: as above
+	if (!IsDemandLoad) { // RA2: no ImageData == NULL test; the stale image is released first
+		if (IsTheater) { // RA2: as above
+			Fetch_Normal_Image(); // RA2: as above
+		} else { // RA2: as above
+			if (ImageData != NULL && ImageAllocated) { // RA2: as above
+				operator delete((void *)ImageData); // RA2: as above
+				ImageAllocated = false; // RA2: as above
+			} // RA2: as above
+			char first = GraphicName[0]; // RA2: the first character of the graphic name is read into a local before ImageData is cleared (the executable loads it into cl first)
+			ImageData = NULL; // RA2: as above
+			char const * graphic = first != '\0' ? Graphic_Name() : Name(); // RA2: as above
+			char fullname[512]; // RA2: as above
+			_makepath(fullname, NULL, NULL, graphic, ".SHP"); // RA2: as above
+			Theater_Name_Fixup(fullname, theater); // RA2: the free function at 0x5D7BD0 (was the member Theater_Naming_Convention)
+			ImageData = MFCD::Retrieve(fullname); // RA2: as above
+			if (ImageData == NULL) { // RA2: a missing art file retries with the generic theater letter
+				Generic_Theater_Name(fullname); // RA2: as above
+				ImageData = MFCD::Retrieve(fullname); // RA2: as above
+			} // RA2: as above
+		} // RA2: as above
+	} // RA2: as above
+
+	ShapeSet const * shape = (ShapeSet const *)ImageData; // RA2: as above
+	if (shape != NULL) { // RA2: as above
+		if (Stages == 0) { // RA2: as above
+			Stages = shape->Get_Count(); // RA2: as above
+			if (Shadow) { // RA2: a shadowed shape holds its frames twice
+				Stages /= 2; // RA2: as above
+			} // RA2: as above
+		} // RA2: as above
+		if (LoopEnd == 0) { // RA2: as above
+			LoopEnd = Stages; // RA2: as above
+		} // RA2: as above
+
+		int biggest_size = 0; // RA2: as above
+		int biggest_frame = 0; // RA2: as above
+		for (int frame = 0; frame < shape->Get_Count(); frame++) { // RA2: as above
+			Rect rect = shape->Get_Rect(frame); // RA2: as above
+			if (rect.Width * rect.Height > biggest_size) { // RA2: as above
+				biggest_frame = frame; // RA2: as above
+				biggest_size = rect.Width * rect.Height; // RA2: as above
+			} // RA2: as above
+		} // RA2: as above
+		Biggest = biggest_frame; // RA2: as above
+	} // RA2: as above
+}
+
+
+
+/***********************************************************************************************
+ * Anim_Name -- Fetches the ASCII name of the animation type specified.                        *
+ *                                                                                             *
+ *    This will convert the animation type specified into a text name. This name can be used   *
+ *    for uniquely identifying the animation.                                                  *
+ *                                                                                             *
+ * INPUT:   anim  -- The anim type to convert to a text string.                                *
+ *                                                                                             *
+ * OUTPUT:  Returns with a pointer to the ASCII string that identifies this animation.         *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/06/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+char const * AnimTypeClass::Name_From(AnimType anim)
+{
+	if ((unsigned)anim > (unsigned)AnimTypes.Count()) return("");
+
+	return(AnimTypes[anim]->Name());
+}
+
+
+/// <summary>
+/// Converts an ASCII animation name into an animation type number.
+/// This is the counterpart of Name_From and is used when translating the rules and the
+/// scenario scripts into something the game can work with.
+/// </summary>
+/// <param name="name">The animation name to search for.</param>
+/// <returns>
+/// Returns with the matching animation type, or ANIM_NONE if the name is not recognized.
+/// </returns>
+AnimType AnimTypeClass::From_Name(char const * name)
+{
+	if (name != NULL) {
+		for (int classid = ANIM_FIRST; classid < AnimTypes.Count(); classid++) {
+			if (stricmp(AnimTypes[classid]->Name(), name) == 0) {
+				return(AnimType)classid;
+			}
+		}
+	}
+	return(ANIM_NONE);
+}
+
+
+/// <summary>
+/// Fetches this animation type's settings from the rules.
+/// This routine gathers the animation's timing, artwork, sound and behavior settings from
+/// the rules and art databases. The artwork is consulted for anything the rules chose to
+/// leave unstated, such as the frame count.
+/// </summary>
+/// <param name="ini">The rules database to read this animation's section from.</param>
+/// <returns>bool; Was the animation type's data read?</returns>
+bool AnimTypeClass::Read_INI(CCINIClass const & ini) // RA2: the executable's body (meastes' source; Shadow, Layer, ForceBigCraters, PsiWarning, HideIfNoOre, ZAdjust, StopSound and the Report fallback are RA2's)
+{ // RA2: as above
+	if (BASECLASS::Read_INI(ini)) { // RA2: as above
+		char const * section = Name(); // RA2: as above
+		bool shadow = ini.Get_Bool(section, "Shadow", Shadow); // RA2: as above
+		if (shadow != Shadow) { // RA2: as above
+			Shadow = shadow; // RA2: as above
+			if (Shadow) { // RA2: as above
+				Stages /= 2; // RA2: as above
+			} else { // RA2: as above
+				Stages *= 2; // RA2: as above
+			} // RA2: as above
+			if (LoopEnd > Stages) { // RA2: as above
+				LoopEnd = Stages; // RA2: as above
+			} // RA2: as above
+		} // RA2: as above
+
+		if (GraphicName[0] != '\0') { // RA2: as above
+			if (ImageData == 0) { // RA2: as above
+				IsTheater = ArtINI.Get_Bool(section, "Theater", IsTheater); // RA2: as above
+				IsNewTheater = ArtINI.Get_Bool(section, "NewTheater", IsNewTheater); // RA2: as above
+			} // RA2: as above
+			Load_Image(THEATER_NONE); // RA2: as above
+		} // RA2: as above
+
+		Layer = ini.Get_LayerType(section, "Layer", Layer); // RA2: as above
+		IsAltPalette = ArtINI.Get_Bool(section, "AltPalette", IsAltPalette); // RA2: as above
+		IsFlat = ini.Get_Bool(section, "Flat", IsFlat); // RA2: as above
+		IsFlameThrower = ini.Get_Bool(section, "Flamer", IsFlameThrower); // RA2: as above
+		IsNormalized = ini.Get_Bool(section, "Normalized", IsNormalized); // RA2: as above
+		IsTranslucent = ini.Get_Bool(section, "Translucent", IsTranslucent); // RA2: as above
+		IsScorcher = ini.Get_Bool(section, "Scorch", IsScorcher); // RA2: as above
+		IsCraterForming = ini.Get_Bool(section, "Crater", IsCraterForming); // RA2: as above
+		ForceBigCraters = ini.Get_Bool(section, "ForceBigCraters", ForceBigCraters); // RA2: as above
+		IsSticky = ini.Get_Bool(section, "Sticky", IsSticky); // RA2: as above
+		IsPingPong = ini.Get_Bool(section, "PingPong", IsPingPong); // RA2: as above
+		IsReverse = ini.Get_Bool(section, "Reverse", IsReverse); // RA2: as above
+		PsiWarning = ini.Get_Bool(section, "PsiWarning", PsiWarning); // RA2: as above
+		IsTiberiumChainReaction = ini.Get_Bool(section, "TiberiumChainReaction", IsTiberiumChainReaction); // RA2: as above
+
+		int rate = ini.Get_Int(section, "Rate", -1); // RA2: as above
+		if (rate != -1) { // RA2: as above
+			Delay = rate > 0 ? TICKS_PER_MINUTE / rate : 0; // RA2: as above
+		} // RA2: as above
+
+		Damage = ini.Get_Float(section, "Damage", Damage); // RA2: as above
+		Start = ini.Get_Int(section, "Start", Start); // RA2: as above
+		Stages = ini.Get_Int(section, "End", Stages); // RA2: as above
+		LoopStart = ini.Get_Int(section, "LoopStart", LoopStart); // RA2: as above
+		LoopEnd = ini.Get_Int(section, "LoopEnd", LoopEnd); // RA2: as above
+		Loops = ini.Get_Int(section, "LoopCount", Loops); // RA2: as above
+
+		ChainTo = Get_Anim_Type(ini, section, "Next", ChainTo); // RA2: as above
+
+		DetailLevel = ini.Get_Int(section, "DetailLevel", DetailLevel); // RA2: as above
+		TranslucencyDetailLevel = ini.Get_Int(section, "TranslucencyDetailLevel", TranslucencyDetailLevel); // RA2: as above
+		Point2D delay = ini.Get_Point(section, "RandomLoopDelay", Point2D(RandomLoopDelayMin, RandomLoopDelayMax)); // RA2: as above
+		RandomLoopDelayMin = delay.X; // RA2: as above
+		RandomLoopDelayMax = delay.Y; // RA2: as above
+		Translucency = ini.Get_Int(section, "Translucency", Translucency); // RA2: as above
+		IsTiberium = ini.Get_Bool(section, "IsTiberium", IsTiberium); // RA2: as above
+		HideIfNoOre = ini.Get_Bool(section, "HideIfNoOre", HideIfNoOre); // RA2: as above
+		YSortAdjust = ini.Get_Int(section, "YSortAdjust", YSortAdjust); // RA2: as above
+		IsDemandLoad = ini.Get_Bool(section, "DemandLoad", IsDemandLoad); // RA2: as above
+		IsFreeAfterPlaying = ini.Get_Bool(section, "FreeAfterPlaying", IsFreeAfterPlaying); // RA2: as above
+		Elasticity = ini.Get_Float(section, "Elasticity", Elasticity); // RA2: as above
+		MaxXYVel = ini.Get_Float(section, "MaxXYVel", MaxXYVel); // RA2: as above
+		MinZVel = ini.Get_Float(section, "MinZVel", MinZVel); // RA2: as above
+
+		Spawns = Get_Anim_Type(ini, section, "Spawns", Spawns); // RA2: as above
+
+		SpawnCount = ini.Get_Int(section, "SpawnCount", SpawnCount); // RA2: as above
+		IsMeteor = ini.Get_Bool(section, "IsMeteor", IsMeteor); // RA2: as above
+		IsVeins = ini.Get_Bool(section, "IsVeins", IsVeins); // RA2: as above
+		TiberiumSpreadRadius = ini.Get_Int(section, "TiberiumSpreadRadius", TiberiumSpreadRadius); // RA2: as above
+		TiberiumSpawnType = TGet_Class(ini, section, "TiberiumSpawnType", TiberiumSpawnType); // RA2: as above
+		IsAnimatedTiberium = ini.Get_Bool(section, "IsAnimatedTiberium", IsAnimatedTiberium); // RA2: as above
+		IsShouldFogRemove = ini.Get_Bool(section, "ShouldFogRemove", IsShouldFogRemove); // RA2: as above
+		IsFlamingGuy = ini.Get_Bool(section, "IsFlamingGuy", IsFlamingGuy); // RA2: as above
+		RunningFrames = ini.Get_Int(section, "RunningFrames", RunningFrames); // RA2: as above
+		YDrawOffset = ini.Get_Int(section, "YDrawOffset", YDrawOffset); // RA2: as above
+		ZAdjust = ini.Get_Int(section, "ZAdjust", ZAdjust); // RA2: as above
+
+		StartSound = ini.Get_VocType(section, "StartSound", StartSound); // RA2: as above
+		if (StartSound == -1) { // RA2: as above
+			StartSound = ini.Get_VocType(section, "Report", (VocType)-1); // RA2: as above
+		} // RA2: as above
+		StopSound = ini.Get_VocType(section, "StopSound", StopSound); // RA2: as above
+
+		BounceAnim = TGet_Class(ini, section, "BounceAnim", BounceAnim); // RA2: as above
+		ExpireAnim = TGet_Class(ini, section, "ExpireAnim", ExpireAnim); // RA2: as above
+		TrailerAnim = TGet_Class(ini, section, "TrailerAnim", TrailerAnim); // RA2: as above
+		TrailerSeperation = ini.Get_Int(section, "TrailerSeperation", TrailerSeperation); // RA2: as above
+		DamageRadius = ini.Get_Int(section, "DamageRadius", DamageRadius); // RA2: as above
+		Warhead = TGet_Class(ini, section, "Warhead", Warhead); // RA2: as above
+		IsBouncer = ini.Get_Bool(section, "Bouncer", IsBouncer); // RA2: as above
+		IsTiled = ini.Get_Bool(section, "Tiled", IsTiled); // RA2: as above
+		IsShouldUseCellDrawer = ini.Get_Bool(section, "ShouldUseCellDrawer", IsShouldUseCellDrawer); // RA2: as above
+		IsUseNormalLight = ini.Get_Bool(section, "UseNormalLight", IsUseNormalLight); // RA2: as above
+
+		Point2D rates = ini.Get_Point(section, "RandomRate", Point2D(-1, -1)); // RA2: as above
+		if (rates.X != -1) { // RA2: as above
+			RandomRateMin = rates.X > 0 ? TICKS_PER_MINUTE / rates.X : 0; // RA2: as above
+		} // RA2: as above
+		if (rates.Y != -1) { // RA2: as above
+			RandomRateMax = rates.Y > 0 ? TICKS_PER_MINUTE / rates.Y : 0; // RA2: as above
+		} // RA2: as above
+		if (RandomRateMax < 0) { // RA2: as above
+			RandomRateMax = 0; // RA2: as above
+		} // RA2: as above
+		if (RandomRateMin > RandomRateMax) { // RA2: as above
+			RandomRateMin = RandomRateMax; // RA2: as above
+		} // RA2: as above
+		return(true); // RA2: as above
+	} // RA2: as above
+	return(false); // RA2: as above
+}
+
+
+
+/// <summary>
+/// Reads this animation type back in from a save game stream.
+/// This routine restores the pointers that were converted for saving and then reacquires
+/// the artwork appropriate for the theater the scenario is being restored into.
+/// </summary>
+/// <returns>Returns with S_OK if the animation type was read successfully.</returns>
+HRESULT STDMETHODCALLTYPE AnimTypeClass::Load(IStream *stream)
+{
+	HRESULT result = BASECLASS::Load(stream);
+	if (SUCCEEDED(result)) {
+		new (this) AnimTypeClass(NoInitClass());
+
+		Fetch_Voxel_Image();
+		Fetch_Normal_Image();
+
+		Swizzle_Pointer(&ChainTo);
+		Swizzle_Pointer(&ExpireAnim);
+		Swizzle_Pointer(&TrailerAnim);
+		Swizzle_Pointer(&BounceAnim);
+		Swizzle_Pointer(&Spawns);
+		Swizzle_Pointer(&Warhead);
+		Swizzle_Pointer(&TiberiumSpawnType);
+
+		if (!IsDemandLoad) {
+			if (IsTheater) {
+				char fullname[_MAX_FNAME+_MAX_EXT];	// Fully constructed iconset name.
+				_makepath(fullname, NULL, NULL, Name(), Theaters[Scen->Theater].Suffix);
+				ImageData = MFCD::Retrieve(fullname);
+			} else if (IsNewTheater) {
+				Load_Image(Scen->Theater);
+			}
+		}
+
+		result = S_OK;
+	}
+	return(result);
+}
+
+
+/// <summary>
+/// Writes this animation type out to a save game stream.
+/// </summary>
+/// <param name="cleardirty">Should the object be considered unmodified afterward?</param>
+/// <returns>Returns with S_OK if the animation type was written successfully.</returns>
+HRESULT STDMETHODCALLTYPE AnimTypeClass::Save(IStream * stream, BOOL cleardirty)
+{
+	HRESULT result = BASECLASS::Save(stream, cleardirty);
+	if (SUCCEEDED(result)) {
+		result = S_OK;
+	}
+	return(result);
+}
+
+
+/// <summary>
+/// Fetches the persistent class identifier of this object.
+/// This routine is used by the save game machinery to recognize an animation type when it
+/// comes back off the stream.
+/// </summary>
+/// <param name="retval">Pointer to the place to store the class identifier.</param>
+/// <returns>Returns with S_OK, or E_POINTER if there was nowhere to store the answer.</returns>
+HRESULT STDMETHODCALLTYPE AnimTypeClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_AnimTypeClass;
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Submits this animation type to the game state checksum.
+/// This routine is used by the network sync check to prove that every machine in the game
+/// is playing by the same rules.
+/// </summary>
+/// <param name="crc">The checksum engine to submit this object's data to.</param>
+void AnimTypeClass::Compute_CRC(CRCEngine & crc) const
+{
+	ObjectTypeClass::Compute_CRC(crc); // RA2: RA2's form
+	crc((long)Layer); // RA2: as above
+	crc(IsNormalized);
+	crc(IsFlat); // RA2: as above
+	crc(IsTranslucent);
+	crc(IsScorcher);
+	crc(IsFlameThrower);
+	crc(IsCraterForming);
+	crc(IsSticky);
+	crc(IsPingPong);
+	crc(IsReverse);
+	crc(Shadow); // RA2: as above
+	crc((long)Biggest); // RA2: as above
+	crc(Damage);
+	crc(IsTiberiumChainReaction);
+	crc((long)Delay); // RA2: as above
+	crc((long)Start); // RA2: as above
+	crc((long)LoopStart); // RA2: as above
+	crc((long)LoopEnd); // RA2: as above
+	crc((long)Stages); // RA2: as above
+	crc((long)StartSound); // RA2: as above
+	crc((long)StopSound); // RA2: as above
+	crc((long)DetailLevel); // RA2: as above
+	crc((long)TranslucencyDetailLevel); // RA2: as above
+	crc((long)RandomLoopDelayMin); // RA2: as above
+	crc((long)RandomLoopDelayMax); // RA2: as above
+	crc((long)Translucency); // RA2: as above
+	crc(IsTiled);
+}
+
+
+
+/// <summary>
+/// Fetches the animation type of the name specified, creating it if need be.
+/// This routine is used while the rules are being processed, so that one section may refer
+/// to an animation whose own section has not been reached yet.
+/// </summary>
+/// <param name="name">The INI name of the animation type to find.</param>
+/// <returns>Returns with a pointer to the animation type that carries that name.</returns>
+AnimTypeClass * AnimTypeClass::Find_Or_Make(char const * name)
+{
+	return(TFind_Or_Make<AnimTypeClass>(name, AnimTypes));
+}
+
+
+/// <summary>
+/// Removes this animation type's references to the object specified.
+/// This routine is called when an object is about to leave the game, so that the animation
+/// will not chain to something that no longer exists.
+/// </summary>
+/// <param name="target">The object that is about to be removed from the game.</param>
+void AnimTypeClass::Detach(AbstractClass const * target, bool all)
+{
+	if (ChainTo == target) {
+		ChainTo = NULL;
+	}
+}
+
+
+/// <summary>
+/// Fetches the shape data to draw this animation with.
+/// A demand loaded animation has no artwork read at scenario start, so this routine will
+/// pull the shape file in the first time something actually needs to draw the animation.
+/// </summary>
+/// <returns>
+/// Returns with a pointer to the shape data. Otherwise, NULL is returned.
+/// </returns>
+void const * AnimTypeClass::Get_Image_Data(void) const
+{
+	AnimTypeClass *self = (AnimTypeClass *)this; // RA2: RA2's form
+	if (ImageData == 0 && IsDemandLoad) { // RA2: as above
+		DebugString("Demand loading image for %s\n", (char const *)Full_Name()); // RA2: as above
+		char fullname[512]; // RA2: as above
+		_makepath(fullname, 0, 0, GraphicName[0] != 0 ? (char const *)GraphicName : (char const *)Name(), ".SHP"); // RA2: as above
+		if (IsTheater) {
+			_makepath(fullname, 0, 0, Name(), Theaters[Scen->Theater].Suffix); // RA2: as above
+		} else if (IsNewTheater) {
+			Theater_Name_Fixup(fullname, Scen->Theater); // RA2: as above
+		}
+		CCFileClass file(fullname);
+		self->ImageData = Load_Alloc_Data(file); // RA2: as above
+		if (ImageData != 0) { // RA2: as above
+			self->ImageAllocated = true; // RA2: as above
+		} else { // RA2: as above
+			Generic_Theater_Name(fullname); // RA2: as above
+			CCFileClass generic(fullname); // RA2: as above
+			self->ImageData = Load_Alloc_Data(generic); // RA2: as above
+			if (ImageData != 0) { // RA2: as above
+				self->ImageAllocated = true; // RA2: as above
+			}
+		}
+		self->Load_Image(Scen->Theater); // RA2: as above
+		return ImageData; // RA2: as above
+	}
+	return ImageData; // RA2: as above
+}
+
+
+
+/// <summary>
+/// Frees the demand loaded artwork for this animation.
+/// This routine is called when an animation has finished playing, so that a rarely used
+/// animation does not hold onto its shape data for the rest of the mission. Only those
+/// animations that asked to be freed after playing will give their artwork up.
+/// </summary>
+void AnimTypeClass::Free_Image(void)
+{
+	if (IsDemandLoad && ImageData != NULL && IsFreeAfterPlaying) {
+		DebugString("Freeing loaded image for %s\n", Full_Name());
+		delete [] (char*) ImageData;
+		ImageData = NULL;
+		ImageAllocated = false; // RA2: as Get_Image_Data sets it
+	}
+}
+

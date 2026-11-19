@@ -1,0 +1,4839 @@
+{
+  "id": "rebuild-options",
+  "population": {
+    "id": "rebuild-options",
+    "inventory_sha256": "752a261389b056dfed654cc4a4fac90a3d2b678f8a512208296e3e146cb786d6",
+    "gaps_sha256": "e92f0c6628efceee9aafa03e62dcf9e684cecbc02fa332ae065e6348040e27d1",
+    "historical_population_sha256": "f80e03dc75f36c88a7b895403d917b47e76db71e03c5a9594dee089fc0ef5b51",
+    "historical_acceptance_sha256": "5fa012cc7f941b0b323c0f296fcba48f1589c0e311adf23f5a3d98f66b962083"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10956824,
+    "_ISO_TILE_SIZE": 8026008,
+    "_LEPTONS_PER_PIXEL": 10956896,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10956880,
+    "_ONE_RAD": 8026016,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10956872,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10956832,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10956792,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10956904,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10956840,
+    "_CELL_DIAG_SLOPE_ANGLE": 10956864,
+    "_BRIDGE_LEPTON_HEIGHT": 10956888,
+    "_CELL_NONE": 10956816,
+    "_COORD_NONE": 10956848,
+    "_RECT_NONE": 10956800,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "??_C@_02HAKO@ON?$AA@": 8265536,
+    "??_C@_03CMJG@OFF?$AA@": 8265532,
+    "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@": 8291956,
+    "?DebugString@@YAXPBDZZ": 4221168,
+    "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@": 8291976,
+    "__real@4@400d8000000000000000": 8026028,
+    "?AudioScoreAttribs@@3PAUAudioAttribs@@A": 8590420,
+    "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z": 4223104,
+    "__real@8@4006ff00000000000000": 8007504,
+    "?Set_Volume@ThemeClass@@QAEXH@Z": 7243152,
+    "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@": 8291996,
+    "?AudioSoundAttribs@@3PAUAudioAttribs@@A": 8590424,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@": 8292016,
+    "?Set_Speech_Volume@@YIXH@Z": 7429872,
+    "?AudioVoiceAttribs@@3PAUAudioAttribs@@A": 8590416,
+    "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@": 8292036,
+    "??_C@_0DE@FEPI@?9?9?9?9?9?9?9?9?9?5Loading?5SUN?4INI?5settin@": 8292812,
+    "?ConfigINI@@3VCCINIClass@@A": 8623936,
+    "??_C@_09OAAF@GameSpeed?$AA@": 8292800,
+    "??_C@_07BFAH@Options?$AA@": 8236692,
+    "?Get_Int@INIClass@@QBEHPBD0H@Z": 5298160,
+    "??_C@_0BA@JBIP@GameSpeed?5?$DN?5?$CFd?6?$AA@": 8292784,
+    "??_C@_0L@IHH@Difficulty?$AA@": 8292772,
+    "??_C@_0BB@DDEA@Difficulty?5?$DN?5?$CFd?6?$AA@": 8292752,
+    "??_C@_0N@NAHG@ScrollMethod?$AA@": 8292736,
+    "??_C@_0BD@FKHC@ScrollMethod?5?$DN?5?$CFd?6?$AA@": 8292716,
+    "??_C@_0L@BKMH@ScrollRate?$AA@": 8292704,
+    "??_C@_0BB@LGCL@ScrollRate?5?$DN?5?$CFd?6?$AA@": 8292684,
+    "??_C@_0L@NNFH@AutoScroll?$AA@": 8292672,
+    "?Get_Bool@INIClass@@QBE_NPBD0_N@Z": 5305360,
+    "??_C@_0BC@JNMK@AutoScroll?5is?5?$CFs?6?$AA@": 8292652,
+    "??_C@_0M@PNCF@DetailLevel?$AA@": 8187668,
+    "??_C@_0BC@OKJP@DetailLevel?5?$DN?5?$CFd?6?$AA@": 8292632,
+    "??_C@_05JCNK@RIGHT?$AA@": 8292624,
+    "??_C@_0P@CPDH@SideBar?5on?5?$CFs?6?$AA@": 8292608,
+    "??_C@_0BB@FMGO@SidebarCameoText?$AA@": 8292588,
+    "??_C@_0BE@EJCO@Sidebar?5Text?5is?5?$CFs?6?$AA@": 8292568,
+    "??_C@_0BA@CDGE@UnitActionLines?$AA@": 8292552,
+    "??_C@_0BE@PON@ActionLines?5are?5?$CFs?6?$AA@": 8292532,
+    "??_C@_0L@FHFF@ShowHidden?$AA@": 8292520,
+    "??_C@_0BC@FPEC@ShowHidden?5is?5?$CFs?6?$AA@": 8292500,
+    "??_C@_08FDMF@ToolTips?$AA@": 8292488,
+    "??_C@_0BB@JJCE@ToolTips?5are?5?$CFs?6?$AA@": 8292468,
+    "??_C@_0M@KHJK@ScreenWidth?$AA@": 8292456,
+    "??_C@_05HAHE@Video?$AA@": 8292448,
+    "??_C@_0N@PIKM@ScreenHeight?$AA@": 8292432,
+    "??_C@_0BG@KDGG@Resolution?5?$DN?5?$CFd?5X?5?$CFd?6?$AA@": 8292408,
+    "??_C@_0O@INAO@StretchMovies?$AA@": 8292392,
+    "?AllowStretchBlits@DSurface@@2_NA": 8728534,
+    "??_C@_0BF@MACC@StretchMovies?5is?5?$CFs?6?$AA@": 8292368,
+    "??_C@_0BA@HFAB@AllowHiResModes?$AA@": 8292352,
+    "??_C@_0BC@HPPL@AllowHiRes?5is?5?$CFs?6?$AA@": 8292332,
+    "?Debug_IngameModeChange@@3_NA": 10751243,
+    "??_C@_0BA@EOHF@AllowModeToggle?$AA@": 8292316,
+    "??_C@_0BB@HANG@AllowVRAMSidebar?$AA@": 8292296,
+    "??_C@_0M@EHL@SoundVolume?$AA@": 8292284,
+    "??_C@_05BHNM@Audio?$AA@": 8292276,
+    "?Get_Float@INIClass@@QBENPBD0N@Z": 5301152,
+    "??_C@_0M@HMFN@VoiceVolume?$AA@": 8292264,
+    "??_C@_0M@DKIB@ScoreVolume?$AA@": 8292252,
+    "??_C@_0O@CEPG@IsScoreRepeat?$AA@": 8292236,
+    "??_C@_0P@DCKB@IsScoreShuffle?$AA@": 8292220,
+    "??_C@_0M@KPPM@InGameMusic?$AA@": 8292208,
+    "??_C@_11A@?$AA?$AA@": 8625484,
+    "??_C@_05COPE@NetID?$AA@": 8292200,
+    "??_C@_07HKHC@Network?$AA@": 8292192,
+    "?Get_UnicodeString@INIClass@@QBEHPBD0PBGPAGH@Z": 5303792,
+    "??_C@_13ECNF@?$AA?5?$AA?$AA@": 8217844,
+    "_wcstok": 7883537,
+    "_wcstol": 7883704,
+    "??_C@_0N@LDPM@SoundLatency?$AA@": 8292176,
+    "??_C@_0CK@NH@Emulated?5sound?5card?5latency?5defa@": 8292132,
+    "??_C@_06BHPO@Socket?$AA@": 8292124,
+    "??_C@_07GNMG@NetCard?$AA@": 8292116,
+    "??_C@_00A@?$AA@": 8635740,
+    "??_C@_07OPOK@DestNet?$AA@": 8292108,
+    "?Get_String@INIClass@@QBEHPBD00PADH@Z": 5302688,
+    "??_C@_0DE@DFEE@?9?9?9?9?9?9?9?9?9?5Complete?5?9?9?9?9?9?9?9?9?9?9?9?9?9@": 8292056,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Set_Cameo_Text@SidebarClass@@QAEX_N@Z": 6797440,
+    "?Set_Action_Lines@TechnoClass@@SIX_N@Z": 7174592,
+    "?Setup_Dest_Net@OptionsClass@@QAEXXZ": 6132944,
+    "??_C@_07IBND@RA2?4INI?$AA@": 8239288,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "??_C@_0BG@OKEL@Saving?5game?5settings?6?$AA@": 8292876,
+    "?Put_Int@INIClass@@QAE_NPBD0HH@Z": 5297888,
+    "?Put_Bool@INIClass@@QAE_NPBD0_N@Z": 5305216,
+    "?Put_Float@INIClass@@QAE_NPBD0N@Z": 5301568,
+    "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
+    "??_C@_1M@LKON@?$AA?$CF?$AAd?$AA?5?$AA?$CF?$AAd?$AA?$AA@": 8292864,
+    "_swprintf": 7878500,
+    "?Put_UnicodeString@INIClass@@QAE_NPBD0PBG@Z": 5303536,
+    "?Save@CCINIClass@@QBEHAAVFileClass@@_N@Z": 4626672,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "?Ipx@@3VIPXManagerClass@@A": 10750328,
+    "?Set_Socket@IPXManagerClass@@QAEXG@Z": 5401504,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_01PJCK@?4?$AA@": 8240708,
+    "_strtok": 7876290,
+    "??_C@_02JDLK@?$CFx?$AA@": 8238260,
+    "_sscanf": 7878448,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "??0IPXAddressClass@@QAE@QAE0G@Z": 5387328,
+    "_?_adjust@?1??Normalize_Delay@OptionsClass@@QBEHH@Z@4PAY07HA": 8291220,
+    "?HotkeyName@OptionsClass@@0QBDB": 8026024,
+    "??_C@_0L@OBFG@WinHotkeys?$AA@": 8291352,
+    "_$E2": 6129120,
+    "_$E5": 6129168,
+    "_$E8": 6129200,
+    "_$E11": 6129232,
+    "_$E14": 6129264,
+    "_$E17": 6129296,
+    "_$E20": 6129328,
+    "_$E23": 6129392,
+    "_$E26": 6129440,
+    "_$E29": 6129488,
+    "_$E32": 6129536,
+    "_$E35": 6129552,
+    "_$E38": 6129584,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "?Hotkey_To_Key@@YIHH@Z": 6129616,
+    "?Key_To_Hotkey@@YIHG@Z": 6129664,
+    "??0OptionsClass@@QAE@XZ": 6129728,
+    "?One_Time@OptionsClass@@QAEXXZ": 6129936,
+    "?Set_Shuffle@OptionsClass@@QAEX_N@Z": 6129952,
+    "?Set_Repeat@OptionsClass@@QAEX_N@Z": 6130000,
+    "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z": 6130048,
+    "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z": 6130160,
+    "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z": 6130288,
+    "?Load_Settings@OptionsClass@@QAEXXZ": 6130432,
+    "?Save_Settings@OptionsClass@@QAEXXZ": 6132144,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "??3@YAXPAX@Z": 7871803,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Set@OptionsClass@@QAEXXZ": 6133216,
+    "?Normalize_Delay@OptionsClass@@QBEHH@Z": 6133600,
+    "?Normalize_Volume@OptionsClass@@QBEHH@Z": 6133648,
+    "?Get_Scroll_Method@OptionsClass@@QBEHXZ": 6136800,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_EWstring@@QAEPAXI@Z": 4239168,
+    "??1Wstring@@QAE@XZ": 7789024
+  },
+  "regions": [
+    {
+      "entry": 6129120,
+      "method": "005d85e0",
+      "body_bytes": 40,
+      "body_sha256": "0e49c10a75f1144197340769dbfeebf5f2360362560b22aec55d517f5f002f65",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cb04602192b731747e9c25d5f9cccbbebf3c12c8db5580c57f8b497ca44eacdd",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1743807
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293795346
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956824,
+          "addend": 0,
+          "resolved": 10956824
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129120,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129168,
+      "method": "005d8610",
+      "body_bytes": 19,
+      "body_sha256": "1195991d0957f2c362e875923d198c539d6bb986e11e53ddabb6bb9e73ca70a0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "ac060178135e42739d3eb0745b57a0fd45654e6e035cae2b70672f740b8e41c9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956824,
+          "addend": 0,
+          "resolved": 10956824
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8026008,
+          "addend": 0,
+          "resolved": 8026008
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10956896,
+          "addend": 0,
+          "resolved": 10956896
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129200,
+      "method": "005d8630",
+      "body_bytes": 19,
+      "body_sha256": "bc20668f3f36989718b7334867217b71febca3903e3900e9fc26605c625e1eec",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d8d99384e155a8d0c5d0e9dfa3efd705f745d8ea5b180015a49e30fc2b28f3a9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10956896,
+          "addend": 0,
+          "resolved": 10956896
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10956880,
+          "addend": 0,
+          "resolved": 10956880
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129200,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129232,
+      "method": "005d8650",
+      "body_bytes": 19,
+      "body_sha256": "5f68d39eea9f0b06c16311c865ea5a7dc96e7864e61c9655e7c11e0755504e14",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5139d52702b9b02ed186a929a108ad070d6c2a013e4f9fe1153f32eae8614368",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026016,
+          "addend": 0,
+          "resolved": 8026016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10956872,
+          "addend": 0,
+          "resolved": 10956872
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129264,
+      "method": "005d8670",
+      "body_bytes": 19,
+      "body_sha256": "4cb48498590f60963200f1312dafb7ef76b2a69532495932816a7465bf196b93",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "28f3ec09cf9d20263ba0f628d4c17bb74c130d879c4980f7a7464086c68fa431",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026016,
+          "addend": 0,
+          "resolved": 8026016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10956832,
+          "addend": 0,
+          "resolved": 10956832
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129296,
+      "method": "005d8690",
+      "body_bytes": 19,
+      "body_sha256": "20b527ae5707a1b1eb0377827c538f02402407d8fd9846de59e8630b3b9d4e1b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "456a832fef032ef2c29238f7554c61951bbe7e45fcc11b46d495935853902cc0",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8026016,
+          "addend": 0,
+          "resolved": 8026016
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10956792,
+          "addend": 0,
+          "resolved": 10956792
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129328,
+      "method": "005d86b0",
+      "body_bytes": 49,
+      "body_sha256": "3eefb39cf9a25c128f7be10916b8838f6533e0af043374f01b15f6073e7f0cd5",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "257949c2a4d19b4d90c53e311f6ededc7a209801316af72f4eabc8c1f190f3c7",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10956792,
+          "addend": 0,
+          "resolved": 10956792
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10956832,
+          "addend": 0,
+          "resolved": 10956832
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4293795417
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956824,
+          "addend": 0,
+          "resolved": 10956824
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1731125
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956904,
+          "addend": 0,
+          "resolved": 10956904
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129328,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129392,
+      "method": "005d86f0",
+      "body_bytes": 33,
+      "body_sha256": "20382bde235037b5a995ec754714d5dbae1590cbc2f68fa16c10f302fde7a211",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4c31e971db496b71dafcd1326cf8d4f4e240b3b17bbff3b8fa49da1d3b5ca101",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956904,
+          "addend": 0,
+          "resolved": 10956904
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293795497
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10956840,
+          "addend": 0,
+          "resolved": 10956840
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129392,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129440,
+      "method": "005d8720",
+      "body_bytes": 44,
+      "body_sha256": "8fad34b553b8a6c30b21ba513a472fbb04ef495cb643252f2a519233bf8ca141",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "4a8241d83d36ba077468b6779d73d007d4bb9197dd45e469e2b1614f19833796",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956904,
+          "addend": 0,
+          "resolved": 10956904
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10956824,
+          "addend": 0,
+          "resolved": 10956824
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4293795438
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10956864,
+          "addend": 0,
+          "resolved": 10956864
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129488,
+      "method": "005d8750",
+      "body_bytes": 39,
+      "body_sha256": "f00680f15079ca529019a1ee6075cc41acb5a211f39ef0f8f89618b326e11e46",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "2ce2650406c19c9a7383837db19d7d88ab6a091551e68a241bed77439ae3106d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10956904,
+          "addend": 0,
+          "resolved": 10956904
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730976
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10956888,
+          "addend": 0,
+          "resolved": 10956888
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129536,
+      "method": "005d8780",
+      "body_bytes": 15,
+      "body_sha256": "49b88a8d5ab7aa8200e759c9b4ba27259ff19013f1f0817ac75573ce696d2548",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "430caa5552554fe5c650998f013b5ec682699b50903d4c6b1019ad66387e54af",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10956816,
+          "addend": 0,
+          "resolved": 10956816
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10956816,
+          "addend": 2,
+          "resolved": 10956818
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129552,
+      "method": "005d8790",
+      "body_bytes": 18,
+      "body_sha256": "854c03363a0fd7fcfa78e9b66154838a1304f200ca6e15bb7856eb4d238226f2",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2b29f95d6e07e93434f2c4bd281b965d13258c750327e76e2010124027b55ed7",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956848,
+          "addend": 0,
+          "resolved": 10956848
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956848,
+          "addend": 4,
+          "resolved": 10956852
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10956848,
+          "addend": 8,
+          "resolved": 10956856
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129584,
+      "method": "005d87b0",
+      "body_bytes": 23,
+      "body_sha256": "63fa82dffb21e0a76e18cf93ff0465356aeebd18de11597fccabee3c67e8e1b1",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "79f16d18952021d5102bbf3374e8dc3969741e23cb5c8572c0de18e1654059c2",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956800,
+          "addend": 0,
+          "resolved": 10956800
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956800,
+          "addend": 4,
+          "resolved": 10956804
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956800,
+          "addend": 8,
+          "resolved": 10956808
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10956800,
+          "addend": 12,
+          "resolved": 10956812
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129616,
+      "method": "005d87d0",
+      "body_bytes": 43,
+      "body_sha256": "42b012fbe5d99b2e2359cf325b0c83e8b352df5c82636b2ba33f54b409dba61c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "9aedd6df78eb7b131f1621ee1848b1dfa57a10d9f8ec0edacd46e99ef078ce0a",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Hotkey_To_Key@@YIHH@Z",
+      "symbol_prefix": "?Hotkey_To_Key@@YIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129664,
+      "method": "005d8800",
+      "body_bytes": 49,
+      "body_sha256": "ca043e29202b0de3ee7fca799b6d14c6d7ea18087f8b2b2773e7c4bebb3114e0",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "e9264dd3468c4a42fe2aded2b966718e405cf6592a8892be4d9c47a26b7249ee",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Key_To_Hotkey@@YIHG@Z",
+      "symbol_prefix": "?Key_To_Hotkey@@YIHG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129664,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129728,
+      "method": "005d8840",
+      "body_bytes": 196,
+      "body_sha256": "ce0e08fc85dec7203a3c2b20041f570bef9d149a8debb7ee5134f7d98020b0cb",
+      "padding_bytes": 12,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "fc4498557385d85e029fcf2a20aa59ca558318bc1a12b88e88615874e197b745",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0OptionsClass@@QAE@XZ",
+      "symbol_prefix": "??0OptionsClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129936,
+      "method": "005d8910",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@OptionsClass@@QAEXXZ",
+      "symbol_prefix": "?One_Time@OptionsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129936,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6129952,
+      "method": "005d8920",
+      "body_bytes": 46,
+      "body_sha256": "a9d114c45f91dde01be6d75628dffed28109d692508588f5b735c6ac63451bc8",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "96ddbd57f241b4edc9071afc411861e73e5f4cc2cbfd9f7510414bc8233b963a",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Shuffle@OptionsClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@",
+          "target": 8291956,
+          "addend": 0,
+          "resolved": 8291956
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058472
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6129952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6130000,
+      "method": "005d8950",
+      "body_bytes": 46,
+      "body_sha256": "dfd839c33f3736c2fce30ab2b68b7e7e8cde74ddf0711f798d56151ed2bf25c2",
+      "padding_bytes": 2,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d2bc6c1a66a4d76ee4f9e8338e700b230b3236f80085c55dc577b14bbd3eac74",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+      "symbol_prefix": "?Set_Repeat@OptionsClass@@QAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 16,
+          "resolved": 10706312
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@",
+          "target": 8291976,
+          "addend": 0,
+          "resolved": 8291976
+        },
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058424
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6130000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6130048,
+      "method": "005d8980",
+      "body_bytes": 110,
+      "body_sha256": "3a1e749d1e3f9f20fca96aa103b3b665d6660b5ab8ce78c24a60209e8b0e901a",
+      "padding_bytes": 2,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "0db4797d33c0ad64a8660d10b15e9eb9b35bd9d011a65a5a494baa6ece26d56a",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+      "symbol_prefix": "?Set_Score_Volume@OptionsClass@@QAEXM_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730402
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293060293
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730375
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 80,
+          "kind": 20,
+          "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+          "target": 7243152,
+          "addend": 0,
+          "resolved": 1113020
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8291996,
+          "addend": 0,
+          "resolved": 8291996
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058313
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6130048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6130160,
+      "method": "005d89f0",
+      "body_bytes": 121,
+      "body_sha256": "67c41e9d3188c2022e32a89e686f470b728726127a19ebf169a218b8c8b2ca31",
+      "padding_bytes": 7,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "f23cdbb680a0ee2bef92bd0dbbbe2c2bd412e8aa36bcda6192e152bd3d5308ef",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+      "symbol_prefix": "?Set_Sound_Volume@OptionsClass@@QAEXM_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730290
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293060181
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 91,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 1291105
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292016,
+          "addend": 0,
+          "resolved": 8292016
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058190
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6130160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6130288,
+      "method": "005d8a70",
+      "body_bytes": 142,
+      "body_sha256": "36f5825f5172044daa3cb1a813c292bd2f43a9e56737107d8b21d67bfcd55264",
+      "padding_bytes": 2,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "dc60df9f672dcb44a35a0cd5ebf0f153ae0d9fc2330df31a39797498824080dc",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+      "symbol_prefix": "?Set_Voice_Volume@OptionsClass@@QAEXM_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730162
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Set_Speech_Volume@@YIXH@Z",
+          "target": 7429872,
+          "addend": 0,
+          "resolved": 1299531
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1730141
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 76,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293060032
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 1290956
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292036,
+          "addend": 0,
+          "resolved": 8292036
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058041
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6130288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6130432,
+      "method": "005d8b00",
+      "body_bytes": 1709,
+      "body_sha256": "e28bca6f2b95be9fd19f8fde9fd00fc26736e4ab4d6d8772c6e680bfbaedc4c8",
+      "padding_bytes": 3,
+      "full_extent_bytes": 1712,
+      "full_extent_sha256": "051dfd3feb276e5b7ca053717656e21497e4790e3db5ff295df79060301e3004",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Settings@OptionsClass@@QAEXXZ",
+      "symbol_prefix": "?Load_Settings@OptionsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "??_C@_0DE@FEPI@?9?9?9?9?9?9?9?9?9?5Loading?5SUN?4INI?5settin@",
+          "target": 8292812,
+          "addend": 0,
+          "resolved": 8292812
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293058005
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_09OAAF@GameSpeed?$AA@",
+          "target": 8292800,
+          "addend": 0,
+          "resolved": 8292800
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 49,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134971
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "??_C@_0BA@JBIP@GameSpeed?5?$DN?5?$CFd?6?$AA@",
+          "target": 8292784,
+          "addend": 0,
+          "resolved": 8292784
+        },
+        {
+          "offset": 62,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057966
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "??_C@_0L@IHH@Difficulty?$AA@",
+          "target": 8292772,
+          "addend": 0,
+          "resolved": 8292772
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 84,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 89,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134931
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "??_C@_0BB@DDEA@Difficulty?5?$DN?5?$CFd?6?$AA@",
+          "target": 8292752,
+          "addend": 0,
+          "resolved": 8292752
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057899
+        },
+        {
+          "offset": 140,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 146,
+          "kind": 6,
+          "symbol": "??_C@_0N@NAHG@ScrollMethod?$AA@",
+          "target": 8292736,
+          "addend": 0,
+          "resolved": 8292736
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 156,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134864
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "??_C@_0BD@FKHC@ScrollMethod?5?$DN?5?$CFd?6?$AA@",
+          "target": 8292716,
+          "addend": 0,
+          "resolved": 8292716
+        },
+        {
+          "offset": 170,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057858
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "??_C@_0L@BKMH@ScrollRate?$AA@",
+          "target": 8292704,
+          "addend": 0,
+          "resolved": 8292704
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134823
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "??_C@_0BB@LGCL@ScrollRate?5?$DN?5?$CFd?6?$AA@",
+          "target": 8292684,
+          "addend": 0,
+          "resolved": 8292684
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057817
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "??_C@_0L@NNFH@AutoScroll?$AA@",
+          "target": 8292672,
+          "addend": 0,
+          "resolved": 8292672
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 238,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141982
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "??_C@_0BC@JNMK@AutoScroll?5is?5?$CFs?6?$AA@",
+          "target": 8292652,
+          "addend": 0,
+          "resolved": 8292652
+        },
+        {
+          "offset": 271,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057757
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 288,
+          "kind": 6,
+          "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
+          "target": 8187668,
+          "addend": 0,
+          "resolved": 8187668
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134722
+        },
+        {
+          "offset": 330,
+          "kind": 6,
+          "symbol": "??_C@_0BC@OKJP@DetailLevel?5?$DN?5?$CFd?6?$AA@",
+          "target": 8292632,
+          "addend": 0,
+          "resolved": 8292632
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057690
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "??_C@_05JCNK@RIGHT?$AA@",
+          "target": 8292624,
+          "addend": 0,
+          "resolved": 8292624
+        },
+        {
+          "offset": 348,
+          "kind": 6,
+          "symbol": "??_C@_0P@CPDH@SideBar?5on?5?$CFs?6?$AA@",
+          "target": 8292608,
+          "addend": 0,
+          "resolved": 8292608
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057672
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "??_C@_0BB@FMGO@SidebarCameoText?$AA@",
+          "target": 8292588,
+          "addend": 0,
+          "resolved": 8292588
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141837
+        },
+        {
+          "offset": 393,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 406,
+          "kind": 6,
+          "symbol": "??_C@_0BE@EJCO@Sidebar?5Text?5is?5?$CFs?6?$AA@",
+          "target": 8292568,
+          "addend": 0,
+          "resolved": 8292568
+        },
+        {
+          "offset": 411,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057617
+        },
+        {
+          "offset": 422,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "??_C@_0BA@CDGE@UnitActionLines?$AA@",
+          "target": 8292552,
+          "addend": 0,
+          "resolved": 8292552
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141782
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 455,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 461,
+          "kind": 6,
+          "symbol": "??_C@_0BE@PON@ActionLines?5are?5?$CFs?6?$AA@",
+          "target": 8292532,
+          "addend": 0,
+          "resolved": 8292532
+        },
+        {
+          "offset": 466,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057562
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "??_C@_0L@FHFF@ShowHidden?$AA@",
+          "target": 8292520,
+          "addend": 0,
+          "resolved": 8292520
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 493,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141727
+        },
+        {
+          "offset": 503,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "??_C@_0BC@FPEC@ShowHidden?5is?5?$CFs?6?$AA@",
+          "target": 8292500,
+          "addend": 0,
+          "resolved": 8292500
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057507
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 538,
+          "kind": 6,
+          "symbol": "??_C@_08FDMF@ToolTips?$AA@",
+          "target": 8292488,
+          "addend": 0,
+          "resolved": 8292488
+        },
+        {
+          "offset": 543,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 548,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141672
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 571,
+          "kind": 6,
+          "symbol": "??_C@_0BB@JJCE@ToolTips?5are?5?$CFs?6?$AA@",
+          "target": 8292468,
+          "addend": 0,
+          "resolved": 8292468
+        },
+        {
+          "offset": 576,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057452
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "??_C@_0M@KHJK@ScreenWidth?$AA@",
+          "target": 8292456,
+          "addend": 0,
+          "resolved": 8292456
+        },
+        {
+          "offset": 598,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 603,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134417
+        },
+        {
+          "offset": 615,
+          "kind": 6,
+          "symbol": "??_C@_0N@PIKM@ScreenHeight?$AA@",
+          "target": 8292432,
+          "addend": 0,
+          "resolved": 8292432
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 625,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 630,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294134390
+        },
+        {
+          "offset": 640,
+          "kind": 6,
+          "symbol": "??_C@_0BG@KDGG@Resolution?5?$DN?5?$CFd?5X?5?$CFd?6?$AA@",
+          "target": 8292408,
+          "addend": 0,
+          "resolved": 8292408
+        },
+        {
+          "offset": 648,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057380
+        },
+        {
+          "offset": 659,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 665,
+          "kind": 6,
+          "symbol": "??_C@_0O@INAO@StretchMovies?$AA@",
+          "target": 8292392,
+          "addend": 0,
+          "resolved": 8292392
+        },
+        {
+          "offset": 670,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 675,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141545
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "?AllowStretchBlits@DSurface@@2_NA",
+          "target": 8728534,
+          "addend": 0,
+          "resolved": 8728534
+        },
+        {
+          "offset": 706,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 713,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "??_C@_0BF@MACC@StretchMovies?5is?5?$CFs?6?$AA@",
+          "target": 8292368,
+          "addend": 0,
+          "resolved": 8292368
+        },
+        {
+          "offset": 724,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057304
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "??_C@_0BA@HFAB@AllowHiResModes?$AA@",
+          "target": 8292352,
+          "addend": 0,
+          "resolved": 8292352
+        },
+        {
+          "offset": 741,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 746,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 751,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141469
+        },
+        {
+          "offset": 761,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 768,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 774,
+          "kind": 6,
+          "symbol": "??_C@_0BC@HPPL@AllowHiRes?5is?5?$CFs?6?$AA@",
+          "target": 8292332,
+          "addend": 0,
+          "resolved": 8292332
+        },
+        {
+          "offset": 779,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057249
+        },
+        {
+          "offset": 785,
+          "kind": 6,
+          "symbol": "?Debug_IngameModeChange@@3_NA",
+          "target": 10751243,
+          "addend": 0,
+          "resolved": 10751243
+        },
+        {
+          "offset": 793,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 799,
+          "kind": 6,
+          "symbol": "??_C@_0BA@EOHF@AllowModeToggle?$AA@",
+          "target": 8292316,
+          "addend": 0,
+          "resolved": 8292316
+        },
+        {
+          "offset": 804,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 809,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141411
+        },
+        {
+          "offset": 814,
+          "kind": 6,
+          "symbol": "?Debug_IngameModeChange@@3_NA",
+          "target": 10751243,
+          "addend": 0,
+          "resolved": 10751243
+        },
+        {
+          "offset": 823,
+          "kind": 6,
+          "symbol": "??_C@_0BB@HANG@AllowVRAMSidebar?$AA@",
+          "target": 8292296,
+          "addend": 0,
+          "resolved": 8292296
+        },
+        {
+          "offset": 828,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 833,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 838,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141382
+        },
+        {
+          "offset": 849,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 860,
+          "kind": 6,
+          "symbol": "??_C@_0M@EHL@SoundVolume?$AA@",
+          "target": 8292284,
+          "addend": 0,
+          "resolved": 8292284
+        },
+        {
+          "offset": 865,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "?Get_Float@INIClass@@QBENPBD0N@Z",
+          "target": 5301152,
+          "addend": 0,
+          "resolved": 4294137142
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 891,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 900,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 905,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1729155
+        },
+        {
+          "offset": 911,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 918,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293059046
+        },
+        {
+          "offset": 932,
+          "kind": 6,
+          "symbol": "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292016,
+          "addend": 0,
+          "resolved": 8292016
+        },
+        {
+          "offset": 937,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293057091
+        },
+        {
+          "offset": 948,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 956,
+          "kind": 6,
+          "symbol": "??_C@_0M@HMFN@VoiceVolume?$AA@",
+          "target": 8292264,
+          "addend": 0,
+          "resolved": 8292264
+        },
+        {
+          "offset": 961,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 966,
+          "kind": 20,
+          "symbol": "?Get_Float@INIClass@@QBENPBD0N@Z",
+          "target": 5301152,
+          "addend": 0,
+          "resolved": 4294137046
+        },
+        {
+          "offset": 972,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 987,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 996,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 1001,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1729059
+        },
+        {
+          "offset": 1008,
+          "kind": 20,
+          "symbol": "?Set_Speech_Volume@@YIXH@Z",
+          "target": 7429872,
+          "addend": 0,
+          "resolved": 1298428
+        },
+        {
+          "offset": 1017,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 1022,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1729038
+        },
+        {
+          "offset": 1028,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 1035,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293058929
+        },
+        {
+          "offset": 1049,
+          "kind": 6,
+          "symbol": "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292036,
+          "addend": 0,
+          "resolved": 8292036
+        },
+        {
+          "offset": 1054,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056974
+        },
+        {
+          "offset": 1065,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1073,
+          "kind": 6,
+          "symbol": "??_C@_0M@DKIB@ScoreVolume?$AA@",
+          "target": 8292252,
+          "addend": 0,
+          "resolved": 8292252
+        },
+        {
+          "offset": 1078,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 1083,
+          "kind": 20,
+          "symbol": "?Get_Float@INIClass@@QBENPBD0N@Z",
+          "target": 5301152,
+          "addend": 0,
+          "resolved": 4294136929
+        },
+        {
+          "offset": 1089,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 1104,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 1113,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 1118,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1728942
+        },
+        {
+          "offset": 1124,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 1131,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293058833
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 1145,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1728915
+        },
+        {
+          "offset": 1151,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 1156,
+          "kind": 20,
+          "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+          "target": 7243152,
+          "addend": 0,
+          "resolved": 1111560
+        },
+        {
+          "offset": 1170,
+          "kind": 6,
+          "symbol": "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8291996,
+          "addend": 0,
+          "resolved": 8291996
+        },
+        {
+          "offset": 1175,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056853
+        },
+        {
+          "offset": 1187,
+          "kind": 6,
+          "symbol": "??_C@_0O@CEPG@IsScoreRepeat?$AA@",
+          "target": 8292236,
+          "addend": 0,
+          "resolved": 8292236
+        },
+        {
+          "offset": 1192,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 1197,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1202,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294141018
+        },
+        {
+          "offset": 1210,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 16,
+          "resolved": 10706312
+        },
+        {
+          "offset": 1220,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 1227,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 1233,
+          "kind": 6,
+          "symbol": "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@",
+          "target": 8291976,
+          "addend": 0,
+          "resolved": 8291976
+        },
+        {
+          "offset": 1238,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056790
+        },
+        {
+          "offset": 1249,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1255,
+          "kind": 6,
+          "symbol": "??_C@_0P@DCKB@IsScoreShuffle?$AA@",
+          "target": 8292220,
+          "addend": 0,
+          "resolved": 8292220
+        },
+        {
+          "offset": 1260,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 1265,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294140955
+        },
+        {
+          "offset": 1273,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 1283,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 1290,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 1296,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@",
+          "target": 8291956,
+          "addend": 0,
+          "resolved": 8291956
+        },
+        {
+          "offset": 1301,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056727
+        },
+        {
+          "offset": 1312,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1318,
+          "kind": 6,
+          "symbol": "??_C@_0M@KPPM@InGameMusic?$AA@",
+          "target": 8292208,
+          "addend": 0,
+          "resolved": 8292208
+        },
+        {
+          "offset": 1323,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 1328,
+          "kind": 20,
+          "symbol": "?Get_Bool@INIClass@@QBE_NPBD0_N@Z",
+          "target": 5305360,
+          "addend": 0,
+          "resolved": 4294140892
+        },
+        {
+          "offset": 1343,
+          "kind": 6,
+          "symbol": "??_C@_11A@?$AA?$AA@",
+          "target": 8625484,
+          "addend": 0,
+          "resolved": 8625484
+        },
+        {
+          "offset": 1351,
+          "kind": 6,
+          "symbol": "??_C@_05COPE@NetID?$AA@",
+          "target": 8292200,
+          "addend": 0,
+          "resolved": 8292200
+        },
+        {
+          "offset": 1356,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 1361,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1375,
+          "kind": 20,
+          "symbol": "?Get_UnicodeString@INIClass@@QBEHPBD0PBGPAGH@Z",
+          "target": 5303792,
+          "addend": 0,
+          "resolved": 4294139277
+        },
+        {
+          "offset": 1424,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1430,
+          "kind": 20,
+          "symbol": "_wcstok",
+          "target": 7883537,
+          "addend": 0,
+          "resolved": 1751671
+        },
+        {
+          "offset": 1447,
+          "kind": 20,
+          "symbol": "_wcstol",
+          "target": 7883704,
+          "addend": 0,
+          "resolved": 1751821
+        },
+        {
+          "offset": 1453,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 1463,
+          "kind": 20,
+          "symbol": "_wcstok",
+          "target": 7883537,
+          "addend": 0,
+          "resolved": 1751638
+        },
+        {
+          "offset": 1480,
+          "kind": 20,
+          "symbol": "_wcstol",
+          "target": 7883704,
+          "addend": 0,
+          "resolved": 1751788
+        },
+        {
+          "offset": 1524,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1534,
+          "kind": 6,
+          "symbol": "??_C@_0N@LDPM@SoundLatency?$AA@",
+          "target": 8292176,
+          "addend": 0,
+          "resolved": 8292176
+        },
+        {
+          "offset": 1539,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 1544,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294133476
+        },
+        {
+          "offset": 1559,
+          "kind": 6,
+          "symbol": "??_C@_0CK@NH@Emulated?5sound?5card?5latency?5defa@",
+          "target": 8292132,
+          "addend": 0,
+          "resolved": 8292132
+        },
+        {
+          "offset": 1564,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056464
+        },
+        {
+          "offset": 1579,
+          "kind": 6,
+          "symbol": "??_C@_06BHPO@Socket?$AA@",
+          "target": 8292124,
+          "addend": 0,
+          "resolved": 8292124
+        },
+        {
+          "offset": 1584,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 1589,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1594,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294133426
+        },
+        {
+          "offset": 1602,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1608,
+          "kind": 6,
+          "symbol": "??_C@_07GNMG@NetCard?$AA@",
+          "target": 8292116,
+          "addend": 0,
+          "resolved": 8292116
+        },
+        {
+          "offset": 1613,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 1622,
+          "kind": 20,
+          "symbol": "?Get_Int@INIClass@@QBEHPBD0H@Z",
+          "target": 5298160,
+          "addend": 0,
+          "resolved": 4294133398
+        },
+        {
+          "offset": 1636,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 1641,
+          "kind": 6,
+          "symbol": "??_C@_07OPOK@DestNet?$AA@",
+          "target": 8292108,
+          "addend": 0,
+          "resolved": 8292108
+        },
+        {
+          "offset": 1646,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 1651,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 1656,
+          "kind": 20,
+          "symbol": "?Get_String@INIClass@@QBEHPBD00PADH@Z",
+          "target": 5302688,
+          "addend": 0,
+          "resolved": 4294137892
+        },
+        {
+          "offset": 1661,
+          "kind": 6,
+          "symbol": "??_C@_0DE@DFEE@?9?9?9?9?9?9?9?9?9?5Complete?5?9?9?9?9?9?9?9?9?9?9?9?9?9@",
+          "target": 8292056,
+          "addend": 0,
+          "resolved": 8292056
+        },
+        {
+          "offset": 1666,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056362
+        },
+        {
+          "offset": 1678,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1683,
+          "kind": 20,
+          "symbol": "?Set_Cameo_Text@SidebarClass@@QAEX_N@Z",
+          "target": 6797440,
+          "addend": 0,
+          "resolved": 665321
+        },
+        {
+          "offset": 1691,
+          "kind": 20,
+          "symbol": "?Set_Action_Lines@TechnoClass@@SIX_N@Z",
+          "target": 7174592,
+          "addend": 0,
+          "resolved": 1042465
+        },
+        {
+          "offset": 1698,
+          "kind": 20,
+          "symbol": "?Setup_Dest_Net@OptionsClass@@QAEXXZ",
+          "target": 6132944,
+          "addend": 0,
+          "resolved": 810
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6130432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6132144,
+      "method": "005d91b0",
+      "body_bytes": 795,
+      "body_sha256": "e3505a957c879d77c6235fb9a331bd066700e6f9ec41ae070da45a6bf4e96f16",
+      "padding_bytes": 5,
+      "full_extent_bytes": 800,
+      "full_extent_sha256": "a2a89d61592fbac834e8947344dc423a5e111b77de1731b6283fe2235638949f",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save_Settings@OptionsClass@@QAEXXZ",
+      "symbol_prefix": "?Save_Settings@OptionsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "??_C@_07IBND@RA2?4INI?$AA@",
+          "target": 8239288,
+          "addend": 0,
+          "resolved": 8239288
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4293459337
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_C@_0BG@OKEL@Saving?5game?5settings?6?$AA@",
+          "target": 8292876,
+          "addend": 0,
+          "resolved": 8292876
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293056287
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_C@_09OAAF@GameSpeed?$AA@",
+          "target": 8292800,
+          "addend": 0,
+          "resolved": 8292800
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132979
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "??_C@_0L@IHH@Difficulty?$AA@",
+          "target": 8292772,
+          "addend": 0,
+          "resolved": 8292772
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132953
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "??_C@_0N@NAHG@ScrollMethod?$AA@",
+          "target": 8292736,
+          "addend": 0,
+          "resolved": 8292736
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132927
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "??_C@_0L@BKMH@ScrollRate?$AA@",
+          "target": 8292704,
+          "addend": 0,
+          "resolved": 8292704
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 130,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132901
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "??_C@_0L@NNFH@AutoScroll?$AA@",
+          "target": 8292672,
+          "addend": 0,
+          "resolved": 8292672
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140205
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "??_C@_0M@PNCF@DetailLevel?$AA@",
+          "target": 8187668,
+          "addend": 0,
+          "resolved": 8187668
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132851
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "??_C@_0BB@FMGO@SidebarCameoText?$AA@",
+          "target": 8292588,
+          "addend": 0,
+          "resolved": 8292588
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140155
+        },
+        {
+          "offset": 218,
+          "kind": 6,
+          "symbol": "??_C@_0BA@CDGE@UnitActionLines?$AA@",
+          "target": 8292552,
+          "addend": 0,
+          "resolved": 8292552
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 228,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 233,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140131
+        },
+        {
+          "offset": 241,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 247,
+          "kind": 6,
+          "symbol": "??_C@_0L@FHFF@ShowHidden?$AA@",
+          "target": 8292520,
+          "addend": 0,
+          "resolved": 8292520
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140107
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "??_C@_08FDMF@ToolTips?$AA@",
+          "target": 8292488,
+          "addend": 0,
+          "resolved": 8292488
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 281,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140083
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "??_C@_0M@KHJK@ScreenWidth?$AA@",
+          "target": 8292456,
+          "addend": 0,
+          "resolved": 8292456
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 302,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 307,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132729
+        },
+        {
+          "offset": 318,
+          "kind": 6,
+          "symbol": "??_C@_0N@PIKM@ScreenHeight?$AA@",
+          "target": 8292432,
+          "addend": 0,
+          "resolved": 8292432
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 333,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132703
+        },
+        {
+          "offset": 341,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "??_C@_0O@INAO@StretchMovies?$AA@",
+          "target": 8292392,
+          "addend": 0,
+          "resolved": 8292392
+        },
+        {
+          "offset": 352,
+          "kind": 6,
+          "symbol": "??_C@_05HAHE@Video?$AA@",
+          "target": 8292448,
+          "addend": 0,
+          "resolved": 8292448
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294140007
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "??_C@_0M@EHL@SoundVolume?$AA@",
+          "target": 8292284,
+          "addend": 0,
+          "resolved": 8292284
+        },
+        {
+          "offset": 381,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 386,
+          "kind": 20,
+          "symbol": "?Put_Float@INIClass@@QAE_NPBD0N@Z",
+          "target": 5301568,
+          "addend": 0,
+          "resolved": 4294136330
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "??_C@_0M@HMFN@VoiceVolume?$AA@",
+          "target": 8292264,
+          "addend": 0,
+          "resolved": 8292264
+        },
+        {
+          "offset": 410,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 415,
+          "kind": 20,
+          "symbol": "?Put_Float@INIClass@@QAE_NPBD0N@Z",
+          "target": 5301568,
+          "addend": 0,
+          "resolved": 4294136301
+        },
+        {
+          "offset": 426,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "??_C@_0M@DKIB@ScoreVolume?$AA@",
+          "target": 8292252,
+          "addend": 0,
+          "resolved": 8292252
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 444,
+          "kind": 20,
+          "symbol": "?Put_Float@INIClass@@QAE_NPBD0N@Z",
+          "target": 5301568,
+          "addend": 0,
+          "resolved": 4294136272
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "??_C@_0O@CEPG@IsScoreRepeat?$AA@",
+          "target": 8292236,
+          "addend": 0,
+          "resolved": 8292236
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 468,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294139896
+        },
+        {
+          "offset": 476,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 482,
+          "kind": 6,
+          "symbol": "??_C@_0P@DCKB@IsScoreShuffle?$AA@",
+          "target": 8292220,
+          "addend": 0,
+          "resolved": 8292220
+        },
+        {
+          "offset": 487,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 492,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294139872
+        },
+        {
+          "offset": 505,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 511,
+          "kind": 6,
+          "symbol": "??_C@_0N@LDPM@SoundLatency?$AA@",
+          "target": 8292176,
+          "addend": 0,
+          "resolved": 8292176
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132515
+        },
+        {
+          "offset": 530,
+          "kind": 6,
+          "symbol": "??_C@_0M@KPPM@InGameMusic?$AA@",
+          "target": 8292208,
+          "addend": 0,
+          "resolved": 8292208
+        },
+        {
+          "offset": 535,
+          "kind": 6,
+          "symbol": "??_C@_05BHNM@Audio?$AA@",
+          "target": 8292276,
+          "addend": 0,
+          "resolved": 8292276
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 545,
+          "kind": 20,
+          "symbol": "?Put_Bool@INIClass@@QAE_NPBD0_N@Z",
+          "target": 5305216,
+          "addend": 0,
+          "resolved": 4294139819
+        },
+        {
+          "offset": 558,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 564,
+          "kind": 6,
+          "symbol": "??_C@_06BHPO@Socket?$AA@",
+          "target": 8292124,
+          "addend": 0,
+          "resolved": 8292124
+        },
+        {
+          "offset": 569,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 574,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132462
+        },
+        {
+          "offset": 585,
+          "kind": 6,
+          "symbol": "??_C@_07GNMG@NetCard?$AA@",
+          "target": 8292116,
+          "addend": 0,
+          "resolved": 8292116
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 595,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 600,
+          "kind": 20,
+          "symbol": "?Put_Int@INIClass@@QAE_NPBD0HH@Z",
+          "target": 5297888,
+          "addend": 0,
+          "resolved": 4294132436
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "??_C@_07OPOK@DestNet?$AA@",
+          "target": 8292108,
+          "addend": 0,
+          "resolved": 8292108
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 619,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 624,
+          "kind": 20,
+          "symbol": "?Put_String@INIClass@@QAE_NPBD00@Z",
+          "target": 5301744,
+          "addend": 0,
+          "resolved": 4294136268
+        },
+        {
+          "offset": 643,
+          "kind": 6,
+          "symbol": "??_C@_1M@LKON@?$AA?$CF?$AAd?$AA?5?$AA?$CF?$AAd?$AA?$AA@",
+          "target": 8292864,
+          "addend": 0,
+          "resolved": 8292864
+        },
+        {
+          "offset": 649,
+          "kind": 20,
+          "symbol": "_swprintf",
+          "target": 7878500,
+          "addend": 0,
+          "resolved": 1745703
+        },
+        {
+          "offset": 701,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "??_C@_05COPE@NetID?$AA@",
+          "target": 8292200,
+          "addend": 0,
+          "resolved": 8292200
+        },
+        {
+          "offset": 712,
+          "kind": 6,
+          "symbol": "??_C@_07HKHC@Network?$AA@",
+          "target": 8292192,
+          "addend": 0,
+          "resolved": 8292192
+        },
+        {
+          "offset": 717,
+          "kind": 20,
+          "symbol": "?Put_UnicodeString@INIClass@@QAE_NPBD0PBG@Z",
+          "target": 5303536,
+          "addend": 0,
+          "resolved": 4294137967
+        },
+        {
+          "offset": 729,
+          "kind": 6,
+          "symbol": "?ConfigINI@@3VCCINIClass@@A",
+          "target": 8623936,
+          "addend": 0,
+          "resolved": 8623936
+        },
+        {
+          "offset": 734,
+          "kind": 20,
+          "symbol": "?Save@CCINIClass@@QBEHAAVFileClass@@_N@Z",
+          "target": 4626672,
+          "addend": 0,
+          "resolved": 4293461086
+        },
+        {
+          "offset": 741,
+          "kind": 20,
+          "symbol": "?Setup_Dest_Net@OptionsClass@@QAEXXZ",
+          "target": 6132944,
+          "addend": 0,
+          "resolved": 55
+        },
+        {
+          "offset": 753,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 766,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293259102
+        },
+        {
+          "offset": 778,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 783,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4293222029
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6132144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6132944,
+      "method": "005d94d0",
+      "body_bytes": 271,
+      "body_sha256": "64a4c8412029f17f61e3dee336fb6ce4f01dda51875f86d7b6c40568153eae4c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 272,
+      "full_extent_sha256": "6747e2678edd8e61b18fa3e2acbba5bce5d23bba2807ad24e9f5deef09222861",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Setup_Dest_Net@OptionsClass@@QAEXXZ",
+      "symbol_prefix": "?Setup_Dest_Net@OptionsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?Set_Socket@IPXManagerClass@@QAEXG@Z",
+          "target": 5401504,
+          "addend": 0,
+          "resolved": 4294235810
+        },
+        {
+          "offset": 70,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1739517
+        },
+        {
+          "offset": 90,
+          "kind": 6,
+          "symbol": "??_C@_01PJCK@?4?$AA@",
+          "target": 8240708,
+          "addend": 0,
+          "resolved": 8240708
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1743226
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "??_C@_02JDLK@?$CFx?$AA@",
+          "target": 8238260,
+          "addend": 0,
+          "resolved": 8238260
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "_sscanf",
+          "target": 7878448,
+          "addend": 0,
+          "resolved": 1745357
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "??_C@_01PJCK@?4?$AA@",
+          "target": 8240708,
+          "addend": 0,
+          "resolved": 8240708
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "_strtok",
+          "target": 7876290,
+          "addend": 0,
+          "resolved": 1743160
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9068,
+          "resolved": 10745348
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "??0IPXAddressClass@@QAE@QAE0G@Z",
+          "target": 5387328,
+          "addend": 0,
+          "resolved": 4294221440
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9072,
+          "resolved": 10745352
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9076,
+          "resolved": 10745356
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9080,
+          "resolved": 10745360
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6132944,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6133216,
+      "method": "005d95e0",
+      "body_bytes": 369,
+      "body_sha256": "c341f170e1126fb7222f334a740790f865cd35b2ad78b42ec1b28aa133e89fd0",
+      "padding_bytes": 15,
+      "full_extent_bytes": 384,
+      "full_extent_sha256": "ac61feb5df705d40fa598d7a6155a977505bd7ba577127347b62a74f9ef9ac35",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set@OptionsClass@@QAEXXZ",
+      "symbol_prefix": "?Set@OptionsClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1727239
+        },
+        {
+          "offset": 43,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 50,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293057130
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "??_C@_0BC@CPNP@SoundVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292016,
+          "addend": 0,
+          "resolved": 8292016
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293055175
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 110,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1727166
+        },
+        {
+          "offset": 117,
+          "kind": 20,
+          "symbol": "?Set_Speech_Volume@@YIXH@Z",
+          "target": 7429872,
+          "addend": 0,
+          "resolved": 1296535
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 131,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1727145
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?AudioVoiceAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590416,
+          "addend": 0,
+          "resolved": 8590416
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293057036
+        },
+        {
+          "offset": 158,
+          "kind": 6,
+          "symbol": "??_C@_0BC@EMAN@VoiceVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8292036,
+          "addend": 0,
+          "resolved": 8292036
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293055081
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 190,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "__real@4@400d8000000000000000",
+          "target": 8026028,
+          "addend": 0,
+          "resolved": 8026028
+        },
+        {
+          "offset": 204,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1727072
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?AudioScoreAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590420,
+          "addend": 0,
+          "resolved": 8590420
+        },
+        {
+          "offset": 217,
+          "kind": 20,
+          "symbol": "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223104,
+          "addend": 0,
+          "resolved": 4293056963
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "__real@8@4006ff00000000000000",
+          "target": 8007504,
+          "addend": 0,
+          "resolved": 8007504
+        },
+        {
+          "offset": 231,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1727045
+        },
+        {
+          "offset": 237,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 242,
+          "kind": 20,
+          "symbol": "?Set_Volume@ThemeClass@@QAEXH@Z",
+          "target": 7243152,
+          "addend": 0,
+          "resolved": 1109690
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "??_C@_0BC@MLDC@ScoreVolume?5?$DN?5?$CFf?6?$AA@",
+          "target": 8291996,
+          "addend": 0,
+          "resolved": 8291996
+        },
+        {
+          "offset": 261,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293054983
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 16,
+          "resolved": 10706312
+        },
+        {
+          "offset": 282,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 295,
+          "kind": 6,
+          "symbol": "??_C@_0BD@OCJK@ScoreRepeat?5is?5?$CFs?6?$AA@",
+          "target": 8291976,
+          "addend": 0,
+          "resolved": 8291976
+        },
+        {
+          "offset": 300,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293054944
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "??_C@_02HAKO@ON?$AA@",
+          "target": 8265536,
+          "addend": 0,
+          "resolved": 8265536
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "??_C@_03CMJG@OFF?$AA@",
+          "target": 8265532,
+          "addend": 0,
+          "resolved": 8265532
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JBIN@ScoreShuffle?5is?5?$CFs?6?$AA@",
+          "target": 8291956,
+          "addend": 0,
+          "resolved": 8291956
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293054905
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?Set_Cameo_Text@SidebarClass@@QAEX_N@Z",
+          "target": 6797440,
+          "addend": 0,
+          "resolved": 663864
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "?Set_Action_Lines@TechnoClass@@SIX_N@Z",
+          "target": 7174592,
+          "addend": 0,
+          "resolved": 1041007
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6133216,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6133600,
+      "method": "005d9760",
+      "body_bytes": 38,
+      "body_sha256": "9283145d71d508fa0d26be2d2fa8e2e0636ac978be5c984c48e5990152503349",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "6bad4ccb6ed8225ced346704baca01061665cabcbff313aa2aab9edb2aa753be",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+      "symbol_prefix": "?Normalize_Delay@OptionsClass@@QBEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "_?_adjust@?1??Normalize_Delay@OptionsClass@@QBEHH@Z@4PAY07HA",
+          "target": 8291220,
+          "addend": 4294967264,
+          "resolved": 8291188
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6133600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6133648,
+      "method": "005d9790",
+      "body_bytes": 15,
+      "body_sha256": "3c1fd98ecae76369b0b4c8d9e52192c4d84d5c23c4b8cdd6ce93873a77de3f31",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7ebaf96ad218656860790a6d1efb57471b0dcb82acc60e88707b983257367ba3",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Normalize_Volume@OptionsClass@@QBEHH@Z",
+      "symbol_prefix": "?Normalize_Volume@OptionsClass@@QBEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1726836
+        }
+      ],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6133648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6136800,
+      "method": "005da3e0",
+      "body_bytes": 4,
+      "body_sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9caddd791e666b2dbc4e00b8f0188f5c642fe3367388600e0555dd65ab88e390",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Scroll_Method@OptionsClass@@QBEHXZ",
+      "symbol_prefix": "?Get_Scroll_Method@OptionsClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "55b7e3a28a9068d0eb5190de7770264b7454e1d9671b176e24c8b745ed302e28",
+      "source": "rebuild/src/options.cpp",
+      "population": "rebuild-options",
+      "source_order": 6136800,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "id": "rebuild-pipe",
+  "population": {
+    "id": "rebuild-pipe",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "468f59d9b23db597fcd3fa7dbac1f3f967d9a901020f5328c01ae4a756e176e1",
+    "historical_acceptance_sha256": "aa828fc636370d2ea484793b1a33402df02ed82b764b0b6643a2a53668a8b9cc"
+  },
+  "references": {
+    "??_7Pipe@@6B@": 7989792,
+    "??1Pipe@@UAE@XZ": 6351456,
+    "??_GPipe@@UAEPAXI@Z": 4844976,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVPipe@@@8": 8199824,
+    "?End@Pipe@@UAEHXZ": 4639616,
+    "??3@YAXPAX@Z": 7871803,
+    "?Put_To@Pipe@@UAEXPAV1@@Z": 6351520,
+    "?Put@Pipe@@UAEHPBXH@Z": 6351600,
+    "?Flush@Pipe@@UAEHXZ": 6351632
+  },
+  "regions": [
+    {
+      "entry": 6351456,
+      "method": "0060ea60",
+      "body_bytes": 50,
+      "body_sha256": "d5033f419d2aa7411077fdff467d9626eb8dec097b11e8bcd6198c9944d64919",
+      "padding_bytes": 14,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "5ac64b9a7e0c53863bdf0dfb096ae2a46188aa223ff2b1fe02a36b1c7e262114",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1Pipe@@UAE@XZ",
+      "symbol_prefix": "??1Pipe@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7Pipe@@6B@",
+          "target": 7989792,
+          "addend": 0,
+          "resolved": 7989792
+        }
+      ],
+      "source_sha256": "f7cae1e072f34d02bf63b1c3e1097d745e783ba1478c0d1acddfaaefebeac87e",
+      "source": "rebuild/src/pipe.cpp",
+      "population": "rebuild-pipe",
+      "source_order": 6351456,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6351520,
+      "method": "0060eaa0",
+      "body_bytes": 75,
+      "body_sha256": "d74965be89354994b9280c82486dcbf6b0f9e03b79cf32feeb7a3c3dc1848607",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "29add4de0e8b4666e5dee894a75f87d316f3ceaf4668cd82a12c048a7463ce8e",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put_To@Pipe@@UAEXPAV1@@Z",
+      "symbol_prefix": "?Put_To@Pipe@@UAEXPAV1@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f7cae1e072f34d02bf63b1c3e1097d745e783ba1478c0d1acddfaaefebeac87e",
+      "source": "rebuild/src/pipe.cpp",
+      "population": "rebuild-pipe",
+      "source_order": 6351520,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6351600,
+      "method": "0060eaf0",
+      "body_bytes": 32,
+      "body_sha256": "004aa21261dc2ada904e0ed989f64f499a30af5306ccebddbae0d0b4b78c05cd",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "004aa21261dc2ada904e0ed989f64f499a30af5306ccebddbae0d0b4b78c05cd",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Put@Pipe@@UAEHPBXH@Z",
+      "symbol_prefix": "?Put@Pipe@@UAEHPBXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f7cae1e072f34d02bf63b1c3e1097d745e783ba1478c0d1acddfaaefebeac87e",
+      "source": "rebuild/src/pipe.cpp",
+      "population": "rebuild-pipe",
+      "source_order": 6351600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6351632,
+      "method": "0060eb10",
+      "body_bytes": 15,
+      "body_sha256": "a3f87e136e9e8872bb27f32aa2189e9a46493ed7dc719205736ce5f16ac34b11",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0a2a79333005f6fefea86716aae65811482e839455bfd5199d46e448208d08eb",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Flush@Pipe@@UAEHXZ",
+      "symbol_prefix": "?Flush@Pipe@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f7cae1e072f34d02bf63b1c3e1097d745e783ba1478c0d1acddfaaefebeac87e",
+      "source": "rebuild/src/pipe.cpp",
+      "population": "rebuild-pipe",
+      "source_order": 6351632,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

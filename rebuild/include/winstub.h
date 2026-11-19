@@ -1,0 +1,39 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+#pragma once
+
+#include "win.h"
+
+class Surface;
+class PaletteClass;
+
+void Create_Main_Window ( HINSTANCE instance , int command_show , int width , int height);
+
+void Load_Title_Screen(char const * name, Surface * surface, PaletteClass * palette);
+
+void Build_Info(void);
+void Build_Date_String(char * buffer, int buflen);
+char *Build_Number_String(char * buffer, int buflen);
+unsigned int Build_Number(void);
+void IME_Stub1(void); // RA2: an empty stub, at 0x00738100
+char *Build_By_String(char * buffer, int buflen);
+char *Build_By_Initials(char * buffer, int buflen);
+char *Build_Version_String(char * buffer, int buflen);
+
+// Declarations moved from the units that used them (one declaration per name).
+extern wchar_t IMEResultString[256]; // RA2: characters received through WM_IME_CHAR (winstub.cpp)
+extern int IMEComposing; // RA2: as above
+extern wchar_t IMECompositionString[256]; // RA2: as above
+extern int IMECompositionCursorPos; // RA2: as above
+extern int IMECompositionStringLength; // RA2: as above

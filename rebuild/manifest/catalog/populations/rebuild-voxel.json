@@ -1,0 +1,1832 @@
+{
+  "id": "rebuild-voxel",
+  "population": {
+    "id": "rebuild-voxel",
+    "inventory_sha256": "e9c00235705f9e2a7fb6dd1c39aa4da5cdf29f212674c1358c4460dc8d795426",
+    "gaps_sha256": "5b41f040fa1dd8e08b15bb52d3752f2d77d2fd360eb4942204fe2e070790c285",
+    "historical_population_sha256": "8c7c9d19851cdfb1b34641c876c869d44d144c2403c3746c988ec89b261fbaf9",
+    "historical_acceptance_sha256": "d7c669f3fb1bef8a24f616f0e38013717263053fb080797db2358c805e7bf0af"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 11498376,
+    "_ISO_TILE_SIZE": 8055328,
+    "_LEPTONS_PER_PIXEL": 11503104,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 11502896,
+    "_ONE_RAD": 8055336,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 11499816,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 11498384,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 11498344,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 11504120,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 11498392,
+    "_CELL_DIAG_SLOPE_ANGLE": 11499424,
+    "_BRIDGE_LEPTON_HEIGHT": 11503096,
+    "_CELL_NONE": 11498368,
+    "_COORD_NONE": 11499408,
+    "_RECT_NONE": 11498352,
+    "?ScreenSlopeQuaternions@@3PAVQuaternion@@A": 11499480,
+    "??0Quaternion@@QAE@MMMM@Z": 6431072,
+    "?SlopeQuaternions@@3PAVQuaternion@@A": 11494936,
+    "?IsometricViewMatrix@@3VMatrix3D@@A": 11499432,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?VoxelLightAngle@@3MA": 8624812,
+    "?Rotate_Y@Matrix3D@@QAEXM@Z": 5834880,
+    "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z": 5837696,
+    "?VoxelLightSource@@3VVector3@@A": 8624816,
+    "__real@4@c001c000000000000000": 8055344,
+    "?VoxelShadowLightVector@@3VVector3@@A": 8624736,
+    "?ScreenSlopeMatrices@@3PAVMatrix3D@@A": 11498400,
+    "?SlopeMatrices@@3PAVMatrix3D@@A": 11503112,
+    "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z": 6433472,
+    "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z": 6434480,
+    "?SomeNumbers@@3PAHA": 8363420,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?ExtraLightTiltAngles@@3PAMA": 8363396,
+    "?LightTiltVectors@@3PAVVector3@@A": 11499824,
+    "??0Matrix3D@@QAE@ABVVector3@@M@Z": 5832528,
+    "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
+    "?LightDirectionVectors@@3PAVVector3@@A": 11495272,
+    "__real@4@c000c000000000000000": 8055352,
+    "?Translate@Matrix3D@@QAEXABVVector3@@@Z": 5832944,
+    "?Translate@Matrix3D@@QAEXMMM@Z": 5832848,
+    "__real@4@3fffc000000000000000": 7983336,
+    "?Clear_Voxel_Indexes@ObjectTypeClass@@SIXXZ": 6127344,
+    "?BounceMatrices@@3PAVMatrix3D@@A": 11502904,
+    "_$E2": 7437536,
+    "_$E5": 7437584,
+    "_$E8": 7437616,
+    "_$E11": 7437648,
+    "_$E14": 7437680,
+    "_$E17": 7437712,
+    "_$E20": 7437744,
+    "_$E23": 7437808,
+    "_$E26": 7437856,
+    "_$E29": 7437904,
+    "_$E32": 7437952,
+    "_$E35": 7437968,
+    "_$E38": 7438000,
+    "_$E52": 7438032,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E55": 7438048,
+    "_$E58": 7438064,
+    "_$E61": 7438112,
+    "_$E64": 7438160,
+    "_$E67": 7438176,
+    "_$E70": 7438192,
+    "_$E73": 7438208,
+    "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ": 7438224,
+    "?Set_Voxel_Light_Angle@@YIXM@Z": 7438256,
+    "?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z": 7441728,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z": 7441792,
+    "?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z": 7441904,
+    "?Get_Some_Voxel_Number@@YIHH@Z": 7442032,
+    "?_Direction256@@YIEABVCoord@@0@Z": 7442048,
+    "?Apply_Light_Transform@@YIXAAVMatrix3D@@HH@Z": 7442144,
+    "?Get_Light_Vector@@YI?AVVector3@@W4Dir256@@H@Z": 7442336,
+    "?Clear_Voxel_Indexes@@YIXXZ": 7442432,
+    "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z": 7442448
+  },
+  "regions": [
+    {
+      "entry": 7437536,
+      "method": "00717ce0",
+      "body_bytes": 40,
+      "body_sha256": "ca34eee9313d22d57ff9644a6a36d7ad9e79d28b5960f898bf48d9b68a6c4333",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "84a8d50d6f34a979b28614bfad60899c694b5c73208fd27267a945ad9bd613c5",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 435391
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292486930
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11498376,
+          "addend": 0,
+          "resolved": 11498376
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437584,
+      "method": "00717d10",
+      "body_bytes": 19,
+      "body_sha256": "827823cb9fc26e4ce610cfe0cb913775efdc0664e3b3942cd8b65dffd6dbcb1b",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "90ba11aea6b5597e4b51aebde4d123acdb0699413c5bb8727b3bfdc629989ffa",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11498376,
+          "addend": 0,
+          "resolved": 11498376
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8055328,
+          "addend": 0,
+          "resolved": 8055328
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11503104,
+          "addend": 0,
+          "resolved": 11503104
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437584,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437616,
+      "method": "00717d30",
+      "body_bytes": 19,
+      "body_sha256": "1173450e10752dcb8721fefd22e073401423e404d0daa9ef3d7196e2382c6405",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "9a466ded65eb41ad9191b609a546c588c6ae9eae8c5957ddb33f19dcc551cb26",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 11503104,
+          "addend": 0,
+          "resolved": 11503104
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 11502896,
+          "addend": 0,
+          "resolved": 11502896
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437648,
+      "method": "00717d50",
+      "body_bytes": 19,
+      "body_sha256": "c61244fa328f7f5e2fad84b06570d6a0ae6faf2245d2f14ce23d125eb9d9eb63",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5e954902acd72a6ac4df37282942c83bb9c59779f1e00598295e86e7f669752f",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055336,
+          "addend": 0,
+          "resolved": 8055336
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11499816,
+          "addend": 0,
+          "resolved": 11499816
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437680,
+      "method": "00717d70",
+      "body_bytes": 19,
+      "body_sha256": "add5f495c7b546182d758ecf9010e949f87001a9f3eab2018a4e2502d0aec4bc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "680f36d7efb4def84d3a4aee437d29bf7563f4c6ec4bc0bdf8bd4db1eaaddfc6",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055336,
+          "addend": 0,
+          "resolved": 8055336
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11498384,
+          "addend": 0,
+          "resolved": 11498384
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437712,
+      "method": "00717d90",
+      "body_bytes": 19,
+      "body_sha256": "14f8120dceeae42e611a0b2019da753bbfedf101892f5da9ed61a014ef7490f4",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "72a22dba1bfc2643981b402974f59ce3a570dc4456f1b5d684ad69c188991d3a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8055336,
+          "addend": 0,
+          "resolved": 8055336
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11498344,
+          "addend": 0,
+          "resolved": 11498344
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437744,
+      "method": "00717db0",
+      "body_bytes": 49,
+      "body_sha256": "2701998881b8079d408450a01e14fe7c9bb1301a36edd870abac2745d218dae7",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f11916cffd2bfceeba93eb86540cabe6933ed49468f07008a4e9fa513baf7c77",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 11498344,
+          "addend": 0,
+          "resolved": 11498344
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11498384,
+          "addend": 0,
+          "resolved": 11498384
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4292487001
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11498376,
+          "addend": 0,
+          "resolved": 11498376
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 422709
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11504120,
+          "addend": 0,
+          "resolved": 11504120
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437808,
+      "method": "00717df0",
+      "body_bytes": 33,
+      "body_sha256": "db56c3925eb9a85432570e6718e58dfdee0fb32a2331707bedfce4a81b2e5db2",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d0605d5797ae79bda683ce217efab1617b556a7c268298b7f8aff4360f7d215f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11504120,
+          "addend": 0,
+          "resolved": 11504120
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292487081
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11498392,
+          "addend": 0,
+          "resolved": 11498392
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437856,
+      "method": "00717e20",
+      "body_bytes": 44,
+      "body_sha256": "d7bbf04168cdc72706cea9b652009f63991c74f4346f312dd7d2a3abce345599",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "23b8678b4747cbdedca6650a9cc09a7df566f486cc81831db4a677d05084299a",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11504120,
+          "addend": 0,
+          "resolved": 11504120
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11498376,
+          "addend": 0,
+          "resolved": 11498376
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4292487022
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11499424,
+          "addend": 0,
+          "resolved": 11499424
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437856,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437904,
+      "method": "00717e50",
+      "body_bytes": 39,
+      "body_sha256": "05dabbac2b0203efe04b8e3eed83f43bd238e701a5ea739ef257632bcce99695",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c98dafc04a57d7c35df0706de734bcc152e4c5eeafd4908bbe7a08dcb7110310",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11504120,
+          "addend": 0,
+          "resolved": 11504120
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 422560
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11503096,
+          "addend": 0,
+          "resolved": 11503096
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437952,
+      "method": "00717e80",
+      "body_bytes": 15,
+      "body_sha256": "09940f0b789f82dd7004acd58cb01561bd8d741775a7110f3fe852beebe6c0e3",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "3dc88745efc85ad682fd03c1c662645aa44edeedcb8de89ec933cea3ad047704",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11498368,
+          "addend": 0,
+          "resolved": 11498368
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11498368,
+          "addend": 2,
+          "resolved": 11498370
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437952,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7437968,
+      "method": "00717e90",
+      "body_bytes": 18,
+      "body_sha256": "bf9f42cb9de6bddbc05be8115ef1869cfac7445c4f4ad3af5fac5e00834241de",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "275359b9d072d74f165e0290d9447b3a5870b7187049a0cb54f7be9d7e37e918",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11499408,
+          "addend": 0,
+          "resolved": 11499408
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11499408,
+          "addend": 4,
+          "resolved": 11499412
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11499408,
+          "addend": 8,
+          "resolved": 11499416
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7437968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438000,
+      "method": "00717eb0",
+      "body_bytes": 23,
+      "body_sha256": "aaf0d773a0ae9884cad0546217056412f0202864be33430825ded704d6ff3532",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "be86261f2e117840c83cf75447c192765ff5483ce50f73f9f2fc1e939ad1227a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11498352,
+          "addend": 0,
+          "resolved": 11498352
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11498352,
+          "addend": 4,
+          "resolved": 11498356
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11498352,
+          "addend": 8,
+          "resolved": 11498360
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 11498352,
+          "addend": 12,
+          "resolved": 11498364
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438000,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438032,
+      "method": "00717ed0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E52",
+      "symbol_prefix": "_$E52",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438048,
+      "method": "00717ee0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E55",
+      "symbol_prefix": "_$E55",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438064,
+      "method": "00717ef0",
+      "body_bytes": 39,
+      "body_sha256": "93ca0079653c64cceb43144e8b9df356b7d70ac684c41c65d6a75835d9491569",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ab07951f42fe03a012a3dca11cd8ca66a4956b3f6d0393f1cc740388c35201de",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E58",
+      "symbol_prefix": "_$E58",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 0,
+          "resolved": 11499480
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0Quaternion@@QAE@MMMM@Z",
+          "target": 6431072,
+          "addend": 0,
+          "resolved": 4293960274
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438112,
+      "method": "00717f20",
+      "body_bytes": 39,
+      "body_sha256": "e7d6a00b5bc94844f7aae2d73016968d9edd7389c00da87439a677036a6caea6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "43d680e5a24b05f60528f81e1243cffa010c8a9f44311eb2b8d1a0a2f118efc3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E61",
+      "symbol_prefix": "_$E61",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 0,
+          "resolved": 11494936
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0Quaternion@@QAE@MMMM@Z",
+          "target": 6431072,
+          "addend": 0,
+          "resolved": 4293960226
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438112,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438160,
+      "method": "00717f50",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E64",
+      "symbol_prefix": "_$E64",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438160,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438176,
+      "method": "00717f60",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E67",
+      "symbol_prefix": "_$E67",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438192,
+      "method": "00717f70",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E70",
+      "symbol_prefix": "_$E70",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438208,
+      "method": "00717f80",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E73",
+      "symbol_prefix": "_$E73",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438224,
+      "method": "00717f90",
+      "body_bytes": 21,
+      "body_sha256": "ff96c1420c1a022a5065f269c3f3e0a04885d00c8692a4187c9264152c0636d0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "dba6f2072bf0eff5e2e6917971aa27c6f31faed0cfc041d6ec999bcf97120850",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ",
+      "symbol_prefix": "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?IsometricViewMatrix@@3VMatrix3D@@A",
+          "target": 11499432,
+          "addend": 0,
+          "resolved": 11499432
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438256,
+      "method": "00717fb0",
+      "body_bytes": 167,
+      "body_sha256": "65a083e7df1dad966f03738cd71a6a79bfd9a090ad5f1aa5b7a201480d3ace61",
+      "padding_bytes": 9,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "75069e55081929ab24eeaf94860393be0bff84984498a039107e53e5c083ef43",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Voxel_Light_Angle@@YIXM@Z",
+      "symbol_prefix": "?Set_Voxel_Light_Angle@@YIXM@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293361828
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?VoxelLightAngle@@3MA",
+          "target": 8624812,
+          "addend": 0,
+          "resolved": 8624812
+        },
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?Rotate_Y@Matrix3D@@QAEXM@Z",
+          "target": 5834880,
+          "addend": 0,
+          "resolved": 4293363887
+        },
+        {
+          "offset": 71,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293366661
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?VoxelLightSource@@3VVector3@@A",
+          "target": 8624816,
+          "addend": 0,
+          "resolved": 8624816
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?VoxelLightSource@@3VVector3@@A",
+          "target": 8624816,
+          "addend": 0,
+          "resolved": 8624816
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "__real@4@c001c000000000000000",
+          "target": 8055344,
+          "addend": 0,
+          "resolved": 8055344
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "?VoxelLightSource@@3VVector3@@A",
+          "target": 8624816,
+          "addend": 4,
+          "resolved": 8624820
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?VoxelLightSource@@3VVector3@@A",
+          "target": 8624816,
+          "addend": 8,
+          "resolved": 8624824
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?VoxelShadowLightVector@@3VVector3@@A",
+          "target": 8624736,
+          "addend": 4,
+          "resolved": 8624740
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?VoxelShadowLightVector@@3VVector3@@A",
+          "target": 8624736,
+          "addend": 8,
+          "resolved": 8624744
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "?VoxelShadowLightVector@@3VVector3@@A",
+          "target": 8624736,
+          "addend": 0,
+          "resolved": 8624736
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7441728,
+      "method": "00718d40",
+      "body_bytes": 26,
+      "body_sha256": "f15c28bd5588c83fdb2185639a7139a0083aed073333ac9a580c03c7ba4580dc",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "750b7d18e8aefcd2e74faef31a0832035176003a9adc0052d6b13d02e9112681",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z",
+      "symbol_prefix": "?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 0,
+          "resolved": 11498400
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7441728,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7441760,
+      "method": "00718d60",
+      "body_bytes": 28,
+      "body_sha256": "84884c2bc27bf4c86ace06a2246317f1eb628f3ef9ec37b1c98f554c09d4bee1",
+      "padding_bytes": 4,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a681373da53314eaaf38e5dcf7be7a88f8958df25e8fee94d2d8b79ebbe03fc8",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+      "symbol_prefix": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 0,
+          "resolved": 11503112
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7441760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7441792,
+      "method": "00718d80",
+      "body_bytes": 111,
+      "body_sha256": "965826cb72ec286996421944cc93db428b0800b8e537728c6d3d230040e403a4",
+      "padding_bytes": 1,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "29813491b860f640a850203f4a2ba6d0f418a31c4b5d203aedff551e64527905",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z",
+      "symbol_prefix": "?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 0,
+          "resolved": 11498400
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 0,
+          "resolved": 11499480
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 0,
+          "resolved": 11499480
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+          "target": 6433472,
+          "addend": 0,
+          "resolved": 4293958897
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+          "target": 6434480,
+          "addend": 0,
+          "resolved": 4293959894
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7441792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7441904,
+      "method": "00718df0",
+      "body_bytes": 116,
+      "body_sha256": "729833b0d4898394cfdc5ea53d3f05f794ddaf570da51b6da57cf196996e791d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "3b592296210033a910e87beb984bcf043a4b6281005ed880c9fdb2ad16a285a3",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z",
+      "symbol_prefix": "?Get_Slope_Transition_Matrix@@YI?AVMatrix3D@@HHN@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 0,
+          "resolved": 11494936
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 0,
+          "resolved": 11494936
+        },
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z",
+          "target": 6433472,
+          "addend": 0,
+          "resolved": 4293958813
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z",
+          "target": 6434480,
+          "addend": 0,
+          "resolved": 4293959810
+        },
+        {
+          "offset": 97,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 0,
+          "resolved": 11503112
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7441904,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442032,
+      "method": "00718e70",
+      "body_bytes": 8,
+      "body_sha256": "399f8b04470ba9764950bbec35a73ee24c7eb133bb67e21ce5ad2b2b5f8b895f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "206af3db14fe9631a64204e53c4c653758c15b37edd78ed07bd3073a71ce167f",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Some_Voxel_Number@@YIHH@Z",
+      "symbol_prefix": "?Get_Some_Voxel_Number@@YIHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SomeNumbers@@3PAHA",
+          "target": 8363420,
+          "addend": 0,
+          "resolved": 8363420
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442048,
+      "method": "00718e80",
+      "body_bytes": 87,
+      "body_sha256": "011fd4b47a485af456a13851a7f0460ea78ef6c9f560713057c21164c4832987",
+      "padding_bytes": 9,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "bef879b8f857b0e3218e415c5c094e72f281424b04e6daf828741d2a29165aab",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?_Direction256@@YIEABVCoord@@0@Z",
+      "symbol_prefix": "?_Direction256@@YIEABVCoord@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4292482897
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 418384
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442144,
+      "method": "00718ee0",
+      "body_bytes": 180,
+      "body_sha256": "036165653ca0dc725c4f9f20d11df8fa8073bdcd85aa1785052e7ec5514537f0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "127f4ac0cc18d4cf3e3044ac15d53083d4f77f3506683116695fe9ad515155f0",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Apply_Light_Transform@@YIXAAVMatrix3D@@HH@Z",
+      "symbol_prefix": "?Apply_Light_Transform@@YIXAAVMatrix3D@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?ExtraLightTiltAngles@@3PAMA",
+          "target": 8363396,
+          "addend": 0,
+          "resolved": 8363396
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?LightTiltVectors@@3PAVVector3@@A",
+          "target": 11499824,
+          "addend": 0,
+          "resolved": 11499824
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293357637
+        },
+        {
+          "offset": 55,
+          "kind": 20,
+          "symbol": "??D@YI?AVMatrix3D@@ABV0@0@Z",
+          "target": 5837184,
+          "addend": 0,
+          "resolved": 4293362277
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 0,
+          "resolved": 11495272
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "__real@4@c000c000000000000000",
+          "target": 8055352,
+          "addend": 0,
+          "resolved": 8055352
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 4,
+          "resolved": 11495276
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "__real@4@c000c000000000000000",
+          "target": 8055352,
+          "addend": 0,
+          "resolved": 8055352
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 8,
+          "resolved": 11495280
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "__real@4@c000c000000000000000",
+          "target": 8055352,
+          "addend": 0,
+          "resolved": 8055352
+        },
+        {
+          "offset": 150,
+          "kind": 20,
+          "symbol": "?Translate@Matrix3D@@QAEXABVVector3@@@Z",
+          "target": 5832944,
+          "addend": 0,
+          "resolved": 4293357942
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "?Translate@Matrix3D@@QAEXMMM@Z",
+          "target": 5832848,
+          "addend": 0,
+          "resolved": 4293357830
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442336,
+      "method": "00718fa0",
+      "body_bytes": 86,
+      "body_sha256": "3be7a7172f569c47ef30d20b1783018e85f8310a1ea8eb96b22a5a7c96af93f7",
+      "padding_bytes": 10,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "1f789b40afbaa80e47d95ae5484013b706552ae4cb9400b2033196d0a21303d6",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Light_Vector@@YI?AVVector3@@W4Dir256@@H@Z",
+      "symbol_prefix": "?Get_Light_Vector@@YI?AVVector3@@W4Dir256@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 0,
+          "resolved": 11495272
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "__real@4@3fffc000000000000000",
+          "target": 7983336,
+          "addend": 0,
+          "resolved": 7983336
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 0,
+          "resolved": 11495272
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "__real@4@3fffc000000000000000",
+          "target": 7983336,
+          "addend": 0,
+          "resolved": 7983336
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "__real@4@3fffc000000000000000",
+          "target": 7983336,
+          "addend": 0,
+          "resolved": 7983336
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442432,
+      "method": "00719000",
+      "body_bytes": 5,
+      "body_sha256": "7ed489959fe7a749e8d8cdded384edd39b2767343a3ef7129a53907b3af8aba8",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0681408d54d75c21d78432a0ddf6881c9d1eb2c5c1e5f0f4f07a00d835641e19",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear_Voxel_Indexes@@YIXXZ",
+      "symbol_prefix": "?Clear_Voxel_Indexes@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Clear_Voxel_Indexes@ObjectTypeClass@@SIXXZ",
+          "target": 6127344,
+          "addend": 0,
+          "resolved": 4293652203
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7442448,
+      "method": "00719010",
+      "body_bytes": 36,
+      "body_sha256": "48632042f6405515803d44a616dd96b8b4c2e986318d567a1ca8c181a1613b8d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "171a6062b32a0b955dc1c1bf17cc3dc92d6a022562861ce16c965a1e58461f22",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z",
+      "symbol_prefix": "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 0,
+          "resolved": 11502904
+        }
+      ],
+      "source_sha256": "8930b7112faac801f9faf3793bb53bdd492af65686357d178adca84a2b27b8a5",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7442448,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

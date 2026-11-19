@@ -160,7 +160,7 @@ def data_bound_by_lines(catalog):
     elimination"): symbols each source declares (row field data_bound_by), and the bytes of the
     proven module-map sections that hold a layout-bound symbol. Elimination earns nothing."""
     import json
-    kinds = {'layout': set(), 'elimination': set()}
+    kinds = {'layout': set(), 'elimination': set(), 'unplaced-unreferenced': set()}
     sources = set()
     for row in catalog['regions']:
         for name, kind in (row.get('data_bound_by') or {}).items():
@@ -173,7 +173,11 @@ def data_bound_by_lines(catalog):
             'is a hypothesis) | {:,} symbols in {:,} source(s); {:,} bytes in the proven sections that hold them |'
             .format(len(kinds['layout']), len({s for s, _ in kinds['layout']}), layout_bytes),
             '| Data bound by bss elimination (flag data_bound_by: elimination; earns nothing by itself) '
-            '| {:,} symbols in {:,} source(s) |'.format(len(kinds['elimination']), len({s for s, _ in kinds['elimination']}))]
+            '| {:,} symbols in {:,} source(s) |'.format(len(kinds['elimination']), len({s for s, _ in kinds['elimination']}))] + (
+        ['| Unplaced unreferenced zero-initialised objects (flag data_bound_by: unplaced-unreferenced; no address, '
+         'earns nothing) | {:,} symbols in {:,} source(s) |'.format(len(kinds['unplaced-unreferenced']),
+                                                                    len({s for s, _ in kinds['unplaced-unreferenced']}))]
+        if kinds['unplaced-unreferenced'] else [])
 
 
 DECLARATIONS_ONLY_DEFINE = re.compile(rb'^[ \t]*#[ \t]*define[ \t]+VECTOR_DECLARATIONS_ONLY\b', re.M)
@@ -595,6 +599,37 @@ def structure_lines(result):
     ]
 
 
+def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
+    """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added.
+    The rebuild's numbers are the last gated-landing row of rebuild/manifest/progress.csv."""
+    import csv
+    path = Path(repository) / 'rebuild/manifest/progress.csv'
+    if not path.exists():
+        return []
+    rows = [r for r in csv.DictReader(path.open()) if r.get('tree') in ('rebuild-trial', 'main')]
+    if not rows:
+        return []
+    r = rows[-1]
+    return ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
+            '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
+            '| --- | ---: | ---: |',
+            '| Reproduced .text | {:.2f}% | {} |'.format(100.0 * reproduced / text, r['reproduced_text']),
+            '| C/C++ built from source | {:.2f}% of .text | {} of .text |'.format(100.0 * body / text,
+                                                                               r['source_share_of_text']),
+            '| Accepted | {:,} regions | {:,} functions in {:,} units |'.format(regions, int(r['functions_exact']),
+                                                                         int(r['units'])),
+            '| Rebuild provenance (rebuild/README.md) | | adopted {:,} fn / {:,} B; reshaped from src/ {:,} / {:,} B; '
+            'fresh {:,} / {:,} B; Windows workers {:,} / {:,} B |'.format(
+                int(r['a_functions']), int(r['a_bytes']), int(r['b_functions']), int(r['b_bytes']),
+                int(r['c_functions']), int(r['c_bytes']), int(r['workers_functions']), int(r['workers_bytes'])),
+            '| Rebuild structure | | duplicates {}, externs {} landed / {} all, address-suffixed {}; parked {:,} functions '
+            '/ {:,} B (>=1 KB: {} / {:,} B); judgment {} rows / {:,} B; count-sensitive {} rows / {:,} B |'.format(
+                r['duplicates'], r['externs_landed'], r['externs_all'], r['address_suffixed'], int(r['parked_functions']),
+                int(r['parked_bytes']), r['parked_large_functions'], int(r['parked_large_bytes']), r['judgment_rows'],
+                int(r['judgment_bytes']), r['count_sensitive_rows'], int(r['count_sensitive_bytes'])),
+            '']
+
+
 def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0), structure=None):
     now = coverage(catalog)
     modules = module_form(catalog=catalog)
@@ -606,7 +641,7 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
     lib_bytes = lib['bytes'] if lib else 0
     asm_bytes = asm['bytes'] if asm else 0
     reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
-    lines = [BEGIN, '',
+    lines = [BEGIN, ''] + rebuild_lines(text, reproduced, now['body'], now['regions']) + [
              '| Measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '

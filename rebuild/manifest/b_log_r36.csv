@@ -1,0 +1,44 @@
+unit,entry,function,bytes,class,first_try,minutes,note
+wonline,0075d210,CNetUtilEventSink::OnWDTState exact,231,a,yes,6,"in-class (TibSun order); ra2-decomp twin's flow with WDTState::Create and worlddom's WDT_Store_Current/Previous (declared in worlddom.h; worlddom.h included after wonline.h as TibSun does)"
+wonline,0075d300,CNetUtilEventSink::OnGameresSent exact,48,b,yes,3,"main's text; internet.h included for Send_Statistics_Packet (TibSun includes stats.h there)"
+wonline,0075d330,CNetUtilEventSink::OnLadderList exact,2195,b,edit,12,"TibSun shape with main's RA2 body (wide cells, profile update); ladder columns g_Col_Rung..g_Col_Disconnects defined (TibSun names); learned the Dictionary<Wstring,Ladder> remove/expand copies (0x767160, 0x7674B0 exact)"
+wonline,0075dbd0,CNetUtilEventSink::OnNewNick exact,732,a,edit,6,"main's text; the locale read into a local first as ra2-decomp's twin has it (int locale = profile->Locale)"
+wonline,0075deb0,CNetUtilEventSink::OnAgeCheck exact,121,c,yes,1,"TibSun text with Close_Wait_Window(0x100)"
+wonline,0075df30,CNetUtilEventSink::OnPing exact,208,a,yes,4,"ra2-decomp twin with Is_Tournament_Session and the match ping report"
+wonline,(header),wolapi.h IChatEvent RA2 slots,0,c,edit,10,"OnBuddyList..OnSetLocalIP (vtable 0x7AF77C slots 37-47) from Renegade's WOLAPI.h; 13 includers rechecked (affected.py), none lost"
+wonline,(header),chatdefs.h downloaddefs.h adopted,0,c,yes,3,"TibSun code/wolapi (macros only); included before wolapi.h as TibSun does; wonline's local CHAT_E_ constants dropped"
+wonline,0075ea50,CChatEventSink::OnUpdateList exact,681,b,yes,8,"main's text in TibSun's in-class names"
+wonline,0075ed00,CChatEventSink::OnSquadInfo exact,425,b,yes,4,"main's text"
+wonline,0075eeb0,CChatEventSink::OnLogout exact,22,c,yes,1,"TibSun"
+wonline,0075eed0,CChatEventSink::OnServerError exact,87,b,yes,1,"main's text"
+wonline,0075ef30,CChatEventSink::OnConnection exact,861,b,yes,10,"main's case order; icons_loaded the function static (TibSun); g_ListIconHeight = 14 defined (TibSun)"
+wonline,0075f290,CChatEventSink::OnMessageOfTheDay exact,145,b,yes,1,
+wonline,0075f330,CChatEventSink::OnChannelCreate exact,501,b,yes,3,
+wonline,00760bd0,CChatEventSink::OnChannelLeave exact,40,b,yes,1,
+wonline,007626b0,CChatEventSink::OnPublicUnicodeMessage exact,213,b,yes,2,"Is_Text_Shown"
+wonline,007628d0,CChatEventSink::OnPrivateUnicodeMessage exact,213,b,yes,1,
+wonline,007629b0,CChatEventSink::OnPaged exact,623,a,yes,6,"main's text = ra2-decomp twin; Show_Name (ra2-decomp helper) moved above the classes"
+wonline,00762c20,CChatEventSink::OnPagedUnicode exact,476,b,yes,2,
+wonline,00762e00,CChatEventSink::OnPageSend exact,365,b,yes,2,
+wonline,00763ab0,CChatEventSink::OnSystemMessage exact,47,c,yes,2,"TibSun with L\">>> %hs\""
+wonline,00763ae0,CChatEventSink::OnNetStatus exact,413,b,yes,3,"g_LastIgnoredStatus defined above the classes"
+wonline,00764440,CChatEventSink::OnPrivateUnicodeAction exact,190,b,edit,3,"block-scoped WideWstring for the visibility test (main's form)"
+wonline,007645e0,CChatEventSink::OnPublicUnicodeAction exact,190,b,edit,1,
+wonline,007646a0,CChatEventSink::OnChannelTopic/OnUserIP/OnBuddyAdd/OnBuddyDelete/OnServerTime/OnInsiderStatus/OnSetLocalIP exact,35,c,yes,2,"empty in-class bodies (rows 0x7646A0 0x7646B0 0x765930 0x765940 0x765950 0x765960 0x765970)"
+wonline,00762590,OnPublicMessage OnPrivateMessage OnPrivateAction OnPublicAction parked,1031,b,edit,15,"exact only when Is_User_Message_Shown takes the text as a Wstring const & (unused), which flips Draw_Player_List (count-sensitive; probes +1..+16 off); guarded drafts 265/295/210/209 bytes differ"
+wonline,0073fee0,Draw_Player_List kept exact,0,,edit,5,"the two new prototypes (WOL_Download_Dialog_Proc, Find_Local_Address) declared just above the sink classes; at the top of the file they flip it (calibration used)"
+wonline,0073fee0,Draw_Player_List parked count-sensitive,5132,,edit,10,"owner ruling: the sink prototypes go to the file's prototype block; the row flips there (+1..+24 probes off) and is guarded exact form, count-sensitive with its windows in units.json"
+wonline,007646c0,CChatEventSink::OnServerBannedYou exact,108,b,yes,1,
+wonline,00764730,CChatEventSink::OnChannelBan exact,118,b,yes,1,
+wonline,007647b0,CChatEventSink::OnUserFlags exact,846,c,edit,6,"TibSun's loop; RA2 removes the user and inserts it again in sorted order (Compare_Users), the entry copied with next cleared (main's form)"
+wonline,00764b00,CChatEventSink::OnUserKick exact,611,b,yes,4,"_kickmessage the function static (TibSun)"
+wonline,00764d70,CChatEventSink::OnUserLocale exact,527,c,yes,3,"TibSun with RA2's profile locale update; learned Dictionary<Wstring,int> remove/expand/keyHash copies (0x7675E0 0x767900 0x7679A0)"
+wonline,00764f80,CChatEventSink::OnSetLocale exact,586,b,yes,2,
+wonline,007651d0,CChatEventSink::OnUserTeam exact,607,c,yes,1,
+wonline,00765430,CChatEventSink::OnSetTeam exact,633,b,yes,1,
+wonline,007656b0,CChatEventSink::OnBuddyList exact,637,b,yes,3,"Add_Buddy expanded per buddy, Close_Wait_Window(0x200)"
+wonline,00761570,CChatEventSink::OnGameStart exact,796,b,edit,5,
+wonline,007668d0,CDownloadEventSink OnEnd OnError OnProgressUpdate OnStatusUpdate OnQueryResume exact,444,c,yes,5,"TibSun class text, wide strings as RA2; prev_stat the function static"
+wonline,00760c00,CChatEventSink::OnUserList parked,2402,b,edit,15,"30 bytes differ: the Session.Players.Add register order (open family) and the expanded Player_Name_To_Index address order"
+wonline,00762f70,CChatEventSink::OnFind parked,2867,b,edit,10,"original calls keyHash 0x767CD0 and shrinkVector 0x767B20 out of line where this build expands them (inline budget)"
+(resume),,lane R36 resume note,0,,,0,"Batch 2 gated: wonline 382/432 (whole-file exact). Left: OnServerList, OnChannelList, OnPublicGameOptions, OnPrivateGameOptions (no main rows; ra2-decomp twins), parked OnUserList/OnFind/4 narrow handlers (build/r36/RESUME.md)"

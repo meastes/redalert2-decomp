@@ -1,0 +1,126 @@
+{
+  "id": "rebuild-vqalib-timer",
+  "population": {
+    "id": "rebuild-vqalib-timer",
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "48fef677018dfdca8fabd6df7b7c7e9139182c54b22de0e832d0ab51fcc94462",
+    "historical_acceptance_sha256": "14b6db93a2d4277eefa7e261ea59baf9d397649017cc5640ad7b2bd36e99077f"
+  },
+  "references": {
+    "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z": 7850784,
+    "?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z": 7850848,
+    "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z": 7850864,
+    "?VQA_GetMovieTime@@YIKPAU_VQAHandle@@@Z": 7850912
+  },
+  "regions": [
+    {
+      "entry": 7850784,
+      "method": "0077cb20",
+      "body_bytes": 56,
+      "body_sha256": "2cfb7686c053ac3e50de3e66be6b421cb4015e8d270fcde2f78a7aefdbdb4c1f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "9a009a555b3725242c4c63ea8d28a680b76085468fac6928a69f546a5f801580",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+      "symbol_prefix": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "056155eb1c0d43710987565800d205dc0c8ff20c222e86dca1d4415404c9cf95",
+      "source": "rebuild/src/vqalib_timer.cpp",
+      "population": "rebuild-vqalib-timer",
+      "source_order": 7850784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850848,
+      "method": "0077cb60",
+      "body_bytes": 7,
+      "body_sha256": "2fa018b40f5983a8db549f6772e4bf4ca0d07dac0c0df4dd3393b5b9439b5bdb",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "66c2dfc4c091f6fd6c855b89351be60874f87f3aa019d08ddc2ccb3e7a27d9fc",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z",
+      "symbol_prefix": "?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "056155eb1c0d43710987565800d205dc0c8ff20c222e86dca1d4415404c9cf95",
+      "source": "rebuild/src/vqalib_timer.cpp",
+      "population": "rebuild-vqalib-timer",
+      "source_order": 7850848,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850864,
+      "method": "0077cb70",
+      "body_bytes": 36,
+      "body_sha256": "8aa3881e154c7c6820fb4febe5815602c349d4c38d3ab9bddd7de66b3604bfee",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "34783f8fbe10dab890259bd61e24f8f17f35f2161d2d9bffde6fcf51ff942482",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "056155eb1c0d43710987565800d205dc0c8ff20c222e86dca1d4415404c9cf95",
+      "source": "rebuild/src/vqalib_timer.cpp",
+      "population": "rebuild-vqalib-timer",
+      "source_order": 7850864,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7850912,
+      "method": "0077cba0",
+      "body_bytes": 40,
+      "body_sha256": "a8fc312fd9fe1aaf6ff9569a0119b8db4ce606e6dc9883f9f06be491f73cabca",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "549d0c3f6208396b5b7057c3b5e9bf6012604a6363bae0bbdc7b02d59082e336",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?VQA_GetMovieTime@@YIKPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?VQA_GetMovieTime@@YIKPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "056155eb1c0d43710987565800d205dc0c8ff20c222e86dca1d4415404c9cf95",
+      "source": "rebuild/src/vqalib_timer.cpp",
+      "population": "rebuild-vqalib-timer",
+      "source_order": 7850912,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

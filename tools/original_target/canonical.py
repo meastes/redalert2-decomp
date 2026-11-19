@@ -3,6 +3,7 @@
 Historical manifests remain evidence only. Runtime inputs are the catalog, its
 tracked sources, pinned private boundary inventories, and the supplied executable.
 """
+import tree
 import hashlib
 import json
 import re
@@ -21,7 +22,9 @@ from verify_manifest import Audit, require, TARGET_BYTES, TARGET_SHA256
 # RTTI structure it emits is bound to the original's copy by the strict audit.
 RECORDED_OPTIONS = [['/O2', '/Ob2', '/G5', '/Gy'], ['/O2', '/Ob2', '/G6', '/Gy'],
                     ['/O1', '/Ob2', '/G5', '/Gy'], ['/O2', '/Ob2', '/G5', '/Gy', '/Gr'],
-                    ['/O2', '/Ob1', '/G5', '/Gy'], ['/O2', '/Ob2', '/G5', '/Gy', '/GR']]
+                    ['/O2', '/Ob1', '/G5', '/Gy'], ['/O2', '/Ob2', '/G5', '/Gy', '/GR'],
+                    # Rebuild tree (lane R): __fastcall default with RTTI, mischa85's measured flag set
+                    ['/O2', '/Ob2', '/G5', '/Gy', '/Gr', '/GR']]
 BASE_COMPILER_ARGUMENTS = ['/nologo', '/c', '/TP', '/Zp4', '/GX-', '/GR-', '/W3']
 
 
@@ -29,9 +32,14 @@ def compiler_arguments(options):
     """Base compiler arguments followed by an option set. An option set
     naming /GR replaces the base /GR- in place (never both on one line)."""
     options = list(options)
+    # Rebuild tree (tree.py): structure packing at the compiler's default (/Zp8), as the class
+    # headers it adopts were matched with; main's tree keeps /Zp4.
+    # It also defines NDEBUG and WIN32, the release settings of the original project (assert off).
+    base = [a for a in BASE_COMPILER_ARGUMENTS if not (tree.REBUILD and a == '/Zp4')]
+    base += ['/DNDEBUG', '/DWIN32'] if tree.REBUILD else []
     if '/GR' in options:
-        return ['/GR' if a == '/GR-' else a for a in BASE_COMPILER_ARGUMENTS] + [o for o in options if o != '/GR']
-    return BASE_COMPILER_ARGUMENTS + options
+        return ['/GR' if a == '/GR-' else a for a in base] + [o for o in options if o != '/GR']
+    return base + options
 
 
 def sha(data):
@@ -47,17 +55,17 @@ def validate_headers(repository, catalog, read=None):
         path = Path(value)
         require(not path.is_absolute() and path.as_posix() == value and '..' not in path.parts,
                 'Noncanonical header path')
-        require(path.parts[:2] == ('src', 'shared') and path.suffix in ('.h', '.hpp'),
+        require(path.parts[:2] == tuple(tree.HEADERS.split('/')) and path.suffix in tree.HEADER_SUFFIXES,
                 'Header outside canonical shared tree')
         resolved = (repository / path).resolve()
-        require(resolved.is_relative_to((repository / 'src/shared').resolve()), 'Header escapes tree')
+        require(resolved.is_relative_to((repository / tree.HEADERS).resolve()), 'Header escapes tree')
         require(value not in paths, 'Duplicate canonical header')
         data = read[resolved] = resolved.read_bytes()
         require(sha(data) == header['sha256'], 'Header hash drift')
         paths.add(value)
-        blobs[path.relative_to('src').as_posix()] = data
-    actual = {p.relative_to(repository).as_posix() for p in (repository/'src/shared').rglob('*')
-              if p.is_file() and p.suffix in ('.h', '.hpp')}
+        blobs[path.relative_to(tree.INCLUDE_ROOT).as_posix()] = data
+    actual = {p.relative_to(repository).as_posix() for p in (repository/tree.HEADERS).rglob('*')
+              if p.is_file() and p.suffix in tree.HEADER_SUFFIXES}
     require(paths == actual, 'Uncatalogued/missing shared header')
     return blobs
 
@@ -403,7 +411,7 @@ def references_container_member(row):
 # layout / bss by elimination"): `data_bound_by` {symbol: "layout" | "elimination"} with a
 # non-empty `data_bound_by_note` (the split into declarations is a hypothesis), the same on
 # every row of the source; the strict audit (data_bindings.py) checks the conditions.
-DATA_BOUND_BY_KEYS = ('data_bound_by', 'data_bound_by_note')
+DATA_BOUND_BY_KEYS = ('data_bound_by', 'data_bound_by_note', 'data_bound_by_rows', 'data_pending', 'data_bound_by_group')
 
 
 def validate_data_bound_by(row, source_rows):
@@ -414,10 +422,16 @@ def validate_data_bound_by(row, source_rows):
         return
     try:
         data_bindings.declared([row])
+        data_bindings.pending([row])
+        data_bindings.groups([row])
     except data_bindings.BindingRefused as error:
         raise ValueError('%s: %08x' % (error, row['entry']))
-    require(all(r.get('data_bound_by') == row['data_bound_by'] and
-                r.get('data_bound_by_note') == row['data_bound_by_note'] for r in source_rows),
+    require(all(r.get('data_pending') == row.get('data_pending') for r in source_rows),
+            'data_pending differs between rows of one source: %08x' % row['entry'])
+    require(all(r.get('data_bound_by') == row.get('data_bound_by') and
+                r.get('data_bound_by_note') == row.get('data_bound_by_note') and
+                r.get('data_bound_by_rows') == row.get('data_bound_by_rows') and
+                r.get('data_bound_by_group') == row.get('data_bound_by_group') for r in source_rows),
             'data_bound_by differs between rows of one source: %08x' % row['entry'])
 
 
@@ -454,6 +468,41 @@ SDK_WRAPPERS = {
     'shared/sdk_prelude.hpp': 'flat prelude for the first landing: rect.h:40, fastmath.h:16, sun.h:19, irtti.h, win.h, vector.h:55-57',
 }
 TOOLCHAIN_MANIFEST = Path(__file__).resolve().parents[2] / 'manifests/toolchain.json'
+
+
+# The pinned ATL 3.0 header tree (manifests/toolchain.json "atl_headers"; docs/DECISIONS.md row 22,
+# compiler-product headers): rebuild tree only. Its angle includes are allowed only in these wrapper
+# headers, and a unit that includes a wrapper (directly, by a quoted include) also searches the ATL
+# tree after the SDK set.
+ATL_WRAPPERS = {
+    'atl.h': 'wonline.cpp\'s <atlbase.h>, extern CComModule _Module, <atlcom.h> (TibSun code/wonline.cpp:66-68, mischa85 src/wonline.cpp:48-50)',
+}
+
+
+def atl_pin(manifest=None):
+    """The pinned ATL header set {path: sha256}, validated against its tree digest."""
+    path = Path(manifest or TOOLCHAIN_MANIFEST)
+    key = ('atl', str(path), path.stat().st_mtime_ns)
+    if key not in _SDK_PIN_CACHE:
+        pin = json.loads(path.read_text()).get('atl_headers')
+        require(isinstance(pin, dict) and isinstance(pin.get('files'), dict) and pin['files'],
+                'No pinned ATL header set (manifests/toolchain.json atl_headers)')
+        require(sdk_tree_digest(pin['files']) == pin.get('tree_sha256'), 'ATL pin tree digest differs from its files')
+        _SDK_PIN_CACHE[key] = pin['files']
+    return _SDK_PIN_CACHE[key]
+
+
+def atl_pin_record(manifest=None):
+    return json.loads(Path(manifest or TOOLCHAIN_MANIFEST).read_text())['atl_headers']
+
+
+def uses_atl(data):
+    """Whether a rebuild unit text includes an ATL wrapper header (its compile then also searches
+    the pinned ATL tree)."""
+    if not tree.REBUILD:
+        return False
+    text = data.decode('latin-1') if isinstance(data, bytes) else data
+    return any(re.search(r'^[ \t]*#[ \t]*include[ \t]*"%s"' % re.escape(w), text, flags=re.M) for w in ATL_WRAPPERS)
 
 
 def sdk_tree_digest(files):
@@ -498,14 +547,14 @@ def sdk_resolve(name, files):
     return None
 
 
-def verify_sdk_tree(directory, files):
+def verify_sdk_tree(directory, files, record='sdk_headers'):
     """Refuse a local SDK tree whose files differ from the pin (missing, changed
     or extra); return its tree digest."""
     directory = Path(directory)
     require(directory.is_dir(), 'SDK header directory missing: %s' % directory)
     actual = {p.relative_to(directory).as_posix(): sha(p.read_bytes())
               for p in sorted(directory.rglob('*')) if p.is_file()}
-    require(actual == files, 'SDK header tree differs from manifests/toolchain.json sdk_headers')
+    require(actual == files, 'Header tree differs from manifests/toolchain.json %s' % record)
     return sdk_tree_digest(actual)
 
 
@@ -520,7 +569,7 @@ def validate_includes(data, headers, name=None, sdk=None):
     an RA2_SDK_HEADERS block, naming a pinned SDK file (`sdk`, default the pin)."""
     # Apply preprocessing character/line/comment phases before recognizing
     # directives, so comments or continuations cannot hide a dependency.
-    text = data.decode()
+    text = data.decode('latin-1') if tree.REBUILD else data.decode()   # the rebuild keeps OEM-encoded units byte for byte (combuf.cpp's box-drawing literals); directives are ASCII
     for old, new in [] if '??' not in text else [('??=', '#'), ('??/', chr(92)), ('??\'', '^'), ('??(', '['),
                      ('??)', ']'), ('??!', '|'), ('??<', '{'), ('??>', '}'), ('??-', '~')]:
         text = text.replace(old, new)
@@ -549,6 +598,19 @@ def validate_includes(data, headers, name=None, sdk=None):
             switch.pop()
         elif kind.startswith('include'):
             angle = re.fullmatch(r'\s*#\s*include\s*<([^<>"\n]+)>\s*', line)
+            if angle is not None and tree.REBUILD:
+                # Rebuild tree: every unit compiles with the pinned system headers after its own;
+                # an angle include may also name a tracked header (searched first, as /I is).
+                if angle[1].replace('\\', '/') in headers:
+                    includes.add(angle[1].replace('\\', '/'))
+                    continue
+                if name in ATL_WRAPPERS and sdk_resolve(angle[1], atl_pin()) is not None:
+                    continue    # an ATL header, named only by an ATL wrapper (row 22)
+                if switch and sdk_resolve(angle[1], sdk_pin() if sdk is None else sdk) is None:
+                    continue    # inside a conditional block (a configuration the build never selects)
+                require(sdk_resolve(angle[1], sdk_pin() if sdk is None else sdk) is not None,
+                        'SDK include does not resolve to a pinned header: <%s>' % angle[1])
+                continue
             if angle is not None:
                 require(name in SDK_WRAPPERS, 'Angle include outside an SDK wrapper header (canonical.SDK_WRAPPERS)')
                 require(any(switch), 'SDK include outside an #ifdef %s block' % SDK_SWITCH)
@@ -556,8 +618,16 @@ def validate_includes(data, headers, name=None, sdk=None):
                         'SDK include does not resolve to a pinned header: <%s>' % angle[1])
                 continue
             match = re.fullmatch(r'\s*#\s*include\s+"([^"\n]+)"\s*', line)
-            require(match is not None and match[1] in headers, 'Untracked/noncanonical include dependency')
-            includes.add(match[1])
+            spelled = match[1].replace('\\', '/') if match is not None and tree.REBUILD else match and match[1]
+            if match is not None and tree.REBUILD and name and '/' in name and \
+                    name.rpartition('/')[0] + '/' + spelled in headers:
+                spelled = name.rpartition('/')[0] + '/' + spelled     # beside the including header first
+            if match is not None and tree.REBUILD and spelled not in headers and \
+                    sdk_resolve(spelled, sdk_pin() if sdk is None else sdk) is not None:
+                continue    # a quoted include of a pinned system header (found through /I, as VC6 does)
+            require(match is not None and spelled in headers, 'Untracked/noncanonical include dependency' +
+                    (': "%s"' % match[1] if match is not None and tree.REBUILD else ''))
+            includes.add(spelled)
     require(not switch, 'Unbalanced conditional directive')
     return includes
 
@@ -575,7 +645,7 @@ def dependency_headers(audit, sources):
         if name in seen: continue
         seen.add(name)
         pending.update(validate_includes(headers[name], headers, name) - seen)
-    return [dict(path='src/' + name, sha256=sha(headers[name])) for name in sorted(seen)]
+    return [dict(path=tree.INCLUDE_ROOT + '/' + name, sha256=sha(headers[name])) for name in sorted(seen)]
 
 
 def compile_group_key(row, separate_populations):
@@ -618,7 +688,16 @@ def validate_catalog(repository, catalog, modules=True):
         # The switch is per unit (line 1 of a converted unit), never set by a shared header.
         require(re.search(r'^\s*#\s*define\s+%s\b' % SDK_SWITCH, data.decode(errors='replace'), flags=re.M) is None,
                 '%s defined in a shared header' % SDK_SWITCH)
-        require(not inline_asm_blocks(data.decode(errors='replace')), 'Inline assembly (__asm) in a shared header')
+        blocks = inline_asm_blocks(data.decode(errors='replace'))
+        if blocks and tree.REBUILD:
+            # Rebuild tree: a header adopted from the TibSun archive may keep the author's own __asm
+            # when every block is in the archive's same-named file (evidenced inline assembly).
+            archive = repository / TIBSUN_ARCHIVE / Path(name).name
+            evidence = [b for _, b in inline_asm_blocks(archive.read_text(errors='replace'))] if archive.exists() else []
+            require(all(b in evidence for _, b in blocks),
+                    'Inline assembly (__asm) in a shared header not in the TibSun archive: ' + name)
+            continue
+        require(not blocks, 'Inline assembly (__asm) in a shared header')
     ids = [p['id'] for p in catalog['populations']]
     require(len(ids) == len(set(ids)), 'Duplicate populations')
     entries, paths, orders = set(), {}, set()
@@ -683,6 +762,14 @@ def validate_catalog(repository, catalog, modules=True):
     require(bool(entries), 'Empty canonical source catalog')
     # Draft-only files (non_exact.json: a non-exact draft of a unit without a module, guarded by
     # RA2_NON_MATCHING) are the only uncatalogued sources; the exact build never compiles them.
+    if tree.REBUILD:
+        # Rebuild tree: every unit file is catalogued once it holds an exact row; a unit file
+        # still being matched is listed in rebuild/manifest/units.json as pending.
+        pending = rebuild_pending_sources(repository)
+        actual = {p.relative_to(repository).as_posix() for p in (repository/tree.SOURCES).rglob('*')
+                  if p.suffix in tree.SOURCE_SUFFIXES}
+        require(set(paths) | pending == actual, 'Uncatalogued/missing rebuild sources')
+        return read
     import non_exact
     drafts = non_exact.draft_only_sources(repository, catalog)
     require(set(paths) | drafts == {p.relative_to(repository).as_posix() for p in (repository/'src/recovered').rglob('*.cpp')},
@@ -692,6 +779,15 @@ def validate_catalog(repository, catalog, modules=True):
     if modules:
         validate_modules(repository, catalog)
     return read
+
+
+def rebuild_pending_sources(repository):
+    """Rebuild unit files with no catalogued row yet (rebuild/manifest/units.json "pending")."""
+    path = Path(repository) / 'rebuild/manifest/units.json'
+    if not path.exists():
+        return set()
+    units = json.loads(path.read_text())
+    return {u['source'] for u in units.values() if u.get('status') == 'pending'}
 
 
 def validate_modules(repository, catalog):
@@ -911,7 +1007,7 @@ class CanonicalAudit(Audit):
 
 # Audit state that rows add to and that the report or later steps read.
 RECORDED = ('discarded_outputs', 'rtti_original_copies', 'data_original_copies', 'rtti_known_differences',
-            'kept_elsewhere_omitted')
+            'kept_elsewhere_compared', 'kept_elsewhere_omitted')
 _WORKER = None
 
 
@@ -968,7 +1064,7 @@ def _audit_group(task):
     audit, path = _WORKER
     index, start, length, rows = task
     log = []
-    for name in RECORDED[:4]:
+    for name in RECORDED[:5]:
         setattr(audit, name, _Recorder(name, log, audit))
     audit.kept_elsewhere_omitted = _RecordedList('kept_elsewhere_omitted', log, audit)
     if not isinstance(audit.blobs, _LoggedBlobs):

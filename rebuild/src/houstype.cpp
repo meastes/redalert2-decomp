@@ -1,0 +1,557 @@
+/*******************************************************************************
+ *                                O P E N  T S
+ *******************************************************************************
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 OpenTS contributors
+ *
+ * Contains material derived from Electronic Arts source code.
+ * Modified by OpenTS contributors, 2026.
+ * EA's GPLv3 Section 7 additional terms and supplemental warranty
+ * disclaimers apply; see LICENSE.md.
+ ******************************************************************************/
+
+/* $Header: /CounterStrike/HDATA.CPP 1     3/03/97 10:24a Joe_bostic $ */
+/***********************************************************************************************
+ ***              C O N F I D E N T I A L  ---  W E S T W O O D  S T U D I O S               ***
+ ***********************************************************************************************
+ *                                                                                             *
+ *                 Project Name : Command & Conquer                                            *
+ *                                                                                             *
+ *                    File Name : HDATA.CPP                                                    *
+ *                                                                                             *
+ *                   Programmer : Joe L. Bostic                                                *
+ *                                                                                             *
+ *                   Start Date : May 22, 1994                                                 *
+ *                                                                                             *
+ *                  Last Update : September 4, 1996 [JLB]                                      *
+ *                                                                                             *
+ *---------------------------------------------------------------------------------------------*
+ * Functions:                                                                                  *
+ *   HouseTypeClass::As_Reference -- Fetches a reference to the house specified.               *
+ *   HouseTypeClass::From_Name -- Fetch house pointer from its name.                           *
+ *   HouseTypeClass::HouseTypeClass -- Constructor for house type objects.                     *
+ *   HouseTypeClass::Init_Heap -- Allocate all heap objects for the house types.               *
+ *   HouseTypeClass::One_Time -- One-time initialization                                       *
+ *   HouseTypeClass::Read_INI -- Fetch the house control values from ini database.             *
+ *   HouseTypeClass::Remap_Table -- Fetches the remap table for this house.                    *
+ *   HouseTypeClass::operator delete -- Returns a house type object back to the heap.          *
+ *   HouseTypeClass::operator new -- Allocates a house type class object from special heap.    *
+ * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+#define INCLUDE_COM
+#include "always.h"
+#include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
+#include "geometry.h"
+
+#include "houstype.h"
+
+#include "airctype.h" // RA2: Read_INI looks up the veteran lists' types
+#include "ccini.h"
+#include "crc.h"
+#include "findmake.h"
+#include "globals.h"
+#include "infatype.h" // RA2: as above
+#include "side.h"
+#include "sun.h"
+#include "swizzle.h"
+#include "tracker.h"
+#include "unittype.h" // RA2: as above
+#include "vector.h"
+
+/***********************************************************************************************
+ * HouseTypeClass::HouseTypeClass -- Constructor for house type objects.                       *
+ *                                                                                             *
+ *    This is the constructor for house type objects. This object holds the constant data      *
+ *    for the house type.                                                                      *
+ *                                                                                             *
+ * INPUT:   see below...                                                                       *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   06/21/1994 JLB : Created.                                                                 *
+ *=============================================================================================*/
+HouseTypeClass::HouseTypeClass(char const * ininame) :
+	BASECLASS(ininame),
+	House(HOUSE_NONE),
+	HeapID(HOUSE_NONE),
+	Side(SIDE_NONE),
+	FirepowerBias(1.0),
+	GroundspeedBias(1.0),
+	AirspeedBias(1.0),
+	ArmorBias(1.0),
+	ROFBias(1.0),
+	CostBias(1.0),
+	BuildSpeedBias(1.0),
+	ArmorInfantryMult(1.0f), // RA2
+	ArmorUnitsMult(1.0f), // RA2
+	ArmorAircraftMult(1.0f), // RA2
+	ArmorBuildingsMult(1.0f), // RA2
+	ArmorDefensesMult(1.0f), // RA2
+	CostInfantryMult(1.0f), // RA2
+	CostUnitsMult(1.0f), // RA2
+	CostAircraftMult(1.0f), // RA2
+	CostBuildingsMult(1.0f), // RA2
+	CostDefensesMult(1.0f), // RA2
+	SpeedInfantryMult(1.0f), // RA2
+	SpeedUnitsMult(1.0f), // RA2
+	SpeedAircraftMult(1.0f), // RA2
+	BuildtimeInfantryMult(1.0f), // RA2
+	BuildtimeUnitsMult(1.0f), // RA2
+	BuildtimeAircraftMult(1.0f), // RA2
+	BuildtimeBuildingsMult(1.0f), // RA2
+	BuildtimeDefensesMult(1.0f), // RA2
+	IncomeMult(1.0f), // RA2
+	Scheme(0),
+	Prefix('A'),
+	IsMultiplay(false),
+	IsMultiplayPassive(false),
+	IsWallOwner(true),
+	IsSmartAI(false)
+{
+	Create_ID();
+	Suffix[0] = '\0';
+	HouseTypes.Add(this);
+	House = (HousesType)HouseTypes.ID(this);
+	HeapID = (HousesType)HouseTypes.ID(this);
+}
+
+
+/// <summary>
+/// Constructs a house type without initializing it.
+/// This constructor is used by the load process, which fills the object in from the save
+/// stream rather than building it up from scratch.
+/// </summary>
+HouseTypeClass::HouseTypeClass(NoInitClass const & x) :
+	BASECLASS(x), // RA2: the base is still built without initialization
+	ParentCountry(x), // RA2: as above
+	VeteranInfantry(x), // RA2: the three veteran lists are built without initialization too
+	VeteranUnits(x), // RA2: as above
+	VeteranAircraft(x) // RA2: as above
+{
+}
+
+
+
+
+/// <summary>
+/// Removes this house type from the game.
+/// Everything that refers to this house type is detached from it before it is dropped from
+/// the house type heap.
+/// </summary>
+HouseTypeClass::~HouseTypeClass(void)
+{
+	Detach_This_From_All(this, true);
+	HouseTypes.Delete(this);
+}
+
+
+/***********************************************************************************************
+ * HouseTypeClass::From_Name -- Fetch house pointer from its name.                             *
+ *                                                                                             *
+ *    This routine will convert the ASCII house name specified into a                          *
+ *    real house number. Typically, this is used when processing a                             *
+ *    scenario INI file.                                                                       *
+ *                                                                                             *
+ * INPUT:   name  -- ASCII name of house to process.                                           *
+ *                                                                                             *
+ * OUTPUT:  Returns with actual house number represented by the ASCII                          *
+ *          name specified.                                                                    *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   10/07/1992 JLB : Created.                                                                 *
+ *   05/21/1994 JLB : Converted to member function.                                            *
+ *=============================================================================================*/
+HousesType HouseTypeClass::From_Name(char const * name)
+{
+	if (stricmp(name, "<random>") == 0) { // RA2: 0x4F94D0 maps "<random>" to -2 first
+		return((HousesType)-2); // RA2: as above
+	}
+	if (name != NULL) {
+		for (int house = HOUSE_FIRST; house < HouseTypes.Count(); house++) {
+			HouseTypeClass *ptr = HouseTypes[house];
+			if (stricmp(ptr->Full_Name(), name) == 0 || stricmp(ptr->Name(), name) == 0) {
+				return(ptr->House);
+			}
+		}
+	}
+	return(HOUSE_NONE);
+}
+
+
+// RA2: reads a comma separated list of type names from the INI; the executable keeps three copies of this (one per type)
+static inline TypeList<InfantryTypeClass const *> Get_Infantry_List(CCINIClass const & ini, char const * section, char const * entry, TypeList<InfantryTypeClass const *> const & defvalue) // RA2: one of three copies of the list reader (one per type)
+{
+	char buffer[128]; // RA2: as above
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) { // RA2: as above
+		TypeList<InfantryTypeClass const *> list; // RA2: as above
+		for (char * name = strtok(buffer, ","); name != NULL && *name != '\0'; name = strtok(NULL, ",")) { // RA2: as above
+			InfantryTypeClass * object = InfantryTypeClass::Find_Or_Make(name); // RA2: as above
+			if (object != NULL) { // RA2: as above
+				list.Add(object); // RA2: as above
+			}
+		}
+		return(list); // RA2: as above
+	}
+	return(defvalue); // RA2: as above
+}
+
+static inline TypeList<UnitTypeClass const *> Get_Unit_List(CCINIClass const & ini, char const * section, char const * entry, TypeList<UnitTypeClass const *> const & defvalue) // RA2: one of three copies of the list reader (one per type)
+{
+	char buffer[128]; // RA2: as above
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) { // RA2: as above
+		TypeList<UnitTypeClass const *> list; // RA2: as above
+		for (char * name = strtok(buffer, ","); name != NULL && *name != '\0'; name = strtok(NULL, ",")) { // RA2: as above
+			UnitTypeClass * object = UnitTypeClass::Find_Or_Make(name); // RA2: as above
+			if (object != NULL) { // RA2: as above
+				list.Add(object); // RA2: as above
+			}
+		}
+		return(list); // RA2: as above
+	}
+	return(defvalue); // RA2: as above
+}
+
+static inline TypeList<AircraftTypeClass const *> Get_Aircraft_List(CCINIClass const & ini, char const * section, char const * entry, TypeList<AircraftTypeClass const *> const & defvalue) // RA2: one of three copies of the list reader (one per type)
+{
+	char buffer[128]; // RA2: as above
+	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer))) { // RA2: as above
+		TypeList<AircraftTypeClass const *> list; // RA2: as above
+		for (char * name = strtok(buffer, ","); name != NULL && *name != '\0'; name = strtok(NULL, ",")) { // RA2: as above
+			AircraftTypeClass * object = AircraftTypeClass::Find_Or_Make(name); // RA2: as above
+			if (object != NULL) { // RA2: as above
+				list.Add(object); // RA2: as above
+			}
+		}
+		return(list); // RA2: as above
+	}
+	return(defvalue); // RA2: as above
+}
+
+
+/***********************************************************************************************
+ * HouseTypeClass::Read_INI -- Fetch the house control values from ini database.               *
+ *                                                                                             *
+ *    This routine will fetch the rules controllable values for the house type from the        *
+ *    INI database specified.                                                                  *
+ *                                                                                             *
+ * INPUT:   ini   -- Reference to the INI database to fetch the house control values from.     *
+ *                                                                                             *
+ * OUTPUT:  bool; Was the house section found and processed?                                   *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   09/04/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // not exact: 802 bytes differ (the original calls the unit list's Add out of line and expands TypeList's copy constructor there; this text does the reverse)
+bool HouseTypeClass::Read_INI(CCINIClass const & ini)
+{
+	if (BASECLASS::Read_INI(ini)) {
+		char buffer[32];
+		ini.Get_String(Name(), "Suffix", "", buffer, sizeof(Suffix));
+		if (strlen(buffer) != 0) {
+			strcpy(Suffix, buffer);
+		}
+
+		ini.Get_String(Name(), "ParentCountry", Name(), buffer, sizeof(ParentCountry));
+		ParentCountry = CountryName(buffer); // RA2: the parent country name, defaulting to this country
+
+		Scheme = ini.Get_Scheme_Index(Name(), "Color", Scheme);
+
+		char prefix[2];
+		buffer[0] = Prefix;
+		buffer[1] = '\0';
+		ini.Get_String(Name(), "Prefix", buffer, prefix, sizeof(prefix));
+		Prefix = prefix[0];
+
+		FirepowerBias = ini.Get_Float(Name(), "Firepower", FirepowerBias);
+		GroundspeedBias = ini.Get_Float(Name(), "Groundspeed", GroundspeedBias);
+		AirspeedBias = ini.Get_Float(Name(), "Airspeed", AirspeedBias);
+		ArmorBias = ini.Get_Float(Name(), "Armor", ArmorBias);
+		ROFBias = ini.Get_Float(Name(), "ROF", ROFBias);
+		CostBias = ini.Get_Float(Name(), "Cost", CostBias);
+		BuildSpeedBias = ini.Get_Float(Name(), "BuildTime", BuildSpeedBias);
+
+		IsMultiplay = ini.Get_Bool(Name(), "Multiplay", IsMultiplay);
+		IsMultiplayPassive = ini.Get_Bool(Name(), "MultiplayPassive", IsMultiplayPassive);
+		IsWallOwner = ini.Get_Bool(Name(), "WallOwner", IsWallOwner);
+		IsSmartAI = ini.Get_Bool(Name(), "SmartAI", IsSmartAI);
+
+		ArmorInfantryMult = ini.Get_Float(Name(), "ArmorInfantryMult", ArmorInfantryMult); // RA2: the per kind multipliers are RA2's
+		ArmorUnitsMult = ini.Get_Float(Name(), "ArmorUnitsMult", ArmorUnitsMult); // RA2: as above
+		ArmorAircraftMult = ini.Get_Float(Name(), "ArmorAircraftMult", ArmorAircraftMult); // RA2: as above
+		ArmorBuildingsMult = ini.Get_Float(Name(), "ArmorBuildingsMult", ArmorBuildingsMult); // RA2: as above
+		ArmorDefensesMult = ini.Get_Float(Name(), "ArmorDefensesMult", ArmorDefensesMult); // RA2: as above
+		CostInfantryMult = ini.Get_Float(Name(), "CostInfantryMult", CostInfantryMult); // RA2: as above
+		CostUnitsMult = ini.Get_Float(Name(), "CostUnitsMult", CostUnitsMult); // RA2: as above
+		CostAircraftMult = ini.Get_Float(Name(), "CostAircraftMult", CostAircraftMult); // RA2: as above
+		CostBuildingsMult = ini.Get_Float(Name(), "CostBuildingsMult", CostBuildingsMult); // RA2: as above
+		CostDefensesMult = ini.Get_Float(Name(), "CostDefensesMult", CostDefensesMult); // RA2: as above
+		SpeedInfantryMult = ini.Get_Float(Name(), "SpeedInfantryMult", SpeedInfantryMult); // RA2: as above
+		SpeedUnitsMult = ini.Get_Float(Name(), "SpeedUnitsMult", SpeedUnitsMult); // RA2: as above
+		SpeedAircraftMult = ini.Get_Float(Name(), "SpeedAircraftMult", SpeedAircraftMult); // RA2: as above
+		BuildtimeInfantryMult = ini.Get_Float(Name(), "BuildTimeInfantryMult", BuildtimeInfantryMult); // RA2: as above
+		BuildtimeUnitsMult = ini.Get_Float(Name(), "BuildTimeUnitsMult", BuildtimeUnitsMult); // RA2: as above
+		BuildtimeAircraftMult = ini.Get_Float(Name(), "BuildTimeAircraftMult", BuildtimeAircraftMult); // RA2: as above
+		BuildtimeBuildingsMult = ini.Get_Float(Name(), "BuildTimeBuildingsMult", BuildtimeBuildingsMult); // RA2: as above
+		BuildtimeDefensesMult = ini.Get_Float(Name(), "BuildTimeDefensesMult", BuildtimeDefensesMult); // RA2: as above
+		IncomeMult = ini.Get_Float(Name(), "IncomeMult", IncomeMult); // RA2: as above
+
+		VeteranInfantry = Get_Infantry_List(ini, Name(), "VeteranInfantry", VeteranInfantry); // RA2: the veteran lists
+		VeteranUnits = Get_Unit_List(ini, Name(), "VeteranUnits", VeteranUnits); // RA2: as above
+		VeteranAircraft = Get_Aircraft_List(ini, Name(), "VeteranAircraft", VeteranAircraft); // RA2: as above
+
+		SideType oldside = Side;
+		Side = ini.Get_Side(Name(), "Side", Side);
+
+		if (Side != oldside) {
+			int & house = (int &)House;
+			if (oldside != SIDE_NONE) {
+				Sides[oldside]->Houses.Delete_Index(house);
+			}
+			if (Side != SIDE_NONE) {
+				Sides[Side]->Houses.Add(house);
+			}
+		}
+		return(true);
+	}
+	return(false);
+}
+#endif
+
+
+
+/// <summary>
+/// Submits this house type to the game state checksum.
+/// The network sync check uses this routine to prove that every machine in the game is
+/// running with identical house rules.
+/// </summary>
+void HouseTypeClass::Compute_CRC(CRCEngine & crc) const
+{
+	BASECLASS::Compute_CRC(crc);
+	crc(House);
+	crc(Side);
+	crc(Scheme);
+	crc(FirepowerBias);
+	crc(GroundspeedBias);
+	crc(AirspeedBias);
+	crc(ArmorBias);
+	crc(ROFBias);
+	crc(CostBias);
+	crc(BuildSpeedBias);
+	crc(Suffix, strlen(Suffix));
+	crc(Prefix);
+	crc(IsMultiplay);
+}
+
+
+/// <summary>
+/// Determines if this house type has been changed since it was last saved.
+/// House types are written out wholesale rather than on demand, so the answer never varies.
+/// </summary>
+/// <returns>Returns with S_OK.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::IsDirty(void)
+{
+	return(false);
+}
+
+
+/// <summary>
+/// Loads this house type from the stream specified.
+/// The object is read back in raw form and then reconstructed in place, after which it
+/// announces itself to the swizzler so that saved references can be resolved to it.
+/// </summary>
+/// <returns>Returns with S_OK if the house type was read, otherwise a failure code.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::Load(IStream * stream)
+{
+	VeteranInfantry.Clear(); // RA2: the veteran lists are emptied first
+	VeteranUnits.Clear(); // RA2: as above
+	VeteranAircraft.Clear(); // RA2: as above
+
+	HRESULT result = BASECLASS::Load(stream); // RA2: the abstract type's data
+	if (FAILED(result)) {
+		return(result);
+	}
+
+	new (this) HouseTypeClass(NoInitClass());
+
+	VeteranInfantry.Load(stream); // RA2: the lists are loaded element by element
+	VeteranUnits.Load(stream); // RA2: as above
+	VeteranAircraft.Load(stream); // RA2: as above
+
+	int index;
+	for (index = 0; index < VeteranInfantry.Count(); index++) {
+		Swizzle_Pointer(&VeteranInfantry[index]);
+	}
+	for (index = 0; index < VeteranUnits.Count(); index++) {
+		Swizzle_Pointer(&VeteranUnits[index]);
+	}
+	for (index = 0; index < VeteranAircraft.Count(); index++) {
+		Swizzle_Pointer(&VeteranAircraft[index]);
+	}
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Saves this house type to the stream specified.
+/// The swizzle identifier is written ahead of the object itself so that the load process can
+/// repoint everything that referred to this house type.
+/// </summary>
+/// <returns>Returns with S_OK if the house type was written, otherwise a failure code.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::Save(IStream * stream, BOOL cleardirty)
+{
+	HRESULT result = BASECLASS::Save(stream, cleardirty); // RA2: Save at 0x4FA150 matches only so
+	if (SUCCEEDED(result)) { // RA2: as above
+		VeteranInfantry.Save(stream); // RA2: as above
+		VeteranUnits.Save(stream); // RA2: as above
+		VeteranAircraft.Save(stream); // RA2: as above
+
+		result = S_OK; // RA2: as above
+	}
+	return(result);
+}
+
+
+/// <summary>
+/// Fetches the largest number of bytes this house type will need when saved.
+/// The save game system calls this routine to reserve room in the stream before asking the
+/// object to save itself.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no size pointer was supplied.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::GetSizeMax(ULARGE_INTEGER *pcbSize)
+{
+	if (pcbSize == NULL) {
+		return(E_POINTER);
+	}
+
+	pcbSize->HighPart = 0;
+	pcbSize->LowPart = sizeof(int) + sizeof(*this);
+
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Fetches the requested interface from this house type.
+/// House types serve up the persistence and RTTI interfaces that the save game system asks
+/// them for.
+/// </summary>
+/// <returns>Returns with S_OK, or E_NOINTERFACE if the interface is not supported.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::QueryInterface(REFIID riid, LPVOID * ppvObject)
+{
+	if (ppvObject == NULL) {
+		return(E_POINTER);
+	}
+
+	*ppvObject = NULL;
+
+	if (riid == IID_IUnknown) {
+		*ppvObject = (IUnknown *)(IPersistStream *)this;
+	}
+	if (riid == IID_IPersist) {
+		*ppvObject = (IPersistStream *)this;
+	}
+	if (riid == IID_IPersistStream) {
+		*ppvObject = (IPersist *)this;
+	}
+	if (riid == IID_IRTTITypeInfo) {
+		*ppvObject = (IRTTITypeInfo *)this;
+	}
+	if (*ppvObject == NULL) {
+		return(E_NOINTERFACE);
+	}
+
+	AddRef();
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Fetches the class identifier of this object.
+/// The save game system stores this identifier so that the object can be recreated as the
+/// correct class when the game is loaded.
+/// </summary>
+/// <returns>Returns with S_OK, or E_POINTER if no return pointer was supplied.</returns>
+HRESULT STDMETHODCALLTYPE HouseTypeClass::GetClassID(CLSID * retval)
+{
+	if (retval == NULL) return(E_POINTER);
+	*retval = CLSID_HouseTypeClass;
+	return(S_OK);
+}
+
+
+/// <summary>
+/// Fetches the house type of the name specified, creating it if need be.
+/// This routine is used while processing the rules and scenario INI databases, where a house
+/// can be mentioned before it has been declared.
+/// </summary>
+/// <param name="ininame">The internal INI name of the house type wanted.</param>
+/// <returns>Returns with a pointer to the matching house type.</returns>
+HouseTypeClass * HouseTypeClass::Find_Or_Make(char const * ininame)
+{
+	return(TFind_Or_Make<HouseTypeClass>(ininame, HouseTypes));
+}
+
+
+/// <summary>
+/// Fetches the RTTI type of this object.
+/// </summary>
+/// <returns>Returns with RTTI_HOUSETYPE.</returns>
+RTTIType HouseTypeClass::Fetch_RTTI(void) const
+{
+	return(RTTI_HOUSETYPE);
+}
+
+
+/// <summary>
+/// Fetches the number of bytes this house type occupies when saved.
+/// The save game system uses this routine to size the block it reads or writes for this
+/// object.
+/// </summary>
+/// <returns>Returns with the size, in bytes, of this house type.</returns>
+int HouseTypeClass::Fetch_Object_Size(void) const // RA2: no argument (as hover.h), at 0x4FA3F0
+{
+	return(sizeof(*this));
+}
+
+
+/// <summary>
+/// Fetches the heap index of this house type.
+/// </summary>
+/// <returns>Returns with the position of this house type within the house type heap.</returns>
+int HouseTypeClass::Fetch_Heap_ID(void) const
+{
+	return(HeapID);
+}
+
+
+/// <summary>
+/// Adds a reference to this house type.
+/// House types are not reference counted -- they live for the duration of the game, so this
+/// routine exists only to satisfy the IUnknown contract.
+/// </summary>
+/// <returns>Returns with the reference count, which is always one.</returns>
+ULONG STDMETHODCALLTYPE HouseTypeClass::AddRef(void)
+{
+	return(1);
+}
+
+
+/// <summary>
+/// Releases a reference to this house type.
+/// House types are not reference counted -- they live for the duration of the game, so this
+/// routine exists only to satisfy the IUnknown contract.
+/// </summary>
+/// <returns>Returns with the reference count, which is always one.</returns>
+ULONG STDMETHODCALLTYPE HouseTypeClass::Release(void)
+{
+	return(1);
+}
+
