@@ -198,6 +198,14 @@ platform layer. It earns no exact-match credit.
 - Checked 2026-11-19 (lane N5): N4's fixes in the Simulator ("RA2 Duo Validation", `ios_sim_menus.py`, current main):
   both games pass the walk, and two new checks: tanks' shells damage an enemy power plant (750 to 590) and an engineer
   captures an enemy Tesla Reactor.
+- Checked 2026-11-19 (lane N9): current main (lane N8's random map generator and lane N6's spawn offsets) in the
+  Simulator ("RA2 Duo Validation", `ios_sim_menus.py --games yr-random,yr,ra2`): both games pass the walk (60-62
+  frames/s, no trap or fault; the enemy power plant 750 -> 616 under the tanks' fire, the reactor captured), and a
+  new run, `yr-random`, takes Yuri's Revenge's skirmish lobby through Choose Map, Create Random Map, Preview and OK:
+  the generated map (RANDMAP.SED) plays, the player has 13 units at frame 40 and the game reaches frame 600. The
+  first Yuri's Revenge run of that walk failed in the lobby: the Simulator delivered the tap away from the name field
+  and the Start Game tap 635 ms late in one batch, read as a two-finger right click (a host stall with the Mac's swap
+  nearly full, not a game fault); the rerun passed.
 - Saves of the original Yuri's Revenge (lane N5): five of the user's own saves from the PC (D:\Games\RA2, made in 2023,
   campaign and skirmish) load in the port and play 1,500 frames; one also through the load dialog at 1024x768 and in
   the one-game app after the switch from Red Alert 2. The user's reported crash did not reproduce. Checked: those runs,
@@ -261,7 +269,11 @@ platform layer. It earns no exact-match credit.
   and `n6-seeds` (the random map dialog's Save seed: MapSeedClass::Save_Menu_Name). Lane N8 (2026-11-19) reached 4
   more with `n8-seeds` (a seed saved through the save dialog's Save, then loaded and deleted through the random map
   dialog's Load seed and Delete seed: MapSeedClass::Saved_Message, Load_Menu_Name, Delete_Menu_Name, Delete_File;
-  n6-seeds had clicked the save dialog's list and Back). 91 remain reviewed but unreached.
+  n6-seeds had clicked the save dialog's list and Back). Lane N9 (2026-11-19) reached 3 more: `n9-bomb` (a Crazy
+  Ivan bombs the player's engineer and an enemy missile silo spawned beside the base, then the engineer captures the
+  silo: BombClass::Disarm; the bombed engineer alone selected with the mouse over it: the bomb's kind asked for the
+  detonate cursor, BombClass::Unknown_00435FF0) and `n9-ui` (T held and a Shift click on a selected tank: every tank unselected,
+  Unknown_006F7020; the input log shows 5 tanks selected, then none). 88 remain reviewed but unreached.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

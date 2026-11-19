@@ -17,11 +17,13 @@ games a tap on the player name field (control 1696) raises the on-screen keyboar
 away; in Yuri's Revenge a tap on the command bar's TypeSelect button with one tank selected selects every
 tank (it had crashed: an unrecovered function). Lane N4 (the user's Duo reports of 2026-11-19 ~04:15Z): in Yuri's
 Revenge a GI garrisons a house, a Mirage tank's camouflage is a green tree, an oil derrick's animations are in the
-ground layer (N4_ORDERS, the Mac ctests' harness orders). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
+ground layer (N4_ORDERS, the Mac ctests' harness orders). Lane N9: a third run, `yr-random` (in --games), takes
+Yuri's Revenge's skirmish lobby through Choose Map, Create Random Map, Preview and OK (lane N8's random map
+generator) and plays the generated map (RANDMAP.SED, the player's units at frame 40, frame 600 reached). Not a ctest (it needs the Simulator). Only "RA2 Duo Validation" is
 used; booted when shut down and shut down again afterwards.
 
   ios_sim_menus.py --app build/ios-one-simulator/RA2YR.app --data-dir <RA2 + YR folder> --work <dir>
-                   [--games yr,ra2] [--play-seconds 120] [--enhancements menufill=backdrop,...]
+                   [--games yr,ra2,yr-random] [--play-seconds 120] [--enhancements menufill=backdrop,...]
 """
 import argparse
 import os
@@ -49,7 +51,7 @@ def tap(when, x, y):
     return ['%s tdown %d %d' % (when, x, y), '%s+%d tup %d %d' % (base, int(ms) + 80, x, y)]
 
 
-def script(play_w):
+def script(play_w, random_map=False):
     mx = (play_w - 800) // 2
     lines = []
     lines += ['s1+1500 dump']
@@ -69,16 +71,24 @@ def script(play_w):
     lines += ['s7+1200 tdown @ctl=1696', 's7+1280 tup @ctl=1696']
     lines += ['s7+1700 dump']
     lines += tap('s7+2100', mx + 600, 300)        # away from it (the keyboard goes)
-    lines += tap('s7+2500', mx + 720, 262)        # Start Game
+    stage, start = 's7', 2500
+    if random_map:
+        # Lane N9 (yr-random, lane N8's generator in the Simulator; yr_choose_map.py's 'random' run): Choose Map
+        # (1450), Create Random Map (1411), Preview (1568), OK (1733) 17 s later (both dialogs close), then Start Game.
+        for st, ms, ctl in (('s7', 2500, 1450), ('s8', 3000, 1411), ('s9', 3000, 1568), ('s9', 20000, 1733)):
+            lines += ['%s+%d tdown @ctl=%d' % (st, ms, ctl), '%s+%d tup @ctl=%d' % (st, ms + 80, ctl)]
+        lines += ['s9+20500 dump']
+        stage, start = 's10', 3000
+    lines += tap('%s+%d' % (stage, start), mx + 720, 262)        # Start Game
     cx, cy = (play_w - 168) // 2, 300
     for t in range(500, 12000, 500):              # the loading screen and the first seconds of play
-        lines += ['s7+%d dump' % (2500 + t)]
+        lines += ['%s+%d dump' % (stage, start + t)]
     # A tap on the start units, then on open ground (select, move), dumps between.
-    lines += tap('s7+30000', cx, cy)
-    lines += ['s7+30300 dump']
-    lines += tap('s7+31000', cx - 120, cy - 80)
-    for t in range(31200, 34000, 200):
-        lines += ['s7+%d dump' % t]
+    lines += tap('%s+%d' % (stage, start + 27500), cx, cy)
+    lines += ['%s+%d dump' % (stage, start + 27800)]
+    lines += tap('%s+%d' % (stage, start + 28500), cx - 120, cy - 80)
+    for t in range(28700, 31500, 200):
+        lines += ['%s+%d dump' % (stage, start + t)]
     return lines
 
 
@@ -131,14 +141,17 @@ def main():
             os.makedirs(shots, exist_ok=True)
             env = {'RA2_NATIVE_ENHANCEMENTS': a.enhancements, 'RA2_NATIVE_WINDOW_DUMP': os.path.join(shots, 'w'),
                    'RA2_NATIVE_MOVIE_SKIP': '0' if a.movies else '1'}
-            lines = script(a.play_w)
+            lines = script(a.play_w, random_map=(game == 'yr-random'))
+            if game == 'yr-random':
+                # Lane N9: the scenario played and the player's units at frame 40 (yr_choose_map.py's checks).
+                env['RA2_NATIVE_ORDERS'] = '30 scenario; 40 list; 600 scenario'
             if game == 'yr':
                 # Lane N3 (the user's Duo report: the command bar's TypeSelect button crashed the game): a
                 # tank selected, the button tapped (@cmd=TypeSelect, glue/yr_app_hooks.cpp), every tank
                 # selected after.
                 env['RA2_NATIVE_ORDERS'] = '600 rects; 640 select MTNK 0; 700 groups MTNK; ' + N4_ORDERS + '; ' + N5_ORDERS
                 lines += ['660 tdown @cmd=TypeSelect', '662 tup @cmd=TypeSelect']
-            text = one.launch(a, game, ['--game=' + game], [lines], a.play_seconds, env)
+            text = one.launch(a, game, ['--game=' + game.split('-')[0]], [lines], a.play_seconds, env)
             if 'unrecovered ' in text or 'crash: signal' in text:
                 failures.append('%s: a trap or fault: %s' % (game, [l for l in text.splitlines() if 'unrecovered' in l or 'crash:' in l][:2]))
             dumps = [int(n) for n in re.findall(r'^host: window dump (\d+)', text, re.M)]
@@ -164,6 +177,16 @@ def main():
                 before = states[:states.index('menu')]
                 if before[-1] == 'movie':
                     failures.append('%s: the Skip button stayed on until the main menu (start-up loading screen)' % game)
+            if game == 'yr-random':
+                played = re.findall(r'^harness-scenario (\S+)', text, re.M)
+                units = len(re.findall(r'^harness-list h\d+p ', text, re.M))
+                print('yr-random: scenarios %s; %d player units at frame 40' % (played, units))
+                if not played or played[0].upper() != 'RANDMAP.SED':
+                    failures.append('yr-random: the generated map was not played (%s)' % played)
+                if units == 0:
+                    failures.append('yr-random: no player units at frame 40')
+                if len(played) < 2:
+                    failures.append('yr-random: the game did not reach frame 600')
             if game == 'yr':
                 rects = re.search(r'^harness-rects tactical (-?\d+),(-?\d+) (\d+)x(\d+) visible (\d+)x(\d+) commandbar (\d+),(\d+) (\d+)x(\d+)', text, re.M)
                 shown = re.search(r'^harness-rects commandbar on screen (-?\d+)% drawn', text, re.M)

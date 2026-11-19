@@ -15,7 +15,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
 
 | Item | State | What is done | What is left |
 |---|---|---|---|
-| Unreached rewrites | Partly done | 124 of 311 rewritten functions were reached by no test or play. N1 labelled each: 110 reachable in the base game and checked statically, 6 unreachable in the base game, 8 unreachable in the port. Coverage runs have since reached 22 of the 110 (lane N4: 8; lane N6: 10, among them the sidebar's on-hold check, the defence tab's hot key, the missile silo's launch, the psychic sensor and range circles, the random map dialog's seed save; lane N8: 4, the seed list's save message, load and delete). | 91 left (`reach` "reviewed"): mostly default virtual slots no caller uses on those classes, network-dialog branches, audio voices. |
+| Unreached rewrites | Partly done | 124 of 311 rewritten functions were reached by no test or play. N1 labelled each: 110 reachable in the base game and checked statically, 6 unreachable in the base game, 8 unreachable in the port. Coverage runs have since reached 25 of the 110 (lane N4: 8; lane N6: 10, among them the sidebar's on-hold check, the defence tab's hot key, the missile silo's launch, the psychic sensor and range circles, the random map dialog's seed save; lane N8: 4, the seed list's save message, load and delete; lane N9: 3, a Crazy Ivan bomb taken off by an engineer's capture and its detonate-cursor check, and unselecting every unit of a type). | 88 left (`reach` "reviewed"): mostly default virtual slots no caller uses on those classes, network-dialog branches, audio voices. |
 | Drafts behaviour-checked | Done | All 311 rewrites have a verdict against the original (lane N2): 299 the same, 4 fixed, 1 different by design, 3 kept, 2 partly fixed, 2 not fixed. | Optional: the 2 partly fixed menu-control procedures (combo box paint, rare edit-control messages). |
 | One-command builds | Done | `native/build.sh` with `mac`, `mac-one`, `ios`, `windows`, `yr-windows` or `windows-one`. | Nothing (no signing or notarisation, by choice). |
 | iPad | Partly done | Simulator walk passes: import, menus, skirmish, touch play, 62 frames/s. | Not verified on a real iPad. |
@@ -45,7 +45,8 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
      the Delete key stopped the game; loading a game while explosions were lighting the map stopped it too;
    - found and fixed by lane N6 (2026-11-19), please check: in a Yuri's Revenge skirmish lobby, Choose Map stopped the
      game; now the map list opens and the chosen map is played. Its Create Random Map button stopped the game too:
-     fixed by lane N8 (2026-11-19), please check: Create Random Map, Preview, OK, Start Game plays the generated map;
+     fixed by lane N8 (2026-11-19), please check: Create Random Map, Preview, OK, Start Game plays the generated map
+     (lane N9 walked it in the Simulator: the generated map plays);
    - fault, fixed by lane N3 (2026-11-19), please check again: the on-screen keyboard didn't come up in Yuri's Revenge's text fields (the skirmish player name). Now a tap on the field raises it, as in Red Alert 2.
    - Mac app checks (the user, 2026-11-19, on build/mac-app/RA2YR.app, a stale build from 2026-11-17 11:20). Lane N3
      rebuilt the current app (`native/build.sh mac-one`) and walked each one through the menus in the packaged app
@@ -80,7 +81,7 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
    `yr-native-keys-load`).
 2. Done (lane N4): the bridge repair test, `yr-native-bridge-repair`; it found engineers vanishing into the hut without a
    repair (fixed).
-3. Reach Red Alert 2's unreached rewrites, most-called first (lane N8: 95 -> 91, scenario `n8-seeds`; lane N6: 105 -> 95, scenarios `n6-place`, `n6-sidebar` and `n6-seeds`, `n5-bomb` run; lane N4 started: a coverage scenario `n4-deaths` reached
+3. Reach Red Alert 2's unreached rewrites, most-called first (lane N9: 91 -> 88, scenarios `n9-bomb` and `n9-ui`; lane N8: 95 -> 91, scenario `n8-seeds`; lane N6: 105 -> 95, scenarios `n6-place`, `n6-sidebar` and `n6-seeds`, `n5-bomb` run; lane N4 started: a coverage scenario `n4-deaths` reached
    3 more, Shake_The_Screen, Audio_Event_Handle_Set and Planning_Active, `n4-ui` one, FootClass slot 271, and `n4-randmap` two of the random map generator (the skirmish then played 4,000+ frames on a generated map), and a chat line in `lan_pair.py` two (MessageListClass::Get_Edit_Buf, IME_Stub1); 105 left as "reviewed").
 4. Yuri's Revenge LAN on two real machines once you can run the PC side.
 5. Done (lane N8, 2026-11-19): Yuri's Revenge's random map generator (Choose Map > Create Random Map): stand-ins from

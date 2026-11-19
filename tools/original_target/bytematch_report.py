@@ -16,8 +16,19 @@ matched only when accepted exact; others carry their best recorded score as fuzz
 
     python3 tools/original_target/bytematch_report.py                    # build/bytematch/report.json
     python3 tools/original_target/bytematch_report.py --upload          # token from private/bytematch.token
+
+Rebuild mode (--tree rebuild, version ra2-rebuild) reports the rebuild tree (branch rebuild-trial, worktree
+.claude/worktrees/lane-r) over the same in-scope function set and byte denominator, so its percentages
+compare with main's. One unit per rebuild unit (rebuild/manifest/units.json, source rebuild/src/<unit>.cpp);
+in-scope functions in no rebuild unit go to unplaced/<treemap group>. Matched = catalogued in
+rebuild/manifest/catalog. Others carry the rebuild's own recorded score: the unit's last check
+(build/r/last/<unit>.json, only when it is of the current source) or units.json parked_rows best_differing;
+count-sensitive rows are not matched. Library and handwritten assembly stay out of scope, as in main's mode.
+
+    python3 tools/original_target/bytematch_report.py --tree rebuild    # build/bytematch/rebuild-report.json
 """
 import argparse
+import hashlib
 from collections import Counter, defaultdict
 import gzip
 import json
@@ -35,6 +46,9 @@ import status  # noqa: E402
 REPOSITORY = Path(__file__).resolve().parents[2]
 PROJECT = 'meastes/redalert2-decomp'
 VERSION = 'ra2'
+REBUILD_VERSION = 'ra2-rebuild'
+REBUILD_WORKTREE = REPOSITORY / '.claude/worktrees/lane-r'
+REBUILD_BRANCH = 'rebuild-trial'
 TOKEN_FILE = REPOSITORY / 'private/bytematch.token'  # ignored by git; never stage it
 API = 'https://bytematch.dev/api/v1/projects/{project}/reports?version={version}&commit={commit}'
 
@@ -96,12 +110,16 @@ def sources(catalog):
     return {r['entry']: r['source'] for r in catalog['regions'] if r.get('source')}
 
 
+def asm_ranges(catalog):
+    return [(a, b) for a, b, _ in status.HANDWRITTEN] + [
+        (r['entry'], r['entry'] + r['body_bytes']) for r in catalog['regions']
+        if 'entry' in r and status.evidenced_inline_asm(r)]
+
+
 def in_scope(rows, catalog):
     """STATUS's in-scope set: below the CRT, outside handwritten ranges and accepted evidenced
     inline-asm regions (status.ledger counts both as assembly), known false rows excluded."""
-    asm = [(a, b) for a, b, _ in status.HANDWRITTEN] + [
-        (r['entry'], r['entry'] + r['body_bytes']) for r in catalog['regions']
-        if 'entry' in r and status.evidenced_inline_asm(r)]
+    asm = asm_ranges(catalog)
     false_path = REPOSITORY / 'manifests/original_target/false_rows.json'
     false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
     return [r for r in rows if r['entry'] < status.CRT_START and r['entry'] not in false_rows
@@ -127,10 +145,12 @@ def status_in_scope():
     sys.exit('docs/STATUS.md has no in-scope bytes row: run status.py --write')
 
 
-def reconcile(units):
+def reconcile(units, matched=None):
     """In-scope bytes the treemap places in no function (non-contiguous or uninventoried bodies), as one
-    unit with no functions, so the report's byte totals equal STATUS's in-scope C/C++ row."""
-    matched, total = status_in_scope()
+    unit with no functions, so the report's byte totals equal STATUS's in-scope C/C++ row. Rebuild mode
+    passes its own in-scope matched body bytes; the total stays main's."""
+    main_matched, total = status_in_scope()
+    matched = main_matched if matched is None else matched
     m = empty()
     m['total_code'] = total - sum(u['m']['total_code'] for u in units)
     m['matched_code'] = matched - sum(u['m']['matched_code'] for u in units)
@@ -163,35 +183,44 @@ def build(treemap):
         names[name] += 1
         if names[name] > 1:
             name = '%s~%d' % (name, names[name])
-        m = empty()
-        functions = []
-        for r in rows:
-            exact = r['status'] == 'exact'
-            score = 100.0 if exact else float(r.get('score') or best.get(r['entry'], 0.0))
-            m['total_code'] += r['bytes']
-            m['total_functions'] += 1
-            m['fuzzy_match_percent'] += score * r['bytes']
-            if exact:
-                m['matched_code'] += r['bytes']
-                m['matched_functions'] += 1
-            functions.append(dict(name=r['name'] or 'FUN_%08x' % r['entry'], size=str(r['bytes']),
-                                  fuzzy_match_percent=score,
-                                  metadata=dict(virtual_address=str(r['entry'])),
-                                  address=str(r['entry'])))
-        complete = m['matched_functions'] == m['total_functions']
-        m['total_units'] = 1
-        m['complete_units'] = int(complete)
-        m['complete_code'] = m['total_code'] if complete else 0
-        finish(m)
-        cat = category(rows[0])
-        metadata = dict(complete=complete, progress_categories=[cat], auto_generated=False)
-        if source:
-            metadata['source_path'] = source
-        units.append(dict(unit=dict(name=name, measures=wire(m), sections=[dict(
-            name='.text', size=str(m['total_code']), fuzzy_match_percent=m['fuzzy_match_percent'])],
-            functions=functions, metadata=metadata), m=m, cat=cat))
-
+        units.append(make_unit(name, rows, source, lambda r: r['status'] == 'exact',
+                               lambda r: float(r.get('score') or best.get(r['entry'], 0.0))))
     units.append(reconcile(units))
+    return assemble(units)
+
+
+def make_unit(name, rows, source, is_exact, score_of):
+    """One objdiff unit from treemap rows: exact rows matched, others at score_of(row)."""
+    m = empty()
+    functions = []
+    for r in rows:
+        exact = is_exact(r)
+        score = 100.0 if exact else score_of(r)
+        m['total_code'] += r['bytes']
+        m['total_functions'] += 1
+        m['fuzzy_match_percent'] += score * r['bytes']
+        if exact:
+            m['matched_code'] += r['bytes']
+            m['matched_functions'] += 1
+        functions.append(dict(name=r['name'] or 'FUN_%08x' % r['entry'], size=str(r['bytes']),
+                              fuzzy_match_percent=score,
+                              metadata=dict(virtual_address=str(r['entry'])),
+                              address=str(r['entry'])))
+    complete = m['matched_functions'] == m['total_functions']
+    m['total_units'] = 1
+    m['complete_units'] = int(complete)
+    m['complete_code'] = m['total_code'] if complete else 0
+    finish(m)
+    cat = category(rows[0])
+    metadata = dict(complete=complete, progress_categories=[cat], auto_generated=False)
+    if source:
+        metadata['source_path'] = source
+    return dict(unit=dict(name=name, measures=wire(m), sections=[dict(
+        name='.text', size=str(m['total_code']), fuzzy_match_percent=m['fuzzy_match_percent'])],
+        functions=functions, metadata=metadata), m=m, cat=cat)
+
+
+def assemble(units):
     total = empty()
     per_cat = {cid: empty() for cid, _ in CATEGORIES}
     for u in units:
@@ -205,19 +234,85 @@ def build(treemap):
     return dict(measures=wire(total), units=[u['unit'] for u in units], version=2, categories=categories), total
 
 
+def rebuild_scores(worktree):
+    """(unit of each entry, recorded score of each entry, count-sensitive entries) from the rebuild's
+    units.json and its last checks. A last check counts only when it is of the unit's current source."""
+    units = json.loads((worktree / 'rebuild/manifest/units.json').read_text())
+    owner, score, sensitive = {}, {}, set()
+    for unit, info in units.items():
+        for row in info['rows']:
+            owner[int(row['entry'], 16)] = unit
+        sensitive |= {int(e, 16) for e in info.get('count_sensitive') or {}}
+        for row in info.get('parked_rows') or []:
+            if row.get('best_differing') is not None and row.get('body'):
+                score[int(row['entry'], 16)] = 100.0 * max(0, row['body'] - row['best_differing']) / row['body']
+        last_path = worktree / 'build/r/last' / (unit + '.json')
+        source = worktree / info['source']
+        if not last_path.exists() or not source.exists():
+            continue
+        last = json.loads(last_path.read_text())
+        if last.get('source_sha256') != hashlib.sha256(source.read_bytes()).hexdigest():
+            continue
+        for r in last['results']:
+            entry = int(r['entry'], 16)
+            if r['status'] == 'exact':
+                score[entry] = 100.0
+            elif r['status'] == 'differs' and r.get('size'):
+                score[entry] = max(score.get(entry, 0.0), 100.0 * max(0, r['size'] - r['differing']) / r['size'])
+    return units, owner, score, sensitive
+
+
+def build_rebuild(treemap, worktree):
+    """Rebuild tree over main's in-scope function set and STATUS denominator (see the module docstring)."""
+    catalog = load_catalog()
+    rebuilt = catalog_io.load(worktree / 'rebuild/manifest/catalog', references=False)
+    accepted = {r['entry'] for r in rebuilt['regions']}
+    units_info, owner, score, sensitive = rebuild_scores(worktree)
+    rows = in_scope(treemap, catalog)
+    groups = defaultdict(list)
+    for r in rows:
+        unit = owner.get(r['entry'])
+        groups[('rebuild', unit) if unit else ('unplaced', r['group'])].append(r)
+    is_exact = lambda r: r['entry'] in accepted and r['entry'] not in sensitive  # noqa: E731
+    score_of = lambda r: score.get(r['entry'], 0.0)  # noqa: E731
+    units = []
+    for (kind, key), group_rows in sorted(groups.items()):
+        group_rows.sort(key=lambda r: r['entry'])
+        if kind == 'rebuild':
+            units.append(make_unit(key, group_rows, units_info[key]['source'], is_exact, score_of))
+        else:
+            units.append(make_unit('unplaced/%s' % key, group_rows, None, is_exact, score_of))
+    # Rebuild in-scope matched body bytes by main's ledger scope (CRT, handwritten ranges and evidenced
+    # inline asm out; false rows are not catalogued bodies of real functions, so they are left out too).
+    asm = asm_ranges(catalog)
+    false_path = REPOSITORY / 'manifests/original_target/false_rows.json'
+    false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
+    matched = sum(r['body_bytes'] for r in rebuilt['regions']
+                  if r['entry'] < status.CRT_START and not status.inside(r['entry'], asm)
+                  and r['entry'] not in false_rows and r['entry'] not in sensitive
+                  and not status.evidenced_inline_asm(r))
+    units.append(reconcile(units, matched))
+    return assemble(units)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--treemap', type=Path, default=REPOSITORY / 'build/treemap.json')
-    ap.add_argument('--out', type=Path, default=REPOSITORY / 'build/bytematch/report.json')
+    ap.add_argument('--tree', choices=('main', 'rebuild'), default='main')
+    ap.add_argument('--worktree', type=Path, default=REBUILD_WORKTREE, help='rebuild worktree (--tree rebuild)')
+    ap.add_argument('--out', type=Path)
     ap.add_argument('--upload', action='store_true', help='POST to ByteMatch (token in $BYTEMATCH_TOKEN)')
-    ap.add_argument('--commit', help='commit the report describes (default: HEAD)')
-    ap.add_argument('--version', default=VERSION)
+    ap.add_argument('--commit', help='commit the report describes (default: HEAD, or rebuild-trial\'s tip)')
+    ap.add_argument('--version')
     args = ap.parse_args()
+    rebuild = args.tree == 'rebuild'
+    args.out = args.out or REPOSITORY / ('build/bytematch/rebuild-report.json' if rebuild else 'build/bytematch/report.json')
+    args.version = args.version or (REBUILD_VERSION if rebuild else VERSION)
 
     treemap = json.loads(args.treemap.read_text())
     if not treemap:
         sys.exit('empty treemap: regenerate it with treemap.py --json build/treemap.json')
-    report, total = build(treemap)
+    report, total = build_rebuild(treemap, args.worktree) if rebuild else build(treemap)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(report, separators=(',', ':')).encode()
     args.out.write_bytes(data)
@@ -231,7 +326,8 @@ def main():
             token = TOKEN_FILE.read_text().strip()
         if not token:
             sys.exit('put the ByteMatch upload token in %s (or $BYTEMATCH_TOKEN)' % TOKEN_FILE)
-        commit = args.commit or subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=REPOSITORY, text=True).strip()
+        commit = args.commit or subprocess.check_output(
+            ['git', 'rev-parse', REBUILD_BRANCH if rebuild else 'HEAD'], cwd=REPOSITORY, text=True).strip()
         request = urllib.request.Request(
             API.format(project=PROJECT, version=args.version, commit=commit), data=gzip.compress(data),
             method='POST', headers={'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json',

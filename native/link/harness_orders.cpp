@@ -17,7 +17,7 @@
 // <frame> hunt; <frame> health; <frame> shoot <ID> (C22); <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
 // <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's SuperWeapons[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
-// object of that type; Tanya only when named); train: the barracks' cameo click;
+// object of that type; Tanya only when named; `capture <ID> <TYPE>` the same, lane N9); train: the barracks' cameo click;
 // units -1 when the cell holds none) (Scout1153,
 // M19; any game, the campaign too): at that frame the player's technos of type
 // ID ('*': every infantry and vehicle) get a move order to cell x,y, or every
@@ -256,7 +256,7 @@ int Scripted_Order(char const *command)
         return listed;
     }
     if (Same(word[1], "spawn", 6) && words >= 3) {
-        // `spawn <ID> [<dx> <dy>]` (lane N4, test scaffolding): a vehicle of type ID for the player, on the first free
+        // `spawn <ID> [enemy] [<dx> <dy>]` (lane N4, test scaffolding): a vehicle of type ID for the player, on the first free
         // cell in rings around dx,dy cells from the player's first techno (UnitTypeClass::Create_One_Of, Unlimbo).
         // Logs `harness-spawn <ID> @x,y &<addr>`.
         TechnoTypeClass const *type = 0;
@@ -276,11 +276,22 @@ int Scripted_Order(char const *command)
         for (int i = 0; i < Technos.Count() && home == 0; ++i) {
             if (Technos[i] && Technos[i]->House == PlayerPtr) home = Technos[i];
         }
-        if (type == 0 || home == 0) return -1;
-        ObjectClass *object = type->Create_One_Of(PlayerPtr);
+        // lane N9: `spawn <ID> enemy [<dx> <dy>]`: the object is the enemy's (the house of the first techno that is
+        // neither the player's nor an ally's), still placed at the offset from the player's first techno (as Yuri's
+        // Revenge's harness, lane P1), for coverage_runs.py n9-bomb's enemy reactor next to the player's engineer.
+        bool enemy = words >= 4 && Same(word[3], "enemy", 6);
+        HouseClass *owner = enemy ? 0 : PlayerPtr;
+        for (int i = 0; enemy && i < Technos.Count() && owner == 0 && PlayerPtr; ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno && techno->House && techno->House != PlayerPtr && !PlayerPtr->Is_Ally(techno->House)
+                && techno->House->Buildings.Count() > 0) owner = techno->House;
+        }
+        if (type == 0 || home == 0 || owner == 0) return -1;
+        ObjectClass *object = type->Create_One_Of(owner);
         if (object == 0) return -1;
         Cell base = home->Center_Coord().As_Cell();
-        int dx = words >= 5 ? atoi(word[3]) : 3, dy = words >= 5 ? atoi(word[4]) : 0;
+        int first = enemy ? 4 : 3;
+        int dx = words >= first + 2 ? atoi(word[first]) : 3, dy = words >= first + 2 ? atoi(word[first + 1]) : 0;
         for (int ring = 0; ring <= 8; ++ring) {
             for (int y = -ring; y <= ring; ++y) {
                 for (int x = -ring; x <= ring; ++x) {
@@ -362,7 +373,8 @@ int Scripted_Order(char const *command)
     bool attack = (Same(word[1], "attack", 7) || Same(word[1], "capture", 8) || Same(word[1], "sabotage", 9)) && words >= 5;
     // `attack <ID> <TYPE>` (Scout1209 r6): the first enemy object of that type, wherever it is
     // (Allied 1's Dreadnoughts for Tanya).
-    bool attack_type = (Same(word[1], "attack", 7) || Same(word[1], "sabotage", 9)) && words == 4;
+    // `capture <ID> <TYPE>` (lane N9): the same for an engineer (coverage_runs.py n9-bomb: a bombed engineer captures).
+    bool attack_type = (Same(word[1], "attack", 7) || Same(word[1], "sabotage", 9) || Same(word[1], "capture", 8)) && words == 4;
     if (attack_type) attack = true;
     // Capture (an engineer into a building), Sabotage (Tanya's C4: the building is the destination,
     // as a player's click gives it; Scout1231) or Attack.

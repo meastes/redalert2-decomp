@@ -2083,9 +2083,9 @@
    "notes": "Scout1161 M20: address_aliases.py refuses padded this views for RTTI class members",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass::Delete_Me, BulletClass::Detonate, BuildingClass::Toggle_Primary for an object carrying a bomb (Tanya's C4, Crazy Ivan); no run planted one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n9-bomb: a Crazy Ivan bombs the player's engineer and an enemy missile silo spawned beside the base (the harness's `spawn <ID> enemy`), then the engineer captures the silo (`capture <ID> <TYPE>`): the capture takes the bomb off (the engineer deleted, ObjectClass::Delete_Me, and/or the silo captured, BuildingClass::Captured; the run does not say which call reached it)",
+   "reach_checked_by": "N9 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n9-bomb and report"
   },
   {
    "entry": "0x0047CE40",
@@ -3614,9 +3614,9 @@
    "notes": "returns Type (+0x30); Scout1208 (M26)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass::What_Action over an object carrying a bomb; no run planted one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n9-bomb: the engineer a Crazy Ivan bombed, alone selected, the mouse over it: TechnoClass::What_Action asks the bomb its kind for the detonate cursor",
+   "reach_checked_by": "N9 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n9-bomb and report"
   },
   {
    "entry": "0x00579960",
@@ -3746,9 +3746,9 @@
    "notes": "Scout1209 (r5): the selection loop is written out (the original inlines 0x006F69F0's) and the test is called with the name pointer",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "DisplayClass::Mouse_Left_Release (unselecting a type); no run made that release",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n9-ui: T held (the type-select stopwatch, 0x00AC133D) and a Shift click on a selected tank: DisplayClass::Mouse_Left_Release (action 8) unselects every tank (the input log: 5 tanks selected, then none)",
+   "reach_checked_by": "N9 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n9-ui and report"
   },
   {
    "entry": "0x0069A430",

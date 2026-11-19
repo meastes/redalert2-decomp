@@ -100,6 +100,16 @@ SCENARIOS = [
     # and GetClassID), the bomb going off; then the laser beams (DSurface::Draw_Depth_Antialiased_Line).
     skirmish('n5-bomb', 1500, order='both', seconds=300, env=dict(RA2_NATIVE_SAVE_AT='520,BOMB.SAV', RA2_NATIVE_ORDERS=(
         '300 spawn IVAN 2 2; 310 spawn HTK 5 0; 330 fire IVAN HTK; 500 health; 700 laser; 900 health'))),
+    # Lane N9: BombClass::Disarm, both ways an engineer's capture takes it: a Crazy Ivan bombs the player's engineer and
+    # an enemy missile silo spawned beside the base (the harness's `spawn <ID> enemy`), then the engineer captures the
+    # silo (`capture <ID> <TYPE>`): the engineer is deleted with its bomb (ObjectClass::Delete_Me) and the silo changes
+    # hands with its own (BuildingClass::Captured).
+    skirmish('n9-bomb', 1100, order='both', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
+        '300 spawn NAMISL enemy -6 2; 310 spawn IVAN -2 2; 312 spawn ENGINEER -2 3; 330 fire IVAN ENGINEER; '
+        '420 fire IVAN NAMISL; 520 capture ENGINEER NAMISL; 700 health; 1000 health')),
+        # the bombed engineer alone selected and the mouse over it: TechnoClass::What_Action asks the bomb its kind
+        # (BombClass::Unknown_00435FF0) for the detonate cursor
+        script=['440 click @ENGINEER', '450 move @ENGINEER', '460 move @ENGINEER', '480 move @ENGINEER']),
     # Lane N5: a soldier's production put on hold (a right click on its cameo: SUSPEND), the sidebar's strip asking
     # its factory whether it is on hold (UnknownFactory::Is_On_Hold). Lane N6: it does not: only the sidebar's own
     # click marks a cameo building, and the strip asks only then (n6-sidebar reaches it); kept for the SUSPEND path.
@@ -130,6 +140,15 @@ SCENARIOS = [
         '130 click 300 300', '135 click 300 300', '140 key Z',
         '160 drag 150 150 750 650', '170 keydown Left_Shift', '172 click 450 400', '175 keyup Left_Shift',
         '190 keydown Left_Option', '192 click 450 400', '195 keyup Left_Option',
+    ]),
+    # Lane N9: the type-select key held (T: TypeSelectCommandClass::Execute starts its stopwatch, the flag 0x00AC133D)
+    # while a Shift click lands on a tank: on an unselected one Mouse_Left_Release selects every tank (Unknown_006F71E0),
+    # on a selected one (action 8) it unselects every tank (Unknown_006F7020). The input log shows 5 tanks selected
+    # after the first click and none after the second.
+    dict(name='n9-ui', args=['--skirmish=#5', '--skirmish-frames=600', '--skirmish-order=both', '--run-to=frames',
+                             '--run-seconds=200', NOAUDIO], env=dict(RA2_NATIVE_INPUT_LOG='10'), seconds=260, script=[
+        '80 keydown T', '82 keydown Left_Shift', '84 click @MTNK', '88 keyup Left_Shift', '90 keyup T',
+        '120 keydown T', '122 keydown Left_Shift', '124 click @MTNK', '128 keyup Left_Shift', '130 keyup T',
     ]),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).

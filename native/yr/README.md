@@ -997,6 +997,32 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   scenario; a player leaving a LAN game (Destroy_Connection) not started. Then item 3 (95 unreached rewrites):
   Unknown_006F7020 (select all of a type: the T key with a tank selected, as yr-native-type-select does) looks easy.
 
+### Lane N9 (2026-11-19): the Simulator walk on current main, three more of Red Alert 2's unreached rewrites
+
+* **Simulator walk** ("RA2 Duo Validation", `ios_sim_menus.py --games yr-random,yr,ra2 --play-seconds 150`, the
+  simulator app from `native/build.sh ios simulator` at main c6b653428): lane N8's random map generator and lane N6's
+  `spawn ... enemy <dx> <dy>` offsets had been checked on the Mac only. Both games pass (60-62 frames/s; the N4/N5
+  checks too: the enemy power plant 750 -> 616, the reactor captured). New run `yr-random`: the lobby's Choose Map
+  (1450), Create Random Map (1411), Preview (1568), OK (1733) 17 s later, Start Game: RANDMAP.SED plays, 13 player
+  units at frame 40, frame 600 reached. The first `yr` run of the walk failed in the lobby: the tap away from the name
+  field and the Start Game tap were read 635 ms late in one batch (a two-finger right click); a host stall with the
+  Mac's swap nearly full (7.8 of 8 GB). `--games yr` alone then passed.
+* **Red Alert 2's unreached rewrites: 91 -> 88** (build/native-cov rebuilt, `coverage_runs.py run n9-bomb n9-ui`,
+  `report`; native/behaviour_rewrites.json `reach`). The RA2 harness's `spawn` takes `enemy` (`spawn <ID> enemy
+  [<dx> <dy>]`: the house of the first techno that is neither the player's nor an ally's, placed at the offset from the
+  player's first techno) and `capture <ID> <TYPE>` (the first non-player object of TYPE, as `attack <ID> <TYPE>`).
+  `n9-bomb`: a Crazy Ivan bombs the player's engineer and an enemy missile silo spawned beside the base, the engineer
+  captures the silo: BombClass::Disarm (the run does not say whether through the engineer's Delete_Me or the silo's
+  Captured); the engineer, alone selected with the mouse over it, asks its bomb's kind for the detonate cursor
+  (BombClass::Unknown_00435FF0). `n9-ui`: T held (TypeSelectCommandClass's stopwatch, 0x00AC133D) and a Shift click on a tank: on an
+  unselected one every tank is selected (0x006F71E0), on a selected one every tank is unselected (Unknown_006F7020);
+  `RA2_NATIVE_INPUT_LOG=10` shows 5 tanks selected, then none.
+* **Checks**: ctests native-basics, native-tank-damage, native-hd-vehicles, native-link-closure, native-asm-check on
+  build/n3 pass with the harness change.
+* **Resume note (lane N9)**: next, a player leaving a LAN game (SessionClass::Unknown_00672F20 through
+  Destroy_Connection: lan_pair.py's host leaves at the end, but Bravo's coverage of that was never seen; a lobby
+  leave-and-rejoin variant is the other way), then the 88 left, most-called first.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both
