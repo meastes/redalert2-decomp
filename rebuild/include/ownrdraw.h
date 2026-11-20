@@ -179,7 +179,7 @@ namespace OwnerDraw {
 		~WinData(void); // RA2: frees the text, the node list and the wide text
 		void Copy_List(TextNode const * source); // RA2: 0x600460
 		WinData & operator = (WinData const & other); // RA2: 0x6005C0, keeps WideText
-		WinData & Copy(WinData const & other); // RA2: 0x6006E0, without the self test
+		WinData(WinData const & other); // RA2: 0x6006E0, without the self test
 		void Set_Text(char const * text); // RA2: 0x600560, a wide copy
 		void Set_Wide_Text(wchar_t const * text); // RA2: 0x600510
 

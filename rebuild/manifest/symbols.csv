@@ -1483,6 +1483,7 @@ symbol,address,evidence
 ?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z,0x005D54F0,slot +a8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_slot41@ObjectClass@@UBE?AUCoordStruct@@H@Z
 ?Draw@CCToolTip@@UAEXPBUToolTipText@@@Z,0x0046E250,slot +14 of ??_7CCToolTip@@6B@ at 007af518; main row ?Debug_Print@CCToolTip@@UAEXPAUToolTipRecord@@@Z
 ?Draw@LoadProgressManager@@QAEXXZ,0x00535BF0,inferred: scenario rows 0065eb40 differ only at its sites
+?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAX_NHH@Z,0x0068CF90,inferred: ownrdraw rows 005fed10 005fed10 differ only at its sites
 ?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PAV?$DynamicVectorClass@PBVMultiMission@@@@PBVMultiMission@@@Z,0x005B7550,slot +40 of ??_7FreeForAll@@6B@ at 007a6910; main row ?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PBV?$DynamicVectorClass@PAVMultiMission@@@@PAVMultiMission@@@Z
 ?DrawVeterancyPips@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x006D5440,slot +3ec of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot250@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z
 ?Draw_Action_Line@FootClass@@UBEX_NH@Z,0x004CA8B0,slot +3d0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot243@FootClass@@UAEX_NH@Z
@@ -2398,6 +2399,7 @@ symbol,address,evidence
 ?Mouse_Left_Held@DisplayClass@@MAEXABVPoint2D@@@Z,0x0049C500,slot +bc of ??_7RadarClass@@6B@ at 007a871c; main row ?Mouse_Left_Held@DisplayClass@@UAEXABUPoint2D@@@Z
 ?Mouse_Left_Press@DisplayClass@@MAEXABVPoint2D@@@Z,0x0049C490,slot +b4 of ??_7RadarClass@@6B@ at 007a871c; main row ?Mouse_Left_Press@DisplayClass@@UAEXABUPoint2D@@@Z
 ?Mouse_Left_Release@DisplayClass@@MAEXABVCoord@@ABVCell@@PAVObjectClass@@W4ActionType@@_N@Z,0x0049BB20,slot +c0 of ??_7RadarClass@@6B@ at 007a871c; main row ?Mouse_Left_Release@DisplayClass@@UAEXABUCoordStruct@@ABVCell@@PAVObjectClass@@H_N@Z
+?Mouse_Release_Depth@@3HA,0x00A76410,inferred: ownrdraw rows 005ff5a0 005ff5a0 005ff5d0 005ff5d0 differ only at its sites
 ?Mouse_Right_Press@DisplayClass@@MAEXABVPoint2D@@@Z,0x0049AF80,slot +b0 of ??_7RadarClass@@6B@ at 007a871c; main row ?Mouse_Right_Press@DisplayClass@@UAEXABUPoint2D@@@Z
 ?Mouse_Right_Press@ScrollClass@@MAEXABVPoint2D@@@Z,0x0066ABE0,slot +b0 of ??_7MouseClass@@6BSidebarClass@@@ at 0079a954; main row ?Mouse_Right_Press@ScrollClass@@UAEXABUPoint2D@@@Z
 ?Mouse_Right_Release@DisplayClass@@MAEXABVPoint2D@@@Z,0x0049AF90,slot +c4 of ??_7RadarClass@@6B@ at 007a871c; main row ?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z

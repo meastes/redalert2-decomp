@@ -1803,7 +1803,6 @@ void Refresh_Game_List(void)
 	if (dialog == WS_Top_Window()) SetFocus(GetDlgItem(dialog, 0x540));
 }
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void Draw_Player_List(int keep_selection, bool force)
 {
 	HWND win = GameoptWindow();
@@ -2090,7 +2089,6 @@ void Draw_Player_List(int keep_selection, bool force)
 	SendDlgItemMessageA(win, 0x53E, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(GetDlgItem(win, 0x53E), NULL, 0);
 }
-#endif
 
 
 

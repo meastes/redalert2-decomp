@@ -3713,8 +3713,6 @@ void Tactical::Draw_Rally_Points(bool inshroud)
 /// <summary>
 /// RA2: the four translation table entries the dashed line drawer animates, saved and restored as one block.
 /// </summary>
-enum { RA2_MOUSE_WAYPOINT = 60 }; // RA2: the waypoint cursor is number 60 (0x3C) in the executable's mouse list; main's MOUSE_WAYPOINT is 36
-
 struct DashEntries // RA2: as above
 {
 	int Entry[4]; // RA2: as above
@@ -3749,8 +3747,8 @@ static bool Draw_WaypointPoint_Line_Style[8] = {
 void Tactical::Draw_Waypoints(bool inshroud)
 {
 	int phase = (0x7FFFFFFF - Frame) % TICKS_PER_SECOND;
-	int start_frame = Map.Get_Mouse_Start_Frame((MouseType)RA2_MOUSE_WAYPOINT); // RA2: the start frame is read first and added after the modulus
-	int frame = WaypointAnimCounter % Map.Get_Mouse_Frame_Count((MouseType)RA2_MOUSE_WAYPOINT) + start_frame; // RA2: as above
+	int start_frame = Map.Get_Mouse_Start_Frame(MOUSE_WAYPOINT); // RA2: the start frame is read first and added after the modulus
+	int frame = WaypointAnimCounter % Map.Get_Mouse_Frame_Count(MOUSE_WAYPOINT) + start_frame; // RA2: as above
 
 	if (Debug_Map) {
 		return;

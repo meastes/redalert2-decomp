@@ -51,8 +51,8 @@
     "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
     "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027096,
     "??9HSVClass@@QBE_NABV0@@Z": 5239200,
-    "??8@YI_NAAVHSVClass@@ABV0@@Z": 5239264,
     "??_7?$VectorClass@VHSVClass@@@@6B@": 8027128,
+    "??8@YI_NAAVHSVClass@@ABV0@@Z": 5239264,
     "??0HashString@@QAE@XZ": 5116208,
     "??0PaletteClass@@QAE@ABVRGBClass@@@Z": 6303696,
     "??0PaletteClass@@QAE@PAE@Z": 6303776,
@@ -2969,6 +2969,59 @@
       "population": "rebuild-palette",
       "source_order": 6312352,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6312432,
+      "method": "006051f0",
+      "body_bytes": 148,
+      "body_sha256": "55dd23863d682aed591704258969ef05ff12e9f28f320d24a0b71c2b47116825",
+      "padding_bytes": 12,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "93bb8e0e7952c14ce61d99f4d7df1ecdb8967f833df3fc409f38e19190dbc6ea",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@VHSVClass@@@@QAE@IPBVHSVClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VHSVClass@@@@6B@",
+          "target": 8027128,
+          "addend": 0,
+          "resolved": 8027128
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1560022
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VHSVClass@@@@6B@",
+          "target": 8026968,
+          "addend": 0,
+          "resolved": 8026968
+        }
+      ],
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6312432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
     },
     {
       "entry": 6312592,

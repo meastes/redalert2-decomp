@@ -111,6 +111,7 @@
     "?Fetch_Normal_Image@ObjectTypeClass@@QAEXXZ": 6125104,
     "?Save@ObjectTypeClass@@UAGJPAUIStream@@H@Z": 6127200,
     "??_C@_04KIKH@none?$AA@": 8184044,
+    "??_7?$DynamicVectorClass@VRGBClass@@@@6B@": 8029700,
     "??_C@_07MJPA@Railgun?$AA@": 8306668,
     "??_C@_05LBML@Spark?$AA@": 8306676,
     "??_C@_04EBFF@Fire?$AA@": 8306684,
@@ -128,6 +129,7 @@
     "_$E29": 6426816,
     "_$E32": 6426864,
     "_$E35": 6426880,
+    "??_G?$TypeList@VRGBClass@@@@UAEPAXI@Z": 4640512,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -168,9 +170,8 @@
     "??_R0?AVAbstractClass@@@8": 8184384,
     "??_R0?AVAbstractTypeClass@@@8": 8184416,
     "??_R0?AVObjectTypeClass@@@8": 8186312,
-    "??_R0?AVParticleTypeClass@@@8": 8307144,
-    "??_G?$TypeList@VRGBClass@@@@UAEPAXI@Z": 4640512,
     "??_7type_info@@6B@": 8066532,
+    "??_R0?AVParticleTypeClass@@@8": 8307144,
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
     "?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z": 4309728,
     "?Get_Ownable@ObjectTypeClass@@UBEHXZ": 4351840,
@@ -200,7 +201,6 @@
     "?ID@?$VectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4642992,
     "?ID@?$VectorClass@VRGBClass@@@@UAEHPBVRGBClass@@@Z": 4643072,
     "??_G?$DynamicVectorClass@VRGBClass@@@@UAEPAXI@Z": 6430784,
-    "??_7?$DynamicVectorClass@VRGBClass@@@@6B@": 8029700,
     "?Resize@?$DynamicVectorClass@VRGBClass@@@@UAE_NHPBVRGBClass@@@Z": 4643120,
     "?ID@?$DynamicVectorClass@VRGBClass@@@@UAEHABVRGBClass@@@Z": 4643376,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
@@ -3131,6 +3131,59 @@
       "population": "rebuild-ptype",
       "source_order": 6430336,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6430624,
+      "method": "00621fa0",
+      "body_bytes": 148,
+      "body_sha256": "83ea54142e5646588ad8412411dacf6a6ce027e849fa460404291f76e27ad574",
+      "padding_bytes": 12,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "68eaa738cc39722870d536d2f07f8c659f0205471dbb7377484c26180477d7ec",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@VRGBClass@@@@QAE@IPBVRGBClass@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@VRGBClass@@@@QAE@IPBVRGBClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VRGBClass@@@@6B@",
+          "target": 7985748,
+          "addend": 0,
+          "resolved": 7985748
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1441830
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VRGBClass@@@@6B@",
+          "target": 8029700,
+          "addend": 0,
+          "resolved": 8029700
+        }
+      ],
+      "source_sha256": "271cafcded2b6460c3326c8368176d901da03d26d2b5178bad0e9ca22da3849b",
+      "source": "rebuild/src/ptype.cpp",
+      "population": "rebuild-ptype",
+      "source_order": 6430624,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
     },
     {
       "entry": 6430784,

@@ -192,6 +192,8 @@ TeamTypeClass::~TeamTypeClass(void)
 	AbstractTypePtrTracker.Delete(this); // RA2: out of the abstract type pointer tracker too
 }
 
+int __fastcall Find_Compatible_Passability_Row(int row1, int row2); // RA2: 0x56A900 (map.cpp)
+
 
 /***********************************************************************************************
  * TeamTypeClass::Create_One_Of -- Creates a team of this type.                                *
@@ -1051,7 +1053,7 @@ void TeamTypeClass::Process_Task_Force(void) // RA2: 0x6C0180 (ra2-decomp's YR t
 /// <summary>
 /// Gives every team type its task force's attributes (see Process_Task_Force).
 /// </summary>
-void Process_All_Task_Forces(void) // RA2: 0x6C0220 (ra2-decomp's YR twin, a static member there)
+void TeamTypeClass::Process_All_Task_Forces(void) // RA2: 0x6C0220 (ra2-decomp's YR twin)
 {
 	for (int index = 0; index < TeamTypes.Count(); index++) {
 		TeamTypes[index]->Process_Task_Force();

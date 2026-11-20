@@ -12,17 +12,25 @@
 #include "ahandle.h"
 #include "vqalib/vqadebug.h"
 
+long VQA_ResetLastFrameNum(VQAHandle *vqa);
 
+void VQA_DispatchFrameChunks(VQAHandleP *vqap, long frame);
 
 long VQA_NumFramesWithPalettes(VQAHandleP *vqap);
 
 void VQA_ResetCache(VQAHandleP *vqap);
 
+long VQA_Configure_Buffer(VQAHandleP *vqap);
 
+void VQA_SetTimer(VQAHandleP *vqap, long time);
 
+unsigned long VQA_GetTime(VQAHandleP *vqap);
 
+void VQA_StartAudio(VQAHandleP *vqap);
 
+void VQA_StopAudio(VQAHandleP *vqap);
 
+long VQA_LoadFrame(VQAHandleP *vqap, long flags);
 
 long User_Update(VQAHandle *vqa);
 
@@ -30,14 +38,26 @@ long VQA_SetLoop(VQAHandle *vqa, int id, int iterations, int mode);
 
 long VQA_SetLoop_Internal(VQAHandle *vqa, int start, int end, int iterations, int mode);
 
+long VQA_ReloadPalette(VQAHandleP *vqap, long framenum, int force);
 
+VQABool VQA_IsFrameStartOfLoop(VQAHandleP *vqap, long framenum);
 
+long VQA_SeekGroup(VQAHandleP *vqap, long framenum, long groupsize, VQABool preloadaudio, VQABool reset_state, VQABool &skipcodebook);
 
+long PrimeBuffers(VQAHandle *vqa);
 
+long Load_FINF(VQAHandleP *vqap, unsigned long iffsize);
+long Load_CINF(VQAHandleP *vqap);
+long Load_PINF(VQAHandleP *vqap);
+long Load_LINF(VQAHandleP *vqap);
+long Load_CLIP(VQAHandleP *vqap, unsigned long iffsize);
+long Load_MFCI(VQAHandleP *vqap);
+long Load_MSCI(VQAHandleP *vqap);
 
+long __cdecl VQA_Memory_Handler(VQAHandle *vqa, long action, void *buffer, long nbytes);
+long __cdecl Disk_VQA_Stream_Handler(VQAHandle *vqa, long action, void *buffer, long nbytes);
 
 long VQA_LargestLoop(VQAHandleP *vqap, long);
-
 
 long VQA_Open(char const *filename, VQAConfig *_config, VQAHandle **handle)
 {

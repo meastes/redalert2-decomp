@@ -5141,6 +5141,51 @@
       "bound_population": "population-15"
     },
     {
+      "entry": 4990240,
+      "method": "004c2520",
+      "body_bytes": 144,
+      "body_sha256": "32f15f53f600d0526a7f75d5759c9420cb65fa2bbdd242b4a11da3de1cf81890",
+      "padding_bytes": 0,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "32f15f53f600d0526a7f75d5759c9420cb65fa2bbdd242b4a11da3de1cf81890",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@UDrawRecord@FoggedObjectClass@@@@QAE@HPBUDrawRecord@FoggedObjectClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UDrawRecord@FoggedObjectClass@@@@6B@",
+          "target": 7999952,
+          "addend": 0,
+          "resolved": 7999952
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2882203
+        }
+      ],
+      "source_sha256": "cf8cd5b2537c5ba1e8e9a530579703efe2008543563223fc7ee5b8a9ec33a62f",
+      "source": "rebuild/src/fog.cpp",
+      "population": "rebuild-fog",
+      "source_order": 4990240,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
+    },
+    {
       "entry": 4990384,
       "method": "004c25b0",
       "body_bytes": 134,

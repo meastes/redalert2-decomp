@@ -112,13 +112,11 @@ def write():
             return bool(name) and bool(_re.search(r'^(?![ \t#/])[^\n;{}]*?(?<![\w:])%s\s*\(' % _re.escape(name), source_text, _re.M))
         results = {r['entry']: r for r in last['results']}
         exact = [row for row in info['rows'] if results.get(row['entry'], {}).get('status') == 'exact']
-        # A row frozen in a closed compiler-output population (main's A14 array-construction
-        # policy) cannot join another translation unit: it stays original bytes, reported.
-        closed = {p['id'] for p in catalog['populations'] if p.get('compiler_output_policy')}
-        for row in [r for r in exact if by_entry[int(r['entry'], 16)].get('bound_population',
-                                                                            by_entry[int(r['entry'], 16)]['population']) in closed]:
-            refused.append('%s: %s held by a closed compiler-output population' % (unit, row['entry']))
-            exact.remove(row)
+        # A row frozen in one of main's closed compiler-output populations (main's A14 array-construction
+        # policy) is claimed by the unit that emits it exact (review session, 2026-11-20: closed populations
+        # and discard policies are main-only). Its bound evidence stays that population's inventory; the
+        # policy itself never enters the rebuild catalog, and units.json records the row's origin
+        # (`claimed_from`) so the populations to retire are known.
         if not exact:
             refused.append('%s: no exact row' % unit); continue
         # Every row of mischa85's module range (the unit's own functions) must be exact unless the
@@ -249,7 +247,7 @@ def write():
                 table[name] = address
         needed.add(home)
     for own in sorted(needed - {p['id'] for p in pops}):
-        pops.append(dict(populations[own]))
+        pops.append({k: v for k, v in populations[own].items() if k != 'compiler_output_policy'})
     headers = [dict(path=p.relative_to(R.ROOT).as_posix(), sha256=sha(p.read_bytes()))
                for p in sorted((R.REBUILD / 'include').rglob('*')) if p.is_file()]
     for region in regions:

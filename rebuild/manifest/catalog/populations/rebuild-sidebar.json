@@ -243,6 +243,8 @@
     "??1RadarClass@@UAE@XZ": 6484096,
     "??0MapClass@@QAE@ABVNoInitClass@@@Z": 5536352,
     "??_7DisplayClass@@6B@": 7989532,
+    "??_7?$VectorClass@VPoint2D@@@@6B@": 8024008,
+    "??_7?$DynamicVectorClass@VPoint2D@@@@6B@": 8023976,
     "_$S190": 11244145,
     "_$E2": 6795968,
     "_$E5": 6796000,
@@ -438,10 +440,8 @@
     "?ID@?$VectorClass@VCell@@@@UAEHPBVCell@@@Z": 4378672,
     "?Resize@?$DynamicVectorClass@VCell@@@@UAE_NHPBVCell@@@Z": 4378704,
     "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
-    "??_G?$DynamicVectorClass@VPoint2D@@@@UAEPAXI@Z": 5974096,
     "??_G?$VectorClass@VPoint2D@@@@UAEPAXI@Z": 5974016,
-    "??_7?$DynamicVectorClass@VPoint2D@@@@6B@": 8023976,
-    "??_7?$VectorClass@VPoint2D@@@@6B@": 8024008,
+    "??_G?$DynamicVectorClass@VPoint2D@@@@UAEPAXI@Z": 5974096,
     "?Clear@?$DynamicVectorClass@VPoint2D@@@@UAEXXZ": 5969632,
     "?ID@?$DynamicVectorClass@VPoint2D@@@@UAEHPBVPoint2D@@@Z": 5969680,
     "?GetItem@?$VectorClass@VPoint2D@@@@UBE?AVPoint2D@@H@Z": 5969712,
@@ -11576,6 +11576,58 @@
       "source_order": 6825200,
       "source_quality_family": "rebuild",
       "bound_population": "population-03"
+    },
+    {
+      "entry": 6825344,
+      "method": "00682580",
+      "body_bytes": 117,
+      "body_sha256": "9424bd61bba15bcd6c57075dde97fab77a64abe991f3a566aabceb67bc8b94f0",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "c4c489e19560affba5a853aa2ad792f3d27c80e9cae334372ab26f931748f32b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@VPoint2D@@@@QAE@IPBVPoint2D@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@VPoint2D@@@@QAE@IPBVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@VPoint2D@@@@6B@",
+          "target": 8024008,
+          "addend": 0,
+          "resolved": 8024008
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1047124
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VPoint2D@@@@6B@",
+          "target": 8023976,
+          "addend": 0,
+          "resolved": 8023976
+        }
+      ],
+      "source_sha256": "3f64022a5447c62c93b667e40b1cd705a6215595ba00f794381bd370bbc35014",
+      "source": "rebuild/src/sidebar.cpp",
+      "population": "rebuild-sidebar",
+      "source_order": 6825344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
     }
   ]
 }

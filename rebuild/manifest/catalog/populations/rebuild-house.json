@@ -543,7 +543,6 @@
     "_$E228": 5117408,
     "??_G?$DynamicVectorClass@PAUBuildChoiceClass@HouseClass@@@@UAEPAXI@Z": 5211840,
     "??_G?$VectorClass@PAUBuildChoiceClass@HouseClass@@@@UAEPAXI@Z": 5211760,
-    "??_G?$DynamicVectorClass@PAUIConnectionPoint@@@@UAEPAXI@Z": 4796512,
     "??_G?$DynamicVectorClass@PAVBuildingClass@@@@UAEPAXI@Z": 5094624,
     "??_G?$DynamicVectorClass@UScoutStruct@@@@UAEPAXI@Z": 5211680,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
@@ -565,6 +564,7 @@
     "?IsDirty@AbstractClass@@UAGJXZ": 4260336,
     "??_G?$DynamicVectorClass@PAVTagClass@@@@UAEPAXI@Z": 5094464,
     "??_G?$DynamicVectorClass@PAVSuperClass@@@@UAEPAXI@Z": 5094784,
+    "??_G?$DynamicVectorClass@PAUIConnectionPoint@@@@UAEPAXI@Z": 4796512,
     "??_G?$DynamicVectorClass@UAngerStruct@@@@UAEPAXI@Z": 5211520,
     "?Is_Powered@HouseClass@@UAG_NXZ": 5122736,
     "?Get_Application@HouseClass@@UAGPAUIApplication@@XZ": 5122768,
@@ -580,7 +580,6 @@
     "?Apparent_Base_Center@HouseClass@@UAG?AUCellStruct@@XZ": 5123488,
     "?Tiberium_Fraction@HouseClass@@QBENXZ": 5123568,
     "?One_Time@HouseClass@@SIXXZ": 5123632,
-    "??_G?$VectorClass@PAUIConnectionPoint@@@@UAEPAXI@Z": 4798192,
     "??_G?$VectorClass@PAVBuildingClass@@@@UAEPAXI@Z": 5094544,
     "??_G?$VectorClass@UScoutStruct@@@@UAEPAXI@Z": 5211600,
     "??_G?$VectorClass@VBaseNodeClass@@@@UAEPAXI@Z": 4379456,
@@ -590,6 +589,7 @@
     "??_G?$VectorClass@PAVTagClass@@@@UAEPAXI@Z": 5094384,
     "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "??_G?$VectorClass@PAVSuperClass@@@@UAEPAXI@Z": 5094704,
+    "??_G?$VectorClass@PAUIConnectionPoint@@@@UAEPAXI@Z": 4798192,
     "??_G?$VectorClass@UAngerStruct@@@@UAEPAXI@Z": 5211440,
     "??0HouseStaticClass@@QAE@XZ": 5125696,
     "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
@@ -638,8 +638,8 @@
     "?Expert_AI@HouseClass@@QAEHXZ": 5147024,
     "?Check_Fire_Sale@HouseClass@@QAE?AW4UrgencyType@@XZ": 5147936,
     "?AI_Fire_Sale@HouseClass@@QAE_NW4UrgencyType@@@Z": 5148864,
-    "??_G?$DynamicVectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z": 5211360,
     "??_G?$VectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z": 5211280,
+    "??_G?$DynamicVectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z": 5211360,
     "?AI_Unit@HouseClass@@AAEHXZ": 5151888,
     "??_G?$DynamicVectorClass@PBVTechnoTypeClass@@@@UAEPAXI@Z": 4957040,
     "??_G?$VectorClass@PBVTechnoTypeClass@@@@UAEPAXI@Z": 4956960,
@@ -29938,6 +29938,50 @@
       "bound_population": "population-22"
     },
     {
+      "entry": 5212896,
+      "method": "004f8ae0",
+      "body_bytes": 147,
+      "body_sha256": "fdbfba760b421e7027fd85c1cc25a797e2b5dc8a469e57db8a7353e13ad98f32",
+      "padding_bytes": 13,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "2af8150151863aea5badde28664dc727fc70b514cdf13f790eccdfe623087c21",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@UAngerStruct@@@@QAE@HPBUAngerStruct@@@Z",
+      "symbol_prefix": "??0?$VectorClass@UAngerStruct@@@@QAE@HPBUAngerStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@UAngerStruct@@@@6B@",
+          "target": 8007300,
+          "addend": 0,
+          "resolved": 8007300
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2659552
+        }
+      ],
+      "source_sha256": "b3eec452142408404019532ff558aabf265b89276d55fef14041ef55103cda57",
+      "source": "rebuild/src/house.cpp",
+      "population": "rebuild-house",
+      "source_order": 5212896,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
+    },
+    {
       "entry": 5213056,
       "method": "004f8b80",
       "body_bytes": 147,
@@ -30077,6 +30121,50 @@
       "source_order": 5213424,
       "source_quality_family": "rebuild",
       "bound_population": "population-123"
+    },
+    {
+      "entry": 5213472,
+      "method": "004f8d20",
+      "body_bytes": 71,
+      "body_sha256": "bfd7c01d27b1309f254969d27bdb416a1d5d72d85f2a63e643ea431fd6e06c1c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "6da332cd9ffe6b3c6e356111f99d2fe1af2ec8171b43fd06692b2cb4d336eb23",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@_N@@QAE@HPB_N@Z",
+      "symbol_prefix": "??0?$VectorClass@_N@@QAE@HPB_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@_N@@6B@",
+          "target": 8007524,
+          "addend": 0,
+          "resolved": 8007524
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2659008
+        }
+      ],
+      "source_sha256": "b3eec452142408404019532ff558aabf265b89276d55fef14041ef55103cda57",
+      "source": "rebuild/src/house.cpp",
+      "population": "rebuild-house",
+      "source_order": 5213472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
     },
     {
       "entry": 5213728,

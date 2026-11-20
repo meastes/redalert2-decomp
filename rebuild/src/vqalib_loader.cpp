@@ -9,6 +9,16 @@
 #include <memory.h>
 #include "vqalib/vqaplayp.h"
 
+long Load_FINF(VQAHandleP *vqap, unsigned long iffsize);
+
+long Load_CINF(VQAHandleP *vqap);
+
+long Load_PINF(VQAHandleP *vqap);
+
+long Load_LINF(VQAHandleP *vqap);
+
+long Load_CLIP(VQAHandleP *vqap, unsigned long iffsize);
+
 _STATIC long Load_VQF(VQAHandleP *vqap, unsigned long frame_iffsize, char flags);
 
 _STATIC long Load_CBF0(VQAHandleP *vqap, unsigned long iffsize);
@@ -63,14 +73,18 @@ _STATIC long VQA_SeekLoop(VQAHandleP *vqap, long framenum, long flags);
 
 _STATIC long VQA_GetCodebookFrameRange(VQAHandleP *vqap, long framenum, long *first_frame, long *last_frame);
 
+VQABool VQA_IsFrameStartOfLoop(VQAHandleP *vqap, long framenum);
+
+long VQA_ReloadPalette(VQAHandleP *vqap, long framenum, int force);
+
 _STATIC long VQA_LoadLoop(VQAHandleP *vqap, long framenum);
 
-
-
+long __cdecl Memory_VQA_Stream_Handler(VQAHandle *vqa, long action, void *buffer, long nbytes);
 
 _STATIC long VQA_LoadFrame_Internal(VQAHandleP *vqap, long flags);
 
-#if 0
+long VQA_SeekGroup(VQAHandleP *vqap, long framenum, long groupsize, VQABool preloadaudio, VQABool reset_state, VQABool &skipcodebook);
+
 long VQA_LoadFrame(VQAHandleP *vqap, long flags)
 {
 	VQAConfig *config;
@@ -184,7 +198,6 @@ long VQA_LoadFrame(VQAHandleP *vqap, long flags)
 
 	return rc;
 }
-#endif
 
 
 long VQA_LoadFrame_Internal(VQAHandleP *vqap, long flags)

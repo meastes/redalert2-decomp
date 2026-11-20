@@ -789,40 +789,47 @@ MouseClass::MouseStruct MouseClass::MouseControl[MOUSE_COUNT] = {
 	{170,	20,		4,		-1,		HSCNR,	HSCNR},	// MOUSE_REPAIR
 	{190,	1,		0,		-1,		HSCNR,	HSCNR},	// MOUSE_NO_REPAIR
 
-	{191,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_WAYPOINT
-	{201,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_PLACE_WAYPOINT
-	{211,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_NO_PLACE_WAYPOINT
-	{212,	7,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_SELECT_WAYPOINT
-	{219,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_ENTER_WAYPOINT_MODE
-	{229,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_FOLLOW_WAYPOINT
-	{239,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_WAYPOINT_TOTE
-	{249,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_WAYPOINT_REPAIR
-	{259,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_ATTACK_WAYPOINT
-	{269,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_ENTER_WAYPOINT
-	{356,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_LOOP_WAYPOINT_PATH
-
-	{279,	20,		4,		-1,		HSCNR,	HSCNR},	// MOUSE_AIR_STRIKE
-	{299,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_CHEMBOMB
+	{ 191, 7, 0, -1, HSCNR, HSCNR },	// 36: no name evidenced
+	{ 199, 5, 0, -1, HSCNR, HSCNR },	// 37: no name evidenced
+	{ 204, 5, 0, -1, HSCNR, HSCNR },	// MOUSE_IVAN_BOMB
+	{ 209, 5, 0, -1, HSCNR, HSCNR },	// 39: no name evidenced
+	{ 214, 5, 0, -1, HSCNR, HSCNR },	// 40: no name evidenced
+	{ 219, 5, 0, -1, HSCNR, HSCNR },	// 41: no name evidenced
+	{ 224, 5, 0, -1, HSCNR, HSCNR },	// 42: no name evidenced
+	{ 229, 5, 0, -1, HSCNR, HSCNR },	// 43: no name evidenced
+	{ 234, 5, 0, -1, HSCNR, HSCNR },	// 44: no name evidenced
+	{ 239, 10, 0, -1, HSCNR, HSCNR },	// 45: no name evidenced
+	{ 249, 10, 0, -1, HSCNR, HSCNR },	// 46: no name evidenced
+	{ 259, 10, 0, -1, HSCNR, HSCNR },	// MOUSE_PARA_DROP
+	{ 269, 10, 0, -1, HSCNR, HSCNR },	// 48: no name evidenced
+	{ 356, 1, 0, -1, HSCNR, HSCNR },	// 49: no name evidenced
+	{ 279, 20, 4, -1, HSCNR, HSCNR },	// MOUSE_LIGHTNING_STORM
+	{ 299, 10, 0, -1, HSCNR, HSCNR },	// 51: no name evidenced
 	{309,	10,		4,		-1,		HSCNR,	HSCNR},	// MOUSE_DEMOLITIONS
 	{319,	10,		4,		-1,		HSCNR,	HSCNR},	// MOUSE_NUCLEAR_BOMB
-
-	{329,	16,		2,		-1,		HSCNR,	HSCNR},	/// MOUSE_TOGGLE_POWER
-	{345,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_NO_TOGGLE_POWER
-
-	{346,	10,		4,		42,		HSCNR,	HSCNR},	// MOUSE_HEAL
-
-	{357,	20,		3,		-1,		HSCNR,	HSCNR},	/// MOUSE_EM_PULSE
-	{377,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_EM_PULSE_RANGE
-
-	{378,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING
-	{379,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_N
-	{380,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_NE
-	{381,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_E
-	{382,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_SE
-	{383,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_S
-	{384,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_SW
-	{385,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_W
-	{386,	1,		0,		-1,		HSCNR,	HSCNR},	/// MOUSE_SCROLL_COASTING_NW
-
-	{387,	10,		4,		-1,		HSCNR,	HSCNR},	/// MOUSE_PATROL_WAYPOINT
+	{ 329, 10, 0, -1, HSCNR, HSCNR },	// 54: no name evidenced
+	{ 339, 6, 0, -1, HSCNR, HSCNR },	// 55: no name evidenced
+	{ 345, 1, 0, -1, HSCNR, HSCNR },	// 56: no name evidenced
+	{ 346, 5, 0, -1, HSCNR, HSCNR },	// MOUSE_IRON_CURTAIN
+	{ 357, 12, 0, -1, HSCNR, HSCNR },	// MOUSE_CHRONOSPHERE
+	{ 369, 15, 0, -1, HSCNR, HSCNR },	// MOUSE_DISARM_BOMB
+	{ 384, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_WAYPOINT
+	{ 385, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING
+	{ 386, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_N
+	{ 387, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_NE
+	{ 388, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_E
+	{ 389, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_SE
+	{ 390, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_S
+	{ 391, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_SW
+	{ 392, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_W
+	{ 393, 1, 0, -1, HSCNR, HSCNR },	// MOUSE_SCROLL_COASTING_NW
+	{ 394, 10, 4, -1, HSCNR, HSCNR },	// MOUSE_PATROL_WAYPOINT
+	{ 404, 9, 4, -1, HSCNR, HSCNR },	// 71: no name evidenced
+	{ 413, 9, 4, -1, HSCNR, HSCNR },	// 72: no name evidenced
+	{ 422, 9, 4, -1, HSCNR, HSCNR },	// 73: no name evidenced
+	{ 431, 1, 0, -1, HSCNR, HSCNR },	// 74: no name evidenced
+	{ 432, 1, 0, -1, HSCNR, HSCNR },	// 75: no name evidenced
+	{ 433, 1, 0, -1, HSCNR, HSCNR },	// 76: no name evidenced
+	{ 434, 1, 0, -1, HSCNR, HSCNR },	// 77: no name evidenced
+	{ 435, 15, 4, -1, HSCNR, HSCNR },	// MOUSE_PLACE_BEACON
 };

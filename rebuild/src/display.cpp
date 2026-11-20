@@ -2063,11 +2063,11 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 
 			case ACTION_TOGGLE_POWER:
 			case ACTION_NO_TOGGLE_POWER:
-				Set_Default_Mouse(MOUSE_NO_TOGGLE_POWER, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_HEAL:
-				Set_Default_Mouse(MOUSE_HEAL, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_NOMOVE:
@@ -2085,39 +2085,39 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 				break;
 
 			case ACTION_PLACE_WAYPOINT:
-				Set_Default_Mouse(MOUSE_PLACE_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_NO_PLACE_WAYPOINT:
-				Set_Default_Mouse(MOUSE_NO_PLACE_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ENTER_WAYPOINT_MODE:
-				Set_Default_Mouse(MOUSE_ENTER_WAYPOINT_MODE, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_SELECT_WAYPOINT:
-				Set_Default_Mouse(MOUSE_SELECT_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_LOOP_WAYPOINT_PATH:
-				Set_Default_Mouse(MOUSE_LOOP_WAYPOINT_PATH, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ATTACK_WAYPOINT:
-				Set_Default_Mouse(MOUSE_ATTACK_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_PATROL_WAYPOINT:
-				Set_Default_Mouse(MOUSE_PATROL_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_FOLLOW_WAYPOINT:
-				Set_Default_Mouse(MOUSE_FOLLOW_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ENTER_WAYPOINT:
-				Set_Default_Mouse(MOUSE_ENTER_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			default:
@@ -2132,7 +2132,7 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 		*/
 		switch (waypoint_action) {
 			case ACTION_TOTE:
-				Set_Default_Mouse(MOUSE_TOTE, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_NO_ENTER:
@@ -2207,11 +2207,11 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 				break;
 
 			case ACTION_NO_TOGGLE_POWER:
-				Set_Default_Mouse(MOUSE_NO_TOGGLE_POWER, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_TOGGLE_POWER:
-				Set_Default_Mouse(MOUSE_TOGGLE_POWER, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_SELL:
@@ -2223,43 +2223,43 @@ void DisplayClass::Mouse_Left_Up(Cell const & cell, bool shadow, ObjectClass * o
 				break;
 
 			case ACTION_HEAL:
-				Set_Default_Mouse(MOUSE_HEAL, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_PLACE_WAYPOINT:
-				Set_Default_Mouse(MOUSE_PLACE_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_NO_PLACE_WAYPOINT:
-				Set_Default_Mouse(MOUSE_NO_PLACE_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ENTER_WAYPOINT_MODE:
-				Set_Default_Mouse(MOUSE_ENTER_WAYPOINT_MODE, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_SELECT_WAYPOINT:
-				Set_Default_Mouse(MOUSE_SELECT_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_LOOP_WAYPOINT_PATH:
-				Set_Default_Mouse(MOUSE_LOOP_WAYPOINT_PATH, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ATTACK_WAYPOINT:
-				Set_Default_Mouse(MOUSE_ATTACK_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_PATROL_WAYPOINT:
-				Set_Default_Mouse(MOUSE_PATROL_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_FOLLOW_WAYPOINT:
-				Set_Default_Mouse(MOUSE_FOLLOW_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			case ACTION_ENTER_WAYPOINT:
-				Set_Default_Mouse(MOUSE_ENTER_WAYPOINT, wsmall);
+				Set_Default_Mouse(MOUSE_WAYPOINT, wsmall);
 				break;
 
 			default:

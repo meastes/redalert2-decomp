@@ -1,0 +1,2662 @@
+{
+  "id": "rebuild-mouse",
+  "population": {
+    "id": "rebuild-mouse",
+    "inventory_sha256": "457c223bbe3017670b62056b16b03ea6fdb4b79228becdd97c39b3a0a46ed65e",
+    "gaps_sha256": "505127c4cdd739d9f6d1f1e87fd84ffa851f605ec57e351578df12c163260985",
+    "historical_population_sha256": "0a2b554199310a8a149a2929ea286ac41a4a43b7649487b8ef5150dd8d1ea507",
+    "historical_acceptance_sha256": "901d0960400aa0eb49eccfa49d9fa472040a81d9984c612e4181d3d2ef29174c"
+  },
+  "references": {
+    "__real@8@40078000000000000000": 7972608,
+    "__real@8@40008000000000000000": 7972600,
+    "__CIpow": 7872944,
+    "?sqrt@fastmath@@YANN@Z": 4957200,
+    "_CELL_LEPTON_DIAG": 10948416,
+    "_ISO_TILE_SIZE": 8021192,
+    "_LEPTONS_PER_PIXEL": 10948504,
+    "__real@8@3fff8000000000000000": 7972616,
+    "_PIXELS_PER_LEPTON": 10948488,
+    "_ONE_RAD": 8021200,
+    "__real@8@4004b400000000000000": 7972624,
+    "_RAD_45": 10948480,
+    "__real@8@4004f000000000000000": 7972632,
+    "_RAD_60": 10948424,
+    "__real@8@4005b400000000000000": 7972640,
+    "_RAD_90": 10948384,
+    "?tan@fastmath@@YANN@Z": 4957472,
+    "__real@8@3ffe8000000000000000": 7972648,
+    "__ftol": 7860496,
+    "_LEVEL_LEPTON_H": 10948512,
+    "__real@8@3ff78000000000000000": 7972656,
+    "?atan@fastmath@@YANN@Z": 4957616,
+    "_CELL_SLOPE_ANGLE": 10948432,
+    "_CELL_DIAG_SLOPE_ANGLE": 10948456,
+    "_BRIDGE_LEPTON_HEIGHT": 10948496,
+    "_CELL_NONE": 10948408,
+    "_COORD_NONE": 10948440,
+    "_RECT_NONE": 10948392,
+    "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A": 10948464,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "_$E208": 5894144,
+    "_atexit": 7874954,
+    "_$S209": 10948376,
+    "??0ScrollClass@@QAE@XZ": 6723040,
+    "??_7MouseClass@@6BSidebarClass@@@": 7973204,
+    "??_7MouseClass@@6BINoticeSink@@@": 7973196,
+    "?MouseControl@MouseClass@@0PAUMouseStruct@1@A": 8268536,
+    "?MouseShapes@MouseClass@@2PBVShapeSet@@B": 10948452,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z@4_NA": 10948517,
+    "?AI@ScrollClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6723120,
+    "?One_Time@TabClass@@UAEXXZ": 6949664,
+    "?MouseShapesLoaded@@3_NA": 10948516,
+    "??_C@_09JKEA@MOUSE?4SHP?$AA@": 8239460,
+    "?Load_Alloc_Data@@YIPAXPBDAA_N@Z": 4805232,
+    "?Init_Clear@SidebarClass@@UAEXXZ": 6797488,
+    "?Load@SidebarClass@@UAEJPAUIStream@@@Z": 6824592,
+    "?LastTheater@@3W4TheaterType@@A": 8227036,
+    "??3@YAXPAX@Z": 7871803,
+    "??0TabClass@@QAE@ABVNoInitClass@@@Z": 5898080,
+    "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
+    "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
+    "??2@YAPAXI@Z": 7872535,
+    "?SubzoneHash@@YIHABI@Z": 5567040,
+    "??0?$DynamicVectorClass@U?$HashObject@II@@@@QAE@IPBU?$HashObject@II@@@Z": 5898208,
+    "??0?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE@HPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5688912,
+    "??_7?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@": 8018520,
+    "__imp__OleLoadFromStream@12": 7972332,
+    "_IID_IUnknown": 8060128,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Init@TerrainTypeClass@@SIXW4TheaterType@@@Z": 7230560,
+    "?Read_Control_File@IsometricTileTypeClass@@SIXW4TheaterType@@_N@Z": 5412976,
+    "?Clear_Use_Counts@IsometricTileTypeClass@@SIXXZ": 5420624,
+    "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z": 5419744,
+    "?Init@OverlayTypeClass@@SIXW4TheaterType@@@Z": 6146400,
+    "?Init@BuildingTypeClass@@SIXW4TheaterType@@@Z": 4556288,
+    "?Init@AnimTypeClass@@SIXW4TheaterType@@@Z": 4346416,
+    "?Init@SmudgeTypeClass@@SIXW4TheaterType@@@Z": 6848432,
+    "?Save@SidebarClass@@UAEJPAUIStream@@@Z": 6824608,
+    "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
+    "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
+    "?Is_Valid@MapClass@@QAE_NABVCell@@@Z": 5537968,
+    "__imp__OleSaveToStream@8": 7972328,
+    "??0SidebarClass@@QAE@ABVNoInitClass@@@Z": 6797232,
+    "??_7INoticeSink@@6B@": 7974468,
+    "??_7TabClass@@6BSidebarClass@@@": 8021220,
+    "??_7TabClass@@6BINoticeSink@@@": 8021212,
+    "??1BuildType@StripClass@SidebarClass@@QAE@XZ": 4247856,
+    "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
+    "??1RadarClass@@UAE@XZ": 6484096,
+    "??_7?$VectorClass@U?$HashObject@II@@@@6B@": 8018680,
+    "??_7?$DynamicVectorClass@U?$HashObject@II@@@@6B@": 8018552,
+    "_$E2": 5893600,
+    "_$E5": 5893648,
+    "_$E8": 5893680,
+    "_$E11": 5893712,
+    "_$E14": 5893744,
+    "_$E17": 5893776,
+    "_$E20": 5893808,
+    "_$E23": 5893872,
+    "_$E26": 5893920,
+    "_$E29": 5893968,
+    "_$E32": 5894016,
+    "_$E35": 5894032,
+    "_$E38": 5894064,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "_$E211": 5894096,
+    "??0MouseClass@@QAE@XZ": 5894176,
+    "?Unknown_Virtual_0@TabClass@@UAE_NHH@Z": 6955040,
+    "?Activate@TabClass@@UAE_NH@Z": 6950304,
+    "?Init_For_House@TabClass@@UAEXXZ": 6949744,
+    "?Set_Tactical_Position@RadarClass@@UAEXABVCoord@@@Z": 6488864,
+    "?Click_Cell_Calc@RadarClass@@UBE?AVCell@@ABVPoint2D@@@Z": 6486992,
+    "?DisposeOfArt@TabClass@@UAEXXZ": 6949680,
+    "?Mouse_Right_Release@ScrollClass@@MAEXABVPoint2D@@@Z": 6728608,
+    "?Mouse_Left_Release@DisplayClass@@MAEXABVCoord@@ABVCell@@PAVObjectClass@@W4ActionType@@_N@Z": 4832032,
+    "?Mouse_Left_Held@DisplayClass@@MAEXABVPoint2D@@@Z": 4834560,
+    "?Mouse_Left_Up@DisplayClass@@MAEXABVCell@@_NPAVObjectClass@@W4ActionType@@1@Z": 4829424,
+    "?Mouse_Left_Press@DisplayClass@@MAEXABVPoint2D@@@Z": 4834448,
+    "?Mouse_Right_Press@ScrollClass@@MAEXABVPoint2D@@@Z": 6728672,
+    "?Set_View_Dimensions@DisplayClass@@UAEXABV?$TRect@H@@@Z": 4820096,
+    "?Scroll_Map@DisplayClass@@UAE_NW4FacingType@@AAH_N@Z": 4823904,
+    "?Shadow_Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825968,
+    "?Fog_Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4825328,
+    "?RevealFogShroud@RadarClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 6487200,
+    "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 6487168,
+    "?Abort_Drag_Select@ScrollClass@@UAEXXZ": 6728736,
+    "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
+    "?Help_Text@TabClass@@UAEPBDH@Z": 6955184,
+    "?Read_INI@DisplayClass@@UAEXABVCCINIClass@@@Z": 4837328,
+    "?Set_Local_Dimensions@RadarClass@@UAEXABV?$TRect@H@@@Z": 6490176,
+    "?Set_Map_Dimensions@RadarClass@@UAEXABV?$TRect@H@@_NH1@Z": 6488832,
+    "?Logic@MapClass@@UAEXXZ": 5563136,
+    "?Is_Scrolling@ScrollClass@@UBE_NXZ": 6726592,
+    "?Detach@MapClass@@UAEXPBVAbstractClass@@_N@Z": 5610880,
+    "?Init_Cells@MapClass@@UAEXXZ": 5538960,
+    "?Free_Cells@MapClass@@UAEXXZ": 5538768,
+    "?Alloc_Cells@MapClass@@UAEXXZ": 5538672,
+    "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
+    "?Draw_It@TabClass@@UAEX_N@Z": 6951632,
+    "?Render@GScreenClass@@UAEXXZ": 5114672,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114624,
+    "?Add_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114560,
+    "?SetButtons@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114528,
+    "?Input@GScreenClass@@UAEXAAW4KeyNumType@@AAH1@Z": 5114320,
+    "?Init@GScreenClass@@UAEXW4TheaterType@@@Z": 5114208,
+    "??_GMouseClass@@UAEPAXI@Z": 4247904,
+    "?Is_Visible@MapClass@@UAGJUCellStruct@@@Z": 5537696,
+    "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z": 5114096,
+    "?AddRef@GScreenClass@@UAGKXZ": 4247808,
+    "?Release@GScreenClass@@UAGKXZ": 4247824,
+    "?Put_Place_Back@DisplayClass@@UAEXPAVTechnoClass@@@Z": 4247840,
+    "?Init_IO@ScrollClass@@UAEXXZ": 4247872,
+    "?Init_IO@TabClass@@UAEXXZ": 6949968,
+    "?Get_Mouse_Shape@MouseClass@@UBE?AW4MouseType@@XZ": 4247888,
+    "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z": 5894240,
+    "?Revert_Mouse_Shape@MouseClass@@UAEXXZ": 5894272,
+    "?Mouse_Small@MouseClass@@UAEX_N@Z": 5894288,
+    "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@_N@Z": 5894512,
+    "?Get_Mouse_Current_Frame@MouseClass@@QBEHW4MouseType@@_N@Z": 5894560,
+    "?Get_Mouse_Hotspot@MouseClass@@QBE?AVPoint2D@@W4MouseType@@@Z": 5894608,
+    "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z": 5894736,
+    "?AI@MouseClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 5895056,
+    "?One_Time@MouseClass@@UAEXXZ": 5895408,
+    "?Init_Clear@MouseClass@@UAEXXZ": 5895440,
+    "?Load@MouseClass@@UAEJPAUIStream@@@Z": 5895472,
+    "?Mouse_Right_Release@DisplayClass@@MAEXABVPoint2D@@@Z": 4829072,
+    "?Mouse_Right_Press@DisplayClass@@MAEXABVPoint2D@@@Z": 4829056,
+    "?Abort_Drag_Select@DisplayClass@@UAEXXZ": 4844528,
+    "__purecall": 4950368,
+    "?AI@TabClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6950704,
+    "??_GTabClass@@UAEPAXI@Z": 5898128,
+    "?Is_Scrolling@MapClass@@UBE_NXZ": 4844816,
+    "?Save@MouseClass@@UAEJPAUIStream@@@Z": 5897344,
+    "?Free_Mouse_Shapes@@YIXXZ": 5897968,
+    "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@@Z": 5898016,
+    "?Get_Mouse_Frame_Count@MouseClass@@QBEHW4MouseType@@@Z": 5898048,
+    "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
+    "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
+    "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
+    "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
+    "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
+    "??_E?$DynamicVectorClass@U?$HashObject@II@@@@UAEPAXI@Z": 5686288,
+    "??_G?$VectorClass@U?$HashObject@II@@@@UAEPAXI@Z": 5687568,
+    "??_E?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z": 5686816,
+    "??_G?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z": 5687648,
+    "??_7?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@": 8018712,
+    "?GetItem@?$VectorClass@U?$HashObject@II@@@@UBE?AU?$HashObject@II@@H@Z": 5680528,
+    "?Clear@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5680560,
+    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5680608,
+    "?GetItem@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE?AU?$HashObject@IUSubzoneConnectionStruct@@@@H@Z": 5680656,
+    "??1?$BasicTimerClass@VFrameTimerClass@@@@QAE@XZ": 4248016,
+    "??8?$VectorClass@U?$HashObject@II@@@@UBE_NABV0@@Z": 5684976,
+    "?Resize@?$VectorClass@U?$HashObject@II@@@@UAE_NHPBU?$HashObject@II@@@Z": 5686464,
+    "?Clear@?$VectorClass@U?$HashObject@II@@@@UAEXXZ": 5686672,
+    "?ID@?$VectorClass@U?$HashObject@II@@@@UAEHABU?$HashObject@II@@@Z": 5686720,
+    "?ID@?$VectorClass@U?$HashObject@II@@@@UAEHPBU?$HashObject@II@@@Z": 5686784,
+    "?Clear@?$DynamicVectorClass@U?$HashObject@II@@@@UAEXXZ": 5680448,
+    "?ID@?$DynamicVectorClass@U?$HashObject@II@@@@UAEHPBU?$HashObject@II@@@Z": 5680496,
+    "?Resize@?$DynamicVectorClass@U?$HashObject@II@@@@UAE_NHPBU?$HashObject@II@@@Z": 5685040,
+    "?ID@?$DynamicVectorClass@U?$HashObject@II@@@@UAEHABU?$HashObject@II@@@Z": 5685264,
+    "??8?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE_NABV0@@Z": 5685312,
+    "?Resize@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5686992,
+    "?Clear@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5687248,
+    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687296,
+    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687360,
+    "?Resize@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685376,
+    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685632
+  },
+  "regions": [
+    {
+      "entry": 5893600,
+      "method": "0059ede0",
+      "body_bytes": 40,
+      "body_sha256": "b6599e52e8f000d1e168fc29132196fae8b3685e3c4eee73d96638058fa00b80",
+      "padding_bytes": 8,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "1199199d3d558aade5c68ac19d998761a7095ebfa5144e3d907888dfe4e1a2a7",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@40078000000000000000",
+          "target": 7972608,
+          "addend": 0,
+          "resolved": 7972608
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@40008000000000000000",
+          "target": 7972600,
+          "addend": 0,
+          "resolved": 7972600
+        },
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "__CIpow",
+          "target": 7872944,
+          "addend": 0,
+          "resolved": 1979327
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294030866
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948416,
+          "addend": 0,
+          "resolved": 10948416
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893600,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893648,
+      "method": "0059ee10",
+      "body_bytes": 19,
+      "body_sha256": "7375fcc55e971fee693e61fb2ca422966e1034c08ddfe693d74d2dc51f340ddb",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d5f108855d1e64d5846b157f9ee337399997b82ed9573ff7dc3ff28ecb2e5e90",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948416,
+          "addend": 0,
+          "resolved": 10948416
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_ISO_TILE_SIZE",
+          "target": 8021192,
+          "addend": 0,
+          "resolved": 8021192
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948504,
+          "addend": 0,
+          "resolved": 10948504
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893680,
+      "method": "0059ee30",
+      "body_bytes": 19,
+      "body_sha256": "ca257b9a57cee80995f73f59a777214e1920fcca78a46f1c69a77f86e21ae220",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "bbdf7b21dde5afc234b1550330c3d89b4cee5ab229912d3dc3114e8e6b53cd17",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_LEPTONS_PER_PIXEL",
+          "target": 10948504,
+          "addend": 0,
+          "resolved": 10948504
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_PIXELS_PER_LEPTON",
+          "target": 10948488,
+          "addend": 0,
+          "resolved": 10948488
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893712,
+      "method": "0059ee50",
+      "body_bytes": 19,
+      "body_sha256": "cea6b69fa23a083185ca9637750e4cc96907a5a25dcfcb38554c5129b55a58e5",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5cbe28ff7e3035e22cc954019c228a532a887b463e0b0857ace00024c57b656b",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021200,
+          "addend": 0,
+          "resolved": 8021200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004b400000000000000",
+          "target": 7972624,
+          "addend": 0,
+          "resolved": 7972624
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 10948480,
+          "addend": 0,
+          "resolved": 10948480
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893744,
+      "method": "0059ee70",
+      "body_bytes": 19,
+      "body_sha256": "447e32c177f07f128cf3bfeee7a2fa8a8e6b17edaad586b18665cbffe2a7ec7c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a06b7e02925560e59da20dfce4fbdcd44a0c6999ed304c661dcad95cb8a06ac9",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021200,
+          "addend": 0,
+          "resolved": 8021200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4004f000000000000000",
+          "target": 7972632,
+          "addend": 0,
+          "resolved": 7972632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948424,
+          "addend": 0,
+          "resolved": 10948424
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893744,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893776,
+      "method": "0059ee90",
+      "body_bytes": 19,
+      "body_sha256": "d7a75053209cc81cde9c19ca84a67bf776d9d0d2c22dc02143f4d3831cc84597",
+      "padding_bytes": 13,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "f078585cd64a0868e42b9e52bfbb0f7885f7cda2f01cf55c7e89af810d139fd7",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_ONE_RAD",
+          "target": 8021200,
+          "addend": 0,
+          "resolved": 8021200
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "__real@8@4005b400000000000000",
+          "target": 7972640,
+          "addend": 0,
+          "resolved": 7972640
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948384,
+          "addend": 0,
+          "resolved": 10948384
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893776,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893808,
+      "method": "0059eeb0",
+      "body_bytes": 49,
+      "body_sha256": "9f1351f5f7af3aef086bf5197a04c8a1fb96faf9fa0b0236283ffb6c135a0b38",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "cd202468e2d0bb15bb68aaca28b277fec97cb892a3107e8ff33093a4b5e23d0d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_RAD_90",
+          "target": 10948384,
+          "addend": 0,
+          "resolved": 10948384
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 10948424,
+          "addend": 0,
+          "resolved": 10948424
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?tan@fastmath@@YANN@Z",
+          "target": 4957472,
+          "addend": 0,
+          "resolved": 4294030937
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948416,
+          "addend": 0,
+          "resolved": 10948416
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1966645
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948512,
+          "addend": 0,
+          "resolved": 10948512
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893808,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893872,
+      "method": "0059eef0",
+      "body_bytes": 33,
+      "body_sha256": "b600c53570fe736f7487a2775c075545eca655fa049eb231ee4bc3bed740d7a1",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3d4c5b995f246d97933d4970a0acf1f6637efe40f0e454268769f6d3187d34e0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948512,
+          "addend": 0,
+          "resolved": 10948512
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "__real@8@3ff78000000000000000",
+          "target": 7972656,
+          "addend": 0,
+          "resolved": 7972656
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294031017
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 10948432,
+          "addend": 0,
+          "resolved": 10948432
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893920,
+      "method": "0059ef20",
+      "body_bytes": 44,
+      "body_sha256": "56883765949f5b94e777579442b6678af0eb13352f4a6c643e9440d2f6c321b5",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "c13edd273aa5af118a1e7630e62c3dd71fe60401a681ea643616378a3a973119",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948512,
+          "addend": 0,
+          "resolved": 10948512
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 10948416,
+          "addend": 0,
+          "resolved": 10948416
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?atan@fastmath@@YANN@Z",
+          "target": 4957616,
+          "addend": 0,
+          "resolved": 4294030958
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 10948456,
+          "addend": 0,
+          "resolved": 10948456
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893920,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5893968,
+      "method": "0059ef50",
+      "body_bytes": 39,
+      "body_sha256": "b2e94181790fe4488e0929c99291458d2adfb5f108f0fece0c4049f6b6c7409e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "8bd4f59b6c9df84e307634f0b481ecf768ef05c86cc5bbcc51ffe3f8d197c67f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10948512,
+          "addend": 0,
+          "resolved": 10948512
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1966496
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10948496,
+          "addend": 0,
+          "resolved": 10948496
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5893968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894016,
+      "method": "0059ef80",
+      "body_bytes": 15,
+      "body_sha256": "040c572d240b0140108ba8d67372f9723105e625c7093d51ddeb4616b9d2cfcd",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1355c29066582e561ea6927348460d382726e93a26286309238503ed60298fd2",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948408,
+          "addend": 0,
+          "resolved": 10948408
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10948408,
+          "addend": 2,
+          "resolved": 10948410
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894032,
+      "method": "0059ef90",
+      "body_bytes": 18,
+      "body_sha256": "fedfc495f21b1da152dd16ced10ce03f579fde21890c25debff1674eeefac3df",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "60055ec2f4c997f5abe2290cc60c3df8aa71a7be82d1945e043958c5af18b6c5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948440,
+          "addend": 0,
+          "resolved": 10948440
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948440,
+          "addend": 4,
+          "resolved": 10948444
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10948440,
+          "addend": 8,
+          "resolved": 10948448
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894064,
+      "method": "0059efb0",
+      "body_bytes": 23,
+      "body_sha256": "b110fb023b9d91da100bd1267e42edd4b2c729f1f92e7d87e2052a5b796081ce",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "84768e07efc16515b91fa70bcec1db55915d1d57fa7a25cc01c7f14c4e8bff6a",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948392,
+          "addend": 0,
+          "resolved": 10948392
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948392,
+          "addend": 4,
+          "resolved": 10948396
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948392,
+          "addend": 8,
+          "resolved": 10948400
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10948392,
+          "addend": 12,
+          "resolved": 10948404
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894064,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894096,
+      "method": "0059efd0",
+      "body_bytes": 37,
+      "body_sha256": "83566fdadf8bdbdb7abfe2a8bc1b9cfd52d8ca635cdff963c1dbae3fd0243363",
+      "padding_bytes": 11,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "cb5e3353487bc9dff62b1ff589fbe9b6fb7433005dbbfdddbfe9229d6a0b2ed5",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E211",
+      "symbol_prefix": "_$E211",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 4,
+          "resolved": 10948468
+        },
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1029206
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "_$E208",
+          "target": 5894144,
+          "addend": 0,
+          "resolved": 5894144
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 0,
+          "resolved": 10948464
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 8,
+          "resolved": 10948472
+        },
+        {
+          "offset": 31,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 1980823
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894144,
+      "method": "0059f000",
+      "body_bytes": 21,
+      "body_sha256": "1c028d21881c074ecd78a969598e88cc0a1d5980d6d2fee5bfe4788df5993a89",
+      "padding_bytes": 11,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "e58ca74e15a5bbb25cc079be4f749d2d0f3b1637bfa6fb586a31241286d54c92",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E208",
+      "symbol_prefix": "_$E208",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "_$S209",
+          "target": 10948376,
+          "addend": 0,
+          "resolved": 10948376
+        },
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "_$S209",
+          "target": 10948376,
+          "addend": 0,
+          "resolved": 10948376
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894144,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894176,
+      "method": "0059f020",
+      "body_bytes": 54,
+      "body_sha256": "ea6be9fa9d84ee0689b4bde1a34324feca631fe1236f15696825393f35708e2d",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "b5f4ed6e625ae2e3a6eef1093538cd534052259d96710214708e0076994f7445",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MouseClass@@QAE@XZ",
+      "symbol_prefix": "??0MouseClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0ScrollClass@@QAE@XZ",
+          "target": 6723040,
+          "addend": 0,
+          "resolved": 828856
+        },
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_7MouseClass@@6BSidebarClass@@@",
+          "target": 7973204,
+          "addend": 0,
+          "resolved": 7973204
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "??_7MouseClass@@6BINoticeSink@@@",
+          "target": 7973196,
+          "addend": 0,
+          "resolved": 7973196
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894176,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894240,
+      "method": "0059f060",
+      "body_bytes": 26,
+      "body_sha256": "84c7df0f6b4c8428e8374313547c9679341bf1a145f28a5f5344968b6c1f4420",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "fa8e0df3600ca7ba82541c546b57bda50ceb79be08350b5bf64705bf7d8e0d24",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+      "symbol_prefix": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894272,
+      "method": "0059f080",
+      "body_bytes": 15,
+      "body_sha256": "942c4a78398d942763504146fead6a52156cf31a9df269b4d35bb2c4eb871000",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "d2bbdd89a005315adcfff48d1a713d1b4d1acb6d13e6cfed69a31388bf40da5c",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Revert_Mouse_Shape@MouseClass@@UAEXXZ",
+      "symbol_prefix": "?Revert_Mouse_Shape@MouseClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894272,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894288,
+      "method": "0059f090",
+      "body_bytes": 210,
+      "body_sha256": "51ac9316a5fd4594bf844ea8ba43f4c6c70668d7b919b3184af08f9ffbc38b0c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "f73f4ce24af4c48391b741fef41e51af42478ad8b30763e719d0aa8ef46cb87d",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Mouse_Small@MouseClass@@UAEX_N@Z",
+      "symbol_prefix": "?Mouse_Small@MouseClass@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 12,
+          "resolved": 8268548
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 76,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 16,
+          "resolved": 8268552
+        },
+        {
+          "offset": 123,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 20,
+          "resolved": 8268556
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894288,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894512,
+      "method": "0059f170",
+      "body_bytes": 35,
+      "body_sha256": "212719f0ff499f0edeaf7aea601edaeb5f201eaf5a789e5f49f6b848fba71cbc",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "38b6c78c293a55d3dc561615e0f6297a9bf7165138827b9b24f7285b72189707",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@_N@Z",
+      "symbol_prefix": "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894512,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894560,
+      "method": "0059f1a0",
+      "body_bytes": 43,
+      "body_sha256": "9229486032e91516d1564f95d5251674efd0a0c9ed3b863cd35a393e1cb03d78",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3bcf92cf194b64d2095670ea7414641a6fdac56929b56c89650af8976ec76b43",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Mouse_Current_Frame@MouseClass@@QBEHW4MouseType@@_N@Z",
+      "symbol_prefix": "?Get_Mouse_Current_Frame@MouseClass@@QBEHW4MouseType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894608,
+      "method": "0059f1d0",
+      "body_bytes": 116,
+      "body_sha256": "342a2def8a9af6398496ce0508cdc0c0afdc885dd29749daf39b0adbe966359c",
+      "padding_bytes": 12,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "44ff96c67458731938ec08ecbc7925e0dd31a7201e5fa5a57ea1d878bedf6255",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Mouse_Hotspot@MouseClass@@QBE?AVPoint2D@@W4MouseType@@@Z",
+      "symbol_prefix": "?Get_Mouse_Hotspot@MouseClass@@QBE?AVPoint2D@@W4MouseType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 16,
+          "resolved": 8268552
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5894736,
+      "method": "0059f250",
+      "body_bytes": 320,
+      "body_sha256": "f065512afb5fb5b7070120ab4ebc8da1f9117169eae0613580b274686f4f8983",
+      "padding_bytes": 0,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "f065512afb5fb5b7070120ab4ebc8da1f9117169eae0613580b274686f4f8983",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z",
+      "symbol_prefix": "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 12,
+          "resolved": 8268548
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z@4_NA",
+          "target": 10948517,
+          "addend": 0,
+          "resolved": 10948517
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "_?startup@?1??Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z@4_NA",
+          "target": 10948517,
+          "addend": 0,
+          "resolved": 10948517
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 8,
+          "resolved": 8268544
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1028468
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 0,
+          "resolved": 10948464
+        },
+        {
+          "offset": 120,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 4,
+          "resolved": 10948468
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 8,
+          "resolved": 10948472
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 12,
+          "resolved": 8268548
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        },
+        {
+          "offset": 172,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 16,
+          "resolved": 8268552
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 20,
+          "resolved": 8268556
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5894736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5895056,
+      "method": "0059f390",
+      "body_bytes": 348,
+      "body_sha256": "e2c7344d9c32baf9844d95cd8945b5e9f6da8f54c695165d3cd629b4202fc5c0",
+      "padding_bytes": 4,
+      "full_extent_bytes": 352,
+      "full_extent_sha256": "591287be0ee3ab0aa0afb7d37e50aa48f52079b8c27c6e4825d25dbca3d88905",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@MouseClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "symbol_prefix": "?AI@MouseClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 8,
+          "resolved": 8268544
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 0,
+          "resolved": 10948464
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 8,
+          "resolved": 10948472
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 4,
+          "resolved": 10948468
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1028191
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 0,
+          "resolved": 10948464
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1028134
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 0,
+          "resolved": 10948464
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 4,
+          "resolved": 10948468
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "?Timer@MouseClass@@0V?$CDTimerClass@VSystemTimerClass@@@@A",
+          "target": 10948464,
+          "addend": 8,
+          "resolved": 10948472
+        },
+        {
+          "offset": 165,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 12,
+          "resolved": 8268548
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        },
+        {
+          "offset": 195,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 16,
+          "resolved": 8268552
+        },
+        {
+          "offset": 212,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 20,
+          "resolved": 8268556
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?AI@ScrollClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z",
+          "target": 6723120,
+          "addend": 0,
+          "resolved": 827725
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5895056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5895408,
+      "method": "0059f4f0",
+      "body_bytes": 26,
+      "body_sha256": "fd4288086b2166d25b6814cab0fa1febead0bf41d9702b11de5aa29db4f2a281",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0e4b87e4f821e80d34474c9c7d3096ed9879ab9ca5f1c8002c7b76ff85eac5ab",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?One_Time@MouseClass@@UAEXXZ",
+      "symbol_prefix": "?One_Time@MouseClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?One_Time@TabClass@@UAEXXZ",
+          "target": 6949664,
+          "addend": 0,
+          "resolved": 1054251
+        },
+        {
+          "offset": 6,
+          "kind": 6,
+          "symbol": "?MouseShapesLoaded@@3_NA",
+          "target": 10948516,
+          "addend": 0,
+          "resolved": 10948516
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+          "target": 8239460,
+          "addend": 0,
+          "resolved": 8239460
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXPBDAA_N@Z",
+          "target": 4805232,
+          "addend": 0,
+          "resolved": 4293877100
+        },
+        {
+          "offset": 21,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5895408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5895440,
+      "method": "0059f510",
+      "body_bytes": 24,
+      "body_sha256": "0919d02aea51bd25da833ae17362409b00d8c66893b51a9e71dd46f91205d5d3",
+      "padding_bytes": 8,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "597d27fb2c0b9bf48b932f732191232b2727cdecf072b212d004c6378fabf38a",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Clear@MouseClass@@UAEXXZ",
+      "symbol_prefix": "?Init_Clear@MouseClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "?Init_Clear@SidebarClass@@UAEXXZ",
+          "target": 6797488,
+          "addend": 0,
+          "resolved": 902040
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5895440,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5895472,
+      "method": "0059f530",
+      "body_bytes": 1868,
+      "body_sha256": "7485c5ba3e2a64f5dba89ec2a1b20ad6a7fbb002655fc42391a0c3d4fe131390",
+      "padding_bytes": 4,
+      "full_extent_bytes": 1872,
+      "full_extent_sha256": "0411cb31257586af3c3eef031b41ec6fc9e1b4834e0593ff1e422491b9c1d6b4",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@MouseClass@@UAEJPAUIStream@@@Z",
+      "symbol_prefix": "?Load@MouseClass@@UAEJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Load@SidebarClass@@UAEJPAUIStream@@@Z",
+          "target": 6824592,
+          "addend": 0,
+          "resolved": 929069
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "?LastTheater@@3W4TheaterType@@A",
+          "target": 8227036,
+          "addend": 0,
+          "resolved": 8227036
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1976221
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1976209
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1976178
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1976132
+        },
+        {
+          "offset": 238,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1976089
+        },
+        {
+          "offset": 310,
+          "kind": 20,
+          "symbol": "??0TabClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 5898080,
+          "addend": 0,
+          "resolved": 2294
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "??_7MouseClass@@6BSidebarClass@@@",
+          "target": 7973204,
+          "addend": 0,
+          "resolved": 7973204
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "??_7MouseClass@@6BINoticeSink@@@",
+          "target": 7973196,
+          "addend": 0,
+          "resolved": 7973196
+        },
+        {
+          "offset": 354,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 359,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1049733
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1049693
+        },
+        {
+          "offset": 411,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 416,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1049676
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "?Swizzler@@3VSwizzleManagerClass@@A",
+          "target": 11262056,
+          "addend": 0,
+          "resolved": 11262056
+        },
+        {
+          "offset": 433,
+          "kind": 20,
+          "symbol": "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z",
+          "target": 6945568,
+          "addend": 0,
+          "resolved": 1049659
+        },
+        {
+          "offset": 489,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1975838
+        },
+        {
+          "offset": 508,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1975819
+        },
+        {
+          "offset": 528,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976531
+        },
+        {
+          "offset": 547,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976512
+        },
+        {
+          "offset": 591,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976468
+        },
+        {
+          "offset": 617,
+          "kind": 6,
+          "symbol": "?SubzoneHash@@YIHABI@Z",
+          "target": 5567040,
+          "addend": 0,
+          "resolved": 5567040
+        },
+        {
+          "offset": 632,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976427
+        },
+        {
+          "offset": 661,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@U?$HashObject@II@@@@QAE@IPBU?$HashObject@II@@@Z",
+          "target": 5898208,
+          "addend": 0,
+          "resolved": 2071
+        },
+        {
+          "offset": 795,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976264
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "?SubzoneHash@@YIHABI@Z",
+          "target": 5567040,
+          "addend": 0,
+          "resolved": 5567040
+        },
+        {
+          "offset": 839,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976220
+        },
+        {
+          "offset": 877,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE@HPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z",
+          "target": 5688912,
+          "addend": 0,
+          "resolved": 4294759855
+        },
+        {
+          "offset": 883,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@6B@",
+          "target": 8018520,
+          "addend": 0,
+          "resolved": 8018520
+        },
+        {
+          "offset": 1034,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1976025
+        },
+        {
+          "offset": 1384,
+          "kind": 6,
+          "symbol": "__imp__OleLoadFromStream@12",
+          "target": 7972332,
+          "addend": 0,
+          "resolved": 7972332
+        },
+        {
+          "offset": 1394,
+          "kind": 6,
+          "symbol": "_IID_IUnknown",
+          "target": 8060128,
+          "addend": 0,
+          "resolved": 8060128
+        },
+        {
+          "offset": 1708,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1719,
+          "kind": 20,
+          "symbol": "?Init@TerrainTypeClass@@SIXW4TheaterType@@@Z",
+          "target": 7230560,
+          "addend": 0,
+          "resolved": 1333365
+        },
+        {
+          "offset": 1724,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1735,
+          "kind": 6,
+          "symbol": "?LastTheater@@3W4TheaterType@@A",
+          "target": 8227036,
+          "addend": 0,
+          "resolved": 8227036
+        },
+        {
+          "offset": 1746,
+          "kind": 20,
+          "symbol": "?Read_Control_File@IsometricTileTypeClass@@SIXW4TheaterType@@_N@Z",
+          "target": 5412976,
+          "addend": 0,
+          "resolved": 4294483050
+        },
+        {
+          "offset": 1753,
+          "kind": 20,
+          "symbol": "?Clear_Use_Counts@IsometricTileTypeClass@@SIXXZ",
+          "target": 5420624,
+          "addend": 0,
+          "resolved": 4294490691
+        },
+        {
+          "offset": 1762,
+          "kind": 20,
+          "symbol": "?Load_Tiles@IsometricTileTypeClass@@SIX_N0@Z",
+          "target": 5419744,
+          "addend": 0,
+          "resolved": 4294489802
+        },
+        {
+          "offset": 1768,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1779,
+          "kind": 20,
+          "symbol": "?Init@OverlayTypeClass@@SIXW4TheaterType@@@Z",
+          "target": 6146400,
+          "addend": 0,
+          "resolved": 249145
+        },
+        {
+          "offset": 1785,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1796,
+          "kind": 20,
+          "symbol": "?Init@BuildingTypeClass@@SIXW4TheaterType@@@Z",
+          "target": 4556288,
+          "addend": 0,
+          "resolved": 4293626312
+        },
+        {
+          "offset": 1801,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1812,
+          "kind": 20,
+          "symbol": "?Init@AnimTypeClass@@SIXW4TheaterType@@@Z",
+          "target": 4346416,
+          "addend": 0,
+          "resolved": 4293416424
+        },
+        {
+          "offset": 1818,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1829,
+          "kind": 20,
+          "symbol": "?Init@SmudgeTypeClass@@SIXW4TheaterType@@@Z",
+          "target": 6848432,
+          "addend": 0,
+          "resolved": 951127
+        },
+        {
+          "offset": 1841,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "?LastTheater@@3W4TheaterType@@A",
+          "target": 8227036,
+          "addend": 0,
+          "resolved": 8227036
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5895472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5897344,
+      "method": "0059fc80",
+      "body_bytes": 611,
+      "body_sha256": "85377001e9447348e8a01b252f2c3f7f8629088235b909489b4229fc85936801",
+      "padding_bytes": 13,
+      "full_extent_bytes": 624,
+      "full_extent_sha256": "801c22b0b88be9ffe7b3bfec5b53c90c4fdc7ed4a5eb79def4cae7035577af05",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@MouseClass@@UAEJPAUIStream@@@Z",
+      "symbol_prefix": "?Save@MouseClass@@UAEJPAUIStream@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 20,
+          "symbol": "?Save@SidebarClass@@UAEJPAUIStream@@@Z",
+          "target": 6824608,
+          "addend": 0,
+          "resolved": 927245
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4294682555
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4294682356
+        },
+        {
+          "offset": 303,
+          "kind": 20,
+          "symbol": "?Is_Valid@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5537968,
+          "addend": 0,
+          "resolved": 4294607613
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4294682318
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4294682464
+        },
+        {
+          "offset": 371,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4294682265
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "__imp__OleSaveToStream@8",
+          "target": 7972328,
+          "addend": 0,
+          "resolved": 7972328
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "?Is_Valid@MapClass@@QAE_NABVCell@@@Z",
+          "target": 5537968,
+          "addend": 0,
+          "resolved": 4294607514
+        },
+        {
+          "offset": 421,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4294682215
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5897344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5897968,
+      "method": "0059fef0",
+      "body_bytes": 41,
+      "body_sha256": "d6c2cda559ba6742a56b18fe0abe4e9459213523209776417beb809d9747ae21",
+      "padding_bytes": 7,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "054aaf757c49d6539743f04e264773338bdee2e95c5074d2c8e07d2679acee19",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Free_Mouse_Shapes@@YIXXZ",
+      "symbol_prefix": "?Free_Mouse_Shapes@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?MouseShapesLoaded@@3_NA",
+          "target": 10948516,
+          "addend": 0,
+          "resolved": 10948516
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        },
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1973815
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?MouseShapesLoaded@@3_NA",
+          "target": 10948516,
+          "addend": 0,
+          "resolved": 10948516
+        },
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "?MouseShapes@MouseClass@@2PBVShapeSet@@B",
+          "target": 10948452,
+          "addend": 0,
+          "resolved": 10948452
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5897968,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5898016,
+      "method": "0059ff20",
+      "body_bytes": 17,
+      "body_sha256": "9a013bed3b57e4e479faf9ae02908a8a5c09eb257124d593e019e83ad856cc08",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "a7414166f9b9e6ef1753e2484fae39566ba379e9e5d79eae86fd1a609c0c2312",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@@Z",
+      "symbol_prefix": "?Get_Mouse_Start_Frame@MouseClass@@QBEHW4MouseType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 0,
+          "resolved": 8268536
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5898016,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5898048,
+      "method": "0059ff40",
+      "body_bytes": 17,
+      "body_sha256": "7bff87ef3a08da6a098aac5fb333ca47e7c5c61b0569a3fa6a8865d254ccc467",
+      "padding_bytes": 15,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1ec0916eebe66288a4d38192d1896c5cb07df269e211555191ab798da845947e",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Mouse_Frame_Count@MouseClass@@QBEHW4MouseType@@@Z",
+      "symbol_prefix": "?Get_Mouse_Frame_Count@MouseClass@@QBEHW4MouseType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?MouseControl@MouseClass@@0PAUMouseStruct@1@A",
+          "target": 8268536,
+          "addend": 4,
+          "resolved": 8268540
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5898048,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5898080,
+      "method": "0059ff60",
+      "body_bytes": 45,
+      "body_sha256": "52bcfca74566d2ac7298fe52c633a19cb61f07b4c3b9d368a66f343ca058bbb2",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "01b099c7c8024f41eaab00f161eeae48c472443a616f48a581ecee6f891cb13f",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0TabClass@@QAE@ABVNoInitClass@@@Z",
+      "symbol_prefix": "??0TabClass@@QAE@ABVNoInitClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 9,
+          "kind": 20,
+          "symbol": "??0SidebarClass@@QAE@ABVNoInitClass@@@Z",
+          "target": 6797232,
+          "addend": 0,
+          "resolved": 899139
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7INoticeSink@@6B@",
+          "target": 7974468,
+          "addend": 0,
+          "resolved": 7974468
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "??_7TabClass@@6BSidebarClass@@@",
+          "target": 8021220,
+          "addend": 0,
+          "resolved": 8021220
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7TabClass@@6BINoticeSink@@@",
+          "target": 8021212,
+          "addend": 0,
+          "resolved": 8021212
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5898080,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5898128,
+      "method": "0059ff90",
+      "body_bytes": 71,
+      "body_sha256": "c6e7cb51e28f8fe9abb78af28a78b01725ebaeb4a6b0b1455a2d9710b357c53a",
+      "padding_bytes": 9,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "e8521b8c664d37c83f5818b3538523001c5e5c1f032d087193fd23f1dd9f0d2e",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GTabClass@@UAEPAXI@Z",
+      "symbol_prefix": "??_GTabClass@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "??1BuildType@StripClass@SidebarClass@@QAE@XZ",
+          "target": 4247856,
+          "addend": 0,
+          "resolved": 4247856
+        },
+        {
+          "offset": 33,
+          "kind": 20,
+          "symbol": "??_I@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239104,
+          "addend": 0,
+          "resolved": 4293308235
+        },
+        {
+          "offset": 43,
+          "kind": 20,
+          "symbol": "??1RadarClass@@UAE@XZ",
+          "target": 6484096,
+          "addend": 0,
+          "resolved": 585921
+        },
+        {
+          "offset": 56,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1973615
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5898128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5898208,
+      "method": "0059ffe0",
+      "body_bytes": 117,
+      "body_sha256": "db8343af0a560f745069b97c39bad8f86c0d2a21d5c1d7597210774ddc3a2e10",
+      "padding_bytes": 11,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "b9b4cd52dc4cf3aa963668750619c722be57569c887e85080c1b39802ca22d1b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@U?$HashObject@II@@@@QAE@IPBU?$HashObject@II@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@U?$HashObject@II@@@@QAE@IPBU?$HashObject@II@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@U?$HashObject@II@@@@6B@",
+          "target": 8018680,
+          "addend": 0,
+          "resolved": 8018680
+        },
+        {
+          "offset": 63,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1974260
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@U?$HashObject@II@@@@6B@",
+          "target": 8018552,
+          "addend": 0,
+          "resolved": 8018552
+        }
+      ],
+      "source_sha256": "838f8f9abb2a4b34c9cefb3c20a392417857ac3e6825509a75034512adffe2a8",
+      "source": "rebuild/src/mouse.cpp",
+      "population": "rebuild-mouse",
+      "source_order": 5898208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
+    }
+  ]
+}

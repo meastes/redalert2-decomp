@@ -5090,6 +5090,51 @@
       "population": "rebuild-astar",
       "source_order": 4371808,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4372000,
+      "method": "0042b620",
+      "body_bytes": 73,
+      "body_sha256": "bdfa57012a3e7fceb9e825d53d455fb6b8817224a223340d4007e2b01eada033",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "bc664bcead61e328840f7118013a3067be1dbfcbc2b38ef49e767efe2d6c92b9",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@G@@QAE@HPBG@Z",
+      "symbol_prefix": "??0?$VectorClass@G@@QAE@HPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@G@@6B@",
+          "target": 7980340,
+          "addend": 0,
+          "resolved": 7980340
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3500478
+        }
+      ],
+      "source_sha256": "08744978a974b073a701e696630a88f2c39be9ee6e699faee4c9957ebc693718",
+      "source": "rebuild/src/astar.cpp",
+      "population": "rebuild-astar",
+      "source_order": 4372000,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-36"
     }
   ]
 }

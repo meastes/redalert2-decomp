@@ -191,7 +191,6 @@ void __fastcall Set_Frame_Rate_Limit(int value); // RA2: 0x53D820 (logic.cpp)
 void __fastcall Set_Buffer_Zone_Width(int value); // RA2: 0x53D830 (logic.cpp)
 ConvertClass * Get_Splash_Bar_Drawer(void); // RA2: 0x6F2490
 static inline int Player_Side(void); // RA2: defined below, with the other RA2 helpers
-void Process_All_Task_Forces(void); // RA2: 0x6C0220, calls TeamTypeClass::Process_Task_Force (0x6C0180, YR name) for every team type
  // RA2: the multiplayer score screen (YR: MPScoreScreen, ctor 0x5AAA20); 0x5AAA40 shows it (placeholder name)
 void Darken_Surface(Surface * surface, bool update); // RA2: 0x005159B0 (init.cpp declares it the same way)
 class UnknownScore_0069A640 { public: UnknownScore_0069A640(void); void Presentation_0069A650(void); }; // RA2: the single player score screen (ctor 0x69A640, Presentation 0x69A650; names_proposed: UnknownScore_0069A640::Presentation_0069A650)
@@ -2397,7 +2396,7 @@ bool Read_Scenario_INI(CCINIClass const & ini, bool is_mapgen)
 	AITriggerTypeClass::Read_All(AIINI, SCOPE_GLOBAL);
 	AITriggerTypeClass::Read_All(ini, SCOPE_LOCAL);
 
-	Process_All_Task_Forces(); // RA2: every team type is given its task force's attributes (0x6C0220)
+	TeamTypeClass::Process_All_Task_Forces(); // RA2: every team type is given its task force's attributes (0x6C0220)
 
 	Session.Update_Progress(60);
 

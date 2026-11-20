@@ -2493,7 +2493,7 @@ bool MapRegionClass::Build_West_Ramp(Cell const &first,Cell const &second,int lo
 /// <param name="region_id">The region on the low side, whose height the leveled ground
 /// takes.</param>
 /// <returns>bool; Was the corner ramp carved?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 500 bytes differ (row 005743f0: one Cell(int, int) out of line inside the expanded Flatten_Area, inline budget)
 bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2, int region_id)
 {
 	int dx = cell2.X - cell1.X;
