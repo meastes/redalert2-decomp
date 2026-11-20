@@ -48,6 +48,16 @@ struct TurretControl
 	int CompressFrames;
 	int RecoverFrames;
 	int HoldFrames;
+
+	// RA2: the accessors Read_INI sets the recoil through, defined in techtype.cpp (ra2-decomp's TurretControl members, out of line in Yuri's Revenge at 0x717A30-0x717AD0)
+	void Set_Travel(int travel);
+	int Get_Travel(void) const;
+	void Set_Compress_Frames(int frames);
+	int Get_Compress_Frames(void) const;
+	void Set_Recover_Frames(int frames);
+	int Get_Recover_Frames(void) const;
+	void Set_Hold_Frames(int frames);
+	int Get_Hold_Frames(void) const;
 };
 
 

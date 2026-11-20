@@ -1255,7 +1255,6 @@ void __cdecl Planning_Reset_State(void) // RA2: 0x00613E50; deletes every token 
 	memset(PlanningHelpCounts, 0, sizeof(PlanningHelpCounts)); // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: drops the steps whose target is gone and shows a pending refusal
 {
 	Planning_Hover(); // RA2: as above
@@ -1297,7 +1296,6 @@ void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: 
 	Reset_Planning_Command_Flags(); // RA2: as above
 	PlanningRefusalShown = false; // RA2: as above
 }
-#endif
 
 void __fastcall Planning_Free_Nodes(void) // RA2: 0x006142F0; runs the planned events still held and frees them
 {

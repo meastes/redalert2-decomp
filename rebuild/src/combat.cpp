@@ -184,19 +184,6 @@ void Chain_Reaction_Damage(Cell const & cell)
 **	RA2: the helpers Explosion_Damage expands inline: distances to a victim, the iron curtain test and the
 **	bridge middle tiles.
 */
-static inline int Explosion_Group_Distance(Coord const & a, Coord b)
-{
-	return((a - b).Length());
-}
-
-static inline int Explosion_Length(Point3D const & d)
-{
-	double x = d.X;
-	double y = d.Y;
-	double z = d.Z;
-	return((int)fastmath::sqrt(x * x + y * y + z * z));
-}
-
 static inline bool Is_Techno_Object(ObjectClass * object)
 {
 	bool const & result = (object->AbstractFlags & ABSTRACT_TECHNO) != 0;
@@ -235,7 +222,7 @@ static inline bool Is_Bridge_Middle(int ittype)
 /// the warhead's particle system is spawned.
 /// </summary>
 /// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 81 instruction lines differ; the call list is the original's (the three group distances through inline.h's Distance, as ra2-decomp's twin writes them; groups.Delete_All(); rail bridge overlays 0xED/0xEE). Left: the two cell-distance sites convert Y, Z, X where the original converts X, Y, Z, and the rocker loop's occupier (exact but for those with `ObjectClass * occupier = ...; for (object = occupier; ...)`, an alias, not landed)
+#ifdef RA2_NON_MATCHING // not exact: 12 instruction lines differ (64 bytes); the text is ra2-decomp's twin's where the image agrees (the aircraft distances through Distance_To on the position accessor, the three group distances through inline.h's Distance, groups.Delete_All(), the rocker loop's occupier as `isbridge ? Cell_Bridge_Occupier() : Cell_Occupier(false)`). Left: three ties that follow the function's count of named locals (the X sum of `cell + RadiusOffset[m]`, and the order the two cell-distance sites convert X, Y, Z): exact with 17 unused reference locals at the top (a probe; 1, 9 fix the sum, 6-7 and 17-24 the conversions), none with header declarations
 int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
 {
 	int distance;
@@ -264,14 +251,14 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 		TechnoClass * techno;
 		while ((techno = AircraftTracker.Get()) != NULL) {
 			if (techno->IsActive && techno->IsDown && techno->Strength > 0) {
-				distance = Explosion_Group_Distance(coord, techno->Position);
+				distance = coord.Distance_To(techno->PositionCoord);
 				if (distance <= range) {
 					if (close && distance < 0x55 && techno->Unknown_Virtual_32C()) {
 						blocked = true;
 					}
 					DamageGroup * group = new DamageGroup;
 					group->Target = techno;
-					group->Distance = Explosion_Group_Distance(coord, techno->Position);
+					group->Distance = coord.Distance_To(techno->PositionCoord);
 					groups.Add(group);
 				}
 			}
@@ -366,7 +353,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 	if (warhead->IsRocker && force > 0.3) {
 		for (int x = cell.X - 3; x <= cell.X + 3; x++) {
 			for (int y = cell.Y - 3; y <= cell.Y + 3; y++) {
-				object = isbridge ? Map[Cell(x, y)].Cell_Occupier(true) : Map[Cell(x, y)].Cell_Occupier(false);
+				object = isbridge ? Map[Cell(x, y)].Cell_Bridge_Occupier() : Map[Cell(x, y)].Cell_Occupier(false);
 				for (; object; object = object->Next) {
 					TechnoClass * techno = Dynamic_Cast<TechnoClass *>(object);
 					if (techno) {

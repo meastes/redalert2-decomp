@@ -7793,7 +7793,7 @@ void HouseClass::Ensure_Base_Nodes(void) // RA2: RA2's form
 /// none.</returns>
 BuildingTypeClass const * HouseClass::Get_First_Ownable(DynamicVectorClass<BuildingTypeClass const *> const & owned) const // RA2: RA2's form
 {
-	int owner_bit = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: as above
+	int owner_bit = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: as above
 	for (int index = 0; index < owned.Count(); index++) { // RA2: as above
 		BuildingTypeClass const * building = owned[index]; // RA2: as above
 		if ((building->Ownable & owner_bit) != 0 // RA2: as above
@@ -7813,7 +7813,7 @@ BuildingTypeClass const * HouseClass::Get_First_Ownable(DynamicVectorClass<Build
 
 UnitTypeClass const * HouseClass::Get_First_Ownable(TypeList<UnitTypeClass const *> const & owned) const // RA2: as above
 {
-	int owner = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: as above
+	int owner = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: as above
 	for (int index = 0; index < owned.Count(); index++) { // RA2: as above
 		if (owned[index]->Ownable & owner) { // RA2: as above
 			return(owned[index]); // RA2: as above
@@ -7926,7 +7926,7 @@ void HouseClass::Make_Base_Nodes(void) // RA2: the body follows the executable
 	bool soviet = ActLike == 1; // RA2: the side picks which defense counts apply; no GDI/Nod name tests
 	Base.Init(); // RA2: as above
 
-	int owner = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: the bit of the country this house is a variant of
+	int owner = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: the bit of the country this house is a variant of
 	DynamicVectorClass<BuildingTypeClass const *> eligible; // RA2: RA2's names for the TibSun lists
 	DynamicVectorClass<bool> included; // RA2: as above
 	int index; // RA2: as above
@@ -8647,7 +8647,7 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 /// <returns>Returns with the list of candidates, which may well be empty.</returns>
 DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Air_Defense_Buildings(DynamicVectorClass<BuildingTypeClass const *> & owned) const
 {
-	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: the house type is found by the name of its parent country
+	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: the house type is found by the name of its parent country
 	DynamicVectorClass<BuildingTypeClass *> defenses;
 
 	for (int i = 0; i < BuildingTypes.Count(); i++) {
@@ -8672,7 +8672,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Air_Defense_Buildin
 /// <returns>Returns with the list of candidates, which may well be empty.</returns>
 DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Armor_Defense_Buildings(DynamicVectorClass<BuildingTypeClass const *> & owned) const
 {
-	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: the house type is found by the name of its parent country
+	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: the house type is found by the name of its parent country
 	DynamicVectorClass<BuildingTypeClass *> defenses;
 
 	for (int i = 0; i < BuildingTypes.Count(); i++) {
@@ -8697,7 +8697,7 @@ DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Armor_Defense_Build
 /// <returns>Returns with the list of candidates, which may well be empty.</returns>
 DynamicVectorClass<BuildingTypeClass *> HouseClass::Get_Anti_Ground_Defense_Buildings(DynamicVectorClass<BuildingTypeClass const *> & owned) const
 {
-	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry.Buffer); // RA2: the house type is found by the name of its parent country
+	unsigned ownable = 1 << HouseTypeClass::From_Name(Class->ParentCountry); // RA2: the house type is found by the name of its parent country
 	DynamicVectorClass<BuildingTypeClass *> defenses;
 
 	for (int i = 0; i < BuildingTypes.Count(); i++) {

@@ -1191,21 +1191,15 @@ bool RulesClass::Crate_Rules(CCINIClass const & ini)
 /// suppression distances, and the scorches, craters and smoke systems left behind.
 /// </summary>
 /// <returns>bool; Was a combat damage section found in the control file?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 688 bytes differ under the archive's const type pointers: the original expands TGet_Class for DefaultRepairParticleSystem where this build calls it out of line; exact when the particle-system pointers and one warhead pointer are non-const (distinct template instances), which no reference supports
-bool RulesClass::Combat_Damage(CCINIClass const & ini)
+bool RulesClass::Combat_Damage(CCINIClass const & ini) // RA2: ra2-decomp's twin text (direct assignments, the two elite warhead blocks)
 {
 	static char const * const RulesSection_CombatDamage = "CombatDamage"; // RA2: the executable's section name, a file-static pointer at 0x007A9044
 	if (ini.Is_Present(RulesSection_CombatDamage)) { // RA2: as above
-		int ammo_crate_damage = ini.Get_Int(RulesSection_CombatDamage, "AmmoCrateDamage", AmmoCrateDamage); // RA2: as above
-		AmmoCrateDamage = ammo_crate_damage; // RA2: as above
-		int ion_cannon_damage = ini.Get_Int(RulesSection_CombatDamage, "IonCannonDamage", IonCannonDamage); // RA2: as above
-		IonCannonDamage = ion_cannon_damage; // RA2: as above
-		int railgun_damage_radius = ini.Get_Int(RulesSection_CombatDamage, "RailgunDamageRadius", RailgunDamageRadius); // RA2: as above
-		RailgunDamageRadius = railgun_damage_radius; // RA2: as above
-		int tiberium_explosion_damage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", TiberiumExplosionDamage); // RA2: as above
-		TiberiumExplosionDamage = tiberium_explosion_damage; // RA2: as above
-		int tiberium_strength = ini.Get_Int(RulesSection_CombatDamage, "TiberiumStrength", TiberiumStrength); // RA2: as above
-		TiberiumStrength = tiberium_strength; // RA2: as above
+		AmmoCrateDamage = ini.Get_Int(RulesSection_CombatDamage, "AmmoCrateDamage", AmmoCrateDamage); // RA2: as above
+		IonCannonDamage = ini.Get_Int(RulesSection_CombatDamage, "IonCannonDamage", IonCannonDamage); // RA2: as above
+		RailgunDamageRadius = ini.Get_Int(RulesSection_CombatDamage, "RailgunDamageRadius", RailgunDamageRadius); // RA2: as above
+		TiberiumExplosionDamage = ini.Get_Int(RulesSection_CombatDamage, "TiberiumExplosionDamage", TiberiumExplosionDamage); // RA2: as above
+		TiberiumStrength = ini.Get_Int(RulesSection_CombatDamage, "TiberiumStrength", TiberiumStrength); // RA2: as above
 		Scorches = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches", Scorches); // RA2: as above
 		Scorches1 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches1", Scorches1); // RA2: as above
 		Scorches2 = TGet_TypeList<SmudgeTypeClass>(ini, RulesSection_CombatDamage, "Scorches2", Scorches2); // RA2: as above
@@ -1217,21 +1211,25 @@ bool RulesClass::Combat_Damage(CCINIClass const & ini)
 		C4Warhead = TGet_Class(ini, RulesSection_CombatDamage, "C4Warhead", C4Warhead); // RA2: as above
 		V3Warhead = TGet_Class(ini, RulesSection_CombatDamage, "V3Warhead", V3Warhead); // RA2: as above
 		DMislWarhead = TGet_Class(ini, RulesSection_CombatDamage, "DMislWarhead", DMislWarhead); // RA2: as above
-		V3EliteWarhead = TGet_Class(ini, RulesSection_CombatDamage, "V3EliteWarhead", V3Warhead); // RA2: as above
-		DMislEliteWarhead = TGet_Class(ini, RulesSection_CombatDamage, "DMislEliteWarhead", DMislWarhead); // RA2: as above
+		{ // RA2: the elite warhead falls back to the plain one; written out as ra2-decomp's twin has it (the fallback is read before the name)
+			char name[128]; // RA2: as above
+			WarheadTypeClass const * fallback = V3Warhead; // RA2: as above
+			V3EliteWarhead = ini.Get_String(RulesSection_CombatDamage, "V3EliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback; // RA2: as above
+		} // RA2: as above
+		{ // RA2: as above
+			char name[128]; // RA2: as above
+			WarheadTypeClass const * fallback = DMislWarhead; // RA2: as above
+			DMislEliteWarhead = ini.Get_String(RulesSection_CombatDamage, "DMislEliteWarhead", "", name, sizeof(name)) ? WarheadTypeClass::Find_Or_Make(name) : fallback; // RA2: as above
+		} // RA2: as above
 		IvanWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IvanWarhead", IvanWarhead); // RA2: as above
 		CanDetonateTimeBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateTimeBomb", CanDetonateTimeBomb); // RA2: as above
 		CanDetonateDeathBomb = ini.Get_Bool(RulesSection_CombatDamage, "CanDetonateDeathBomb", CanDetonateDeathBomb); // RA2: as above
 		DeathWeapon = TGet_Class(ini, RulesSection_CombatDamage, "DeathWeapon", DeathWeapon); // RA2: as above
-		int ivan_damage = ini.Get_Int(RulesSection_CombatDamage, "IvanDamage", IvanDamage); // RA2: as above
-		IvanDamage = ivan_damage; // RA2: as above
-		int ivan_timed_delay = ini.Get_Int(RulesSection_CombatDamage, "IvanTimedDelay", IvanTimedDelay); // RA2: as above
-		IvanTimedDelay = ivan_timed_delay; // RA2: as above
+		IvanDamage = ini.Get_Int(RulesSection_CombatDamage, "IvanDamage", IvanDamage); // RA2: as above
+		IvanTimedDelay = ini.Get_Int(RulesSection_CombatDamage, "IvanTimedDelay", IvanTimedDelay); // RA2: as above
 		BOMBCURS_SHP = (ShapeSet const *)MixFileClass::Retrieve("BOMBCURS.SHP"); // RA2: as above
-		int ivan_icon_flicker_rate = ini.Get_Int(RulesSection_CombatDamage, "IvanIconFlickerRate", IvanIconFlickerRate); // RA2: as above
-		IvanIconFlickerRate = ivan_icon_flicker_rate; // RA2: as above
-		int iron_curtain_duration = ini.Get_Int(RulesSection_CombatDamage, "IronCurtainDuration", IronCurtainDuration); // RA2: as above
-		IronCurtainDuration = iron_curtain_duration; // RA2: as above
+		IvanIconFlickerRate = ini.Get_Int(RulesSection_CombatDamage, "IvanIconFlickerRate", IvanIconFlickerRate); // RA2: as above
+		IronCurtainDuration = ini.Get_Int(RulesSection_CombatDamage, "IronCurtainDuration", IronCurtainDuration); // RA2: as above
 		IonCannonWarhead = TGet_Class(ini, RulesSection_CombatDamage, "IonCannonWarhead", IonCannonWarhead); // RA2: as above
 		FirestormWarhead = TGet_Class(ini, RulesSection_CombatDamage, "FirestormWarhead", FirestormWarhead); // RA2: as above
 		VeinholeWarhead = TGet_Class(ini, RulesSection_CombatDamage, "VeinholeWarhead", VeinholeWarhead); // RA2: as above
@@ -1247,37 +1245,27 @@ bool RulesClass::Combat_Damage(CCINIClass const & ini)
 		DefaultRepairParticleSystem = TGet_Class(ini, RulesSection_CombatDamage, "DefaultRepairParticleSystem", DefaultRepairParticleSystem); // RA2: as above
 		IsBerzerkAllowed = ini.Get_Bool(RulesSection_CombatDamage, "BerzerkAllowed", IsBerzerkAllowed); // RA2: as above
 		TurboBoost = ini.Get_Float(RulesSection_CombatDamage, "TurboBoost", TurboBoost); // RA2: as above
-		int atom_damage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", AtomDamage); // RA2: as above
-		AtomDamage = atom_damage; // RA2: as above
-		int ballistic_scatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", BallisticScatter); // RA2: as above
-		BallisticScatter = ballistic_scatter; // RA2: as above
-		int bridge_strength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", BridgeStrength); // RA2: as above
-		BridgeStrength = bridge_strength; // RA2: as above
+		AtomDamage = ini.Get_Int(RulesSection_CombatDamage, "AtomDamage", AtomDamage); // RA2: as above
+		BallisticScatter = ini.Get_Lepton(RulesSection_CombatDamage, "BallisticScatter", BallisticScatter); // RA2: as above
+		BridgeStrength = ini.Get_Int(RulesSection_CombatDamage, "BridgeStrength", BridgeStrength); // RA2: as above
 		C4Delay = ini.Get_Float(RulesSection_CombatDamage, "C4Delay", C4Delay); // RA2: as above
-		int crush = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", CrushDistance); // RA2: as above
-		CrushDistance = crush; // RA2: as above
+		CrushDistance = ini.Get_Lepton(RulesSection_CombatDamage, "Crush", CrushDistance); // RA2: as above
 		ExplosionSpread = ini.Get_Float(RulesSection_CombatDamage, "ExpSpread", ExplosionSpread); // RA2: as above
-		int fire_supress = ini.Get_Lepton(RulesSection_CombatDamage, "FireSupress", SupressRadius); // RA2: as above
-		SupressRadius = fire_supress; // RA2: as above
-		int homing_scatter = ini.Get_Lepton(RulesSection_CombatDamage, "HomingScatter", HomingScatter); // RA2: as above
-		HomingScatter = homing_scatter; // RA2: as above
-		int max_damage = ini.Get_Int(RulesSection_CombatDamage, "MaxDamage", MaxDamage); // RA2: as above
-		MaxDamage = max_damage; // RA2: as above
-		int min_damage = ini.Get_Int(RulesSection_CombatDamage, "MinDamage", MinDamage); // RA2: as above
-		MinDamage = min_damage; // RA2: as above
+		SupressRadius = ini.Get_Lepton(RulesSection_CombatDamage, "FireSupress", SupressRadius); // RA2: as above
+		HomingScatter = ini.Get_Lepton(RulesSection_CombatDamage, "HomingScatter", HomingScatter); // RA2: as above
+		MaxDamage = ini.Get_Int(RulesSection_CombatDamage, "MaxDamage", MaxDamage); // RA2: as above
+		MinDamage = ini.Get_Int(RulesSection_CombatDamage, "MinDamage", MinDamage); // RA2: as above
 		IsExplosiveHarvester = ini.Get_Bool(RulesSection_CombatDamage, "TiberiumExplosive", IsExplosiveHarvester); // RA2: as above
 		IsAutoCrush = ini.Get_Bool(RulesSection_CombatDamage, "PlayerAutoCrush", IsAutoCrush); // RA2: as above
 		IsSmartDefense = ini.Get_Bool(RulesSection_CombatDamage, "PlayerReturnFire", IsSmartDefense); // RA2: as above
 		IsScatter = ini.Get_Bool(RulesSection_CombatDamage, "PlayerScatter", IsScatter); // RA2: as above
 		IsTreeTarget = ini.Get_Bool(RulesSection_CombatDamage, "TreeTargeting", IsTreeTarget); // RA2: as above
 		Incoming = ini.Get_MPHType(RulesSection_CombatDamage, "Incoming", Incoming); // RA2: as above
-		int collapse_chance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", CollapseChance); // RA2: as above
-		CollapseChance = collapse_chance; // RA2: as above
+		CollapseChance = ini.Get_Int(RulesSection_CombatDamage, "CollapseChance", CollapseChance); // RA2: as above
 		return(true);
 	}
 	return(false);
 }
-#endif
 
 
 

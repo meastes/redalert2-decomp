@@ -2831,3 +2831,113 @@ range do not count, and any reference inside the stretch resets the count. The w
   `_offsets` (0x7D2B58) is followed in the image by the statics of Closest_Free_Spot, which is parked, so the
   object lays Clear_Icon's tables 36 bytes early, pads the next one by 4, and the per-symbol data compare refuses
   the section. Such a row lands with the parked neighbour whose statics lie between, not alone.
+
+## Later inline sites of a long reader, and specializations left behind (found in the rebuild (lane FH1))
+
+- Found in the rebuild (lane FH1): in a long root an early nested site sits on a knife edge that every later inline
+  site of the root moves. TechnoTypeClass::Read_INI 0x6DAF60 (12,659 B): the image calls VectorClass<int>::Clear
+  for the temporaries of five of the six Voice list statements and the DynamicVectorClass<int> copy at +0x1A06,
+  where the draft expanded them. The destructor's nested share is what is left divided by every inline site after
+  it in the root (hundreds here), against a Clear of about 76 units (il_lab, read in houstype), so one site more
+  or less later in the function flips a statement. A charged probe at the top needs 192 units for the first
+  statement and 372 for three (lane F2); the same effect is ten inline sites the draft spelled
+  by hand, all in ra2-decomp's twin text at the same places: the unit's own `_Scale_To_256` for the Speed= clamp
+  (one site: the first Clear and the copy), the eight recoil statements as `setter(ini.Get_Int(..., getter()))`
+  through TurretControl's accessors where main's coined Get_Recoil helpers had one site each (eight more sites:
+  three Clears), and the unit's own out-of-line `Has_Turret_Weapons()` at the art section's turret test (the last).
+  Count sites before measuring: list the twin's callee vocabulary against the draft's
+  (`grep -o '[A-Za-z_:]*(' | sort | uniq -c`), and read every callee the twin has and the draft lacks.
+- An accessor that Yuri's Revenge keeps out of line at the end of a unit, among the template copies, is the class's
+  own inline member in RA2 (TurretControl's eight at 0x717A30-0x717AD0, the VoxelLibrary load test at 0x717AE0):
+  the larger YR root ran out of budget and called them, RA2's expands them all and emits none.
+- The scheduling of a member store against the next statement's loads says how the value arrived. With ccini.h's
+  `Get_VocType(section, entry, (VocType)member)` each sound member was stored before the next default was loaded;
+  the image loads the next default first and stores just before the call. ra2-decomp's unit-local
+  `Read_Sound(ini, section, key, int fallback)` (int in, int out, no enum conversion at the store) gives the
+  image's order at all twenty statements. The opposite case is HouseTypeClass::Read_INI 0x4F9550: the image
+  stores Prefix before loading FirepowerBias, and `Prefix = prefix[0];` lets the store slide down; only a store
+  through a reference keeps it (ra2-decomp's `char & p = Prefix; p = prefix[0];`; memcpy, a pointer cast and
+  `*prefix` do not), which says the original assigned through something that took Prefix by reference.
+- An explicit specialization written to emit one out-of-line template row while its only natural emitter was
+  parked must leave when the emitter opens. techtype carried `template<> VectorClass<ParticleSystemTypeClass const *>
+  ::operator=` so that 0x6DF8C0 had a body; a specialization defined after its first use is always called, so the
+  TypeList copy constructor 0x6DF9E0 that Read_INI emits compiled with a call where the image expands the
+  assignment (135 of 136 bytes off). Without the specialization the template's own member expands there and
+  Read_INI's two out-of-line calls emit 0x6DF8C0. When a newly opened row's template copy differs by an inner call,
+  search the unit for `template<>` first.
+- Where an inline member's body lives can move a count-sensitive row elsewhere. TurretControl's eight accessors
+  defined in the class flipped sidebar SelectClass::Action 0x6809F0 (4 bytes; the known count-sensitive row);
+  declared in the class and defined `inline` in techtype.cpp, their only user, as ra2-decomp lays them out, 98
+  includers keep every row and planmgr's parked count-sensitive Planning_Update 0x614010 is exact again.
+- A coined stand-in class costs what its members cost, not what the original's did. HouseTypeClass::Read_INI
+  0x4F9550 sat 35 to 42 budget units over the image at its unit list reader through several lanes (a charged 42 at the top
+  was exact but for the probe; or one trailing site with 41 to 160 more root budget). ParentCountry was
+  ra2-decomp's CountryName, a struct written to reproduce the stores; the tree's own TStringID<24> (IniName's type:
+  same 25 bytes, same constructor code) has an operator= that returns by value, whose copy the compiler drops from
+  the code but counts in the size, and with it the call list is the image's and the unit is whole (90 rows).
+  When a root is a few tens of units off and holds an assignment or construction of a small helper class, ask
+  whether the tree already has the real class for that member before measuring: il_lab there read
+  CountryName(char const *) about 72 and its operator= 56, TypeList operator= 54 (DynamicVectorClass's 64,
+  VectorClass's 188), copy constructor 62 (DVC copy 88), ~TypeList 50 (Clear 76), Add 142, TypeList() 58,
+  Delete_Index 106. Name() is nearer the image than IniName in that root (IniName needs a spend of 150 to 204).
+- A count-sensitive row can sit on a single count: with houstype.h one struct lighter, sidebar SelectClass::Action
+  is 4 bytes off at +0 and exact at every probe from +1 to +16 declarations, while queue's parked 0x62A360 came
+  back at the same change. Probe both directions and run countsens before deciding what a header change costs.
+
+## Hand-written blocks in a reader's root, accessor conditionals and named-local ties (found in the rebuild (lane F2, high))
+
+- Found in the rebuild (lane F2, high): a reader root that is a few units short at a late site can be missing root
+  text, not carrying extra sites. RulesClass::Combat_Damage 0x646C60 called TGet_Class for its last particle system
+  where the image expands it (9 to 16 budget units short); main had closed the gap with eighteen named int locals
+  (`int x = ini.Get_Int(...); Member = x;`), and the rebuild then needed non-const type pointers on top. ra2-decomp's
+  twin writes the two elite warheads out by hand (`{ char name[128]; WarheadTypeClass const * fallback = V3Warhead;
+  V3EliteWarhead = ini.Get_String(...) ? WarheadTypeClass::Find_Or_Make(name) : fallback; }`): a block is the root's
+  own text (it raises S, so 2*S) where a TGet_Class call is a charged site, and the expanded reader and the block
+  compile to the same instructions, so the image cannot show which was written. Measured in the unit: direct
+  assignments with both readers 549 lines off, one block 240, both blocks exact, both blocks with the named locals
+  105 off the other way (an overshoot: the smudge and anim list readers expand too far). Try a twin's hand-written
+  block against the clean direct text, not on top of a draft that was already padded. The `fallback` local does
+  work: with the member named in the conditional the default is read after the call (10 lines).
+- This is the reverse of the wrapper lesson (lane FH1): there the draft spelled out by hand what the original called
+  through an inline; here the draft called an inline where the original spelled it out. Both show only in the
+  budget. List the twin's blocks and its callee vocabulary before measuring either way.
+- A conditional over two parameterless accessors is not the same tree as one over a flagged accessor.
+  `x = bridge ? cell.Cell_Bridge_Occupier() : cell.Cell_Occupier();` leaves the value in eax on both arms and copies
+  it at the join (`mov esi, eax`); `bridge ? cell.Cell_Occupier(true) : cell.Cell_Occupier(false)` (the inline's own
+  conditional folded twice) and the if/else form load the destination register in each arm. The image has the first
+  in the train block of both While_Moving copies (0x676F60, 0x4A1000) and in Explosion_Damage's rocker loop
+  (0x47E2C0), where main used a reference alias (`ObjectClass *& ref`) or an inline member and an earlier lane an
+  occupier local; ra2-decomp's twin of Explosion_Damage has `Cell_Bridge_Occupier() : Cell_Occupier(false)` at that
+  place. When a join copies a register that both arms could have loaded directly, look for a second accessor of
+  the same field before adding a local.
+- `DirType(facing).As_Dir8()` and `Dir_Facing(facing)` differ only in what they read (Raw, the whole word, against
+  Facing), and VC6 narrows both to the same dword load; but the order of that load against a neighbouring stack
+  load differs. In While_Moving the track jump's `tnum` loads nextface first in the image: no spelling of the sum
+  (operand order, `+=`, a named facing, an int nextface), no named-local, data-key or call-pad probe and no header
+  declaration count moved it; As_Dir8 at that one statement did, while the turn test a few lines above is right
+  through Dir_Facing. A swapped pair of loads next to an inlined DirType conversion is the accessor, not a tie.
+- Porting an accepted body with refused forms into clean text: score each of the old forms alone, then all, then
+  all but one, then pairs. While_Moving (5,085 bytes off as adopted text) was 26 lines off with all thirteen of
+  main's forms and looked as if every one was needed (each removal cost 20 to 450 lines); with three of them
+  replaced by clean equivalents (the accessor conditional, the locomotor's own `Incoming(c.As_Cell())` for main's
+  `Cell gate`, the member read for main's `ttype`), three more could simply go (`cell` at the tube, the Coord copy
+  in the distance, either of them with `target`), but not all three together: the function is exact in a window of
+  its named-local count (unused Cell locals: +0 to +3 exact, +4, +5 and +7 off, +6, +8, +9 exact; one fewer off).
+  Ship's text has a `target` local where Drive's has TibSun's `maxspeed`, the same count. Two differences that
+  always appear together under unrelated single removals (here a push scheduled across the Adjacent_Cell sum, and
+  a 16-bit Cell sum at the tube) are count ties of this kind, not properties of the removed form.
+- What still holds both While_Moving copies: `UnitClass * unit = (UnitClass *)LinkedTo` in the train block (the
+  image keeps LinkedTo in a callee-saved register across the loop's calls, which a member re-read cannot give),
+  `Map[Coord(coord)]` (a copy of the chosen coordinate is built for the lookup) and `Cell here` at the arrival test
+  (the unit's cell is evaluated first and compared on the left; swapping the test's operands changes the
+  evaluation order). No reference has this function matched (ra2-decomp omits it, mischa85's is unmatched), so the
+  exact text stays under its guard as a held variation.
+- Named-local ties, measured (Explosion_Damage 0x47E2C0, 12 lines from exact): the operand order of a 16-bit Cell sum
+  and the order in which two expanded Length sites convert X, Y and Z follow the function's count of named locals.
+  The probe that counts is an unused reference (`Coord const & p = coord;`) or an unused class local declared at the
+  top: unused ints are dropped and count nothing, a Point2D counts two, header declarations before the function
+  (1 to 65) move nothing, and a class local declared in mid-function is an inline site that costs budget instead.
+  The sum is right at +1, +9 and +17 (period eight); the conversions have windows without a period (+3..+7 and
+  +14..+24; +6, +7 and +17..+24), so the text is exact at +17, or at +6 with the sum written table first. Main's
+  accepted body had the count from its coined Length helper (three named doubles at each of three sites). A probe
+  result of this kind names a deficit of named locals, not a form: nothing lands from it.

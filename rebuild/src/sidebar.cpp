@@ -2552,6 +2552,7 @@ void SidebarClass::StripClass::SelectClass::Set_Owner(StripClass & strip, int in
  *   01/19/1995 JLB : Created.                                                                 *
  *   10/09/1996 JLB : Sonar pulse converted to regular event type.                             *
  *=============================================================================================*/
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 int SidebarClass::StripClass::SelectClass::Action(unsigned flags, KeyNumType & key)
 {
 	if (Strip == NULL) {
@@ -2848,6 +2849,7 @@ int SidebarClass::StripClass::SelectClass::Action(unsigned flags, KeyNumType & k
 
 	return(true);
 }
+#endif
 
 
 /***********************************************************************************************

@@ -33,15 +33,7 @@ class HouseTypeClass : public AbstractTypeClass
 		typedef AbstractTypeClass BASECLASS;
 
 	public:
-		struct CountryName // RA2
-		{
-			char Buffer[25];
-			CountryName(void) { Buffer[0] = '\0'; } // RA2: as in ra2-decomp include/houstype.h
-			CountryName(NoInitClass const &) {} // RA2: as above
-			CountryName(char const * name) { if (name == NULL) { Buffer[0] = '\0'; } else { strncpy(Buffer, name, sizeof(Buffer)-1); Buffer[sizeof(Buffer)-1] = '\0'; } } // RA2: as above
-			CountryName & operator=(CountryName const & that) { if (&that != this) { memcpy(Buffer, that.Buffer, sizeof(Buffer)); } return(*this); } // RA2: as above
-		};
-		CountryName ParentCountry; // RA2: +0x98
+		TStringID<24> ParentCountry; // RA2: +0x98, the country this one is a variant of (the same fixed string as the INI name)
 
 
 		/*

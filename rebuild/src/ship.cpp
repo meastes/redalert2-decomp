@@ -814,7 +814,7 @@ void ShipLocomotionClass::Do_Turn(DirStruct coord) // RA2: as above
 /// </summary>
 /// <param name="just_started">Is this the first call after the move was started?</param>
 /// <returns>bool; Is the ship done moving for this frame (arrived or blocked)?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 5085 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place (the train's `UnitClass * unit` cast local, `Map[Coord(coord)]` and the `Cell here` local; variation_candidates.csv, lane F2 session 2) and the named-local count is a window (`target`)
 bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 {
 	assert(LinkedTo->IsActive); // RA2: as above
@@ -991,20 +991,16 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 						LinkedTo->IsOnBridge = false; // RA2: as above
 					}
 					if (LinkedTo->TClass->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) { // RA2: as above
-						bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
-						ObjectClass * occupier; // RA2: as above
-						if (is_bridge) { // RA2: as above
-							occupier = Map[newcell].Cell_Occupier(true); // RA2: as above
-						} else {
-							occupier = Map[newcell].Cell_Occupier(false); // RA2: as above
-						}
+						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: the train is held in a local across the calls of the loop (no reference text; a variation)
+						bool is_bridge = unit->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
+						ObjectClass * occupier = is_bridge ? Map[newcell].Cell_Bridge_Occupier() : Map[newcell].Cell_Occupier(); // RA2: one conditional expression over the two accessors
 						while (occupier != NULL) { // RA2: as above
 							ObjectClass * next = occupier->Next; // RA2: as above
 							if (!occupier->Class_Of()->IsCrushable) { // RA2: as above
 								int strength = 10000; // RA2: as above
 								occupier->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
 								strength = 20; // RA2: as above
-								LinkedTo->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false); // RA2: as above
+								unit->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false); // RA2: through the local
 							}
 							occupier = next; // RA2: as above
 						}
@@ -1016,7 +1012,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 						OverlayTypeClass * otype = OverlayTypes[newcellptr->Overlay]; // RA2: as above
 						if (IsRocking && (LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) { // RA2: as above
 							LinkedTo->IsCrushing = true; // RA2: as above
-							if (LinkedTo->TClass->IsTiltsWhenCrushes) { // RA2: as above
+							if (LinkedTo->Techno_Type_Class()->IsTiltsWhenCrushes) { // RA2: as above
 								LinkedTo->RockingForwardsPerFrame = -0.02f; // RA2: as above
 							}
 						}
@@ -1054,7 +1050,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 					TurnTrackType const * newtrack;		// Proposed jump-to track. // RA2: as above
 					int	tnum; // RA2: as above
 
-					tnum = (int)(Dir_Facing(track->Facing) * FACING_COUNT) + (int)nextface; // RA2: as above
+					tnum = (int)(DirType(track->Facing).As_Dir8() * FACING_COUNT) + (int)nextface; // RA2: the whole direction word is read (As_Dir8), where the turn test above goes through Dir_Facing
 					newtrack = &TrackControl[tnum]; // RA2: as above
 					if (newtrack->Track && RawTracks[newtrack->Track-1].Entry) { // RA2: as above
 						double oldspeed = LinkedTo->Speed; // RA2: as above
@@ -1078,7 +1074,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 								IsDriving = true; // RA2: as above
 								LinkedTo->Per_Cell_Process(PCP_END); // RA2: as above
 								IsDriving = false; // RA2: as above
-								if (LinkedTo == NULL || !LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false); // RA2: as above
+								if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false); // RA2: no LinkedTo == NULL test
 								if (Start_Driver(c)) { // RA2: as above
 									LinkedTo->Set_Speed(oldspeed); // RA2: as above
 									memcpy((char*)&LinkedTo->Path, (char*)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX-1)); // RA2: as above
@@ -1091,7 +1087,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 								break; // RA2: as above
 
 							case MOVE_CLOSED_GATE: // RA2: as above
-								Map.Try_Open_Gate(LinkedTo, c.As_Cell()); // RA2: as above
+								Incoming(c.As_Cell()); // RA2: through the locomotor's own Incoming, as Start_Of_Move
 								break; // RA2: as above
 
 							case MOVE_TEMP: { // RA2: as above
@@ -1116,7 +1112,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				LinkedTo->IsOccupyingCell = true; // RA2: as above
 				LinkedTo->IsToPathAroundBlockage = false; // RA2: as above
 
-				if (HeadToCoord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) { // RA2: as above
+				Cell here = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (no reference text; a variation)
+				if (here != HeadToCoord.As_Cell()) { // RA2: as above
 					LinkedTo->Mark(MARK_UP); // RA2: as above
 					LinkedTo->PositionCoord = HeadToCoord; // RA2: as above
 					LinkedTo->HeightAGL = 0; // RA2: as above
@@ -1136,8 +1133,9 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				TrackIndex = NULL; // RA2: as above
 
 				bool arrived = false; // RA2: as above
-				if (LinkedTo->NavCom != NULL && LinkedTo->PositionCell == LinkedTo->NavCom->Destination_Coord().As_Cell()) { // RA2: as above
-					if (abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
+				AbstractClass * target = LinkedTo->NavCom; // RA2: the ship's text holds the NavCom in a local (Drive's has its maxspeed local instead; the function is sensitive to the count of named locals)
+				if (target != NULL && LinkedTo->PositionCell == target->Destination_Coord(LinkedTo).As_Cell()) { // RA2: Destination_Coord takes the unit
+					if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
 						arrived = true; // RA2: as above
 						DestinationCoord = COORD_NONE; // RA2: as above
 						Stop_Driver(); // RA2: as above
@@ -1150,7 +1148,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				*/
 				//LinkedTo->Mark(MARK_DOWN);
 				LinkedTo->Per_Cell_Process(PCP_END); // RA2: as above
-				if (LinkedTo == NULL || !LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(true); // RA2: as above
+				if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(true); // RA2: no LinkedTo == NULL test
 				//LinkedTo->Mark(MARK_UP);
 
 				if (arrived) { // RA2: as above
@@ -1194,16 +1192,14 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 		}
 		ptr = RawTracks[tracknum-1].Track; // RA2: as above
 
-		Point2D	offset; // RA2: as above
 		Dir256	dir; // RA2: as above
-
-		offset = ptr[TrackIndex].Offset; // RA2: as above
+		Point2D offset = ptr[TrackIndex].Offset; // RA2: declared with its value, after dir
 		if (offset != Point2D(0, 0) || !TrackIndex) { // RA2: as above
 
 			Coord oldcoord = LinkedTo->PositionCoord; // RA2: as above
 
 			dir = ptr[TrackIndex].Facing; // RA2: as above
-			Coord movement = Coord(Smooth_Turn(offset, dir) - LinkedTo->PositionCoord, 0); // RA2: as above
+			Coord movement(Smooth_Turn(offset, dir) - LinkedTo->PositionCoord, 0); // RA2: constructed in place
 			Coord stepcoord = movement + LinkedTo->PositionCoord; // RA2: as above
 			CellClass * stepcellptr = &Map[stepcoord]; // RA2: as above
 
@@ -1224,7 +1220,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				coord = partialcoord; // RA2: as above
 			}
 
-			CellClass * newcellptr = &Map[coord]; // RA2: as above
+			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (no reference text; a variation)
 
 			if (coord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) { // RA2: as above
 				LinkedTo->Mark(MARK_UP); // RA2: as above

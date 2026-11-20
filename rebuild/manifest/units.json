@@ -123339,7 +123339,7 @@
     "entry": "004fb530",
     "body": 136,
     "padding": 8,
-    "symbol": "??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
+    "symbol": "??0?$DynamicVectorClass@PBVUnitTypeClass@@@@QAE@ABV0@@Z",
     "main_symbol": "??0?$DynamicVectorClass@PAVUnitTypeClass@@@@QAE@ABV0@@Z",
     "main_source": "src/recovered/houstype.cpp"
    },
@@ -129276,14 +129276,7 @@
    "_$S187": "00a76661",
    "_$S193": "00a76660"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "00614010": {
-    "windows": "globals.h at lane M1's state (BriefingButton and OptionsButton declared as RadarClass static members, their two global externs gone) with plain probe declarations at its end: +0 off (4 bytes: two loads swapped), +1 +2 +3 +4 +6 +8 exact; the old globals.h (the two externs): exact",
-    "header": "globals.h (lane M1, 2026-11-20: the two shape buttons moved into RadarClass, as their guarded destructors evidence)",
-    "note": "lane M1 probe 2026-11-20: (a) displacing content is two externs that named the buttons as globals the image does not hold; (b) planmgr.cpp uses neither button; (c) the unchanged text is exact on the old header and with any probe declaration added"
-   }
-  }
+  "partial_ok": true
  },
  "taction": {
   "core": [
@@ -131285,14 +131278,7 @@
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "0062a360": {
-    "windows": "plain probe declarations at the end of teamtype.h, map.h at the same state. main 93224d786 map.h and teamtype.h: +0 +1 +2 exact, +3..+8 +10 +12 +16 +18 +20 off, +22 exact, +23 off, +24 +25 exact, +26 +28 off, +32 exact, +40 off; lane R40 headers (map.h with Find_Compatible_Passability_Row, teamtype.h with Process_Task_Force and Process_All_Task_Forces): +0 +1 +2 +4 +8 +12 +16 +20 +21 +22 +24 off, +28 exact, +32 off. (Either header alone at R40's state, the other old: exact); lane R47 headers (ra2-decomp's forms: map.h without Find_Compatible_Passability_Row, declared in teamtype.cpp; Process_All_Task_Forces a static member of TeamTypeClass): +0..+6 +16 off, +8 +12 exact",
-    "header": "map.h and teamtype.h (lane R40: Find_Compatible_Passability_Row declared in map.h; TeamTypeClass::Process_Task_Force and Process_All_Task_Forces in teamtype.h)",
-    "note": "lane R41 probe 2026-11-19 under the owner ruling on R39's held teamtype rows (evidenced content is never held back for a count-sensitive row; precedent mapgen 00587cf0, same headers). (b)(i) queue.cpp uses neither Find_Compatible_Passability_Row nor the task-force functions; Print_CRCs reaches TeamTypeClass only through the virtual Compute_CRC (layout and vtable unchanged) and map.h only through Map.Layer; (ii) exact windows on both header states above (plain +3 at teamtype.h's end on the old headers reproduces the flip). The function has no statics; guarding it leaves the unit's other 67 rows exact."
-   }
-  }
+  "partial_ok": true
  },
  "unit": {
   "core": [
@@ -134011,7 +133997,14 @@
    "_$S189": "00ab9270",
    "_$S195": "00ab9271"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "006809f0": {
+    "windows": "plain probe declarations at the end of houstype.h on lane FH1's headers (houstype.h without the coined CountryName, ParentCountry a TStringID<24>): +0 off (4 bytes), +1 +2 +3 +4 +5 +6 +8 +10 +12 +16 exact. On the old houstype.h (main 420a38a76 with lane FH1's techtype.h): exact; techtype.h with TurretControl's eight accessors defined in the class instead of declared: off",
+    "header": "houstype.h (lane FH1, 2026-11-20: ra2-decomp's coined CountryName struct and its four inline members removed; ParentCountry is the tree's TStringID<24>, with which HouseTypeClass::Read_INI and the whole houstype unit are exact)",
+    "note": "lane FH1 probe 2026-11-20 under the owner rule (evidenced content is never held back for a count-sensitive row; this row is its first precedent): (a) the displacing change removes a coined class; (b)(i) sidebar.cpp uses neither CountryName nor ParentCountry; (ii) windows above: any one added declaration makes it exact again; (c) the unchanged text is exact on the old header"
+   }
+  }
  },
  "event": {
   "core": [

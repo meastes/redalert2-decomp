@@ -947,7 +947,7 @@ void DriveLocomotionClass::Do_Turn(DirStruct coord)
  *   02/02/1992 JLB : Created.                                                                 *
  *   04/15/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4125 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place (the train's `UnitClass * unit` cast local, `Map[Coord(coord)]` and the `Cell here` local; variation_candidates.csv, lane F2 session 2)
 bool DriveLocomotionClass::While_Moving(bool just_started)
 {
 	assert(LinkedTo->IsActive);
@@ -1109,9 +1109,11 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
 				dir = ptr[TrackIndex].Facing;
 				Coord newcoord = Coord(Smooth_Turn(offset, dir), 0);
+				Cell newcoord_cell = newcoord.As_Cell(); // RA2: both cells are read into locals before the comparison
+				Cell linked_coord_cell = LinkedTo->PositionCoord.As_Cell(); // RA2: as above
 				Cell newcell = newcoord.As_Cell();
 
-				if (LinkedTo->PositionCoord.As_Cell() != newcoord.As_Cell()) {
+				if (newcoord_cell != linked_coord_cell) { // RA2: as above
 					LinkedTo->Mark(MARK_UP);
 					LinkedTo->PositionCoord = newcoord;
 					CellClass * oldcellptr = &Map[oldcell];
@@ -1123,20 +1125,16 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 						LinkedTo->IsOnBridge = false;
 					}
 					if (LinkedTo->TClass->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) {
-						bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT));
-						ObjectClass * occupier;
-						if (is_bridge) {
-							occupier = Map[newcell].Cell_Occupier(true);
-						} else {
-							occupier = Map[newcell].Cell_Occupier(false);
-						}
+						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: the train is held in a local across the calls of the loop (no reference text; a variation)
+						bool is_bridge = unit->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
+						ObjectClass * occupier = is_bridge ? Map[newcell].Cell_Bridge_Occupier() : Map[newcell].Cell_Occupier(); // RA2: one conditional expression over the two accessors
 						while (occupier != NULL) {
 							ObjectClass * next = occupier->Next;
 							if (!occupier->Class_Of()->IsCrushable) {
 								int strength = 10000;
 								occupier->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, true);
 								strength = 20;
-								LinkedTo->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false);
+								unit->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false); // RA2: through the local
 							}
 							occupier = next;
 						}
@@ -1148,7 +1146,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 						OverlayTypeClass * otype = OverlayTypes[newcellptr->Overlay];
 						if (IsRocking && (LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
 							LinkedTo->IsCrushing = true;
-							if (LinkedTo->TClass->IsTiltsWhenCrushes) {
+							if (LinkedTo->Techno_Type_Class()->IsTiltsWhenCrushes) { // RA2: as above
 								LinkedTo->RockingForwardsPerFrame = -0.02f;
 							}
 						}
@@ -1186,7 +1184,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 					TurnTrackType const * newtrack;		// Proposed jump-to track.
 					int	tnum;
 
-					tnum = (int)(Dir_Facing(track->Facing) * FACING_COUNT) + (int)nextface;
+					tnum = (int)(DirType(track->Facing).As_Dir8() * FACING_COUNT) + (int)nextface; // RA2: the whole direction word is read (As_Dir8), where the turn test above goes through Dir_Facing
 					newtrack = &TrackControl[tnum];
 					if (newtrack->Track && RawTracks[newtrack->Track-1].Entry) {
 						double oldspeed = LinkedTo->Speed;
@@ -1210,7 +1208,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 								IsDriving = true;
 								LinkedTo->Per_Cell_Process(PCP_END);
 								IsDriving = false;
-								if (LinkedTo == NULL || !LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false);
+								if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false); // RA2: no LinkedTo == NULL test
 								if (Start_Driver(c)) {
 									LinkedTo->Set_Speed(oldspeed);
 									memcpy((char*)&LinkedTo->Path, (char*)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX-1));
@@ -1223,7 +1221,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 								break;
 
 							case MOVE_CLOSED_GATE:
-								Map.Try_Open_Gate(LinkedTo, c.As_Cell());
+								Incoming(c.As_Cell()); // RA2: through the locomotor's own Incoming, as Start_Of_Move
 								break;
 
 							case MOVE_TEMP: {
@@ -1248,7 +1246,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				LinkedTo->IsOccupyingCell = true;
 				LinkedTo->IsToPathAroundBlockage = false;
 
-				if (HeadToCoord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) {
+				Cell here = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (no reference text; a variation)
+				if (here != HeadToCoord.As_Cell()) { // RA2: as above
 					LinkedTo->Mark(MARK_UP);
 					LinkedTo->PositionCoord = HeadToCoord;
 					LinkedTo->HeightAGL = 0;
@@ -1268,8 +1267,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				TrackIndex = NULL;
 
 				bool arrived = false;
-				if (LinkedTo->NavCom != NULL && LinkedTo->PositionCell == LinkedTo->NavCom->Destination_Coord().As_Cell()) {
-					if (abs(LinkedTo->Destination_Coord().Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) {
+				if (LinkedTo->NavCom != NULL && LinkedTo->PositionCell == LinkedTo->NavCom->Destination_Coord(LinkedTo).As_Cell()) { // RA2: Destination_Coord takes the unit
+					if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
 						arrived = true;
 						DestinationCoord = COORD_NONE;
 						Stop_Driver();
@@ -1282,11 +1281,11 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				*/
 				//LinkedTo->Mark(MARK_DOWN);
 				LinkedTo->Per_Cell_Process(PCP_END);
-				if (LinkedTo == NULL || !LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(true);
+				if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(true); // RA2: no LinkedTo == NULL test
 				//LinkedTo->Mark(MARK_UP);
 
 				if (arrived) {
-					LinkedTo->NavCom = NULL;
+					LinkedTo->Abort_Motion(); // RA2: not just NavCom = NULL
 					LinkedTo->Path[0] = FACING_NONE;
 					if (LinkedTo->Mission == MISSION_MOVE && LinkedTo->Enter_Idle_Mode()) {
 						return(true);
@@ -1326,40 +1325,35 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 		}
 		ptr = RawTracks[tracknum-1].Track;
 
-		Point2D	offset;
 		Dir256	dir;
-
-		offset = ptr[TrackIndex].Offset;
+		Point2D offset = ptr[TrackIndex].Offset; // RA2: declared with its value, after dir
 		if (offset != Point2D(0, 0) || !TrackIndex) {
 
 			Coord oldcoord = LinkedTo->PositionCoord;
 
 			dir = ptr[TrackIndex].Facing;
-			Coord movement = Coord(Smooth_Turn(offset, dir) - LinkedTo->PositionCoord, 0);
+			Coord movement(Smooth_Turn(offset, dir) - LinkedTo->PositionCoord, 0); // RA2: constructed in place
 			Coord stepcoord = movement + LinkedTo->PositionCoord;
 			CellClass * stepcellptr = &Map[stepcoord];
 
 			Coord partial(0, 0, 0);
-			partial = Lerp(partial, movement, SpeedAccum / 7.0); /// 7 == (CELL_LEPTON / ((CELL_PIXEL_W + CELL_PIXEL_H) / 2))
-			Coord partialcoord = oldcoord + partial;
+			movement = Lerp(partial, movement, SpeedAccum / 7.0); // RA2: the blended step overwrites the movement /// 7 == (CELL_LEPTON / ((CELL_PIXEL_W + CELL_PIXEL_H) / 2))
+			Coord partialcoord = oldcoord + movement; // RA2: as above
 
 			CellClass * oldcellptr = &Map[oldcoord];
 			CellClass * partialcellptr = &Map[partialcoord];
 
-			Coord poscoord = LinkedTo->PositionCoord;
-			Coord coord = poscoord;
+			Coord coord = LinkedTo->PositionCoord; // RA2: the height is not kept apart: the chosen coordinate replaces it whole
 
 			if (partialcellptr != stepcellptr && partialcellptr != oldcellptr) {
 				if (SpeedAccum > 3) {
 					coord = stepcoord;
-					coord.Z = poscoord.Z;
 				}
 			} else {
 				coord = partialcoord;
-				coord.Z = poscoord.Z;
 			}
 
-			CellClass * newcellptr = &Map[coord];
+			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (no reference text; a variation)
 
 			if (coord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) {
 				LinkedTo->Mark(MARK_UP);

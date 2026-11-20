@@ -694,21 +694,58 @@ static inline int _Scale_To_256(int val)
 }
 
 
-// RA2: a recoil timing value (TurretTravel=, BarrelTravel=); the default is the current value (meastes' inline helper)
-static inline int Get_Recoil(CCINIClass const & ini, char const * section, char const * entry, int value) // RA2: as above
+// RA2: the recoil accessors Read_INI reads the turret and barrel timing through; a frame count is at least one (ra2-decomp's TurretControl members, src/techtype.cpp; Yuri's Revenge keeps them out of line at 0x717A30-0x717AD0, RA2 expands every one)
+inline void TurretControl::Set_Travel(int travel)
 {
-	value = ini.Get_Int(section, entry, value); // RA2: as above
-	return value; // RA2: as above
+	Travel = travel;
 }
 
-// RA2: a recoil frame count (TurretCompressFrames= ...): at least one (meastes' inline helper)
-static inline int Get_Recoil_Frames(CCINIClass const & ini, char const * section, char const * entry, int frames) // RA2: as above
+inline int TurretControl::Get_Travel(void) const
 {
-	frames = ini.Get_Int(section, entry, frames); // RA2: as above
-	if (frames <= 0) { // RA2: as above
-		return 1; // RA2: as above
+	return(Travel);
+}
+
+inline void TurretControl::Set_Compress_Frames(int frames)
+{
+	CompressFrames = (frames > 0) ? frames : 1;
+}
+
+inline int TurretControl::Get_Compress_Frames(void) const
+{
+	return(CompressFrames);
+}
+
+inline void TurretControl::Set_Recover_Frames(int frames)
+{
+	RecoverFrames = (frames > 0) ? frames : 1;
+}
+
+inline int TurretControl::Get_Recover_Frames(void) const
+{
+	return(RecoverFrames);
+}
+
+inline void TurretControl::Set_Hold_Frames(int frames)
+{
+	HoldFrames = (frames > 0) ? frames : 1;
+}
+
+inline int TurretControl::Get_Hold_Frames(void) const
+{
+	return(HoldFrames);
+}
+
+
+// RA2: a sound read by name, as the index of its VocClass; the current value stays when the entry is missing or names no sound (ra2-decomp's unit-local helper, src/techtype.cpp)
+static inline int Read_Sound(CCINIClass const & ini, char const * section, char const * key, int fallback)
+{
+	char sound[128];
+	if (ini.Get_String(section, key, "", sound, sizeof(sound)) != 0) {
+		int index = VocClass::From_Name(sound);
+		if (index != -1)
+			return index;
 	}
-	return frames; // RA2: as above
+	return fallback;
 }
 
 
@@ -729,7 +766,6 @@ static inline int Get_Recoil_Frames(CCINIClass const & ini, char const * section
  * HISTORY:                                                                                    *
  *   07/19/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 9793 bytes differ (adopted text; the original calls VectorClass<int>::Clear and the DynamicVectorClass<int> copy constructor out of line where this expands them)
 bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and art reading, meastes' body at 0x6DAF60
 {
 	if (BASECLASS::Read_INI(ini)) { // RA2: as above
@@ -812,19 +848,19 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		VoiceSpecialAttack = CCINIClass::Get_VocType_List(ini, IniName, "VoiceSpecialAttack", VoiceSpecialAttack); // RA2: as above
 		VoiceDie = CCINIClass::Get_VocType_List(ini, IniName, "VoiceDie", VoiceDie); // RA2: as above
 		VoiceFeedback = CCINIClass::Get_VocType_List(ini, IniName, "VoiceFeedback", VoiceFeedback); // RA2: as above
-		AuxSound1 = ini.Get_VocType(IniName, "AuxSound1", (VocType)AuxSound1); // RA2: as above
-		AuxSound2 = ini.Get_VocType(IniName, "AuxSound2", (VocType)AuxSound2); // RA2: as above
-		CreateSound = ini.Get_VocType(IniName, "CreateSound", (VocType)CreateSound); // RA2: as above
-		DamageSound = ini.Get_VocType(IniName, "DamageSound", (VocType)DamageSound); // RA2: as above
-		ImpactWaterSound = ini.Get_VocType(IniName, "ImpactWaterSound", (VocType)ImpactWaterSound); // RA2: as above
-		ImpactLandSound = ini.Get_VocType(IniName, "ImpactLandSound", (VocType)ImpactLandSound); // RA2: as above
-		CrashingSound = ini.Get_VocType(IniName, "CrashingSound", (VocType)CrashingSound); // RA2: as above
-		SinkingSound = ini.Get_VocType(IniName, "SinkingSound", (VocType)SinkingSound); // RA2: as above
-		VoiceFalling = ini.Get_VocType(IniName, "VoiceFalling", (VocType)VoiceFalling); // RA2: as above
-		VoiceCrashing = ini.Get_VocType(IniName, "VoiceCrashing", (VocType)VoiceCrashing); // RA2: as above
-		VoiceSinking = ini.Get_VocType(IniName, "VoiceSinking", (VocType)VoiceSinking); // RA2: as above
-		VoiceEnter = ini.Get_VocType(IniName, "VoiceEnter", (VocType)VoiceEnter); // RA2: as above
-		VoiceCapture = ini.Get_VocType(IniName, "VoiceCapture", (VocType)VoiceCapture); // RA2: as above
+		AuxSound1 = (VocType)Read_Sound(ini, IniName, "AuxSound1", AuxSound1); // RA2: as above
+		AuxSound2 = (VocType)Read_Sound(ini, IniName, "AuxSound2", AuxSound2); // RA2: as above
+		CreateSound = Read_Sound(ini, IniName, "CreateSound", CreateSound); // RA2: as above
+		DamageSound = Read_Sound(ini, IniName, "DamageSound", DamageSound); // RA2: as above
+		ImpactWaterSound = Read_Sound(ini, IniName, "ImpactWaterSound", ImpactWaterSound); // RA2: as above
+		ImpactLandSound = Read_Sound(ini, IniName, "ImpactLandSound", ImpactLandSound); // RA2: as above
+		CrashingSound = Read_Sound(ini, IniName, "CrashingSound", CrashingSound); // RA2: as above
+		SinkingSound = Read_Sound(ini, IniName, "SinkingSound", SinkingSound); // RA2: as above
+		VoiceFalling = Read_Sound(ini, IniName, "VoiceFalling", VoiceFalling); // RA2: as above
+		VoiceCrashing = Read_Sound(ini, IniName, "VoiceCrashing", VoiceCrashing); // RA2: as above
+		VoiceSinking = Read_Sound(ini, IniName, "VoiceSinking", VoiceSinking); // RA2: as above
+		VoiceEnter = Read_Sound(ini, IniName, "VoiceEnter", VoiceEnter); // RA2: as above
+		VoiceCapture = Read_Sound(ini, IniName, "VoiceCapture", VoiceCapture); // RA2: as above
 		IsCloakStop = ini.Get_Bool(IniName, "CloakStop", IsCloakStop); // RA2: as above
 		Capacity = ini.Get_Int(IniName, "Storage", Capacity); // RA2: as above
 		BuildLimit = ini.Get_Int(IniName, "BuildLimit", BuildLimit); // RA2: as above
@@ -836,15 +872,15 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		IsManualReload = ini.Get_Bool(IniName, "ManualReload", IsManualReload); // RA2: as above
 		TurretSpins = ini.Get_Bool(IniName, "TurretSpins", TurretSpins); // RA2: as above
 		IsTurretEquipped = ini.Get_Bool(IniName, "Turret", IsTurretEquipped); // RA2: as above
-		TurretRotateSound = ini.Get_VocType(IniName, "TurretRotateSound", (VocType)TurretRotateSound); // RA2: as above
-		EnterTransportSound = ini.Get_VocType(IniName, "EnterTransportSound", (VocType)EnterTransportSound); // RA2: as above
-		LeaveTransportSound = ini.Get_VocType(IniName, "LeaveTransportSound", (VocType)LeaveTransportSound); // RA2: as above
+		TurretRotateSound = Read_Sound(ini, IniName, "TurretRotateSound", TurretRotateSound); // RA2: as above
+		EnterTransportSound = Read_Sound(ini, IniName, "EnterTransportSound", EnterTransportSound); // RA2: as above
+		LeaveTransportSound = Read_Sound(ini, IniName, "LeaveTransportSound", LeaveTransportSound); // RA2: as above
 		MoveSound = CCINIClass::Get_VocType_List(ini, IniName, "MoveSound", MoveSound); // RA2: as above
 		DieSound = CCINIClass::Get_VocType_List(ini, IniName, "DieSound", DieSound); // RA2: as above
-		DeploySound = ini.Get_VocType(IniName, "DeploySound", (VocType)DeploySound); // RA2: as above
-		UndeploySound = ini.Get_VocType(IniName, "UndeploySound", (VocType)UndeploySound); // RA2: as above
-		ChronoInSound = ini.Get_VocType(IniName, "ChronoInSound", (VocType)ChronoInSound); // RA2: as above
-		ChronoOutSound = ini.Get_VocType(IniName, "ChronoOutSound", (VocType)ChronoOutSound); // RA2: as above
+		DeploySound = Read_Sound(ini, IniName, "DeploySound", DeploySound); // RA2: as above
+		UndeploySound = Read_Sound(ini, IniName, "UndeploySound", UndeploySound); // RA2: as above
+		ChronoInSound = Read_Sound(ini, IniName, "ChronoInSound", ChronoInSound); // RA2: as above
+		ChronoOutSound = Read_Sound(ini, IniName, "ChronoOutSound", ChronoOutSound); // RA2: as above
 		Explosion = TGet_TypeList<AnimTypeClass>(ini, IniName, "Explosion", Explosion); // RA2: as above
 		DestroyAnim = TGet_TypeList<AnimTypeClass>(ini, IniName, "DestroyAnim", DestroyAnim); // RA2: as above
 		NaturalParticleSystem = TGet_Class(ini, IniName, "NaturalParticleSystem", NaturalParticleSystem); // RA2: as above
@@ -888,14 +924,9 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		RequiredHouses = ini.Get_Owners(IniName, "RequiredHouses", RequiredHouses); // RA2: as above
 		ForbiddenHouses = ini.Get_Owners(IniName, "ForbiddenHouses", ForbiddenHouses); // RA2: as above
 		Level = ini.Get_Int(IniName, "TechLevel", Level); // RA2: as above
-		int speed = ini.Get_Int(IniName, "Speed", -1); // RA2: as above
-		if (speed != -1) { // RA2: as above
-			if (speed >= 100) { // RA2: as above
-				speed = 100; // RA2: as above
-			}
-			speed = speed <= 0 ? 0 : speed; // RA2: as above
-			int value = speed * 256 / 100; // RA2: as above
-			MaxSpeed = (MPHType)(value < 255 ? value : 255); // RA2: Speed= scales 0..100 to 0..255 into MaxSpeed (+0x5A0)
+		int maxspeed = ini.Get_Int(IniName, "Speed", -1); // RA2: as above
+		if (maxspeed != -1) { // RA2: as above
+			MaxSpeed = MPHType(_Scale_To_256(maxspeed)); // RA2: Speed= scales 0..100 to 0..255 into MaxSpeed (+0x5A0)
 		}
 		Cost = ini.Get_Int(IniName, "Cost", Cost); // RA2: as above
 		Soylent = ini.Get_Int(IniName, "Soylent", Soylent); // RA2: as above
@@ -976,15 +1007,15 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		AttackFriendlies = ini.Get_Bool(IniName, "AttackFriendlies", AttackFriendlies); // RA2: as above
 		AttackCursorOnFriendlies = ini.Get_Bool(IniName, "AttackCursorOnFriendlies", AttackCursorOnFriendlies); // RA2: as above
 		TurretRecoil = ini.Get_Bool(IniName, "TurretRecoil", TurretRecoil); // RA2: as above
-		TurretAnimData.Travel = Get_Recoil(ini, IniName, "TurretTravel", TurretAnimData.Travel); // RA2: as above
-		TurretAnimData.CompressFrames = Get_Recoil_Frames(ini, IniName, "TurretCompressFrames", TurretAnimData.CompressFrames); // RA2: as above
-		TurretAnimData.HoldFrames = Get_Recoil_Frames(ini, IniName, "TurretHoldFrames", TurretAnimData.HoldFrames); // RA2: as above
-		TurretAnimData.RecoverFrames = Get_Recoil_Frames(ini, IniName, "TurretRecoverFrames", TurretAnimData.RecoverFrames); // RA2: as above
+		TurretAnimData.Set_Travel(ini.Get_Int(IniName, "TurretTravel", TurretAnimData.Get_Travel())); // RA2: as above
+		TurretAnimData.Set_Compress_Frames(ini.Get_Int(IniName, "TurretCompressFrames", TurretAnimData.Get_Compress_Frames())); // RA2: as above
+		TurretAnimData.Set_Hold_Frames(ini.Get_Int(IniName, "TurretHoldFrames", TurretAnimData.Get_Hold_Frames())); // RA2: as above
+		TurretAnimData.Set_Recover_Frames(ini.Get_Int(IniName, "TurretRecoverFrames", TurretAnimData.Get_Recover_Frames())); // RA2: as above
 		BarrelAnimData = TurretAnimData; // RA2: as above
-		BarrelAnimData.Travel = Get_Recoil(ini, IniName, "BarrelTravel", TurretAnimData.Travel); // RA2: as above
-		BarrelAnimData.CompressFrames = Get_Recoil_Frames(ini, IniName, "BarrelCompressFrames", TurretAnimData.CompressFrames); // RA2: as above
-		BarrelAnimData.HoldFrames = Get_Recoil_Frames(ini, IniName, "BarrelHoldFrames", TurretAnimData.HoldFrames); // RA2: as above
-		BarrelAnimData.RecoverFrames = Get_Recoil_Frames(ini, IniName, "BarrelRecoverFrames", TurretAnimData.RecoverFrames); // RA2: as above
+		BarrelAnimData.Set_Travel(ini.Get_Int(IniName, "BarrelTravel", TurretAnimData.Get_Travel())); // RA2: as above
+		BarrelAnimData.Set_Compress_Frames(ini.Get_Int(IniName, "BarrelCompressFrames", TurretAnimData.Get_Compress_Frames())); // RA2: as above
+		BarrelAnimData.Set_Hold_Frames(ini.Get_Int(IniName, "BarrelHoldFrames", TurretAnimData.Get_Hold_Frames())); // RA2: as above
+		BarrelAnimData.Set_Recover_Frames(ini.Get_Int(IniName, "BarrelRecoverFrames", TurretAnimData.Get_Recover_Frames())); // RA2: as above
 		IsTiltsWhenCrushes = ini.Get_Bool(IniName, "TiltsWhenCrushes", IsTiltsWhenCrushes); // RA2: as above
 		IsAccelerates = ini.Get_Bool(IniName, "Accelerates", IsAccelerates); // RA2: as above
 		ZFudgeCliff = ini.Get_Int(IniName, "ZFudgeCliff", ZFudgeCliff); // RA2: as above
@@ -1050,7 +1081,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 			}
 		}
 
-		if (TurretCount > 0) { // RA2: as above
+		if (Has_Turret_Weapons()) { // RA2: as above
 			for (int index = 0; index < WeaponCount; index++) { // RA2: as above
 				char weapon[32]; // RA2: as above
 				char entry[128]; // RA2: as above
@@ -1106,7 +1137,6 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 	}
 	return(false); // RA2: as above
 }
-#endif
 
 
 
@@ -1713,26 +1743,3 @@ void TechnoTypeClass::Set_Turret_Weapon(int weapon, int which)
 	TurretWeapon[which] = weapon;
 }
 
-
-// RA2: copying the particle-system storage retains this assignment member out of line.
-template<>
-VectorClass<ParticleSystemTypeClass const *> & VectorClass<ParticleSystemTypeClass const *>::operator =(VectorClass<ParticleSystemTypeClass const *> const & vector)
-{
-	if (this != &vector) {
-		Clear();
-		VectorMax = vector.Length();
-		if (VectorMax) {
-			Vector = new ParticleSystemTypeClass const *[VectorMax];
-			if (Vector) {
-				IsAllocated = true;
-				for (int index = 0; index < VectorMax; index++) {
-					Vector[index] = vector[index];
-				}
-			}
-		} else {
-			Vector = 0;
-			IsAllocated = false;
-		}
-	}
-	return(*this);
-}

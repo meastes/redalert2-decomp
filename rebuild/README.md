@@ -110,6 +110,12 @@ index regenerated (`python3 tools/original_target/notes_index.py --write docs/VC
 
 ## Rulings
 
+- **Rows main matched only through hand-made variations stay parked** (user's preference, 2026-11-20).
+  `manifest/variation_candidates.csv` lists the parked rows main reached only through coined unit-local helpers,
+  wrappers, named constants, aliases or count-calibrated specialisations (unit, entry, function, bytes, main's
+  variation, routes tried, notes). They are not worked toward main's variation during normal work. They land
+  only at the end, on the user's word, flagged as judgment calls.
+
 - **Alignment padding from the aligned split of the row's own pass** (lane R4, 2026-11-18). A row that
   main froze without padding, whose object carries alignment NOPs, takes them as padding when the
   aligned split of the same frozen pass (`<pass>-aligned`) holds the same bound and a gap row classed
