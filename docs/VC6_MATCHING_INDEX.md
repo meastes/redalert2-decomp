@@ -60,222 +60,222 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L997-1029 Nested inline sites: the full /Ob2 rule, validated (InlineLab518, 2026-11-02) (9): Sizes: s(f) is f's own unexpanded IL;
 - L1030-1034 Loop tails and known-value threading (Scout526, 2026-11-02) (3): **Separate loop exit (`jne top` plus its own return copy).** Write one shared `return x;` as the last stateme…
 - L1035-1039 Frame slots and unsigned loop ends (Scout531, 2026-11-02) (3): Unused stack bytes can be the home slot of a struct whose other members stay in registers.
-- L1040-1087 Late-day mechanisms (Scout528/530/532, 2026-11-02) (37): **Coupled register choices (Detect 0x5BA2C0).** Two distant register diffs can be one effect.
-- L1088-1114 Float chains and MAX macros (Scout585, 2026-11-03) (25): VC6 sorts a flat floating-point `+` chain and reuses repeated subexpressions across it, so neither the term o…
-- L1115-1132 What counts as an /Ob2 site (Scout614, 2026-11-03; measurements in build/class-work/Scout614/NOTES.md) (16): A site is any call of a user-written function that has IL in the unit, implicit calls included.
-- L1133-1143 The per-unit declaration counter (Scout627, 2026-11-03; measurements in build/class-work/Scout627/NOTES.md) (9): VC6 numbers symbols, new function signatures and `$L` labels with one counter per translation unit, and some…
-- L1144-1150 Loop-invariant step values (Scout645, 2026-11-03; lab in build/class-work/Scout645/lab/) (5): In a loop that stores to an address-taken local (a walk Cell), VC6 hoists the X/Y values of `AdjacentCell[ste…
-- L1151-1155 The per-function operand tie (Scout651, 2026-11-03; lab in build/class-work/Scout651/lab/gen4..8) (3): A commutative tie flips on one phase of key = T + offs mod 8, and the whole compile, frame and registers incl…
-- L1156-1162 Locomotion Process and While_Moving forms (Scout654, Hover 0x4FBFC0, 0x4FCBC0) (5): A named `int const &result = ok;` used for the first test stops known-value threading of `ok` past later test…
-- L1163-1167 Key probes, refined (Scout653) (3): A k probe moves only sites after it, which narrows the earlier "position does not matter" claim.
-- L1168-1172 Constant webs and Coord differences (Scout655, Ship 0x676F60) (3): `(Object_Coord(LinkedTo) - dest_coord)` gives `mov esi,edx`;
-- L1173-1178 Inline budget levers (Scout656) (4): `Cell temp(first);` in a small local swap helper is a charged site;
-- L1179-1186 Frames, FP and statics (Scout657) (6): Frame order follows object size:
-- L1187-1192 Loops and charge (Scout658) (4): TibSun pointer walks can be VC6 strength reduction, so write the real index loop.
-- L1193-1198 Byte reads, blend loops, wparam (Scout659) (4): A bool at a 4-aligned struct offset read through the struct object gives `mov ecx,[x];
-- L1199-1203 Y-sum parity and small forms (Scout660) (3): Y sum parity ignores k probes.
-- L1204-1208 Free sites and helper size (Scout661) (3): TibSun's one-line `Get_Cell_Data` is IL <= 40, so it is a free /Ob2 site;
-- L1209-1215 Layout, loops and refusals (Scout662; tool Scout662/t/fa.sh + fm.py prints a frame map with reference counts) (5): Frame slot order follows reference counts.
-- L1216-1222 Threading and slot weight (Scout663) (5): `if (placed && success)` with a named bool keeps `success` in memory, because threading would have to cross t…
-- L1223-1226 Cross-jump and callee-saved swaps (Scout664) (2): Reading both coordinates of a const& into named ints before the arithmetic keeps Y in a callee-saved register…
-- L1227-1232 In-place Cell arithmetic (Scout665) (4): `tail += Cell(a, b)` and `bias -= Cell(...)` in place of TibSun's field assigns fix eax/edx choices, the lite…
-- L1233-1238 Labels, duplicated tests and RMW (Scout666) (4): A label's return block moves to just after its last `goto`, even one that folds.
-- L1239-1245 Refusals by counting, constants and self-copies (Scout667) (5): To refuse a ctor, count the inline sites after it:
-- L1246-1251 Scratch rotation and duplicated statements (Scout668, 0x6C9260) (4): Scratch registers advance round robin through eax, ecx, edx;
-- L1252-1258 Threading, tails and constant registers (Scout670) (5): `int limit = f; if (f <= 0) {...} if (limit <= 0)` keeps both tests;
-- L1259-1265 Region and ramp forms (Scout669) (5): `(second-Cell(span,0)).X-first.X-5` through operator- keeps the word subtracts on X-field rows;
-- L1266-1271 Forward substitution and threaded flags (Scout672) (4): Tree forward substitution is block-local and runs before threading.
-- L1272-1278 Argument hoists, tails and local statics (Scout671) (5): A call inside a ctor argument hoists the whole argument before the pushes;
-- L1279-1285 Statements first, doubles and literals (Scout673, 0x57ECF0) (5): Fix statements first: Seed_River's frame and `this`/zero registers came right on their own, and slot packing…
-- L1286-1292 Second-site inlining and facing ties (Scout674, 0x4F4070) (5): A wrapper one level down moves a callee out of line at that site only;
-- L1293-1298 Case order and spills (Scout675) (4): Switch source order follows TibSun (E, W, S, N on Waterfall), not numeric case order:
-- L1299-1305 Dead slots and statics (Scout676) (5): `Cell x = Cell(0,0)`, unlike `Cell x(0,0)`, leaves a dead temp slot, which made the 0x4F03C0 frame size exact.
-- L1306-1311 Promoted temporaries and CSE rank (Scout677, 0x57FF20 from 58 to exact) (4): `Rect pre(0,0,0,0)` then `pre = Rect(...)` in each arm makes a promoted temporary, which decides which field…
-- L1312-1317 Flag reuse and aliasing (Scout678, 0x4F2350 from 88 to exact) (4): `flag = !(a && b && ...); if (flag) {B} else A;` places B after the next unconditional jmp and lets A fall in…
-- L1318-1323 Frame maps and slot sharing (Scout680, 0x4F03C0 from 63 to exact) (4): Scout680's fa.py (a /FAs frame variable map with ref counts and first references) and rm.py (raw original-to-…
-- L1324-1331 Second frame sort, ternaries and hoists (Scout679, 0x529870 and 0x6D4920) (6): Above about 0x80 local bytes a second sort orders slots by density (summed refs of the sharing vars / size).
-- L1332-1339 Hidden results and budget sites (Scout681) (6): `lea ecx,tmp; push y; push x;
-- L1340-1346 Constant webs by threshold (Scout682, Ship 0x676F60) (5): Constant webs compete by use count, not by a pseudo at the peak (this corrects Scout655):
-- L1347-1353 Label locals and inlined members (Scout683) (5): A 4-byte local sorted into the 8-byte group is a Point2D with a constant field (`Point2D offset(0, rect.Y + 1…
-- L1354-1358 Frame placement and address-taken order (Scout684, Ship 0x676F60 from 86 to 99) (3): Frame objects are placed in descending last-ref order, newest compatible slot first.
-- L1359-1366 Tactical forms (Scout685) (6): TibSun's `LONG x, y` with `(int &)` casts raises S just enough for one more inline site, which merged a whole…
-- L1367-1372 Address-exposed joins and copy order (Scout686, Ship and Drive to exact) (4): Y and Z reads hoist over an X store only when coordinates come through a local pointer;
-- L1373-1377 Y order and control flow (Scout687) (3): Y operand order can follow control flow, not T:
-- L1378-1384 Hoisted loads and early returns (Scout688, Start_Of_Move) (5): A member load used in an expression with a call hoists over the call, and that web can take the register the…
-- L1385-1391 Depth budgets and traps (Scout689) (5): TibSun's explicit Absolute plus minus can be a Coord_To_Pixel statement with Absolute refused at depth 2;
-- L1392-1398 Threaded else and exposed tests (Scout690, Start_Of_Move twins) (5): Dropping `else nextface = facing` lets threading produce a far `jle`.
-- L1399-1404 By-value parameters and Matrix3D (Scout692) (4): A by-value parameter that is never exposed keeps fields in registers (`to.X` and `to.Y` in esi/edi):
-- L1405-1411 Pointer copies, halving and missing defs (Scout691) (5): A named `CoordStruct const &x = f();
-- L1412-1418 Declare-then-assign and slot lifetime (Scout693) (5): `T r; r = f();` in an inlined helper fixes reload order across arms, and the out-of-line copy stays exact.
-- L1419-1424 FP past rep movs and layout (Scout694) (4): A `float const &` parameter on only the first argument of an inline ctor helper exposes that temp, so its fst…
-- L1425-1429 Array sizes and timers (Scout696) (3): A frame slot with no references can be an array's declared size inside its rounding:
-- L1430-1435 Selector locals and helper temps (Scout697) (4): A named selector local can hold a frame slot:
-- L1436-1441 Web weight, narrowing and islands (Scout699) (4): A copy local in one branch halves a web's weight and flips esi/edi without emitting code.
-- L1442-1446 Hidden counters and regimes (Scout698, Dropship 0x4A6B90) (3): ebp is never a base without a disp, so `[Data+ebp]` carries no order information.
-- L1447-1453 MIN spelled out and Point2D forms (Scout700) (5): TibSun's MIN/MAX macro spelled out with the repeated expression differs from a named `last` (94 to exact).
-- L1454-1459 COM coordinates and prior rows (Scout702) (4): Is_Moving_Here takes a plain CoordStruct:
-- L1460-1465 Named bools and joins (Scout703) (4): `A && B` tests hoisted into named bools from named locals stop threading from dropping a useless compare.
-- L1466-1469 First function of a TU (Scout701) (2): VC6 does not tail-merge two identical tails in the first function of a TU;
-- L1470-1476 Case joins and add destinations (Scout704) (5): `mov eax,K` plus a backward `jmp` from a case body means source copies merged after register allocation, such…
-- L1477-1482 Pointer reads and negation pairs (Scout705) (4): `CoordStruct base = house->BaseCenter;
-- L1483-1486 Float lengths and evictions (Scout706) (2): TibSun `TPoint3D<float>::Length` with `(double)X*(double)X` casts spills X and Y to the struct and keeps Z on…
-- L1487-1492 Reload order and first fit (Scout707) (4): Loop-region reload order is the reverse of the symbols' first occurrence in the IL, not declaration order.
-- L1493-1499 Temps, call order and arm folds (Scout708) (5): `CoordStruct x; if (a) x = f();
-- L1500-1505 Reassignment and zero webs (Scout710) (4): Reassigning one variable (`here = Map.f(here, ...)`) gives a `mov ax,dx` X copy and a shared slot;
-- L1506-1510 Dying locals and FP operands (Scout709) (3): An add destination can come right when a call result is a dying local inside an inline:
-- L1511-1517 Real helpers and arm order (Scout711) (5): The real Process_DD_Result with its early returns, called before `result == DD_OK`, lets threading produce fa…
-- L1518-1523 Temps within one statement (Scout712) (4): Two temps inside one statement or one inline conflict even when the first is used up before the second is bor…
-- L1524-1529 Phase scan first, long compare lists (Scout713, Scout714) (4): A first-read tie (`mov cx,[K+ecx*4]` vs `mov cx,[eax];
-- L1530-1534 Statement shapes and budget (Scout716) (3): An inline's statement shape sets its IL size and so the /Ob2 budget of its callers;
-- L1535-1539 Add destinations and depth (Scout715) (3): Apparent tail-merge copy differences can be add-destination ties on an inlined Add, with the merges following…
-- L1540-1544 comip levels and budget probes (Scout718) (3): Real comip levels decide the inline budget:
-- L1545-1549 Real helpers hiding in units (Scout717) (3): A row spelling out a long inlined list may hide a real predicate seed in the same unit:
-- L1550-1553 Pending sites and op- (Scout719) (2): A nested argument does not divide the budget:
-- L1554-1558 Unit rows as inline sites (Scout720) (3): Unit rows can hide as inline sites:
-- L1559-1563 Rect members and FP order (Scout721) (3): `Rect(-2,-2,3,3)+point` is an inline over the out-of-line sum and corner ctor.
-- L1564-1567 Later rows and real calls (Scout722) (2): A row can inline a later-addressed row:
-- L1568-1573 Double locals and by-value Rects (Scout723) (4): `double angle` plus `double scaled = distance` inside inline Move_Coord fixes the frame by 8 B:
-- L1574-1577 Consumption before a dtor (Scout725) (2): Missing IL can be consumption before a ??_G site rather than a bigger dtor:
-- L1578-1585 Repeated calls and short rows (Scout726) (6): A call repeated inside an inlined loop means the call was passed as an inline argument:
-- L1586-1592 Charged forms of exact rows (Scout728) (5): A free callee under the 40 IL limit becomes charged with one extra statement:
-- L1593-1596 Strength reduction and reused Rects (Scout727) (2): An uncollapsed `row - row_base` can be `for (int index = first;
-- L1597-1604 Frame maps and web evidence (Scout730) (6): Map real target slots against our variables (Scout730 fm.py, em.py) before permuting declarations:
-- L1605-1609 Reload order follows a location count (Scout729) (3): Spill reloads at a join have an order.
-- L1610-1612 Dead conditional writes as evidence (Scout731) (1): Some conditional writes survive early dead-code removal and change register choice with no code left in the o…
-- L1613-1621 Twin locals that do not exist (Scout732) (7): A `linked` local in a twin may not exist.
-- L1622-1632 Late-removed compares and loop forms (Scout734) (9): A computed value stored and never used can be kept by a compare VC6 removes late.
-- L1633-1640 VectorCursor virtual operators (Scout733) (6): TibSun VectorCursor has virtual `operator bool`, `++` and `--`, not inline wrappers over Valid/Next.
-- L1641-1650 Temps, slots and switch signedness (Scout735) (8): `Setter(char const *)` through an implicit Wstring conversion gives each temp its own frame slot;
-- L1651-1659 Cursor rows and pending sites (Scout736) (7): A ctor refused at a budget of about 1596 must sit one inline level down:
-- L1660-1668 __fastcall argument list order (Scout737) (7): The first two dword arguments in list order take ecx/edx, and a by-value struct goes on the stack wherever it…
-- L1669-1674 Implicit operator= and zero webs (Scout738) (4): Implicit CellClass::operator= stays an out-of-line call in a small caller and expands inline only in a large…
-- L1675-1681 Frame density and forwarders (Scout739) (5): Frame slots sort by final refs divided by size, descending, 1-byte bools included, so bools interleave with 1…
-- L1682-1688 Nested tests and row depth (Scout740) (5): `if (a) { if (!b) {...} }` versus `if (a && !b)` around an inlined row changes the inline budget:
-- L1689-1695 Free __fastcall and level helpers (Scout741) (5): A "member" body at a tie, with its register setups after the pushes, goes exact as free `__fastcall`.
-- L1696-1702 Same-unit twins and record shapes (Scout742) (5): Follow a same-unit TibSun source (smartdeform.cpp) closely before reasoning about registers.
-- L1703-1710 Refusal chains (Scout743) (6): A temp in the by-value argument of an inlined callee overlaps that callee's locals;
-- L1711-1717 Calling convention and scheduling (Scout744) (5): A function's own `__fastcall` changes /G5 scheduling across the body:
-- L1718-1727 Early returns and helper-owned locals (Scout746) (8): `if (!a || !b) return 1; ...;
-- L1728-1735 Real accessors as budget (Scout745) (6): "Free sites" a row seems to need are usually the unit's real one-line accessors, sitting in seed rows.
-- L1736-1740 Data symbol count, second confirmation (Scout748) (3): Commutative `add a,b` and `lea [a+b]` operand order flips with the number of distinct data keys in the functi…
-- L1741-1748 Inline depth limit and cross-jump tails (Scout747) (6): Hard inline depth limit: depth 8 expands, depth 9 refuses, even the trivial placement new.
-- L1749-1754 Threading and the auto-inline limit (Scout751) (4): VC6 threads a bool test away when all its predecessors are constant, through inline levels and by-reference o…
-- L1755-1761 Compiled callees and web references (Scout750) (5): A row compiled earlier in the unit inlines with its callee already expanded, so the callee can't be refused i…
-- L1762-1768 Lifted helpers and hidden schedules (Scout752) (5): A repeated loop lifted into a real helper inside a callee lowers that callee's cost and adds a nested spend.
-- L1769-1773 Join reloads and vanishing compares (Scout753) (3): Second-chance join rule (inferred from probes):
-- L1774-1780 Reference params and direct counts (Scout755) (5): A reference param that folds directly (`In_Bounds(cell->MapCoords)`) reads through the object;
-- L1781-1787 Later rows inline, and charged windows (Scout756) (5): A same-unit row defined later still inlines, so many "local helper" copies can be real row calls.
-- L1788-1795 Case source order and site division (Scout754) (6): Case source order is a first-class budget lever:
-- L1796-1801 By-value returns and global reads (Scout757) (4): `Cell const &exitcell = f()`, binding a reference to a by-value return, gave better reads (75.48 to 77.37).
-- L1802-1809 Wrapper levels and pending-site sides (Scout758) (6): A depth-1 call can stay expanded however many sites are pending:
-- L1810-1818 Stack-object count and reused cells (Scout759) (7): A stack-object count mod 4 flips late store forwarding and register webs far from the probe, up to 8 points o…
-- L1819-1824 Distance forms and tail webs (Scout760) (4): A `bool const &` temp of a bitfield reproduces `and cl,1;
-- L1825-1831 Loop weight and wrapper asymmetry (Scout762) (5): Source loop nesting counts even when bytes do not change.
-- L1832-1837 Tail duplication and push depth (Scout761) (4): Check push depth before calling a store dead:
-- L1838-1844 Named call results and known cases (Scout763) (5): Naming an int call result before a comparison (`int h = f(...);
-- L1845-1849 Add orientation (Scout764) (3): A trailing `mov mapped,reg` can be a spilled variable's second-chance register at a join, when the add has th…
-- L1850-1857 Twin inline templates and by-value helpers (Scout765) (6): Check the twin's inline templates first:
-- L1858-1863 Frame sort model (Scout767 sim.py) (4): The second frame sort is K&R qsort on -sum/size.
-- L1864-1870 Callee conventions and threaded zero-caller rows (Scout766) (5): A callee's own convention changes /G5 scheduling after the call:
-- L1871-1876 Named results and template direction (Scout768) (4): Naming a call result before the next call flipped a callee-saved tie on two strength-reduced cursors (85 to e…
-- L1877-1883 One-reference colour edges (Scout769) (5): A swap of two callee-saved colours can sit on a one-reference edge.
-- L1884-1890 Tail refusal and blocks at colouring time (Scout770, Scout771) (5): A last site gets all remaining budget, so added root statements only grow it.
-- L1891-1898 Colouring-time blocks and return counts (Scout771) (6): A `||` split into repeated arms produces no byte change but adds blocks before colouring, which can flip a ti…
-- L1899-1905 Hidden accepted rows (Scout773) (5): A parked row can hide an accepted row of the same unit behind hand-expanded code.
-- L1906-1912 Alternate forms of accepted rows (Scout772, Scout774) (5): An accepted row can have a second exact form that matters only when inlined:
-- L1913-1919 This-key parity (Scout775) (5): `[reg+reg]` orientation of a strength-reduced index can follow a parity-like tie on this-based memory referen…
-- L1920-1923 Expression temp spills and byte arguments (Scout777) (2): `if (W(current) < W(next))` with named int copies of both arguments, loaded before either call, gives the tem…
-- L1924-1931 Library templates and scratch rotation (Scout776) (6): A hidden library template can be the missing spend:
-- L1932-1940 Loop exit values and member-wise statements (Scout778) (7): When a pointer's exit value is computed in the inner guard (`add ebp,edx` before the loop), the source is `so…
-- L1941-1948 Inlined early returns and by-value homes (Scout779) (6): `if (!g) return 0;` and `if (g) {...} return 0;` are byte-identical as a row;
-- L1949-1954 comip bodies and temp contexts (Scout780) (4): Giving comip's `_AddRef` a body lets budget alone call a pair of rows in one block and inline them in another…
-- L1955-1960 Tail copies and the scratch cursor (Scout781) (4): A single statement at a function end reached by fall-through is copied into every predecessor after allocatio…
-- L1961-1966 Eviction forms and fild slots (Scout782) (4): A one-call inline wrapper over a whole body keeps a pending callee out of line at both sites of an inlined me…
-- L1967-1972 Depth refusals and slot maps (Scout783) (4): A function auto-inlined at depth 2 stays a call at depth 3:
-- L1973-1981 Dialog proc forms (Scout784) (7): A whole-struct copy keeping a dead field store (`RECT area = client;`) can change who wins a register.
-- L1982-1987 Written-out helpers and table scores (Scout785) (4): A row's file-local inline helper can be written out with no byte change in that row, yet flip an esi/edi tie…
-- L1988-1994 Cross-jump exemplars (Scout786) (5): Scout786 cj.py lists accepted rows with `cmp;
-- L1995-2000 Return registers and switch tails (Scout788) (4): `mov eax,edi; pop...` at every return means `result = x;
-- L2001-2006 Pending-site survey (Scout787) (4): On a row whose extra instructions sit inside one inlined callee, add lab Nop sites, read the window (3-8, 5-8…
-- L2007-2012 Threading order and hoisted constants (Scout790) (4): A kept `test r,r` after `add` means the block still had a label when the js peephole ran.
-- L2013-2018 Flag forms and regional colouring (Scout789) (4): `bool forward = true; ... result = K;
-- L2019-2024 Batch labs and store order (Scout791) (4): Scout791 lab.py and lc.py compile hundreds of whole-body variants in one TU as vK functions and parse /FAs:
-- L2025-2032 All-flag tails and cold import webs (Scout792) (6): `result = K; call_default = false;
-- L2033-2037 Guard loops and zero stores (Scout793) (3): `if (n>0) { i=0; do ... }` gives a literal guard compare on the zero web and stops a for loop evicting a memo…
-- L2038-2044 Neg forms and last-arm sites (Scout794) (5): `x = call() == 0` in both arms of an if/else, with the next statement after the join, gives a cross-jumped `m…
-- L2045-2050 Direct-member offsets and bound Unions (Scout795) (4): `Point2D(x, y) - Point2D(radar.X, radar.Y)` with direct members gives X through a CSE'd `lea` and Y through `…
-- L2051-2054 Position scans for colouring (Scout796) (2): A lab 2-use local inserted after every statement (233 positions, about 12 minutes, state signature) finds whi…
-- L2055-2061 Cross-jumped arms and induction bias (Scout797) (5): A duplicated reachable else arm that gets cross-jumped still counts:
-- L2062-2066 Semantics before colour (Scout798) (3): A higher-scoring draft can have wrong semantics:
-- L2067-2071 Member forms as spend (Scout799) (3): Member `a.Intersect(b)` versus free `Intersect(a,b)` is a natural budget spend:
-- L2072-2074 Kept fst (Scout801) (1): A block-scoped float stays unrounded on the FPU stack;
-- L2075-2078 Case-scoped buffers and dictionary members (Scout800) (2): A large buffer declared inside one case block shares its slot with an inline temporary in the post-switch cod…
-- L2079-2081 Frame alignment switch (Scout802, lab) (1): A function that would get `and esp,-8` (double locals) drops to plain `sub esp` when one local aggregate with…
-- L2082-2084 Index loop versus pointer walk (Scout806) (1): `for (int i = 0; i < count;
-- L2085-2089 YR twin adoption (Scout803) (3): Reading a member through a nested struct member (`a.b[i]`) instead of a plain member reverses the add operand…
-- L2090-2100 From the ra2-decomp guide (2026-11-06) (8): Declarations: varargs callees are `__cdecl`, and caller-popped pushes around an ECX call can belong to a foll…
-- L2101-2103 Declaration order of real locals (Scout810) (1): VC6 numbers locals in declaration order;
-- L2104-2106 Cell comparison form (Scout812) (1): Member `Cell::operator==` and `TPoint2D::operator!=` written `X != r.X || Y != r.Y` (the YR twin's form) sit…
-- L2107-2123 Compiler version (Scout812, Scout816) (15): The original was compiled with VC6 SP3 (C2 build 8447;
-- L2124-2127 Symbol-count windows for register ties (Scout886, 2026-11-07) (0): 
-- L2128-2131 Direct field reads change later sum grouping (Scout894, 2026-11-07) (0): 
-- L2132-2134 Early return vs wrapping block changes store scheduling (Scout901, 2026-11-07) (0): 
-- L2135-2137 A user-declared base destructor makes a ctor site charged (Scout903, 2026-11-07) (0): 
-- L2138-2140 An inlined callee's source form sets the caller's ties (Scout899, 2026-11-07) (0): 
-- L2141-2143 Westwood `return(expr);` parentheses in inline accessors (Scout913, 2026-11-07) (0): 
-- L2144-2147 Merged vs separate empty case labels (Scout911, 2026-11-07) (0): 
-- L2148-2150 Field signedness decides immediate caching (Scout929, 2026-11-07) (0): 
-- L2151-2155 Spill-slot assignment order (Scout944, 2026-11-07) (0): 
-- L2156-2169 Frame-slot model (Scout972 lab, 2026-11-07; build/class-work/Scout972/MODEL.md, lab/, lab.py) (8): R1 processing order: frame variables (spilled webs, temps, address-taken locals) by size ascending, then refs…
-- L2170-2174 Shared epilogue and jump threading (Scout989, 2026-11-07) (0): 
-- L2175-2177 Multi-path flag set: one statement gives the register form (Scout997) (0): 
-- L2178-2180 Header include order inside a joined unit (Scout1014) (0): 
-- L2181-2183 new[] size reuse is matched only to `a[n - 1]` (Scout1019) (0): 
-- L2184-2186 Memory-resident loop variables block strength reduction (Scout1020) (0): 
-- L2187-2189 Initialisation form changes the inline cost (Scout1024) (0): 
-- L2190-2192 Function IL size gates inner-loop reassociation (Scout1022) (0): 
-- L2193-2195 Frame layout counts final instructions, not IL references (Scout1039 lab) (0): 
-- L2196-2198 Split-web reload at an emptied if-join counts once per incoming edge (Scout1041 lab) (0): 
-- L2199-2201 Register priority: what counts (Scout1047 lab) (0): 
-- L2202-2204 Inlined DynamicVectorClass::Add orientation is a whole-function count effect (Scout1065 lab) (0): 
-- L2205-2207 A named constant local is propagated after reassociation (Scout1074) (0): 
-- L2208-2210 Division by a negative constant depends on the destination (Scout1078) (0): 
-- L2211-2213 Each return statement takes its own scratch-rotation step (Scout1082) (0): 
-- L2214-2216 Reading an operand into a local first fixes a subtraction tree's order (Scout1079) (0): 
-- L2217-2219 What advances the scratch cursor (Scout1086 lab) (0): 
-- L2220-2222 A flag-collapsed return keeps duplicated arms apart (Scout1099) (0): 
-- L2223-2225 A named double local forces `and esp,-8`; a float local does not (Scout1099) (0): 
-- L2226-2246 Declaration-count ties are windows mod 64, not shifts (Scout1114) (3): Found in the rebuild (lane R20, DoType;
-- L2247-2249 SEH (`__try`) functions lay out their frame by variable name (Scout1135) (0): 
-- L2250-2252 x87 term order follows whole-function variable weight; flat + chains are re-ordered (Scout1169) (0): 
-- L2253-2255 A by-value Point2D cursor keeps two frame slots and an in-memory increment (Scout1198) (0): 
-- L2256-2261 Write `coord.As_Cell()` where the twin does, not `Cell(coord)` (Scout1204) (0): 
-- L2262-2267 An inlined accessor on a by-value temporary stops CSE of unrelated global loads (Scout1210) (0): 
-- L2268-2278 /Ob2 inline budget, measured costs (Scout1211) (0): 
-- L2279-2304 Register priority is references minus live-through pressure; a losing long web is split and its register lent (Scout1212 lab) (0): 
-- L2305-2310 MIN/MAX macro clamps versus if-clamps (Scout1212) (0): 
-- L2311-2317 One declaration, several exclusive loops: one frame symbol with summed references (Scout1212) (0): 
-- L2318-2338 Frame-slot sharing is path-based memory liveness; order is size class, refs, last reference, with an allocator residue (Scout1215 lab, 2026-11-10) (0): 
-- L2339-2357 Reloads merged from several edges count once per edge in the frame order (Scout1215 lab, 2026-11-10) (0): 
-- L2358-2366 x87 store scheduling against integer stores depends on code before the block (Scout1216) (0): 
-- L2367-2370 The loop-exit restore group of lent webs is emitted in descending web weight (Scout1217 lab E) (0): 
-- L2371-2392 Candidate text for docs/VC6_MATCHING_NOTES.md (owner's call; from Scout1218, 2026-11-10) (0): 
-- L2393-2402 Narrowed chain order is an inventory tie, landed by an evidenced local elsewhere (Scout1218 round 2) (0): 
-- L2403-2411 A depth test written twice keeps the base in a register and dissolves a constant web (Scout1218 round 3, Draw_Tile 0x52C230) (0): 
-- L2412-2420 Free-register choice order (Scout1217 labs, ~90 functions) (0): 
-- L2421-2427 Large-frame slot order: density, lea counts, IL last reference (Scout1214 labs) (0): 
-- L2428-2454 Scratch-cursor refinements (Scout1218 round 10 lab; build/class-work/Scout1218/sc, lab_A/B/C, rd.py) (5): No resets. The cursor runs on through a label with a backward goto, a for/do-while loop body, a switch (every…
-- L2455-2460 Switch table kind follows the number of case groups (Scout1217) (0): 
-- L2461-2468 By-value struct temporaries in frame layout (Scout1214 labs) (0): 
-- L2469-2486 Spill-home creation order follows reload position, not colouring priority (Scout1218 round 14 lab; build/class-work/Scout1218/ft, gen2-gen7.py, fsim actual layouts) (0): 
-- L2487-2491 ebx is withheld from dword webs when byte webs need it across a call (Scout1217 labs F9/F10) (0): 
-- L2492-2497 Which invariant global stays hoisted across a loop with calls (Scout1214 lab al1/al2) (0): 
-- L2498-2503 Invariant global loads across sibling loops are one function-wide web each (Scout1214 labs al6/al7) (0): 
-- L2504-2513 Candidate (round 17): store position across a branch is source order; `for` counters are two webs (3): A global store that sits in the basic block after a wrap's `jb` (Draw_Tile 0a78 RowAlpha) cannot have been sc…
-- L2514-2518 Address webs: scratch if coloured before block temporaries, callee-saved if after (Scout1217 labs G/H) (0): 
-- L2519-2533 Candidate (round 17f): dead parameter slots as spill homes (0): 
-- L2534-2598 A pointer parameter is promoted whole or re-read per use; split webs come from eviction (Scout1217 lab P) (23): **CSE'd member-address webs rank last among callee-saved candidates** (Scout1217 lab U, 2026-11-10;
-- L2599-2621 Inline constructors and template members the original calls out of line (found in the rebuild, lanes R8-R42) (4): Count the image's calls before moving a definition.
-- L2622-2641 Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25) (3): VC6 folds `1.0 / UINT_MAX` to exactly 2^-32, not to the 1/4294967295 the image pools;
-- L2642-2659 Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43) (4): The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defi…
-- L2660-2668 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):
+- L1040-1088 Late-day mechanisms (Scout528/530/532, 2026-11-02) (37): **Coupled register choices (Detect 0x5BA2C0).** Two distant register diffs can be one effect.
+- L1089-1115 Float chains and MAX macros (Scout585, 2026-11-03) (25): VC6 sorts a flat floating-point `+` chain and reuses repeated subexpressions across it, so neither the term o…
+- L1116-1133 What counts as an /Ob2 site (Scout614, 2026-11-03; measurements in build/class-work/Scout614/NOTES.md) (16): A site is any call of a user-written function that has IL in the unit, implicit calls included.
+- L1134-1144 The per-unit declaration counter (Scout627, 2026-11-03; measurements in build/class-work/Scout627/NOTES.md) (9): VC6 numbers symbols, new function signatures and `$L` labels with one counter per translation unit, and some…
+- L1145-1151 Loop-invariant step values (Scout645, 2026-11-03; lab in build/class-work/Scout645/lab/) (5): In a loop that stores to an address-taken local (a walk Cell), VC6 hoists the X/Y values of `AdjacentCell[ste…
+- L1152-1156 The per-function operand tie (Scout651, 2026-11-03; lab in build/class-work/Scout651/lab/gen4..8) (3): A commutative tie flips on one phase of key = T + offs mod 8, and the whole compile, frame and registers incl…
+- L1157-1163 Locomotion Process and While_Moving forms (Scout654, Hover 0x4FBFC0, 0x4FCBC0) (5): A named `int const &result = ok;` used for the first test stops known-value threading of `ok` past later test…
+- L1164-1168 Key probes, refined (Scout653) (3): A k probe moves only sites after it, which narrows the earlier "position does not matter" claim.
+- L1169-1173 Constant webs and Coord differences (Scout655, Ship 0x676F60) (3): `(Object_Coord(LinkedTo) - dest_coord)` gives `mov esi,edx`;
+- L1174-1179 Inline budget levers (Scout656) (4): `Cell temp(first);` in a small local swap helper is a charged site;
+- L1180-1187 Frames, FP and statics (Scout657) (6): Frame order follows object size:
+- L1188-1193 Loops and charge (Scout658) (4): TibSun pointer walks can be VC6 strength reduction, so write the real index loop.
+- L1194-1199 Byte reads, blend loops, wparam (Scout659) (4): A bool at a 4-aligned struct offset read through the struct object gives `mov ecx,[x];
+- L1200-1204 Y-sum parity and small forms (Scout660) (3): Y sum parity ignores k probes.
+- L1205-1209 Free sites and helper size (Scout661) (3): TibSun's one-line `Get_Cell_Data` is IL <= 40, so it is a free /Ob2 site;
+- L1210-1216 Layout, loops and refusals (Scout662; tool Scout662/t/fa.sh + fm.py prints a frame map with reference counts) (5): Frame slot order follows reference counts.
+- L1217-1223 Threading and slot weight (Scout663) (5): `if (placed && success)` with a named bool keeps `success` in memory, because threading would have to cross t…
+- L1224-1227 Cross-jump and callee-saved swaps (Scout664) (2): Reading both coordinates of a const& into named ints before the arithmetic keeps Y in a callee-saved register…
+- L1228-1233 In-place Cell arithmetic (Scout665) (4): `tail += Cell(a, b)` and `bias -= Cell(...)` in place of TibSun's field assigns fix eax/edx choices, the lite…
+- L1234-1239 Labels, duplicated tests and RMW (Scout666) (4): A label's return block moves to just after its last `goto`, even one that folds.
+- L1240-1246 Refusals by counting, constants and self-copies (Scout667) (5): To refuse a ctor, count the inline sites after it:
+- L1247-1252 Scratch rotation and duplicated statements (Scout668, 0x6C9260) (4): Scratch registers advance round robin through eax, ecx, edx;
+- L1253-1259 Threading, tails and constant registers (Scout670) (5): `int limit = f; if (f <= 0) {...} if (limit <= 0)` keeps both tests;
+- L1260-1266 Region and ramp forms (Scout669) (5): `(second-Cell(span,0)).X-first.X-5` through operator- keeps the word subtracts on X-field rows;
+- L1267-1272 Forward substitution and threaded flags (Scout672) (4): Tree forward substitution is block-local and runs before threading.
+- L1273-1279 Argument hoists, tails and local statics (Scout671) (5): A call inside a ctor argument hoists the whole argument before the pushes;
+- L1280-1286 Statements first, doubles and literals (Scout673, 0x57ECF0) (5): Fix statements first: Seed_River's frame and `this`/zero registers came right on their own, and slot packing…
+- L1287-1293 Second-site inlining and facing ties (Scout674, 0x4F4070) (5): A wrapper one level down moves a callee out of line at that site only;
+- L1294-1299 Case order and spills (Scout675) (4): Switch source order follows TibSun (E, W, S, N on Waterfall), not numeric case order:
+- L1300-1306 Dead slots and statics (Scout676) (5): `Cell x = Cell(0,0)`, unlike `Cell x(0,0)`, leaves a dead temp slot, which made the 0x4F03C0 frame size exact.
+- L1307-1312 Promoted temporaries and CSE rank (Scout677, 0x57FF20 from 58 to exact) (4): `Rect pre(0,0,0,0)` then `pre = Rect(...)` in each arm makes a promoted temporary, which decides which field…
+- L1313-1318 Flag reuse and aliasing (Scout678, 0x4F2350 from 88 to exact) (4): `flag = !(a && b && ...); if (flag) {B} else A;` places B after the next unconditional jmp and lets A fall in…
+- L1319-1324 Frame maps and slot sharing (Scout680, 0x4F03C0 from 63 to exact) (4): Scout680's fa.py (a /FAs frame variable map with ref counts and first references) and rm.py (raw original-to-…
+- L1325-1332 Second frame sort, ternaries and hoists (Scout679, 0x529870 and 0x6D4920) (6): Above about 0x80 local bytes a second sort orders slots by density (summed refs of the sharing vars / size).
+- L1333-1340 Hidden results and budget sites (Scout681) (6): `lea ecx,tmp; push y; push x;
+- L1341-1347 Constant webs by threshold (Scout682, Ship 0x676F60) (5): Constant webs compete by use count, not by a pseudo at the peak (this corrects Scout655):
+- L1348-1354 Label locals and inlined members (Scout683) (5): A 4-byte local sorted into the 8-byte group is a Point2D with a constant field (`Point2D offset(0, rect.Y + 1…
+- L1355-1359 Frame placement and address-taken order (Scout684, Ship 0x676F60 from 86 to 99) (3): Frame objects are placed in descending last-ref order, newest compatible slot first.
+- L1360-1367 Tactical forms (Scout685) (6): TibSun's `LONG x, y` with `(int &)` casts raises S just enough for one more inline site, which merged a whole…
+- L1368-1373 Address-exposed joins and copy order (Scout686, Ship and Drive to exact) (4): Y and Z reads hoist over an X store only when coordinates come through a local pointer;
+- L1374-1378 Y order and control flow (Scout687) (3): Y operand order can follow control flow, not T:
+- L1379-1385 Hoisted loads and early returns (Scout688, Start_Of_Move) (5): A member load used in an expression with a call hoists over the call, and that web can take the register the…
+- L1386-1392 Depth budgets and traps (Scout689) (5): TibSun's explicit Absolute plus minus can be a Coord_To_Pixel statement with Absolute refused at depth 2;
+- L1393-1399 Threaded else and exposed tests (Scout690, Start_Of_Move twins) (5): Dropping `else nextface = facing` lets threading produce a far `jle`.
+- L1400-1405 By-value parameters and Matrix3D (Scout692) (4): A by-value parameter that is never exposed keeps fields in registers (`to.X` and `to.Y` in esi/edi):
+- L1406-1412 Pointer copies, halving and missing defs (Scout691) (5): A named `CoordStruct const &x = f();
+- L1413-1419 Declare-then-assign and slot lifetime (Scout693) (5): `T r; r = f();` in an inlined helper fixes reload order across arms, and the out-of-line copy stays exact.
+- L1420-1425 FP past rep movs and layout (Scout694) (4): A `float const &` parameter on only the first argument of an inline ctor helper exposes that temp, so its fst…
+- L1426-1430 Array sizes and timers (Scout696) (3): A frame slot with no references can be an array's declared size inside its rounding:
+- L1431-1436 Selector locals and helper temps (Scout697) (4): A named selector local can hold a frame slot:
+- L1437-1442 Web weight, narrowing and islands (Scout699) (4): A copy local in one branch halves a web's weight and flips esi/edi without emitting code.
+- L1443-1447 Hidden counters and regimes (Scout698, Dropship 0x4A6B90) (3): ebp is never a base without a disp, so `[Data+ebp]` carries no order information.
+- L1448-1454 MIN spelled out and Point2D forms (Scout700) (5): TibSun's MIN/MAX macro spelled out with the repeated expression differs from a named `last` (94 to exact).
+- L1455-1460 COM coordinates and prior rows (Scout702) (4): Is_Moving_Here takes a plain CoordStruct:
+- L1461-1466 Named bools and joins (Scout703) (4): `A && B` tests hoisted into named bools from named locals stop threading from dropping a useless compare.
+- L1467-1470 First function of a TU (Scout701) (2): VC6 does not tail-merge two identical tails in the first function of a TU;
+- L1471-1477 Case joins and add destinations (Scout704) (5): `mov eax,K` plus a backward `jmp` from a case body means source copies merged after register allocation, such…
+- L1478-1483 Pointer reads and negation pairs (Scout705) (4): `CoordStruct base = house->BaseCenter;
+- L1484-1487 Float lengths and evictions (Scout706) (2): TibSun `TPoint3D<float>::Length` with `(double)X*(double)X` casts spills X and Y to the struct and keeps Z on…
+- L1488-1493 Reload order and first fit (Scout707) (4): Loop-region reload order is the reverse of the symbols' first occurrence in the IL, not declaration order.
+- L1494-1500 Temps, call order and arm folds (Scout708) (5): `CoordStruct x; if (a) x = f();
+- L1501-1506 Reassignment and zero webs (Scout710) (4): Reassigning one variable (`here = Map.f(here, ...)`) gives a `mov ax,dx` X copy and a shared slot;
+- L1507-1511 Dying locals and FP operands (Scout709) (3): An add destination can come right when a call result is a dying local inside an inline:
+- L1512-1518 Real helpers and arm order (Scout711) (5): The real Process_DD_Result with its early returns, called before `result == DD_OK`, lets threading produce fa…
+- L1519-1524 Temps within one statement (Scout712) (4): Two temps inside one statement or one inline conflict even when the first is used up before the second is bor…
+- L1525-1530 Phase scan first, long compare lists (Scout713, Scout714) (4): A first-read tie (`mov cx,[K+ecx*4]` vs `mov cx,[eax];
+- L1531-1535 Statement shapes and budget (Scout716) (3): An inline's statement shape sets its IL size and so the /Ob2 budget of its callers;
+- L1536-1540 Add destinations and depth (Scout715) (3): Apparent tail-merge copy differences can be add-destination ties on an inlined Add, with the merges following…
+- L1541-1545 comip levels and budget probes (Scout718) (3): Real comip levels decide the inline budget:
+- L1546-1550 Real helpers hiding in units (Scout717) (3): A row spelling out a long inlined list may hide a real predicate seed in the same unit:
+- L1551-1554 Pending sites and op- (Scout719) (2): A nested argument does not divide the budget:
+- L1555-1559 Unit rows as inline sites (Scout720) (3): Unit rows can hide as inline sites:
+- L1560-1564 Rect members and FP order (Scout721) (3): `Rect(-2,-2,3,3)+point` is an inline over the out-of-line sum and corner ctor.
+- L1565-1568 Later rows and real calls (Scout722) (2): A row can inline a later-addressed row:
+- L1569-1574 Double locals and by-value Rects (Scout723) (4): `double angle` plus `double scaled = distance` inside inline Move_Coord fixes the frame by 8 B:
+- L1575-1578 Consumption before a dtor (Scout725) (2): Missing IL can be consumption before a ??_G site rather than a bigger dtor:
+- L1579-1586 Repeated calls and short rows (Scout726) (6): A call repeated inside an inlined loop means the call was passed as an inline argument:
+- L1587-1593 Charged forms of exact rows (Scout728) (5): A free callee under the 40 IL limit becomes charged with one extra statement:
+- L1594-1597 Strength reduction and reused Rects (Scout727) (2): An uncollapsed `row - row_base` can be `for (int index = first;
+- L1598-1605 Frame maps and web evidence (Scout730) (6): Map real target slots against our variables (Scout730 fm.py, em.py) before permuting declarations:
+- L1606-1610 Reload order follows a location count (Scout729) (3): Spill reloads at a join have an order.
+- L1611-1613 Dead conditional writes as evidence (Scout731) (1): Some conditional writes survive early dead-code removal and change register choice with no code left in the o…
+- L1614-1622 Twin locals that do not exist (Scout732) (7): A `linked` local in a twin may not exist.
+- L1623-1633 Late-removed compares and loop forms (Scout734) (9): A computed value stored and never used can be kept by a compare VC6 removes late.
+- L1634-1641 VectorCursor virtual operators (Scout733) (6): TibSun VectorCursor has virtual `operator bool`, `++` and `--`, not inline wrappers over Valid/Next.
+- L1642-1651 Temps, slots and switch signedness (Scout735) (8): `Setter(char const *)` through an implicit Wstring conversion gives each temp its own frame slot;
+- L1652-1660 Cursor rows and pending sites (Scout736) (7): A ctor refused at a budget of about 1596 must sit one inline level down:
+- L1661-1669 __fastcall argument list order (Scout737) (7): The first two dword arguments in list order take ecx/edx, and a by-value struct goes on the stack wherever it…
+- L1670-1675 Implicit operator= and zero webs (Scout738) (4): Implicit CellClass::operator= stays an out-of-line call in a small caller and expands inline only in a large…
+- L1676-1682 Frame density and forwarders (Scout739) (5): Frame slots sort by final refs divided by size, descending, 1-byte bools included, so bools interleave with 1…
+- L1683-1689 Nested tests and row depth (Scout740) (5): `if (a) { if (!b) {...} }` versus `if (a && !b)` around an inlined row changes the inline budget:
+- L1690-1696 Free __fastcall and level helpers (Scout741) (5): A "member" body at a tie, with its register setups after the pushes, goes exact as free `__fastcall`.
+- L1697-1703 Same-unit twins and record shapes (Scout742) (5): Follow a same-unit TibSun source (smartdeform.cpp) closely before reasoning about registers.
+- L1704-1711 Refusal chains (Scout743) (6): A temp in the by-value argument of an inlined callee overlaps that callee's locals;
+- L1712-1718 Calling convention and scheduling (Scout744) (5): A function's own `__fastcall` changes /G5 scheduling across the body:
+- L1719-1728 Early returns and helper-owned locals (Scout746) (8): `if (!a || !b) return 1; ...;
+- L1729-1736 Real accessors as budget (Scout745) (6): "Free sites" a row seems to need are usually the unit's real one-line accessors, sitting in seed rows.
+- L1737-1741 Data symbol count, second confirmation (Scout748) (3): Commutative `add a,b` and `lea [a+b]` operand order flips with the number of distinct data keys in the functi…
+- L1742-1749 Inline depth limit and cross-jump tails (Scout747) (6): Hard inline depth limit: depth 8 expands, depth 9 refuses, even the trivial placement new.
+- L1750-1755 Threading and the auto-inline limit (Scout751) (4): VC6 threads a bool test away when all its predecessors are constant, through inline levels and by-reference o…
+- L1756-1762 Compiled callees and web references (Scout750) (5): A row compiled earlier in the unit inlines with its callee already expanded, so the callee can't be refused i…
+- L1763-1769 Lifted helpers and hidden schedules (Scout752) (5): A repeated loop lifted into a real helper inside a callee lowers that callee's cost and adds a nested spend.
+- L1770-1774 Join reloads and vanishing compares (Scout753) (3): Second-chance join rule (inferred from probes):
+- L1775-1781 Reference params and direct counts (Scout755) (5): A reference param that folds directly (`In_Bounds(cell->MapCoords)`) reads through the object;
+- L1782-1788 Later rows inline, and charged windows (Scout756) (5): A same-unit row defined later still inlines, so many "local helper" copies can be real row calls.
+- L1789-1796 Case source order and site division (Scout754) (6): Case source order is a first-class budget lever:
+- L1797-1802 By-value returns and global reads (Scout757) (4): `Cell const &exitcell = f()`, binding a reference to a by-value return, gave better reads (75.48 to 77.37).
+- L1803-1810 Wrapper levels and pending-site sides (Scout758) (6): A depth-1 call can stay expanded however many sites are pending:
+- L1811-1819 Stack-object count and reused cells (Scout759) (7): A stack-object count mod 4 flips late store forwarding and register webs far from the probe, up to 8 points o…
+- L1820-1825 Distance forms and tail webs (Scout760) (4): A `bool const &` temp of a bitfield reproduces `and cl,1;
+- L1826-1832 Loop weight and wrapper asymmetry (Scout762) (5): Source loop nesting counts even when bytes do not change.
+- L1833-1838 Tail duplication and push depth (Scout761) (4): Check push depth before calling a store dead:
+- L1839-1845 Named call results and known cases (Scout763) (5): Naming an int call result before a comparison (`int h = f(...);
+- L1846-1850 Add orientation (Scout764) (3): A trailing `mov mapped,reg` can be a spilled variable's second-chance register at a join, when the add has th…
+- L1851-1858 Twin inline templates and by-value helpers (Scout765) (6): Check the twin's inline templates first:
+- L1859-1864 Frame sort model (Scout767 sim.py) (4): The second frame sort is K&R qsort on -sum/size.
+- L1865-1871 Callee conventions and threaded zero-caller rows (Scout766) (5): A callee's own convention changes /G5 scheduling after the call:
+- L1872-1877 Named results and template direction (Scout768) (4): Naming a call result before the next call flipped a callee-saved tie on two strength-reduced cursors (85 to e…
+- L1878-1884 One-reference colour edges (Scout769) (5): A swap of two callee-saved colours can sit on a one-reference edge.
+- L1885-1891 Tail refusal and blocks at colouring time (Scout770, Scout771) (5): A last site gets all remaining budget, so added root statements only grow it.
+- L1892-1899 Colouring-time blocks and return counts (Scout771) (6): A `||` split into repeated arms produces no byte change but adds blocks before colouring, which can flip a ti…
+- L1900-1906 Hidden accepted rows (Scout773) (5): A parked row can hide an accepted row of the same unit behind hand-expanded code.
+- L1907-1913 Alternate forms of accepted rows (Scout772, Scout774) (5): An accepted row can have a second exact form that matters only when inlined:
+- L1914-1920 This-key parity (Scout775) (5): `[reg+reg]` orientation of a strength-reduced index can follow a parity-like tie on this-based memory referen…
+- L1921-1924 Expression temp spills and byte arguments (Scout777) (2): `if (W(current) < W(next))` with named int copies of both arguments, loaded before either call, gives the tem…
+- L1925-1932 Library templates and scratch rotation (Scout776) (6): A hidden library template can be the missing spend:
+- L1933-1941 Loop exit values and member-wise statements (Scout778) (7): When a pointer's exit value is computed in the inner guard (`add ebp,edx` before the loop), the source is `so…
+- L1942-1949 Inlined early returns and by-value homes (Scout779) (6): `if (!g) return 0;` and `if (g) {...} return 0;` are byte-identical as a row;
+- L1950-1955 comip bodies and temp contexts (Scout780) (4): Giving comip's `_AddRef` a body lets budget alone call a pair of rows in one block and inline them in another…
+- L1956-1961 Tail copies and the scratch cursor (Scout781) (4): A single statement at a function end reached by fall-through is copied into every predecessor after allocatio…
+- L1962-1967 Eviction forms and fild slots (Scout782) (4): A one-call inline wrapper over a whole body keeps a pending callee out of line at both sites of an inlined me…
+- L1968-1973 Depth refusals and slot maps (Scout783) (4): A function auto-inlined at depth 2 stays a call at depth 3:
+- L1974-1982 Dialog proc forms (Scout784) (7): A whole-struct copy keeping a dead field store (`RECT area = client;`) can change who wins a register.
+- L1983-1988 Written-out helpers and table scores (Scout785) (4): A row's file-local inline helper can be written out with no byte change in that row, yet flip an esi/edi tie…
+- L1989-1995 Cross-jump exemplars (Scout786) (5): Scout786 cj.py lists accepted rows with `cmp;
+- L1996-2001 Return registers and switch tails (Scout788) (4): `mov eax,edi; pop...` at every return means `result = x;
+- L2002-2007 Pending-site survey (Scout787) (4): On a row whose extra instructions sit inside one inlined callee, add lab Nop sites, read the window (3-8, 5-8…
+- L2008-2013 Threading order and hoisted constants (Scout790) (4): A kept `test r,r` after `add` means the block still had a label when the js peephole ran.
+- L2014-2019 Flag forms and regional colouring (Scout789) (4): `bool forward = true; ... result = K;
+- L2020-2025 Batch labs and store order (Scout791) (4): Scout791 lab.py and lc.py compile hundreds of whole-body variants in one TU as vK functions and parse /FAs:
+- L2026-2033 All-flag tails and cold import webs (Scout792) (6): `result = K; call_default = false;
+- L2034-2038 Guard loops and zero stores (Scout793) (3): `if (n>0) { i=0; do ... }` gives a literal guard compare on the zero web and stops a for loop evicting a memo…
+- L2039-2045 Neg forms and last-arm sites (Scout794) (5): `x = call() == 0` in both arms of an if/else, with the next statement after the join, gives a cross-jumped `m…
+- L2046-2051 Direct-member offsets and bound Unions (Scout795) (4): `Point2D(x, y) - Point2D(radar.X, radar.Y)` with direct members gives X through a CSE'd `lea` and Y through `…
+- L2052-2055 Position scans for colouring (Scout796) (2): A lab 2-use local inserted after every statement (233 positions, about 12 minutes, state signature) finds whi…
+- L2056-2062 Cross-jumped arms and induction bias (Scout797) (5): A duplicated reachable else arm that gets cross-jumped still counts:
+- L2063-2067 Semantics before colour (Scout798) (3): A higher-scoring draft can have wrong semantics:
+- L2068-2072 Member forms as spend (Scout799) (3): Member `a.Intersect(b)` versus free `Intersect(a,b)` is a natural budget spend:
+- L2073-2075 Kept fst (Scout801) (1): A block-scoped float stays unrounded on the FPU stack;
+- L2076-2079 Case-scoped buffers and dictionary members (Scout800) (2): A large buffer declared inside one case block shares its slot with an inline temporary in the post-switch cod…
+- L2080-2082 Frame alignment switch (Scout802, lab) (1): A function that would get `and esp,-8` (double locals) drops to plain `sub esp` when one local aggregate with…
+- L2083-2085 Index loop versus pointer walk (Scout806) (1): `for (int i = 0; i < count;
+- L2086-2090 YR twin adoption (Scout803) (3): Reading a member through a nested struct member (`a.b[i]`) instead of a plain member reverses the add operand…
+- L2091-2101 From the ra2-decomp guide (2026-11-06) (8): Declarations: varargs callees are `__cdecl`, and caller-popped pushes around an ECX call can belong to a foll…
+- L2102-2104 Declaration order of real locals (Scout810) (1): VC6 numbers locals in declaration order;
+- L2105-2107 Cell comparison form (Scout812) (1): Member `Cell::operator==` and `TPoint2D::operator!=` written `X != r.X || Y != r.Y` (the YR twin's form) sit…
+- L2108-2125 Compiler version (Scout812, Scout816) (16): The original was compiled with VC6 SP3 (C2 build 8447;
+- L2126-2129 Symbol-count windows for register ties (Scout886, 2026-11-07) (0): 
+- L2130-2133 Direct field reads change later sum grouping (Scout894, 2026-11-07) (0): 
+- L2134-2136 Early return vs wrapping block changes store scheduling (Scout901, 2026-11-07) (0): 
+- L2137-2139 A user-declared base destructor makes a ctor site charged (Scout903, 2026-11-07) (0): 
+- L2140-2142 An inlined callee's source form sets the caller's ties (Scout899, 2026-11-07) (0): 
+- L2143-2145 Westwood `return(expr);` parentheses in inline accessors (Scout913, 2026-11-07) (0): 
+- L2146-2149 Merged vs separate empty case labels (Scout911, 2026-11-07) (0): 
+- L2150-2152 Field signedness decides immediate caching (Scout929, 2026-11-07) (0): 
+- L2153-2157 Spill-slot assignment order (Scout944, 2026-11-07) (0): 
+- L2158-2171 Frame-slot model (Scout972 lab, 2026-11-07; build/class-work/Scout972/MODEL.md, lab/, lab.py) (8): R1 processing order: frame variables (spilled webs, temps, address-taken locals) by size ascending, then refs…
+- L2172-2176 Shared epilogue and jump threading (Scout989, 2026-11-07) (0): 
+- L2177-2179 Multi-path flag set: one statement gives the register form (Scout997) (0): 
+- L2180-2182 Header include order inside a joined unit (Scout1014) (0): 
+- L2183-2185 new[] size reuse is matched only to `a[n - 1]` (Scout1019) (0): 
+- L2186-2188 Memory-resident loop variables block strength reduction (Scout1020) (0): 
+- L2189-2191 Initialisation form changes the inline cost (Scout1024) (0): 
+- L2192-2194 Function IL size gates inner-loop reassociation (Scout1022) (0): 
+- L2195-2197 Frame layout counts final instructions, not IL references (Scout1039 lab) (0): 
+- L2198-2200 Split-web reload at an emptied if-join counts once per incoming edge (Scout1041 lab) (0): 
+- L2201-2203 Register priority: what counts (Scout1047 lab) (0): 
+- L2204-2206 Inlined DynamicVectorClass::Add orientation is a whole-function count effect (Scout1065 lab) (0): 
+- L2207-2209 A named constant local is propagated after reassociation (Scout1074) (0): 
+- L2210-2212 Division by a negative constant depends on the destination (Scout1078) (0): 
+- L2213-2215 Each return statement takes its own scratch-rotation step (Scout1082) (0): 
+- L2216-2218 Reading an operand into a local first fixes a subtraction tree's order (Scout1079) (0): 
+- L2219-2221 What advances the scratch cursor (Scout1086 lab) (0): 
+- L2222-2224 A flag-collapsed return keeps duplicated arms apart (Scout1099) (0): 
+- L2225-2227 A named double local forces `and esp,-8`; a float local does not (Scout1099) (0): 
+- L2228-2248 Declaration-count ties are windows mod 64, not shifts (Scout1114) (3): Found in the rebuild (lane R20, DoType;
+- L2249-2251 SEH (`__try`) functions lay out their frame by variable name (Scout1135) (0): 
+- L2252-2254 x87 term order follows whole-function variable weight; flat + chains are re-ordered (Scout1169) (0): 
+- L2255-2257 A by-value Point2D cursor keeps two frame slots and an in-memory increment (Scout1198) (0): 
+- L2258-2263 Write `coord.As_Cell()` where the twin does, not `Cell(coord)` (Scout1204) (0): 
+- L2264-2269 An inlined accessor on a by-value temporary stops CSE of unrelated global loads (Scout1210) (0): 
+- L2270-2280 /Ob2 inline budget, measured costs (Scout1211) (0): 
+- L2281-2306 Register priority is references minus live-through pressure; a losing long web is split and its register lent (Scout1212 lab) (0): 
+- L2307-2312 MIN/MAX macro clamps versus if-clamps (Scout1212) (0): 
+- L2313-2319 One declaration, several exclusive loops: one frame symbol with summed references (Scout1212) (0): 
+- L2320-2340 Frame-slot sharing is path-based memory liveness; order is size class, refs, last reference, with an allocator residue (Scout1215 lab, 2026-11-10) (0): 
+- L2341-2359 Reloads merged from several edges count once per edge in the frame order (Scout1215 lab, 2026-11-10) (0): 
+- L2360-2368 x87 store scheduling against integer stores depends on code before the block (Scout1216) (0): 
+- L2369-2372 The loop-exit restore group of lent webs is emitted in descending web weight (Scout1217 lab E) (0): 
+- L2373-2394 Candidate text for docs/VC6_MATCHING_NOTES.md (owner's call; from Scout1218, 2026-11-10) (0): 
+- L2395-2404 Narrowed chain order is an inventory tie, landed by an evidenced local elsewhere (Scout1218 round 2) (0): 
+- L2405-2413 A depth test written twice keeps the base in a register and dissolves a constant web (Scout1218 round 3, Draw_Tile 0x52C230) (0): 
+- L2414-2422 Free-register choice order (Scout1217 labs, ~90 functions) (0): 
+- L2423-2429 Large-frame slot order: density, lea counts, IL last reference (Scout1214 labs) (0): 
+- L2430-2456 Scratch-cursor refinements (Scout1218 round 10 lab; build/class-work/Scout1218/sc, lab_A/B/C, rd.py) (5): No resets. The cursor runs on through a label with a backward goto, a for/do-while loop body, a switch (every…
+- L2457-2462 Switch table kind follows the number of case groups (Scout1217) (0): 
+- L2463-2470 By-value struct temporaries in frame layout (Scout1214 labs) (0): 
+- L2471-2488 Spill-home creation order follows reload position, not colouring priority (Scout1218 round 14 lab; build/class-work/Scout1218/ft, gen2-gen7.py, fsim actual layouts) (0): 
+- L2489-2493 ebx is withheld from dword webs when byte webs need it across a call (Scout1217 labs F9/F10) (0): 
+- L2494-2499 Which invariant global stays hoisted across a loop with calls (Scout1214 lab al1/al2) (0): 
+- L2500-2505 Invariant global loads across sibling loops are one function-wide web each (Scout1214 labs al6/al7) (0): 
+- L2506-2515 Candidate (round 17): store position across a branch is source order; `for` counters are two webs (3): A global store that sits in the basic block after a wrap's `jb` (Draw_Tile 0a78 RowAlpha) cannot have been sc…
+- L2516-2520 Address webs: scratch if coloured before block temporaries, callee-saved if after (Scout1217 labs G/H) (0): 
+- L2521-2535 Candidate (round 17f): dead parameter slots as spill homes (0): 
+- L2536-2600 A pointer parameter is promoted whole or re-read per use; split webs come from eviction (Scout1217 lab P) (23): **CSE'd member-address webs rank last among callee-saved candidates** (Scout1217 lab U, 2026-11-10;
+- L2601-2623 Inline constructors and template members the original calls out of line (found in the rebuild, lanes R8-R42) (4): Count the image's calls before moving a definition.
+- L2624-2643 Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25) (3): VC6 folds `1.0 / UINT_MAX` to exactly 2^-32, not to the 1/4294967295 the image pools;
+- L2644-2661 Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43) (4): The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defi…
+- L2662-2670 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):

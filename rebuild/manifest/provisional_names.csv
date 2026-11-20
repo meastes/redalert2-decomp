@@ -95,3 +95,6 @@ enum 57,MOUSE_IRON_CURTAIN,mouse,"MouseType cursor 57, named after the action Mo
 enum 58,MOUSE_CHRONOSPHERE,mouse,"MouseType cursor 58, named after the action Mouse_Left_Up (0x0049B0F0) shows it for (ACTION_CHRONOSPHERE, ACTION_CHRONO_WARP); no evidenced name; lane R48"
 enum 59,MOUSE_DISARM_BOMB,mouse,"MouseType cursor 59, named after the action Mouse_Left_Up (0x0049B0F0) shows it for (ACTION_DISARM_BOMB); no evidenced name; lane R48"
 enum 78,MOUSE_PLACE_BEACON,mouse,"MouseType cursor 78, named after the action Mouse_Left_Up (0x0049B0F0) shows it for (ACTION_PLACE_BEACON); no evidenced name; lane R48"
+0x00496A10,Unused_Delay_Hook,delay,"name descriptive; no evidenced name (main unknown_empty_00496a10); empty, never referenced in the image"
+0x005173B0,Unused_Init_Hook,init,"name descriptive; no evidenced name (ra2-decomp FUN_00532130, main unknown_empty_005173b0); empty, never referenced in the image"
+0x0069E980,Unused_Super_Hook,super,"name descriptive; no evidenced name (ra2-decomp FUN_006CDE80, main unknown_empty_0069e980); empty __stdcall (ret 8), never referenced in the image"

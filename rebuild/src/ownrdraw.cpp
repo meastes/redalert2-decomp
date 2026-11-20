@@ -141,7 +141,7 @@ bool __fastcall Is_Owner_Tested_Control(unsigned int key, HWND window); // RA2: 
 unsigned int __fastcall Count_Free_Buttons(HWND window); // RA2: as above
 void __fastcall Assign_All_Control_Sounds(HWND window); // RA2: as above
 int __fastcall Dialog_Box(int resource, int (__stdcall *proc)(struct HWND__ *, unsigned int, unsigned int, long), bool Show); // RA2: as above
-int __fastcall OD_Draw_Text(unsigned int color, BitFont *font, Rect const &area, wchar_t const *text, int length, int x_alignment, int y_alignment, Surface *surface, int unknown9); // RA2: as above
+int __fastcall OD_Draw_Text(unsigned int color, BitFont * font, Rect const & area, wchar_t const * text, int length, int x_alignment, int y_alignment, Surface * surface, int shown); // RA2: as above
 void __fastcall Dialog_On_OD_4EC(HWND dialog); // RA2: 0x5E8710
 int __fastcall Dialog_ID_Of_Window(HWND window); // RA2: 0x5EAB00
 void __fastcall Dialog_On_WM_PAINT(HWND dialog); // RA2: 0x5FEE70
@@ -294,7 +294,7 @@ void __fastcall End_Dialog(HWND window); // RA2: as above
 void __fastcall Display_Dialog(HWND window); // RA2: as above
 bool Dialog_Message_Handler(); // RA2: as above
 HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short const *button, bool *cancelled); // RA2: as above
-void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret, BitFont *font, unsigned int color, int *scroll, int ime, int password, int frame, int unknown9); // RA2: as above
+void __fastcall Draw_Edit_Text(Surface * surface, Rect & rect, wchar_t const * text, int caret, BitFont * font, unsigned int color, int * scroll, int ime, int password, int frame, int shown); // RA2: as above
 int __fastcall Controlled_Dialog(int resource,DLGPROC procedure,DialogControl *control); // RA2: as above
 bool __fastcall Control_Test(HWND window); // RA2: as above
 }
@@ -9269,7 +9269,7 @@ float __fastcall Glow_Factor(int value) // RA2: as above
 
 
 int __fastcall OD_Draw_Text(unsigned int color, BitFont *font, Rect const &area, wchar_t const *text, // RA2: as above
-    int length, int x_alignment, int y_alignment, Surface *surface, int unknown9) // RA2: as above
+	int length, int x_alignment, int y_alignment, Surface * surface, int shown) // RA2: as above
 {
     if (!GameInFocus) return 0; // RA2: as above
     if (!surface) surface = AlternateSurface; // RA2: as above
@@ -9298,7 +9298,7 @@ int __fastcall OD_Draw_Text(unsigned int color, BitFont *font, Rect const &area,
     font->Set_Clip(1); // RA2: as above
     font->Set_Bounds((LTRBStruct *)&clip); // RA2: as above
     font->Set_Color((unsigned short)pixel); // RA2: as above
-    int end = BitText::Instance->Print(font, surface, text, x, y, length, unknown9); // RA2: as above
+	int end = BitText::Instance->Print(font, surface, text, x, y, length, shown); // RA2: as above
     return end - x; // RA2: as above
 }
 
@@ -9529,15 +9529,14 @@ void __fastcall Draw_Bits(Rect const * area, Surface * surface) // RA2: as above
 }
 
 
-bool __fastcall Get_Back_Art(); // RA2: as above
-void __fastcall Draw_Interface_Frame(Surface *surface, Rect const &window, bool arg3); // RA2: as above
-void __fastcall Draw_Dialog_Background_Shapes(Surface *surface, Rect const &window, ConvertClass *drawer, ShapeSet const *shape640, // RA2: as above
-                                 ShapeSet const *shape); // RA2: as above
-void __fastcall Draw_Lobby_Back(Surface *surface, Rect const &window); // RA2: as above
-void __fastcall Draw_Chat_Back(Surface *surface, Rect const &window); // RA2: as above
-void __fastcall Draw_Setup_Back(Surface *surface, Rect const &window); // RA2: as above
-void __fastcall Draw_Framed_Back(Surface *surface, Rect const &window, bool arg3); // RA2: as above
-void *Get_Popup_Drawer(); // RA2: as above
+bool __fastcall Is_Interface_Art_Loaded(void); // RA2: 0x6F3460 (txtlabel2.cpp)
+void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, bool arg3); // RA2: 0x6F3650 (txtlabel2.cpp)
+void __fastcall Draw_Dialog_Backdrop(Surface * surface, Rect const & window, ConvertClass * drawer, ShapeSet * shape640, ShapeSet * shape); // RA2: 0x6F3930 (txtlabel2.cpp)
+void __fastcall Draw_Slide_MP_Button(Surface * surface, Rect const & window); // RA2: 0x6F3A60 (txtlabel2.cpp)
+void __fastcall Draw_Slide_Top(Surface * surface, Rect const & window); // RA2: 0x6F3AC0 (txtlabel2.cpp)
+void __fastcall Draw_Score_Top(Surface * surface, Rect const & window); // RA2: 0x6F3B20 (txtlabel2.cpp)
+void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool tabs); // RA2: 0x6F4620 (txtlabel2.cpp)
+ConvertClass * __cdecl Get_Dialog_Drawer(void); // RA2: 0x6F2230 (txtlabel2.cpp)
 
 namespace OwnerDraw { // RA2: as above
 
@@ -9547,7 +9546,7 @@ static inline void __cdecl Lookup(unsigned int const &key, WinData *&record) // 
 }
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 548 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 536 bytes differ: Is_Chat_Dialog's lookup calls keyHash (0x602020) where the executable expands it; the root is a little short of IL for that budget (two probe statements flip it), TibSun's Draw_Dialog_Back forms tried; Art_Popup_Back* are txtlabel2's ArtPopupBack* (globals.h declares the other spelling)
 void __fastcall Dialog_On_WM_PAINT(HWND window) // RA2: as above
 {
     using namespace OwnerDraw;
@@ -9578,22 +9577,22 @@ void __fastcall Dialog_On_WM_PAINT(HWND window) // RA2: as above
             }
             if (record->ButtonKind == 1) { // RA2: as above
                 if (Session.Is_In_Game()) { // RA2: as above
-                    Draw_Framed_Back(surface, full, false); // RA2: as above
+					Draw_Sidebar_Art(surface, full, false); // RA2: as above
                 } else {
-                    if (Get_Back_Art()) { // RA2: as above
+					if (Is_Interface_Art_Loaded()) { // RA2: as above
                         Draw_Interface_Frame(surface, full, !record->IsWaiting); // RA2: as above
                         drawer = (ConvertClass *)Control_Drawer(window); // RA2: as above
-                        ShapeSet const *shape640 = (ShapeSet const *)Control_Shape_640(window); // RA2: as above
-                        ShapeSet const *shape = (ShapeSet const *)Control_Shape(window); // RA2: as above
-                        Draw_Dialog_Background_Shapes(surface, full, drawer, shape640, shape); // RA2: as above
+						ShapeSet * shape640 = (ShapeSet *)Control_Shape_640(window); // RA2: as above
+						ShapeSet * shape = (ShapeSet *)Control_Shape(window); // RA2: as above
+						Draw_Dialog_Backdrop(surface, full, drawer, shape640, shape); // RA2: as above
                         if (record->IsLobbyArt) { // RA2: as above
-                            Draw_Chat_Back(surface, full); // RA2: as above
+							Draw_Slide_Top(surface, full); // RA2: as above
                         }
                         if (record->IsLobbyFrame) { // RA2: as above
-                            Draw_Lobby_Back(surface, full); // RA2: as above
+							Draw_Slide_MP_Button(surface, full); // RA2: as above
                         }
                         if (Is_Chat_Dialog(window)) { // RA2: as above
-                            Draw_Setup_Back(surface, full); // RA2: as above
+							Draw_Score_Top(surface, full); // RA2: as above
                         }
                     }
                 }
@@ -9612,7 +9611,7 @@ void __fastcall Dialog_On_WM_PAINT(HWND window) // RA2: as above
                 } else {
                     shape = Art_Popup_Back; // RA2: as above
                 }
-                drawer = (ConvertClass *)Get_Popup_Drawer(); // RA2: as above
+				drawer = Get_Dialog_Drawer(); // RA2: as above
                 Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
                 Surface *back = SurfaceCache.GetSurface(OwnerDraw::Dialog_Back_Name, 0); // RA2: as above
@@ -10263,7 +10262,7 @@ template<class T> inline T Max_Of(T a, T b) { return a < b ? b : a; } // RA2: as
 #ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Blend_Color out of line, which no row of the original has
 void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret, // RA2: as above
                                               BitFont *font, unsigned int color, int *scroll, int ime, // RA2: as above
-                                              int password, int frame, int unknown9) // RA2: as above
+	int password, int frame, int shown) // RA2: as above
 {
     wchar_t buffer[0x800]; // RA2: as above
     int caret_x = -1; // RA2: as above
@@ -10334,7 +10333,7 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
         surface->Fill_Rect(area, 0); // RA2: as above
     }
     if (lead) { // RA2: as above
-        int width = OD_Draw_Text(color, font, rect, text, lead, 0, 0, surface, unknown9); // RA2: as above
+		int width = OD_Draw_Text(color, font, rect, text, lead, 0, 0, surface, shown); // RA2: as above
         rect.X += width; // RA2: as above
         rect.Width -= width; // RA2: as above
         if (rect.Width < 0) { // RA2: as above
@@ -10352,7 +10351,7 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
             composed -= rest; // RA2: as above
         }
         if (composed > 0) { // RA2: as above
-            int width = OD_Draw_Text(Tab_Text_Color, font, rect, text, composed, 0, 0, surface, unknown9); // RA2: as above
+			int width = OD_Draw_Text(Tab_Text_Color, font, rect, text, composed, 0, 0, surface, shown); // RA2: as above
             rect.X += width; // RA2: as above
             rect.Width -= width; // RA2: as above
             if (rect.Width < 0) { // RA2: as above
@@ -10363,7 +10362,7 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
         if (rest >= 0) { // RA2: as above
             caret_x = rect.X; // RA2: as above
             if (rest) { // RA2: as above
-                int width = OD_Draw_Text(Tab_Text_Color, font, rect, text, rest, 0, 0, surface, unknown9); // RA2: as above
+				int width = OD_Draw_Text(Tab_Text_Color, font, rect, text, rest, 0, 0, surface, shown); // RA2: as above
                 rect.X += width; // RA2: as above
                 rect.Width -= width; // RA2: as above
                 if (rect.Width < 0) { // RA2: as above
@@ -10376,7 +10375,7 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
         caret_x = rect.X; // RA2: as above
     }
     if (after) { // RA2: as above
-        int width = OD_Draw_Text(color, font, rect, text, after, 0, 0, surface, unknown9); // RA2: as above
+		int width = OD_Draw_Text(color, font, rect, text, after, 0, 0, surface, shown); // RA2: as above
         rect.X += width; // RA2: as above
         rect.Width -= width; // RA2: as above
         if (rect.Width < 0) { // RA2: as above
@@ -10629,14 +10628,14 @@ namespace OwnerDraw { // RA2: as above
 
 void WinData::Set_Wide_Text(wchar_t const *text) // RA2: as above
 {
-    if (Text) { // RA2: as above
-        operator delete(Text); // RA2: as above
-        Text = 0; // RA2: as above
-    }
-    if (text && *text) { // RA2: as above
-        Text = (wchar_t *)operator new(wcslen(text) * 2 + 2); // RA2: as above
-        wcscpy(Text, text); // RA2: as above
-    }
+	if (Text != NULL) { // RA2: as above
+		delete[] Text; // RA2: as above
+		Text = NULL; // RA2: as above
+	}
+	if (text != NULL && *text != L'\0') { // RA2: as above
+		Text = new wchar_t[wcslen(text) + 1]; // RA2: as above
+		wcscpy(Text, text); // RA2: as above
+	}
 }
 
 }

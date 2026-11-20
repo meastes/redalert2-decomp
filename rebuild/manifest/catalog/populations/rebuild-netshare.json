@@ -284,6 +284,7 @@
     "??_C@_13JKDK@?$AA?0?$AA?$AA@": 8281188,
     "?LobbyObserverSlot@@3HA": 8285584,
     "??8IPXAddressClass@@QAE_NAAV0@@Z": 5387728,
+    "??_C@_0DA@HLLH@Channel?5full?5?9?5Session?4ScenarioM@": 8286968,
     "?Get_Color@NodeNameType@@QAEHXZ": 6742688,
     "??_C@_0P@IBDI@STT?3PlayerOpen?$AA@": 8287136,
     "??_C@_0BB@KLPO@STT?3PlayerClosed?$AA@": 8287116,
@@ -486,6 +487,8 @@
     "?Count_AI_Slots@@YIHXZ": 6067200,
     "?Is_All_Slots_Filled@@YI_NXZ": 6067264,
     "?Is_Observer_Slot_Full@@YI_NXZ": 6067344,
+    "?Is_Observer_Slot_Occupied@@YI_NXZ": 6067376,
+    "?Is_Channel_Full@@YI_NXZ": 6067472,
     "?Is_Color_Taken@@YI_NH@Z": 6067664,
     "?Get_Entry_Kind@@YIHPAUNodeNameType@@@Z": 6067792,
     "?Get_Kind_Entry@@YIPAUNodeNameType@@H@Z": 6067888,
@@ -581,7 +584,7 @@
           "resolved": 10954540
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6039984,
@@ -648,7 +651,7 @@
           "resolved": 10954888
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040016,
@@ -699,7 +702,7 @@
           "resolved": 10956016
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040064,
@@ -750,7 +753,7 @@
           "resolved": 10955912
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040096,
@@ -801,7 +804,7 @@
           "resolved": 10955896
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040128,
@@ -852,7 +855,7 @@
           "resolved": 10954952
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040160,
@@ -903,7 +906,7 @@
           "resolved": 10954408
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040192,
@@ -986,7 +989,7 @@
           "resolved": 10956024
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040224,
@@ -1045,7 +1048,7 @@
           "resolved": 10954968
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040288,
@@ -1104,7 +1107,7 @@
           "resolved": 10955888
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040336,
@@ -1163,7 +1166,7 @@
           "resolved": 10956012
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040384,
@@ -1206,7 +1209,7 @@
           "resolved": 10954546
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040432,
@@ -1257,7 +1260,7 @@
           "resolved": 10955328
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040448,
@@ -1316,7 +1319,7 @@
           "resolved": 1752006
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040480,
@@ -1375,7 +1378,7 @@
           "resolved": 1759348
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040560,
@@ -1434,7 +1437,7 @@
           "resolved": 1518796
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040640,
@@ -1509,7 +1512,7 @@
           "resolved": 162
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040704,
@@ -1584,7 +1587,7 @@
           "resolved": 18
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040848,
@@ -1715,7 +1718,7 @@
           "resolved": 7971960
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6040992,
@@ -1822,7 +1825,7 @@
           "resolved": 10952360
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6041376,
@@ -1961,7 +1964,7 @@
           "resolved": 1755405
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6041664,
@@ -2036,7 +2039,7 @@
           "resolved": 10691240
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6041936,
@@ -2207,7 +2210,7 @@
           "resolved": 1517140
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042160,
@@ -2307,7 +2310,7 @@
           "resolved": 6042668
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042528,
@@ -2358,7 +2361,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042704,
@@ -2409,7 +2412,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042752,
@@ -2461,7 +2464,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042800,
@@ -2513,7 +2516,7 @@
           "resolved": 4294916572
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042832,
@@ -2572,7 +2575,7 @@
           "resolved": 10736284
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042864,
@@ -2791,7 +2794,7 @@
           "resolved": 10736321
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6042960,
@@ -3427,7 +3430,7 @@
           "resolved": 397
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6043664,
@@ -3502,7 +3505,7 @@
           "resolved": 4293649487
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6044384,
@@ -3593,7 +3596,7 @@
           "resolved": 4293649312
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6044528,
@@ -3652,7 +3655,7 @@
           "resolved": 4294962342
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6044704,
@@ -3711,7 +3714,7 @@
           "resolved": 4294962406
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6044736,
@@ -3866,7 +3869,7 @@
           "resolved": 10746508
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6044768,
@@ -4053,7 +4056,7 @@
           "resolved": 10746508
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6045072,
@@ -4256,7 +4259,7 @@
           "resolved": 4294962336
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6045440,
@@ -4411,7 +4414,7 @@
           "resolved": 1742151
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6054672,
@@ -4462,7 +4465,7 @@
           "resolved": 1531497
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055200,
@@ -4521,7 +4524,7 @@
           "resolved": 10736280
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055248,
@@ -4588,7 +4591,7 @@
           "resolved": 1531266
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055328,
@@ -4831,7 +4834,7 @@
           "resolved": 4293299136
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055424,
@@ -4874,7 +4877,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055840,
@@ -5197,7 +5200,7 @@
           "resolved": 4294795042
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6055872,
@@ -5328,7 +5331,7 @@
           "resolved": 1503249
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6056288,
@@ -5363,7 +5366,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6058336,
@@ -5751,7 +5754,7 @@
           "resolved": 10736308
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6058480,
@@ -5906,7 +5909,7 @@
           "resolved": 802466
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6059248,
@@ -6638,7 +6641,7 @@
           "resolved": 6059668
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6059376,
@@ -7233,7 +7236,7 @@
           "resolved": 462489
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6060400,
@@ -7716,7 +7719,7 @@
           "resolved": 4293293167
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6061104,
@@ -7799,7 +7802,7 @@
           "resolved": 10943968
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063136,
@@ -8146,7 +8149,7 @@
           "resolved": 694602
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063328,
@@ -8189,7 +8192,7 @@
           "resolved": 1814888
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063712,
@@ -8241,7 +8244,7 @@
           "resolved": 1814848
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063744,
@@ -8301,7 +8304,7 @@
           "resolved": 1814814
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063776,
@@ -8352,7 +8355,7 @@
           "resolved": 1814783
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063808,
@@ -8947,7 +8950,7 @@
           "resolved": 1813831
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6063840,
@@ -9158,7 +9161,7 @@
           "resolved": 4294830714
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6064464,
@@ -9241,7 +9244,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6064656,
@@ -9300,7 +9303,7 @@
           "resolved": 10954488
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6064752,
@@ -9423,7 +9426,7 @@
           "resolved": 10954548
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6064784,
@@ -9642,7 +9645,7 @@
           "resolved": 1813442
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6064928,
@@ -9693,7 +9696,7 @@
           "resolved": 10746552
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6065200,
@@ -9760,7 +9763,7 @@
           "resolved": 10746552
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6065264,
@@ -9795,7 +9798,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6065344,
@@ -9847,7 +9850,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6065360,
@@ -10043,7 +10046,7 @@
           "resolved": 10746552
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6065392,
@@ -10111,7 +10114,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6066544,
@@ -10242,7 +10245,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6066624,
@@ -10381,7 +10384,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6066800,
@@ -10464,7 +10467,7 @@
           "resolved": 10956092
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6066976,
@@ -10516,7 +10519,7 @@
           "resolved": 10956092
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067056,
@@ -10576,7 +10579,7 @@
           "resolved": 10956096
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067104,
@@ -10628,7 +10631,7 @@
           "resolved": 10956092
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067152,
@@ -10696,7 +10699,7 @@
           "resolved": 10746552
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067200,
@@ -10772,7 +10775,7 @@
           "resolved": 10746520
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067264,
@@ -10823,10 +10826,224 @@
           "resolved": 10746552
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067344,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6067376,
+      "method": "005c94b0",
+      "body_bytes": 92,
+      "body_sha256": "bb9d90f8941aa052b4c41bc620f27944797a79147e303a379f8ecb9ab62011c7",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "1bc123f72272c09a8efe6f479b88c545c7c85a83ed4263095065cc16aa505b5c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Observer_Slot_Occupied@@YI_NXZ",
+      "symbol_prefix": "?Is_Observer_Slot_Occupied@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 4,
+          "resolved": 10956080
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?LobbyObserverSlot@@3HA",
+          "target": 8285584,
+          "addend": 0,
+          "resolved": 8285584
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 0,
+          "resolved": 10956076
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10240,
+          "resolved": 10746520
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 24,
+          "resolved": 10956100
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 20,
+          "resolved": 10956096
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10272,
+          "resolved": 10746552
+        }
+      ],
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
+      "source": "rebuild/src/netshare.cpp",
+      "population": "rebuild-netshare",
+      "source_order": 6067376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6067472,
+      "method": "005c9510",
+      "body_bytes": 186,
+      "body_sha256": "975f9119d08ee658244a245a53f931339a613d25f7b32a13e8f57f39d4287236",
+      "padding_bytes": 6,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "75d8617fafbc4bb7c113e274becb9d3e99e5693f3713acd7d1899b4f1e4b1dd5",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Channel_Full@@YI_NXZ",
+      "symbol_prefix": "?Is_Channel_Full@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 704,
+          "resolved": 10736984
+        },
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2180,
+          "resolved": 10738460
+        },
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 4,
+          "resolved": 10956080
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?LobbyObserverSlot@@3HA",
+          "target": 8285584,
+          "addend": 0,
+          "resolved": 8285584
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 0,
+          "resolved": 10956076
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10240,
+          "resolved": 10746520
+        },
+        {
+          "offset": 79,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 24,
+          "resolved": 10956100
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?LobbyEntries@@3PAPAUNodeNameType@@A",
+          "target": 10956076,
+          "addend": 20,
+          "resolved": 10956096
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10272,
+          "resolved": 10746552
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2180,
+          "resolved": 10738460
+        },
+        {
+          "offset": 155,
+          "kind": 6,
+          "symbol": "??_C@_0DA@HLLH@Channel?5full?5?9?5Session?4ScenarioM@",
+          "target": 8286968,
+          "addend": 0,
+          "resolved": 8286968
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293120828
+        }
+      ],
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
+      "source": "rebuild/src/netshare.cpp",
+      "population": "rebuild-netshare",
+      "source_order": 6067472,
       "source_quality_family": "rebuild"
     },
     {
@@ -10946,7 +11163,7 @@
           "resolved": 10736444
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067664,
@@ -11021,7 +11238,7 @@
           "resolved": 10956100
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067792,
@@ -11096,7 +11313,7 @@
           "resolved": 10956100
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067888,
@@ -11220,7 +11437,7 @@
           "resolved": 10746496
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6067968,
@@ -11246,7 +11463,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068128,
@@ -11272,7 +11489,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068224,
@@ -11515,7 +11732,7 @@
           "resolved": 1246592
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068336,
@@ -11574,7 +11791,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068560,
@@ -11609,7 +11826,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068688,
@@ -11765,7 +11982,7 @@
           "resolved": 10736412
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068752,
@@ -11968,7 +12185,7 @@
           "resolved": 10736412
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6068912,
@@ -12179,7 +12396,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6069136,
@@ -12238,7 +12455,7 @@
           "resolved": 4294966778
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6069488,
@@ -12297,7 +12514,7 @@
           "resolved": 4294966489
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6069664,
@@ -12484,7 +12701,7 @@
           "resolved": 98119
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6069952,
@@ -13127,7 +13344,7 @@
           "resolved": 417
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6070272,
@@ -13186,7 +13403,7 @@
           "resolved": 10956092
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6071216,
@@ -13309,7 +13526,7 @@
           "resolved": 671260
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6071280,
@@ -13416,7 +13633,7 @@
           "resolved": 671182
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6071424,
@@ -13442,7 +13659,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6071520,
@@ -13701,7 +13918,7 @@
           "resolved": 10736444
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6071616,
@@ -14584,7 +14801,7 @@
           "resolved": 1723834
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6072000,
@@ -14731,7 +14948,7 @@
           "resolved": 10736412
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6073520,
@@ -14854,7 +15071,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6074320,
@@ -14985,7 +15202,7 @@
           "resolved": 4294966260
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6075136,
@@ -15116,7 +15333,7 @@
           "resolved": 4294935233
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6075376,
@@ -15399,7 +15616,7 @@
           "resolved": 4294934611
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6075744,
@@ -15522,7 +15739,7 @@
           "resolved": 4294934345
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6076352,
@@ -15653,7 +15870,7 @@
           "resolved": 664490
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6077872,
@@ -15768,7 +15985,7 @@
           "resolved": 4294965046
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6080256,
@@ -15915,7 +16132,7 @@
           "resolved": 4294946026
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6080512,
@@ -16118,7 +16335,7 @@
           "resolved": 10736321
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6080656,
@@ -16273,7 +16490,7 @@
           "resolved": 1714735
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6082384,
@@ -16380,7 +16597,7 @@
           "resolved": 4293938171
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6082608,
@@ -16591,7 +16808,7 @@
           "resolved": 1705853
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6082784,
@@ -16867,7 +17084,7 @@
           "resolved": 1705718
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6082992,
@@ -17007,7 +17224,7 @@
           "resolved": 1705624
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6083312,
@@ -17074,7 +17291,7 @@
           "resolved": 10955880
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6083456,
@@ -17182,7 +17399,7 @@
           "resolved": 440025
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6083488,
@@ -17425,7 +17642,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6083568,
@@ -17508,7 +17725,7 @@
           "resolved": 4294966888
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6083904,
@@ -17551,7 +17768,7 @@
           "resolved": 1786620
         }
       ],
-      "source_sha256": "a7b2bb160d22738ff781ccda40a48f91a40dbb949e3616ecd7763d8206ccb0fb",
+      "source_sha256": "43600a6f7de636b5891eefcbc274691ebcf46eaf00e3b3319223ed3c96b781fa",
       "source": "rebuild/src/netshare.cpp",
       "population": "rebuild-netshare",
       "source_order": 6085024,

@@ -325,7 +325,7 @@ struct GlobalPacketType {
 			int AICheatCheck;
 			int ArtCheatCheck;
 			unsigned int BuildNumber;
-			int unknown_24;
+			int Slot;
 			unsigned int Flag;
 		} PlayerInfo;
 		struct {
@@ -558,7 +558,6 @@ class SessionClass
 		void Load_Call_Wait_Strings(void);
 
 		int Create_Connections(void);
-		void FUN_0069BBF0(int index);
 		bool Am_I_Master(HouseClass * who = NULL);
 		unsigned int Compute_Unique_ID(void);
 		void Update_Progress(int percent);
@@ -734,7 +733,7 @@ class SessionClass
 		IPXAddressClass PacketRouterAddressTranslate;
 		unsigned short PacketRouterPort;
 		unsigned short : 16;
-		IPXAddressClass unknown_2988;
+		IPXAddressClass LocalAddress;
 		IPXAddressClass SlotAddresses[MAX_PLAYERS];
 		int WolPlayerState[MAX_PLAYERS]; // RA2: +0x299C, cleared by Select_Game before the Internet game dialogs; name from that use only
 		int PeerProbeData[64][2]; // RA2: +0x29BC, cleared by Start_Network_Session

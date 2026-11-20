@@ -19195,6 +19195,33 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 4582640,
+      "method": "0045ecf0",
+      "body_bytes": 3,
+      "body_sha256": "58367ffa2a0179375018fa0f5c26da24391e42ebe0ed8fdda35a21fc7bdc396f",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "29f4ac27c274a9f1c52a282cbe6f8a57ec6e073cc0936fc0a2cbac85290fbfd4",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Cell@@QAE@XZ",
+      "symbol_prefix": "??0Cell@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "eebafc8e7218230ed42a7669c9ccdca3bf0d133ae70def09115a16de735c6de8",
+      "source": "rebuild/src/builtype.cpp",
+      "population": "rebuild-builtype",
+      "source_order": 4582640,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
       "entry": 4582656,
       "method": "0045ed00",
       "body_bytes": 6,

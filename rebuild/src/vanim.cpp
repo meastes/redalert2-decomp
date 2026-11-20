@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -302,8 +303,7 @@ void VoxelAnimClass::Init_Clear(void)
 /// carrying -- and then removes itself.
 /// </summary>
 /// <remarks>Only call this routine once per animation per game logic loop.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 1498 bytes differ (adopted text)
-void VoxelAnimClass::AI(void)
+void VoxelAnimClass::AI(void) // RA2: ra2-decomp's twin text
 {
 	if (Class->StartSound != VOC_NONE) {
 		VocClass::UpdateAt(Center_Coord(), &StartSoundAudioController);
@@ -337,10 +337,10 @@ void VoxelAnimClass::AI(void)
 		 */
 		if (is_water && !is_above_bridge) {
 			if (Class->IsMeteor) {
-				new AnimClass(*(&Rule->SplashList[0] + Rule->SplashList.Count() - 1), Coord(Position) + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+				new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], Coord(Position) + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER), 0);
 			} else {
 				new AnimClass(Rule->Wake, Coord(Position), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
-				new AnimClass(Rule->SplashList[0], Position + Coord(0, 0, 10), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+				new AnimClass(Rule->SplashList[0], Coord(Position) + Coord(0, 0, 10), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER), 0);
 			}
 
 		/*
@@ -348,7 +348,7 @@ void VoxelAnimClass::AI(void)
 		 * and deal the blast damage.
 		 */
 		} else if (Class->ExpireAnim != NULL) {
-			new AnimClass(Class->ExpireAnim, Coord(MyCoord.X, MyCoord.Y, MyCoord.Z), 0, 1, ShapeFlags_Type(SHAPE_ZGRAD|SHAPE_WIN_REL|SHAPE_CENTER), -30);
+			new AnimClass(Class->ExpireAnim, Coord((int)MyCoord.X, (int)MyCoord.Y, (int)MyCoord.Z), 0, 1, ShapeFlags_Type(SHAPE_ZGRAD | SHAPE_WIN_REL | SHAPE_CENTER), -30);
 			Explosion_Damage(Get_Bounce_Coord(), Class->Damage, 0, Class->Warhead, 1);
 			Combat_Lighting(Get_Bounce_Coord(), Class->Damage, Class->Warhead, 0, 0);
 		}
@@ -379,25 +379,24 @@ void VoxelAnimClass::AI(void)
 				 */
 				if (Class->IsTiberium && !is_above_bridge) {
 					for (int i = FACING_FIRST; i < FACING_COUNT; i++) {
-						CellClass & cellref = Map[Adjacent_Cell(impact.As_Cell(), (FacingType)i)];
-						CellClass * cellptr = &cellref;
-						if (cellptr->Can_Tiberium_Germinate(NULL)) {
+						CellClass & cell = Map[Adjacent_Cell(Cell(impact), (FacingType)i)];
+						if (cell.Can_Tiberium_Germinate(NULL)) {
 							TiberiumClass * tiberium = Tiberiums[Which_Tiberium_Type(OVERLAY_TIBERIUM2_01)];
-							if (cellptr->Ramp) {
-								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cellptr->Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cellptr->CellID), HOUSE_NONE);
+							if (cell.Ramp) {
+								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cell.Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cell.CellID), HOUSE_NONE);
 							} else {
-								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cellptr->CellID), HOUSE_NONE);
+								new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cell.CellID), HOUSE_NONE);
 							}
-							tiberium->Queue_Growth(cellptr->CellID);
-							cellptr->OverlayData = 0;
+							tiberium->Queue_Growth(cell.CellID);
+							cell.OverlayData = 0;
 
 							/*
 							 * Grow the running dirty rectangle to enclose this cell.
 							 */
-							Rect render = cellptr->Overlay_Render_Rect();
+							Rect render = cell.Overlay_Render_Rect();
 							render.Y -= TacticalRect.Y;
 							dirty = Union(dirty, render);
-							Map.Radar_Background(cellptr->CellID);
+							Map.Radar_Background(cell.CellID);
 						}
 					}
 
@@ -412,9 +411,9 @@ void VoxelAnimClass::AI(void)
 				if (cell.Can_Tiberium_Germinate(NULL)) {
 					TiberiumClass * tiberium = Tiberiums[Which_Tiberium_Type(OVERLAY_TIBERIUM2_01)];
 					if (cell.Ramp) {
-						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cell.Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cell.Fetch_CellID()), HOUSE_NONE);
+						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + cell.Ramp * 2 + tiberium->Variety + Random_Pick(0, 1) - 2], Cell(cell.CellID), HOUSE_NONE);
 					} else {
-						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cell.Fetch_CellID()), HOUSE_NONE);
+						new OverlayClass(OverlayTypes[tiberium->Overlay->HeapID + Random_Pick(0, 11)], Cell(cell.CellID), HOUSE_NONE);
 					}
 					tiberium->Queue_Growth(cell.CellID);
 					cell.OverlayData = 0;
@@ -431,7 +430,7 @@ void VoxelAnimClass::AI(void)
 	 * Emit the trailer animation every other frame.
 	 */
 	if (Class->TrailerAnim != NULL && (Frame % 2) == 0) {
-		new AnimClass(Class->TrailerAnim, Coord(MyCoord.X, MyCoord.Y, (MyCoord.Z * CELL_LEPTON_DIAG / (ISO_TILE_PIXEL_W * 0.8660254037844) + 0.5)), 1, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
+		new AnimClass(Class->TrailerAnim, Coord((int)MyCoord.X, (int)MyCoord.Y, (int)(MyCoord.Z * CELL_LEPTON_DIAG * (1.0 / (ISO_TILE_PIXEL_W * 0.8660254037844)) + 0.5)), 1, 1, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER), 0);
 	}
 
 	/*
@@ -440,7 +439,7 @@ void VoxelAnimClass::AI(void)
 	 */
 	BounceResultType bounce_result = BounceClass::AI();
 	if (Class->IsMeteor) {
-		Velocity.Z = Velocity.Z + Gravity;
+		Velocity.Z += Gravity;
 	}
 
 	switch (bounce_result) {
@@ -457,7 +456,7 @@ void VoxelAnimClass::AI(void)
 					new AnimClass(Class->BounceAnim, Coord(Position), 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
 				}
 				for (ObjectClass * occupier = Map[Get_Bounce_Coord()].Cell_Occupier(); occupier != NULL; occupier = occupier->Next) {
-					Coord delta = Get_Bounce_Coord() - Coord(occupier->PositionCoord);
+					Coord delta = Get_Bounce_Coord() - Coord(occupier->Position);
 					int lepton = abs(delta.Y) + abs(delta.X);
 					if (lepton <= Class->DamageRadius) {
 						occupier->Take_Damage(Class->Damage, Tactical::Z_Lepton_To_Pixel(lepton), Class->Warhead, 0, 0, 0);
@@ -471,9 +470,8 @@ void VoxelAnimClass::AI(void)
 			break;
 	}
 
-	PositionCoord = Get_Bounce_Coord();
+	Set_Coord(Get_Bounce_Coord());
 }
-#endif
 
 
 

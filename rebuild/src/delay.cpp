@@ -38,6 +38,13 @@
 
 
 /// <summary>
+/// An empty function. Nothing in the executable calls it.
+/// </summary>
+void Unused_Delay_Hook(void)
+{
+}
+
+/// <summary>
 /// Pauses for the specified length of time.
 /// This routine will spin on the system timer until the delay has elapsed. It exists for
 /// the brief hardware and startup waits that predate any game loop worth returning to.

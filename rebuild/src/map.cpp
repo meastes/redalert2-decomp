@@ -5955,18 +5955,17 @@ void MapClass::Internal_Destroy_High_Bridge_NS_TopRight(Cell const & cell, Facin
 /// </summary>
 /// <param name="cell">Where the repair was ordered; the bridge itself may be a few cells
 /// away.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: main's form, 2536 of 2743 bytes differ (inline_call: the original calls TPoint2D<short>::operator+ out of line, 0x42ADD0)
 void MapClass::Repair_Bridge(Cell const & cell)
 {
 	/*
-	 * Scan the 5x5 block of cells around the supplied cell looking for a low
-	 * bridge overlay. If one is found, hand off to the low bridge repair routine
-	 * and exit.
+	 * A second-kind low bridge in the 5x5 block around the cell is repaired by
+	 * its own span routine.
 	 */
 	for (int x = -2; x < 3; x++) {
 		for (int y = -2; y < 3; y++) {
-			if (Is_Low_Bridge(cell + Cell(x, y))) {
-				Repair_Low_Bridge_Span(cell + Cell(x, y));
+			if (Is_Low_Bridge2(cell + Cell(x, y))) {
+				Repair_Low_Bridge2_Span(cell + Cell(x, y));
 				return;
 			}
 		}
@@ -5978,30 +5977,25 @@ void MapClass::Repair_Bridge(Cell const & cell)
 	 * eight facings until a bridge cell is found.
 	 */
 	CellClass * cellptr = &Map[cell];
-
-	char facing = FACING_FIRST;
+	int facing = FACING_N;
 	if (!cellptr->IsUnderBridge && !cellptr->WasUnderBridge) {
 		for (int index = 0; index < FACING_COUNT; index++) {
-
-			Cell adjacent = Adjacent_Cell(cell, Facing_Add(facing, FACING_0));
+			Cell adjacent = Adjacent_Cell(cell, Facing_Add(facing, FACING_N));
 			cellptr = &Map[adjacent];
 			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
 				break;
 			}
-
-			adjacent = Adjacent_Cell(adjacent, Facing_Add(facing, FACING_0));
+			adjacent = Adjacent_Cell(adjacent, Facing_Add(facing, FACING_N));
 			cellptr = &Map[adjacent];
 			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
 				break;
 			}
-
-			adjacent = Adjacent_Cell(adjacent, Facing_Add(facing, FACING_0));
+			adjacent = Adjacent_Cell(adjacent, Facing_Add(facing, FACING_N));
 			cellptr = &Map[adjacent];
 			if (cellptr->IsUnderBridge || cellptr->WasUnderBridge) {
 				break;
 			}
-
-			facing = Facing_Add(facing, FACING_45);
+			facing = Facing_Add(facing, FACING_NE);
 		}
 	}
 
@@ -6013,77 +6007,68 @@ void MapClass::Repair_Bridge(Cell const & cell)
 	}
 
 	/*
-	 * Resolve the span anchor cell.
+	 * Resolve the span anchor cell. A damaged ("was under") cell walks along the
+	 * bridge body, giving up after four steps, then steps back two cells.
 	 */
 	Cell origin;
 	if (cellptr->IsUnderBridge) {
-
-		/*
-		 * A live bridge cell points at the bridge owner (or is the owner).
-		 */
 		origin = cellptr->Get_Bridge_Deck_Cell();
-
 	} else {
-
-		/*
-		 * An already damaged ("was under") bridge cell. Walk along the bridge body
-		 * until a cell that is no longer marked as a former bridge cell is found,
-		 * giving up after four steps, then step back two cells to recover the span
-		 * end.
-		 */
+		origin = cellptr->Fetch_CellID();
 		int count = 0;
-		int step = cellptr->IsBridgeEastWest ? FACING_S : FACING_E;
-		Cell walk = cellptr->CellID;
+		int step;
+		if (cellptr->IsBridgeEastWest) {
+			step = FACING_S;
+		} else {
+			step = FACING_E;
+		}
 		CellClass * walkptr;
 		while (true) {
-			walk = Adjacent_Cell(walk, Facing_Add(step, FACING_0));
-			walkptr = &Map[walk];
-			if (!walkptr->WasUnderBridge) {
+			Cell const & from = origin;
+			origin = AdjacentCell[step & 7] + from;
+			walkptr = &Map[origin];
+			if (walkptr->WasUnderBridge) {
+				if (++count >= 4) {
+					return;
+				}
+			} else {
 				break;
 			}
-			if (++count >= 4) {
-				return;
-			}
 		}
-
-		FacingType back = Facing_Sub(step, FACING_180);
-		origin = Adjacent_Cell(Adjacent_Cell(walk, back), back);
+		FacingType back = Facing_Sub(step, FACING_S);
+		origin = AdjacentCell[back & 7] + (origin + AdjacentCell[back & 7]);
 	}
 
 	/*
-	 * Walk the span looking for the end or middle tiles, repairing as we go.
+	 * Walk the span looking for the end or middle tiles, repairing as we go, and
+	 * stop the moment the span steps outside the map rectangle.
 	 */
+	int advance;
+	if (cellptr->IsBridgeEastWest) {
+		advance = FACING_W;
+	} else {
+		advance = FACING_N;
+	}
 	Cell spancell = origin;
-	int advance = cellptr->IsBridgeEastWest ? FACING_W : FACING_N;
-
-	char zonechanged = 0;
-	IsometricTileType ittype = ISOTILE_CLEAR;
-
+	int ittype = 0;
 	DynamicVectorClass<Cell> cells;
-
+	char zonechanged = 0;
 	Rect dirty;
-
-	/*
-	 * Bail the moment the span steps outside the map rectangle.
-	 */
 	if (spancell.X >= MapRect.X) {
-
-		while (true) {
-
+		while (spancell.X >= MapRect.X) {
 			if (spancell.X > MapRect.X + MapRect.Width) {
 				break;
 			}
 			if (spancell.Y < MapRect.Y || spancell.Y > MapRect.Y + MapRect.Height) {
 				break;
 			}
-
-			if (Array[spancell.X + spancell.Y * MAP_CELL_W] != NULL) {
-
+			if (Is_Valid(spancell)) {
 				CellClass * spanptr = &Map[spancell];
-				ittype = IsometricTileType(spanptr->ITType - IsometricTileTypeClass::BridgeSet + 1);
+				Cell middle;
+				ittype = spanptr->ITType - IsometricTileTypeClass::BridgeSet + 1;
 
 				/*
-				 * East/west bridge head - restore it and register the dirty area.
+				 * East/west bridge head.
 				 */
 				if ((ittype == IsometricTileTypeClass::BridgeTopLeft1
 						|| ittype == IsometricTileTypeClass::BridgeTopLeft2) && spanptr->SubTile == 8) {
@@ -6094,36 +6079,27 @@ void MapClass::Repair_Bridge(Cell const & cell)
 				}
 
 				/*
-				 * East/west bridge middle piece.
+				 * East/west bridge middle piece; a fully destroyed one is raised back to
+				 * bridge height and its cells queued for recalculation.
 				 */
 				if ((ittype == IsometricTileTypeClass::BridgeMiddle1
 						|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 3
 						|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 4
 						|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 1
 						|| ittype == IsometricTileTypeClass::BridgeMiddle1 + 2) && spanptr->SubTile == 5) {
-
 					if (ittype == IsometricTileTypeClass::BridgeMiddle1 + 4) {
-
-						/*
-						 * A fully destroyed middle - raise the three affected cells back
-						 * to bridge height and queue them for recalculation.
-						 */
 						Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle1 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
-
-						Cell middle = Adjacent_Cell(spancell, FACING_W);
+						middle = Adjacent_Cell(spancell, FACING_W);
 						Map[middle].Height += BRIDGE_CELL_HEIGHT;
 						Map[Adjacent_Cell(middle, FACING_N)].Height += BRIDGE_CELL_HEIGHT;
 						Map[Adjacent_Cell(middle, FACING_S)].Height += BRIDGE_CELL_HEIGHT;
-
 						zonechanged = Register_Subzone_Connections(middle);
-
 						for (int dx = 0; dx < 2; dx++) {
 							for (int dy = -2; dy < 3; dy++) {
 								cells.Add(Cell(middle + Cell(dx, dy)));
 							}
 						}
 					}
-
 					Repair_Bridge(spancell + Cell(-2, 0));
 					Repair_High_Bridge_Span(&Map[spancell], FACING_E, &dirty);
 					TacticalMap->Register_Dirty_Area(dirty, false);
@@ -6131,7 +6107,7 @@ void MapClass::Repair_Bridge(Cell const & cell)
 				}
 
 				/*
-				 * North/south bridge head - restore it and register the dirty area.
+				 * North/south bridge head.
 				 */
 				if ((ittype == IsometricTileTypeClass::BridgeTopRight1
 						|| ittype == IsometricTileTypeClass::BridgeTopRight2) && spanptr->SubTile == 12) {
@@ -6149,43 +6125,32 @@ void MapClass::Repair_Bridge(Cell const & cell)
 						|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 4
 						|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 1
 						|| ittype == IsometricTileTypeClass::BridgeMiddle2 + 2) && spanptr->SubTile == 7) {
-
 					if (ittype == IsometricTileTypeClass::BridgeMiddle2 + 4) {
-
 						Set_Bridge_Middle_State(spancell, IsometricTileType(IsometricTileTypeClass::BridgeMiddle2 + IsometricTileTypeClass::BridgeSet - 1), ISOTILE_INVALID, -1, false);
-
-						Cell middle = Adjacent_Cell(spancell, FACING_N);
+						middle = Adjacent_Cell(spancell, FACING_N);
 						Map[middle].Height += BRIDGE_CELL_HEIGHT;
 						Map[Adjacent_Cell(middle, FACING_E)].Height += BRIDGE_CELL_HEIGHT;
 						Map[Adjacent_Cell(middle, FACING_W)].Height += BRIDGE_CELL_HEIGHT;
-
 						zonechanged = Register_Subzone_Connections(middle);
-
 						for (int dy = 0; dy < 2; dy++) {
 							for (int dx = -2; dx < 3; dx++) {
 								cells.Add(Cell(middle + Cell(dx, dy)));
 							}
 						}
 					}
-
 					Repair_Bridge(spancell + Cell(0, -2));
 					Repair_High_Bridge_Span(&Map[spancell], FACING_S, &dirty);
 					TacticalMap->Register_Dirty_Area(dirty, false);
 					break;
 				}
 			}
-
-			spancell = Adjacent_Cell(spancell, Facing_Add(advance, FACING_0));
-			if (spancell.X < MapRect.X) {
-				break;
-			}
+			spancell = Adjacent_Cell(spancell, FacingType(advance));
 		}
 	}
 
 	if (zonechanged) {
 		Zone_Reset();
 	}
-
 	if (cells.Count() > 0) {
 		Recalc_Cells_In_List(cells);
 	}

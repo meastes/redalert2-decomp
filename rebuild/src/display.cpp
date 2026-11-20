@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -142,6 +143,7 @@
 #include "tactical.h"
 #include "tag.h"
 #include "tagtype.h"
+#include "txtlabel2.h"
 #include "terrtype.h"
 #include "unittype.h"
 #include "vein.h"
@@ -166,6 +168,7 @@ LayerClass DisplayClass::Layer[LAYER_COUNT];
 
 void const * DisplayClass::ShadowShapes;
 void const * DisplayClass::PlacementShapes;
+void const * UnusedDisplayState; // RA2: 0x00852630; reset by the constructor, read nowhere (ra2-decomp's namespace-scope form)
 
 
 /*
@@ -201,13 +204,18 @@ void Queue_Speech(char const * name, int priority, int expire); // RA2: 0x715B40
  * HISTORY:                                                                                    *
  *   12/06/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 266 bytes differ (adopted text)
 DisplayClass::DisplayClass(void) :
 	ZoneCell(CELL_NONE),
 	ZoneOffset(0,0),
 	CursorSize(0),
 	ProximityCheck(false),
 	ShroudCheck(false),
+	CopyZoneCell(CELL_NONE),
+	CopyZoneOffset(0, 0),
+	CopyCursorSize(0),
+	CopyPendingObjectPtr(0),
+	CopyPendingObject(0),
+	CopyPendingHouse(HOUSE_NONE),
 	FollowingObject(false),
 	FollowingObjectPtr(NULL),
 	PendingObjectPtr(0),
@@ -217,9 +225,11 @@ DisplayClass::DisplayClass(void) :
 	IsSellMode(false),
 	IsPowerMode(false),
 	IsWaypointMode(false),
+	IsBeaconMode(false),
 	IsTargettingMode(SUPER_NONE),
 	DraggedWaypoint(NULL),
 	DraggedWaypointCoord(0,0,0),
+	WaypointColor(0, 0, 0),
 	IsRubberBand(false),
 	IsTentative(false),
 	IsShadowPresent(false),
@@ -230,8 +240,8 @@ DisplayClass::DisplayClass(void) :
 {
 	ShadowShapes = NULL;
 	PlacementShapes = NULL;
+	UnusedDisplayState = NULL;
 }
-#endif
 
 
 /***********************************************************************************************
@@ -252,26 +262,14 @@ DisplayClass::DisplayClass(void) :
  *   05/31/1994 JLB : Handles layer system now.                                                *
  *   06/02/1994 JLB : Takes care of misc display tables and data allocation.                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 124 bytes differ (adopted text)
 void DisplayClass::One_Time(void)
 {
 	BASECLASS::One_Time();
-
 	PlacementShapes = MFCD::Retrieve("PLACE.SHP");
 	ShadowShapes = MFCD::Retrieve("SHADOW.SHP");
-
-	Rect rect = VisibleRect;
-	if (Options.IsSidebarOnRight || Debug_Map) {
-		rect.X = 0;
-	} else {
-		rect.X = SidebarClass::SIDE_WIDTH;
-	}
-	rect.Y = 16;
-	rect.Width = rect.Width - SidebarClass::SIDE_WIDTH;
-	rect.Height = rect.Height - 16;
+	Rect rect = Get_Title_Screen_Area();
 	Set_View_Dimensions(rect);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -457,7 +455,6 @@ void DisplayClass::Set_View_Dimensions(Rect const & dimensions)
  *   06/03/1994 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Puts placement cursor into static buffer.                                *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void DisplayClass::Set_Cursor_Shape(Cell const * list)
 {
 	if (CursorSize) {
@@ -479,9 +476,7 @@ void DisplayClass::Set_Cursor_Shape(Cell const * list)
 		CursorSize = 0;
 	}
 }
-#endif
 
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
 {
 	if (CopyCursorSize) { // RA2: as above
@@ -502,7 +497,6 @@ void DisplayClass::Set_Copy_Cursor_Shape(Cell const * list) // RA2: RA2's form
 		CopyCursorSize = 0; // RA2: as above
 	}
 }
-#endif
 
 
 
@@ -549,7 +543,6 @@ static inline Coord Foundation_Cell_Center(Cell const & cell) // RA2: as above
  *   06/07/1994 JLB : Handles concrete check.                                                  *
  *   10/11/1994 BWG : Added IsProximate check for ore refineries                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, HousesType house, Cell const * list, Cell const & trycell) const
 {
 	if (house != PlayerPtr->HeapID) {
@@ -594,7 +587,6 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 
 	return(retval);
 }
-#endif
 
 
 
@@ -612,7 +604,6 @@ bool DisplayClass::Passes_Proximity_Check(ObjectTypeClass const * object, Houses
 /// <returns>bool; Can the pending building object be placed at the present cursor location
 /// checking only for the shroud? If this isn't for a building type object, then this
 /// routine always returns true.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesType house, Cell const * list, Cell const & trycell) const
 {
 	if (house != PlayerPtr->HeapID || Debug_Map) { // RA2: RA2's form
@@ -642,7 +633,6 @@ bool DisplayClass::Passes_Shroud_Check(ObjectTypeClass const * object, HousesTyp
 done: // RA2: as above
 	return(true);
 }
-#endif
 
 
 
@@ -818,7 +808,6 @@ Cell DisplayClass::Get_Occupy_Dimensions(Cell const * list) const
  *   09/04/1991 JLB : Created.                                                                 *
  *   06/02/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void DisplayClass::Cursor_Mark(Cell const &pos, bool on)
 {
 	Cell const * ptr;
@@ -843,9 +832,7 @@ void DisplayClass::Cursor_Mark(Cell const &pos, bool on)
 		}
 	}
 }
-#endif
 
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's form
 {
 	Cell const * ptr;
@@ -866,7 +853,6 @@ void DisplayClass::Mark_Foundation_Copy(Cell const & pos, bool on) // RA2: RA2's
 		}
 	}
 }
-#endif
 
 
 
@@ -1564,7 +1550,6 @@ ObjectClass * DisplayClass::Prev_Object(ObjectClass * object)  const
  *   06/25/1996 JLB : Rewrote and greatly simplified.                                          *
  *   10/05/1996 JLB : Checks for zone and crushable status.                                    *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ (adopted text)
 Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell const & cell, SpeedType loco, bool zonecheck, MZoneType mzone) const
 {
 	bool vert = false;
@@ -1720,7 +1705,6 @@ Cell DisplayClass::Calculated_Cell(SourceType dir, Cell const & waypoint, Cell c
 
 	return fallback; // RA2: as above
 }
-#endif
 
 
 

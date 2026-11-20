@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -1259,20 +1260,15 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 /// <param name="retry">May the path be rebuilt and the move tried once more?</param>
 /// <param name="force_straight">Is the ship to drive straight, without a smooth turn?</param>
 /// <returns>bool; Should this routine be called again because the start was delayed?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 7928 bytes differ (adopted text)
-bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool force_straight) // RA2: as above
+bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool force_straight) // RA2: ra2-decomp's twin text
 {
-	assert(LinkedTo->IsActive); // RA2: as above
-
-	FacingType		facing;				// Direction movement will commence. // RA2: as above
-
-	facing = LinkedTo->Path[0]; // RA2: as above
+	FacingType facing = LinkedTo->Path[0];				// Direction movement will commence. // RA2: as above
 
 	if (!Is_Moving() && facing == FACING_NONE) { // RA2: as above
 		IsTurretLockedDown = false; // RA2: as above
 		Stop_Driver(); // RA2: as above
-		if (LinkedTo->Mission == MISSION_MOVE) { // RA2: as above
-			stop_processing = LinkedTo->Enter_Idle_Mode(); // RA2: as above
+		if (LinkedTo->Get_Mission() == MISSION_MOVE) { // RA2: as above
+			stop_processing = LinkedTo->Enter_Idle_Mode(false, true); // RA2: as above
 		}
 		return(false);		// Why is it calling this routine!?! // RA2: as above
 	}
@@ -1289,9 +1285,8 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 	*/
 	if (facing != FACING_NONE) { // RA2: as above
 		if ((LinkedTo->NavCom != NULL && LinkedTo->NavCom->Fetch_RTTI() == RTTI_UNIT) || (LinkedTo->NavCom != NULL && LinkedTo->NavCom->Fetch_RTTI() == RTTI_INFANTRY)) { // RA2: Fetch_RTTI() tests instead of dynamic_cast
-			int dist = Lepton_To_Cell((LEPTON)LinkedTo->Distance(DestinationCoord)); // RA2: as above
-
-			if (dist < ARRAY_SIZE(LinkedTo->Path)) { // RA2: as above
+			int dist = LinkedTo->Distance(DestinationCoord) / CELL_LEPTON_W; // RA2: as above
+			if (dist < CONQUER_PATH_MAX) { // RA2: as above
 				LinkedTo->Path[dist] = FACING_NONE; // RA2: as above
 				facing = LinkedTo->Path[0];		// Maybe needed. // RA2: as above
 			}
@@ -1312,17 +1307,18 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		if (LinkedTo->PathDelay != 0) { // RA2: as above
 			return(false); // RA2: as above
 		}
-		LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE; // RA2: as above
+		LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE)); // RA2: as above
 
-		if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell())) { // RA2: as above
+		if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, 0)) { // RA2: as above
 			if (LinkedTo == NULL) { // RA2: as above
 				stop_processing = true; // RA2: as above
 				return(false); // RA2: as above
 			}
 			if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: a failed zone test comes first and gives up the destination
-				LinkedTo->Assign_Destination(NULL); // RA2: as above
+				LinkedTo->Assign_Destination(NULL, true); // RA2: as above
 				return(false); // RA2: as above
-			} // RA2: as above
+			}
+
 			if (DestinationCoord == COORD_NONE) return(false); // RA2: as above
 
 			/*
@@ -1332,7 +1328,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 			**	desired. This is quite necessary since it is typical to move
 			**	several units with the same mouse click.
 			*/
-			if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Mission == MISSION_MOVE || LinkedTo->Mission == MISSION_GUARD_AREA)) { // RA2: as above
+			if (!LinkedTo->Is_On_Priority_Mission() && LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && (LinkedTo->Get_Mission() == MISSION_MOVE || LinkedTo->Get_Mission() == MISSION_GUARD_AREA)) { // RA2: as above
 				Stop_Driver(); // RA2: as above
 				if (Abandon_Navigation()) return(true); // RA2: as above
 				if (!LinkedTo->IsActive) return(false); // RA2: as above
@@ -1343,13 +1339,13 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				**	to scatter.
 				*/
 				Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->PrimaryFacing.Current().As_Dir8()); // RA2: as above
-				if (Map.In_Local_Radar(cell)) { // RA2: as above
-					MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->PrimaryFacing.Current().As_Dir8(), LinkedTo->Get_Cell_Height()); // RA2: as above
+				if (Map.In_Local_Radar(cell, true)) { // RA2: as above
+					MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->PrimaryFacing.Current().As_Dir8(), LinkedTo->Get_Cell_Height(), 0, true); // RA2: as above
 					if (ok == MOVE_CLOSED_GATE) { // RA2: as above
 						Incoming(cell); // RA2: as above
 					} else if (ok == MOVE_TEMP) { // RA2: as above
 						CellClass * cellptr = &Map[cell]; // RA2: as above
-						TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0,0), LinkedTo->PositionCoord.Z > (Map.Get_Height_GL(cell) + (2 * LEVEL_LEPTON_H))); // RA2: as above
+						TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(Coord(cell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2, 0)) + 2 * LEVEL_LEPTON_H); // RA2: as above
 						if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) { // RA2: as above
 
 							/*
@@ -1359,7 +1355,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 							*/
 							if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
 								if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
-									if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) { // RA2: as above
+									if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) { // RA2: as above
 										Stop_Driver(); // RA2: as above
 										if (Abandon_Navigation()) return(true); // RA2: the result is tested here, not returned as it is (the exe repeats the inlined call at this site)
 										return(false); // RA2: as above
@@ -1367,12 +1363,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 								}
 							}
 
-							bool is_bridge; // RA2: as above
-							if (!cellptr->IsUnderBridge || abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) <= 2) { // RA2: as above
-								is_bridge = false; // RA2: as above
-							} else {
-								is_bridge = true; // RA2: as above
-							}
+							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
 							cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
 						}
 					}
@@ -1384,7 +1375,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					Stop_Driver(); // RA2: as above
 					if (Abandon_Navigation()) return(true); // RA2: as above
 					if (!LinkedTo->IsActive) return(false); // RA2: as above
-					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as above
+					if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as above
 					LinkedTo->IsNewNavCom = false; // RA2: as above
 				}
 			}
@@ -1395,7 +1386,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 			**	TarCom, then give this unit a range limit so that it might not pick
 			**	a "can't reach" target again.
 			*/
-			if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->In_Range(LinkedTo->TarCom)) { // RA2: as above
+			if (!Is_Moving() && LinkedTo->TarCom != NULL && !LinkedTo->IsCloseEnoughToAttack(LinkedTo->TarCom)) { // RA2: as above
 				LinkedTo->IsScanLimited = true; // RA2: as above
 				if (LinkedTo->Team != NULL) LinkedTo->Team->Scan_Limit(); // RA2: as above
 				LinkedTo->Assign_Target(NULL); // RA2: as above
@@ -1421,14 +1412,14 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		**	to scatter.
 		*/
 		Cell cell = Adjacent_Cell(LinkedTo->Center_Coord().As_Cell(), LinkedTo->Path[0]); // RA2: as above
-		if (Map.In_Local_Radar(cell)) { // RA2: as above
-			MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->Get_Cell_Height()); // RA2: as above
+		if (Map.In_Local_Radar(cell, true)) { // RA2: as above
+			MoveType ok = LinkedTo->Can_Enter_Cell(&Map[cell], LinkedTo->Path[0], LinkedTo->Get_Cell_Height(), 0, true); // RA2: as above
 
 			if (ok == MOVE_CLOSED_GATE) { // RA2: as above
 				Incoming(cell); // RA2: as above
 			} else if (ok == MOVE_TEMP) { // RA2: as above
 				CellClass * cellptr = &Map[cell]; // RA2: as above
-				TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0,0), LinkedTo->PositionCoord.Z > (Map.Get_Height_GL(cell) + (2 * LEVEL_LEPTON_H))); // RA2: as above
+				TechnoClass * blockage = cellptr->Cell_Techno(Point2D(0, 0), LinkedTo->Get_Coord().Z > Map.Get_Height_GL(cell) + 2 * LEVEL_LEPTON_H); // RA2: as above
 				if (blockage != NULL && LinkedTo->House->Is_Ally(blockage) && !LinkedTo->TClass->IsTrain) { // RA2: as above
 
 					/*
@@ -1438,19 +1429,14 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					*/
 					if (LinkedTo->Distance(DestinationCoord) < Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink()) { // RA2: as above
 						if (abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
-							if (Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() != LAND_TUNNEL) { // RA2: as above
+							if (Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) { // RA2: as above
 								Stop_Driver(); // RA2: as above
 								return(Abandon_Navigation()); // RA2: as above
 							}
 						}
 					}
 
-					bool is_bridge; // RA2: as above
-					if (!cellptr->IsUnderBridge || abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) <= 2) { // RA2: as above
-						is_bridge = false; // RA2: as above
-					} else {
-						is_bridge = true; // RA2: as above
-					}
+					bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
 					cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
 				}
 			}
@@ -1474,12 +1460,14 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 	*/
 	Coord dest = Adjacent_Cell(LinkedTo->PositionCoord, facing); // RA2: as above
 
-	int cell_height = Map[(Coord const &)LinkedTo->PositionCoord].Height + (LinkedTo->IsOnBridge ? BRIDGE_CELL_HEIGHT : 0); // RA2: as above
+	CellClass const & here = Map[LinkedTo->Get_Coord()]; // RA2: as above
+	int cell_height = here.Height + (LinkedTo->IsOnBridge ? BRIDGE_CELL_HEIGHT : 0); // RA2: as above
 
 	/*
 	 * If this move crosses a bridge transition, force a full scan next process.
 	 */
-	if (LinkedTo->IsOnBridge ^ Map[Adjacent_Cell(LinkedTo->PositionCoord, facing)].IsUnderBridge) { // RA2: as above
+	CellClass const & next = Map[Adjacent_Cell(LinkedTo->PositionCoord, facing)]; // RA2: as above
+	if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) { // RA2: as above
 		LinkedTo->IsPlanningToLook = true; // RA2: as above
 	}
 	if (!LinkedTo->Is_Ready_To_Move()) { // RA2: as above
@@ -1493,7 +1481,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 	**	Set the facing correctly if it isn't already correct. This
 	**	means starting a rotation track if necessary.
 	*/
-	if (DIR_MIN < LinkedTo->PrimaryFacing.Current() - DirType(facing)) { // RA2: as above
+	if (DirType(DIR_MIN) < (LinkedTo->PrimaryFacing.Current() - DirType(facing))) { // RA2: as above
 
 		/*
 		**	Request a change of facing.
@@ -1513,14 +1501,15 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		CellClass * destptr = &Map[destcell]; // RA2: as above
 		bool crushable_dest = false; // RA2: as above
 		LinkedTo->Mark(MARK_UP); // RA2: as above
-		MoveType cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height); // RA2: as above
+		MoveType cando = LinkedTo->Can_Enter_Cell(destptr, facing, cell_height, 0, true); // RA2: as above
 		LinkedTo->Mark(MARK_DOWN); // RA2: as above
 
 		/*
 		 * A train ignores all blockages, and a crusher rolls straight over sandbags.
 		 */
-		if ((cando < MOVE_NO && LinkedTo->TClass->IsTrain) // RA2: as above
-			|| ((cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) && LinkedTo->TClass->IsCrusher && destptr->Overlay == OVERLAY_SANDBAG_WALL)) { // RA2: as above
+		if (cando < MOVE_NO && LinkedTo->TClass->IsTrain) { // RA2: as above
+			cando = MOVE_OK; // RA2: as above
+		} else if ((cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) && LinkedTo->TClass->IsCrusher && destptr->Overlay == OVERLAY_SANDBAG_WALL) { // RA2: as above
 			cando = MOVE_OK; // RA2: as above
 		}
 
@@ -1549,20 +1538,13 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				if (!LinkedTo->TClass->IsTrain) { // RA2: as above
 					if (retry) { // RA2: as above
 						LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-						LinkedTo->PathDelay = 0; // RA2: as above
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
 						return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
 					}
-					Coord diff = LinkedTo->Center_Coord() - DestinationCoord; // RA2: as above
-					int dist = diff.Length(); // RA2: as above
-					if (dist >= Rule->CloseEnoughDistance // RA2: as above
+					if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance // RA2: as above
 						|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H // RA2: as above
-						|| Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() == LAND_TUNNEL) { // RA2: as above
-						bool is_bridge; // RA2: as above
-						if (!Map[destcell].IsUnderBridge || abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - Map[destcell].Height) <= 2) { // RA2: as above
-							is_bridge = false; // RA2: as above
-						} else {
-							is_bridge = true; // RA2: as above
-						}
+						|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) { // RA2: as above
+						bool is_bridge = Map[destcell].IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - Map[destcell].Height) > 2; // RA2: as above
 						Map[destcell].Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
 					} else {
 						Stop_Driver(); // RA2: as above
@@ -1594,20 +1576,20 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				 */
 				if (!LinkedTo->IsToPathAroundBlockage) { // RA2: as above
 					LinkedTo->IsToPathAroundBlockage = true; // RA2: as above
-					LinkedTo->BlockagePathDelay = Rule->BlockagePathDelay; // RA2: as above
+					LinkedTo->BlockagePathDelay = CDTimerClass<FrameTimerClass>(Rule->BlockagePathDelay); // RA2: as above
 				}
 				if (LinkedTo->PathDelay == 0) { // RA2: as above
 					bool around_blockage = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0; // RA2: as above
-					bool ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, (around_blockage != 0) + 1); // RA2: as above
+					bool ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, (around_blockage != NULL) + 1); // RA2: as above
 					if (LinkedTo == NULL) { // RA2: as above
 						stop_processing = true; // RA2: as above
 						return(false); // RA2: as above
 					}
 					if (ok || LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: as above
-						LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE; // RA2: as above
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>((int)(Rule->PathDelay * TICKS_PER_MINUTE)); // RA2: as above
 						return(true); // RA2: as above
 					}
-					LinkedTo->Assign_Destination(NULL); // RA2: as above
+					LinkedTo->Assign_Destination(NULL, true); // RA2: as above
 					return(false); // RA2: as above
 				}
 			}
@@ -1618,30 +1600,30 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 			if (cando == MOVE_DESTROYABLE || cando == MOVE_FRIENDLY_DESTROYABLE) { // RA2: as above
 				if (retry) { // RA2: as above
 					LinkedTo->Path[0] = FACING_NONE;		// Path is blocked! // RA2: as above
-					LinkedTo->PathDelay = 0; // RA2: as above
+					LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
 					return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
 				}
 
 				/*
 				 * An enemy unit, building, or wall is blocking. Pick a fight with it.
 				 */
-				if (Map[destcell].Cell_Object()) { // RA2: as above
-					if (!LinkedTo->House->Is_Ally(Map[destcell].Cell_Object())) { // RA2: as above
-						LinkedTo->Override_Mission(MISSION_ATTACK, Map[destcell].Cell_Object(), NULL); // RA2: as above
+				if (Map[destcell].Cell_Object(Point2D(0, 0), 0)) { // RA2: as above
+					if (!LinkedTo->House->Is_Ally(Map[destcell].Cell_Object(Point2D(0, 0), 0))) { // RA2: as above
+						LinkedTo->Override_Mission(MISSION_ATTACK, Map[destcell].Cell_Object(Point2D(0, 0), 0), 0); // RA2: as above
 					}
 				} else {
 					if (Map[destcell].Overlay != OVERLAY_NONE && OverlayTypes[Map[destcell].Overlay]->IsWall) { // RA2: as above
-						LinkedTo->Override_Mission(MISSION_ATTACK, &Map[destcell], NULL); // RA2: as above
+						LinkedTo->Override_Mission(MISSION_ATTACK, &Map[destcell], 0); // RA2: as above
 					}
 				}
 			} else {
-				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as above
+				if (LinkedTo->IsNewNavCom) VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as above
 			}
 
 
 			if (cando == MOVE_NO && retry) { // RA2: as above
 				LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-				LinkedTo->PathDelay = 0; // RA2: as above
+				LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
 				return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
 			} else if (cando == MOVE_NO && !retry) { // RA2: as above
 				Stop_Driver(); // RA2: as above
@@ -1669,18 +1651,19 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 			ground = LAND_ROAD; // RA2: as above
 		}
 
-		double speed = Ground[ground].Cost[LinkedTo->TClass->Speed]; // RA2: as above
+		TechnoTypeClass const * ttype = LinkedTo->TClass; // RA2: as above
+		double speed = Ground[ground].Cost[ttype->Speed]; // RA2: as above
 		if (speed > 1.0) speed = 1.0; // RA2: as above
 
 		int destheight = Map.Get_Height_GL(Map[destcell].Cell_Coord()); // RA2: as above
 		int unitheight = Map.Get_Height_GL(LinkedTo->PositionCoord); // RA2: as above
-		if (destheight > unitheight && LinkedTo->RTTI == RTTI_UNIT) { // RA2: one condition per arm
+		if (destheight > unitheight && LinkedTo->Fetch_RTTI() == RTTI_UNIT) { // RA2: one condition per arm
 			if (LinkedTo->TClass->Speed == SPEED_TRACK) { // RA2: as above
 				speed *= Rule->TrackedUphill; // RA2: as above
 			} else {
 				speed *= Rule->WheeledUphill; // RA2: as above
 			}
-		} else if (destheight < unitheight && LinkedTo->RTTI == RTTI_UNIT) { // RA2: as above
+		} else if (destheight < unitheight && LinkedTo->Fetch_RTTI() == RTTI_UNIT) { // RA2: as above
 			if (LinkedTo->TClass->Speed == SPEED_TRACK) { // RA2: as above
 				speed *= Rule->TrackedDownhill; // RA2: as above
 			} else {
@@ -1695,7 +1678,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		if (LinkedTo->HealthRatio <= Rule->ConditionYellow) { // RA2: as above
 			speed *= 0.75;	// Three quarters speed. // RA2: as above
 		}
-		if (TrackNumber < BACKUP_INTO_REFINERY) { // RA2: as above
+		if (TrackNumber < FACING_COUNT * FACING_COUNT) { // RA2: as above
 			TargetSpeed = speed; // RA2: as above
 		} else {
 			if (speed != LinkedTo->Speed) { // RA2: as above
@@ -1714,25 +1697,24 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		*/
 		FacingType nextface = LinkedTo->Path[1]; // RA2: as above
 		if (nextface == FACING_NONE) { // RA2: as above
-			if (LinkedTo->Distance(DestinationCoord) > 2 * CELL_LEPTON) { // RA2: as above
+			if (LinkedTo->Distance(DestinationCoord) > 2 * CELL_LEPTON_W) { // RA2: as above
 
 				/*
 				 * The end of the path was reached but the destination is still far away.
 				 * Regenerate the path so that movement can continue.
 				 */
 				int patharg = LinkedTo->TClass->IsTrain ? 1 : 0; // RA2: as above
-				if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), patharg)) { // RA2: as above
+				bool found = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), patharg, 0); // RA2: as above
+				if (!found) { // RA2: as above
 					if (LinkedTo == NULL) { // RA2: as above
 						stop_processing = true; // RA2: as above
-						return(false); // RA2: as above
+						return(found); // RA2: as above
 					}
 					if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) { // RA2: as above
-						LinkedTo->Assign_Destination(NULL); // RA2: as above
+						LinkedTo->Assign_Destination(NULL, true); // RA2: as above
 					}
 				}
 				nextface = LinkedTo->Path[1]; // RA2: as above
-			} else {
-				nextface = facing; // RA2: as above
 			}
 		}
 		if (nextface == FACING_COUNT) nextface = facing; // RA2: as above
@@ -1746,7 +1728,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		 * through it and flag the unit as rocking from the crush.
 		 */
 		CellClass const * adjcell; // RA2: as above
-		if (nextface != FACING_NONE && (adjcell = &destptr->Adjacent_Cell(nextface)) != NULL && adjcell->Overlay != OVERLAY_NONE && OverlayTypes[adjcell->Overlay]->IsCrushable || crushable_dest) { // RA2: as above
+		if (nextface != FACING_NONE && (adjcell = &destptr->Adjacent_Cell(nextface)) != 0 && adjcell->Overlay != OVERLAY_NONE && OverlayTypes[adjcell->Overlay]->IsCrushable || crushable_dest) { // RA2: as above
 			nextface = facing; // RA2: as above
 			IsRocking = true; // RA2: as above
 		} else {
@@ -1754,9 +1736,9 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 		}
 
 		IsOnShortTrack = false; // RA2: as above
-		TrackNumber = facing * FACING_COUNT + (int)nextface; // RA2: as above
+		TrackNumber = facing * FACING_COUNT + nextface; // RA2: as above
 		if (TrackControl[TrackNumber].Track == 0) { // RA2: as above
-			TrackNumber = facing * FACING_COUNT + (int)facing; // RA2: as above
+			TrackNumber = facing * FACING_COUNT + facing; // RA2: as above
 		}
 
 		if (TrackControl[TrackNumber].Flag & F_D) { // RA2: as above
@@ -1772,10 +1754,10 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				if (!LinkedTo->IsActive) return(false); // RA2: as above
 				dest = Adjacent_Cell(dest, nextface); // RA2: as above
 				destcell = dest.As_Cell(); // RA2: as above
-				nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height); // RA2: as above
+				nextcando = LinkedTo->Can_Enter_Cell(&Map[destcell], nextface, height, 0, true); // RA2: as above
 				if (nextcando < MOVE_NO && LinkedTo->TClass->IsTrain) { // RA2: as above
 					nextcando = MOVE_OK; // RA2: as above
-				} else if (((nextcando == MOVE_FRIENDLY_DESTROYABLE || nextcando == MOVE_DESTROYABLE) && LinkedTo->TClass->IsCrusher && Map[destcell].Overlay == OVERLAY_SANDBAG_WALL)) { // RA2: as above
+				} else if ((nextcando == MOVE_FRIENDLY_DESTROYABLE || nextcando == MOVE_DESTROYABLE) && LinkedTo->TClass->IsCrusher && Map[destcell].Overlay == OVERLAY_SANDBAG_WALL) { // RA2: as above
 					nextcando = MOVE_OK; // RA2: as above
 				}
 			}
@@ -1798,19 +1780,14 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 					if (!LinkedTo->TClass->IsTrain) { // RA2: as above
 						if (retry) { // RA2: as above
 							LinkedTo->Path[0] = FACING_NONE; // RA2: as above
-							LinkedTo->PathDelay = 0; // RA2: as above
+							LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
 							return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
 						}
 						if (LinkedTo->Distance(DestinationCoord) >= Rule->CloseEnoughDistance // RA2: as above
 							|| abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) >= 2 * LEVEL_LEPTON_H // RA2: as above
-							|| Map[(Coord const &)LinkedTo->PositionCoord].Land_Type() == LAND_TUNNEL) { // RA2: as above
+							|| Map[LinkedTo->Get_Coord()].Land_Type() == LAND_TUNNEL) { // RA2: as above
 							CellClass * cellptr = &Map[destcell]; // RA2: as above
-							bool is_bridge; // RA2: as above
-							if (!cellptr->IsUnderBridge || abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) <= 2) { // RA2: as above
-								is_bridge = false; // RA2: as above
-							} else {
-								is_bridge = true; // RA2: as above
-							}
+							bool is_bridge = cellptr->IsUnderBridge && abs(LinkedTo->PositionCoord.Z / LEVEL_LEPTON_H - cellptr->Height) > 2; // RA2: as above
 							cellptr->Incoming(COORD_NONE, true, true, is_bridge); // RA2: as above
 						} else {
 							Stop_Driver(); // RA2: as above
@@ -1837,7 +1814,7 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				else if (nextcando == MOVE_NO) { // RA2: as above
 					if (retry) { // RA2: as above
 						LinkedTo->Path[0] = FACING_NONE;		// Path is blocked! // RA2: as above
-						LinkedTo->PathDelay = 0; // RA2: as above
+						LinkedTo->PathDelay = CDTimerClass<FrameTimerClass>(0); // RA2: as above
 						return(Start_Of_Move(stop_processing, false, false)); // RA2: as above
 					}
 					Stop_Driver(); // RA2: as above
@@ -1859,12 +1836,12 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 				}
 
 			} else {
-				memcpy((char*)&LinkedTo->Path[0], (char*)&LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX-2)); // RA2: as above
+				memcpy(&LinkedTo->Path[0], &LinkedTo->Path[2], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 2)); // RA2: as above
 				LinkedTo->Path[CONQUER_PATH_MAX-2] = FACING_NONE; // RA2: as above
 				LinkedTo->IsPlanningToLook = true; // RA2: as above
 			}
 		} else {
-			memcpy((char*)&LinkedTo->Path[0], (char*)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX-1)); // RA2: as above
+			memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1)); // RA2: as above
 		}
 
 		LinkedTo->Path[CONQUER_PATH_MAX-1] = FACING_NONE; // RA2: as above
@@ -1876,11 +1853,9 @@ bool ShipLocomotionClass::Start_Of_Move(bool & stop_processing, bool retry, bool
 			LinkedTo->Path[0] = FACING_NONE; // RA2: as above
 			LinkedTo->Set_Speed(0); // RA2: as above
 		}
-		return(false); // RA2: as above
 	}
 	return(false); // RA2: as above
 }
-#endif
 
 
 

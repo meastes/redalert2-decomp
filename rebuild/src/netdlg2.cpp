@@ -2073,7 +2073,7 @@ bool Process_Global_Packet(GlobalPacketType * packet, IPXAddressClass * address)
 			answer.PlayerInfo.House = Session.Chosen_House(); // RA2: as above
 			answer.PlayerInfo.Color = Session.Chosen_Color(); // RA2: as above
 			answer.PlayerInfo.NameCRC = Compute_Name_CRC(Session.GameName); // RA2: as above
-			answer.PlayerInfo.unknown_24 = Session.LocalSlot; // RA2: as above
+			answer.PlayerInfo.Slot = Session.LocalSlot; // RA2: as above
 			answer.PlayerInfo.Flag = Session.LocalSlot == LobbyObserverSlot; // RA2: as above
 			if (Session.Players.Count() == 0) { // RA2: as above
 				return(true);
@@ -2205,7 +2205,7 @@ void Get_Join_Responses(void) // RA2: as above
 					who->Slot.SpectatorFlag = -1; // RA2: as above
 				}
 				Session.Players.Add(who);
-				Set_Player_Slot(Session.GPacket.PlayerInfo.unknown_24, who); // RA2: as above
+				Set_Player_Slot(Session.GPacket.PlayerInfo.Slot, who); // RA2: as above
 				for (i = 1; i < Session.Chat.Count(); i++) {
 					if (Session.Chat[i]->Address == Session.GAddress) { // RA2: as above
 						delete Session.Chat[i];
@@ -2246,7 +2246,7 @@ void Get_Join_Responses(void) // RA2: as above
 				who->Set_Country(Session.Chosen_House()); // RA2: as above
 				who->Set_Color(Session.Chosen_Color()); // RA2: as above
 				LobbyObserverSlot = Session.GPacket.PlayerInfo.Flag; // RA2: as above
-				if (Session.GPacket.PlayerInfo.unknown_24 == (int)Session.GPacket.PlayerInfo.Flag && Session.GPacket.PlayerInfo.House == -3) { // RA2: as above
+				if (Session.GPacket.PlayerInfo.Slot == (int)Session.GPacket.PlayerInfo.Flag && Session.GPacket.PlayerInfo.House == -3) { // RA2: as above
 					who->Slot.SpectatorFlag = -1; // RA2: as above
 				}
 				Session.Players.Add(who);
@@ -2255,7 +2255,7 @@ void Get_Join_Responses(void) // RA2: as above
 				_netresponse = 0;
 				Clear_Slot_Lists(); // RA2: as above
 				Reset_Slots(); // RA2: as above
-				Seat_First_Player(Session.GPacket.PlayerInfo.unknown_24); // RA2: as above
+				Seat_First_Player(Session.GPacket.PlayerInfo.Slot); // RA2: as above
 				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBD, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(dialog, 0xBD); // RA2: as above
 				ShowWindow(dialog, 1); // RA2: as above
@@ -2641,7 +2641,7 @@ void Get_Join_Responses(void) // RA2: as above
 				packet.PlayerInfo.House = who->Get_Country(); // RA2: as above
 				packet.PlayerInfo.Color = who->Get_Color(); // RA2: as above
 				packet.PlayerInfo.Flag = LobbyObserverSlot; // RA2: as above
-				packet.PlayerInfo.unknown_24 = slot; // RA2: as above
+				packet.PlayerInfo.Slot = slot; // RA2: as above
 				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.GAddress); // RA2: as above
 				VocClass::PlayGlobal(Rule->PlayerJoined, 1.0f, 0x2000, 0); // RA2: as above
 				if (Session.MPGameMode) { // RA2: as above

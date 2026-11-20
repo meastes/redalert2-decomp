@@ -45,21 +45,31 @@
     "??3@YAXPAX@Z": 7871803,
     "??2@YAPAXI@Z": 7872535,
     "??0RadBeam@@QAE@H@Z": 6510256,
+    "?CurrentFrameRate@FPSCounter@@3IA": 10939164,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "__real@8@00000000000000000000": 7976464,
+    "__real@8@4002a000000000000000": 7983408,
+    "?Draw_Pulse@RadBeam@@QAE_NXZ": 6510800,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "__real@8@4005c800000000000000": 7976944,
+    "?Draw_Swing@RadBeam@@QAE_NXZ": 6512128,
     "?TacticalMap@@3PAVTactical@@A": 8624492,
     "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
     "?TacticalRect@@3V?$TRect@H@@A": 8623664,
     "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z": 7820832,
     "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
-    "?Setup_Swing@RadBeam@@QAEXXZ": 6512512,
-    "?Update_Swing@RadBeam@@QAEXXZ": 6512672,
-    "?Compute_Swing_Step@RadBeam@@QAEXXZ": 6512944,
+    "?Compute_Pulse_Step@RadBeam@@QAEXXZ": 6511664,
     "?BlueLeft@DSurface@@2HA": 8728516,
     "?BlueRight@DSurface@@2HA": 8728512,
     "?GreenLeft@DSurface@@2HA": 8728524,
     "?GreenRight@DSurface@@2HA": 8728520,
     "?RedLeft@DSurface@@2HA": 8728508,
     "?RedRight@DSurface@@2HA": 8728504,
+    "?Setup_Swing@RadBeam@@QAEXXZ": 6512512,
+    "?Update_Swing@RadBeam@@QAEXXZ": 6512672,
+    "?Compute_Swing_Step@RadBeam@@QAEXXZ": 6512944,
     "_$E2": 6508976,
     "_$E5": 6509024,
     "_$E8": 6509056,
@@ -79,6 +89,7 @@
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z": 6514080,
     "?Allocate@RadBeam@@SIPAV1@H@Z": 6509632,
+    "?Update_All@RadBeam@@SIXXZ": 6509792,
     "?Set_Color@RadBeam@@QAEXABVRGBClass@@@Z": 6510352,
     "?Set_Depth@RadBeam@@QAEXH@Z": 6510384,
     "?Set_Source@RadBeam@@QAEXABVCoord@@@Z": 6510400,
@@ -93,7 +104,6 @@
     "?Draw_Line@RadBeam@@QAEXABVCoord@@0F@Z": 6510608,
     "?Compute_Delta@RadBeam@@QAEXXZ": 6511408,
     "?Start_Pass@RadBeam@@QAEXXZ": 6511520,
-    "?Draw_Swing@RadBeam@@QAE_NXZ": 6512128,
     "?Clear@?$DynamicVectorClass@PAVRadBeam@@@@UAEXXZ": 6513376,
     "?ID@?$DynamicVectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": 6513424,
     "?GetItem@?$VectorClass@PAVRadBeam@@@@UBEPAVRadBeam@@H@Z": 6513456,
@@ -171,7 +181,7 @@
           "resolved": 11232456
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6508976,
@@ -223,7 +233,7 @@
           "resolved": 11232552
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509024,
@@ -275,7 +285,7 @@
           "resolved": 11232536
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509056,
@@ -327,7 +337,7 @@
           "resolved": 11232528
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509088,
@@ -379,7 +389,7 @@
           "resolved": 11232464
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509120,
@@ -431,7 +441,7 @@
           "resolved": 11232424
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509152,
@@ -515,7 +525,7 @@
           "resolved": 11232564
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509184,
@@ -575,7 +585,7 @@
           "resolved": 11232472
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509248,
@@ -635,7 +645,7 @@
           "resolved": 11232520
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509296,
@@ -695,7 +705,7 @@
           "resolved": 11232544
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509344,
@@ -739,7 +749,7 @@
           "resolved": 11232450
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509392,
@@ -791,7 +801,7 @@
           "resolved": 11232512
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509408,
@@ -851,7 +861,7 @@
           "resolved": 11232444
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509440,
@@ -959,7 +969,7 @@
           "resolved": 1365423
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509472,
@@ -1067,7 +1077,7 @@
           "resolved": 11232488
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509536,
@@ -1183,10 +1193,222 @@
           "resolved": 11232484
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6509632,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6509792,
+      "method": "006354e0",
+      "body_bytes": 459,
+      "body_sha256": "de01c31afc71811b959f096356e674698e17f4b769e722324e7da2663fadf469",
+      "padding_bytes": 5,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "c5d67cfe4be157b5939bdda5f69cd680a29eb3f452c7d1ed0d0f9c0656bd06fa",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Update_All@RadBeam@@SIXXZ",
+      "symbol_prefix": "?Update_All@RadBeam@@SIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 10,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 38,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "?CurrentFrameRate@FPSCounter@@3IA",
+          "target": 10939164,
+          "addend": 0,
+          "resolved": 10939164
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 720,
+          "resolved": 10737000
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "__real@8@4002a000000000000000",
+          "target": 7983408,
+          "addend": 0,
+          "resolved": 7983408
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1350460
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "?Draw_Pulse@RadBeam@@QAE_NXZ",
+          "target": 6510800,
+          "addend": 0,
+          "resolved": 721
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 315,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 12929
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "__real@8@4005c800000000000000",
+          "target": 7976944,
+          "addend": 0,
+          "resolved": 7976944
+        },
+        {
+          "offset": 332,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1350368
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?Draw_Swing@RadBeam@@QAE_NXZ",
+          "target": 6512128,
+          "addend": 0,
+          "resolved": 1977
+        },
+        {
+          "offset": 364,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 0,
+          "resolved": 11232480
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 401,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 409,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 4,
+          "resolved": 11232484
+        },
+        {
+          "offset": 423,
+          "kind": 6,
+          "symbol": "?Array@RadBeam@@2V?$DynamicVectorClass@PAVRadBeam@@@@A",
+          "target": 11232480,
+          "addend": 16,
+          "resolved": 11232496
+        },
+        {
+          "offset": 437,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1361570
+        }
+      ],
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6509792,
       "source_quality_family": "rebuild"
     },
     {
@@ -1210,7 +1432,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510256,
@@ -1237,7 +1459,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510352,
@@ -1264,7 +1486,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510384,
@@ -1291,7 +1513,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510400,
@@ -1318,7 +1540,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510432,
@@ -1345,7 +1567,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510464,
@@ -1372,7 +1594,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510480,
@@ -1399,7 +1621,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510512,
@@ -1426,7 +1648,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510544,
@@ -1453,7 +1675,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510560,
@@ -1480,7 +1702,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510576,
@@ -1507,7 +1729,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510592,
@@ -1639,10 +1861,222 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6510608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6510800,
+      "method": "006358d0",
+      "body_bytes": 596,
+      "body_sha256": "2a53aa4ad2d7770b2efe51278ab9b8244e43d64bed5b3c622a06a549b2ee487f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 608,
+      "full_extent_sha256": "e49aff4173523cbefc08f831b792df2d55bc04d832a881dc5bfb234bde66ab7a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Pulse@RadBeam@@QAE_NXZ",
+      "symbol_prefix": "?Draw_Pulse@RadBeam@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 102,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293413590
+        },
+        {
+          "offset": 130,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1349562
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "?Compute_Pulse_Step@RadBeam@@QAEXXZ",
+          "target": 6511664,
+          "addend": 0,
+          "resolved": 583
+        },
+        {
+          "offset": 289,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 319,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 327,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 343,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 446337
+        },
+        {
+          "offset": 396,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 446314
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 413,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 8,
+          "resolved": 8623672
+        },
+        {
+          "offset": 429,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 12,
+          "resolved": 8623676
+        },
+        {
+          "offset": 459,
+          "kind": 20,
+          "symbol": "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z",
+          "target": 7820832,
+          "addend": 0,
+          "resolved": 1309569
+        },
+        {
+          "offset": 471,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 446149
+        },
+        {
+          "offset": 490,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 446130
+        },
+        {
+          "offset": 505,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        }
+      ],
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
+      "source": "rebuild/src/radbeam.cpp",
+      "population": "rebuild-radbeam",
+      "source_order": 6510800,
       "source_quality_family": "rebuild"
     },
     {
@@ -1675,7 +2109,7 @@
           "resolved": 4293412999
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6511408,
@@ -1711,7 +2145,7 @@
           "resolved": 1348959
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6511520,
@@ -1915,7 +2349,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6512128,
@@ -1959,7 +2393,7 @@
           "resolved": 1347880
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6512512,
@@ -2011,7 +2445,7 @@
           "resolved": 1347626
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6512672,
@@ -2047,7 +2481,7 @@
           "resolved": 1358400
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513376,
@@ -2075,7 +2509,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513424,
@@ -2103,7 +2537,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513456,
@@ -2131,7 +2565,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513472,
@@ -2176,7 +2610,7 @@
           "resolved": 1358144
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513536,
@@ -2213,7 +2647,7 @@
           "resolved": 1358067
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513712,
@@ -2241,7 +2675,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513760,
@@ -2269,7 +2703,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513824,
@@ -2314,7 +2748,7 @@
           "resolved": 1357837
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6513856,
@@ -2342,7 +2776,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6514032,
@@ -2395,7 +2829,7 @@
           "resolved": 1357659
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6514080,
@@ -2448,7 +2882,7 @@
           "resolved": 1357579
         }
       ],
-      "source_sha256": "6d58d9b1e53e9042f3e2f8bb5c4ba843e58da8834b84b2098836a2acb2d21587",
+      "source_sha256": "2ecf41463bc29c7c462759355cdf676b4237e9df2bfd5456761f1dc89e6469d4",
       "source": "rebuild/src/radbeam.cpp",
       "population": "rebuild-radbeam",
       "source_order": 6514160,

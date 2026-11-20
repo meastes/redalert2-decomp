@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -3349,21 +3350,21 @@ bool __fastcall Is_Observer_Slot_Full(void) // RA2: 0x005C9490, not in TibSun; n
 	return(true); // RA2: as above
 }
 
-bool __fastcall Is_Observer_Slot_Occupied(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 13 bytes differ (adopted text)
-bool __fastcall Is_Observer_Slot_Occupied(void) // RA2: 0x005C94B0, not in TibSun; the observer slot holds a seated entry whose spectator flag is set
+bool __fastcall Is_Observer_Slot_Occupied(void) // RA2: 0x005C94B0, not in TibSun; the observer slot holds a seated entry whose spectator flag is set (ra2-decomp's YR twin text, 0x5E9580)
 {
+	int index = LobbyObserverSlot;
+	NodeNameType * open = LobbyEntries[0];
+	NodeNameType * closed = LobbyEntries[1];
+
 	for (int i = 0; i < 8; i++) { // RA2: as above
-		if (Is_Seated_Entry(Session.Slots[i]) && i == LobbyObserverSlot && Session.Slots[i]->Slot.SpectatorFlag == -1) { // RA2: as above
+		NodeNameType * slot = Session.Slots[i];
+		if (slot && slot != open && slot != closed && slot != LobbyEntries[6] && slot != LobbyEntries[5] && i == index && slot->Slot.SpectatorFlag == -1) { // RA2: as above
 			return(true); // RA2: as above
 		}
 	}
 	return(false); // RA2: as above
 }
-#endif
 
-bool Is_Channel_Full(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005c9510)
 bool Is_Channel_Full(void) // RA2: 0x005C9510, not in TibSun; more players than the channel takes, the observer not counted
 {
 	int limit = Session.MaxPlayers < Session.ScenarioMaxPlayers ? Session.MaxPlayers : Session.ScenarioMaxPlayers; // RA2: as above
@@ -3373,7 +3374,6 @@ bool Is_Channel_Full(void) // RA2: 0x005C9510, not in TibSun; more players than 
 	}
 	return(false); // RA2: as above
 }
-#endif
 
 bool __fastcall Is_Color_Taken(int color) // RA2: 0x005C95D0, not in TibSun; a color is taken by a seated player or by a computer player's choice
 {

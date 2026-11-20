@@ -2042,6 +2042,33 @@
       "source_quality_family": "rebuild"
     },
     {
+      "entry": 6548784,
+      "method": "0063ed30",
+      "body_bytes": 6,
+      "body_sha256": "013f5d9b265629682a064e93f18bf734bd26d2b06fd753d96966e92cb2f315b4",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9faf4054c02a018cfae5deb480e3f1b353f30412c765f3e26cb57161c6aeb285",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@RocketLocomotionClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "d76ff497adff6b1e562622dc763a363389a3d2603483e3c96b2fc4dcae226d98",
+      "source": "rebuild/src/rocket.cpp",
+      "population": "rebuild-rocket",
+      "source_order": 6548784,
+      "source_quality_family": "rebuild"
+    },
+    {
       "entry": 6548800,
       "method": "0063ed40",
       "body_bytes": 43,

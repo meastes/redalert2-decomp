@@ -4,8 +4,8 @@
     "id": "rebuild-smudtype",
     "inventory_sha256": "f01b3a5496ee5f460cc0f89bafa96df8f84788e8b44a1fdd5caab8e8cfdb63f0",
     "gaps_sha256": "09b456ada54df906b3c5bbb591a3292a177884544773afa6d500bced6cb90eba",
-    "historical_population_sha256": "6d2d56d22d6236cacfec65d704845199ed8753a526e226611f12d32918e40b5c",
-    "historical_acceptance_sha256": "709879a91bcd808c0bb6e5bc98ad06736db95a6d7663f38b02f1b946ebf1ae08"
+    "historical_population_sha256": "0ce44b81438659e69e99684c2ddbc84a50b8a953031fdd9ba926e1b70e646bce",
+    "historical_acceptance_sha256": "946177ca655ed12279451ca3ed80daa65aee91e10e8f33c868851660a149347b"
   },
   "references": {
     "_RECT_NONE": 11259696,
@@ -2628,6 +2628,32 @@
       "source": "rebuild/src/smudtype.cpp",
       "population": "rebuild-smudtype",
       "source_order": 6851568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6851584,
+      "method": "00688c00",
+      "body_bytes": 6,
+      "body_sha256": "66890b19023067c741121832d726efebcbc33f1665e180565077d3d06a078465",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "bb928379849515847f45aa049c60f465153177f81e8afc0a8bfa252b606c8dfb",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Fetch_Object_Size@SmudgeTypeClass@@UBEHXZ",
+      "symbol_prefix": "?Fetch_Object_Size@SmudgeTypeClass@@UBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "a7c64b68fe094fa4ddd2b902ded055447f5bb4b036decb99e06a7063f9ab22cf",
+      "source": "rebuild/src/smudtype.cpp",
+      "population": "rebuild-smudtype",
+      "source_order": 6851584,
       "source_quality_family": "rebuild"
     },
     {

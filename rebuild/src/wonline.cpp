@@ -2506,7 +2506,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					memset(&g_CurrentChannel, 0, sizeof(Channel));
 					memset(&g_PendingChannel, 0, sizeof(Channel));
 					SetEvent(g_WaitEventHandles[EV_CONNECTED]);
-					Find_Local_Address(&Session.unknown_2988);
+					Find_Local_Address(&Session.LocalAddress);
 				} break;
 			}
 			return(S_OK);
@@ -2926,7 +2926,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 							NetNumType network;
 							NetNodeType node;
 							unsigned short socket;
-							Session.unknown_2988.Get_Address(network, node, &socket);
+							Session.LocalAddress.Get_Address(network, node, &socket);
 							sprintf(options_text, "R%d,%d,%x,%x,%x", Session.Chosen_House(), Session.Chosen_Color(), *(unsigned int *)node, FirewallHelper.Detected & 0xFFFF, Session.PortBase);
 							DebugString("Sending private game options (%s)\n", options_text);
 						}
@@ -7980,7 +7980,7 @@ BOOL CALLBACK WOL_Guest_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPARA
             int requested_color=Color_Combo_Data(window,color,-1);
             unsigned char network[4],node[6];
             unsigned short socket;
-            Session.unknown_2988.Get_Address(network,node,&socket);
+			Session.LocalAddress.Get_Address(network, node, &socket);
             char options[128];
             sprintf(options,"R%d,%d,%X,%x,%x",requested_side,requested_color,*(unsigned int *)node,FirewallHelper.Detected&0xffff,Session.PortBase);
             DebugString("Sending private game options (%s)\n",options);
@@ -12069,7 +12069,7 @@ bool __fastcall Request_Match(void) // RA2: 0x0075A920, asks the match bot (the 
 	NetNumType net; // RA2: as above
 	NetNodeType node; // RA2: as above
 	unsigned short port; // RA2: as above
-	Session.unknown_2988.Get_Address(net, node, &port); // RA2: as above
+	Session.LocalAddress.Get_Address(net, node, &port); // RA2: as above
 	int address = *(int *)node; // RA2: as above
 	request += ", ADR="; // RA2: as above
 	request += Wstring_FromInt(address); // RA2: as above

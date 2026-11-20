@@ -4941,6 +4941,13 @@ class DeleteCommandClass : public CommandClass // RA2: the executable's methods 
 		} // RA2: as above
 }; // RA2: as above
 
+/// <summary>
+/// An empty function. Nothing in the executable calls it.
+/// </summary>
+void Unused_Init_Hook(void)
+{
+}
+
 bool Init_Hotkeys(void); // RA2: as above
 
 void Init_Commands(void) // RA2: 0x005173C0; not static; the list is RA2's: the multiplayer debug commands first, the sidebar commands in left and right variants, the team, taunt, screen capture, page user, cursor position and delete commands

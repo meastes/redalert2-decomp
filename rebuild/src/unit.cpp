@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2367,14 +2368,13 @@ void UnitClass::Unit_Blit_Voxel(Surface & surface, Point2D drawpoint, Rect clipr
 /// <param name="xdrawpoint">The pixel position to center the unit's artwork upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
-#ifdef RA2_NON_MATCHING // not exact: 30 bytes differ (main carry through the existing unit interfaces)
-void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) const
+void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) const // RA2: the barrel conversions and facing forms are ra2-decomp's twin text
 {
 	VoxelDataStruct * voxel;
 	ShapeSet const * shape = static_cast<ShapeSet const *>(Get_Image_Data());
 	bool barrel_above = true;
 	int frame;
-	if (Class->Facings == FACING_COUNT && !IsDisguised()) frame = (PrimaryFacing.Current().As_Dir8() + 1) & (FACING_COUNT - 1);
+	if (Class->Facings == FACING_COUNT && !IsDisguised()) frame = Facing_Add(PrimaryFacing.Current().Round_To_8(), FACING_45);
 	else frame = 0;
 	if (FiringSyncDelay >= 0) {
 		frame = Class->StartFiringFrame + Class->FiringFrames * frame + FiringSyncDelay / 2;
@@ -2395,7 +2395,7 @@ void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) cons
 	if (Class->IsTurretEquipped) {
 		Point2D shadow_point = point;
 		if (IsInTransport) shadow_point.Y -= 14;
-		Draw_Shape(*LogicalSurface, *NormalDrawer, shape, frame + shape->Get_Count() / 2, shadow_point, window, (ShapeFlags_Type)0x2e01, 0, Get_Z_Adjust() - 2, (ZGradientType)0, 1000, 0, 0, Point2D(0, 0));
+		Draw_Shape(*LogicalSurface, *NormalDrawer, shape, frame + shape->Get_Count() / 2, shadow_point, window, ShapeFlags_Type(SHAPE_DARKEN | SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ALPHA | SHAPE_ZGRAD), 0, Get_Z_Adjust() - 2, ZGRAD_GROUND, 1000, 0, 0, Point2D(0, 0));
 		Surface * old_surface = LogicalSurface;
 		LogicalSurface = EightBitSurface;
 		Point2D composite_point = Point2D(128, 128);
@@ -2404,42 +2404,42 @@ void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) cons
 		IsCompositingToEightBitSurface = true;
 		UnitCompositeDirtyRect = RECT_NONE;
 		voxel = &Class->AuxVoxel2;
-		if ((voxel->VoxLib != 0 && voxel->MotLib != 0)) {
+		if ((voxel->VoxLib != NULL && voxel->MotLib != NULL)) {
 			int key = -1;
 			Matrix3D turret_matrix(Locomotion->Draw_Matrix(&key));
-			turret_matrix.Translate_X((float)(Class->TurretOffset / 8));
-			turret_matrix.Rotate_Z((float)(SecondaryFacing.Current().As_Radian32() - PrimaryFacing.Current().As_Radian32()));
+			turret_matrix.Translate_X(Class->TurretOffset / 8);
+			turret_matrix.Rotate_Z(SecondaryFacing.Current().As_Radian32() - PrimaryFacing.Current().As_Radian32());
 			barrel_matrix = turret_matrix;
 			Vector3 translation = turret_matrix.Get_Translation();
 			barrel_matrix.Translate(-translation);
 			if (TurretRecoil.State) turret_matrix.Translate_X(-TurretRecoil.TravelSoFar);
-			Vector3 fire_offset = Vector3((float)(Get_Class_Weapon_Data(0)->FireFLH.X / -8), 0.0f, (float)(Get_Class_Weapon_Data(0)->FireFLH.Z / -8));
+			Vector3 fire_offset = Vector3(Get_Class_Weapon_Data(0)->FireFLH.X / -8, 0, Get_Class_Weapon_Data(0)->FireFLH.Z / -8);
 			barrel_matrix.Translate(-fire_offset);
 			FacingClass pitch = BarrelPitch;
 			BulletTypeClass const * projectile = Get_Class_Weapon_Data(0)->Weapon->Bullet;
 			if (projectile->IsInvisible) {
-				int direction = pitch.Current().As_Dir256();
-				if (direction > 64 && direction <= 128) direction = (direction - 64) / 3 + 64;
-				else direction = (64 - direction) / 3 + 64;
-				pitch.Set(DirType((unsigned short)(direction << 8)));
+				Dir256 direction = pitch.Current().As_Dir256();
+				if (direction > DIR_E && direction <= DIR_S) direction = Dir256((direction - DIR_E) / 3 + DIR_E);
+				else direction = Dir256((DIR_E - direction) / 3 + DIR_E);
+				pitch.Set(direction);
 			}
 			if (BarrelRecoil.State) barrel_matrix.Translate_X(-BarrelRecoil.TravelSoFar);
-			barrel_matrix.Rotate_Y((float)-pitch.Current().As_Radian32());
+			barrel_matrix.Rotate_Y(-pitch.Current().As_Radian32());
 			barrel_matrix.Translate(fire_offset);
 			barrel_matrix.Translate(translation);
 			barrel_above = SecondaryFacing.Current().As_Dir4() > 0 && SecondaryFacing.Current().As_Dir4() < 3;
 		}
-		Draw_Object(shape, frame, composite_point, composite_window, (Dir256)0, 256, 0, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0x2800);
+		Draw_Object(shape, frame, composite_point, composite_window, DIR_N, 256, 0, ZGRAD_GROUND, 0, brightness, 0, 0, Point2D(0, 0), ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
 		voxel = &Class->AuxVoxel2;
-		if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && !barrel_above) {
+		if ((voxel->VoxLib != NULL && voxel->MotLib != NULL) && !barrel_above) {
 			
-			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, (ShapeFlags_Type)0x2800);
+			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
 		}
 		unsigned turret_frame = ((SecondaryFacing.Current().As_Dir32() + 4) & 31) + 8 * Class->WalkFrames;
-		Draw_Object(shape, turret_frame, composite_point, composite_window, (Dir256)0, 256, 0, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0x2820);
+		Draw_Object(shape, turret_frame, composite_point, composite_window, DIR_N, 256, 0, ZGRAD_GROUND, 0, brightness, 0, 0, Point2D(0, 0), ShapeFlags_Type(SHAPE_NOTRANS | SHAPE_ALPHA | SHAPE_ZGRAD));
 		voxel = &Class->AuxVoxel2;
-		if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && barrel_above) {
-			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, (ShapeFlags_Type)0x2820);
+		if ((voxel->VoxLib != NULL && voxel->MotLib != NULL) && barrel_above) {
+			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, ShapeFlags_Type(SHAPE_NOTRANS | SHAPE_ALPHA | SHAPE_ZGRAD));
 		}
 		int apparent_brightness = Apparent_Brightness(brightness);
 		Unit_Blit_Voxel(*old_surface, point, window, apparent_brightness);
@@ -2448,13 +2448,12 @@ void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) cons
 		IsCompositingToEightBitSurface = false;
 	} else {
 		if (Class->IsTooBigToFitUnderBridge && Is_Z_Fudge_Bridge() && Get_Z_Fudge_Column() == 0) {
-			Draw_Object(shape, frame, point, window, (Dir256)0, 256, -16, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0);
+			Draw_Object(shape, frame, point, window, DIR_N, 256, -16, ZGRAD_GROUND, 0, brightness, 0, 0, Point2D(0, 0), SHAPE_NORMAL);
 			return;
 		}
-		Draw_Object(shape, frame, point, window, (Dir256)0, 256, 0, (ZGradientType)Get_Z_Gradient(), 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0);
+		Draw_Object(shape, frame, point, window, DIR_N, 256, 0, (ZGradientType)Get_Z_Gradient(), 0, brightness, 0, 0, Point2D(0, 0), SHAPE_NORMAL);
 	}
 }
-#endif
 
 
 

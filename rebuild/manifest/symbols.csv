@@ -2863,6 +2863,7 @@ symbol,address,evidence
 ?Set_Waypoint_Path@FootClass@@UAEXW4PathType@@D@Z,0x004CB060,slot +190 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Set_Waypoint_Path@FootClass@@UAEXHD@Z
 ?Set_Waypoint_Path@ObjectClass@@UAEXW4PathType@@D@Z,0x005D53D0,slot +190 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Set_Waypoint_Path@ObjectClass@@UAEXHD@Z
 ?Set_Window@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z,0x006010F0,slot +08 of ??_7FactionSelectDialogControl@WorldDominationTour@@6B@ at 007af9d8; main row ?Set_Window_006010f0@SimpleDialogControl@OwnerDraw@@UAEXIPAUHWND__@@@Z
+?ShadowShapes@DisplayClass@@0PBXB,0x00852934,inferred: display rows 00498a50 00498b70 differ only at its sites
 ?Shadow_Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z,0x0049A370,slot +9c of ??_7RadarClass@@6B@ at 007a871c; main row ?unknown_slot39@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z
 ?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z,0x0053D0D0,slot +2c of ??_7LocomotionClass@@6BILocomotion@@@ at 007a32e8; main row ?Shadow_Matrix@LocomotionClass@@UAGPAVMatrix3D@@PAV2@PAH@Z
 ?Shadow_Point@LocomotionClass@@UAG?AUPoint2DStruct@@XZ,0x0053D1C0,slot +34 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Shadow_Point@LocomotionClass@@UAG?AUPoint2D@@XZ
@@ -2960,6 +2961,7 @@ symbol,address,evidence
 ?Unlock@LocomotionClass@@UAGXXZ,0x004A65E0,slot +b8 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Unlock@LocomotionClass@@UAGXXZ
 ?Unlock@XSurface@@UBE_NXZ,0x004112F0,slot +64 of ??_7BSurface@@6B@ at 0079aef4; main row ?Unlock@XSurface@@UAE_NXZ
 ?Unselect@ObjectClass@@UAEXXZ,0x005D2DF0,slot +148 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Unselect@ObjectClass@@UAEXXZ
+?UnusedDisplayState@@3PBXB,0x00852630,inferred: display rows 00498a50 differ only at its sites
 ?Update@CCToolTip@@UAE_NPAUToolTipText@@@Z,0x0046DFC0,slot +08 of ??_7CCToolTip@@6B@ at 007af518; main row ?Show@CCToolTip@@UAE_NPAUToolTipRecord@@@Z
 ?UpdateAttackMove@FootClass@@UAEXXZ,0x004CDC60,slot +45c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot278@FootClass@@UAEXXZ
 ?UpdateAttackMove@TechnoClass@@UAEXXZ,0x006D8FB0,slot +45c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fb0@@QAEXXZ

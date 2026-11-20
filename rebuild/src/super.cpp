@@ -890,6 +890,13 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 
 
 /// <summary>
+/// An empty function of two arguments. Nothing in the executable calls it.
+/// </summary>
+void __stdcall Unused_Super_Hook(int, int)
+{
+}
+
+/// <summary>
 /// Shuts the firestorm defense back down.
 /// This routine is called when the firestorm wall is toggled off or its charge runs
 /// out. Any other kind of super weapon ignores the request.

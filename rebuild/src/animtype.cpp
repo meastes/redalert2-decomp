@@ -719,3 +719,23 @@ void AnimTypeClass::Free_Image(void)
 	}
 }
 
+
+
+/// <summary>
+/// Finds the animation type by name, making a new one when none of that name exists.
+/// "<none>" and "none" name no animation.
+/// </summary>
+#ifdef RA2_NON_MATCHING // not exact: main's form, exact alone; defined in this unit it is expanded into Read_INI (0x425690), which calls it out of line
+AnimTypeClass * __fastcall Find_Or_Make_Type(char const * name, TypeList<AnimTypeClass *> & list)
+{
+	if (_stricmp("<none>", name) == 0 || _stricmp("none", name) == 0) {
+		return(NULL);
+	}
+	for (int index = 0; index < list.Count(); index++) {
+		if (_stricmp(list[index]->Name(), name) == 0) {
+			return(list[index]);
+		}
+	}
+	return(new AnimTypeClass(name));
+}
+#endif

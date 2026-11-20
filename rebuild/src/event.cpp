@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -745,8 +746,7 @@ EventClass::EventClass(int index, IPXAddressClass & addr, signed char value)
  * HISTORY:                                                                                    *
  *   12/27/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 264 bytes differ (adopted text)
-void EventClass::Execute(void)
+void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 {
 	TechnoClass * techno = NULL;
 	BuildingClass * building = NULL;
@@ -760,6 +760,7 @@ void EventClass::Execute(void)
 //	bool formation = false;
 	int i;
 	int index;
+	unsigned int ul; // RA2: Session.MaxMaxAhead read before MaxAhead is set (TIMING)
 //	RTTIType rt;
 
 	//if (Debug_Print_Events) {
@@ -773,7 +774,7 @@ void EventClass::Execute(void)
 		case PLAN_COMMIT:
 		case PLAN_NODE_DELETE:
 			Planning_Execute(this);
-			return;
+			break;
 
 		case POWERON:
 			building = Data.Target.Whom.As_Building();
@@ -798,7 +799,7 @@ void EventClass::Execute(void)
 			techno = Data.NavCom.Whom.As_Techno();
 			Planning_Clear_Techno(techno, NULL);
 			if (techno && techno->IsActive) {
-				techno->Assign_Archive_Target(Data.NavCom.Where.As_Abstract());
+				techno->ArchiveTarget = Data.NavCom.Where.As_Abstract();
 			}
 			break;
 
@@ -824,6 +825,13 @@ void EventClass::Execute(void)
 			break;
 
 		/*
+		**	Special self destruct action requested. This is active in the multiplayer mode.
+		*/
+		case DESTRUCT:
+			house->Flag_To_Die();
+			break;
+
+		/*
 		**	Update the special control flags. This is necessary so that in a multiplay
 		**	game, all machines will agree on the rules. If these options change during
 		**	game play, then all players are informed that options have changed.
@@ -834,8 +842,8 @@ void EventClass::Execute(void)
 				Scen->Special = Data.Options.Data;
 
 				swprintf(txt, StringTable::LoadString("TXT_SPECIAL_WARNING", NULL, "D:\\Ra2\\Event.CPP", 950), house->UIName);
-				Session.Messages.Add_Message(NULL, 0, txt, house->Scheme, TextPrintType(0x4046), 1200, false);
-				Map.Flag_To_Redraw(GScreenRedrawFlags(0));
+				Session.Messages.Add_Message(NULL, 0, txt, house->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), 1200, false);
+				Map.Flag_To_Redraw();
 			}
 			break;
 
@@ -859,7 +867,7 @@ void EventClass::Execute(void)
 			techno = Data.Target.Whom.As_Techno();
 			Planning_Clear_Techno(techno, NULL);
 			if (techno && techno->IsActive && techno->House->HeapID == ID) {
-				if (techno->RTTI == RTTI_BUILDING || ((techno->RTTI == RTTI_UNIT || techno->RTTI == RTTI_AIRCRAFT) && Map[techno->Center_Coord()].Cell_Building() != NULL)) {
+				if (techno->Fetch_RTTI() == RTTI_BUILDING || ((techno->Fetch_RTTI() == RTTI_UNIT || techno->Fetch_RTTI() == RTTI_AIRCRAFT) && Map[techno->Center_Coord()].Cell_Building() != NULL)) {
 					techno->Sell_Back(-1);
 				}
 			}
@@ -904,7 +912,7 @@ void EventClass::Execute(void)
 		**	exact factory and real object pointer to use.
 		*/
 		case PLACE:
-			house->Place_Object(Data.Place.Type, Data.Place.ID, Data.Place.IsNaval != 0, Cell(Data.Place.Where.X, Data.Place.Where.Y));
+			house->Place_Object(Data.Place.Type, Data.Place.ID, Data.Place.IsNaval, Cell(Data.Place.Where.X, Data.Place.Where.Y));
 			break;
 
 		/*
@@ -913,7 +921,7 @@ void EventClass::Execute(void)
 		**	what factory to use.
 		*/
 		case PRODUCE:
-			house->Begin_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval != 0, false);
+			house->Begin_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval, false);
 			break;
 
 		/*
@@ -921,7 +929,7 @@ void EventClass::Execute(void)
 		**	object type, the factory can be inferred.
 		*/
 		case SUSPEND:
-			house->Suspend_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval != 0);
+			house->Suspend_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval);
 			break;
 
 		/*
@@ -929,19 +937,17 @@ void EventClass::Execute(void)
 		**	object type. From the object type, the exact factory can be inferred.
 		*/
 		case ABANDON:
-			house->Abandon_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval != 0);
+			house->Abandon_Production(Data.Specific.Type, Data.Specific.ID, Data.Specific.IsNaval);
 			break;
 
 		/*
 		**	Toggles the primary factory state of the specified building.
 		*/
 		case PRIMARY:
-			{
-				BuildingClass * building = Data.Target.Whom.As_Building();
-				Planning_Clear_Techno(building, NULL);
-				if (building && building->IsActive) {
-					building->Toggle_Primary();
-				}
+			building = Data.Target.Whom.As_Building();
+			Planning_Clear_Techno(building, NULL);
+			if (building && building->IsActive) {
+				building->Toggle_Primary();
 			}
 			break;
 
@@ -1126,7 +1132,7 @@ void EventClass::Execute(void)
 		case DETONATE:
 			techno = Data.Target.Whom.As_Techno();
 			Planning_Clear_Techno(techno, NULL);
-			if (techno && techno->AttachedBomb) {
+			if (techno != NULL && techno->AttachedBomb != NULL) {
 				techno->AttachedBomb->Detonate();
 			}
 			break;
@@ -1173,18 +1179,20 @@ void EventClass::Execute(void)
 		**	Process the options Game Speed
 		*/
 		case GAMESPEED:
+		{
+			wchar_t msg[256];
 			Options.GameSpeed = Data.General.Value;
 
 			house = Houses[ID];
 			if (house != PlayerPtr && house != NULL) {
 				str = StringTable::LoadString("TXT_PLAYER_CHANGED_SPEED", NULL, "D:\\Ra2\\Event.CPP", 1401);
 				if (str != NULL && wcslen(str) != 0) {
-					wchar_t buffer[256];
-					swprintf(buffer, str, house->UIName);
-					Session.Messages.Add_Message(NULL, 0, buffer, house->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+					swprintf(msg, str, house->UIName);
+					Session.Messages.Add_Message(NULL, 0, msg, house->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), Rule->MessageDelay * TICKS_PER_MINUTE, false);
 				}
 			}
 			break;
+		}
 
 		/*
 		**	Adjust connection timing for multiplayer games
@@ -1205,8 +1213,9 @@ void EventClass::Execute(void)
 				CDTimerClass<SystemTimerClass> timer;
 				timer = TICKS_PER_SECOND * 4;
 
-				WWMessageBox().Process(StringTable::LoadString("TXT_SAVING_GAME", NULL, "D:\\Ra2\\Event.CPP", 1434), StringTable::LoadString("TXT_NONE", NULL, "D:\\Ra2\\Event.CPP", 1434), NULL, NULL, false);
-				Save_Game("SAVEGAME.NET", StringTable::LoadString("TXT_MULTIPLAYER_GAME", NULL, "D:\\Ra2\\Event.CPP", 1436), false);
+				WWMessageBox().Process(StringTable::LoadString("TXT_SAVING_GAME", NULL, "D:\\Ra2\\Event.CPP", 1434), StringTable::LoadString("TXT_NONE", NULL, "D:\\Ra2\\Event.CPP", 1434), NULL, NULL);
+
+				Save_Game("SAVEGAME.NET", StringTable::LoadString("TXT_MULTIPLAYER_GAME", NULL, "D:\\Ra2\\Event.CPP", 1436));
 
 				while (timer > 0) {
 					Call_Back();
@@ -1215,9 +1224,8 @@ void EventClass::Execute(void)
 				HiddenSurface->Fill(0);
 				Map.Flag_To_Redraw(GS_REDRAW_ALL);
 				Map.Render();
-			}
-			else {
-				Save_Game("SAVEGAME.NET", StringTable::LoadString("TXT_MULTIPLAYER_GAME", NULL, "D:\\Ra2\\Event.CPP", 1447), false);
+			} else {
+				Save_Game("SAVEGAME.NET", StringTable::LoadString("TXT_MULTIPLAYER_GAME", NULL, "D:\\Ra2\\Event.CPP", 1447));
 			}
 			break;
 
@@ -1239,21 +1247,12 @@ void EventClass::Execute(void)
 			index = Data.General.Value;
 
 			house = Houses[index];
-			if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {
-				if (house->Is_Human_Player()) {
-					OwnerTalk.Send_Remove_Player(index);
-				}
+			if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter && house->Is_Human_Player()) {
+				OwnerTalk.Send_Remove_Player(index);
 			}
 			if ((Session.Type == GAME_INTERNET && WestwoodOnline_Tournament) || house->Is_Human_Player()) {
 				house->Flag_To_Die();
 			}
-			break;
-
-		/*
-		**	Special self destruct action requested. This is active in the multiplayer mode.
-		*/
-		case DESTRUCT:
-			house->Flag_To_Die();
 			break;
 
 		case FALLBACK_HOST: // RA2
@@ -1262,77 +1261,78 @@ void EventClass::Execute(void)
 			break;
 
 		case ADDRESS_CHANGE: // RA2
-			{
+		{
 			DebugString("Executing ADDRESSCHANGE event for player %d\n", Data.Address.Value);
-			unsigned char node[6];
-			unsigned char network[4];
+			NetNodeType node;
+			NetNumType net;
 			memset(node, 0, sizeof(node));
-			memset(network, 0, sizeof(network));
-			*(long *)node = Data.Address.Node;
-			IPXAddressClass address(network, node, 0);
+			memset(net, 0, sizeof(net));
+			memcpy(node, &Data.Address.Node, sizeof(Data.Address.Node));
+			IPXAddressClass address(net, node, 0);
 			DebugString("New address is %s\n", address.As_String(&address));
 			Ipx.Set_Connection_Address(Data.Address.Value, &address);
 			OwnerTalk.Set_Address(Data.Address.Value, &address);
-			int count = Session.Players.Count();
-			for (i = 0; i < count; i++) {
+			for (i = 0; i < Session.Players.Count(); i++) {
 				if (Session.Players[i]->Player.ID == Data.Address.Value) {
-					break;
+					if (i < Session.Players.Count()) {
+						Session.Players[i]->Address = address;
 					}
-				}
-			if (i < count) {
-				Session.Players[i]->Address = address;
+					break;
 				}
 			}
 			break;
+		}
 
 		case ABOUT_TO_EXIT: // RA2
-			{
+		{
 			DebugString("Processing ABOUTTOEXIT event on frame %d\n", ::Frame);
-			if (Session.Am_I_Master(NULL)) {
+			if (Session.Am_I_Master()) {
 				OutList.Add(EventClass(PlayerPtr->HeapID, EXIT));
 				Session.RouterProbeActive = true;
-				}
+			}
 			Session.AboutToExitActive = true;
-			int host = OwnerTalk.Update_Master();
-			if (host != -1) {
-				HouseClass * hostp = Houses[host];
-				if (hostp) {
+			index = OwnerTalk.Update_Master();
+			if (index != -1) {
+				hptr = Houses[index];
+				if (hptr != NULL) {
 					if (Session.Players.Count() > 2) {
-						IPXAddressClass * address = NULL;
+						IPXAddressClass * addr = NULL;
 						for (i = 0; i < Session.Players.Count(); i++) {
-							if (Session.Players[i]->Player.ID == host) {
-								address = &Session.Players[i]->Address;
+							if (Session.Players[i]->Player.ID == index) {
+								addr = &Session.Players[i]->Address;
 								Session.PacketRouterPort = Session.PlayerPorts[i];
 								break;
-								}
 							}
-						unsigned char network[4];
-						unsigned char node[6];
-						address->Get_Address(network, node);
-						Session.PacketRouterAddress.Set_Address(network, node, 0);
+						}
+						NetNumType net;
+						NetNodeType node;
+						addr->Get_Address(net, node);
+						Session.PacketRouterAddress.Set_Address(net, node, 0);
 						DebugString("Session.PacketRouterAddress = %s\n", Session.PacketRouterAddress.As_String(NULL));
 						DebugString("Session.PacketRouterPort = %d\n", Session.PacketRouterPort);
-						if (!Session.Am_I_Master(NULL)) {
+						if (!Session.Am_I_Master()) {
 							Ipx.Set_Lobby_Address(&Session.PacketRouterAddress);
-							}
-						}
-					wcscpy(Session.MasterPlayerName, hostp->UIName);
-					DebugString("New game host is %ls\n", Session.MasterPlayerName);
-					Session.MasterPlayerID = host;
-					if (Session.Am_I_Master(NULL)) {
-						OwnerTalk.Send_Player_List();
 						}
 					}
-				Session.ExitEventPending = ::Frame;
-				Session.ExitEventPlayer = host;
-				Session.ExitEventFrame = ((Session.MaxAhead + ::Frame + 10) / 10) * 10;
-				Session.LastTimingID = -1;
+					wcscpy(Session.MasterPlayerName, hptr->UIName);
+					DebugString("New game host is %ls\n", Session.MasterPlayerName);
+					Session.MasterPlayerID = index;
+					if (Session.Am_I_Master()) {
+						OwnerTalk.Send_Player_List();
+					}
 				}
-			Session.AboutToExitActive = false;
+				Session.ExitEventPending = ::Frame;
+				Session.ExitEventPlayer = index;
+				Session.LastTimingID = -1;
+				Session.ExitEventFrame = ((Session.MaxAhead + ::Frame + 10) / 10) * 10;
 			}
+			Session.AboutToExitActive = false;
 			break;
+		}
 
 		case LATENCYFUDGE:
+		{
+			wchar_t msg[256];
 			DebugString("Executing LATENCYFUDGE event. Frame is %d\n", ::Frame);
 			Session.LatencyFudge = Data.General.Value;
 			DebugString("LatencyFudge is %d\n", Session.LatencyFudge);
@@ -1341,12 +1341,12 @@ void EventClass::Execute(void)
 			if (house != PlayerPtr && house != NULL) {
 				str = StringTable::LoadString("TXT_PLAYER_CHANGED_LATENCY", NULL, "D:\\Ra2\\Event.CPP", 1718);
 				if (str != NULL && wcslen(str) != 0) {
-					wchar_t buffer[256];
-					swprintf(buffer, str, house->UIName);
-					Session.Messages.Add_Message(NULL, 0, buffer, house->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+					swprintf(msg, str, house->UIName);
+					Session.Messages.Add_Message(NULL, 0, msg, house->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_USE_GRAD_PAL | TPF_FULLSHADOW), Rule->MessageDelay * TICKS_PER_MINUTE, false);
 				}
 			}
 			break;
+		}
 
 		//
 		// This event tells all systems to use new timing values.  It's like
@@ -1354,25 +1354,25 @@ void EventClass::Execute(void)
 		// COMM_MULTI_E_COMP protocol.
 		//
 		case TIMING:
-			Data.Timing.MaxAhead -= (Scen->Special.IsFogOfWar) ? 10 : 0;
+			Data.Timing.MaxAhead -= Scen->Special.IsFogOfWar ? 10 : 0;
 
 			if (Data.Timing.MaxAhead > Session.MaxAhead || Data.Timing.FrameSendRate > Session.FrameSendRate) {
 				NewMaxAheadFrame1 = Frame;
-				NewMaxAheadFrame2 = Data.Timing.FrameSendRate * ((Frame + Data.Timing.MaxAhead + Data.Timing.FrameSendRate - 1) / Data.Timing.FrameSendRate);
+				NewMaxAheadFrame2 = Data.Timing.FrameSendRate * ((Data.Timing.FrameSendRate + Data.Timing.MaxAhead + Frame - 1) / Data.Timing.FrameSendRate);
 			} else {
 				NewMaxAheadFrame1 = 0;
 				NewMaxAheadFrame2 = 0;
 			}
 
 			Session.DesiredFrameRate = Data.Timing.DesiredFrameRate;
+			ul = Session.MaxMaxAhead;
 			Session.MaxAhead = Data.Timing.MaxAhead;
 
-			if ((unsigned int)Session.MaxMaxAhead <= Session.MaxAhead) {
+			if (ul <= Session.MaxAhead) {
 				Session.MaxMaxAhead = Session.MaxAhead;
 			}
 
 			Session.FrameSendRate = Data.Timing.FrameSendRate;
-
 			break;
 
 		//
@@ -1407,6 +1407,5 @@ void EventClass::Execute(void)
 	//}
 
 }
-#endif
 
 

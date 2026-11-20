@@ -646,30 +646,30 @@ void IonStormClass::End_Nuke_Flash(void) // RA2: back to the storm light or the 
 }
 
 
-void IonStormClass::Set_Scheme_Lighting(int red, int green, int blue, bool unknown4) // RA2: tints the converters of the color scheme lists (0x520A80)
+void IonStormClass::Set_Scheme_Lighting(int red, int green, int blue, bool ion_light) // RA2: tints the converters of the color scheme lists (0x520A80)
 {
 	SchemeListIterator iterator; // RA2: as above
 	for (DynamicVectorClass<ColorScheme *> * list = iterator.Next(); list != NULL; list = iterator.Next()) { // RA2: as above
 		int count = Scheme_List_Count(); // RA2: as above
 		for (int index = 0; index < count; index++) { // RA2: as above
-			((LightConvertClass *)(*list)[index]->Converter)->Apply_Tint(red, green, blue, unknown4); // RA2: as above
+			((LightConvertClass *)(*list)[index]->Converter)->Apply_Tint(red, green, blue, ion_light); // RA2: as above
 		}
 	}
 }
 
 
-void IonStormClass::Set_Lighting(int red, int green, int blue, bool unknown4) // RA2: tints every tile drawer and color scheme (0x520B00)
+void IonStormClass::Set_Lighting(int red, int green, int blue, bool ion_light) // RA2: tints every tile drawer and color scheme (0x520B00)
 {
 	int index; // RA2: as above
 	for (index = 0; index < TileDrawers.Count(); index++) { // RA2: as above
-		TileDrawers[index]->Apply_Tint(red, green, blue, unknown4); // RA2: as above
+		TileDrawers[index]->Apply_Tint(red, green, blue, ion_light); // RA2: as above
 	}
 	for (index = 0; index < ColorSchemes.Count(); index++) { // RA2: as above
 		if (ColorSchemes[index]->IntensityLevels > 1) { // RA2: as above
-			((LightConvertClass *)ColorSchemes[index]->Converter)->Apply_Tint(red, green, blue, unknown4); // RA2: as above
+			((LightConvertClass *)ColorSchemes[index]->Converter)->Apply_Tint(red, green, blue, ion_light); // RA2: as above
 		}
 	}
-	Set_Scheme_Lighting(red, green, blue, unknown4); // RA2: as above
+	Set_Scheme_Lighting(red, green, blue, ion_light); // RA2: as above
 	Map.Update_Cell_Colors(); // RA2: as above
 }
 

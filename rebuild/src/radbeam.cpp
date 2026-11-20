@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright 2026 ra2-decomp contributors
 // RA2: not in TibSun. The rad and chrono beams: a type 1 beam pulses along the line from Source to
 // Target, a type 2 beam swings; Update_All draws every listed beam once a frame and deletes the
 // ones whose period is over.
@@ -36,46 +37,48 @@ RadBeam * RadBeam::Allocate(int type)
 /// the frame rate it wants; pulse beams take longer steps then. A beam whose period is over is
 /// taken off the list and deleted.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 755 bytes differ (written fresh)
 void RadBeam::Update_All(void)
 {
-	int swings = 0;
+	int total = Array.Count();
+	int count = 0;
 	int active = 0;
-	for (int i = Array.Count() - 1; i >= 0; i--) {
-		if (Array[i]->Type == 2) {
-			swings++;
-			if (Array[i]->IsActive) {
+	for (int index = total - 1; index >= 0; index--) {
+		RadBeam * beam = Array[index];
+		if (beam->Type == 2) {
+			count++;
+			if (beam->IsActive) {
 				active++;
 			}
 		}
 	}
 
-	double speed = (double)FPSCounter::CurrentFrameRate / Session.DesiredFrameRate;
-	speed = speed * speed * speed;
-	double excess = (double)active / swings - speed;
-	double drop = 0.0;
+	double desired = Session.DesiredFrameRate;
+	double rate = FPSCounter::CurrentFrameRate / desired;
+	rate = rate * rate * rate;
+	double excess = (double)active / count - rate;
+	double cull = 0.0;
 	if (excess > 0.0) {
-		drop = swings * excess;
+		cull = count * excess;
 	}
-	drop = drop / active;
-	speed = 1.0 / speed;
+	cull /= active;
+	double stretch = 1.0 / rate;
 
-	for (int index = Array.Count() - 1; index >= 0; index--) {
+	for (index = total - 1; index >= 0; index--) {
 		RadBeam * beam = Array[index];
 		bool done;
 		if (beam->Type == 1) {
-			int step = speed * 10.0;
-			if (step < 10) {
-				step = 10;
-			} else if (step > 100) {
-				step = 100;
+			int length = (int)(stretch * 10.0);
+			if (length < 10) {
+				length = 10;
+			} else if (length > 100) {
+				length = 100;
 			}
-			beam->StepLength = step;
+			beam->Set_Step_Length(length);
 			done = beam->Draw_Pulse();
 		} else if (beam->Type == 2) {
 			if (beam->IsActive) {
-				if (NonCriticalRandomNumber(0, 99) < (int)(drop * 100.0)) {
-					beam->IsActive = false;
+				if (NonCriticalRandomNumber(0, 99) < (int)(cull * 100.0)) {
+					beam->Deactivate();
 				}
 			}
 			done = beam->Draw_Swing();
@@ -84,11 +87,10 @@ void RadBeam::Update_All(void)
 		}
 		if (done) {
 			Array.Delete(beam);
-			operator delete(beam);
+			delete beam;
 		}
 	}
 }
-#endif
 
 
 RadBeam::RadBeam(int type) :
@@ -193,7 +195,6 @@ void RadBeam::Draw_Line(Coord const & start, Coord const & end, short color)
 
 
 /// <summary>One frame of a type 1 beam: the line is drawn step by step; true once the period is over.</summary>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (the pixel takes blue first and red last in the original)
 bool RadBeam::Draw_Pulse(void)
 {
 	if (!Prepared) {
@@ -218,12 +219,13 @@ bool RadBeam::Draw_Pulse(void)
 		CurrentColor = Color;
 		for (StepIndex = 0; StepIndex * StepLength < Length; StepIndex++) {
 			Compute_Pulse_Step();
-			Draw_Line(Current, Next, DSurface::Build_Hicolor_Pixel(CurrentColor));
+			unsigned short green = ((RGBStruct const &)CurrentColor).Green; // RA2: green is read first (ra2-decomp's twin text)
+			short pixel = (short)DSurface::Build_Hicolor_Pixel(((RGBStruct const &)CurrentColor).Red, green, ((RGBStruct const &)CurrentColor).Blue);
+			Draw_Line(Current, Next, pixel);
 		}
 	}
 	return(++Time >= Period);
 }
-#endif
 
 
 /// <summary>The vector from the source to the target and its length.</summary>
@@ -274,7 +276,7 @@ bool RadBeam::Draw_Swing(void)
 		Update_Swing();
 		for (StepIndex = 0; StepIndex < Steps; StepIndex++) {
 			Compute_Swing_Step();
-			Draw_Line(Current, Next, DSurface::Build_Hicolor_Pixel(CurrentColor));
+			Draw_Line(Current, Next, DSurface::Build_Hicolor_Pixel(((RGBStruct const &)CurrentColor).Red, ((RGBStruct const &)CurrentColor).Green, ((RGBStruct const &)CurrentColor).Blue));
 		}
 	}
 	return(++Time >= Period);

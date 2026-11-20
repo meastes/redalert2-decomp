@@ -78,6 +78,30 @@
     "?Prep_For_Object@VoxelDrawSystem@@YIXPAVVoxelLibrary@@HHABVMatrix3D@@@Z": 7435456,
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
     "?TiberiumDrawer@@3PAVConvertClass@@A": 8594364,
+    "?UpdateAt@VocClass@@SIPAXABVCoord@@PAUAudioController@@@Z": 7422384,
+    "??2@YAPAXI@Z": 7872535,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ": 4419456,
+    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
+    "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z": 7391232,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Can_Tiberium_Germinate@CellClass@@QBE_NPBVTiberiumClass@@@Z": 4688800,
+    "?Which_Tiberium_Type@@YI?AW4TiberiumType@@W4OverlayType@@@Z": 6144176,
+    "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A": 11275056,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "??0OverlayClass@@QAE@PBVOverlayTypeClass@@ABVCell@@W4HousesType@@@Z": 6137808,
+    "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z": 7252096,
+    "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4673200,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "?Radar_Background@RadarClass@@QAEXABVCell@@@Z": 6493552,
+    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
+    "?Frame@@3HA": 10751276,
+    "__real@8@3ff99da7b584ce88b000": 8054264,
+    "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ": 4419808,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "??0ObjectClass@@QAE@ABVNoInitClass@@@Z": 6104320,
     "?Swizzler@@3VSwizzleManagerClass@@A": 11262056,
@@ -166,7 +190,6 @@
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@PBV1@_N@Z": 6106016,
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": 6106032,
     "?Get_Image_Data@ObjectClass@@UBEPBXXZ": 6105008,
-    "?AI@VoxelAnimClass@@UAEXXZ": 7394176,
     "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
     "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
     "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
@@ -228,6 +251,7 @@
     "?Render@VoxelAnimClass@@UBE_NAAV?$TRect@H@@_N1@Z": 7393136,
     "?Draw_It@VoxelAnimClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 7393216,
     "?Init_Clear@VoxelAnimClass@@SIXXZ": 7394128,
+    "?AI@VoxelAnimClass@@UAEXXZ": 7394176,
     "?In_Which_Layer@VoxelAnimClass@@UBE?AW4LayerType@@XZ": 7396768,
     "?Load@VoxelAnimClass@@UAGJPAUIStream@@@Z": 7396784,
     "?Save@VoxelAnimClass@@UAGJPAUIStream@@H@Z": 7396944,
@@ -243,7 +267,6 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
@@ -314,7 +337,7 @@
           "resolved": 11339320
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390736,
@@ -366,7 +389,7 @@
           "resolved": 11339392
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390784,
@@ -418,7 +441,7 @@
           "resolved": 11339376
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390816,
@@ -470,7 +493,7 @@
           "resolved": 11339368
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390848,
@@ -522,7 +545,7 @@
           "resolved": 11339328
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390880,
@@ -574,7 +597,7 @@
           "resolved": 11339288
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390912,
@@ -658,7 +681,7 @@
           "resolved": 11339400
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7390944,
@@ -718,7 +741,7 @@
           "resolved": 11339336
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391008,
@@ -778,7 +801,7 @@
           "resolved": 11339360
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391056,
@@ -838,7 +861,7 @@
           "resolved": 11339384
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391104,
@@ -882,7 +905,7 @@
           "resolved": 11339314
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391152,
@@ -934,7 +957,7 @@
           "resolved": 11339352
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391168,
@@ -994,7 +1017,7 @@
           "resolved": 11339308
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7391200,
@@ -1174,7 +1197,7 @@
           "resolved": 8624596
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7392544,
@@ -1394,7 +1417,7 @@
           "resolved": 4293678543
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7392832,
@@ -1446,7 +1469,7 @@
           "resolved": 4293682483
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7393136,
@@ -1802,7 +1825,7 @@
           "resolved": 4292419691
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7393216,
@@ -1854,10 +1877,782 @@
           "resolved": 8624608
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7394128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7394176,
+      "method": "0070d380",
+      "body_bytes": 2590,
+      "body_sha256": "829710092716c0ee53664b5b3367d91090ee4fe0c913839fec0bcb7e6d862135",
+      "padding_bytes": 2,
+      "full_extent_bytes": 2592,
+      "full_extent_sha256": "42dd8dc1a7812746f23892841719f202531618a270021df13db7e2f7e9733449",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@VoxelAnimClass@@UAEXXZ",
+      "symbol_prefix": "?AI@VoxelAnimClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?UpdateAt@VocClass@@SIPAXABVCoord@@PAUAudioController@@@Z",
+          "target": 7422384,
+          "addend": 0,
+          "resolved": 28153
+        },
+        {
+          "offset": 137,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293110755
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293185056
+        },
+        {
+          "offset": 226,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11339384,
+          "addend": 0,
+          "resolved": 11339384
+        },
+        {
+          "offset": 283,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 478072
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 361,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291898403
+        },
+        {
+          "offset": 371,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477984
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291898330
+        },
+        {
+          "offset": 444,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477911
+        },
+        {
+          "offset": 474,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 514,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291898250
+        },
+        {
+          "offset": 547,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477808
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 465749
+        },
+        {
+          "offset": 582,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 465734
+        },
+        {
+          "offset": 597,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 465719
+        },
+        {
+          "offset": 636,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291898128
+        },
+        {
+          "offset": 676,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291991896
+        },
+        {
+          "offset": 685,
+          "kind": 20,
+          "symbol": "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z",
+          "target": 4711104,
+          "addend": 0,
+          "resolved": 4292283535
+        },
+        {
+          "offset": 721,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291991851
+        },
+        {
+          "offset": 753,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4292288395
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291991751
+        },
+        {
+          "offset": 871,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 884,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294095272
+        },
+        {
+          "offset": 904,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 916,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294095240
+        },
+        {
+          "offset": 934,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477421
+        },
+        {
+          "offset": 967,
+          "kind": 20,
+          "symbol": "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z",
+          "target": 7391232,
+          "addend": 0,
+          "resolved": 4294963381
+        },
+        {
+          "offset": 1052,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1059,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1096,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1105,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293109915
+        },
+        {
+          "offset": 1116,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Germinate@CellClass@@QBE_NPBVTiberiumClass@@@Z",
+          "target": 4688800,
+          "addend": 0,
+          "resolved": 4292260800
+        },
+        {
+          "offset": 1134,
+          "kind": 20,
+          "symbol": "?Which_Tiberium_Type@@YI?AW4TiberiumType@@W4OverlayType@@@Z",
+          "target": 6144176,
+          "addend": 0,
+          "resolved": 4293716158
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 1166,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477189
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1208,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294094948
+        },
+        {
+          "offset": 1253,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 1269,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 477086
+        },
+        {
+          "offset": 1285,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1307,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294094849
+        },
+        {
+          "offset": 1332,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 1347,
+          "kind": 20,
+          "symbol": "??0OverlayClass@@QAE@PBVOverlayTypeClass@@ABVCell@@W4HousesType@@@Z",
+          "target": 6137808,
+          "addend": 0,
+          "resolved": 4293709577
+        },
+        {
+          "offset": 1362,
+          "kind": 20,
+          "symbol": "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z",
+          "target": 7252096,
+          "addend": 0,
+          "resolved": 4294823850
+        },
+        {
+          "offset": 1381,
+          "kind": 20,
+          "symbol": "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4673200,
+          "addend": 0,
+          "resolved": 4292244935
+        },
+        {
+          "offset": 1389,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 1566,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1581,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 4294065087
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1643,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 4294530609
+        },
+        {
+          "offset": 1703,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291990869
+        },
+        {
+          "offset": 1709,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1714,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293109194
+        },
+        {
+          "offset": 1724,
+          "kind": 20,
+          "symbol": "?Can_Tiberium_Germinate@CellClass@@QBE_NPBVTiberiumClass@@@Z",
+          "target": 4688800,
+          "addend": 0,
+          "resolved": 4292260192
+        },
+        {
+          "offset": 1742,
+          "kind": 20,
+          "symbol": "?Which_Tiberium_Type@@YI?AW4TiberiumType@@W4OverlayType@@@Z",
+          "target": 6144176,
+          "addend": 0,
+          "resolved": 4293715550
+        },
+        {
+          "offset": 1748,
+          "kind": 6,
+          "symbol": "?Tiberiums@@3V?$DynamicVectorClass@PAVTiberiumClass@@@@A",
+          "target": 11275056,
+          "addend": 4,
+          "resolved": 11275060
+        },
+        {
+          "offset": 1774,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 476581
+        },
+        {
+          "offset": 1793,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1815,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294094341
+        },
+        {
+          "offset": 1860,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 1872,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 476483
+        },
+        {
+          "offset": 1886,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1908,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294094248
+        },
+        {
+          "offset": 1933,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 1946,
+          "kind": 20,
+          "symbol": "??0OverlayClass@@QAE@PBVOverlayTypeClass@@ABVCell@@W4HousesType@@@Z",
+          "target": 6137808,
+          "addend": 0,
+          "resolved": 4293708978
+        },
+        {
+          "offset": 1957,
+          "kind": 20,
+          "symbol": "?Queue_Growth@TiberiumClass@@QAEXABVCell@@@Z",
+          "target": 7252096,
+          "addend": 0,
+          "resolved": 4294823255
+        },
+        {
+          "offset": 1976,
+          "kind": 20,
+          "symbol": "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4673200,
+          "addend": 0,
+          "resolved": 4292244340
+        },
+        {
+          "offset": 1982,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1987,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 4294064681
+        },
+        {
+          "offset": 2029,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2054,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 476301
+        },
+        {
+          "offset": 2074,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 464242
+        },
+        {
+          "offset": 2089,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 464227
+        },
+        {
+          "offset": 2101,
+          "kind": 6,
+          "symbol": "_CELL_LEPTON_DIAG",
+          "target": 11339320,
+          "addend": 0,
+          "resolved": 11339320
+        },
+        {
+          "offset": 2111,
+          "kind": 6,
+          "symbol": "__real@8@3ff99da7b584ce88b000",
+          "target": 8054264,
+          "addend": 0,
+          "resolved": 8054264
+        },
+        {
+          "offset": 2117,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 2122,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 464194
+        },
+        {
+          "offset": 2161,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291896603
+        },
+        {
+          "offset": 2174,
+          "kind": 20,
+          "symbol": "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ",
+          "target": 4419808,
+          "addend": 0,
+          "resolved": 4291990750
+        },
+        {
+          "offset": 2256,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2272,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293108636
+        },
+        {
+          "offset": 2316,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 476039
+        },
+        {
+          "offset": 2377,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4291896387
+        },
+        {
+          "offset": 2389,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291990183
+        },
+        {
+          "offset": 2395,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2400,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293108508
+        },
+        {
+          "offset": 2456,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291990116
+        },
+        {
+          "offset": 2519,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 4294528021
+        },
+        {
+          "offset": 2569,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ",
+          "target": 4419456,
+          "addend": 0,
+          "resolved": 4291990003
+        }
+      ],
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
+      "source": "rebuild/src/vanim.cpp",
+      "population": "rebuild-vanim",
+      "source_order": 7394176,
       "source_quality_family": "rebuild"
     },
     {
@@ -1881,7 +2676,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396768,
@@ -2021,7 +2816,7 @@
           "resolved": 4294515941
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396784,
@@ -2057,7 +2852,7 @@
           "resolved": 4291830364
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396944,
@@ -2149,7 +2944,7 @@
           "resolved": 4292370480
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7396976,
@@ -2209,7 +3004,7 @@
           "resolved": 8002508
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397136,
@@ -2236,7 +3031,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397200,
@@ -2263,7 +3058,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397216,
@@ -2290,7 +3085,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397232,
@@ -2317,7 +3112,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397248,
@@ -2361,7 +3156,7 @@
           "resolved": 474518
         }
       ],
-      "source_sha256": "eb404be999cc7aaffa421e3cdd10fc16fc6c70c2ee4d1bdc5242e05afa15d0e2",
+      "source_sha256": "bf384ac9e5f669c2f1b610277f1868dc204d23473d2357691f17ebea3cb68ee6",
       "source": "rebuild/src/vanim.cpp",
       "population": "rebuild-vanim",
       "source_order": 7397264,

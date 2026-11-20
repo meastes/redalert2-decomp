@@ -1255,8 +1255,6 @@ void __cdecl Planning_Reset_State(void) // RA2: 0x00613E50; deletes every token 
 	memset(PlanningHelpCounts, 0, sizeof(PlanningHelpCounts)); // RA2: as above
 }
 
-void __fastcall Planning_Update(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (published twin through current planning interfaces)
 void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: drops the steps whose target is gone and shows a pending refusal
 {
 	Planning_Hover(); // RA2: as above
@@ -1264,27 +1262,30 @@ void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: 
 		PlanningSelectedNode = 0; // RA2: as above
 	}
 	int count = PlanningTokenClass::Array.Count(); // RA2: as above
-	for (int i = 0; i < count; ++i) { // RA2: as above
-		PlanningTokenClass * token = PlanningTokenClass::Array[i]; // RA2: as above
-		TechnoClass * owner = token->OwnerUnit; // RA2: as above
-		for (int j = token->PlanningNodes.Count() - 1; j >= 0; --j) { // RA2: as above
-			EventClass event = token->Event_At(j); // RA2: as above
-			bool remove = true; // RA2: as above
-			if (event.Type == EventClass::MEGAMISSION) { // RA2: as above
-				if (event.Data.MegaMission.Target.Is_Valid()) { // RA2: as above
-					remove = event.Data.MegaMission.Target.As_Abstract() == 0; // RA2: as above
-				} else if (event.Data.MegaMission.Destination.Is_Valid()) { // RA2: as above
-					remove = event.Data.MegaMission.Destination.As_Abstract() == 0; // RA2: as above
+	int i = 0; // RA2: as above
+	if (count > 0) { // RA2: as above
+		do { // RA2: as above
+			PlanningTokenClass * token = PlanningTokenClass::Array[i]; // RA2: as above
+			TechnoClass * owner = token->OwnerUnit; // RA2: as above
+			for (int j = token->PlanningNodes.Count() - 1; j >= 0; --j) { // RA2: as above
+				EventClass event = token->Event_At(j); // RA2: as above
+				bool remove = true; // RA2: as above
+				if (event.Type == EventClass::MEGAMISSION) { // RA2: as above
+					if (event.Data.MegaMission.Target.Is_Valid()) { // RA2: as above
+						remove = event.Data.MegaMission.Target.As_Abstract() == 0; // RA2: as above
+					} else if (event.Data.MegaMission.Destination.Is_Valid()) { // RA2: as above
+						remove = event.Data.MegaMission.Destination.As_Abstract() == 0; // RA2: as above
+					}
 				}
+				if (!remove) { // RA2: as above
+					continue; // RA2: as above
+				}
+				PlanningNodeClass * node = token->Node_At(j); // RA2: as above
+				PlanningNodeClass * next = node->Next_Node(owner); // RA2: as above
+				Planning_Queue_Node(next); // RA2: as above
+				token->Remove_Node_At(j); // RA2: as above
 			}
-			if (!remove) { // RA2: as above
-				continue; // RA2: as above
-			}
-			PlanningNodeClass * node = token->Node_At(j); // RA2: as above
-			PlanningNodeClass * next = node->Next_Node(owner); // RA2: as above
-			Planning_Queue_Node(next); // RA2: as above
-			token->Remove_Node_At(j); // RA2: as above
-		}
+		} while (count > ++i); // RA2: as above
 	}
 	Planning_Process_Queue(); // RA2: as above
 	int refusal = PlanningPendingRefusal; // RA2: as above
@@ -1295,7 +1296,6 @@ void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: 
 	Reset_Planning_Command_Flags(); // RA2: as above
 	PlanningRefusalShown = false; // RA2: as above
 }
-#endif
 
 void __fastcall Planning_Free_Nodes(void) // RA2: 0x006142F0; runs the planned events still held and frees them
 {
