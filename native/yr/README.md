@@ -1164,6 +1164,23 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   instead of 3,0) did not help: GIs wander there too. Eight runs after the change, four at a time: all pass (0 differing in six, 20 in two).
 * The Red Alert 2 side of the lane (data extents, unreached rewrites) is in docs/PORTS_FACTS.md.
 
+### Lane N16 (2026-11-19): the deployers flake traced
+
+* **`yr-native-deployers`' intermittent "E1 did not deploy: animation 0 at frame 300"** (lanes N14, N15; here 3 of 4
+  runs at four at a time, animations 0, 9, 10): not a game fault and not timing. `deploy E1` ordered the player's first
+  GI, which in the skirmish is one of the ten starting soldiers, not the one spawned beside the Guardian GI. That
+  GI deployed (do28 by frame ~110 in every traced run), but depending on the start position and where the starting
+  soldiers stand it was within the deployed Desolator's radiation: its strength fell 125 -> 7 over frames 100-200 and
+  it died. `doing E1` then fell back to the player's next GI (standing, walking or firing: do0, do2, do9, do10) and
+  frame 320's `deploy E1` deployed that one, hence "deployed 1" at frame 500. The radiation killing a GI is the
+  original's behaviour. The spawned GI and the Guardian GI (12 cells from the Desolator) were never hurt.
+* **Harness** (glue/yr_harness.cpp): a player's `spawn <ID>` now names that techno for its type, so `deploy <ID>` and
+  `doing <ID>` take the spawned one; once the named one has left the map (killed, or into limbo) `doing` logs
+  `harness-doing <ID> gone` and `deploy` `harness-deploy: <ID> gone` instead of quietly taking another. The test reports
+  a gone soldier as such. `deploy CAHSE07` (yr-native-garrison) and `deploy AMCV` (yr-native-graphics) take the same
+  unit as before (the spawned house; the MCV is not spawned).
+* **Checks**: see the lane's hand-back (10 consecutive deployers passes, runs four at a time and under ctest -j4).
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

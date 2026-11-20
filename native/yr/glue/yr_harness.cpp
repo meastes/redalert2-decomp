@@ -14,8 +14,9 @@
 //   watch           from then on, every 50 frames, the shoot target's strength (`harness-watch s<n>`)
 //                   and `harness-killed <ID> at frame <f>` once it has left the game;
 //   hunt            every combat unit of the player's gets MISSION_HUNT (the AI attack teams' order);
-//   deploy <ID>     the player's first unit of type ID deploys (MISSION_UNLOAD, as EventClass DEPLOY queues
-//                   it: an MCV unpacks into its Construction Yard) (lane Y14);
+//   deploy <ID>     the unit of type ID the last `spawn`/`deploy` of the type named (lane N16), else the player's
+//                   first, deploys (MISSION_UNLOAD, as EventClass DEPLOY queues it: an MCV unpacks into its
+//                   Construction Yard) (lane Y14);
 //   move <ID> <dx> <dy>  the player's first unit of type ID moves dx,dy cells from its cell (MISSION_MOVE);
 //   where <ID>      logs `harness-where <ID> px<x>,<y> &<addr>`: the player's first techno of type ID on the
 //                   tactical view (window pixels of the 800x600 view, TacticalClass::Coord_To_Pixel), or
@@ -270,11 +271,34 @@ HouseClass * Enemy_House(void)
 	return(best);
 }
 
-// deploy: the techno each type's last `deploy` ordered, for `doing` (lane N13)
+// deploy: the techno each type's last `spawn` (the player's) or `deploy` named, for `deploy` and `doing` (lane N13;
+// lane N16: the spawned one, not the player's first of the type, which in a skirmish is a starting soldier)
 enum { kDeployKept = 16 };
 char deploy_type[kDeployKept][32];
 TechnoClass * deploy_last[kDeployKept];
 int deploy_count = 0;
+
+void Track(char const * id, TechnoClass * techno)
+{
+	int k = 0;
+	while (k < deploy_count && strcmp(deploy_type[k], id)) ++k;
+	if (k >= kDeployKept) return;
+	snprintf(deploy_type[k], sizeof(deploy_type[k]), "%s", id);
+	deploy_last[k] = techno;
+	if (k == deploy_count) ++deploy_count;
+}
+
+// the techno Track last named for type ID; `*gone` when there is one but it has left the map (killed, or in limbo)
+TechnoClass * Tracked(char const * id, bool * gone)
+{
+	*gone = false;
+	for (int k = 0; k < deploy_count; ++k) {
+		if (strcmp(deploy_type[k], id)) continue;
+		for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) return(Technos[i]);
+		*gone = true;
+	}
+	return(NULL);
+}
 
 TechnoClass * First_Of(char const * id, HouseClass * house, bool not_house = false)
 {
@@ -320,6 +344,7 @@ int Spawn(char const * id, bool enemy, int dx, int dy, bool offset, char const *
 			Coord at(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
 			at.Z = Map.Get_Height_GL(at);
 			if (object->Unlimbo(at, DIR_N)) {
+				if (!enemy && object->Is_Techno()) Track(id, (TechnoClass *)object);
 				fprintf(stderr, "harness-spawn %s h%d @%d,%d &%p\n", id, house->HeapID, cell.X, cell.Y, (void *)object);
 				return(1);
 			}
@@ -640,12 +665,14 @@ int Run_Order(int frame, char const * text)
 		// logs `harness-doing <ID> do<n> m<mission> deployer <0|1> deployed <0|1> &<addr>` for the first techno of
 		// type ID (the player's, else any): an infantry soldier's animation (DoType; 0x1b deploy, 0x1c deployed idle,
 		// 0x1f undeploy) and its type's Deployer; a vehicle's deployed state (lane N13, the Guardian GI)
-		// the one a `deploy` of that type last ordered while it is still on the map (the player's first of a type
-		// changes as soldiers go into limbo), else the player's first, else anyone's
-		TechnoClass * techno = NULL;
-		for (int k = 0; k < deploy_count && techno == NULL; ++k) {
-			if (strcmp(deploy_type[k], word[1])) continue;
-			for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) techno = Technos[i];
+		// the one the last `spawn` or `deploy` of that type named (the player's first of a type changes as soldiers go
+		// into limbo), else the player's first, else anyone's; `harness-doing <ID> gone` when the named one has left
+		// the map (lane N16: a starting GI killed by the Desolator's radiation was replaced by another, unordered one)
+		bool gone = false;
+		TechnoClass * techno = Tracked(word[1], &gone);
+		if (gone) {
+			fprintf(stderr, "harness-doing %s gone\n", word[1]);
+			return(-1);
 		}
 		if (techno == NULL) techno = First_Of(word[1], PlayerPtr);
 		if (techno == NULL) techno = First_Of(word[1], NULL);
@@ -996,10 +1023,13 @@ int Run_Order(int frame, char const * text)
 	}
 	if ((!strcmp(word[0], "deploy") || !strcmp(word[0], "move") || !strcmp(word[0], "where")) && words >= 2) {
 		TechnoClass * found = NULL;
-		for (int k = 0; k < deploy_count && found == NULL && word[0][0] == 'd'; ++k) {
-			// a second `deploy` of a type orders the same one again (to undeploy it; lane N13)
-			if (strcmp(deploy_type[k], word[1])) continue;
-			for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) found = Technos[i];
+		bool gone = false;
+		// `deploy` orders the one the type's last `spawn` or `deploy` named: the spawned one, and a second `deploy` of
+		// a type the same one again (to undeploy it; lanes N13, N16)
+		if (word[0][0] == 'd') found = Tracked(word[1], &gone);
+		if (gone) {
+			fprintf(stderr, "harness-deploy: %s gone\n", word[1]);
+			return(-1);
 		}
 		for (int i = 0; i < Technos.Count() && found == NULL; ++i) {
 			TechnoClass * techno = Technos[i];
@@ -1024,13 +1054,7 @@ int Run_Order(int frame, char const * text)
 		TargetClass none2;
 		if (word[0][0] == 'd') {
 			Queue_Mission(TargetClass(found), MISSION_UNLOAD, none, none2);
-			int k = 0;
-			while (k < deploy_count && strcmp(deploy_type[k], word[1])) ++k;
-			if (k < kDeployKept) {
-				snprintf(deploy_type[k], sizeof(deploy_type[k]), "%s", word[1]);
-				deploy_last[k] = found;
-				if (k == deploy_count) ++deploy_count;
-			}
+			Track(word[1], found);
 		} else {
 			if (words < 4) return(-1);
 			Coord coord = found->Center_Coord();

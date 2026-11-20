@@ -13,7 +13,9 @@ Two runs:
   a skirmish (yr_standins.py's route), harness orders (glue/yr_harness.cpp):
     frame 60   a Guardian GI, a GI and a Siege Chopper spawned for the player beside the base, a Desolator
                well away from them (its deployed radiation kills soldiers);
-    frame 90   each ordered to deploy (Queue_Mission MISSION_UNLOAD, the D key's order);
+    frame 90   each ordered to deploy (Queue_Mission MISSION_UNLOAD, the D key's order): the spawned one (lane N16:
+               `deploy E1` once took the player's first GI, a starting soldier that sometimes stood in the
+               Desolator's radiation and died, and `doing` then reported another, unordered GI);
     frame 300  `doing`: each soldier in its deployed idle animation (0x1C, `do28`), the chopper deployed;
     frame 320  the Guardian GI, the GI and the Desolator ordered to deploy again (to undeploy);
     frame 500  each soldier out of its deploy animations again (standing, `do0`);
@@ -97,8 +99,12 @@ def main():
         seen.setdefault(m.group(1), []).append(m.groups()[1:])
     print('skirmish: %s' % '; '.join('%s %s' % (k, ' -> '.join('do%s deployed %s' % (v[0], v[3]) for v in vs))
                                      for k, vs in sorted(seen.items())))
+    gone = set(re.findall(r'^harness-doing (\S+) gone$', text, re.M))
     for soldier in SOLDIERS:
         states = seen.get(soldier, [])
+        if soldier in gone:
+            failures.append('%s: the one spawned and ordered to deploy left the map (killed?) before frame 500' % soldier)
+            continue
         if len(states) < 2:
             failures.append('%s: no state at frames 300 and 500 (not spawned, or it died): %s' % (soldier, states))
             continue
