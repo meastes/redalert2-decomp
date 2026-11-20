@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -5494,8 +5495,7 @@ void MapGeneratorClass::Partition_Rect(DynamicVectorClass<Rect> & rects, int cou
 /// RA2: lays the land down as one chunk per player plus a few spare ones, each grown from the middle of its share
 /// of the map.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text; the region-size shift is scheduled before the 0.45 addition)
-void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Type0 (0x57C4F0); near miss, 8 bytes differ (an integer shift is scheduled before the 0.45 addition)
+void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Type0 (0x57C4F0); ra2-decomp's twin (Yuri's Revenge 0x0059AD10)
 {
 	WorkingRegionID = 1; // RA2: as above
 	DynamicVectorClass<Rect> regions; // RA2: as above
@@ -5518,7 +5518,7 @@ void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Ty
 
 	while (regions.Count() > 0) { // RA2: as above
 		Rect region = regions[0]; // RA2: as above
-		int count = (int)((RMG_RANDOM_DOUBLE2(0.05) + 0.45) * (region.Width * region.Height * 2)); // RA2: as above
+		int count = (int)(((unsigned int)RMGRandom() * RMGRandomScale * 0.05 + RMGRegionFillFloor) * (region.Width * region.Height * 2)); // RA2: ra2-decomp's twin text (src/mapgen.cpp:3977): the 1/UINT_MAX scale (0x7A5DD0) and the 0.45 floor (0x7A5ED0) as named memory constants
 		Point2D center; // RA2: assigned member by member
 		center.X = region.Width / 2 + region.Height / 2 + region.Y + region.X + 1; // RA2: as above
 		center.Y = region.Height / 2 - region.Width / 2 - region.X + Map.PlayRect.Width + region.Y; // RA2: as above
@@ -5534,7 +5534,6 @@ void MapGeneratorClass::Seed_Land_Type0(void) // RA2: RA2's form of Seed_Land_Ty
 		regions.Delete_Index(0); // RA2: as above
 	}
 }
-#endif
 
 
 

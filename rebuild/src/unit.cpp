@@ -4621,16 +4621,6 @@ static inline bool Unit_Type_Has_Dock(UnitTypeClass const * type, BuildingTypeCl
     return false;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2222 bytes differ (class-b carry)
-template<class Target> static inline HRESULT Unit_Query_Interface(Target &owner, ILocomotionPtr const &locomotor)
-{
-    typename Target::Interface *queried;
-    HRESULT result=locomotor->QueryInterface(Target::GetIID(),(void **)&queried);
-    if (FAILED(result)) owner.Attach(NULL);
-    else owner.Attach(queried);
-    return result;
-}
-
 void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 {
 	/*
@@ -4882,11 +4872,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 * (Mirrors BuildingClass weapons-factory exit, building.cpp:6236-6251.)
 	 */
 	if (target != 0 && !Locomotion->Is_Moving()) {
-		IPersistPtr persist;
-        if(Locomotion) {
-            HRESULT result=Unit_Query_Interface(persist,Locomotion);
-                    if(FAILED(result)&&result!=E_NOINTERFACE) _com_issue_error(result);
-        }
+		IPersistPtr persist(Locomotion);
 		GUID clsid;
 		persist->GetClassID(&clsid);
 		if (memcmp(&clsid,&CLSID_TunnelLocomotion,sizeof(GUID))==0 && Get_Height_AGL() == 0) {
@@ -4911,24 +4897,16 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			}
 
 			if (doswap) {
-				IPiggybackPtr piggy;
-                if(Locomotion) {
-                    HRESULT result=Unit_Query_Interface(piggy,Locomotion);
-                    if(FAILED(result)&&result!=E_NOINTERFACE) _com_issue_error(result);
-                }
+				IPiggybackPtr piggy(Locomotion);
 				if (piggy != 0 && piggy->Is_Piggybacking()) {
 					piggy->End_Piggyback(&Locomotion);
 				}
 				ILocomotionPtr walk(CLSID_DriveLocomotion);
 				walk->Link_To_Object(this);
 				{
-                IPiggybackPtr walk_piggy;
-                if(walk) {
-                    HRESULT result=Unit_Query_Interface(walk_piggy,walk);
-                    if(FAILED(result)&&result!=E_NOINTERFACE) _com_issue_error(result);
-                }
-                piggy=(IPiggyback *)walk_piggy;
-                }
+					IPiggybackPtr walk_piggy(walk);
+					piggy = (IPiggyback *)walk_piggy;
+				}
 				if (piggy != 0) {
 					piggy->Begin_Piggyback(Locomotion);
 					Locomotion = (ILocomotion *)walk;
@@ -4973,7 +4951,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 * exit cell before anything else; queue the real destination behind it.
 	 */
 	BuildingClass * wf = (BuildingClass *)Radio_Link(0);
-	if (wf != 0 && wf->Fetch_RTTI() == 6 && wf->Class->IsWeaponsFactory && Mission != 7) {
+	if (wf != 0 && wf->Fetch_RTTI() == RTTI_BUILDING && wf->Class->IsWeaponsFactory && CurrentMission != MISSION_ENTER) {
 		Cell exitcell = Cell(wf->Get_Coord()) + Cell(5, 1);
 		if (target != &Map[exitcell]) {
 			NavQueue.Clear();
@@ -5029,7 +5007,6 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 
 	FootClass::Assign_Destination(target, immediate);
 }
-#endif
 
 
 

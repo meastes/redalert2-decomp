@@ -144,9 +144,22 @@ def twin_helpers(read):
         pat = re.compile(r'^[ \t]*static\s+inline\s+[\w<>,\s\*&]+?\b%s\s*\(' % re.escape(r['name']), re.M)
         ours = read('rebuild/src/%s.cpp' % r['unit']) or ''
         twin = TWIN_SRC / r['twin_path']
-        if pat.search(C.code_only(ours)) and twin.exists() and pat.search(twin.read_text(errors='replace')):
+        if pat.search(C.code_only(ours)) and twin.exists() and twin_file_local(twin.read_text(errors='replace'), r['name']):
             kept.append(r)
     return kept
+
+
+def twin_file_local(text, name):
+    """True when the twin unit's text defines `name` file-locally: `static` (or `static inline`) at its definition,
+    or `inline` at file scope (the unit's own text, as ownrdraw's Is_Flag_Control_* and netshare's Format_Slot), or
+    declared `_STATIC` (ra2-decomp's file-local marker, vqalib) with a plain definition (lane C1)."""
+    n = re.escape(name)
+    if re.search(r'^[ \t]*static\s+(?:inline\s+)?[\w<>,\s\*&]+?\b%s\s*\(' % n, text, re.M):
+        return True
+    if re.search(r'^inline\s+[\w<>,\s\*&]+?\b%s\s*\(' % n, text, re.M):
+        return True
+    return bool(re.search(r'^[ \t]*_STATIC\s+[\w<>,\s\*&]+?\b%s\s*\(' % n, text, re.M)
+                and re.search(r'^[\w<>,\s\*&]+?\b%s\s*\([^;]*\)\s*\{?\s*$' % n, text, re.M))
 
 
 LARGE = 1024    # a parked function of 1 KB or more (the checkpoint measure: "parked large functions pass 500 KB")

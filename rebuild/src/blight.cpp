@@ -144,6 +144,16 @@ void BuildingLightClass::Draw_It(Point2D const & point, Rect const & cliprect) c
 }
 
 
+static inline int Light_Follow_Distance(ObjectClass const * object, Coord const & to)
+{
+	Point3D delta = object->Center_Coord() - to;
+	double y = delta.Y;
+	double z = delta.Z;
+	double x = delta.X;
+	return(int(fastmath::sqrt(y * y + (z * z + x * x))));
+}
+
+
 /// <summary>
 /// Handles the per frame logic for the spotlight.
 /// This routine walks the beam along according to the behavior it was given -- sweeping
@@ -151,7 +161,7 @@ void BuildingLightClass::Draw_It(Point2D const & point, Rect const & cliprect) c
 /// the owner's spotlight triggers whenever an enemy is caught in the light. A light
 /// whose owner has left the game deletes itself here.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1026 bytes differ (text_if0 bucket)
+#ifdef RA2_NON_MATCHING // not exact: 585 bytes differ (stack layout only; the follow distance through the twin's unit-local Light_Follow_Distance)
 void BuildingLightClass::AI(void)
 {
 	if (Owner == NULL || !Owner->IsActive) {
@@ -220,7 +230,7 @@ void BuildingLightClass::AI(void)
 		case LIGHT_BEHAVIOR_FOLLOW:
 			following = Target;
 			if (following != NULL && following->IsActive) {
-				int dist = following->Center_Coord().Distance_YZX(Owner->Center_Coord());
+				int dist = Light_Follow_Distance(following, Owner->Center_Coord());
 				if (dist < Rule->SpotlightMovementRadius) {
 					coord = Lerp(Get_Coord(), following->Get_Coord(), 0.25f);
 					break;

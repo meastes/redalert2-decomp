@@ -79522,7 +79522,8 @@
    "__waterfall_chance": "007a5b68",
    "_?_random_weight@?1??Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z@4NB": "007a5be0",
    "??_7?$DynamicVectorClass@V?$TRect@H@@@@6B@": "007a5edc",
-   "__real@8@3ffde666666666666800": "007a5ed0",
+   "?RMGRegionFillFloor@@3NB": "007a5ed0",
+   "?RMGRandomScale@@3NB": "007a5dd0",
    "_?_raise_chance@?FM@??Seed_River@MapGeneratorClass@@QAE_NABVCell@@N_N@Z@4NB": "007a5cb0",
    "??_C@_0L@BPAO@Random?5Map?$AA@": "007e1608",
    "??_C@_0M@FHFI@RandMap?4Map?$AA@": "007e15fc",
@@ -113185,21 +113186,7 @@
    }
   ],
   "references": {},
-  "partial_ok": true,
-  "parked_rows": [
-   {
-    "entry": "00777c90",
-    "symbol": "?Select_Frame@@YIJPAU_VQAHandleP@@@Z",
-    "body": 921,
-    "best_differing": 763,
-    "note": "Guarded non-exact draft; no credit; original bytes remain",
-    "class": "c",
-    "text_source": "seed/layout only",
-    "draft": "build/class-work/codex2/drawer-frame-link-probes/last_link_from_frame.cpp",
-    "result": "build/class-work/codex2/drawer-frame-link-probes/last_link_from_frame.json",
-    "guard": "#if 0"
-   }
-  ]
+  "partial_ok": true
  },
  "vqalib_unvq": {
   "symbol_overrides": {},
@@ -132287,7 +132274,9 @@
    "_?$S299@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4EA": "00ad04b8",
    "_?$S301@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578",
    "_?$S302@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4EA": "00ad04b8",
-   "_?$S304@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578"
+   "_?$S304@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578",
+   "?_AddRef@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ": "00453ea0",
+   "?_AddRef@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ": "0069ed20"
   },
   "partial_ok": true,
   "build_refused": {

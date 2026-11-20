@@ -5,6 +5,8 @@ address,name,unit,reason
 0x0056D640,Is_Mountain_Or_Inland_Map,mapgen,"name descriptive; no evidenced name (ra2-decomp FUN_0058BCD0..BD80, main unknown_*); lane R33, owner ruling"
 0x0056D660,Is_Inland_Water_Map,mapgen,"name descriptive; no evidenced name (ra2-decomp FUN_0058BCD0..BD80, main unknown_*); lane R33, owner ruling"
 0x0056D680,Seeks_Start_Center,mapgen,"name descriptive; no evidenced name (ra2-decomp FUN_0058BCD0..BD80, main unknown_*); lane R33, owner ruling"
+0x007A5DD0,RMGRandomScale,mapgen,"name descriptive (1/UINT_MAX, scales RMGRandom() to [0,1]); no evidenced name (ra2-decomp DAT_007ED898, main unknown_random_scale_7a5dd0); read by Seed_Land_Type0 as the twin's named constant; lane M1, owner ruling 2026-11-20"
+0x007A5ED0,RMGRegionFillFloor,mapgen,"name descriptive (0.45, the floor of a region's land share in Seed_Land_Type0); no evidenced name (ra2-decomp DAT_007ED990, main unknown_chunk_floor_7a5ed0); lane M1, owner ruling 2026-11-20"
 0x0074A120,Player_Info_Tooltip,wonline,"function name not in TibSun, ra2-decomp, mischa85 or RTTI (main's or a rebuild lane's descriptive name)"
 0x0074DD00,Close_Readiness_Dialog,wonline,"function name not in TibSun, ra2-decomp, mischa85 or RTTI (main's or a rebuild lane's descriptive name)"
 0x0074FCB0,Find_Local_Address,wonline,"function name not in TibSun, ra2-decomp, mischa85 or RTTI (main's or a rebuild lane's descriptive name)"

@@ -715,3 +715,5 @@ int Do_Random_Map_Dialog(bool (*callback)());
 
 extern MapRegionClass::CellData *RMGCellData;
 extern unsigned int MapCellStride;
+extern const double RMGRandomScale; // RA2: 0x7A5DD0, 1/UINT_MAX; provisional name (ra2-decomp DAT_007ED898, main unknown_random_scale_7a5dd0)
+extern const double RMGRegionFillFloor; // RA2: 0x7A5ED0, 0.45; provisional name (ra2-decomp DAT_007ED990, main unknown_chunk_floor_7a5ed0)

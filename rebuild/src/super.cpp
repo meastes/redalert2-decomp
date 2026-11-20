@@ -609,7 +609,7 @@ bool SuperClass::Can_Place() // RA2: is not const (0x0069D820)
 /// <param name="cell">The cell that was designated as the target.</param>
 /// <param name="player">Is this for a player owned super weapon? If so, then the
 /// targeting cursor gets cleared.</param>
-#ifdef RA2_NON_MATCHING // not exact: 2641 bytes differ (main-derived placement through actual interfaces)
+#ifdef RA2_NON_MATCHING // not exact: 35 bytes differ (unbound; IPiggyback _AddRef unbound, 29 with main's typed _AddRef bindings)
 void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon type's effect here; not a byte match yet, see the report (0x0069D850)
 {
 	switch (Class->Type) {
@@ -834,13 +834,14 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 				bullet->Set_Weapon_Type(payload); // RA2: as above
 				Create_Attached_Anim(House, target, bullet, "PSIWARN"); // RA2: the bullet comes before the name
 				if (bullet != 0) { // RA2: as above
-					double y = fastmath::sin(1.5707483884323126); // RA2: as above
-					y *= fastmath::cos(1.5707483884323126); // RA2: as above
+					double angle = DirType(DIR_N).As_Radian(); // RA2: the same downward motion as TAction_MULTI_MISSILE.
+					double y = fastmath::sin(angle); // RA2: as above
+					y *= fastmath::cos(angle); // RA2: as above
 					y *= -100.0; // RA2: as above
-					TVelocity2D<double> planar(fastmath::cos(1.5707483884323126) * fastmath::cos(1.5707483884323126) * -100.0, y);
+					TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(angle) * -100.0, y);
 					TVelocity3D<double> velocity;
 					static_cast<TVelocity2D<double> &>(velocity) = planar;
-					velocity.Z = fastmath::sin(1.5707483884323126) * -100.0; // RA2: as above
+					velocity.Z = fastmath::sin(angle) * -100.0; // RA2: as above
 					bullet->Unlimbo(launch, velocity); // RA2: as above
 					if (!MuteSWLaunches) { // RA2: as above
 						Queue_Speech("EVA_NuclearMissileLaunched", -1, -1); // RA2: as above
