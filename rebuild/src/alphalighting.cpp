@@ -102,3 +102,9 @@ AlphaLightingRemapClass::AlphaLightingRemapClass(int count)
 }
 
 
+/// <summary>
+/// Destroys the alpha lighting remap table.
+/// </summary>
+AlphaLightingRemapClass::~AlphaLightingRemapClass(void)
+{
+}

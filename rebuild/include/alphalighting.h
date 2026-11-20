@@ -26,7 +26,7 @@ class AlphaLightingRemapClass
 {
 public:
 	AlphaLightingRemapClass(int count);
-	~AlphaLightingRemapClass(void) {} // RA2: inline (the image has no copy of it)
+	~AlphaLightingRemapClass(void);
 
 	unsigned short *Get_Table(int level)
 	{

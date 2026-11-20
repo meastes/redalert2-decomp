@@ -4126,12 +4126,10 @@ ObjectClass * Tactical::Selectable_Object(int index) const // RA2: 0x6AC7C0, not
 
 
 // RA2: the three functions below are not placed by address: they are inline in the exe (their copies sit where their callers expand them), so they trail the file
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Tactical_noop(int,int,int,int) // RA2: as above
 {
 
 }
-#endif
 
 
 /// <summary>
@@ -4148,8 +4146,6 @@ void Tactical::Rectangular_To_Isometric(int xin, int yin, int & xout, int & yout
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Tactical::Noop(int) // RA2: as above
 {
 }
-#endif

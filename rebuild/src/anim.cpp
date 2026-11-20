@@ -1751,3 +1751,14 @@ RTTIType AnimClass::Fetch_RTTI(void) const
 	return(RTTI_ANIM);
 }
 
+
+/// <summary>
+/// Builds the direction from one world coordinate to another.
+/// </summary>
+DirType::DirType(Coord const & from, Coord const & to) // RA2: 0x423EF0, not in TibSun
+{
+	if (from.X == to.X && from.Y == to.Y) {
+		Facing = 0;
+	}
+	*this = DirType(fastmath::atan2((double)from.Y - (double)to.Y, (double)to.X - (double)from.X));
+}

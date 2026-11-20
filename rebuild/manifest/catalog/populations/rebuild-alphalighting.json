@@ -25,6 +25,7 @@
     "?Init@AlphaLightingRemapInitClass@@QAEPAVAlphaLightingRemapClass@@H@Z": 4318176,
     "?Deinit@AlphaLightingRemapInitClass@@QAEXPAVAlphaLightingRemapClass@@@Z": 4318480,
     "??0AlphaLightingRemapClass@@QAE@H@Z": 4318608,
+    "??1AlphaLightingRemapClass@@QAE@XZ": 4318720,
     "?Clear@?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@UAEXXZ": 4318736,
     "?ID@?$DynamicVectorClass@PAVAlphaLightingRemapClass@@@@UAEHPBQAVAlphaLightingRemapClass@@@Z": 4318784,
     "?GetItem@?$VectorClass@PAVAlphaLightingRemapClass@@@@UBEPAVAlphaLightingRemapClass@@H@Z": 4318816,
@@ -139,7 +140,7 @@
           "resolved": 3556911
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4317984,
@@ -247,7 +248,7 @@
           "resolved": 8635872
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318048,
@@ -274,7 +275,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318144,
@@ -301,7 +302,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318160,
@@ -433,7 +434,7 @@
           "resolved": 8635868
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318176,
@@ -517,7 +518,7 @@
           "resolved": 3553201
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318480,
@@ -544,11 +545,39 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318608,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4318720,
+      "method": "0041e600",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1AlphaLightingRemapClass@@QAE@XZ",
+      "symbol_prefix": "??1AlphaLightingRemapClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
+      "source": "rebuild/src/alphalighting.cpp",
+      "population": "rebuild-alphalighting",
+      "source_order": 4318720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3817"
     },
     {
       "entry": 4318736,
@@ -580,7 +609,7 @@
           "resolved": 3553040
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318736,
@@ -608,7 +637,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318784,
@@ -636,7 +665,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318816,
@@ -664,7 +693,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318832,
@@ -709,7 +738,7 @@
           "resolved": 3552784
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4318896,
@@ -746,7 +775,7 @@
           "resolved": 3552707
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319072,
@@ -774,7 +803,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319120,
@@ -802,7 +831,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319184,
@@ -847,7 +876,7 @@
           "resolved": 3552477
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319216,
@@ -875,7 +904,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319392,
@@ -928,7 +957,7 @@
           "resolved": 3552299
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319440,
@@ -981,7 +1010,7 @@
           "resolved": 3552219
         }
       ],
-      "source_sha256": "77120907e4dfd372797b8332221a64fabd469b3d5698347911686f51c1f4f95d",
+      "source_sha256": "af687af3bfba7cdcc78ee7ef97d74d3c9fd4b966baf90c28286b51bade559f9a",
       "source": "rebuild/src/alphalighting.cpp",
       "population": "rebuild-alphalighting",
       "source_order": 4319520,

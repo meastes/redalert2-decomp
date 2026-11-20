@@ -135,3 +135,6 @@ bool No_Radar_Events_Submitted(void);
 void Record_Event_Cell(Cell const & cell);
 
 extern Cell LastRadarEventCell;
+
+Cell Recall_Radar_Event_Cell(void);
+Cell Recall_Previous_Radar_Event_Cell(void);

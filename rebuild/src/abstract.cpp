@@ -37,6 +37,10 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "winfix.h"
+
+WindowsVersionInfo WinVersion; // RA2: defined here: its initializer (0x40FCD0) opens the unit, before the header statics
+
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "geometry.h"
 

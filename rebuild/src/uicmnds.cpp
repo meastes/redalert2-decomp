@@ -48,6 +48,8 @@
 #include "planning.h"
 #include "stringtable.h"
 #include "beacon.h"
+#include "revent.h"
+#include "cell.h"
 #include <wchar.h>
 #include <stdio.h>
 #include "tab.h"
@@ -1278,4 +1280,27 @@ bool AbstractClass::Is_Techno(void) const
 	}
 	bool flag = AbstractFlags & 1;
 	return flag;
+}
+
+/// <summary>
+/// Centers the view on the newest radar event, or the previous event after a repeated press.
+/// </summary>
+void Jump_To_Radar_Event(void)
+{
+	Cell cell;
+	if (Frame - RadarJumpFrame < 50) {
+		cell = Recall_Previous_Radar_Event_Cell();
+	} else {
+		cell = Recall_Radar_Event_Cell();
+	}
+	RadarJumpFrame = Frame;
+	if (cell.X != CELL_NONE.X || cell.Y != CELL_NONE.Y) {
+		Coord coord(cell.X * CELL_LEPTON_W + CELL_LEPTON_W / 2, cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2, 0);
+		int height = Map[coord].Height * CELL_LEPTON_H / 2;
+		coord -= Coord(height, height, 0);
+		TacticalMap->Set_Tactical_Position(coord);
+		if (Map.PendingObject != 0) {
+			Map.Set_Cursor_Pos(CELL_NONE);
+		}
+	}
 }

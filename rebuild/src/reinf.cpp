@@ -990,4 +990,7 @@ bool Do_Chrono_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
  * HISTORY:                                                                                    *
  *   07/26/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-
+bool _Need_To_Take(AircraftClass const * air)
+{
+	return(false);
+}

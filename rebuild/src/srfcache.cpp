@@ -509,51 +509,37 @@ bool SurfaceCacheClass::Draw(Rect const & rect, Surface & tosurface, Surface & f
 /// <param name="tosurface">Destination surface to draw onto.</param>
 /// <param name="fromsurface">16-bit source surface.</param>
 /// <param name="trans">Pixel value treated as transparent.</param>
-/// <returns>Always true.</returns>
-#if 0
+/// <returns>True on success, false if a surface cannot be locked.</returns>
 bool SurfaceCacheClass::DrawTrans(Rect const & rect, Surface & tosurface, Surface & fromsurface, short trans)
 {
 	unsigned short *tbuf = (unsigned short *)tosurface.Lock();
+	if (tbuf == 0) {
+		return false;
+	}
 	unsigned short *fbuf = (unsigned short *)fromsurface.Lock();
+	if (fbuf == 0) {
+		tosurface.Unlock();
+		return false;
+	}
 	Rect r = rect;
-	int fwidth = fromsurface.Get_Width();
-	int fheight = fromsurface.Get_Height();
+	r.Width = fromsurface.Get_Width();
+	r.Height = fromsurface.Get_Height();
 	int twidth = tosurface.Stride() / 2;
-
-	if (fheight > 0) {
-		unsigned short *sptr = (unsigned short *)fbuf;
-		int itval = 2 * twidth;
-		int h_left = fheight;
-		unsigned short *dptr = &tbuf[r.X + twidth * r.Y];
-
-		/*
-		 * Copy row by row through scratch cursors, storing only the pixels
-		 * that don't match the color key.
-		 */
-		while (h_left) {
-			if (fwidth > 0) {
-				int w_left = fwidth;
-				unsigned short *scolor = sptr;
-				sptr = (unsigned short *)((char *)sptr + 2 * fwidth);
-				unsigned short *dcolor = dptr;
-				while (w_left) {
-					if (*scolor != (unsigned short)trans) {
-						*dcolor = *scolor;
-					}
-					scolor++;
-					dcolor++;
-					w_left--;
-				}
+	int index = 0;
+	for (int y = 0; y < r.Height; y++) {
+		int offset = (y + r.Y) * twidth + r.X;
+		for (int x = 0; x < r.Width; x++) {
+			unsigned short value = fbuf[index];
+			if (value != (unsigned short)trans) {
+				tbuf[offset + x] = value;
 			}
-			dptr = (unsigned short *)((char *)dptr + itval);
-			h_left--;
+			index++;
 		}
 	}
 	tosurface.Unlock();
 	fromsurface.Unlock();
-	return(true);
+	return true;
 }
-#endif
 
 
 

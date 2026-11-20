@@ -98,6 +98,7 @@ class DirType
 		DirType(NoInitClass const & x) {}
 
 		DirType(void) {}
+		DirType(Coord const & from, Coord const & to); // RA2: 0x423EF0 (anim.cpp)
 		DirType(int dir) { Facing = dir; }
 		DirType(DirStruct dir) { Raw = dir.Raw; }
 		DirType(FacingType dir) { From_Facing(dir); }
