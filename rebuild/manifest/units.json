@@ -29153,8 +29153,7 @@
   "build_refused": {
    "source_sha256": "28bf6c712ac5bd8e9febd05cba6947ee20b12f0a01c5e80b14e7c52a54eeabd2",
    "reason": "Unsupported allocatable data section .data #2 in accepted.obj (['.data', '_?_names@?1??Special_From_Name@@YI?AW4SuperWeaponType@@PBD@Z@4PAPBDA'])"
-  },
-  "holder": "codex1"
+  }
  },
  "cstream": {
   "core": [
@@ -34035,8 +34034,7 @@
   "build_refused": {
    "source_sha256": "e1414013e51ee4334f8d248468a983536410852587beffaf16d3e1b6e0c0fabb",
    "reason": "Unsupported allocatable data section .rdata #112 in accepted.obj (['.rdata', '??_7ScriptTypeClass@@6BIPersistStream@@@']): the original RTTI names the vtable at 007a93b8 ??_7ScriptTypeClass@@6B@; +28 "
-  },
-  "holder": "codex1"
+  }
  },
  "bittext": {
   "core": [
@@ -39906,8 +39904,7 @@
    "?Clear@?$VectorClass@VBaseNodeClass@@@@UAEXXZ": "0042d2a0",
    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHABVBaseNodeClass@@@Z": "0042d2d0",
    "?ID@?$VectorClass@VBaseNodeClass@@@@UAEHPBVBaseNodeClass@@@Z": "0042d320"
-  },
-  "holder": "codex1"
+  }
  },
  "keyboard": {
   "core": [
@@ -63801,8 +63798,7 @@
    "_$S163": "00865e54",
    "_$S169": "00865e38"
   },
-  "partial_ok": true,
-  "holder": "codex1"
+  "partial_ok": true
  },
  "mainloop": {
   "core": [
@@ -78695,7 +78691,7 @@
     "entry": "0058b400",
     "body": 17,
     "padding": 15,
-    "symbol": "_$E285",
+    "symbol": "_$E286",
     "main_symbol": "_$E119",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78703,7 +78699,7 @@
     "entry": "0058b420",
     "body": 9537,
     "padding": 15,
-    "symbol": "_$E282",
+    "symbol": "_$E283",
     "main_symbol": "_$E116",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78711,7 +78707,7 @@
     "entry": "0058d970",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E283",
+    "symbol": "_$E284",
     "main_symbol": "_$E117",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -112173,7 +112169,6 @@
    "?Fetch_Object_Size@JumpjetLocomotionClass@@UBEHXZ": "00531320"
   },
   "partial_ok": true,
-  "holder": "codex1",
   "held_reason": "worker",
   "held_note": "codex1; catalog: whole-file build refused: Unsupported allocatable data section .rdata #61 in accepted.obj (['.rdata', '??_7JumpjetLocomo"
  },
@@ -132295,7 +132290,6 @@
    "_?$S304@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578"
   },
   "partial_ok": true,
-  "holder": "codex1",
   "build_refused": {
    "source_sha256": "e14a4a8c523ee008c8a34125e989b79fefc0d43ef9b15e87a1cfe456d5e96deb",
    "reason": "Unsupported allocatable data section .rdata #88 in accepted.obj (['.rdata', '??_7UnitClass@@6BIPersistStream@@@']): the original RTTI names the vtable at 007addf8 ??_7UnitClass@@6B@; +324 ?IsUnderEMP@"
@@ -134365,7 +134359,6 @@
    "_?sequence@?1??Event_Sequence@@YIEXZ@4EA": "00855b9c"
   },
   "partial_ok": true,
-  "holder": "codex2",
   "parked_rows": [
    {
     "entry": "004b5e80",
@@ -138533,7 +138526,7 @@
     "entry": "007424c0",
     "body": 2185,
     "padding": 7,
-    "symbol": "?Connect_To_Server@@YI_NPAUServer@@@Z",
+    "symbol": "?Connect_To_Server@@YI_NPAUServer@WOL@@@Z",
     "main_symbol": "?Unknown_007424c0@@YI_NPAUServer@WOL@@@Z",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140501,7 +140494,7 @@
     "entry": "007670f0",
     "body": 107,
     "padding": 5,
-    "symbol": "?Get_Pointer_007670f0@WolLadderCache@@QBE_NABVWstring@@PAPAULadder@WOL@@@Z",
+    "symbol": "?getPointer@?$Dictionary@VWstring@@ULadder@WOL@@@@QAEDABVWstring@@PAPAULadder@WOL@@@Z",
     "main_symbol": "?Get_Pointer_007670f0@WolLadderCache@@QBE_NABVWstring@@PAPAULadder@WOL@@@Z",
     "main_source": "src/recovered/classes/WolLadderCache/Get_Pointer.cpp"
    },
@@ -140987,9 +140980,15 @@
    "?remove@?$ArrayList@I@@QAEDH@Z": "007681a0",
    "??_C@_0DF@POMM@Received?5private?5preview?5request@": "007fdf98",
    "??_C@_0FP@EJBK@Got?5private?5options?5from?5?$CFs?3?5Hou@": "007fdfd0",
-   "_?$S394@?4??Initialize_WDT_Sounds@@YIXXZ@4EA": "00b29734"
+   "_?$S394@?4??Initialize_WDT_Sounds@@YIXXZ@4EA": "00b29734",
+   "?getPointer@?$Dictionary@VWstring@@ULadder@WOL@@@@QAEDABVWstring@@PAPAULadder@WOL@@@Z": "007670f0",
+   "??_C@_0CE@GAPJ@Poke_The_Host?5?9?5Host?5address?5is?5@": "007ff904",
+   "??_C@_06GOGO@Europe?$AA@": "007fe6b4",
+   "??_C@_0M@KMBL@A?5territory?$AA@": "007fe6a8",
+   "??_C@_0N@PBDL@NorthAmerica?$AA@": "007fe6bc",
+   "??_C@_0O@KJFF@Territory?$CF02d?$AA@": "007fe6cc",
+   "??_C@_0BG@KNCE@TXT_CONNECTING_SERVER?$AA@": "007fe4d0"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -142615,7 +142614,6 @@
    "_RAD_90": "00abcd88",
    "_RECT_NONE": "00abcd90"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -142741,7 +142739,6 @@
   "references": {
    "_RECT_NONE": "008524a0"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -143273,7 +143270,6 @@
    "??_C@_04KGGN@?$HM?1?9?2?$AA@": "007cc970",
    "_audioDataStruct": "00830aa8"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -144038,7 +144034,6 @@
    "_RAD_60": "00830ec8",
    "_RAD_90": "00830eb0"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -144315,7 +144310,6 @@
    "_RAD_60": "00865d60",
    "_RAD_90": "00865d38"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -144641,7 +144635,6 @@
    "?_Need_To_Take@@YI_NPBVAircraftClass@@@Z": "00639960"
   },
   "partial_ok": true,
-  "holder": "codex2",
   "parked_rows": [
    {
     "entry": "00639960",
@@ -144721,8 +144714,7 @@
     "main_source": "src/recovered/stimer.cpp"
    }
   ],
-  "references": {},
-  "holder": "codex2"
+  "references": {}
  },
  "vqalib_task": {
   "core": [
@@ -144909,7 +144901,6 @@
    }
   ],
   "references": {},
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -145243,7 +145234,6 @@
    "??_C@_0BJ@NGFD@Direct?5Sound?5Driver?5V2?40?$AA@": "007cd184",
    "__AUD_driver": "007ccdf0"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -145844,7 +145834,6 @@
   "references": {
    "_?iffsize@?1??VQA_LoadFrame_Internal@@YIJPAU_VQAHandleP@@J@Z@4KA": "00b2af90"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -146077,7 +146066,6 @@
    }
   ],
   "references": {},
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -147435,7 +147423,6 @@
    "?Suffix800@@3PBDB": "007df39c",
    "??_C@_03LHGB@800?$AA@": "007df3a0"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {

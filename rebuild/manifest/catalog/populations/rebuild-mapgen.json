@@ -623,12 +623,20 @@
     "__real@8@3fe2f0000000f0000000": 8020056,
     "_?_names@?1??Generate_Rural_Units@MapGeneratorClass@@QAEXABVCell@@@Z@4PAPBDA": 8260848,
     "__real@8@3fe38800000088000000": 8020064,
+    "__chkstk": 7878736,
+    "??0DirtRoadNode@@QAE@XZ": 5812624,
+    "__real@8@3fe2b0000000b0000000": 8020072,
+    "?DirtRoadJunction@IsometricTileTypeClass@@2W4IsometricTileType@@A": 10931052,
+    "?Can_Place_Tile@MapGeneratorClass@@SI_NW4IsometricTileType@@ABVCell@@_N2@Z": 5805280,
+    "__imp__timeGetTime@0": 7972132,
+    "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z": 5805952,
+    "?Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV3@AAH@Z": 5809888,
+    "?Remove_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@@Z": 5805680,
     "__real@8@3fffc000000000000000": 7984488,
     "_RoadTileLibrary": 8261604,
     "_RoadTileCounts": 8261732,
     "_?_offset_chance@?4??Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV4@AAH@Z@4NB": 8019312,
     "__real@8@4001e000000000000000": 7996872,
-    "?Can_Place_Tile@MapGeneratorClass@@SI_NW4IsometricTileType@@ABVCell@@_N2@Z": 5805280,
     "??_C@_06LKOB@GALITE?$AA@": 8264544,
     "??_C@_07GALJ@Special?$AA@": 8183152,
     "_?_light_counts@?9??Generate_Lights@MapGeneratorClass@@QAEXXZ@4QBHB": 8019324,
@@ -638,8 +646,8 @@
     "__real@8@400a8000000000000000": 8020080,
     "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
     "?Place_Neutral_Tech_Building@MapRegionClass@@QAEXXZ": 5729488,
-    "_$E282": 5813280,
-    "_$E283": 5822832,
+    "_$E283": 5813280,
+    "_$E284": 5822832,
     "??0DirtRoadLink@@QAE@XZ": 5812512,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@0@Z": 5812816,
@@ -921,21 +929,17 @@
     "??_G?$DynamicVectorClass@PAD@@UAEPAXI@Z": 4789136,
     "??_G?$VectorClass@PAD@@UAEPAXI@Z": 4789056,
     "?Is_Area_Cliff_Free@MapGeneratorClass@@SI_NABVCell@@@Z": 5800832,
-    "?Remove_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@@Z": 5805680,
-    "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z": 5805952,
     "?Generate_Rural_Areas@MapGeneratorClass@@QAEXXZ": 5806224,
-    "?Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV3@AAH@Z": 5809888,
     "?Generate_Lights@MapGeneratorClass@@QAEXXZ": 5810624,
     "??0DirtRoadLink@@QAE@ABVCell@@W4FacingType@@@Z": 5812480,
     "??0DirtRoadLink@@QAE@ABU0@@Z": 5812544,
     "??0DirtRoadNode@@QAE@W4IsometricTileType@@ABVCell@@01H@Z": 5812576,
-    "??0DirtRoadNode@@QAE@XZ": 5812624,
     "??0DirtRoadNode@@QAE@ABU0@@Z": 5812688,
     "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@00@Z": 5812928,
     "??0DirtRoadTile@@QAE@ABUDirtRoadLink@@000@Z": 5813056,
     "??0DirtRoadTile@@QAE@XZ": 5813200,
     "??1DirtRoadTile@@QAE@XZ": 5813216,
-    "_$E285": 5813248,
+    "_$E286": 5813248,
     "?Dirt_Road_Tile_Index@@YIHW4IsometricTileType@@@Z": 5822880,
     "?Init_Dirt_Roads@@YIXXZ": 5822928,
     "?Get_Forest_Score@MapGeneratorClass@@QBENABVCell@@0@Z": 5792448,
@@ -1125,7 +1129,7 @@
           "resolved": 10944664
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690064,
@@ -1188,7 +1192,7 @@
           "resolved": 10947088
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690112,
@@ -1251,7 +1255,7 @@
           "resolved": 10947072
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690144,
@@ -1314,7 +1318,7 @@
           "resolved": 10947064
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690176,
@@ -1377,7 +1381,7 @@
           "resolved": 10947000
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690208,
@@ -1440,7 +1444,7 @@
           "resolved": 10943816
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690240,
@@ -1535,7 +1539,7 @@
           "resolved": 10947096
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690272,
@@ -1606,7 +1610,7 @@
           "resolved": 10947008
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690336,
@@ -1677,7 +1681,7 @@
           "resolved": 10947056
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690384,
@@ -1748,7 +1752,7 @@
           "resolved": 10947080
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690432,
@@ -1803,7 +1807,7 @@
           "resolved": 10944658
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690480,
@@ -1866,7 +1870,7 @@
           "resolved": 10947048
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690496,
@@ -1937,7 +1941,7 @@
           "resolved": 10944652
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690528,
@@ -2008,7 +2012,7 @@
           "resolved": 2184374
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690560,
@@ -2063,7 +2067,7 @@
           "resolved": 40134
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690592,
@@ -2118,7 +2122,7 @@
           "resolved": 832148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690608,
@@ -2197,7 +2201,7 @@
           "resolved": 5740400
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690624,
@@ -2316,7 +2320,7 @@
           "resolved": 2184223
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690672,
@@ -2435,7 +2439,7 @@
           "resolved": 10943792
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690736,
@@ -2473,7 +2477,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690832,
@@ -2512,7 +2516,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690864,
@@ -2551,7 +2555,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690912,
@@ -2590,7 +2594,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690944,
@@ -2629,7 +2633,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5690976,
@@ -2718,7 +2722,7 @@
           "resolved": 5691029
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691008,
@@ -2756,7 +2760,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691072,
@@ -2843,7 +2847,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691168,
@@ -2955,7 +2959,7 @@
           "resolved": 4293975383
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691296,
@@ -3139,7 +3143,7 @@
           "resolved": 10943788
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691504,
@@ -3242,7 +3246,7 @@
           "resolved": 2179924
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691760,
@@ -3378,7 +3382,7 @@
           "resolved": 2179724
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5691904,
@@ -3434,7 +3438,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692096,
@@ -3490,7 +3494,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692144,
@@ -3545,7 +3549,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692176,
@@ -3600,7 +3604,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692224,
@@ -3656,7 +3660,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692272,
@@ -3711,7 +3715,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692320,
@@ -3759,7 +3763,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692352,
@@ -3823,7 +3827,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692368,
@@ -3910,7 +3914,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692448,
@@ -4021,7 +4025,7 @@
           "resolved": 4293974068
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692592,
@@ -4140,7 +4144,7 @@
           "resolved": 4293973810
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5692832,
@@ -4275,7 +4279,7 @@
           "resolved": 4293973542
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5693088,
@@ -4330,7 +4334,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5693376,
@@ -4489,7 +4493,7 @@
           "resolved": 7976496
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5693424,
@@ -4656,7 +4660,7 @@
           "resolved": 10947112
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695376,
@@ -4767,7 +4771,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695632,
@@ -4846,7 +4850,7 @@
           "resolved": 4294965167
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695760,
@@ -4901,7 +4905,7 @@
           "resolved": 8710148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695856,
@@ -4956,7 +4960,7 @@
           "resolved": 8710148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695904,
@@ -5012,7 +5016,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5695952,
@@ -5068,7 +5072,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5696000,
@@ -5156,7 +5160,7 @@
           "resolved": 4294809073
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5696032,
@@ -5323,7 +5327,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5696192,
@@ -5490,7 +5494,7 @@
           "resolved": 4294882835
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5696784,
@@ -5593,7 +5597,7 @@
           "resolved": 4294882697
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5697184,
@@ -5712,7 +5716,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5701328,
@@ -5911,7 +5915,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5701696,
@@ -6054,7 +6058,7 @@
           "resolved": 2168973
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5702320,
@@ -6365,7 +6369,7 @@
           "resolved": 2168243
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5702848,
@@ -6444,7 +6448,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5703584,
@@ -6780,7 +6784,7 @@
           "resolved": 10943800
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5703696,
@@ -6988,7 +6992,7 @@
           "resolved": 2167175
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5704128,
@@ -8020,7 +8024,7 @@
           "resolved": 539
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5704640,
@@ -8147,7 +8151,7 @@
           "resolved": 4293958255
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5708736,
@@ -8274,7 +8278,7 @@
           "resolved": 4293684839
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5709232,
@@ -8561,7 +8565,7 @@
           "resolved": 10943800
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5709520,
@@ -8968,7 +8972,7 @@
           "resolved": 5253
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5710448,
@@ -9071,7 +9075,7 @@
           "resolved": 8260040
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5712080,
@@ -9414,7 +9418,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5712368,
@@ -9757,7 +9761,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5713984,
@@ -10116,7 +10120,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5715584,
@@ -10475,7 +10479,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5717312,
@@ -10802,7 +10806,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5720368,
@@ -11169,7 +11173,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5721680,
@@ -11496,7 +11500,7 @@
           "resolved": 10936344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5723120,
@@ -11639,7 +11643,7 @@
           "resolved": 4293942077
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5724432,
@@ -11766,7 +11770,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5724816,
@@ -11861,7 +11865,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5725168,
@@ -11916,7 +11920,7 @@
           "resolved": 10943788
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5725408,
@@ -12140,7 +12144,7 @@
           "resolved": 2145614
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5725472,
@@ -12395,7 +12399,7 @@
           "resolved": 4294853427
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5726208,
@@ -12658,7 +12662,7 @@
           "resolved": 2144558
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5726576,
@@ -12857,7 +12861,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5728272,
@@ -13088,7 +13092,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5729488,
@@ -13191,7 +13195,7 @@
           "resolved": 2148021
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5730128,
@@ -13263,7 +13267,7 @@
           "resolved": 2147974
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5730272,
@@ -13551,7 +13555,7 @@
           "resolved": 4294720687
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5730736,
@@ -13814,7 +13818,7 @@
           "resolved": 10944224
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5731472,
@@ -13981,7 +13985,7 @@
           "resolved": 2139338
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5731760,
@@ -14708,7 +14712,7 @@
           "resolved": 792907
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5732480,
@@ -15980,7 +15984,7 @@
           "resolved": 5734877
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5733328,
@@ -16147,7 +16151,7 @@
           "resolved": 1937
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5735456,
@@ -16571,7 +16575,7 @@
           "resolved": 7971996
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5735936,
@@ -16834,7 +16838,7 @@
           "resolved": 785822
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5736944,
@@ -17018,7 +17022,7 @@
           "resolved": 454
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5737232,
@@ -17275,7 +17279,7 @@
           "resolved": 5737680
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5737408,
@@ -17313,7 +17317,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5737856,
@@ -17361,7 +17365,7 @@
           "resolved": 4294714048
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5738192,
@@ -17929,7 +17933,7 @@
           "resolved": 4293616080
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5738240,
@@ -17977,7 +17981,7 @@
           "resolved": 4294713306
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5738912,
@@ -18601,7 +18605,7 @@
           "resolved": 4293615263
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5738944,
@@ -18649,7 +18653,7 @@
           "resolved": 4294712603
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5739712,
@@ -18696,7 +18700,7 @@
           "resolved": 4294718198
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5739728,
@@ -18968,7 +18972,7 @@
           "resolved": 4293614703
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5739744,
@@ -19032,7 +19036,7 @@
           "resolved": 1574842
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740272,
@@ -19096,7 +19100,7 @@
           "resolved": 1574810
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740304,
@@ -19160,7 +19164,7 @@
           "resolved": 1574778
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740336,
@@ -19224,7 +19228,7 @@
           "resolved": 1574746
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740368,
@@ -19288,7 +19292,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740400,
@@ -19360,7 +19364,7 @@
           "resolved": 2119961
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740448,
@@ -19399,7 +19403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740560,
@@ -19479,7 +19483,7 @@
           "resolved": 4294183773
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740592,
@@ -19535,7 +19539,7 @@
           "resolved": 4294967126
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740752,
@@ -19599,7 +19603,7 @@
           "resolved": 4294967026
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5740784,
@@ -22054,7 +22058,7 @@
           "resolved": 677629
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5742800,
@@ -22285,7 +22289,7 @@
           "resolved": 744466
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5745888,
@@ -25141,7 +25145,7 @@
           "resolved": 4294507146
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5746176,
@@ -25220,7 +25224,7 @@
           "resolved": 672558
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5750352,
@@ -25636,7 +25640,7 @@
           "resolved": 4294829019
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5750432,
@@ -25812,7 +25816,7 @@
           "resolved": 2119769
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5750992,
@@ -26115,7 +26119,7 @@
           "resolved": 4294826726
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5752704,
@@ -26482,7 +26486,7 @@
           "resolved": 2106066
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5753312,
@@ -26601,7 +26605,7 @@
           "resolved": 4294825351
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5754544,
@@ -26800,7 +26804,7 @@
           "resolved": 2116653
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5754656,
@@ -26895,7 +26899,7 @@
           "resolved": 4294168983
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5755168,
@@ -27014,7 +27018,7 @@
           "resolved": 7972616
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5755536,
@@ -27109,7 +27113,7 @@
           "resolved": 4294821694
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5758224,
@@ -27165,7 +27169,7 @@
           "resolved": 800
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5758304,
@@ -27436,7 +27440,7 @@
           "resolved": 4294821065
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5758480,
@@ -27547,7 +27551,7 @@
           "resolved": 4294820930
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5758944,
@@ -27650,7 +27654,7 @@
           "resolved": 4294820768
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5759072,
@@ -28529,7 +28533,7 @@
           "resolved": 4294817928
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5759232,
@@ -28592,7 +28596,7 @@
           "resolved": 2098369
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5762080,
@@ -28687,7 +28691,7 @@
           "resolved": 8019108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5762144,
@@ -30054,7 +30058,7 @@
           "resolved": 4294813325
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5762288,
@@ -30157,7 +30161,7 @@
           "resolved": 4294813192
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5766688,
@@ -30260,7 +30264,7 @@
           "resolved": 4294813064
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5766816,
@@ -32508,7 +32512,7 @@
           "resolved": 5769892
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5766944,
@@ -32563,7 +32567,7 @@
           "resolved": 8710148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5773424,
@@ -32618,7 +32622,7 @@
           "resolved": 8710148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5773472,
@@ -32673,7 +32677,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5773536,
@@ -32728,7 +32732,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5773584,
@@ -32895,7 +32899,7 @@
           "resolved": 4294731049
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5773632,
@@ -33182,7 +33186,7 @@
           "resolved": 4294804943
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5774320,
@@ -33341,7 +33345,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5775072,
@@ -33484,7 +33488,7 @@
           "resolved": 7976496
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5777776,
@@ -33587,7 +33591,7 @@
           "resolved": 4294801906
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5778000,
@@ -33690,7 +33694,7 @@
           "resolved": 4294801784
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5778096,
@@ -34610,7 +34614,7 @@
           "resolved": 5779270
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5778224,
@@ -34801,7 +34805,7 @@
           "resolved": 4294800111
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5779408,
@@ -35144,7 +35148,7 @@
           "resolved": 4294799453
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5779904,
@@ -35399,7 +35403,7 @@
           "resolved": 4294880037
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5780560,
@@ -35486,7 +35490,7 @@
           "resolved": 4294965674
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5780976,
@@ -35566,7 +35570,7 @@
           "resolved": 8710148
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5781040,
@@ -35685,7 +35689,7 @@
           "resolved": 4294798604
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5781312,
@@ -35988,7 +35992,7 @@
           "resolved": 40892
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5781392,
@@ -36356,7 +36360,7 @@
           "resolved": 5782456
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5782400,
@@ -36827,7 +36831,7 @@
           "resolved": 2086556
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5783712,
@@ -36906,7 +36910,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5785264,
@@ -37289,7 +37293,7 @@
           "resolved": 2073944
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5785392,
@@ -37576,7 +37580,7 @@
           "resolved": 4294792919
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5786576,
@@ -37807,7 +37811,7 @@
           "resolved": 4294792211
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5787088,
@@ -38038,7 +38042,7 @@
           "resolved": 4294791793
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5787808,
@@ -38173,7 +38177,7 @@
           "resolved": 4294791643
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5788224,
@@ -39308,7 +39312,7 @@
           "resolved": 4293839618
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5788352,
@@ -39891,7 +39895,7 @@
           "resolved": 38
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5790304,
@@ -40235,7 +40239,7 @@
           "resolved": 30842
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5791168,
@@ -40314,7 +40318,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5792448,
@@ -40593,7 +40597,7 @@
           "resolved": 2078166
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5792576,
@@ -40672,7 +40676,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5793664,
@@ -41079,7 +41083,7 @@
           "resolved": 9629
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5793792,
@@ -41655,7 +41659,7 @@
           "resolved": 4294708693
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5794624,
@@ -41726,7 +41730,7 @@
           "resolved": 8019408
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5796544,
@@ -42381,7 +42385,7 @@
           "resolved": 1870
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5796656,
@@ -42668,7 +42672,7 @@
           "resolved": 2071631
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5799152,
@@ -42979,7 +42983,7 @@
           "resolved": 2059849
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5800192,
@@ -43042,7 +43046,7 @@
           "resolved": 4293866008
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5800832,
@@ -43145,7 +43149,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5800944,
@@ -43304,7 +43308,7 @@
           "resolved": 541
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5801312,
@@ -43423,7 +43427,7 @@
           "resolved": 2058021
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5802064,
@@ -43558,7 +43562,7 @@
           "resolved": 4293864613
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5802544,
@@ -43709,7 +43713,7 @@
           "resolved": 4293864095
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5803040,
@@ -43747,7 +43751,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5803552,
@@ -43898,7 +43902,7 @@
           "resolved": 4293863390
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5803712,
@@ -44025,7 +44029,7 @@
           "resolved": 4294963492
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5804208,
@@ -44136,7 +44140,7 @@
           "resolved": 10825460
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5804832,
@@ -44255,7 +44259,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5805280,
@@ -44342,7 +44346,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5805680,
@@ -44429,7 +44433,7 @@
           "resolved": 10947100
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5805952,
@@ -44700,7 +44704,7 @@
           "resolved": 1132
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5806224,
@@ -45036,7 +45040,7 @@
           "resolved": 2063950
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5806784,
@@ -45379,10 +45383,297 @@
           "resolved": 2052132
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5807872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5808560,
+      "method": "0058a1b0",
+      "body_bytes": 1321,
+      "body_sha256": "5c7ebb354a2581e15783ae50318e869b7c5fbb8910517d42eff4c98f51e80b5d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "5f3e8b8632821eb130c93551d8720bb10bd9dc231d32eb5b0c5f9d26f091b824",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "data_bound_by": {
+        "__theater_names": "layout"
+      },
+      "data_bound_by_note": "DECISIONS 'Rebuild data no exact code refers to' (review 2026-11-19), A: file-scope data placed by position, run-anchored (Read_RMG_INI's static is missing while it is parked, so the section has no one base). MapSeedSelection 0x7E0ADC and MapSeedPreviewFlag 0x7E0AE0 are bound by Map_Seed_Dialog_Proc's references since it is exact (lane R55); _theater_names 0x7E0B08 (no code reads it) between _resource_names and _time_names. Names and types are mischa85's mapgen.cpp text (hypothesis). The 20-byte tables at 0x7E0B94 and 0x7E0C4C (no reference, no name in TibSun, ra2-decomp or mischa85) are not declared and stay scaffolding.",
+      "data_pending": [
+        {
+          "address": "007e0be4",
+          "size": 4,
+          "owner": "00579960"
+        }
+      ],
+      "symbol": "?Generate_Rural_Roads@MapGeneratorClass@@QAE_NABVCell@@@Z",
+      "symbol_prefix": "?Generate_Rural_Roads@MapGeneratorClass@@QAE_NABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "__chkstk",
+          "target": 7878736,
+          "addend": 0,
+          "resolved": 2070166
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "??0DirtRoadNode@@QAE@XZ",
+          "target": 5812624,
+          "addend": 0,
+          "resolved": 4028
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?RMGRandom@@3VRandom2Class@@A",
+          "target": 10945984,
+          "addend": 0,
+          "resolved": 10945984
+        },
+        {
+          "offset": 64,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHXZ",
+          "target": 6522944,
+          "addend": 0,
+          "resolved": 714316
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "__real@8@3fe2b0000000b0000000",
+          "target": 8020072,
+          "addend": 0,
+          "resolved": 8020072
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2051845
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "?DirtRoadJunction@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10931052,
+          "addend": 0,
+          "resolved": 10931052
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?Can_Place_Tile@MapGeneratorClass@@SI_NW4IsometricTileType@@ABVCell@@_N2@Z",
+          "target": 5805280,
+          "addend": 0,
+          "resolved": 4294963877
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 379,
+          "kind": 20,
+          "symbol": "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z",
+          "target": 5805952,
+          "addend": 0,
+          "resolved": 4294964305
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "?Place_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@HH@Z",
+          "target": 5800944,
+          "addend": 0,
+          "resolved": 4294959280
+        },
+        {
+          "offset": 406,
+          "kind": 6,
+          "symbol": "?DirtRoadCurve@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936340,
+          "addend": 0,
+          "resolved": 10936340
+        },
+        {
+          "offset": 429,
+          "kind": 6,
+          "symbol": "?DirtRoadSlopes@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10935556,
+          "addend": 0,
+          "resolved": 10935556
+        },
+        {
+          "offset": 461,
+          "kind": 6,
+          "symbol": "?DirtRoadTiles@@3PAUDirtRoadTile@@A",
+          "target": 10944672,
+          "addend": 0,
+          "resolved": 10944672
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "?DirtRoadTiles@@3PAUDirtRoadTile@@A",
+          "target": 10944672,
+          "addend": 0,
+          "resolved": 10944672
+        },
+        {
+          "offset": 509,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2063462
+        },
+        {
+          "offset": 555,
+          "kind": 20,
+          "symbol": "??0Cell@@QAE@HH@Z",
+          "target": 4369712,
+          "addend": 0,
+          "resolved": 4293527889
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "??0Cell@@QAE@HH@Z",
+          "target": 4369712,
+          "addend": 0,
+          "resolved": 4293527865
+        },
+        {
+          "offset": 690,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 697,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 756,
+          "kind": 20,
+          "symbol": "?Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV3@AAH@Z",
+          "target": 5809888,
+          "addend": 0,
+          "resolved": 568
+        },
+        {
+          "offset": 786,
+          "kind": 20,
+          "symbol": "?Find_Dirt_Road_Tile@MapGeneratorClass@@SI_NW4FacingType@@ABVCell@@HAAW4IsometricTileType@@AAV3@AAH@Z",
+          "target": 5809888,
+          "addend": 0,
+          "resolved": 538
+        },
+        {
+          "offset": 888,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 945,
+          "kind": 20,
+          "symbol": "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z",
+          "target": 5805952,
+          "addend": 0,
+          "resolved": 4294963739
+        },
+        {
+          "offset": 956,
+          "kind": 20,
+          "symbol": "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z",
+          "target": 5805952,
+          "addend": 0,
+          "resolved": 4294963728
+        },
+        {
+          "offset": 1043,
+          "kind": 20,
+          "symbol": "?Remove_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@@Z",
+          "target": 5805680,
+          "addend": 0,
+          "resolved": 4294963369
+        },
+        {
+          "offset": 1075,
+          "kind": 20,
+          "symbol": "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z",
+          "target": 5805952,
+          "addend": 0,
+          "resolved": 4294963609
+        },
+        {
+          "offset": 1095,
+          "kind": 20,
+          "symbol": "?Mark_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@_N@Z",
+          "target": 5805952,
+          "addend": 0,
+          "resolved": 4294963589
+        },
+        {
+          "offset": 1128,
+          "kind": 20,
+          "symbol": "?Place_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@HH@Z",
+          "target": 5800944,
+          "addend": 0,
+          "resolved": 4294958548
+        },
+        {
+          "offset": 1142,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2062097
+        },
+        {
+          "offset": 1256,
+          "kind": 20,
+          "symbol": "?Place_Tile@MapGeneratorClass@@SIXW4IsometricTileType@@ABVCell@@HH@Z",
+          "target": 5800944,
+          "addend": 0,
+          "resolved": 4294958420
+        }
+      ],
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
+      "source": "rebuild/src/mapgen.cpp",
+      "population": "rebuild-mapgen",
+      "source_order": 5808560,
       "source_quality_family": "rebuild"
     },
     {
@@ -45626,7 +45917,7 @@
           "resolved": 4294962151
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5809888,
@@ -46001,7 +46292,7 @@
           "resolved": 10751251
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5810624,
@@ -46384,7 +46675,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5811600,
@@ -46422,7 +46713,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812480,
@@ -46460,7 +46751,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812512,
@@ -46498,7 +46789,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812544,
@@ -46537,7 +46828,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812576,
@@ -46576,7 +46867,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812624,
@@ -46614,7 +46905,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812688,
@@ -46661,7 +46952,7 @@
           "resolved": 2059776
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812736,
@@ -46708,7 +46999,7 @@
           "resolved": 2059697
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812816,
@@ -46755,7 +47046,7 @@
           "resolved": 2059585
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5812928,
@@ -46802,7 +47093,7 @@
           "resolved": 2059457
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5813056,
@@ -46840,7 +47131,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5813200,
@@ -46887,7 +47178,7 @@
           "resolved": 2058575
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5813216,
@@ -46914,8 +47205,8 @@
           "owner": "00579960"
         }
       ],
-      "symbol": "_$E285",
-      "symbol_prefix": "_$E285",
+      "symbol": "_$E286",
+      "symbol_prefix": "_$E286",
       "options": [
         "/O2",
         "/Ob2",
@@ -46928,7 +47219,7 @@
         {
           "offset": 1,
           "kind": 20,
-          "symbol": "_$E282",
+          "symbol": "_$E283",
           "target": 5813280,
           "addend": 0,
           "resolved": 27
@@ -46936,7 +47227,7 @@
         {
           "offset": 6,
           "kind": 6,
-          "symbol": "_$E283",
+          "symbol": "_$E284",
           "target": 5822832,
           "addend": 0,
           "resolved": 5822832
@@ -46950,7 +47241,7 @@
           "resolved": 2061691
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5813248,
@@ -46977,8 +47268,8 @@
           "owner": "00579960"
         }
       ],
-      "symbol": "_$E282",
-      "symbol_prefix": "_$E282",
+      "symbol": "_$E283",
+      "symbol_prefix": "_$E283",
       "options": [
         "/O2",
         "/Ob2",
@@ -52093,7 +52384,7 @@
           "resolved": 4294957303
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5813280,
@@ -52120,8 +52411,8 @@
           "owner": "00579960"
         }
       ],
-      "symbol": "_$E283",
-      "symbol_prefix": "_$E283",
+      "symbol": "_$E284",
+      "symbol_prefix": "_$E284",
       "options": [
         "/O2",
         "/Ob2",
@@ -52148,7 +52439,7 @@
           "resolved": 2048947
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5822832,
@@ -52203,7 +52494,7 @@
           "resolved": 10935556
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5822880,
@@ -52291,7 +52582,7 @@
           "resolved": 10945988
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5822928,
@@ -52347,7 +52638,7 @@
           "resolved": 10947104
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5822992,
@@ -52403,7 +52694,7 @@
           "resolved": 2048726
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823056,
@@ -52515,7 +52806,7 @@
           "resolved": 2048558
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823088,
@@ -52570,7 +52861,7 @@
           "resolved": 2048510
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823264,
@@ -52608,7 +52899,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823312,
@@ -52656,7 +52947,7 @@
           "resolved": 2048272
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823504,
@@ -52695,7 +52986,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823552,
@@ -52734,7 +53025,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823584,
@@ -52782,7 +53073,7 @@
           "resolved": 2047984
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823792,
@@ -52821,7 +53112,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823840,
@@ -52860,7 +53151,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823872,
@@ -52899,7 +53190,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5823968,
@@ -52947,7 +53238,7 @@
           "resolved": 2047760
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824016,
@@ -52986,7 +53277,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824064,
@@ -53034,7 +53325,7 @@
           "resolved": 2047680
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824096,
@@ -53073,7 +53364,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824144,
@@ -53112,7 +53403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824176,
@@ -53151,7 +53442,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824272,
@@ -53207,7 +53498,7 @@
           "resolved": 2047344
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824336,
@@ -53255,7 +53546,7 @@
           "resolved": 2047267
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824512,
@@ -53294,7 +53585,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824560,
@@ -53333,7 +53624,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824624,
@@ -53389,7 +53680,7 @@
           "resolved": 2047037
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824656,
@@ -53428,7 +53719,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824832,
@@ -53492,7 +53783,7 @@
           "resolved": 8007464
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824880,
@@ -53531,7 +53822,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5824976,
@@ -53569,7 +53860,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825232,
@@ -53625,7 +53916,7 @@
           "resolved": 2046384
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825296,
@@ -53673,7 +53964,7 @@
           "resolved": 2046307
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825472,
@@ -53712,7 +54003,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825520,
@@ -53751,7 +54042,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825584,
@@ -53807,7 +54098,7 @@
           "resolved": 2046077
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825616,
@@ -53846,7 +54137,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825792,
@@ -53885,7 +54176,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825840,
@@ -53941,7 +54232,7 @@
           "resolved": 2045678
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5825952,
@@ -53989,7 +54280,7 @@
           "resolved": 2045587
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826192,
@@ -54028,7 +54319,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826240,
@@ -54067,7 +54358,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826336,
@@ -54123,7 +54414,7 @@
           "resolved": 2045268
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826368,
@@ -54162,7 +54453,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826608,
@@ -54218,7 +54509,7 @@
           "resolved": 2045005
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826688,
@@ -54257,7 +54548,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826864,
@@ -54296,7 +54587,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826912,
@@ -54352,7 +54643,7 @@
           "resolved": 2044698
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5826976,
@@ -54400,7 +54691,7 @@
           "resolved": 2044611
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827168,
@@ -54439,7 +54730,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827216,
@@ -54478,7 +54769,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827296,
@@ -54534,7 +54825,7 @@
           "resolved": 2044354
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827328,
@@ -54573,7 +54864,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827520,
@@ -54637,7 +54928,7 @@
           "resolved": 2044155
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827584,
@@ -54701,7 +54992,7 @@
           "resolved": 2044075
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827664,
@@ -54765,7 +55056,7 @@
           "resolved": 2043995
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827744,
@@ -54829,7 +55120,7 @@
           "resolved": 2043915
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827824,
@@ -54893,7 +55184,7 @@
           "resolved": 2043835
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5827904,
@@ -54957,7 +55248,7 @@
           "resolved": 2043675
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828064,
@@ -55021,7 +55312,7 @@
           "resolved": 2043595
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828144,
@@ -55085,7 +55376,7 @@
           "resolved": 2043515
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828224,
@@ -55141,7 +55432,7 @@
           "resolved": 2044029
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828448,
@@ -55180,7 +55471,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828528,
@@ -55219,7 +55510,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828592,
@@ -55275,7 +55566,7 @@
           "resolved": 2043805
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828672,
@@ -55314,7 +55605,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828752,
@@ -55369,7 +55660,7 @@
           "resolved": 2042763
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5828944,
@@ -55425,7 +55716,7 @@
           "resolved": 2043341
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5829136,
@@ -55481,7 +55772,7 @@
           "resolved": 2043249
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5829216,
@@ -55537,7 +55828,7 @@
           "resolved": 2043149
         }
       ],
-      "source_sha256": "ebb52a14185cb912e104d63c4960f396530adf998def6b5f53bd57a76874f8eb",
+      "source_sha256": "59800c4d7b9900c36c06f559c82dff378c1bf38a9452bd99b5cc0f148dc8d50c",
       "source": "rebuild/src/mapgen.cpp",
       "population": "rebuild-mapgen",
       "source_order": 5829328,

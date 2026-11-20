@@ -52,6 +52,12 @@ Rect __fastcall Get_Briefing_Area(void);
 Rect __fastcall Get_Loading_Text_Area(void);
 void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, int y, int width, int flags, bool fill);
 void __fastcall Draw_Area_Text(wchar_t const * text, Surface * surface, Rect const & area, unsigned short color, int flags);
+Point2D __fastcall Copy_Point(Point2D const * source); // RA2: 0x006F1AE0 (txtlabel2.cpp)
+void __fastcall Load_Loading_Screen_Palettes(int side); // RA2: 0x006F24A0 (txtlabel2.cpp)
+void __fastcall Free_Loading_Screen_Palettes(void); // RA2: 0x006F2510 (txtlabel2.cpp)
+void __fastcall Load_MP_Load_Palette(void); // RA2: 0x006F25C0 (txtlabel2.cpp)
+void __fastcall Free_MP_Load_Palette(void); // RA2: 0x006F26D0 (txtlabel2.cpp)
+namespace OwnerDraw { int __fastcall Draw_Text_In_Rect_Ex(Surface * surface, wchar_t const * text, RECT * area, BitFont * font, unsigned long color, int flags, int unknown7, int unknown8, int arg9, int arg10); } // RA2: 0x005FE020 (ownrdraw.cpp)
 
 char const * UKShapeName = "ls%sukingdom.shp";
 char const * CubaShapeName = "ls%scuba.shp";
@@ -147,7 +153,6 @@ void LoadProgressManager::Compute_Rects(void)
 /// Where the progress bar's text starts: in a campaign inside the bar below the picture, in a
 /// multiplayer game at an offset from the picture's corner.
 /// </summary>
-#if 0
 Point2D LoadProgressManager::Text_Origin(void)
 {
 	Point2D p;
@@ -160,6 +165,7 @@ Point2D LoadProgressManager::Text_Origin(void)
 		}
 		p.Y = TextBarRect.Y + 7;
 	} else {
+		p = Copy_Point((Point2D const *)&PictureRect);
 		if (VideoModeWidth == ScreenWidths[0]) {
 			p.X += 0xC;
 			p.Y += 0x100;
@@ -170,7 +176,6 @@ Point2D LoadProgressManager::Text_Origin(void)
 	}
 	return p;
 }
-#endif
 
 
 /// <summary>
@@ -189,7 +194,6 @@ int LoadProgressManager::Get_Row_Width(void)
 /// Opens LOAD.MIX once and loads the palettes of the art: the campaign's by the player's side,
 /// the multiplayer one otherwise.
 /// </summary>
-#if 0
 void LoadProgressManager::Load_Mixes(void)
 {
 	if (LoadMix == NULL) {
@@ -199,10 +203,11 @@ void LoadProgressManager::Load_Mixes(void)
 		}
 	}
 	if (Session.Type == GAME_NORMAL) {
+		Load_Loading_Screen_Palettes(Scen->IsGDI == 0);
 	} else {
+		Load_MP_Load_Palette();
 	}
 }
-#endif
 
 
 /// <summary>
@@ -597,7 +602,6 @@ void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, 
 /// <summary>
 /// Draws a text in an area in a pixel color through the game font.
 /// </summary>
-#if 0
 void __fastcall Draw_Area_Text(wchar_t const * text, Surface * surface, Rect const & area, unsigned short color, int flags)
 {
 	RECT rect;
@@ -606,9 +610,8 @@ void __fastcall Draw_Area_Text(wchar_t const * text, Surface * surface, Rect con
 	rect.right = area.X + area.Width;
 	rect.bottom = area.Y + area.Height;
 	RGBClass rgb = DSurface::Deconstruct_Hicolor_Pixel(color);
-	Draw_Text_In_Rect_Ex(surface, text, &rect, BitFont::Instance, rgb.Get_Red() | (rgb.Get_Green() << 8) | (rgb.Get_Blue() << 16), flags, 12, 0, 0, 0);
+	OwnerDraw::Draw_Text_In_Rect_Ex(surface, text, &rect, BitFont::Instance, rgb.Get_Red() | (rgb.Get_Green() << 8) | (rgb.Get_Blue() << 16), flags, 12, 0, 0, 0);
 }
-#endif
 
 
 /// <summary>
@@ -624,7 +627,6 @@ void LoadProgressManager::Copy_Surface(Surface * target)
 /// <summary>
 /// Frees the shapes the screen loaded itself, the palettes, LOAD.MIX and the surface.
 /// </summary>
-#if 0
 void LoadProgressManager::Release(void)
 {
 	if (TitleBarShapeLoaded && TitleBarShape != NULL) {
@@ -639,6 +641,8 @@ void LoadProgressManager::Release(void)
 		operator delete(TextBarShape);
 	}
 	TextBarShape = NULL;
+	Free_Loading_Screen_Palettes();
+	Free_MP_Load_Palette();
 	if (LoadMix != NULL) {
 		delete LoadMix;
 		LoadMix = NULL;
@@ -646,7 +650,6 @@ void LoadProgressManager::Release(void)
 	delete ProgressSurface;
 	ProgressSurface = NULL;
 }
-#endif
 
 
 /// <summary>

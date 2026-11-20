@@ -23,6 +23,7 @@
 #include "_map.h" // RA2: the includes this file needs
 #include "cell.h" // RA2: the includes this file needs
 #include "foot.h" // RA2: the includes this file needs
+#include "targetcell.h" // RA2: Append_Radius_Bins takes the center cell through Target_Cell (ra2-decomp)
 #include "tracker.h" // RA2: the includes this file needs
 
 
@@ -84,10 +85,9 @@ int AircraftTrackerClass::Region_Index(Cell cell) // RA2: 0x00412820
 /// Adds the bins around the cell of an object to the working list: its own bin, the bins one radius
 /// away to the right, above, below and to the left with those between, then the diagonals.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: placed at 0x004128A0; the original calls Coord::As_Cell out of line (0x413770) where this inlines it
 void AircraftTrackerClass::Append_Radius_Bins(CellClass * cell, int radius) // RA2: 0x004128A0
 {
-	Cell center = cell->Center_Coord().As_Cell(); // RA2: the cell of the center coordinate (virtual 0x48)
+	Cell center = Target_Cell(cell); // RA2: the cell of the center coordinate, through Target_Cell as in ra2-decomp's twin
 	int index = Region_Index(center);
 	Append_Bin(index);
 
@@ -126,8 +126,7 @@ void AircraftTrackerClass::Append_Radius_Bins(CellClass * cell, int radius) // R
 	}
 
 	if (up && left) {
-		bin = index;
-		for (int i = MIN(up, left); i > 0; i--) {
+		for (int i = MIN(up, left), bin = index; i > 0; i--) {
 			bin = Shift_Bin(bin, Point2D(-1, -1));
 			Append_Bin(bin);
 		}
@@ -138,42 +137,47 @@ void AircraftTrackerClass::Append_Radius_Bins(CellClass * cell, int radius) // R
 	}
 
 	if (down && left) {
-		bin = index;
-		for (int i = MIN(down, left); i > 0; i--) {
+		for (int i = MIN(down, left), bin = index; i > 0; i--) {
 			bin = Shift_Bin(bin, Point2D(-1, 1));
 			Append_Bin(bin);
 		}
 		if (down >= 2 && left >= 2) {
-			Append_Bin(Shift_Bin(index, Point2D(-2, 1)));
-			Append_Bin(Shift_Bin(index, Point2D(-1, 2)));
+			int side;
+			side = Shift_Bin(index, Point2D(-2, 1));
+			Append_Bin(side);
+			side = Shift_Bin(index, Point2D(-1, 2));
+			Append_Bin(side);
 		}
 	}
 
 	if (up && right) {
-		bin = index;
-		for (int i = MIN(up, right); i > 0; i--) {
+		for (int i = MIN(up, right), bin = index; i > 0; i--) {
 			bin = Shift_Bin(bin, Point2D(1, -1));
 			Append_Bin(bin);
 		}
 		if (up >= 2 && right >= 2) {
-			Append_Bin(Shift_Bin(index, Point2D(2, -1)));
-			Append_Bin(Shift_Bin(index, Point2D(1, -2)));
+			int side;
+			side = Shift_Bin(index, Point2D(2, -1));
+			Append_Bin(side);
+			side = Shift_Bin(index, Point2D(1, -2));
+			Append_Bin(side);
 		}
 	}
 
 	if (down && right) {
-		bin = index;
-		for (int i = MIN(down, right); i > 0; i--) {
+		for (int i = MIN(down, right), bin = index; i > 0; i--) {
 			bin = Shift_Bin(bin, Point2D(1, 1));
 			Append_Bin(bin);
 		}
 		if (down >= 2 && right >= 2) {
-			Append_Bin(Shift_Bin(index, Point2D(2, 1)));
-			Append_Bin(Shift_Bin(index, Point2D(1, 2)));
+			int side;
+			side = Shift_Bin(index, Point2D(2, 1));
+			Append_Bin(side);
+			side = Shift_Bin(index, Point2D(1, 2));
+			Append_Bin(side);
 		}
 	}
 }
-#endif
 
 /// <summary>
 /// Does nothing: the tracker needs no work when an object it may hold goes away.

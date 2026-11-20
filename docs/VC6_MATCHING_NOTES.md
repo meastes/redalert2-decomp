@@ -2739,3 +2739,95 @@ range do not count, and any reference inside the stretch resets the count. The w
   list appears at a small K, the original has that many more inline sites after the helper (or as much less budget):
   look for wrappers and for the unit's own functions written out by hand in the rest of the body. If no K helps,
   the cause is not a later site (a deeper wrapper level, the 35000 cap, or the text).
+
+## Explicit zero initializers of class members in a constructor's budget (found in the rebuild (lane F2))
+
+- Found in the rebuild (lane F2): a member whose default constructor zeroes it and the same member written out with
+  zero arguments in the initializer list compile to the same stores, but they are different inline sites of the
+  root. `RGBClass(void) : Red(0), Green(0), Blue(0) {}` at a member the list omits is an implicit site with no
+  arguments; `RadColor(0, 0, 0)` is a call of the three-argument constructor whose three converted arguments are
+  counted in the root's size S (budget 2*S). RulesClass::RulesClass 0x640B80 was 7 to 12 units short of expanding
+  VectorClass<int>'s constructor at its last vector member (FillEarliestTeamProbability); ra2-decomp's twin lists
+  `RadColor(0, 0, 0)`, `LineTrailColorOverride(0, 0, 0)` and `ChronoBeamColor(0, 0, 0)` where main's and mischa85's
+  texts leave the three colours to the default constructor. With those three initializers the constructor is exact
+  (7,768 B) and the two VectorClass constructor copies behind it (0x654960, 0x6549B0) bind; nothing else changed.
+- Reading it from the image: zero stores to a class member in the middle of the list, in member order, where the
+  member's type has both a zeroing default constructor and a value constructor, do not say which was written. When
+  a long constructor is a few units short at a late site, compare the reference twins' initializer lists for
+  members our list omits before measuring anything else; main matched this row only because its vector chain was
+  a unit smaller per member (both size parameters unsigned), which hid the three missing initializers.
+
+## Twin statements, inline predicates and charged probes (found in the rebuild (lane F2))
+
+- Found in the rebuild (lane F2): before measuring a row that is a few budget units off, read the matched or
+  near twin's text of the same function for calls our draft spells out by hand. Each of these was the whole cause:
+  an inline predicate (`Road_Tile_Set(tile)` for `tile != ISOTILE_NONE`, seven sites in
+  MapGeneratorClass::Generate_Rural_Roads 0x58A1B0, the K=2 trailing-site lead); inline.h's
+  `Distance(coord1, coord2)` for `(a - b).Length()` (Explosion_Damage 0x47E2C0: the image's three calls of
+  TPoint3D<int>'s constructor are operator-'s result inside the charged wrapper); `groups.Delete_All()` for
+  `groups.Clear()` (the image's virtual Clear followed by Resize(len) is Delete_All's body); and a constructor's
+  base-initializer form (`Coord(Point2D const & pt, LEPTON z) : BASECLASS(pt.X, pt.Y, z) {}` as ra2-decomp has it,
+  against the TibSun archive's member assignments: the same stores when expanded, a call of TPoint3D<int>'s
+  constructor where the budget is short, Tactical::Draw_Shroud 0x6A7820). That header form was rechecked over all 280
+  includers of coord.h: no exact row lost, and Tactical::Draw_Tile_Shadows 0x6A8240, whose text already equalled its
+  matched twin, became exact with it.
+- A charged probe measures a deficit that out-of-line pads cannot. An inline function of constant stores
+  (12 + 6 per array store, so 42 at the least: 40 and under is free) called at the top of the root charges that
+  many units before every later site, whatever the root's budget; `GetFocus();` pads only raise 2*S, which is
+  nothing while the root sits on the 1000 floor. Sweep the spend upward until the image's call list appears, then
+  add pads to the smallest working spend: when a pad of 8 budget units takes the list away again the root is above
+  the floor, and spend minus pads brackets the deficit (HouseTypeClass::Read_INI 0x4F9550: a spend of 42 gives the
+  image's list, two pads lose it again, so the original has 27 to 34 fewer budget units at the second list reader).
+  Trailing-site probes (K empty inline calls) must stand after the site in question; sites before it do not count
+  in its N.
+- il_lab.py read at a finer step lists a reader's states in order. TGet_TypeList<UnitTypeClass> in houstype (size
+  216): the list's Add is called and both TypeList copies expanded from 756 to 811, Add expanded and the copies
+  called from 812 to 959. The image's second reader is in the first state and ours in the second, one step apart:
+  a deficit of a few units at the reader's own level, which is 27 to 34 at the root because the reader's share is
+  what is left divided by the ten or so sites after it. TechnoTypeClass::Read_INI 0x6DAF60 shows the same family
+  (five of six Get_VocType_List statements call VectorClass<int>::Clear in the image; a top spend of 192 fixes
+  the first, 372 three of them).
+- A callee of 41 to 46 units is not free. TPoint2D<int>::operator== measures 46 in infantry (il_lab), DirType::
+  Direction 98 with the comparison nested at 144, Move_Coord 90, Coord(int, int, int) 42 to 44 and TPoint3D<int>'s
+  constructor inside it 46 to 48. DirType::Direction's `if (coord1 == coord2) Facing = 0;` leaves a call whose
+  result is dropped when the comparison is refused: the image has it in FlyLocomotionClass::Nearing_Target,
+  HoverLocomotionClass::Process and Motion_AI and twice in InfantryClass::Start_Driver. In Start_Driver the image
+  refuses the comparison at both statements while expanding everything inside Move_Coord beside it; no budget at
+  the root gives that (30 trailing sites refuse the comparison and Coord's constructor together), so the
+  original's Direction sits one inline level deeper there, as hover's Motion_AI already has it through a
+  unit-local `Facing_To` (ra2-decomp's name). A plain `Facing_To(Center_Coord(), headto)` in infantry overshoots
+  (DirType::Direction itself is called), so the wrapper's own shape is still open.
+- Found in the rebuild (lane F2): the order in which an expanded TPoint3D<int>::Length converts its three members
+  (fild X, Y, Z or Y, Z, X, with the products taken in the reverse order) is not fixed by Length's text. In
+  Explosion_Damage three expansions of the same `(a - b).Length()` give Y, Z, X at the two cell sites and X, Y, Z
+  at the third; the image has X, Y, Z at all three. Not the wrapper's spelling (Distance or Distance_To at any of
+  the three), not the declaration count (12 extra function types), not the root budget (pads). A fourth Distance
+  site later in the function (probe) turns the first inline sites to X, Y, Z, and removing the third leaves the
+  first two as they were: the order follows the other expansions of Length in the function. Rows that carry a
+  second Length with named locals (`Length_YZX`, the rocket's two Ground_Distance twins) are probably this effect.
+- An adopted twin can bring a unit-local helper that the structure budget counts. AnimClass::Flaming_Guy_AI
+  0x423120 is exact with ra2-decomp's `_Move_Coord` (y before x, a named result) where inline.h's Move_Coord gives a
+  constructor temporary and x first; the image has the first shape there and the second in other units, and
+  ra2-decomp keeps both bodies too. One name with two bodies is a ruling, not a draft: the row stays parked with
+  the exact candidate recorded.
+- The trailing-site count names the wrappers. InfantryClass::Assign_Destination 0x501CE0 answered the probe at K=3,
+  and ra2-decomp's twin has exactly three inline calls our draft spelled out: `As_Unit(target)` and
+  `As_Building(target)` (their cast.h: a null test and an RTTI test around the cast) and
+  `Begin_Piggyback_Locomotion(Locomotion, piggy, walk)` (their piggyback.h). With the two headers adopted the row
+  is exact. The same checked casts were already in the tree as unit-local helpers (team `_As_Cell`, unit
+  `Unit_As_Cell`/`Unit_As_Building`/`Unit_As_Unit`, building `Techno_As_Foot`, written as conditional
+  expressions); the shared if/return bodies replace all five with no row lost, so one shared definition serves
+  both spellings' rows.
+- ra2-decomp's unit sources carry their inline wrappers beside the functions that use them (39 `static inline`
+  helpers in their wonline.cpp alone). Three wonline rows fell to them in minutes: Update_Buddy_Profile 0x7562B0
+  (seventeen `Set_Text(window, text)` calls for hand-written SendMessage(0x4B2) lines), Poke_The_Host 0x750F60
+  (`Current_Channel_Type()`, the guard's "one more inline call site"), and with them the out-of-line
+  Dictionary<Wstring, Ladder>::getPointer under its own name. For a parked row with a twin, list the twin unit's
+  `static inline` definitions above the function first (Connect_To_Server's twin has six: Strip_Server_Prefix,
+  Pick_Locale, Set_Locale_Entry, Apply_Locale, Check_Locale, Wait_For_Event).
+- A guard whose difference is only immediates of zero (`push 0` for `push 0x7FE6CC`) is unbound references, not
+  text: open it and run `rebuild.py check UNIT --learn` (Pick_Lobby 0x744090, 19 bytes, five references).
+- A function-local static of a newly exact row can strand the unit's data section: CellClass::Wall_Update's
+  `_offsets` (0x7D2B58) is followed in the image by the statics of Closest_Free_Spot, which is parked, so the
+  object lays Clear_Icon's tables 36 bytes early, pads the next one by 4, and the per-symbol data compare refuses
+  the section. Such a row lands with the parked neighbour whose statics lie between, not alone.

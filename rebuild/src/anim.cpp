@@ -1479,13 +1479,30 @@ static inline int _Flat_Distance(Coord b, Coord a)
 
 
 /// <summary>
+/// Moves a coordinate the distance specified along a direction, at the same height.
+/// RA2: the unit's own copy (ra2-decomp src/anim.cpp: _Move_Coord, file-local there too), Y computed before X and
+/// the result assigned member by member, which Flaming_Guy_AI expands as the image does.
+/// </summary>
+static inline Coord _Move_Coord(Coord const & start, DirType const & dir, int distance)
+{
+	double radians = dir.As_Radian();
+	int y = start.Y - fastmath::sin(radians) * distance;
+	int x = start.X + fastmath::cos(radians) * distance;
+	Coord c;
+	c.X = x;
+	c.Y = y;
+	c.Z = start.Z;
+	return(c);
+}
+
+
+/// <summary>
 /// Handles the per frame logic for a burning victim animation.
 /// This routine moves the animation along toward the water it is making for, keeps the
 /// running frames pointed the way it is traveling, and switches it over to the death
 /// sequence once it arrives or runs out of anywhere to go.
 /// </summary>
 /// <remarks>Only call this routine once per animation per game logic loop.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 1697 bytes differ (adopted text)
 void AnimClass::Flaming_Guy_AI(void)
 {
 	if (!IsFlamingGuyEnd) {
@@ -1493,11 +1510,7 @@ void AnimClass::Flaming_Guy_AI(void)
 	}
 
 	if (FlamingGuyCoords != COORD_NONE && !IsFlamingGuyEnd) {
-		Coord coord = PositionCoord;
-		coord.Z = 0;
-		Coord target = FlamingGuyCoords;
-		target.Z = 0;
-		if ((coord - target).Length() <= 18) { // RA2: the length of the offset between the two flat coordinates
+		if (_Flat_Distance(FlamingGuyCoords, PositionCoord) <= 18) { // RA2: the length of the offset between the two flat coordinates
 			if (!IsFalling) {
 				Coord nextcoord = Next_Flaming_Guy_Coord();
 				bool sink = (Map[FlamingGuyCoords].Land_Type() == LAND_WATER || Map[FlamingGuyCoords].Land_Type() == LAND_BEACH) && HeightAGL <= LEVEL_LEPTON_H; // RA2: beach sinks the victim as well
@@ -1522,8 +1535,8 @@ void AnimClass::Flaming_Guy_AI(void)
 			}
 		} else {
 			int z = PositionCoord.Z;
-			DirType direction = DirType().Direction(Center_Coord(), FlamingGuyCoords);
-			Coord newcoord = Move_Coord(PositionCoord, direction, 18);
+			DirType direction = _Direction(this, FlamingGuyCoords);
+			Coord newcoord = _Move_Coord(PositionCoord, direction, 18);
 			if (z <= Map.Get_Height_GL(newcoord) + 2 * LEVEL_LEPTON_H) {
 				newcoord.Z = Map.Get_Height_GL(newcoord);
 			} else {
@@ -1570,7 +1583,6 @@ void AnimClass::Flaming_Guy_AI(void)
 		}
 	}
 }
-#endif
 
 
 

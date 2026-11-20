@@ -113,15 +113,40 @@ def helper_copies(tree, read):
         if p.startswith('rebuild/include/'):
             shared |= {n for n in SHARED_INLINE.findall(C.code_only(read(p) or '')) if '::' not in n}
     found = []
+    evidenced = {(r['unit'], r['name']) for r in twin_helpers(read)}
     for p in tree:
         if not (p.startswith('rebuild/src/') and p.endswith(('.cpp', '.c'))):
             continue
         for name in sorted(set(SHARED_INLINE.findall(C.code_only(read(p) or '')))):
+            if (p.split('/')[-1].rsplit('.', 1)[0], name) in evidenced:
+                continue
             for helper in sorted(shared):
                 if name != helper and re.search(r'(?:^|_)%s(?:$|_)' % re.escape(helper), name):
                     found.append((p, name, helper))
                     break
     return found
+
+
+TWIN_HELPERS = 'rebuild/manifest/twin_helpers.csv'
+TWIN_SRC = Path(__file__).resolve().parents[2] / 'private/reference/ra2-decomp/src'
+
+
+def twin_helpers(read):
+    """[{unit, name, twin_path, note}]: unit-local helpers evidenced by the twin (review session, 2026-11-20): listed
+    in manifest/twin_helpers.csv, kept only while the unit source defines the name `static inline` and the
+    ra2-decomp twin unit (twin_path, under private/reference/ra2-decomp) defines the same name file-locally;
+    a listed helper either side lacks is not evidenced and counts as a copy again. Reported on its own census
+    line, apart from the helper_copies budget (which may only fall)."""
+    import csv, io
+    rows = list(csv.DictReader(io.StringIO(read(TWIN_HELPERS) or '')))
+    kept = []
+    for r in rows:
+        pat = re.compile(r'^[ \t]*static\s+inline\s+[\w<>,\s\*&]+?\b%s\s*\(' % re.escape(r['name']), re.M)
+        ours = read('rebuild/src/%s.cpp' % r['unit']) or ''
+        twin = TWIN_SRC / r['twin_path']
+        if pat.search(C.code_only(ours)) and twin.exists() and pat.search(twin.read_text(errors='replace')):
+            kept.append(r)
+    return kept
 
 
 LARGE = 1024    # a parked function of 1 KB or more (the checkpoint measure: "parked large functions pass 500 KB")
@@ -399,6 +424,10 @@ def main(quiet=False):
         ', '.join(measures['judgment_members']) or 'none'))
     print('Gate (may not grow): unit-local copies of a shared helper %d: %s' % (measures['helper_copies'], ', '.join(
         '%s %s (%s)' % (p.split('/')[-1][:-4], n, h) for p, n, h in copies) or 'none'))
+    evidenced = twin_helpers(read)
+    print('Report: unit-local helpers evidenced by the twin: %d%s' % (len(evidenced), ''.join(
+        (': ' if i == 0 else ', ') + '%s %s (ra2-decomp %s)' % (r['unit'], r['name'], r['twin_path'])
+        for i, r in enumerate(evidenced))))
     listed = declared_never_defined.count()
     print('Gate (may only fall): declared, never defined %d (manifest/declared_never_defined.csv%s)' % (
         measures['declared_never_defined'], '' if listed == len(never) else

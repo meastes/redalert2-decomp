@@ -2583,28 +2583,26 @@ static inline int Wall_Frame(CellClass & cell, FacingType const * offsets)
  *   09/19/1994 JLB : Created.                                                                 *
  *   09/19/1994 BWG : Updated to handle partially-damaged walls.                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1057 bytes differ (adopted text)
-void CellClass::Wall_Update(bool)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact (ra2-decomp's twin: the redraw rectangle block and Wall_Frame; the first wall case leaves the owner alone), but its static _offsets (0x7D2B58) lies 36 bytes before Clear_Icon's tables with Closest_Free_Spot's _sequence and _alternate (0x7D2B6C, parked) between them, so the object pads _small_pattern and the data audit refuses the section; lands with Closest_Free_Spot 0x4764B0
+void CellClass::Wall_Update(bool justneighbors)
 {
 	static FacingType _offsets[FACING_COUNT / 2 + 1] = {FACING_N, FACING_E, FACING_S, FACING_W, FACING_NONE};
 
 	for (unsigned index = 0; index < ARRAY_SIZE(_offsets); index++) {
 		CellClass & newcell = Adjacent_Cell(_offsets[index]);
+		Rect rect;
+		if (!justneighbors || _offsets[index] != FACING_NONE) {
+			rect = Union(newcell.Overlay_Render_Rect(), newcell.Overlay_Shadow_Render_Rect()) - TacticalRect.Top_Left();
+		}
 		newcell.Register_For_Redraw();
 
 		if (newcell.Overlay != OVERLAY_NONE && OverlayTypes[newcell.Overlay]->IsWall) {
-			int	icon = 0;
 
 			/*
 			**	Build the icon number according to walls located in the adjacent
 			**	cells.
 			*/
-			for (unsigned i = 0; i < FACING_COUNT / 2; i++) {
-				CellClass & adjacent = newcell.Adjacent_Cell(_offsets[i]);
-				if (adjacent.Has_Wall_Or_Gate(newcell.Overlay, _offsets[i])) {
-					icon |= 1 << i;
-				}
-			}
+			int icon = Wall_Frame(newcell, _offsets);
 			newcell.OverlayData = (newcell.OverlayData & 0xFFF0) | icon;
 
 			/*
@@ -2618,7 +2616,6 @@ void CellClass::Wall_Update(bool)
 			if ((newcell.Overlay == OVERLAY_BRICK_WALL || newcell.Overlay == OVERLAY_NOD_WALL) && (newcell.OverlayData == 3 * OVERLAYDATA_WALL_DAMAGE_STAGE || newcell.OverlayData == 2 * OVERLAYDATA_WALL_DAMAGE_STAGE)) {
 				newcell.Overlay = OVERLAY_NONE;
 				newcell.OverlayData = 0;
-				newcell.Owner = HOUSE_NONE;
 				Detach_This_From_All(&newcell, true);
 				recalc_around = true;
 			}

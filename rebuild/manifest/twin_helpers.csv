@@ -1,0 +1,2 @@
+unit,name,twin_path,note
+anim,_Move_Coord,anim.cpp,"ra2-decomp src/anim.cpp defines _Move_Coord file-locally (Y before X, the result assigned member by member; not inline.h's body) and its Flaming_Guy_AI (YR 0x425670) matches through it; ours: AnimClass::Flaming_Guy_AI 0x423120 exact through it; review session ruling 2026-11-20; lane O1"

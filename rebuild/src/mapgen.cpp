@@ -9843,6 +9843,15 @@ void MapGeneratorClass::Generate_Rural_Units(const Cell & cell)
 
 
 /// <summary>
+/// Determines if a road tile has been chosen for a node.
+/// </summary>
+static inline bool Road_Tile_Set(IsometricTileType tile) // RA2: as in ra2-decomp's twin
+{
+	return(tile != ISOTILE_NONE);
+}
+
+
+/// <summary>
 /// Lays out the dirt roads of a rural settlement.
 /// This routine starts from a junction at the cell given and grows the road outward until
 /// it runs out of room. Every loose end is sealed with a cap piece, and a stretch that
@@ -9851,7 +9860,6 @@ void MapGeneratorClass::Generate_Rural_Units(const Cell & cell)
 /// </summary>
 /// <param name="cell">The cell the road network should start from.</param>
 /// <returns>bool; Was anything more than a lone junction laid down?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1114 bytes differ (adopted text)
 bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 {
 	QueueClass<DirtRoadNode, 1024> queue;
@@ -9863,8 +9871,8 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 	 * shapes are tried once, beginning at a random shape so that the roads
 	 * don't always start out looking the same.
 	 */
-	int attempt = 0;
 	unsigned int random_offset = Pick_Random_UInt(0, 10);
+	int attempt = 0;
 	IsometricTileType junction;
 	while (true) {
 		junction = (IsometricTileType)(IsometricTileTypeClass::DirtRoadJunction + (int)(random_offset + attempt) % DIRT_ROAD_JUNCTION_COUNT);
@@ -9882,28 +9890,29 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 	 */
 	DirtRoadNode root(junction, cell, ISOTILE_NONE, cell, -1);
 	queue.Add(root);
-	if (queue.Count == 0) {
-		return(false);
-	}
 
 	/*
 	 * Grow the road network breadth-first until the queue runs dry or comes
 	 * close to overflowing.
 	 */
-	while (queue.Count < 1020) {
+	while (queue.Count != 0) {
+		if (queue.Count >= 1020) {
+			break;
+		}
 		bool success = true;
 		DirtRoadNode node = queue.First();
+		bool placed = Road_Tile_Set(node.Tile);
 
 		int child_count = 0;
 		DirtRoadNode * children = NULL;
 
-		if (node.Tile != ISOTILE_NONE) {
+		if (placed) {
 
 			/*
 			 * Commit this tile to the map. The cap tile that provisionally
 			 * terminated the road here is no longer needed.
 			 */
-			if (node.CapTile != ISOTILE_NONE) {
+			if (Road_Tile_Set(node.CapTile)) {
 				Mark_Tile(node.CapTile, node.CapOrigin, false);
 			}
 			Place_Tile(node.Tile, node.Origin);
@@ -9951,7 +9960,7 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 			}
 		}
 
-		if (success && node.Tile != ISOTILE_NONE) {
+		if (placed && success) {
 
 			/*
 			**	Every link found a continuation, so queue the new road pieces up
@@ -9971,21 +9980,21 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 			 * the map, unmark whatever continuations were already found, and
 			 * terminate the incoming road with the cap tile instead.
 			 */
-			if (node.Tile != ISOTILE_NONE) {
+			if (Road_Tile_Set(node.Tile)) {
 				Remove_Tile(node.Tile, node.Origin);
 				DirtRoadNode * undo = children;
 				while (child_count > 0) {
-					if (undo->Tile != ISOTILE_NONE) {
+					if (Road_Tile_Set(undo->Tile)) {
 						Mark_Tile(undo->Tile, undo->Origin, false);
 					}
-					if (undo->CapTile != ISOTILE_NONE) {
+					if (Road_Tile_Set(undo->CapTile)) {
 						Mark_Tile(undo->CapTile, undo->CapOrigin, false);
 					}
 					undo++;
 					--child_count;
 				}
 			}
-			if (node.CapTile != ISOTILE_NONE) {
+			if (Road_Tile_Set(node.CapTile)) {
 				Place_Tile(node.CapTile, node.CapOrigin);
 			}
 		}
@@ -9996,9 +10005,6 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 
 		queue.Next();
 		processed++;
-		if (queue.Count == 0) {
-			return(processed > 1);
-		}
 	}
 
 	/*
@@ -10010,9 +10016,11 @@ bool MapGeneratorClass::Generate_Rural_Roads(const Cell & cell)
 		Place_Tile(node.CapTile, node.CapOrigin);
 		queue.Next();
 	}
-	return(processed > 1);
+	if (processed > 1) {
+		return(true);
+	}
+	return(false);
 }
-#endif
 
 
 // --- FACING 0 (NORTH) ---

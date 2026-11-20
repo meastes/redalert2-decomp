@@ -3467,7 +3467,10 @@ int __fastcall Get_Slot_Control_Id(int slot) // RA2: 0x005C97A0, the id of the c
 	if (slot == 6) { // RA2: as above
 		return(1047); // RA2: as above
 	}
-	return(slot == 7 ? 1048 : -1); // RA2: as above
+	if (slot == 7) { // RA2: as above
+		return(1048); // RA2: as above
+	}
+	return(-1); // RA2: as above
 }
 
 int __fastcall Control_Slot(int id) // RA2: 0x005C9800, not in TibSun; the slot a control belongs to, or -1
@@ -3817,7 +3820,10 @@ int __fastcall Slot_Color_Control_Id(int slot) // RA2: 0x005CA4E0, not in TibSun
 	if (slot == 6) { // RA2: as above
 		return(1752); // RA2: as above
 	}
-	return(slot == 7 ? 1753 : -1); // RA2: as above
+	if (slot == 7) { // RA2: as above
+		return(1753); // RA2: as above
+	}
+	return(-1); // RA2: as above
 }
 
 void __fastcall Refresh_Slot_Colors(HWND dialog) // RA2: 0x005CA540, not in TibSun; selects each slot's color in its color box, the first player's slot first
@@ -3944,78 +3950,38 @@ bool __fastcall Reset_AI_Slots(HWND dialog) // RA2: 0x005CACB0, not in TibSun; a
 	return(changed); // RA2: as above
 }
 
-inline void Show_Slot(HWND dialog, int slot) // RA2: not in TibSun; shows the color picture, entry combo, flag and boxes of a slot, the color box stays hidden for an observer
-{
-	int color_id; // RA2: as above
-	int slot_id; // RA2: as above
-	if (slot == 0) { // RA2: as above
-		color_id = 1746; // RA2: as above
-		slot_id = 1041; // RA2: as above
-	} else if (slot == 1) { // RA2: as above
-		color_id = 1747; // RA2: as above
-		slot_id = 1042; // RA2: as above
-	} else if (slot == 2) { // RA2: as above
-		color_id = 1748; // RA2: as above
-		slot_id = 1043; // RA2: as above
-	} else if (slot == 3) { // RA2: as above
-		color_id = 1749; // RA2: as above
-		slot_id = 1044; // RA2: as above
-	} else if (slot == 4) { // RA2: as above
-		color_id = 1750; // RA2: as above
-		slot_id = 1045; // RA2: as above
-	} else if (slot == 5) { // RA2: as above
-		color_id = 1751; // RA2: as above
-		slot_id = 1046; // RA2: as above
-	} else if (slot == 6) { // RA2: as above
-		color_id = 1752; // RA2: as above
-		slot_id = 1047; // RA2: as above
-	} else if (slot == 7) { // RA2: as above
-		color_id = 1753; // RA2: as above
-		slot_id = 1048; // RA2: as above
-	} else {
-		color_id = -1; // RA2: as above
-		slot_id = -1; // RA2: as above
-	}
-	int player_id = Player_Control_ID(slot); // RA2: as above
-	int color_combo_id = Player_Color_Combo_ID(slot); // RA2: as above
-	int side_combo_id = Player_Side_Combo_ID(slot); // RA2: as above
-	NodeNameType * entry = Session.Slots[slot]; // RA2: as above
-	bool observer; // RA2: as above
-	if (entry == LobbyEntries[6] || (entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[5] && entry->Slot.SpectatorFlag == -1)) { // RA2: as above
-		observer = true; // RA2: as above
-	} else {
-		observer = false; // RA2: as above
-	}
-	HWND color = GetDlgItem(dialog, color_id); // RA2: as above
-	HWND combo = GetDlgItem(dialog, slot_id); // RA2: as above
-	HWND player = GetDlgItem(dialog, player_id); // RA2: as above
-	HWND color_combo = GetDlgItem(dialog, color_combo_id); // RA2: as above
-	HWND side_combo = GetDlgItem(dialog, side_combo_id); // RA2: as above
-	ShowWindow(color, SW_SHOW); // RA2: as above
-	ShowWindow(combo, SW_SHOW); // RA2: as above
-	ShowWindow(player, SW_SHOW); // RA2: as above
-	if (!observer) { // RA2: as above
-		ShowWindow(color_combo, SW_SHOW); // RA2: as above
-		ShowWindow(side_combo, SW_SHOW); // RA2: as above
-	} else {
-		ShowWindow(color_combo, SW_HIDE); // RA2: as above
-		ShowWindow(side_combo, SW_SHOW); // RA2: as above
-	}
-}
-
-void __fastcall Show_Slot_Controls(HWND dialog, int first, int count); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 415 bytes differ (adopted text)
-// RA2: the executable calls Show_Slot_Controls (Change_Slot_Count does not expand it); written with the per-slot helper it compiles to the executable's size, but its small source tree would be expanded into Change_Slot_Count, so automatic inlining is off for it (debt: the original source got the call without this)
-#pragma auto_inline(off) // RA2: as above
 void __fastcall Show_Slot_Controls(HWND dialog, int first, int count) // RA2: 0x005CAE00, not in TibSun; shows the controls of count slots from the first one on
 {
 	int end = first + count; // RA2: as above
-	for (int slot = first; slot < end; slot++) { // RA2: as above
-		Show_Slot(dialog, slot); // RA2: as above
+	for (int slot = first; slot < end; ++slot) { // RA2: as above
+		int color_id = Slot_Color_Control_Id(slot); // RA2: as above
+		int slot_id = Get_Slot_Control_Id(slot); // RA2: as above
+		int player_id = Player_Control_ID(slot); // RA2: as above
+		int shade_id = Player_Color_Combo_ID(slot); // RA2: as above
+		int side_id = Player_Side_Combo_ID(slot); // RA2: as above
+		HWND color = GetDlgItem(dialog, color_id); // RA2: as above
+		HWND combo = GetDlgItem(dialog, slot_id); // RA2: as above
+		HWND player = GetDlgItem(dialog, player_id); // RA2: as above
+		HWND shade = GetDlgItem(dialog, shade_id); // RA2: as above
+		HWND side = GetDlgItem(dialog, side_id); // RA2: as above
+		NodeNameType * entry = Session.Slots[slot]; // RA2: as above
+		bool observer; // RA2: as above
+		if (entry == LobbyEntries[6] || (entry != NULL && entry != LobbyEntries[0] && entry != LobbyEntries[1] && entry != LobbyEntries[5] && entry->Slot.SpectatorFlag == -1)) { // RA2: as above
+			observer = true; // RA2: as above
+		} else {
+			observer = false; // RA2: as above
+		}
+		ShowWindow(color, SW_SHOW); // RA2: as above
+		ShowWindow(combo, SW_SHOW); // RA2: as above
+		ShowWindow(player, SW_SHOW); // RA2: as above
+		if (observer) { // RA2: as above
+			ShowWindow(shade, SW_HIDE); // RA2: as above
+		} else {
+			ShowWindow(shade, SW_SHOW); // RA2: as above
+		}
+		ShowWindow(side, SW_SHOW); // RA2: as above
 	}
 }
-#pragma auto_inline() // RA2: as above
-#endif
 
 void __fastcall Show_Observer_Slot_Controls(HWND dialog) // RA2: 0x005CAFD0, not in TibSun; shows the controls of the observer's slot (the last one when the observer is the first), the color box stays hidden for an observer
 {
@@ -4086,48 +4052,14 @@ void __fastcall Show_Observer_Slot_Controls(HWND dialog) // RA2: 0x005CAFD0, not
 	}
 }
 
-void __fastcall Hide_Slot_Controls(HWND dialog, int first); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 383 bytes differ (adopted text)
-// RA2: as for Show_Slot_Controls: the executable calls Hide_Slot_Controls; the loop written with while compiles to the executable's size, but it would be expanded into the callers, so automatic inlining is off for it (debt)
-#pragma auto_inline(off) // RA2: as above
 void __fastcall Hide_Slot_Controls(HWND dialog, int first) // RA2: 0x005CB170, not in TibSun; hides the controls of the slots from the first one on, except the observer's
 {
-	int slot = first; // RA2: as above
-	while (slot < 8) { // RA2: as above
+	for (int slot = first; slot < 8; ++slot) { // RA2: as above
 		if (slot == LobbyObserverSlot) { // RA2: as above
-			slot++; // RA2: as above
 			continue; // RA2: as above
 		}
-		int color_id; // RA2: as above
-		int slot_id; // RA2: as above
-		if (slot == 0) { // RA2: as above
-			color_id = 1746; // RA2: as above
-			slot_id = 1041; // RA2: as above
-		} else if (slot == 1) { // RA2: as above
-			color_id = 1747; // RA2: as above
-			slot_id = 1042; // RA2: as above
-		} else if (slot == 2) { // RA2: as above
-			color_id = 1748; // RA2: as above
-			slot_id = 1043; // RA2: as above
-		} else if (slot == 3) { // RA2: as above
-			color_id = 1749; // RA2: as above
-			slot_id = 1044; // RA2: as above
-		} else if (slot == 4) { // RA2: as above
-			color_id = 1750; // RA2: as above
-			slot_id = 1045; // RA2: as above
-		} else if (slot == 5) { // RA2: as above
-			color_id = 1751; // RA2: as above
-			slot_id = 1046; // RA2: as above
-		} else if (slot == 6) { // RA2: as above
-			color_id = 1752; // RA2: as above
-			slot_id = 1047; // RA2: as above
-		} else if (slot == 7) { // RA2: as above
-			color_id = 1753; // RA2: as above
-			slot_id = 1048; // RA2: as above
-		} else {
-			color_id = -1; // RA2: as above
-			slot_id = -1; // RA2: as above
-		}
+		int color_id = Slot_Color_Control_Id(slot); // RA2: as above
+		int slot_id = Get_Slot_Control_Id(slot); // RA2: as above
 		int player_id = Player_Control_ID(slot); // RA2: as above
 		int side_id = Player_Side_Combo_ID(slot); // RA2: as above
 		int shade_id = Player_Color_Combo_ID(slot); // RA2: as above
@@ -4141,11 +4073,8 @@ void __fastcall Hide_Slot_Controls(HWND dialog, int first) // RA2: 0x005CB170, n
 		ShowWindow(player, SW_HIDE); // RA2: as above
 		ShowWindow(side, SW_HIDE); // RA2: as above
 		ShowWindow(shade, SW_HIDE); // RA2: as above
-		slot++; // RA2: as above
 	}
 }
-#pragma auto_inline() // RA2: as above
-#endif
 
 void __fastcall Change_Slot_Count(HWND dialog, int old_count, int count, MultiplayerGameMode * mode) // RA2: 0x005CB300, not in TibSun; shows or hides the controls of the slots that were added or removed, both counts limited to the lobby's
 {
@@ -4649,8 +4578,6 @@ void __fastcall Save_Lobby_Options(HWND dialog, SessionOptionsClass * options) /
 	options->CratesAppear = Session.Options.Goodies; // RA2: as above
 }
 
-void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 693 bytes differ (adopted text)
 void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options) // RA2: 0x005CCA30, not in TibSun; the saved game mode, map and settings are made current again (a restricted channel takes the first game mode if the saved one is not allowed) and every slot but the first is set to its saved type, side and color
 {
 	if (options->MPGameMode < 1 || options->MPGameMode > MultiplayerGameMode::GetModeCount()) { // RA2: as above
@@ -4676,7 +4603,8 @@ void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options) /
 		options->ScenIndex = 0; // RA2: as above
 	}
 	Session.Options.ScenarioIndex = Set_Scenario_Info_From_Index(options->ScenIndex) ? options->ScenIndex : 0; // RA2: as above
-	if (!mode->IsMapAllowed(Session.Scenarios[Session.Options.ScenarioIndex])) { // RA2: as above
+	MultiMission * scenario = Session.Scenarios[Session.Options.ScenarioIndex]; // RA2: the scenario being checked
+	if (!mode->IsMapAllowed(scenario)) { // RA2: as above
 		int index = mode->FirstValidMapIndex(); // RA2: as above
 		if (index == -1) { // RA2: as above
 			mode = First_Game_Mode(); // RA2: as above
@@ -4753,7 +4681,6 @@ void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options) /
 	Session.Options.MCVRedeploy = options->MCVRepacks; // RA2: as above
 	Session.Options.Goodies = options->CratesAppear; // RA2: as above
 }
-#endif
 
 
 void __fastcall Get_Window_Wide_Text(HWND window, WideWstring & text); // RA2: 0x00600E50, the text of a window, as Get_List_Item_Wide_Text for a list box item

@@ -3109,6 +3109,7 @@ symbol,address,evidence
 ?g_StartGameReceived@@3_NA,0x00B2AC45,WOL_Wait_Callback (0x73E100) reads it there at the site our copy refers to it; mischa85's wonline.cpp notes the same address
 ?g_StartGameRunning@@3_NA,0x00B2AC44,WOL_Wait_Callback (0x73E100) reads it there at the site our copy refers to it; mischa85's wonline.cpp notes the same address
 ?g_TargetServerIndex@@3HA,0x00B2A7F4,inferred: wonline rows 0073e8d0 differ only at its sites
+?g_TerritoryName@@3PAGA,0x00B28CC8,inferred: wonline rows 00744090 differ only at its sites
 ?g_UserAge@@3HA,0x00B2AC6C,inferred: wonline rows 0073e8d0 differ only at its sites
 ?g_UserChannels@@3V?$ArrayList@UChannel@WOL@@@@A,0x00B26C88,inferred: wonline rows 0073a980 0073a980 0073a980 0073a9a0 differ only at its sites
 ?g_UserConsent@@3HA,0x00B2AC70,inferred: wonline rows 0073e8d0 differ only at its sites

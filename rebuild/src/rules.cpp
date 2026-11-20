@@ -142,7 +142,6 @@ RulesClass::RulesClass(NoInitClass const & x) :
  * HISTORY:                                                                                    *
  *   06/17/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1474 bytes differ (the original expands VectorClass<int>'s constructor at FillEarliestTeamProbability, where this text calls it)
 RulesClass::RulesClass(void) :
 	DetailMinFrameRateNormal(15), // RA2: the executable's initializer list, in RA2's member order and values
 	DetailMinFrameRateMovie(20), // RA2: as above
@@ -668,6 +667,7 @@ RulesClass::RulesClass(void) :
 	RadLevelFactor(0.0), // RA2: as above
 	RadLightFactor(0.0), // RA2: as above
 	RadTintFactor(0.0), // RA2: as above
+	RadColor(0, 0, 0), // RA2: written out, as ra2-decomp's twin has it (the three-argument constructor at each colour)
 	RadSiteWarhead(0), // RA2: as above
 	ElevationIncrement(0), // RA2: as above
 	ElevationIncrementBonus(1.0), // RA2: as above
@@ -675,6 +675,8 @@ RulesClass::RulesClass(void) :
 	AlliedWallTransparency(false), // RA2: as above
 	WallPenetratorThreshold(0.5), // RA2: as above
 	LocalRadarColor(255, 255, 255), // RA2: as above
+	LineTrailColorOverride(0, 0, 0), // RA2: as above
+	ChronoBeamColor(0, 0, 0), // RA2: as above
 	OreTwinkleChance(50), // RA2: as above
 	OreTwinkle(0) // RA2: as above
 {
@@ -703,7 +705,6 @@ RulesClass::RulesClass(void) :
 	DMisl.LazyCurve = false; // RA2: as above
 	DMisl.Type = 0; // RA2: as above
 }
-#endif
 
 
 

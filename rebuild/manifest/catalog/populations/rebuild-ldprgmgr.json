@@ -46,6 +46,23 @@
     "?Session@@3VSessionClass@@A": 10736280,
     "?ScreenHeights@@3QBHB": 8052084,
     "?VideoModeHeight@@3HA": 8725476,
+    "?Copy_Point@@YI?AVPoint2D@@PBV1@@Z": 7281376,
+    "?FastKey@@3VPKey@@A": 8622096,
+    "??_C@_08HBA@LOAD?4MIX?$AA@": 8254568,
+    "??0MixFileClass@@QAE@PBDPBVPKey@@@Z": 5853936,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Load_Loading_Screen_Palettes@@YIXH@Z": 7283872,
+    "?Load_MP_Load_Palette@@YIXXZ": 7284160,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?Instance@BitFont@@2PAV1@A": 8710632,
+    "?Draw_Text_In_Rect_Ex@OwnerDraw@@YIHPAVSurface@@PBGPAUtagRECT@@PAVBitFont@@KHHHHH@Z": 6283296,
+    "?Free_Loading_Screen_Palettes@@YIXXZ": 7283984,
+    "?Free_MP_Load_Palette@@YIXXZ": 7284432,
     "?HiddenSurface@@3PAVSurface@@A": 8624468,
     "?Suffix800@@3PBDB": 8254364,
     "??_C@_03LHGB@800?$AA@": 8254368,
@@ -89,9 +106,12 @@
     "?Destroy@LoadProgressManager@@SIXXZ": 5462384,
     "??0LoadProgressManager@@QAE@XZ": 5462432,
     "?Compute_Rects@LoadProgressManager@@QAEXXZ": 5462496,
+    "?Text_Origin@LoadProgressManager@@QAE?AVPoint2D@@XZ": 5462704,
     "?Get_Row_Width@LoadProgressManager@@QAEHXZ": 5462880,
+    "?Load_Mixes@LoadProgressManager@@QAEXXZ": 5462928,
     "?Get_Briefing_Area@@YI?AV?$TRect@H@@XZ": 5467008,
     "?Get_Loading_Text_Area@@YI?AV?$TRect@H@@XZ": 5467136,
+    "?Draw_Area_Text@@YIXPBGPAVSurface@@ABV?$TRect@H@@GH@Z": 5467440,
     "?Copy_Surface@LoadProgressManager@@QAEXPAVSurface@@@Z": 5467648,
     "?Unknown_Virtual_0@LoadProgressManager@@UAE_NHH@Z": 5467808,
     "??_EWstring@@QAEPAXI@Z": 4239168,
@@ -152,7 +172,7 @@
           "resolved": 10938212
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461792,
@@ -219,7 +239,7 @@
           "resolved": 10938224
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461824,
@@ -270,7 +290,7 @@
           "resolved": 10938296
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461872,
@@ -321,7 +341,7 @@
           "resolved": 10938280
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461904,
@@ -372,7 +392,7 @@
           "resolved": 10938272
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461936,
@@ -423,7 +443,7 @@
           "resolved": 10938232
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461968,
@@ -474,7 +494,7 @@
           "resolved": 10938192
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462000,
@@ -557,7 +577,7 @@
           "resolved": 10938304
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462032,
@@ -616,7 +636,7 @@
           "resolved": 10938240
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462096,
@@ -675,7 +695,7 @@
           "resolved": 10938264
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462144,
@@ -734,7 +754,7 @@
           "resolved": 10938288
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462192,
@@ -777,7 +797,7 @@
           "resolved": 10938218
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462240,
@@ -828,7 +848,7 @@
           "resolved": 10938256
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462256,
@@ -895,7 +915,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462288,
@@ -962,7 +982,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462384,
@@ -997,7 +1017,7 @@
           "resolved": 8017052
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462432,
@@ -1104,10 +1124,85 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462496,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5462704,
+      "method": "00535ab0",
+      "body_bytes": 166,
+      "body_sha256": "27a6e7dc24d3a3cb7169d57628ce6517999d97b0cd261253d354355589368fd9",
+      "padding_bytes": 10,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "9942e35377392e9ec466d8ffc949641e55fff7f2b2bceeb99e398c745363de09",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Text_Origin@LoadProgressManager@@QAE?AVPoint2D@@XZ",
+      "symbol_prefix": "?Text_Origin@LoadProgressManager@@QAE?AVPoint2D@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 20,
+          "kind": 6,
+          "symbol": "?ScreenWidths@@3QBHB",
+          "target": 8052072,
+          "addend": 0,
+          "resolved": 8052072
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Copy_Point@@YI?AVPoint2D@@PBV1@@Z",
+          "target": 7281376,
+          "addend": 0,
+          "resolved": 1818576
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "?ScreenWidths@@3QBHB",
+          "target": 8052072,
+          "addend": 0,
+          "resolved": 8052072
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        }
+      ],
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
+      "source": "rebuild/src/ldprgmgr.cpp",
+      "population": "rebuild-ldprgmgr",
+      "source_order": 5462704,
       "source_quality_family": "rebuild"
     },
     {
@@ -1155,10 +1250,101 @@
           "resolved": 8052072
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462880,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5462928,
+      "method": "00535b90",
+      "body_bytes": 92,
+      "body_sha256": "d5439a7362e8b11b333f47e5c4bf52a8245caa70d24cf22119c1ca6dff874a69",
+      "padding_bytes": 4,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "2961d059440f902c90493bdac12d022d461b429b18431422538d0f750371eb03",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load_Mixes@LoadProgressManager@@QAEXXZ",
+      "symbol_prefix": "?Load_Mixes@LoadProgressManager@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2409590
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?FastKey@@3VPKey@@A",
+          "target": 8622096,
+          "addend": 0,
+          "resolved": 8622096
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_C@_08HBA@LOAD?4MIX?$AA@",
+          "target": 8254568,
+          "addend": 0,
+          "resolved": 8254568
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??0MixFileClass@@QAE@PBDPBVPKey@@@Z",
+          "target": 5853936,
+          "addend": 0,
+          "resolved": 390967
+        },
+        {
+          "offset": 53,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Load_Loading_Screen_Palettes@@YIXH@Z",
+          "target": 7283872,
+          "addend": 0,
+          "resolved": 1820859
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "?Load_MP_Load_Palette@@YIXXZ",
+          "target": 7284160,
+          "addend": 0,
+          "resolved": 1821142
+        }
+      ],
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
+      "source": "rebuild/src/ldprgmgr.cpp",
+      "population": "rebuild-ldprgmgr",
+      "source_order": 5462928,
       "source_quality_family": "rebuild"
     },
     {
@@ -1222,7 +1408,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467008,
@@ -1289,10 +1475,101 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467136,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5467440,
+      "method": "00536d30",
+      "body_bytes": 202,
+      "body_sha256": "fa2ddb510e2872db5758e21ca96224b7db5e93949937dc3e4d143e608467cda4",
+      "padding_bytes": 6,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "18932bfbde3ce678c35018ad749356921bbe6f22f280d5a40f240e1ddd805a27",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Area_Text@@YIXPBGPAVSurface@@ABV?$TRect@H@@GH@Z",
+      "symbol_prefix": "?Draw_Area_Text@@YIXPBGPAVSurface@@ABV?$TRect@H@@GH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?Instance@BitFont@@2PAV1@A",
+          "target": 8710632,
+          "addend": 0,
+          "resolved": 8710632
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "?Draw_Text_In_Rect_Ex@OwnerDraw@@YIHPAVSurface@@PBGPAUtagRECT@@PAVBitFont@@KHHHHH@Z",
+          "target": 6283296,
+          "addend": 0,
+          "resolved": 815663
+        }
+      ],
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
+      "source": "rebuild/src/ldprgmgr.cpp",
+      "population": "rebuild-ldprgmgr",
+      "source_order": 5467440,
       "source_quality_family": "rebuild"
     },
     {
@@ -1315,10 +1592,77 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467648,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5467680,
+      "method": "00536e20",
+      "body_bytes": 127,
+      "body_sha256": "8ef643affb298ffcdeb5ae671e558da29079af17456177b475eb77b71b191d0b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "7d6eec6f638f78bfee54a4d3b4bc531f1b9f3ce18955940bcf48fd906904b72a",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@LoadProgressManager@@QAEXXZ",
+      "symbol_prefix": "?Release@LoadProgressManager@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2404099
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2404073
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2404047
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?Free_Loading_Screen_Palettes@@YIXXZ",
+          "target": 7283984,
+          "addend": 0,
+          "resolved": 1816217
+        },
+        {
+          "offset": 88,
+          "kind": 20,
+          "symbol": "?Free_MP_Load_Palette@@YIXXZ",
+          "target": 7284432,
+          "addend": 0,
+          "resolved": 1816660
+        }
+      ],
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
+      "source": "rebuild/src/ldprgmgr.cpp",
+      "population": "rebuild-ldprgmgr",
+      "source_order": 5467680,
       "source_quality_family": "rebuild"
     },
     {
@@ -1350,7 +1694,7 @@
           "resolved": 8624468
         }
       ],
-      "source_sha256": "03b2dec5eb594104b7a47253ae8c477fb0e1dce52c600d268e925aa6093793a8",
+      "source_sha256": "0c30228256c4c3a2131acb09fa990b67ed34a7a44c47e996c919bcab8ba61205",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467808,

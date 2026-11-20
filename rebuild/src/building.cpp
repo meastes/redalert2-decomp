@@ -127,6 +127,7 @@
 #include "bullet.h"
 #include "bullettype.h"
 #include "ccrand.h"
+#include "cast.h"
 #include "cell.h"
 #include "combat.h"
 #include "conquer.h"
@@ -5877,12 +5878,6 @@ int BuildingClass::Do_MISSION_CAPTURE(void) // RA2: 0x447240; the base class beh
 	return(MissionClass::Do_MISSION_CAPTURE());
 }
 
-static inline FootClass * Techno_As_Foot(TechnoClass * techno) // RA2: the checked cast the executable expands inline wherever a radio contact is used as a foot (bit 2 of the abstract flags)
-{
-	return((techno == NULL) ? NULL : ((techno->AbstractFlags & 4) ? (FootClass *)techno : NULL)); // RA2: as above
-}
-
-
 /***********************************************************************************************
  * BuildingClass::Mission_Repair -- Handles the repair (active) state for building.            *
  *                                                                                             *
@@ -6107,7 +6102,7 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 						bool all_done = msg == RADIO_ALL_DONE;
 						if ((!damaged && !manual_reload) || (!roger && !all_done)) { // RA2: as above
 							if (client->HealthRatio == Rule->ConditionGreen && !((FootClass *)client)->Locomotion->Is_Powered()) { // RA2: as above
-								FootClass * mover = Techno_As_Foot(Radio_Link(0)); // RA2: the checked cast
+								FootClass * mover = As_Foot(Radio_Link(0)); // RA2: the checked cast
 								mover->Locomotion->Power_On(); // RA2: as above
 								if (mover->ArchiveTarget != NULL && !mover->House->Is_Human_Player()) { // RA2: as above
 									mover->QueueMission(MISSION_MOVE, false); // RA2: QueueMission
@@ -6222,7 +6217,7 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 								Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
 								Status = IDLE;
 
-								FootClass * foot = Techno_As_Foot(Radio_Link(0)); // RA2: as above
+								FootClass * foot = As_Foot(Radio_Link(0)); // RA2: as above
 								if (foot->ArchiveTarget != NULL && !foot->House->Is_Human_Player()) {
 									foot->QueueMission(MISSION_MOVE, false); // RA2: QueueMission
 									foot->Assign_Destination(foot->ArchiveTarget, true); // RA2: as above

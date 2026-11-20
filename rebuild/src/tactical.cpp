@@ -1940,85 +1940,83 @@ Cell Tactical::Coord_To_Cell(Coord const & coord)
 /// </summary>
 /// <param name="pixel">Screen pixel (relative to the tactical view).</param>
 /// <returns>The apparent cell under the pixel.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1103 bytes differ (adopted text)
-Cell Tactical::Pixel_To_Cell(Point2D const & pixel)
+Cell Tactical::Pixel_To_Cell(Point2D const & point)
 {
-	Point2D lepton = Pixel_To_Lepton(Point2D(TacPixelX + pixel.X - TacticalRect.X, pixel.Y + TacPixelY - TacticalRect.Y));
+	Point2D lepton = Pixel_To_Lepton(point + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
 
-	Coord frac = Coord_Fraction(Coord(lepton.X, lepton.Y, 0));
-	Cell fallback(lepton.X / CELL_LEPTON, lepton.Y / CELL_LEPTON);
+	Cell fallback(lepton.X / CELL_LEPTON_W, lepton.Y / CELL_LEPTON_H);
+
+	// Project the offset within the first cell before scanning the terrain.
+	Point2D abspixel;
+	Coord_To_Pixel(Coord(lepton.X & (CELL_LEPTON_W - 1), lepton.Y & (CELL_LEPTON_H - 1), 0), abspixel);
+	Point2D xy = point - TacticalRect.Top_Left();
+
+	Point2D scan = xy;
+	const int scan_height = 12 * (ISO_TILE_PIXEL_H / 2);
+	scan.Y += scan_height;
 
 	int count = 0;
-
-	/*
-	 * This result is never used.
-	 */
-	Point2D abspixel = Coord_To_Pixel_Absolute(frac);
-
-	int y = pixel.Y - TacticalRect.Y;
-	int x = pixel.X - TacticalRect.X;
-
-	int span = 12 * (ISO_TILE_PIXEL_H / 2);
-	int scany = span + y;
-
-	while (count < span) {
-		abspixel.X = x + TacPixelX;
-		abspixel.Y = scany + TacPixelY;
+	while (count < scan_height) {
+		abspixel = scan + Point2D(TacPixelX, TacPixelY);
 
 		Point2D scanlepton = Pixel_To_Lepton(abspixel);
-		Cell cell(scanlepton.X / CELL_LEPTON, scanlepton.Y / CELL_LEPTON);
+		Cell cell(scanlepton.X / CELL_LEPTON_W, scanlepton.Y / CELL_LEPTON_H);
 
-		CellClass * cellptr = &Map[cell];
-		int celly = scany - cellptr->Height * (ISO_TILE_PIXEL_H / 2);
+		CellClass *cellptr = &Map[cell];
+		int celly = scan.Y - cellptr->Height * (ISO_TILE_PIXEL_H / 2);
 
 		if (cellptr->IsUnderBridge) {
-			CellClass & east = cellptr->Adjacent_Cell(FACING_E);
-			CellClass & south = cellptr->Adjacent_Cell(FACING_S);
+			CellClass &east = cellptr->Adjacent_Cell(FACING_E);
+			CellClass &south = cellptr->Adjacent_Cell(FACING_S);
 
-			bool bridge1 = cellptr->IsBridgeEastWest && !cellptr->Adjacent_Cell(FACING_N).IsUnderBridge;
-			bool bridge2 = !cellptr->IsBridgeEastWest && !cellptr->Adjacent_Cell(FACING_W).IsUnderBridge;
-			bool bridge3 = cellptr->IsBridgeEastWest && !south.IsUnderBridge;
-			bool bridge4 = !cellptr->IsBridgeEastWest && !east.IsUnderBridge;
-			bool bridge5 = cellptr->IsBridgeEastWest && abs(cellptr->Height - east.Height) <= 1 && !east.IsUnderBridge;
-			bool bridge6 = !cellptr->IsBridgeEastWest && abs(cellptr->Height - south.Height) <= 1 && !south.IsUnderBridge;
+			bool north_end = (cellptr->IsBridgeEastWest) && !(cellptr->Adjacent_Cell(FACING_N).IsUnderBridge);
+			bool west_end = !(cellptr->IsBridgeEastWest) && !(cellptr->Adjacent_Cell(FACING_W).IsUnderBridge);
+			bool south_end = (cellptr->IsBridgeEastWest) && !(south.IsUnderBridge);
+			bool east_end = !(cellptr->IsBridgeEastWest) && !(east.IsUnderBridge);
+			bool east_approach =
+				(cellptr->IsBridgeEastWest) && abs(cellptr->Height - east.Height) <= 1 && !(east.IsUnderBridge);
+			bool south_approach =
+				!(cellptr->IsBridgeEastWest) && abs(cellptr->Height - south.Height) <= 1 && !(south.IsUnderBridge);
 
-			Coord topcoord = Coord_Whole(Coord(cellptr->CellID, 0));
+			Coord topcoord = Coord(cellptr->CellID) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0);
 			Point2D top;
 			Coord_To_Pixel(topcoord, top);
-			int topy = ISO_TILE_PIXEL_H * cellptr->Height / -2 + top.Y;
+			top.Y += ISO_TILE_PIXEL_H * cellptr->Height / -2;
 
-			if (topy <= y) {
-				if (bridge3 || bridge6) {
-					return(Cell(cell.X, cell.Y + 1));
+			if (top.Y <= xy.Y) {
+				if (south_end || south_approach) {
+					fallback = cell + Cell(0, 1);
+					break;
 				}
-				if (bridge4 || bridge5) {
-					return(Cell(cell.X + 1, cell.Y));
+				if (east_end || east_approach) {
+					fallback = cell + Cell(1, 0);
+					break;
 				}
 			}
 
-			if (bridge1 || bridge2) {
-				int dx = x - top.X;
-				int dy = y - topy;
-				if ((bridge1 && dy - dx / 2 > ISO_TILE_PIXEL_H / 2) ||
-					(bridge2 && dx / 2 + dy > ISO_TILE_PIXEL_H / 2)) {
-					celly -= (cellptr->IsUnderBridge ? BRIDGE_CELL_HEIGHT * (ISO_TILE_PIXEL_H / 2) : 0);
+			if (north_end || west_end) {
+				int dx = xy.X - top.X;
+				int dy = xy.Y - top.Y;
+				if ((north_end && dy - dx / 2 > ISO_TILE_PIXEL_H / 2) ||
+					(west_end && dx / 2 + dy > ISO_TILE_PIXEL_H / 2)) {
+					celly -= ((cellptr->IsUnderBridge) ? BRIDGE_CELL_HEIGHT * (ISO_TILE_PIXEL_H / 2) : 0);
 				}
 			} else {
-				celly -= (cellptr->IsUnderBridge ? BRIDGE_CELL_HEIGHT * (ISO_TILE_PIXEL_H / 2) : 0);
+				celly -= ((cellptr->IsUnderBridge) ? BRIDGE_CELL_HEIGHT * (ISO_TILE_PIXEL_H / 2) : 0);
 			}
 		}
 
-		if (celly <= y) {
-			return(cell);
+		if (celly <= xy.Y) {
+			fallback = cell;
+			break;
 		}
 
-		scany--;
+		scan.Y--;
 		count++;
 	}
 
-	return(fallback);
+	return fallback;
 }
-#endif
 
 
 /// <summary>
@@ -2207,54 +2205,58 @@ void Tactical::Draw_Overlays(Rect const & area)
 /// by drawing all alpha shapes within the clip rectangle.
 /// </summary>
 /// <param name="area">The region of the tactical view to draw the shroud and fog within.</param>
-#ifdef RA2_NON_MATCHING // not exact: 815 bytes differ (adopted text)
 void Tactical::Draw_Shroud(Rect const & area)
 {
-	Point2D const viewport(TacPixelX, TacPixelY); // RA2: the view origin is a constant of its own
-	Point2D lp = Pixel_To_Lepton(viewport + area.Top_Left() - TacticalRect.Top_Left()); // RA2: the start position is built from its two numbers by the three number Coord constructor, which the executable calls
-	Coord lepton(lp.X, lp.Y, 0); // RA2: as above
-	if (lepton.Y < 0) lepton.Y = 0;
-	if (lepton.X < 0) lepton.X = 0;
+	Coord lepton(Pixel_To_Lepton(area.Top_Left() + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left()), 0);
+	if (lepton.Y < 0) {
+		lepton.Y = 0;
+	}
+	if (lepton.X < 0) {
+		lepton.X = 0;
+	}
 
-	Cell origin = Map[lepton].CellID;
+	Cell base = Map[lepton].Fetch_CellID();
+
 	int ycount = area.Height / (ISO_TILE_PIXEL_H / 2) + 17;
 	int xcount = area.Width / ISO_TILE_PIXEL_W + 4;
-	Cell base = origin; // RA2: copied, then moved two cells left
-	base.X -= 2; // RA2: as above
-	Cell scan = base; // RA2: the scan cell is declared up front and reused
+
+	base.X -= 2;
+	Cell cell = base;
 
 	if (MainWindow != NULL) {
 		int ix, iy;
 		for (iy = 0; iy < ycount; iy++) {
 			Cell step(iy / 2, (iy + 1) / 2);
-			scan = base + step; // RA2: as above
+			cell = base + step;
 
 			for (ix = xcount; ix > 0; ix--) {
-				if (Map.In_Radar(scan)) { // RA2: as above
-					CellClass * cellptr = &Map[scan]; // RA2: as above
+				if (Map.In_Radar(cell)) {
+					CellClass * cellptr = &Map[cell];
 
-					Coord coord = Coord_Whole(Coord(scan)); // RA2: as above
+					Coord coord = Coord_Whole(Coord(cell));
 					Point2D pixel;
 					Coord_To_Pixel(coord, pixel);
-					pixel.X -= ISO_TILE_PIXEL_W / 2; // RA2: as above
+					pixel.X += ISO_TILE_PIXEL_W / -2;
 
-					Rect cellrect(pixel.X, TacticalRect.Y + pixel.Y, ISO_TILE_PIXEL_W, ISO_TILE_PIXEL_H);
+					Rect cellrect;
+					cellrect.X = pixel.X;
+					cellrect.Y = TacticalRect.Y + pixel.Y;
+					cellrect.Width = ISO_TILE_PIXEL_W;
+					cellrect.Height = ISO_TILE_PIXEL_H;
 					Rect inter = Intersect(cellrect, area);
 					Rect drawrect = Intersect(TacticalRect, inter);
 
 					if (drawrect.Is_Valid()) {
-						Point2D origin(TacticalRect.X, TacticalRect.Y); // RA2: the rectangle origin is a point of its own
-						cellptr->Draw_Shroud_And_Fog(pixel + origin, drawrect); // RA2: as above
+						cellptr->Draw_Shroud_And_Fog(pixel + TacticalRect.Top_Left(), drawrect);
 					}
 				}
-				scan += Cell(1, -1); // RA2: as above
+				cell += Cell(1, -1);
 			}
 		}
 	}
 
 	AlphaShapeClass::Draw_All(area);
 }
-#endif
 
 
 
@@ -2419,7 +2421,6 @@ static inline Coord Tile_Center(Cell const & cell)
 /// </summary>
 /// <param name="area">The pixel rectangle to draw shadows within.</param>
 /// <param name="cliprect">The clip rectangle passed to each cell's shadow caster.</param>
-#ifdef RA2_NON_MATCHING // not exact: 621 bytes differ (adopted text)
 void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 {
 	Coord lepton(Pixel_To_Lepton(area.Top_Left() + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left()), 0); // RA2: Draw_Tile_Shadows at 0x6A88A0 matches only so
@@ -2452,7 +2453,6 @@ void Tactical::Draw_Tile_Shadows(Rect const & area, Rect const & cliprect)
 		}
 	}
 }
-#endif
 
 
 /// <summary>

@@ -100,6 +100,7 @@
 #include "bench.h"
 #include "building.h"
 #include "builtype.h"
+#include "cast.h" // RA2: Assign_Destination's checked casts (ra2-decomp)
 #include "ccrand.h"
 #include "cell.h"
 #include "combat.h"
@@ -122,6 +123,7 @@
 #include "mono.h"
 #include "overlay.h"
 #include "overtype.h"
+#include "piggyback.h" // RA2: Assign_Destination hands the locomotor over (ra2-decomp)
 #include "parasite.h" // RA2: Can_Enter_Cell reads the parasite victim
 #include "planning.h" // RA2: Planning_Allows_Event_Type
 #include "radsite.h" // RA2
@@ -1154,7 +1156,6 @@ void InfantryClass::Detach(AbstractClass const * target, bool all)
  * HISTORY:                                                                                    *
  *   09/08/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 896 bytes differ (radio links through HasAnyLink, checked casts)
 void InfantryClass::Assign_Destination(AbstractClass * target, bool immediate)
 {
 	if (Owner_HouseClass()->Is_Human_Player()) { // RA2: a deploying human soldier ignores new destinations
@@ -1206,11 +1207,11 @@ void InfantryClass::Assign_Destination(AbstractClass * target, bool immediate)
 				*/
 				if (techno->HasAnyLink()) {
 					if (techno->Fetch_RTTI() == RTTI_UNIT) { // RA2: a busy vehicle transport is queued up for
-						QueueUpToEnter = target == NULL ? NULL : (target->Fetch_RTTI() == RTTI_UNIT ? static_cast<UnitClass *>(target) : NULL); // RA2: as above
+						QueueUpToEnter = As_Unit(target); // RA2: as above
 						ArchiveTarget = NULL;
 						target = NULL;
 					} else if (techno->Fetch_RTTI() == RTTI_BUILDING) { // RA2: as above
-						QueueUpToEnter = target == NULL ? NULL : (target->Fetch_RTTI() == RTTI_BUILDING ? static_cast<BuildingClass *>(target) : NULL); // RA2: as above
+						QueueUpToEnter = As_Building(target); // RA2: as above
 						ArchiveTarget = NULL;
 						target = NULL;
 					} else {
@@ -1264,8 +1265,7 @@ void InfantryClass::Assign_Destination(AbstractClass * target, bool immediate)
 				walk->Link_To_Object(this);
 				piggy = IPiggybackPtr(walk);
 				if (piggy != NULL) {
-					piggy->Begin_Piggyback(Locomotion);
-					Locomotion = walk;
+					Begin_Piggyback_Locomotion(Locomotion, piggy, walk); // RA2: as in ra2-decomp's twin
 				}
 			}
 		} else if (should_fly) { // RA2: the executable's destination assignment (jumpjet, queue-up transports)
@@ -1278,7 +1278,6 @@ void InfantryClass::Assign_Destination(AbstractClass * target, bool immediate)
 
 	BASECLASS::Assign_Destination(target, immediate);
 }
-#endif
 
 
 /***********************************************************************************************

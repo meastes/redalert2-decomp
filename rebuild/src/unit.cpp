@@ -123,6 +123,7 @@
 #include "bullet.h"
 #include "bullettype.h"
 #include "ccrand.h"
+#include "cast.h"
 #include "cell.h"
 #include "combat.h"
 #include "conquer.h"
@@ -185,26 +186,11 @@ namespace Unsorted { extern bool MoveFeedback; }
 **	RA2: the casts Assign_Destination and the teleport block use: a null pointer gives null, a wrong RTTI gives null, the
 **	virtual Fetch_RTTI is called once.
 */
-static inline CellClass * Unit_As_Cell(AbstractClass * object) // RA2: as above
-{
-	return(object == NULL ? NULL : (object->Fetch_RTTI() == RTTI_CELL ? (CellClass *)object : NULL)); // RA2: as above
-}
 
 static inline bool Unit_Is_Cell(AbstractClass const * object) // RA2: the null test stays inside the helper
 {
 	return(object != NULL && object->Fetch_RTTI() == RTTI_CELL); // RA2: as above
 }
-
-static inline BuildingClass * Unit_As_Building(AbstractClass * object) // RA2: as above
-{
-	return(object == NULL ? NULL : (object->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)object : NULL)); // RA2: as above
-}
-
-static inline UnitClass * Unit_As_Unit(AbstractClass * object) // RA2: as above
-{
-	return(object == NULL ? NULL : (object->Fetch_RTTI() == RTTI_UNIT ? (UnitClass *)object : NULL)); // RA2: as above
-}
-
 
 char const * const UnitClass::INI_NAME = "Units";
 
@@ -4654,7 +4640,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	if (Class->BalloonHover && !target && NavCom && TarCom) {
         if (NavCom==TarCom) return;
         if (Unit_Is_Cell(NavCom)) {
-            CellClass *destination=Unit_As_Cell(NavCom);
+			CellClass * destination = As_Cell(NavCom);
             if(destination->Cell_Occupier()==TarCom) return;
         }
     }
@@ -4682,7 +4668,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		}
 	}
 
-	BuildingClass * b=Unit_As_Building(target);
+	BuildingClass * b = As_Building(target);
     if(Get_Mission()==16 || MissionQueue==16) {
         Cell unload_cell=Get_Cell()+AdjacentCell[6];
         BuildingClass *refinery=(BuildingClass *)Map[unload_cell].Cell_Building();
@@ -4706,7 +4692,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		if (!HasAnyLink()) {
 			TechnoClass *destination_techno=Dynamic_Cast<TechnoClass *>(target);
             if(destination_techno && destination_techno->Fetch_RTTI()==1) {
-                QueueUpToEnter=Unit_As_Unit(target);
+				QueueUpToEnter = As_Unit(target);
                 Assign_Archive_Target(0);target=0;
             } else if (b != 0 && b->Fetch_RTTI()==6) {
 
@@ -4862,8 +4848,8 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
         bool drive=true;
         if(contact) {
             if(contact->Fetch_RTTI()==6) {
-                BuildingClass *building=Unit_As_Building(contact);
-                CellClass *cell=Unit_As_Cell(target);
+				BuildingClass * building = As_Building(contact);
+				CellClass * cell = As_Cell(target);
                 if(building->Class->IsDockUnload && cell && !cell->Cell_Unit(false)) {
                     drive=false;
                     if(memcmp(&tclsid,&CLSID_TeleportLocomotion,sizeof(GUID))!=0) {

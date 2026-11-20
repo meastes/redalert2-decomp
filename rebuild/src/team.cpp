@@ -85,6 +85,7 @@
 #include "aitrig.h"
 #include "anim.h"
 #include "building.h"
+#include "cast.h"
 #include "cell.h"
 #include "crc.h"
 #include "foot.h"
@@ -144,13 +145,6 @@ static inline int _Coord_Distance(Coord const & a, Coord const & b)
 {
 	Coord t = a - b;
 	return(t.Length());
-}
-
-
-static inline CellClass * _As_Cell(AbstractClass * object) // RA2: a null-checked RTTI cast of the target to a cell, inlined in the mission code
-{
-	if (object == NULL) return(NULL);
-	return(object->Fetch_RTTI() == RTTI_CELL ? (CellClass *)object : NULL);
 }
 
 
@@ -1610,7 +1604,7 @@ void TeamClass::Coordinate_Attack(void)
 	**	are prime examples).
 	*/
 	if (Target != NULL && Target->Fetch_RTTI() == RTTI_CELL && Member != NULL && Fetch_A_Leader()->Fetch_RTTI() != RTTI_AIRCRAFT) { // RA2: the RTTI is read through the virtual
-		CellClass * cellptr = _As_Cell(Target); // RA2: RTTI cast, not dynamic_cast
+		CellClass * cellptr = As_Cell(Target); // RA2: RTTI cast, not dynamic_cast
 		if (cellptr->Cell_Object()) {
 			Target = cellptr->Cell_Object();
 		}
@@ -2443,7 +2437,7 @@ void TeamClass::TMission_SPY(TeamMissionClass * mission, bool first_time)
 	}
 
 	if (MissionTarget != NULL && MissionTarget->Fetch_RTTI() == RTTI_CELL) { // RA2: reads the RTTI through the virtual
-		CellClass * cellptr = _As_Cell(MissionTarget); // RA2: as above
+		CellClass * cellptr = As_Cell(MissionTarget); // RA2: as above
 		ObjectClass * bldg = cellptr->Cell_Object();
 		if (bldg != NULL) {
 			Assign_Mission_Target(bldg);

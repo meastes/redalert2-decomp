@@ -105,6 +105,21 @@
     "?Shape_Number@InfantryClass@@QBEHXZ": 5243728,
     "?Draw_It@FootClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 5020608,
     "?Detach@FootClass@@UAEXPBVAbstractClass@@_N@Z": 5014624,
+    "??0Cell@@QAE@HH@Z": 4369712,
+    "?Is_Clear_To_Move@CellClass@@QBE_NW4SpeedType@@_N1HW4MZoneType@@H1@Z": 4687712,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
+    "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656,
+    "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z": 7171664,
+    "_CLSID_WalkLocomotion": 8003488,
+    "_memmove": 7877264,
+    "?Should_JumpJet_Fly@InfantryClass@@QAE_NABVCell@@0@Z": 5279184,
+    "??0?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE@ABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 5281904,
+    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869376,
+    "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 4541552,
+    "?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z": 4306512,
+    "??4?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUIPiggyback@@@Z": 4537968,
+    "??4?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUILocomotion@@@Z": 5281840,
+    "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z": 5013552,
     "?Assign_Target@TechnoClass@@UAEXPAVAbstractClass@@@Z": 7117552,
     "?Tunnel_AI@InfantryClass@@QAEXXZ": 5252544,
     "?AI@FootClass@@UAEXXZ": 5017584,
@@ -124,7 +139,6 @@
     "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z": 5133568,
     "?Is_Ally@HouseClass@@QBE_NPBV1@@Z": 5133632,
     "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
-    "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656,
     "?Combat_Damage@TechnoClass@@QBEHH@Z": 7083760,
     "?Ground@@3PAUGroundType@@A": 8720032,
     "__real@4@00000000000000000000": 7972664,
@@ -231,7 +245,6 @@
     "??RRandom2Class@@QAEHXZ": 6522944,
     "?Is_Same_Cell_Zone@MapClass@@QAE_NABVCell@@0W4MZoneType@@_N22@Z": 5568448,
     "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
-    "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ": 4869376,
     "__real@8@3ffeccccccccccccd000": 8010288,
     "?Get_Rad_Site@CellClass@@QAEPAVRadSiteClass@@XZ": 4705856,
     "?GetRadLevel@RadSiteClass@@QAEHXZ": 6518224,
@@ -251,13 +264,7 @@
     "??RCRCEngine@@QAEX_N@Z": 4800128,
     "?Current_Speed@FootClass@@UAEHXZ": 5020432,
     "?On_Movement_Blocked@FootClass@@UAEXXZ": 5023872,
-    "??0?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE@ABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 5281904,
-    "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z": 4541552,
-    "_CLSID_WalkLocomotion": 8003488,
-    "?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z": 4306512,
-    "??4?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUIPiggyback@@@Z": 4537968,
     "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ": 5281888,
-    "??4?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUILocomotion@@@Z": 5281840,
     "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
     "?Search@@3VAStarClass@@A": 8590792,
     "?Test_Cell_Walk@AStarClass@@QAEHABVCell@@0PBVFootClass@@_N2W4MZoneType@@@Z": 4368944,
@@ -268,7 +275,6 @@
     "?CanAttackOnTheMove@TechnoClass@@UBE_NXZ": 7180096,
     "?UpdateThreatInCell@TechnoClass@@QAEXPAVCellClass@@@Z": 7181840,
     "?KillOccupants@BuildingClass@@QAEXPAVTechnoClass@@@Z": 4536016,
-    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
     "_CLSID_InfantryClass": 8002544,
     "??1InfantryClass@@UAE@XZ": 5241216,
     "??_C@_08NHGF@Infantry?$AA@": 8183336,
@@ -320,7 +326,6 @@
     "?Radar_Track@TechnoClass@@UAEXXZ": 7173328,
     "?RemoveSight@TechnoClass@@UAEX_N00PAVHouseClass@@@Z": 7167632,
     "?UpdateSight@TechnoClass@@UAEX_N00PAVHouseClass@@@Z": 7167024,
-    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "?Set_Follow_Target@FootClass@@UAEXPAVAbstractClass@@@Z": 5013536,
     "?Apparent_Brightness@TechnoClass@@UBEHH@Z": 7174608,
     "?Do_Cloak@TechnoClass@@UAEX_N@Z": 7140096,
@@ -551,6 +556,7 @@
     "?Take_Damage@InfantryClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z": 5241712,
     "?Draw_It@InfantryClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 5244240,
     "?Detach@InfantryClass@@UAEXPBVAbstractClass@@_N@Z": 5250224,
+    "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z": 5250272,
     "?Assign_Target@InfantryClass@@UAEXPAVAbstractClass@@@Z": 5252208,
     "?AI@InfantryClass@@UAEXXZ": 5254432,
     "?Can_Enter_Cell@InfantryClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z": 5255568,
@@ -601,7 +607,6 @@
     "?JumpJet_To_Walk@InfantryClass@@UAE_NXZ": 5278384,
     "?Berzerk@InfantryClass@@UAEXXZ": 5278960,
     "?Is_JumpJet@InfantryClass@@QBE_NXZ": 5278976,
-    "?Should_JumpJet_Fly@InfantryClass@@QAE_NABVCell@@0@Z": 5279184,
     "?Approach_Target@InfantryClass@@UAEXXZ": 5279536,
     "?Is_Renovator@InfantryClass@@UBE_NXZ": 5279888,
     "?Is_Deployer@InfantryClass@@QBE_NXZ": 5279904,
@@ -707,7 +712,7 @@
           "resolved": 10752224
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5239888,
@@ -759,7 +764,7 @@
           "resolved": 10752296
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5239936,
@@ -811,7 +816,7 @@
           "resolved": 10752280
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5239968,
@@ -863,7 +868,7 @@
           "resolved": 10752272
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240000,
@@ -915,7 +920,7 @@
           "resolved": 10752232
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240032,
@@ -967,7 +972,7 @@
           "resolved": 10752192
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240064,
@@ -1051,7 +1056,7 @@
           "resolved": 10752304
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240096,
@@ -1111,7 +1116,7 @@
           "resolved": 10752240
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240160,
@@ -1171,7 +1176,7 @@
           "resolved": 10752264
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240208,
@@ -1231,7 +1236,7 @@
           "resolved": 10752288
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240256,
@@ -1275,7 +1280,7 @@
           "resolved": 10752218
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240304,
@@ -1327,7 +1332,7 @@
           "resolved": 10752256
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240320,
@@ -1387,7 +1392,7 @@
           "resolved": 10752212
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240352,
@@ -1759,7 +1764,7 @@
           "resolved": 11272028
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5240384,
@@ -1819,7 +1824,7 @@
           "resolved": 2178015
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5241008,
@@ -2151,7 +2156,7 @@
           "resolved": 4294717777
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5241216,
@@ -2588,7 +2593,7 @@
           "resolved": 5243172
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5241712,
@@ -2704,7 +2709,7 @@
           "resolved": 8008692
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5243728,
@@ -3188,7 +3193,7 @@
           "resolved": 4294742318
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5244240,
@@ -3224,10 +3229,374 @@
           "resolved": 4294731677
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5250224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5250272,
+      "method": "00501ce0",
+      "body_bytes": 1936,
+      "body_sha256": "526d4dac563095d63060bb500dc4d7cb3d0001a188b6c5e2cee998cb0fba996e",
+      "padding_bytes": 0,
+      "full_extent_bytes": 1936,
+      "full_extent_sha256": "526d4dac563095d63060bb500dc4d7cb3d0001a188b6c5e2cee998cb0fba996e",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z",
+      "symbol_prefix": "?Assign_Destination@InfantryClass@@UAEXPAVAbstractClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 4294915578
+        },
+        {
+          "offset": 151,
+          "kind": 20,
+          "symbol": "??0Cell@@QAE@HH@Z",
+          "target": 4369712,
+          "addend": 0,
+          "resolved": 4294086581
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "??0Cell@@QAE@HH@Z",
+          "target": 4369712,
+          "addend": 0,
+          "resolved": 4294086521
+        },
+        {
+          "offset": 258,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2702170
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 328,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 287188
+        },
+        {
+          "offset": 335,
+          "kind": 20,
+          "symbol": "?Is_Clear_To_Move@CellClass@@QBE_NW4SpeedType@@_N1HW4MZoneType@@H1@Z",
+          "target": 4687712,
+          "addend": 0,
+          "resolved": 4294404397
+        },
+        {
+          "offset": 394,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 4294915202
+        },
+        {
+          "offset": 499,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1265721
+        },
+        {
+          "offset": 514,
+          "kind": 20,
+          "symbol": "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z",
+          "target": 4250656,
+          "addend": 0,
+          "resolved": 4293967162
+        },
+        {
+          "offset": 531,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1265689
+        },
+        {
+          "offset": 618,
+          "kind": 20,
+          "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 7171664,
+          "addend": 0,
+          "resolved": 1920770
+        },
+        {
+          "offset": 637,
+          "kind": 20,
+          "symbol": "?Assign_Archive_Target@TechnoClass@@QAEXPAVAbstractClass@@@Z",
+          "target": 7171664,
+          "addend": 0,
+          "resolved": 1920751
+        },
+        {
+          "offset": 754,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2701674
+        },
+        {
+          "offset": 808,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541424,
+          "addend": 0,
+          "resolved": 4294257636
+        },
+        {
+          "offset": 825,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2701603
+        },
+        {
+          "offset": 843,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2701585
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 0,
+          "resolved": 8003488
+        },
+        {
+          "offset": 962,
+          "kind": 20,
+          "symbol": "_memmove",
+          "target": 7877264,
+          "addend": 0,
+          "resolved": 2626026
+        },
+        {
+          "offset": 1085,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2701343
+        },
+        {
+          "offset": 1242,
+          "kind": 20,
+          "symbol": "?Should_JumpJet_Fly@InfantryClass@@QAE_NABVCell@@0@Z",
+          "target": 5279184,
+          "addend": 0,
+          "resolved": 27666
+        },
+        {
+          "offset": 1276,
+          "kind": 20,
+          "symbol": "??0?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE@ABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 5281904,
+          "addend": 0,
+          "resolved": 30352
+        },
+        {
+          "offset": 1294,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2701134
+        },
+        {
+          "offset": 1319,
+          "kind": 6,
+          "symbol": "_CLSID_JumpjetLocomotion",
+          "target": 8003584,
+          "addend": 0,
+          "resolved": 8003584
+        },
+        {
+          "offset": 1343,
+          "kind": 20,
+          "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIPersist@@$1?_GUID_0000010c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
+          "target": 4869376,
+          "addend": 0,
+          "resolved": 4294585053
+        },
+        {
+          "offset": 1425,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541552,
+          "addend": 0,
+          "resolved": 4294257147
+        },
+        {
+          "offset": 1442,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700986
+        },
+        {
+          "offset": 1478,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700950
+        },
+        {
+          "offset": 1524,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700904
+        },
+        {
+          "offset": 1543,
+          "kind": 6,
+          "symbol": "_CLSID_WalkLocomotion",
+          "target": 8003488,
+          "addend": 0,
+          "resolved": 8003488
+        },
+        {
+          "offset": 1556,
+          "kind": 20,
+          "symbol": "?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z",
+          "target": 4306512,
+          "addend": 0,
+          "resolved": 4294021976
+        },
+        {
+          "offset": 1573,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700855
+        },
+        {
+          "offset": 1591,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700837
+        },
+        {
+          "offset": 1628,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541552,
+          "addend": 0,
+          "resolved": 4294256944
+        },
+        {
+          "offset": 1645,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700783
+        },
+        {
+          "offset": 1659,
+          "kind": 20,
+          "symbol": "??4?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUIPiggyback@@@Z",
+          "target": 4537968,
+          "addend": 0,
+          "resolved": 4294253329
+        },
+        {
+          "offset": 1702,
+          "kind": 20,
+          "symbol": "??4?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QAEAAV0@PAUILocomotion@@@Z",
+          "target": 5281840,
+          "addend": 0,
+          "resolved": 29862
+        },
+        {
+          "offset": 1785,
+          "kind": 20,
+          "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEJABV?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@@Z",
+          "target": 4541552,
+          "addend": 0,
+          "resolved": 4294256787
+        },
+        {
+          "offset": 1802,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700626
+        },
+        {
+          "offset": 1838,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700590
+        },
+        {
+          "offset": 1884,
+          "kind": 20,
+          "symbol": "?_com_issue_error@@YGXJ@Z",
+          "target": 7952704,
+          "addend": 0,
+          "resolved": 2700544
+        },
+        {
+          "offset": 1922,
+          "kind": 20,
+          "symbol": "?Assign_Destination@FootClass@@UAEXPAVAbstractClass@@_N@Z",
+          "target": 5013552,
+          "addend": 0,
+          "resolved": 4294728650
+        }
+      ],
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
+      "source": "rebuild/src/infantry.cpp",
+      "population": "rebuild-infantry",
+      "source_order": 5250272,
       "source_quality_family": "rebuild"
     },
     {
@@ -3260,7 +3629,7 @@
           "resolved": 1865170
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5252208,
@@ -3456,7 +3825,7 @@
           "resolved": 18958
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5254432,
@@ -3773,7 +4142,7 @@
           "resolved": 5257419
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5255568,
@@ -3857,7 +4226,7 @@
           "resolved": 2694502
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5257824,
@@ -3941,7 +4310,7 @@
           "resolved": 1915761
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5258240,
@@ -4306,7 +4675,7 @@
           "resolved": 5259429
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5258752,
@@ -4774,7 +5143,7 @@
           "resolved": 276808
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5259552,
@@ -4906,7 +5275,7 @@
           "resolved": 1261106
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5261120,
@@ -4982,7 +5351,7 @@
           "resolved": 4294705062
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5262048,
@@ -5026,7 +5395,7 @@
           "resolved": 4294724744
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5263104,
@@ -5062,7 +5431,7 @@
           "resolved": 1857828
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5263184,
@@ -5194,7 +5563,7 @@
           "resolved": 10752288
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5263312,
@@ -5294,7 +5663,7 @@
           "resolved": 4294717599
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5263648,
@@ -5842,7 +6211,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5264272,
@@ -5927,7 +6296,7 @@
           "resolved": 5267591
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5267536,
@@ -5963,7 +6332,7 @@
           "resolved": 4294707358
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5267712,
@@ -6031,7 +6400,7 @@
           "resolved": 4294833051
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5267808,
@@ -6058,7 +6427,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5267920,
@@ -6166,7 +6535,7 @@
           "resolved": 4294697187
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268096,
@@ -6218,7 +6587,7 @@
           "resolved": 4294698105
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268448,
@@ -6262,7 +6631,7 @@
           "resolved": 4294697436
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268592,
@@ -6306,7 +6675,7 @@
           "resolved": 4294702172
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268624,
@@ -6350,7 +6719,7 @@
           "resolved": 4294693794
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268656,
@@ -6426,7 +6795,7 @@
           "resolved": 4294715179
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5268784,
@@ -6646,7 +7015,7 @@
           "resolved": 4294896042
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5269072,
@@ -6673,7 +7042,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5269840,
@@ -7277,7 +7646,7 @@
           "resolved": 4294895071
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5269856,
@@ -7457,7 +7826,7 @@
           "resolved": 10706520
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5270896,
@@ -7517,7 +7886,7 @@
           "resolved": 10752248
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5271344,
@@ -7561,7 +7930,7 @@
           "resolved": 276921
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5271776,
@@ -7765,7 +8134,7 @@
           "resolved": 2679968
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5271920,
@@ -7905,7 +8274,7 @@
           "resolved": 4294373518
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5272880,
@@ -8102,7 +8471,7 @@
           "resolved": 5274188
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5273776,
@@ -8242,7 +8611,7 @@
           "resolved": 8010288
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5274512,
@@ -8478,7 +8847,7 @@
           "resolved": 1246627
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5275504,
@@ -8514,7 +8883,7 @@
           "resolved": 4294726459
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276432,
@@ -8558,7 +8927,7 @@
           "resolved": 2676222
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276448,
@@ -8602,7 +8971,7 @@
           "resolved": 4294889252
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276592,
@@ -8678,7 +9047,7 @@
           "resolved": 10752288
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276688,
@@ -8754,7 +9123,7 @@
           "resolved": 10752288
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276832,
@@ -8790,7 +9159,7 @@
           "resolved": 1805843
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5276976,
@@ -9090,7 +9459,7 @@
           "resolved": 1668134
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277040,
@@ -9126,7 +9495,7 @@
           "resolved": 4294711484
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277456,
@@ -9153,7 +9522,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277488,
@@ -9180,7 +9549,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277520,
@@ -9224,7 +9593,7 @@
           "resolved": 8008820
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277552,
@@ -9260,7 +9629,7 @@
           "resolved": 1896660
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277728,
@@ -9287,7 +9656,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277776,
@@ -9314,7 +9683,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277808,
@@ -9422,7 +9791,7 @@
           "resolved": 4294489413
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5277856,
@@ -9449,7 +9818,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278016,
@@ -9485,7 +9854,7 @@
           "resolved": 4294709640
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278080,
@@ -9569,7 +9938,7 @@
           "resolved": 2674367
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278160,
@@ -9725,7 +10094,7 @@
           "resolved": 2673844
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278384,
@@ -9752,7 +10121,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278960,
@@ -9828,7 +10197,7 @@
           "resolved": 8003584
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5278976,
@@ -9992,7 +10361,7 @@
           "resolved": 4294056733
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279184,
@@ -10076,7 +10445,7 @@
           "resolved": 1243157
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279536,
@@ -10103,7 +10472,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279888,
@@ -10130,7 +10499,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279904,
@@ -10157,7 +10526,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279920,
@@ -10184,7 +10553,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5279952,
@@ -10211,7 +10580,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280000,
@@ -10295,7 +10664,7 @@
           "resolved": 1242867
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280016,
@@ -10331,7 +10700,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280192,
@@ -10399,7 +10768,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280256,
@@ -10451,7 +10820,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280368,
@@ -10487,7 +10856,7 @@
           "resolved": 1897392
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280432,
@@ -10523,7 +10892,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280560,
@@ -10591,7 +10960,7 @@
           "resolved": 4294820113
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280656,
@@ -10627,7 +10996,7 @@
           "resolved": 1899211
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280848,
@@ -10663,7 +11032,7 @@
           "resolved": 1899227
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280864,
@@ -10690,7 +11059,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280880,
@@ -10734,7 +11103,7 @@
           "resolved": 4294222210
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5280944,
@@ -10786,7 +11155,7 @@
           "resolved": 10752248
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281168,
@@ -10813,7 +11182,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281392,
@@ -10840,7 +11209,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281456,
@@ -10867,7 +11236,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281504,
@@ -10894,7 +11263,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281552,
@@ -10921,7 +11290,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281632,
@@ -10948,7 +11317,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281712,
@@ -11008,7 +11377,7 @@
           "resolved": 8002556
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281728,
@@ -11035,7 +11404,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281792,
@@ -11079,7 +11448,7 @@
           "resolved": 2589974
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281808,
@@ -11106,7 +11475,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281840,
@@ -11133,7 +11502,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281888,
@@ -11177,7 +11546,7 @@
           "resolved": 2670701
         }
       ],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5281904,
@@ -11204,7 +11573,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1a2538eabb007352a41a91da0c7de8cc25b8a82393afba37f290b9acb5751233",
+      "source_sha256": "9d9788a6b10a94b3693a7fd270e24ddee057d6bcbd8f8c448ad5a3df20157148",
       "source": "rebuild/src/infantry.cpp",
       "population": "rebuild-infantry",
       "source_order": 5282016,

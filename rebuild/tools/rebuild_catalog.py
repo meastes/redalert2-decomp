@@ -87,6 +87,18 @@ def write():
                                    'header row: %s' % (frozen['population'], frozen['note']),
                                    padding_provenance=None, population=frozen['population'])
     populations = {p['id']: p for p in catalog['populations']}
+    # A unit whose last check is not of its current text and rows (a merge brought new text, or rows were
+    # added) is checked again first, as the census does (rebuild_census.parked_tail): otherwise the catalog
+    # would leave it out as "no check of the current text" and write it back as pending, a flip each lane
+    # had to restore by hand after every merge (lane O1, 2026-11-20).
+    import io, contextlib
+    stale = [u for u, i in R.load_json(R.UNITS, {}).items()
+             if (R.ROOT / i['source']).exists() and R.last_check(u, i) is None]
+    for u in stale:
+        with contextlib.redirect_stdout(io.StringIO()):
+            R.check(u)
+    if stale:
+        print('catalog: checked again first (no current check): %s' % ' '.join(stale))
     units = R.load_json(R.UNITS, {})
     config = json.loads(R.CONFIG.read_text())
     regions, pops, tables, needed, refused = [], [], {}, set(), []

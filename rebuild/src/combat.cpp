@@ -235,7 +235,7 @@ static inline bool Is_Bridge_Middle(int ittype)
 /// the warhead's particle system is spawned.
 /// </summary>
 /// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
-#ifdef RA2_NON_MATCHING // not exact: main's body with TibSun's rocker form; the three cell-loop sites expand TPoint3D<int>(x, y, z) where the original calls 0x41B630 (diff 225/196 lines)
+#ifdef RA2_NON_MATCHING // not exact: 81 instruction lines differ; the call list is the original's (the three group distances through inline.h's Distance, as ra2-decomp's twin writes them; groups.Delete_All(); rail bridge overlays 0xED/0xEE). Left: the two cell-distance sites convert Y, Z, X where the original converts X, Y, Z, and the rocker loop's occupier (exact but for those with `ObjectClass * occupier = ...; for (object = occupier; ...)`, an alias, not landed)
 int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
 {
 	int distance;
@@ -316,15 +316,15 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 				if (object->Fetch_RTTI() == RTTI_BUILDING) {
 					if (m == 0) {
 						if (coord.Z - cellptr->Center_Coord().Z > LEVEL_LEPTON_H * 2) {
-							group->Distance = (coord - cellptr->Center_Coord()).Length() - LEVEL_LEPTON_H * 2;
+							group->Distance = Distance(coord, cellptr->Center_Coord()) - LEVEL_LEPTON_H * 2;
 						} else {
 							group->Distance = 0;
 						}
 					} else {
-						group->Distance = (coord - cellptr->Center_Coord()).Length();
+						group->Distance = Distance(coord, cellptr->Center_Coord());
 					}
 				} else {
-					group->Distance = (coord - object->Target_Coord()).Length();
+					group->Distance = Distance(coord, object->Target_Coord());
 				}
 				if (close && m == 0 && object) {
 					if (Is_Techno_Object(object) && ((TechnoClass *)object)->Unknown_Virtual_32C() && group->Distance < 0x55) {
@@ -356,7 +356,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 	for (int k = 0; k < groups.Count(); k++) {
 		delete groups[k];
 	}
-	groups.Clear();
+	groups.Delete_All();
 
 	if (blocked) {
 		return(2);
@@ -419,7 +419,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 		}
 
 		int ittype2 = cellptr->ITType - IsometricTileTypeClass::TrainBridgeSet + 1;
-		if ((deck != NULL && (deck->Overlay == OVERLAY_RAIL_BRIDGE1 || deck->Overlay == OVERLAY_RAIL_BRIDGE2)) || Is_Bridge_Middle(ittype2)) {
+		if ((deck != NULL && (deck->Overlay == 0xED || deck->Overlay == 0xEE)) || Is_Bridge_Middle(ittype2)) {
 			if (!cellptr->IsUnderBridge || (coord.Z <= BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height + 1) && coord.Z > BRIDGE_LEPTON_HEIGHT + LEVEL_LEPTON_H * (cellptr->Height - 2))) {
 				if (warhead->IsWallDestroyer && (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength)) {
 					bool damaged = Map.Damage_Bridge(cell);

@@ -4726,12 +4726,57 @@ int Init_Wonline(void)
 Wstring Server_Name_Without_Prefix(Server const * server); // RA2: 0x00745450, defined below
 
 bool Connect_To_Server(Server * server); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 604 bytes differ (adopted text)
 BOOL CALLBACK Locale_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x00751190, the country dialog (0xFE)
 
 int Select_WDT_Location(void); // RA2: 0x00751130, below: the country dialog for the persona's locale
 
-static inline char Get_Locale_Pointer(Wstring const & name, int ** value) { return g_UserLocales.getPointer(name, value); } // RA2: a wrapper layer (debt: its real name is not known); the executable calls Dictionary::getPointer 0x00767570 out of line here; an explicit specialization of getPointer (auto_inline off) does that too but also changes User_Tooltip 0x0073F250 and Draw_Player_List 0x0073FEE0, which expand it
+static inline void Set_Locale_Entry(Wstring & key, int locale) // RA2: as in ra2-decomp's twin
+{
+	int old;
+	if (g_UserLocales.remove(key, old)) {
+		g_UserLocales.add(key, locale);
+	}
+}
+
+static inline void Apply_Locale(Wstring & key, int locale, User & user) // RA2: as in ra2-decomp's twin
+{
+	g_pChat->RequestSetLocale((Locale)locale);
+	g_pChat->RequestUserLocale(&user);
+	Set_Locale_Entry(key, locale);
+}
+
+static inline void Check_Locale(Wstring & key, int & locale, rc_ptr<PlayerProfile> & profile, User & user) // RA2: as in ra2-decomp's twin
+{
+	if (profile.Get() != NULL && profile.Get()->Locale != locale) {
+		if (profile.Get()->Locale == 0) {
+			profile.Get()->SetLocale(locale, 2);
+			profile.Get()->Save(&g_NickName);
+		}
+		int value = profile.Get()->Locale;
+		g_pChat->RequestSetLocale((Locale)value);
+		g_pChat->RequestUserLocale(&user);
+		locale = value;
+		int old;
+		if (g_UserLocales.remove(key, old)) {
+			g_UserLocales.add(key, locale);
+		}
+	}
+}
+
+static inline int Wait_For_Event(void) // RA2: as in ra2-decomp's twin
+{
+	int timeout = 30000;
+	int wait;
+	while ((wait = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100)) == WAIT_TIMEOUT) {
+		timeout -= 100;
+		if (timeout <= 0) {
+			return(EV_COUNT);
+		}
+		WOL_Wait_Callback();
+	}
+	ResetEvent(g_WaitEventHandles[wait]);
+	return(wait);
+}
 
 bool Connect_To_Server(Server * server) // RA2: 0x007424C0, not in TibSun (its Login_WOL did this): logs in to the chat server with the persona and password, waits for the answer (30 seconds, 20 rounds), reads the profile of the persona, tells the ladder server about it and settles the locale of the persona; matches (2192 bytes) with the out-of-line derived destructor and the out-of-line Dictionary calls above
 {
@@ -4745,40 +4790,27 @@ bool Connect_To_Server(Server * server) // RA2: 0x007424C0, not in TibSun (its L
 	g_pChat->RequestConnection(server, 20, ((int &)g_PlaintextPassword) & 0xFF); // RA2: virtual 0x14
 
 	int attempts = 20; // RA2: rounds of the wait
-	for (;;) { // RA2: as above
-		int remaining = 30000; // RA2: 30 seconds in steps of 100 ms
-		DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
-		while (event == WAIT_TIMEOUT) { // RA2: as above
-			remaining -= 100; // RA2: as above
-			if (remaining <= 0) { // RA2: as above
-				goto connect_failed; // RA2: the executable shares one Close_Wait_Window block between this timeout and the event 18 test below (8 copies of it in the function); no goto-free form gave that (they give 10 copies and a different block order)
-			}
-			WOL_Wait_Callback(); // RA2: as above
-			event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
-		}
-		{ // RA2: the event that ended the wait is cleared again
-			ResetEvent(g_WaitEventHandles[event]); // RA2: as above
-			if (event == EV_ABORT) { // RA2: as above
-				Close_Wait_Window(0xFFFFFFFF); // RA2: as above
-				return(false);
-			}
-			if (event == EV_ERROR) { // RA2: as above
-				ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8410), 0, Wait_Callback_Thunk); // RA2: as above
-				Close_Wait_Window(0xFFFFFFFF); // RA2: as above
-				return(false);
-			}
-		}
-		if (event == EV_COUNT) { // RA2: as above
-connect_failed: // RA2: label of the shared block described at the goto above
-			Close_Wait_Window(0xFFFFFFFF); // RA2: as above
+	for (;;) {
+		int event = Wait_For_Event();
+		if (event == EV_ABORT) {
+			Close_Wait_Window(0xFFFFFFFF);
 			return(false);
 		}
-		if (attempts-- < 0) { // RA2: as above
-			ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8417), 0, Wait_Callback_Thunk); // RA2: as above
-			Close_Wait_Window(0xFFFFFFFF); // RA2: as above
+		if (event == EV_ERROR) {
+			ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8410), 0, Wait_Callback_Thunk);
+			Close_Wait_Window(0xFFFFFFFF);
 			return(false);
 		}
-		if (event == EV_CONNECTED) { // RA2: as above
+		if (event == EV_COUNT) {
+			Close_Wait_Window(0xFFFFFFFF);
+			return(false);
+		}
+		if (attempts-- < 0) {
+			ODMessageBox(StringTable::LoadString("TXT_CANT_CONNECT", NULL, "D:\\Ra2\\wonline.cpp", 8417), 0, Wait_Callback_Thunk);
+			Close_Wait_Window(0xFFFFFFFF);
+			return(false);
+		}
+		if (event == EV_CONNECTED) {
 			break;
 		}
 	}
@@ -4793,20 +4825,20 @@ connect_failed: // RA2: label of the shared block described at the goto above
 	if (options.Is_Bit1_Clear()) { // RA2: as above
 		profile = PlayerProfile::Load(g_NickName); // RA2: the persona's own profile
 	} else {
-		profile = g_PlayerProfile.Get(); // RA2: the profile of Reset_WOL_Globals
+		profile = g_PlayerProfile; // RA2: the profile of Reset_WOL_Globals
 	}
 	if (Online_Session_State == 3 || Online_Session_State == 4) { // RA2: as above
 		{
 			Wstring name(Server_Name_Without_Prefix(server)); // RA2: as above
-			profile->SetName(&name); // RA2: the server's name is kept in the profile
+			profile.Get()->SetName(&name); // RA2: the server's name is kept in the profile
 		}
 		if (options.Is_Bit1_Clear()) { // RA2: as above
-			profile->Save(&g_NickName); // RA2: as above
+			profile.Get()->Save(&g_NickName); // RA2: as above
 		}
 	}
 	strcpy(Session.Handle, g_NickName.get()); // RA2: as above
-	Session.Set_Side(profile->Country, false); // RA2: as above
-	Session.Set_Color(profile->Color, false); // RA2: as above
+	Session.Set_Side(profile.Get()->Country, false); // RA2: as above
+	Session.Set_Color(profile.Get()->Color, false); // RA2: as above
 	Session.Write_MultiPlayer_Settings(); // RA2: as above
 	WOL_Set_Last_Valid_Persona(g_NickName); // RA2: as above
 	if (g_pNetUtil && strlen(g_LadderAddress)) { // RA2: as above
@@ -4818,80 +4850,50 @@ connect_failed: // RA2: label of the shared block described at the goto above
 	strcpy((char *)user.name, g_NickName.get()); // RA2: as above
 	g_pChat->RequestUserLocale(&user); // RA2: virtual 0xBC
 	for (;;) { // RA2: the second wait, for the locale
-		int remaining = 30000; // RA2: as above
-		DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
-		while (event == WAIT_TIMEOUT) { // RA2: as above
-			remaining -= 100; // RA2: as above
-			if (remaining <= 0) { // RA2: as above
-				goto locale_wait_failed; // RA2: as the goto above, for the three blocks of this wait
-			}
-			WOL_Wait_Callback(); // RA2: as above
-			event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
-		}
-		{ // RA2: as above
-			ResetEvent(g_WaitEventHandles[event]); // RA2: as above
-			if (event == EV_ABORT) { // RA2: as above
-				Close_Wait_Window(0xFFFFFFFF); // RA2: as above
-				break;
-			}
-			if (event == EV_ERROR) { // RA2: as above
-				ODMessageBox(StringTable::LoadString("TXT_WDT_NET_ERR", NULL, "D:\\Ra2\\wonline.cpp", 8501), 0, Wait_Callback_Thunk); // RA2: as above
-				Close_Wait_Window(0xFFFFFFFF); // RA2: as above
-				break;
-			}
-		}
-		if (event == EV_COUNT) { // RA2: as above
-locale_wait_failed: // RA2: label of the shared block of the second wait
-			Close_Wait_Window(0xFFFFFFFF); // RA2: as above
+		int event = Wait_For_Event();
+		if (event == EV_ABORT) {
+			Close_Wait_Window(0xFFFFFFFF);
 			break;
 		}
-		if (event == EV_LOCALE) { // RA2: as above
+		if (event == EV_ERROR) {
+			ODMessageBox(StringTable::LoadString("TXT_WDT_NET_ERR", NULL, "D:\\Ra2\\wonline.cpp", 8501), 0, Wait_Callback_Thunk);
+			Close_Wait_Window(0xFFFFFFFF);
+			break;
+		}
+		if (event == EV_COUNT) {
+			Close_Wait_Window(0xFFFFFFFF);
+			break;
+		}
+		if (event == EV_LOCALE) {
 			break;
 		}
 	}
 
-	Wstring const & nick_source = g_NickName; // RA2: the const overload of toLower
-	Wstring nick = nick_source.toLower(); // RA2: the locales are kept by lower case name
-	if (g_UserLocales.contains(nick)) { // RA2: the server answered for the persona
-		int locale = 0; // RA2: as above
-		{
-			int * value = NULL; // RA2: as above
-			if (Get_Locale_Pointer(nick, &value) && value != NULL) { // RA2: as above
-				locale = *value; // RA2: as above
-			}
-		}
-		if (locale != 0) { // RA2: the server already knows a locale: make the profile agree with it and tell the server the profile's
-			if (profile.Get() != NULL && profile->Locale != locale) { // RA2: as above
-				if (profile->Locale == 0) { // RA2: the profile had none yet
-					profile->SetLocale(locale, 2); // RA2: as above
-					profile->Save(&g_NickName); // RA2: as above
-				}
-				int current = profile->Locale; // RA2: read once into a register (the executable uses esi)
-				g_pChat->RequestSetLocale((Locale)current); // RA2: virtual 0xB8
-				g_pChat->RequestUserLocale(&user); // RA2: virtual 0xBC
-				locale = current; // RA2: the executable keeps the new locale in esi and stores it only here, for the update
-				g_UserLocales.updateValue(nick, locale); // RA2: Dictionary::remove then ::add (calls 0x007675E0 and 0x00766070)
-			}
+	Wstring key = ((Wstring const &)g_NickName).toLower(); // RA2: the locales are kept by lower case name
+	if (g_UserLocales.contains(key)) { // RA2: the server answered for the persona
+		int locale = 0;
+		g_UserLocales.getValue(key, locale);
+		if (locale != 0) {
+			Check_Locale(key, locale, profile, user);
 			return(true);
 		}
 	}
-	int chosen = 0; // RA2: the locale of the second path
-	if (profile.Get() == NULL || (chosen = profile->Locale) == 0) { // RA2: no locale known anywhere: ask the player
-		chosen = Select_WDT_Location(); // RA2: as above
-		if (profile.Get() != NULL) { // RA2: as above
-			profile->SetLocale(chosen, 3); // RA2: as above
-			profile->Save(&g_NickName); // RA2: as above
+	int pick = 0;
+	if (profile.Get() != NULL) {
+		pick = profile.Get()->Locale;
+	}
+	if (pick == 0) { // RA2: no locale known anywhere: ask the player
+		pick = Select_WDT_Location();
+		if (profile.Get() != NULL) {
+			profile.Get()->SetLocale(pick, 3);
+			profile.Get()->Save(&g_NickName);
 		}
 	}
-	if (chosen != 0) { // RA2: as above
-		g_pChat->RequestSetLocale((Locale)chosen); // RA2: as above
-		g_pChat->RequestUserLocale(&user); // RA2: as above
-		int stored = chosen; // RA2: Dictionary::updateValue takes a reference: the value goes through a variable of its own
-		g_UserLocales.updateValue(nick, stored); // RA2: as above
+	if (pick != 0) {
+		Apply_Locale(key, pick, user);
 	}
 	return(true);
 }
-#endif
 
 
 bool Connect_To_Selected_Server(void) // RA2: 0x00742D50, not in TibSun: connects to the server of the list the player picked, false when the index is not in the list
@@ -5310,7 +5312,6 @@ started: // RA2: as above
 #endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: 19 bytes differ (adopted text)
 int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the lobby with the fewest players that still has room; the index in the channel list, -1 when there is none
 {
 	int count = g_UserChannels.length(); // RA2: as above
@@ -5397,7 +5398,6 @@ int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the
 	}
 	return(best); // RA2: as above
 }
-#endif
 
 bool Leave_Current_Channel(unsigned int event, bool block) // RA2: 0x00744610, not in TibSun: leaves the channel the chat is in, waits up to 15 seconds for the server to confirm; true when no channel is left
 {
@@ -9290,7 +9290,11 @@ bool Receive_Host_Map_Preview(void) // RA2: 0x00750D10, not in TibSun: a guest o
 	return(false); // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 429 bytes differ (main's text, ra2-decomp's twin for the local-owner test): the executable calls ArrayList<User>::get 0x00766020 out of line in the first owner check; one more inline call site after it in this body gives that (inline budget, docs/VC6_MATCHING_NOTES.md), no natural source for it is known
+static inline int Current_Channel_Type(void) // RA2: as in ra2-decomp's twin
+{
+	return(g_CurrentChannel.type);
+}
+
 void Poke_The_Host(void) // RA2: 0x00750F60, its own debug text names it: a guest of an internet game channel sends the host a NET_PING through the global channel so the host learns its address
 {
 	if (Session.Type != GAME_INTERNET) { // RA2: as above
@@ -9299,7 +9303,7 @@ void Poke_The_Host(void) // RA2: 0x00750F60, its own debug text names it: a gues
 			if (Local_User_Is_Channel_Owner()) { // RA2: expanded here; the host does not poke itself
 				return; // RA2: as above
 			}
-			if (WolOptionsLocked == 0 && g_CurrentChannel.type != 0) { // RA2: as above
+			if (WolOptionsLocked == 0 && Current_Channel_Type() != 0) { // RA2: as above
 				User user; // RA2: as above
 				g_UserList.get(user, 0); // RA2: as above
 				user.next = NULL; // RA2: as above
@@ -9320,7 +9324,6 @@ void Poke_The_Host(void) // RA2: 0x00750F60, its own debug text names it: a gues
 		}
 	}
 }
-#endif
 
 void Init_WDT(void) // RA2: 0x00751120, no caller; an empty function where TibSun's wonline.cpp defines Init_WDT, right after Poke_The_Host and before the World Domination Tour dialogs (TibSun's Select_WDT_Location follows here too); RA2 builds no territory lobbies
 {
@@ -11020,7 +11023,11 @@ void __fastcall Update_Buddy_Buttons(HWND dialog) // RA2: 0x007561C0, enables th
 	EnableWindow(GetDlgItem(dialog, 0x5C2), Selected_Buddy_Unavailable()); // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 521 bytes differ (adopted text)
+static inline void Set_Text(HWND window, wchar_t const * text) // RA2: as in ra2-decomp's twin
+{
+	SendMessage(window, 0x4B2, 0, (LPARAM)text);
+}
+
 void __fastcall Update_Buddy_Profile(HWND dialog) // RA2: 0x007562B0, shows the chosen buddy's name and ladder record (rung, points, wins, losses, disconnects)
 {
 	HWND label = GetDlgItem(dialog, 0x6EF); // RA2: as above
@@ -11030,39 +11037,38 @@ void __fastcall Update_Buddy_Profile(HWND dialog) // RA2: 0x007562B0, shows the 
 	HWND losses = GetDlgItem(dialog, 0x6F1); // RA2: as above
 	HWND disconnects = GetDlgItem(dialog, 0x701); // RA2: as above
 	if (g_SelectedBuddy.length() == 0) {
-		SendMessageA(label, 0x4B2, 0, (LPARAM)L""); // RA2: as above
-		SendMessageA(rung, 0x4B2, 0, (LPARAM)L""); // RA2: as above
-		SendMessageA(points, 0x4B2, 0, (LPARAM)L""); // RA2: as above
-		SendMessageA(wins, 0x4B2, 0, (LPARAM)L""); // RA2: as above
-		SendMessageA(losses, 0x4B2, 0, (LPARAM)L""); // RA2: as above
-		SendMessageA(disconnects, 0x4B2, 0, (LPARAM)L""); // RA2: as above
+		Set_Text(label, L""); // RA2: as above
+		Set_Text(rung, L""); // RA2: as above
+		Set_Text(points, L""); // RA2: as above
+		Set_Text(wins, L""); // RA2: as above
+		Set_Text(losses, L""); // RA2: as above
+		Set_Text(disconnects, L""); // RA2: as above
 		return;
 	}
 	WideWstring format(StringTable::LoadString("GUI:UserProfileLabel", NULL, "D:\\Ra2\\wonline.cpp", 24700)); // RA2: as above
 	wchar_t * text = new wchar_t[format.length() + g_SelectedBuddy.length() + 1]; // RA2: as above
 	swprintf(text, (wchar_t const *)format.get(), g_SelectedBuddy.get()); // RA2: as above
 	HWND title = GetDlgItem(dialog, 0x6EF); // RA2: as above
-	SendMessageA(title, 0x4B2, 0, (LPARAM)text); // RA2: as above
+	Set_Text(title, text); // RA2: as above
 	delete [] text;
 	Ladder ladder; // RA2: as above
 	memset(&ladder, 0, sizeof(ladder)); // RA2: as above
 	Wstring key = static_cast<Wstring const &>(g_SelectedBuddy).toLower(); // RA2: as above
 	if (g_GeneralLadderDict.getValue(key, ladder)) {
-		SendMessageA(rung, 0x4B2, 0, (LPARAM)WideWstring_FromInt(ladder.rung).text()); // RA2: as above
-		SendMessageA(points, 0x4B2, 0, (LPARAM)WideWstring_FromInt(ladder.points).text()); // RA2: as above
-		SendMessageA(wins, 0x4B2, 0, (LPARAM)WideWstring_FromInt(ladder.wins).text()); // RA2: as above
-		SendMessageA(losses, 0x4B2, 0, (LPARAM)WideWstring_FromInt(ladder.losses).text()); // RA2: as above
-		SendMessageA(disconnects, 0x4B2, 0, (LPARAM)WideWstring_FromInt(ladder.disconnects).text()); // RA2: as above
+		Set_Text(rung, WideWstring_FromInt(ladder.rung).text()); // RA2: as above
+		Set_Text(points, WideWstring_FromInt(ladder.points).text()); // RA2: as above
+		Set_Text(wins, WideWstring_FromInt(ladder.wins).text()); // RA2: as above
+		Set_Text(losses, WideWstring_FromInt(ladder.losses).text()); // RA2: as above
+		Set_Text(disconnects, WideWstring_FromInt(ladder.disconnects).text()); // RA2: as above
 	} else {
 		WideWstring unknown(StringTable::LoadString("GUI:UnknownStats", NULL, "D:\\Ra2\\wonline.cpp", 24717)); // RA2: as above
-		SendMessageA(rung, 0x4B2, 0, (LPARAM)unknown.text()); // RA2: as above
-		SendMessageA(points, 0x4B2, 0, (LPARAM)unknown.text()); // RA2: as above
-		SendMessageA(wins, 0x4B2, 0, (LPARAM)unknown.text()); // RA2: as above
-		SendMessageA(losses, 0x4B2, 0, (LPARAM)unknown.text()); // RA2: as above
-		SendMessageA(disconnects, 0x4B2, 0, (LPARAM)unknown.text()); // RA2: as above
+		Set_Text(rung, unknown.text()); // RA2: as above
+		Set_Text(points, unknown.text()); // RA2: as above
+		Set_Text(wins, unknown.text()); // RA2: as above
+		Set_Text(losses, unknown.text()); // RA2: as above
+		Set_Text(disconnects, unknown.text()); // RA2: as above
 	}
 }
-#endif
 
 long g_BuddyFindTime; // RA2: when the last buddy find request was sent
 long g_BuddyRefreshTime; // RA2: when the buddies' channels were last asked for
