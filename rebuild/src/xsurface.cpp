@@ -792,7 +792,6 @@ bool XSurface::Put_Pixel_Clip(Point2D const & point, int color, Rect const & rec
  * HISTORY:                                                                                    *
  *   02/07/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-// Inline assembly as the author wrote it: TibSun xsurface.cpp:806
 bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 {
 	return(XSurface::Fill_Rect(fillrect, Get_Rect(), color));
@@ -808,15 +807,29 @@ bool XSurface::Fill_Rect(Rect const & fillrect, int color)
 /// <param name="color">The longword value to store. A 16 bit color must be doubled into
 /// both halves of it.</param>
 /// <returns>Returns with a pointer to just past the last longword written.</returns>
+/// Inline assembly as the author wrote it: TibSun xsurface.cpp:806
+#pragma warning(disable : 4035)
 static void *surface_quick_fill(void *buf, int count, int color)
 {
-	unsigned int * pixel = static_cast<unsigned int *>(buf);
-	while (count > 0) {
-		*pixel++ = static_cast<unsigned int>(color);
-		--count;
+	_asm {
+		push edi
+
+		mov ecx, [count]
+		mov edi, [buf]
+
+		cmp ecx, 0
+		jle short $end
+
+		mov eax, [color]
+		rep stosd
+
+	$end:
+		mov eax, edi
+		pop edi
 	}
-	return pixel;
+	// return is in eax
 }
+#pragma warning(default: 4035)
 
 
 /***********************************************************************************************
@@ -840,7 +853,6 @@ static void *surface_quick_fill(void *buf, int count, int color)
  * HISTORY:                                                                                    *
  *   05/27/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
 bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color)
 {
 	if (!fillrect.Is_Valid()) return(false);
@@ -924,7 +936,6 @@ bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color
 	}
 	return(false);
 }
-#endif
 
 
 

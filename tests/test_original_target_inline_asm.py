@@ -363,5 +363,178 @@ class ModuleAsmMacroTests(unittest.TestCase):
             self.validate(MACRO_MODULE, unit=None)
 
 
+# The xsurface shape (rebuild tree, review session and user 2026-11-20): the archive's own file-static
+# helper surface_quick_fill holds the author's _asm (TibSun xsurface.cpp:8 here); Fill_Rect expands it.
+ARCHIVE_XSURFACE = """/// Fills a run of longwords with a color value.
+#pragma warning(disable: 4035)
+bool XSurface::Fill_Rect(Rect const & fillrect, int color)
+{
+}
+static void *surface_quick_fill(void *buf, int count, int color)
+{
+\t_asm {
+\t\tpush edi /// Bug fixed in TS but not in ShapeSet
+\t\tmov ecx, [count]
+\t\tmov edi, [buf]
+\t\tcmp ecx, 0
+\t\tjle short $end
+\t\tmov eax, [color]
+\t\trep stosd
+\t$end:
+\t\tmov eax, edi
+\t\tpop edi
+\t}
+}
+"""
+XSURFACE = """bool XSurface::Fill_Rect(Rect const & fillrect, int color)
+{
+\treturn(XSurface::Fill_Rect(fillrect, Get_Rect(), color));
+}
+
+/// Inline assembly as the author wrote it: TibSun xsurface.cpp:8
+#pragma warning(disable: 4035)
+static void *surface_quick_fill(void *buf, int count, int color)
+{
+\t_asm {
+\t\tpush edi
+\t\tmov ecx, [count]
+\t\tmov edi, [buf]
+\t\tcmp ecx, 0
+\t\tjle short $end
+\t\tmov eax, [color]
+\t\trep stosd
+\t$end:
+\t\tmov eax, edi
+\t\tpop edi
+\t}
+}
+#pragma warning(default: 4035)
+
+bool XSurface::Fill_Rect(Rect const & cliprect, Rect const & fillrect, int color)
+{
+\tvoid *tail = surface_quick_fill(buffer, width, color << 16 | color);
+\treturn(tail != 0);
+}
+
+bool XSurface::Fill(int color)
+{
+\treturn(Fill_Rect(Get_Rect(), Get_Rect(), color));
+}
+"""
+FILL_RECT2, FILL_RECT3, FILL = 0x774390, 0x7743c0, 0x774e20
+HELPER_FLAG = dict(inline_asm='evidenced', inline_asm_citation=['TibSun xsurface.cpp:8'])
+# The 2-argument Fill_Rect calls the 3-argument one qualified (a direct call /Ob2 may expand, wherever it is
+# defined), so it reaches the helper too; Fill's unqualified call to the virtual member is a dispatch.
+XSURFACE_ROWS = [dict(entry=FILL_RECT2, symbol_prefix='?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z', **HELPER_FLAG),
+                 dict(entry=FILL_RECT3, symbol_prefix='?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z', **HELPER_FLAG),
+                 dict(entry=FILL, symbol_prefix='?Fill@XSurface@@UAE_NH@Z')]
+
+
+class HelperInlineAsmTests(unittest.TestCase):
+    """__asm in a file-static helper of the unit, the archive's own (rebuild tree; 2026-11-20)."""
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.archive = Path(self.temp.name)
+        (self.archive/'xsurface.cpp').write_text(ARCHIVE_XSURFACE)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def validate(self, text, rows=XSURFACE_ROWS, unit='xsurface.cpp', archive=None):
+        attributed = module_inline_asm_blocks(text, rows, helpers=True)
+        return {row['entry']: validate_inline_asm(text.encode(), row, archive or self.archive, blocks=attributed[row['entry']],
+                                                  unit=unit) for row in rows}
+
+    def test_fill_rect_shape_is_accepted_on_the_row_that_expands_the_helper(self):
+        self.assertEqual(self.validate(XSURFACE), {FILL_RECT2: 1, FILL_RECT3: 1, FILL: 0})
+        blocks = module_inline_asm_blocks(XSURFACE, XSURFACE_ROWS, helpers=True)[FILL_RECT3]
+        self.assertEqual([b[3] for b in blocks], ['surface_quick_fill'])
+
+    def test_main_tree_still_refuses_the_helper(self):
+        with self.assertRaisesRegex(ValueError, 'not one row'):
+            module_inline_asm_blocks(XSURFACE, XSURFACE_ROWS)
+
+    def test_helper_not_in_the_archive_is_refused(self):
+        (self.archive/'xsurface.cpp').write_text(ARCHIVE_XSURFACE.replace('surface_quick_fill', 'quick_fill'))
+        with self.assertRaisesRegex(ValueError, "not in the archive's surface_quick_fill"):
+            self.validate(XSURFACE)
+        renamed = XSURFACE.replace('surface_quick_fill', 'quick_fill')
+        (self.archive/'xsurface.cpp').write_text(ARCHIVE_XSURFACE)
+        with self.assertRaisesRegex(ValueError, "not in the archive's quick_fill"):
+            self.validate(renamed)
+
+    def test_block_text_differing_from_the_archive_is_refused(self):
+        for changed in (XSURFACE.replace('\t\trep stosd\n', '\t\trep stosd\n\t\tnop\n'),
+                        XSURFACE.replace('jle short $end', 'jl short $end')):
+            with self.assertRaisesRegex(ValueError, 'differs from the cited TibSun archive block'):
+                self.validate(changed)
+
+    def test_caller_row_without_the_flag_is_refused(self):
+        rows = [dict(r) for r in XSURFACE_ROWS]
+        for key in HELPER_FLAG:
+            rows[1].pop(key)
+        with self.assertRaisesRegex(ValueError, 'without inline_asm: evidenced'):
+            self.validate(XSURFACE, rows)
+        # The 2-argument Fill_Rect, defined before the function it calls, reaches the helper all the same.
+        rows = [dict(r) for r in XSURFACE_ROWS]
+        for key in HELPER_FLAG:
+            rows[0].pop(key)
+        with self.assertRaisesRegex(ValueError, 'without inline_asm: evidenced'):
+            self.validate(XSURFACE, rows)
+        # A second caller (qualified, defined after the helper's caller, so VC6 may expand it) needs it too.
+        second = XSURFACE + '\nvoid XSurface::Clear(void)\n{\n\tXSurface::Fill_Rect(r, r, 0);\n}\n'
+        rows = XSURFACE_ROWS + [dict(entry=0x774f00, symbol_prefix='?Clear@XSurface@@QAEXXZ')]
+        with self.assertRaisesRegex(ValueError, 'without inline_asm: evidenced'):
+            self.validate(second, rows)
+        rows[-1].update(HELPER_FLAG)
+        self.assertEqual(self.validate(second, rows)[0x774f00], 1)
+        # Through a file-static C function: the row reaches the helper all the same.
+        relay = XSURFACE.replace('\nbool XSurface::Fill_Rect(Rect const & cliprect',
+                                 '\nstatic void *relay(void *b)\n{\n\treturn surface_quick_fill(b, 1, 0);\n}\n'
+                                 '\nbool XSurface::Fill_Rect(Rect const & cliprect')
+        relay = relay.replace('surface_quick_fill(buffer, width, color << 16 | color)', 'relay(buffer)')
+        self.assertEqual(self.validate(relay), {FILL_RECT2: 1, FILL_RECT3: 1, FILL: 0})
+
+    def test_row_reaching_through_a_later_defined_function_needs_the_flag(self):
+        # Clear is defined before Paint and Paint after the helper's caller; /Ob2 may expand Paint into Clear.
+        later = XSURFACE.replace('\nbool XSurface::Fill_Rect(Rect const & cliprect',
+                                 '\nvoid XSurface::Clear(void)\n{\n\tPaint(0);\n}\n'
+                                 '\nbool XSurface::Fill_Rect(Rect const & cliprect') + \
+            '\nvoid XSurface::Paint(int color)\n{\n\tsurface_quick_fill(0, 1, color);\n}\n'
+        rows = XSURFACE_ROWS + [dict(entry=0x774f00, symbol_prefix='?Clear@XSurface@@QAEXXZ'),
+                                dict(entry=0x774f40, symbol_prefix='?Paint@XSurface@@QAEXH@Z', **HELPER_FLAG)]
+        with self.assertRaisesRegex(ValueError, 'without inline_asm: evidenced'):
+            self.validate(later, rows)
+        rows[-2] = dict(rows[-2], **HELPER_FLAG)
+        self.assertEqual(self.validate(later, rows)[0x774f00], 1)
+        # An unqualified call to a virtual member is a dispatch: not followed.
+        virtual = [dict(r, symbol_prefix=r['symbol_prefix'].replace('QAEXH@Z', 'UAEXH@Z')) for r in rows]
+        virtual[-2] = {k: v for k, v in virtual[-2].items() if k not in HELPER_FLAG}
+        self.assertEqual(self.validate(later, virtual)[0x774f00], 0)
+
+    def test_asm_in_a_non_static_function_of_another_unit_is_refused(self):
+        exported = XSURFACE.replace('static void *surface_quick_fill', 'void *surface_quick_fill')
+        with self.assertRaisesRegex(ValueError, 'not one row'):
+            self.validate(exported)
+        with self.assertRaisesRegex(ValueError, 'not one row'):
+            module_inline_asm_blocks(exported.replace('XSurface::', 'Other::'), [], helpers=True)
+        with self.assertRaisesRegex(ValueError, 'cited outside its own unit'):
+            self.validate(XSURFACE, unit='blit.cpp')
+
+    def test_helper_no_row_reaches_is_refused(self):
+        rows = [dict(entry=0x775000, symbol_prefix='?Other@XSurface@@QAEXXZ')]
+        with self.assertRaisesRegex(ValueError, 'no row reaches the asm helper'):
+            module_inline_asm_blocks(XSURFACE, rows, helpers=True)
+
+    def test_helper_needs_the_archive(self):
+        with self.assertRaisesRegex(ValueError, 'reached through a helper cannot be verified'):
+            self.validate(XSURFACE, archive=self.archive/'absent')
+
+    def test_helper_named_outside_a_body_is_refused(self):
+        table = XSURFACE + '\nstatic void *(*filler)(void *, int, int) = surface_quick_fill;\n'
+        with self.assertRaisesRegex(ValueError, 'outside a function body'):
+            module_inline_asm_blocks(table, XSURFACE_ROWS, helpers=True)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -65,6 +65,31 @@ def _audit():
     return _AUDIT[0]
 
 
+def helper_reached_flags(unit_regions, source_text):
+    """Rows that reach a file-static or inline asm helper of their unit (canonical.module_inline_asm_blocks with
+    helpers; DECISIONS, review session and user 2026-11-20) take `inline_asm: evidenced` with the helper blocks'
+    citations, read from the unit's row main flags for the same blocks (Fill_Rect 0x7743C0's TibSun
+    xsurface.cpp:806). The whole-file build's audit checks every citation against the archive; a row this cannot
+    cite stays unflagged and the audit refuses the unit."""
+    from canonical import module_inline_asm_blocks, _block_helper
+    if len(unit_regions) < 2:
+        return
+    try:
+        attributed = module_inline_asm_blocks(source_text, unit_regions, helpers=True)
+    except ValueError:
+        return                      # the audit refuses the unit with the reason
+    cite = {}
+    for region in unit_regions:
+        citations = region.get('inline_asm_citation')
+        citations = [citations] if isinstance(citations, str) else citations or []
+        if region.get('inline_asm') == 'evidenced' and len(citations) == len(attributed[region['entry']]):
+            cite.update({b[0]: c for b, c in zip(attributed[region['entry']], citations) if _block_helper(b)})
+    for region in unit_regions:
+        blocks = attributed[region['entry']]
+        if blocks and not region.get('inline_asm') and all(_block_helper(b) and b[0] in cite for b in blocks):
+            region.update(inline_asm='evidenced', inline_asm_citation=[cite[b[0]] for b in blocks])
+
+
 def write():
     catalog = R.main_catalog()
     by_entry = {r['entry']: r for r in catalog['regions']}
@@ -255,6 +280,8 @@ def write():
                 if binding['symbol'] != '$local':
                     table[binding['symbol']] = binding['target']
             regions.append(region)
+        if has_asm:
+            helper_reached_flags([r for r in regions if r['source'] == info['source']], source_text)
         # Every other name the object defines or references (kept-elsewhere copies, vtables and
         # their slots, literals) that resolves gets its binding; the audit decides what it accepts.
         from coff import Coff

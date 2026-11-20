@@ -303,6 +303,78 @@ def content_bound(regions):
     return unplaced_objects(regions, data_bindings.CONTENT)
 
 
+def evidenced_inline_asm(regions):
+    """((rows, body bytes) of every catalogued row flagged inline_asm: evidenced, (rows, body bytes) of those
+    whose blocks are reached through a file-static or inline helper of their unit (DECISIONS, review session
+    and user 2026-11-20; canonical.module_inline_asm_blocks with helpers)). Evidenced inline assembly is its
+    own ledger category: no C/C++ credit."""
+    from canonical import module_inline_asm_blocks, _block_helper
+    flagged = [r for r in regions if r.get('inline_asm') == 'evidenced']
+    by_source = {}
+    for r in regions:
+        by_source.setdefault(r['source'], []).append(r)
+    helper = []
+    for source in sorted({r['source'] for r in flagged}):
+        rows = by_source[source]
+        if len(rows) < 2:
+            continue
+        text = (R.ROOT / source).read_text(errors='replace')
+        attributed = module_inline_asm_blocks(text, rows, helpers=True)
+        helper += [r for r in rows if any(_block_helper(b) for b in attributed[r['entry']])]
+    return ((len(flagged), sum(r['body_bytes'] for r in flagged)),
+            (len(helper), sum(r['body_bytes'] for r in helper)))
+
+
+def asm_not_flagged(regions):
+    """(rows, body bytes, entries) of catalogued rebuild rows main flags inline_asm: evidenced that the rebuild
+    does not (review session, 2026-11-20): asm counted as C/C++ until header-template attribution flags them
+    (blitblit.h BlitTrans<unsigned char>::BlitForward 0x775980, BlitTransXlat<unsigned short>::BlitForward 0x4861C0)."""
+    main = {r['entry']: r for r in R.main_catalog()['regions'] if r.get('inline_asm') == 'evidenced'}
+    rows = [r for r in regions if r['entry'] in main and r.get('inline_asm') != 'evidenced']
+    return len(rows), sum(r['body_bytes'] for r in rows), sorted(r['entry'] for r in rows)
+
+
+# Byte forms of the distinctive string instructions an asm helper may hold (warning only).
+DISTINCTIVE = {'rep stosd': b'\xf3\xab', 'rep stosb': b'\xf3\xaa', 'rep stosw': b'\x66\xf3\xab',
+               'rep movsd': b'\xf3\xa5', 'rep movsb': b'\xf3\xa4', 'rep movsw': b'\x66\xf3\xa5',
+               'repne scasb': b'\xf2\xae', 'repe cmpsb': b'\xf3\xa6'}
+
+
+def helper_byte_warnings(regions):
+    """Warning, not a gate (review session, 2026-11-20): in a unit with an asm helper, each unflagged row whose
+    original bytes hold a distinctive instruction of the helper's blocks (`rep stosd` for surface_quick_fill)."""
+    from canonical import module_inline_asm_blocks, _block_helper, inline_asm_blocks
+    import rebuild_catalog
+    by_source = {}
+    for r in regions:
+        by_source.setdefault(r['source'], []).append(r)
+    warnings = []
+    for source, rows in sorted(by_source.items()):
+        text = (R.ROOT / source).read_text(errors='replace')
+        if len(rows) < 2 or not inline_asm_blocks(text):
+            continue
+        try:
+            attributed = module_inline_asm_blocks(text, rows, helpers=True)
+        except ValueError:
+            continue
+        helper = [b for blocks in attributed.values() for b in blocks if _block_helper(b)]
+        patterns = {i: DISTINCTIVE[i] for b in helper for i in b[1] if i in DISTINCTIVE}
+        if not helper:
+            continue
+        if not patterns:
+            warnings.append('%s: helper blocks hold no distinctive instruction to look for' % source)
+            continue
+        audit = rebuild_catalog._audit()
+        for r in rows:
+            if r.get('inline_asm') == 'evidenced':
+                continue
+            body = audit.original(r['entry'], r['body_bytes'])
+            found = [i for i, pattern in patterns.items() if pattern in body]
+            if found:
+                warnings.append('%s %08x unflagged, original bytes hold %s' % (source, r['entry'], ', '.join(found)))
+    return warnings
+
+
 def unplaced_objects(regions, kind=None):
     """(symbols, bytes) of the zero-initialised objects catalogued units leave unplaced and unreferenced
     (data_bound_by: unplaced-unreferenced; DECISIONS, user 2026-11-18): no address, nothing earned. Bytes are
@@ -398,6 +470,9 @@ def main(quiet=False):
     measures['unplaced_symbols'], measures['unplaced_bytes'] = unplaced_objects(cat['regions'])
     measures['layout_symbols'], measures['pending_ranges'], measures['pending_bytes'] = layout_and_pending(cat['regions'])
     measures['content_symbols'], measures['content_bytes'] = content_bound(cat['regions'])
+    (measures['inline_asm_rows'], measures['inline_asm_bytes']), \
+        (measures['helper_asm_rows'], measures['helper_asm_bytes']) = evidenced_inline_asm(cat['regions'])
+    measures['asm_unflagged_rows'], measures['asm_unflagged_bytes'], unflagged = asm_not_flagged(cat['regions'])
     measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
     level = function_level(cat['regions'])
     measures['function_level_rows'], measures['function_level_bytes'] = level['function']
@@ -464,6 +539,15 @@ def main(quiet=False):
     print('Data bound by content (data_bound_by: content; pointer tables, every byte compared; declarations a '
           'hypothesis; zero .text credit by themselves): %d symbols, %d bytes' % (measures['content_symbols'],
                                                                                   measures['content_bytes']))
+    print('Evidenced inline assembly (inline_asm: evidenced, cited TibSun __asm; its own ledger category, no C/C++ '
+          'credit): %d rows, %d body bytes' % (measures['inline_asm_rows'], measures['inline_asm_bytes']))
+    print('  of which reached through a file-static or inline helper of the unit (the archive\'s own helper): '
+          '%d rows, %d body bytes' % (measures['helper_asm_rows'], measures['helper_asm_bytes']))
+    print('  asm bytes not yet flagged in the rebuild (main flags them; header-template attribution to fix): '
+          '%d rows, %d body bytes (%s)' % (measures['asm_unflagged_rows'], measures['asm_unflagged_bytes'],
+                                           ', '.join('%08x' % e for e in unflagged) or 'none'))
+    for warning in helper_byte_warnings(cat['regions']):
+        print('  warning (not a gate): ' + warning)
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
           'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
                                          measures['extern_c_in_sources']))

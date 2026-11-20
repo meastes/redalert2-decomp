@@ -74,6 +74,7 @@ Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's cat
 `source_share_of_text` and `reproduced_text` already used every catalogued row (workers included); from that
 row on, `bytes_exact` counts every catalogued row and divides out to the share. The two percentages are
 comparable across the whole series; `bytes_exact` is comparable only from 16:07Z.
+Series break (lane ASM1, 2026-11-20): from the first row with the `inline_asm_*` columns, `source_share_of_text` leaves out the body bytes of evidenced inline assembly (its own category, as on main; conquer Main_Game and lcw LCW_Comp, 1,187 B, were in it before; the row's `note` says so); `reproduced_text` still counts them. `helper_asm_*` counts the rows reached through a file-static helper of their unit (DECISIONS, 2026-11-20).
 
 ## Working the parked tail
 

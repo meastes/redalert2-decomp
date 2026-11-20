@@ -633,6 +633,16 @@ def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
                 r['duplicates'], r['externs_landed'], r['externs_all'], r['address_suffixed'], int(r['parked_functions']),
                 int(r['parked_bytes']), r['parked_large_functions'], int(r['parked_large_bytes']), r['judgment_rows'],
                 int(r['judgment_bytes']), r['count_sensitive_rows'], int(r['count_sensitive_bytes'])),
+            ] + ([
+            # Evidenced inline assembly in the rebuild (its own category, no C/C++ credit), with the rows reached
+            # through a unit's file-static helper on their own line (review session and user, 2026-11-20).
+            '| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | {:,} rows / {:,} B |'.format(
+                int(r['inline_asm_rows']), int(r['inline_asm_bytes'])),
+            '| Rebuild evidenced inline assembly reached through a file-static helper of its unit | | {:,} rows / {:,} B |'
+            .format(int(r['helper_asm_rows']), int(r['helper_asm_bytes'])),
+            '| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | {:,} rows / {:,} B |'
+            .format(int(r.get('asm_unflagged_rows') or 0), int(r.get('asm_unflagged_bytes') or 0))]
+            if r.get('inline_asm_rows') else []) + [
             '']
 
 

@@ -30,12 +30,17 @@ units = len({r['source'] for r in cat['regions']})
 now = datetime.datetime.now(datetime.timezone.utc)
 total_b = sum(v[1] for v in split.values())    # this lane's rows; worker rows are in workers_*
 all_b = total_b + workers[1]                   # every catalogued row (as functions_exact counts them)
+# Evidenced inline assembly is its own ledger category, not C/C++ credit (AGENTS.md, user 2026-11-07; reached
+# through a unit's file-static helper too, review session and user 2026-11-20): its body bytes leave the
+# source share and stay in the reproduced share. Series break at the first row with the asm columns: before
+# it the source share also held the evidenced rows' bytes (conquer Main_Game, lcw LCW_Comp, 1,187 B).
+asm_b = sum(r['body_bytes'] for r in cat['regions'] if r.get('inline_asm') == 'evidenced')
 line = dict(time_utc=now.strftime('%Y-%m-%dT%H:%MZ'), units=units, functions_exact=len(cat['regions']),
             bytes_exact=all_b, a_functions=split['a'][0], a_bytes=split['a'][1], b_functions=split['b'][0],
             b_bytes=split['b'][1], c_functions=split['c'][0], c_bytes=split['c'][1],
             workers_functions=workers[0], workers_bytes=workers[1],
             lane_hours='%.2f' % ((now - START).total_seconds() / 3600),
-            source_share_of_text='%.3f%%' % (100.0 * all_b / TEXT),
+            source_share_of_text='%.3f%%' % (100.0 * (all_b - asm_b) / TEXT),
             reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY) / TEXT))
 # Structure beside the percent (user, 2026-11-17): the census gate's measures, the units still held
 # (pending), and the functions not exact in any unit with their bytes (1 KB and over apart: the trend).
@@ -68,6 +73,9 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             judgment_rows=m['judgment_rows'], judgment_bytes=m['judgment_bytes'],
             unplaced_symbols=m['unplaced_symbols'], unplaced_bytes=m['unplaced_bytes'],
             content_symbols=m['content_symbols'], content_bytes=m['content_bytes'],
+            inline_asm_rows=m['inline_asm_rows'], inline_asm_bytes=m['inline_asm_bytes'],
+            helper_asm_rows=m['helper_asm_rows'], helper_asm_bytes=m['helper_asm_bytes'],
+            asm_unflagged_rows=m['asm_unflagged_rows'], asm_unflagged_bytes=m['asm_unflagged_bytes'],
             count_sensitive_rows=m['count_sensitive_rows'], count_sensitive_bytes=m['count_sensitive_bytes'],
             # Function-level beside the whole-unit count (review session, 2026-11-20; a separate column, no credit
             # change): each function checked on its own, as ra2-decomp reports (rebuild_census.function_level).
@@ -76,6 +84,9 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
+# Series breaks are marked on the row where they start (the 2026-11-18T16:07Z one is in the README).
+line['note'] = '' if any(r.get('inline_asm_rows') for r in rows) else (
+    'series break: source_share_of_text leaves out evidenced inline asm (conquer, lcw: 1,187 B were in it before)')
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)

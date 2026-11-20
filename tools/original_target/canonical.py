@@ -161,7 +161,176 @@ def _row_function_name(symbol_prefix):
     return '::'.join(parts[::-1])
 
 
-def module_inline_asm_blocks(text, rows):
+def _function_bodies(masked, directives):
+    """[(qualified name or None, `{` offset, `}` offset, header text)] of the function definitions in
+    `masked` (comments and literals blanked): a `{` whose header (since the previous `;`, `}` or `{`)
+    holds a parameter list and is no class/struct/union/enum/namespace head. `directives` maps the
+    start of each preprocessor line to its end (skipped)."""
+    functions, stack, header_start = [], [], 0
+    index = 0
+    while index < len(masked):
+        char = masked[index]
+        if index in directives:
+            index = header_start = directives[index]
+            continue
+        if char == '{':
+            header = masked[header_start:index]
+            scope = _SCOPE_KEYWORD.match(header)
+            inside_function = any(kind == 'function' for kind, _, _, _ in stack)
+            if inside_function:
+                kind, name = 'block', None
+            elif scope or '(' not in header:
+                kind, name = 'scope', (scope.group(1) if scope and header.lstrip().startswith('namespace') else None)
+            else:
+                paren = header.index('(')
+                found = _DECLARATOR_NAME.search(header[:paren])
+                kind, name = 'function', (re.sub(r'\s+', '', found.group(1)) if found else None)
+            stack.append((kind, name, index, header))
+            header_start = index + 1
+        elif char == '}':
+            require(stack, 'Module source: unbalanced braces')
+            kind, name, start, header = stack.pop()
+            if kind == 'function':
+                namespaces = [n for k, n, _, _ in stack if k == 'scope' and n]
+                functions.append(('::'.join(namespaces + [name]) if name else None, start, index, header))
+            header_start = index + 1
+        elif char == ';' and not any(kind == 'function' for kind, _, _, _ in stack):
+            header_start = index + 1
+        index += 1
+    return functions
+
+
+def _directive_spans(masked):
+    return {m.start(): m.end() for m in re.finditer(r'(?m)^[ \t]*#(?:[^\n]*\\\n)*[^\n]*', masked)}
+
+
+_CALL_OPEN = re.compile(r'\s*\(')
+_QUALIFIER_BEFORE = re.compile(r'(?:::|\.|->)\s*$')
+_LOCAL_LINKAGE = re.compile(r'(?<![A-Za-z0-9_$])(?:static|inline|__inline|__forceinline)(?![A-Za-z0-9_$])')
+
+
+def _file_local_helper(function):
+    """True when a function definition is a non-member file-static or inline function (a helper of
+    its own unit: no `::` in its name, `static`/`inline` in its declaration before the parameters)."""
+    name, _, _, header = function
+    declarator = header.split('(', 1)[0]
+    # `::` anywhere before the parameters (`BlitTrans<unsigned char>::BlitForward`) is no file helper.
+    return bool(name) and '::' not in declarator and _LOCAL_LINKAGE.search(declarator) is not None
+
+
+class _Unparsed(Exception):
+    pass
+
+
+def _mangled_parameter_count(symbol):
+    """Number of parameters of an MSVC-decorated function symbol (`?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z`
+    -> 3), or None for a form this small reader does not know (function pointers, `$$` types, special names).
+    Used only to tell overloads apart; an unknown form is never guessed."""
+    return _mangled_signature(symbol)[1]
+
+
+_VIRTUAL_ACCESS = 'EFMNUV'          # private/protected/public virtual member functions
+
+
+def _mangled_signature(symbol):
+    """(access code, parameter count) of an MSVC-decorated function symbol; (None, None) when unknown."""
+    def name(i):                        # name fragments up to the terminating '@'
+        while True:
+            if i >= len(symbol):
+                raise _Unparsed
+            if symbol[i] == '@':
+                return i + 1
+            if symbol[i].isdigit():
+                i += 1
+            elif symbol.startswith('?$', i):
+                i = fragment(i + 2)
+                while symbol[i] != '@':
+                    i = kind(i)
+                i += 1
+            elif symbol[i] == '?':
+                raise _Unparsed
+            else:
+                i = fragment(i)
+
+    def fragment(i):
+        end = symbol.find('@', i)
+        if end < 0:
+            raise _Unparsed
+        return end + 1
+
+    def kind(i):                        # one type
+        if i >= len(symbol):
+            raise _Unparsed
+        c = symbol[i]
+        if c.isdigit() or c in 'CDEFGHIJKMNOX':
+            return i + 1
+        if c == '_' and symbol[i + 1:i + 2] in ('N', 'J', 'K', 'W'):
+            return i + 2
+        if c in 'PQRSAB':
+            if symbol[i + 1:i + 2] not in ('A', 'B', 'C', 'D'):
+                raise _Unparsed
+            return kind(i + 2)
+        if c in 'VUT':
+            return name(i + 1)
+        if c == 'W' and symbol[i + 1:i + 2] == '4':
+            return name(i + 2)
+        if c == '?' and symbol[i + 1:i + 2] in ('A', 'B'):
+            return kind(i + 2)
+        raise _Unparsed
+    try:
+        if not symbol.startswith('?') or symbol.startswith('??'):
+            return None, None
+        i = name(symbol.index('@') + 1) if not symbol.startswith('?', 1) else None
+        if i is None or i >= len(symbol):
+            return None, None
+        access = symbol[i]
+        if access in 'YZ':
+            i += 1
+        elif access in 'CDKLST':
+            i += 1
+        elif access in 'ABEFIJMNQRUV':
+            i += 2                          # access, then the `this` qualifier
+        else:
+            return None, None
+        i += 1                              # calling convention
+        i = kind(i)                         # return type
+        if symbol.startswith('XZ', i):
+            return access, 0
+        count = 0
+        while not symbol.startswith('@Z', i):
+            if symbol.startswith('ZZ', i) or symbol.startswith('Z', i) and i == len(symbol) - 1:
+                return access, None     # variadic
+            i = kind(i)
+            count += 1
+        return access, count
+    except (_Unparsed, IndexError, ValueError):
+        return None, None
+
+
+def _definition_parameter_count(header, angles=True):
+    """Number of parameters in a function definition's header (`(void)` and `()` -> 0), or None.
+    `angles` False counts a call's arguments (`<` and `>` are then comparisons, not brackets)."""
+    start = header.find('(')
+    depth, end = 0, None
+    for index in range(start, len(header)):
+        depth += {'(': 1, ')': -1}.get(header[index], 0)
+        if depth == 0:
+            end = index
+            break
+    if start < 0 or end is None:
+        return None
+    inner = header[start + 1:end].strip()
+    if inner in ('', 'void'):
+        return 0
+    depth, count = 0, 1
+    for char in inner:
+        depth += ({'(': 1, '<': 1, '[': 1, ')': -1, '>': -1, ']': -1} if angles else
+                  {'(': 1, '[': 1, '{': 1, ')': -1, ']': -1, '}': -1}).get(char, 0)
+        count += char == ',' and depth == 0
+    return None if '...' in inner else count
+
+
+def module_inline_asm_blocks(text, rows, helpers=False):
     """Per-function attribution of the `__asm` blocks of a module source (several
     rows in one file; review 2026-11-11): {entry: [(offset, instructions), ...]}.
 
@@ -169,12 +338,24 @@ def module_inline_asm_blocks(text, rows):
     holds, and that function must be exactly one row's (its decorated name); a
     block on a preprocessor line (a macro), outside any function, in a function
     no row names (an inline helper) or in a function two rows could name refuses
-    the whole file."""
+    the whole file.
+
+    `helpers` (rebuild tree only; review session and user, 2026-11-20): a block in a
+    non-member file-static or inline function of the unit (the TibSun archive's own
+    helper, as surface_quick_fill in xsurface.cpp) is attributed to every row that
+    reaches the helper: its own row when one names it, and every row whose function
+    refers to it, directly or through other functions of the file (expanded inline
+    or called: the text cannot tell, so both count). Such a block is the 4-tuple
+    (offset, instructions, None, helper name); validate_inline_asm then requires the
+    archive's same-named helper in the cited file of the same unit. A helper no row
+    reaches, a reference to it outside a function body other than its own
+    declaration, a helper defined twice and an asm macro inside a helper refuse the
+    whole file."""
     masked = _mask_comments_and_literals(text)
     blocks = inline_asm_blocks(text)
     if not blocks:
         return {row['entry']: [] for row in rows}
-    directives = {m.start(): m.end() for m in re.finditer(r'(?m)^[ \t]*#(?:[^\n]*\\\n)*[^\n]*', masked)}
+    directives = _directive_spans(masked)
     # Asm-only archive macros (amendment, reviewed 2026-11-11): `#define NAME <__asm statements>`
     # counts as expanded at each invocation; any other __asm in a directive refuses.
     macros = {}
@@ -198,54 +379,119 @@ def module_inline_asm_blocks(text, rows):
             # The invocation, then one block per __asm statement of the macro.
             blocks.append((match.start(), None, name))
             blocks.extend((match.start(), instructions, name) for instructions in expansion)
-    blocks.sort(key=lambda b: (b[0], len(b) > 2 and b[1] is not None))
-    # Function bodies: a `{` whose header (since the previous `;`, `}` or `{`) holds a
-    # parameter list and is no class/struct/union/enum/namespace head.
-    functions, stack, header_start = [], [], 0
-    index = 0
-    while index < len(masked):
-        char = masked[index]
-        if index in directives:
-            index = header_start = directives[index]
-            continue
-        if char == '{':
-            header = masked[header_start:index]
-            scope = _SCOPE_KEYWORD.match(header)
-            inside_function = any(kind == 'function' for kind, _, _ in stack)
-            if inside_function:
-                kind, name = 'block', None
-            elif scope or '(' not in header:
-                kind, name = 'scope', (scope.group(1) if scope and header.lstrip().startswith('namespace') else None)
-            else:
-                paren = header.index('(')
-                found = _DECLARATOR_NAME.search(header[:paren])
-                kind, name = 'function', (re.sub(r'\s+', '', found.group(1)) if found else None)
-            stack.append((kind, name, index))
-            header_start = index + 1
-        elif char == '}':
-            require(stack, 'Module source: unbalanced braces')
-            kind, name, start = stack.pop()
-            if kind == 'function':
-                namespaces = [n for k, n, _ in stack if k == 'scope' and n]
-                functions.append(('::'.join(namespaces + [name]) if name else None, start, index))
-            header_start = index + 1
-        elif char == ';' and not any(kind == 'function' for kind, _, _ in stack):
-            header_start = index + 1
-        index += 1
+    order = lambda b: (b[0], len(b) > 2 and b[1] is not None)
+    blocks.sort(key=order)
+    functions = _function_bodies(masked, directives)
     names = {}
     for row in rows:
         name = _row_function_name(row['symbol_prefix'])
         if name:
             names.setdefault(name, []).append(row['entry'])
     attributed = {row['entry']: [] for row in rows}
+    helper_blocks = {}
     for block in blocks:
         owners = [f for f in functions if f[1] < block[0] < f[2]]
         require(len(owners) == 1, 'Module source: an __asm block outside a function body')
         name = owners[0][0]
+        if helpers and _file_local_helper(owners[0]):
+            require(len(block) == 2, 'Module source: asm macro %s inside the helper %s' % (block[-1], name))
+            require(len([f for f in functions if f[0] == name]) == 1,
+                    'Module source: the asm helper %s is defined more than once' % name)
+            helper_blocks.setdefault(name, []).append((block[0], block[1], None, name))
+            continue
         entries = names.get(name or '', [])
         require(len(entries) == 1,
                 'Module source: the __asm block in %s is not one row\'s function (inline helper or overload)' % name)
         attributed[entries[0]].append(block)
+    if not helper_blocks:
+        return attributed
+    # Reachability, per definition: the definitions of the file whose name a body names by token, counting
+    # each file-local function and every other function of the file wherever it is defined (VC6 /Ob2 can
+    # expand a later-defined function too: Set_Match_State, review 2026-11-20) that the reference can be
+    # (its address, or a call; a call's argument count filters only where both counts are known), closed
+    # transitively; an unqualified call from a member to a member whose every matching row is virtual is a
+    # dispatch through `this` and is not followed. A bare name stands for every definition with that last component (a member called
+    # unqualified inside its class's functions): over-counting only adds flags, it never drops one.
+    by_name = {}
+    for index, f in enumerate(functions):
+        if f[0]:
+            by_name.setdefault(f[0].split('::')[-1], []).append(index)
+    local = {index for index, f in enumerate(functions) if _file_local_helper(f)}
+    arity = [_definition_parameter_count(f[3]) for f in functions]
+    # A definition whose rows (by name, all of them) are virtual members: an unqualified call to it from a
+    # member function is a virtual dispatch through `this`, which VC6 never expands.
+    virtual = set()
+    for index, f in enumerate(functions):
+        signatures = [_mangled_signature(r['symbol_prefix']) for r in rows
+                      if _row_function_name(r['symbol_prefix']) == f[0]]
+        matching = [a for a, n in signatures if n is not None and n == arity[index]]
+        if matching and all(a is not None and a in _VIRTUAL_ACCESS for a in matching):
+            virtual.add(index)
+    token = re.compile(r'(?<![A-Za-z0-9_$])([A-Za-z_]\w*)(?![A-Za-z0-9_$])')
+    refers = []
+    for index, function in enumerate(functions):
+        found = set()
+        for m in token.finditer(masked, function[1], function[2]):
+            candidates = [o for o in by_name.get(m[1], ()) if o != index]
+            if not candidates:
+                continue
+            call = _CALL_OPEN.match(masked, m.end(), function[2])
+            arguments = _definition_parameter_count(masked[call.end() - 1:function[2]], angles=False) if call else None
+            qualified = _QUALIFIER_BEFORE.search(masked[max(function[1], m.start() - 64):m.start()]) is not None
+            for other in candidates:
+                if other in local:
+                    found.add(other)
+                elif (arguments is None or arity[other] is None or arity[other] == arguments) and \
+                        not (call and not qualified and other in virtual and '::' in (function[0] or '')):
+                    found.add(other)
+        refers.append(found)
+    holders = {index for index, f in enumerate(functions) if f[0] in helper_blocks}
+    for helper in helper_blocks:
+        for match in re.finditer(r'(?<![A-Za-z0-9_$:])%s(?![A-Za-z0-9_$])' % re.escape(helper), masked):
+            if any(start <= match.start() < end for start, end in directives.items()) or \
+                    any(f[1] < match.start() < f[2] for f in functions):
+                continue
+            # Outside every body: only its own declaration or definition (the name before its parameters).
+            require(re.match(r'\s*\(', masked[match.end():]) is not None,
+                    'Module source: the asm helper %s is referred to outside a function body' % helper)
+
+    def reached(index):
+        seen, pending = {index}, [index]
+        while pending:
+            for other in refers[pending.pop()]:
+                if other not in seen:
+                    seen.add(other)
+                    pending.append(other)
+        return sorted({functions[i][0] for i in seen & holders})
+    # Each definition that reaches a helper is one row's (flag required; overloads told apart by their
+    # parameter count), a file-local function no row names (an intermediate helper), or certainly no row's
+    # (every row's name is known and none is its name: a parked draft, uncatalogued).
+    reaching = set()
+    named = all(_row_function_name(row['symbol_prefix']) for row in rows)
+    for index, function in enumerate(functions):
+        hit = reached(index)
+        if not hit:
+            continue
+        require(function[0] is not None, 'Module source: a function with no derivable name reaches an asm helper')
+        entries = names.get(function[0], [])
+        if len(entries) > 1 or entries and sum(f[0] == function[0] for f in functions) > 1:
+            counts = {r['entry']: _mangled_parameter_count(r['symbol_prefix']) for r in rows if r['entry'] in entries}
+            require(arity[index] is not None and None not in counts.values(),
+                    'Module source: %s reaches the asm helper %s and its overloads cannot be told apart'
+                    % (function[0], ', '.join(hit)))
+            entries = [e for e, n in counts.items() if n == arity[index]]
+            require(len(entries) <= 1, 'Module source: %s reaches the asm helper %s and is not one row\'s function '
+                    '(overload)' % (function[0], ', '.join(hit)))
+        require(entries or named or index in local,
+                'Module source: %s reaches the asm helper %s and a row of the file has no derivable name'
+                % (function[0], ', '.join(hit)))
+        for helper in hit if entries else ():
+            attributed[entries[0]].extend(helper_blocks[helper])
+            reaching.add(helper)
+    for helper in helper_blocks:
+        require(helper in reaching, 'Module source: no row reaches the asm helper %s' % helper)
+    for entry in attributed:
+        attributed[entry].sort(key=order)
     return attributed
 
 
@@ -261,7 +507,13 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
     takes one citation for the invocation (the archive line where the author invokes
     the macro) and one per __asm statement of the macro (its archive definition line;
     the repeat count restarts per invocation). `unit` is the module source's file
-    name: the macro must be the archive's own in that unit (TibSun <unit>)."""
+    name: the macro must be the archive's own in that unit (TibSun <unit>).
+
+    A block reached through a file-static or inline helper (module_inline_asm_blocks with
+    helpers, rebuild tree only; review session and user, 2026-11-20) is cited to the archive
+    block like any other (same instructions, nothing else), and besides: the archive must be
+    present, the cited file must be the unit's own (TibSun <unit>), and the cited block must lie
+    in the body of the archive's own function of the helper's name in that file."""
     text = data.decode(errors='replace') if isinstance(data, bytes) else data
     if blocks is None:
         blocks = inline_asm_blocks(text)
@@ -278,10 +530,15 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
     for citation in citations:
         require(citation in text, 'Inline-assembly citation %s not quoted in the source' % citation)
     for block, citation in zip(blocks, citations):
-        if len(block) > 2:
+        if _block_helper(block):
+            require(unit is not None and INLINE_ASM_CITATION.fullmatch(citation).group(1).lower() == unit.lower(),
+                    'Asm helper %s cited outside its own unit (%s): %s' % (_block_helper(block), unit, citation))
+        elif len(block) > 2:
             require(unit is not None and INLINE_ASM_CITATION.fullmatch(citation).group(1) == unit,
                     'Asm macro %s cited outside its own unit (%s): %s' % (block[2], unit, citation))
     if archive is None or not Path(archive).is_dir():
+        require(not any(_block_helper(b) for b in blocks),
+                'TibSun archive unavailable: inline assembly reached through a helper cannot be verified')
         require(not require_archive, 'TibSun archive unavailable: evidenced inline assembly cannot be verified')
         return len(blocks)
     plain, invocations, expansion = [], set(), 0
@@ -294,7 +551,7 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
         require(int(line) <= len(lines), 'Cited TibSun line out of range: %s' % citation)
         first = sum(len(l) for l in lines[:int(line) - 1])
         cited_line = _mask_comments_and_literals(source)[first:first + len(lines[int(line) - 1])]
-        if len(block) > 2 and block[1] is None:
+        if _block_macro(block) and block[1] is None:
             # The invocation: the author invokes this macro on the cited line, once per citation.
             require(re.match(r'[ \t]*#', cited_line) is None and
                     re.search(r'(?<![A-Za-z0-9_$])%s(?![A-Za-z0-9_$])' % re.escape(block[2]), cited_line),
@@ -303,7 +560,7 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
             invocations.add(citation)
             expansion = 0
             continue
-        if len(block) > 2:
+        if _block_macro(block):
             # One __asm statement of the macro: the archive's own definition, same instructions.
             definition = _ASM_MACRO.fullmatch(cited_line.rstrip('\r\n'))
             require(definition is not None and definition.group(1) == block[2],
@@ -321,7 +578,24 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
         require(len(cited) > repeat, 'No __asm block starts on the cited TibSun line: %s' % citation)
         require(block[1] == cited[repeat][1],
                 'Inline-assembly block differs from the cited TibSun archive block %s' % citation)
+        if _block_helper(block):
+            # The archive's own helper of the same name holds the cited block (TibSun <unit>).
+            masked = _mask_comments_and_literals(source)
+            owners = [f for f in _function_bodies(masked, _directive_spans(masked)) if f[1] < cited[repeat][0] < f[2]]
+            require(len(owners) == 1 and owners[0][0] == _block_helper(block),
+                    'Asm helper %s: the cited TibSun block %s is not in the archive\'s %s' % (
+                        _block_helper(block), citation, _block_helper(block)))
     return len(blocks)
+
+
+def _block_macro(block):
+    """The asm macro a module block comes from (module_inline_asm_blocks), or None."""
+    return block[2] if len(block) > 2 else None
+
+
+def _block_helper(block):
+    """The file-static or inline helper a module block was reached through, or None."""
+    return block[3] if len(block) > 3 else None
 
 
 # Count-calibrated rows (user decision 2026-11-09, docs/HANDOFF.md): a row whose
@@ -746,8 +1020,9 @@ def validate_catalog(repository, catalog, modules=True):
         require(digest == row['source_sha256'], 'Source hash drift')
         if len(module_rows.get(row['source'], ())) > 1:
             if row['source'] not in module_blocks:
+                # Rebuild tree: blocks in the unit's file-static/inline helpers reach their rows (2026-11-20).
                 module_blocks[row['source']] = module_inline_asm_blocks(
-                    data.decode(errors='replace'), module_rows[row['source']])
+                    data.decode(errors='replace'), module_rows[row['source']], helpers=tree.REBUILD)
             validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE, blocks=module_blocks[row['source']][va],
                                 unit=Path(row['source']).name)
         else:
