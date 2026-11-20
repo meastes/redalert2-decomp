@@ -89,6 +89,13 @@ Lane guidance (lane L1, 2026-11-19). Before working a parked row, read three thi
    missing neighbour), not at the row's text.
 3. For main's 96 never-matched functions, the guard label of the rebuild draft carries main's best score, tries
    and causes ("main: best N, tried N times (...)"); a draft that does not beat it is not a finding.
+4. Its Yuri's Revenge twin in `manifest/tail_twins.csv` (`tools/twinmap.py --write`, lane L2, no compile):
+   identical or near twin in gamemd.exe 1.001, whether ra2-decomp matched it, their path, line and symbol, and
+   how close our text already is to theirs. `manifest/twin_queue.csv` lists the rows with a matched twin by
+   bytes; `tools/twinmap.py --headers` writes `manifest/twin_header_diffs.csv` (classes named by, and headers
+   included by, rows whose text is already the identical twin's; their header set is the pinned TibSun archive
+   with their `include/` over it). For an identical twin, YR-only members and field differences are expected:
+   the bodies equal means every offset the row uses already agrees.
 
 Compiler behaviours found here go back to main's notes, tagged "found in the rebuild (lane R...)", with the
 index regenerated (`python3 tools/original_target/notes_index.py --write docs/VC6_MATCHING_INDEX.md`).

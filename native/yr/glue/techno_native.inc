@@ -188,8 +188,10 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 	}
 }
 
+void Yr_Hd_Owner(int kind_of);   // NATIVE (lane N19, HD vehicles): glue/yr_hd_vehicles.cpp
 SurfaceRegion TechnoClass::Techno_Render_Voxel_Object(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & xcliprect, int frame, ShapeFlags_Type flags, int brightness, unsigned short tint) const
 {
+	Yr_Hd_Owner(RTTI);   // NATIVE (lane N19): whose voxels the renderer draws (the HD counts)
 	Matrix3D mtx = matrix;
 	Matrix3D mtx2 = matrix;
 

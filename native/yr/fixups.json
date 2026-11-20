@@ -1714,6 +1714,96 @@
    "old": "\t\t\t\tposition.y += 16;\n\t\t\t\tif (position.y + text->TextHeight - trect->Height - trect->Y > 0) {\n\t\t\t\t\tposition.y = position.y - text->TextHeight - 16;\n\t\t\t\t}\n\t\t\t}\n",
    "new": "\t\t\t\tposition.y += 16;\n\t\t\t\tif (position.y + text->TextHeight - trect->Height - trect->Y > 0) {\n\t\t\t\t\tposition.y = position.y - text->TextHeight - 16;\n\t\t\t\t}\n\t\t\t}\n\t\t\tint tip_x = position.x, tip_y = position.y;   /* NATIVE (lane N18) */\n\t\t\tYr_Tooltip_Zoom(trect == &TacticalRect, &tip_x, &tip_y, text->TextWidth, text->TextHeight);\n\t\t\tposition.x = tip_x;\n\t\t\tposition.y = tip_y;\n",
    "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): CCToolTip::Update 0x00478BA0, after it placed a tip: a tip placed for the map side that does not lie in the zoomed view (a command bar button's) is moved into the view at the same place on screen (Yr_Tooltip_Zoom)."
+  },
+  {
+   "file": "src/mainopt.cpp",
+   "old": "\tAllocate_Surfaces(VisibleRect, Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, SidebarWidth, VisibleRect.Height), false);\n",
+   "new": "\tint Yr_Sidebar_Height(int screen_height);   // NATIVE (lane N19): glue/yr_interface_size.cpp\n\tAllocate_Surfaces(VisibleRect, Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, SidebarWidth, Yr_Sidebar_Height(VisibleRect.Height)), false);\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): Change_Display_Mode 0x00560BF0 makes the sidebar surface Yr_Sidebar_Height rows tall (the screen's height over the interface size; the screen's own height at 1x), so the host can show the sidebar column larger than the map (host.cpp, the split layout). The tile and composite surfaces keep the screen's height."
+  },
+  {
+   "file": "src/saveload.cpp",
+   "old": "\tAllocate_Surfaces(VisibleRect, Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, SidebarWidth, VisibleRect.Height), false);\n",
+   "new": "\tint Yr_Sidebar_Height(int screen_height);   // NATIVE (lane N19): glue/yr_interface_size.cpp\n\tAllocate_Surfaces(VisibleRect, Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, temp.Width, VisibleRect.Height), Rect(0, 0, SidebarWidth, Yr_Sidebar_Height(VisibleRect.Height)), false);\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): Get_All 0x0067E730 (a load) makes the sidebar surface Yr_Sidebar_Height rows tall, as Change_Display_Mode does."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "\tif (VisibleRect.Width != Options.ScreenWidth || VisibleRect.Height != Options.ScreenHeight) {\n",
+   "new": "\tif (VisibleRect.Width != Options.ScreenWidth || VisibleRect.Height != Options.ScreenHeight || Yr_Sidebar_Remake(Options.ScreenHeight)) {\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0 and Toggle_Display_Mode 0x006842F0 (in game) change the display mode when the screen's size differs from the game's; a new game whose screen keeps its size also changes it (to the same size) when the sidebar surface's rows differ from what the interface size asks now (Yr_Sidebar_Remake), so Change_Display_Mode makes the surfaces, the view and the sidebar's layout again. Never at 1x with a 1x surface."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "// FUNCTION: GAMEMD 0x00683AB0\n",
+   "new": "bool Yr_Sidebar_Remake(int screen_height);   // NATIVE (lane N19): glue/yr_interface_size.cpp\n// FUNCTION: GAMEMD 0x00683AB0\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): the declaration for the mode checks below."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "\t\tSidebarRect.Height = bounds.Y + DAT_007F5BFC + bounds.Height - 158;\n",
+   "new": "\t\tSidebarRect.Height = Yr_Sidebar_Bottom(bounds.Y + bounds.Height) + DAT_007F5BFC - 158;\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): SidebarClass 0x006A5130's full layout sizes the sidebar from the tactical rectangle's bottom edge (the command bar's top, the sidebar running to the screen's bottom): Yr_Sidebar_Bottom answers it less the rows the sidebar surface is shorter than the screen (Game interface size), so the cameo strips and the scroll buttons are laid out inside the surface (as its other branch, lane N18's fixup)."
+  },
+  {
+   "file": "src/blowfish.cpp",
+   "old": "// FUNCTION: GAMEMD 0x004373B0\nbool Bit_Blit(Surface & dest, Rect const & dcliprect",
+   "new": "// FUNCTION: GAMEMD 0x004373B0 (NATIVE, lane N19: renamed; glue/yr_hd_vehicles.cpp's Bit_Blit calls it)\nbool Bit_Blit_Core_Native(Surface & dest, Rect const & dcliprect",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): Bit_Blit 0x004373B0 is the core of glue/yr_hd_vehicles.cpp's Bit_Blit, which calls it unchanged and, with HD vehicles on, runs the same blitter (and tint) over the Nx rows of a source holding an Nx image."
+  },
+  {
+   "file": "src/voxdrsys.cpp",
+   "old": "static inline void _Render(VoxelRenderStruct ** render_data, Rect & rect, int & x, int & y)\n",
+   "new": "// NATIVE (lane N19, HD vehicles): the queued shadows and objects drawn again, as _Render draws them, for\n// glue/yr_hd_vehicles.cpp's sub-pixel passes; a shadow record's position, which Render_Shadow moves by the\n// centre, is put back after each.\nvoid Yr_Hd_Voxel_Replay(Vector3 & center, VoxelRenderStruct ** render_data)\n{\n\tfor (int index = 0; index < VoxelShadowRenderDataCount; index++) {\n\t\tint left = VoxelShadowRenderData[index].ShadowX;\n\t\tint top = VoxelShadowRenderData[index].ShadowY;\n\t\tVoxelShadowRenderData[index].VoxLib->Render_Shadow(VoxelShadowRenderData[index], center);\n\t\tVoxelShadowRenderData[index].ShadowX = left;\n\t\tVoxelShadowRenderData[index].ShadowY = top;\n\t}\n\tif (VoxelDrawSystem::EnableZBuffer) {\n\t\tfor (int index = VoxelRenderDataCount - 1; index >= 0; index--) {\n\t\t\trender_data[index]->VoxLib->Render_Object(*render_data[index], center);\n\t\t}\n\t} else {\n\t\tfor (int index = 0; index < VoxelRenderDataCount; index++) {\n\t\t\trender_data[index]->VoxLib->Render_Object(*render_data[index], center);\n\t\t}\n\t}\n}\nvoid Yr_Hd_Voxel_Passes(Rect const & rect, Vector3 & center, VoxelRenderStruct ** render_data);   // glue/yr_hd_vehicles.cpp\n\nstatic inline void _Render(VoxelRenderStruct ** render_data, Rect & rect, int & x, int & y)\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): the voxel draw's objects and shadows drawn again (Yr_Hd_Voxel_Replay, the loops of _Render, the body of VoxelDrawSystem::Render 0x007542F0/0x00754510) for the Nx image's sub-pixel passes."
+  },
+  {
+   "file": "src/voxdrsys.cpp",
+   "old": "\tLastRenderRect = rect;\n\n\tx = (int)center.X - rect.Width / 2;\n",
+   "new": "\tLastRenderRect = rect;\n\tYr_Hd_Voxel_Passes(rect, center, render_data);   // NATIVE (lane N19)\n\n\tx = (int)center.X - rect.Width / 2;\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): after the 1x draw, the N*N - 1 passes (nothing with the setting off) make the Nx image of what the voxel buffer holds and put the buffer and its depth buffer back."
+  },
+  {
+   "file": "src/voxlib.cpp",
+   "old": "void VoxelLibrary::Render_Object(VoxelRenderStruct & voxel, Vector3 & center)\n",
+   "new": "extern int Yr_Hd_Voxel_Dx, Yr_Hd_Voxel_Dy;   // NATIVE (lane N19): glue/yr_hd_vehicles.cpp (0 but in its passes)\nvoid VoxelLibrary::Render_Object(VoxelRenderStruct & voxel, Vector3 & center)\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): the passes' start offsets' declaration."
+  },
+  {
+   "file": "src/voxlib.cpp",
+   "old": "\targ.TransformMatrix[0].I = (short)ra2port::x87_ftol(float(corner_0.X + 128 - center.X) * 256);\n\targ.TransformMatrix[0].J = (short)ra2port::x87_ftol(float(corner_0.Y + 128 - center.Y) * 256);\n",
+   "new": "\targ.TransformMatrix[0].I = (short)ra2port::x87_ftol(float(corner_0.X + 128 - center.X) * 256) + Yr_Hd_Voxel_Dx;\n\targ.TransformMatrix[0].J = (short)ra2port::x87_ftol(float(corner_0.Y + 128 - center.Y) * 256) + Yr_Hd_Voxel_Dy;\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): VoxelLibrary::Render_Object and Render_Shadow start each draw 1/N pixel further left or up during the HD passes (8.8 fixed point; 0 otherwise, the original's start). (Applies after the x87_ftol rewrite above.)"
+  },
+  {
+   "file": "src/techno.cpp",
+   "old": "// FUNCTION: GAMEMD 0x00706640\n",
+   "new": "bool Yr_Hd_Vehicles_Active();   // NATIVE (lane N19): glue/yr_hd_vehicles.cpp\nvoid Yr_Hd_Owner(int kind_of);   // NATIVE (lane N19)\n// FUNCTION: GAMEMD 0x00706640\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): declarations for the voxel draws below."
+  },
+  {
+   "file": "src/techno.cpp",
+   "old": "\t\tif (cache != NULL && !Techno_Type_Class()->DisableVoxelCache) {\n",
+   "new": "\t\tif (cache != NULL && !Techno_Type_Class()->DisableVoxelCache && !Yr_Hd_Vehicles_Active()) {\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): the voxel cache is off while HD vehicles is on (a cached image has no Nx image): the game's own DisableVoxelCache behaviour (Techno_Draw_Voxel 0x00706640)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "old": "\t\tif (cache == NULL || Techno_Type_Class()->DisableShadowCache) {\n",
+   "new": "\t\tif (cache == NULL || Techno_Type_Class()->DisableShadowCache || Yr_Hd_Vehicles_Active()) {\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): the shadow cache likewise (DisableShadowCache, Techno_Draw_Voxel_Shadow 0x00706BD0)."
+  },
+  {
+   "file": "src/techno.cpp",
+   "old": "SurfaceRegion TechnoClass::Techno_Render_Voxel_Shadow(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int layer_index, ShapeFlags_Type flags, bool cached, Surface * surface, int shadow_x, int shadow_y) const\n{\n",
+   "new": "SurfaceRegion TechnoClass::Techno_Render_Voxel_Shadow(VoxelDataStruct const & voxeldata, Matrix3D const & matrix, Point2D const & point, Rect const & cliprect, int layer_index, ShapeFlags_Type flags, bool cached, Surface * surface, int shadow_x, int shadow_y) const\n{\n\tYr_Hd_Owner(RTTI);   // NATIVE (lane N19)\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): the voxel renderer tells glue/yr_hd_vehicles.cpp whose voxels it draws (its per-kind counts: the tests' proof that vehicles, aircraft and voxel building parts show at Nx)."
+  },
+  {
+   "file": "src/dsurface.cpp",
+   "old": "\t\tHRESULT result = SurfacePtr->Blt(&xdestrect, source.SurfacePtr, &xsrcrect, DDBLT_WAIT, NULL);\n\t\treturn(result == DD_OK);\n",
+   "new": "\t\tHRESULT result = SurfacePtr->Blt(&xdestrect, source.SurfacePtr, &xsrcrect, DDBLT_WAIT, NULL);\n\t\tvoid Yr_Hd_Copied(Surface & dest, Rect const & destrect, Surface & source, Rect const & sourcerect);   // NATIVE (lane N19)\n\t\tif (result == DD_OK) Yr_Hd_Copied(*this, Rect(xdestrect.left, xdestrect.top, drect.Width, drect.Height), (Surface &)ssource, Rect(xsrcrect.left, xsrcrect.top, srect.Width, srect.Height));\n\t\treturn(result == DD_OK);\n",
+   "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): DSurface::Blit_From's DirectDraw copy: the Nx pixels follow the 1x ones (glue/yr_hd_vehicles.cpp Yr_Hd_Copied)."
   }
  ]
 }

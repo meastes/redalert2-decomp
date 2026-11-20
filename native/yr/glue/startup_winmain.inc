@@ -96,6 +96,7 @@ static int yr_winmain_stop(int code, const char *why)
 		RegisteredClasses.Add(registration); \
 	}
 
+int Yr_Sidebar_Height(int screen_height);   // NATIVE (lane N19, Game interface size): glue/yr_interface_size.cpp
 extern "C" int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_line, int command_show)
 {
 	char *argv[20];
@@ -456,7 +457,7 @@ extern "C" int __stdcall WinMain(HINSTANCE instance, HINSTANCE, char *command_li
 			DAT_008A0DF0 = false;
 		}
 		{
-			Rect side_rect(0, 0, SidebarWidth, VisibleRect.Height);
+			Rect side_rect(0, 0, SidebarWidth, Yr_Sidebar_Height(VisibleRect.Height));
 			Rect tile_rect(0, 0, VisibleRect.Width - SidebarWidth, VisibleRect.Height);
 			Rect composite_rect(0, 0, VisibleRect.Width - SidebarWidth, VisibleRect.Height);
 			Allocate_Surfaces(VisibleRect, composite_rect, tile_rect, side_rect, false);

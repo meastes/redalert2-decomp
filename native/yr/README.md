@@ -316,7 +316,7 @@ the longer a game runs (each a trap, as on the Mac).
   Enhanced and Cancel in the right-hand column. The page (`Yr_Run_Enhancements`) runs RA2's page
   logic on the YR dialog code and lists the rows Yuri's Revenge uses: Fullscreen, Vertical sync,
   Picture scaling, Menu fill (all the host's), Queue five with Shift and Controls (lane N18: Map zoom and
-  the zoom row too). The settings are
+  the zoom row too; lane N19: Game interface size). The settings are
   the app's own file, so on iOS YR.app keeps its own choices.
 * **Not shared, and why** (updated by lane N18, 2026-11-19). Map zoom and the zoom row (Trackpad and
   wheel zoom, Wheel zoom or Pinch zoom by platform) are now Yuri's Revenge's too: `glue/yr_map_zoom.cpp`
@@ -329,14 +329,45 @@ the longer a game runs (each a trap, as on the Mac).
   applied each loop frame (yr_app_hooks.cpp). Not carried over: RA2's render scale (zooming out below 1x
   draws a game screen twice the window's, with its own in-play dialog layout), so the gestures zoom
   between 1x and 3x. ctest `yr-native-map-zoom`.
-  Still RA2's only, each needing its own YR work: **Game interface size** (YR's FUN_0072FC60 lays out
-  the sidebar column and the command bar from one height, and the in-play dialogs place their buttons
-  and draw the column from the same rectangles: ownrdraw.cpp's compact dialogs and FUN_0072F540, so a
-  shorter sidebar surface needs a separate column height in that layout and a full-height relayout
-  around the in-play dialogs, RA2's Native_Dialog_Screen; plus the three surface allocations and a
-  new game's reallocation) and **HD vehicles** (RA2's 815-line module on RA2's voxel renderer, its
-  passes, Bit_Blit and caches; gamemd.exe's renderer differs and parts are drafts). The YR page leaves
-  those two rows off. Mod is the host's row and is shown in both games; widescreen on the Mac has no
+  **Game interface size** is Yuri's Revenge's too (lane N19, 2026-11-19): `glue/yr_interface_size.cpp`
+  is RA2's link/native_enhancements.cpp (C3, C7) on the YR tree's classes, hooked by 5 fixups and two glue
+  lines. The sidebar surface is made Yr_Sidebar_Height rows tall (the host's ra2_enh_sidebar_height: the
+  screen's height over the size, at least 360) at its three allocations (WinMain 0x006BB9A0's
+  startup_winmain.inc, Change_Display_Mode 0x00560BF0, Get_All 0x0067E730); SidebarClass 0x006A5130's two
+  layouts size the sidebar from Yr_Sidebar_Bottom (N18's, now less the rows the surface is shorter), so the
+  cameo strips and scroll buttons lie inside it; the host's split layout (shared) shows the column larger.
+  Where YR differs from RA2: its interface art layout FUN_0072FC60 places the in-play command bar
+  (TabClass's DAT_00B0FC58..6C) and the in-play dialogs' column (ownrdraw.cpp, FUN_0072F540) from the
+  screen's height, while the sidebar in play is laid out from SidebarRect; so that layout keeps the
+  screen's height: the command bar stays at the bottom, the in-play dialogs (shown whole while up) draw
+  their column to the bottom, and no full-height relayout around them is needed (RA2's
+  Native_Dialog_Screen exists for its render scale and its shortened art layout). A new game at an
+  unchanged screen size (the menus' 800x600 = the game's) changes no mode, so Start_Scenario 0x00683AB0's
+  and Toggle_Display_Mode 0x006842F0's mode checks also change the mode (to the same size) when the
+  sidebar surface's rows differ from what the size asks now (Yr_Sidebar_Remake): Change_Display_Mode
+  makes the surfaces, the view, the sidebar layout and its buttons again (RA2's Native_Sidebar_New_Game).
+  ctest `yr-native-interface-size` (yr/tests/yr_interface_size.py): from a fresh settings folder, Options ->
+  Enhancements -> Game interface size 1.5x -> Ok -> a skirmish: the new game's sidebar surface 400 of 600
+  rows, play split with a 252-point column in an 884-wide window, the mapping check, the column drawn to
+  the bottom and the command bar along the map's bottom, the in-game menu shown whole; a run with the
+  defaults unchanged.
+  **HD vehicles** is Yuri's Revenge's too (lane N19): `glue/yr_hd_vehicles.cpp` is RA2's
+  link/native_hd_vehicles.cpp (C16, C17, C23) on the YR tree's classes, hooked by 10 fixups and two glue
+  lines. The YR tree's renderer is TibSun's, the same shape as RA2's: VoxelDrawSystem's _Render (0x007542F0,
+  0x00754510) runs the sub-pixel passes after its 1x draw (Yr_Hd_Voxel_Replay is its loops), VoxelLibrary::
+  Render_Object 0x00756590 and Render_Shadow 0x00756860 take the passes' start offsets (after the tree's
+  x87_ftol rewrite), Bit_Blit 0x004373B0 is renamed Bit_Blit_Core_Native and wrapped (YR's Bit_Blit takes a
+  tint: the Nx rows go through the blitter's Blit_Copy_Tinted then), DSurface::Blit_From 0x004BB0D0's Blt
+  carries the Nx pixels, the voxel and shadow caches are off while it is on (Techno_Draw_Voxel 0x00706640,
+  Techno_Draw_Voxel_Shadow 0x00706BD0), the renderers name their owner (techno_native.inc's
+  Techno_Render_Voxel_Object, Techno_Render_Voxel_Shadow 0x00707280), and the setting is taken where N18 takes
+  the zoom (Start_Scenario, Get_All); 3x falls back to 2x in a network game (Session.Type). One difference in
+  the code: YR's depth and alpha buffers hand the blitters addresses (Get_Buffer_Offset, Wrap_Overflow), so
+  an Nx row's depth and alpha values are laid from the row's own place in the buffer and put back after the
+  row (RA2's used the buffer's head). The host's overlay is shared. ctest `yr-native-hd-vehicles`
+  (yr/tests/yr_hd_vehicles.py): a skirmish at 2x with Map zoom 1.5x and one at 3x, the view scrolled: every
+  count has renders and Nx blits, vehicles shown at Nx (about 8,000 screen pixels), mismatched 0. The YR
+  page now shows every row. Not carried over yet: Map zoom below 1x (the lane N19 section: the plan). Mod is the host's row and is shown in both games; widescreen on the Mac has no
   row and is RA2's (YR's shell runs in its own 800x600 mode).
 * **Long games had one opponent.** The skirmish setup's map 0 (The Alamo) is a two-player map, and
   the setup closes every slot past the first opponent: lane Y6's ten-minute Mac runs and lane Y7's
@@ -1499,6 +1530,36 @@ redraws its command bar only once the mouse passes over it.
   `Primary` tag (also on main, lane N1's build): not investigated. The campaign dialog's Difficulty label reads
   `MISSING:''` on its right end. The rocket locomotor's Process (0x006622C0) is still a trap (not reached by the chains).
 
+## Lane N19 (2026-11-19): Game interface size and HD vehicles; the plan for Map zoom below 1x
+
+Game interface size and HD vehicles are Yuri's Revenge's too (the "Not shared, and why" item above;
+ctests `yr-native-interface-size`, `yr-native-hd-vehicles`). Map zoom below 1x (Zoom gestures zooming out
+past 1x, Red Alert 2's lane C16 render scale) is not carried over; it is a lane of its own. The plan, from
+Red Alert 2's pieces (link/native_map_zoom.cpp, port/fixups.json rows naming Native_Render_Size,
+Native_Dialog_Screen and Native_View_Asked) and the YR tree's twins:
+
+1. The render scale only for the game's mode. YR runs its menus in their own 800x600 shell mode
+   (Options.ShellWidth x ShellHeight) and changes to Options.ScreenWidth x ScreenHeight at Start_Scenario
+   0x00683AB0 and Toggle_Display_Mode 0x006842F0; RA2 scaled at WinMain's RA2.INI read and Set_Display_Mode.
+   Scale in Change_Display_Mode 0x00560BF0's top only for the game's size ((w - 168) * 2 + 168 by
+   (h - 32) * 2 + 32, Zoom gestures on, 800x600 or more), and make the mode checks compare against the scaled
+   size (the original compares VisibleRect with Options.ScreenWidth/Height: a scaled screen would change mode
+   at every check), e.g. one Yr_Game_Mode_Size(&w, &h) the three checks and the change ask. The host's side
+   (ra2_enh_set_render_scale, update_layout_scaled, ra2_enh_sidebar_height's render-scale branch) is shared.
+2. The zoom: kZoomMin 0.5 and the game's zoom the player's times the render scale (yr_map_zoom.cpp, as RA2's
+   apply_zoom/Native_Map_View), Native_View_Asked's twin at Tactical::Set_Tactical_Position (the start
+   centred on the point asked before the larger screen's map edge moved it).
+3. The in-play dialogs at the window's size: RA2 wraps Special_Dialog 0x00481850's loop; YR's twin is
+   conquer.cpp's `while (Game::SpecialDialog != SDLG_NONE)` loop (around line 223 of the pinned tree): for
+   its time VisibleRect/Options' screen size is the window's and the two interface art layouts are made
+   again for it (YR: FUN_00730720 = FUN_00730530 + FUN_0072FC60, and the backdrop layout FUN_0072E1B0), then
+   restored; ra2_enh_set_dialog_screen tells the host. Unlike RA2, Game interface size needs no part of this
+   (YR's art layout keeps the screen's height: see above).
+4. The score screen (Do_Win/Do_Lose) is already shown whole (N18's Yr_Map_Zoom_End).
+5. Test: yr_map_zoom.py's zoom steps extended below 1x (0.5x: the view twice the tactical area's pixels at
+   the art's own size), a mapping check, the in-game menu's dump at the window's layout; then the Duo
+   (in-game menu, Abort, Save/Load, Diplomacy at 0.5x).
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;
@@ -1518,4 +1579,6 @@ redraws its command bar only once the mouse passes over it.
 5. (lane Y10) Yuri's Revenge's saves: the installed gamemd.exe on Windows loading a save the port wrote,
    and the port loading one the installed game wrote (yr-native-save picks it up from the data folder).
 6. (lane Y8) Map zoom, Zoom gestures, Game interface size and HD vehicles for Yuri's Revenge: a YR
-   copy of each native/link module and its fixups in the YR units (lane Y8 section: why).
+   copy of each native/link module and its fixups in the YR units (lane Y8 section: why). Map zoom and
+   the gestures from 1x up (lane N18), Game interface size and HD vehicles (lane N19) are done; Map zoom
+   below 1x remains (lane N19's plan below).

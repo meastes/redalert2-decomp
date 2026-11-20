@@ -1,0 +1,227 @@
+kind,name,rows,our_header,their_header,their_base,status,data_ours,data_theirs,layout,decl_ours,decl_theirs,methods_ours,methods_theirs,only_ours,n_only_ours,only_theirs,n_only_theirs,virtual_order,inline_ours_only,inline_theirs_only,inline_bodies_differ,token_sim
+class,AudioChannel,audevent 00405b60,audchan.h,audchan.h,ra2-decomp,differs,34,31,replace ours[18:19]=char [ 8 ] theirs[18:19]=char [ 0xc ]; replace ours[30:34]=char [ 4 ]|TimeStamp|TimeStamp|char [ 8 ] theirs[30:31]=char [ 0x1c ],35,31,0,0,,0,,0,same,,,,
+class,AudioEvent,audevent 004041b0,audevent.h,audevent.h,ra2-decomp,differs,33,33,replace ours[4:6]=int|AudioEventType * theirs[4:6]=volatile int|VocClass *,33,37,0,4,,0,FUN_004052E0 FUN_004052F0 FUN_004053E0 FUN_00405430,4,same,,,,
+class,Buffer,vqalib_loader 00778680 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140,buff.h,buff.h,TibSun,same,3,3,same,11,11,8,8,,0,,0,same,,,,
+class,CDTimerClass,mainopt 00543a70,timer.h,timer.h,TibSun,same,1,1,same,13,13,9,9,,0,,0,same,,,,
+class,Cell,tactical 006a8240,coord.h,coord.h,ra2-decomp,differs,0,0,same,5,5,4,4,,0,,0,same,,,Cell operatorCellStruct,
+class,CellClass,scenario 006631c0,cell.h,cell.h,ra2-decomp,differs,83,83,same,240,243,153,157,Get_Rad_Site Set_Rad_Site,2,FUN_00484AE0 FUN_00487C70 FUN_00487C80 FUN_00487DF0 FUN_00487E00 Is_Tile_Not_Water,6,"10/10, 2 by position",,,,
+class,ChunkHeader,vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_task 0077b7a0,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,2,2,same,2,2,0,0,,0,,0,same,,,,
+class,Coord,scenario 006631c0 tactical 006a8240,coord.h,coord.h,ra2-decomp,same,0,0,same,5,5,4,4,,0,,0,same,,,,
+class,DSurface,ovrlight 005ddb90,dsurface.h,dsurface.h,ra2-decomp,differs,6,6,same,65,68,43,43,Draw_RGB_Multiplying_Line Draw_Trail_Line,2,DrawRGBMultiplyingLine FUN_004BEAC0,2,"18/18, 1 by position",,,Get_DD_Surface,
+class,Header,vqalib_loader 0077b020 vqalib_task 0077b7a0 vqalib_task 0077c2e0,preview.h,preview.h,ra2-decomp,same,2,2,same,2,2,0,0,,0,,0,same,,,,
+class,HouseClass,sidebar 006818d0,house.h,house.h,ra2-decomp,differs,205,237,insert ours[8:8]= theirs[8:20]=DynamicVectorClass < BuildingClass * >|DynamicVectorClass < BuildingClass * >|Dy; insert ours[53:53]= theirs[65:66]=bool; insert ours[70:70]= theirs[83:84]=bool; insert ours[74:74]= theirs[88:89]=int,419,510,207,265,AI_Ion_Cannon AI_Strike_Best_Building AI_Super_Unused Add_Wall_Nodes Armor_Multiplier Assign_Production_Pending Begin_Power_Blackout Begin_Radar_Blackout Best_Super_Weapon_Target Build_Category Buildtime_Multiplier Can_Build ...,28,AISupers CalculateCostMultipliers CanOverpower CreatePowerOutage Create_Radar_Outage Destroy_All_Buildings Destroy_All_Non_Buildings_Naval Destroy_All_Non_Buildings_Non_Naval Emptiest_Silo FUN_004FAF00 FUN_005005B0 FUN_00500660 ...,86,same,,,,
+class,ListNode,audevent 00404e00,audlist.h,audlist.h,ra2-decomp,same,3,3,same,3,3,0,0,,0,,0,same,,,,
+class,Lock,xsurface 007743c0,audlock.h,audlock.h,ra2-decomp,same,1,1,same,1,1,0,0,,0,,0,same,,,,
+class,Map,scenario 006631c0 tactical 006a8240,wdtnet.h,wdtnet.h,ra2-decomp,differs,20,26,insert ours[0:0]= theirs[0:1]=int; replace ours[8:9]=TERRITORY_LIST theirs[9:10]=TERR_LIST; replace ours[12:14]=BackButtonOverlay|BackButtonFrames theirs[13:20]=MSOverlayAnim *|bool|char [ 0x6c - 0x69 ]|int|int|bool|char [ 0x78 - 0x75 ]; replace ours[19:20]=DynamicVectorClass < AnimationPalette * > theirs[25:26]=PALETTE_LIST,35,39,12,11,Create Get_Drawer Get_Territory Is_Over_Back Load Load_Anim Set_Back_Down Set_Back_Hot Start_Intro Territory_At,10,FUN_007681E0 FUN_00768F50 FUN_007691E0 FUN_007692F0 FUN_00769330 FUN_007693A0 FUN_007693F0 FUN_00769440 FUN_0076F000,9,same,,,,
+class,OptionsClass,options 005da360,options.h,options.h,ra2-decomp,differs,36,39,insert ours[0:0]= theirs[0:1]=int; insert ours[11:11]= theirs[12:14]=int|int,55,59,17,18,Fill_Movie_List Unlock_Movie,2,FUN_005FBF80 FUN_005FC000 Fixup_Palette,3,same,,,,
+class,Point2D,ovrlight 005ddb90 tactical 006a8240,point.h,point.h,ra2-decomp,differs,0,0,same,1,1,1,1,,0,,0,same,,,Point2D,
+class,RGBClass,ovrlight 005ddb90,rgb.h,rgb.h,ra2-decomp,differs,3,3,same,10,12,7,8,,0,Adjust Load,2,same,Set,,Get_Red,
+class,ScenarioClass,scenario 006631c0 scenario 006633e0,scenario.h,scenario.h,ra2-decomp,differs,112,119,insert ours[14:14]= theirs[14:24]=int|int|int|int|int|Point2D [ 8 ]|int [ 16 ]|Cell [ 8 ]|bool|int; insert ours[27:27]= theirs[37:38]=wchar_t [ 45 ]; replace ours[62:63]=bool theirs[73:77]=unsigned : 8|unsigned : 8|unsigned : 8|int; insert ours[75:75]= theirs[89:94]=LightingStruct|int|LightingStruct|int|LightingStruct,149,161,36,39,,0,FUN_0068C030 FUN_0068C050 ReadStartPoints,3,same,,,,
+class,SidebarClass,sidebar 006818d0,sidebar.h,sidebar.h,ra2-decomp,differs,11,25,insert ours[0:0]= theirs[0:1]=StripClass [ STRIPS ]; insert ours[9:9]= theirs[10:23]=HouseClass * [ 8 ]|int [ 8 ]|int [ 8 ]|int [ 8 ]|ColorScheme * [ 8 ]|int [ 8 ]|i,91,95,49,54,Activate_Tab Cameos_Height Cameos_Width Enable_Column_Button First_Used_Column Flag_Tab_To_Redraw Flash_Cameo Get_Doubled_Row_Count Get_Row_Count Notice_Object_Change Recalc_Horizontal_Layout Recalc_Layout ...,20,AddCameo FUN_006A5090 FUN_006A5130 FUN_006A5ED0 FUN_006A60E0 FUN_006A6220 FUN_006A6290 FUN_006A67A0 FUN_006A6820 FUN_006A74A0 FUN_006A76F0 FUN_006A7760 ...,26,"12/12, 9 by position",,,,
+class,SpotLightClass,ovrlight 005ddb90,ovrlight.h,ovrlight.h,ra2-decomp,same,4,4,same,13,13,8,8,,0,,0,same,,,,
+class,Surface,ovrlight 005ddb90,surface.h,surface.h,ra2-decomp,differs,1,1,same,30,30,29,29,Draw_RGB_Multiplying_Line,1,DrawRGBMultiplyingLine,1,"28/28, 1 by position",,,,
+class,SystemTimerClass,mainopt 00543a70,stimer.h,stimer.h,TibSun,same,0,0,same,2,2,2,2,,0,,0,same,,,,
+class,Tactical,tactical 006a8240,tactical.h,tactical.h,ra2-decomp,differs,28,30,insert ours[3:3]= theirs[3:4]=char [ 2 ]; insert ours[28:28]= theirs[29:30]=int,132,135,97,98,Draw_Pixel_Effects Unselect_All Unselect_Foreign_Object,3,Debug_Draw_Current_Mouse_Cell Debug_Draw_Waypoint_Markers DrawTimer Draw_Sparkles,4,same,,,,
+class,VQAAudio,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,18,18,same,18,18,0,0,,0,,0,same,,,,
+class,VQACBNode,vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,4,4,same,6,6,0,0,,0,,0,same,,,,
+class,VQAConfig,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077b140 vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c960,vqalib/vqaplay.h,vqalib/vqaplay.h,TibSun,same,34,34,same,34,34,0,0,,0,,0,same,,,,
+class,VQADrawer,vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077b2c0 vqalib_task 0077bf10 vqalib_task 0077c960,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,16,16,same,16,16,0,0,,0,,0,same,,,,
+class,VQAFrameNode,vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077b2c0 vqalib_task 0077c2e0 vqalib_task 0077c960,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,9,9,same,11,11,0,0,,0,,0,same,,,,
+class,VQAHandle,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_loader 0077b2c0 vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/vqaplay.h,vqalib/vqaplay.h,TibSun,same,1,1,same,1,1,0,0,,0,,0,same,,,,
+class,VQAHandleP,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_loader 0077b2c0 vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,67,67,same,68,68,1,1,,0,,0,same,,,,
+class,VQAHeader,vqalib_loader 0077b020 vqalib_task 0077b7a0 vqalib_task 0077c2e0,vqalib/vqafile.h,vqalib/vqafile.h,TibSun,same,24,24,same,24,24,0,0,,0,,0,same,,,,
+class,VQALoader,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_task 0077c2e0,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,14,14,same,14,14,0,0,,0,,0,same,,,,
+class,VQALoopCache,vqalib_loader 00778680 vqalib_task 0077b7a0,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,8,8,same,8,8,0,0,,0,,0,same,,,,
+class,VQALoopInfo,vqalib_task 0077b7a0,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,same,2,2,same,4,4,0,0,,0,,0,same,,,,
+class,XSurface,ovrlight 005ddb90 xsurface 007743c0,xsurface.h,xsurface.h,ra2-decomp,differs,1,1,same,33,33,31,31,Draw_RGB_Multiplying_Line,1,DrawRGBMultiplyingLine,1,"25/25, 1 by position",,,,
+header,_alpha.h,tactical 006a8240,_alpha.h,_alpha.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.933
+header,_bench.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,_bench.h,_bench.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_command.h,options 005da360,_command.h,_command.h,TibSun,differs,,,,2,0,,,Command_Allows_Key Command_Allows_Modified_Key,2,,0,,,,,0.811
+header,_convert.h,sidebar 006818d0 tactical 006a8240,_convert.h,_convert.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,_font.h,tactical 006a8240,_font.h,_font.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_keyboar.h,scenario 006631c0 scenario 006633e0,_keyboar.h,_keyboar.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_logic.h,scenario 006631c0 scenario 006633e0,_logic.h,_logic.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_map.h,mainopt 00543a70 options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,_map.h,_map.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_mixfile.h,mainopt 00543a70 sidebar 006818d0,_mixfile.h,_mixfile.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.903
+header,_palette.h,scenario 006631c0 scenario 006633e0,_palette.h,_palette.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.933
+header,_rand.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,_rand.h,_rand.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_rect.h,mainopt 00543a70 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 tactical 006a8240,_rect.h,_rect.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.822
+header,_rtti.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,_rtti.h,_rtti.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,_rules.h,mainopt 00543a70 options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,_rules.h,_rules.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_surface.h,mainopt 00543a70 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,_surface.h,_surface.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.959
+header,_tactica.h,ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 tactical 006a8240,_tactica.h,_tactica.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_timer.h,scenario 006631c0 scenario 006633e0,_timer.h,_timer.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_tooltip.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,_tooltip.h,_tooltip.h,TibSun,same,,,,,,,,,,,,,,,,
+header,_zbuffer.h,tactical 006a8240,_zbuffer.h,_zbuffer.h,TibSun,same,,,,,,,,,,,,,,,,
+header,abuffer.h,tactical 006a8240,abuffer.h,abuffer.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,addon.h,scenario 006631c0 scenario 006633e0,addon.h,addon.h,TibSun,differs,,,,0,10,,,,0,Addon_Enabled Addon_Installed Detect_Addons Disable_Addon Enable_Addon Get_Addon_Title Get_Required_Addon Is_Required_Addon Select_Game_Type_Dialog Set_Required_Addon,10,,,,,0.548
+header,ahandle.h,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,ahandle.h,ahandle.h,TibSun,differs,,,,7,7,,,,0,,0,,,,,0.996
+header,aircraft.h,scenario 006631c0 scenario 006633e0,aircraft.h,aircraft.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.926
+header,aitrig.h,scenario 006631c0 scenario 006633e0,aitrig.h,aitrig.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.930
+header,alphashp.h,tactical 006a8240,alphashp.h,alphashp.h,ra2-decomp,differs,,,,1,0,,,Intersect,1,,0,,,,,0.938
+header,always.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 mainopt 00543a70 options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240 vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_loader 0077b2c0 vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960 xsurface 007743c0,always.h,always.h,TibSun,same,,,,,,,,,,,,,,,,
+header,anim.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,anim.h,anim.h,ra2-decomp,differs,,,,3,2,,,Create_Attached_Anim,1,,0,,,,,0.696
+header,animtype.h,tactical 006a8240,animtype.h,animtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.880
+header,assert.h,xsurface 007743c0,assert.h,assert.h,TibSun,same,,,,,,,,,,,,,,,,
+header,astar.h,scenario 006631c0 scenario 006633e0,astar.h,astar.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,audattr.h,scenario 006631c0 scenario 006633e0,audattr.h,audattr.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,audcache.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,audcache.h,audcache.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,auddev.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,auddev.h,auddev.h,ra2-decomp,differs,,,,37,37,,,,0,,0,,,,,0.987
+header,auddsnd.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 options 005da360 scenario 006631c0 scenario 006633e0,auddsnd.h,auddsnd.h,ra2-decomp,differs,,,,3,12,,,AudioLoseFocus AudioRegainFocus,2,AudioChannelSetFormat AudioDeviceFirstChannel AudioDeviceNextChannel AudioDeviceService AudioServicePerform AudioServiceSetInterval AudioServiceSetMustServiceInterval AudioServiceSetResetInterval FUN_004068E0 int void,11,,,,,0.250
+header,audevent.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,audevent.h,audevent.h,ra2-decomp,differs,,,,35,2,,,AudioControllerStopLooping AudioEventClassFind AudioEventCloseDown AudioEventEnd AudioEventIsPaused AudioEventJumpPan AudioEventJumpVolume AudioEventName AudioEventNeverEnds AudioEventOn AudioEventService AudioEventSetAdjustDuration ...,35,AudioEventCreate FUN_004068E0,2,,,,,0.523
+header,audio.h,mainopt 00543a70,audio.h,audio.h,TibSun,differs,,,,3,1,,,AudioDeviceAvailable Audio_Init,2,,0,,,,,0.908
+header,audioctl.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,audioctl.h,audioctl.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.708
+header,audlevel.h,options 005da360 scenario 006631c0 scenario 006633e0,audlevel.h,audlevel.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,audmem.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,audmem.h,audmem.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,audtimer.h,tactical 006a8240,audtimer.h,audtimer.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.892
+header,beacon.h,scenario 006631c0 scenario 006633e0,beacon.h,beacon.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.724
+header,bench.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,bench.h,bench.h,TibSun,same,,,,,,,,,,,,,,,,
+header,bench.hh,scenario 006631c0 scenario 006633e0 sidebar 006818d0,bench.hh,bench.hh,TibSun,same,,,,,,,,,,,,,,,,
+header,bitfont.h,sidebar 006818d0 tactical 006a8240,bitfont.h,bitfont.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.553
+header,blit.h,xsurface 007743c0,blit.h,blit.h,ra2-decomp,differs,,,,7,7,,,,0,,0,,,,,0.980
+header,blitblit.h,xsurface 007743c0,blitblit.h,blitblit.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.846
+header,bomblist.h,scenario 006631c0 scenario 006633e0,bomblist.h,bomblist.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.779
+header,bsurface.h,ovrlight 005ddb90,bsurface.h,bsurface.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,building.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,building.h,building.h,ra2-decomp,differs,,,,3,3,,,Draw_Radial_Ellipse,1,DrawRadialIndicator,1,,,,,0.800
+header,builtype.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,builtype.h,builtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.937
+header,campaign.h,scenario 006631c0 scenario 006633e0,campaign.h,campaign.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.992
+header,ccfile.h,options 005da360,ccfile.h,ccfile.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.972
+header,ccrand.h,options 005da360 scenario 006631c0 scenario 006633e0,ccrand.h,ccrand.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.933
+header,cctooltip.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,cctooltip.h,cctooltip.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,cd.h,scenario 006631c0 scenario 006633e0,cd.h,cd.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.993
+header,cell.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,cell.h,cell.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.941
+header,cmp.h,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_loader 0077b2c0,vqalib/cmp.h,vqalib/cmp.h,TibSun,same,,,,,,,,,,,,,,,,
+header,color.hh,mainopt 00543a70 sidebar 006818d0,color.hh,color.hh,TibSun,same,,,,,,,,,,,,,,,,
+header,command.h,options 005da360,command.h,command.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.992
+header,conquer.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,conquer.h,conquer.h,ra2-decomp,differs,,,,28,23,,,BuildCat_From_Name Can_Force_Order Exit_Process Layer_From_Name Name_From_BuildCat Name_From_Layer,6,Ingame_Menu_Dialog,1,,,,,0.886
+header,convert.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,convert.h,convert.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.991
+header,coord.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 tactical 006a8240,coord.h,coord.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.962
+header,crc.h,scenario 006631c0 scenario 006633e0,crc.h,crc.h,TibSun,same,,,,,,,,,,,,,,,,
+header,data.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,data.h,data.h,TibSun,differs,,,,10,8,,,,0,,0,,,,,0.883
+header,dbgprint.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0,dbgprint.h,dbgprint.h,TibSun,same,,,,,,,,,,,,,,,,
+header,dialog.h,sidebar 006818d0 tactical 006a8240,dialog.h,dialog.h,ra2-decomp,differs,,,,17,18,,,,0,Conquer_Clip_Text_Print_Wide Count_Text_Lines Fancy_Text_Print_Wide Font_Palette Simple_Text_Print_Wide,5,,,,,0.553
+header,diff.hh,options 005da360,diff.hh,diff.hh,TibSun,same,,,,,,,,,,,,,,,,
+header,display.h,tactical 006a8240,display.h,display.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.946
+header,draw.h,sidebar 006818d0 tactical 006a8240,draw.h,draw.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.968
+header,dsaudio.h,mainopt 00543a70,dsaudio.h,dsaudio.h,TibSun,differs,,,,1,1,,,,0,,0,,,,,0.744
+header,dsurface.h,mainopt 00543a70 options 005da360 ovrlight 005ddb90 sidebar 006818d0 tactical 006a8240,dsurface.h,dsurface.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.949
+header,egos.h,scenario 006631c0 scenario 006633e0,egos.h,egos.h,ra2-decomp,differs,,,,1,1,,,Show_Credits,1,Show_Who_Was_Responsible,1,,,,,0.910
+header,empulse.h,scenario 006631c0 scenario 006633e0,empulse.h,empulse.h,ra2-decomp,differs,,,,0,1,,,,0,Update_EMPulses,1,,,,,0.949
+header,enviro.h,scenario 006631c0 scenario 006633e0,enviro.h,enviro.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,event.h,sidebar 006818d0,event.h,event.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.912
+header,factory.h,sidebar 006818d0,factory.h,factory.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.934
+header,firewall.h,mainopt 00543a70,firewall.h,firewall.h,ra2-decomp,differs,,,,0,1,,,,0,FirewallHelperClass,1,,,,,0.790
+header,fog.h,tactical 006a8240,fog.h,fog.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.998
+header,font.h,sidebar 006818d0 tactical 006a8240,font.h,font.h,TibSun,same,,,,,,,,,,,,,,,,
+header,ftimer.h,sidebar 006818d0,ftimer.h,ftimer.h,TibSun,same,,,,,,,,,,,,,,,,
+header,gamedlg.h,mainopt 00543a70,gamedlg.h,gamedlg.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.646
+header,geometry.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 mainopt 00543a70 options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,geometry.h,geometry.h,ra2-decomp,differs,,,,2,3,,,,0,CELL_CENTER_COORD,1,,,,,0.950
+header,getcpu.h,ovrlight 005ddb90 scenario 006631c0 scenario 006633e0,getcpu.h,getcpu.h,TibSun,differs,,,,3,1,,,Get_CPU_Type_Name,1,,0,,,,,0.925
+header,globals.h,mainopt 00543a70 options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,globals.h,globals.h,ra2-decomp,differs,,,,27,1,,,Apply_Rank_Command Apply_State_Command Command_Ally Command_Delete_Plan_Or_Beacon Command_Scatter Create_Battle_Team Cursor_Start_Frame_76 Cursor_Start_Frame_77 Defense_Tab_Building Delete_All_Line_Trails Group_Select_Members Jump_To_Radar_Event ...,27,Memory_Error_Handler,1,,,,,0.718
+header,goptions.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,goptions.h,goptions.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,house.h,sidebar 006818d0 tactical 006a8240,house.h,house.h,ra2-decomp,differs,,,,3,1,,,House_Index_From_Name Normalize_Color,2,,0,,,,,0.827
+header,houstype.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,houstype.h,houstype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.958
+header,incdec.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,incdec.h,incdec.h,TibSun,same,,,,,,,,,,,,,,,,
+header,infantry.h,scenario 006631c0 scenario 006633e0,infantry.h,infantry.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.775
+header,infatype.h,scenario 006631c0 scenario 006633e0,infatype.h,infatype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.927
+header,init.h,mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0,init.h,init.h,TibSun,differs,,,,19,20,,,Load_Neutral_Mix Release_Neutral_Mix,2,Draw_Version_Text Fetch_Map_Select_Theme New_Main_Menu Prep_Speech_For_Side,4,,,,,0.875
+header,inline.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,inline.h,inline.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.979
+header,ion.h,scenario 006631c0 scenario 006633e0,ion.h,ion.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.552
+header,ionblast.h,tactical 006a8240,ionblast.h,ionblast.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.933
+header,ipxmgr.h,options 005da360 scenario 006631c0 scenario 006633e0,ipxmgr.h,ipxmgr.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.819
+header,isotype.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,isotype.h,isotype.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.998
+header,kamikaze.h,scenario 006631c0 scenario 006633e0,kamikaze.h,kamikaze.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.865
+header,keyboard.h,options 005da360,keyboard.h,keyboard.h,ra2-decomp,differs,,,,3,0,,,Get_Async_Key_State Get_Key_State Set_Key_State,3,,0,,,,,0.990
+header,laser.h,tactical 006a8240,laser.h,laser.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.994
+header,layer.h,tactical 006a8240,layer.h,layer.h,TibSun,differs,,,,0,0,,,,0,,0,,,,,0.932
+header,ldprgmgr.h,scenario 006631c0 scenario 006633e0,ldprgmgr.h,ldprgmgr.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.750
+header,light.h,scenario 006631c0 scenario 006633e0,light.h,light.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.974
+header,logic.h,scenario 006631c0 scenario 006633e0,logic.h,logic.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.981
+header,mainloop.h,scenario 006631c0 scenario 006633e0,mainloop.h,mainloop.h,ra2-decomp,differs,,,,8,6,,,Disconnect_Gracefully Draw_Multiplayer_Debug Enter_Main_Loop Is_In_Main_Loop Leave_Main_Loop Process_Game_End,6,Message_Input Motion_Capture Multiplayer_Debug_Print Sync_Delay,4,,,,,0.649
+header,mainopt.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0,mainopt.h,mainopt.h,TibSun,same,,,,,,,,,,,,,,,,
+header,map.h,sidebar 006818d0,map.h,map.h,ra2-decomp,differs,,,,2,3,,,Find_Compatible_Passability_Row,1,FUN_00574600 FUN_005746C0,2,,,,,0.832
+header,mapgen.h,scenario 006631c0 scenario 006633e0,mapgen.h,mapgen.h,ra2-decomp,differs,,,,2,3,,,,0,Create_Zone_Region,1,,,,,0.904
+header,mapsel.h,scenario 006631c0 scenario 006633e0,mapsel.h,mapsel.h,TibSun,same,,,,,,,,,,,,,,,,
+header,misc.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0,misc.h,misc.h,TibSun,same,,,,,,,,,,,,,,,,
+header,mixfile.h,mainopt 00543a70 sidebar 006818d0 tactical 006a8240,mixfile.h,mixfile.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.989
+header,mouse.h,options 005da360 scenario 006631c0 scenario 006633e0 tactical 006a8240,mouse.h,mouse.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.952
+header,movie.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,movie.h,movie.h,TibSun,differs,,,,7,6,,,,0,,0,,,,,0.866
+header,mpscore.h,scenario 006631c0 scenario 006633e0,mpscore.h,mpscore.h,TibSun,differs,,,,0,2,,,,0,Multi_Score_Presentation Single_Score_Presentation,2,,,,,0.455
+header,mpu.h,scenario 006631c0 scenario 006633e0,mpu.h,mpu.h,TibSun,same,,,,,,,,,,,,,,,,
+header,msgbox.h,mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0,msgbox.h,msgbox.h,ra2-decomp,differs,,,,1,0,,,Prompt_Dialog,1,,0,,,,,0.289
+header,multiplayer.h,scenario 006631c0 scenario 006633e0,multiplayer.h,multiplayer.h,ra2-decomp,differs,,,,2,0,,,First_Game_Mode Init_Game_Modes,2,,0,,,,,0.740
+header,netdlg.h,scenario 006631c0 scenario 006633e0,netdlg.h,netdlg.h,TibSun,differs,,,,5,6,,,,0,Net_Reconnect_Dialog Remote_Connect,2,,,,,0.846
+header,netdlg2.h,scenario 006631c0 scenario 006633e0,netdlg2.h,netdlg2.h,TibSun,differs,,,,13,13,,,Net2ReadyToGo Net2ServiceGameList Net_Join_Dialog,3,Net2FirstFreeColor Net2Remote_Connect Net2SetHouseAndColor,3,,,,,0.804
+header,newmenu.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0,newmenu.h,newmenu.h,TibSun,differs,,,,0,2,,,,0,Draw_Menu_Background Get_New_Menu,2,,,,,0.775
+header,options.h,mainopt 00543a70 options 005da360,options.h,options.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.910
+header,overlay.h,scenario 006631c0 scenario 006633e0,overlay.h,overlay.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.909
+header,overtype.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,overtype.h,overtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.990
+header,ovrlight.h,ovrlight 005ddb90 tactical 006a8240,ovrlight.h,ovrlight.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,ownertalk.h,scenario 006631c0 scenario 006633e0,ownertalk.h,ownertalk.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.844
+header,ownrdraw.h,mainopt 00543a70 options 005da360,ownrdraw.h,ownrdraw.h,ra2-decomp,differs,,,,7,5,,,Controlled_Dialog Dialog_Box Focus_Next_Tab_Item Slide_Pending_Dialog,4,Build_Hotkey_String OD_Draw_Rect OD_Draw_Text_Remap,3,,,,,0.586
+header,partsys.h,scenario 006631c0 scenario 006633e0,partsys.h,partsys.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.967
+header,pixelfx.h,tactical 006a8240,pixelfx.h,pixelfx.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.992
+header,planning.h,scenario 006631c0 scenario 006633e0,planning.h,planning.h,ra2-decomp,differs,,,,35,0,,,Commit_Plans Planning_Add_Order Planning_Adjusted_Pixel Planning_Allows_Event_Type Planning_Begin Planning_Bright_Color Planning_Centered_Rect Planning_Convert_Loop_Moves Planning_Coord_Pixel Planning_Copy_Members Planning_End Planning_Event_Coord ...,35,,0,,,,,0.802
+header,preview.h,scenario 006631c0 scenario 006633e0,preview.h,preview.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.944
+header,progress.h,scenario 006631c0 scenario 006633e0,progress.h,progress.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.638
+header,psystype.h,scenario 006631c0 scenario 006633e0,psystype.h,psystype.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.980
+header,queue.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0,queue.h,queue.h,ra2-decomp,differs,,,,12,9,,,Add_Outgoing_Event Enqueue_Event Stamp_Their_Timing,3,,0,,,,,0.734
+header,ramp.hh,tactical 006a8240,ramp.hh,ramp.hh,TibSun,same,,,,,,,,,,,,,,,,
+header,random.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880,random.h,random.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.997
+header,rect.h,mainopt 00543a70 options 005da360 ovrlight 005ddb90 sidebar 006818d0,rect.h,rect.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.023
+header,revent.h,scenario 006631c0 scenario 006633e0,revent.h,revent.h,ra2-decomp,differs,,,,6,5,,,Record_Event_Cell,1,,0,,,,,0.920
+header,rules.h,options 005da360 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,rules.h,rules.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.905
+header,scenario.h,ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0,scenario.h,scenario.h,ra2-decomp,differs,,,,24,24,,,Hold_Scenario Release_Scenario,2,End_Game Select_House,2,,,,,0.907
+header,scheme.h,scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,scheme.h,scheme.h,ra2-decomp,differs,,,,4,4,,,,0,,0,,,,,0.960
+header,score.h,scenario 006631c0 scenario 006633e0,score.h,score.h,ra2-decomp,differs,,,,0,1,,,,0,Multi_Score_Presentation,1,,,,,0.968
+header,script.h,scenario 006631c0 scenario 006633e0,script.h,script.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.963
+header,scrspeed.hh,tactical 006a8240,scrspeed.hh,scrspeed.hh,TibSun,same,,,,,,,,,,,,,,,,
+header,session.h,mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0 sidebar 006818d0 tactical 006a8240,session.h,session.h,ra2-decomp,differs,,,,2,0,,,Draw_Multiplayer_Debug Leave_Game_Hook,2,,0,,,,,0.935
+header,shapeset.h,sidebar 006818d0 tactical 006a8240,shapeset.h,shapeset.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.942
+header,sidebar.h,mainopt 00543a70 sidebar 006818d0,sidebar.h,sidebar.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.705
+header,smudge.h,scenario 006631c0 scenario 006633e0,smudge.h,smudge.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.998
+header,sounddlg.h,mainopt 00543a70,sounddlg.h,sounddlg.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,stimer.h,mainopt 00543a70 tactical 006a8240,stimer.h,stimer.h,TibSun,same,,,,,,,,,,,,,,,,
+header,stringtable.h,mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0 sidebar 006818d0,stringtable.h,stringtable.h,ra2-decomp,differs,,,,1,2,,,Char_To_Wide,1,FUN_007350C0 FUN_00735120,2,,,,,0.298
+header,sun.h,tactical 006a8240,sun.h,sun.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,super.h,sidebar 006818d0,super.h,super.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.750
+header,suprtype.h,sidebar 006818d0,suprtype.h,suprtype.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.967
+header,surface.h,mainopt 00543a70 ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 sidebar 006818d0,surface.h,surface.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.999
+header,swap.h,tactical 006a8240 xsurface 007743c0,swap.h,swap.h,TibSun,same,,,,,,,,,,,,,,,,
+header,swizzle.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,swizzle.h,swizzle.h,TibSun,same,,,,,,,,,,,,,,,,
+header,tactical.h,ovrlight 005ddb90 scenario 006631c0 scenario 006633e0 tactical 006a8240,tactical.h,tactical.h,ra2-decomp,differs,,,,1,0,,,Draw_Timer,1,,0,,,,,0.950
+header,tag.h,scenario 006631c0 scenario 006633e0,tag.h,tag.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,tagtype.h,scenario 006631c0 scenario 006633e0,tagtype.h,tagtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.997
+header,taskforc.h,scenario 006631c0 scenario 006633e0,taskforc.h,taskforc.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.998
+header,teamtype.h,scenario 006631c0 scenario 006633e0,teamtype.h,teamtype.h,ra2-decomp,differs,,,,1,0,,,Process_All_Task_Forces,1,,0,,,,,0.950
+header,techno.h,mainopt 00543a70 options 005da360,techno.h,techno.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.751
+header,terrain.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,terrain.h,terrain.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.977
+header,terrtype.h,tactical 006a8240,terrtype.h,terrtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.998
+header,theme.h,mainopt 00543a70 options 005da360 scenario 006631c0 scenario 006633e0,theme.h,theme.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.845
+header,tiberium.h,scenario 006631c0 scenario 006633e0,tiberium.h,tiberium.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.998
+header,tracker.h,scenario 006631c0 scenario 006633e0,tracker.h,tracker.h,ra2-decomp,differs,,,,3,2,,,Detach_From_Command_List,1,,0,,,,,0.595
+header,trigger.h,scenario 006631c0 scenario 006633e0,trigger.h,trigger.h,ra2-decomp,differs,,,,1,1,,,,0,,0,,,,,0.973
+header,trigtype.h,scenario 006631c0 scenario 006633e0,trigtype.h,trigtype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.996
+header,tube.h,scenario 006631c0 scenario 006633e0,tube.h,tube.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,unit.h,scenario 006631c0 scenario 006633e0,unit.h,unit.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.831
+header,unittype.h,scenario 006631c0 scenario 006633e0,unittype.h,unittype.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.853
+header,unvq.h,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/unvq.h,vqalib/unvq.h,TibSun,differs,,,,21,20,,,UnVQ_Nop,1,,0,,,,,0.981
+header,vector.h,options 005da360 tactical 006a8240,vector.h,vector.h,ra2-decomp,differs,,,,4,4,,,,0,,0,,,,,0.993
+header,vein.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,vein.h,vein.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.909
+header,video.h,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/video.h,vqalib/video.h,TibSun,differs,,,,10,19,,,,0,DisplayXPage FlipXPage GetDisplayInfo GetVBIBit GetXHidPage GetXSeenPage SetVideoMode SetupXPaging TestVBIBit,9,,,,,0.866
+header,voc.h,audevent 004041b0 audevent 00404e00 audevent 00405b60 audevent 00406770 audevent 004067e0 audevent 00406830 audevent 00406880 options 005da360 scenario 006631c0 scenario 006633e0 sidebar 006818d0,voc.h,voc.h,ra2-decomp,differs,,,,46,9,,,AudioControlApplyKeyword AudioControllerGetEvent AudioControllerGetType AudioEventCreate AudioEventGetType AudioEventPause AudioEventResume AudioEventSetFlag8 AudioEventSetPan AudioEventSetVolume AudioEventStop AudioEventTypeAddSample ...,40,FUN_00751520 FUN_007515C0 Voice_Sound_Effect,3,,,,,0.241
+header,vox.h,options 005da360 scenario 006631c0 scenario 006633e0 sidebar 006818d0,vox.h,vox.h,ra2-decomp,differs,,,,32,8,,,Add_Speech_Hold Aux_Stream_Hold Aux_Stream_Init Aux_Stream_Pause Aux_Stream_Resume Aux_Stream_Shutdown Aux_Stream_Stop Aux_Stream_Unblock Flush_Speech Is_Speech_Finished Play_Taunt Queue_Speech ...,28,Get_Speech_State Set_Speech_State Speak_AI Speech_Name Stop_Speaking,5,,,,,0.302
+header,vqadebug.h,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/vqadebug.h,vqalib/vqadebug.h,TibSun,same,,,,,,,,,,,,,,,,
+header,vqaplay.h,vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/vqaplay.h,vqalib/vqaplay.h,TibSun,differs,,,,18,20,,,,0,VQA_Free VQA_INIConfig,2,,,,,0.993
+header,vqaplayp.h,vqalib_loader 00778680 vqalib_loader 00778950 vqalib_loader 00779e90 vqalib_loader 0077afa0 vqalib_loader 0077b020 vqalib_loader 0077b140 vqalib_loader 0077b2c0 vqalib_task 0077b7a0 vqalib_task 0077bf10 vqalib_task 0077c2e0 vqalib_task 0077c440 vqalib_task 0077c960,vqalib/vqaplayp.h,vqalib/vqaplayp.h,TibSun,differs,,,,36,21,,,Disk_VQA_Stream_Handler Load_CINF Load_CLIP Load_FINF Load_LINF Load_MFCI Load_MSCI Load_PINF PrimeBuffers VQA_Configure_Buffer VQA_DispatchFrameChunks VQA_IsFrameStartOfLoop ...,15,,0,,,,,0.955
+header,wave.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,wave.h,wave.h,ra2-decomp,differs,,,,3,3,,,,0,,0,,,,,0.888
+header,waypoint.h,scenario 006631c0 scenario 006633e0 tactical 006a8240,waypoint.h,waypoint.h,ra2-decomp,same,,,,,,,,,,,,,,,,
+header,wincomm.h,scenario 006631c0 scenario 006633e0,wincomm.h,wincomm.h,TibSun,differs,,,,1,0,,,Get_Registry_Sub_Key,1,,0,,,,,0.985
+header,windlg.h,mainopt 00543a70,windlg.h,windlg.h,ra2-decomp,differs,,,,12,14,,,,0,WS_Clear_Saved_Values WS_Get_Saved_Value,2,,,,,0.940
+header,wonline.h,scenario 006631c0 scenario 006633e0,wonline.h,wonline.h,ra2-decomp,differs,,,,31,45,,,Is_Current_Channel_Tournament,1,Deinit_WDT_Sounds Display_Users Draw_Channel_List Fill_Session_Players Get_Channel_Host GoBack Init_WDT_Sounds Is_Channel_Owner Join_Lobby Join_WOL_Lobby Login_WOL Play_WDT_Sound ...,15,,,,,0.803
+header,wspipx.h,mainopt 00543a70 scenario 006631c0 scenario 006633e0,wspipx.h,wspipx.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.987
+header,wsproto.h,scenario 006631c0 scenario 006633e0,wsproto.h,wsproto.h,ra2-decomp,differs,,,,2,0,,,Get_Packet_Loss_Percent Set_Packet_Loss_Percent,2,,0,,,,,0.971
+header,wstring.h,scenario 006631c0 scenario 006633e0,wstring.h,wstring.h,ra2-decomp,differs,,,,3,4,,,,0,FUN_007B7F90,1,,,,,0.939
+header,wwmouse.h,mainopt 00543a70,wwmouse.h,wwmouse.h,TibSun,differs,,,,1,0,,,Process_Mouse_Unthreaded,1,,0,,,,,0.951
+header,xsurface.h,xsurface 007743c0,xsurface.h,xsurface.h,ra2-decomp,differs,,,,2,2,,,,0,,0,,,,,0.999
+header,zbuffer.h,tactical 006a8240,zbuffer.h,zbuffer.h,ra2-decomp,differs,,,,0,0,,,,0,,0,,,,,0.983

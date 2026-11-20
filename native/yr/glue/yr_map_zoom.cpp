@@ -23,12 +23,14 @@
 #include "_tactica.h"
 #include "_surface.h"
 #include "surface.h"
+#include "dsurface.h"
 #include "tactical.h"
 #include "display.h"
 #include "_map.h"
 #include "gscreen.h"
 #include <stdio.h>
 
+extern Rect VisibleRect;                          // the screen
 extern Rect TacticalRect;                         // the view rectangle Set_View_Dimensions keeps (DSurface::ViewBounds)
 Rect __fastcall Get_Title_Screen_Area(void);      // the tactical rectangle for the screen (gamemd.exe 0x0072AD20, txtlabel2.cpp)
 
@@ -38,6 +40,7 @@ extern "C" __attribute__((weak)) double ra2_enh_map_zoom(void) { return 1.0; }
 extern "C" __attribute__((weak)) void ra2_enh_map_view(int, int, int, int, int, int, int, int) {}
 extern "C" __attribute__((weak)) void ra2_enh_map_show(double, double, double, double) {}
 extern "C" void ra2_enh_in_play(int on);
+void Yr_Hd_Vehicles_Start();   // glue/yr_hd_vehicles.cpp: HD vehicles taken when a game starts or loads (lane N19)
 
 namespace {
 double game_zoom = 1.0;      // the zoom of the game running (taken at its start or load)
@@ -159,11 +162,16 @@ int Yr_Sidebar_X(int view_right)
 {
     return zoomed ? full_right : view_right;
 }
-// The sidebar's rectangle's height (SidebarClass's layout, native fixup) runs from the view's bottom
-// edge: the tactical rectangle's while zoomed.
+// The sidebar's rectangle's height (SidebarClass's layout, native fixups) runs from the view's bottom
+// edge: the tactical rectangle's while zoomed, less the rows the sidebar surface is shorter than the
+// screen (Game interface size, lane N19: glue/yr_interface_size.cpp), so its strips and scroll buttons
+// lie inside the surface.
 int Yr_Sidebar_Bottom(int view_bottom)
 {
-    return zoomed ? full_bottom : view_bottom;
+    int bottom = zoomed ? full_bottom : view_bottom;
+    if (SidebarSurface != NULL && SidebarSurface->Get_Height() < VisibleRect.Height)
+        bottom -= VisibleRect.Height - SidebarSurface->Get_Height();
+    return bottom;
 }
 
 // CCToolTip's placement (native fixup, after a tip is placed): a tip placed for the map side (its area
@@ -189,6 +197,7 @@ void Yr_Tooltip_Zoom(bool map_side, int *x, int *y, int width, int height)
 void Yr_Map_Zoom_Load()
 {
     ra2_enh_in_play(0);
+    Yr_Hd_Vehicles_Start();
     game_zoom = ra2_enh_map_zoom();
 }
 
@@ -203,6 +212,7 @@ void Yr_Map_Zoom_Leave()
 // the tactical rectangle), centred on what the game shows now.
 void Yr_Map_Zoom_Start()
 {
+    Yr_Hd_Vehicles_Start();
     game_zoom = ra2_enh_map_zoom();
     if (game_zoom == view_zoom) return;
     Rect tactical = Get_Title_Screen_Area();

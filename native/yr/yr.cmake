@@ -275,6 +275,21 @@ add_test(NAME yr-native-map-zoom COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-map-zoom")
 set_tests_properties(yr-native-map-zoom PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
+# ctest yr-native-interface-size (lane N19): Game interface size set on the Enhancements page applies to the
+# next game (glue/yr_interface_size.cpp, Red Alert 2's link/native_enhancements.cpp carried over): the sidebar
+# surface shorter, play laid out split, the in-game menu shown whole; against a run with the defaults
+add_test(NAME yr-native-interface-size COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_interface_size.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-interface-size")
+set_tests_properties(yr-native-interface-size PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 500)
+
+# ctest yr-native-hd-vehicles (lane N19): HD vehicles 2x (with Map zoom 1.5x) and 3x in a skirmish
+# (glue/yr_hd_vehicles.cpp, Red Alert 2's link/native_hd_vehicles.cpp carried over), checked by the Nx layer's counts
+add_test(NAME yr-native-hd-vehicles COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_hd_vehicles.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-hd-vehicles")
+set_tests_properties(yr-native-hd-vehicles PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+
 # ctest yr-native-combat (lane Y12): a vehicle force-fires on another of the player's (glue/yr_harness.cpp
 # RA2_NATIVE_ORDERS): TechnoClass::Fire_At runs, damage is dealt and the target dies (yr/tests/yr_combat.py)
 add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_combat.py"

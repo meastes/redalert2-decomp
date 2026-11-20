@@ -199,20 +199,15 @@ const int kEnhOriginal = 0x7F00, kEnhEnhanced = 0x7F01, kEnhOk = 0x7F02, kEnhCan
 const int kEnhHint = 0x695, kEnhTitle = 0x694, kEnhHeading = 0x7F7E, kEnhRowHelp = 0x7F70;
 int enh_hint_row = -1;            // a shown row (index into enh_shown), -1: the page
 
-// The host's rows this game shows (indices into ra2_enh_*): every row but RA2's only ones.
+// The host's rows this game shows (indices into ra2_enh_*): every row (lane N18 shared Map zoom and the
+// zoom row, lane N19 Game interface size and HD vehicles: glue/yr_map_zoom.cpp, yr_interface_size.cpp,
+// yr_hd_vehicles.cpp; until then Yuri's Revenge left Red Alert 2's only rows off).
 int enh_shown[32];
 int enh_count = 0;
 void Enh_Pick_Rows()
 {
-	// Map zoom and the zoom row (its label names the platform's input) are Yuri's Revenge's too (lane
-	// N18, glue/yr_map_zoom.cpp).
-	static char const * const ra2_only[] = {"Game interface size", "HD vehicles"};
 	enh_count = 0;
-	for (int i = 0; i < ra2_enh_rows() && enh_count < kEnhRows; ++i) {
-		bool skip = false;
-		for (char const *label : ra2_only) skip = skip || strcmp(ra2_enh_label(i), label) == 0;
-		if (!skip) enh_shown[enh_count++] = i;
-	}
+	for (int i = 0; i < ra2_enh_rows() && enh_count < kEnhRows; ++i) enh_shown[enh_count++] = i;
 }
 
 void Enh_Set_Wide(HWND dialog, int id, wchar_t const *text)
