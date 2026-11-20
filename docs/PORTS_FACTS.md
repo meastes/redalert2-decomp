@@ -26,6 +26,27 @@ the recovered C/C++ compiled natively for each platform.
   read from the player's own `game.exe` at run time, and movie tables from their
   `BINKW32.DLL`. Checked: the bundle audit on every iOS build reports "no game files".
 - The CD check is skipped.
+- Supported executables: the retail Red Alert 2 1.006 `game.exe` (and its signed no-CD copy), the
+  retail Yuri's Revenge 1.001 `gamemd.exe` (with the official patch; installer overlay or two-byte
+  no-CD change accepted), and since lane N15 the Steam copies (The Ultimate Collection):
+  `game.exe` 5,077,312 bytes (SHA-256 73288c03…) and `gamemd.exe` 5,286,208 bytes (3e81a617…).
+  Any other build is refused with a message naming these (`native/port/include/ra2port/game_builds.hpp`).
+- The Steam executables are the same builds, not wrapped or encrypted: four sections at the same
+  addresses, the same entry point and link timestamp, stored plainly. They are larger because
+  of new icons in `.rsrc` (icons 1 and 2 replaced, 14 added, among them a 354 KB one) and a
+  10,560-byte Authenticode signature at the end. What else differs: in `.rdata` 2 bytes of the
+  debug directory (the debug data's file offset, moved by the larger `.rsrc`); in `.data` 3 bytes,
+  "TUC" after the version format `%d.%3.3d` (game.exe 0x007F9930, gamemd.exe 0x00846370); in the
+  code, CD-check removals (game.exe 62 bytes in 19 runs; the port never reads code). Every dialog,
+  the menu, the cursor and the version resource are byte-identical, only moved inside `.rsrc`; the
+  port finds them through the resource directory. No global the port fills covers a changed byte,
+  so both are read at the retail addresses, recognised by their own section hashes.
+  `BINKW32.DLL` and `Ra2.tlb` are identical to the retail files. ra2-decomp lists the same Steam
+  gamemd.exe (same SHA-256) and the same changes (`data/exe_patches.csv`); it was used as a
+  cross-check only, nothing adopted. Checked: ctest `native-game-builds` (reads the user's copies
+  in `private/steam/` and skips without them: recognition, the changed bytes against the table of
+  read globals, the resources), and `native-basics` / `yr-native-skirmish-smoke` run once with the
+  Steam executables (`RA2_GAME_EXE` / `RA2_GAMEMD_EXE`).
 
 ## What works
 

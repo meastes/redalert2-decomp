@@ -760,7 +760,9 @@ null). `port/src/original_image.cpp` maps the executable's sections (after
 checking size and SHA-256 against the pinned target, or that the build's section
 table and .rdata/.data/.rsrc bytes are the target's: an identity address map,
 `port/include/ra2port/game_builds.hpp`; the signed 4,489,184-byte no-CD build is
-one) and fills them before
+one; the Steam game.exe and gamemd.exe are recognised by their own section hashes,
+their data differing only outside the read globals, lane N15, ctest
+`native-game-builds`, docs/PORTS_FACTS.md) and fills them before
 WinMain (milestone `original-data`; static initialisers run before main and see
 zeros). `RA2_GAME_EXE=<path>` names the supported executable when the
 installation carries another build. Structs of scalars and fixed scalar arrays

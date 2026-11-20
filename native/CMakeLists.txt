@@ -219,6 +219,23 @@ add_test(NAME native-asm-check COMMAND native-asm-check)
 #     its declaration over every dimension (lane N14: unknown_score_controls_7d1484[8][6] was
 #     sized from its first dimension, 32 of 192 bytes).
 add_test(NAME native-original-data-extents COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_data.py" --check)
+# 6c. The Steam game.exe and gamemd.exe (lane N15; ra2port/game_builds.hpp) are recognised and,
+#     against the target and the retail gamemd.exe, differ in what the port reads only by the
+#     recorded bytes outside every global it fills. Reads the user's copies in private/steam
+#     (never in the repository); skipped when they are absent.
+add_executable(native-game-builds tests/game_builds.cpp)
+target_include_directories(native-game-builds PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/port/include")
+set(ra2_game_builds_yr "${RA2_NATIVE_YR_DATA_DIR}")   # the yr-native tests' installation (yr/yr.cmake)
+if(NOT ra2_game_builds_yr)
+  set(ra2_game_builds_yr "$ENV{RA2_NATIVE_YR_DATA_DIR}")
+endif()
+if(ra2_game_builds_yr)
+  set(ra2_game_builds_yr "${ra2_game_builds_yr}/gamemd.exe")
+endif()
+add_test(NAME native-game-builds COMMAND native-game-builds "${RA2_ROOT}/private"
+         "${RA2_ROOT}/private/original-target-20261020/inputs/game.exe" "${ra2_game_builds_yr}"
+         "${CMAKE_CURRENT_SOURCE_DIR}/data/original_data.cpp" "${CMAKE_CURRENT_BINARY_DIR}/gen-yr/yr_original_data.cpp")
+set_tests_properties(native-game-builds PROPERTIES SKIP_RETURN_CODE 77)
 
 # 7. Light views of real classes (cell views first) against the real classes'
 #    arm64 layout: i686-msvc and arm64 record layouts of every unit that defines

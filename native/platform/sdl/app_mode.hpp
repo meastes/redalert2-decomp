@@ -365,7 +365,7 @@ bool setup(Settings &settings, bool force, std::string &data_dir, std::string &g
         : "The game.exe in this folder is a build of Red Alert 2 the native game cannot read (" + sizes + ", SHA-256 " +
               digest.substr(0, 16) + "…: " + exe_reason() + ").\n\n";
     std::string supported = std::string("The native game reads its tables and dialogs from ") +
-                            ra2build::supported_builds_text() +
+                            ra2build::supported_builds_text(kHostGame) +
                             ". Any other build is refused: its data may sit at other addresses, and reading it there "
                             "would give wrong tables.\n\nIf you have a supported game.exe elsewhere (for example a "
                             "backup), choose it. Otherwise the game cannot start.";

@@ -17,6 +17,16 @@
 //             Authenticode signature appended, its header checksum and security directory set,
 //             and four short code patches (file offsets 0x70197, 0x91A38, 0x983E0, 0x115439):
 //             data, read-only data and resources identical): read through the identity map.
+//   Steam (The Ultimate Collection) 5,077,312 B, SHA-256 73288c03b58d370b... (lane N15): the
+//             same 1.006 build, Authenticode-signed (10,560-byte overlay), with a larger .rsrc
+//             (icons 1 and 2 replaced, 14 icons added; every dialog, the menu, the cursor and the
+//             version resource byte-identical, at other addresses inside .rsrc: the port finds them
+//             through the resource directory), 2 bytes of .rdata in the debug directory (the debug
+//             data's file offset, moved by the larger .rsrc), 3 bytes of .data ("TUC" after the
+//             version format "%d.%3.3d" at 0x007F9930; no global the port reads covers either
+//             change) and 62 bytes of code in 19 runs (CD checks). Not wrapped: no added section,
+//             the entry point and the other sections are the target's, stored plainly. Recognised
+//             by its own .rdata/.data/.rsrc hashes and read at the target's addresses.
 // Any other build (another version, a cracked or repacked executable with moved data) is
 // refused, with a message naming the supported builds.
 #ifndef RA2PORT_GAME_BUILDS_HPP
@@ -104,6 +114,13 @@ const SectionSig kTargetSections[4] = {
     {".rsrc", 0x72d000, 0x15fb8, 0x431000, 0x16000, "2ff34f0c7d65f9d8a896d99920a66064b6f31bd7a28032c521dc3ee356723d85"},
 };
 const uint32_t kTargetImageBase = 0x400000;
+// The Steam game.exe (see above): the target's section table but for .rsrc's sizes.
+const SectionSig kSteamSections[4] = {
+    {".text", 0x1000, 0x3985cd, 0x1000, 0x399000, nullptr},
+    {".rdata", 0x39a000, 0x2ec36, 0x39a000, 0x2f000, "8d204dafa57063af0138d02a90c659dff52806a99773d21f3ee1593836261d41"},
+    {".data", 0x3c9000, 0x3639c4, 0x3c9000, 0x68000, "b3913bb691a83981873c2c7409f669412acb9a056e6b41fb17f8c94bad67118e"},
+    {".rsrc", 0x72d000, 0xa3d2c, 0x431000, 0xa4000, "3cac05fba16ce904c5c28abc46f975d8e73632491631da8feff3da43e5ee091d"},
+};
 
 enum class Kind { target, same_data, other };
 
@@ -119,6 +136,18 @@ const SectionSig kYrSections[4] = {
     {".data", 0x412000, 0x367be4, 0x412000, 0x6c000, "c67eaa0fffa56fe7f2ef2eaaccfd1e1c7e0b5078cc36666a9c674323d7d5d465"},
     {".rsrc", 0x77a000, 0x18128, 0x47e000, 0x19000, "02259fd60cbdbd5b7526e51618f4f7058837bda1a4c8f3df1d93481d97a5a31b"},
 };
+// The Steam gamemd.exe (The Ultimate Collection, 5,286,208 B, SHA-256 3e81a61775d2745d...; lane
+// N15): the same 1.001 build, Authenticode-signed, with the same kinds of change as the Steam
+// game.exe: a larger .rsrc (icons only; dialogs, menu, cursor and version identical), 2 bytes of
+// the debug directory in .rdata, "TUC" after the version format at 0x00846370 in .data (no global
+// the port reads covers either) and 26 bytes of code in 9 runs (CD checks; the jz at 0x0052F949
+// is the retail one). Recognised by its own section hashes.
+const SectionSig kYrSteamSections[4] = {
+    {".text", 0x1000, 0x3df38d, 0x1000, 0x3e0000, "4cd5557a7490debc493ff965afc4483d8d2f1065f434f6b665cbb8fc4835b0cc"},
+    {".rdata", 0x3e1000, 0x30074, 0x3e1000, 0x31000, "057ab12d49f7879e8707413511e0d2dc3c4326f4440d5164862a8ec9abdeab5d"},
+    {".data", 0x412000, 0x367be4, 0x412000, 0x6c000, "50490286ee34220d562815ebc4ca3661e0e4d8c160b9aecd540d023e13f469af"},
+    {".rsrc", 0x77a000, 0x89a9c, 0x47e000, 0x8a000, "a2377a82d5aa7c72562a657b2e294a24a4d69b2faa85cdd7287efc9caf52e380"},
+};
 struct KnownPatch { uint32_t va; unsigned char original[2], patched[2]; };
 const KnownPatch kYrPatches[1] = {{0x0052F949, {0x74, 0x07}, {0x90, 0x90}}};
 inline const char *exe_name(Game game) { return game == Game::yr ? "gamemd.exe" : "game.exe"; }
@@ -129,20 +158,20 @@ inline const char *exe_env(Game game) { return game == Game::yr ? "RA2_GAMEMD_EX
 inline uint32_t rd32(const unsigned char *p) { return (uint32_t)p[0] | (uint32_t)p[1] << 8 | (uint32_t)p[2] << 16 | (uint32_t)p[3] << 24; }
 inline uint16_t rd16(const unsigned char *p) { return (uint16_t)(p[0] | p[1] << 8); }
 
+// A build whose section table and read sections are the given ones (empty: it is), else why not.
+// `layout` is set when the section table matched (the hashes were compared).
 template <class Hex>
-Kind classify(const unsigned char *file, size_t size, std::string const &whole_sha256, Hex hex, std::string *why = nullptr,
-              Game game = Game::ra2)
+std::string match_sections(const unsigned char *file, size_t size, SectionSig const *sections, bool undo_yr_patches, Hex hex,
+                           bool &layout)
 {
-    if (game == Game::ra2 && (long long)size == kTargetSize && whole_sha256 == kTargetSha256) return Kind::target;
-    SectionSig const *sections = game == Game::yr ? kYrSections : kTargetSections;
-    auto fail = [&](std::string const &reason) { if (why) *why = reason; return Kind::other; };
-    if (size < 0x400 || file[0] != 'M' || file[1] != 'Z') return fail("not a Windows executable");
+    layout = false;
+    if (size < 0x400 || file[0] != 'M' || file[1] != 'Z') return "not a Windows executable";
     uint32_t pe = rd32(file + 0x3C);
-    if ((size_t)pe + 24 > size || memcmp(file + pe, "PE\0\0", 4) != 0) return fail("not a Windows executable");
+    if ((size_t)pe + 24 > size || memcmp(file + pe, "PE\0\0", 4) != 0) return "not a Windows executable";
     uint16_t nsec = rd16(file + pe + 6), opt = rd16(file + pe + 20);
     const unsigned char *o = file + pe + 24;
-    if ((size_t)(o - file) + opt + 40u * nsec > size) return fail("truncated header");
-    if (rd32(o + 28) != kTargetImageBase || nsec != 4) return fail("a different section layout");
+    if ((size_t)(o - file) + opt + 40u * nsec > size) return "truncated header";
+    if (rd32(o + 28) != kTargetImageBase || nsec != 4) return "a different section layout";
     const unsigned char *s = o + opt;
     for (int i = 0; i < 4; ++i, s += 40) {
         SectionSig const &t = sections[i];
@@ -150,11 +179,15 @@ Kind classify(const unsigned char *file, size_t size, std::string const &whole_s
         memcpy(name, s, 8);
         if (strcmp(name, t.name) != 0 || rd32(s + 8) != t.vsize || rd32(s + 12) != t.va || rd32(s + 16) != t.rawsize ||
             rd32(s + 20) != t.raw)
-            return fail("a different section layout");
+            return "a different section layout";
+    }
+    layout = true;
+    for (int i = 0; i < 4; ++i) {
+        SectionSig const &t = sections[i];
         if (!t.sha256) continue;
-        if ((size_t)t.raw + t.rawsize > size) return fail("truncated sections");
+        if ((size_t)t.raw + t.rawsize > size) return "truncated sections";
         if (hex(file + t.raw, t.rawsize) == t.sha256) continue;
-        if (game == Game::yr && i == 0) {
+        if (undo_yr_patches && i == 0) {
             // The known no-CD change put back (kYrPatches), then the code compared again.
             std::string copy((const char *)file + t.raw, t.rawsize);
             for (KnownPatch const &k : kYrPatches) {
@@ -166,9 +199,33 @@ Kind classify(const unsigned char *file, size_t size, std::string const &whole_s
             }
             if (hex((const unsigned char *)copy.data(), copy.size()) == t.sha256) continue;
         }
-        return fail(std::string("different ") + (i == 0 ? "code" : "data") + " in " + t.name);
+        return std::string("different ") + (i == 0 ? "code" : "data") + " in " + t.name;
     }
-    return Kind::same_data;
+    return "";
+}
+
+template <class Hex>
+Kind classify(const unsigned char *file, size_t size, std::string const &whole_sha256, Hex hex, std::string *why = nullptr,
+              Game game = Game::ra2)
+{
+    if (game == Game::ra2 && (long long)size == kTargetSize && whole_sha256 == kTargetSha256) return Kind::target;
+    // The builds read at the target's addresses: the game's own first (its reason is the one
+    // given when none matches, unless only the Steam build's section table matched).
+    struct Candidate { SectionSig const *sections; bool undo_yr_patches; };
+    Candidate const candidates[2] = {
+        {game == Game::yr ? kYrSections : kTargetSections, game == Game::yr},
+        {game == Game::yr ? kYrSteamSections : kSteamSections, false},
+    };
+    std::string reason;
+    bool reason_from_layout = false;
+    for (Candidate const &c : candidates) {
+        bool layout = false;
+        std::string r = match_sections(file, size, c.sections, c.undo_yr_patches, hex, layout);
+        if (r.empty()) return Kind::same_data;
+        if (reason.empty() || (layout && !reason_from_layout)) { reason = r; reason_from_layout = layout; }
+    }
+    if (why) *why = reason;
+    return Kind::other;
 }
 
 // For messages: what is supported.
@@ -176,10 +233,11 @@ inline const char *supported_builds_text(Game game = Game::ra2)
 {
     if (game == Game::yr)
         return "Yuri's Revenge gamemd.exe 1.001 (the retail build with the official patch; copies with an installer "
-               "overlay or the two-byte no-CD change are the same build)";
+               "overlay or the two-byte no-CD change are the same build), or the Steam gamemd.exe (5,286,208 bytes, "
+               "SHA-256 3e81a617…)";
     return "the base Red Alert 2 1.006 game.exe (4,485,392 bytes, SHA-256 e6418111c2c36081…), or a copy of that "
            "build whose data is unchanged (for example the signed 4,489,184-byte game.exe with no-CD patches, "
-           "SHA-256 7bb2c7e1…)";
+           "SHA-256 7bb2c7e1…), or the Steam game.exe (5,077,312 bytes, SHA-256 73288c03…)";
 }
 
 }  // namespace ra2build
