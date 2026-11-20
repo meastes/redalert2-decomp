@@ -98,3 +98,6 @@ enum 78,MOUSE_PLACE_BEACON,mouse,"MouseType cursor 78, named after the action Mo
 0x00496A10,Unused_Delay_Hook,delay,"name descriptive; no evidenced name (main unknown_empty_00496a10); empty, never referenced in the image"
 0x005173B0,Unused_Init_Hook,init,"name descriptive; no evidenced name (ra2-decomp FUN_00532130, main unknown_empty_005173b0); empty, never referenced in the image"
 0x0069E980,Unused_Super_Hook,super,"name descriptive; no evidenced name (ra2-decomp FUN_006CDE80, main unknown_empty_0069e980); empty __stdcall (ret 8), never referenced in the image"
+0x008374BC,LanguageMix,startup,"name descriptive (LANGUAGE.MIX, which WinMain opens); no evidenced name (main unknown_language_mix_8374bc, none in ra2-decomp or mischa85); lane B3"
+0x0059D780,Mono_Window_Init,startup,"main's descriptive name; no evidenced name (mischa85 leaves 0x59D590-0x59E160 unassigned, ra2-decomp none); lane B3"
+0x0059D900,Mono_Window_Shutdown,startup,"main's descriptive name, as above; lane B3"

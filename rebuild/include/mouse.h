@@ -127,3 +127,4 @@ class MouseClass: public ScrollClass
 
 // Declarations moved from the units that used them (one declaration per name).
 extern void * MouseShapes; // RA2: 0x00ABD488, MOUSE.SHP as Init_Mouse loaded it (startup.cpp)
+void Free_Mouse_Shapes(void); // RA2: 0x0059FEF0

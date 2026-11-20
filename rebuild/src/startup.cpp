@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -43,12 +44,14 @@
 #include "_font.h"
 #include "_keyboar.h"
 #include "_mixfile.h"
+#include "_pk.h"
 #include "_rect.h"
 #include "_rules.h"
 #include "_surface.h"
 #include "_tactica.h"
 #include "_winfix.h"
 #include "_zbuffer.h"
+#include "abuffer.h"
 #include "aircraft.h"
 #include "airctype.h"
 #include "aitrig.h"
@@ -57,19 +60,24 @@
 #include "animtype.h"
 #include "app.h"
 #include "assert.h"
+#include "audfile.h"
+#include "audio.h"
 #include "blight.h"
+#include "bomb.h"
 #include "brain.h"
 #include "building.h"
 #include "builtype.h"
 #include "bullet.h"
 #include "bullettype.h"
 #include "campaign.h"
+#include "capmgr.h"
 #include "cd.h"
 #include "cdcntrl.h"
 #include "cell.h"
 #include "classfactory.h"
 #include "command.h"
 #include "conquer.h"
+#include "copyprotection.h"
 #include "cstream.h"
 #include "data.h"
 #include "dbgprint.h"
@@ -96,33 +104,49 @@
 #include "isotype.h"
 #include "jumpjet.h"
 #include "language\language.h"
+#include "ldprgmgr.h"
 #include "levitate.h"
 #include "light.h"
 #include "lightcon.h"
 #include "mech.h"
 #include "mixfile.h"
+#include "mono.h"
+#include "mouse.h"
 #include "movie.h"
 #include "msgloop.h"
+#include "multiplayer.h"
 #include "netdlg.h" // for Shutdown_Network.
+#include "netdlg2.h"
 #include "overlay.h"
 #include "overtype.h"
 #include "ovrlight.h"
+#include "ownrdraw.h"
+#include "palette.h"
+#include "parasite.h"
 #include "particle.h"
 #include "partsys.h"
+#include "planning.h"
 #include "playcd.h"
 #include "psystype.h"
 #include "ptype.h"
+#include "radsite.h"
+#include "ramfile.h"
+#include "revent.h"
+#include "rocket.h"
 #include "rules.h"
 #include "scenario.h"
 #include "scheme.h"
 #include "script.h"
 #include "session.h"
 #include "shapeset.h"
+#include "ship.h"
 #include "side.h"
 #include "sidebar.h"
 #include "smudge.h"
 #include "smudtype.h"
+#include "stringtable.h"
 #include "sun.h"
+#include "spawnmanager.h"
 #include "super.h"
 #include "suprtype.h"
 #include "surface.h"
@@ -133,6 +157,7 @@
 #include "taskforc.h"
 #include "team.h"
 #include "teamtype.h"
+#include "temporal.h"
 #include "teleport.h"
 #include "terrain.h"
 #include "terrtype.h"
@@ -144,11 +169,15 @@
 #include "trim.h"
 #include "tube.h"
 #include "tunnel.h"
+#include "txtlabel2.h"
+#include "uicmnds.h"
 #include "unit.h"
 #include "unittype.h"
 #include "vanim.h"
 #include "vanimtype.h"
 #include "vector.h"
+#include "voc.h"
+#include "vox.h"
 #include "walk.h"
 #include "warhead.h"
 #include "wave.h"
@@ -156,6 +185,7 @@
 #include "weapon.h"
 #include "win.h"
 #include "winstub.h"
+#include "wolopt.h"
 #include "wwfont.h"
 #include "wwmouse.h"
 #include "zbuffer.h"
@@ -172,14 +202,25 @@
 
 
 #define APP_GUID "29e3bb2a-2f36-11d3-a72c-0090272fa661"
-#define AUTOPLAY_GUID "b350c6d2-2f36-11d3-a72c-0090272fa661"
+#define AUTOPLAY_GUID "01AF9993-3492-11d3-8F6F-0060089C05B1" // RA2
+
+
+bool VideoBackBufferAllowed = true;
 
 
 #ifndef NO_BLOWFISH_DLL
-
+const struct RegStruct {
+	const GUID *clsid;
+	const char *name;
+} RegisterTheseDLLs[] = {
+	{ &CLSID_BlowfishObject, "blowfish.dll" }
+};
 #endif
 
+HANDLE AppMutex;
+HANDLE AutoPlayMutex;
 
+DWORD dwRegisterTiberianSun;
 DWORD dwRegisterMap = -1;
 
 DynamicVectorClass<DWORD> RegisteredClasses;
@@ -421,7 +462,7 @@ LONG Top_Level_Exception_Filter(EXCEPTION_POINTERS *e_info)
 /// player is told by way of a message box if a support DLL could not be prepared.
 /// </summary>
 /// <returns>bool; Did the preparation fail? Note the sense -- true means trouble.</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 7223 bytes differ (frame layout, and the original calls the first factory's constructor and INIClass() out of line where this expands them); RegisterClasses and Init_Keys are expanded into it
 static bool RegisterClasses(void)
 {
 
@@ -492,6 +533,12 @@ static bool RegisterClasses(void)
 	REGISTER_CLASS(CampaignClass, CLSID_CampaignClass);
 	REGISTER_CLASS(BuildingLightClass, CLSID_BuildingLightClass);
 	REGISTER_CLASS(WaypointPathClass, CLSID_WaypointPath);
+	REGISTER_CLASS(TemporalClass, CLSID_TemporalClass); // RA2: the eight classes from here to RadSiteClass are new
+	REGISTER_CLASS(SpawnManagerClass, CLSID_SpawnManagerClass);
+	REGISTER_CLASS(CaptureManagerClass, CLSID_CaptureManagerClass);
+	REGISTER_CLASS(ParasiteClass, CLSID_ParasiteClass);
+	REGISTER_CLASS(BombClass, CLSID_BombClass);
+	REGISTER_CLASS(RadSiteClass, CLSID_RadSiteClass);
 	REGISTER_CLASS(TEventClass, CLSID_EventClass);
 	REGISTER_CLASS(VoxelAnimTypeClass, CLSID_VoxelAnimTypeClass);
 	REGISTER_CLASS(VoxelAnimClass, CLSID_VoxelAnimClass);
@@ -524,13 +571,14 @@ static bool RegisterClasses(void)
 	REGISTER_CLASS(DriveLocomotionClass, CLSID_DriveLocomotion);
 	REGISTER_CLASS(JumpjetLocomotionClass, CLSID_JumpjetLocomotion);
 	REGISTER_CLASS(HoverLocomotionClass, CLSID_HoverLocomotion);
+	REGISTER_CLASS(RocketLocomotionClass, CLSID_RocketLocomotion); // RA2: new
 	REGISTER_CLASS(TunnelLocomotionClass, CLSID_TunnelLocomotion);
 	REGISTER_CLASS(WalkLocomotionClass, CLSID_WalkLocomotion);
 	REGISTER_CLASS(DropPodLocomotionClass, CLSID_BallisticLocomotion);
 	REGISTER_CLASS(FlyLocomotionClass, CLSID_FlyerLocomotion);
 	REGISTER_CLASS(TeleportLocomotionClass, CLSID_TeleportLocomotion);
 	REGISTER_CLASS(MechLocomotionClass, CLSID_MechLocomotion);
-	REGISTER_CLASS(LevitateLocomotionClass, CLSID_LevitateLocomotion);
+	REGISTER_CLASS(ShipLocomotionClass, CLSID_ShipLocomotion); // RA2: in place of LevitateLocomotionClass
 	REGISTER_CLASS(BulletClass, CLSID_BulletClass);
 	REGISTER_CLASS(FactoryClass, CLSID_FactoryClass);
 	REGISTER_CLASS(WarheadTypeClass, CLSID_WarheadTypeClass);
@@ -547,13 +595,39 @@ static bool RegisterClasses(void)
 	RegisterActiveObject((IUnknown *)&ApplicationInstance, CLSID_TiberianSun, ACTIVEOBJECT_WEAK, &dwRegisterTiberianSun);
 
 	if (failed) {
-		MessageBox(NULL, Fetch_String(TXT_PREPARECOM_FAILED), Fetch_String(TXT_SHORT_TITLE), MB_ICONEXCLAMATION);
+		Message_Box_Wide(NULL, StringTable::LoadString("TXT_PREPARECOM_FAILED", NULL, "D:\\Ra2\\Startup.CPP", 1518), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 1518), MB_ICONEXCLAMATION); // RA2: the wide message box and the string table
 	}
 
 	return(failed);
 
 }
-#endif
+
+
+/***********************************************************************************************
+ * Init_Keys -- Initialize the cryptographic keys.                                             *
+ *                                                                                             *
+ *    This routine will initialize the fast cryptographic key. It will also initialize the     *
+ *    slow one if this is a scenario editor version of the game.                               *
+ *                                                                                             *
+ * INPUT:   none                                                                               *
+ *                                                                                             *
+ * OUTPUT:  none                                                                               *
+ *                                                                                             *
+ * WARNINGS:   none                                                                            *
+ *                                                                                             *
+ * HISTORY:                                                                                    *
+ *   07/08/1996 JLB : Created.                                                                 *
+ *=============================================================================================*/
+static void Init_Keys(void) // RA2: moved here from init.cpp; WinMain calls it before the language archive is opened
+{
+	DebugString("Init_Keys - declarations\n");
+	RAMFileClass file((void *)Keys, strlen((char *)Keys));
+	INIClass ini;
+	DebugString("Init_Keys - Load\n");
+	ini.Load(file, false);
+	DebugString("Init_Keys - Init fast key\n");
+	FastKey = ini.Get_PKey(true);
+}
 
 
 
@@ -574,77 +648,78 @@ static bool RegisterClasses(void)
  * HISTORY:                                                                                    *
  *   03/20/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
 int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , int command_show )
 {
 	int		argc;       //Command line argument count
 	char *	argv[20];   //Pointers to command line arguments
 	char	path_to_exe[132];
-	char	buffer[512];
-
-#ifdef STEVES_NEW_CATCHER
-	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF|_CRTDBG_LEAK_CHECK_DF);
-#endif
+	wchar_t buffer[512]; // RA2: wide, for the string table's text
 
 	ProgramInstance = instance;
 
 	MainThread = (HANDLE)GetCurrentThreadId();
 
-	DebugString("%d-%d\n", __LINE__, sizeof(CrateData));
-	DebugString("%d-%d\n", __LINE__, sizeof(CrateShares));
-	DebugString("%d-%d\n", __LINE__, sizeof(CrateAnims));
-	DebugString("%d-%d\n", __LINE__, 0xDC8);		/// Presumed to be Tactical.
-	DebugString("%d-%d\n", __LINE__, sizeof(AircraftClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(AircraftTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(AITriggerTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(AnimClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(AnimTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(BaseClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(BuildingClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(BuildingTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(BulletClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(BulletTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(CellClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(FactoryClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(HouseClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(HouseTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(InfantryClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(InfantryTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(LayerClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(MouseClass));
-	DebugString("%d-%d\n", __LINE__, 0xDC8);		/// Presumed to be MapEditTactical.
-	DebugString("%d-%d\n", __LINE__, sizeof(OverlayClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(OverlayTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(SmudgeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(SmudgeTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TaskForceClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TeamClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TeamTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TerrainClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TerrainTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TriggerClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TriggerTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TagTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(TagClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(UnitClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(UnitTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(ScenarioClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(SuperWeaponTypeClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(SuperClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(Ground));
-	DebugString("%d-%d\n", __LINE__, sizeof(RulesClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(MissionControl));
-	DebugString("%d-%d\n", __LINE__, 1);
-	DebugString("%d-%d\n", __LINE__, sizeof(TechnoClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(RadioClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(MissionClass));
-	DebugString("%d-%d\n", __LINE__, 8);
-	DebugString("%d-%d\n", __LINE__, sizeof(StageClass));
-	DebugString("%d-%d\n", __LINE__, 8);
-	DebugString("%d-%d\n", __LINE__, 8);
-	DebugString("%d-%d\n", __LINE__, sizeof(StorageClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(DelayTimerClass));
-	DebugString("%d-%d\n", __LINE__, sizeof(FacingClass));
+	DebugString("%d-%d\n", 1560, sizeof(CrateData)); // RA2: the line numbers are those of the original's startup.cpp
+	DebugString("%d-%d\n", 1561, sizeof(CrateShares));
+	DebugString("%d-%d\n", 1562, sizeof(CrateAnims));
+	DebugString("%d-%d\n", 1563, 0x13); // RA2: a new entry; the object of 19 bytes is not identified
+	DebugString("%d-%d\n", 1564, sizeof(Tactical));
+	DebugString("%d-%d\n", 1565, sizeof(AircraftClass));
+	DebugString("%d-%d\n", 1566, sizeof(AircraftTypeClass));
+	DebugString("%d-%d\n", 1567, sizeof(AITriggerTypeClass));
+	DebugString("%d-%d\n", 1568, sizeof(AnimClass));
+	DebugString("%d-%d\n", 1569, sizeof(AnimTypeClass));
+	DebugString("%d-%d\n", 1570, sizeof(BaseClass));
+	DebugString("%d-%d\n", 1571, sizeof(BuildingClass));
+	DebugString("%d-%d\n", 1572, sizeof(BuildingTypeClass));
+	DebugString("%d-%d\n", 1573, sizeof(BulletClass));
+	DebugString("%d-%d\n", 1574, sizeof(BulletTypeClass));
+	DebugString("%d-%d\n", 1575, sizeof(CellClass));
+	DebugString("%d-%d\n", 1576, sizeof(FactoryClass));
+	DebugString("%d-%d\n", 1577, sizeof(HouseClass));
+	DebugString("%d-%d\n", 1578, sizeof(HouseTypeClass));
+	DebugString("%d-%d\n", 1579, sizeof(InfantryClass));
+	DebugString("%d-%d\n", 1580, sizeof(InfantryTypeClass));
+	DebugString("%d-%d\n", 1581, sizeof(LayerClass));
+	DebugString("%d-%d\n", 1582, sizeof(MouseClass));
+	DebugString("%d-%d\n", 1583, 0xE18);		/// Presumed to be MapEditTactical.
+	DebugString("%d-%d\n", 1584, sizeof(OverlayClass));
+	DebugString("%d-%d\n", 1585, sizeof(OverlayTypeClass));
+	DebugString("%d-%d\n", 1586, sizeof(SmudgeClass));
+	DebugString("%d-%d\n", 1587, sizeof(SmudgeTypeClass));
+	DebugString("%d-%d\n", 1588, sizeof(TaskForceClass));
+	DebugString("%d-%d\n", 1589, sizeof(TeamClass));
+	DebugString("%d-%d\n", 1590, sizeof(TeamTypeClass));
+	DebugString("%d-%d\n", 1591, sizeof(TerrainClass));
+	DebugString("%d-%d\n", 1592, sizeof(TerrainTypeClass));
+	DebugString("%d-%d\n", 1593, sizeof(TriggerClass));
+	DebugString("%d-%d\n", 1594, sizeof(TriggerTypeClass));
+	DebugString("%d-%d\n", 1595, sizeof(TagTypeClass));
+	DebugString("%d-%d\n", 1596, sizeof(TagClass));
+	DebugString("%d-%d\n", 1597, sizeof(UnitClass));
+	DebugString("%d-%d\n", 1598, sizeof(UnitTypeClass));
+	DebugString("%d-%d\n", 1599, sizeof(ScenarioClass));
+	DebugString("%d-%d\n", 1600, sizeof(SuperWeaponTypeClass));
+	DebugString("%d-%d\n", 1601, sizeof(SuperClass));
+	DebugString("%d-%d\n", 1602, sizeof(Ground));
+	DebugString("%d-%d\n", 1603, sizeof(RulesClass));
+	DebugString("%d-%d\n", 1604, sizeof(MissionControl));
+	DebugString("%d-%d\n", 1605, 1);
+	DebugString("%d-%d\n", 1606, sizeof(TechnoClass));
+	DebugString("%d-%d\n", 1607, sizeof(RadioClass));
+	DebugString("%d-%d\n", 1608, sizeof(MissionClass));
+	DebugString("%d-%d\n", 1609, 8);
+	DebugString("%d-%d\n", 1610, sizeof(StageClass));
+	DebugString("%d-%d\n", 1611, 8);
+	DebugString("%d-%d\n", 1612, 8);
+	DebugString("%d-%d\n", 1613, sizeof(StorageClass));
+	DebugString("%d-%d\n", 1614, sizeof(DelayTimerClass));
+	DebugString("%d-%d\n", 1615, sizeof(FacingClass));
+
+	if (!CopyProtection::IsLauncherRunning()) { // RA2: the game runs only under its launcher
+		DebugString("Launcher not running....Bail!\n");
+		return(EXIT_SUCCESS);
+	}
 
 	/*
 	 * Create a mutex with a unique name to TibSun in order to determine if
@@ -672,77 +747,51 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		}
 		DebugString("TibSun is already running...Bail!\n");
 		return(EXIT_SUCCESS);
-	} else {
-
-		DebugString("Create AppMutex okay.\n");
-
-		//
-		// Obtain the mutex unique to the Renegade AutoPlay application.
-		//
-		// WARNING: DO NOT use this number for any other application except Renegade AutoPlay
-		//
-		do
-		{
-			//
-			// Attempt to open the mutex
-			//
-			AutoPlayMutex = ::OpenMutex (MUTEX_ALL_ACCESS, FALSE, AUTOPLAY_GUID);
-			if (AutoPlayMutex != NULL) {
-				DebugString( "Waiting for Autoplay to quit!\n");
-				if (::WaitForSingleObject (AutoPlayMutex, 30000) == WAIT_FAILED) {
-					DebugString ("Failed waiting for AutoPlayMutex\n");
-					::CloseHandle (AutoPlayMutex);
-					AutoPlayMutex = NULL;
-				}
-			}
-
-			/*
-			 * Create a mutex with a name unique to the TibSun AutoPlay application.
-			 * This prevents the autoplay from running since it cannot get the mutex.
-			 * TibSun needs both of these mutexs before it is allowed to run.
-			 */
-			if (AutoPlayMutex == NULL) {
-				AutoPlayMutex = CreateMutex (NULL, FALSE, AUTOPLAY_GUID);
-				if (GetLastError () == ERROR_ALREADY_EXISTS) {
-					CloseHandle (AutoPlayMutex);
-					AutoPlayMutex = NULL;
-					Sleep (2500);
-				} else {
-					DebugString("Create AutoPlayMutex.\n");
-				}
-			}
-		} while (AutoPlayMutex == NULL);
-
-		DebugString ("Got AutoPlayMutex okay.\n");
 	}
+
+	DebugString("Create AppMutex okay.\n");
+
+	//
+	// Obtain the mutex unique to the Renegade AutoPlay application.
+	//
+	// WARNING: DO NOT use this number for any other application except Renegade AutoPlay
+	//
+	do
+	{
+		//
+		// Attempt to open the mutex
+		//
+		AutoPlayMutex = ::OpenMutex(MUTEX_ALL_ACCESS, FALSE, AUTOPLAY_GUID);
+		if (AutoPlayMutex != NULL) {
+			DebugString("Waiting for Autoplay to quit!\n");
+			if (::WaitForSingleObject(AutoPlayMutex, 30000) == WAIT_FAILED) {
+				DebugString("Failed waiting for AutoPlayMutex\n");
+				::CloseHandle(AutoPlayMutex);
+				AutoPlayMutex = NULL;
+			}
+		}
+
+		/*
+		 * Create a mutex with a name unique to the TibSun AutoPlay application.
+		 * This prevents the autoplay from running since it cannot get the mutex.
+		 * TibSun needs both of these mutexs before it is allowed to run.
+		 */
+		if (AutoPlayMutex == NULL) {
+			AutoPlayMutex = CreateMutex(NULL, FALSE, AUTOPLAY_GUID);
+			if (GetLastError() == ERROR_ALREADY_EXISTS) {
+				CloseHandle(AutoPlayMutex);
+				AutoPlayMutex = NULL;
+				Sleep(2500);
+			} else {
+				DebugString("Create AutoPlayMutex.\n");
+			}
+		}
+	} while (AutoPlayMutex == NULL);
+
+	DebugString("Got AutoPlayMutex okay.\n");
 
 	_controlfp(_RC_CHOP, MCW_RC);
 	set_control_word();
-
-	atexit(Prog_End);
-
-	if (!Init_Language_Resources(true)) {
-		return(EXIT_SUCCESS);
-	}
-
-	if (!GetSystemMetrics(SM_MOUSEPRESENT) || !GetSystemMetrics(SM_CMOUSEBUTTONS)) {
-		MessageBox(NULL, Fetch_String(TXT_MOUSE_REQUIRED), Fetch_String(TXT_SHORT_TITLE), MB_ICONERROR);
-		exit(EXIT_FAILURE);
-	}
-
-	if (GetDllVersion("comctl32.dll") < PACKVERSION(4, 70)) {
-		sprintf(buffer, Fetch_String(TXT_DLL_INVALID), "comctl32.dll", 4, 70, "comctl32.dll");
-		MessageBox(NULL, buffer, Fetch_String(TXT_SHORT_TITLE), MB_ICONERROR);
-		exit(EXIT_FAILURE);
-	}
-
-	OleInitialize(NULL);
-
-	if (RegisterClasses()) {
-		exit(EXIT_FAILURE);
-	}
-
-	RegisterActiveObject((IUnknown *)&Map, CLSID_TiberianSun, ACTIVEOBJECT_WEAK, &dwRegisterMap);
 
 	/*
 	**	Get the full path to the .EXE
@@ -799,8 +848,9 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		char netbuf[INIClass::MAX_LINE_LENGTH];
 		memset(netbuf, 0, sizeof(netbuf));
+		char * netptr = netbuf; // RA2: the scan starts at the beginning of the entry
 		bool has_destination_network = ConfigINI.Get_String("Network", "DestNet", 0, netbuf, sizeof(netbuf)) ? true : false;
-		if (has_destination_network && netbuf && strlen(netbuf)) {
+		if (has_destination_network && netptr && strlen(netbuf)) {
 
 			NetNumType net;
 			NetNodeType node;
@@ -809,10 +859,9 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			**	Scan thestring, pulling off each address piece
 			*/
 			int i = 0;
-			char * p = strtok(netbuf + 8, ".");
+			char * p = strtok(netbuf, ".");
+			int x;
 			while (p) {
-				int x;
-
 				sscanf(p, "%x", &x);			// convert from hex string to int
 				if (i < 4) {
 					net[i] = (char)x;			// fill NetNum
@@ -830,7 +879,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			if (i >= 4) {
 				Session.IsBridge = 1;
 				memset(node, 0xff, 6);
-				Session.BridgeNet = IPXAddressClass(net, node);
+				Session.BridgeNet = IPXAddressClass(net, node, 0);
 			}
 		}
 
@@ -840,39 +889,76 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		**	If there is not enough disk space free, don't allow the product to run.
 		*/
 		if (Disk_Space_Available() < INIT_FREE_DISK_SPACE) {
-			wsprintf (buffer, Fetch_String(TXT_CRITICALLY_LOW), (INIT_FREE_DISK_SPACE) / (1024 * 1024));
-			int reply = MessageBox(NULL, buffer, Fetch_String(TXT_SHORT_TITLE), MB_ICONQUESTION|MB_YESNO);
+			swprintf(buffer, StringTable::LoadString("TXT_CRITICALLY_LOW", NULL, "D:\\Ra2\\Startup.CPP", 1831), (INIT_FREE_DISK_SPACE) / (1024 * 1024));
+			int reply = Message_Box_Wide(NULL, buffer, StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 1832), MB_ICONQUESTION | MB_YESNO);
 			if (reply == IDNO) {
 				OleUninitialize();
 				return(EXIT_FAILURE);
 			}
 		}
 
-		int screen_height;
+		OleInitialize(NULL); // RA2: OLE and the class factories come after the configuration file
 
+		if (RegisterClasses()) {
+			exit(EXIT_FAILURE);
+		}
 
-		if (Options.ScreenWidth == -1 || screen_height == -1) {
+		/*
+		**	Initialize the encryption keys.
+		*/
+		DebugString("Init Encryption Keys.\n"); // RA2: moved here from Init_Game
+		Init_Keys();
+
+		DiskID cd = CD::Get_Required_Disk(); // RA2: the language archive is opened from the local files
+		CD::Set_Required_Disk(DISK_LOCAL);
+		LanguageMix = new MFCD("LANGUAGE.MIX", &FastKey);
+		CD::Set_Required_Disk(cd);
+
+		atexit(Prog_End);
+
+		Start_Mouse_Thread(); // RA2
+
+		if (!StringTable::LoadFile("ra2.str")) { // RA2: the string table, in the three languages of the release when it cannot be read
+			MessageBox(NULL, "Unable to initialize 'ra2.csf', please reinstall Red Alert.\nKeine Initialisierung von 'ra2.csf' m\xf6glich. Bitte installieren Sie Red Alert erneut.\nInitialisation de 'ra2.csf' impossible. Veuillez r\xe9installer Red Alert.", "Red Alert 2", MB_ICONERROR);
+			return(EXIT_SUCCESS);
+		}
+
+		if (!Init_Language_Resources(true)) {
+			return(EXIT_SUCCESS);
+		}
+
+		if (!GetSystemMetrics(SM_MOUSEPRESENT) || !GetSystemMetrics(SM_CMOUSEBUTTONS)) {
+			Message_Box_Wide(NULL, StringTable::LoadString("TXT_MOUSE_REQUIRED", NULL, "D:\\Ra2\\Startup.CPP", 1895), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 1895), MB_ICONERROR);
+			exit(EXIT_FAILURE);
+		}
+
+		if (GetDllVersion("comctl32.dll") < PACKVERSION(4, 70)) {
+			swprintf(buffer, StringTable::LoadString("TXT_DLL_INVALID", NULL, "D:\\Ra2\\Startup.CPP", 1905), "comctl32.dll", 4, 70, "comctl32.dll");
+			Message_Box_Wide(NULL, buffer, StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 1906), MB_ICONERROR);
+			exit(EXIT_FAILURE);
+		}
+
+		RegisterActiveObject((IUnknown *)&Map, CLSID_TiberianSun, ACTIVEOBJECT_WEAK, &dwRegisterMap);
+
+		if (Options.ScreenWidth == -1 || Options.ScreenHeight == -1) {
 			Options.ScreenWidth = 640;
 
 			if (WinVersion.Is_WinNTx() || GetVideoMemory() > 0x200000) {
-				screen_height = 480;
+				Options.ScreenHeight = 480;
 			} else {
-				screen_height = 400;
+				Options.ScreenHeight = 400;
 			}
-
-			Options.ScreenHeight = screen_height;
 		}
 
 		BOOL video_success = FALSE;
 
 		if (Debug_IngameModeChange) {
 			Create_Main_Window(instance, command_show, 640, 400);
-			Audio.Init(MainWindow, 16, 0, 22050);
 			Prep_Direct_Draw();
 			if (WindowedMode) {
 				VisibleRect = Rect(0,0,640,400);
-				VideoModeWidth = VisibleRect.Width;
-				VideoModeHeight = VisibleRect.Height;
+				VideoModeWidth = 640;
+				VideoModeHeight = 400;
 				VideoModeBitsPerPixel = HicolorFlag ? 16 : 8;
 			} else {
 				/*
@@ -885,14 +971,13 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 					VisibleRect = Rect(0,0,640,480);
 					if (!video_success) {
 						Destroy_Direct_Draw();
-						MessageBox(MainWindow, Fetch_String(TXT_VIDEO_ERROR) ,Fetch_String(TXT_SHORT_TITLE), MB_ICONWARNING);
+						Message_Box_Wide(MainWindow, StringTable::LoadString("TXT_VIDEO_ERROR", NULL, "D:\\Ra2\\Startup.CPP", 2049), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 2050), MB_ICONEXCLAMATION);
 						exit(EXIT_FAILURE);
 					}
 				}
 			}
 		} else {
-			Create_Main_Window(instance, command_show, Options.ScreenWidth, screen_height);
-			Audio.Init(MainWindow, 16, 0, 22050);
+			Create_Main_Window(instance, command_show, Options.ScreenWidth, Options.ScreenHeight);
 			Prep_Direct_Draw();
 			if (WindowedMode) {
 				VisibleRect = Rect(0,0,Options.ScreenWidth,Options.ScreenHeight);
@@ -914,10 +999,18 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 					}
 					if (!video_success) {
 						Destroy_Direct_Draw();
-						MessageBox(MainWindow, Fetch_String(TXT_VIDEO_ERROR), Fetch_String(TXT_SHORT_TITLE), MB_ICONWARNING);
+						Message_Box_Wide(MainWindow, StringTable::LoadString("TXT_VIDEO_ERROR", NULL, "D:\\Ra2\\Startup.CPP", 2088), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 2089), MB_ICONEXCLAMATION);
 						exit(EXIT_FAILURE);
 					}
 				}
+			}
+		}
+
+		if (RecordPlayRequest && Audio_File_Init(1000, 0x19000)) { // RA2: -record and -play keep the session's audio in session.ipb
+			if (RecordPlayRequest == 1) {
+				Audio_File_Create_Stream("session.ipb");
+			} else if (RecordPlayRequest == 2) {
+				Audio_File_Open_Stream("session.ipb");
 			}
 		}
 
@@ -926,10 +1019,14 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		int visible_bpp = VisibleSurface->Bytes_Per_Pixel();
 		HicolorFlag = visible_bpp == 2;
 		if (!HicolorFlag) {
-			MessageBox(MainWindow, Fetch_String(TXT_INVALIDMODE), Fetch_String(TXT_SHORT_TITLE), MB_ICONEXCLAMATION);
+			Message_Box_Wide(MainWindow, StringTable::LoadString("TXT_INVALIDMODE", NULL, "D:\\Ra2\\Startup.CPP", 2118), StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Startup.CPP", 2118), MB_ICONEXCLAMATION);
 			Emergency_Exit();
 		}
 
+		if (!CopyProtection::NotifyLauncher()) { // RA2
+			DebugString("Failed to notify launcher\n");
+			exit(EXIT_FAILURE);
+		}
 
 		do {
 			Windows_Message_Handler();
@@ -942,11 +1039,17 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			VisibleSurface->Fill(0);
 		}
 
-		Rect sidebar_rect(0,0,SidebarClass::SIDE_WIDTH,VisibleRect.Height);
+		Mono_Window_Init(ProgramInstance, MainWindow, WindowedMode); // RA2
+		Planning_Reset(); // RA2
+
+		Rect sidebar_rect(0, 0, SidebarWidth, VisibleRect.Height);
 		Rect tile_rect(0,0,VisibleRect.Width-sidebar_rect.Width, sidebar_rect.Height);
 		Rect composite_rect(0,0,VisibleRect.Width-sidebar_rect.Width, sidebar_rect.Height);
 
 		Allocate_Surfaces(VisibleRect, composite_rect, tile_rect, sidebar_rect, false);
+		if (UseDirect3D) { // RA2
+			Init_Direct3D();
+		}
 		LogicalSurface = HiddenSurface;
 		Update_Visible_Surface(true, HiddenSurface);
 
@@ -956,7 +1059,7 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		AlphaBuffer = new ABuffer(Rect(TacticalRect.X, TacticalRect.Y, 480, 480 - TacticalRect.Y));
 
 		MouseCursor = new WWMouseClass(VisibleSurface, MainWindow);
-		MouseCursor->Capture_Mouse();
+		MouseCursor->Hide_Mouse(); // RA2: hidden until the game shows it
 
 		CDFileClass::Set_CD_Drive (CDList.Get_First_CD_Drive());
 
@@ -964,10 +1067,16 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		**	Check for forced intro movie run disabling. If the conquer
 		**	configuration file says "no", then don't run the intro.
 		*/
-		DiskID disk = CD::Get_Current_Disk(60);
-		if (!Special.IsFromInstall && (disk == DISK_GDI || disk == DISK_NOD)) {
-			sprintf(buffer, "PlaySide%02d", disk);
-			Special.IsFromInstall = ConfigINI.Get_Bool("Intro", buffer, true);
+		int disk = CD::Get_Current_Disk(60); // RA2: any disc; the registry options can set EscapeMovies
+		Get_Performance_Profile();
+		if (!Special.IsFromInstall && disk > -1) {
+			Special.IsFromInstall = ConfigINI.Get_Bool("Intro", "Play", true);
+		}
+
+		WOLOptionsClass options;
+		options.Load();
+		if (!options.Is_Bit0_Clear() && !options.Is_Bit2_Clear() && !options.Is_Bit1_Clear()) {
+			Special.IsEscapeMovies = true;
 		}
 
 		/*
@@ -975,9 +1084,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		**	gonna change it to say "no" in the future.
 		*/
 		if (Special.IsFromInstall == true) {
-			if ((disk == DISK_GDI || disk == DISK_NOD)) {
-				sprintf(buffer, "PlaySide%02d", disk);
-				ConfigINI.Put_Bool("Intro", buffer, false);
+			if (disk > -1) {
+				Special.IsFromInstall = ConfigINI.Put_Bool("Intro", "Play", false);
 			}
 			cfile->Close();
 			cfile->Open();
@@ -993,7 +1101,6 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		} else {
 
-#if defined(_MSC_VER) && (_MSC_VER <= 1200)
 			/*
 			**	The __try/__except construct is part of the WIN32 interface. This is not the same
 			**	as C++ exception handling. There is no additional code overhead required
@@ -1001,29 +1108,18 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 			**	to prevent the compiler generating additional stack unwinding code.
 			*/
 			__try {
-#else
-			SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER) &Top_Level_Exception_Filter);
-#endif
 
 				DebugString("Main_Game\n");
 
 				Main_Game(argc, argv);
 
-#if defined(_MSC_VER) && (_MSC_VER <= 1200)
 			} __except(Exception_Handler(GetExceptionCode(), GetExceptionInformation())) {};
-#else
-			/*
-			**	Set the exception filter to use on shutdown.
-			*/
-			SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER) &Top_Level_Exception_Filter);
-#endif
 
-#if defined(_MSC_VER) && (_MSC_VER <= 1200)
 			SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER) &Top_Level_Exception_Filter);
-#endif
 
 		}
 
+		MouseCursor->Hide_Mouse(); // RA2
 		HiddenSurface->Fill(0);
 		Update_Visible_Surface(true, HiddenSurface);
 
@@ -1032,7 +1128,8 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 		*/
 		ReadyToQuit = 1;
 
-		Audio.End();
+		Theme.Free_Themes(); // RA2: the themes and the sound go before the window
+		Audio_Shutdown();
 
 		/*
 		**	Post a message to our message handler to tell it to clean up.
@@ -1049,6 +1146,20 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
 
 		error_code = EXIT_SUCCESS;
 	}
+
+	Free_Game_Modes(); // RA2: the RA2 systems free what they hold
+	RadarEventClass::Clear();
+	Map.DisposeOfArt();
+	SchemeLibrary_Destroy();
+	Mono_Window_Shutdown();
+	ObjectTypeClass::Free_One_Time();
+	OwnerDraw::Shutdown();
+	Planning_Reset_Wrapper();
+	Free_All_Art();
+	Free_Type_Select_List();
+	LoadProgressManager::Destroy();
+	Free_Mouse_Shapes();
+	Net2Shutdown_Network();
 
 	if (dwRegisterMap != -1) {
 		RevokeActiveObject(dwRegisterMap, NULL);
@@ -1079,12 +1190,24 @@ int CALLBACK WinMain ( HINSTANCE instance , HINSTANCE , char * command_line , in
  * HISTORY:                                                                                    *
  *   03/20/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
 void __cdecl Prog_End(void)
 {
 	int i;
 
 	GameActive = false;
+
+	if (EndGameGraphicsShape != NULL) { // RA2: the end game graphic, its palette conversion and its palette
+		delete (void *)EndGameGraphicsShape;
+		EndGameGraphicsShape = NULL;
+	}
+	if (EndGameGraphicsConvert != NULL) {
+		delete EndGameGraphicsConvert;
+		EndGameGraphicsConvert = NULL;
+	}
+	if (EndGameGraphicsPalette != NULL) {
+		delete EndGameGraphicsPalette;
+		EndGameGraphicsPalette = NULL;
+	}
 
 	Session.Free_Scenario_Descriptions();
 
@@ -1093,12 +1216,7 @@ void __cdecl Prog_End(void)
 	}
 	ColorSchemes.Clear();
 
-	for (i = 0; i < TutorialText.Count(); i++) {
-		free((void *)TutorialText.Fetch_By_Position(i));
-	}
-	TutorialText.Clear();
-
-	Delete_All_Objects();
+	Delete_All_Objects(); // RA2: no tutorial text
 
 	while (Movies.Count()) {
 		free((void *)Movies[0]);
@@ -1111,20 +1229,16 @@ void __cdecl Prog_End(void)
 	}
 	AllCommands.Clear();
 
-	Theme.Free_Themes();
-
-	if (RuleINI != NULL) {
+	if (RuleINI != NULL) { // RA2: the themes are freed at the end
 		delete RuleINI;
 		RuleINI = NULL;
 	}
 	AIINI.Clear();
 	ArtINI.Clear();
-	FSRuleINI.Clear();
-	FSAIINI.Clear();
+	UIINI.Clear(); // RA2: in place of the Firestorm databases
 	EditorINI.Clear();
 	ConfigINI.Clear();
 	ConfigINI.Clear();
-
 	SpotLightClass::Clear_All();
 	IonBlastClass::Clear_All();
 
@@ -1136,73 +1250,63 @@ void __cdecl Prog_End(void)
 	Map.Free_Cells();
 	Map.Clear_Radar();
 
+	Reset_Surfaces(); // RA2
 
 	if (DepthBuffer != NULL) {
 		delete DepthBuffer;
 		DepthBuffer = NULL;
 	}
+
 	if (AlphaBuffer != NULL) {
 		delete AlphaBuffer;
 		AlphaBuffer = NULL;
 	}
 
-	if (Metal12FontPtr != NULL) {
-		delete Metal12FontPtr;
-		Metal12FontPtr = NULL;
-	}
-	if (MapFontPtr != NULL) {
-		delete MapFontPtr;
-		MapFontPtr = NULL;
-	}
-	if (Font6Ptr != NULL) {
-		delete Font6Ptr;
-		Font6Ptr = NULL;
-	}
-	if (EditorFont != NULL) {
-		delete EditorFont;
-		EditorFont = NULL;
-	}
-	if (Font8Ptr != NULL) {
-		delete Font8Ptr;
-		Font8Ptr = NULL;
-	}
-	if (GradFont6Ptr != NULL) {
-		delete GradFont6Ptr;
-		GradFont6Ptr = NULL;
+	if (BitText::Instance != NULL) { // RA2: the game font in place of the TibSun fonts
+		delete BitText::Instance;
+		BitText::Instance = NULL;
 	}
 
 	if (TerrainDrawer != NULL) {
 		delete TerrainDrawer;
 		TerrainDrawer = NULL;
 	}
+
 	if (AnimDrawer != NULL) {
 		delete AnimDrawer;
 		AnimDrawer = NULL;
 	}
+
 	if (NormalDrawer != NULL) {
 		delete NormalDrawer;
 		NormalDrawer = NULL;
 	}
+
 	if (VoxelDrawer != NULL) {
 		delete VoxelDrawer;
 		VoxelDrawer = NULL;
 	}
+
 	if (MouseDrawer != NULL) {
 		delete MouseDrawer;
 		MouseDrawer = NULL;
 	}
+
 	if (SidebarDrawer != NULL) {
 		delete SidebarDrawer;
 		SidebarDrawer = NULL;
 	}
+
 	if (CameoDrawer != NULL) {
 		delete CameoDrawer;
 		CameoDrawer = NULL;
 	}
+
 	if (EightBitDrawer != NULL) {
 		delete EightBitDrawer;
 		EightBitDrawer = NULL;
 	}
+
 	if (EightBitSurface != NULL) {
 		delete EightBitSurface;
 		EightBitSurface = NULL;
@@ -1229,13 +1333,25 @@ void __cdecl Prog_End(void)
 		delete TheaterData;
 		TheaterData = NULL;
 	}
+
 	if (TheaterDat) {
 		delete TheaterDat;
 		TheaterDat = NULL;
 	}
+
+	if (GenericMix) { // RA2
+		delete GenericMix;
+		GenericMix = NULL;
+	}
+
 	if (IsometricTheaterData) {
 		delete IsometricTheaterData;
 		IsometricTheaterData = NULL;
+	}
+
+	if (IsoGenericMix) { // RA2
+		delete IsoGenericMix;
+		IsoGenericMix = NULL;
 	}
 
 	if (IsometricTileTypeClass::CellShadowShapes != NULL) {
@@ -1244,19 +1360,22 @@ void __cdecl Prog_End(void)
 	}
 
 	if (SlopeZShapes[0] != NULL) {
-		delete (ShapeSet *)SlopeZShapes[0];
+		delete (void *)SlopeZShapes[0];
 		SlopeZShapes[0] = NULL;
 	}
+
 	if (SlopeZShapes[1] != NULL) {
-		delete (ShapeSet *)SlopeZShapes[1];
+		delete (void *)SlopeZShapes[1];
 		SlopeZShapes[1] = NULL;
 	}
+
 	if (SlopeZShapes[2] != NULL) {
-		delete (ShapeSet *)SlopeZShapes[2];
+		delete (void *)SlopeZShapes[2];
 		SlopeZShapes[2] = NULL;
 	}
+
 	if (SlopeZShapes[3] != NULL) {
-		delete (ShapeSet *)SlopeZShapes[3];
+		delete (void *)SlopeZShapes[3];
 		SlopeZShapes[3] = NULL;
 	}
 
@@ -1265,95 +1384,94 @@ void __cdecl Prog_End(void)
 		PreviewSurface = NULL;
 	}
 
-
 	if (MoviesMix != NULL) {
 		delete MoviesMix;
 		MoviesMix = NULL;
 	}
-#if defined(_DEMO) || defined(_DEBUG)
-	while (MoviesMixLocal.Count() > 0) {
-		delete MoviesMixLocal[0];
-		MoviesMixLocal.Delete_Index(0);
-	}
-#endif
-	if (ScoresMix != NULL) {
-		delete ScoresMix;
-		ScoresMix = NULL;
-	}
+
 	if (Scores01Mix != NULL) {
 		delete Scores01Mix;
 		Scores01Mix = NULL;
 	}
+
 	if (MainMix != NULL) {
 		delete MainMix;
 		MainMix = NULL;
 	}
+
 	if (ConquerMix != NULL) {
 		delete ConquerMix;
 		ConquerMix = NULL;
 	}
 
-	while (ExpandSideMix.Count() > 0) {
-		delete ExpandSideMix[0];
-		ExpandSideMix.Delete_Index(0);
+	if (CameoMix != NULL) { // RA2
+		delete CameoMix;
+		CameoMix = NULL;
 	}
-	while (ExpandSpeechMix.Count() > 0) {
-		delete ExpandSpeechMix[0];
-		ExpandSpeechMix.Delete_Index(0);
-	}
+
 	while (ExpandMix.Count() > 0) {
 		delete ExpandMix[0];
 		ExpandMix.Delete_Index(0);
 	}
+
 	if (CacheMix != NULL) {
 		delete CacheMix;
 		CacheMix = NULL;
 	}
+
 	if (LocalMix != NULL) {
 		delete LocalMix;
 		LocalMix = NULL;
 	}
-	if (SpeechMix != NULL) {
-		delete SpeechMix;
-		SpeechMix = NULL;
+
+	if (NeutralMix != NULL) { // RA2
+		delete NeutralMix;
+		NeutralMix = NULL;
 	}
-	if (SoundsMix != NULL) {
-		delete SoundsMix;
-		SoundsMix = NULL;
-	}
-	if (Sounds01Mix != NULL) {
-		delete Sounds01Mix;
-		Sounds01Mix = NULL;
-	}
-	if (MapsMix != NULL) {
-		delete MapsMix;
-		MapsMix = NULL;
-	}
-#if defined(_DEMO) || defined(_DEBUG)
-	while (MapsMixLocal.Count() > 0) {
-		delete MapsMixLocal[0];
-		MapsMixLocal.Delete_Index(0);
-	}
-#endif
-	if (MultiMix != NULL) {
-		delete MultiMix;
-		MultiMix = NULL;
-	}
-	if (SideCMix != NULL) {
-		delete SideCMix;
-		SideCMix = NULL;
-	}
-	if (SideNCMix != NULL) {
-		delete SideNCMix;
-		SideNCMix = NULL;
-	}
+
 	if (SideCDMix != NULL) {
 		delete SideCDMix;
 		SideCDMix = NULL;
 	}
+
+	if (Sounds01Mix != NULL) {
+		delete Sounds01Mix;
+		Sounds01Mix = NULL;
+	}
+
+	while (ScenarioMixFiles.Count() > 0) { // RA2
+		delete ScenarioMixFiles[0];
+		ScenarioMixFiles.Delete_Index(0);
+	}
+
+	if (MapsMix != NULL) {
+		delete MapsMix;
+		MapsMix = NULL;
+	}
+
+	if (MultiMix != NULL) {
+		delete MultiMix;
+		MultiMix = NULL;
+	}
+
+	if (SideCMix != NULL) {
+		delete SideCMix;
+		SideCMix = NULL;
+	}
+
+	if (SideNCMix != NULL) {
+		delete SideNCMix;
+		SideNCMix = NULL;
+	}
+
 	if (GameMix != NULL) {
 		delete GameMix;
 		GameMix = NULL;
+	}
+
+	if (LanguageMix != NULL) { // RA2
+		delete LanguageMix;
+		LanguageMix = NULL;
 	}
 
 	if (TacticalMap != NULL) {
@@ -1361,11 +1479,21 @@ void __cdecl Prog_End(void)
 		TacticalMap = NULL;
 	}
 
-	delete SpeechBuffer[0];
-	SpeechBuffer[0] = NULL;
+	RadarEventClass::Clear(); // RA2: the RA2 systems free what they hold
+	Map.DisposeOfArt();
+	SchemeLibrary_Destroy();
+	Mono_Window_Shutdown();
+	ObjectTypeClass::Free_One_Time();
+	OwnerDraw::Shutdown();
+	Planning_Reset_Wrapper();
+	Free_All_Art();
+	Free_Type_Select_List();
+	LoadProgressManager::Destroy();
+	Free_Mouse_Shapes();
+	Net2Shutdown_Network();
 
 	Free_Vocs();
-
+	Speech_Free_All(); // RA2: in place of the speech buffer
 	CDFileClass::Clear_Search_Drives();
 
 	if (Keyboard != NULL) {
@@ -1410,11 +1538,13 @@ void __cdecl Prog_End(void)
 		AppMutex = NULL;
 	}
 
-#ifdef STEVES_NEW_CATCHER
-	_CrtDumpMemoryLeaks();
-#endif
+	Audio_File_Shutdown(); // RA2
+	Theme.Free_Themes();
+	Audio_Shutdown();
+	StringTable::Unload();
+	CopyProtection::ShutDown();
+	Kill_Mouse_Thread();
 }
-#endif
 
 
 
@@ -1486,3 +1616,81 @@ void Emergency_Exit(void)
 }
 
 
+/*
+**	The class factories, one for each class registered with OLE, in the order of registration
+**	(ra2-decomp's startup.cpp instantiates them the same way).
+*/
+template class TClassFactory<CStreamClass>;
+template class TClassFactory<WaveClass>;
+template class TClassFactory<TerrainTypeClass>;
+template class TClassFactory<TerrainClass>;
+template class TClassFactory<SuperWeaponTypeClass>;
+template class TClassFactory<SuperClass>;
+template class TClassFactory<Tactical>;
+template class TClassFactory<CellClass>;
+template class TClassFactory<EMPulseClass>;
+template class TClassFactory<LightSourceClass>;
+template class TClassFactory<SideClass>;
+template class TClassFactory<TiberiumClass>;
+template class TClassFactory<TubeClass>;
+template class TClassFactory<CampaignClass>;
+template class TClassFactory<BuildingLightClass>;
+template class TClassFactory<WaypointPathClass>;
+template class TClassFactory<TemporalClass>;
+template class TClassFactory<SpawnManagerClass>;
+template class TClassFactory<CaptureManagerClass>;
+template class TClassFactory<ParasiteClass>;
+template class TClassFactory<BombClass>;
+template class TClassFactory<RadSiteClass>;
+template class TClassFactory<TEventClass>;
+template class TClassFactory<VoxelAnimTypeClass>;
+template class TClassFactory<VoxelAnimClass>;
+template class TClassFactory<TActionClass>;
+template class TClassFactory<TriggerClass>;
+template class TClassFactory<TriggerTypeClass>;
+template class TClassFactory<ScriptClass>;
+template class TClassFactory<ScriptTypeClass>;
+template class TClassFactory<TagClass>;
+template class TClassFactory<TagTypeClass>;
+template class TClassFactory<TeamClass>;
+template class TClassFactory<TeamTypeClass>;
+template class TClassFactory<TaskForceClass>;
+template class TClassFactory<UnitTypeClass>;
+template class TClassFactory<BuildingTypeClass>;
+template class TClassFactory<AircraftTypeClass>;
+template class TClassFactory<InfantryTypeClass>;
+template class TClassFactory<BulletTypeClass>;
+template class TClassFactory<IsometricTileTypeClass>;
+template class TClassFactory<OverlayTypeClass>;
+template class TClassFactory<SmudgeTypeClass>;
+template class TClassFactory<UnitClass>;
+template class TClassFactory<BuildingClass>;
+template class TClassFactory<AircraftClass>;
+template class TClassFactory<InfantryClass>;
+template class TClassFactory<AnimClass>;
+template class TClassFactory<AnimTypeClass>;
+template class TClassFactory<HouseTypeClass>;
+template class TClassFactory<HouseClass>;
+template class TClassFactory<DriveLocomotionClass>;
+template class TClassFactory<JumpjetLocomotionClass>;
+template class TClassFactory<HoverLocomotionClass>;
+template class TClassFactory<RocketLocomotionClass>;
+template class TClassFactory<TunnelLocomotionClass>;
+template class TClassFactory<WalkLocomotionClass>;
+template class TClassFactory<DropPodLocomotionClass>;
+template class TClassFactory<FlyLocomotionClass>;
+template class TClassFactory<TeleportLocomotionClass>;
+template class TClassFactory<MechLocomotionClass>;
+template class TClassFactory<ShipLocomotionClass>;
+template class TClassFactory<BulletClass>;
+template class TClassFactory<FactoryClass>;
+template class TClassFactory<WarheadTypeClass>;
+template class TClassFactory<WeaponTypeClass>;
+template class TClassFactory<ParticleClass>;
+template class TClassFactory<ParticleTypeClass>;
+template class TClassFactory<ParticleSystemClass>;
+template class TClassFactory<ParticleSystemTypeClass>;
+template class TClassFactory<AITriggerTypeClass>;
+template class TClassFactory<NeuronClass>;
+template class TClassFactory<FoggedObjectClass>;
+template class TClassFactory<AlphaShapeClass>;

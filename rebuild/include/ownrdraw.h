@@ -305,6 +305,7 @@ extern COLORREF ODColorUnused1;
 
 namespace OwnerDraw { extern unsigned short Red_Green_Masks[]; } // RA2: 0xA763DC, the red and green channel masks of the 16-bit pixel format (two entries; ownrdraw.cpp defines them)
 namespace OwnerDraw { extern unsigned short Blue_Mask; } // RA2: 0xA763E0, the blue channel mask
+namespace OwnerDraw { void Shutdown(void); } // RA2: 0x005EAC20, frees what the owner-drawn controls hold
 
 namespace OwnerDraw { // RA2: the helper belongs to OwnerDraw (ownrdraw.cpp, egos.cpp and srfcache.cpp expand it)
 

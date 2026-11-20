@@ -116,3 +116,6 @@ class MonoClass {
 
 		MonoClass & operator = (MonoClass const & );
 };
+
+void Mono_Window_Init(HINSTANCE instance, HWND window, bool windowed); // RA2: 0x0059D780, makes the mono pages for the game window (WinMain)
+void Mono_Window_Shutdown(void); // RA2: 0x0059D900, deletes them again

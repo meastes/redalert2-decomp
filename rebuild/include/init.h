@@ -26,6 +26,7 @@ class ObjectClass;
 class Cell;
 
 bool Parse_Command_Line(int argc, char * argv[]);
+int Get_Performance_Profile(void); // RA2: 0x0051A880
 
 int Init_Game(int argc, char * argv[]);
 bool Select_Game(bool fade);

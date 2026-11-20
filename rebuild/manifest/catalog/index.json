@@ -80,7 +80,7 @@
       },
       {
         "path": "rebuild/include/_mixfile.h",
-        "sha256": "db2f624d88e0bc22d8d9b7e31af0f67bf3cf217ef5055da8dfc8fa29fe24f52c"
+        "sha256": "4d90f730f1fa07fd6e52d5fefef2415b5396722f0768846013f5548dc7b128e8"
       },
       {
         "path": "rebuild/include/_mono.h",
@@ -311,8 +311,12 @@
         "sha256": "7411808146e25c68e0b4ec6d1c7fae413653b81ad470cf4e2109ce8b6c6d137c"
       },
       {
+        "path": "rebuild/include/audfile.h",
+        "sha256": "e5c096ad99a01e58bfaf9cf277f5dd76ea20252db2aeb66abe90250519e5cfae"
+      },
+      {
         "path": "rebuild/include/audio.h",
-        "sha256": "952d3d09cc7affad1ca9aff93a3e1f996a1cfc50e23af14ce126541788f9aa0c"
+        "sha256": "1e35268fe3905d67e520833b6ec5f51d18466ec4b51e283f7cdc1bf22d21c1ac"
       },
       {
         "path": "rebuild/include/audioctl.h",
@@ -647,6 +651,10 @@
         "sha256": "b86524b747794ed25812035ef4515379b1a880d732a61833c86dbff72fab3b01"
       },
       {
+        "path": "rebuild/include/copyprotection.h",
+        "sha256": "74b26069113c2aa0f4180de139630e9ed8d5275a600c64dbb3f718bca84b7698"
+      },
+      {
         "path": "rebuild/include/counter.h",
         "sha256": "cb5296f3c29ddaba3e1ac5c9df63f480b60fd8af45d4b274a58623e320f4b90c"
       },
@@ -692,7 +700,7 @@
       },
       {
         "path": "rebuild/include/data.h",
-        "sha256": "5191c10c9f476075af122ce5cf77688968805a313373dff81873190da9a84abd"
+        "sha256": "8ef432f25efcef28cfa9787f03a692bec557e8dacdb8a2ab3131d779de4f963c"
       },
       {
         "path": "rebuild/include/dbgprint.h",
@@ -952,7 +960,7 @@
       },
       {
         "path": "rebuild/include/globals.h",
-        "sha256": "191dc0a1c86a277191c06fc7ef08cb2a274901a9645fb31790f461dab77b1a7a"
+        "sha256": "ce7751484324a1aff4956cd32347a7dbdabc826d89f112471d068109d4812a44"
       },
       {
         "path": "rebuild/include/goptions.h",
@@ -1100,7 +1108,7 @@
       },
       {
         "path": "rebuild/include/init.h",
-        "sha256": "8dc97b50442de6db88e82f38a693c652e390bdfdd71ae4d12b956719602f8157"
+        "sha256": "a7c2ee4eceffe10a554ada47b711897d53d1cd8425b287927fe62927f0b71afe"
       },
       {
         "path": "rebuild/include/inline.h",
@@ -1356,7 +1364,7 @@
       },
       {
         "path": "rebuild/include/misc.h",
-        "sha256": "1fa7d43f752aeb3fe0aec8baeceb2859cdc50e0a903e31bc102abeac30dac655"
+        "sha256": "e17c7fdbcda470fb958ce9f05408b19109c038a2b8f2316307eea6767f88167f"
       },
       {
         "path": "rebuild/include/missile.h",
@@ -1388,7 +1396,7 @@
       },
       {
         "path": "rebuild/include/mono.h",
-        "sha256": "4214f34daf0c3e8dc36ca8cfea65622584b62eb276ca56cfd0694a3f99c7ef6f"
+        "sha256": "41829fa66f5ac90a81dca4445c29e35e50531983398c99fab06c1c8b0b73c5fb"
       },
       {
         "path": "rebuild/include/motlib.h",
@@ -1396,7 +1404,7 @@
       },
       {
         "path": "rebuild/include/mouse.h",
-        "sha256": "40a342c465b1854df3ce6a89ff2eb0113b57d72cd71d8554d0b4865f02e7d314"
+        "sha256": "f2f2b92ce7c0e57baec60498f2e1d8770fcfc0a4ec8f1be17990b302311f76c4"
       },
       {
         "path": "rebuild/include/mouse.hh",
@@ -1492,7 +1500,7 @@
       },
       {
         "path": "rebuild/include/multiplayer.h",
-        "sha256": "0e4e27ea6c344b9f151663780ec3d08ac2e85ce8e927d7d76c630ca1602b0d5c"
+        "sha256": "df8c6aa2f442b98853f8a9cfb4dc7ebd9df187b8b759e5bb2ba5f4a53c77fa20"
       },
       {
         "path": "rebuild/include/mzone.hh",
@@ -1576,7 +1584,7 @@
       },
       {
         "path": "rebuild/include/ownrdraw.h",
-        "sha256": "12857b6ab25aa05c4540e0df32772ff1188cea3598666875bee22c13df5a3f3b"
+        "sha256": "c16e71ea344f1c4848c5b64ef94b8d06fac3b60e7664321a62bd7546d8a7ea3e"
       },
       {
         "path": "rebuild/include/ownrpaint.h",
@@ -1588,7 +1596,7 @@
       },
       {
         "path": "rebuild/include/palette.h",
-        "sha256": "a7e7140f684432cba044bd4b966a31a6f54d3fbc26422823139b4205446a9cd6"
+        "sha256": "b2036c6605d59745e0f2c271e709fecb38f03c6e6493a0014e27ddcac7c5b5a1"
       },
       {
         "path": "rebuild/include/parasite.h",
@@ -2040,7 +2048,7 @@
       },
       {
         "path": "rebuild/include/stringtable.h",
-        "sha256": "5cdb75e3875d4176f6a04fb5d585305972504488dad44055e0e0f2f2a6233824"
+        "sha256": "363f2e36260e51bcd0ea9516dddbd270e5aec58c49d1ed69258cdac84f553be7"
       },
       {
         "path": "rebuild/include/struct.hh",
@@ -2056,7 +2064,7 @@
       },
       {
         "path": "rebuild/include/sun.h",
-        "sha256": "e95876f9d1d30268e090f403048b55615ff4e48d382812aa03b4918bfa44c061"
+        "sha256": "69961c3279e26d5cf2f0766746206b0e6a87d0af335381da7c0025092ad381c6"
       },
       {
         "path": "rebuild/include/super.h",
@@ -2260,7 +2268,7 @@
       },
       {
         "path": "rebuild/include/txtlabel2.h",
-        "sha256": "da78e5199303c18888bbde388c0f065e81888117bbeb3a22cfb1904e87181757"
+        "sha256": "09c927cea2df88c7ddfbd41f821894e7f9d742c53aa417c6ef4211034ef2b5af"
       },
       {
         "path": "rebuild/include/typelist.h",
@@ -2269,6 +2277,10 @@
       {
         "path": "rebuild/include/types.h",
         "sha256": "30414eeb89a83734d3dedaf2e9546745c9ccd8cc1b2215e60a0e5cfa66d8bf73"
+      },
+      {
+        "path": "rebuild/include/uicmnds.h",
+        "sha256": "570d389a69b8626885419edc955395cc3376eb319ac06cde6164362f7c8a3296"
       },
       {
         "path": "rebuild/include/unholyalliance.h",
@@ -2560,7 +2572,7 @@
       },
       {
         "path": "rebuild/include/wwmouse.h",
-        "sha256": "a06866279fc70c11ea7c2574220527c42f6e2a3e3a36afc64027f41fd9f9fab8"
+        "sha256": "e0df50a7dfafaf2b7d55d20f48506ece14c553de25065235f8beecb4df3fd991"
       },
       {
         "path": "rebuild/include/xmouse.h",
@@ -3695,7 +3707,12 @@
     "population-3307",
     "population-4499",
     "rebuild-jumpjet",
-    "rebuild-ldprgmgr"
+    "rebuild-ldprgmgr",
+    "population-2252",
+    "population-2253",
+    "population-3787",
+    "population-2254",
+    "population-27"
   ],
   "region_runs": [
     ["rebuild-audattr", 6],
@@ -3958,7 +3975,7 @@
     ["rebuild-overlay", 34],
     ["rebuild-overtype", 36],
     ["rebuild-ovrlight", 35],
-    ["rebuild-ownrdraw", 224],
+    ["rebuild-ownrdraw", 223],
     ["rebuild-packet", 13],
     ["rebuild-palette", 72],
     ["rebuild-parasite", 50],
@@ -4012,7 +4029,7 @@
     ["rebuild-shastraw", 2],
     ["rebuild-ship", 69],
     ["rebuild-side", 22],
-    ["rebuild-sidebar", 106],
+    ["rebuild-sidebar", 107],
     ["rebuild-skirmish", 23],
     ["rebuild-slider", 13],
     ["rebuild-smartdeform", 40],
@@ -4023,7 +4040,7 @@
     ["rebuild-special", 19],
     ["rebuild-sprite", 2],
     ["rebuild-srfcache", 13],
-    ["rebuild-startup", 34],
+    ["rebuild-startup", 479],
     ["rebuild-statbtn", 9],
     ["rebuild-stats", 19],
     ["rebuild-stbuffer", 5],
@@ -4266,6 +4283,9 @@
     "population-2215": "5cf6420ec07e2a14b4ba24e18be5090d15b654c0fe7e446ed283ec00f6099cda",
     "population-2217": "a7ed6b4b16df111cba23801c54655e436b722e43cd438c19ae3912c336ed87cd",
     "population-2224": "35b2439fbaddd64857b9f38ca516a07e50e80ea5c95eef19a9963ff021d7bc46",
+    "population-2252": "d878041bc4578e5ade53f35ada542c6e87c9a6a992a91374224564751c9ce517",
+    "population-2253": "05edb842791bcbd3c90c4b69a56a659814fb692aee71c85fdef9f66895d953a0",
+    "population-2254": "81b3e6f74a2abde97b5a1b1f331441efc0a927ccf44d1e362aef2925d413f3ef",
     "population-2258": "6dc23b8c471699c89f9c4cfa6c943a598574b39cdeb6e714f24446c286883d77",
     "population-2261": "6739f4f089100b6d702f0ef70e052fd3de74facbc7e70938a5643e1c407c6051",
     "population-2275": "18d7b5f34d43d72978be53fa4132d16b7c1c63e9bf132121928abe1756839bf7",
@@ -4326,6 +4346,7 @@
     "population-2690": "241664aaeaa58d549429dd007bde427ffe0a7d2b092bbc268ec4e1e012288903",
     "population-2693": "756c67c6b41be0e7f7860bbdf3be753187a0904a588748dcaf03a0577cbea2b8",
     "population-2695": "0276e4c129a8b197682473a7f1bf4727bef9656ef77fe435a7de12330cd16772",
+    "population-27": "dbdd6fe6955fecbd03ad0a569fe642c51909cf8a0481c18033f23668b3edfaa7",
     "population-2702": "916cf1446e63c5dabfb9993fcbf7f57364e6cc338cfadfef8a66e799341c9869",
     "population-2704": "3858e7714be671f729f79b2642eb1dedc449a315cf9e7805964a28bdd096da56",
     "population-2705": "c07ed504958f7f7b66e88f2393833aff67d60867ee6dca1f06c12eab35d3aa59",
@@ -4551,6 +4572,7 @@
     "population-3773": "4c555b84a18847a1b163bab3f816a3435245ae7a83ff9cd4c7a78b4a18e905ea",
     "population-3779": "14071a3ee35370e5202fdf51672076797a511e6107205f877356592f589d1ea9",
     "population-3783": "28b16f8c9e222d9aa979be8661efb32a043355d334b5f77e4d6a3c901e2fb1bd",
+    "population-3787": "8d9718606014c5f5015ef425363aa45612e3e56ed429d0a925a7be4a41d423eb",
     "population-3790": "0ca4dd0a8ee3cedb8b917669971add78834a5581bd5aac35ced98eba37fd33e6",
     "population-3791": "ffef3e48b17d18149502d5740f2e40ca6daec48a10d390488e8c0dadcfa801dc",
     "population-3795": "a0bc21cc0f605cc96cff315e511215caff8964c38f1816001c7e5631f82083d5",
@@ -5056,7 +5078,7 @@
     "rebuild-overtype": "2f752f5d91262f672156f617aaaed118736768360d7b0b4a5256ea4771d45563",
     "rebuild-ovrlight": "8c9e27e3cc0013ebc9b2324b96270abbe57646d118c1309dd74a1f7d982a84b4",
     "rebuild-ownertalk": "bd7b249813a73aecfada59f646f97926c057c50cd228fb006cf37a3700d38670",
-    "rebuild-ownrdraw": "0e644bc0d8701d808f96ab112cd9b92a8acfccd5d63f91252cb8264891e3a09f",
+    "rebuild-ownrdraw": "8eab8622bff621c1f1c0aacaa70be8011750ee854f42fe7f41bfc48e022e25a8",
     "rebuild-packet": "f3317c513a29308a53943ff9df787b15971697e88b58a7fdae965f88dbcd591a",
     "rebuild-palette": "e635b88d79c305c56c7f452be79aad469e8c001966709c92040d086a809d2b3a",
     "rebuild-parasite": "f86cd4646651afef9d2c4c61e610ba83dcf39009e4a91985974ddfcd49fd6134",
@@ -5109,7 +5131,7 @@
     "rebuild-shastraw": "60ff6ca54a83fbcaad9078be4ab3dc3cd2c4491d334d361b70ae854cf5c9dccc",
     "rebuild-ship": "65614e74b2b99fcd5b0112eac3f031460ebd3fd51cd5790c251e793c92d93f97",
     "rebuild-side": "3e73ef9d7a4bc68f6cdb364f4976bdf3c1d3b3acbd274d4bf38125332429e903",
-    "rebuild-sidebar": "91d951c15f6709a65e1487d65cbc15d1ab3179adb91b9f84c4bcebee19d52a38",
+    "rebuild-sidebar": "d905fa5336b39b3d5c58eaf26f8aaf1015c5f6563eddd0a59c7428aa70c97da2",
     "rebuild-skirmish": "fd4aea65e1283945a14d9922a04c5cbb31256c539af0507082e01ca9ee973f86",
     "rebuild-slider": "c18f62ab11fb0a123adf02aee5c02bbb9a337912ad4dfa70d554f80104bb4607",
     "rebuild-smartdeform": "661a8c37c4d21379fa83c2fb6c5144495a86574767e22c7130fa6810694df987",
@@ -5120,7 +5142,7 @@
     "rebuild-special": "9bf9ecb5971a882993e83368384b2a2677c249925334b6397a979880210bcb9a",
     "rebuild-sprite": "be55bd1ac43feadfeb8a3b5d5fd8026329881c92769fc3f813e05fc93a14e7e3",
     "rebuild-srfcache": "940a951d49b05d541f95a6d618f350adbbb1adbf617085791a76693d0320b4df",
-    "rebuild-startup": "ea5eba0ceaac72626282155355e179a9a038ab42b6388d044d535873d92756a8",
+    "rebuild-startup": "56f6344374ff11d75cea8b5ede4e676bf80bf7521cf382b94a87a694d33ea903",
     "rebuild-statbtn": "96773107668b1bdb3523c670ceb302fd6baf477989cbd4692997cbeb0db0da32",
     "rebuild-stats": "61d4919a5a3f0fda16272a0b9311272875fdc7ce0728781c62a703241a969f58",
     "rebuild-stbuffer": "ab7b7a3b8ab495b70622b0334490df69411deebc9275993cf1d80632ac267922",

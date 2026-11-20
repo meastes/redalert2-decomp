@@ -61,3 +61,4 @@ extern DynamicVectorClass<MFCD *> MoviesMixLocal; // RA2: 0x008374A0, the furthe
 extern MFCD * GenericMix; // RA2: 0x008374C8, GENERIC.MIX, kept while a theater other than snow is loaded
 extern MFCD * IsoGenericMix; // RA2: 0x008374D0, ISOGEN.MIX
 extern MFCD * NeutralMix; // RA2: 0x008374F0, NEUTRAL.MIX
+extern MFCD * LanguageMix; // RA2: 0x008374BC, LANGUAGE.MIX, opened by WinMain

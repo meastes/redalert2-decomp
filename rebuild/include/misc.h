@@ -170,6 +170,13 @@ extern int __cdecl Confine_Rect ( int * x , int * y , int dw , int dh ,
 
 extern WORD OperationgSystem;
 
+
+/*=========================================================================*/
+/* RA2: sets the FPU control word the game runs with (WinMain, after _controlfp) */
+/*=========================================================================*/
+
+void __cdecl set_control_word(void); // RA2: 0x0077F0F4
+
 #ifdef __cplusplus
 }
 #endif

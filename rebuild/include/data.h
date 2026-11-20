@@ -49,5 +49,6 @@ char const * Fetch_String(int id);
 void const * Fetch_Resource(LPCSTR resname, LPCSTR restype);
 void * Hires_Load(char * name);
 
+extern HINSTANCE LanguageResources;
 bool Init_Language_Resources(bool show_error);
 void Get_Language_Version(char *version_string);

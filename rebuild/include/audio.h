@@ -70,3 +70,4 @@ int AudioDeviceAvailable(void); // RA2: whether the audio library opened a devic
 
 // Declarations moved from the units that used them (one declaration per name).
 extern int __fastcall Audio_Init(int enable); // RA2: 0x00406AD0 (audio.cpp)
+void Audio_Shutdown(void); // RA2: 0x00406C80

@@ -134001,14 +134001,7 @@
    "?Mouse_Leave@SelectClass@StripClass@SidebarClass@@UAEXXZ": "00681650",
    "?ButtonHelpBuffer@@3PAGA": "00ab9274"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "006809f0": {
-    "windows": "old palette.h (rebuild-trial 0311c0849) with plain probe declarations after Generate_Palette: +0 +1 exact, +2..+6 +8 +10 +12 off, +16 exact; rules r2178 palette.h: +0..+6 +8 +10 +12 off, +16 exact",
-    "header": "palette.h (rules r2178: SchemeLibrary_Add/SchemeLibrary_Free and the HSVClass forward declaration moved from rules.cpp)",
-    "note": "c2land probe 2026-11-19 (owner rule, DECISIONS third part): (a) displacing content is rules.cpp's own scheme-library prototypes moved to their header; (b)(i) sidebar.cpp uses neither function nor HSVClass; (ii) windows above on both header states; (c) the unchanged text is exact on the old header. Third count-sensitive parking of this row (R20 DoType, chunk 21 queue.h)."
-   }
-  }
+  "partial_ok": true
  },
  "event": {
   "core": [
@@ -147615,7 +147608,7 @@
     "entry": "0068db40",
     "body": 61,
     "padding": 3,
-    "symbol": "_$E326",
+    "symbol": "_$E352",
     "main_symbol": "_$E43",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147623,7 +147616,7 @@
     "entry": "0068db80",
     "body": 59,
     "padding": 5,
-    "symbol": "_$E324",
+    "symbol": "_$E350",
     "main_symbol": "_$E41",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147727,7 +147720,7 @@
     "entry": "00691450",
     "body": 136,
     "padding": 8,
-    "symbol": "?CreateInstance@IUnknownPtr@@QAEJABUGUID@@PAUIUnknown@@K@Z",
+    "symbol": "?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z",
     "main_symbol": "?CreateInstance@IUnknownPtr@@QAEJABUGUID@@PAUIUnknown@@K@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147743,7 +147736,7 @@
     "entry": "006914f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VCStreamClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VCStreamClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VCStreamClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147767,7 +147760,7 @@
     "entry": "006915b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VCStreamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VCStreamClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VCStreamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147791,7 +147784,7 @@
     "entry": "00691670",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VWaveClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VWaveClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VWaveClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147815,7 +147808,7 @@
     "entry": "00691730",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VWaveClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VWaveClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VWaveClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147839,7 +147832,7 @@
     "entry": "006917f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTerrainTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTerrainTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTerrainTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147863,7 +147856,7 @@
     "entry": "006918b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTerrainTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTerrainTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTerrainTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147887,7 +147880,7 @@
     "entry": "00691970",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTerrainClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTerrainClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTerrainClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147911,7 +147904,7 @@
     "entry": "00691a30",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VTerrainClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTerrainClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTerrainClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147935,7 +147928,7 @@
     "entry": "00691af0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147959,7 +147952,7 @@
     "entry": "00691bb0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VSuperWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -147983,7 +147976,7 @@
     "entry": "00691c70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VSuperClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VSuperClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VSuperClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148007,7 +148000,7 @@
     "entry": "00691d30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VSuperClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VSuperClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VSuperClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148031,7 +148024,7 @@
     "entry": "00691df0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTactical@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTactical@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTactical@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148055,7 +148048,7 @@
     "entry": "00691eb0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VTactical@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTactical@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTactical@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_Tactical/CreateInstance.cpp"
    },
@@ -148079,7 +148072,7 @@
     "entry": "00691f70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VCellClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VCellClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VCellClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148103,7 +148096,7 @@
     "entry": "00692030",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VCellClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VCellClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VCellClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148127,7 +148120,7 @@
     "entry": "006920f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VEMPulseClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VEMPulseClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VEMPulseClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148151,7 +148144,7 @@
     "entry": "006921b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VEMPulseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VEMPulseClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VEMPulseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148175,7 +148168,7 @@
     "entry": "00692270",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VLightSourceClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VLightSourceClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VLightSourceClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148199,7 +148192,7 @@
     "entry": "00692330",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VLightSourceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VLightSourceClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VLightSourceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148223,7 +148216,7 @@
     "entry": "006923f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VSideClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VSideClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VSideClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148247,7 +148240,7 @@
     "entry": "006924b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VSideClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VSideClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VSideClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148271,7 +148264,7 @@
     "entry": "00692570",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTiberiumClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTiberiumClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTiberiumClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148295,7 +148288,7 @@
     "entry": "00692630",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTiberiumClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTiberiumClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTiberiumClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148319,7 +148312,7 @@
     "entry": "006926f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTubeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTubeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTubeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148343,7 +148336,7 @@
     "entry": "006927b0",
     "body": 124,
     "padding": 4,
-    "symbol": "?CreateInstance@?$TClassFactory@VTubeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTubeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTubeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148367,7 +148360,7 @@
     "entry": "00692870",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VCampaignClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VCampaignClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VCampaignClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148391,7 +148384,7 @@
     "entry": "00692930",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VCampaignClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VCampaignClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VCampaignClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148415,7 +148408,7 @@
     "entry": "006929f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBuildingLightClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBuildingLightClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBuildingLightClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148439,7 +148432,7 @@
     "entry": "00692ab0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VBuildingLightClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBuildingLightClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBuildingLightClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148463,7 +148456,7 @@
     "entry": "00692b70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VWaypointPathClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VWaypointPathClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VWaypointPathClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148487,7 +148480,7 @@
     "entry": "00692c30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VWaypointPathClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VWaypointPathClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VWaypointPathClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148511,7 +148504,7 @@
     "entry": "00692cf0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTemporalClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTemporalClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTemporalClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148535,7 +148528,7 @@
     "entry": "00692db0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VTemporalClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTemporalClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTemporalClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148559,7 +148552,7 @@
     "entry": "00692e70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VSpawnManagerClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VSpawnManagerClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VSpawnManagerClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148583,7 +148576,7 @@
     "entry": "00692f30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VSpawnManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VSpawnManagerClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VSpawnManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148607,7 +148600,7 @@
     "entry": "00692ff0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VCaptureManagerClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VCaptureManagerClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VCaptureManagerClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148631,7 +148624,7 @@
     "entry": "006930b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VCaptureManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VCaptureManagerClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VCaptureManagerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148655,7 +148648,7 @@
     "entry": "00693170",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VParasiteClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VParasiteClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VParasiteClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148679,7 +148672,7 @@
     "entry": "00693230",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VParasiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VParasiteClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VParasiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148703,7 +148696,7 @@
     "entry": "006932f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBombClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBombClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBombClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148727,7 +148720,7 @@
     "entry": "006933b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VBombClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBombClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBombClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_BombClass/CreateInstance.cpp"
    },
@@ -148751,7 +148744,7 @@
     "entry": "00693470",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VRadSiteClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VRadSiteClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VRadSiteClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148775,7 +148768,7 @@
     "entry": "00693530",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VRadSiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VRadSiteClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VRadSiteClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148799,7 +148792,7 @@
     "entry": "006935f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTEventClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTEventClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTEventClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148823,7 +148816,7 @@
     "entry": "006936b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VTEventClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTEventClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTEventClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TEventClass/CreateInstance.cpp"
    },
@@ -148847,7 +148840,7 @@
     "entry": "00693770",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148871,7 +148864,7 @@
     "entry": "00693830",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148895,7 +148888,7 @@
     "entry": "006938f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VVoxelAnimClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148919,7 +148912,7 @@
     "entry": "006939b0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VVoxelAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148943,7 +148936,7 @@
     "entry": "00693a70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTActionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTActionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTActionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -148967,7 +148960,7 @@
     "entry": "00693b30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VTActionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTActionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTActionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TActionClass/CreateInstance.cpp"
    },
@@ -148991,7 +148984,7 @@
     "entry": "00693bf0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTriggerClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTriggerClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTriggerClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149015,7 +149008,7 @@
     "entry": "00693cb0",
     "body": 116,
     "padding": 12,
-    "symbol": "?CreateInstance@?$TClassFactory@VTriggerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTriggerClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTriggerClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TriggerClass/CreateInstance.cpp"
    },
@@ -149039,7 +149032,7 @@
     "entry": "00693d70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTriggerTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149063,7 +149056,7 @@
     "entry": "00693e30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTriggerTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TriggerTypeClass/CreateInstance.cpp"
    },
@@ -149087,7 +149080,7 @@
     "entry": "00693ef0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VScriptClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VScriptClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VScriptClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149111,7 +149104,7 @@
     "entry": "00693fb0",
     "body": 116,
     "padding": 12,
-    "symbol": "?CreateInstance@?$TClassFactory@VScriptClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VScriptClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VScriptClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149135,7 +149128,7 @@
     "entry": "00694070",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VScriptTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VScriptTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VScriptTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149159,7 +149152,7 @@
     "entry": "00694130",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VScriptTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VScriptTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VScriptTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149183,7 +149176,7 @@
     "entry": "006941f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTagClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTagClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTagClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149207,7 +149200,7 @@
     "entry": "006942b0",
     "body": 116,
     "padding": 12,
-    "symbol": "?CreateInstance@?$TClassFactory@VTagClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTagClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTagClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TagClass/CreateInstance.cpp"
    },
@@ -149231,7 +149224,7 @@
     "entry": "00694370",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTagTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTagTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTagTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149255,7 +149248,7 @@
     "entry": "00694430",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTagTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTagTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTagTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_TagTypeClass/CreateInstance.cpp"
    },
@@ -149279,7 +149272,7 @@
     "entry": "006944f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTeamClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTeamClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTeamClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149303,7 +149296,7 @@
     "entry": "006945b0",
     "body": 123,
     "padding": 5,
-    "symbol": "?CreateInstance@?$TClassFactory@VTeamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTeamClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTeamClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149327,7 +149320,7 @@
     "entry": "00694670",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTeamTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTeamTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTeamTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149351,7 +149344,7 @@
     "entry": "00694730",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTeamTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTeamTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTeamTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149375,7 +149368,7 @@
     "entry": "006947f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTaskForceClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTaskForceClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTaskForceClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149399,7 +149392,7 @@
     "entry": "006948b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VTaskForceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTaskForceClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTaskForceClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149423,7 +149416,7 @@
     "entry": "00694970",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VUnitTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VUnitTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VUnitTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149447,7 +149440,7 @@
     "entry": "00694a30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VUnitTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VUnitTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VUnitTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_UnitTypeClass/CreateInstance.cpp"
    },
@@ -149471,7 +149464,7 @@
     "entry": "00694af0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBuildingTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBuildingTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBuildingTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149495,7 +149488,7 @@
     "entry": "00694bb0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VBuildingTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBuildingTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBuildingTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_BuildingTypeClass/CreateInstance.cpp"
    },
@@ -149519,7 +149512,7 @@
     "entry": "00694c70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAircraftTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAircraftTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAircraftTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149543,7 +149536,7 @@
     "entry": "00694d30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VAircraftTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAircraftTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAircraftTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149567,7 +149560,7 @@
     "entry": "00694df0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VInfantryTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VInfantryTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VInfantryTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149591,7 +149584,7 @@
     "entry": "00694eb0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VInfantryTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VInfantryTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VInfantryTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149615,7 +149608,7 @@
     "entry": "00694f70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBulletTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBulletTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBulletTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149639,7 +149632,7 @@
     "entry": "00695030",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VBulletTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBulletTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBulletTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_BulletTypeClass/CreateInstance.cpp"
    },
@@ -149663,7 +149656,7 @@
     "entry": "006950f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149687,7 +149680,7 @@
     "entry": "006951b0",
     "body": 127,
     "padding": 1,
-    "symbol": "?CreateInstance@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VIsometricTileTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149711,7 +149704,7 @@
     "entry": "00695270",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VOverlayTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VOverlayTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VOverlayTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149735,7 +149728,7 @@
     "entry": "00695330",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VOverlayTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VOverlayTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VOverlayTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149759,7 +149752,7 @@
     "entry": "006953f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VSmudgeTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VSmudgeTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VSmudgeTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149783,7 +149776,7 @@
     "entry": "006954b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VSmudgeTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VSmudgeTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VSmudgeTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149807,7 +149800,7 @@
     "entry": "00695570",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VUnitClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VUnitClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VUnitClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149831,7 +149824,7 @@
     "entry": "00695630",
     "body": 121,
     "padding": 7,
-    "symbol": "?CreateInstance@?$TClassFactory@VUnitClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VUnitClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VUnitClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_UnitClass/CreateInstance.cpp"
    },
@@ -149855,7 +149848,7 @@
     "entry": "006956f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBuildingClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBuildingClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBuildingClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149879,7 +149872,7 @@
     "entry": "006957b0",
     "body": 121,
     "padding": 7,
-    "symbol": "?CreateInstance@?$TClassFactory@VBuildingClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBuildingClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBuildingClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149903,7 +149896,7 @@
     "entry": "00695870",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAircraftClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAircraftClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAircraftClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149927,7 +149920,7 @@
     "entry": "00695930",
     "body": 121,
     "padding": 7,
-    "symbol": "?CreateInstance@?$TClassFactory@VAircraftClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAircraftClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAircraftClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149951,7 +149944,7 @@
     "entry": "006959f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VInfantryClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VInfantryClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VInfantryClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149975,7 +149968,7 @@
     "entry": "00695ab0",
     "body": 121,
     "padding": 7,
-    "symbol": "?CreateInstance@?$TClassFactory@VInfantryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VInfantryClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VInfantryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -149999,7 +149992,7 @@
     "entry": "00695b70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAnimClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAnimClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAnimClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150023,7 +150016,7 @@
     "entry": "00695c30",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAnimClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAnimClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150047,7 +150040,7 @@
     "entry": "00695cf0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAnimTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAnimTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150071,7 +150064,7 @@
     "entry": "00695db0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAnimTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAnimTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150095,7 +150088,7 @@
     "entry": "00695e70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VHouseTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VHouseTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VHouseTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150119,7 +150112,7 @@
     "entry": "00695f30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VHouseTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VHouseTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VHouseTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_HouseTypeClass/CreateInstance.cpp"
    },
@@ -150143,7 +150136,7 @@
     "entry": "00695ff0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VHouseClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VHouseClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VHouseClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150167,7 +150160,7 @@
     "entry": "006960b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VHouseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VHouseClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VHouseClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_HouseClass/CreateInstance.cpp"
    },
@@ -150191,7 +150184,7 @@
     "entry": "00696170",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VDriveLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VDriveLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VDriveLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150215,7 +150208,7 @@
     "entry": "00696230",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VDriveLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VDriveLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VDriveLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150239,7 +150232,7 @@
     "entry": "006962f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150263,7 +150256,7 @@
     "entry": "006963b0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VJumpjetLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150287,7 +150280,7 @@
     "entry": "00696470",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VHoverLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VHoverLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VHoverLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150311,7 +150304,7 @@
     "entry": "00696530",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VHoverLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VHoverLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VHoverLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150335,7 +150328,7 @@
     "entry": "006965f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VRocketLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VRocketLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VRocketLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150359,7 +150352,7 @@
     "entry": "006966b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VRocketLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VRocketLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VRocketLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150383,7 +150376,7 @@
     "entry": "00696770",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150407,7 +150400,7 @@
     "entry": "00696830",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTunnelLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150431,7 +150424,7 @@
     "entry": "006968f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VWalkLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VWalkLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VWalkLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150455,7 +150448,7 @@
     "entry": "006969b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VWalkLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VWalkLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VWalkLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150479,7 +150472,7 @@
     "entry": "00696a70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150503,7 +150496,7 @@
     "entry": "00696b30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VDropPodLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150527,7 +150520,7 @@
     "entry": "00696bf0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VFlyLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VFlyLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VFlyLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150551,7 +150544,7 @@
     "entry": "00696cb0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VFlyLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VFlyLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VFlyLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150575,7 +150568,7 @@
     "entry": "00696d70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150599,7 +150592,7 @@
     "entry": "00696e30",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VTeleportLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150623,7 +150616,7 @@
     "entry": "00696ef0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VMechLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VMechLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VMechLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150647,7 +150640,7 @@
     "entry": "00696fb0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VMechLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VMechLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VMechLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150671,7 +150664,7 @@
     "entry": "00697070",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VShipLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VShipLocomotionClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VShipLocomotionClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150695,7 +150688,7 @@
     "entry": "00697130",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VShipLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VShipLocomotionClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VShipLocomotionClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150719,7 +150712,7 @@
     "entry": "006971f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VBulletClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VBulletClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VBulletClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150743,7 +150736,7 @@
     "entry": "006972b0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VBulletClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VBulletClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VBulletClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150767,7 +150760,7 @@
     "entry": "00697370",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VFactoryClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VFactoryClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VFactoryClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150791,7 +150784,7 @@
     "entry": "00697430",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VFactoryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VFactoryClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VFactoryClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150815,7 +150808,7 @@
     "entry": "006974f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VWarheadTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VWarheadTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VWarheadTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150839,7 +150832,7 @@
     "entry": "006975b0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VWarheadTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VWarheadTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VWarheadTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_WarheadTypeClass/CreateInstance.cpp"
    },
@@ -150863,7 +150856,7 @@
     "entry": "00697670",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VWeaponTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VWeaponTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150887,7 +150880,7 @@
     "entry": "00697730",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VWeaponTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VWeaponTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/classes/TClassFactory_WeaponTypeClass/CreateInstance.cpp"
    },
@@ -150911,7 +150904,7 @@
     "entry": "006977f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VParticleClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VParticleClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VParticleClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150935,7 +150928,7 @@
     "entry": "006978b0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VParticleClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VParticleClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VParticleClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150959,7 +150952,7 @@
     "entry": "00697970",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VParticleTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VParticleTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VParticleTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -150983,7 +150976,7 @@
     "entry": "00697a30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VParticleTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VParticleTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VParticleTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151007,7 +151000,7 @@
     "entry": "00697af0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VParticleSystemClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VParticleSystemClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VParticleSystemClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151031,7 +151024,7 @@
     "entry": "00697bb0",
     "body": 117,
     "padding": 11,
-    "symbol": "?CreateInstance@?$TClassFactory@VParticleSystemClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VParticleSystemClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VParticleSystemClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151055,7 +151048,7 @@
     "entry": "00697c70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151079,7 +151072,7 @@
     "entry": "00697d30",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VParticleSystemTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151103,7 +151096,7 @@
     "entry": "00697df0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAITriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAITriggerTypeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAITriggerTypeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151127,7 +151120,7 @@
     "entry": "00697eb0",
     "body": 119,
     "padding": 9,
-    "symbol": "?CreateInstance@?$TClassFactory@VAITriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAITriggerTypeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAITriggerTypeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151151,7 +151144,7 @@
     "entry": "00697f70",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VNeuronClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VNeuronClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VNeuronClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151175,7 +151168,7 @@
     "entry": "00698030",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VNeuronClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151199,7 +151192,7 @@
     "entry": "006980f0",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VFoggedObjectClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VFoggedObjectClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VFoggedObjectClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151223,7 +151216,7 @@
     "entry": "006981b0",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VFoggedObjectClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151247,7 +151240,7 @@
     "entry": "00698270",
     "body": 101,
     "padding": 11,
-    "symbol": "?QueryInterface@?$TClassFactory@VAlphaShapeClass@@@@UAGJABUGUID@@PAPAX@Z",
+    "symbol": "?QueryInterface@?$TClassFactory@VAlphaShapeClass@@@@UAGJABU_GUID@@PAPAX@Z",
     "main_symbol": "?QueryInterface@?$TClassFactory@VAlphaShapeClass@@@@UAGJABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151271,7 +151264,7 @@
     "entry": "00698330",
     "body": 114,
     "padding": 14,
-    "symbol": "?CreateInstance@?$TClassFactory@VAlphaShapeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
+    "symbol": "?CreateInstance@?$TClassFactory@VAlphaShapeClass@@@@UAGJPAUIUnknown@@ABU_GUID@@PAPAX@Z",
     "main_symbol": "?CreateInstance@?$TClassFactory@VAlphaShapeClass@@@@UAGJPAUIUnknown@@ABUGUID@@PAPAX@Z",
     "main_source": "src/recovered/startup.cpp"
    },
@@ -151287,7 +151280,7 @@
     "entry": "006983e0",
     "body": 13,
     "padding": 3,
-    "symbol": "??1IUnknownPtr@@QAE@XZ",
+    "symbol": "?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ",
     "main_symbol": "??1IUnknownPtr@@QAE@XZ",
     "main_source": "src/recovered/classes/IUnknownPtr/Destructor.cpp"
    },
@@ -151389,7 +151382,6 @@
    "_RAD_60": "00abd418",
    "_RAD_90": "00abd3f0",
    "_RECT_NONE": "00abd3f8",
-   "_$E324": "0068db80",
    "?Clear@?$DynamicVectorClass@K@@UAEXXZ": "006913f0",
    "?ID@?$DynamicVectorClass@K@@UAEHPBK@Z": "00691420",
    "?GetItem@?$VectorClass@K@@UBEKH@Z": "00691440",
@@ -151399,9 +151391,32 @@
    "?Resize@?$VectorClass@K@@UAE_NHPBK@Z": "00698430",
    "?Clear@?$VectorClass@K@@UAEXXZ": "006984e0",
    "?ID@?$VectorClass@K@@UAEHABK@Z": "00698510",
-   "?ID@?$VectorClass@K@@UAEHPBK@Z": "00698550"
+   "?ID@?$VectorClass@K@@UAEHPBK@Z": "00698550",
+   "_IID_IUnknown": "007afce0",
+   "_$E350": "0068db80",
+   "?AppMutex@@3PAXA": "00abd47c",
+   "?AutoPlayMutex@@3PAXA": "00abd480",
+   "?dwRegisterTiberianSun@@3KA": "00abd484",
+   "?VideoBackBufferAllowed@@3_NA": "007f4cc4",
+   "?EndGameGraphicsPalette@@3PAXA": "00a41670",
+   "?CameoDrawer@@3PAVConvertClass@@A": "008323b0",
+   "?PreviewSurface@@3PAVSurface@@A": "00839968",
+   "?Scores01Mix@@3PAVMixFileClass@@A": "008374d8",
+   "?Sounds01Mix@@3PAVMixFileClass@@A": "008374fc",
+   "?LanguageMix@@3PAVMixFileClass@@A": "008374bc",
+   "?UnkBuffer@@3PAVBuffer@@A": "00a35e20",
+   "$T131522": "007ab990",
+   "__controlfp": "00785049",
+   "_set_control_word": "0077f0f4",
+   "_RegisterTheseDLLs": "007ab988",
+   "?Keys@@3QBDB": "0079aa70",
+   "??_C@_0NK@BKGB@Unable?5to?5initialize?5?8ra2?4csf?8?0?5@": "007f4ea8",
+   "?Mono_Window_Init@@YIXPAUHINSTANCE__@@PAUHWND__@@_N@Z": "0059d780",
+   "?Init_Direct3D@@YAJXZ": "004b1340",
+   "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ": "004ff2d0",
+   "?NoExceptionHandler@@3_NA": "00a4168c",
+   "?Mono_Window_Shutdown@@YIXXZ": "0059d900"
   },
-  "holder": "codex2",
   "partial_ok": true,
   "parked_rows": [
    {
@@ -158661,7 +158676,14 @@
    "?Window_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73400",
    "_$E163": "005dea60"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "005e5150": {
+    "windows": "plain probe declarations at the end of data.h on lane B3's headers: +0..+5 both off; +6 +8 Trackbar_Proc exact, Slide_Dialog off; +12 both exact; +16 Slide_Dialog exact, Trackbar_Proc off. On the old headers (rebuild-trial 508acfa81) both exact; any one of the seven headers below gaining its declaration alone flips Trackbar_Proc",
+    "header": "_mixfile.h (LanguageMix), data.h (LanguageResources), globals.h (Init_Direct3D), misc.h (set_control_word), init.h (Get_Performance_Profile), stringtable.h (Message_Box_Wide), txtlabel2.h (Free_All_Art), ownrdraw.h (OwnerDraw::Shutdown): lane B3, the declarations RA2's WinMain and Prog_End need",
+    "note": "lane B3 2026-11-20 under the owner rule (evidenced content is never held back for a count-sensitive row; precedents sidebar 006809f0, queue 0062a360): (b)(i) neither function uses the new declarations; (ii) windows above; (c) the unchanged text is exact on the old headers"
+   }
+  }
  },
  "mpobserver": {
   "core": [

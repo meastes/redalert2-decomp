@@ -86,6 +86,7 @@ DynamicVectorClass<ColorScheme *> * __fastcall Generate_Palette(char const * nam
 
 class HSVClass;
 void __fastcall SchemeLibrary_Add(char const * name, HSVClass const & color); // RA2: records a colour scheme in the scheme library, 0x603A60 (YR: SchemeLibrary_Add)
+void SchemeLibrary_Destroy(void); // RA2: 0x00603FA0, deletes the library
 void SchemeLibrary_Free(void); // RA2: empties the scheme library, 0x603950 (YR: SchemeLibrary_Free)
 
 int Palette_Scheme_Count(void); // RA2: 0x00603D50, how many palettes have a scheme list

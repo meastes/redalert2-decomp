@@ -330,6 +330,7 @@ extern bool TacticalActive;
 struct IDirect3DDevice2;
 extern bool UseDirect3D; // RA2: a Direct3D device is in use
 extern IDirect3DDevice2 * Direct3DDevice; // RA2
+long __cdecl Init_Direct3D(void); // RA2: 0x004B1340, creates the Direct3D device and viewport
 void Release_Direct3D(void); // RA2: releases the viewport and the device that Init_Direct3D (0x004B1340) created, at 0x004B1470
 
 extern CDTimerClass<FrameTimerClass> TournamentTimer;

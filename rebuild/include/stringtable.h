@@ -96,3 +96,5 @@ class StringTable
 		static void Reverse_String(char * start, char * end); // RA2: 0x6F9D50, reverses the characters from start to end in place
 		static void Unload(void); // RA2: 0x6F9D90, frees every table and every made-up text
 };
+
+int __fastcall Message_Box_Wide(HWND window, wchar_t const * text, wchar_t const * caption, unsigned int type); // RA2: 0x006FA040, MessageBoxA for wide text

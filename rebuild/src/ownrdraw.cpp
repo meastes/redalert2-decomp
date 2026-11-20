@@ -2805,6 +2805,7 @@ inline int __cdecl Last_Step(int const *order, int pieces) // RA2: as above
     return steps; // RA2: as above
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
 {
     WinData *record = Get_Record(dialog); // RA2: as above
@@ -2999,6 +3000,7 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
         SendMessageA(dialog, 0x4ed, 0, 0); // RA2: as above
     }
 }
+#endif
 
 }
 

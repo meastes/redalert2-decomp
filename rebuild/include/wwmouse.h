@@ -232,3 +232,5 @@ class WWMouseClass : public Mouse {
 };
 
 void Process_Mouse_Unthreaded(void); // RA2: 0x007717C0, processes the mouse outside its thread (the audio service calls it)
+void Start_Mouse_Thread(void); // RA2: 0x007717E0
+void Kill_Mouse_Thread(void); // RA2: 0x007719A0
