@@ -2296,9 +2296,9 @@
    "notes": "Scout1161 M20 play-stability sweep trap",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot (GetDisguiseHouse) default slot inherited by AircraftClass, AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass, BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "as ObjectClass::GetDisguise (0x0041B2D0): game.exe calls slot 51 (+0xCC) on objects at 20 sites (the other +0xCC call is ColorListClass's), InfantryClass (0x00509270) and UnitClass (0x00709BF0) override it, 18 are on an infantry or unit itself or guarded on the same object by IsDisguised/IsDisguisedAs/IsClearlyVisibleTo (ObjectClass::CanBeSelected, TechnoClass::Clicked_As_Target, Per_Cell_Process, What_Action, Detach, GetRemapColour, Techno_Draw_Object, CanDisguiseAs, RadarClass::Plot_Radar_Pixel and Render_Tracked_Objects, the aircraft/infantry/unit What_Action and DisguiseAs), which need +0x170 and no aircraft or building is ever disguised; the other two, trigger event 0x35 (0x006E62C8, 0x006E62DC), get the object of an event sprung only by FootClass::Per_Cell_Process 0x004C75D6 on an InfantryClass",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00542590",
@@ -2458,9 +2458,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot (GetDisguise) default slot inherited by AircraftClass, BuildingClass, AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 50 (+0xC8) on objects at 16 sites (the other three +0xC8 calls are on RadarClass, ListClass and a Westwood Online helper); InfantryClass (0x00509200) and UnitClass (0x00709BB0) override it. 15 are on an infantry or unit itself or guarded on the same object by slot 48 IsDisguised, slot 49 IsDisguisedAs or TechnoClass slot 245 IsClearlyVisibleTo (0x006D8CE0), which is false only while IsDisguised (+0x170) is set: AircraftClass/InfantryClass/UnitClass::What_Action, FootClass::Get_Image_Data, TechnoClass::GetRemapColour, Techno_Draw_Object, CanDisguiseAs, Infantry/UnitClass::DisguiseAs, the Shape_Number/Draw_It/Blit_Voxel/Full_Name members on themselves. +0x170 is set on a techno only by TechnoClass::Init 0x006C1E47 (a type with CanDisguise and PermaDisguise: SPY only), TechnoClass::DisguiseAs 0x006D8688 (slot 255, called only by BulletClass::Detonate 0x00462535 on the firer of a MakesDisguise warhead: Snapshot/TankSnapshot, fired only by SPY's MakeupKit; MGTK's TankMakeupKit is commented out), and the infantry/unit members; no map sets CanDisguise, PermaDisguise or MakesDisguise, so no aircraft or building is disguised. The 16th, trigger event 0x36 (TEventClass::operator() 0x006E632A, no guard), gets the object TagClass::Spring passes through, and event 0x36 is sprung only by FootClass::Per_Cell_Process 0x004C75F6 with the object an InfantryClass (What_Am_I 0xF checked at 0x004C75A6); every other Spring call passes another event as an immediate; no jmp through the slot, no direct call",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00423D40",
@@ -2668,9 +2668,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot (Exit_Object) default slot inherited by InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 62 Exit_Object (+0xF8) on technos at 10 sites (the other +0xF8 calls are the Westwood Online page dialogs); AircraftClass and BuildingClass override it and infantry and units keep the default. Every receiver is a building or the aircraft itself: AircraftClass::Do_MISSION_UNLOAD on itself, BuildingClass::Exit_Object on the house's Buildings and CloningVats, Do_MISSION_REPAIR, Factory_AI and Exit_New_Object on themselves, HouseClass::Unknown_004E6950 on Who_Can_Build_Me's building, Do_Reinforcements on the cell's building; no jmp through the slot, no direct call",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00453BA0",
@@ -2681,11 +2681,11 @@
    "file": "native/link/behaviour_m22_object.cpp",
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
-   "behaviour_verdict": "same",
+   "behaviour_verdict": "same (the original is xor al,al; ret: false; reached in n17-factory)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 189 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n17-factory: a war factory spawned for the player and selected, Alt (Options' KeyForceMove1, VK_MENU, 0x00A40BA4) held with the mouse over open ground and over a tank: BuildingClass::What_Action (cell 0x00443BA0, object slot 28 0x004438A0) asks TechnoClass::Is_In_Same_Zone (slot 171, 0x006D32E0, kept by BuildingClass) on the factory, which calls slot 189 at 0x006D339D (the building's MovementZone is 0, not -1); the same run without Alt (n17-noalt, not kept) did not reach it. The other 13 calls are on foot objects (A* Find_Path, FootClass::Is_In_Same_Zone, the infantry/unit Can_Enter_Cell and Movement_AI, the Mech and Walk locomotors' LinkedTo), which override it (0x004C8CA0)",
+   "reach_checked_by": "N17 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n17-factory and report; the call sites read in game.exe"
   },
   {
    "entry": "0x00453BB0",
@@ -2713,9 +2713,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 195 (IsPowerOnline) default slot inherited by AircraftClass, InfantryClass, UnitClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 195 (+0x30C) at 19 sites; BuildingClass overrides it (0x00450360) and the default is kept by aircraft, infantry and units. 17 are on buildings: BuildingClass members on themselves (AI, Can_Fire, Assign_Target, Captured, Do_MISSION_UNLOAD, Update_Power_State, Cloaking_AI, Produce_Cash, slots 288/290, Toggle_Laser_Fence_Post on itself and on the post Find_Laser_Fence_Post returns), the psychic detector checks over the house's PsychicDetectionBuildings (0x00438750, 0x00438AB6) and BuildingLightClass::Draw_It/AI on an owner checked to be a building (What_Am_I 6). The 19th, TechnoClass slot 235 0x006C8413 (the gap generator's shroud update), runs on buildings (BuildingClass callers) and from DisplayClass::Reveal_Technos 0x0049DFE6 only for a type with GapGenerator=yes, which rules.ini gives only GAGAP and no map sets; no jmp through the slot, no direct call",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00453BC0",
@@ -2728,9 +2728,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 202 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 202 (+0x328) at 17 sites; the foot classes override it (0x004CD080) and only BuildingClass keeps the default. 12 are on foot objects (the Drive, Fly, Hover, Mech, Ship, Teleport and Tunnel locomotors' LinkedTo; TechnoClass::Cloaking_AI and Can_Player_Move, which BuildingClass overrides and never calls). A building reaches TechnoClass::Should_Uncloak (from BuildingClass::Should_Uncloak 0x00452A99) and TechnoClass::Can_Fire (from BuildingClass::Can_Fire 0x0044442E): Should_Uncloak calls the slot (0x006C8F20) only with +0x32A set (Is_Allowed_To_Recloak), which a building gets only from the Cloak crate (CellClass::Goodie_Check 0x00477C10, over the technos near it): Cloak=0 in [Powerups] (rules.ini and both maps that override it) and no map's create-crate action (108) asks for crate 3, Cloak; Can_Fire calls it (0x006C9451) for a weapon with a Temporal warhead (ChronoBeam: CLEG's NeutronRifle, FV's CRNeutronRifle) and (0x006C9A26) for an Organic type (SQD, DLPH; infantry by default), never a building's; no jmp through the slot, no direct call",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x0041B3D0",
@@ -2758,9 +2758,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass slot 224 default slot inherited by BuildingClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 224 (+0x380) at 8 sites, the foot classes override it (0x004CD4B0) and only BuildingClass keeps the default: AircraftClass::Take_Damage and Enter_Idle_Mode, InfantryClass and UnitClass::Take_Damage on themselves, KamikazeClass::Add on its aircraft, the Jumpjet locomotor's LinkedTo, and EMPulseClass::Create 0x004B4F0E, which never runs (no EM pulse is ever made: EMPulseClass rows); no jmp through the slot, no direct call",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and manifests/function_map.csv, the shipped rules.ini, and the map text in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x0041B400",
@@ -2887,9 +2887,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "DisplayClass slot 43 default slot inherited by MouseClass (the Map object); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "no class of the Map's chain (GScreen/Display/Radar/Power/Tab/Sidebar/Scroll/MouseClass, slot 43 at +0xAC) overrides it, and nothing calls it: no direct call or jump to 0x0040D120 (the global Map's own calls compile direct, MSVC knowing its type), and none of the 52 calls through +0xAC in game.exe has the Map (0x008324E0) or a Map class's `this` as its receiver: they are in Aircraft/Building/Infantry/Techno members (AbstractClass slot 43 on technos), the type classes' cost members, the dropship loadout, ListClass/SliderClass/DropListClass gadgets, particle systems, waves, bolts, the starting-unit code, a locomotor COM interface and the Westwood Online dialogs (the receiver's setup read at each site)",
+   "reach_checked_by": "N17 2026-11-19: static check of game.exe (call/jmp [reg+0xAC] instructions with the receiver's setup read at each site, .rdata vtable entries; scratch scripts) with manifests/function_map.csv and manifests/rtti_classes.json"
   },
   {
    "entry": "0x00681940",

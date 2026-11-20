@@ -337,6 +337,22 @@ platform layer. It earns no exact-match credit.
   needs a falling bullet, tree or wave, and nothing sets IsFalling on one; 111's one non-techno call is the select answer
   for a tree under the mouse, behind CanBeSelected, which no terrain type has (rules.ini sets Selectable= on 58
   sections, none a terrain type). 48 remain reviewed.
+  Lane N17 (2026-11-19): `n17-factory` (a war factory spawned for the player and selected, Alt held over open ground
+  and over a tank: BuildingClass::What_Action asks TechnoClass::Is_In_Same_Zone on the factory, which asks TechnoClass slot
+  189, the default BuildingClass keeps; the same run without Alt did not reach it; the default returns false, as the
+  original) reached one, and six were shown not to run with the shipped rules and maps, each call site's receiver read in
+  game.exe and the map text of maps01.mix, maps02.mix, multi.mix and the installed .mmx maps searched: ObjectClass slots 50
+  and 51 (GetDisguise, GetDisguiseHouse; every call is on an infantry or unit, which override them, or behind a disguise
+  check, and only the spy is ever disguised; trigger events 0x35/0x36, whose checks call them unguarded, are sprung only by
+  FootClass::Per_Cell_Process with an infantry as the object), TechnoClass slot 62 Exit_Object (every receiver a building
+  or the aircraft itself), 195 (IsPowerOnline; the one call not on a building is the gap generator's update, GapGenerator=
+  only on GAGAP), 202 (a building reaches it only when cloakable, which only the Cloak crate makes it: weight 0 everywhere and
+  no map's create-crate action asks for it; or with a Temporal weapon or an Organic type, never a building's) and 224 (all
+  on foot objects, or the EM pulse, which nothing makes), and DisplayClass slot 43 has no caller (no Map class overrides it;
+  none of the 52 calls through +0xAC is on the Map; the global Map's own calls would be direct, and there are none).
+  40 remain reviewed. Side note for the exact tree's owner:
+  src/shared/keyboard.hpp calls 0x00A40BA4/0x00A40BA8 unknown_key and 0x00A40BB4/0x00A40BB8 KeyForceMove, but they are
+  Options' KeyForceMove1/2 (VK_MENU) and KeySelect1/2 (VK_SHIFT) (Options at 0x00A40B18, options.cpp's constructor).
 - Data read from game.exe by size (lane N14, the Red Alert 2 side of lane N13's check): every stored scalar array's
   extent against its declaration found one short, the campaign score screen's control table
   (`unknown_score_controls_7d1484[8][6]`, 192 bytes stored as 32: the generator counted the first dimension only), so

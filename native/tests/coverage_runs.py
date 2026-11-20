@@ -198,6 +198,16 @@ SCENARIOS = [
         '80 click @MTNK', '100 move @terrain', '104 move @terrain', '108 move @terrain',
         '260 move @terrain=mine', '264 move @terrain=mine', '268 move @terrain=mine',
     ]),
+    # Lane N17: a war factory spawned for the player and selected, Alt (Options' KeyForceMove, VK_MENU) held with the
+    # mouse over open ground and then over the player's tank: BuildingClass::What_Action (the cell's, 0x00443BA0, and
+    # the object's, slot 28 0x004438A0) asks TechnoClass::Is_In_Same_Zone on the factory, which asks the factory's
+    # TechnoClass slot 189 (0x00453BA0, the default BuildingClass keeps).
+    dict(name='n17-factory', args=['--skirmish=#5', '--skirmish-frames=500', '--skirmish-order=both', '--run-to=frames',
+                                   '--run-seconds=200', NOAUDIO],
+         env=dict(RA2_NATIVE_INPUT_LOG='10', RA2_NATIVE_ORDERS='84 spawn GAWEAP 7 4'), seconds=260, script=[
+        '120 click @GAWEAP', '130 keydown Left_Option', '133 move @GAWEAP+5,0', '137 move @GAWEAP+6,1',
+        '141 move @GAWEAP+6,2', '145 move @MTNK', '149 move @MTNK', '153 keyup Left_Option',
+    ]),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
