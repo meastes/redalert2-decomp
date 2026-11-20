@@ -3310,7 +3310,7 @@ static inline Coord Crate_Sound_Coord(CellClass const & cell)
  *   06/17/1996 JLB : Revamped for Red Alert                                                   *
  *=============================================================================================*/
 
-#ifdef RA2_NON_MATCHING // not exact: 6238 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact when AbstractClass::Is_Techno is the class's inline member (ra2-decomp's abstract.h; the executable has one out-of-line copy and one call of it); with that header two count-sensitive rows flip (queue Print_CRCs, mapgen Create_Urban_Area) and the copy 0x6F8A70 waits for its caller in uicmnds, so the header change is the owner's ruling
 bool CellClass::Goodie_Check(FootClass * object)
 {
 	if (object != NULL && Overlay != OVERLAY_NONE && OverlayTypes[Overlay]->IsCrate) {
@@ -3483,7 +3483,7 @@ bool CellClass::Goodie_Check(FootClass * object)
 			*/
 			case CRATE_DARKNESS:
 				DebugString("Crate at %d,%d contains 'shroud'\n", CellID.X, CellID.Y);
-				Map.Shroud_The_Map(); // RA2: no House (not in RA2's layout)
+				if (object->House->Is_Player_Control()) Map.Spy_Satellite_Hide(); // RA2: the player's own crate only, through the map's shroud-all routine (0x559F10)
 				break;
 
 			/*
@@ -3491,8 +3491,10 @@ bool CellClass::Goodie_Check(FootClass * object)
 			*/
 			case CRATE_REVEAL:
 				DebugString("Crate at %d,%d contains 'reveal'\n", CellID.X, CellID.Y);
-				Map.Reveal_The_Map(); // RA2: no House, IsVisionary, Map (not in RA2's layout)
-				VocClass::PlayAt(Rule->CrateRevealSound, Crate_Sound_Coord(*this)); // RA2: as above
+				if (object->House->Is_Player_Control()) { // RA2: as above (0x55A120); the sound is the player's too
+					Map.Spy_Satellite_Reveal();
+					VocClass::PlayAt(Rule->CrateRevealSound, Crate_Sound_Coord(*this)); // RA2: as above
+				}
 				break;
 
 			/*

@@ -1,8 +1,7 @@
 unit,entry,function,bytes,bucket,top_callee,direction,detail
 building,00445620,?Do_MISSION_GUARD@BuildingClass@@UAEHXZ,788,calls_differ,CounterClass::Value,,"orig-only 5, ours-only 5, unresolved 0"
 building,00445b30,?Do_MISSION_DECONSTRUCTION@BuildingClass@@UAEHXZ,3308,calls_differ,VocClass::UpdateAt,,"orig-only 10, ours-only 7, unresolved 5"
-building,00447260,?Do_MISSION_REPAIR@BuildingClass@@UAEHXZ,4503,calls_differ,CDTimerClass::??B,,"orig-only 2, ours-only 3, unresolved 0"
-cell,00476cc0,?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z,6672,calls_differ,Adjacent_Cell,,"orig-only 7, ours-only 9, unresolved 0"
+cell,00476cc0,?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z,6672,calls_differ,Adjacent_Cell,,"orig-only 3, ours-only 7, unresolved 0"
 fly,004be720,?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z,1633,calls_differ,DirType::Direction,,"orig-only 3, ours-only 2, unresolved 0"
 house,004e4110,?AI@HouseClass@@UAEXXZ,3544,calls_differ,HouseClass::Update_Spy_Satellite,,"orig-only 10, ours-only 6, unresolved 3"
 mapgen,0056e100,?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z,1678,calls_differ,TPoint2D::??H,,"orig-only 4, ours-only 2, unresolved 0"
@@ -10,7 +9,6 @@ particle,00608bb0,?Gas_Behavior_AI@ParticleClass@@QAEXXZ,1601,calls_differ,Coord
 planmgr,00618c00,?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z,2076,calls_differ,Tactical::Coord_To_Pixel,,"orig-only 11, ours-only 7, unresolved 0"
 planmgr,00619420,?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z,994,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 5, ours-only 6, unresolved 0"
 planmgr,00619870,?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z,852,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 3, ours-only 5, unresolved 0"
-saveload,006558b0,?Put_All@@YI_NPAUIStream@@H@Z,4055,calls_differ,DebugString,,"orig-only 1, ours-only 6, unresolved 0"
 sidebar,0067dc90,?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1315,calls_differ,LinkClass::Zap,,"orig-only 3, ours-only 9, unresolved 0"
 techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 46, ours-only 7, unresolved 3"
 unit,007053f0,?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,5651,calls_differ,_com_ptr_t::_AddRef,,"orig-only 8, ours-only 2, unresolved 1"
@@ -93,6 +91,7 @@ ownrdraw,006022a0,?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,156,exa
 ownrdraw,00602340,?keyHash@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEIABUMessageKey@OwnerDraw@@@Z,29,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,,exact with the guards open (the guard may protect another row)
+saveload,006558b0,?Put_All@@YI_NPAUIStream@@H@Z,4055,exact_when_open,,,exact with the guards open (the guard may protect another row)
 score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
 startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
 startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -132,10 +131,8 @@ map,00556520,?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z,1546,inline_body,,,
 map,00557090,?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z,1542,inline_body,,,instructions 436 vs original 431
 map,0055d640,?Pick_Random_Tile_Variant@MapClass@@QAE_NW4IsometricTileType@@HHHAA_N_N@Z,848,inline_body,,,instructions 258 vs original 257
 map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,inline_body,,,instructions 14 vs original 13
-queue,00628880,?Execute_DoList@@YIHHW4HousesType@@PAVConnManClass@@PAV?$CDTimerClass@VFrameTimerClass@@@@PAUFrameSyncStruct@@@Z,2454,inline_body,,,instructions 644 vs original 643
 team,006b7ad0,?AI@TeamClass@@UAEXXZ,3460,inline_body,,,instructions 1250 vs original 1249
 techno,006d24e0,?Techno_Render_Voxel_Object@TechnoClass@@QBE?AUSurfaceRegion@@ABUVoxelDataStruct@@ABVMatrix3D@@ABVPoint2D@@ABV?$TRect@H@@HW4ShapeFlags_Type@@H@Z,814,inline_body,,,instructions 253 vs original 238
-vqalib_drawer,00777c90,?Select_Frame@@YIJPAU_VQAHandleP@@@Z,921,inline_body,,,instructions 344 vs original 345
 wonline,00743720,?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z,2404,inline_body,,,instructions 728 vs original 726
 wonline,0074a710,?Wonline_Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,7899,inline_body,,,instructions 2464 vs original 2463
 blight,00433970,?AI@BuildingLightClass@@UAEXXZ,1818,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
@@ -163,7 +160,6 @@ planmgr,00618090,?Planning_Draw_Remembered@@YAXXZ,608,inline_call,PlanningNodeCl
 planmgr,006182f0,?Planning_Draw_Techno@@YIXPAVTechnoClass@@@Z,2230,inline_call,Coord::Coord,orig_calls,??0Coord@@QAE@HHH@Z
 reinf,00639970,?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z,1069,inline_call,Coord::Coord,orig_calls,??0Coord@@QAE@ABVCell@@H@Z
 rocket,0063de90,?Process@RocketLocomotionClass@@UAGEXZ,2368,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
-saveload,006554a0,?Save_Game@@YI_NPBDPBG_N@Z,1040,inline_call,_com_ptr_t::_Release,ours_calls,?_Release@?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ
 skirmish,006829f0,?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z,3264,inline_call,Skirmish_Is_Computer,orig_calls,?Skirmish_Is_Computer@@YIHPAUHWND__@@H@Z
 startup,0068e280,_WinMain@16,10076,inline_call,TClassFactory::TClassFactory,orig_calls,??0?$TClassFactory@VCStreamClass@@@@QAE@XZ
 strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,inline_call,CCFileClass::~CCFileClass,orig_calls,??1CCFileClass@@UAE@XZ

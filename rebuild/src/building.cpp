@@ -5896,25 +5896,19 @@ int BuildingClass::Do_MISSION_CAPTURE(void) // RA2: 0x447240; the base class beh
  *   06/25/1995 JLB : Handles repair facility                                                  *
  *   07/29/1995 JLB : Repair rate is controlled by power rating.                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4259 bytes differ (adopted text)
-int BuildingClass::Do_MISSION_REPAIR(void)
+int BuildingClass::Do_MISSION_REPAIR(void) // RA2: ra2-decomp's twin text (src/building.cpp, Do_MISSION_REPAIR) under this tree's names, without YR's bunker update
 {
 	if (Class->IsConstructionYard) {
-		enum {
-			INITIAL,
-			IDLE,
-			DURING
-		};
 		switch (Status) {
-			case INITIAL:
+			case 0:
 				Begin_Mode(BSTATE_ACTIVE);
-				Begin_Anim(BANIM_PRE_PRODUCTION, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-				Status = DURING;
+				Begin_Anim(BANIM_PRE_PRODUCTION, HealthRatio <= Rule->ConditionYellow, false, 0);
+				Status = 2;
 				break;
 
-			case DURING:
-				if (!HasAnyLink()) { // RA2: HasAnyLink
-					QueueMission(MISSION_GUARD, false); // RA2: QueueMission
+			case 2:
+				if (!HasAnyLink()) {
+					QueueMission(MISSION_GUARD, false);
 					End_Anim(BANIM_PRE_PRODUCTION);
 				}
 				break;
@@ -5926,46 +5920,43 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 	}
 
 	if (Class->IsHospital) {
-		enum {
-			INITIAL,
-			IDLE,
-			DURING
-		};
 		switch (Status) {
-			case INITIAL:
-				Status = DURING;
+			case 0:
+				Status = 2;
 				IsReadyToCommence = false;
 				BuildingStage.Set_Stage(0);
 				BuildingStage.Set_Rate(1);
-				if (Class->MaxAmmo != -1) { // RA2: only a limited-ammo hospital uses up ammo
-					Ammo--; // RA2: as above
-					Ammo = MAX(Ammo, 0); // RA2: as above
+				if (Class->MaxAmmo != -1) {
+					Ammo--;
+					Ammo = MAX(Ammo, 0);
 				}
 				break;
 
-			case DURING:
+			case 2:
 				BuildingStage.Graphic_Logic();
 				if (BuildingStage.Fetch_Stage() >= (Rule->IRepairRate * TICKS_PER_MINUTE)) {
 					IsReadyToCommence = false;
 					BuildingStage.Set_Stage(0);
-					switch (Transmit_Message(RADIO_REPAIR)) { // RA2: as above
-						case RADIO_ALL_DONE: // RA2: as above
-							if (House->Is_Player_Control()) { // RA2: the player hears and sees the unit leave repaired
-								if (Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) { // RA2: as above
-									Queue_Speech("EVA_UnitRepaired", -1, -1); // RA2: as above
+					switch (Transmit_Message(RADIO_REPAIR)) {
+						case RADIO_ALL_DONE:
+							if (House->Is_Player_Control()) {
+								if (Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) {
+									Queue_Speech("EVA_UnitRepaired", -1, -1);
 								}
-								VocClass::PlayAt(Rule->HealCrateSound, Get_Coord(), 0); // RA2: as above
+								VocClass::PlayAt(Rule->HealCrateSound, Get_Coord(), 0);
 							}
-							// Both completed treatment and an empty reply release the patient.
 
-						case RADIO_NEGATIVE: // RA2: as above
-							Exit_Object((TechnoClass *)Cargo.Detach_Object()); // RA2: as above
-							QueueMission(MISSION_GUARD, false); // RA2: QueueMission
-							break; // RA2: as above
+						case RADIO_NEGATIVE:
+							Exit_Object((TechnoClass *)Cargo.Detach_Object());
+							QueueMission(MISSION_GUARD, false);
+							break;
 
-						case RADIO_CANT: // RA2: as above
-							Exit_Object((TechnoClass *)Cargo.Detach_Object()); // RA2: as above
-							break; // RA2: as above
+						case RADIO_CANT:
+							Exit_Object((TechnoClass *)Cargo.Detach_Object());
+							return(1);
+
+						default:
+							break;
 					}
 				}
 				return(1);
@@ -5973,19 +5964,13 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 			default:
 				break;
 		}
-
 		return(Current_Mission_Control().Normal_Delay());
 	}
 
 	if (Class->IsArmory) {
-		enum {
-			INITIAL,
-			IDLE,
-			DURING
-		};
 		switch (Status) {
-			case INITIAL:
-				Status = DURING;
+			case 0:
+				Status = 2;
 				IsReadyToCommence = false;
 				BuildingStage.Set_Stage(0);
 				BuildingStage.Set_Rate(1);
@@ -5993,251 +5978,218 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 				Ammo = MAX(Ammo, 0);
 				break;
 
-			case DURING:
+			case 2:
 				BuildingStage.Graphic_Logic();
 				if (BuildingStage.Fetch_Stage() >= (Rule->IRepairRate * TICKS_PER_MINUTE)) {
-					TechnoClass * contact = Radio_Link(0); // RA2: as above
+					FootClass * contact = (FootClass *)Radio_Link(0);
 					if (contact->Veterancy.Is_Dumbass()) {
 						contact->Veterancy.Set_Veteran(true);
 					} else {
 						contact->Veterancy.Set_Elite(true);
 					}
-					Exit_Object((TechnoClass *)Cargo.Detach_Object()); // RA2: as above
-					QueueMission(MISSION_GUARD, false); // RA2: QueueMission
+					Exit_Object((TechnoClass *)Cargo.Detach_Object());
+					QueueMission(MISSION_GUARD, false);
 				}
-				break; // RA2: as above
+				break;
 
 			default:
 				break;
 		}
-
 		return(Current_Mission_Control().Normal_Delay());
 	}
 
 	if (Class->IsCanUnitRepair) {
-		enum {
-			INITIAL,
-			IDLE,
-			DURING
-		};
 		switch (Status) {
-			case INITIAL:
+			case 0:
 				{
-					if (!HasAnyLink()) { // RA2: as above
+				if (!HasAnyLink()) {
 						End_Anim(BANIM_PRODUCTION);
 						End_Anim(BANIM_SPECIAL_TWO);
-						Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-						Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-						QueueMission(MISSION_GUARD, true); // RA2: QueueMission, started at once
+					Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0);
+					Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
+					QueueMission(MISSION_GUARD, true);
 						return(1);
 					}
 					IsReadyToCommence = false;
-					int distance = 100; // RA2: 100 leptons
-					FootClass * tech = (FootClass *)Radio_Link(0); // RA2: as above
-
-					/*
-					**	BG: If the unit to repair is an aircraft, and the aircraft is
-					**	fixed-wing, and it's landed, be much more liberal with the
-					**	distance check.  Fixed-wing aircraft are very inaccurate with
-					**	their landings.
-					*/
+				int distance = 100;
+				FootClass * tech = (FootClass *)Radio_Link(0);
 					IPersistPtr persist(tech->Locomotion);
 					CLSID clsid;
 					persist->GetClassID(&clsid);
-					if (clsid == CLSID_HoverLocomotion) { // RA2: as above
-						distance = 200; // RA2: hovers and ships both
+				if (clsid == CLSID_HoverLocomotion) {
+					distance = 200;
 					}
-					if (clsid == CLSID_ShipLocomotion) { // RA2: as above
-						distance = 200; // RA2: as above
+				if (clsid == CLSID_ShipLocomotion) {
+					distance = 200;
 					}
-					if (Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER && DistanceToDockingCoord(Radio_Link(0)) < distance) { // RA2: the docking distance
-						Status = IDLE;
-						return(3); // RA2: as above
+				if (Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER && DistanceToDockingCoord(Radio_Link(0)) < distance) {
+					Status = 1;
+					return(TICKS_PER_SECOND / 4);
 					}
-					if (!House->Ion_Sensitives_Should_Be_Offline()) { // RA2: as above
+				if (!House->Ion_Sensitives_Should_Be_Offline()) {
 						tech->Locomotion->Power_On();
 					}
 					break;
 				}
 
-			case IDLE:
+			case 1:
 				{
-					if (!HasAnyLink()) { // RA2: as above
-						if (Anims[BANIM_PRODUCTION] || Anims[BANIM_SPECIAL_TWO]) {
-							Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-							Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
+				if (!HasAnyLink()) {
+					if (Anim_Active(BANIM_PRODUCTION) || Anim_Active(BANIM_SPECIAL_TWO)) {
+						Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0);
+						Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
 							End_Anim(BANIM_PRODUCTION);
 							End_Anim(BANIM_SPECIAL_TWO);
 						}
-						if (!Anims[BANIM_SPECIAL_THREE]) { // RA2: the idle state waits until the animation is gone
-							IsReadyToCommence = true; // RA2: as above
-							QueueMission(MISSION_GUARD, true); // RA2: as above
+					if (!Anim_Active(BANIM_SPECIAL_THREE)) {
+						IsReadyToCommence = true;
+						QueueMission(MISSION_GUARD, true);
 						}
-						return(1); // RA2: as above
+					return(1);
 					}
-
-					if (Anims[BANIM_PRODUCTION]) { // RA2: as above
+				if (Anim_Active(BANIM_PRODUCTION)) {
 						return(1);
 					}
 
-					FootClass * radio = (FootClass *)Radio_Link(0); // RA2: as above
-					if (DistanceToDockingCoord(Radio_Link(0)) < 200) { // RA2: as above
+				FootClass * radio = (FootClass *)Radio_Link(0);
+				if (DistanceToDockingCoord(Radio_Link(0)) < 200) {
 						if (radio->Locomotion->Is_Powered()) {
-							if (!radio->Locomotion->Is_Moving()) { // RA2: as above
+						if (!radio->Locomotion->Is_Moving()) {
 								radio->Locomotion->Power_Off();
 							}
-							return(1); // RA2: as above
+						return(1);
+					}
+					if (!radio->Locomotion->Is_Powered()) {
+						if (((FootClass *)Radio_Link(0))->NavCom != NULL) {
+							((FootClass *)Radio_Link(0))->Abort_Motion();
 						}
-						if (!radio->Locomotion->Is_Powered() && ((FootClass *)Radio_Link(0))->NavCom) { // RA2: as above
-							((FootClass *)Radio_Link(0))->Abort_Motion(); // RA2: as above
 						}
 					}
 
 					if (Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
-						TechnoClass * client = Radio_Link(0); // RA2: as above
+					TechnoClass * client = Radio_Link(0);
 						bool damaged = client->HealthRatio < Rule->ConditionGreen;
-						bool manual_reload = client->Techno_Type_Class()->IsManualReload; // RA2: as above
+					bool manual_reload = client->Techno_Type_Class()->IsManualReload;
 						RadioMessageType msg = Transmit_Message(RADIO_REPAIR);
 						bool roger = msg == RADIO_ROGER;
 						bool all_done = msg == RADIO_ALL_DONE;
-						if ((!damaged && !manual_reload) || (!roger && !all_done)) { // RA2: as above
-							if (client->HealthRatio == Rule->ConditionGreen && !((FootClass *)client)->Locomotion->Is_Powered()) { // RA2: as above
-								FootClass * mover = As_Foot(Radio_Link(0)); // RA2: the checked cast
-								mover->Locomotion->Power_On(); // RA2: as above
-								if (mover->ArchiveTarget != NULL && !mover->House->Is_Human_Player()) { // RA2: as above
-									mover->QueueMission(MISSION_MOVE, false); // RA2: QueueMission
-									mover->Assign_Destination(mover->ArchiveTarget, true); // RA2: as above
-									mover->ArchiveTarget = NULL; // RA2: as above
-									mover->QueueUpToEnter = NULL; // RA2: QueueUpToEnter, the object to enter once nearby
-									Transmit_Message(RADIO_OVER_OUT); // RA2: as above
+					if (!damaged && !manual_reload || !roger && !all_done) {
+						if (client->HealthRatio == Rule->ConditionGreen) {
+							if (!((FootClass *)client)->Locomotion->Is_Powered()) {
+								FootClass * mover = As_Foot(Radio_Link(0));
+								mover->Locomotion->Power_On();
+								if (mover->ArchiveTarget != NULL && !mover->House->Is_Human_Player()) {
+									mover->QueueMission(MISSION_MOVE, false);
+									mover->Assign_Destination(mover->ArchiveTarget, true);
+									mover->ArchiveTarget = NULL;
+									mover->QueueUpToEnter = NULL;
+									Transmit_Message(RADIO_OVER_OUT);
 								} else {
-									Cell exit = Find_Exit_Cell(Radio_Link(0)); // RA2: as above
-									if (ArchivedTarget) { // RA2: as above
-										exit = Cell(ArchivedTarget->Center_Coord()); // RA2: the archived target's cell
+									Cell exit = Find_Exit_Cell(Radio_Link(0));
+									if (ArchiveTarget != NULL) {
+										exit = Target_Cell(ArchiveTarget);
 									}
-									if (exit != CELL_NONE) { // RA2: as above
-										mover->QueueMission(MISSION_MOVE, false); // RA2: as above
-										mover->Assign_Destination(&Map[exit], true); // RA2: as above
+									if (exit != CELL_NONE) {
+										mover->QueueMission(MISSION_MOVE, false);
+										mover->Assign_Destination(&Map[exit], true);
 										mover->ArchiveTarget = NULL;
 										Transmit_Message(RADIO_OVER_OUT);
-										mover->QueueUpToEnter = NULL; // RA2: as above
+										mover->QueueUpToEnter = NULL;
+									}
 									}
 								}
 							}
 						} else {
-
-							/*
-							**	If the object over the repair bay is marked as useless, then
-							**	sell it back to get some money.
-							*/
-							if (!client->IsUseless || client->House->Is_Human_Player()) { // RA2: as above
-								if (IsOwnedByPlayer) Queue_Speech("EVA_Repairing", -1, -1); // RA2: as above
-								Status = DURING;
-								Begin_Anim(BANIM_SPECIAL_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
+						if (client->IsUseless && !client->House->Is_Human_Player()) {
+							client->Sell_Back(1);
+							Status = 0;
+							IsReadyToCommence = true;
+						} else {
+							if (IsOwnedByPlayer) Queue_Speech("EVA_Repairing", -1, -1);
+							Status = 2;
+							Begin_Anim(BANIM_SPECIAL_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
 								End_Anim(BANIM_ACTIVE_ONE);
-								End_Anim(BANIM_IDLE); // RA2: as above
+							End_Anim(BANIM_IDLE);
 								IsReadyToCommence = false;
 								BuildingStage.Set_Stage(0);
 								BuildingStage.Set_Rate(1);
-							} else {
-								client->Sell_Back(1); // RA2: as above
-								Status = INITIAL; // RA2: as above
-								IsReadyToCommence = true; // RA2: as above
 							}
 						}
-					} else if (!House->Ion_Sensitives_Should_Be_Offline()) { // RA2: as above
-						if (!((FootClass *)Radio_Link(0))->Locomotion->Is_Powered()) { // RA2: as above
-							((FootClass *)Radio_Link(0))->Locomotion->Power_On(); // RA2: as above
-						}
+				} else if (!House->Ion_Sensitives_Should_Be_Offline() && !((FootClass *)Radio_Link(0))->Locomotion->Is_Powered()) {
+					((FootClass *)Radio_Link(0))->Locomotion->Power_On();
 					}
 				}
 				break;
 
-			case DURING:
-				if (!HasAnyLink()) { // RA2: as above
+			case 2:
+				if (!HasAnyLink()) {
 					End_Anim(BANIM_PRODUCTION);
 					End_Anim(BANIM_SPECIAL_TWO);
-					Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-					Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-					Status = IDLE;
+					Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0);
+					Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
+					Status = 1;
 					return(1);
 				}
 
-				if (BuildingStage.Fetch_Rate() == 0) { // RA2: an unset stage rate becomes one frame
-					BuildingStage.Just_Set_Rate(1); // RA2: as above
+				if (BuildingStage.Fetch_Rate() == 0) {
+					BuildingStage.Just_Set_Rate(1);
 				}
 				BuildingStage.Graphic_Logic();
 
-				/*
-				**	Check to see if the repair light blink has completed and the attached
-				**	unit is not doing something else. If these conditions are favorable,
-				**	the repair can proceed another step.
-				*/
 				if (BuildingStage.Fetch_Stage() >= (Rule->URepairRate * TICKS_PER_MINUTE) && Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
 					IsReadyToCommence = false;
 					BuildingStage.Set_Stage(0);
 
-					/*
-					**	Tell the attached unit to repair one step. It will respond with how
-					**	it fared.
-					*/
 					switch (Transmit_Message(RADIO_REPAIR)) {
-
-						/*
-						**	The repair step proceeded smoothly. Proceed normally with the
-						**	repair process.
-						*/
 						case RADIO_ROGER:
 							break;
 
-						/*
-						**	The repair operation was aborted because of some reason. Presume
-						**	that the reason is because of low cash.
-						*/
 						case RADIO_CANT:
-							{
-								if (IsOwnedByPlayer && House->Available_Money() == 0) Queue_Speech("EVA_InsufficientFunds", -1, -1); // RA2: as above
-								End_Anim(BANIM_PRODUCTION); // RA2: as above
-								End_Anim(BANIM_SPECIAL_TWO); // RA2: as above
-								Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-								Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-								Status = IDLE; // RA2: as above
-								break; // RA2: as above
+							if (IsOwnedByPlayer && House->Available_Money() == 0) {
+								Queue_Speech("EVA_InsufficientFunds", -1, -1);
 							}
+							End_Anim(BANIM_PRODUCTION);
+							End_Anim(BANIM_SPECIAL_TWO);
+							Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0);
+							Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
+							Status = 1;
+							break;
 
-						/*
-						**	The repair step resulted in a completely repaired unit.
-						*/
+						case RADIO_ALL_DONE:
 						default:
 							{
-							if (IsOwnedByPlayer && Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) Queue_Speech("EVA_UnitRepaired", -1, -1); // RA2: as above
+							if (IsOwnedByPlayer) {
+								if (Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) {
+									Queue_Speech("EVA_UnitRepaired", -1, -1);
+								}
+							}
 								End_Anim(BANIM_PRODUCTION);
 								End_Anim(BANIM_SPECIAL_TWO);
-								Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-								Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
-								Status = IDLE;
+								Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0);
+								Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
+								Status = 1;
 
-								FootClass * foot = As_Foot(Radio_Link(0)); // RA2: as above
+								FootClass * foot = As_Foot(Radio_Link(0)); // RA2: the executable calls the non-const Radio_Link here (the twin goes through Contact_With_Whom)
 								if (foot->ArchiveTarget != NULL && !foot->House->Is_Human_Player()) {
-									foot->QueueMission(MISSION_MOVE, false); // RA2: QueueMission
-									foot->Assign_Destination(foot->ArchiveTarget, true); // RA2: as above
+									foot->QueueMission(MISSION_MOVE, false);
+									foot->Assign_Destination(foot->ArchiveTarget, true);
 									foot->ArchiveTarget = NULL;
 									Transmit_Message(RADIO_OVER_OUT);
-									foot->QueueUpToEnter = NULL; // RA2: QueueUpToEnter, the object to enter once nearby
-									return(1); // RA2: as above
+									foot->QueueUpToEnter = NULL;
+								} else {
+									Cell exit = Find_Exit_Cell(Radio_Link(0));
+									if (ArchiveTarget != NULL) {
+										exit = Target_Cell(ArchiveTarget);
+									}
+									if (exit != CELL_NONE) {
+										foot->QueueMission(MISSION_MOVE, false);
+										foot->Assign_Destination(&Map[exit], true);
+										Transmit_Message(RADIO_OVER_OUT);
+										foot->QueueUpToEnter = NULL;
+										return(1);
+									}
 								}
-								Cell exit = Find_Exit_Cell(Radio_Link(0)); // RA2: as above
-								if (ArchivedTarget) { // RA2: as above
-									exit = Cell(ArchivedTarget->Center_Coord()); // RA2: the archived target's cell
-								}
-								if (exit != CELL_NONE) { // RA2: as above
-									foot->QueueMission(MISSION_MOVE, false); // RA2: as above
-									foot->Assign_Destination(&Map[exit], true); // RA2: as above
-									Transmit_Message(RADIO_OVER_OUT); // RA2: as above
-									foot->QueueUpToEnter = NULL; // RA2: as above
-									return(1); // RA2: as above
-								}
-								break; // RA2: as above
+								return(1);
 							}
 					}
 				}
@@ -6250,37 +6202,35 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 	}
 
 	if (Class->IsCanUnitReload) {
-		bool servicing = false; // RA2: as above
-		for (int index = 0; index < RadioLinks.Length(); index++) { // RA2: every radio link is serviced
-			TechnoClass * contact = Radio_Link(index); // RA2: as above
-			if (contact) { // RA2: as above
-				bool release = false; // RA2: as above
-				if (Transmit_Message(RADIO_PREPARED, contact) == RADIO_ROGER && contact->Strength == contact->Techno_Type_Class()->MaxStrength) { // RA2: as above
-					release = true; // RA2: as above
-				} else if (contact->Get_Mission() != MISSION_ENTER && Transmit_Message(RADIO_NEED_TO_MOVE, contact) == RADIO_ROGER) { // RA2: as above
-					servicing = true; // RA2: as above
-					if (contact->Get_Mission() != MISSION_SLEEP) { // RA2: as above
-						contact->QueueMission(MISSION_SLEEP, false); // RA2: as above
-					} else if (Transmit_Message(RADIO_RELOAD, contact) != RADIO_ROGER && Transmit_Message(RADIO_REPAIR, contact) != RADIO_ROGER) { // RA2: as above
-						release = true; // RA2: as above
+		bool reloading = false;
+		for (int index = 0; index < RadioLinks.Length(); index++) {
+			TechnoClass * techno = Radio_Link(index);
+			if (techno != NULL) {
+				if (Transmit_Message(RADIO_PREPARED, techno) != RADIO_ROGER || techno->Strength != techno->Techno_Type_Class()->MaxStrength) {
+					if (techno->Get_Mission() == MISSION_ENTER) continue;
+					if (Transmit_Message(RADIO_NEED_TO_MOVE, techno) != RADIO_ROGER) continue;
+					reloading = true;
+					if (techno->Get_Mission() != MISSION_SLEEP) {
+						techno->QueueMission(MISSION_SLEEP, false);
+						continue;
 					}
+					if (Transmit_Message(RADIO_RELOAD, techno) == RADIO_ROGER) continue;
+					if (Transmit_Message(RADIO_REPAIR, techno) == RADIO_ROGER) continue;
 				}
-				if (release) { // RA2: as above
-					contact->Enter_Idle_Mode(false, true); // RA2: as above
-					contact->Set_Mission(MISSION_GUARD); // RA2: as above
-					contact->Advance_Waypoint_Path(); // RA2: as above
-				}
+				techno->Enter_Idle_Mode(false, true);
+				techno->Set_Mission(MISSION_GUARD);
+				techno->Advance_Waypoint_Path();
 			}
 		}
-		if (servicing) { // RA2: as above
-			return(int(Rule->ReloadRate * TICKS_PER_MINUTE)); // RA2: as above
+		if (reloading) {
+			return(int(Rule->ReloadRate * TICKS_PER_MINUTE));
 		}
-		QueueMission(MISSION_GUARD, false); // RA2: QueueMission
+		QueueMission(MISSION_GUARD, false);
 		return(3);
 	}
-	return(15); // RA2: 15 frames
+
+	return(TICKS_PER_SECOND);
 }
-#endif
 
 
 

@@ -31,7 +31,6 @@ class CaptureManagerClass : public AbstractClass
 		bool Capture(TechnoClass * target); // RA2: 0x00467FF0, gives back the controlled unit, then takes the target over
 		bool Detach_Target(AbstractClass const * target); // RA2: 0x468120, forgets the controlled unit when it is the target
 		void FreeAll(void); // RA2: 0x4681E0, returns the controlled unit to its original house and forgets it (one unit only in 1.006)
-		bool FreeUnit(TechnoClass * techno);
 		bool Detach_Unused(AbstractClass * target); // RA2: 0x468140, an empty function that returns true; nothing calls it
 		bool Can_Capture(TechnoClass * target); // RA2: 0x00467F80, whether the unit can be mind controlled
 		void Draw_Link(void) const; // RA2: 0x00468150, draws the link to the controlled unit

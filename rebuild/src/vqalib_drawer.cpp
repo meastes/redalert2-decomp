@@ -1,4 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+// Select_Frame and its three file-local helpers (VQA_CalcFramesSinceDrawn, VQA_SetCurrentFrameAsLast,
+// VQA_SetPreviousFrameNode) adopted from ra2-decomp src/vqalib/drawer.cpp (070a33c):
+// Copyright 2026 ra2-decomp contributors; Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors.
+// Derived from Electronic Arts source code; EA's GPL Section 7 terms apply.
 
 #include <stddef.h>
 #include "vqalib/vqaplayp.h"
@@ -143,123 +147,207 @@ long DrawFrame_MCGA(VQAHandle * vqa)
     return result;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 762 bytes differ (text_if0 bucket; RA2 stream flow)
+static inline long VQA_CalcFramesSinceDrawn(VQAHandleP * vqap) // RA2: ra2-decomp's unit-local helper
+{
+	VQAConfig * config;
+	VQADrawer * drawer;
+	VQAFrameNode *curframe;
+	long cur;
+	long loop_end;
+	int to_loop_end;
+	int from_loop_start;
+	int fallback;
+
+	drawer = &vqap->Drawer;
+	curframe = drawer->CurFrame;
+	config = &vqap->Config;
+
+	cur = curframe->FrameNum;
+	loop_end = vqap->LoopEndFrame2;
+
+	if (cur >= drawer->LastFrameNum && cur <= loop_end) {
+		return cur - drawer->LastFrameNum;
+	}
+
+	fallback = config->FrameRate / 3;
+
+	to_loop_end = loop_end - drawer->LastFrameNum;
+	if (to_loop_end < 0) {
+		return(fallback);
+	}
+
+	from_loop_start = curframe->FrameNum - vqap->LoopStartFrame0;
+	if (from_loop_start < 0) {
+		return fallback;
+	}
+	return to_loop_end + from_loop_start + 1;
+}
+
+static inline long VQA_SetCurrentFrameAsLast(VQAHandleP * vqap) // RA2: as above
+{
+	VQADrawer * drawer;
+
+	drawer = &vqap->Drawer;
+
+	drawer->LastFrameNum = drawer->CurFrame->FrameNum;
+
+	return(VQAERR_NONE);
+}
+
+static inline void VQA_SetPreviousFrameNode(VQAHandleP * vqap) // RA2: as above
+{
+	VQADrawer * drawer;
+
+	drawer = &vqap->Drawer;
+
+	drawer->CurFrame = drawer->CurFrame->Prev;
+	drawer->CurFrame->Flags = drawer->CurFrame->PrevFlags;
+}
+
+
 long Select_Frame(VQAHandleP * vqap)
 {
-    VQAConfig * config;
-    VQADrawer * drawer;
-    VQAFrameNode * frame;
-    long desired;
-    config = &vqap->Config;
-    drawer = &vqap->Drawer;
-    frame = drawer->CurFrame;
-    if (!(frame->Flags & VQAFRMF_LOADED)) {
-        drawer->WaitsOnLoader++;
-        if (!(drawer->Flags & VQADRWF_REPAINT) || (vqap->Flags & VQADATF_LDONE)) return VQAERR_NOBUFFER;
-        drawer->CurFrame = frame->Prev;
-        drawer->CurFrame->Flags = drawer->CurFrame->PrevFlags;
-        if (drawer->Flags & VQADRWF_FORCEDRAW) {
-            drawer->Flags |= VQADRWF_HOLD;
-            frame->Flags |= VQAFRMF_HOLD;
-            return VQAERR_NONE;
-        }
-    } else {
-        if (drawer->Flags & VQADRWF_FORCEDRAW) {
-            drawer->LastFrameNum = drawer->CurFrame->FrameNum;
-            drawer->Flags |= VQADRWF_HOLD;
-            frame->Flags |= VQAFRMF_HOLD;
-            return VQAERR_NONE;
-        }
-        if (vqap->Config.OptionFlags & VQAOPTF_STEP) {
-            drawer->LastFrameNum = frame->FrameNum;
-            VQA_SetTimer(vqap, (frame->FrameNum * VQA_TIMETICKS) / vqap->Config.DrawRate);
-            return VQAERR_NONE;
-        }
-        long time = VQA_GetTime(vqap);
-        long next;
-        if (!(drawer->Flags & VQADRWF_STEP)) next = drawer->LastFrameNum + 1;
-        else next = drawer->LastFrameNum + 2;
-        if (time < (next * VQA_TIMETICKS) / vqap->Config.DrawRate) {
-            if (drawer->Flags & VQADRWF_REPAINT) {
-            desired = VQA_ComputeDesiredFrame(vqap, config, drawer, frame, time);
-            if (desired == drawer->LastFrameNum && (frame->Flags & VQAFRMF_HOLD)) {
-                drawer->LastFrameNum = frame->FrameNum;
-                return VQAERR_NONE;
-            }
-            drawer->LastFrameNum = frame->FrameNum;
-            drawer->Flags |= VQADRWF_HOLD;
-            frame->Flags |= VQAFRMF_HOLD;
-            return VQAERR_NONE;
-            }
-            return VQAERR_NOT_TIME;
-        }
-        desired = VQA_ComputeDesiredFrame(vqap, config, drawer, frame, time);
-        if (vqap->Config.DrawFlags & VQACFGF_NOSKIP) {
-            drawer->LastFrameNum = drawer->CurFrame->FrameNum;
-            return VQAERR_NONE;
-        } else {
-        long limit = vqap->Config.FrameRate / 3 - 1;
-        if (limit < 0) limit = 0;
-        while (frame->FrameNum != desired && !(frame->Flags & VQAFRMF_KEY)) {
-            long current = drawer->CurFrame->FrameNum;
-            long distance;
-            if (current >= drawer->LastFrameNum && current <= vqap->LoopEndFrame2) {
-                distance = current - drawer->LastFrameNum;
-            } else {
-                long fallback = vqap->Config.FrameRate / 3;
-                long tail = vqap->LoopEndFrame2 - drawer->LastFrameNum;
-                if (tail < 0) distance = fallback;
-                else {
-                    long head = current - vqap->LoopStartFrame0;
-                    if (head < 0) distance = fallback;
-                    else distance = head + tail + 1;
-                }
-            }
-            if (distance > limit) break;
-            if (frame->Flags & VQAFRMF_PALETTE) {
-                if (frame->Flags & VQAFRMF_PALCOMP) {
-                    frame->PaletteSize = VQA_LCW_Uncompress((char *)frame->Palette + frame->PalOffset, (char *)frame->Palette, vqap->Max_Pal_Size);
-                    frame->Flags &= ~VQAFRMF_PALCOMP;
-                }
-                memcpy(drawer->Palette_24, frame->Palette, frame->PaletteSize);
-                drawer->CurPalSize = frame->PaletteSize;
-                drawer->Flags |= VQADRWF_SETPAL;
-            }
-            if (vqap->Config.EventHandler) {
-                if (frame->Flags & VQAFRMF_LOOPED) {
-                    vqap->Config.EventHandler((VQAHandle *)vqap, VQAEVENT_LOOPED, (void *)frame->FrameNum, vqap->LoopID);
-                    frame->Flags &= ~VQAFRMF_LOOPED;
-                }
-                if (frame->Flags & VQAFRMF_LOOPJMP) {
-                    vqap->Config.EventHandler((VQAHandle *)vqap, VQAEVENT_LOOPJUMP, (void *)frame->FrameNum, vqap->LoopID);
-                    frame->Flags &= ~VQAFRMF_LOOPJMP;
-                }
-                if (frame->Flags & VQAFRMF_CHUNKS) {
-                    VQA_DispatchFrameChunks(vqap, frame->FrameNum);
-                    frame->Flags &= ~VQAFRMF_CHUNKS;
-                }
-            }
-            if (vqap->Config.DrawerCallback && vqap->Config.DrawerCallback(0, frame->FrameNum)) return VQAERR_EOF;
-			frame->PrevFlags = frame->Flags; // RA2: publish the previous flags before releasing the frame.
-            frame->Flags = 0;
-            frame = frame->Next;
-            drawer->CurFrame = frame;
-            vqap->SkippedFrames++;
-            if (!(frame->Flags & VQAFRMF_LOADED)) {
-                drawer->WaitsOnLoader++;
-                if (!(drawer->Flags & VQADRWF_REPAINT) || (vqap->Flags & VQADATF_LDONE)) return VQAERR_NOBUFFER;
-                frame = frame->Prev;
-                drawer->CurFrame = frame;
-                frame->Flags = frame->PrevFlags;
-                return VQAERR_NONE;
-            }
-        }
-        drawer->LastFrameNum = drawer->CurFrame->FrameNum;
-        }
-    }
-    return VQAERR_NONE;
+	VQADrawer    *drawer;
+	VQAConfig    *config;
+	VQAFrameNode *curframe;
+	long         desiredframe;
+	unsigned long curtime;
+
+	config = &vqap->Config;
+	drawer = &vqap->Drawer;
+	curframe = drawer->CurFrame;
+
+	if ((curframe->Flags & VQAFRMF_LOADED) == 0) {
+		drawer->WaitsOnLoader++;
+
+		if ((drawer->Flags & VQADRWF_REPAINT) && !(vqap->Flags & VQADATF_LDONE)) {
+			VQA_SetPreviousFrameNode(vqap);
+			if ((drawer->Flags & VQADRWF_FORCEDRAW)) {
+				drawer->Flags |= VQADRWF_HOLD;
+				curframe->Flags |= VQAFRMF_HOLD;
+			}
+			return(VQAERR_NONE);
+		} else {
+			return(VQAERR_NOBUFFER);
+		}
+	}
+
+	if ((drawer->Flags & VQADRWF_FORCEDRAW)) {
+		VQA_SetCurrentFrameAsLast(vqap);
+		drawer->Flags |= VQADRWF_HOLD;
+		curframe->Flags |= VQAFRMF_HOLD;
+		return(VQAERR_NONE);
+	}
+
+	if (config->OptionFlags & VQAOPTF_STEP) {
+		drawer->LastFrameNum = curframe->FrameNum;
+		curtime = ((curframe->FrameNum * VQA_TIMETICKS) / config->DrawRate);
+		VQA_SetTimer(vqap, curtime);
+		return(VQAERR_NONE);
+	}
+
+	curtime = VQA_GetTime(vqap);
+
+	long endtime = 0;
+	if ( !(drawer->Flags & VQADRWF_STEP)) {
+		endtime = drawer->LastFrameNum + 1;
+	} else {
+		endtime = drawer->LastFrameNum + 2;
+	}
+
+	if ((int)curtime < ((endtime * VQA_TIMETICKS) / config->DrawRate)) {
+		if (drawer->Flags & VQADRWF_REPAINT) {
+			if (VQA_ComputeDesiredFrame(vqap, config, drawer, curframe, curtime) == drawer->LastFrameNum && (curframe->Flags & VQAFRMF_HOLD)) {
+				drawer->LastFrameNum = curframe->FrameNum;
+				return(VQAERR_NONE);
+			} else {
+				drawer->LastFrameNum = curframe->FrameNum;
+				drawer->Flags |= VQADRWF_HOLD;
+				curframe->Flags |= VQAFRMF_HOLD;
+				return(VQAERR_NONE);
+			}
+		} else {
+			return(VQAERR_NOT_TIME);
+		}
+	}
+
+	desiredframe = VQA_ComputeDesiredFrame(vqap, config, drawer, curframe, curtime);
+
+	if (config->DrawFlags & VQACFGF_NOSKIP) {
+		return(VQA_SetCurrentFrameAsLast(vqap));
+	}
+
+	long maxskip = (config->FrameRate / 3) - 1;
+	if (maxskip < 0) {
+		maxskip = 0;
+	}
+
+	while (curframe->FrameNum != desiredframe) {
+		if (curframe->Flags & VQAFRMF_KEY) {
+			break;
+		}
+
+		if (VQA_CalcFramesSinceDrawn(vqap) > maxskip) {
+			break;
+		}
+
+		if (curframe->Flags & VQAFRMF_PALETTE) {
+			if (curframe->Flags & VQAFRMF_PALCOMP) {
+				curframe->PaletteSize = VQA_LCW_Uncompress((char *)curframe->Palette
+						+ curframe->PalOffset, (char *)curframe->Palette,
+						vqap->Max_Pal_Size);
+
+				curframe->Flags &= ~VQAFRMF_PALCOMP;
+			}
+
+			memcpy(drawer->Palette_24, curframe->Palette, curframe->PaletteSize);
+			drawer->CurPalSize = curframe->PaletteSize;
+			drawer->Flags |= VQADRWF_SETPAL;
+		}
+
+		if (config->EventHandler != NULL) {
+			if (curframe->Flags & VQAFRMF_LOOPED) {
+				config->EventHandler((VQAHandle *)vqap, VQAEVENT_LOOPED, (void *)curframe->FrameNum, vqap->LoopID);
+				curframe->Flags &= ~VQAFRMF_LOOPED;
+			}
+
+			if (curframe->Flags & VQAFRMF_LOOPJMP) {
+				config->EventHandler((VQAHandle *)vqap, VQAEVENT_LOOPJUMP, (void *)curframe->FrameNum, vqap->LoopID);
+				curframe->Flags &= ~VQAFRMF_LOOPJMP;
+			}
+
+			if (curframe->Flags & VQAFRMF_CHUNKS) {
+				VQA_DispatchFrameChunks(vqap, curframe->FrameNum);
+				curframe->Flags &= ~VQAFRMF_CHUNKS;
+			}
+		}
+
+		if (config->DrawerCallback != NULL) {
+			if ((config->DrawerCallback(NULL, curframe->FrameNum)) != 0) {
+				return(VQAERR_EOF);
+			}
+		}
+
+		curframe->PrevFlags = curframe->Flags;
+		curframe->Flags = 0L;
+		curframe = curframe->Next;
+		drawer->CurFrame = curframe;
+		vqap->SkippedFrames++;
+
+		if (!(curframe->Flags & VQAFRMF_LOADED)) {
+			drawer->WaitsOnLoader++;
+
+			if ((drawer->Flags & VQADRWF_REPAINT) && !(vqap->Flags & VQADATF_LDONE)) {
+				VQA_SetPreviousFrameNode(vqap);
+				return(VQAERR_NONE);
+			}
+			return(VQAERR_NOBUFFER);
+		}
+	}
+
+	return(VQA_SetCurrentFrameAsLast(vqap));
 }
-#endif
+
 
 
 

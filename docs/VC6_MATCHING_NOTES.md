@@ -3015,3 +3015,37 @@ range do not count, and any reference inside the stretch resets the count. The w
   has six; `index` shares with efic01shape and `total` with logo01shape in the image, the other way round in ours,
   and `drawer` sits alone in the top scalar slot. The twin's text gives 0x6A8 for YR under its own headers and
   0x69C under ours, so the missing symbol is in a header inline, not in the function's text.
+- Found in the rebuild (lane F3, high): for a near-matched twin, take the twin's whole function and map its names by
+  rule before touching the tree's draft. BuildingClass::Do_MISSION_REPAIR 0x447260 (4,503 B) had been edited by
+  hand toward the twin and sat 4,259 bytes off (a frame of 0x48 for 0x28 from two unscoped CLSID locals, `Anims[]`
+  tests for the inline `Anim_Active`, a flag where the twin's loop uses `continue`); the twin's text with eight
+  rule-based renames compiled first time and was one byte off, a call of the const `Radio_Link` (through the
+  twin's `Contact_With_Whom()`) where the image calls the non-const one: the residue names the one RA2 difference.
+  saveload's Save_Game and nulldlg's Select_Serial_Dialog fell the same way.
+- A result held in one function-level local is root text. Put_All 0x6558B0: `res = Save_Vector(stream, X); if
+  (FAILED(res))` (ra2-decomp's twin) against `if (FAILED(Save_Vector(stream, X)))` (the archive) is the same code
+  and about four units more per statement, three more expanded list saves over 55 statements; the twin's
+  Save_Vector body (locals first, early returns, `if (FAILED(result = ...)) return(result);`) is smaller than the
+  archive's nested form by two more. The last list save needs eight pads of root, which seven or eight further
+  `res` statements give: a count, so the exact text is held as a variation. A larger YR root (three more saves)
+  is why the twin's own text has the room there: budget forms do not transfer between the two games' roots.
+- The linkage of a small member is read from the whole image, not from one unit: count the direct calls of its
+  out-of-line copy in every row. AbstractClass::Is_Techno has one copy (0x6F8A70, in uicmnds) and exactly one call
+  in the executable, so it is the class's inline member (as ra2-decomp's abstract.h has it) that one root refused;
+  the tree had it out of line with unit-local stand-ins elsewhere. Inline, CellClass::Goodie_Check 0x476CC0
+  (6,672 B) has the image's call list at once (the five expansions also move N for Adjacent_Cell and two
+  TPoint3D constructors). The body must be the tree's (`bool flag = AbstractFlags & 1; return(flag);`): the twin's
+  `unsigned char flag ... return(flag != 0)` is six bytes off in the out-of-line copy. The cost of the correct
+  linkage is that the copy has no emitter until its one caller (uicmnds 0x6F6D00) is exact.
+- An inline body in a header moves the count that the count-sensitive rows sit on, by its shape and not by its
+  presence. With Is_Techno defined in the class as `if (this == NULL) return(false); ...; return(...)` (two
+  returns, with or without the `flag` local) queue's Print_CRCs 0x62A360 (4 bytes) and mapgen's Create_Urban_Area
+  flip across 220 includers and nothing else does; as the single expression `return(this != NULL &&
+  (AbstractFlags & 1) != 0);` neither flips, but Goodie_Check's five expansions are then not the image's. The
+  two-return shape is the evidenced one, so the flips are count flips by evidenced content (the review's rule),
+  not something to steer with the body.
+- A masked diff that shows only a table offset is hiding a jump. Labels print as `L`, so a conditional jump to a
+  different target is invisible until its encoding changes length: Goodie_Check was four bytes short with every
+  line equal, the switch tables four bytes early. Decode both byte streams and compare instruction sizes: the first
+  difference was a near `je` to the end of the switch where ours had a short one over the next statement (the
+  reveal crate plays its sound inside the player test in RA2).

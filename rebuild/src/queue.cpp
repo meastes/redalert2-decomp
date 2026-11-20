@@ -3262,7 +3262,6 @@ int Extract_Compressed_Events(void * buf, int bufsize)
  * HISTORY:                                                                *
  *   11/21/1995 BRR : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 28 bytes differ (class-b carry; published PAGEUSER event filter)
 int Execute_DoList(int max_houses, HousesType base_house,
 	ConnManClass *net, CDTimerClass<FrameTimerClass> *skip_crc,
 	FrameSyncStruct *their)
@@ -3403,10 +3402,12 @@ int Execute_DoList(int max_houses, HousesType base_house,
 								Print_CRCs(&DoList[j]);
 							}
 							Session.Suspended++;
-							WWMessageBox(L" ").Process(StringTable::LoadString("TXT_OUT_OF_SYNC", 0, "D:\\Ra2\\Queue.CPP", 0x1655),
-								StringTable::LoadString("TXT_STOP", 0, "D:\\Ra2\\Queue.CPP", 0x1656), 0, 0, 0);
-							Session.Suspended--;
-							return 0;
+							if (WWMessageBox().Process(StringTable::LoadString("TXT_OUT_OF_SYNC", NULL, "D:\\Ra2\\Queue.CPP", 0x1655), StringTable::LoadString("TXT_STOP", NULL, "D:\\Ra2\\Queue.CPP", 0x1656), NULL, NULL) == 0) { // RA2: the answer is tested and both arms resume alike, as ra2-decomp's twin has it (the archive's modem shutdown arm is gone)
+								Session.Suspended--;
+							} else {
+								Session.Suspended--;
+							}
+							return(0);
 						}
 					}
 				} else {
@@ -3459,7 +3460,6 @@ int Execute_DoList(int max_houses, HousesType base_house,
 	}
 	return 1;
 }
-#endif
 
 
 /// <summary>

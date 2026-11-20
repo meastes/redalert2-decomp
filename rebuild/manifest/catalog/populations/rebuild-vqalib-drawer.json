@@ -30,14 +30,15 @@
     "?UnVQ2_C0_4x2_TRANS@@YAXPAE00KKK@Z": 7857584,
     "?Select_Frame@@YIJPAU_VQAHandleP@@@Z": 7830672,
     "?Prepare_Frame@@YIXPAU_VQAHandleP@@@Z": 7832048,
-    "?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z": 7850848,
+    "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z": 7850784,
     "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z": 7850864,
+    "?VQA_ComputeDesiredFrame@@YIJPAU_VQAHandleP@@PAU_VQAConfig@@PAU_VQADrawer@@PAU_VQAFrameNode@@K@Z": 7831600,
     "_VQA_LCW_Uncompress": 7869419,
+    "?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z": 7830080,
+    "?VQA_StepTimer@@YIXPAU_VQAHandleP@@J@Z": 7850848,
     "?VQA_UnVQFrame@@YIXPAU_VQAHandleP@@PAU_VQAFrameNode@@@Z": 7830352,
     "?VQA_ResetLastFrameNum@@YIJPAU_VQAHandle@@@Z": 7829616,
-    "?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z": 7829632,
-    "?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z": 7830080,
-    "?VQA_ComputeDesiredFrame@@YIJPAU_VQAHandleP@@PAU_VQAConfig@@PAU_VQADrawer@@PAU_VQAFrameNode@@K@Z": 7831600
+    "?VQA_Configure_Drawer@@YIJPAU_VQAHandleP@@@Z": 7829632
   },
   "regions": [
     {
@@ -61,7 +62,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7829616,
@@ -249,7 +250,7 @@
           "resolved": 7857584
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7829632,
@@ -276,7 +277,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7830080,
@@ -303,7 +304,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7830352,
@@ -347,10 +348,86 @@
           "resolved": 1420
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7830608,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7830672,
+      "method": "00777c90",
+      "body_bytes": 921,
+      "body_sha256": "3414f7419dfe13ef2617d8b1ad1fa493ccbc9b7a8c909d16ecea27cb1ed81da4",
+      "padding_bytes": 7,
+      "full_extent_bytes": 928,
+      "full_extent_sha256": "4d03b0d659ab0d32b20b1a859a789ed7ee334d491604409867659e73fc11f065",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Select_Frame@@YIJPAU_VQAHandleP@@@Z",
+      "symbol_prefix": "?Select_Frame@@YIJPAU_VQAHandleP@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "?VQA_SetTimer@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7850784,
+          "addend": 0,
+          "resolved": 19907
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "?VQA_GetTime@@YIKPAU_VQAHandleP@@@Z",
+          "target": 7850864,
+          "addend": 0,
+          "resolved": 19969
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "?VQA_ComputeDesiredFrame@@YIJPAU_VQAHandleP@@PAU_VQAConfig@@PAU_VQADrawer@@PAU_VQAFrameNode@@K@Z",
+          "target": 7831600,
+          "addend": 0,
+          "resolved": 649
+        },
+        {
+          "offset": 377,
+          "kind": 20,
+          "symbol": "?VQA_ComputeDesiredFrame@@YIJPAU_VQAHandleP@@PAU_VQAConfig@@PAU_VQADrawer@@PAU_VQAFrameNode@@K@Z",
+          "target": 7831600,
+          "addend": 0,
+          "resolved": 547
+        },
+        {
+          "offset": 585,
+          "kind": 20,
+          "symbol": "_VQA_LCW_Uncompress",
+          "target": 7869419,
+          "addend": 0,
+          "resolved": 38158
+        },
+        {
+          "offset": 738,
+          "kind": 20,
+          "symbol": "?VQA_DispatchFrameChunks@@YIXPAU_VQAHandleP@@J@Z",
+          "target": 7830080,
+          "addend": 0,
+          "resolved": 4294965962
+        }
+      ],
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
+      "source": "rebuild/src/vqalib_drawer.cpp",
+      "population": "rebuild-vqalib-drawer",
+      "source_order": 7830672,
       "source_quality_family": "rebuild"
     },
     {
@@ -399,7 +476,7 @@
           "resolved": 18985
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7831600,
@@ -451,7 +528,7 @@
           "resolved": 37183
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832048,
@@ -487,7 +564,7 @@
           "resolved": 4294965289
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832256,
@@ -539,7 +616,7 @@
           "resolved": 4294965212
         }
       ],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832400,
@@ -566,7 +643,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832480,
@@ -593,7 +670,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832624,
@@ -620,7 +697,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "4f39684d86cbc2113924df9c8d41b3f6736d0a13bd4fe20289d2c8de7ff8df5b",
+      "source_sha256": "c8dc626c1730ce3d41047a8e3560d0c29468c1f1458aa9463672270d5820ee89",
       "source": "rebuild/src/vqalib_drawer.cpp",
       "population": "rebuild-vqalib-drawer",
       "source_order": 7832640,

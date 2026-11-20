@@ -206,29 +206,22 @@ HRESULT Load_Vector(IStream * stream)
 /// <returns>Returns with S_OK, or the failure code of the first object that refused to
 /// save.</returns>
 template<class T>
-inline HRESULT Save_Vector(IStream * stream, const DynamicVectorClass<T> &list)
+HRESULT Save_Vector(IStream * stream, const DynamicVectorClass<T> & list)
 {
-	int count = list.Count();
+	int count;
+	int index;
+	LPPERSISTSTREAM lpPS;
+
+	count = list.Count();
 	HRESULT result = stream->Write(&count, sizeof(count), NULL);
-	if (SUCCEEDED(result)) {
-		for (int index = 0; index < count; index++) {
-			LPPERSISTSTREAM lpPS = NULL;
-			result = list[index]->QueryInterface(IID_IPersistStream, (LPVOID *)&lpPS);
-			if (FAILED(result)) {
-				return(result);
-			}
-			result = OleSaveToStream(lpPS, stream);
-			if (FAILED(result)) {
-				return(result);
-			}
-			result = lpPS->Release();
-			if (FAILED(result)) {
-				return(result);
-			}
-		}
-		result = S_OK;
+	if (FAILED(result)) return(result);
+	for (index = 0; index < count; index++) {
+		lpPS = NULL;
+		if (FAILED(result = list[index]->QueryInterface(IID_IPersistStream, (LPVOID *)&lpPS))) return(result);
+		if (FAILED(result = OleSaveToStream(lpPS, stream))) return(result);
+		if (FAILED(result = lpPS->Release())) return(result);
 	}
-	return(result);
+	return(S_OK);
 }
 /// <summary>
 /// Builds a checksum over the whole of the game object state.
@@ -362,36 +355,25 @@ CRCEngine Object_CRCs(void)
  *   12/28/1994 BR : Created.                                              *
  *   02/27/1996 JLB : Uses simpler game control value save operation.      *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 686 bytes differ (text_if0 bucket; RA2 stream flow)
-bool Save_Game(const char *file_name, wchar_t const * descr, bool )
+bool Save_Game(const char * file_name, wchar_t const * descr, bool) // RA2: the body is ra2-decomp's twin text (src/saveload.cpp, Save_Game)
 {
 	WCHAR name[64];
-
-
 
 	DebugString("\nSAVING GAME [%s - %s]\n", file_name, descr);
 
 	IStoragePtr storage;
+	MultiByteToWideChar(
+		0, 0, file_name, -1, name,
+		sizeof(name) / sizeof(WCHAR));
 
-	MultiByteToWideChar(0,0, file_name, -1, name, sizeof(name)/sizeof(WCHAR));
-
-	/*
-	**	Open the file
-	*/
-	if (FAILED(StgCreateDocfile(name, STGM_CREATE|STGM_SHARE_EXCLUSIVE|STGM_READWRITE, 0, &storage))) {
-		return(false);
+	HRESULT error = StgCreateDocfile(
+		name,
+		STGM_CREATE | STGM_READWRITE | STGM_SHARE_EXCLUSIVE,
+		0, &storage);
+	if (SUCCEEDED(error) == false) {
+		return false;
 	}
 
-
-	/*
-	**	Save the description, scenario #, and house
-	**	(scenario # & house are saved separately from the actual Scenario &
-	**	PlayerPtr globals for convenience; we can quickly find out which
-	**	house & scenario this save-game file is for by reading these values.
-	**	Also, PlayerPtr is stored in a coded form in Save_Misc_Values(),
-	**	which may or may not be a HousesType number; so, saving 'house'
-	**	here ensures we can always pull out the house for this file.)
-	*/
 	SaveVersionInfo info;
 	info.Set_Internal_Version(ExpectedGameVersion);
 	info.Set_Scenario_Description(descr);
@@ -401,51 +383,54 @@ bool Save_Game(const char *file_name, wchar_t const * descr, bool )
 	info.Set_Scenario_Number(Scen->Scenario);
 	info.Set_Executable_Name("SUN.EXE");
 	info.Set_Game_Type(Session.Type);
-	FILETIME FileTime;
-	CoFileTimeNow(&FileTime);
-	info.Set_Last_Time(FileTime);
-	info.Set_Start_Time(FileTime);
-	info.Set_Play_Time(FileTime);
 
-	/*
-	**	Save the save-game version, for loading verification
-	*/
+	FILETIME time;
+	CoFileTimeNow(&time);
+	info.Set_Last_Time(time);
+	info.Set_Start_Time(time);
+	info.Set_Play_Time(time);
 	info.Save(storage);
 
 	IStreamPtr content;
-	if (FAILED(storage->CreateStream(L"CONTENTS", STGM_CREATE|STGM_SHARE_EXCLUSIVE|STGM_READWRITE, 0, 0, &content))) {
-		return(false);
+	error = storage->CreateStream(
+		L"CONTENTS",
+		STGM_CREATE | STGM_READWRITE | STGM_SHARE_EXCLUSIVE,
+		0, 0, &content);
+	if (SUCCEEDED(error) == false) {
+		return false;
 	}
 
 	ILinkStreamPtr link;
-	link.CreateInstance(CLSID_CompressStream, NULL, CLSCTX_INPROC|CLSCTX_LOCAL_SERVER);
-	if (FAILED(link->Link_Stream(content))) {
+	link.CreateInstance(
+		CLSID_CompressStream, NULL,
+		CLSCTX_INPROC | CLSCTX_LOCAL_SERVER);
+
+	error = link->Link_Stream(content);
+	if (SUCCEEDED(error) == false) {
 		DebugString("\t***** FAILED!\n");
-		return(false);
+		return false;
 	}
+
 	IStreamPtr stream(link);
+	bool result = Put_All(stream, 0);
 
-	/*
-	**	Dump the save game data to the file. The data is compressed
-	**	and then encrypted. The message digest is calculated in the
-	**	process by using the data just as it is written to disk.
-	*/
-	bool res = Put_All(stream,0);
-
-	if (FAILED(link->Unlink_Stream(NULL))) {
-		return(false);
+	error = link->Unlink_Stream(NULL);
+	if (SUCCEEDED(error) == false) {
+		return false;
 	}
 
 	content.Release();
 
-	if (FAILED(storage->Commit(0))) {
-		return(false);
+	error = storage->Commit(0);
+	if (SUCCEEDED(error) == false) {
+		return false;
 	}
 
-	DebugString("SAVING GAME [%s] - Complete\n\n", file_name, descr);
-	return(res);
+	DebugString(
+		"SAVING GAME [%s] - Complete\n\n",
+		file_name, descr);
+	return result;
 }
-#endif
 
 
 
@@ -581,9 +566,11 @@ static int Reconcile_Players(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 1902 bytes differ (text_if0 bucket; RA2 save sequence)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but eight of its result checks (Save_Misc_Values, the tactical map, the tracker, kamikaze and bomb lists, the two sound tables, the theme) go through `res` with no reference text at their place; with ra2-decomp's twin's forms alone (`res` at the list saves, its Save_Vector body) one list save is called where the executable expands it
 bool Put_All(IStream * stream, int save_net)
 {
+	HRESULT res;
+
 
 	/*
 	**	Save the scenario global information.
@@ -592,7 +579,8 @@ bool Put_All(IStream * stream, int save_net)
 	Environment.Save(stream);
 	Rule->Save(stream);
 
-	if (FAILED(Save_Vector(stream, AnimTypes))) {
+	res = Save_Vector(stream, AnimTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
 
@@ -601,14 +589,16 @@ bool Put_All(IStream * stream, int save_net)
 	*/
 	Map.Save(stream);
 
-	if (FAILED(Save_Vector(stream, Tubes))) {
+	res = Save_Vector(stream, Tubes);
+	if (FAILED(res)) {
 		return(false);
 	}
 
 	/*
 	**	Save miscellaneous variables.
 	*/
-	if (FAILED(Save_Misc_Values(stream))) {
+	res = Save_Misc_Values(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
 
@@ -617,7 +607,8 @@ bool Put_All(IStream * stream, int save_net)
 	*/
 	Logic.Save(stream);
 
-	if (FAILED(OleSaveToStream(TacticalMap, stream))) {
+	res = OleSaveToStream(TacticalMap, stream);
+	if (FAILED(res)) {
 		return(false);
 	}
 
@@ -625,163 +616,210 @@ bool Put_All(IStream * stream, int save_net)
 	**	Save all game objects.  This code saves every object that's stored in a
 	**	TFixedIHeap class.
 	*/
-	if (FAILED(Save_Vector(stream, HouseTypes))) {
+	res = Save_Vector(stream, HouseTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Houses))) {
+	res = Save_Vector(stream, Houses);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Units))) {
+	res = Save_Vector(stream, Units);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, UnitTypes))) {
+	res = Save_Vector(stream, UnitTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, InfantryTypes))) {
+	res = Save_Vector(stream, InfantryTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Infantry))) {
+	res = Save_Vector(stream, Infantry);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, BuildingTypes))) {
+	res = Save_Vector(stream, BuildingTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Buildings))) {
+	res = Save_Vector(stream, Buildings);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, AircraftTypes))) {
+	res = Save_Vector(stream, AircraftTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Aircraft))) {
+	res = Save_Vector(stream, Aircraft);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Anims))) {
+	res = Save_Vector(stream, Anims);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, TaskForces))) {
+	res = Save_Vector(stream, TaskForces);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, TeamTypes))) {
+	res = Save_Vector(stream, TeamTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Teams))) {
+	res = Save_Vector(stream, Teams);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, ScriptTypes))) {
+	res = Save_Vector(stream, ScriptTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Scripts))) {
+	res = Save_Vector(stream, Scripts);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, TagTypes))) {
+	res = Save_Vector(stream, TagTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Tags))) {
+	res = Save_Vector(stream, Tags);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, TriggerTypes))) {
+	res = Save_Vector(stream, TriggerTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Triggers))) {
+	res = Save_Vector(stream, Triggers);
+	if (FAILED(res)) {
 		return(false);
 	}
 	Save_Vector(stream, AITriggerTypes);
 	Save_Vector(stream, Actions);
-	if (FAILED(Save_Vector(stream, Events))) {
+	res = Save_Vector(stream, Events);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Factories))) {
+	res = Save_Vector(stream, Factories);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, VoxelAnimTypes))) {
+	res = Save_Vector(stream, VoxelAnimTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, VoxelAnims))) {
+	res = Save_Vector(stream, VoxelAnims);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Warheads))) {
+	res = Save_Vector(stream, Warheads);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Weapons))) {
+	res = Save_Vector(stream, Weapons);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, ParticleTypes))) {
+	res = Save_Vector(stream, ParticleTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Particles))) {
+	res = Save_Vector(stream, Particles);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, ParticleSystemTypes))) {
+	res = Save_Vector(stream, ParticleSystemTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, ParticleSystems))) {
+	res = Save_Vector(stream, ParticleSystems);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, BulletTypes))) {
+	res = Save_Vector(stream, BulletTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Bullets))) {
+	res = Save_Vector(stream, Bullets);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, WaypointPaths))) {
+	res = Save_Vector(stream, WaypointPaths);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, SmudgeTypes))) {
+	res = Save_Vector(stream, SmudgeTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, OverlayTypes))) {
+	res = Save_Vector(stream, OverlayTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, LightSources))) {
+	res = Save_Vector(stream, LightSources);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, BuildingLights))) {
+	res = Save_Vector(stream, BuildingLights);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Sides))) {
+	res = Save_Vector(stream, Sides);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Tiberiums))) {
+	res = Save_Vector(stream, Tiberiums);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, EMPulseClass::EMPulses))) {
+	res = Save_Vector(stream, EMPulseClass::EMPulses);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, SuperWeaponTypes))) {
+	res = Save_Vector(stream, SuperWeaponTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, SuperWeapons))) {
+	res = Save_Vector(stream, SuperWeapons);
+	if (FAILED(res)) {
 		return(false);
 	}
 	{
 		int count = TimedSuperWeapons.Count();
-		HRESULT result = stream->Write(&count, sizeof(count), NULL);
-		if (SUCCEEDED(result)) {
-			for (int index = 0; index < count; index++) {
-				SuperClass * super = TimedSuperWeapons[index];
-				result = stream->Write(&super, sizeof(super), NULL);
-				if (FAILED(result)) {
+		res = stream->Write(&count, sizeof(count), NULL);
+		if (SUCCEEDED(res)) {
+			for (int i = 0; i < count; i++) {
+				SuperClass * ptr = TimedSuperWeapons[i];
+				res = stream->Write(&ptr, sizeof(ptr), NULL);
+				if (FAILED(res)) {
 					break;
-				}
 			}
 		}
-		if (FAILED(result)) {
-			return(false);
-		}
 	}
-	if (FAILED(Save_Vector(stream, TerrainTypes))) {
+	}
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Terrains))) {
+	res = Save_Vector(stream, TerrainTypes);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, FoggedObjectClass::FoggyObjects))) {
+	res = Save_Vector(stream, Terrains);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, AlphaShapes))) {
+	res = Save_Vector(stream, FoggedObjectClass::FoggyObjects);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Waves))) {
+	res = Save_Vector(stream, AlphaShapes);
+	if (FAILED(res)) {
+		return(false);
+	}
+	res = Save_Vector(stream, Waves);
+	if (FAILED(res)) {
 		return(false);
 	}
 	if (!VeinholeMonsterClass::Save_All(stream)) {
@@ -790,48 +828,61 @@ bool Put_All(IStream * stream, int save_net)
 	if (!RadarEventClass::Save(stream)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, CaptureManagerArray))) {
+	res = Save_Vector(stream, CaptureManagerArray);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Parasites))) {
+	res = Save_Vector(stream, Parasites);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Temporals))) {
+	res = Save_Vector(stream, Temporals);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, SpawnManagers))) {
+	res = Save_Vector(stream, SpawnManagers);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(AircraftTracker.Save(stream))) {
+	res = AircraftTracker.Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Kamikazes.Save(stream))) {
+	res = Kamikazes.Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(BombList.Save(stream))) {
+	res = BombList.Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, Bombs))) {
+	res = Save_Vector(stream, Bombs);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Save_Vector(stream, RadSites))) {
+	res = Save_Vector(stream, RadSites);
+	if (FAILED(res)) {
 		return(false);
 	}
 
 	if (Session.Type == GAME_SKIRMISH) {
 		DebugString("Writing Skirmish Session.Options\n");
 		if (!Session.Options.Save(stream)) {
+			DebugString("\t***** FAILED!\n");
 			return(false);
 		}
 	}
 
-	if (FAILED(Static_Sounds_Save(stream))) {
+	res = Static_Sounds_Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Speech_Save(stream))) {
+	res = Speech_Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
-	if (FAILED(Theme.Save(stream))) {
+	res = Theme.Save(stream);
+	if (FAILED(res)) {
 		return(false);
 	}
 	return(true);

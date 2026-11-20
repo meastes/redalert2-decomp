@@ -284,4 +284,4 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2760-2834 Twin statements, inline predicates and charged probes (found in the rebuild (lane F2)) (10): Found in the rebuild (lane F2):
 - L2835-2886 Later inline sites of a long reader, and specializations left behind (found in the rebuild (lane FH1)) (7): Found in the rebuild (lane FH1):
 - L2887-2962 Hand-written blocks in a reader's root, accessor conditionals and named-local ties (found in the rebuild (lane F2, high)) (9): Found in the rebuild (lane F2, high):
-- L2963-3017 Empty constructors as inline sites, the reader templates under the cap, index signedness and frame maps (found in the rebuild (lane F3, high)) (7): Found in the rebuild (lane F3, high):
+- L2963-3051 Empty constructors as inline sites, the reader templates under the cap, index signedness and frame maps (found in the rebuild (lane F3, high)) (12): Found in the rebuild (lane F3, high):
