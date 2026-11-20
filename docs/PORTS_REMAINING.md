@@ -117,3 +117,20 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
   now work in Yuri's Revenge (glue/yr_map_zoom.cpp, ctest `yr-native-map-zoom`; the gestures zoom between 1x and 3x,
   Red Alert 2's zoom-out below 1x is not carried over). Still Red Alert 2 only: Game interface size and HD vehicles,
   each a separate piece of Yuri's Revenge work (native/yr/README.md "Not shared, and why"). Mod is shown in both games.
+- Pass (user, Duo, 2026-11-20, Yuri's Revenge: "Everything else passes on the Duo"): lanes N18-N20's Enhancements
+  (Map zoom and the gestures down to 0.5x, Game interface size, HD vehicles), the derricks' and buildings'
+  animations, Tab / Delete / loading during explosions, and the on-screen keyboard.
+- Faults (user, Duo, 2026-11-20, Yuri's Revenge), lane N21, please check on the Duo:
+  (1) Abort Mission with Game interface size above 1x (and Zoom gestures) showed the map small in the screen's top
+  left corner with the rest black. Cause: when Main_Loop ended the game only the play layout was dropped, so the
+  zoomed game's last frame (its view in a corner of the larger screen) was shown whole, through Do_Abort's wait for
+  EVA's "Battle control terminated" (seconds with sound); Red Alert 2 clears it at that point. Fixed: the end of
+  Main_Loop, and the abort and restart the in-game menu asks for, clear it as the win and loss did
+  (glue/yr_app_hooks.cpp, two fixups; ctest `yr-native-zoom-abort` checks every picture after the menu, fails on the
+  old build). Check: Abort Mission at 1.5x with and without Zoom gestures; the screen goes black, then the menus.
+  (2) The "Game Over" banner was far too dark. Cause: Init_Game's draft loaded GRFXTXT.PAL without making its 6-bit
+  colours 8-bit (gamemd.exe 0x0052C233 does, as for every palette), so the banner was drawn at a quarter of its
+  brightness. Fixed (glue/init_game_native.inc; ctest `yr-native-end-banner`: the banner's middle 120 of 255 against
+  27 before). Check: lose a skirmish (or a mission); "Game Over" (and a won game's "Mission Accomplished") as bright
+  as in Red Alert 2. Red Alert 2 has neither fault (its Init_Game is the matched original's; its game end clears
+  the zoomed frame).

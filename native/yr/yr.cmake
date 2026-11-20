@@ -276,6 +276,21 @@ add_test(NAME yr-native-map-zoom COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-map-zoom")
 set_tests_properties(yr-native-map-zoom PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
+# ctest yr-native-zoom-abort (lane N21): Abort Mission with Game interface size 1.5x and Zoom gestures on (render
+# scale 2): no picture after the in-game menu shows the game's screen whole (the zoomed map in its top left corner,
+# the user's Duo report); Main_Loop's end clears it (glue/yr_app_hooks.cpp, glue/yr_map_zoom.cpp Yr_Map_Zoom_End)
+add_test(NAME yr-native-zoom-abort COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_zoom_abort.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-zoom-abort")
+set_tests_properties(yr-native-zoom-abort PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+
+# ctest yr-native-end-banner (lane N21): the end-of-game banner ("Game Over", GRFXTXT.SHP) at the original's
+# brightness after a defeat flagged in a skirmish (Init_Game's draft scales GRFXTXT.PAL to 8 bits as gamemd.exe does)
+add_test(NAME yr-native-end-banner COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_end_banner.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-end-banner")
+set_tests_properties(yr-native-end-banner PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+
 # ctest yr-native-interface-size (lane N19): Game interface size set on the Enhancements page applies to the
 # next game (glue/yr_interface_size.cpp, Red Alert 2's link/native_enhancements.cpp carried over): the sidebar
 # surface shorter, play laid out split, the in-game menu shown whole; against a run with the defaults

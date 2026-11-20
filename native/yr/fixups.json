@@ -1644,6 +1644,18 @@
    "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Main_Loop's loss: as its win."
   },
   {
+   "file": "src/mainloop.cpp",
+   "old": "\t\t\tDo_Abort();\n",
+   "new": "\t\t\tvoid Yr_Map_Zoom_End();   // NATIVE (lane N21): glue/yr_map_zoom.cpp\n\t\t\tYr_Map_Zoom_End();\n\t\t\tDo_Abort();\n",
+   "why": "Native addition (lane N21, Map zoom and Zoom gestures; not original behaviour): Main_Loop's abort (Abort Mission): as its win and loss, the play layout ends and a zoomed game's last frame is cleared rather than shown whole (the user's Duo report, 2026-11-20: after Abort Mission with Game interface size 1.5x the map drawn small in the top left corner, the rest black, through Do_Abort's wait for EVA's last words). Red Alert 2 ends the game this way at every end of Main_Loop (link/native_map_zoom.cpp Native_Map_Zoom_End)."
+  },
+  {
+   "file": "src/mainloop.cpp",
+   "old": "\t\t\tDo_Restart();\n",
+   "new": "\t\t\tvoid Yr_Map_Zoom_End();   // NATIVE (lane N21): glue/yr_map_zoom.cpp\n\t\t\tYr_Map_Zoom_End();\n\t\t\tDo_Restart();\n",
+   "why": "Native addition (lane N21, Map zoom and Zoom gestures; not original behaviour): Main_Loop's restart (Restart Mission): as its abort."
+  },
+  {
    "file": "src/sidebar.cpp",
    "old": "// FUNCTION: GAMEMD 0x006A70E0\n",
    "new": "int Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\nint Yr_Sidebar_Bottom(int view_bottom);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x006A70E0\n",

@@ -2003,7 +2003,10 @@ void present_now(const void *pixels, int width, int height, int pitch)
     if (window_dump && *window_dump && (window_dump_count == 0 || window_dump_now ||
             SDL_GetTicks() - window_dump_ms >= (Uint64)(window_dump_period ? atoi(window_dump_period) : 2000))) {
         window_dump_ms = SDL_GetTicks();
-        if (window_dump_now) fprintf(stderr, "host: window dump %d\n", window_dump_count);
+        // RA2_NATIVE_WINDOW_DUMP_LOG=1 (test runs, lane N21): every picture's number logged, so a test
+        // can place each in the run's log.
+        static const bool window_dump_log = getenv("RA2_NATIVE_WINDOW_DUMP_LOG") != nullptr;
+        if (window_dump_now || window_dump_log) fprintf(stderr, "host: window dump %d\n", window_dump_count);
         window_dump_now = false;
         if (SDL_Surface *shot = SDL_RenderReadPixels(renderer, nullptr)) {
             char name[1024];

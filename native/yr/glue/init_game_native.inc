@@ -177,9 +177,17 @@ int Init_Game(int argc, char *argv[])
 	if (grfxpal.Is_Available(0)) {
 		YR_GRFXTXT_PAL = Load_Alloc_Data(grfxpal);
 		grfxpal.Close();
+		// The file's 6-bit colours made 8-bit in place, as the other palettes (0x0052C233-0x0052C283;
+		// lane N21: the draft had left them 6-bit, so the end-of-game banner, "Game Over" and "Mission
+		// Accomplished", was drawn at a quarter of its brightness: the user's Duo report, 2026-11-20).
+		PaletteClass &grfx = *(PaletteClass *)YR_GRFXTXT_PAL;
+		for (int index = 0; index < 256; index++) {
+			grfx[index] = RGBClass((unsigned char)(grfx[index].Get_Red() << 2),
+				(unsigned char)(grfx[index].Get_Green() << 2), (unsigned char)(grfx[index].Get_Blue() << 2));
+		}
 	}
 	if (YR_GRFXTXT_PAL != NULL) {
-		YR_GRFXTXT_Convert = YR_Drawer(*(PaletteClass *)YR_GRFXTXT_PAL, 0x35);
+		YR_GRFXTXT_Convert = YR_Drawer(*(PaletteClass *)YR_GRFXTXT_PAL, 1);   // one shade (0x0052C2AB push 1; lane N21)
 	}
 	CCFileClass grfxshp("GRFXTXT.SHP");
 	if (grfxshp.Is_Available(0)) {

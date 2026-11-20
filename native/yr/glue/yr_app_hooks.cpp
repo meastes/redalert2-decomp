@@ -149,12 +149,18 @@ static void yr_native_harness_save(int frame)
 void yr_native_harness_frame(int frame);
 
 void Yr_Map_Zoom_Frame();   // glue/yr_map_zoom.cpp: a zoom gesture's step (lane N18)
+void Yr_Map_Zoom_End();     // glue/yr_map_zoom.cpp: play is over (lane N21)
 bool yr_native_main_loop(void)
 {
     static int frames = 0;
     ra2_enh_in_play(1);
     bool over = Main_Loop();
-    if (over) ra2_enh_in_play(0);
+    // Main_Loop returned true (won, lost, restarted or aborted: the game loop's end check runs next):
+    // play is over and a zoomed game's last frame is cleared, as Red Alert 2 does at the same point
+    // (link/native_map_zoom.cpp Native_Map_Zoom_End). Only marking play over (before lane N21) showed
+    // that frame whole until the end check cleared it, or, after Abort Mission, through Do_Abort's
+    // wait: the zoomed map small in the screen's top left corner (the user's Duo report, 2026-11-20).
+    if (over) Yr_Map_Zoom_End();
     else Yr_Map_Zoom_Frame();
     ra2port_frame(++frames);
     yr_native_harness_save(frames);

@@ -1604,6 +1604,26 @@ yr_keys_load.py with Zoom gestures and Map zoom 2x (Diplomacy and the in-game Lo
 the loaded game at 2x); yr_save_roundtrip.py with Zoom gestures, Map zoom 1.5x, Interface 1.25x and HD 2x
 (loads from the menus). Red Alert 2's `native-zoom-menu` and `native-zoom-menu-ui` pass with the host change.
 
+## Lane N21 (2026-11-20): two Duo faults (Abort Mission when scaled, the dark end banner)
+
+1. **Abort Mission with Game interface size / Zoom gestures** showed the map small in the screen's top left corner,
+   the rest black. Main_Loop's true return only dropped the play layout (yr_native_main_loop), and only the win and
+   loss cleared the zoomed frame (lane N18's Yr_Map_Zoom_End before Do_Win / Do_Lose), so after an abort the larger
+   screen's last frame (its zoomed view in a corner) was shown whole through Do_Abort's wait for EVA (seconds with
+   sound). Now Main_Loop's true return calls Yr_Map_Zoom_End (as Red Alert 2's Native_Map_Zoom_End), and two fixups
+   call it before Do_Abort and Do_Restart (the in-game menu's Restart reaches the end check without Main_Loop's
+   return). ctest `yr-native-zoom-abort` (yr/tests/yr_zoom_abort.py): every picture after the in-game menu ends
+   (host.cpp RA2_NATIVE_WINDOW_DUMP_LOG numbers each in the log) must not be the screen shown whole; 2 such pictures
+   on the old build on the Mac (no EVA wait with -noaudio), none now. The menu's own first frame or two (before it
+   draws, the game frame at the window's top left) remain, as in Red Alert 2.
+2. **The end-of-game banner** ("Game Over", "Mission Accomplished": GRFXTXT.SHP, Tactical::Draw_Screen_Text) was
+   drawn at a quarter of its brightness: Init_Game's draft (glue/init_game_native.inc) left GRFXTXT.PAL's 6-bit
+   colours unscaled and gave its drawer 0x35 shades; gamemd.exe (0x0052C233-0x0052C2AB, read instruction by
+   instruction) shifts each colour left by 2 and makes the drawer with one shade, as Red Alert 2's matched Init_Game.
+   ctest `yr-native-end-banner` (yr/tests/yr_end_banner.py; RA2_NATIVE_FORCE_END gains `flag`: Flag_To_Lose /
+   Flag_To_Win as the house AI raises them, banner and EVA, glue/yr_harness.cpp): the banner's middle 120 of 255,
+   27 on the old build.
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;

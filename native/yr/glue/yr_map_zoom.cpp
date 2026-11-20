@@ -410,5 +410,6 @@ void Yr_Dialog_Screen(bool on)
         Yr_Art_Relayout();
         if (FUN_0072E260()) FUN_0072E1B0(saved_w, saved_h);
         ra2_enh_set_dialog_screen(0);
+        fprintf(stderr, "zoom: in-play dialogs end\n");
     }
 }

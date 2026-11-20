@@ -108,7 +108,10 @@
 //   occupants <BLDG>  logs `harness-occupants <BLDG> h<house> <n>[p]`: the garrison of each building of type BLDG;
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
-// logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission.
+// logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission. With
+// `flag` (lane N21) the player's house is flagged instead (HouseClass::Flag_To_Lose / Flag_To_Win, as the
+// house AI flags a defeat or a victory): the end-of-game banner (GRFXTXT.SHP) and EVA, then the end after
+// the savour delay.
 #include "always.h"
 #include "globals.h"
 #include "techno.h"
@@ -1149,12 +1152,14 @@ void Force_End(int frame)
 	static int end_at[16];
 	static int end_count = -1;
 	static bool end_lose = false;
+	static bool end_flag = false;
 	static int end_done = 0;
 	if (end_count < 0) {
 		end_count = 0;
 		char const * env = getenv("RA2_NATIVE_FORCE_END");
 		for (char const * p = env; p && *p;) {
 			if (*p == 'l') end_lose = true;
+			else if (*p == 'f') end_flag = true;
 			else if (*p >= '0' && *p <= '9' && end_count < 16) end_at[end_count++] = atoi(p);
 			while (*p && *p != ',') ++p;
 			if (*p == ',') ++p;
@@ -1162,8 +1167,10 @@ void Force_End(int frame)
 	}
 	if (end_done < end_count && frame >= end_at[end_done]) {
 		++end_done;
-		if (end_lose) PlayerLoses = true; else PlayerWins = true;
-		fprintf(stderr, "force-end: %s at frame %d in %s\n", end_lose ? "loss" : "win", frame,
+		if (end_flag && PlayerPtr != NULL) {
+			if (end_lose) PlayerPtr->Flag_To_Lose(false); else PlayerPtr->Flag_To_Win(false);
+		} else if (end_lose) PlayerLoses = true; else PlayerWins = true;
+		fprintf(stderr, "force-end: %s%s at frame %d in %s\n", end_flag ? "flagged " : "", end_lose ? "loss" : "win", frame,
 			Scen ? Scen->ScenarioName : "?");
 	}
 }
