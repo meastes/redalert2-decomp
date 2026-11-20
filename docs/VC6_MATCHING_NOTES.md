@@ -2941,3 +2941,77 @@ range do not count, and any reference inside the stretch resets the count. The w
   +14..+24; +6, +7 and +17..+24), so the text is exact at +17, or at +6 with the sum written table first. Main's
   accepted body had the count from its coined Length helper (three named doubles at each of three sites). A probe
   result of this kind names a deficit of named locals, not a form: nothing lands from it.
+- A constructor's argument scheduling can count the inline member-constructor sites before it. TechnoTypeClass's
+  constructor 0x6D9B40 is 15 bytes off: the two pushes and the lea of Prerequisite's VectorClass<int> constructor
+  sit one member store early among ten constant stores. Measured with a scratch wrapper class in the header
+  (restored): any one scalar member before +0x544 given a class type with an inline one-argument constructor makes
+  the row exact, the first member of the list as well as the one next to the vector; a member after that point
+  moves other stores, and two or more wrapped members overshoot. An explicit default initializer (`Prerequisite()`,
+  as the TibSun archive's constructor of the same signature has it), the order of the initializer list and an
+  inline function inside an initializer do nothing. Main matched it by making GuardRange a coined `Leptons` class;
+  every member type before Prerequisite equals both reference headers, so which member it is stays open. When a
+  long constructor differs only in where a later call's arguments are scheduled, count member-constructor sites
+  with arguments before spending time on the stores next to the call.
+- Look for the author's idiom in the same unit before calling a local coined. The train block of While_Moving needs
+  LinkedTo in a local across the loop's calls; main wrote `FootClass * train = LinkedTo`. The TibSun archive's and
+  ra2-decomp's Stop_Moving of the same unit test a train as `if (LinkedTo->TClass->IsTrain) { UnitClass *unit =
+  (UnitClass *)LinkedTo; if (!unit->IsFollowing) {`; the same three statements in While_Moving, with the loop's
+  Take_Damage through `unit` and everything else as the archive's While_Moving has it, are exact in both copies.
+  It is still not reference text at that place (the archive's While_Moving has the combined test), so it is recorded
+  as a variation with its support, not landed.
+
+## Empty constructors as inline sites, the reader templates under the cap, index signedness and frame maps (found in the rebuild (lane F3, high))
+
+- Found in the rebuild (lane F3, high): an explicit empty inline constructor is an inline site of every expression
+  that builds a temporary of the class (`ModemHost().Dialog()`), free to expand but counted in N for every nested
+  site before it; a class with no user-declared constructor has no site there. Select_Serial_Dialog 0x5CDF00
+  (2,580 B): the image expands TTimerClass's conversion at the first four waits of the inlined `Test_Null_Modem`
+  and calls its out-of-line copy (0x5CFDB0) at the later ones; the draft called it at all of them, and 32
+  `GetFocus();` pads changed nothing (the root sits on the 1000 floor, the nested share is what is left over the
+  sites still to come). ra2-decomp's headers have no `ModemHost(void){}`, `ModemGuest(void){}` or
+  `SerialEdit(void) {}` (the archive's and mischa85's do); without the three the nested share is large enough,
+  the identical twin's text is exact and the unit is whole. When a nested site is refused under a floor budget,
+  compare the constructors of every temporary built after it against the twin's headers before anything else.
+- A function its identical twin defines first in the unit and that the tree's draft has at the end of the file
+  with its helper declared `inline` just above is not the same translation: /Ob2 expands a later-defined static
+  function at an earlier call site, so the twin's order (the dialog first, the `static` probe forward-declared and
+  defined after Modem_Signoff, as the archive has it) costs nothing and keeps the file in address order.
+- The reader templates and the two budget regimes. findmake.h's `!= 0` (the archive's and ra2-decomp's form) adds 2
+  units to TGet_Class (64 against 62, il_lab in rules) and to each list reader. RulesClass::General 0x647F40 is not
+  on its root budget but on the 35000 running-total cap: its last TypeList<int> temporary is destroyed fully
+  expanded, and every `GetFocus();` pad past eight (4 units each) makes it call one level more (VectorClass<int>::
+  Clear, then ~VectorClass, ~DynamicVectorClass, ~TypeList, 36 units a level). A pad raises S and so the running
+  total: under the cap more root text means less expansion at the last sites, the reverse of the budget regime, and
+  a charged probe at the top spends from the total too, so only removing text measures the other direction (one
+  Get_Int statement fewer restores the image's list with `!= 0`). With `!= 0` General is 32 to 35 units over,
+  Combat_Damage (budget regime, window -40 to +16 units without it) 16 to 32 short and Audio_Visual_Rules 9 to 15
+  pads short; in TGet_TypeList alone it leaves General and Combat_Damage exact. Nothing landed: no reference has
+  text for the three roots that pays for it.
+- Reading the cap regime: pads that take expansions away in clean steps, each step one level of the same destructor
+  chain, are the cap; a sawtooth or a gain is the budget.
+- The signedness of VectorClass<T>::operator[]'s index is a global property of a function's code, not of the indexed
+  sites. Dropship_Screen 0x4A6B90 (10,797 B) and WDT_Write_Map_Ini 0x72A880 (1,652 B) are exact but for bindings
+  when the operator indexes unsigned (`unsigned` or `unsigned long` parameter, or `Vector[(unsigned)index]` in an
+  int-parameter body; `long` changes nothing): five operand-order sites in the first (two `[index*4 + Vector]`
+  loads, a reload register, an `add` for a `lea`, `cameo_top + (col + 2*row)`), one lea of the expanded Resize copy
+  loop in the second, which no index operator touches. Red Alert 1's VECTOR.H declares `unsigned index` (and
+  unsigned sizes); the archive, ra2-decomp, mischa85 and Renegade declare int. Over all 272 includers the unsigned
+  parameter loses 24 exact rows in ten units (eleven of them inline-budget flips, a conversion per site) and gains
+  these two; the body cast loses twelve in the same units. So the header stays int, and what the two functions
+  have instead is open: not converted arguments as such (a scratch `U(unsigned)` accessor at all 63 expansions of
+  Dropship_Screen gives a third state, at one to sixteen sites nothing), not dead reference locals (0 to 40), dead
+  inline calls or declaration counts.
+- A block-local loop index is a frame symbol of its own. Dropship_Screen walked the cross dissolves with the
+  function's `i` (the archive's text); ra2-decomp's twin declares `int dissolve_index = 0;` in the block, and with
+  it every stack slot of the 1.7 KB frame is the image's (222 differing lines to 34). When a large frame is a
+  permutation of the image's and one slot short or long, look for a loop the twin walks with its own index before
+  reordering declarations.
+- Mapping a frame without a simulator. When the masked instruction sequences are equal (esp offsets replaced by a
+  token before diffing), compile the unit with `/FAs /Fa<path>` through rebuild.compile_unit: the listing names every
+  frame symbol with its offset and prints each reference as `sym$[esp+N]`, so N minus frame minus saved registers
+  is the push depth of that instruction, and the image's slot of the same symbol is its raw offset on the aligned
+  line minus that depth. ScoreClass::Presentation 0x663FE0 (7,782 B; equal but for one operand order and a frame of
+  0x69C against 0x6A0): the image has two 8-byte Point2D slots where ours has one and five 4-byte slots where ours
+  has six; `index` shares with efic01shape and `total` with logo01shape in the image, the other way round in ours,
+  and `drawer` sits alone in the top scalar slot. The twin's text gives 0x6A8 for YR under its own headers and
+  0x69C under ours, so the missing symbol is in a header inline, not in the function's text.

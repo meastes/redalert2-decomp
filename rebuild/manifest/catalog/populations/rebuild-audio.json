@@ -95,11 +95,19 @@
     "?Aux_Stream_Pause@@YIXXZ": 7432400,
     "?Aux_Stream_Resume@@YIXXZ": 7432416,
     "?Theme_Resume@@YIXXZ": 7432688,
+    "_AudioServiceBusy": 8590444,
+    "?AudioGetTime@@YI_KXZ": 4231888,
+    "_AudioServiceLast": 8590448,
+    "?AudioServiceAllEvents@@YIXXZ": 4211120,
+    "?Sound_Service@@YIXXZ": 7422768,
+    "?Speech_Service@@YIXXZ": 7429024,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "?AI@ThemeClass@@QAEXXZ": 7240912,
+    "?Process_Mouse_Unthreaded@@YIXXZ": 7804864,
     "?AudioFocusLocks@@3HA": 8590400,
     "?AudioLoseFocus@@YIXXZ": 4237408,
     "?AudioRegainFocus@@YIXXZ": 4237424,
     "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
-    "?AudioGetTime@@YI_KXZ": 4231888,
     "?Call_Back@@YIXXZ": 4726704,
     "_$E2": 4221184,
     "_$E5": 4221232,
@@ -123,6 +131,7 @@
     "?Audio_Stop_All@@YIXXZ": 4222496,
     "?Audio_Pause_All@@YIXXZ": 4222528,
     "?Audio_Resume_All@@YIXXZ": 4222576,
+    "?Audio_Service@@YIXXZ": 4222624,
     "?AudioDeviceAvailable@@YIHXZ": 4222768,
     "?AudioGetDevice@@YIPAUAudioDevice@@XZ": 4222784,
     "?Audio_Focus_Lose@@YIXXZ": 4222800,
@@ -196,7 +205,7 @@
           "resolved": 8589664
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221184,
@@ -249,7 +258,7 @@
           "resolved": 8590248
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221232,
@@ -302,7 +311,7 @@
           "resolved": 8590232
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221264,
@@ -355,7 +364,7 @@
           "resolved": 8590224
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221296,
@@ -408,7 +417,7 @@
           "resolved": 8589800
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221328,
@@ -461,7 +470,7 @@
           "resolved": 8589264
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221360,
@@ -546,7 +555,7 @@
           "resolved": 8590384
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221392,
@@ -607,7 +616,7 @@
           "resolved": 8589808
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221456,
@@ -668,7 +677,7 @@
           "resolved": 8589960
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221504,
@@ -729,7 +738,7 @@
           "resolved": 8590240
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221552,
@@ -774,7 +783,7 @@
           "resolved": 8589658
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221600,
@@ -827,7 +836,7 @@
           "resolved": 8589952
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221616,
@@ -1328,7 +1337,7 @@
           "resolved": 8590396
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4221648,
@@ -1508,7 +1517,7 @@
           "resolved": 4294950015
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222080,
@@ -1592,7 +1601,7 @@
           "resolved": 4294952874
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222240,
@@ -1644,7 +1653,7 @@
           "resolved": 8590392
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222368,
@@ -1696,7 +1705,7 @@
           "resolved": 4294959223
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222400,
@@ -1756,7 +1765,7 @@
           "resolved": 3200690
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222432,
@@ -1816,7 +1825,7 @@
           "resolved": 4294953378
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222464,
@@ -1876,7 +1885,7 @@
           "resolved": 4738
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222496,
@@ -1952,7 +1961,7 @@
           "resolved": 3209832
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222528,
@@ -2028,10 +2037,158 @@
           "resolved": 4294953256
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4222624,
+      "method": "00406ea0",
+      "body_bytes": 129,
+      "body_sha256": "2325adb3f1e5d224f10e4366439a39e93c9acebd9e72c407c4be4cbde1996177",
+      "padding_bytes": 15,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "4ac84e2da7644d4bf92769c481a81e41a53377870fa77b7107194b56ee9a6b41",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Audio_Service@@YIXXZ",
+      "symbol_prefix": "?Audio_Service@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_AudioServiceBusy",
+          "target": 8590444,
+          "addend": 0,
+          "resolved": 8590444
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?AudioMainDevice@@3PAUAudioDevice@@A",
+          "target": 8590392,
+          "addend": 0,
+          "resolved": 8590392
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "_AudioServiceBusy",
+          "target": 8590444,
+          "addend": 0,
+          "resolved": 8590444
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 9226
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_AudioServiceLast",
+          "target": 8590448,
+          "addend": 0,
+          "resolved": 8590448
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_AudioServiceLast",
+          "target": 8590448,
+          "addend": 4,
+          "resolved": 8590452
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?AudioServiceAllEvents@@YIXXZ",
+          "target": 4211120,
+          "addend": 0,
+          "resolved": 4294955716
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Sound_Service@@YIXXZ",
+          "target": 7422768,
+          "addend": 0,
+          "resolved": 3200063
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "?Speech_Service@@YIXXZ",
+          "target": 7429024,
+          "addend": 0,
+          "resolved": 3206314
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?AI@ThemeClass@@QAEXXZ",
+          "target": 7240912,
+          "addend": 0,
+          "resolved": 3018192
+        },
+        {
+          "offset": 97,
+          "kind": 20,
+          "symbol": "?Process_Mouse_Unthreaded@@YIXXZ",
+          "target": 7804864,
+          "addend": 0,
+          "resolved": 3582139
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_AudioServiceLast",
+          "target": 8590448,
+          "addend": 0,
+          "resolved": 8590448
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "_AudioServiceLast",
+          "target": 8590448,
+          "addend": 4,
+          "resolved": 8590452
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "_AudioServiceBusy",
+          "target": 8590444,
+          "addend": 0,
+          "resolved": 8590444
+        }
+      ],
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
+      "source": "rebuild/src/audio.cpp",
+      "population": "rebuild-audio",
+      "source_order": 4222624,
       "source_quality_family": "rebuild"
     },
     {
@@ -2064,7 +2221,7 @@
           "resolved": 8590392
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222768,
@@ -2100,7 +2257,7 @@
           "resolved": 8590392
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222784,
@@ -2152,7 +2309,7 @@
           "resolved": 8590400
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222800,
@@ -2205,7 +2362,7 @@
           "resolved": 14570
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222832,
@@ -2242,7 +2399,7 @@
           "resolved": 262
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222864,
@@ -2278,7 +2435,7 @@
           "resolved": 249
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222880,
@@ -2314,7 +2471,7 @@
           "resolved": 235
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222896,
@@ -2341,7 +2498,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222912,
@@ -2394,7 +2551,7 @@
           "resolved": 503706
         }
       ],
-      "source_sha256": "7efca25a86dfc2d854f660b93fb86d722db48e5f536c3488b51a1497d6d858b2",
+      "source_sha256": "d575a0f0776dc58ea69e9663c224e5ae8e38417e5abaa122eaedd29b33fad65c",
       "source": "rebuild/src/audio.cpp",
       "population": "rebuild-audio",
       "source_order": 4222944,

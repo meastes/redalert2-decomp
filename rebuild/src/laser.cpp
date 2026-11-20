@@ -155,7 +155,7 @@ void LaserDrawClass::Draw_All(void)
 
 /// nothing, and a beam with IsHouseColor set is drawn by Draw_House_Color instead.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 182 bytes differ (text_if0 bucket)
 void LaserDrawClass::Draw_It(void)
 {
 	if (Duration > 0) {

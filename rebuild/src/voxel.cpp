@@ -79,7 +79,7 @@ void Set_Voxel_Light_Angle(float angle)
 /// tilt vector of every facing, the isometric view transform, and the bounce matrices.
 /// </summary>
 /// <remarks>Call this routine before any voxel is drawn.</remarks>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 25 bytes differ (text_if0 bucket; register choices)
 void __fastcall Init_Voxel_Matrices()
 {
 	float slope_h = (float)CELL_SLOPE_ANGLE;

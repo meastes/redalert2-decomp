@@ -151,7 +151,7 @@ void BuildingLightClass::Draw_It(Point2D const & point, Rect const & cliprect) c
 /// the owner's spotlight triggers whenever an enemy is caught in the light. A light
 /// whose owner has left the game deletes itself here.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 1026 bytes differ (text_if0 bucket)
 void BuildingLightClass::AI(void)
 {
 	if (Owner == NULL || !Owner->IsActive) {

@@ -19,8 +19,6 @@ class SerialEdit
 {
 		friend BOOL CALLBACK Com_Settings_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
 	public:
-		SerialEdit(void) {};
-		SerialEdit(SerialSettingsType *settings);
 		bool Dialog(SerialSettingsType *settings);
 
 	private:

@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -47,6 +48,7 @@
 
 #define INCLUDE_COM
 #include "always.h"
+#include <stdio.h>
 #include "rect.h"
 #include "geometry.h"
 
@@ -391,12 +393,13 @@ TPoint2D<int> UnitTypeClass::Turret_Adjust(Dir256 dir, TPoint2D<int> const & xy)
  * HISTORY:                                                                                    *
  *   07/19/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 27 bytes differ (text_if0 bucket; RA2 rules and IFV turrets)
 bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 {
 	if (BASECLASS::Read_INI(ini)) {
 		IsCrateGoodie = ini.Get_Bool(Name(), "CrateGoodie", IsCrateGoodie);
 		IsDeployToFire = ini.Get_Bool(Name(), "DeployToFire", IsDeployToFire);
+		IsSimpleDeployer = ini.Get_Bool(Name(), "IsSimpleDeployer", IsSimpleDeployer); // RA2
 		IsToHarvest = ini.Get_Bool(Name(), "Harvester", IsToHarvest);
 		IsToVeinHarvest = ini.Get_Bool(Name(), "Weeder", IsToVeinHarvest);
 
@@ -426,14 +429,11 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 		FiringFrames = ArtINI.Get_Int(Graphic_Name(), "FiringFrames", FiringFrames);
 		IsPassive = ini.Get_Bool(Name(), "Passive", IsPassive);
 		MovementRestrictedTo = ini.Get_LandType(Name(), "MovementRestrictedTo", MovementRestrictedTo);
+		CanBeach = ini.Get_Bool(Name(), "CanBeach", CanBeach); // RA2
 		IsSmallVisceroid = ini.Get_Bool(Name(), "SmallVisceroid", IsSmallVisceroid);
 		IsLargeVisceroid = ini.Get_Bool(Name(), "LargeVisceroid", IsLargeVisceroid);
 		IsNonVehicle = ini.Get_Bool(Name(), "NonVehicle", IsNonVehicle);
-
-		if (IsSmallVisceroid || IsLargeVisceroid) {
-			IsNonVehicle = true;
-		}
-
+		// RA2: a visceroid no longer counts as a non-vehicle by itself.
 
 		if (FiringFrames > 0) {
 			StandingFrames = 1;
@@ -476,8 +476,17 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 		StartDeathFrame = ArtINI.Get_Int(Graphic_Name(), "StartDeathFrame", StartDeathFrame);
 		MaxDeathCounter = ArtINI.Get_Int(Graphic_Name(), "MaxDeathCounter", MaxDeathCounter);
 
-		FiringSyncFrame[0] = ArtINI.Get_Int(Graphic_Name(), "FiringSyncFrame1", FiringSyncFrame[0]);
-		FiringSyncFrame[1] = ArtINI.Get_Int(Graphic_Name(), "FiringSyncFrame2", FiringSyncFrame[1]);
+		// RA2: both art synchronization frames and all four weapon burst delays are read.
+		for (int sync = 0; sync < FIRING_SYNC_FRAME_MAX; ++sync) {
+			char key[20];
+			sprintf(key, "FiringSyncFrame%d", sync);
+			FiringSyncFrame[sync] = ArtINI.Get_Int(Graphic_Name(), key, FiringSyncFrame[sync]);
+		}
+		for (int burst = 0; burst < 4; ++burst) {
+			char key[20];
+			sprintf(key, "BurstDelay%d", burst);
+			BurstDelay[burst] = ini.Get_Int(Name(), key, BurstDelay[burst]);
+		}
 
 		char defvalue[25];
 		strcpy(defvalue, AltImageFile);
@@ -486,6 +495,74 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 		char filename[_MAX_PATH];
 		_makepath(filename, NULL, NULL, AltImageFile, ".SHP");
 		AltImageData = (ShapeSet const *)MFCD::Retrieve(filename);
+		// RA2: the IFV selects a weapon for each of its passenger turret modes.
+		if (*this == "FV") {
+			{
+				int turret = ini.Get_Int(Name(), "NormalTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "NormalTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "RepairTurretIndex", 1);
+				int weapon = ini.Get_Int(Name(), "RepairTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "MachineGunTurretIndex", 2);
+				int weapon = ini.Get_Int(Name(), "MachineGunTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "FlakTurretIndex", 3);
+				int weapon = ini.Get_Int(Name(), "FlakTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "PistolTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "PistolTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "SniperTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "SniperTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "ShockTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "ShockTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "ExplodeTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "ExplodeTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "BrainBlastTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "BrainBlastTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "RadCannonTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "RadCannonTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "ChronoTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "ChronoTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "TerroristExplodeTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "TerroristExplodeTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+			{
+				int turret = ini.Get_Int(Name(), "CowTurretIndex", 0);
+				int weapon = ini.Get_Int(Name(), "CowTurretWeapon", -1);
+				Set_Turret_Weapon(turret, weapon);
+			}
+		}
 		return(true);
 	}
 	return(false);

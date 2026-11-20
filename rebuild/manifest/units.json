@@ -54138,7 +54138,7 @@
     "entry": "005cdf00",
     "body": 2580,
     "padding": 12,
-    "symbol": "?Select_Serial_Dialog@@YIHXZ",
+    "symbol": "?Select_Serial_Dialog@@YI?AW4GameType@@XZ",
     "main_symbol": "?Select_Serial_Dialog@@YIHXZ",
     "main_source": "src/recovered/nulldlg.cpp"
    },
@@ -54764,7 +54764,16 @@
    }
   ],
   "references": {
-   "_RECT_NONE": "00b25ba0"
+   "_RECT_NONE": "00b25ba0",
+   "?Serial_Port_Open@WinModemClass@@UAEPAXPADHHHH@Z": "00734410",
+   "?Set_Modem_Dial_Type@WinModemClass@@UAEXW4WinCommDialMethodType@@@Z": "007348a0",
+   "?Get_Modem_Status@WinModemClass@@UAEIXZ": "007348b0",
+   "?Set_Serial_DTR@WinModemClass@@UAEX_N@Z": "00734900",
+   "?Get_Modem_Result@WinModemClass@@UAEHHPADHH@Z": "00734cd0",
+   "?Dial_Modem@WinModemClass@@UAEXPAD@Z": "00734f50",
+   "?Send_Command_To_Modem@WinModemClass@@UAEHPBDDPADHHHH@Z": "00735110",
+   "?Set_Echo_Function@WinModemClass@@UAEXP6IXD@Z@Z": "007354a0",
+   "?Set_Abort_Function@WinModemClass@@UAEXP6IHXZ@Z": "007354b0"
   },
   "partial_ok": true
  },
@@ -66277,7 +66286,8 @@
    "?Char_Width@ScoreFontClass@@UAEHG@Z": "00667aa0",
    "?String_Width@ScoreFontClass@@UAEHPBG@Z": "00667a60",
    "?Print_String@ScoreFontClass@@UAEXPAVSurface@@PBGHHH@Z": "00667c70",
-   "?Print_Char@ScoreFontClass@@UAEXPAVSurface@@GHHH_N@Z": "00667b60"
+   "?Print_Char@ScoreFontClass@@UAEXPAVSurface@@GHHH_N@Z": "00667b60",
+   "?text_sounds@@3PAUScoreTextSoundStruct@@A": "00ab6fa8"
   },
   "partial_ok": true
  },
@@ -68671,7 +68681,10 @@
    "_RAD_90": "00a72ff8",
    "_RECT_NONE": "00a73000",
    "??_C@_0L@OBFG@WinHotkeys?$AA@": "007e8418",
-   "?HotkeyName@OptionsClass@@0QBDB": "007a77a8"
+   "?HotkeyName@OptionsClass@@0QBDB": "007a77a8",
+   "?IntroMovieEntry@@3UMovieEntry@@A": "007e8248",
+   "?AlliedMovieList@@3PAUMovieEntry@@A": "007e8258",
+   "?SovietMovieList@@3PAUMovieEntry@@A": "007e82f8"
   },
   "partial_ok": true
  },
@@ -119745,7 +119758,7 @@
     "entry": "00434840",
     "body": 6,
     "padding": 10,
-    "symbol": "?Kind_Of@BuildingLightClass@@UBEHXZ",
+    "symbol": "?Fetch_RTTI@BuildingLightClass@@UBE?AW4RTTIType@@XZ",
     "main_symbol": "?Kind_Of@BuildingLightClass@@UBEHXZ",
     "main_source": "src/recovered/blight.cpp"
    },
@@ -119793,7 +119806,8 @@
    "_RAD_45": "0084ea40",
    "_RAD_60": "0084ea18",
    "_RAD_90": "0084e9f0",
-   "_RECT_NONE": "0084e9f8"
+   "_RECT_NONE": "0084e9f8",
+   "?Fetch_RTTI@BuildingLightClass@@UBE?AW4RTTIType@@XZ": "00434840"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -144025,7 +144039,27 @@
    "_PIXELS_PER_LEPTON": "00830f88",
    "_RAD_45": "00830f80",
    "_RAD_60": "00830ec8",
-   "_RAD_90": "00830eb0"
+   "_RAD_90": "00830eb0",
+   "??_C@_06MCOP@LOWEST?$AA@": "007cccb0",
+   "??_C@_04DJE@HIGH?$AA@": "007ccc9c",
+   "??_C@_07MOII@AMBIENT?$AA@": "007ccc88",
+   "??_C@_07CJDK@VIOLENT?$AA@": "007ccc80",
+   "??_C@_08MDEM@MOVEMENT?$AA@": "007ccc74",
+   "??_C@_05BNNK@QUIET?$AA@": "007ccc6c",
+   "??_C@_04MDLD@LOUD?$AA@": "007ccc64",
+   "??_C@_06EKIF@GLOBAL?$AA@": "007ccc5c",
+   "??_C@_06FJJJ@SCREEN?$AA@": "007ccc54",
+   "??_C@_05JIPK@LOCAL?$AA@": "007ccc4c",
+   "??_C@_06BCGP@PLAYER?$AA@": "007ccc44",
+   "??_C@_07DLBF@GUN_SHY?$AA@": "007ccc3c",
+   "??_C@_09ILKC@NOISE_SHY?$AA@": "007ccc30",
+   "??_C@_08DABL@UNSHROUD?$AA@": "007ccc24",
+   "??_C@_06OHHL@SHROUD?$AA@": "007ccc1c",
+   "??_C@_04DCDH@LOOP?$AA@": "007ccc10",
+   "??_C@_06FDCE@RANDOM?$AA@": "007ccc08",
+   "??_C@_08ENPH@PREDELAY?$AA@": "007ccbfc",
+   "??_C@_06KKPG@ATTACK?$AA@": "007ccbe8",
+   "??_C@_05FAFP@DECAY?$AA@": "007ccbe0"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -146932,7 +146966,7 @@
     "entry": "006f7670",
     "body": 58,
     "padding": 6,
-    "symbol": "?Unknown_006F7670@@YIXXZ",
+    "symbol": "?Type_Select_Key_Up@@YIXXZ",
     "main_symbol": "?Unknown_006F7670@@YIXXZ",
     "main_source": "src/recovered/uicmnds.cpp"
    },
@@ -146980,7 +147014,7 @@
     "entry": "006f7b80",
     "body": 614,
     "padding": 10,
-    "symbol": "?Unknown_006F7B80@@YIX_N@Z",
+    "symbol": "?Select_By_Health@@YIX_N@Z",
     "main_symbol": "?Unknown_006F7B80@@YIX_N@Z",
     "main_source": "src/recovered/uicmnds.cpp"
    },
@@ -147012,7 +147046,7 @@
     "entry": "006f7ec0",
     "body": 624,
     "padding": 0,
-    "symbol": "?Unknown_006F7EC0@@YIX_N@Z",
+    "symbol": "?Select_By_Rank@@YIX_N@Z",
     "main_symbol": "?Unknown_006F7EC0@@YIX_N@Z",
     "main_source": "src/recovered/uicmnds.cpp"
    },

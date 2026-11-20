@@ -8,6 +8,9 @@
 #include "always.h"
 
 #include "bitfont.h"
+#include "fontshortheader.h"
+#include "fontfileheader.h"
+#include "fontrange.h"
 
 #include "ccfile.h"
 #include "dsurface.h"
@@ -93,14 +96,13 @@ BitFont::~BitFont(void)
 /*
 **	Reads a font file; null if it cannot be read.
 */
-#if 0
 BitFont::InternalData * BitFont::Load_Data(char const * filename)
 {
 	InternalData * data = NULL;
 	FontRangeType * ranges;
 	unsigned index;
 	int size;
-	FontHeaderType header;	// RA2
+	FontShortHeaderType header;	// RA2
 	CCFileClass * file = new CCFileClass(filename);
 
 	if (file != NULL) {
@@ -122,7 +124,7 @@ BitFont::InternalData * BitFont::Load_Data(char const * filename)
 							if (file->Read(data->SymbolTable, 0x10000 * sizeof(unsigned short)) != 0x10000 * sizeof(unsigned short)) goto failed;
 						} else if (header.Magic == 0x744E6F46) {
 							file->Seek(0, SEEK_SET);
-							FontHeader2Type header2;
+							FontFileHeaderType header2;
 							if (file->Read(&header2, sizeof(header2)) != sizeof(header2)) goto failed;
 							data->FontHeight = header2.FontHeight;	// RA2
 							data->Lines = header2.Lines;
@@ -135,7 +137,7 @@ BitFont::InternalData * BitFont::Load_Data(char const * filename)
 							if (file->Read(ranges, header2.RangeCount * sizeof(FontRangeType)) != (int)(header2.RangeCount * sizeof(FontRangeType))) goto failed;
 							data->Count = 0;
 							for (index = 0; index < (unsigned)header2.RangeCount; index++) {
-								unsigned short symbol = ranges[index].Index;	// RA2
+								unsigned short symbol = ranges[index].Symbol;	// RA2
 								for (int ch = ranges[index].First; ch <= ranges[index].Last; ch++, symbol++) {
 									data->SymbolTable[ch] = symbol + 1;
 									data->Count++;
@@ -168,8 +170,6 @@ loaded:
 	return(data);
 }
 
-
-#endif
 
 void BitFont::InternalData::Destroy(void)
 {

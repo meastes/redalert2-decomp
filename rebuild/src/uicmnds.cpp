@@ -810,7 +810,7 @@ static inline bool Has_Unselected_Combatants(TechnoList * list)
 	int count = list->Count();
 	for (int index = 0; index < count; index++) {
 		TechnoClass * techno = (*list)[index];
-		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->Techno_Type_Class()->IsSelectableCombatant && !techno->IsSelected) {
+		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant && !techno->IsSelected) {
 			return true;
 		}
 	}
@@ -820,7 +820,7 @@ static inline bool Has_Unselected_Combatants(TechnoList * list)
 /// <summary>
 /// Selects the player's combatants on the screen, or all over the map when none on the screen is left to select.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 98 bytes differ (no_draft bucket; the message helper expands inline)
 void __fastcall Select_All_Combatants(bool clear)
 {
 	if (MuteSWLaunches != 0) {
@@ -850,7 +850,7 @@ void __fastcall Select_All_Combatants(bool clear)
 	int count = list->Count();
 	for (int index = 0; index < count; index++) {
 		TechnoClass * techno = (*list)[index];
-		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->Techno_Type_Class()->IsSelectableCombatant) {
+		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant) {
 			techno->Select();
 		}
 	}
@@ -953,6 +953,23 @@ void Type_Select_Key_Down(void)
 		TypeSelectKeyTime = timeGetTime();
 	}
 }
+
+/// <summary>
+/// Releases the type select key; a quick tap selects the types and redraws the tactical map.
+/// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 7 bytes differ (no_draft bucket; call setup order after the type selection)
+void __fastcall Type_Select_Key_Up(void)
+{
+	if (TypeSelectKeyHeld) {
+		TypeSelectKeyHeld = false;
+		if (abs((int)(timeGetTime() - TypeSelectKeyTime)) <= 500) {
+			Command_Type_Select();
+			Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
+		}
+	}
+}
+
+#endif
 
 /// <summary>
 /// Whether the type select key is down.
@@ -1108,6 +1125,119 @@ int __fastcall Next_Rank_Kind(int last)
 	return last == 1 ? 2 : 0;
 }
 
+
+#ifdef RA2_NON_MATCHING // not exact: Select_By_Health and Select_By_Rank (580 and 587 bytes differ; no_draft bucket)
+// RA2: remembers the last health state and rank selected; -1 means no selection yet.
+int LastHealthKind = -1;
+int LastRankKind = -1;
+
+static wchar_t const * Selection_Message(int kind)
+{
+	wchar_t const * text = Health_Message(kind);
+	TechnoList * objects = Collect_Selected_Technos();
+	int objects_count = objects->Count();
+	for (int check = 0; check < objects_count; check++) {
+		if ((*objects)[check]->Health_Status() != kind) {
+			text = StringTable::LoadString("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x599);
+			break;
+		}
+	}
+	delete objects;
+	return text;
+}
+
+// not exact: 580 bytes differ (register allocation and nested inlining)
+void __fastcall Select_By_Health(bool flag)
+{
+	if (MuteSWLaunches != 0) {
+		return;
+	}
+	int kind;
+	if (TypeSelectMode != 3) {
+		Refresh_Type_Select_List();
+		TacticalMap->Unselect_All();
+		kind = 0;
+	} else {
+		kind = Next_Health_Kind(LastHealthKind);
+		if (flag) {
+			TacticalMap->Unselect_All();
+		}
+	}
+	TechnoList * list = TypeSelectList;
+	int count = list->Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * techno = (*list)[index];
+		if (techno->Health_Status() == kind) {
+			techno->Select();
+		}
+	}
+	wchar_t const * text = Selection_Message(kind);
+	wchar_t buffer[256];
+	Get_Selection_Info_Text(buffer, text);
+	Show_Player_Message(buffer, -1);
+	LastHealthKind = kind;
+	int commands = TypeSelectList->Count();
+	TypeSelectMode = 0;
+	if (commands != 0) {
+		TypeSelectMode = 3;
+	}
+	AttackMoveMode = false;
+}
+
+static wchar_t const * Experience_Message(int kind)
+{
+	wchar_t const * text = Rank_Message(kind);
+	TechnoList * objects = Collect_Selected_Technos();
+	int objects_count = objects->Count();
+	for (int check = 0; check < objects_count; check++) {
+		TechnoClass * item = (*objects)[check];
+		if (item->Veterancy.Remaining_Levels() != kind) {
+			text = StringTable::LoadString("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x5e4);
+			break;
+		}
+	}
+	delete objects;
+	return text;
+}
+
+// not exact: 587 bytes differ (register allocation and nested inlining)
+void __fastcall Select_By_Rank(bool flag)
+{
+	if (MuteSWLaunches != 0) {
+		return;
+	}
+	int kind;
+	if (TypeSelectMode != 4) {
+		Refresh_Type_Select_List();
+		TacticalMap->Unselect_All();
+		kind = 0;
+	} else {
+		kind = Next_Rank_Kind(LastRankKind);
+		if (flag) {
+			TacticalMap->Unselect_All();
+		}
+	}
+	TechnoList * list = TypeSelectList;
+	int count = list->Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * techno = (*list)[index];
+		if (techno->Veterancy.Remaining_Levels() == kind) {
+			techno->Select();
+		}
+	}
+	wchar_t const * text = Experience_Message(kind);
+	wchar_t buffer[256];
+	Get_Selection_Info_Text(buffer, text);
+	Show_Player_Message(buffer, -1);
+	LastRankKind = kind;
+	int commands = TypeSelectList->Count();
+	TypeSelectMode = 0;
+	if (commands != 0) {
+		TypeSelectMode = 4;
+	}
+	AttackMoveMode = false;
+}
+#endif
 
 /// <summary>
 /// Collects the type names of a list of objects, each once.

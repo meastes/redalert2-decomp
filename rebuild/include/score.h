@@ -87,14 +87,7 @@ class ScoreClass {
 		ScoreClass(void) {};
 		ScoreClass(NoInitClass const &) {};
 
-		void Init(void);
 		void Presentation(void);
-
-		/*
-		**	File I/O.
-		*/
-		bool Load(Straw & file);
-		bool Save(Pipe & file) const;
 
 	private:
 		void Score_Delay(int ticks);

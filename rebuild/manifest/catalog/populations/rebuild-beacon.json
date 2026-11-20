@@ -84,9 +84,30 @@
     "??_C@_0BO@HJGL@Failed?5to?5load?5RadarBeaconArt?$AA@": 8188864,
     "??1RawFileClass@@UAE@XZ": 6523584,
     "?Draw@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4381216,
+    "??2@YAPAXI@Z": 7872535,
+    "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@": 8189064,
+    "??_C@_0BB@KGIJ@TXT_BEACON_HELP1?$AA@": 8189044,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z": 5983648,
+    "??_C@_0BB@FJDA@TXT_BEACON_HELP2?$AA@": 8189024,
+    "??_C@_0BB@HPKH@EVA_BeaconPlaced?$AA@": 8189004,
+    "?Queue_Speech@@YIXPBDHH@Z": 7428928,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Wide_To_Narrow@@YIPADPBG@Z": 7315744,
+    "??_C@_0CA@LLCO@Sending?5beacon?5placement?5to?5?$CFs?6?$AA@": 8188972,
+    "?Ipx@@3VIPXManagerClass@@A": 10750328,
+    "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z": 5396528,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "??_C@_0BD@GOLF@EVA_BeaconDetected?$AA@": 8188952,
     "?Unselect_All@@YIXXZ": 4729792,
-    "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z": 4385168,
     "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z": 4382240,
+    "??_C@_0BN@IONH@Sending?5beacon?5delete?5to?5?$CFs?6?$AA@": 8189084,
+    "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z": 4385168,
+    "??_C@_00A@?$AA@": 8635740,
+    "?Narrow_To_Wide@@YIPAGPBD@Z": 7315840,
+    "_wcscpy": 7878281,
+    "??_C@_0BL@HAJF@Sending?5beacon?5text?5to?5?$CFs?6?$AA@": 8189116,
     "_$E2": 4380528,
     "_$E5": 4380560,
     "_$E8": 4380608,
@@ -116,6 +137,7 @@
     "?Clear_Slots@BeaconManagerClass@@QAEXXZ": 4383056,
     "?Load_Art@BeaconManagerClass@@QAEXXZ": 4383136,
     "?Draw@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4383376,
+    "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z": 4383600,
     "?CanPlaceBeacon@BeaconManagerClass@@QAE_NH@Z": 4384512,
     "?Beacon_Zero_Point@@YG?AVPoint2D@@XZ": 4384560,
     "?Select_Beacon@BeaconManagerClass@@QAE_NVCoord@@@Z": 4384576,
@@ -123,6 +145,7 @@
     "?FindBeaconAt@BeaconManagerClass@@QAEPAVBeaconClass@@VCoord@@@Z": 4384864,
     "?FindSelected@BeaconManagerClass@@QAEPAVBeaconClass@@H@Z": 4385088,
     "?Remove_All_Beacons@BeaconManagerClass@@QAEXH@Z": 4385760,
+    "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z": 4385824,
     "?Draw_On_Radar@BeaconManagerClass@@QAEXPAVSurface@@V?$TRect@H@@@Z": 4386512,
     "?Is_Flashing@BeaconManagerClass@@QAE_NXZ": 4386768,
     "??_EWstring@@QAEPAXI@Z": 4239168,
@@ -134,7 +157,6 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
@@ -194,7 +216,7 @@
           "resolved": 8710316
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380528,
@@ -262,7 +284,7 @@
           "resolved": 8710328
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380560,
@@ -314,7 +336,7 @@
           "resolved": 8710528
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380608,
@@ -366,7 +388,7 @@
           "resolved": 8710512
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380640,
@@ -418,7 +440,7 @@
           "resolved": 8710504
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380672,
@@ -470,7 +492,7 @@
           "resolved": 8710336
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380704,
@@ -522,7 +544,7 @@
           "resolved": 8710296
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380736,
@@ -606,7 +628,7 @@
           "resolved": 8710536
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380768,
@@ -666,7 +688,7 @@
           "resolved": 8710344
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380832,
@@ -726,7 +748,7 @@
           "resolved": 8710496
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380880,
@@ -786,7 +808,7 @@
           "resolved": 8710520
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380928,
@@ -830,7 +852,7 @@
           "resolved": 8710322
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380976,
@@ -882,7 +904,7 @@
           "resolved": 8710488
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4380992,
@@ -950,7 +972,7 @@
           "resolved": 3493895
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4381024,
@@ -1010,7 +1032,7 @@
           "resolved": 8710448
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4381072,
@@ -1062,7 +1084,7 @@
           "resolved": 8710488
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4381152,
@@ -1354,7 +1376,7 @@
           "resolved": 18260
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4381216,
@@ -1381,7 +1403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382032,
@@ -1433,7 +1455,7 @@
           "resolved": 8710488
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382048,
@@ -1460,7 +1482,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382128,
@@ -1487,7 +1509,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382160,
@@ -1514,7 +1536,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382176,
@@ -1550,7 +1572,7 @@
           "resolved": 3495953
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382192,
@@ -1810,7 +1832,7 @@
           "resolved": 2115005
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382240,
@@ -1886,7 +1908,7 @@
           "resolved": 10691228
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382848,
@@ -1913,7 +1935,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382944,
@@ -1949,7 +1971,7 @@
           "resolved": 3488790
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4382976,
@@ -1985,7 +2007,7 @@
           "resolved": 3488710
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4383056,
@@ -2205,7 +2227,7 @@
           "resolved": 2140222
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4383136,
@@ -2289,10 +2311,390 @@
           "resolved": 4294964967
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4383376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4383600,
+      "method": "0042e370",
+      "body_bytes": 909,
+      "body_sha256": "5c3a0f229661d637c63911f2ad7d629ff9ceba507869e018bec82843b3c75675",
+      "padding_bytes": 3,
+      "full_extent_bytes": 912,
+      "full_extent_sha256": "bcd93f897fca63cc9fe794d4410adffeda74cf4132bef47b88f62491b79e0ecf",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z",
+      "symbol_prefix": "?Place_Beacon@BeaconManagerClass@@QAEXHVCoord@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3488859
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 100,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        },
+        {
+          "offset": 176,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3488023
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 0,
+          "resolved": 8710480
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 4,
+          "resolved": 8710484
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8710480,
+          "addend": 8,
+          "resolved": 8710488
+        },
+        {
+          "offset": 309,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@",
+          "target": 8189064,
+          "addend": 0,
+          "resolved": 8189064
+        },
+        {
+          "offset": 377,
+          "kind": 6,
+          "symbol": "??_C@_0BB@KGIJ@TXT_BEACON_HELP1?$AA@",
+          "target": 8189044,
+          "addend": 0,
+          "resolved": 8189044
+        },
+        {
+          "offset": 382,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2931150
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 397,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 1599647
+        },
+        {
+          "offset": 402,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 433,
+          "kind": 6,
+          "symbol": "??_C@_0BC@BPJA@D?3?2Ra2?2Beacon?4CPP?$AA@",
+          "target": 8189064,
+          "addend": 0,
+          "resolved": 8189064
+        },
+        {
+          "offset": 438,
+          "kind": 6,
+          "symbol": "??_C@_0BB@FJDA@TXT_BEACON_HELP2?$AA@",
+          "target": 8189024,
+          "addend": 0,
+          "resolved": 8189024
+        },
+        {
+          "offset": 443,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2931089
+        },
+        {
+          "offset": 453,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 458,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 1599586
+        },
+        {
+          "offset": 468,
+          "kind": 6,
+          "symbol": "??_C@_0BB@HPKH@EVA_BeaconPlaced?$AA@",
+          "target": 8189004,
+          "addend": 0,
+          "resolved": 8189004
+        },
+        {
+          "offset": 473,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 3044851
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 3037255
+        },
+        {
+          "offset": 507,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 522,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2931618
+        },
+        {
+          "offset": 587,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 631,
+          "kind": 6,
+          "symbol": "??_C@_0CA@LLCO@Sending?5beacon?5placement?5to?5?$CFs?6?$AA@",
+          "target": 8188972,
+          "addend": 0,
+          "resolved": 8188972
+        },
+        {
+          "offset": 636,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294804224
+        },
+        {
+          "offset": 641,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 669,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 674,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1012250
+        },
+        {
+          "offset": 679,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 722,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3487477
+        },
+        {
+          "offset": 761,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 749203
+        },
+        {
+          "offset": 771,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 782,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 791,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 749237
+        },
+        {
+          "offset": 807,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 873,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 2150099
+        },
+        {
+          "offset": 887,
+          "kind": 6,
+          "symbol": "??_C@_0BD@GOLF@EVA_BeaconDetected?$AA@",
+          "target": 8188952,
+          "addend": 0,
+          "resolved": 8188952
+        },
+        {
+          "offset": 892,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 3044432
+        }
+      ],
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
+      "source": "rebuild/src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4383600,
       "source_quality_family": "rebuild"
     },
     {
@@ -2316,7 +2718,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4384512,
@@ -2343,7 +2745,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4384560,
@@ -2395,7 +2797,7 @@
           "resolved": 344998
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4384576,
@@ -2422,7 +2824,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4384816,
@@ -2466,7 +2868,7 @@
           "resolved": 3475495
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4384864,
@@ -2493,10 +2895,214 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4385088,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385168,
+      "method": "0042e990",
+      "body_bytes": 581,
+      "body_sha256": "1fd5b51adcebfb70db71271d75c77f527478bcc464f611fa558c5a99817616f9",
+      "padding_bytes": 11,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "97952a80840dbe0286ccadb49fbdcb89bcabcdaae3823bea939e6c729b7fdc8a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z",
+      "symbol_prefix": "?Remove_Beacon@BeaconManagerClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 177,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 748219
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 208,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 748252
+        },
+        {
+          "offset": 223,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 242,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4632,
+          "resolved": 8599288
+        },
+        {
+          "offset": 295,
+          "kind": 20,
+          "symbol": "?Draw_On_Radar@BeaconClass@@QAEXPAVSurface@@V?$TRect@H@@_N@Z",
+          "target": 4382240,
+          "addend": 0,
+          "resolved": 4294964069
+        },
+        {
+          "offset": 301,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3486330
+        },
+        {
+          "offset": 370,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 392,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2930138
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 501,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "??_C@_0BN@IONH@Sending?5beacon?5delete?5to?5?$CFs?6?$AA@",
+          "target": 8189084,
+          "addend": 0,
+          "resolved": 8189084
+        },
+        {
+          "offset": 515,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294802777
+        },
+        {
+          "offset": 521,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 549,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 554,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1010802
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        }
+      ],
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
+      "source": "rebuild/src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385168,
       "source_quality_family": "rebuild"
     },
     {
@@ -2529,10 +3135,230 @@
           "resolved": 4294966664
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4385760,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4385824,
+      "method": "0042ec20",
+      "body_bytes": 679,
+      "body_sha256": "4470130dffbfd6807324cadaf7bad2aabb7d79e51d68034d1f73cdffa60d661e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "961ace1aa47d9b3c11451c89a148af739124f0f00069581b2a8b7d40490fc98d",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z",
+      "symbol_prefix": "?EditBeaconMessage@BeaconManagerClass@@QAEXPBGHH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "_wcsncpy",
+          "target": 7878178,
+          "addend": 0,
+          "resolved": 3492196
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 189,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 235,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 250,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2929666
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "_wcsncpy",
+          "target": 7878178,
+          "addend": 0,
+          "resolved": 3492045
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "?Narrow_To_Wide@@YIPAGPBD@Z",
+          "target": 7315840,
+          "addend": 0,
+          "resolved": 2929685
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3492115
+        },
+        {
+          "offset": 346,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 427,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 436,
+          "kind": 6,
+          "symbol": "??_C@_0BL@HAJF@Sending?5beacon?5text?5to?5?$CFs?6?$AA@",
+          "target": 8189116,
+          "addend": 0,
+          "resolved": 8189116
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4294802195
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?Send_Global_Message@IPXManagerClass@@QAEHPAXHHPAVIPXAddressClass@@GK@Z",
+          "target": 5396528,
+          "addend": 0,
+          "resolved": 1010217
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NW4HousesType@@@Z",
+          "target": 5133568,
+          "addend": 0,
+          "resolved": 747201
+        },
+        {
+          "offset": 549,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 560,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 569,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBV1@@Z",
+          "target": 5133632,
+          "addend": 0,
+          "resolved": 747235
+        },
+        {
+          "offset": 585,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 662,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 2148086
+        }
+      ],
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
+      "source": "rebuild/src/beacon.cpp",
+      "population": "rebuild-beacon",
+      "source_order": 4385824,
       "source_quality_family": "rebuild"
     },
     {
@@ -2629,7 +3455,7 @@
           "resolved": 4294962828
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4386512,
@@ -2721,7 +3547,7 @@
           "resolved": 8710472
         }
       ],
-      "source_sha256": "70e432af57458ec0f71699d4936dc92aa72a5f4ee61fcb9c9d0c6d1c783e9616",
+      "source_sha256": "9a3f986685aff3dbbebf8cd0130be34e603168112bf9ef0c23a295c72540146f",
       "source": "rebuild/src/beacon.cpp",
       "population": "rebuild-beacon",
       "source_order": 4386768,

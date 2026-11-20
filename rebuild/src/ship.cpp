@@ -814,7 +814,7 @@ void ShipLocomotionClass::Do_Turn(DirStruct coord) // RA2: as above
 /// </summary>
 /// <param name="just_started">Is this the first call after the move was started?</param>
 /// <returns>bool; Is the ship done moving for this frame (arrived or blocked)?</returns>
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place (the train's `UnitClass * unit` cast local, `Map[Coord(coord)]` and the `Cell here` local; variation_candidates.csv, lane F2 session 2) and the named-local count is a window (`target`)
+#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place: the train test with the unit in a local (the archive's and the twin's idiom in this unit's Stop_Moving), `Map[Coord(coord)]` (the archive writes `Map[Coord(coord).As_Cell()]` in fly.cpp) and the `Cell here` local; variation_candidates.csv, lane F2 session 2 and the named-local count is a window (`target`)
 bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 {
 	assert(LinkedTo->IsActive); // RA2: as above
@@ -990,20 +990,22 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 					if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) { // RA2: as above
 						LinkedTo->IsOnBridge = false; // RA2: as above
 					}
-					if (LinkedTo->TClass->IsTrain && !((UnitClass *)LinkedTo)->IsFollowing) { // RA2: as above
-						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: the train is held in a local across the calls of the loop (no reference text; a variation)
-						bool is_bridge = unit->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
-						ObjectClass * occupier = is_bridge ? Map[newcell].Cell_Bridge_Occupier() : Map[newcell].Cell_Occupier(); // RA2: one conditional expression over the two accessors
-						while (occupier != NULL) { // RA2: as above
-							ObjectClass * next = occupier->Next; // RA2: as above
-							if (!occupier->Class_Of()->IsCrushable) { // RA2: as above
-								int strength = 10000; // RA2: as above
-								occupier->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
-								strength = 20; // RA2: as above
-								unit->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false); // RA2: through the local
+					if (LinkedTo->TClass->IsTrain) { // RA2: the train test as Stop_Moving has it in this unit (the archive's idiom there: the unit in a local, then IsFollowing); no reference text at this place, a variation
+						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: as above
+						if (!unit->IsFollowing) { // RA2: as above
+							bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
+							ObjectClass * occupier = is_bridge ? Map[newcell].Cell_Bridge_Occupier() : Map[newcell].Cell_Occupier(); // RA2: one conditional expression over the two accessors
+							while (occupier != NULL) { // RA2: as above
+								ObjectClass * next = occupier->Next; // RA2: as above
+								if (!occupier->Class_Of()->IsCrushable) { // RA2: as above
+									int strength = 10000; // RA2: as above
+									occupier->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, true); // RA2: as above
+									strength = 20; // RA2: as above
+									unit->Take_Damage(strength, 0, Rule->C4Warhead, NULL, true, false); // RA2: through the local, which the loop's calls leave alone
+								}
+								occupier = next; // RA2: as above
 							}
-							occupier = next; // RA2: as above
-						}
+						} // RA2: as above
 					}
 					if (!LinkedTo->IsActive) return(false); // RA2: as above
 					LinkedTo->Mark(MARK_DOWN); // RA2: as above

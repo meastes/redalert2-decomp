@@ -14,6 +14,7 @@
 #include "dropship.h"
 
 #include "_alpha.h"
+#include "abuffer.h"
 #include "_convert.h"
 #include "_font.h"
 #include "_keyboar.h"
@@ -227,7 +228,7 @@ int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 /// <remarks>The alpha and depth buffers are re-created around this screen, so anything
 /// held in them beforehand is lost.</remarks>
 void Dropship_Screen(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 4520 bytes differ (RA2 body; exact when VectorClass::operator[] takes an unsigned index)
+#ifdef RA2_NON_MATCHING // not exact: 20 instruction lines differ at five operand-order sites (RA2 body; frame exact with the twin's dissolve index; exact when VectorClass::operator[] indexes unsigned, which costs other units exact rows)
 void Dropship_Screen(void)
 {
 	int i;
@@ -811,15 +812,15 @@ void Dropship_Screen(void)
 		}
 
 		if (cross_dissolves.Count() != 0) {
-			i = 0;
-			if (i < cross_dissolves.Count()) {
+			int dissolve_index = 0; // RA2: ra2-decomp's twin walks the dissolves with an index of its own (src/dropship.cpp, FUNCTION GAMEMD 0x004B6C30); with it the frame is the executable's
+			if (dissolve_index < cross_dissolves.Count()) {
 				int preceding_count = 0;
 				do {
-					CrossDissolveEffect *effect = cross_dissolves[i];
+					CrossDissolveEffect * effect = cross_dissolves[dissolve_index];
 					bool overlap_drawn = false;
 					bool draw_background = true;
 
-					j = i - 1;
+					j = dissolve_index - 1;
 					for (int scan = preceding_count; scan >= 1; --scan) {
 						CrossDissolveEffect *earlier = cross_dissolves[j];
 						if (earlier->DestRect == effect->DestRect) {
@@ -850,14 +851,14 @@ void Dropship_Screen(void)
 							delete effect->ToSurface;
 						}
 						delete effect;
-						cross_dissolves.Delete_Index(i);
-						--i;
+						cross_dissolves.Delete_Index(dissolve_index);
+						--dissolve_index;
 						--preceding_count;
 					}
 
-					++i;
+					++dissolve_index;
 					++preceding_count;
-				} while (i < cross_dissolves.Count());
+				} while (dissolve_index < cross_dissolves.Count());
 			}
 		}
 

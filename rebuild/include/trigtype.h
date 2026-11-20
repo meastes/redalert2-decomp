@@ -69,12 +69,6 @@ class TriggerTypeClass : public AbstractTypeClass
 		virtual bool Write_INI(CCINIClass & ini) const override;
 
 		/*
-		**	Processing routines
-		*/
-		TriggerClass * Create_One_Of(void) const;
-		void Destroy_All_Of(void) const;
-
-		/*
 		**	Utility routines
 		*/
 		virtual RTTIType Fetch_RTTI(void) const override {return(RTTI_TRIGGERTYPE);}

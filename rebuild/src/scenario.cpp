@@ -199,7 +199,7 @@ void Show_Credits(void); // RA2: 0x4B37C0 (init.cpp declares it the same way; Ti
 void __fastcall Free_Interface_Art(void); // RA2: 0x006F30F0, frees the interface art (txtlabel2.cpp defines it, saveload.cpp declares it the same way)
 void Reset_Radar_Event_Cells(void); // RA2: 0x63C790, clears the radar event cell table (YR name)
 
-namespace Game { extern HWND hWnd; bool __cdecl CallBack(void); }
+namespace Game { extern HWND hWnd; }
 namespace CopyProtection { bool CheckProtectedData(void); }
 
 

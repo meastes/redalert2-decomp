@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -47,6 +48,7 @@
 #include "geometry.h"
 
 #include "score.h"
+#include "scoretextsound.h"
 
 #include "_keyboar.h"
 #include "_mixfile.h"
@@ -108,6 +110,283 @@ bool StillUpdating;
  *=============================================================================================*/
 
 
+
+#ifdef RA2_NON_MATCHING // not exact: 279 bytes differ (no_draft bucket; RA2 campaign score screen)
+#include "fame.h"
+#include "mouse.h"
+#include <stdio.h>
+#include "stringtable.h"
+
+#define FETCH(label, line) StringTable::LoadString(label, NULL, "D:\\Ra2\\Score.CPP", line)
+#define PRINT(string, xp, yp, font) Alloc_Object(obj = new ScorePrintClass(string, xp, yp, font, false))
+#define WAIT() Wait_For_Print(obj)
+#define LOAD(var, name) file.Open(name); ShapeSet const * var = (ShapeSet const *)Load_Alloc_Data(file); file.Close();
+#define WIPE(shape, xp, yp) Draw_Shape(*HiddenSurface, *Drawer, shape, i, Point2D(xp, yp), HiddenSurface->Get_Rect(), SHAPE_WIN_REL)
+
+void ScoreClass::Presentation()
+{
+	int i;
+	int index;
+	int total;
+	int x, y;
+	wchar_t const * str;
+	ScoreAnimClass *obj;
+	CCFileClass file;
+	Fame hallfame[9];
+
+	XPos = (HiddenSurface->Get_Width() - 640) / 2;
+	YPos = (HiddenSurface->Get_Height() - 400) / 2;
+	MouseCursor->Hide_Mouse();
+	Keyboard->Clear();
+	Theme.Stop();
+	Theme.Play_Song((ThemeType)Theme.From_Name("SCORE"));
+
+	file.Open("SIDEFNT3.PAL");
+	unsigned char * fontpal = (unsigned char *)Load_Alloc_Data(file);
+	file.Close();
+	for (i = 0; i < 256; i++) {
+		CCPalette[i] = RGBClass(fontpal[i * 3] << 2, fontpal[i * 3 + 1] << 2, fontpal[i * 3 + 2] << 2);
+	}
+	Color = DSurface::Build_Hicolor_Pixel(fontpal[204] << 2, fontpal[205] << 2, fontpal[206] << 2);
+	delete fontpal;
+
+	ConvertClass * drawer = new ConvertClass(CCPalette, CCPalette, *VisibleSurface, 1, 0);
+	SurfacePtr = new DSurface(HiddenSurface->Get_Width(), HiddenSurface->Get_Height(), false);
+	SurfacePtr->Fill(0);
+	Load_Title_Screen("SCORE.PCX", SurfacePtr, &CCPalette);
+
+	LOAD(best01shape, "BEST01.SHP")
+	LOAD(best02shape, "BEST02.SHP")
+	Call_Back();
+	LOAD(logo01shape, "LOGO01.SHP")
+	LOAD(efic01shape, "EFIC01.SHP")
+	LOAD(time01shape, "TIME01.SHP")
+	LOAD(casu01shape, "CASU01.SHP")
+	Call_Back();
+	LOAD(casu02shape, "CASU02.SHP")
+	LOAD(curr01shape, "CURR01.SHP")
+
+	ScoreSnds.Clear();
+	ScoreSnds.Add(new SfxEntry("Wipe", "WIPE.AUD"));
+	ScoreSnds.Add(new SfxEntry("Emblem", "EMBLEM.AUD"));
+	ScoreSnds.Add(new SfxEntry("BestBox", "BESTBOX.AUD"));
+	ScoreSnds.Add(new SfxEntry("Efficiency", "EFFICIEN.AUD"));
+	ScoreSnds.Add(new SfxEntry("BarGraph", "BARGRAPH.AUD"));
+	ScoreSnds.Add(new SfxEntry("Type", "TYPE.AUD"));
+	ScoreSnds.Add(new SfxEntry("Back", "SCOLD8.AUD"));
+
+	FullFont = new ScoreFullFontClass(drawer);
+	BigFont = new ScoreBigFontClass(drawer);
+	Call_Back();
+	ScoreObjs.Clear();
+	Keyboard->Clear();
+	DoSound("Wipe", 256);
+	Play_Movie("SCORE.VQA", THEME_NONE, false, false, true, false);
+	HiddenSurface->Blit_From(*SurfacePtr, false, true);
+	AlternateSurface->Blit_From(*SurfacePtr, false, true);
+
+	Drawer = new ConvertClass(CCPalette, CCPalette, *VisibleSurface, 1, 0);
+	Alloc_Object(new ScoreTimeClass(XPos + 7, YPos + 6, logo01shape, 60, 3, Drawer));
+
+	DoSound("Efficiency", 128);
+	for (i = 0; i < 10; i++) {
+		WIPE(efic01shape, XPos + 480, YPos + 23);
+		Call_Back_Delay(4);
+	}
+	Rect rect(XPos + 480, YPos + 23, 160, 120);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_MISSION_EFFICIENCY", 506);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 552;
+	PRINT(str, x, YPos + 13, FullFont);
+	WAIT();
+	Keyboard->Clear();
+
+	total = Do_Calc(PlayerPtr);
+	wchar_t dest[64];
+	swprintf((wchar_t *)dest, L"%3d%%", total);
+	PRINT(dest, XPos + 520, YPos + 60, BigFont);
+	WAIT();
+
+	for (i = 0; i < 10; i++) {
+		WIPE(curr01shape, XPos + 481, YPos + 148);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 481, YPos + 148, 144, 86);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_CURRENCY", 543);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 560;
+	PRINT(str, x, YPos + 193, FullFont);
+	WAIT();
+	rect.Set(XPos + 481, YPos + 148, 150, 120);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	Show_Credits();
+
+	for (i = 0; i < 10; i++) {
+		WIPE(time01shape, XPos + 444, YPos + 273);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 444, YPos + 273, 196, 118);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_MISSION_TIME_LAPSE", 571);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 542;
+	PRINT(str, x, YPos + 366, FullFont);
+	WAIT();
+	Print_Minutes(Scen->ElapsedTimer.Value() / 60);
+
+	DoSound("Emblem", 256);
+	for (i = 0; i < 10; i++) {
+		WIPE(casu01shape, XPos + 186, YPos + 54);
+		WIPE(casu02shape, XPos + 186, YPos + 254);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos + 186, YPos + 54, 262, 326);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_CASUALTIES", 601);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 316;
+	PRINT(str, x, YPos + 300, FullFont);
+	WAIT();
+
+	str = FETCH("TXT_STRUCTURES", 613);
+	x = XPos + 194;
+	PRINT(str, x, YPos + 247, FullFont);
+	x = XPos + 328;
+	PRINT(str, x, YPos + 247, FullFont);
+	WAIT();
+	str = FETCH("TXT_UNITS", 628);
+	x = XPos - FullFont->String_Width(str) / 2 + 290;
+	PRINT(str, x, YPos + 247, FullFont);
+	x = XPos - FullFont->String_Width(str) / 2 + 422;
+	PRINT(str, x, YPos + 247, FullFont);
+	WAIT();
+	Do_Graphs();
+	while (StillUpdating) {
+		Call_Back_Delay(1);
+	}
+	Keyboard->Clear();
+
+	DoSound("BestBox", 256);
+	for (i = 0; i < 10; i++) {
+		WIPE(best01shape, XPos, YPos + 188);
+		WIPE(best02shape, XPos, YPos + 388);
+		Call_Back_Delay(4);
+	}
+	rect.Set(XPos, YPos + 188, 182, 212);
+	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
+	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
+	str = FETCH("TXT_BEST_SCORES", 669);
+	FullFont->String_Width(str);
+	x = XPos - FullFont->String_Width(str) / 2 + 84;
+	PRINT(str, x, YPos + 217, FullFont);
+
+	memset(hallfame, 0, sizeof(hallfame));
+	file.Close();
+	file.Set_Name("HALLFAME.DAT");
+	if (file.Is_Available() == true) {
+		file.Read(hallfame, sizeof(hallfame));
+		file.Close();
+	}
+	if (hallfame[8].score >= total) {
+		hallfame[8].score = 0;
+	}
+	for (index = 0; index < 9; index++) {
+		// Tests i, not index (as in the original): i is still 10 from the box wipe above.
+		if (total > hallfame[i].score) {
+			if (index < 8) {
+				for (i = 8; i > index; i--) {
+					hallfame[i] = hallfame[i - 1];
+				}
+			}
+			hallfame[index].name[0] = 0;
+			hallfame[index].score = total;
+			hallfame[index].level = Scen->Scenario;
+			hallfame[index].side = PlayerPtr->Class->Side;
+			break;
+		}
+	}
+	char maststr[9 * 32];
+	for (i = 0; i < 9; i++) {
+		PRINT(hallfame[i].name, XPos + 7, YPos + 242 + i * 16, FullFont);
+		if (hallfame[i].score) {
+			char * scorestr = maststr + i * 32;
+			sprintf(scorestr, "%d%%", hallfame[i].score);
+			PRINT(scorestr, XPos + 109, YPos + 242 + i * 16, FullFont);
+			char * levelstr = scorestr + 16;
+			sprintf(levelstr, "%02d", hallfame[i].level);
+			PRINT(levelstr, XPos + 151, YPos + 242 + i * 16, FullFont);
+			WAIT();
+		}
+		Call_Back_Delay(1);
+	}
+	while (StillUpdating) {
+		Call_Back_Delay(1);
+	}
+	Keyboard->Clear();
+	MouseCursor->Show_Mouse();
+	if (index < 9) {
+		Input_Name(hallfame[index].name, XPos + 7, YPos + 242 + index * 16);
+	} else {
+		wchar_t const * str = FETCH("TXT_CLICK_CONTINUE", 749);
+		x = XPos + (640 - FullFont->String_Width(str)) / 2;
+		y = YPos - FullFont->Height / 2 + 357;
+		PRINT(str, x, y, FullFont);
+		Cycle_Wait_Click(true);
+	}
+	Keyboard->Clear();
+	if (file.Open("HALLFAME.DAT", FileClass::WRITE)) {
+		file.Write(hallfame, sizeof(hallfame));
+		file.Close();
+	}
+	Theme.Stop(true);
+
+	for (i = 0; i < ScoreSnds.Count(); i++) {
+		if (ScoreSnds[i]) {
+			delete ScoreSnds[i];
+		}
+	}
+	ScoreSnds.Clear();
+	for (i = 0; i < ScoreObjs.Count(); i++) {
+		if (ScoreObjs[i]) {
+			delete ScoreObjs[i];
+		}
+	}
+	ScoreObjs.Clear();
+	if (Drawer != 0) {
+		delete Drawer;
+		Drawer = 0;
+	}
+	if (FullFont != 0) {
+		delete FullFont;
+		FullFont = 0;
+	}
+	if (BigFont != 0) {
+		delete BigFont;
+		BigFont = 0;
+	}
+	if (SurfacePtr != 0) {
+		delete SurfacePtr;
+		SurfacePtr = 0;
+	}
+	delete drawer;
+	HiddenSurface->Fill(0);
+	Draw();
+	Theme.Queue_Song(THEME_NONE);
+}
+
+#undef FETCH
+#undef PRINT
+#undef WAIT
+#undef LOAD
+#undef WIPE
+#endif
 
 /// <summary>
 /// Adds an object to the score screen's animation list.
@@ -800,6 +1079,7 @@ void ScoreClass::DoSound(const char * name, int volume)
 }
 
 int score_font_count;
+ScoreTextSoundStruct text_sounds[3];
 
 
 
@@ -845,7 +1125,6 @@ ScoreFontClass::ScoreFontClass(int w, int h, void const * data, ConvertClass * d
 /// Any glyph shapes this font loaded for itself are released, and when the last font goes
 /// away the typing sounds they share are stopped and freed as well.
 /// </summary>
-#if 0
 ScoreFontClass::~ScoreFontClass(void)
 {
 	if (ShapePtr != NULL && IsShapeAllocated == true) {
@@ -862,7 +1141,6 @@ ScoreFontClass::~ScoreFontClass(void)
 		}
 	}
 }
-#endif
 
 
 
@@ -871,7 +1149,6 @@ ScoreFontClass::~ScoreFontClass(void)
 /// The samples come from the mixfiles where possible and from disk otherwise. They are
 /// shared by every font and are not released until the last font is destroyed.
 /// </summary>
-#if 0
 void ScoreFontClass::Load_Sounds(void)
 {
 	if (AudioDeviceAvailable()) {
@@ -902,7 +1179,6 @@ void ScoreFontClass::Load_Sounds(void)
 		}
 	}
 }
-#endif
 
 
 

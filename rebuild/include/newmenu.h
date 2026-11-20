@@ -40,9 +40,6 @@ class NewMenuClass
 		NewMenuClass(void);
 		~NewMenuClass(void);
 
-	private:
-		static __forceinline int Game_Select_Loop(NewMenuClass * menu);
-
 	public:
 		/*
 		 * This points to the mixfile that holds the graphical menu artwork, attached for as

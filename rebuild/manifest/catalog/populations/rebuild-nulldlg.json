@@ -36,30 +36,71 @@
     "_BRIDGE_LEPTON_HEIGHT": 10956256,
     "_CELL_NONE": 10956188,
     "_COORD_NONE": 10956216,
-    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
-    "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z": 6089104,
-    "__imp__GetWindowLongA@8": 7971980,
+    "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 6088992,
+    "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z": 6288912,
+    "__imp__SetWindowLongA@12": 7971976,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "?Move_Window@@YIXPAUHWND__@@HH@Z": 6291744,
+    "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
     "?Session@@3VSessionClass@@A": 10736280,
     "?NullModem@@3VNullModemClass@@A": 10750504,
     "?Detect_Port@NullModemClass@@QAE?AW4DetectPortType@@PAUSerialSettingsType@@@Z": 6095840,
+    "__imp__UpdateWindow@4": 7971948,
+    "__imp__ShowWindow@8": 7971992,
+    "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ": 6291664,
+    "?Title_Screen_Restore@@YIX_N@Z": 5337968,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?Dialog@PhoneEdit@@QAE_NXZ": 6347120,
+    "?SerialPort@@3PAVWinModemClass@@A": 11688880,
+    "??2@YAPAXI@Z": 7872535,
+    "??0WinModemClass@@QAE@XZ": 7553312,
+    "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
+    "_DialString": 10956152,
+    "?WideToCharString@OwnerDraw@@YIXPADPBGH@Z": 7315696,
+    "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6090928,
+    "?Dialog@ModemHost@@QAE_NXZ": 5869072,
+    "?Change_IRQ_Priority@NullModemClass@@QAEHH@Z": 6102592,
+    "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@": 8287420,
+    "??_C@_06DN@TXT_OK?$AA@": 8239348,
+    "??_C@_13ECNF@?$AA?5?$AA?$AA@": 8217844,
+    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
+    "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@": 8287400,
+    "?Process@WWMessageBox@@QAEHPBG000_N@Z": 5981872,
+    "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6092672,
+    "?Dialog@ModemGuest@@QAE_NXZ": 5857296,
+    "?Get_Port_Handle@WinModemClass@@QAEPAXXZ": 7558336,
+    "__imp__SetCommBreak@4": 7971084,
+    "??_C@_04NGMP@ATH?$AN?$AA@": 8287392,
+    "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z": 7556208,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "__imp__ClearCommBreak@4": 7971080,
+    "__imp__EscapeCommFunction@8": 7971076,
+    "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A": 8624512,
+    "?Service@NullModemClass@@UAEHXZ": 6096480,
+    "?Get_Message@NullModemClass@@QAEHPAXPAH@Z": 6096432,
+    "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ": 6094256,
+    "?Send_Message@NullModemClass@@QAEHPAXHH@Z": 6096368,
+    "?ModemDialogIsOpen@@3_NA": 10956484,
+    "??_C@_0L@NPIH@TXT_CANCEL?$AA@": 8239304,
+    "??_C@_0BE@IBLE@TXT_WAITING_CONNECT?$AA@": 8287372,
+    "?Custom_Message_Box@OwnerDraw@@YIPAUHWND__@@PBG0PA_N@Z": 6291936,
+    "?Num_Send@NullModemClass@@QAEHXZ": 6097056,
+    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "??_C@_0BG@OFPE@TXT_MODEM_OR_LOOPBACK?$AA@": 8287348,
+    "?Dialog@SerialEdit@@QAE_NPAUSerialSettingsType@@@Z": 6736496,
+    "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ": 6751104,
+    "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z": 6089104,
+    "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z": 6290176,
+    "__imp__GetWindowLongA@8": 7971980,
     "__imp__GetDlgItem@8": 7971996,
     "__imp__EnableWindow@8": 7971984,
-    "?Init@NullModemClass@@QAEHHHPADHDHH@Z": 6095072,
     "?Hangup_Modem@NullModemClass@@QAE_NXZ": 6101872,
     "?Shutdown@NullModemClass@@QAEXXZ": 6096240,
-    "?Send_Message@NullModemClass@@QAEHPAXHH@Z": 6096368,
-    "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A": 8624512,
-    "??RSystemTimerClass@@QBEHXZ": 6923312,
-    "?Service@NullModemClass@@UAEHXZ": 6096480,
     "?Get_Modem_Status@NullModemClass@@QAEHXZ": 6102608,
     "?Reconnect_Null_Modem@@YI_NXZ": 6090192,
     "?DialSettings@@3PAUSerialSettingsType@@A": 10956228,
-    "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6090928,
-    "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z": 6092672,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
-    "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@": 8287420,
     "??_C@_0BE@DDAG@TXT_CONNECTION_LOST?$AA@": 8284500,
-    "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z": 7315136,
     "_swprintf": 7878500,
     "??_C@_0O@JGPN@TXT_LEFT_GAME?$AA@": 8284464,
     "?Delete_Connection@NullModemClass@@QAEHXZ": 6095712,
@@ -74,18 +115,8 @@
     "?AI_Takeover@HouseClass@@QAEXXZ": 5193840,
     "??_C@_0BE@MJJO@TXT_JUST_YOU_AND_ME?$AA@": 8287440,
     "??_C@_15DEDE@?$AA?$CF?$AAs?$AA?$AA@": 8232084,
-    "?ModemDialogIsOpen@@3_NA": 10956484,
-    "??_C@_0L@NPIH@TXT_CANCEL?$AA@": 8239304,
     "??_C@_0BO@DFHD@TXT_NULL_CONNERR_CHECK_CABLES?$AA@": 8287460,
-    "?Custom_Message_Box@OwnerDraw@@YIPAUHWND__@@PBG0PA_N@Z": 6291936,
-    "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
-    "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ": 6291664,
-    "?Get_Message@NullModemClass@@QAEHPAXPAH@Z": 6096432,
-    "??_C@_06DN@TXT_OK?$AA@": 8239348,
-    "??_C@_13ECNF@?$AA?5?$AA?$AA@": 8217844,
     "??_C@_0BK@GPBE@TXT_SYSTEM_NOT_RESPONDING?$AA@": 8266284,
-    "?Process@WWMessageBox@@QAEHPBG000_N@Z": 5981872,
-    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
     "??_C@_0M@PAA@Dial?5Modem?6?$AA@": 8288224,
     "?DebugString@@YAXPBDZZ": 4221168,
     "??_C@_0CN@LPEB@Get_Modem_Status?5indicates?5the?5f@": 8288176,
@@ -110,7 +141,6 @@
     "??_C@_0BO@JGCB@Detect_Modem?5failed?5at?519200?6?$AA@": 8287920,
     "??_C@_0BI@EDGA@TXT_ERROR_IN_INITSTRING?$AA@": 8287896,
     "??_C@_0P@CHNG@Ready?5to?5dial?6?$AA@": 8287880,
-    "_DialString": 10956152,
     "?Dial_Modem@NullModemClass@@QAE?AW4DialStatusType@@PADW4DialMethodType@@_N@Z": 6099792,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "??_C@_0CG@KOPL@Dial_Modem?5returned?5?8DIAL_CONNEC@": 8287840,
@@ -150,7 +180,7 @@
     "_$E38": 6086368,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 6088992,
+    "?Select_Serial_Dialog@@YI?AW4GameType@@XZ": 6086400,
     "?Init_Null_Modem@@YI_NPAUSerialSettingsType@@@Z": 6089264,
     "?Shutdown_Modem@@YIXXZ": 6089312,
     "?Modem_Signoff@@YIXXZ": 6089360,
@@ -165,7 +195,6 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
@@ -225,7 +254,7 @@
           "resolved": 10956148
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6085904,
@@ -293,7 +322,7 @@
           "resolved": 10956192
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6085936,
@@ -345,7 +374,7 @@
           "resolved": 10956264
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6085984,
@@ -397,7 +426,7 @@
           "resolved": 10956248
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086016,
@@ -449,7 +478,7 @@
           "resolved": 10956240
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086048,
@@ -501,7 +530,7 @@
           "resolved": 10956200
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086080,
@@ -553,7 +582,7 @@
           "resolved": 10956128
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086112,
@@ -637,7 +666,7 @@
           "resolved": 10956272
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086144,
@@ -697,7 +726,7 @@
           "resolved": 10956208
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086208,
@@ -757,7 +786,7 @@
           "resolved": 10956232
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086256,
@@ -817,7 +846,7 @@
           "resolved": 10956256
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086304,
@@ -861,7 +890,7 @@
           "resolved": 10956190
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086352,
@@ -913,10 +942,1831 @@
           "resolved": 10956224
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6086368,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6086400,
+      "method": "005cdf00",
+      "body_bytes": 2580,
+      "body_sha256": "4fca2ecee7479da2f838bfa8cf58f7f7385b1194a86c75a183ec228c7f87da70",
+      "padding_bytes": 12,
+      "full_extent_bytes": 2592,
+      "full_extent_sha256": "16ff135315ce584289ffbbf3ad56d254bc67cf4561d3587ad9fde075d0b68668",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 16,
+      "symbol": "?Select_Serial_Dialog@@YI?AW4GameType@@XZ",
+      "symbol_prefix": "?Select_Serial_Dialog@@YI?AW4GameType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?Select_Serial_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 6088992,
+          "addend": 0,
+          "resolved": 6088992
+        },
+        {
+          "offset": 32,
+          "kind": 20,
+          "symbol": "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z",
+          "target": 6288912,
+          "addend": 0,
+          "resolved": 202476
+        },
+        {
+          "offset": 60,
+          "kind": 6,
+          "symbol": "__imp__SetWindowLongA@12",
+          "target": 7971976,
+          "addend": 0,
+          "resolved": 7971976
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Move_Window@@YIXPAUHWND__@@HH@Z",
+          "target": 6291744,
+          "addend": 0,
+          "resolved": 205241
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 202834
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 121,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10292,
+          "resolved": 10746572
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10296,
+          "resolved": 10746576
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 146,
+          "kind": 20,
+          "symbol": "?Detect_Port@NullModemClass@@QAE?AW4DetectPortType@@PAUSerialSettingsType@@@Z",
+          "target": 6095840,
+          "addend": 0,
+          "resolved": 9290
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "__imp__UpdateWindow@4",
+          "target": 7971948,
+          "addend": 0,
+          "resolved": 7971948
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 199,
+          "kind": 6,
+          "symbol": "__imp__UpdateWindow@4",
+          "target": 7971948,
+          "addend": 0,
+          "resolved": 7971948
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 205050
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+          "target": 5337968,
+          "addend": 0,
+          "resolved": 4294218639
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6088964,
+          "addend": 0,
+          "resolved": 6088964
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Dialog@PhoneEdit@@QAE_NXZ",
+          "target": 6347120,
+          "addend": 0,
+          "resolved": 260436
+        },
+        {
+          "offset": 294,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10408,
+          "resolved": 10746688
+        },
+        {
+          "offset": 300,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10284,
+          "resolved": 10746564
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 340,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1785791
+        },
+        {
+          "offset": 354,
+          "kind": 20,
+          "symbol": "??0WinModemClass@@QAE@XZ",
+          "target": 7553312,
+          "addend": 0,
+          "resolved": 1466554
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 367,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 8265
+        },
+        {
+          "offset": 442,
+          "kind": 6,
+          "symbol": "_DialString",
+          "target": 10956152,
+          "addend": 0,
+          "resolved": 10956152
+        },
+        {
+          "offset": 462,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10456,
+          "resolved": 10746736
+        },
+        {
+          "offset": 472,
+          "kind": 6,
+          "symbol": "_DialString",
+          "target": 10956152,
+          "addend": 0,
+          "resolved": 10956152
+        },
+        {
+          "offset": 477,
+          "kind": 20,
+          "symbol": "?WideToCharString@OwnerDraw@@YIXPADPBGH@Z",
+          "target": 7315696,
+          "addend": 0,
+          "resolved": 1228815
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10408,
+          "resolved": 10746688
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10284,
+          "resolved": 10746564
+        },
+        {
+          "offset": 517,
+          "kind": 6,
+          "symbol": "_DialString",
+          "target": 10956152,
+          "addend": 0,
+          "resolved": 10956152
+        },
+        {
+          "offset": 546,
+          "kind": 20,
+          "symbol": "?Dial_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+          "target": 6090928,
+          "addend": 0,
+          "resolved": 3978
+        },
+        {
+          "offset": 568,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10400,
+          "resolved": 10746680
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 583,
+          "kind": 20,
+          "symbol": "?Dialog@ModemHost@@QAE_NXZ",
+          "target": 5869072,
+          "addend": 0,
+          "resolved": 4294749381
+        },
+        {
+          "offset": 603,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 614,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 619,
+          "kind": 20,
+          "symbol": "?Change_IRQ_Priority@NullModemClass@@QAEHH@Z",
+          "target": 6102592,
+          "addend": 0,
+          "resolved": 15569
+        },
+        {
+          "offset": 628,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 649,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 664,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 669,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1228063
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@",
+          "target": 8287400,
+          "addend": 0,
+          "resolved": 8287400
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1228040
+        },
+        {
+          "offset": 702,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294862062
+        },
+        {
+          "offset": 711,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 725,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 734,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 754,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1785377
+        },
+        {
+          "offset": 768,
+          "kind": 20,
+          "symbol": "??0WinModemClass@@QAE@XZ",
+          "target": 7553312,
+          "addend": 0,
+          "resolved": 1466140
+        },
+        {
+          "offset": 773,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 781,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 786,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10296,
+          "resolved": 10746576
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10292,
+          "resolved": 10746572
+        },
+        {
+          "offset": 798,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 813,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10336,
+          "resolved": 10746616
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 825,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 7843
+        },
+        {
+          "offset": 836,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 841,
+          "kind": 20,
+          "symbol": "?Answer_Modem@@YI_NPAUSerialSettingsType@@_N@Z",
+          "target": 6092672,
+          "addend": 0,
+          "resolved": 5427
+        },
+        {
+          "offset": 858,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10400,
+          "resolved": 10746680
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 873,
+          "kind": 20,
+          "symbol": "?Dialog@ModemGuest@@QAE_NXZ",
+          "target": 5857296,
+          "addend": 0,
+          "resolved": 4294737315
+        },
+        {
+          "offset": 892,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 902,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 907,
+          "kind": 20,
+          "symbol": "?Change_IRQ_Priority@NullModemClass@@QAEHH@Z",
+          "target": 6102592,
+          "addend": 0,
+          "resolved": 15281
+        },
+        {
+          "offset": 930,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 937,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 950,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1227782
+        },
+        {
+          "offset": 957,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@",
+          "target": 8287400,
+          "addend": 0,
+          "resolved": 8287400
+        },
+        {
+          "offset": 968,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 973,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1227759
+        },
+        {
+          "offset": 983,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294861781
+        },
+        {
+          "offset": 1002,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 1011,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10296,
+          "resolved": 10746576
+        },
+        {
+          "offset": 1017,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10292,
+          "resolved": 10746572
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 1033,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10336,
+          "resolved": 10746616
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1045,
+          "kind": 20,
+          "symbol": "?Init@NullModemClass@@QAEHHHPADHDHH@Z",
+          "target": 6095072,
+          "addend": 0,
+          "resolved": 7623
+        },
+        {
+          "offset": 1059,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 1068,
+          "kind": 20,
+          "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+          "target": 7558336,
+          "addend": 0,
+          "resolved": 1470864
+        },
+        {
+          "offset": 1075,
+          "kind": 6,
+          "symbol": "__imp__SetCommBreak@4",
+          "target": 7971084,
+          "addend": 0,
+          "resolved": 7971084
+        },
+        {
+          "offset": 1080,
+          "kind": 6,
+          "symbol": "??_C@_04NGMP@ATH?$AN?$AA@",
+          "target": 8287392,
+          "addend": 0,
+          "resolved": 8287392
+        },
+        {
+          "offset": 1097,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 1102,
+          "kind": 6,
+          "symbol": "??_C@_04NGMP@ATH?$AN?$AA@",
+          "target": 8287392,
+          "addend": 0,
+          "resolved": 8287392
+        },
+        {
+          "offset": 1107,
+          "kind": 20,
+          "symbol": "?Write_To_Serial_Port@WinModemClass@@QAEXPAEH@Z",
+          "target": 7556208,
+          "addend": 0,
+          "resolved": 1468697
+        },
+        {
+          "offset": 1116,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835792
+        },
+        {
+          "offset": 1133,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835775
+        },
+        {
+          "offset": 1180,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835728
+        },
+        {
+          "offset": 1210,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 1215,
+          "kind": 20,
+          "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+          "target": 7558336,
+          "addend": 0,
+          "resolved": 1470717
+        },
+        {
+          "offset": 1222,
+          "kind": 6,
+          "symbol": "__imp__ClearCommBreak@4",
+          "target": 7971080,
+          "addend": 0,
+          "resolved": 7971080
+        },
+        {
+          "offset": 1228,
+          "kind": 6,
+          "symbol": "?SerialPort@@3PAVWinModemClass@@A",
+          "target": 11688880,
+          "addend": 0,
+          "resolved": 11688880
+        },
+        {
+          "offset": 1235,
+          "kind": 20,
+          "symbol": "?Get_Port_Handle@WinModemClass@@QAEPAXXZ",
+          "target": 7558336,
+          "addend": 0,
+          "resolved": 1470697
+        },
+        {
+          "offset": 1242,
+          "kind": 6,
+          "symbol": "__imp__EscapeCommFunction@8",
+          "target": 7971076,
+          "addend": 0,
+          "resolved": 7971076
+        },
+        {
+          "offset": 1247,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1253,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 1263,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 1268,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835640
+        },
+        {
+          "offset": 1274,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1281,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1287,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 1297,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 1302,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835606
+        },
+        {
+          "offset": 1308,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1326,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1331,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8745
+        },
+        {
+          "offset": 1346,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1351,
+          "kind": 20,
+          "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+          "target": 6096432,
+          "addend": 0,
+          "resolved": 8677
+        },
+        {
+          "offset": 1367,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1373,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 1383,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 1388,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835520
+        },
+        {
+          "offset": 1394,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1401,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1407,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 8,
+          "resolved": 8624520
+        },
+        {
+          "offset": 1417,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 4,
+          "resolved": 8624516
+        },
+        {
+          "offset": 1422,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 835486
+        },
+        {
+          "offset": 1428,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1442,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1447,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8629
+        },
+        {
+          "offset": 1493,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1505,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6347
+        },
+        {
+          "offset": 1539,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1551,
+          "kind": 20,
+          "symbol": "?Send_Message@NullModemClass@@QAEHPAXHH@Z",
+          "target": 6096368,
+          "addend": 0,
+          "resolved": 8413
+        },
+        {
+          "offset": 1556,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1561,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6291
+        },
+        {
+          "offset": 1566,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1573,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6279
+        },
+        {
+          "offset": 1585,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1590,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8486
+        },
+        {
+          "offset": 1605,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1610,
+          "kind": 20,
+          "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+          "target": 6096432,
+          "addend": 0,
+          "resolved": 8418
+        },
+        {
+          "offset": 1629,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1634,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6218
+        },
+        {
+          "offset": 1646,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 1656,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1663,
+          "kind": 6,
+          "symbol": "??_C@_0L@NPIH@TXT_CANCEL?$AA@",
+          "target": 8239304,
+          "addend": 0,
+          "resolved": 8239304
+        },
+        {
+          "offset": 1669,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 1675,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1227057
+        },
+        {
+          "offset": 1682,
+          "kind": 6,
+          "symbol": "??_C@_0BE@IBLE@TXT_WAITING_CONNECT?$AA@",
+          "target": 8287372,
+          "addend": 0,
+          "resolved": 8287372
+        },
+        {
+          "offset": 1692,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 1699,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1227033
+        },
+        {
+          "offset": 1708,
+          "kind": 20,
+          "symbol": "?Custom_Message_Box@OwnerDraw@@YIPAUHWND__@@PBG0PA_N@Z",
+          "target": 6291936,
+          "addend": 0,
+          "resolved": 203824
+        },
+        {
+          "offset": 1725,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 201215
+        },
+        {
+          "offset": 1730,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1735,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6117
+        },
+        {
+          "offset": 1742,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 203518
+        },
+        {
+          "offset": 1755,
+          "kind": 6,
+          "symbol": "?ModemDialogIsOpen@@3_NA",
+          "target": 10956484,
+          "addend": 0,
+          "resolved": 10956484
+        },
+        {
+          "offset": 1770,
+          "kind": 20,
+          "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+          "target": 5337968,
+          "addend": 0,
+          "resolved": 4294217090
+        },
+        {
+          "offset": 1775,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1780,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8296
+        },
+        {
+          "offset": 1785,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1790,
+          "kind": 20,
+          "symbol": "?Num_Send@NullModemClass@@QAEHXZ",
+          "target": 6097056,
+          "addend": 0,
+          "resolved": 8862
+        },
+        {
+          "offset": 1813,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1818,
+          "kind": 20,
+          "symbol": "?Get_Message@NullModemClass@@QAEHPAXPAH@Z",
+          "target": 6096432,
+          "addend": 0,
+          "resolved": 8210
+        },
+        {
+          "offset": 1842,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1847,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 6005
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1859,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5993
+        },
+        {
+          "offset": 1871,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1876,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8200
+        },
+        {
+          "offset": 1881,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1886,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5966
+        },
+        {
+          "offset": 1932,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1937,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5915
+        },
+        {
+          "offset": 1942,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1949,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5903
+        },
+        {
+          "offset": 1961,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 1966,
+          "kind": 20,
+          "symbol": "?Service@NullModemClass@@UAEHXZ",
+          "target": 6096480,
+          "addend": 0,
+          "resolved": 8110
+        },
+        {
+          "offset": 1971,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 1976,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5876
+        },
+        {
+          "offset": 2102,
+          "kind": 6,
+          "symbol": "?TickCount@@3V?$TTimerClass@VSystemTimerClass@@@@A",
+          "target": 8624512,
+          "addend": 0,
+          "resolved": 8624512
+        },
+        {
+          "offset": 2107,
+          "kind": 20,
+          "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+          "target": 6094256,
+          "addend": 0,
+          "resolved": 5745
+        },
+        {
+          "offset": 2135,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 200581
+        },
+        {
+          "offset": 2170,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 2177,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 2185,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 2190,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1226542
+        },
+        {
+          "offset": 2197,
+          "kind": 6,
+          "symbol": "??_C@_0BG@OFPE@TXT_MODEM_OR_LOOPBACK?$AA@",
+          "target": 8287348,
+          "addend": 0,
+          "resolved": 8287348
+        },
+        {
+          "offset": 2208,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 2213,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1226519
+        },
+        {
+          "offset": 2223,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294860541
+        },
+        {
+          "offset": 2243,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10400,
+          "resolved": 10746680
+        },
+        {
+          "offset": 2253,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2258,
+          "kind": 20,
+          "symbol": "?Dialog@ModemGuest@@QAE_NXZ",
+          "target": 5857296,
+          "addend": 0,
+          "resolved": 4294735930
+        },
+        {
+          "offset": 2277,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2303,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10400,
+          "resolved": 10746680
+        },
+        {
+          "offset": 2309,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2314,
+          "kind": 20,
+          "symbol": "?Dialog@ModemHost@@QAE_NXZ",
+          "target": 5869072,
+          "addend": 0,
+          "resolved": 4294747650
+        },
+        {
+          "offset": 2328,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2346,
+          "kind": 6,
+          "symbol": "?NullModem@@3VNullModemClass@@A",
+          "target": 10750504,
+          "addend": 0,
+          "resolved": 10750504
+        },
+        {
+          "offset": 2351,
+          "kind": 20,
+          "symbol": "?Change_IRQ_Priority@NullModemClass@@QAEHH@Z",
+          "target": 6102592,
+          "addend": 0,
+          "resolved": 13837
+        },
+        {
+          "offset": 2364,
+          "kind": 6,
+          "symbol": "__imp__ShowWindow@8",
+          "target": 7971992,
+          "addend": 0,
+          "resolved": 7971992
+        },
+        {
+          "offset": 2382,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 2389,
+          "kind": 6,
+          "symbol": "??_C@_06DN@TXT_OK?$AA@",
+          "target": 8239348,
+          "addend": 0,
+          "resolved": 8239348
+        },
+        {
+          "offset": 2397,
+          "kind": 6,
+          "symbol": "??_C@_13ECNF@?$AA?5?$AA?$AA@",
+          "target": 8217844,
+          "addend": 0,
+          "resolved": 8217844
+        },
+        {
+          "offset": 2402,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1226330
+        },
+        {
+          "offset": 2409,
+          "kind": 6,
+          "symbol": "??_C@_0BE@JIOC@TXT_SELECT_SETTINGS?$AA@",
+          "target": 8287400,
+          "addend": 0,
+          "resolved": 8287400
+        },
+        {
+          "offset": 2420,
+          "kind": 6,
+          "symbol": "??_C@_0BD@MKPO@D?3?2Ra2?2NullDlg?4CPP?$AA@",
+          "target": 8287420,
+          "addend": 0,
+          "resolved": 8287420
+        },
+        {
+          "offset": 2425,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 1226307
+        },
+        {
+          "offset": 2435,
+          "kind": 20,
+          "symbol": "?Process@WWMessageBox@@QAEHPBG000_N@Z",
+          "target": 5981872,
+          "addend": 0,
+          "resolved": 4294860329
+        },
+        {
+          "offset": 2452,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 2467,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10288,
+          "resolved": 10746568
+        },
+        {
+          "offset": 2472,
+          "kind": 20,
+          "symbol": "?Dialog@SerialEdit@@QAE_NPAUSerialSettingsType@@@Z",
+          "target": 6736496,
+          "addend": 0,
+          "resolved": 647620
+        },
+        {
+          "offset": 2481,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2486,
+          "kind": 20,
+          "symbol": "?Write_MultiPlayer_Settings@SessionClass@@QAEXXZ",
+          "target": 6751104,
+          "addend": 0,
+          "resolved": 662214
+        },
+        {
+          "offset": 2493,
+          "kind": 20,
+          "symbol": "?Select_Serial_On_INITDIALOG@@YIXPAUHWND__@@@Z",
+          "target": 6089104,
+          "addend": 0,
+          "resolved": 207
+        },
+        {
+          "offset": 2533,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 200183
+        },
+        {
+          "offset": 2564,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6088846,
+          "addend": 0,
+          "resolved": 6088846
+        },
+        {
+          "offset": 2568,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6086660,
+          "addend": 0,
+          "resolved": 6086660
+        },
+        {
+          "offset": 2572,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6087120,
+          "addend": 0,
+          "resolved": 6087120
+        },
+        {
+          "offset": 2576,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6087397,
+          "addend": 0,
+          "resolved": 6087397
+        }
+      ],
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6086400,
       "source_quality_family": "rebuild"
     },
     {
@@ -965,7 +2815,7 @@
           "resolved": 7971980
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6088992,
@@ -1057,7 +2907,7 @@
           "resolved": 7971984
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089104,
@@ -1101,7 +2951,7 @@
           "resolved": 5777
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089264,
@@ -1178,7 +3028,7 @@
           "resolved": 6890
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089312,
@@ -1342,7 +3192,7 @@
           "resolved": 6953
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089360,
@@ -1491,7 +3341,7 @@
           "resolved": 6089588
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089536,
@@ -1903,7 +3753,7 @@
           "resolved": 4293991390
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6089632,
@@ -2467,7 +4317,7 @@
           "resolved": 198225
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6090192,
@@ -4216,7 +6066,7 @@
           "resolved": 6092469
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6090928,
@@ -5749,7 +7599,7 @@
           "resolved": 6094012
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6092672,
@@ -5833,10 +7683,47 @@
           "resolved": 10750524
         }
       ],
-      "source_sha256": "da97de07d1ea96528e0173b00c7d01cc8b90bf5a87c92076bf6d4d620488c309",
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
       "source": "rebuild/src/nulldlg.cpp",
       "population": "rebuild-nulldlg",
       "source_order": 6094192,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4244"
+    },
+    {
+      "entry": 6094256,
+      "method": "005cfdb0",
+      "body_bytes": 31,
+      "body_sha256": "25300a8db3f2508d103a2aee389b4937b1ee97cc4c9b6d6a1c9a7ed35d8de94b",
+      "padding_bytes": 1,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "b583ab23a9476addd132e3a0f5cc756df257a065d6727f01aaafcffa1d30dd62",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+      "symbol_prefix": "??B?$TTimerClass@VSystemTimerClass@@@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 829034
+        }
+      ],
+      "source_sha256": "58823d350dc45a5785077252ceaac66d71e7fea35c3f8515fcc2f940037b907d",
+      "source": "rebuild/src/nulldlg.cpp",
+      "population": "rebuild-nulldlg",
+      "source_order": 6094256,
       "source_quality_family": "rebuild",
       "bound_population": "population-4244"
     }

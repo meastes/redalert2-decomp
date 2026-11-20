@@ -143,7 +143,7 @@ long DrawFrame_MCGA(VQAHandle * vqa)
     return result;
 }
 
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 762 bytes differ (text_if0 bucket; RA2 stream flow)
 long Select_Frame(VQAHandleP * vqap)
 {
     VQAConfig * config;
@@ -240,9 +240,8 @@ long Select_Frame(VQAHandleP * vqap)
                 }
             }
             if (vqap->Config.DrawerCallback && vqap->Config.DrawerCallback(0, frame->FrameNum)) return VQAERR_EOF;
-            unsigned long previous_flags = frame->Flags;
+			frame->PrevFlags = frame->Flags; // RA2: publish the previous flags before releasing the frame.
             frame->Flags = 0;
-            frame->PrevFlags = previous_flags;
             frame = frame->Next;
             drawer->CurFrame = frame;
             vqap->SkippedFrames++;

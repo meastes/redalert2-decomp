@@ -61,6 +61,7 @@
 #include "rect.h"
 
 #include "options.h"
+#include "movieentry.h"
 
 #include "_command.h"
 #include "_map.h"
@@ -977,7 +978,6 @@ int OptionsClass::Get_Scroll_Method(void) const
 **	RA2: a campaign movie the movies dialog lists. Name is the movie file, Label the string table entry shown
 **	and Side the campaign (-1 the intro, 0 Allied, 1 Soviet). The tables are 0x007E8248-0x007E8394.
 */
-#if 0
 inline int Movie_Index(MovieEntry const * movies, char const * name)
 {
 	for (int index = 0; movies->Name != NULL; index++, movies++) {
@@ -1038,5 +1038,3 @@ void OptionsClass::Fill_Movie_List(HWND list)
 		}
 	}
 }
-
-#endif

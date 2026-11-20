@@ -122,6 +122,34 @@
     "?StaticSoundMaximum@@3HA": 11339852,
     "?StaticSoundCount@@3HA": 11339848,
     "??_C@_0BP@ELKE@StaticSounds?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@": 8178940,
+    "_PriorityKeywords": 8178408,
+    "_ControlKeywords": 8178576,
+    "_TypeKeywords": 8178456,
+    "??_C@_05FAFP@DECAY?$AA@": 8178656,
+    "??_C@_06KKPG@ATTACK?$AA@": 8178664,
+    "??_C@_09DNFO@INTERRUPT?$AA@": 8178672,
+    "??_C@_08ENPH@PREDELAY?$AA@": 8178684,
+    "??_C@_06FDCE@RANDOM?$AA@": 8178696,
+    "??_C@_04DCDH@LOOP?$AA@": 8178704,
+    "??_C@_03MJMD@ALL?$AA@": 8178712,
+    "??_C@_06OHHL@SHROUD?$AA@": 8178716,
+    "??_C@_08DABL@UNSHROUD?$AA@": 8178724,
+    "??_C@_09ILKC@NOISE_SHY?$AA@": 8178736,
+    "??_C@_07DLBF@GUN_SHY?$AA@": 8178748,
+    "??_C@_06BCGP@PLAYER?$AA@": 8178756,
+    "??_C@_05JIPK@LOCAL?$AA@": 8178764,
+    "??_C@_06FJJJ@SCREEN?$AA@": 8178772,
+    "??_C@_06EKIF@GLOBAL?$AA@": 8178780,
+    "??_C@_04MDLD@LOUD?$AA@": 8178788,
+    "??_C@_05BNNK@QUIET?$AA@": 8178796,
+    "??_C@_08MDEM@MOVEMENT?$AA@": 8178804,
+    "??_C@_07CJDK@VIOLENT?$AA@": 8178816,
+    "??_C@_07MOII@AMBIENT?$AA@": 8178824,
+    "??_C@_08NGAO@CRITICAL?$AA@": 8178832,
+    "??_C@_04DJE@HIGH?$AA@": 8178844,
+    "??_C@_06HDDE@NORMAL?$AA@": 8178852,
+    "??_C@_03HKLE@LOW?$AA@": 8178860,
+    "??_C@_06MCOP@LOWEST?$AA@": 8178864,
     "_$E2": 4209888,
     "_$E5": 4209936,
     "_$E8": 4209968,
@@ -188,7 +216,10 @@
     "?AudioEventTurnOff@@YIXXZ": 4220736,
     "?AudioEventTurnOn@@YIXXZ": 4220752,
     "?AudioEventOn@@YIHXZ": 4220768,
-    "?AudioEventsDump@@YIXP6IXPBD@Z@Z": 4220784
+    "?AudioEventsDump@@YIXP6IXPBD@Z@Z": 4220784,
+    "?AudioPriorityFromName@@YI_NPBDPAH@Z": 4220896,
+    "?AudioControlApplyKeyword@@YI_NPAIPBD@Z": 4220976,
+    "?AudioTypeApplyKeyword@@YIHPAIPBD@Z": 4221056
   },
   "regions": [
     {
@@ -253,7 +284,7 @@
           "resolved": 8588992
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209888,
@@ -306,7 +337,7 @@
           "resolved": 8589208
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209936,
@@ -359,7 +390,7 @@
           "resolved": 8589192
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209968,
@@ -412,7 +443,7 @@
           "resolved": 8589184
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210000,
@@ -465,7 +496,7 @@
           "resolved": 8589000
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210032,
@@ -518,7 +549,7 @@
           "resolved": 8588976
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210064,
@@ -603,7 +634,7 @@
           "resolved": 8589216
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210096,
@@ -664,7 +695,7 @@
           "resolved": 8589008
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210160,
@@ -725,7 +756,7 @@
           "resolved": 8589160
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210208,
@@ -786,7 +817,7 @@
           "resolved": 8589200
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210256,
@@ -831,7 +862,7 @@
           "resolved": 8588986
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210304,
@@ -884,7 +915,7 @@
           "resolved": 8589152
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210320,
@@ -1105,7 +1136,7 @@
           "resolved": 8589244
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210352,
@@ -1413,7 +1444,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210560,
@@ -1457,7 +1488,7 @@
           "resolved": 4294960546
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210976,
@@ -2029,7 +2060,7 @@
           "resolved": 8589260
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4211120,
@@ -2073,7 +2104,7 @@
           "resolved": 4294957230
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212448,
@@ -2141,7 +2172,7 @@
           "resolved": 4294956969
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212624,
@@ -2409,7 +2440,7 @@
           "resolved": 4294956051
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212880,
@@ -2485,7 +2516,7 @@
           "resolved": 2309032
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4213648,
@@ -2521,7 +2552,7 @@
           "resolved": 4294955541
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214112,
@@ -2613,7 +2644,7 @@
           "resolved": 8589220
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214192,
@@ -2657,7 +2688,7 @@
           "resolved": 9425
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214272,
@@ -2789,7 +2820,7 @@
           "resolved": 8589220
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214352,
@@ -2857,7 +2888,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214704,
@@ -2925,7 +2956,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214816,
@@ -3025,7 +3056,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214944,
@@ -3061,7 +3092,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215056,
@@ -3106,7 +3137,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215072,
@@ -3142,7 +3173,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215104,
@@ -3187,7 +3218,7 @@
           "resolved": 8178900
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215120,
@@ -3431,7 +3462,7 @@
           "resolved": 8178652
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215152,
@@ -3458,7 +3489,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215536,
@@ -3511,7 +3542,7 @@
           "resolved": 4294953958
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215552,
@@ -3547,7 +3578,7 @@
           "resolved": 16069
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215792,
@@ -3583,7 +3614,7 @@
           "resolved": 15952
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215872,
@@ -3610,7 +3641,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215968,
@@ -3694,7 +3725,7 @@
           "resolved": 4294955305
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215984,
@@ -3738,7 +3769,7 @@
           "resolved": 4294955244
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4216208,
@@ -4063,7 +4094,7 @@
           "resolved": 4217220
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4216272,
@@ -4090,7 +4121,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217344,
@@ -4127,7 +4158,7 @@
           "resolved": 14387
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217360,
@@ -4203,7 +4234,7 @@
           "resolved": 4294954068
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217552,
@@ -4271,7 +4302,7 @@
           "resolved": 8590440
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217696,
@@ -4307,7 +4338,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217840,
@@ -4376,7 +4407,7 @@
           "resolved": 4294951561
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217872,
@@ -4444,7 +4475,7 @@
           "resolved": 4294951241
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218192,
@@ -4512,7 +4543,7 @@
           "resolved": 4294950902
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218512,
@@ -4572,7 +4603,7 @@
           "resolved": 4294952551
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218848,
@@ -4632,7 +4663,7 @@
           "resolved": 4294952396
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218992,
@@ -4668,7 +4699,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219136,
@@ -4713,7 +4744,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219200,
@@ -4758,7 +4789,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219264,
@@ -4803,7 +4834,7 @@
           "resolved": 3860
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219296,
@@ -4855,7 +4886,7 @@
           "resolved": 3741
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219360,
@@ -4891,7 +4922,7 @@
           "resolved": 3584
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219488,
@@ -4935,7 +4966,7 @@
           "resolved": 3512
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219520,
@@ -4987,7 +5018,7 @@
           "resolved": 3517
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219600,
@@ -5014,7 +5045,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219680,
@@ -5042,7 +5073,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219696,
@@ -5095,7 +5126,7 @@
           "resolved": 8178912
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219728,
@@ -5164,7 +5195,7 @@
           "resolved": 3947
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219760,
@@ -5280,7 +5311,7 @@
           "resolved": 3777
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219840,
@@ -5348,7 +5379,7 @@
           "resolved": 979
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220080,
@@ -5375,7 +5406,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220208,
@@ -5402,7 +5433,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220224,
@@ -5429,7 +5460,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220240,
@@ -5473,7 +5504,7 @@
           "resolved": 2941
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220256,
@@ -5500,7 +5531,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220288,
@@ -5527,7 +5558,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220368,
@@ -5554,7 +5585,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220384,
@@ -5581,7 +5612,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220400,
@@ -5608,7 +5639,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220416,
@@ -5635,7 +5666,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220432,
@@ -5662,7 +5693,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220448,
@@ -5689,7 +5720,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220464,
@@ -5716,7 +5747,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220496,
@@ -5743,7 +5774,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220512,
@@ -5852,7 +5883,7 @@
           "resolved": 2495
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220544,
@@ -5888,7 +5919,7 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220736,
@@ -5925,7 +5956,7 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220752,
@@ -5962,7 +5993,7 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220768,
@@ -6063,10 +6094,166 @@
           "resolved": 3651889
         }
       ],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220896,
+      "method": "004067e0",
+      "body_bytes": 69,
+      "body_sha256": "fd579a8be8ab177fcbdb4d411a9f4e5f73cb12e872ecb34a982a021e6eb1510f",
+      "padding_bytes": 11,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "73a8dfeb97e05559670c11eb7ca589749a1e0d5e7a594d596d9fea252578c047",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioPriorityFromName@@YI_NPBDPAH@Z",
+      "symbol_prefix": "?AudioPriorityFromName@@YI_NPBDPAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_PriorityKeywords",
+          "target": 8178408,
+          "addend": 0,
+          "resolved": 8178408
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_PriorityKeywords",
+          "target": 8178408,
+          "addend": 0,
+          "resolved": 8178408
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3651362
+        }
+      ],
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220896,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4220976,
+      "method": "00406830",
+      "body_bytes": 73,
+      "body_sha256": "c43fa577bee0d5291d18fb844e7c06b179f1a8da97bf06c60b4feae091ec6396",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "a078cd43ddd9cf628b8c04005433ce12dd85f4374325410819852b6cb408c825",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioControlApplyKeyword@@YI_NPAIPBD@Z",
+      "symbol_prefix": "?AudioControlApplyKeyword@@YI_NPAIPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_ControlKeywords",
+          "target": 8178576,
+          "addend": 0,
+          "resolved": 8178576
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_ControlKeywords",
+          "target": 8178576,
+          "addend": 0,
+          "resolved": 8178576
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3651282
+        }
+      ],
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4221056,
+      "method": "00406880",
+      "body_bytes": 98,
+      "body_sha256": "27f78e1cd344f7d06c46396b5d750b3d358dc68098cf5bbd782804f578c633e9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "5ccfbd3204b640bf9eedb598e88adea3df7838ee454b01919be574b7e2b768b5",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioTypeApplyKeyword@@YIHPAIPBD@Z",
+      "symbol_prefix": "?AudioTypeApplyKeyword@@YIHPAIPBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_TypeKeywords",
+          "target": 8178456,
+          "addend": 0,
+          "resolved": 8178456
+        },
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "_TypeKeywords",
+          "target": 8178456,
+          "addend": 0,
+          "resolved": 8178456
+        },
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 3651202
+        }
+      ],
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4221056,
       "source_quality_family": "rebuild"
     },
     {
@@ -6090,7 +6277,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source_sha256": "6194ba28148193894f00959095c924e16a142c215613a665ab37b3d53300806d",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4221168,

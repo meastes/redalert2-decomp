@@ -22,6 +22,7 @@
 #include "_pk.h"
 #include "_mixfile.h"
 
+void Process_Mouse_Unthreaded(void); // RA2: 0x007717C0, defined in wwmouse.cpp
 
 
 static AudioAttribs AudioMasterData;
@@ -47,10 +48,8 @@ AudioAttribs * AudioCompAttribs;
 AudioAttribs * AudioGroupAttribs2;
 AudioAttribs * AudioFadeAttribs;
 AudioAttribs * AudioGroupAttribs1;
-#if 0
 static int AudioServiceBusy;
 static TimeStamp AudioServiceLast;
-#endif
 
 int __fastcall Audio_Init(int enable)
 {
@@ -223,7 +222,6 @@ void Audio_Resume_All(void)
 	}
 }
 
-#if 0
 void Audio_Service(void)
 {
 	if (!AudioServiceBusy && AudioMainDevice) {
@@ -240,7 +238,6 @@ void Audio_Service(void)
 		AudioServiceBusy = 0;
 	}
 }
-#endif
 
 int AudioDeviceAvailable(void)
 {

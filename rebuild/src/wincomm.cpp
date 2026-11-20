@@ -905,7 +905,6 @@ void WinModemClass::Serial_Port_Close (void)
  *    1/10/96 2:26PM ST : Created                                                              *
  *=============================================================================================*/
 
-void __cdecl Smart_Printf( char *format, ... );
 bool WinModemClass::Read_Serial_Chars (void)
 {
 	DWORD	bytes_read;         //amount of data read this time

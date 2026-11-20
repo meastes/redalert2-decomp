@@ -13,6 +13,7 @@
 #include "_rand.h"
 #include "voc.h"
 #include "audevent.h"
+#include "eventkeyword.h"
 #include "audioctl.h"
 #include "audcache.h"
 #include "auddev.h"
@@ -37,6 +38,46 @@ typedef struct
 
 
 
+
+
+static EventKeyword PriorityKeywords[] = {
+	{"LOWEST", 0},
+	{"LOW", 1},
+	{"NORMAL", 2},
+	{"HIGH", 3},
+	{"CRITICAL", 4},
+	{NULL, 2}
+};
+
+static EventKeyword TypeKeywords[] = {
+	{"AMBIENT", 0x1000},
+	{"VIOLENT", 0x1},
+	{"MOVEMENT", 0x2},
+	{"QUIET", 0x4},
+	{"LOUD", 0x8},
+	{"GLOBAL", 0x10},
+	{"SCREEN", 0x20},
+	{"LOCAL", 0x40},
+	{"PLAYER", 0x80},
+	{"NORMAL", 0x0},
+	{"GUN_SHY", 0x200},
+	{"NOISE_SHY", 0x100},
+	{"UNSHROUD", 0x400},
+	{"SHROUD", 0x800},
+	{NULL, 0}
+};
+
+static EventKeyword ControlKeywords[] = {
+	{"ALL", 0x4},
+	{"LOOP", 0x1},
+	{"RANDOM", 0x2},
+	{"PREDELAY", 0x8},
+	{"INTERRUPT", 0x10},
+	{"ATTACK", 0x20},
+	{"DECAY", 0x40},
+	{"AMBIENT", 0x80},
+	{NULL, 0}
+};
 
 
 static ListHead audioEvents;
@@ -1611,7 +1652,6 @@ void __fastcall AudioEventsDump(void (__fastcall * print)(char const * line))
 /// <summary>
 /// The priority of a name (LOWEST to CRITICAL); returns whether the name is one.
 /// </summary>
-#if 0
 bool __fastcall AudioPriorityFromName(char const * name, int * priority)
 {
 	EventKeyword * entry;
@@ -1626,13 +1666,11 @@ bool __fastcall AudioPriorityFromName(char const * name, int * priority)
 	}
 	return entry->Name != NULL;
 }
-#endif
 
 
 /// <summary>
 /// Adds the control flag of a name to the flags; returns whether the name is one.
 /// </summary>
-#if 0
 bool __fastcall AudioControlApplyKeyword(unsigned int * control, char const * name)
 {
 	EventKeyword * entry;
@@ -1647,14 +1685,12 @@ bool __fastcall AudioControlApplyKeyword(unsigned int * control, char const * na
 	}
 	return entry->Name != NULL;
 }
-#endif
 
 
 /// <summary>
 /// Adds the type flag of a name to the flags (a SCREEN, LOCAL or GLOBAL replaces the others of its kind, as UNSHROUD and SHROUD do);
 /// returns whether the name is one.
 /// </summary>
-#if 0
 int __fastcall AudioTypeApplyKeyword(unsigned int * type, char const * name)
 {
 	EventKeyword * entry;
@@ -1674,7 +1710,6 @@ int __fastcall AudioTypeApplyKeyword(unsigned int * type, char const * name)
 	}
 	return entry->Name != NULL;
 }
-#endif
 
 
 /// <summary>

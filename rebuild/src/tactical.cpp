@@ -86,7 +86,6 @@ static inline void Set_Ground_Position(Coord & coord, Point2D const & point); //
 
 namespace Unsorted { extern bool ArmageddonMode; }
 namespace Game { extern HWND hWnd; }
-namespace Game { unsigned __int64 __fastcall AudioGetTime(void); }
 bool Is_Type_Select_Key_Held(void); // RA2: 0x6F76B0 in the user interface commands (not in main yet); reads the flag the type select key sets at 0xAC133D
 void __fastcall Select_Type(char const * name); // RA2: 0x6F71E0 in the user interface commands (not in main yet)
 

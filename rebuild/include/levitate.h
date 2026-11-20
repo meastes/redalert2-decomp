@@ -43,17 +43,6 @@ class LevitateLocomotionClass : public LocomotionClass
 
 		virtual int Fetch_Object_Size(void) const override {return(sizeof(*this));} // RA2: no argument
 
-		/*---------------------------------------------------------------------
-		**	Member function prototypes.
-		*/
-
-		void Process_Idle(void);
-
-		void Set_Coord(Coord const & coord);
-		void Stop(void);
-
-		static void Read_INI(CCINIClass const & ini);
-
 	private:
 		/*
 		 * This is the state of the levitator's horizontal drift machine. State_AI dispatches

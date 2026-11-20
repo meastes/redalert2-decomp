@@ -24,6 +24,8 @@
 #include <windows.h>
 #include <mmsystem.h>
 #include "beacon.h"
+#include "beaconpacket.h"
+#include "beacontextpacket.h"
 #include "bitfont.h"
 #include "bittext.h"
 #include "convert.h"
@@ -323,7 +325,6 @@ void BeaconManagerClass::Draw(Surface * surface, Rect bounds)
 /// <summary>
 /// Adds a beacon of the house, in its first free slot when id is -1 or else in the given slot (replacing the one there). In a network game it announces the beacon.
 /// </summary>
-#if 0
 void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id)
 {
 	if (!CanPlaceBeacon(house) && id == -1) {
@@ -380,7 +381,6 @@ void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id)
 		}
 	}
 }
-#endif
 
 /// <summary>
 /// Whether the house has a free beacon slot.
@@ -476,7 +476,6 @@ BeaconClass * BeaconManagerClass::FindSelected(int house)
 /// <summary>
 /// Removes a beacon: the one in the slot of the house, or with -1 and -1 the beacon that is being edited. A beacon of the player is announced to the other players.
 /// </summary>
-#if 0
 void BeaconManagerClass::Remove_Beacon(int house, int id)
 {
 	if (AllocatedCount) {
@@ -520,7 +519,6 @@ void BeaconManagerClass::Remove_Beacon(int house, int id)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -540,7 +538,6 @@ void BeaconManagerClass::Remove_All_Beacons(int house)
 /// <summary>
 /// Sets the text of a beacon: the one being edited when house and slot are both -1, else the one in the slot. A text the player typed is sent to the other players when it is done.
 /// </summary>
-#if 0
 void BeaconManagerClass::EditBeaconMessage(wchar_t const * text, int house, int slot, bool done)
 {
 	bool edited;
@@ -583,7 +580,6 @@ void BeaconManagerClass::EditBeaconMessage(wchar_t const * text, int house, int 
 		}
 	}
 }
-#endif
 
 
 /// <summary>

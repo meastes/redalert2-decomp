@@ -281,4 +281,7 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2662-2671 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):
 - L2672-2742 Measuring a nested inline budget in the unit itself (found in the rebuild (Fable trial), lane FT1) (11): Found in the rebuild (Fable trial):
 - L2743-2759 Explicit zero initializers of class members in a constructor's budget (found in the rebuild (lane F2)) (2): Found in the rebuild (lane F2):
-- L2760-2833 Twin statements, inline predicates and charged probes (found in the rebuild (lane F2)) (10): Found in the rebuild (lane F2):
+- L2760-2834 Twin statements, inline predicates and charged probes (found in the rebuild (lane F2)) (10): Found in the rebuild (lane F2):
+- L2835-2886 Later inline sites of a long reader, and specializations left behind (found in the rebuild (lane FH1)) (7): Found in the rebuild (lane FH1):
+- L2887-2962 Hand-written blocks in a reader's root, accessor conditionals and named-local ties (found in the rebuild (lane F2, high)) (9): Found in the rebuild (lane F2, high):
+- L2963-3017 Empty constructors as inline sites, the reader templates under the cap, index signedness and frame maps (found in the rebuild (lane F3, high)) (7): Found in the rebuild (lane F3, high):

@@ -177,7 +177,7 @@ _COM_SMARTPTR_TYPEDEF(ILinkStream, __uuidof(ILinkStream));
 void __fastcall Free_Interface_Art(void); // RA2: 0x006F30F0, defined in txtlabel2.cpp
 HRESULT __fastcall Static_Sounds_Save(IStream * stream); // RA2: 0x00714A90, defined in voc.cpp
 HRESULT __fastcall Static_Sounds_Load(IStream * stream); // RA2: 0x00714B80, defined in voc.cpp
-static bool Put_All(IStream *stream, int save_net);
+bool Put_All(IStream * stream, int save_net);
 
 
 HRESULT Load_Vector(IStream * stream)
@@ -362,7 +362,7 @@ CRCEngine Object_CRCs(void)
  *   12/28/1994 BR : Created.                                              *
  *   02/27/1996 JLB : Uses simpler game control value save operation.      *
  *=========================================================================*/
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 686 bytes differ (text_if0 bucket; RA2 stream flow)
 bool Save_Game(const char *file_name, wchar_t const * descr, bool )
 {
 	WCHAR name[64];
@@ -581,8 +581,8 @@ static int Reconcile_Players(void)
 }
 
 
-#if 0
-static bool Put_All(IStream *stream, int save_net)
+#ifdef RA2_NON_MATCHING // not exact: 1902 bytes differ (text_if0 bucket; RA2 save sequence)
+bool Put_All(IStream * stream, int save_net)
 {
 
 	/*

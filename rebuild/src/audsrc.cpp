@@ -3,6 +3,8 @@
 // Copyright 2025 Electronic Arts Inc.
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 #include "always.h"
+#include <windows.h>
+#include <mmsystem.h>
 #include "audsrc.h"
 #include "wwfile.h"
 #include <stdlib.h>
@@ -106,10 +108,9 @@ void __fastcall AudioFrameDeinit(AudioFrame * frame)
 	frame->sample = NULL;
 }
 
-#if 0
 int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, int * bytes)
 {
-	WaveFormat * wformat = NULL;
+	WAVEFORMATEX * wformat = NULL;
 	int result = 0;
 
 	if (bytes) {
@@ -117,21 +118,28 @@ int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, i
 	}
 
 	if (file) {
-		RiffHeader rh;
+		struct {
+				unsigned long form;
+				unsigned long length;
+				unsigned long type;
+		} rh;
 
 		file->Seek(0, 0);
 
 		if (file->Read(&rh, sizeof(rh)) == sizeof(rh) && rh.form == 0x46464952 && rh.type == 0x45564157) {
-			RiffChunk chunk;
+			struct {
+					unsigned long type;
+					unsigned long length;
+			} chunk;
 
 			while (file->Read(&chunk, sizeof(chunk)) == sizeof(chunk)) {
 				switch (chunk.type) {
 				case 0x20746d66:
 					if (chunk.length < 0x12) {
-						wformat = (WaveFormat *)malloc(0x12);
+						wformat = (WAVEFORMATEX *)malloc(0x12);
 						memset(wformat, 0, 0x12);
 					} else {
-						wformat = (WaveFormat *)malloc(chunk.length);
+						wformat = (WAVEFORMATEX *)malloc(chunk.length);
 						memset(wformat, 0, chunk.length);
 					}
 					file->Read(wformat, chunk.length);
@@ -173,5 +181,4 @@ int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, i
 	}
 	return result;
 }
-#endif
 
