@@ -308,7 +308,22 @@ platform layer. It earns no exact-match credit.
   slots called only on classes that override them (CanCheer, ObjectClass slots 66, 92, 102, 113, 114, TechnoClass slots 194, 240), and with the shipped rules the
   gunner slots (only the IFV has Gunner), ClearDisguise and slot 74 (no disguised aircraft or building, radial
   indicators only on buildings), the ore mine's chain reaction (ore mines are Immune) and the AI threat-node update.
-  53 remain reviewed but unreached.
+  53 remain reviewed but unreached. Lane N13 showed ObjectClass slot 115 cannot run (52). Lane N14 (2026-11-19):
+  `n14-hover` (the harness's new `terrain view [mine]` centres the view on the terrain object nearest the base and an
+  input script's `@terrain` rests the mouse on it, a tank selected: the tooltip asks the tree or ore mine for its name,
+  ObjectClass slot 35's "No name") reached one, and ObjectClass slots 93, 111 and 112 were shown not to run with the
+  shipped rules, each call site's receiver read in game.exe: 112's 35 calls are all on technos; 93's one non-techno call
+  needs a falling bullet, tree or wave, and nothing sets IsFalling on one; 111's one non-techno call is the select answer
+  for a tree under the mouse, behind CanBeSelected, which no terrain type has (rules.ini sets Selectable= on 58
+  sections, none a terrain type). 48 remain reviewed.
+- Data read from game.exe by size (lane N14, the Red Alert 2 side of lane N13's check): every stored scalar array's
+  extent against its declaration found one short, the campaign score screen's control table
+  (`unknown_score_controls_7d1484[8][6]`, 192 bytes stored as 32: the generator counted the first dimension only), so
+  rows 2 to 7 of that screen (a cooperative campaign's other players) read the next global's bytes. Fixed
+  (native/tools/original_data.py counts every dimension; ctest `native-original-data-extents`). The Yuri's Revenge
+  sizes set in native/yr/fixups.json were checked against gamemd.exe: the three name tables (difficulty 3, the
+  script's team actions 6, connection quality 4) end where gamemd.exe's next string begins; MasterDoControls,
+  MouseControl and TrackControl are lane N13's and Y16's.
   Every one of the 311 rewrite rows now carries a behaviour verdict against the original (lane N2,
   2026-11-17: the last 31, the hand-written-assembly ones among them, checked statically): 299 the
   same (some apart from named, harmless edge cases), 4 fixed, 1 different by design, 3 kept (the

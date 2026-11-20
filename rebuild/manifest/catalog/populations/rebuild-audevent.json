@@ -63,11 +63,26 @@
     "?MemoryPoolDestroy@@YIXPAUAudioMemoryPool@@@Z": 4224064,
     "?AudioChannelStop@@YIXPAUAudioChannel@@@Z": 4203952,
     "?AudioChannelNoUse@@YIXPAUAudioChannel@@@Z": 4204272,
+    "_service_in": 8589260,
+    "_frameStamp": 8589252,
+    "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z": 4198528,
+    "?ListNodeInit@@YIXPAUListNode@@@Z": 4223488,
+    "?ListNodeInsert@@YIXPAUListNode@@0@Z": 4223824,
+    "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z": 4214112,
+    "?AudioEventService@@YIXPAVAudioEvent@@@Z": 4216272,
+    "_eClassBucket": 8588120,
+    "_bucketStamp": 8589256,
+    "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
+    "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z": 4212880,
+    "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z": 4212448,
+    "?bucketGetWeaker@@YIPAVAudioEventType@@H@Z": 4214272,
+    "?AudioEventStop@@YIXPAVAudioEvent@@@Z": 4215552,
+    "?audioEventDestroy@@YIXPAVAudioEvent@@@Z": 4214192,
+    "?audioEventStart@@YIHPAVAudioEvent@@@Z": 4215984,
     "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z": 4212624,
     "?AudioCacheItemSample@@YIPAUAudioSample@@PAUAudioCacheItem@@@Z": 4202544,
     "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
-    "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z": 4212448,
     "?AudioCacheLoadItem@@YIPAUAudioCacheItem@@PAUAudioCache@@H@Z": 4201472,
     "?AudioCacheItemLock@@YIXPAUAudioCacheItem@@@Z": 4202368,
     "?eventLoadSchedule@@YIHPAVAudioEvent@@@Z": 4213648,
@@ -76,16 +91,21 @@
     "??_C@_09OKKF@no?5events?$AA@": 8178900,
     "?MemoryPoolGetItem@@YIPAXPAUAudioMemoryPool@@@Z": 4224080,
     "??2@YAPAXI@Z": 7872535,
-    "?ListNodeInit@@YIXPAUListNode@@@Z": 4223488,
-    "?ListNodeInsert@@YIXPAUListNode@@0@Z": 4223824,
     "_audioStamp": 8178652,
     "?AudioChannelLock@@YIXPAUAudioChannel@@@Z": 4204192,
     "?AudioChannelSetSample@@YIXPAUAudioChannel@@PAUAudioSample@@@Z": 4204432,
     "?AudioLevelSet@@YIXPAUAudioLevel@@H@Z": 4223104,
     "?AudioChannelStart@@YIHPAUAudioChannel@@@Z": 4204320,
     "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z": 4204208,
+    "?audioPrepareChannel@@YIPAUAudioChannel@@HH@Z": 4217696,
+    "?AudioChannelUse@@YIXPAUAudioChannel@@@Z": 4204224,
+    "?audioEventNextSample@@YIHPAUAudioChannel@@@Z": 4217552,
+    "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z": 4217360,
+    "?audioEventStop@@YIHPAUAudioChannel@@@Z": 4217344,
+    "?AudioGroupAttribs1@@3PAUAudioAttribs@@A": 8590440,
+    "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z": 4208112,
+    "?AudioSoundAttribs@@3PAUAudioAttribs@@A": 8590424,
     "?AudioLevelUpdate@@YIHPAUAudioLevel@@@Z": 4223216,
-    "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z": 4223136,
     "?AudioLevelSetDuration@@YIXPAUAudioLevel@@_KH@Z": 4223184,
     "??_C@_07CAMD@unknown?$AA@": 8178912,
     "_stricmp": 7872288,
@@ -97,6 +117,11 @@
     "?AudioEventCreate@@YIPAVAudioEvent@@PAVAudioEventType@@@Z": 4215152,
     "__allmul": 7872704,
     "__alldiv": 7873744,
+    "??_C@_0BP@BEKK@AudioEvents?5?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@": 8178972,
+    "_sprintf": 7872756,
+    "?StaticSoundMaximum@@3HA": 11339852,
+    "?StaticSoundCount@@3HA": 11339848,
+    "??_C@_0BP@ELKE@StaticSounds?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@": 8178940,
     "_$E2": 4209888,
     "_$E5": 4209936,
     "_$E8": 4209968,
@@ -111,9 +136,7 @@
     "_$E35": 4210320,
     "?AudioEventSetUp@@YIHPAUAudioDevice@@PAVAudioIDXData@@@Z": 4210352,
     "?AudioEventCloseDown@@YIXXZ": 4210560,
-    "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z": 4212880,
-    "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z": 4214112,
-    "?audioEventDestroy@@YIXPAVAudioEvent@@@Z": 4214192,
+    "?AudioServiceAllEvents@@YIXXZ": 4211120,
     "?AudioKillAllEvents@@YIXXZ": 4214352,
     "?AudioPauseAllEvents@@YIXXZ": 4214704,
     "?AudioResumeAllEvents@@YIXXZ": 4214816,
@@ -123,15 +146,10 @@
     "?AudioEventTypeGetType@@YIIPAVAudioEventType@@@Z": 4215104,
     "?AudioEventTypeName@@YIPBDPAVAudioEventType@@@Z": 4215120,
     "?AudioEventSetFlag8@@YIXPAVAudioEvent@@@Z": 4215536,
-    "?AudioEventStop@@YIXPAVAudioEvent@@@Z": 4215552,
     "?AudioEventPause@@YIXPAVAudioEvent@@@Z": 4215792,
     "?AudioEventResume@@YIXPAVAudioEvent@@@Z": 4215872,
     "?AudioEventIsPaused@@YIHPAVAudioEvent@@@Z": 4215968,
-    "?audioEventStart@@YIHPAVAudioEvent@@@Z": 4215984,
     "?AudioEventEnd@@YIXPAVAudioEvent@@@Z": 4216208,
-    "?audioEventStop@@YIHPAUAudioChannel@@@Z": 4217344,
-    "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z": 4217360,
-    "?audioEventNextSample@@YIHPAUAudioChannel@@@Z": 4217552,
     "?Init@AudioController@@QAEXXZ": 4217840,
     "?Release@AudioController@@QAEXXZ": 4217872,
     "?Stop@AudioController@@QAEXXZ": 4218192,
@@ -169,7 +187,8 @@
     "?Play_Named_Sound@@YIXPBDH@Z": 4220544,
     "?AudioEventTurnOff@@YIXXZ": 4220736,
     "?AudioEventTurnOn@@YIXXZ": 4220752,
-    "?AudioEventOn@@YIHXZ": 4220768
+    "?AudioEventOn@@YIHXZ": 4220768,
+    "?AudioEventsDump@@YIXP6IXPBD@Z@Z": 4220784
   },
   "regions": [
     {
@@ -234,7 +253,7 @@
           "resolved": 8588992
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209888,
@@ -287,7 +306,7 @@
           "resolved": 8589208
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209936,
@@ -340,7 +359,7 @@
           "resolved": 8589192
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4209968,
@@ -393,7 +412,7 @@
           "resolved": 8589184
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210000,
@@ -446,7 +465,7 @@
           "resolved": 8589000
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210032,
@@ -499,7 +518,7 @@
           "resolved": 8588976
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210064,
@@ -584,7 +603,7 @@
           "resolved": 8589216
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210096,
@@ -645,7 +664,7 @@
           "resolved": 8589008
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210160,
@@ -706,7 +725,7 @@
           "resolved": 8589160
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210208,
@@ -767,7 +786,7 @@
           "resolved": 8589200
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210256,
@@ -812,7 +831,7 @@
           "resolved": 8588986
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210304,
@@ -865,7 +884,7 @@
           "resolved": 8589152
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210320,
@@ -1086,7 +1105,7 @@
           "resolved": 8589244
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210352,
@@ -1394,7 +1413,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210560,
@@ -1438,10 +1457,582 @@
           "resolved": 4294960546
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4210976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4211120,
+      "method": "004041b0",
+      "body_bytes": 1316,
+      "body_sha256": "a9eed3c3cb1bd2c959142e0c447547ab7fe7fa8b103aac826c5fa1b10611df59",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1328,
+      "full_extent_sha256": "46f1499c217e82fd3cfa886cb4f9991d26802d78d8db788e3e3844655ce565b4",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioServiceAllEvents@@YIXXZ",
+      "symbol_prefix": "?AudioServiceAllEvents@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "_service_in",
+          "target": 8589260,
+          "addend": 0,
+          "resolved": 8589260
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "_frameStamp",
+          "target": 8589252,
+          "addend": 0,
+          "resolved": 8589252
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "_service_in",
+          "target": 8589260,
+          "addend": 0,
+          "resolved": 8589260
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "_frameStamp",
+          "target": 8589252,
+          "addend": 0,
+          "resolved": 8589252
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "_frameStamp",
+          "target": 8589252,
+          "addend": 0,
+          "resolved": 8589252
+        },
+        {
+          "offset": 100,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 12248
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "_frameStamp",
+          "target": 8589252,
+          "addend": 0,
+          "resolved": 8589252
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294954564
+        },
+        {
+          "offset": 266,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 12098
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 12425
+        },
+        {
+          "offset": 312,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 12436
+        },
+        {
+          "offset": 325,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294966823
+        },
+        {
+          "offset": 332,
+          "kind": 20,
+          "symbol": "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z",
+          "target": 4214112,
+          "addend": 0,
+          "resolved": 2656
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 391,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 403,
+          "kind": 20,
+          "symbol": "?AudioEventService@@YIXPAVAudioEvent@@@Z",
+          "target": 4216272,
+          "addend": 0,
+          "resolved": 4745
+        },
+        {
+          "offset": 411,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 432,
+          "kind": 6,
+          "symbol": "_eClassBucket",
+          "target": 8588120,
+          "addend": 0,
+          "resolved": 8588120
+        },
+        {
+          "offset": 449,
+          "kind": 20,
+          "symbol": "?ListInit@@YIXPAUListNode@@@Z",
+          "target": 4223472,
+          "addend": 0,
+          "resolved": 11899
+        },
+        {
+          "offset": 464,
+          "kind": 6,
+          "symbol": "_bucketStamp",
+          "target": 8589256,
+          "addend": 0,
+          "resolved": 8589256
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 477,
+          "kind": 6,
+          "symbol": "_bucketStamp",
+          "target": 8589256,
+          "addend": 0,
+          "resolved": 8589256
+        },
+        {
+          "offset": 520,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294966628
+        },
+        {
+          "offset": 544,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294958012
+        },
+        {
+          "offset": 606,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 12142
+        },
+        {
+          "offset": 629,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3660050
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 643,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 654,
+          "kind": 6,
+          "symbol": "_audioEventPool",
+          "target": 8589248,
+          "addend": 0,
+          "resolved": 8589248
+        },
+        {
+          "offset": 661,
+          "kind": 20,
+          "symbol": "?MemoryPoolReturnItem@@YIXPAUAudioMemoryPool@@PAX@Z",
+          "target": 4224096,
+          "addend": 0,
+          "resolved": 12311
+        },
+        {
+          "offset": 667,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 765,
+          "kind": 6,
+          "symbol": "_eClassBucket",
+          "target": 8588120,
+          "addend": 0,
+          "resolved": 8588120
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "_bucketStamp",
+          "target": 8589256,
+          "addend": 0,
+          "resolved": 8589256
+        },
+        {
+          "offset": 812,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 11936
+        },
+        {
+          "offset": 843,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 11905
+        },
+        {
+          "offset": 884,
+          "kind": 20,
+          "symbol": "?ListNodeInit@@YIXPAUListNode@@@Z",
+          "target": 4223488,
+          "addend": 0,
+          "resolved": 11480
+        },
+        {
+          "offset": 897,
+          "kind": 20,
+          "symbol": "?ListNodeInsert@@YIXPAUListNode@@0@Z",
+          "target": 4223824,
+          "addend": 0,
+          "resolved": 11803
+        },
+        {
+          "offset": 907,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "_audioCompressionAttribs",
+          "target": 8589016,
+          "addend": 0,
+          "resolved": 8589016
+        },
+        {
+          "offset": 950,
+          "kind": 20,
+          "symbol": "?AudioLevelAdjust@@YIXPAUAudioLevel@@H@Z",
+          "target": 4223136,
+          "addend": 0,
+          "resolved": 11062
+        },
+        {
+          "offset": 955,
+          "kind": 6,
+          "symbol": "_audioCompressionAttribs",
+          "target": 8589016,
+          "addend": 0,
+          "resolved": 8589016
+        },
+        {
+          "offset": 960,
+          "kind": 20,
+          "symbol": "?AudioAttribsUpdate@@YIXPAUAudioAttribs@@@Z",
+          "target": 4198528,
+          "addend": 0,
+          "resolved": 4294953740
+        },
+        {
+          "offset": 966,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 972,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 1019,
+          "kind": 20,
+          "symbol": "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z",
+          "target": 4212880,
+          "addend": 0,
+          "resolved": 737
+        },
+        {
+          "offset": 1026,
+          "kind": 20,
+          "symbol": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212448,
+          "addend": 0,
+          "resolved": 298
+        },
+        {
+          "offset": 1067,
+          "kind": 20,
+          "symbol": "?bucketGetWeaker@@YIPAVAudioEventType@@H@Z",
+          "target": 4214272,
+          "addend": 0,
+          "resolved": 2081
+        },
+        {
+          "offset": 1084,
+          "kind": 20,
+          "symbol": "?ListNodeRemove@@YIXPAUListNode@@@Z",
+          "target": 4223872,
+          "addend": 0,
+          "resolved": 11664
+        },
+        {
+          "offset": 1090,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 1096,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 1114,
+          "kind": 20,
+          "symbol": "?AudioEventStop@@YIXPAVAudioEvent@@@Z",
+          "target": 4215552,
+          "addend": 0,
+          "resolved": 3314
+        },
+        {
+          "offset": 1121,
+          "kind": 20,
+          "symbol": "?audioEventDestroy@@YIXPAVAudioEvent@@@Z",
+          "target": 4214192,
+          "addend": 0,
+          "resolved": 1947
+        },
+        {
+          "offset": 1135,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 1160,
+          "kind": 20,
+          "symbol": "?eventLoadAndLockSamples@@YIXPAVAudioEvent@@@Z",
+          "target": 4212880,
+          "addend": 0,
+          "resolved": 596
+        },
+        {
+          "offset": 1167,
+          "kind": 20,
+          "symbol": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212448,
+          "addend": 0,
+          "resolved": 157
+        },
+        {
+          "offset": 1188,
+          "kind": 20,
+          "symbol": "?eventFirstSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212448,
+          "addend": 0,
+          "resolved": 136
+        },
+        {
+          "offset": 1207,
+          "kind": 20,
+          "symbol": "?audioEventStart@@YIHPAVAudioEvent@@@Z",
+          "target": 4215984,
+          "addend": 0,
+          "resolved": 3653
+        },
+        {
+          "offset": 1224,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294965924
+        },
+        {
+          "offset": 1231,
+          "kind": 20,
+          "symbol": "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z",
+          "target": 4214112,
+          "addend": 0,
+          "resolved": 1757
+        },
+        {
+          "offset": 1266,
+          "kind": 20,
+          "symbol": "?audioEventDestroy@@YIXPAVAudioEvent@@@Z",
+          "target": 4214192,
+          "addend": 0,
+          "resolved": 1802
+        },
+        {
+          "offset": 1276,
+          "kind": 6,
+          "symbol": "_audioEvents",
+          "target": 8588960,
+          "addend": 0,
+          "resolved": 8588960
+        },
+        {
+          "offset": 1288,
+          "kind": 6,
+          "symbol": "_service_in",
+          "target": 8589260,
+          "addend": 0,
+          "resolved": 8589260
+        },
+        {
+          "offset": 1304,
+          "kind": 6,
+          "symbol": "_service_in",
+          "target": 8589260,
+          "addend": 0,
+          "resolved": 8589260
+        }
+      ],
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4211120,
       "source_quality_family": "rebuild"
     },
     {
@@ -1482,7 +2073,7 @@
           "resolved": 4294957230
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212448,
@@ -1550,7 +2141,7 @@
           "resolved": 4294956969
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212624,
@@ -1818,7 +2409,7 @@
           "resolved": 4294956051
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4212880,
@@ -1894,7 +2485,7 @@
           "resolved": 2309032
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4213648,
@@ -1930,7 +2521,7 @@
           "resolved": 4294955541
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214112,
@@ -2022,10 +2613,54 @@
           "resolved": 8589220
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214192,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4214272,
+      "method": "00404e00",
+      "body_bytes": 75,
+      "body_sha256": "d0f27442d7c51d849b0309a1c20282043f0ebafc99fff1900a1e5231f59f2e9c",
+      "padding_bytes": 5,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "b779196cb648552f392f9c7d790a818c9a2a2a03c783620b1e457b4170d37edb",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?bucketGetWeaker@@YIPAVAudioEventType@@H@Z",
+      "symbol_prefix": "?bucketGetWeaker@@YIPAVAudioEventType@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_eClassBucket",
+          "target": 8588120,
+          "addend": 0,
+          "resolved": 8588120
+        },
+        {
+          "offset": 27,
+          "kind": 20,
+          "symbol": "?ListFirstItem@@YIPAUListNode@@PAU1@@Z",
+          "target": 4223728,
+          "addend": 0,
+          "resolved": 9425
+        }
+      ],
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4214272,
       "source_quality_family": "rebuild"
     },
     {
@@ -2154,7 +2789,7 @@
           "resolved": 8589220
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214352,
@@ -2222,7 +2857,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214704,
@@ -2290,7 +2925,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214816,
@@ -2390,7 +3025,7 @@
           "resolved": 8588960
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4214944,
@@ -2426,7 +3061,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215056,
@@ -2471,7 +3106,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215072,
@@ -2507,7 +3142,7 @@
           "resolved": 8589240
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215104,
@@ -2552,7 +3187,7 @@
           "resolved": 8178900
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215120,
@@ -2796,7 +3431,7 @@
           "resolved": 8178652
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215152,
@@ -2823,7 +3458,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215536,
@@ -2876,7 +3511,7 @@
           "resolved": 4294953958
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215552,
@@ -2912,7 +3547,7 @@
           "resolved": 16069
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215792,
@@ -2948,7 +3583,7 @@
           "resolved": 15952
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215872,
@@ -2975,7 +3610,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215968,
@@ -3059,7 +3694,7 @@
           "resolved": 4294955305
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4215984,
@@ -3103,10 +3738,335 @@
           "resolved": 4294955244
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4216208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4216272,
+      "method": "004055d0",
+      "body_bytes": 1060,
+      "body_sha256": "8089f16f87c730d103469e065e84b587df688c283788fbc49649ec7383beab1f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1072,
+      "full_extent_sha256": "a1376542861cd1a27c003b183b15609e3e0c6b405e1fb1a359bf155b869bbdf5",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 20,
+      "symbol": "?AudioEventService@@YIXPAVAudioEvent@@@Z",
+      "symbol_prefix": "?AudioEventService@@YIXPAVAudioEvent@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_eventsOn",
+          "target": 8178648,
+          "addend": 0,
+          "resolved": 8178648
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4217312,
+          "addend": 0,
+          "resolved": 4217312
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 15544
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "?audioPrepareChannel@@YIPAUAudioChannel@@HH@Z",
+          "target": 4217696,
+          "addend": 0,
+          "resolved": 1255
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2306567
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2306543
+        },
+        {
+          "offset": 238,
+          "kind": 20,
+          "symbol": "?AudioChannelUse@@YIXPAUAudioChannel@@@Z",
+          "target": 4204224,
+          "addend": 0,
+          "resolved": 4294955006
+        },
+        {
+          "offset": 271,
+          "kind": 6,
+          "symbol": "?audioEventNextSample@@YIHPAUAudioChannel@@@Z",
+          "target": 4217552,
+          "addend": 0,
+          "resolved": 4217552
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?audioEventSampleDone@@YIHPAUAudioChannel@@@Z",
+          "target": 4217360,
+          "addend": 0,
+          "resolved": 4217360
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "?audioEventStop@@YIHPAUAudioChannel@@@Z",
+          "target": 4217344,
+          "addend": 0,
+          "resolved": 4217344
+        },
+        {
+          "offset": 340,
+          "kind": 6,
+          "symbol": "_audioCompressionAttribs",
+          "target": 8589016,
+          "addend": 0,
+          "resolved": 8589016
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        },
+        {
+          "offset": 388,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 395,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 2306369
+        },
+        {
+          "offset": 451,
+          "kind": 20,
+          "symbol": "?AudioGetTime@@YI_KXZ",
+          "target": 4231888,
+          "addend": 0,
+          "resolved": 15161
+        },
+        {
+          "offset": 496,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294961500
+        },
+        {
+          "offset": 503,
+          "kind": 20,
+          "symbol": "?eventUnlockSamples@@YIXPAVAudioEvent@@@Z",
+          "target": 4214112,
+          "addend": 0,
+          "resolved": 4294964629
+        },
+        {
+          "offset": 584,
+          "kind": 6,
+          "symbol": "_audioEventsReady",
+          "target": 8589240,
+          "addend": 0,
+          "resolved": 8589240
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "?Instance@AudioIDXData@@2PAV1@A",
+          "target": 8589228,
+          "addend": 0,
+          "resolved": 8589228
+        },
+        {
+          "offset": 649,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294961347
+        },
+        {
+          "offset": 671,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294952733
+        },
+        {
+          "offset": 753,
+          "kind": 20,
+          "symbol": "?AudioChannelLock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204192,
+          "addend": 0,
+          "resolved": 4294954459
+        },
+        {
+          "offset": 773,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294954199
+        },
+        {
+          "offset": 806,
+          "kind": 20,
+          "symbol": "?eventNextSample@@YIPAUAudioSample@@PAVAudioEvent@@@Z",
+          "target": 4212624,
+          "addend": 0,
+          "resolved": 4294962838
+        },
+        {
+          "offset": 829,
+          "kind": 20,
+          "symbol": "?audioEventStart@@YIHPAVAudioEvent@@@Z",
+          "target": 4215984,
+          "addend": 0,
+          "resolved": 4294966175
+        },
+        {
+          "offset": 846,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294961150
+        },
+        {
+          "offset": 864,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294952540
+        },
+        {
+          "offset": 930,
+          "kind": 20,
+          "symbol": "?AudioChannelUnlock@@YIXPAUAudioChannel@@@Z",
+          "target": 4204208,
+          "addend": 0,
+          "resolved": 4294954298
+        },
+        {
+          "offset": 957,
+          "kind": 20,
+          "symbol": "?eventReleaseChannel@@YIXPAVAudioEvent@@@Z",
+          "target": 4210976,
+          "addend": 0,
+          "resolved": 4294961039
+        },
+        {
+          "offset": 979,
+          "kind": 20,
+          "symbol": "?AudioCacheItemUnlock@@YIXPAUAudioCacheItem@@@Z",
+          "target": 4202384,
+          "addend": 0,
+          "resolved": 4294952425
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4216393,
+          "addend": 0,
+          "resolved": 4216393
+        },
+        {
+          "offset": 1044,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4217305,
+          "addend": 0,
+          "resolved": 4217305
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4216315,
+          "addend": 0,
+          "resolved": 4216315
+        },
+        {
+          "offset": 1052,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4216812,
+          "addend": 0,
+          "resolved": 4216812
+        },
+        {
+          "offset": 1056,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4217220,
+          "addend": 0,
+          "resolved": 4217220
+        }
+      ],
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4216272,
       "source_quality_family": "rebuild"
     },
     {
@@ -3130,7 +4090,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217344,
@@ -3167,7 +4127,7 @@
           "resolved": 14387
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217360,
@@ -3243,10 +4203,78 @@
           "resolved": 4294954068
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217552,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4217696,
+      "method": "00405b60",
+      "body_bytes": 131,
+      "body_sha256": "3197aad39dd1c19aae74c61d6d0a1a228e6b38b0e7d81d43be77758c0a4c7a77",
+      "padding_bytes": 13,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "0a32dee0c6e1717a23908297c1ee0ddc6839d87e206915c485f9e419f41b0a07",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?audioPrepareChannel@@YIPAUAudioChannel@@HH@Z",
+      "symbol_prefix": "?audioPrepareChannel@@YIPAUAudioChannel@@HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_audioDevice",
+          "target": 8589236,
+          "addend": 0,
+          "resolved": 8589236
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?AudioDeviceGetChannel@@YIPAUAudioChannel@@PAUAudioDevice@@H@Z",
+          "target": 4208112,
+          "addend": 0,
+          "resolved": 4294957683
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?AudioChannelStop@@YIXPAUAudioChannel@@@Z",
+          "target": 4203952,
+          "addend": 0,
+          "resolved": 4294953487
+        },
+        {
+          "offset": 66,
+          "kind": 6,
+          "symbol": "?AudioSoundAttribs@@3PAUAudioAttribs@@A",
+          "target": 8590424,
+          "addend": 0,
+          "resolved": 8590424
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?AudioGroupAttribs1@@3PAUAudioAttribs@@A",
+          "target": 8590440,
+          "addend": 0,
+          "resolved": 8590440
+        }
+      ],
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4217696,
       "source_quality_family": "rebuild"
     },
     {
@@ -3279,7 +4307,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217840,
@@ -3348,7 +4376,7 @@
           "resolved": 4294951561
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4217872,
@@ -3416,7 +4444,7 @@
           "resolved": 4294951241
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218192,
@@ -3484,7 +4512,7 @@
           "resolved": 4294950902
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218512,
@@ -3544,7 +4572,7 @@
           "resolved": 4294952551
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218848,
@@ -3604,7 +4632,7 @@
           "resolved": 4294952396
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4218992,
@@ -3640,7 +4668,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219136,
@@ -3685,7 +4713,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219200,
@@ -3730,7 +4758,7 @@
           "resolved": 8589228
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219264,
@@ -3775,7 +4803,7 @@
           "resolved": 3860
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219296,
@@ -3827,7 +4855,7 @@
           "resolved": 3741
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219360,
@@ -3863,7 +4891,7 @@
           "resolved": 3584
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219488,
@@ -3907,7 +4935,7 @@
           "resolved": 3512
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219520,
@@ -3959,7 +4987,7 @@
           "resolved": 3517
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219600,
@@ -3986,7 +5014,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219680,
@@ -4014,7 +5042,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219696,
@@ -4067,7 +5095,7 @@
           "resolved": 8178912
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219728,
@@ -4136,7 +5164,7 @@
           "resolved": 3947
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219760,
@@ -4252,7 +5280,7 @@
           "resolved": 3777
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4219840,
@@ -4320,7 +5348,7 @@
           "resolved": 979
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220080,
@@ -4347,7 +5375,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220208,
@@ -4374,7 +5402,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220224,
@@ -4401,7 +5429,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220240,
@@ -4445,7 +5473,7 @@
           "resolved": 2941
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220256,
@@ -4472,7 +5500,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220288,
@@ -4499,7 +5527,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220368,
@@ -4526,7 +5554,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220384,
@@ -4553,7 +5581,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220400,
@@ -4580,7 +5608,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220416,
@@ -4607,7 +5635,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220432,
@@ -4634,7 +5662,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220448,
@@ -4661,7 +5689,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220464,
@@ -4688,7 +5716,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220496,
@@ -4715,7 +5743,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220512,
@@ -4824,7 +5852,7 @@
           "resolved": 2495
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220544,
@@ -4860,7 +5888,7 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220736,
@@ -4897,7 +5925,7 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220752,
@@ -4934,12 +5962,112 @@
           "resolved": 8178648
         }
       ],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4220768,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 4220784,
+      "method": "00406770",
+      "body_bytes": 100,
+      "body_sha256": "94bd5f6161e6aa7497374ad56f7bd29f77484db1bff84eba0ea8cb70a5e17f96",
+      "padding_bytes": 12,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "f4d3757a022954962f23a4177db8705d3f7adb24907bd84b02f6db5fc3de336c",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AudioEventsDump@@YIXP6IXPBD@Z@Z",
+      "symbol_prefix": "?AudioEventsDump@@YIXP6IXPBD@Z@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "_audioCache",
+          "target": 8589232,
+          "addend": 0,
+          "resolved": 8589232
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?AudioEventsPeak@@3HA",
+          "target": 8589224,
+          "addend": 0,
+          "resolved": 8589224
+        },
+        {
+          "offset": 25,
+          "kind": 6,
+          "symbol": "?AudioEventsCount@@3HA",
+          "target": 8589220,
+          "addend": 0,
+          "resolved": 8589220
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "??_C@_0BP@BEKK@AudioEvents?5?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@",
+          "target": 8178972,
+          "addend": 0,
+          "resolved": 8178972
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3651926
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "?StaticSoundMaximum@@3HA",
+          "target": 11339852,
+          "addend": 0,
+          "resolved": 11339852
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?StaticSoundCount@@3HA",
+          "target": 11339848,
+          "addend": 0,
+          "resolved": 11339848
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_0BP@ELKE@StaticSounds?3?5?$CF05d?5?9?5Max?3?5?$CF05d?$AA@",
+          "target": 8178940,
+          "addend": 0,
+          "resolved": 8178940
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 3651889
+        }
+      ],
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
+      "source": "rebuild/src/audevent.cpp",
+      "population": "rebuild-audevent",
+      "source_order": 4220784,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 4221168,
@@ -4962,7 +6090,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fb5c3ca662bc19361139c5af0c4a20c2fce24e1742274eec690415efc8174df3",
+      "source_sha256": "ada9bb86709ee20a197b62eabb3c5f0fa320c9ba9e4c1f1dd30968987c17bb6e",
       "source": "rebuild/src/audevent.cpp",
       "population": "rebuild-audevent",
       "source_order": 4221168,

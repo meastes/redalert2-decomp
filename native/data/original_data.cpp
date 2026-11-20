@@ -1690,8 +1690,8 @@ alignas(16) unsigned char ra2_orig_0532[16] __asm__("_unknown_building_depth_fil
 alignas(16) unsigned char ra2_orig_0533[112] __asm__("_unknown_flat_voxel_7d11a4");
 // row	_unknown_score_difficulty_7d1480	0x007D1480	4	bytes	unknown_score_difficulty_7d1480	src/recovered/audbag/FindSampleIndex.cpp
 alignas(16) unsigned char ra2_orig_0534[16] __asm__("_unknown_score_difficulty_7d1480");
-// row	_unknown_score_controls_7d1484	0x007D1484	32	bytes	unknown_score_controls_7d1484	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
-alignas(16) unsigned char ra2_orig_0535[32] __asm__("_unknown_score_controls_7d1484");
+// row	_unknown_score_controls_7d1484	0x007D1484	192	bytes	unknown_score_controls_7d1484	src/recovered/header_statics/0058f320/HeaderStatics_empty_rect_init_0058f320.cpp
+alignas(16) unsigned char ra2_orig_0535[192] __asm__("_unknown_score_controls_7d1484");
 // row	_unknown_score_controls_7d1498	0x007D1498	212	bytes	unknown_score_controls_7d1498	src/recovered/header_statics/00465a00/HeaderStatics_diagonal_init_00465a00.cpp
 alignas(16) unsigned char ra2_orig_0536[224] __asm__("_unknown_score_controls_7d1498");
 // row	_unknown_format_number_007d1598	0x007D1598	8	ptr	unknown_format_number_007d1598	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
@@ -6345,7 +6345,7 @@ extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0532, 0x007CFDB0u, 16u, 0},
     {ra2_orig_0533, 0x007D11A4u, 108u, 0},
     {ra2_orig_0534, 0x007D1480u, 4u, 0},
-    {ra2_orig_0535, 0x007D1484u, 32u, 0},
+    {ra2_orig_0535, 0x007D1484u, 192u, 0},
     {ra2_orig_0536, 0x007D1498u, 212u, 0},
     {ra2_orig_0537, 0x007D1598u, 8u, 1},
     {ra2_orig_0538, 0x007D1970u, 40u, 0x123u},
@@ -8055,7 +8055,7 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x007CFDB0u, 16u, ra2_orig_0532, 0},
     {0x007D11A4u, 108u, ra2_orig_0533, 0},
     {0x007D1480u, 4u, ra2_orig_0534, 0},
-    {0x007D1484u, 32u, ra2_orig_0535, 0},
+    {0x007D1484u, 192u, ra2_orig_0535, 0},
     {0x007D1498u, 212u, ra2_orig_0536, 0},
     {0x007D1598u, 4u, ra2_orig_0537, 1},
     {0x007D1970u, 4u, ra2_orig_0538, 0},

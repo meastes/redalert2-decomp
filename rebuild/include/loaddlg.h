@@ -109,7 +109,6 @@ class LoadOptionsClass
 		*/
 		void Clear_List (void);                                     // clears the list & game # array
 		void Fill_List (HWND window);                               // fills the list & game # array
-		int Num_From_Ext (char *fname);                             // translates filename to file #
 		static int __cdecl Compare(const void *p1, const void *p2); // for qsort()
 
 		bool Dialog(void);

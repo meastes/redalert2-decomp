@@ -21,13 +21,9 @@ class CCINIClass;
 
 // RA2: TibSun's Speak routines have no counterpart in RA2 (EVA speaks through Queue_Speech); code not yet matched still calls them
 void Speak(VoxType voice, bool now=false); // RA2: no such routine
-void Speak_AI(void); // RA2: no such routine
-void Stop_Speaking(void); // RA2: no such routine; RA2 stops speech with Speech_Stop
 bool Is_Speaking(void); // RA2: 0x00715E20
 
 void Set_Speech_Volume(int volume); // RA2: 0x00715EF0
-void Set_Speech_State(bool state); // RA2: no such routine
-bool Get_Speech_State(void); // RA2: no such routine
 
 // RA2: the EVA speech is a list of VoxClass objects (one for each [DialogList] entry of EVA.ini) and a queue of
 // waiting speeches, which are played one at a time on a stream of the audio library.

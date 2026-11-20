@@ -95,7 +95,7 @@ def placeholder_measures(tree, read):
 
 # Gated keys (may only fall). draft_guards is reported only: the guards are the parked tail, and a new
 # guarded draft is a legitimate parked attempt (owner ruling, 2026-11-18).
-PLACEHOLDER_KEYS = ('helper_copies', 'inliner_statements', 'process_chatter', 'unknown_names', 'vt_entry_names', 'field_names_headers', 'fun_names_headers',
+PLACEHOLDER_KEYS = ('declared_never_defined', 'helper_copies', 'inliner_statements', 'process_chatter', 'unknown_names', 'vt_entry_names', 'field_names_headers', 'fun_names_headers',
                     'inherited_geometry_define', 'inherited_auto_inline_off', 'extern_c_in_sources')
 
 
@@ -306,6 +306,10 @@ def main(quiet=False):
     measures['judgment_members'] = header_judgments()
     copies = helper_copies(tree, read)
     measures['helper_copies'] = len(copies)
+    # Declared, never defined (review session, 2026-11-19): declarations RA2 has no body for; budget only falls.
+    import declared_never_defined
+    never = [k for k, _ in declared_never_defined.census()[0]]
+    measures['declared_never_defined'] = len(never)
     inliner = inliner_statements()
     provisional = provisional_names()
     measures['provisional_names'] = len(provisional)
@@ -349,6 +353,10 @@ def main(quiet=False):
         ', '.join(measures['judgment_members']) or 'none'))
     print('Gate (may not grow): unit-local copies of a shared helper %d: %s' % (measures['helper_copies'], ', '.join(
         '%s %s (%s)' % (p.split('/')[-1][:-4], n, h) for p, n, h in copies) or 'none'))
+    listed = declared_never_defined.count()
+    print('Gate (may only fall): declared, never defined %d (manifest/declared_never_defined.csv%s)' % (
+        measures['declared_never_defined'], '' if listed == len(never) else
+        ', lists %d: run declared_never_defined.py --write' % listed))
     print('Gate (may not grow): statements kept only for the inliner %d: %s' % (measures['inliner_statements'], ', '.join(
         '%s %s' % (u, e) for u, e, _ in inliner) or 'none'))
     print('Provisional names (reported, not gated; manifest/provisional_names.csv): %d (%s)' % (

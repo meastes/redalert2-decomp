@@ -188,7 +188,6 @@ class TActionClass : public AbstractClass
 		bool TAction_DESTROY_TRIGGER(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
 		bool TAction_AUTOCREATE(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
 		bool TAction_CHANGE_HOUSE(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
-		bool TAction_ALLOWWIN(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
 		bool TAction_REVEAL_ALL(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
 		bool TAction_REVEAL_SOME(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);
 		bool TAction_REVEAL_ZONE(HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell);

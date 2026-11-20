@@ -8,6 +8,7 @@
 #include "vqalib/vqaplay.h"
 #include "vqalib/vqaplayp.h"
 #include "vqalib/video.h"
+#include "vqalib/unvq.h"
 #include "ahandle.h"
 #include "vqalib/vqadebug.h"
 
@@ -38,7 +39,6 @@ long VQA_SetLoop_Internal(VQAHandle *vqa, int start, int end, int iterations, in
 long VQA_LargestLoop(VQAHandleP *vqap, long);
 
 
-#if 0
 long VQA_Open(char const *filename, VQAConfig *_config, VQAHandle **handle)
 {
 	VQAHandle   *vqa;
@@ -369,7 +369,6 @@ long VQA_Open(char const *filename, VQAConfig *_config, VQAHandle **handle)
 
 	return(VQAERR_NONE);
 }
-#endif
 
 
 void VQA_Close(VQAHandle *vqa)
@@ -404,7 +403,6 @@ void VQA_Close(VQAHandle *vqa)
 	config->MemoryHandler((VQAHandle *)vqap, VQAMEM_FREE, (VQAHandleP *)vqap, NULL);
 }
 
-#if 0
 long VQA_Play(VQAHandle *vqa, long mode, int flags)
 {
 	VQAHandleP *vqabuf;
@@ -693,10 +691,8 @@ long VQA_Play(VQAHandle *vqa, long mode, int flags)
 
 	return(rc);
 }
-#endif
 
 
-#if 0
 long VQA_SeekFrame(VQAHandle *vqa, long framenum, long fromwhere)
 {
 	VQAHandleP   *vqap;
@@ -783,10 +779,8 @@ long VQA_SeekFrame(VQAHandle *vqa, long framenum, long fromwhere)
 	}
 	return(rc);
 }
-#endif
 
 
-#if 0
 long VQA_SetUnVQ(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2)
 {
 	VQAHandleP *vqap = (VQAHandleP *)vqa;
@@ -804,7 +798,6 @@ long VQA_SetUnVQ(VQAHandle *vqa, UNVQ_FUNC unvq1, UNVQ_FUNC unvq2)
 
 	return(VQAERR_NONE);
 }
-#endif
 
 
 long VQA_Set_DrawBuffer(VQAHandle *vqa, unsigned char *buffer, unsigned long width, unsigned long height, long xpos, long ypos)
@@ -1069,7 +1062,6 @@ char *VQA_IDString(void)
 	return("VQA playback 5.0 (Jun  6 2001 16:25:28)");
 }
 
-#if 0
 long User_Update(VQAHandle *vqa)
 {
 	VQAHandleP *vqap;
@@ -1119,7 +1111,6 @@ long User_Update(VQAHandle *vqa)
 
 	return(rc);
 }
-#endif
 
 
 long VQA_NumFramesWithPalettes(VQAHandleP *vqap)

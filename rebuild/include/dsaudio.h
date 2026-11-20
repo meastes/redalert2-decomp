@@ -28,7 +28,6 @@ class DSAudio
 
 		int File_Stream_Sample(char const *filename, bool real_time_start = false);
 		int File_Stream_Sample_Vol(char const *filename, int volume, bool real_time_start = false);
-		void Sound_Callback(void);
 		void maintenance_callback(void);
 		//void *Load_Sample(char const *filename);
 		//long Load_Sample_Into_Buffer(char const *filename, void *buffer, long size);
@@ -36,30 +35,10 @@ class DSAudio
 		//void Free_Sample(void const *sample);
 		bool Init( HWND window , int bits_per_sample, bool stereo , int rate /*, int reverse_channels*/);
 		void End(void);
-		void Stop_Sample(int handle);
-		bool Sample_Status(int handle);
-		bool Is_Sample_Playing(void const * sample);
-		void Stop_Sample_Playing(void const * sample);
-		int Play_Sample(void const *sample, int priority=0xFF, int volume=0xFF/*, signed short panloc = 0x0*/);
-		int Play_Sample_Handle(void const *sample, int priority, int volume/*, signed short panloc*/, int id);
 		//int Set_Sound_Vol(int volume);
 		//int Set_Score_Vol(int volume);
-		void Fade_Sample(int handle, int ticks);
-		int Get_Free_Sample_Handle(int priority);
 		//int Get_Digi_Handle(void);
 		//long Sample_Length(void const *sample);
-		void Restore_Sound_Buffers (void);
-		bool Set_Primary_Buffer_Format(void);
-		bool Start_Primary_Sound_Buffer (bool forced);
-		void Stop_Primary_Sound_Buffer (void);
-
-		int Get_Playing_Sample_Handle(void const *sample);
-		void Set_Volume_All(int volume);
-		int Adjust_Volume_All(int percent);
-		void Set_Handle_Volume(int handle, int volume);
-		void Set_Sample_Volume(void const *sample, int volume);
-		void Adjust_Sample_Handle_Volume(int handle, int percent);
-		void Restore_Sample_Handle_Volume(int handle);
 
 		enum {
 			AUD_CHUNK_MAGIC_ID = 0xDEAF,
@@ -77,23 +56,10 @@ class DSAudio
 			TIMER_TARGET_RESOLUTION = 10, /// 10-millisecond target resolution
 		};
 
-		bool Lock_Mutex(void);
-		void Unlock_Mutex(void);
-
 		LPDIRECTSOUNDBUFFER Get_Primary_Buffer(void) { return(PrimaryBufferPtr); }
 
 	private:
 		bool Attempt_Audio_Restore(IDirectSoundBuffer *sound_buffer);
-
-		bool Lock_Global_Mutex(void);
-		void Unlock_Global_Mutex(void);
-
-		static void CALLBACK Sound_Timer_Callback(UINT, UINT, DWORD, DWORD, DWORD);
-		int Stream_Sample_Vol(void *buffer, int size, bool (*callback)(short, short int *, void **, int *), int volume, int handle);
-		void File_Stream_Preload(int handle);
-		static bool File_Callback(short int id, short int *odd, void **buffer, int *size);
-
-		void Print_Sound_Error(char const *sound_error, HWND window);
 
 		int Simple_Copy(void ** source, int * ssize, void ** alternate, int * altsize, void **dest, int size);
 		int Sample_Copy(SampleTrackerType *st, void **source, int *ssize, void **alternate, int *altsize, void *dest, int size, SCompressType scomp);

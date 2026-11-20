@@ -2070,155 +2070,155 @@ bool UnitClass::Try_To_Deploy(void)
  *   06/17/1995 JLB : Handles case when building says "NO!"                                    *
  *   06/30/1995 JLB : Gunboats head back and forth now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2847 bytes differ (class-b carry)
+#ifdef RA2_NON_MATCHING // not exact: 2847 bytes differ (one SDK assignment reference unresolved)
 void UnitClass::Per_Cell_Process(PCPType reason)
 {
-    Cell cell=Get_Cell();
-    if ((reason==2 || reason==0) && IsDeploying) {
-        Try_To_Deploy();
-        if (!IsActive) return;
-    }
-    if (reason==2) {
-        TechnoClass *contact=Radio_Link(0);
-        if ((Get_Mission()==7 || Get_Mission()==25) && contact && contact->Fetch_RTTI()==6) {
-            Coord center=Center_Coord().As_Cell().As_Coord();
-            Coord contact_center=contact->Docking_Coord(this).As_Cell().As_Coord();
-            if (center.As_Cell()==contact_center.As_Cell()) {
-                IPersistPtr persist;
-                if (Locomotion) {
-                    persist = Locomotion;
-                }
-                GUID clsid;
-                persist->GetClassID(&clsid);
-                if (clsid==CLSID_HoverLocomotion && ((BuildingClass *)contact)->Class->IsCanUnitRepair && !NavCom) NavCom=contact;
-                if (contact==NavCom) {
-                    FootClass::Per_Cell_Process(PCP_END);
-                    Transmit_Message((RadioMessageType)21);
-                    Locomotion->Power_Off();
-                    return;
-                }
-            }
-        }
-        if (IsTethered && contact && contact->Fetch_RTTI()==6 && Get_Mission()==7) {
-            if (contact==Map[cell-Cell(0,1)].Cell_Building()) {
-                switch (Transmit_Message((RadioMessageType)21,contact)) {
-                case 1: case 5: break;
-                default: Scatter(COORD_NONE,true,false);break;
-                }
-            }
-        }
-        CellClass *current=(CellClass *)Get_Cell_Ptr();
-        TechnoClass *transport=current->Cell_Building();
-        if (!transport) {
-            transport=((CellClass *)Get_Cell_Ptr())->Cell_Aircraft(IsOnBridge);
-            if (!transport) {
-                transport=((CellClass *)Get_Cell_Ptr())->Cell_Unit(IsOnBridge);
-            }
-        }
-        if (transport==this) transport=Dynamic_Cast<TechnoClass *>(transport->Next);
-        if (Get_Mission()==7 && transport && transport!=this) {
-            if (Get_Cell()==transport->Get_Cell() && ContainsLink(transport) && transport->Techno_Type_Class()->MaxPassengers>0) {
-                if (Transmit_Message((RadioMessageType)15,transport)==1) {
-                    Assign_Archive_Target(0);
-                    IsOnBridge=false;
-                    Limbo();
-                    transport->Cargo.Attach(this);
-                    Hidden();
-                } else {
-                    Assign_Destination(0,true);
-                    QueueMission((MissionType)5,false);
-                    Scatter(COORD_NONE,true,true);
-                }
-                return;
-            }
-        }
-        if (IsTethered && (Get_Mission()!=7 || (Dynamic_Cast<TechnoClass *>(NavCom) && Radio_Link(0)!=NavCom)) && Get_Mission()!=16) {
-            bool arrived=NavCom==0;
-            if (NavCom && NavCom->Fetch_RTTI()==11 && ((CellClass *)NavCom)->CellID==Get_Coord().As_Cell()) arrived=true;
-            if (!Map[Get_Coord()].Cell_Building() || arrived) {
-                contact=Radio_Link(0);
-                if (arrived || !contact || contact->Fetch_RTTI()!=6 || !((BuildingClass *)contact)->Class->IsWeaponsFactory || Map[Get_Coord()].Cell_Building()!=contact) {
-                    int response=Transmit_Message((RadioMessageType)8);
-                    if (response==23) {
-                        if (NavCom && NavCom!=Get_Cell_Ptr()) {
-                            AbstractClass *destination=NavCom;
-                            if (destination && (destination->AbstractFlags & 1)) Transmit_Message((RadioMessageType)14,(TechnoClass *)destination);
-                        } else {
-                            BuildingClass *building;
-                            if (!contact) building=0;
-                            else building=contact->Fetch_RTTI()==6 ? (BuildingClass *)contact : 0;
-                            if (!Class->IsToHarvest && !Class->IsToVeinHarvest) {
-                                if (!House->Is_Human_Player() && building && building->Class->IsWeaponsFactory) {
-                                    Cell where=House->Where_To_Go(this);
-                                    if (where!=CELL_NONE) {
-                                        QueueMission((MissionType)2,false);
-                                        Assign_Destination(&Map[where],true);
-                                        Commence();
-                                        Assign_Archive_Target(&Map[where]);
-                                        QueueMission((MissionType)11,false);
-                                    } else Assign_Archive_Target(0);
-                                } else {
-                                    AbstractClass *destination=ArchivedTarget;
-                                    if (destination && destination!=NavCom) Assign_Destination(destination,true);
-                                    else { Abort_Motion();Scatter(COORD_NONE,true,false); }
-                                }
-                            } else QueueMission((MissionType)10,true);
-                        }
-                    } else if (response!=10 && (Class->IsToHarvest || Class->IsToVeinHarvest)) {
-                        if (ArchivedTarget) {
-                            QueueMission((MissionType)10,false);
-                            Assign_Destination(ArchivedTarget,true);
-                            Assign_Archive_Target(0);
-                        } else if (!NavCom) Scatter(COORD_NONE,true,false);
-                    }
-                }
-            }
-            if (Map[Get_Coord()].Cell_Building() && !NavCom && NavQueue.Count()==0 && RouteQueue.Count()==0) Scatter(COORD_NONE,true,true);
-        }
-        if (Get_Mission()==5 && !Map.In_Radar(Get_Coord()) && IsLocked) {
-            if (Team) Team->IsLeaveMap=true;
-            Stun();
-            Delete_Me();
-            return;
-        }
-        RemoveSight(false,false,false,0);
-        UpdateSight(false,false,false,0);
-        Map.RevealArea3(Get_Coord(),0,LastSightRange+3,0);
-        if (!IsDumping && Ready_To_Commence()) Commence();
-        if (Class->IsToHarvest && Get_Mission()!=16 && CurrentMission!=7 && MissionQueue!=7 && !IsDumping) {
-            RadioClass *radio=Radio_Link(0);
-            if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Class->IsRefinery) Transmit_Message((RadioMessageType)3);
-        }
-        if (Class->IsToVeinHarvest && Get_Mission()!=16 && CurrentMission!=7 && MissionQueue!=7 && !IsDumping) {
-            RadioClass *radio=Radio_Link(0);
-            if (radio && radio->What_Am_I()==6 && ((BuildingClass *)radio)->Class->IsWeeder) Transmit_Message((RadioMessageType)3);
-        }
-        if (!NavCom && Path[0]==-1 && !Class->MobileFire) Arm=Rearm_Delay(1)/4;
-        CellClass *current_cell=&Map[Get_Coord()];
-        LandType land=current_cell->Land_Type();
-        if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell,FACING_NONE,-1,0,true)==7 && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
-            if (CurrentMission!=7) {
-                new AnimClass(Combat_Anim(Strength,Rule->C4Warhead,land,Get_Coord()),Get_Coord(),0,1,(ShapeFlags_Type)0x2600,Get_Explosion_Z(Get_Coord()));
-                int damage=Strength;
-                Combat_Lighting(Center_Coord(),damage,Rule->C4Warhead,0,0);
-                Take_Damage(damage,0,Rule->C4Warhead,0,true,0);
-                return;
-            }
-            Scatter(COORD_NONE,true,true);
-        }
-    }
-    CellClass *current_cell=&Map[cell];
-    if ((Class->IsCrusher || Has_Ability(ABILITY_CRUSHER)) && current_cell->Overlay!=-1) {
-        OverlayTypeClass const *overlay=OverlayTypes[current_cell->Overlay];
-        if (overlay->IsCrushable) {
-            VocClass::PlayIndexAtPos(overlay->CrushSound,Center_Coord(),0);
-            current_cell->Reduce_Wall(-1);
-            IsCrushing=false;
-            RockingForwardsPerFrame+=0.019999999552965164f;
-        }
-    }
-    Overrun_Square(Get_Cell(),false);
-    if (IsActive) FootClass::Per_Cell_Process(reason);
+	Cell cell = Get_Cell();
+	if ((reason == PCP_END || reason == PCP_ROTATION) && IsDeploying) {
+		Try_To_Deploy();
+		if (!IsActive) return;
+	}
+	if (reason == PCP_END) {
+		TechnoClass * contact = Radio_Link(0);
+		if ((Get_Mission() == MISSION_ENTER || Get_Mission() == MISSION_PATROL) && contact && contact->Fetch_RTTI() == RTTI_BUILDING) {
+			Coord center = Center_Coord().As_Cell().As_Coord();
+			Coord contact_center = contact->Docking_Coord(this).As_Cell().As_Coord();
+			if (center.As_Cell() == contact_center.As_Cell()) {
+				IPersistPtr persist;
+				if (Locomotion) {
+					persist = Locomotion;
+				}
+				GUID clsid;
+				persist->GetClassID(&clsid);
+				if (clsid == CLSID_HoverLocomotion && ((BuildingClass *)contact)->Class->IsCanUnitRepair && !NavCom) NavCom = contact;
+				if (contact == NavCom) {
+					FootClass::Per_Cell_Process(PCP_END);
+					Transmit_Message(RADIO_IM_IN);
+					Locomotion->Power_Off();
+					return;
+				}
+			}
+		}
+		if (IsTethered && contact && contact->Fetch_RTTI() == RTTI_BUILDING && Get_Mission() == MISSION_ENTER) {
+			if (contact == Map[cell - Cell(0, 1)].Cell_Building()) {
+				switch (Transmit_Message(RADIO_IM_IN, contact)) {
+					case RADIO_ROGER: case RADIO_ATTACH: break;
+					default: Scatter(COORD_NONE, true, false); break;
+				}
+			}
+		}
+		CellClass * current = (CellClass *)Get_Cell_Ptr();
+		TechnoClass * transport = current->Cell_Building();
+		if (!transport) {
+			transport = ((CellClass *)Get_Cell_Ptr())->Cell_Aircraft(IsOnBridge);
+			if (!transport) {
+				transport = ((CellClass *)Get_Cell_Ptr())->Cell_Unit(IsOnBridge);
+			}
+		}
+		if (transport == this) transport = Dynamic_Cast<TechnoClass *>(transport->Next);
+		if (Get_Mission() == MISSION_ENTER && transport && transport != this) {
+			if (Get_Cell() == transport->Get_Cell() && ContainsLink(transport) && transport->Techno_Type_Class()->MaxPassengers > 0) {
+				if (Transmit_Message(RADIO_CAN_LOAD, transport) == 1) {
+					Assign_Archive_Target(0);
+					IsOnBridge = false;
+					Limbo();
+					transport->Cargo.Attach(this);
+					Hidden();
+				} else {
+					Assign_Destination(0, true);
+					QueueMission(MISSION_GUARD, false);
+					Scatter(COORD_NONE, true, true);
+				}
+				return;
+			}
+		}
+		if (IsTethered && (Get_Mission() != MISSION_ENTER || (Dynamic_Cast<TechnoClass *>(NavCom) && Radio_Link(0) != NavCom)) && Get_Mission() != MISSION_UNLOAD) {
+			bool arrived = NavCom == 0;
+			if (NavCom && NavCom->Fetch_RTTI() == RTTI_CELL && ((CellClass *)NavCom)->CellID == Get_Coord().As_Cell()) arrived = true;
+			if (!Map[Get_Coord()].Cell_Building() || arrived) {
+				contact = Radio_Link(0);
+				if (arrived || !contact || contact->Fetch_RTTI() != RTTI_BUILDING || !((BuildingClass *)contact)->Class->IsWeaponsFactory || Map[Get_Coord()].Cell_Building() != contact) {
+					int response = Transmit_Message(RADIO_UNLOADED);
+					if (response == RADIO_RUN_AWAY) {
+						if (NavCom && NavCom != Get_Cell_Ptr()) {
+							AbstractClass * destination = NavCom;
+							if (destination && (destination->AbstractFlags & ABSTRACT_TECHNO)) Transmit_Message(RADIO_DOCKING, (TechnoClass *)destination);
+						} else {
+							BuildingClass * building;
+							if (!contact) building = 0;
+							else building = contact->Fetch_RTTI() == RTTI_BUILDING ? (BuildingClass *)contact : 0;
+							if (!Class->IsToHarvest && !Class->IsToVeinHarvest) {
+								if (!House->Is_Human_Player() && building && building->Class->IsWeaponsFactory) {
+									Cell where = House->Where_To_Go(this);
+									if (where != CELL_NONE) {
+										QueueMission(MISSION_MOVE, false);
+										Assign_Destination(&Map[where], true);
+										Commence();
+										Assign_Archive_Target(&Map[where]);
+										QueueMission(MISSION_GUARD_AREA, false);
+									} else Assign_Archive_Target(0);
+								} else {
+									AbstractClass * destination = ArchivedTarget;
+									if (destination && destination != NavCom) Assign_Destination(destination, true);
+									else { Abort_Motion();Scatter(COORD_NONE, true, false); }
+								}
+							} else QueueMission(MISSION_HARVEST, true);
+						}
+					} else if (response != RADIO_NEGATIVE && (Class->IsToHarvest || Class->IsToVeinHarvest)) {
+						if (ArchivedTarget) {
+							QueueMission(MISSION_HARVEST, false);
+							Assign_Destination(ArchivedTarget, true);
+							Assign_Archive_Target(0);
+						} else if (!NavCom) Scatter(COORD_NONE, true, false);
+					}
+				}
+			}
+			if (Map[Get_Coord()].Cell_Building() && !NavCom && NavQueue.Count() == 0 && RouteQueue.Count() == 0) Scatter(COORD_NONE, true, true);
+		}
+		if (Get_Mission() == MISSION_GUARD && !Map.In_Radar(Get_Coord()) && IsLocked) {
+			if (Team) Team->IsLeaveMap = true;
+			Stun();
+			Delete_Me();
+			return;
+		}
+		RemoveSight(false, false, false, 0);
+		UpdateSight(false, false, false, 0);
+		Map.RevealArea3(Get_Coord(), 0, LastSightRange + 3, 0);
+		if (!IsDumping && Ready_To_Commence()) Commence();
+		if (Class->IsToHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != 7 && MissionQueue != 7 && !IsDumping) {
+			RadioClass * radio = Radio_Link(0);
+			if (radio && radio->What_Am_I() == 6 && ((BuildingClass *)radio)->Class->IsRefinery) Transmit_Message(RADIO_OVER_OUT);
+		}
+		if (Class->IsToVeinHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != 7 && MissionQueue != 7 && !IsDumping) {
+			RadioClass * radio = Radio_Link(0);
+			if (radio && radio->What_Am_I() == 6 && ((BuildingClass *)radio)->Class->IsWeeder) Transmit_Message(RADIO_OVER_OUT);
+		}
+		if (!NavCom && Path[0] == -1 && !Class->MobileFire) Arm = Rearm_Delay(1) / 4;
+		CellClass * current_cell = &Map[Get_Coord()];
+		LandType land = current_cell->Land_Type();
+		if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell, FACING_NONE, -1, 0, true) == 7 && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
+			if (CurrentMission != 7) {
+				new AnimClass(Combat_Anim(Strength, Rule->C4Warhead, land, Get_Coord()), Get_Coord(), 0, 1, (ShapeFlags_Type)0x2600, Get_Explosion_Z(Get_Coord()));
+				int damage = Strength;
+				Combat_Lighting(Center_Coord(), damage, Rule->C4Warhead, 0, 0);
+				Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0);
+				return;
+			}
+			Scatter(COORD_NONE, true, true);
+		}
+	}
+	CellClass * current_cell = &Map[cell];
+	if ((Class->IsCrusher || Has_Ability(ABILITY_CRUSHER)) && current_cell->Overlay != -1) {
+		OverlayTypeClass const * overlay = OverlayTypes[current_cell->Overlay];
+		if (overlay->IsCrushable) {
+			VocClass::PlayIndexAtPos(overlay->CrushSound, Center_Coord(), 0);
+			current_cell->Reduce_Wall(-1);
+			IsCrushing = false;
+			RockingForwardsPerFrame += 0.019999999552965164f;
+		}
+	}
+	Overrun_Square(Get_Cell(), false);
+	if (IsActive) FootClass::Per_Cell_Process(reason);
 }
 #endif
 
@@ -2351,92 +2351,92 @@ void UnitClass::Unit_Blit_Voxel(Surface & surface, Point2D drawpoint, Rect clipr
 /// <param name="xdrawpoint">The pixel position to center the unit's artwork upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
-#ifdef RA2_NON_MATCHING // not exact: 30 bytes differ (class-b carry)
+#ifdef RA2_NON_MATCHING // not exact: 30 bytes differ (main carry through the existing unit interfaces)
 void UnitClass::Unit_Draw_Shape(Point2D point, Rect window, int brightness) const
 {
-    VoxelDataStruct *voxel;
-    ShapeSet const *shape=static_cast<ShapeSet const *>(Get_Image_Data());
-    bool barrel_above=true;
-    int frame;
-    if (Class->Facings==8 && !IsDisguised()) frame=(PrimaryFacing.Current().As_Dir8()+1)&7;
-    else frame=0;
-    if (FiringSyncDelay>=0) {
-        frame=Class->StartFiringFrame+Class->FiringFrames*frame+FiringSyncDelay/2;
-    } else if (!Locomotion->Is_Moving() && Class->IdleRate==0) {
-        if (DeathCounter>=0) {
-            int death_frame=DeathCounter/Class->DeathFrameRate;
-            int start_death_frame=Class->StartDeathFrame;
-            int last_frame=Class->DeathFrames-1;
-            if (death_frame>=last_frame) death_frame=last_frame;
-            frame=start_death_frame+death_frame;
-        } else if (IsOccupyingCell) {
-            if (Class->StandingFrames==0) frame=Class->StartWalkFrame+frame*Class->WalkFrames;
-            else frame=Class->StartStandFrame+frame*Class->StandingFrames;
-        }
-    } else {
-        frame=Class->StartWalkFrame+frame*Class->WalkFrames+TotalFramesWalked%Class->WalkFrames;
-    }
-    if (Class->IsTurretEquipped) {
-        Point2D shadow_point=point;
-        if (IsInTransport) shadow_point.Y-=14;
-        Draw_Shape(*LogicalSurface,*NormalDrawer,shape,frame+shape->Get_Count()/2,shadow_point,window,(ShapeFlags_Type)0x2e01,0,Get_Z_Adjust()-2,(ZGradientType)0,1000,0,0,Point2D(0,0));
-        Surface *old_surface=LogicalSurface;
-        LogicalSurface=EightBitSurface;
-        Point2D composite_point=Point2D(128,128);
-        Matrix3D barrel_matrix;
-        Rect composite_window=LogicalSurface->Get_Rect();
-        IsCompositingToEightBitSurface=true;
-        UnitCompositeDirtyRect=RECT_NONE;
-        voxel=&Class->AuxVoxel2;
-        if ((voxel->VoxLib != 0 && voxel->MotLib != 0)) {
-            int key=-1;
-            Matrix3D turret_matrix(Locomotion->Draw_Matrix(&key));
-            turret_matrix.Translate_X((float)(Class->TurretOffset/8));
-            turret_matrix.Rotate_Z((float)(SecondaryFacing.Current().As_Radian32()-PrimaryFacing.Current().As_Radian32()));
-            barrel_matrix=turret_matrix;
-            Vector3 translation=turret_matrix.Get_Translation();
-            barrel_matrix.Translate(-translation);
-            if (TurretRecoil.State) turret_matrix.Translate_X(-TurretRecoil.TravelSoFar);
-            Vector3 fire_offset=Vector3((float)(Get_Class_Weapon_Data(0)->FireFLH.X/-8),0.0f,(float)(Get_Class_Weapon_Data(0)->FireFLH.Z/-8));
-            barrel_matrix.Translate(-fire_offset);
-            FacingClass pitch=BarrelPitch;
-            BulletTypeClass const *projectile=Get_Class_Weapon_Data(0)->Weapon->Bullet;
-            if (projectile->IsInvisible) {
-                int direction=pitch.Current().As_Dir256();
-                if (direction>64 && direction<=128) direction=(direction-64)/3+64;
-                else direction=(64-direction)/3+64;
-                pitch.Set(DirType((unsigned short)(direction<<8)));
-            }
-            if (BarrelRecoil.State) barrel_matrix.Translate_X(-BarrelRecoil.TravelSoFar);
-            barrel_matrix.Rotate_Y((float)-pitch.Current().As_Radian32());
-            barrel_matrix.Translate(fire_offset);
-            barrel_matrix.Translate(translation);
-            barrel_above=SecondaryFacing.Current().As_Dir4()>0 && SecondaryFacing.Current().As_Dir4()<3;
-        }
-        Draw_Object(shape,frame,composite_point,composite_window,(Dir256)0,256,0,(ZGradientType)0,0,brightness,0,0,Point2D(0,0),(ShapeFlags_Type)0x2800);
-        voxel=&Class->AuxVoxel2;
-        if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && !barrel_above) {
-            
-            Draw_Voxel(Class->AuxVoxel2,0,-1,0,composite_window,composite_point,(Get_Isometric_View_Matrix()*barrel_matrix),brightness,(ShapeFlags_Type)0x2800);
-        }
-        unsigned turret_frame=((SecondaryFacing.Current().As_Dir32()+4)&31)+8*Class->WalkFrames;
-        Draw_Object(shape,turret_frame,composite_point,composite_window,(Dir256)0,256,0,(ZGradientType)0,0,brightness,0,0,Point2D(0,0),(ShapeFlags_Type)0x2820);
-        voxel=&Class->AuxVoxel2;
-        if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && barrel_above) {
-            Draw_Voxel(Class->AuxVoxel2,0,-1,0,composite_window,composite_point,(Get_Isometric_View_Matrix()*barrel_matrix),brightness,(ShapeFlags_Type)0x2820);
-        }
-        int apparent_brightness=Apparent_Brightness(brightness);
-        Unit_Blit_Voxel(*old_surface,point,window,apparent_brightness);
-        LogicalSurface->Fill_Rect(UnitCompositeDirtyRect,0);
-        LogicalSurface=old_surface;
-        IsCompositingToEightBitSurface=false;
-    } else {
-        if (Class->IsTooBigToFitUnderBridge && Is_Z_Fudge_Bridge() && Get_Z_Fudge_Column()==0) {
-            Draw_Object(shape,frame,point,window,(Dir256)0,256,-16,(ZGradientType)0,0,brightness,0,0,Point2D(0,0),(ShapeFlags_Type)0);
-            return;
-        }
-        Draw_Object(shape,frame,point,window,(Dir256)0,256,0,(ZGradientType)Get_Z_Gradient(),0,brightness,0,0,Point2D(0,0),(ShapeFlags_Type)0);
-    }
+	VoxelDataStruct * voxel;
+	ShapeSet const * shape = static_cast<ShapeSet const *>(Get_Image_Data());
+	bool barrel_above = true;
+	int frame;
+	if (Class->Facings == FACING_COUNT && !IsDisguised()) frame = (PrimaryFacing.Current().As_Dir8() + 1) & (FACING_COUNT - 1);
+	else frame = 0;
+	if (FiringSyncDelay >= 0) {
+		frame = Class->StartFiringFrame + Class->FiringFrames * frame + FiringSyncDelay / 2;
+	} else if (!Locomotion->Is_Moving() && Class->IdleRate == 0) {
+		if (DeathCounter >= 0) {
+			int death_frame = DeathCounter / Class->DeathFrameRate;
+			int start_death_frame = Class->StartDeathFrame;
+			int last_frame = Class->DeathFrames - 1;
+			if (death_frame >= last_frame) death_frame = last_frame;
+			frame = start_death_frame + death_frame;
+		} else if (IsOccupyingCell) {
+			if (Class->StandingFrames == 0) frame = Class->StartWalkFrame + frame * Class->WalkFrames;
+			else frame = Class->StartStandFrame + frame * Class->StandingFrames;
+		}
+	} else {
+		frame = Class->StartWalkFrame + frame * Class->WalkFrames + TotalFramesWalked % Class->WalkFrames;
+	}
+	if (Class->IsTurretEquipped) {
+		Point2D shadow_point = point;
+		if (IsInTransport) shadow_point.Y -= 14;
+		Draw_Shape(*LogicalSurface, *NormalDrawer, shape, frame + shape->Get_Count() / 2, shadow_point, window, (ShapeFlags_Type)0x2e01, 0, Get_Z_Adjust() - 2, (ZGradientType)0, 1000, 0, 0, Point2D(0, 0));
+		Surface * old_surface = LogicalSurface;
+		LogicalSurface = EightBitSurface;
+		Point2D composite_point = Point2D(128, 128);
+		Matrix3D barrel_matrix;
+		Rect composite_window = LogicalSurface->Get_Rect();
+		IsCompositingToEightBitSurface = true;
+		UnitCompositeDirtyRect = RECT_NONE;
+		voxel = &Class->AuxVoxel2;
+		if ((voxel->VoxLib != 0 && voxel->MotLib != 0)) {
+			int key = -1;
+			Matrix3D turret_matrix(Locomotion->Draw_Matrix(&key));
+			turret_matrix.Translate_X((float)(Class->TurretOffset / 8));
+			turret_matrix.Rotate_Z((float)(SecondaryFacing.Current().As_Radian32() - PrimaryFacing.Current().As_Radian32()));
+			barrel_matrix = turret_matrix;
+			Vector3 translation = turret_matrix.Get_Translation();
+			barrel_matrix.Translate(-translation);
+			if (TurretRecoil.State) turret_matrix.Translate_X(-TurretRecoil.TravelSoFar);
+			Vector3 fire_offset = Vector3((float)(Get_Class_Weapon_Data(0)->FireFLH.X / -8), 0.0f, (float)(Get_Class_Weapon_Data(0)->FireFLH.Z / -8));
+			barrel_matrix.Translate(-fire_offset);
+			FacingClass pitch = BarrelPitch;
+			BulletTypeClass const * projectile = Get_Class_Weapon_Data(0)->Weapon->Bullet;
+			if (projectile->IsInvisible) {
+				int direction = pitch.Current().As_Dir256();
+				if (direction > 64 && direction <= 128) direction = (direction - 64) / 3 + 64;
+				else direction = (64 - direction) / 3 + 64;
+				pitch.Set(DirType((unsigned short)(direction << 8)));
+			}
+			if (BarrelRecoil.State) barrel_matrix.Translate_X(-BarrelRecoil.TravelSoFar);
+			barrel_matrix.Rotate_Y((float)-pitch.Current().As_Radian32());
+			barrel_matrix.Translate(fire_offset);
+			barrel_matrix.Translate(translation);
+			barrel_above = SecondaryFacing.Current().As_Dir4() > 0 && SecondaryFacing.Current().As_Dir4() < 3;
+		}
+		Draw_Object(shape, frame, composite_point, composite_window, (Dir256)0, 256, 0, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0x2800);
+		voxel = &Class->AuxVoxel2;
+		if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && !barrel_above) {
+			
+			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, (ShapeFlags_Type)0x2800);
+		}
+		unsigned turret_frame = ((SecondaryFacing.Current().As_Dir32() + 4) & 31) + 8 * Class->WalkFrames;
+		Draw_Object(shape, turret_frame, composite_point, composite_window, (Dir256)0, 256, 0, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0x2820);
+		voxel = &Class->AuxVoxel2;
+		if ((voxel->VoxLib != 0 && voxel->MotLib != 0) && barrel_above) {
+			Draw_Voxel(Class->AuxVoxel2, 0, -1, 0, composite_window, composite_point, (Get_Isometric_View_Matrix() * barrel_matrix), brightness, (ShapeFlags_Type)0x2820);
+		}
+		int apparent_brightness = Apparent_Brightness(brightness);
+		Unit_Blit_Voxel(*old_surface, point, window, apparent_brightness);
+		LogicalSurface->Fill_Rect(UnitCompositeDirtyRect, 0);
+		LogicalSurface = old_surface;
+		IsCompositingToEightBitSurface = false;
+	} else {
+		if (Class->IsTooBigToFitUnderBridge && Is_Z_Fudge_Bridge() && Get_Z_Fudge_Column() == 0) {
+			Draw_Object(shape, frame, point, window, (Dir256)0, 256, -16, (ZGradientType)0, 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0);
+			return;
+		}
+		Draw_Object(shape, frame, point, window, (Dir256)0, 256, 0, (ZGradientType)Get_Z_Gradient(), 0, brightness, 0, 0, Point2D(0, 0), (ShapeFlags_Type)0);
+	}
 }
 #endif
 

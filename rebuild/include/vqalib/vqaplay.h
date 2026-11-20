@@ -386,7 +386,6 @@ typedef struct _VQAHandle {
  *-------------------------------------------------------------------------*/
 
 /* Configuration routines. */
-void VQA_INIConfig(VQAConfig *config);
 void VQA_DefaultConfig(VQAConfig *config);
 
 /* Handle manipulation routines. */
@@ -396,7 +395,6 @@ void VQA_Reset(VQAHandle *vqa);
 //void VQA_Init(VQAHandle *, long (*)());
 /* File routines. */
 long VQA_Open(char const *, _VQAConfig *, VQAHandle **vqa);
-void VQA_Free(VQAHandle *vqa);
 void VQA_Close(VQAHandle *vqa);
 long VQA_Play(VQAHandle *vqa, long, int flags);
 long VQA_SeekFrame(VQAHandle *vqa, long framenum, long fromwhere);

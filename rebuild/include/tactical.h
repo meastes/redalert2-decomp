@@ -257,8 +257,6 @@ class Tactical : public AbstractClass
 		void Debug_Draw_Occupation_Flags(void);
 
 #ifdef _DEBUG
-		void Debug_Draw_Waypoint_Markers(void);
-		void Debug_Draw_Current_Mouse_Cell(void);
 #endif
 
 		Cell Clamp_Cursor_To_Tactical(Cell const & cell, Cell const * list);

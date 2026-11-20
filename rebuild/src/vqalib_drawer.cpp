@@ -5,7 +5,6 @@
 #include "vqalib/unvq.h"
 #include <string.h>
 
-void __cdecl UnVQ_Nop(unsigned char *, unsigned char *, unsigned char *, unsigned long, unsigned long, unsigned long);
 long PageFlip_Nop(VQAHandle *);
 long DrawFrame_MCGA(VQAHandle *);
 long DrawFrame_MCGABuf(VQAHandle *);
@@ -15,7 +14,6 @@ long Select_Frame(VQAHandleP *);
 void Prepare_Frame(VQAHandleP *);
 long VQA_ComputeDesiredFrame(VQAHandleP *, VQAConfig *, VQADrawer *, VQAFrameNode *, unsigned long);
 void VQA_UnVQFrame(VQAHandleP *, VQAFrameNode *);
-void VQA_DispatchFrameChunks(VQAHandleP *, long);
 
 long VQA_ResetLastFrameNum(VQAHandle * vqa)
 {

@@ -421,7 +421,7 @@ army's hunt (a campaign is lost when she dies). `RA2_NATIVE_ORDERS="<frame> goto
 (`link/harness_orders.cpp`, test scaffolding, any game) queues, at that frame, a
 move to a cell, an attack on (or an engineer's capture of) the building in a cell,
 a barracks cameo click, or the hunt, for the player's units, as a click would. An
-input-script point `@=X,Y` is the screen pixel of cell X,Y. CellClass::Is_Tile_Water
+input-script point `@=X,Y` is the screen pixel of cell X,Y; `@terrain` (`@terrain=mine`) that of the terrain object (ore mine) nearest the player's first techno, which the order `<frame> terrain view [mine]` centres the view on (lane N14). CellClass::Is_Tile_Water
 0x0047A270 is a behaviour row (the computer's superweapon placement reached it). Allied 1 after the Dreadnoughts: Tanya walks into the fort
 (the map's "Change House 2a" cell tag at about 64..77, 28..48), the fort's
 buildings change to the player (construction yard, pillboxes, dogs) and objective

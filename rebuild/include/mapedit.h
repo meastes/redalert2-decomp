@@ -60,8 +60,6 @@ class MapEditClass: public MouseClass
 		MapEditClass(NoInitClass const & x) : BASECLASS(x) {};
 		virtual ~MapEditClass(void) override {};
 
-		bool Add_To_List(ObjectTypeClass const *object);
-
 	/*
 	**	Private Interface
 	*/

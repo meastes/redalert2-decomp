@@ -245,7 +245,6 @@ boolean STDMETHODCALLTYPE FlyLocomotionClass::Process(void)
 /// destination is a request to stop, which brings a flying aircraft down to land.
 /// </summary>
 /// <param name="to">The coordinate to head for, or COORD_NONE to stop and land.</param>
-#ifdef RA2_NON_MATCHING // not exact: 647 bytes differ (adopted text)
 void STDMETHODCALLTYPE FlyLocomotionClass::Move_To(CoordStruct to)
 {
 	if (((Coord)to).As_Cell() != DestinationCoord.As_Cell() || !IsLanding) {
@@ -255,7 +254,7 @@ void STDMETHODCALLTYPE FlyLocomotionClass::Move_To(CoordStruct to)
 			if ((Coord)to == COORD_NONE) {
 				int landing_altitude = 0;
 				IFlyControlPtr flyctrl(LinkedTo);
-				if (flyctrl != NULL) {
+				if (flyctrl) {
 					landing_altitude = flyctrl->Landing_Altitude();
 				}
 
@@ -275,7 +274,7 @@ void STDMETHODCALLTYPE FlyLocomotionClass::Move_To(CoordStruct to)
 
 				IFlyControlPtr flyctrl(LinkedTo);
 				int landing_altitude = 0;
-				if (flyctrl != NULL) {
+				if (flyctrl) {
 					landing_altitude = flyctrl->Landing_Altitude();
 				}
 
@@ -293,7 +292,6 @@ void STDMETHODCALLTYPE FlyLocomotionClass::Move_To(CoordStruct to)
 		}
 	}
 }
-#endif
 
 
 
@@ -1096,7 +1094,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 /// </summary>
 /// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
 /// <returns>Returns with the distance remaining to the destination.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1531 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1461 bytes differ (horizontal distances through the existing point helper)
 int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 {
 	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
@@ -1134,8 +1132,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 
 	LinkedTo->Get_Height();
 
-	Point2D diff = Point2D(LinkedTo->Center_Coord()) - Point2D(aim);
-	int dist = diff.Length();
+	int dist = Distance(Point2D(LinkedTo->Center_Coord()), Point2D(aim));
 
 	/*
 	 * Turn the body of the aircraft to face the destination coordinate.
@@ -1146,7 +1143,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 
 		bool turn = true;
 		if (flyctrl != NULL && flyctrl->Is_Strafe()) {
-			if ((Point2D(LinkedTo->Center_Coord()) - Point2D(Coord(coord))).Length() <= CELL_LEPTON * 3) { // RA2: within three cells of the destination
+			if (Distance(Point2D(LinkedTo->Center_Coord()), Point2D(Coord(coord))) <= CELL_LEPTON * 3) { // RA2: within three cells of the destination
 				if (!dir.Is_Complete_Turn(LinkedTo->PrimaryFacing.Current(), DirType(0x2000))) { // RA2: the turn left is more than 45 degrees
 					turn = false;
 				}

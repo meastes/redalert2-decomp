@@ -44,6 +44,7 @@
 #include "shared/wave.hpp"
 #include "shared/rules.hpp"
 #include "shared/terrain.hpp"
+#include "shared/tactical.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -517,6 +518,17 @@ int Scripted_Order(char const *command)
         Append_Int(text, cell.Y);
         return Scripted_Order(text);
     }
+    if (Same(word[1], "terrain", 8) && words >= 3 && Same(word[2], "view", 5)) {
+        // `terrain view [mine]` (lane N14, test scaffolding): the tactical view centred on the terrain object nearest
+        // the player's first techno (MapClass slot 52, Set_Tactical_Position), so an input script can rest the mouse
+        // on it ("@terrain", coverage_runs.py n14-hover). Logs `harness-terrain-view <TYPE> @x,y`.
+        TerrainClass *terrain = Nearest_Terrain(words >= 4 && Same(word[3], "mine", 5));
+        if (terrain == 0) return -1;
+        Cell cell = terrain->Center_Coord().As_Cell();
+        Map.Set_Tactical_Position(terrain->Center_Coord());
+        fprintf(stderr, "harness-terrain-view %s @%d,%d\n", terrain->Class ? terrain->Class->ID.Buffer : "?", cell.X, cell.Y);
+        return 1;
+    }
     if (Same(word[1], "terrain", 8) && words >= 3 && Same(word[2], "kill", 5)) {
         // `terrain kill [mine]` (lane N11, test scaffolding): the terrain object nearest the player's first techno (a
         // tree; with `mine`, an ore mine) takes 10,000 damage from the C4 warhead (TerrainClass::Take_Damage, forced):
@@ -707,6 +719,19 @@ void Scripted_Orders(int frame)
     }
 }
 }  // namespace
+
+// "@terrain" / "@terrain=mine" in an input script (harness_input.cpp, lane N14): the screen pixel of the
+// terrain object nearest the player's first techno (any, or an ore mine), as `terrain view [mine]` picks it.
+int Native_Harness_Terrain_Point(bool mine, int *x, int *y)
+{
+    TerrainClass *terrain = Nearest_Terrain(mine);
+    if (terrain == 0 || TacticalMap == 0) return 0;
+    Point2D pixel;
+    if (!TacticalMap->Coord_To_Pixel(terrain->Center_Coord(), pixel)) return 0;
+    *x = pixel.X;
+    *y = pixel.Y;
+    return 1;
+}
 
 void Native_Harness_Build(int frame, bool army);   // harness_build.cpp
 void Native_Harness_Army(int frame);               // harness_army.cpp

@@ -35,7 +35,6 @@ class Wstring;
 void __fastcall WDT_Write_Map_Ini(Wstring const & prefix, Wstring const & filename); // RA2: 0x0072A880; a development tool that finds the territory targets in a click map and writes them to WDTMap.ini
 Wstring const & __fastcall Faction_Name(int faction); // RA2: 0x007685A0; the name a faction is called in the INI files
 Wstring const & __fastcall Faction_Code(int faction); // RA2: 0x007686D0; the short code of a faction that the LastDay<code> keys of WDTHist.INI end in (YR: WDT_Country_Name)
-void WDT_Game_Option_Append_Comma(char *str, int len);
 
 class WDTTerritory : public ReferenceCounted { // RA2: ReferenceCounted
 	public:
@@ -981,11 +980,7 @@ namespace WorldDominationTour
 			int TextColor; // RA2: +0x4AC; the font color to put back
 	};
 
-	void Write_Map_INI(char const * map_name, char const * pcx1_file_name, char const * pcx2_file_name);
 };
-
-void WDT_Review_Campaign(WorldDominationTour::Campaign * campaign);
-bool WDT_Select_Campaign(WorldDominationTour::Campaign * campaign, bool vq_anim);
 
 enum WDTStateRequestEnum {
 	WDT_REQ_STATE_EVERYTHING = 3,

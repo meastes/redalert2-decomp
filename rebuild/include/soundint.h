@@ -262,13 +262,9 @@ struct LockedDataType {
 extern LockedDataType LockedData;
 //#pragma pack(4);
 
-void Init_Locked_Data(void);
 int Simple_Copy(void ** source, int * ssize, void ** alternate, int * altsize, void **dest, int size);
 int Sample_Copy(SampleTrackerType *st, void ** source, int * ssize, void ** alternate, int * altsize, void * dest, int size, SCompressType scomp, void * trailer, short int *trailersize);
 VOID far __cdecl maintenance_callback(VOID);
-VOID __cdecl far DigiCallback(unsigned int driverhandle, unsigned int callsource, unsigned int sampleid);
-void far HMI_TimerCallback(void);
-void *Audio_Add_Long_To_Pointer(void const *ptr, int size);
 void	DPMI_Unlock(VOID const *ptr, int const size);
 extern "C" {
 	void __cdecl Audio_Mem_Set(void const *ptr, unsigned char value, int size);

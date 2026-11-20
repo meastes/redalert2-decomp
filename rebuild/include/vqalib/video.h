@@ -75,17 +75,6 @@ typedef struct _DisplayInfo {
  * Function prototypes
  *-------------------------------------------------------------------------*/
 
-DisplayInfo *SetVideoMode(long mode);
-DisplayInfo *GetDisplayInfo(void);
-long TestVBIBit(void);
-long GetVBIBit(void);
-
-void SetupXPaging(void);
-void FlipXPage(void);
-unsigned char *GetXHidPage(void);
-unsigned char *GetXSeenPage(void);
-void DisplayXPage(long page);
-
 #ifdef __cplusplus
 extern "C" {
 #endif

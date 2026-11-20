@@ -188,6 +188,16 @@ SCENARIOS = [
         '80 click @MTNK', '90 keydown Left_Ctrl', '91 keydown Left_Shift', '93 move @MTNK+3,0', '97 move @MTNK+4,1',
         '101 move @MTNK+4,2', '105 move @!HTNK', '109 move @!HTNK', '113 keyup Left_Shift', '114 keyup Left_Ctrl',
     ]),
+    # Lane N14: the mouse resting on a tree and then on an ore mine (both TerrainClass objects in their cell's occupier
+    # list) with a tank selected, the view centred on each by the harness's `terrain view [mine]`: the tooltip's
+    # DisplayClass::Help_Text asks the object under the mouse for its name (ObjectClass slot 35, "No name", the default
+    # TerrainClass keeps) and the tank's TechnoClass::What_Action(ObjectClass *) answers for it.
+    dict(name='n14-hover', args=['--skirmish=#5', '--skirmish-frames=420', '--skirmish-order=both', '--run-to=frames',
+                                 '--run-seconds=200', NOAUDIO],
+         env=dict(RA2_NATIVE_INPUT_LOG='20', RA2_NATIVE_ORDERS='90 terrain view; 250 terrain view mine'), seconds=260, script=[
+        '80 click @MTNK', '100 move @terrain', '104 move @terrain', '108 move @terrain',
+        '260 move @terrain=mine', '264 move @terrain=mine', '268 move @terrain=mine',
+    ]),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',

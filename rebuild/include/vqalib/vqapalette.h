@@ -48,7 +48,5 @@ void cdecl TranslatePalette(void *pal24, void *pal15, long numbytes);
 }
 #endif
 
-void SortPalette(unsigned char *pal, long numcolors);
-
 #endif /* VQMPALETTE_H */
 

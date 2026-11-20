@@ -47,6 +47,5 @@ Point2D Plain_Text_Print(char const * text, Surface & surface, Rect const &rect,
 
 class BitFont; // RA2: Font_From_TPF returns a BitFont
 BitFont *Font_From_TPF(TextPrintType flags); // RA2: text is drawn with BitFont
-unsigned char * Font_Palette(int color);
 
 Rect * Drawing_GetTextDimensions(Rect * out, wchar_t const * text, Point2D loc, unsigned short flags, int marginX, int marginY);

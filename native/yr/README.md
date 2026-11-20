@@ -1153,6 +1153,17 @@ Fixed on the way: YR's exit freed the menu drawers with the vector deleting dest
   objects, then slots 111/112 (+0x1BC, 44 calls; +0x1C0, 35), 35, 51/50 the same way (a scratch scanner over
   `call/jmp dword ptr [reg+off]` with names.csv for the enclosing function is quick).
 
+### Lane N14 (2026-11-19): the mirage flake traced
+
+* **`yr-native-mirage`'s intermittent failure** (lane N13: 289 pixels at frame 321; again here under ctest -j4: 508 at
+  frame 332, and 691 at frame 318 in a run with `RA2_NATIVE_CAMO_DUMP`): the boxes of the two disguise cycles differed
+  only below and right of the tank, where the start's GIs stand: they had moved and changed pose between frame 62 and
+  frame 318. The camouflage itself (the tree above the tank) was the same pixel for pixel. Not a game fault: the
+  comparison now counts only the disguise's own box (Camo_Pixels': 40 left to 10 right of the tank, 70 above it; on
+  the dumped failure 20 pixels, under the 40 tolerance, every other dumped run 0). Moving the spawn (0,-6 or 6,0
+  instead of 3,0) did not help: GIs wander there too. Eight runs after the change, four at a time: all pass (0 differing in six, 20 in two).
+* The Red Alert 2 side of the lane (data extents, unreached rewrites) is in docs/PORTS_FACTS.md.
+
 ## Next: iOS and Windows
 
 * **iOS.** No `dlopen` of app-supplied code on a device (and no loose bundles in an app): both

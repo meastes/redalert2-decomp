@@ -108,6 +108,4 @@ class WWFontClass : public FontClass
 		};
 		FontType const * FontData;
 
-		int Raw_Width(void) const;
-		int Raw_Height(void) const;
 };

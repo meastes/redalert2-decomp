@@ -76,5 +76,3 @@ class EMPulseClass : public AbstractClass
 		 */
 		int Duration;
 };
-
-void Update_EMPulses(void);

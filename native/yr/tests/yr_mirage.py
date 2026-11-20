@@ -20,7 +20,9 @@ Through the menus into a skirmish (yr_standins.py's route), harness orders (glue
                  TechnoClass::GetDisguiseFlags / IsClearlyVisibleTo). Each frame of the first cycle's morph
                  (phases 64-127) is kept and the second cycle's same frames must match it pixel for pixel in a
                  100x110 box around the tank (`harness-camo-morph compared <n> differ <max> at frame <f>`; 0 on
-                 the Mac and in the Simulator);
+                 the Mac and in the Simulator); lane N14: only the pixels of the disguise's own box (Camo_Pixels':
+                 40 left to 10 right of the tank, 70 above it) count, since the GIs beside the tank change pose and
+                 place between the cycles (the 289- and 691-pixel failures under ctest -j4 were those soldiers);
   frame 900      the tank is still disguised as a tree.
 Also `noise 800` (yr-native-graphics' watch for 16-bit pixels in the eight-bit compositing surface).
 

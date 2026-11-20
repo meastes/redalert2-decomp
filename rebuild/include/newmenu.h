@@ -39,15 +39,9 @@ class NewMenuClass
 	public:
 		NewMenuClass(void);
 		~NewMenuClass(void);
-		int Process_Game_Select(void);
 
 	private:
 		static __forceinline int Game_Select_Loop(NewMenuClass * menu);
-		int Display_Game_Select_Menu(char const * section);
-		int Display_Menu(char const * section, DynamicVectorClass<int> & options);
-		int Select_Game_Type(void);
-		int Display_Tiberian_Sun_Menu(void);
-		int Display_Firestorm_Menu(void);
 
 	public:
 		/*
@@ -71,8 +65,5 @@ class NewMenuClass
 		 */
 		char * Background;
 };
-
-NewMenuClass * Get_New_Menu(void);
-void Draw_Menu_Background(void);
 
 extern DynamicVectorClass<int> NewMenuOptions;

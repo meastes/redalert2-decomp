@@ -605,10 +605,8 @@ int Scan_Place_Object(ObjectClass * obj, Cell const & cell, int start); // RA2: 
 void Assign_Houses(void);
 
 void Post_Load_Game(void);
-bool End_Game(void);
 bool Read_Scenario(char const * root);
 bool Start_Scenario(char const * name, bool briefing, CampaignType campaign);
-HousesType Select_House(void);
 void Clear_Scenario(void);
 void Do_Lose(void);
 void Do_Win(void);

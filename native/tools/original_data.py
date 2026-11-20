@@ -219,14 +219,28 @@ def scalar_record_size(base):
 
 
 def declared_count(name, lines):
+    """Elements over every dimension: `int t[8][6]` is 48 (lane N14: the first
+    dimension alone sized unknown_score_controls_7d1484[8][6] as 8 ints, so the
+    campaign score screen's rows 2-7 read the next storage)."""
+    def dim(text):
+        if text.isdigit():
+            return int(text)
+        if re.fullmatch(r'0[xX][0-9a-fA-F]+', text):
+            return int(text, 16)
+        c = re.search(r'\b%s\s*=\s*(\d+)\b' % re.escape(text), shared_text())
+        return int(c.group(1)) if c else None
     for line in lines:
-        m = re.search(r'\b%s\s*\[\s*(\w+)\s*\]' % re.escape(name), line)
+        m = re.search(r'\b%s\s*((?:\[\s*\w+\s*\]\s*)+)' % re.escape(name), line)
         if m:
-            if m.group(1).isdigit():
-                return int(m.group(1))
-            c = re.search(r'\b%s\s*=\s*(\d+)\b' % re.escape(m.group(1)), shared_text())
-            if c:
-                return int(c.group(1))
+            count = 1
+            for text in re.findall(r'\[\s*(\w+)\s*\]', m.group(1)):
+                n = dim(text)
+                if n is None:
+                    count = None
+                    break
+                count *= n
+            if count:
+                return count
     return None
 
 
@@ -234,6 +248,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--report', type=Path)
     ap.add_argument('--fresh', action='store_true', help='ignore the rows written before')
+    ap.add_argument('--check', action='store_true',
+                    help='write nothing; fail when a stored scalar array is shorter than its declaration '
+                         '(every dimension; ctest native-original-data-extents, lane N14)')
     args = ap.parse_args()
     rows = {}
     if OUT.exists() and not args.fresh:
@@ -280,6 +297,7 @@ def main():
     def bare(name):
         return name.rsplit('::', 1)[-1]
     # Kept scalar-array rows: extent over the declared elements (see below).
+    short = []
     for sym, r in rows.items():
         if r['shape'] != 'bytes':
             continue
@@ -288,7 +306,14 @@ def main():
             count = declared_count(bare(r['name']), lines_of(r['name']))
             width = SCALAR_WIDTH.get(decl[0])
             if count and width:
+                if args.check and r['extent'] < width * count:
+                    short.append('%s %s: stored %d bytes, declared %d' % (r['address'], r['name'], r['extent'], width * count))
                 r['extent'] = max(r['extent'], width * count)
+    if args.check:
+        for line in short:
+            print('short:', line)
+        print('original data: %d stored scalar arrays shorter than declared' % len(short))
+        return 1 if short else 0
     skipped = []
     # Names data/address_aliases.tsv binds to another name's storage (one storage
     # per address): their storage is the other name's, never loaded twice.
@@ -495,4 +520,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())

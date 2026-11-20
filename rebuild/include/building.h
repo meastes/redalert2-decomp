@@ -569,8 +569,6 @@ class BuildingClass : public TechnoClass
 		int Flush_For_Placement(TechnoClass * techno, Cell const & cell);
 		void Enable_Cloak_Generator(void);
 		void Disable_Cloak_Generator(void);
-		void Disable_Sensor_Array(void);
-		void Enable_Sensor_Array(void);
 
 		virtual bool Ready_To_Commence(void) override;
 		virtual int Do_MISSION_UNLOAD(void) override;

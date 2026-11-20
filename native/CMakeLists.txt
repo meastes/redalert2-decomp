@@ -215,6 +215,11 @@ target_link_libraries(native-asm-check PRIVATE ra2_dialect)
 target_compile_definitions(native-asm-check PRIVATE RA2_ASM_DIR="${RA2_ROOT}/src/recovered/asm")
 add_test(NAME native-asm-check COMMAND native-asm-check)
 
+# 6b. The data read from game.exe (data/original_data.cpp): every stored scalar array covers
+#     its declaration over every dimension (lane N14: unknown_score_controls_7d1484[8][6] was
+#     sized from its first dimension, 32 of 192 bytes).
+add_test(NAME native-original-data-extents COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_data.py" --check)
+
 # 7. Light views of real classes (cell views first) against the real classes'
 #    arm64 layout: i686-msvc and arm64 record layouts of every unit that defines
 #    or uses one (tools/view_audit.py, Scout1108). Needs the generated units.
@@ -772,7 +777,8 @@ endif()
 # area:<name> ties a slow test to the paths that send it into a fast run (gate_scope.py AREAS).
 set(ra2_static_tests native-core-check native-mod-layers native-asm-check native-view-audit
     native-original-layouts native-enhancements-settings native-vtable-views native-link-closure
-    native-link-closure-selftest native-name-rules native-draw-selftest native-vqa-selftest)
+    native-link-closure-selftest native-name-rules native-draw-selftest native-vqa-selftest
+    native-original-data-extents)
 set(ra2_slow_tests native-lan-pair network native-lan-lobby network native-lan-background network
     native-campaign-allied campaign native-campaign-soviet campaign
     native-original-save-write saves native-hd-air-base hd-aircraft native-hd-air-base-3x hd-aircraft

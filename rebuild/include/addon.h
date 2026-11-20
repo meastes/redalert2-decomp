@@ -19,16 +19,5 @@ enum AddonType {
 };
 
 
-void Detect_Addons(void);
-bool Addon_Installed(AddonType addon);
-bool Addon_Enabled(AddonType addon);
-void Enable_Addon(AddonType addon);
-void Disable_Addon(AddonType addon);
-bool Is_Required_Addon(AddonType addon);
-AddonType Get_Required_Addon(void);
-void Set_Required_Addon(AddonType addon);
-const char *Get_Addon_Title(AddonType addon);
-bool Select_Game_Type_Dialog(AddonType &type);
-
 AddonType operator++(AddonType & val);
 AddonType operator--(AddonType & val);

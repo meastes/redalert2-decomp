@@ -81,6 +81,8 @@ void __cdecl UnVQ2_C0_4x2_KEY(unsigned char *codebook, unsigned char *pointers,
 		unsigned long numrows, unsigned long bufwidth);
 
 
+void __cdecl UnVQ_Nop(unsigned char *, unsigned char *, unsigned char *, unsigned long, unsigned long, unsigned long);
+
 #ifdef __cplusplus
 extern "C" {
 #endif

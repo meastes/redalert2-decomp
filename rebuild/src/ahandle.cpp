@@ -35,7 +35,6 @@ long __cdecl Start_Audio_Handler(VQAHandleP *vqap);
 long __cdecl Stop_Audio_Handler(VQAHandleP *vqap);
 long __cdecl Play_Audio_Handler(VQAHandleP *vqap);
 long __cdecl Pause_Audio_Handler(VQAHandleP *vqap);
-long __cdecl Resume_Audio_Handler(VQAHandleP *vqap);
 long __cdecl Load_Audio_Handler(VQAHandleP *vqap, void *buffer, long nbytes);
 void CALLBACK AudioCallback(UINT uTimerID, UINT, DWORD dwUser, DWORD, DWORD);
 

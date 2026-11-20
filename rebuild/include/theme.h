@@ -124,7 +124,6 @@ class ThemeClass
 		void AI(void);
 		void Fade_Out(void) {Queue_Song(THEME_QUIET);}
 		void Queue_Song(ThemeType index);
-		void Set_Theme_Data(ThemeType theme, int scenario, int owners);
 		void Stop(bool fade = false);
 		void Suspend(void);
 		void Set_Shuffle(bool on) {IsShuffle = on;}

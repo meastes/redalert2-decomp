@@ -26,9 +26,6 @@ HWND WS_Top_Window(void);
 int WS_Top_Window_ID(void);
 extern HWND g_TopWindow;
 
-int WS_Get_Saved_Value(int control_id, unsigned char * dest, int dest_size);
-void WS_Clear_Saved_Values(void);
-
 HWND WS_Next_Upper_Dialog(HWND window);
 HWND WS_Next_Lower_Dialog(HWND window);
 

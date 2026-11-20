@@ -16,11 +16,18 @@
 #include "audioctl.h"
 #include "audcache.h"
 #include "auddev.h"
+#include "auddsnd.h"
 #include "audmem.h"
 
 
 
 static void eventWait(AudioEvent * event, TimeStamp delay, int nextState);
+
+
+typedef struct
+{
+		ListHead bucketVol[NUM_BUCKETS_VOL];
+} EClassBucket;
 
 
 
@@ -44,6 +51,7 @@ static int eventsOK;
 static AudioMemoryPool * audioEventPool;
 static int frameStamp;
 static unsigned bucketStamp;
+static EClassBucket eClassBucket[NUM_BUCKETS_PRI];
 static int service_in;
 static int eventsOn = 1;
 static int audioStamp = AUDIO_INVALID_STAMP + 1;
@@ -185,7 +193,6 @@ static void eventAddLocalSort(AudioEvent * newEvent)
 	}
 }
 
-#if 0
 static void bucketReset(void)
 {
 	int i, k;
@@ -197,10 +204,8 @@ static void bucketReset(void)
 	}
 	bucketStamp++;
 }
-#endif
 
 
-#if 0
 static void bucketAdd(AudioEvent * event)
 {
 	EClassBucket * ecb;
@@ -234,7 +239,6 @@ static void bucketAdd(AudioEvent * event)
 		ListNodeInsert(&ecb->bucketVol[vol], &eclass->nodeVol);
 	}
 }
-#endif
 
 
 static int eventClassSacrifice(AudioEvent * newEvent)
@@ -265,7 +269,6 @@ static int eventClassSacrifice(AudioEvent * newEvent)
 /// The once-a-frame service of the event layer: sorts each type's events by volume and enforces its limit, updates
 /// every event, drops the dead ones, sets the volume compression for the loudness and starts the events waiting for a channel.
 /// </summary>
-#if 0
 void AudioServiceAllEvents(void)
 {
 	AudioEvent * event, * next, * head;
@@ -352,7 +355,6 @@ void AudioServiceAllEvents(void)
 
 	service_in = 0;
 }
-#endif
 
 
 /// <summary>
@@ -582,7 +584,6 @@ void __fastcall audioEventDestroy(AudioEvent * event)
 /// <summary>
 /// The first event type in the buckets of a lower priority than this one: the type to sacrifice for a new event.
 /// </summary>
-#if 0
 AudioEventType * __fastcall bucketGetWeaker(int pri)
 {
 	EClassBucket * ecb;
@@ -601,7 +602,6 @@ AudioEventType * __fastcall bucketGetWeaker(int pri)
 	}
 	return NULL;
 }
-#endif
 
 
 /// <summary>
@@ -893,7 +893,6 @@ void __fastcall AudioEventEnd(AudioEvent * event)
 	}
 }
 
-#if 0
 static int audioEventPrep(AudioEvent * event)
 {
 	AudioEventType * eclass;
@@ -926,7 +925,6 @@ static int audioEventPrep(AudioEvent * event)
 	}
 	return 1;
 }
-#endif
 
 
 static void eventCheckStart(AudioEvent * event, int succeeded)
@@ -939,7 +937,6 @@ static void eventCheckStart(AudioEvent * event, int succeeded)
 /// <summary>
 /// Moves one event along its states: gets it a channel, starts it when its wait is over, ends it when asked to, frees it when done.
 /// </summary>
-#if 0
 void __fastcall AudioEventService(AudioEvent * event)
 {
 	if (!eventsOn) {
@@ -1004,7 +1001,6 @@ void __fastcall AudioEventService(AudioEvent * event)
 		return;
 	}
 }
-#endif
 
 
 /// <summary>
@@ -1087,7 +1083,6 @@ int __fastcall audioEventNextSample(AudioChannel * chan)
 /// <summary>
 /// A channel for an event of a priority: a free one, or one that plays something of the same or a lower priority.
 /// </summary>
-#if 0
 AudioChannel * __fastcall audioPrepareChannel(int pri, int flags)
 {
 	AudioChannel * chan = NULL;
@@ -1109,7 +1104,6 @@ AudioChannel * __fastcall audioPrepareChannel(int pri, int flags)
 	}
 	return chan;
 }
-#endif
 
 
 /// <summary>
@@ -1601,7 +1595,6 @@ int AudioEventOn(void)
 /// <summary>
 /// Prints the number of events and of static sounds, now and at most, through a line printer.
 /// </summary>
-#if 0
 void __fastcall AudioEventsDump(void (__fastcall * print)(char const * line))
 {
 	char buffer[200];
@@ -1613,7 +1606,6 @@ void __fastcall AudioEventsDump(void (__fastcall * print)(char const * line))
 		print(buffer);
 	}
 }
-#endif
 
 
 /// <summary>

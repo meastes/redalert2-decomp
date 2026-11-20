@@ -91,5 +91,3 @@ class VoxelAnimTypeClass : public ObjectTypeClass
 		bool IsTiberium;
 		unsigned char unused_301[3];
 };
-
-char const * VoxelAnim_Name(VoxelAnimType anim);

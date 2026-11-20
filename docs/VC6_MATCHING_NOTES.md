@@ -2656,3 +2656,13 @@ range do not count, and any reference inside the stretch resets the count. The w
   emit CComApartment::ATL_CREATE_OBJECT (4 B) and CComModule::m_libid (16 B), which fill the hole 0xB2ACAC-0xB2ACBF
   exactly. Separate COMDATs are ordered by the linker, so the order inside the hole is our object's, a hypothesis; they
   are bound as a group (lane R35; DECISIONS "Unreferenced zero-initialised select-any COMDAT .bss objects").
+
+## Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45)
+
+- Found in the rebuild (lane R45): routines Tiberian Sun has and RA2 lacks show up as unresolved calls in parked
+  rows. Before writing a call against an adopted declaration, check the image's call targets at that site: drive and
+  ship Start_Of_Move call RadioClass::HasAnyLink 0x636F10 where TibSun's text calls In_Radio_Contact, and
+  VocClass::PlayGlobal 0x713DB0 where it calls Sound_Effect(VocType). `rebuild/tools/declared_never_defined.py`
+  lists the declarations the tree carries with no RA2 body (rebuild/manifest/declared_never_defined.csv); a
+  declaration leaves its header when its last user calls the image's routine instead (DECISIONS, "Members declared
+  in adopted Tiberian Sun headers that RA2 never defines").

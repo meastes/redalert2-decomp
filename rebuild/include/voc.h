@@ -27,7 +27,6 @@ void Init_Vocs(CCINIClass &ini); // RA2: 0x00714540; reads the rules through a n
 void Free_Vocs(void); // RA2: 0x00714860
 
 int Sound_Effect(VocType voc, float volume=1, int=0); // RA2: no such routine; callers play through VocClass::PlayGlobal
-int Voice_Sound_Effect(VocType voc, float volume=1);
 int Sound_Effect(VocType voc, Coord const & coord);
 VocClass * VocClass_From_Name(char const * name);
 char const * Voc_Name(VocType voc); // RA2: 0x00714A00
@@ -37,6 +36,9 @@ void Sound_Pause_All(void); // RA2: 0x007144B0
 void Sound_Resume_All(void); // RA2: 0x007144F0
 float __fastcall Volume_At(Coord const & coord, int * panning, AudioEventType * type); // RA2: 0x00713F30; the volume (0 to 1) and panning of a sound at a location
 void __fastcall Controller_Set_Voc(AudioController * controller, int voc); // RA2: 0x00714D10; points a controller at a sound effect's event type
+
+extern int StaticSoundCount; // RA2: 0x00AD0848; the static sounds playing now (the audio events dump prints it)
+extern int StaticSoundMaximum; // RA2: 0x00AD084C; the most static sounds played at once
 
 
 /***************************************************************************

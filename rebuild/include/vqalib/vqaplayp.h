@@ -759,9 +759,25 @@ typedef struct _VQAHandleP {
  *-------------------------------------------------------------------------*/
 
 /* Loader/Drawer system. */
-long VQA_LoadFrame(VQAHandle *vqa);
+long VQA_LoadFrame(VQAHandleP * vqap, long flags);
 long VQA_Configure_Drawer(VQAHandleP *vqap);
+void VQA_DispatchFrameChunks(VQAHandleP *, long);
 long User_Update(VQAHandle *vqa);
+
+long Load_FINF(VQAHandleP * vqap, unsigned long iffsize);
+long Load_CINF(VQAHandleP * vqap);
+long Load_PINF(VQAHandleP * vqap);
+long Load_LINF(VQAHandleP * vqap);
+long Load_CLIP(VQAHandleP * vqap, unsigned long iffsize);
+long Load_MFCI(VQAHandleP * vqap);
+long Load_MSCI(VQAHandleP * vqap);
+long PrimeBuffers(VQAHandle * vqa);
+VQABool VQA_IsFrameStartOfLoop(VQAHandleP * vqap, long framenum);
+long VQA_ReloadPalette(VQAHandleP * vqap, long framenum, int force);
+long VQA_SeekGroup(VQAHandleP * vqap, long framenum, long groupsize, VQABool preloadaudio, VQABool reset_state, VQABool & skipcodebook);
+long VQA_Configure_Buffer(VQAHandleP * vqap);
+long __cdecl VQA_Memory_Handler(VQAHandle * vqa, long action, void * buffer, long nbytes);
+long __cdecl Disk_VQA_Stream_Handler(VQAHandle * vqa, long action, void * buffer, long nbytes);
 
 /* Timer system. */
 void VQA_SetTimer(VQAHandleP *vqap, long time);

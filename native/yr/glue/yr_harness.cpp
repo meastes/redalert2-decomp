@@ -1101,7 +1101,11 @@ int Camo_Box(Surface * surface, Point2D const & at, unsigned short * keep, bool 
 				c = ((unsigned short const *)(base + (size_t)sy * surface->Stride()))[sx];
 			}
 			if (compare) {
-				differ += keep[y * kCamoBoxW + x] != c;
+				// only where the disguise is drawn (Camo_Pixels' box: 40 left to 10 right of the unit, 70 above it):
+				// soldiers standing beside and below the tank change pose and place between the cycles (lane N14:
+				// the ctest's 289- to 691-pixel failures were the neighbouring GIs, not the morph)
+				bool tree = sx >= at.X - 40 && sx < at.X + 10 && sy >= at.Y - 70 && sy < at.Y;
+				differ += tree && keep[y * kCamoBoxW + x] != c;
 			} else {
 				keep[y * kCamoBoxW + x] = c;
 			}

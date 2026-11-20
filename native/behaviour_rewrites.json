@@ -2473,9 +2473,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same (the original returns the wide string at 0x007CECB0, \"No name\")",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 35 (\"No name\") default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n14-hover: a tank selected and the mouse resting on the terrain object nearest the base (the view centred on it by the harness's `terrain view`): DisplayClass::Help_Text 0x0049E792 asks the occupier under the mouse, a TerrainClass, for its name (display.cpp; the one object call of the slot in the recovered sources)",
+   "reach_checked_by": "N14 2026-11-19: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n14-hover and report"
   },
   {
    "entry": "0x00423E10",
@@ -2563,9 +2563,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 93 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 93 (+0x174) 18 times. 17 are on technos, which override it (FootClass 0x004C7220, BuildingClass/TechnoClass 0x006C2B40, InfantryClass 0x00500AA0, UnitClass 0x006FE610): the locomotors' LinkedTo (Drive, Hover, Jumpjet, Mech, Ship, Teleport, Tunnel, Walk) and InfantryClass/UnitClass::Tunnel_AI on themselves. The 18th, ObjectClass::AI 0x005D2904, is on `this` when a falling object lands (IsFalling, +0x7A). Of the classes that keep the default, only BulletClass (0x0045F722), TerrainClass (0x006E3F17) and WaveClass (0x007232BF, 0x0072332F) call ObjectClass::AI (AnimClass, 0x0042176E, overrides the slot). +0x7A is set only by AnimClass::Flaming_Guy_AI 0x004235F1 (on the animation), ObjectClass::Paradrop 0x005D4265 (slot 56: AircraftClass::Paradrop_Cargo 0x00415697's passengers and InfantryClass::Paradrop 0x005083B8) and ObjectClass::Fall_From_Height 0x005D2ACA (slot 57: FootClass::Per_Cell_Process 0x004C78DA on itself, HoverLocomotionClass 0x004FC860 on LinkedTo, and CellClass::Destroy_Bridge 0x00473057 over the cell's bridge-level occupiers, +0xE8, which MapClass::Place_Down 0x0054AB70 fills only with objects whose IsOnBridge, +0x79, is set; Place_Down's callers are the aircraft's unload, BuildingClass::Mark, FootClass::Mark and TerrainClass::Mark, and no TerrainClass path sets +0x79: its writers are the locomotors, the aircraft's cargo drop, Paradrop, the infantry/unit INI readers, UnitClass::Take_Damage, TeleportLocomotionClass and TechnoClass::Fire_At's bullet, which is never placed). No bullet, terrain object or wave falls, so the default never runs; no jmp through the slot, no direct call",
+   "reach_checked_by": "N14 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and the recovered sources"
   },
   {
    "entry": "0x00423E20",
@@ -2578,9 +2578,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 111 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 111 (+0x1BC) 44 times; TechnoClass overrides it (0x006D6DF0). 43 are on technos: `this` in Aircraft/Building/Foot/Infantry/Unit/TechnoClass members, the locomotors' LinkedTo, HouseClass::Recalc_Radar_Availability's buildings 0x004F2F7D, Can_Fire's target techno 0x006C940E (techno.cpp: As_Techno), and SuperClass 0x0069DCB2 behind an Is_Foot test. The 44th, TechnoClass::What_Action(ObjectClass *) 0x006CCCAD (techno.cpp: the select answer), is on the object under the mouse, which ScrollClass::Resolve_Point takes from Tactical::Get_Selectable_Object 0x006AA990: a techno, a veinhole terrain, or the cell's occupier (technos and TerrainClass, which keeps the default). It is called only after object->CanBeSelected() (slot 76, 0x005D54B0: the type's IsSelectable, +0x200) holds, and a terrain type's IsSelectable is false (TerrainTypeClass's constructor) unless its rules section sets Selectable=yes: none does in the shipped rules.ini (Selectable= appears on 58 sections, none a terrain type, VEINTREE included) or in the four extracted maps. A mod's rules giving a tree Selectable=yes would reach it (the rewrite returns false as the original's xor al,al does)",
+   "reach_checked_by": "N14 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and the recovered sources"
   },
   {
    "entry": "0x00423E30",
@@ -2593,9 +2593,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot 112 default slot inherited by BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "game.exe calls slot 112 (+0x1C0) 35 times, each on a techno, and TechnoClass overrides it (0x006D6E00): `this` in Aircraft/Building/Foot/Infantry/Unit/TechnoClass members (AI, What_Action, Can_Fire, Cloaking_AI, Should_Uncloak, the draws), the locomotors' LinkedTo (Drive, Fly, Mech, Ship, Teleport, Tunnel, Walk), SuperClass 0x0069DCC4 behind an Is_Foot test, and TeamClass::Assign_Mission_Target 0x006B7CBB on the team's first member (+0x54, a FootClass); no jmp through the slot, no direct call",
+   "reach_checked_by": "N14 2026-11-19: static check of game.exe (call/jmp [reg+slot] instructions with the receiver's setup read at each site, the writes of the fields involved, .rdata vtable entries; scratch scripts) with the function names of mischa85 names.csv and the recovered sources"
   },
   {
    "entry": "0x00423E40",

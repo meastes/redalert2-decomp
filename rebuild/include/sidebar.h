@@ -163,8 +163,6 @@ class SidebarClass : public PowerClass
 		void Recalc(void);
 		bool Factory_Link(FactoryClass * factory, RTTIType type, int id);
 
-		int Max_Visible(void);
-
 		void Blit_Sidebar(bool complete);
 
 		/*

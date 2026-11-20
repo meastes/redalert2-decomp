@@ -95,19 +95,13 @@ class ScoreClass {
 		*/
 		bool Load(Straw & file);
 		bool Save(Pipe & file) const;
-		void Code_Pointers(void);
-		void Decode_Pointers(void);
 
 	private:
 		void Score_Delay(int ticks);
-		void Pulse_Bar_Graph(void);
-		void Print_Graph_Title(int,int);
 		void Print_Minutes(int time);
 		Rect Count_Up_Print(Surface * surf, wchar_t const *str, int percent, int max, int xpos, int ypos); // RA2: 0x666DD0 takes the format as a wide string
 		void Show_Credits(void);
 		void Do_Graph(int gdikilled, int nodkilled, int ypos);
-		void Do_Nod_Casualties_Graph(void);
-		void Do_Nod_Buildings_Graph(void);
 		void Input_Name(char str[], int xpos, int ypos);
 
 		int Alloc_Object(ScoreAnimClass *obj);
@@ -329,5 +323,3 @@ class ScoreBigFontClass : public ScoreFontClass
 		virtual ~ScoreBigFontClass(void) override {}
 };
 
-
-void Multi_Score_Presentation(void);

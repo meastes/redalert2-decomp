@@ -11,9 +11,6 @@
 
 class HouseClass;
 
-bool Single_Score_Presentation(HouseClass * house);
-void Multi_Score_Presentation(void);
-
 class MPScoreScreen // RA2: the screen (YR: MPScoreScreen, ctor 0x5AAA20)
 {
 	public:

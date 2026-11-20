@@ -13,8 +13,4 @@
 
 #pragma once
 
-void __cdecl Log_Event(char const *text, ...);
-void Debug_Key(unsigned input);
-void Self_Regulate(void);
-
 void __cdecl DebugString(char const * fmt, ...); // RA2: 0x004068F0

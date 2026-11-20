@@ -277,4 +277,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2534-2598 A pointer parameter is promoted whole or re-read per use; split webs come from eviction (Scout1217 lab P) (23): **CSE'd member-address webs rank last among callee-saved candidates** (Scout1217 lab U, 2026-11-10;
 - L2599-2621 Inline constructors and template members the original calls out of line (found in the rebuild, lanes R8-R42) (4): Count the image's calls before moving a definition.
 - L2622-2641 Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25) (3): VC6 folds `1.0 / UINT_MAX` to exactly 2^-32, not to the 1/4294967295 the image pools;
-- L2642-2658 Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43) (4): The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defi…
+- L2642-2659 Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43) (4): The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defi…
+- L2660-2668 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):

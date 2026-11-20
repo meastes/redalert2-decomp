@@ -7671,7 +7671,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004b4690",
    "004b4970"
@@ -13835,7 +13835,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005b4690",
    "005b49e0"
@@ -14570,7 +14570,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004983e0",
    "00498750"
@@ -20050,7 +20050,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004b2950",
    "004b2f50"
@@ -22122,7 +22122,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "004cefa0",
    "004cf730"
@@ -22973,7 +22973,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005b3f20",
    "005b4690"
@@ -23979,7 +23979,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0047d7a0",
    "0047dfd0"
@@ -25048,7 +25048,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00688cb0",
    "006894a0"
@@ -25634,7 +25634,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00712b20",
    "00713300"
@@ -29568,7 +29568,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005a0060",
    "005a0b50"
@@ -49847,7 +49847,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0042fe50",
    "00431040"
@@ -78651,7 +78651,7 @@
     "entry": "0058b400",
     "body": 17,
     "padding": 15,
-    "symbol": "_$E282",
+    "symbol": "_$E283",
     "main_symbol": "_$E119",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78659,7 +78659,7 @@
     "entry": "0058b420",
     "body": 9537,
     "padding": 15,
-    "symbol": "_$E279",
+    "symbol": "_$E280",
     "main_symbol": "_$E116",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78667,7 +78667,7 @@
     "entry": "0058d970",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E280",
+    "symbol": "_$E281",
     "main_symbol": "_$E117",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79487,19 +79487,7 @@
     "size": 4,
     "owner": "00579960"
    }
-  ],
-  "count_sensitive": {
-   "00586b40": {
-    "windows": "old event.h (rebuild-trial 96b4bb1c3) with plain probe declarations at its first \"public:\": +1..+6 exact, +7 +8 +10 +12 off; 2 inline + 2 declarations exact. planmgr r2159 event.h: +0 off, +1..+8 off, +10..+28 exact, +32 +40 off",
-    "header": "event.h (planmgr r2159: planning event records)",
-    "note": "c2land probe 2026-11-19 (owner rulings): (b)(i) mapgen.cpp uses no Event/MegaMission/Target content and none of the row's 27 relocations is event-related; (ii) exact windows on both header states above. Create_Urban_Area has no statics; guarding it only lowers the compiler's _$E counter by one for the DirtRoadTiles initializers after it, so 0058b420/0058d970/0058b400 stay exact under _$E279/_$E280/_$E282 (0058b400 by the .CRT$XCU table, the other two by its call and atexit references); when the row returns they go back to _$E280/_$E281/_$E283."
-   },
-   "00587cf0": {
-    "windows": "plain probe declarations at the end of teamtype.h, map.h at the same state. rebuild-trial fc3b3c2a9 map.h and teamtype.h: +0 +1 +2 exact, +3 off, +4..+8 +10 +12 +16 +24 exact; lane R40 headers (map.h with Find_Compatible_Passability_Row, teamtype.h with Process_Task_Force and Process_All_Task_Forces): +0 +1 off, +2..+8 +10 +12 +16 +24 exact. (map.h alone with plain probe declarations after SubzoneHash, old teamtype.h: +0 exact, +1..+6 +8 +10 +12 +16 off)",
-    "header": "map.h and teamtype.h (lane R40: Find_Compatible_Passability_Row declared in map.h; TeamTypeClass::Process_Task_Force and Process_All_Task_Forces in teamtype.h)",
-    "note": "owner ruling 2026-11-19 on R39's held teamtype rows: evidenced content is never held back for a count-sensitive row. (b)(i) mapgen.cpp uses neither Find_Compatible_Passability_Row nor the task-force functions; (ii) exact windows on both header states above. The function's static building_names table is its own; no initializer follows from it."
-   }
-  }
+  ]
  },
  "building": {
   "core": [
@@ -105650,7 +105638,7 @@
     "entry": "004bfb90",
     "body": 34,
     "padding": 14,
-    "symbol": "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z",
+    "symbol": "??8?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@QAE_NH@Z",
     "main_symbol": "??8?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QBE_NH@Z",
     "main_source": "src/recovered/fly.cpp"
    },
@@ -105674,7 +105662,7 @@
     "entry": "004bfc20",
     "body": 117,
     "padding": 11,
-    "symbol": "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z",
+    "symbol": "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEJABQAVFootClass@@@Z",
     "main_symbol": "?Query_From@?$UnknownComPtr@UIFlyControl@@$1?unknown_uuid_7d80a8@@3UGUID@@B@@QAEJABQAVFootClass@@@Z",
     "main_source": "src/recovered/fly.cpp"
    },
@@ -105744,7 +105732,8 @@
    "_?_dropship_pitch_rate@?O@??Process_Landing@FlyLocomotionClass@@QAE_NXZ@4NB": "007a0ff8",
    "?QueryInterface@LocomotionClass@@W3AGJABU_GUID@@PAPAX@Z": "004bfca0",
    "?AddRef@LocomotionClass@@W3AGKXZ": "004bfcb0",
-   "?Release@LocomotionClass@@W3AGKXZ": "004bfcc0"
+   "?Release@LocomotionClass@@W3AGKXZ": "004bfcc0",
+   "?_QueryInterface@?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@AAEJABQAVFootClass@@@Z": "004bfc20"
   },
   "partial_ok": true
  },

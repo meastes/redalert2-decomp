@@ -164,20 +164,6 @@ error codes if there's an error, EXCEPT:
 /*
 .................................. ipx.cpp ..................................
 */
-int IPX_SPX_Installed(void);
-int IPX_Open_Socket(unsigned short socket);
-int IPX_Close_Socket(unsigned short socket);
-int IPX_Get_Connection_Number(void);
-int IPX_Get_1st_Connection_Num (char *username);
-int IPX_Get_Internet_Address(int connection_number,
-	unsigned char *network_number, unsigned char *physical_node);
-int IPX_Get_User_ID(int connection_number, char *user_id);
-int IPX_Listen_For_Packet(struct ECB *ecb_ptr);
-void IPX_Send_Packet(struct ECB *ecb_ptr);
-int IPX_Get_Local_Target(unsigned char *dest_network, unsigned char *dest_node,
-	unsigned short dest_socket, unsigned char *bridge_address);
-int IPX_Cancel_Event(struct ECB *ecb_ptr);
-void Let_IPX_Breath(void);
 
 
 /***************************** end of ipx.h ********************************/

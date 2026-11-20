@@ -8643,7 +8643,6 @@ void MapGeneratorClass::Generate_Urban_Areas(void)
 /// <param name="cell">The seed cell to grow the urban area from.</param>
 /// <param name="size">The maximum number of cells to process during the flood fill.</param>
 /// <returns>The collected urban area cells, or NULL if the area is too small or sparse.</returns>
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cell, int size)
 {
 	DynamicVectorClass<Cell> * cells; // RA2: Create_Urban_Area at 0x586B40 matches only so
@@ -8748,7 +8747,6 @@ DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cel
 
 	return(cells);
 }
-#endif
 
 
 /// <summary>
@@ -8974,7 +8972,6 @@ void MapGeneratorClass::Generate_Urban_Roads(const DynamicVectorClass<Cell> & ce
 /// dropped from the pool as soon as they have been placed.
 /// </summary>
 /// <param name="cells">The cells of the urban area available to build on.</param>
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void MapGeneratorClass::Generate_Urban_Buildings(const DynamicVectorClass<Cell> & cells)
 {
 	static char * building_names[18] = {"CITY01", "CITY02", "CITY03", "CITY04", "CITY05", "CITY06", "CITY07", "CITY08", "CITY09", "CITY10", "CITY11", "CITY12", "CITY13", "CITY14", "CITY15", "CITY16", "CITY17", "CITY18"}; // RA2: RA2's form
@@ -9047,7 +9044,6 @@ void MapGeneratorClass::Generate_Urban_Buildings(const DynamicVectorClass<Cell> 
 		}
 	}
 }
-#endif
 
 
 

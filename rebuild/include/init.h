@@ -49,20 +49,15 @@ void Delete_All_Objects(void);
 
 void Init_Theater(TheaterType theater);
 bool Prep_For_Side(SideType side);
-bool Prep_Speech_For_Side(SideType side);
 
 void Anim_Init(void);
 
 void Load_Title_Page(const char * name, bool visible);
 
 ThemeType Fetch_Main_Menu_Theme(void);
-ThemeType Fetch_Map_Select_Theme(void);
-
-void Draw_Version_Text(Surface * surface);
 
 ObjectClass * Best_Selected_Object(void);
 ObjectClass * Best_Selected_Object(Cell const * cell, ObjectClass const * object); // RA2: the selected object best suited to the cell or the object
-int New_Main_Menu(void);
 
 // Declarations moved from the units that used them (one declaration per name).
 extern bool __cdecl Release_Neutral_Mix(void); // RA2: 0x0051A270; releases the mix file of the neutral art

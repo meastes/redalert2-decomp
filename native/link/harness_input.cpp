@@ -87,6 +87,8 @@ bool Is_Selected(ObjectClass *object)
 int Native_Harness_Sidebar_Point(char const *spec, int *x, int *y);   // harness_sidebar.cpp (lane C16)
 int Native_Harness_Production(int kind);
 int Native_Harness_Bar_Point(char const *spec, int *x, int *y);      // team_button_hook.cpp (lane N10)
+int Native_Harness_Terrain_Point(bool mine, int *x, int *y);   // harness_orders.cpp (lane N14)
+
 namespace {
 
 int Resolve(char const *spec, int *x, int *y)
@@ -97,6 +99,9 @@ int Resolve(char const *spec, int *x, int *y)
     if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
     // "@cmd=NAME": the command bar's button for that command (lane N10).
     if (spec[0] == 'c' && spec[1] == 'm' && spec[2] == 'd' && spec[3] == '=') return Native_Harness_Bar_Point(spec, x, y);
+    // "@terrain", "@terrain=mine": the terrain object nearest the player's first techno (lane N14, harness_orders.cpp).
+    if (spec[0] == 't' && spec[1] == 'e' && spec[2] == 'r' && spec[3] == 'r' && spec[4] == 'a' && spec[5] == 'i' && spec[6] == 'n')
+        return Native_Harness_Terrain_Point(spec[7] == '=', x, y);
     if (spec[0] == '=') {
         // "@=X,Y": the centre of cell X,Y (Scout1153, M19: a building of another house, a bridge hut).
         char const *p = spec + 1;

@@ -329,7 +329,6 @@ extern char BuildDate[64];
 */
 extern int ReadyToQuit;							//Are we about to exit cleanly
 extern bool IsOldSaveGame;
-void Memory_Error_Handler(void);				//Memory error handler function
 
 extern bool TacticalActive;
 struct IDirect3DDevice2;
@@ -412,7 +411,6 @@ extern int DeformPointXAdd;
 extern int DeformPointYAdd;
 extern int DeformPointWidth;
 extern int DeformPointHeight;
-extern bool Asm_Ripple_Deform_Points(int startpointx, int startpointy, int general_direction, bool forced);
 extern int g_WDTGameSKU; // RA2: 0x00B2668C, 0x2300, the product of the tournament ladder, set at game start in wonline.cpp
 extern long GameStartTime; // RA2: 0x00B2A638, time(0) when the game started
 extern char GameHostName[]; // RA2: 0x00B2A808, the name of the first user of the channel, the host

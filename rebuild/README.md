@@ -262,6 +262,14 @@ name replaces them; the census prints the count on the "Provisional names" line 
 mapgen's six uncalled helpers 0x56D5D0-0x56D680 (ra2-decomp's FUN_0058BCD0..BD80, ordinary functions there too)
 are defined once at their addresses with such names (owner ruling, lane R33).
 
+Functions the tree declares that RA2 never defines (review session, 2026-11-19; lane R45's In_Radio_Contact,
+Sound_Effect and Speak) are a budget that may only fall (`declared_never_defined`): `tools/declared_never_defined.py
+--write` lists in `manifest/declared_never_defined.csv` every declaration with no definition in rebuild/, no symbol
+the image is known to hold (main's catalog and symbols, mischa85 names.csv, symbols.csv, units.json) and no
+import, CRT, pure-virtual, operator or constructor exemption, with its users (exact, parked, count-sensitive) and
+what the image calls instead where known; one main defines or whose comment cites its address is "not yet carried"
+(`--not-carried`), not listed. A declaration leaves its header when its last user calls the image's routine.
+
 ## House format
 
 New text is written in the layout of the adopted Westwood/Tiberian Sun text: `rebuild/.clang-format` describes

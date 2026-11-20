@@ -2633,7 +2633,7 @@ static inline bool Planning_Current_Order(TechnoClass * techno, bool has_nodes) 
 	return has_nodes || techno->IsSelected; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2095 bytes differ (class-b carry)
+#ifdef RA2_NON_MATCHING // not exact: 2095 bytes differ (main carry through the existing planning interfaces)
 void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token();
@@ -2643,7 +2643,7 @@ void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 	bool has_nodes = (!token ? 0 : token->PlanningNodes.Count()) > 0;
 	bool current_order = Planning_Current_Order(techno, has_nodes);
 	int thickness = 4;
-	if (token && (token->OwnerUnit->CurrentMission == 28 || token->OwnerUnit->MissionQueue == 28)) {
+	if (token && (token->OwnerUnit->CurrentMission == MISSION_WAIT || token->OwnerUnit->MissionQueue == MISSION_WAIT)) {
 		EventClass event = token->Popped;
 		Coord coord = Planning_Event_Or_Object_Coord(event, techno);
 		Point2D end = Planning_Coord_Pixel(coord);
@@ -2666,15 +2666,15 @@ void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 		Planning_Draw_Thick_Line(start, end, 3, color);
 		int action = -1;
 		if (!alternate || secondary) {
-			if (techno->Get_Mission() == 11) action = Cursor_Start_Frame_76();
-		} else if (techno->GetMegaMission() == 29) action = Cursor_Start_Frame_77();
+			if (techno->Get_Mission() == MISSION_GUARD_AREA) action = Cursor_Start_Frame_76();
+		} else if (techno->GetMegaMission() == MISSION_ATTACK_MOVE) action = Cursor_Start_Frame_77();
 		if (action != -1) Planning_Draw_Midpoint(start, end, color);
 		Planning_Draw_Dot(end, color);
 		if (secondary) {
 			Coord next_coord = techno->GetAttackMoveCoords();
 			Point2D next = Planning_Coord_Pixel(next_coord);
 			Planning_Draw_Thick_Line(end, next, 3, color);
-			if (techno->GetMegaMission() == 29 && Cursor_Start_Frame_77() != -1)
+			if (techno->GetMegaMission() == MISSION_ATTACK_MOVE && Cursor_Start_Frame_77() != -1)
 				Planning_Draw_Midpoint(end, next, color);
 			Planning_Draw_Dot(next, color);
 			return;
@@ -2717,7 +2717,7 @@ bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; wh
 	return false; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2078 bytes differ (class-b carry)
+#ifdef RA2_NON_MATCHING // not exact: 2078 bytes differ (main carry through the existing planning interfaces)
 void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token();
@@ -2730,7 +2730,7 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 	int dot;
 	int thickness = 4;
 	int color = Planning_Techno_Color(techno);
-	if (token && (token->OwnerUnit->CurrentMission == 28 || token->OwnerUnit->MissionQueue == 28)) {
+	if (token && (token->OwnerUnit->CurrentMission == MISSION_WAIT || token->OwnerUnit->MissionQueue == MISSION_WAIT)) {
 		EventClass event = token->Popped;
 		Coord coord = Planning_Event_Or_Object_Coord(event, techno);
 		Point2D end = Planning_Coord_Pixel(coord);
@@ -2755,15 +2755,15 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 		Planning_Draw_Dashed_Thick_Line(start, end, 3, dim);
 		int frame = -1;
 		if (!alternate || secondary) {
-			if (techno->Get_Mission() == 11) frame = Cursor_Start_Frame_76();
-		} else if (techno->GetMegaMission() == 29) frame = Cursor_Start_Frame_77();
+			if (techno->Get_Mission() == MISSION_GUARD_AREA) frame = Cursor_Start_Frame_76();
+		} else if (techno->GetMegaMission() == MISSION_ATTACK_MOVE) frame = Cursor_Start_Frame_77();
 		if (frame != -1) Planning_Draw_Midpoint_Shape(start, end, dim, color, frame);
 		Planning_Fill_Dot(end, dim);
 		if (secondary) {
 			Coord next_coord = techno->GetAttackMoveCoords();
 			Point2D next = Planning_Coord_Pixel(next_coord);
 			Planning_Draw_Dashed_Thick_Line(end, next, 3, dim);
-			if (techno->GetMegaMission() == 29) {
+			if (techno->GetMegaMission() == MISSION_ATTACK_MOVE) {
 				frame = Cursor_Start_Frame_77();
 				if (frame != -1) Planning_Draw_Midpoint_Shape(end, next, dim, color, frame);
 			}

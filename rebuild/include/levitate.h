@@ -46,38 +46,10 @@ class LevitateLocomotionClass : public LocomotionClass
 		/*---------------------------------------------------------------------
 		**	Member function prototypes.
 		*/
-		void Hover_AI(void);
 
-		void State_AI(void);
 		void Process_Idle(void);
-		void Process_Accelerating(void);
-		void Process_Cruising(void);
-		void Process_Decelerating(void);
-		void Process_Drifting(void);
-		void Process_Arrived(void);
-		void Process_Recentering(void);
 
-		void Process_Departing(void);
-
-		bool Validate_TarCom(void);
-		bool Validate_NavCom(void);
-
-		void Accelerate(double&);
-		void Accelerate_Towards(Coord const & coord);
-		void Drift_Towards(Coord const & coord);
-		void Drift(DirType const & dir);
-		void Decelerate(void);
-		bool Is_In_Proximity(Coord const & coord);
-		bool Has_Arrived(Coord const & coord);
-
-		void Steer_Towards(Coord const & coord);
-		void Move_AI(void);
-		double Update_Speed(void);
-		bool Is_Not_On_Cell(Coord const & coord);
 		void Set_Coord(Coord const & coord);
-		bool Can_Move_Here(Coord const & coord);
-		void Update_Bridge_State(Coord const & coord);
-		bool Needs_New_Target(void);
 		void Stop(void);
 
 		static void Read_INI(CCINIClass const & ini);
