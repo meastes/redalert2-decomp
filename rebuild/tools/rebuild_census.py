@@ -223,23 +223,24 @@ def layout_and_pending(regions):
 
 
 def content_bound(regions):
-    """Symbols of catalogued units bound by their initialised bytes (data_bound_by: content; DECISIONS, review
-    session 2026-11-20): the declaration a hypothesis in the flag note, every byte compared."""
-    sources = {r['source'] for r in regions}
-    return sum(sum(k == 'content' for k in (info.get('data_bound_by') or {}).values())
-               for info in R.load_json(R.UNITS, {}).values() if info['source'] in sources)
+    """(symbols, bytes) of catalogued units bound by their initialised bytes (data_bound_by: content; DECISIONS,
+    review session 2026-11-20): pointer tables, every byte compared, the declaration a hypothesis in the flag
+    note; zero .text credit by themselves. Bytes are each table's section size in its unit's last checked
+    object (its string literals are not counted)."""
+    import data_bindings
+    return unplaced_objects(regions, data_bindings.CONTENT)
 
 
-def unplaced_objects(regions):
+def unplaced_objects(regions, kind=None):
     """(symbols, bytes) of the zero-initialised objects catalogued units leave unplaced and unreferenced
     (data_bound_by: unplaced-unreferenced; DECISIONS, user 2026-11-18): no address, nothing earned. Bytes are
-    each symbol's extent in its unit's last checked object."""
+    each symbol's extent in its unit's last checked object. kind: another data_bound_by kind counted the same way."""
     import data_bindings
     from coff import Coff
     sources = {r['source'] for r in regions}
     count = size = 0
     for unit, info in R.load_json(R.UNITS, {}).items():
-        names = [n for n, k in (info.get('data_bound_by') or {}).items() if k == data_bindings.UNPLACED]
+        names = [n for n, k in (info.get('data_bound_by') or {}).items() if k == (kind or data_bindings.UNPLACED)]
         last = R.load_json(R.WORK / 'last' / (unit + '.json'), None)
         if not names or info['source'] not in sources or not last:
             continue
@@ -324,7 +325,7 @@ def main(quiet=False):
     measures['inliner_statements'] = len(inliner)
     measures['unplaced_symbols'], measures['unplaced_bytes'] = unplaced_objects(cat['regions'])
     measures['layout_symbols'], measures['pending_ranges'], measures['pending_bytes'] = layout_and_pending(cat['regions'])
-    measures['content_symbols'] = content_bound(cat['regions'])
+    measures['content_symbols'], measures['content_bytes'] = content_bound(cat['regions'])
     measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
     # House format of new lines (lane F1): the diff BASE..working tree; adopted text and manifest/format_exempt.csv
     # are not counted. Gated when RA2_FMT_BASE names the base (the owner's landing, after fmtnew.py); without it the
@@ -378,7 +379,9 @@ def main(quiet=False):
     print('Data placed by layout (data_bound_by: layout; declarations a hypothesis): %d symbols; pending data owned by '
           'parked functions: %d ranges, %d bytes' % (measures['layout_symbols'], measures['pending_ranges'],
                                                       measures['pending_bytes']))
-    print('Data bound by content (data_bound_by: content; declarations a hypothesis): %d symbols' % measures['content_symbols'])
+    print('Data bound by content (data_bound_by: content; pointer tables, every byte compared; declarations a '
+          'hypothesis; zero .text credit by themselves): %d symbols, %d bytes' % (measures['content_symbols'],
+                                                                                  measures['content_bytes']))
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '
           'extern "C" in sources %d' % (measures['inherited_geometry_define'], measures['inherited_auto_inline_off'],
                                          measures['extern_c_in_sources']))

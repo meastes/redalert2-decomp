@@ -160,15 +160,16 @@ def data_bound_by_lines(catalog):
     elimination"): symbols each source declares (row field data_bound_by), and the bytes of the
     proven module-map sections that hold a layout-bound symbol. Elimination earns nothing."""
     import json
-    kinds = {'layout': set(), 'elimination': set(), 'unplaced-unreferenced': set()}
+    kinds = {'layout': set(), 'elimination': set(), 'unplaced-unreferenced': set(), 'content': set()}
     sources = set()
     for row in catalog['regions']:
         for name, kind in (row.get('data_bound_by') or {}).items():
             kinds[kind].add((row['source'], name)); sources.add(row['source'])
-    layout_bytes = 0
+    layout_bytes = content_bytes = 0
     for path in sorted((REPOSITORY / 'manifests/original_target/modules').glob('*.json')):
         entry = json.loads(path.read_text())
         layout_bytes += sum(c['bytes'] for c in entry.get('data', []) if 'layout' in (c.get('bound_by') or ()))
+        content_bytes += sum(c['bytes'] for c in entry.get('data', []) if 'content' in (c.get('bound_by') or ()))
     return ['| Data bound by enclosed section layout (flag data_bound_by: layout; the split into declarations '
             'is a hypothesis) | {:,} symbols in {:,} source(s); {:,} bytes in the proven sections that hold them |'
             .format(len(kinds['layout']), len({s for s, _ in kinds['layout']}), layout_bytes),
@@ -177,7 +178,12 @@ def data_bound_by_lines(catalog):
         ['| Unplaced unreferenced zero-initialised objects (flag data_bound_by: unplaced-unreferenced; no address, '
          'earns nothing) | {:,} symbols in {:,} source(s) |'.format(len(kinds['unplaced-unreferenced']),
                                                                     len({s for s, _ in kinds['unplaced-unreferenced']}))]
-        if kinds['unplaced-unreferenced'] else [])
+        if kinds['unplaced-unreferenced'] else []) + (
+        ['| Data bound by content (flag data_bound_by: content, rebuild tree only; pointer tables, every byte compared; '
+         'the declaration is a hypothesis; zero .text credit by themselves) | {:,} symbols in {:,} source(s); {:,} bytes '
+         'in the proven sections that hold them |'.format(len(kinds['content']), len({s for s, _ in kinds['content']}),
+                                                          content_bytes)]
+        if kinds['content'] else [])
 
 
 DECLARATIONS_ONLY_DEFINE = re.compile(rb'^[ \t]*#[ \t]*define[ \t]+VECTOR_DECLARATIONS_ONLY\b', re.M)

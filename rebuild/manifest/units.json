@@ -51431,7 +51431,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0063b300",
    "0063cb60"
@@ -51911,9 +51911,11 @@
    }
   ],
   "references": {
+   "_$S143": "00ab6768",
    "_BRIDGE_LEPTON_HEIGHT": "00ab681c",
    "_CELL_DIAG_SLOPE_ANGLE": "00ab6800",
    "_CELL_LEPTON_DIAG": "00ab67b0",
+   "_CELL_NONE": "00ab67a8",
    "_CELL_SLOPE_ANGLE": "00ab67d0",
    "_COORD_NONE": "00ab67d8",
    "_ISO_TILE_SIZE": "007a8d40",
@@ -51925,15 +51927,15 @@
    "_RAD_60": "00ab67c0",
    "_RAD_90": "00ab6770",
    "_RECT_NONE": "00ab6778",
+   "_RadarEventTypes": "007a8d58",
    "__real@4@3ff9a3d70a0000000000": "007a8ea8",
-   "__real@8@3ffeb504f333f9de6800": "007a8eb0",
-   "_CELL_NONE": "00ab67a8",
-   "_$S143": "00ab6768",
-   "_RadarEventTypes": "007a8d58"
+   "__real@8@3ffeb504f333f9de6000": "007a8eb0"
   },
   "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: emitted functions with no row or binding: ?RadarEventNames@@3PAPBDA"
+  "data_bound_by": {
+   "?RadarEventNames@@3PAPBDA": "content"
+  },
+  "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table)."
  },
  "cdcntrl": {
   "core": [

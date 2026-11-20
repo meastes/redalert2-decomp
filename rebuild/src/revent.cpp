@@ -306,7 +306,7 @@ void RadarEventClass::Draw(void)
 	int dx = abs(event_rect[0].X - event_rect[1].X);
 	int maxdist = MAX(dx, dy);
 
-	float rate = (Radius * 2) * M_SQRT_2 / (float)maxdist * ColorSpeed;
+	float rate = (Radius * 2) * 0.7071067811865475 / (float)maxdist * ColorSpeed; // ra2-decomp revent.cpp: the image holds 0x3FE6A09E667F3BCC (M_SQRT_2 rounds one unit higher)
 
 	for (i = 0; i < ARRAY_SIZE(event_rect); i++) {
 		((DSurface *)Map.RadarSurface)->Draw_Ping_Pong_Gradient_Line(Map.RadarSurface->Get_Rect(), event_rect[i], event_rect[(i + 1) % 4], color1, color2, rate, color_factor); // RA2: as above

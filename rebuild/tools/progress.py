@@ -67,6 +67,7 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             parked_functions=parked_f, parked_bytes=parked_b, parked_large_functions=large_f, parked_large_bytes=large_b,
             judgment_rows=m['judgment_rows'], judgment_bytes=m['judgment_bytes'],
             unplaced_symbols=m['unplaced_symbols'], unplaced_bytes=m['unplaced_bytes'],
+            content_symbols=m['content_symbols'], content_bytes=m['content_bytes'],
             count_sensitive_rows=m['count_sensitive_rows'], count_sensitive_bytes=m['count_sensitive_bytes'],
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'

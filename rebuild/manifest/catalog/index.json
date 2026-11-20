@@ -3675,7 +3675,10 @@
     "population-2782",
     "population-2956",
     "rebuild-tab",
-    "rebuild-strtable"
+    "rebuild-strtable",
+    "rebuild-revent",
+    "population-1617",
+    "population-08"
   ],
   "region_runs": [
     ["rebuild-audattr", 6],
@@ -3966,6 +3969,7 @@
     ["rebuild-readline", 2],
     ["rebuild-reinf", 18],
     ["rebuild-restate", 15],
+    ["rebuild-revent", 57],
     ["rebuild-rgb", 14],
     ["rebuild-rle", 4],
     ["rebuild-rndstraw", 11],
@@ -4110,6 +4114,7 @@
   "shards": {
     "population-02": "51b13f07c7cdc88e029eca563d9e9ce1d63bf2c00633b0b5f7a3f94a90a572d2",
     "population-03": "9c9ed3da9ff29422ecdb110a22015295496956419bb697b9041be6eefd5e365f",
+    "population-08": "82b847cac1e6880e662559c0bcddf5fb9f09e8f045825a45759f7ca3ec6f61c4",
     "population-09": "0169a1328231340e610f8514c381d78d678cd78c495621937cc1d1f356ad192b",
     "population-10": "177b6777b3a3c67cc6d7b074eada6be89a89a35f1b5570cf4c2b218d70006b47",
     "population-100": "69fc4a08e711e220108f70bdab7a44f60dc5d34ee54597eb6fe0cc6b1b5eca2e",
@@ -4167,6 +4172,7 @@
     "population-1596": "51ea9dbbebaa4bd49cf2500e0e04a0f8692d5ea6da7c252af83c3c5623d1ff71",
     "population-1597": "413642e527cb39d35bd562c4684b6b92745d455e0a71d4431ffe66ac5a7510c6",
     "population-16": "32bda855f7bd335c0f5eeefd6bd1f7feb0ddf07713cb776b15d1158c7f118d6e",
+    "population-1617": "a82e3f326107e37ef786a84f48e197307ed03a545f3d3b0cd37644cbb7298355",
     "population-1621": "fc8d383d3da932066fae839ae6ebf86d22f5ffbc603c9cd926dc24c8b39e8c5b",
     "population-1622": "f95f7ccd6a66ab86e529792d0f4e602d3b4e78eda6c6ab8421d6da523224c1d3",
     "population-1623": "d6e486fb5d93d62abecc00dd799afdacf504d817d13a4eb3de7931cfe8791520",
@@ -5044,6 +5050,7 @@
     "rebuild-readline": "10eaf78077c6098a71c039542ca22ff1a75222478cb8d91631f7a89b044886fb",
     "rebuild-reinf": "39d3f1e7f97af7b67bf420cd0958424e907f9f89bb16a52fd4ebbfdd599cd876",
     "rebuild-restate": "65fc2f42f990c7953dcc415c2c2a2537903cf84b66fcd54df79645cadcafdcaf",
+    "rebuild-revent": "bf1e2ffc009f7a6489896bb655853cce2fd8aeca0885b9bfc7bbc462166bb42e",
     "rebuild-rgb": "17195fc8e23887f5187a7fce2d8c411168a25d63a02a356d2ea68fae312ec94a",
     "rebuild-rle": "c20bd7eea82f499a7d46df145858be2dfa873a9ac893f66d269f3ec9d2c02d5a",
     "rebuild-rndstraw": "c78f6d52924f2b4555ef0a68153773948c522b68525c2ed9db03d02e6bb0fe40",

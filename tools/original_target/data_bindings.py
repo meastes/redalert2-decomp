@@ -76,11 +76,32 @@ Header select-any groups (docs/DECISIONS.md, "Unreferenced zero-initialised sele
             such hole exists in the unit's .bss range. The addresses are our object's emission order (a
             hypothesis: the linker orders separate COMDATs); zero bytes, nothing credited.
 
-Extents are never taken from the candidate's bytes: the anchors are independent and
-every byte between them is compared.
+content    (docs/DECISIONS.md, "Rebuild data forms", review session 2026-11-20, user-approved
+            2026-11-20; rebuild tree only, opt-in per source) A table of pointers no code
+            references, located by its bytes. The symbol is the only one of its initialised
+            (never .bss) section; the section has relocations and every 4-byte slot of it is
+            a DIR32 relocation target (an array of pointers; a table with any other field
+            refuses); each relocation targets a bound symbol or a string literal of the
+            object (a relocation-free COMDAT ??_C@ section of its own). Each literal is
+            bound by its text where the image holds it: at an aligned occurrence that begins
+            a literal (preceded by a zero byte or the start of its section), the only such
+            occurrence or, when the text occurs more than once, the one occurrence adjacent
+            (within alignment zero fill) to an already bound literal of the run. The
+            object's bytes relocated against those addresses must occur exactly once
+            (aligned) in the image's initialised non-code sections; the extent is enclosed
+            as for layout; no reference-bound address, independently known item or 4-byte
+            image value points into it. For this kind the extent is our object's section
+            size: every byte of that extent is compared by equality with the image at the
+            one place it occurs, and the enclosure checks that nothing else lies inside or
+            between it and its independent neighbours. Only the declaration (name, element
+            type, one array) stays a hypothesis. Zero .text credit by itself.
+
+Extents are never taken from the candidate's bytes (content: the extent is the object's own
+section size, but every byte of it is compared and its place is the image's one occurrence):
+the anchors are independent and every byte between them is compared.
 """
-LAYOUT, ELIMINATION, UNPLACED = 'layout', 'elimination', 'unplaced-unreferenced'
-KINDS = (LAYOUT, ELIMINATION, UNPLACED)
+LAYOUT, ELIMINATION, UNPLACED, CONTENT = 'layout', 'elimination', 'unplaced-unreferenced', 'content'
+KINDS = (LAYOUT, ELIMINATION, UNPLACED, CONTENT)
 
 
 class BindingRefused(ValueError):
@@ -160,7 +181,7 @@ def declared(rows):
         if value is None:
             continue
         if not isinstance(value, dict) or not value or any(v not in KINDS for v in value.values()):
-            raise BindingRefused('data_bound_by must map symbols to "layout", "elimination" or "%s"' % UNPLACED)
+            raise BindingRefused('data_bound_by must map symbols to "layout", "elimination", "%s" or "%s"' % (UNPLACED, CONTENT))
         note = row.get('data_bound_by_note')
         if not isinstance(note, str) or not note.strip():
             raise BindingRefused('data_bound_by needs a non-empty data_bound_by_note')
@@ -315,7 +336,103 @@ def group_hole(coff, group, references, pointed, accepted_entries, source_text='
             for name, address in placed}
 
 
-def bind(coff, declared_bindings, references, original, below_ends, above_starts, pending_ranges=(), grouped=()):
+def zero_gap(original, low, high, align):
+    """Whether [low, high) is alignment fill: shorter than the alignment and all zero."""
+    return 0 <= high - low < max(align, 1) and not (high > low and any(original(low, high - low)))
+
+
+def content(coff, name, references, find, original, below_ends, above_starts, pointed):
+    """{symbol: (address, detail)} for one content-bound object and the literals it points to,
+    or BindingRefused (see the module text, "content")."""
+    import struct
+    import tree
+    if not tree.REBUILD:
+        raise BindingRefused('%s: content binding is the rebuild tree ruling only' % name)
+    if find is None or pointed is None:
+        raise BindingRefused('%s: content binding needs the image search' % name)
+    if name in references:
+        raise BindingRefused('%s: declared content but already bound by a reference' % name)
+    index = defining_section(coff, name)
+    section = coff.sections[index - 1]
+    if section['flags'] & 0xA0 or not section['flags'] & 0x40:
+        raise BindingRefused('%s: not in an initialised data section' % name)
+    symbols = section_symbols(coff, index)
+    if [n for _, n in symbols] != [name] or symbols[0][0] != 0:
+        raise BindingRefused('%s: not the only symbol of its section' % name)
+    extent = section['size']
+    align = alignment(section['flags'])
+    # Pointer tables only (review session 2026-11-20): relocations required, and every 4-byte slot of
+    # the extent is one.
+    slots = sorted(offset for offset, _, _ in section['relocs'])
+    if not slots:
+        raise BindingRefused('%s: no relocation (content binding is for pointer tables)' % name)
+    if extent % 4 or slots != list(range(0, extent, 4)):
+        raise BindingRefused('%s: not an array of pointers (every 4-byte slot a relocation)' % name)
+    table = dict(references)
+    literals, ambiguous = {}, {}
+    for offset, target, kind in section['relocs']:
+        if kind != 6:
+            raise BindingRefused('%s: relocation kind %d at +%d' % (name, kind, offset))
+        symbol = coff.symbols[target]['name']
+        if symbol in table or symbol in literals or symbol in ambiguous:
+            continue
+        if not symbol.startswith('??_C@'):
+            raise BindingRefused('%s: relocation +%d targets %s, neither bound nor a literal' % (name, offset, symbol))
+        lit_index = defining_section(coff, symbol)
+        lit = coff.sections[lit_index - 1]
+        if not lit['flags'] & 0x1000 or lit['flags'] & 0xA0 or lit['relocs'] or \
+                [n for _, n in section_symbols(coff, lit_index)] != [symbol]:
+            raise BindingRefused('%s: literal %s is not a COMDAT section of its own' % (name, symbol))
+        text = bytes(lit['data'])
+        step = alignment(lit['flags'])
+        hits = [a for a in find(text, literal=True) if a % step == 0]    # each hit begins a literal
+        if not hits:
+            raise BindingRefused('%s: literal %s not in the image' % (name, symbol))
+        if len(hits) == 1:
+            literals[symbol] = (hits[0], len(text))
+        else:
+            ambiguous[symbol] = (hits, len(text), step)
+    bound = dict(literals)
+    while ambiguous:
+        progress = False
+        for symbol, (hits, size, step) in list(ambiguous.items()):
+            near = [a for a in hits if any(zero_gap(original, b + n, a, step) or zero_gap(original, a + size, b, step)
+                                           for b, n in bound.values())]
+            if len(near) == 1:
+                bound[symbol] = (near[0], size)
+                del ambiguous[symbol]
+                progress = True
+            elif len(near) > 1:
+                raise BindingRefused('%s: literal %s adjacent to the run at %d places' % (name, symbol, len(near)))
+        if not progress:
+            raise BindingRefused('%s: literals neither unique nor adjacent to the run: %s' % (name, sorted(ambiguous)[:3]))
+    table.update({s: a for s, (a, _) in bound.items()})
+    data = bytearray(section['data'])
+    for offset, target, kind in section['relocs']:
+        add = struct.unpack_from('<I', data, offset)[0]
+        struct.pack_into('<I', data, offset, (table[coff.symbols[target]['name']] + add) & 0xffffffff)
+    hits = [a for a in find(bytes(data)) if a % align == 0]
+    if len(hits) != 1:
+        raise BindingRefused('%s: its relocated bytes occur %d times in the image' % (name, len(hits)))
+    address = hits[0]
+    end = address + extent
+    starts = set(above_starts) | {a for a, _ in bound.values()}
+    low, high = enclosed(address, extent, align, below_ends, starts, original)
+    if any(address <= a < end for a in set(references.values()) | set(above_starts)):
+        raise BindingRefused('%s: an independently known item starts inside %08x-%08x' % (name, address, end))
+    if pointed(address, end):
+        raise BindingRefused('%s: a 4-byte value of the image points into %08x-%08x' % (name, address, end))
+    for symbol, (a, size) in bound.items():
+        if any(a <= x < a + size for n, x in references.items() if n != symbol):
+            raise BindingRefused('%s: literal %s at %08x overlaps a bound item' % (name, symbol, a))
+    out = {name: (address, dict(section=index, extent=extent, lower_anchor=low, upper_anchor=high,
+                                literals=len(bound)))}
+    out.update({s: (a, dict(literal_of=name, extent=size)) for s, (a, size) in bound.items()})
+    return out
+
+
+def bind(coff, declared_bindings, references, original, below_ends, above_starts, pending_ranges=(), grouped=(),
+         find=None, pointed=None):
     """{symbol: (address, kind, detail)} for the declared symbols, or BindingRefused.
 
     references: name -> original address (the population's table, RTTI layout included);
@@ -324,6 +441,10 @@ def bind(coff, declared_bindings, references, original, below_ends, above_starts
     out = {}
     layout = [n for n, k in declared_bindings.items() if k == LAYOUT and n not in grouped]
     elimination = [n for n, k in declared_bindings.items() if k == ELIMINATION]
+    for name in [n for n, k in declared_bindings.items() if k == CONTENT]:
+        for symbol, (address, detail) in content(coff, name, references, find, original, below_ends,
+                                                 above_starts, pointed).items():
+            out[symbol] = (address, CONTENT, detail)
     for name in layout:
         if name in references:
             raise BindingRefused('%s: declared layout but already bound by a reference' % name)

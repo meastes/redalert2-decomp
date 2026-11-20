@@ -1,5 +1,5 @@
-"""Data-only bindings (data_bindings.py): enclosed layout and bss elimination. Synthetic
-objects and images only; no game payload."""
+"""Data-only bindings (data_bindings.py): enclosed layout, bss elimination and content binding.
+Synthetic objects and images only; no game payload."""
 import pathlib
 import sys
 import unittest
@@ -130,6 +130,109 @@ class DeclarationTest(unittest.TestCase):
                 dict(data_bound_by={'_a': 'elimination'}, data_bound_by_note='n')]
         with self.assertRaisesRegex(db.BindingRefused, 'differs'):
             db.declared(rows)
+
+
+LITERAL = 0x40301040   # COMDAT initialised data, 4-byte aligned (a ??_C@ string literal)
+TABLE = 0x1004          # where the synthetic image holds the pointer table
+
+
+class ContentTest(unittest.TestCase):
+    """data_bound_by: content (review session 2026-11-20): a pointer table bound by its relocated
+    bytes, shaped like revent's RadarEventNames (each slot a pointer to a literal of the object)."""
+
+    def setUp(self):
+        import tree
+        self.tree, self.saved = tree, tree.REBUILD
+        tree.REBUILD = True
+        self.addCleanup(setattr, tree, 'REBUILD', self.saved)
+        # image at 0x1000: a 4-byte item, the table (0x1004: -> 0x100C, -> 0x1010), "AB", "CD", the next item.
+        self.data = bytearray(0x200)
+        self.data[0:4] = b'\x01\x02\x03\x04'
+        self.data[4:12] = (0x100C).to_bytes(4, 'little') + (0x1010).to_bytes(4, 'little')
+        self.data[12:15] = b'AB\0'
+        self.data[16:19] = b'CD\0'
+        self.data[20:24] = b'\x05\x06\x07\x08'
+
+    def coff(self, table_flags=DATA, texts=(b'AB\0', b'CD\0'), relocated=(0, 4), extra_symbol=False, size=8):
+        sections = [('.data', size, table_flags)] + [('.rdata', len(t), LITERAL) for t in texts]
+        symbols = [('_names', 0, 1, 2)] + [('??_C@_lit%d' % i, 0, i + 2, 2) for i in range(len(texts))]
+        if extra_symbol:
+            symbols.append(('_other', 4, 1, 2))
+        coff = FakeCoff(sections, symbols)
+        for i, text in enumerate(texts):
+            coff.sections[i + 1]['data'] = text
+        coff.sections[0]['relocs'] = [(offset, 1 + n, 6) for n, offset in enumerate(relocated)]
+        if not relocated:
+            coff.sections[0]['data'] = bytes(self.data[4:4 + size])
+        return coff
+
+    def bind(self, coff, references=None):
+        data = bytes(self.data)
+
+        def find(pattern, literal=False):
+            hits, at = [], data.find(pattern)
+            while at >= 0:
+                if not literal or at == 0 or data[at - 1] == 0:
+                    hits.append(0x1000 + at)
+                at = data.find(pattern, at + 1)
+            return hits
+
+        def pointed(low, high):
+            values = {int.from_bytes(data[i:i + 4], 'little') for i in range(len(data) - 3)}
+            return {v for v in values if low <= v < high}
+        return db.bind(coff, {'_names': 'content'}, references or {}, image(0x1000, data),
+                       below_ends={0x1004}, above_starts={0x1014}, find=find, pointed=pointed)
+
+    def test_pointer_table_binds_with_its_literals(self):
+        bound = self.bind(self.coff())
+        self.assertEqual(bound['_names'][:2], (TABLE, 'content'))
+        self.assertEqual(bound['??_C@_lit0'][0], 0x100C)
+        self.assertEqual(bound['??_C@_lit1'][0], 0x1010)
+
+    def test_main_tree_refuses(self):
+        self.tree.REBUILD = False
+        with self.assertRaisesRegex(db.BindingRefused, 'rebuild tree'):
+            self.bind(self.coff())
+
+    def test_altered_literal_refuses(self):
+        with self.assertRaisesRegex(db.BindingRefused, 'not in the image'):
+            self.bind(self.coff(texts=(b'AX\0', b'CD\0')))
+
+    def test_literal_hit_must_begin_a_literal(self):
+        self.data[11] = ord('x')     # "AB" now continues a longer string: no literal begins there
+        with self.assertRaisesRegex(db.BindingRefused, 'not in the image'):
+            self.bind(self.coff())
+
+    def test_table_bytes_twice_refuse(self):
+        self.data[0x100:0x108] = self.data[4:12]
+        with self.assertRaisesRegex(db.BindingRefused, 'occur 2 times'):
+            self.bind(self.coff())
+
+    def test_pointer_into_the_range_refuses(self):
+        self.data[0x180:0x184] = (TABLE + 4).to_bytes(4, 'little')
+        with self.assertRaisesRegex(db.BindingRefused, 'points into'):
+            self.bind(self.coff())
+
+    def test_bss_symbol_refuses(self):
+        with self.assertRaisesRegex(db.BindingRefused, 'not in an initialised data section'):
+            self.bind(self.coff(table_flags=BSS))
+
+    def test_relocation_free_object_refuses(self):
+        with self.assertRaisesRegex(db.BindingRefused, 'no relocation'):
+            self.bind(self.coff(texts=(), relocated=()))
+
+    def test_slot_without_relocation_refuses(self):
+        coff = self.coff(texts=(b'AB\0',), relocated=(0,))
+        coff.sections[0]['data'] = bytes(4) + bytes(self.data[8:12])
+        with self.assertRaisesRegex(db.BindingRefused, 'array of pointers'):
+            self.bind(coff)
+
+    def test_two_symbols_in_the_section_refuse(self):
+        with self.assertRaisesRegex(db.BindingRefused, 'only symbol'):
+            self.bind(self.coff(extra_symbol=True))
+
+    def test_declared_content_kind_accepted(self):
+        self.assertEqual(db.declared([dict(data_bound_by={'_a': 'content'}, data_bound_by_note='n')]), {'_a': 'content'})
 
 
 if __name__ == '__main__':

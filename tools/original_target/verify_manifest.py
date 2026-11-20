@@ -685,7 +685,8 @@ class Audit:
         grouped = {n for g in group_list for n in g['symbols']}
         if grouped - {n for n, k in declared.items() if k == data_bindings.LAYOUT}:
             raise data_bindings.BindingRefused('data_bound_by_group symbols must be declared layout')
-        bound = data_bindings.bind(coff, declared, table, original, ends, starts, pending, grouped)
+        bound = data_bindings.bind(coff, declared, table, original, ends, starts, pending, grouped,
+                                   self.image_find, self.image_pointers)
         if group_list:
             text = ''.join((Path(self.repository) / s).read_text(errors='replace') for s in
                            sorted({c['source'] for c in candidates.values()}))
@@ -708,6 +709,22 @@ class Audit:
                 self.__dict__.setdefault('data_unplaced', set()).add((id(coff), name))
                 self.__dict__.setdefault('data_bound_by', {})[name] = dict(detail, address=None, kind=data_bindings.UNPLACED,
                                                                              bytes=0)
+
+    def image_find(self, pattern, literal=False):
+        """Virtual addresses of every occurrence of `pattern` in the original image's initialised,
+        non-code sections (data_bindings.content); literal: only occurrences that begin a literal
+        (at the start of their section or preceded by a zero byte)."""
+        found = []
+        for section in self.pe.sections:
+            if section.Characteristics & 0x20 or not section.Characteristics & 0x40:
+                continue
+            data = section.get_data()[:min(section.Misc_VirtualSize, section.SizeOfRawData)]
+            at = data.find(pattern)
+            while at >= 0:
+                if not literal or at == 0 or data[at - 1] == 0:
+                    found.append(self.base + section.VirtualAddress + at)
+                at = data.find(pattern, at + 1)
+        return found
 
     def image_pointers(self, low, high):
         """Addresses in [low, high) that some 4-byte little-endian value of the original image's
