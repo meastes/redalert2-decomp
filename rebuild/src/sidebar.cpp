@@ -3501,3 +3501,48 @@ bool SidebarClass::Activate_Upgrade(int control)
 	return(false); // RA2: RA2 has no upgrade button
 }
 #endif
+
+
+// RA2: flashes a techno type's cameo and keeps the sidebar updating until it ends.
+void SidebarClass::Flash_Cameo(TechnoTypeClass const * type, int frames)
+{
+	int index;
+	for (index = 0; index < InfantryTypes.Count(); index++) {
+		if ((TechnoTypeClass *)InfantryTypes[index] == type) {
+			goto found;
+		}
+	}
+	for (index = 0; index < UnitTypes.Count(); index++) {
+		if (type == (TechnoTypeClass *)UnitTypes[index]) {
+			goto found;
+		}
+	}
+	for (index = 0; index < AircraftTypes.Count(); index++) {
+		if (type == (TechnoTypeClass *)AircraftTypes[index]) {
+			goto found;
+		}
+	}
+	for (index = 0; index < BuildingTypes.Count(); index++) {
+		if (type == (TechnoTypeClass *)BuildingTypes[index]) {
+			goto found;
+		}
+	}
+	return;
+
+found:
+	RTTIType kind = type->Fetch_RTTI();
+	int column;
+	if (kind == RTTI_INFANTRY || kind == RTTI_INFANTRYTYPE) {
+		column = 2;
+	} else if (kind == RTTI_UNIT || kind == RTTI_UNITTYPE || kind == RTTI_AIRCRAFT || kind == RTTI_AIRCRAFTTYPE) {
+		column = 3;
+	} else if (kind == RTTI_BUILDING || kind == RTTI_BUILDINGTYPE) {
+		column = (HouseClass::Build_Category(kind, index) == 5);
+	} else if (kind == RTTI_SUPERWEAPON || kind == RTTI_SUPERWEAPONTYPE || kind == RTTI_SPECIAL) {
+		column = 1;
+	} else {
+		return;
+	}
+	Column[column].Set_Flash(index, frames);
+	RedrawUntilFrame = Frame + 1 + frames;
+}

@@ -603,3 +603,9 @@ bool MissionClass::Has_Suspended_Mission(void) const
 {
 	return(SuspendedMission != MISSION_NONE);
 }
+
+// RA2: time remaining before the next mission step.
+int MissionClass::Timer_Value(void) const
+{
+	return Timer.Value();
+}

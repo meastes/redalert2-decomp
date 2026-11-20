@@ -4,8 +4,8 @@
     "id": "rebuild-dsurface",
     "inventory_sha256": "9981a9a9999460bacbcd0a2b89b4e5e9e4ed4d2e538965d53368f3280c0c6cbb",
     "gaps_sha256": "d5271b4fea2c4a23e4230759d11d809dd36284d813ece61af15beaca59e1879f",
-    "historical_population_sha256": "1f619942aece02485cd4072f386b2c2789708329efcaa5bb8ee6a42e136ec2b5",
-    "historical_acceptance_sha256": "ff89804c5733f4f04efcf4e1ceddaabce54f64dfc47c42095b62c8b672112577"
+    "historical_population_sha256": "41afd3a9e1bc7c9cd385d5e81294e390a397657f68ef141cc06473a3cfbf5821",
+    "historical_acceptance_sha256": "792b664f395cc67914126b4d52d8e6e9948ca8aa59c09adf174875f734c9a3e0"
   },
   "references": {
     "_RECT_NONE": 8727328,
@@ -91,6 +91,16 @@
     "?Lerp@RGBClass@@QAEAAV1@ABV1@0M@Z": 6540416,
     "__real@4@00000000000000000000": 7972664,
     "__real@4@3fff8000000000000000": 7976952,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
+    "?Direct3DObject@@3PAUIDirect3D@@A": 8728552,
+    "_IID_IDirect3D": 8060336,
+    "?Direct3DObject2@@3PAUIDirect3D2@@A": 8728540,
+    "_IID_IDirect3D2": 8061120,
+    "?Direct3DDevice@@3PAUIDirect3DDevice2@@A": 8728544,
+    "_IID_IDirect3DHALDevice": 8061184,
+    "?Direct3DViewport@@3PAUIDirect3DViewport2@@A": 8728548,
+    "?VideoModeWidth@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
     "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
     "?OverlappedVideoBlits@DSurface@@2_NA": 8217237,
     "_$E2": 4891312,
@@ -166,7 +176,9 @@
     "?Draw_Ping_Pong_Gradient_Line@DSurface@@UBE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@2AAM3@Z": 4912720,
     "?Draw_Depth_Shaded_Line@DSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 4914224,
     "?Draw_Masked_Dashed_Line@DSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 4916816,
-    "?Draw_Masked_Line@DSurface@@UAE_NABVPoint2D@@0I_N@Z": 4918576
+    "?Draw_Masked_Line@DSurface@@UAE_NABVPoint2D@@0I_N@Z": 4918576,
+    "?Init_Direct3D@@YAJXZ": 4920128,
+    "?Release_Direct3D@@YIXXZ": 4920432
   },
   "regions": [
     {
@@ -223,7 +235,7 @@
           "resolved": 8727340
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891312,
@@ -291,7 +303,7 @@
           "resolved": 8727384
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891344,
@@ -343,7 +355,7 @@
           "resolved": 8728488
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891392,
@@ -395,7 +407,7 @@
           "resolved": 8728472
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891424,
@@ -447,7 +459,7 @@
           "resolved": 8728464
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891456,
@@ -499,7 +511,7 @@
           "resolved": 8727392
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891488,
@@ -551,7 +563,7 @@
           "resolved": 8727320
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891520,
@@ -635,7 +647,7 @@
           "resolved": 8728496
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891552,
@@ -695,7 +707,7 @@
           "resolved": 8727400
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891616,
@@ -755,7 +767,7 @@
           "resolved": 8728456
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891664,
@@ -815,7 +827,7 @@
           "resolved": 8728480
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891712,
@@ -859,7 +871,7 @@
           "resolved": 8727346
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891760,
@@ -911,7 +923,7 @@
           "resolved": 8728448
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891776,
@@ -971,7 +983,7 @@
           "resolved": 8725452
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4891808,
@@ -1047,7 +1059,7 @@
           "resolved": 7974944
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4892064,
@@ -1091,7 +1103,7 @@
           "resolved": 2980316
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4892176,
@@ -1807,7 +1819,7 @@
           "resolved": 4294294956
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4892256,
@@ -1851,7 +1863,7 @@
           "resolved": 2978945
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893536,
@@ -1878,7 +1890,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893680,
@@ -1905,7 +1917,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893744,
@@ -1932,7 +1944,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893792,
@@ -1959,7 +1971,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893808,
@@ -2003,7 +2015,7 @@
           "resolved": 10751272
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4893824,
@@ -2030,7 +2042,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894144,
@@ -2057,7 +2069,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894240,
@@ -2101,7 +2113,7 @@
           "resolved": 10751272
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894272,
@@ -2128,7 +2140,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894432,
@@ -2172,7 +2184,7 @@
           "resolved": 10751272
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894464,
@@ -2199,7 +2211,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894592,
@@ -2275,7 +2287,7 @@
           "resolved": 2923882
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4894672,
@@ -2311,7 +2323,7 @@
           "resolved": 12
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4895984,
@@ -2387,7 +2399,7 @@
           "resolved": 2919596
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4896032,
@@ -2527,7 +2539,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4896560,
@@ -2603,7 +2615,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897280,
@@ -2639,7 +2651,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897584,
@@ -2675,7 +2687,7 @@
           "resolved": 8728508
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897600,
@@ -2711,7 +2723,7 @@
           "resolved": 8728520
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897616,
@@ -2747,7 +2759,7 @@
           "resolved": 8728524
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897632,
@@ -2783,7 +2795,7 @@
           "resolved": 8728512
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897648,
@@ -2819,7 +2831,7 @@
           "resolved": 8728516
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897664,
@@ -2855,7 +2867,7 @@
           "resolved": 8217232
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897680,
@@ -3251,7 +3263,7 @@
           "resolved": 8625260
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4897696,
@@ -3703,7 +3715,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4906496,
@@ -3779,7 +3791,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4909264,
@@ -4335,7 +4347,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4909504,
@@ -4452,7 +4464,7 @@
           "resolved": 4912579
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4912464,
@@ -4848,7 +4860,7 @@
           "resolved": 7972664
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4912720,
@@ -5300,7 +5312,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4914224,
@@ -5480,7 +5492,7 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4916816,
@@ -5668,10 +5680,282 @@
           "resolved": 8590772
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4918576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4920128,
+      "method": "004b1340",
+      "body_bytes": 297,
+      "body_sha256": "a0985314c7a16606f56bae30ca2ed3ff27abbc8f1a0b4bb95e39432d79d9f349",
+      "padding_bytes": 7,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "6ed81ccb7830988c375be37ec99f25d6aa020ee6e4be224e628204ee1391720a",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Direct3D@@YAJXZ",
+      "symbol_prefix": "?Init_Direct3D@@YAJXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?DirectDrawObject@@3PAUIDirectDraw@@A",
+          "target": 8725452,
+          "addend": 0,
+          "resolved": 8725452
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?Direct3DObject@@3PAUIDirect3D@@A",
+          "target": 8728552,
+          "addend": 0,
+          "resolved": 8728552
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "_IID_IDirect3D",
+          "target": 8060336,
+          "addend": 0,
+          "resolved": 8060336
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "?Direct3DObject@@3PAUIDirect3D@@A",
+          "target": 8728552,
+          "addend": 0,
+          "resolved": 8728552
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Direct3DObject2@@3PAUIDirect3D2@@A",
+          "target": 8728540,
+          "addend": 0,
+          "resolved": 8728540
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "_IID_IDirect3D2",
+          "target": 8061120,
+          "addend": 0,
+          "resolved": 8061120
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?Direct3DObject2@@3PAUIDirect3D2@@A",
+          "target": 8728540,
+          "addend": 0,
+          "resolved": 8728540
+        },
+        {
+          "offset": 74,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_IID_IDirect3DHALDevice",
+          "target": 8061184,
+          "addend": 0,
+          "resolved": 8061184
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "?Direct3DObject2@@3PAUIDirect3D2@@A",
+          "target": 8728540,
+          "addend": 0,
+          "resolved": 8728540
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 163,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 197,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 210,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 274,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 280,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        }
+      ],
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
+      "source": "rebuild/src/dsurface.cpp",
+      "population": "rebuild-dsurface",
+      "source_order": 4920128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4920432,
+      "method": "004b1470",
+      "body_bytes": 76,
+      "body_sha256": "b7bb1fb1729b0af8e14347bf29586f836aeaf56f062472a9e4ffd331a14f551a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "ffd6bf66e0f14c1a7f7b108513393e3e1920f79328c08b6dc547f129f932767c",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release_Direct3D@@YIXXZ",
+      "symbol_prefix": "?Release_Direct3D@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "?Direct3DViewport@@3PAUIDirect3DViewport2@@A",
+          "target": 8728548,
+          "addend": 0,
+          "resolved": 8728548
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?Direct3DDevice@@3PAUIDirect3DDevice2@@A",
+          "target": 8728544,
+          "addend": 0,
+          "resolved": 8728544
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?Direct3DObject2@@3PAUIDirect3D2@@A",
+          "target": 8728540,
+          "addend": 0,
+          "resolved": 8728540
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Direct3DObject2@@3PAUIDirect3D2@@A",
+          "target": 8728540,
+          "addend": 0,
+          "resolved": 8728540
+        }
+      ],
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
+      "source": "rebuild/src/dsurface.cpp",
+      "population": "rebuild-dsurface",
+      "source_order": 4920432,
       "source_quality_family": "rebuild"
     },
     {
@@ -5704,7 +5988,7 @@
           "resolved": 2898316
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4920512,
@@ -5731,7 +6015,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4920544,
@@ -5815,7 +6099,7 @@
           "resolved": 2951122
         }
       ],
-      "source_sha256": "0450fb17afa851799a301867526d2f581894c9e37a339a3c87fb3d7886946a8f",
+      "source_sha256": "fdb2628403c4d145d1af275185619c798b9e4e4471746aecafa1e63cfb87daa0",
       "source": "rebuild/src/dsurface.cpp",
       "population": "rebuild-dsurface",
       "source_order": 4920560,

@@ -112,6 +112,9 @@
     "??RCRCEngine@@QAEHPBXH@Z": 4800448,
     "??RCRCEngine@@QAEX_N@Z": 4800128,
     "??RCRCEngine@@QAEXD@Z": 4799984,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Pixel_To_Lepton@Tactical@@QAE?AVPoint2D@@ABV2@@Z": 6957312,
+    "__real@8@3ffe947ae147ae147800": 8049000,
     "??1TechnoTypeClass@@UAE@XZ": 7186768,
     "??_7?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@6B@": 8032644,
     "??_7?$DynamicVectorClass@H@@6B@": 7985812,
@@ -134,9 +137,10 @@
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
     "??0TechnoTypeClass@@QAE@ABVNoInitClass@@@Z": 7186144,
+    "??_G?$TypeList@PBVParticleSystemTypeClass@@@@UAEPAXI@Z": 7206976,
     "??_G?$TypeList@PBVVoxelAnimTypeClass@@@@UAEPAXI@Z": 6631408,
     "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
-    "??_G?$TypeList@PBVParticleSystemTypeClass@@@@UAEPAXI@Z": 7206976,
+    "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -166,13 +170,12 @@
     "?Release@AbstractClass@@UAGKXZ": 4260016,
     "?AddRef@AbstractClass@@UAGKXZ": 4260000,
     "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
-    "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
     "?Coord_Fixup@ObjectTypeClass@@UBE?BVCoord@@ABV2@@Z": 4309728,
     "?Get_Image_Data@ObjectTypeClass@@UBEPBXXZ": 4309760,
+    "??_G?$VectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z": 4540176,
     "??_G?$VectorClass@PBVVoxelAnimTypeClass@@@@UAEPAXI@Z": 6636432,
     "??_G?$VectorClass@H@@UAEPAXI@Z": 4643440,
-    "??_G?$VectorClass@PBVParticleSystemTypeClass@@@@UAEPAXI@Z": 4540176,
     "??_G?$VectorClass@PBVBuildingTypeClass@@@@UAEPAXI@Z": 5211280,
     "??_G?$VectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
     "?CanUseWaypoint@TechnoTypeClass@@UBE_NXZ": 7187632,
@@ -197,6 +200,10 @@
     "?Flight_Level@TechnoTypeClass@@UBEHXZ": 7206400,
     "?Load_Palette@TechnoTypeClass@@QAEXXZ": 7206432,
     "?Load_Techno_Palettes@@YIXXZ": 7206464,
+    "?Has_Turret_Weapons@TechnoTypeClass@@QBE_NXZ": 7206528,
+    "?Get_Turret_Weapon@TechnoTypeClass@@QBEHH@Z": 7206576,
+    "?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AVCoord@@XZ": 7206592,
+    "?Set_Turret_Weapon@TechnoTypeClass@@QAEXHH@Z": 7206544,
     "?Clear@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEXXZ": 6630128,
     "?ID@?$DynamicVectorClass@PBVVoxelAnimTypeClass@@@@UAEHPBQBVVoxelAnimTypeClass@@@Z": 6630176,
     "?GetItem@?$VectorClass@PBVVoxelAnimTypeClass@@@@UBEPBVVoxelAnimTypeClass@@H@Z": 6630208,
@@ -326,7 +333,7 @@
           "resolved": 11272688
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182672,
@@ -377,7 +384,7 @@
           "resolved": 11272760
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182720,
@@ -428,7 +435,7 @@
           "resolved": 11272744
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182752,
@@ -479,7 +486,7 @@
           "resolved": 11272736
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182784,
@@ -530,7 +537,7 @@
           "resolved": 11272696
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182816,
@@ -581,7 +588,7 @@
           "resolved": 11272656
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182848,
@@ -664,7 +671,7 @@
           "resolved": 11272768
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182880,
@@ -723,7 +730,7 @@
           "resolved": 11272704
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182944,
@@ -782,7 +789,7 @@
           "resolved": 11272728
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7182992,
@@ -841,7 +848,7 @@
           "resolved": 11272752
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7183040,
@@ -884,7 +891,7 @@
           "resolved": 11272682
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7183088,
@@ -935,7 +942,7 @@
           "resolved": 11272720
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7183104,
@@ -994,7 +1001,7 @@
           "resolved": 11272676
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7183136,
@@ -1429,7 +1436,7 @@
           "resolved": 10750664
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7186144,
@@ -1784,7 +1791,7 @@
           "resolved": 4293897920
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7186768,
@@ -1810,7 +1817,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187632,
@@ -1836,7 +1843,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187648,
@@ -1862,7 +1869,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187680,
@@ -1897,7 +1904,7 @@
           "resolved": 10736280
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187696,
@@ -1948,7 +1955,7 @@
           "resolved": 672740
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187728,
@@ -1991,7 +1998,7 @@
           "resolved": 672687
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187760,
@@ -2074,7 +2081,7 @@
           "resolved": 672473
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7187840,
@@ -2117,7 +2124,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7188032,
@@ -2160,7 +2167,7 @@
           "resolved": 672276
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7188160,
@@ -2195,7 +2202,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7188240,
@@ -2221,7 +2228,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7188256,
@@ -2312,7 +2319,7 @@
           "resolved": 4292453774
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7200992,
@@ -2380,7 +2387,7 @@
           "resolved": 7201331
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7201312,
@@ -3183,7 +3190,7 @@
           "resolved": 4294068112
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7201376,
@@ -3290,7 +3297,7 @@
           "resolved": 2343
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7203856,
@@ -3325,7 +3332,7 @@
           "resolved": 4293889935
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7204576,
@@ -4160,7 +4167,7 @@
           "resolved": 4292561101
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7204816,
@@ -4186,7 +4193,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206336,
@@ -4212,7 +4219,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206368,
@@ -4247,7 +4254,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206400,
@@ -4282,7 +4289,7 @@
           "resolved": 4294065480
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206432,
@@ -4341,10 +4348,155 @@
           "resolved": 10750664
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7206528,
+      "method": "006df680",
+      "body_bytes": 14,
+      "body_sha256": "07e2e206d224b52d6ec0a3281adc6245f7e74b95199557d91e23c67923624fb8",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5e997f58a254a0814ca424b52fa7aa0c70d57b11c257f3904c8802e3f48cf9d8",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Has_Turret_Weapons@TechnoTypeClass@@QBE_NXZ",
+      "symbol_prefix": "?Has_Turret_Weapons@TechnoTypeClass@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
+      "source": "rebuild/src/techtype.cpp",
+      "population": "rebuild-techtype",
+      "source_order": 7206528,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7206544,
+      "method": "006df690",
+      "body_bytes": 18,
+      "body_sha256": "68b41be21f08711b1c9bf5fb9de9ebf5957ba8e55d95336b9f3ed34610f6ced6",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "6b5299cb216537f50f964959d18ee71dc41b2e4fe4f54942c92ac8aa8c5eeea0",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Turret_Weapon@TechnoTypeClass@@QAEXHH@Z",
+      "symbol_prefix": "?Set_Turret_Weapon@TechnoTypeClass@@QAEXHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
+      "source": "rebuild/src/techtype.cpp",
+      "population": "rebuild-techtype",
+      "source_order": 7206544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7206576,
+      "method": "006df6b0",
+      "body_bytes": 14,
+      "body_sha256": "3e7b50e47fb80af185a1eaba882e145886a4d3c4fe3b5b995cf051a16ab49ceb",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9e06c4038a8742b6486329757ff32fc7156ecf7412d3fba01e63c5b564594814",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Turret_Weapon@TechnoTypeClass@@QBEHH@Z",
+      "symbol_prefix": "?Get_Turret_Weapon@TechnoTypeClass@@QBEHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
+      "source": "rebuild/src/techtype.cpp",
+      "population": "rebuild-techtype",
+      "source_order": 7206576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7206592,
+      "method": "006df6c0",
+      "body_bytes": 212,
+      "body_sha256": "f08f95eee6736cee38244f72579da05099ba938e8c4959fe1169fe39e616663f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 224,
+      "full_extent_sha256": "ed70835fd6ccf76cee8a65605a8f488f0fdd5fa5b3d9c3544b35b7b84d07c941",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AVCoord@@XZ",
+      "symbol_prefix": "?Damage_Smoke_Offset@TechnoTypeClass@@QBE?AVCoord@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Pixel_To_Lepton@Tactical@@QAE?AVPoint2D@@ABV2@@Z",
+          "target": 6957312,
+          "addend": 0,
+          "resolved": 4294717952
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292717781
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "__real@8@3ffe947ae147ae147800",
+          "target": 8049000,
+          "addend": 0,
+          "resolved": 8049000
+        },
+        {
+          "offset": 133,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 653767
+        }
+      ],
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
+      "source": "rebuild/src/techtype.cpp",
+      "population": "rebuild-techtype",
+      "source_order": 7206592,
       "source_quality_family": "rebuild"
     },
     {
@@ -4384,7 +4536,7 @@
           "resolved": 664966
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206816,
@@ -4419,7 +4571,7 @@
           "resolved": 8048964
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206848,
@@ -4446,7 +4598,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206896,
@@ -4497,7 +4649,7 @@
           "resolved": 664763
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7206976,
@@ -4532,7 +4684,7 @@
           "resolved": 8032644
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207056,
@@ -4567,7 +4719,7 @@
           "resolved": 7985812
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207072,
@@ -4602,7 +4754,7 @@
           "resolved": 8007464
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207088,
@@ -4653,7 +4805,7 @@
           "resolved": 7983308
         }
       ],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207216,
@@ -4679,7 +4831,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207312,
@@ -4705,7 +4857,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "21031c50c331d778cb6b1ceb8bcb92bec4bdad820fd61898003933b8d5b7ac21",
+      "source_sha256": "f584195340c0398372c1d8d2b926c51df2ba94c0f80ebc51001a0d1ffbe3b2cd",
       "source": "rebuild/src/techtype.cpp",
       "population": "rebuild-techtype",
       "source_order": 7207536,

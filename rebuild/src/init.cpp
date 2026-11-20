@@ -2987,7 +2987,7 @@ static bool Cheat_Key_Process(char chr) // RA2: static: RA2 has no out-of-line c
 /// and is given the small flag picture on a 640 pixel wide screen.
 /// </summary>
 /// <param name="dialog">The dialog whose flag control is to be placed.</param>
-inline void Show_Dialog_With_Flag(HWND dialog) // RA2: 0x005115F0, not in TibSun: puts the flag picture (control 0x71A) at the dialog corner of a 800x600 or larger screen; inline here, the out-of-line copy lies before this part
+void Show_Dialog_With_Flag(HWND dialog) // RA2: 0x005115F0, not in TibSun: puts the flag picture (control 0x71A) at the dialog corner of a 800x600 or larger screen
 {
 	HWND item = GetDlgItem(dialog, 0x71A); // RA2: as above
 	if (item != NULL) { // RA2: as above

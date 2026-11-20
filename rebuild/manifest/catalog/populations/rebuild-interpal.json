@@ -4,10 +4,12 @@
     "id": "rebuild-interpal",
     "inventory_sha256": "d1c807fab9a78362b422c6ddb86d8f893b4d837fab7b00ae971a702769a86120",
     "gaps_sha256": "268bb79ce2f9021902d21e3b6f42af2c7dc5ed11e6dbb390d94a5b3edf913b3c",
-    "historical_population_sha256": "48add760b8ef7beb163beff78aa788113e430c68a99704e1313ddfa0cb146933",
-    "historical_acceptance_sha256": "bb346fe0f4a793359eb28d68a30c03e53c542a0d8291adfefe9749a28bef0155"
+    "historical_population_sha256": "883d351ff754068284208dcfc3aeae2d944f3834f60e30fc7fa1aefe7430173f",
+    "historical_acceptance_sha256": "e24b20332c14d0a5b286ce0b9ff3c2c1442ada73954aa94c9f65bbb77fcd31f9"
   },
   "references": {
+    "?Remainder@?$Int@$0EA@@@2V1@A": 10753728,
+    "?XMP_Init@@YIXPAIIH@Z": 5930144,
     "_RECT_NONE": 10754000,
     "??0CCFileClass@@QAE@PBD@Z": 4624208,
     "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
@@ -31,17 +33,13 @@
     "?Asm_Interpolate_Line_Interpolate@@YAXPAE0HHH@Z": 7967803,
     "?Asm_Interpolate_Line_Double@@YAXPAE0HHH@Z": 7967462,
     "?Asm_Interpolate@@YAXPAE0HHH@Z": 7967297,
+    "?Borrow@?$Int@$0EA@@@2_NA": 10753989,
+    "?Carry@?$Int@$0EA@@@2_NA": 10753988,
+    "?Error@?$Int@$0EA@@@2HA": 10753984,
+    "_$E6": 5367792,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
-    "_$E7": 5367808,
+    "_$E14": 5367808,
     "?Read_Interpolation_Palette@@YIXPBD@Z": 5367840,
-    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
-    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
-    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
-    "?Size@CCFileClass@@UAEHXZ": 4624720,
-    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
-    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
-    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
-    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -54,15 +52,23 @@
     "?Open@CDFileClass@@UAEHH@Z": 4652560,
     "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
     "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "?Delete@RawFileClass@@UAEHXZ": 6525504,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
-    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
     "??_R0?AVFileClass@@@8": 8177872,
     "??_R0?AVRawFileClass@@@8": 8177896,
     "??_R0?AVBufferIOFileClass@@@8": 8177928,
-    "??_7type_info@@6B@": 8066532,
     "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCCFileClass@@@8": 8177840,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "??3@YAXPAX@Z": 7871803,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
@@ -71,6 +77,50 @@
     "?Interpolate_2X_Scale@@YIXPAVSurface@@0PBD@Z": 5368576
   },
   "regions": [
+    {
+      "entry": 5367792,
+      "method": "0051e7f0",
+      "body_bytes": 15,
+      "body_sha256": "8d1694fdab89e1895444c06933add48385cfae6a6d94e0db1c517902cdc87c7c",
+      "padding_bytes": 1,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "6bdd896168c1154e839f28edb4ebbd45a9f064a1232d56a9b41622a5efb61a6f",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E6",
+      "symbol_prefix": "_$E6",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "?Remainder@?$Int@$0EA@@@2V1@A",
+          "target": 10753728,
+          "addend": 0,
+          "resolved": 10753728
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "?XMP_Init@@YIXPAIIH@Z",
+          "target": 5930144,
+          "addend": 0,
+          "resolved": 562338
+        }
+      ],
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
+      "source": "rebuild/src/interpal.cpp",
+      "population": "rebuild-interpal",
+      "source_order": 5367792,
+      "source_quality_family": "rebuild"
+    },
     {
       "entry": 5367808,
       "method": "0051e800",
@@ -81,8 +131,8 @@
       "full_extent_sha256": "0c7f4dcd290bd125b5cee0519e48a2551ce4ebf7f82e4001afd41f7b1a79a2b8",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E7",
-      "symbol_prefix": "_$E7",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
       "options": [
         "/O2",
         "/Ob2",
@@ -125,7 +175,7 @@
           "resolved": 10754012
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5367808,
@@ -241,7 +291,7 @@
           "resolved": 4293987004
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5367840,
@@ -349,7 +399,7 @@
           "resolved": 4293986883
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5367968,
@@ -425,7 +475,7 @@
           "resolved": 10819556
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5368096,
@@ -477,7 +527,7 @@
           "resolved": 4294837630
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5368400,
@@ -729,7 +779,7 @@
           "resolved": 2598279
         }
       ],
-      "source_sha256": "e31aa800e32358fabeb0887b3de32ce455d28d2569b5cdac16585f50afbe4a99",
+      "source_sha256": "6aa5c027632dbed2ffbbe4a0136d243919dfe2b4b5fdcc4e539b5ffa1662077d",
       "source": "rebuild/src/interpal.cpp",
       "population": "rebuild-interpal",
       "source_order": 5368576,

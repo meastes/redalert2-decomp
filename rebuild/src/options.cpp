@@ -713,7 +713,6 @@ int OptionsClass::Normalize_Volume(int volume) const
 /// KEYBOARD.INI; canceling puts the previous assignments back.
 /// </summary>
 /// <returns>Returns with TRUE if the message was consumed by this dialog.</returns>
-#if 0
 BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	wchar_t buffer[64];
@@ -735,10 +734,10 @@ BOOL CALLBACK Hotkey_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 				CommandClass * cmd = (CommandClass *)ListBox_GetItemData(list_commands, selection);
 				HWND hotkey = GetDlgItem(window, IDC_KEY_HOTKEY);
 				int key = Hotkey_To_Key(SendMessage(hotkey, HKM_GETHOTKEY, 0, 0));
-				if (!Can_Use_Modified_Key(*cmd, key)) {
+				if (!Command_Allows_Modified_Key(*cmd, key)) {
 					HWND error = GetDlgItem(window, HKD_ERROR_TEXT);
 					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotMap", NULL, "D:\\Ra2\\Options.CPP", 987));
-				} else if (!Can_Use_Hotkey(key)) {
+				} else if (!Command_Allows_Key(key)) {
 					HWND error = GetDlgItem(window, HKD_ERROR_TEXT);
 					SendMessage(error, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString("Error:CannotRemap", NULL, "D:\\Ra2\\Options.CPP", 995));
 					return(TRUE);
@@ -961,8 +960,6 @@ bool OptionsClass::Hotkey_Dialog(void)
 /// <summary>
 /// Fetches the tactical map scrolling method the player prefers.
 /// </summary>
-#endif
-
 int OptionsClass::Get_Scroll_Method(void) const
 {
 	return(ScrollMethod);

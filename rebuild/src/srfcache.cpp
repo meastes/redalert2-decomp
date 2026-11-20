@@ -443,12 +443,10 @@ void SurfaceCacheClass::Remove(char const * name)
 /// <param name="tosurface">Unused.</param>
 /// <param name="fromsurface">Unused.</param>
 /// <returns>Always false.</returns>
-#if 0
 bool SurfaceCacheClass::DrawNullsub(Rect const & rect, Surface & tosurface, Surface & fromsurface)
 {
 	return(false);
 }
-#endif
 
 
 

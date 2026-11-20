@@ -2884,3 +2884,13 @@ bool ObjectClass::CanBeSelected(void) const // RA2: not in TibSun, at 0x005D54B0
 	return(Class_Of()->IsSelectable);
 }
 
+
+
+// RA2: replace the object's custom sound; -1 stops the current sound.
+void ObjectClass::Set_Ambient_Sound(int voc)
+{
+	CustomSound = voc;
+	if (voc == -1) {
+		CustomSoundController.End();
+	}
+}

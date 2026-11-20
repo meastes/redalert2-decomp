@@ -246,6 +246,7 @@
     "?Compute_CRC@MissionClass@@UBEXAAVCRCEngine@@@Z": 5853248,
     "?Current_Mission_Control@MissionClass@@QBEABVMissionControlClass@@XZ": 5853392,
     "?Has_Suspended_Mission@MissionClass@@UBE_NXZ": 5853408,
+    "?Timer_Value@MissionClass@@QBEHXZ": 5853424,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "?QueryInterface@AbstractClass@@W3AGJABU_GUID@@PAPAX@Z": 4260736,
     "?AddRef@AbstractClass@@W3AGKXZ": 4260752,
@@ -314,7 +315,7 @@
           "resolved": 10947688
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5849872,
@@ -366,7 +367,7 @@
           "resolved": 10947760
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5849920,
@@ -418,7 +419,7 @@
           "resolved": 10947744
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5849952,
@@ -470,7 +471,7 @@
           "resolved": 10947736
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5849984,
@@ -522,7 +523,7 @@
           "resolved": 10947696
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850016,
@@ -574,7 +575,7 @@
           "resolved": 10947656
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850048,
@@ -658,7 +659,7 @@
           "resolved": 10947768
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850080,
@@ -718,7 +719,7 @@
           "resolved": 10947704
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850144,
@@ -778,7 +779,7 @@
           "resolved": 10947728
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850192,
@@ -838,7 +839,7 @@
           "resolved": 10947752
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850240,
@@ -882,7 +883,7 @@
           "resolved": 10947682
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850288,
@@ -934,7 +935,7 @@
           "resolved": 10947720
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850304,
@@ -994,7 +995,7 @@
           "resolved": 10947676
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850336,
@@ -1070,7 +1071,7 @@
           "resolved": 8020436
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850368,
@@ -1097,7 +1098,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850480,
@@ -1124,7 +1125,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850496,
@@ -1151,7 +1152,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850512,
@@ -1178,7 +1179,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850528,
@@ -1205,7 +1206,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850544,
@@ -1232,7 +1233,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850560,
@@ -1259,7 +1260,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850576,
@@ -1286,7 +1287,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850592,
@@ -1313,7 +1314,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850608,
@@ -1340,7 +1341,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850624,
@@ -1367,7 +1368,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850640,
@@ -1394,7 +1395,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850656,
@@ -1421,7 +1422,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850672,
@@ -1448,7 +1449,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850688,
@@ -1475,7 +1476,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850704,
@@ -1502,7 +1503,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850720,
@@ -1529,7 +1530,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850736,
@@ -1556,7 +1557,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850752,
@@ -1583,7 +1584,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850768,
@@ -1610,7 +1611,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850784,
@@ -1637,7 +1638,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850800,
@@ -1664,7 +1665,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850816,
@@ -1691,7 +1692,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850832,
@@ -1718,7 +1719,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850848,
@@ -1745,7 +1746,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850864,
@@ -1772,7 +1773,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850880,
@@ -1816,7 +1817,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850896,
@@ -1843,7 +1844,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5850992,
@@ -2360,7 +2361,7 @@
           "resolved": 5851975
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5851024,
@@ -2404,7 +2405,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852240,
@@ -2431,7 +2432,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852336,
@@ -2458,7 +2459,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852448,
@@ -2485,7 +2486,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852544,
@@ -2521,7 +2522,7 @@
           "resolved": 10748854
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852592,
@@ -2548,7 +2549,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852624,
@@ -2592,7 +2593,7 @@
           "resolved": 8181620
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852688,
@@ -2908,7 +2909,7 @@
           "resolved": 7976464
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5852720,
@@ -2960,7 +2961,7 @@
           "resolved": 8181740
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853152,
@@ -3004,7 +3005,7 @@
           "resolved": 8183500
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853216,
@@ -3096,7 +3097,7 @@
           "resolved": 4293914225
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853248,
@@ -3132,7 +3133,7 @@
           "resolved": 10748848
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853392,
@@ -3159,10 +3160,46 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853408,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5853424,
+      "method": "005950f0",
+      "body_bytes": 35,
+      "body_sha256": "ac866ed52538eda8ffcfb402fa6c0a59b7bc263d19ef7ad8b2100a218ae5d055",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "3a9b0c831fc5e7df8ec9d8c4019ebd440bd462d2f25dac3b1c411991c63810df",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Timer_Value@MissionClass@@QBEHXZ",
+      "symbol_prefix": "?Timer_Value@MissionClass@@QBEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
+      "source": "rebuild/src/mission.cpp",
+      "population": "rebuild-mission",
+      "source_order": 5853424,
       "source_quality_family": "rebuild"
     },
     {
@@ -3186,7 +3223,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853472,
@@ -3262,7 +3299,7 @@
           "resolved": 2018267
         }
       ],
-      "source_sha256": "63c2665f9fbdc80268ebadb80a8a4f8d70b64dee8afd40906f6f00759f8594fe",
+      "source_sha256": "45d17b4247007ae7f46a068f25ec8cc5e7902f84e24f27ac768ac958ace0db20",
       "source": "rebuild/src/mission.cpp",
       "population": "rebuild-mission",
       "source_order": 5853488,

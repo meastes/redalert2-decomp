@@ -60,6 +60,7 @@
 #include <math.h>
 #include <d3d.h>
 #include "globals.h"
+#include "_surface.h"
 #include "win.h"
 
 
@@ -3877,3 +3878,63 @@ static inline void Clear_Desc(DeviceDesc * desc)
 
 
 
+
+IDirect3D * Direct3DObject = NULL;
+IDirect3D2 * Direct3DObject2 = NULL;
+IDirect3DDevice2 * Direct3DDevice = NULL;
+IDirect3DViewport2 * Direct3DViewport = NULL;
+
+HRESULT __cdecl Init_Direct3D()
+{
+	IDirectDrawSurface * surface = ((DSurface *)CompositeSurface)->Get_DD_Surface();
+	HRESULT result = DirectDrawObject->QueryInterface(IID_IDirect3D, (void **)&Direct3DObject);
+	if (result != DD_OK) {
+		return result;
+	}
+	result = Direct3DObject->QueryInterface(IID_IDirect3D2, (void **)&Direct3DObject2);
+	if (result != DD_OK) {
+		return result;
+	}
+	result = Direct3DObject2->CreateDevice(IID_IDirect3DHALDevice, surface, &Direct3DDevice);
+	if (result != DD_OK) {
+		return result;
+	}
+	result = Direct3DObject2->CreateViewport(&Direct3DViewport, 0);
+	if (result != DD_OK) {
+		return result;
+	}
+	result = Direct3DDevice->AddViewport(Direct3DViewport);
+	if (result != DD_OK) {
+		Direct3DViewport->Release();
+		Direct3DViewport = 0;
+		return result;
+	}
+	D3DVIEWPORT2 viewport;
+	memset(&viewport, 0, sizeof(viewport));
+	viewport.dwSize = sizeof(viewport);
+	viewport.dwWidth = VideoModeWidth;
+	viewport.dwHeight = VideoModeHeight;
+	viewport.dvClipX = -1.0f;
+	viewport.dvClipWidth = 2.0f;
+	viewport.dvClipY = 1.0f;
+	viewport.dvClipHeight = 2.0f;
+	viewport.dvMaxZ = 1.0f;
+	Direct3DViewport->SetViewport2(&viewport);
+	return Direct3DDevice->SetCurrentViewport(Direct3DViewport);
+}
+
+void Release_Direct3D()
+{
+	if (Direct3DViewport != 0) {
+		Direct3DViewport->Release();
+		Direct3DViewport = 0;
+	}
+	if (Direct3DDevice != 0) {
+		Direct3DDevice->Release();
+		Direct3DDevice = 0;
+	}
+	if (Direct3DObject2 != 0) {
+		Direct3DObject2->Release();
+		Direct3DObject2 = 0;
+	}
+}

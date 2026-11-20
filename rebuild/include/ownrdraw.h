@@ -274,6 +274,7 @@ namespace OwnerDraw {
 
 	HWND Custom_Message_Box(wchar_t const * btn1txt, wchar_t const * btn2txt = NULL, bool * cancelled = NULL); // RA2: wide text
 	void Set_Custom_Message_Box_Text(HWND window, wchar_t const * text); // RA2: wide text
+	void __fastcall Get_Keyboard_Key_String(unsigned short hotkey, wchar_t * text); // RA2: 0x5FC600; the key name of a hotkey value
 };
 
 

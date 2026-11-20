@@ -41,6 +41,8 @@
 #include "session.h"
 #include "swizzle.h"
 #include "tracker.h"
+#include "tactical.h"
+#include "_tactica.h"
 #include "unittype.h"
 #include "vanimtype.h"
 #include "weapon.h"
@@ -1673,3 +1675,40 @@ void TechnoTypeClass::Set_Weapon(WeaponDataStruct const & weapon, int which)
 }
 #endif
 
+
+bool TechnoTypeClass::Has_Turret_Weapons(void) const
+{
+	return TurretCount > 0;
+}
+
+int TechnoTypeClass::Get_Turret_Weapon(int which) const
+{
+	return TurretWeapon[which];
+}
+
+// RA2: converts screen-relative damage smoke to a world offset and height.
+Coord TechnoTypeClass::Damage_Smoke_Offset(void) const
+{
+	if (DamSmkOffScrnRel) {
+		Point2D screen = Point2D(DamageSmokeOffset.X, DamageSmokeOffset.Y);
+		Coord offset = Coord(TacticalMap->Pixel_To_Lepton(screen), 0);
+		int height = DamageSmokeOffset.Z * 10;
+		offset.X -= height;
+		offset.Y -= height;
+		double side = height;
+		int lift = (int)(fastmath::sqrt(side * side + side * side) * 0.58);
+		if (DamageSmokeOffset.Z < 0) {
+			offset.Z = lift;
+		} else {
+			offset.Z -= lift;
+		}
+		return offset;
+	}
+	return DamageSmokeOffset;
+}
+
+// RA2: choose the weapon used by one turret.
+void TechnoTypeClass::Set_Turret_Weapon(int weapon, int which)
+{
+	TurretWeapon[which] = weapon;
+}

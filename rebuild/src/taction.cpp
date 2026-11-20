@@ -746,7 +746,7 @@ bool TActionClass::TAction_DEACTIVATE_FIRESTORM(HouseClass * , ObjectClass * , T
 /// The defense is toggled by firing the house's firestorm super weapon, so this
 /// action does nothing when the wall is already up.
 /// </summary>
-inline bool TActionClass::TAction_ACTIVATE_FIRESTORM(HouseClass * , ObjectClass * , TriggerClass * , Cell const & ) // RA2: only inlined in operator(), no copy of its own
+bool TActionClass::TAction_ACTIVATE_FIRESTORM(HouseClass *, ObjectClass *, TriggerClass *, Cell const &) // RA2: the action succeeds without changing the firestorm defense
 {
 	return(true);
 }

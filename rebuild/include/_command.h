@@ -16,3 +16,6 @@ class CommandClass;
 
 extern DynamicVectorClass<CommandClass const *> AllCommands;
 extern IndexClass<int, CommandClass const *> HotkeyCommands;
+
+bool __fastcall Command_Allows_Modified_Key(CommandClass const & command, unsigned key);
+bool __fastcall Command_Allows_Key(unsigned key);

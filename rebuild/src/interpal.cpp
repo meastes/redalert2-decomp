@@ -38,6 +38,13 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "int.h"
+
+// RA2: shared multiprecision arithmetic state.
+int BigInt::Error = 0;
+bool BigInt::Carry = false;
+bool BigInt::Borrow = false;
+BigInt BigInt::Remainder;
 
 #include "interpal.h"
 

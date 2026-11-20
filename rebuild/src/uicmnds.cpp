@@ -933,7 +933,6 @@ void __fastcall Select_Type(char const * name)
 /// <summary>
 /// Whether the object is of any of the kinds in the list.
 /// </summary>
-#if 0
 bool __fastcall Matches_Any_Name(TechnoClass * techno, DynamicVectorClass<char const *> const & names)
 {
 	int count = names.Count();
@@ -945,7 +944,6 @@ bool __fastcall Matches_Any_Name(TechnoClass * techno, DynamicVectorClass<char c
 	}
 	return false;
 }
-#endif
 
 
 bool TypeSelectKeyHeld;
@@ -975,7 +973,6 @@ bool Is_Type_Select_Key_Held(void)
 /// <summary>
 /// Collects the type names of the selected objects, each once.
 /// </summary>
-#if 0
 DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void)
 {
 	DynamicVectorClass<char const *> * names = new DynamicVectorClass<char const *>(0, NULL);
@@ -988,7 +985,6 @@ DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void)
 	}
 	return names;
 }
-#endif
 
 
 /// <summary>
@@ -1138,7 +1134,6 @@ int __fastcall Next_Rank_Kind(int last)
 /// <summary>
 /// Collects the type names of a list of objects, each once.
 /// </summary>
-#if 0
 DynamicVectorClass<char const *> * __fastcall Collect_Type_Names(TechnoList const & objects)
 {
 	DynamicVectorClass<char const *> * names = new DynamicVectorClass<char const *>(0, NULL);
@@ -1151,13 +1146,11 @@ DynamicVectorClass<char const *> * __fastcall Collect_Type_Names(TechnoList cons
 	}
 	return names;
 }
-#endif
 
 
 /// <summary>
 /// Picks the kind of the list's objects that is worth the most but still less than the limit, or the one worth the most; returns its name in a new buffer.
 /// </summary>
-#if 0
 char * __fastcall Pick_Type_By_Cost(TechnoList const & objects, char const * name, int limit, int * best)
 {
 	DynamicVectorClass<char const *> * names = Collect_Type_Names(objects);
@@ -1213,7 +1206,6 @@ char * __fastcall Pick_Type_By_Cost(TechnoList const & objects, char const * nam
 	delete costs;
 	return result;
 }
-#endif
 
 
 /// <summary>
@@ -1263,22 +1255,18 @@ void __fastcall Clear_Sidebar_Tab_Object(TechnoClass * techno)
 /// <summary>
 /// The building the structure tab shows.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 TechnoClass * Get_Structure_Tab_Object(void)
 {
 	return SidebarStructureTabObject;
 }
-#endif
 
 /// <summary>
 /// The building the defense tab shows.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 TechnoClass * Get_Defense_Tab_Object(void)
 {
 	return SidebarDefenseTabObject;
 }
-#endif
 
 /// <summary>
 /// Whether this is a TechnoClass object, by its abstract flags.

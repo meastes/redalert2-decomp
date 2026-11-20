@@ -85,6 +85,7 @@ class MissionClass : public ObjectClass
 #endif
 
 		void Shorten_Mission_Timer(void) {Timer = 0;}
+		int Timer_Value(void) const; // RA2: time remaining before the next mission step
 		virtual MissionType Get_Mission(void) const override;
 		virtual void AI(void) override;
 		virtual void Compute_CRC(CRCEngine &) const override;
