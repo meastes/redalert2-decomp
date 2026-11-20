@@ -4,8 +4,8 @@
     "id": "rebuild-palette",
     "inventory_sha256": "a180853e963a2334459da9dbc5a426f827a3a94159f4d9ca44c3fc7b128f4c2a",
     "gaps_sha256": "08d2db4e3b07bca7d2a8200dc71841476d6d6991769ff87dfd0f138f413c127d",
-    "historical_population_sha256": "0ce62e8b774d3dcf8c423ff16e97feaebbc0eadd0592773443f9a272b95852e5",
-    "historical_acceptance_sha256": "20848f421454ed285933c15d337ca3005b3b96044a9ea95d2d9df510a9b0d4d6"
+    "historical_population_sha256": "6bffb7f798a34025960b78f3ceada10029d351eb24821ebf2602eeed5eb12e5e",
+    "historical_acceptance_sha256": "86701f57616baadd95908fc9a12b35e88144c41efcd9db8610a34ad0ac41ec41"
   },
   "references": {
     "?BlackColor@@3VRGBClass@@B": 11233345,
@@ -33,6 +33,10 @@
     "?Find@SchemeTable@@QAEPAPAVSchemeNode@@ABVHashString@@@Z": 6312128,
     "??1SchemeLibrary@@QAE@XZ": 6308432,
     "??0?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@IPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6314672,
+    "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6315648,
+    "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027000,
+    "??0SchemeLibrary@@QAE@XZ": 6308128,
+    "?Release@SchemeNode@@QAEXXZ": 6304544,
     "?Theaters@@3QBUTheaterDataType@@B": 7973736,
     "??_C@_01PJCK@?4?$AA@": 8240708,
     "?PaletteExtension@@3PBDB": 8304100,
@@ -46,7 +50,6 @@
     "??0HashString@@QAE@ABV0@@Z": 5116288,
     "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
     "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027096,
-    "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@": 8027000,
     "??9HSVClass@@QBE_NABV0@@Z": 5239200,
     "??8@YI_NAAVHSVClass@@ABV0@@Z": 5239264,
     "??_7?$VectorClass@VHSVClass@@@@6B@": 8027128,
@@ -63,7 +66,6 @@
     "??0SchemeNode@@QAE@PBDPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304256,
     "??1SchemeNode@@QAE@XZ": 6304320,
     "?Replace@SchemeNode@@QAEXPAV?$DynamicVectorClass@PAVColorScheme@@@@@Z": 6304416,
-    "?Release@SchemeNode@@QAEXXZ": 6304544,
     "?Generate_Palette@@YIPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z": 6304640,
     "??_G?$DynamicVectorClass@PAD@@UAEPAXI@Z": 4789136,
     "??_7type_info@@6B@": 8066532,
@@ -80,10 +82,14 @@
     "??_G?$VectorClass@PAVColorScheme@@@@UAEPAXI@Z": 6313376,
     "?Add@SchemeLibrary@@QAEXPBD@Z": 6310000,
     "?Replace@SchemeLibrary@@QAEXPBD@Z": 6310336,
+    "?Set_Mode@SchemeLibrary@@QAEXH@Z": 6310608,
     "?Next@SchemeTable@@QAEPAVHashString@@PAUHashIterator@@@Z": 6312224,
     "?Clear@?$DynamicVectorClass@PAVColorScheme@@@@UAEXXZ": 6311120,
     "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHPBQAVColorScheme@@@Z": 6311168,
     "?GetItem@?$VectorClass@PAVColorScheme@@@@UBEPAVColorScheme@@H@Z": 6311200,
+    "?Clear@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEXXZ": 6313904,
+    "?ID@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6313952,
+    "?GetItem@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UBE?AU?$HashObject@VHashString@@PAVSchemeNode@@@@H@Z": 6314000,
     "?Clear@?$DynamicVectorClass@PAD@@UAEXXZ": 4788320,
     "?ID@?$DynamicVectorClass@PAD@@UAEHPBQAD@Z": 4788368,
     "?GetItem@?$VectorClass@PAD@@UBEPADH@Z": 4788400,
@@ -98,9 +104,6 @@
     "?Resize@?$DynamicVectorClass@PAVColorScheme@@@@UAE_NHPBQAVColorScheme@@@Z": 6311744,
     "?ID@?$DynamicVectorClass@PAVColorScheme@@@@UAEHABQAVColorScheme@@@Z": 6311920,
     "??_G?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEPAXI@Z": 6315568,
-    "?Clear@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEXXZ": 6313904,
-    "?ID@?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6313952,
-    "?GetItem@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UBE?AU?$HashObject@VHashString@@PAVSchemeNode@@@@H@Z": 6314000,
     "??8?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UBE_NABV0@@Z": 6314064,
     "?Resize@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAE_NHPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z": 6314144,
     "?Clear@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEXXZ": 6314480,
@@ -150,7 +153,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303696,
@@ -178,7 +181,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303776,
@@ -206,7 +209,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303824,
@@ -234,7 +237,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303872,
@@ -279,7 +282,7 @@
           "resolved": 237157
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303904,
@@ -316,7 +319,7 @@
           "resolved": 237090
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6303952,
@@ -361,7 +364,7 @@
           "resolved": 237021
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304032,
@@ -398,7 +401,7 @@
           "resolved": 236936
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304096,
@@ -435,7 +438,7 @@
           "resolved": 237023
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304176,
@@ -463,7 +466,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304256,
@@ -507,7 +510,7 @@
           "resolved": 1567429
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304320,
@@ -551,7 +554,7 @@
           "resolved": 1567333
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304416,
@@ -595,7 +598,7 @@
           "resolved": 1567205
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304544,
@@ -807,7 +810,7 @@
           "resolved": 4293778476
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6304640,
@@ -834,7 +837,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6305296,
@@ -894,7 +897,7 @@
           "resolved": 4293778150
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6305344,
@@ -1042,7 +1045,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306128,
@@ -1206,7 +1209,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306400,
@@ -1354,7 +1357,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6306832,
@@ -1526,7 +1529,7 @@
           "resolved": 4416
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6307152,
@@ -1587,7 +1590,7 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6307744,
@@ -1719,10 +1722,242 @@
           "resolved": 10970132
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6307792,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6308128,
+      "method": "00604120",
+      "body_bytes": 293,
+      "body_sha256": "8ec96132800bec1c93b766ee9505022bbfd72536a61360ee1c302cab73f9803a",
+      "padding_bytes": 11,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "aff0ebdf84bd684bfff85f62f016a601b1f1aa20feca6389717f7b347c519620",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0SchemeLibrary@@QAE@XZ",
+      "symbol_prefix": "??0SchemeLibrary@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 21,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564382
+        },
+        {
+          "offset": 49,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAD@@6B@",
+          "target": 7988572,
+          "addend": 0,
+          "resolved": 7988572
+        },
+        {
+          "offset": 73,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564330
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@VHSVClass@@@@6B@",
+          "target": 8026968,
+          "addend": 0,
+          "resolved": 8026968
+        },
+        {
+          "offset": 123,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564280
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?SchemeHash@@YIHABVHashString@@@Z",
+          "target": 6305296,
+          "addend": 0,
+          "resolved": 6305296
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564234
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+          "target": 6315648,
+          "addend": 0,
+          "resolved": 7320
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@",
+          "target": 8027000,
+          "addend": 0,
+          "resolved": 8027000
+        }
+      ],
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6308128,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6308432,
+      "method": "00604250",
+      "body_bytes": 582,
+      "body_sha256": "6852d8a2403e1e9894b3d3dad974127ae03a3d5af5197ad55d8ba0a94619c638",
+      "padding_bytes": 10,
+      "full_extent_bytes": 592,
+      "full_extent_sha256": "8fcc329fde33c1ace6aa68534ff35acd0ed3e99ebe348af1a522a21bb2fca96c",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1SchemeLibrary@@QAE@XZ",
+      "symbol_prefix": "??1SchemeLibrary@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1564065
+        },
+        {
+          "offset": 48,
+          "kind": 20,
+          "symbol": "??0SchemeLibrary@@QAE@XZ",
+          "target": 6308128,
+          "addend": 0,
+          "resolved": 4294966940
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1563281
+        },
+        {
+          "offset": 91,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?TheSchemeLibrary@@3PAVSchemeLibrary@@A",
+          "target": 10970132,
+          "addend": 0,
+          "resolved": 10970132
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293774986
+        },
+        {
+          "offset": 347,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293774913
+        },
+        {
+          "offset": 381,
+          "kind": 20,
+          "symbol": "?Release@SchemeNode@@QAEXXZ",
+          "target": 6304544,
+          "addend": 0,
+          "resolved": 4294963023
+        },
+        {
+          "offset": 387,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1562980
+        },
+        {
+          "offset": 442,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293774754
+        },
+        {
+          "offset": 569,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1562798
+        }
+      ],
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6308432,
       "source_quality_family": "rebuild"
     },
     {
@@ -1763,7 +1998,7 @@
           "resolved": 4293774588
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6309024,
@@ -1919,7 +2154,7 @@
           "resolved": 389625
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6309184,
@@ -1995,7 +2230,7 @@
           "resolved": 4293773353
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6310000,
@@ -2063,10 +2298,94 @@
           "resolved": 1561282
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6310336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6310608,
+      "method": "00604ad0",
+      "body_bytes": 511,
+      "body_sha256": "b9bf42fe3b94ecd97b53f13e26177ffb38a4eecb731613b152621d0ce978b1f0",
+      "padding_bytes": 1,
+      "full_extent_bytes": 512,
+      "full_extent_sha256": "a51da63d4f184490115a90ce8393155c41bae809e20b1d4aa6b11d4e6c90eee5",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Mode@SchemeLibrary@@QAEXH@Z",
+      "symbol_prefix": "?Set_Mode@SchemeLibrary@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 84,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293772936
+        },
+        {
+          "offset": 161,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@PBD@Z",
+          "target": 5116224,
+          "addend": 0,
+          "resolved": 4293772747
+        },
+        {
+          "offset": 233,
+          "kind": 20,
+          "symbol": "??8HashString@@QBE_NABV0@@Z",
+          "target": 5116400,
+          "addend": 0,
+          "resolved": 4293772851
+        },
+        {
+          "offset": 270,
+          "kind": 20,
+          "symbol": "?Generate@SchemeLibrary@@QAEPAV?$DynamicVectorClass@PAVColorScheme@@@@PBD@Z",
+          "target": 6309184,
+          "addend": 0,
+          "resolved": 4294965598
+        },
+        {
+          "offset": 320,
+          "kind": 20,
+          "symbol": "??1ColorScheme@@QAE@XZ",
+          "target": 6699952,
+          "addend": 0,
+          "resolved": 389020
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1560865
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "??7HashString@@QBE_NXZ",
+          "target": 5116336,
+          "addend": 0,
+          "resolved": 4293772589
+        }
+      ],
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6310608,
       "source_quality_family": "rebuild"
     },
     {
@@ -2099,7 +2418,7 @@
           "resolved": 1560656
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311120,
@@ -2127,7 +2446,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311168,
@@ -2155,7 +2474,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311200,
@@ -2192,7 +2511,7 @@
           "resolved": 1560560
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311216,
@@ -2219,7 +2538,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311264,
@@ -2246,7 +2565,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311312,
@@ -2273,7 +2592,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311360,
@@ -2318,7 +2637,7 @@
           "resolved": 1560256
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311424,
@@ -2355,7 +2674,7 @@
           "resolved": 1560179
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311600,
@@ -2383,7 +2702,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311648,
@@ -2411,7 +2730,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311712,
@@ -2456,7 +2775,7 @@
           "resolved": 1559949
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311744,
@@ -2484,7 +2803,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311920,
@@ -2537,7 +2856,7 @@
           "resolved": 8027000
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6311968,
@@ -2573,7 +2892,7 @@
           "resolved": 4293771509
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312128,
@@ -2609,7 +2928,7 @@
           "resolved": 4293771337
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312224,
@@ -2645,7 +2964,7 @@
           "resolved": 4293894100
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312352,
@@ -2689,7 +3008,7 @@
           "resolved": 1559020
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312592,
@@ -2725,7 +3044,7 @@
           "resolved": 1558931
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312848,
@@ -2761,7 +3080,7 @@
           "resolved": 4293893615
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312896,
@@ -2788,7 +3107,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6312992,
@@ -2832,7 +3151,7 @@
           "resolved": 1558581
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313040,
@@ -2868,7 +3187,7 @@
           "resolved": 4293893231
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313296,
@@ -2920,7 +3239,7 @@
           "resolved": 1558363
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313376,
@@ -2973,7 +3292,7 @@
           "resolved": 1558283
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313456,
@@ -3050,7 +3369,7 @@
           "resolved": 1558114
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313536,
@@ -3086,7 +3405,7 @@
           "resolved": 8027000
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313712,
@@ -3138,7 +3457,7 @@
           "resolved": 1557995
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313744,
@@ -3190,7 +3509,7 @@
           "resolved": 1557915
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313824,
@@ -3226,7 +3545,7 @@
           "resolved": 1557872
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313904,
@@ -3253,7 +3572,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6313952,
@@ -3289,7 +3608,7 @@
           "resolved": 4293769553
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314000,
@@ -3357,7 +3676,7 @@
           "resolved": 1557393
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314144,
@@ -3393,7 +3712,7 @@
           "resolved": 1557299
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314480,
@@ -3420,7 +3739,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314624,
@@ -3488,7 +3807,7 @@
           "resolved": 8027000
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314672,
@@ -3556,7 +3875,7 @@
           "resolved": 1556697
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6314848,
@@ -3592,7 +3911,7 @@
           "resolved": 4293768360
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315200,
@@ -3629,7 +3948,7 @@
           "resolved": 4293768179
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315392,
@@ -3674,7 +3993,7 @@
           "resolved": 1557024
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315424,
@@ -3727,10 +4046,70 @@
           "resolved": 1556171
         }
       ],
-      "source_sha256": "e28ebe7f307898b10cf22441b093cb61f56554aa4f4c87a95b923d65185e1eef",
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
       "source": "rebuild/src/palette.cpp",
       "population": "rebuild-palette",
       "source_order": 6315568,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6315648,
+      "method": "00605e80",
+      "body_bytes": 173,
+      "body_sha256": "1c72203e87113316be43663a50696b88ad82ccb7b687b0ac63744134f2a4331a",
+      "padding_bytes": 3,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "723fd23a7eeebda3dd006efc5f4527d1d5d0769392595c6e86d8b0ba3c864d2b",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+      "symbol_prefix": "??0?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@QAE@HPBU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 32,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@6B@",
+          "target": 8027096,
+          "addend": 0,
+          "resolved": 8027096
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@XZ",
+          "target": 5116208,
+          "addend": 0,
+          "resolved": 4293767791
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1556785
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "??0HashString@@QAE@XZ",
+          "target": 5116208,
+          "addend": 0,
+          "resolved": 4293767726
+        }
+      ],
+      "source_sha256": "00d748260166b017181560f42b015f5b7f21d3cd047be420e5c1b2e8894232ed",
+      "source": "rebuild/src/palette.cpp",
+      "population": "rebuild-palette",
+      "source_order": 6315648,
       "source_quality_family": "rebuild"
     }
   ]

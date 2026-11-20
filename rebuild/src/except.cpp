@@ -680,3 +680,13 @@ int Exception_Handler(int exception_code, EXCEPTION_POINTERS *e_info)	// RA2: 0x
 
 	return(EXCEPTION_EXECUTE_HANDLER); // RA2: as above
 }
+
+/*
+** Override the C library Pure Virtual Function Call error handler.
+** The release build reports no error.
+*/
+int __cdecl _purecall(void) // RA2: 0x004B8960, Renegade's Except.cpp; the WWDEBUG int 3 branch is not in the release build
+{
+	int return_code = 0;
+	return(return_code);
+}

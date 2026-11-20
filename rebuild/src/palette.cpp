@@ -495,7 +495,6 @@ void SchemeLibrary_Create(void) // RA2: 0x00603FD0, makes the library unless it 
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 241 bytes differ (the inlined walk keeps the bucket base in another register)
 SchemeLibrary::~SchemeLibrary(void) // RA2: 0x00604250, frees the player colors, every node and its schemes, then the table
 {
 	if (Table != NULL) {
@@ -503,7 +502,7 @@ SchemeLibrary::~SchemeLibrary(void) // RA2: 0x00604250, frees the player colors,
 		delete Names;
 		delete Colors;
 
-		HashIterator it = { 0, 0, false };
+		SchemeListIterator it;
 		HashString * key = Table->Next(&it);
 		while (key != NULL) {
 			SchemeNode ** node = Table->Find(*key);
@@ -514,7 +513,6 @@ SchemeLibrary::~SchemeLibrary(void) // RA2: 0x00604250, frees the player colors,
 		delete Table;
 	}
 }
-#endif
 
 
 DynamicVectorClass<ColorScheme *> * SchemeLibrary::Lookup(char const * name) // RA2: 0x006044A0, the schemes of a palette file, NULL when it is not in the table
@@ -588,20 +586,16 @@ void SchemeLibrary::Replace(char const * name) // RA2: 0x006049C0, generates the
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 123 bytes differ (the inlined walk keeps the bucket base in another register)
 void SchemeLibrary::Set_Mode(int mode) // RA2: 0x00604AD0, the theater; every filed palette's schemes are generated again
 {
 	Mode = mode;
-	HashIterator it = { 0, 0, false };
+	SchemeListIterator it;
 	HashString * key = Table->Next(&it);
 	while (key != NULL) {
-		HashString name(key->Str);
-		SchemeNode * node = *Table->Find(name);
-		node->Replace(Generate(key->Str));
+		Replace(key->Str);
 		key = Table->Next(&it);
 	}
 }
-#endif
 
 
 SchemeNode ** SchemeTable::Find(HashString const & key) // RA2: 0x006050C0, the node filed under a name

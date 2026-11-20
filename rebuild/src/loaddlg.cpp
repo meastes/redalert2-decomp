@@ -963,14 +963,23 @@ bool LoadOptionsClass::Read_File(FileEntryClass * fdata, WIN32_FIND_DATAA * ff)
 }
 
 
+// RA2: localized captions and the confirmation used by the load/save dialog.
+wchar_t const * LoadOptionsClass::Load_Caption(void) const // RA2: 0x0053C970
+{
+	return StringTable::LoadString("GUI:LoadMissionMenu", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x4C0);
+}
 
+wchar_t const * LoadOptionsClass::Save_Caption(void) const // RA2: 0x0053C990
+{
+	return StringTable::LoadString("GUI:SaveMissionMenu", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x4C6);
+}
 
+wchar_t const * LoadOptionsClass::Delete_Caption(void) const // RA2: 0x0053C9B0
+{
+	return StringTable::LoadString("GUI:DeleteMissionMenu", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x4CC);
+}
 
-
-
-
-
-
-
-
-
+wchar_t const * LoadOptionsClass::Saved_Message(void) const // RA2: 0x0053C9D0
+{
+	return StringTable::LoadString("TXT_GAME_WAS_SAVED", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x4D2);
+}

@@ -13378,7 +13378,6 @@ int __fastcall Find_Compatible_Passability_Row(int row1, int row2) // RA2: 0x56A
  * HISTORY:                                                                *
  *   07/08/1995 BRR : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int MapClass::Validate(void)
 {
 #if NEVER
@@ -13492,7 +13491,6 @@ int MapClass::Validate(void)
 #endif
 	return(true);
 }
-#endif
 
 
 /// <summary>

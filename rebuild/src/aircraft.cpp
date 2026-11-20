@@ -4464,3 +4464,13 @@ ObjectTypeClass const * AircraftClass::Class_Of(void) const
 	return(Class);
 }
 
+
+// RA2: the base techno has no cheer behaviour.
+bool TechnoClass::CanCheer(void) const // RA2: 0x0041B3D0
+{
+	return(false);
+}
+
+void TechnoClass::Cheer(void) // RA2: 0x0041B3E0
+{
+}

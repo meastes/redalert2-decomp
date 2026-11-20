@@ -189,6 +189,9 @@
     "?Handle_Lock_Event@VQAClass@@QAEPAXXZ": 7459616,
     "?Handle_Unlock_Event@VQAClass@@QAE_NXZ": 7459632,
     "?VQACacheHandler@@YIJPAU_VQAHandle@@JPAXJ@Z": 7460448,
+    "?vqanoop1@@YIHXZ": 7460752,
+    "?vqanoop2@@YIXXZ": 7460768,
+    "?vqanoop3@@YIXXZ": 7460784,
     "?Clear@?$DynamicVectorClass@PAVMovieHandle@@@@UAEXXZ": 7460800,
     "?ID@?$DynamicVectorClass@PAVMovieHandle@@@@UAEHPBQAVMovieHandle@@@Z": 7460848,
     "?GetItem@?$VectorClass@PAVMovieHandle@@@@UBEPAVMovieHandle@@H@Z": 7460880,
@@ -258,7 +261,7 @@
           "resolved": 11505572
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455520,
@@ -326,7 +329,7 @@
           "resolved": 11505584
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455552,
@@ -378,7 +381,7 @@
           "resolved": 11505680
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455600,
@@ -430,7 +433,7 @@
           "resolved": 11505664
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455632,
@@ -482,7 +485,7 @@
           "resolved": 11505656
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455664,
@@ -534,7 +537,7 @@
           "resolved": 11505592
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455696,
@@ -586,7 +589,7 @@
           "resolved": 11505552
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455728,
@@ -670,7 +673,7 @@
           "resolved": 11505688
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455760,
@@ -730,7 +733,7 @@
           "resolved": 11505600
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455824,
@@ -790,7 +793,7 @@
           "resolved": 11505648
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455872,
@@ -850,7 +853,7 @@
           "resolved": 11505672
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455920,
@@ -894,7 +897,7 @@
           "resolved": 11505578
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455968,
@@ -946,7 +949,7 @@
           "resolved": 11505616
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7455984,
@@ -1054,7 +1057,7 @@
           "resolved": 418879
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456016,
@@ -1146,7 +1149,7 @@
           "resolved": 11505632
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456080,
@@ -1222,7 +1225,7 @@
           "resolved": 7972020
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456144,
@@ -1394,7 +1397,7 @@
           "resolved": 4265376
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456240,
@@ -1462,7 +1465,7 @@
           "resolved": 4291897987
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456928,
@@ -1498,7 +1501,7 @@
           "resolved": 417035
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7456976,
@@ -1591,7 +1594,7 @@
           "resolved": 7457390
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457280,
@@ -1618,7 +1621,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457520,
@@ -1654,7 +1657,7 @@
           "resolved": 4292318709
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457568,
@@ -1690,7 +1693,7 @@
           "resolved": 388183
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457584,
@@ -1717,7 +1720,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457696,
@@ -1744,7 +1747,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457728,
@@ -1780,7 +1783,7 @@
           "resolved": 391747
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457760,
@@ -1816,7 +1819,7 @@
           "resolved": 391788
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457808,
@@ -1852,7 +1855,7 @@
           "resolved": 390753
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457888,
@@ -1888,7 +1891,7 @@
           "resolved": 390704
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7457936,
@@ -2196,7 +2199,7 @@
           "resolved": 4292957191
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7458000,
@@ -2240,7 +2243,7 @@
           "resolved": 4294966586
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7458640,
@@ -2452,7 +2455,7 @@
           "resolved": 4291729253
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7458752,
@@ -2488,7 +2491,7 @@
           "resolved": 388423
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459232,
@@ -2515,7 +2518,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459296,
@@ -2551,7 +2554,7 @@
           "resolved": 388203
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459312,
@@ -2595,7 +2598,7 @@
           "resolved": 4294435510
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459344,
@@ -2622,7 +2625,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459376,
@@ -2658,7 +2661,7 @@
           "resolved": 389607
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459392,
@@ -2685,7 +2688,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459504,
@@ -2721,7 +2724,7 @@
           "resolved": 4294894869
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459520,
@@ -2748,7 +2751,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459584,
@@ -2775,7 +2778,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459600,
@@ -2802,7 +2805,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459616,
@@ -2829,7 +2832,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459632,
@@ -2938,7 +2941,7 @@
           "resolved": 7459908
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459648,
@@ -2974,7 +2977,7 @@
           "resolved": 4294966930
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7459984,
@@ -3091,7 +3094,7 @@
           "resolved": 7460328
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460016,
@@ -3127,7 +3130,7 @@
           "resolved": 4294966866
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460416,
@@ -3163,7 +3166,7 @@
           "resolved": 4294964106
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460448,
@@ -3256,7 +3259,7 @@
           "resolved": 7460534
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460480,
@@ -3349,10 +3352,91 @@
           "resolved": 7460705
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460752,
+      "method": "0071d790",
+      "body_bytes": 3,
+      "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "33cb7c6b5695e070548b4e7f33d43173b10670c306067b684edf21470a662ef2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vqanoop1@@YIHXZ",
+      "symbol_prefix": "?vqanoop1@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460768,
+      "method": "0071d7a0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vqanoop2@@YIXXZ",
+      "symbol_prefix": "?vqanoop2@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460768,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7460784,
+      "method": "0071d7b0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vqanoop3@@YIXXZ",
+      "symbol_prefix": "?vqanoop3@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
+      "source": "rebuild/src/vqa.cpp",
+      "population": "rebuild-vqa",
+      "source_order": 7460784,
       "source_quality_family": "rebuild"
     },
     {
@@ -3385,7 +3469,7 @@
           "resolved": 410976
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460800,
@@ -3412,7 +3496,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460848,
@@ -3439,7 +3523,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460880,
@@ -3466,7 +3550,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460896,
@@ -3510,7 +3594,7 @@
           "resolved": 410720
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7460960,
@@ -3546,7 +3630,7 @@
           "resolved": 410643
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461136,
@@ -3573,7 +3657,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461184,
@@ -3600,7 +3684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461248,
@@ -3644,7 +3728,7 @@
           "resolved": 410413
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461280,
@@ -3671,7 +3755,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461456,
@@ -3723,7 +3807,7 @@
           "resolved": 410235
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461504,
@@ -3775,7 +3859,7 @@
           "resolved": 410155
         }
       ],
-      "source_sha256": "6cb6817520042c691c3d4a74aae4077f206e3a5b5b0df54210225ce72fc9cf2f",
+      "source_sha256": "53f6c98bb7d2b8aea0830f93078c05f917531a6c6bf5bb03cd24bd04c514fd16",
       "source": "rebuild/src/vqa.cpp",
       "population": "rebuild-vqa",
       "source_order": 7461584,

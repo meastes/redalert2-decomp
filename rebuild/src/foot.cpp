@@ -5893,3 +5893,7 @@ bool FootClass::RefreshMegaMission(void) // RA2: 0x4CDD70
 }
 
 
+// RA2: this virtual has no work in FootClass.
+void FootClass::Unknown_Virtual_4D0(void) // RA2: 0x004CA340
+{
+}

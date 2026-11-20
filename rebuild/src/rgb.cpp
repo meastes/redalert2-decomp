@@ -39,6 +39,15 @@
 #include "hsv.h"
 
 RGBClass const BlackColor(0, 0, 0);
+// RA2: the remaining standard palette colours.
+RGBClass const GreyColor(127, 127, 127);
+RGBClass const WhiteColor(255, 255, 255);
+RGBClass const RedColor(255, 0, 0);
+RGBClass const GreenColor(0, 255, 0);
+RGBClass const BlueColor(0, 0, 255);
+RGBClass const CyanColor(0, 255, 255);
+RGBClass const MagentaColor(255, 0, 255);
+RGBClass const YellowColor(255, 255, 0);
 
 
 /// <summary>

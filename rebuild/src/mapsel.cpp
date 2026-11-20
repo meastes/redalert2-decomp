@@ -15,7 +15,8 @@
 **	mapsel.cpp had an interactive map; RA2's keeps only the bookkeeping: the next scenario is the first
 **	selection of the current stage, and the screen itself is never shown. The code is the executable's from
 **	0x0058F320 (the static initializers of the geometry constants) to 0x0058FDE0, apart from the compiler-made
-**	copies and three empty functions (0x0058FCF0, 0x0058FD70, 0x0058FD80) whose source is not known.
+**	copies. The unused map input and voice methods keep their published no-op bodies (0x0058FCF0, 0x0058FD70,
+**	0x0058FD80; ra2-decomp's mapsel.cpp).
 */
 
 #define GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
@@ -58,6 +59,9 @@ class MapSelect : public MSEngine { // RA2: as above
 
 		void Play_Sound(Wstring const & name); // RA2: the name is a Wstring
 		void Queue_Voice(Wstring const & name, int delay); // RA2: the voice name is a Wstring (0x0058FD30 assigns it with Wstring::operator=)
+		void Start_Voice(Wstring const & name); // RA2: 0x0058FD70, empty
+		void Stop_Voice(bool fade); // RA2: 0x0058FD80, empty
+		const char * Process_Input(MapStage * stage); // RA2: 0x0058FCF0, no map input in RA2
 
 		virtual void Process_Idle(void) override; // RA2: the third vtable slot of MapSelect is at 0x0058FCC0
 
@@ -340,6 +344,15 @@ void MapSelect::Process_Idle(void) // RA2: as above
 
 
 /// <summary>
+/// No interactive map input is processed in RA2.
+/// </summary>
+const char * MapSelect::Process_Input(MapStage * stage)
+{
+	return(NULL);
+}
+
+
+/// <summary>
 /// Plays one of the map selection sound effects.
 /// </summary>
 /// <param name="name">Name of the sound effect entry to play.</param>
@@ -364,4 +377,14 @@ void MapSelect::Queue_Voice(Wstring const & name, int delay) // RA2: the name is
 {
 	VoiceName = name; // RA2: as above
 	VoiceTimer = delay; // RA2: as above
+}
+
+
+void MapSelect::Start_Voice(Wstring const & name)
+{
+}
+
+
+void MapSelect::Stop_Voice(bool fade)
+{
 }

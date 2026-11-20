@@ -187,6 +187,11 @@ static inline bool Same_Name(NodeNameType * a, NodeNameType * b)	// RA2: the inl
 }
 
 
+void Conquer_Nop(void) // RA2: 0x00481840, empty
+{
+}
+
+
 /// <summary>
 /// Handles the in-game menu dialogs.
 /// This routine is called by the main loop whenever a dialog has been requested. The

@@ -4,8 +4,8 @@
     "id": "rebuild-except",
     "inventory_sha256": "9d27bfeaf39b73ebf24e93ec9ce3c691f9e873f57856befc5b3147d839230783",
     "gaps_sha256": "6b58d5b5c03845b0678e5ef0ce479b365cea3e4a1d631447677c250f9e0105dc",
-    "historical_population_sha256": "89b74d381311874e2c5e3e04cefd1cabe52bebdec3ac7d3b88480cab4d1bb1c7",
-    "historical_acceptance_sha256": "0bf94c5e350b435b9717a661806b23c9675ed60cb66143e6335d2ff1e366e46b"
+    "historical_population_sha256": "cc894627dbe1d6611f63b2727ba05626668662495bf3fec69253bb2658607537",
+    "historical_acceptance_sha256": "410457130270d75ceee2e9b077fcbbe9f961b15be64b4610039548a560e4c882"
   },
   "references": {
     "_RECT_NONE": 8805288,
@@ -205,7 +205,8 @@
     "_$E32": 4946832,
     "_$E35": 4946880,
     "_$E38": 4946896,
-    "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z": 4950000
+    "?Exception_Handler@@YIHHPAU_EXCEPTION_POINTERS@@@Z": 4950000,
+    "__purecall": 4950368
   },
   "regions": [
     {
@@ -261,7 +262,7 @@
           "resolved": 8805300
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946432,
@@ -328,7 +329,7 @@
           "resolved": 8805312
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946464,
@@ -379,7 +380,7 @@
           "resolved": 8805384
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946512,
@@ -430,7 +431,7 @@
           "resolved": 8805368
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946544,
@@ -481,7 +482,7 @@
           "resolved": 8805360
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946576,
@@ -532,7 +533,7 @@
           "resolved": 8805320
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946608,
@@ -583,7 +584,7 @@
           "resolved": 8739744
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946640,
@@ -666,7 +667,7 @@
           "resolved": 8805392
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946672,
@@ -725,7 +726,7 @@
           "resolved": 8805328
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946736,
@@ -784,7 +785,7 @@
           "resolved": 8805352
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946784,
@@ -843,7 +844,7 @@
           "resolved": 8805376
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946832,
@@ -886,7 +887,7 @@
           "resolved": 8805306
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946880,
@@ -937,7 +938,7 @@
           "resolved": 8805344
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946896,
@@ -1092,7 +1093,7 @@
           "resolved": 2617498
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4946928,
@@ -1303,7 +1304,7 @@
           "resolved": 3008026
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4947184,
@@ -2738,7 +2739,7 @@
           "resolved": 8739752
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4947440,
@@ -3021,11 +3022,38 @@
           "resolved": 1338779
         }
       ],
-      "source_sha256": "2e5df0c6c1593e0aae025bae40367d4b8d3521a7e8282a0ee2ec2940a2e59e0d",
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
       "source": "rebuild/src/except.cpp",
       "population": "rebuild-except",
       "source_order": 4950000,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4950368,
+      "method": "4b8960",
+      "body_bytes": 3,
+      "body_sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "33cb7c6b5695e070548b4e7f33d43173b10670c306067b684edf21470a662ef2",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "__purecall",
+      "symbol_prefix": "__purecall",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [],
+      "source_sha256": "050837e6a23ced248394e80f34a8ad2ec7d43eb60816dedbb0824adfe062332c",
+      "source": "rebuild/src/except.cpp",
+      "population": "rebuild-except",
+      "source_order": 4950368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
     }
   ]
 }
