@@ -4,8 +4,8 @@
     "id": "rebuild-atracker",
     "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
     "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "93b448f698a6d49a83fdb3db96db479e617011974d4f8bedf6e37f056aad8fb3",
-    "historical_acceptance_sha256": "11dad2ffa6a4c6940daea0775b156f259115c50248af6169c8092f48a8c46f39"
+    "historical_population_sha256": "0a49c78e6efbe2c5185ae74c6d9b5c5e7e6c4fe6716a657a696012c35bcddfb1",
+    "historical_acceptance_sha256": "cfc5f74e2adb54fedeb84cca163d3b196877cb6046d188e21e37166d00b3ef37"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -39,7 +39,7 @@
     "?AircraftTracker@@3VAircraftTrackerClass@@A": 8625824,
     "??0?$VectorClass@PAVTechnoClass@@@@QAE@HPBQAVTechnoClass@@@Z": 4242448,
     "??_7?$DynamicVectorClass@PAVTechnoClass@@@@6B@": 7972764,
-    "_$E144": 4269648,
+    "_$E146": 4269648,
     "_atexit": 7874954,
     "??_7?$VectorClass@PAVTechnoClass@@@@6B@": 7972860,
     "??3@YAXPAX@Z": 7871803,
@@ -62,7 +62,7 @@
     "_$E38": 4269488,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E146": 4269520,
+    "_$E148": 4269520,
     "??_G?$DynamicVectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242368,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
@@ -860,8 +860,8 @@
       "full_extent_sha256": "65b712d745969c0693489ebc1b326a2f009a1754643873013d296ccbfe4e1e7f",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E146",
-      "symbol_prefix": "_$E146",
+      "symbol": "_$E148",
+      "symbol_prefix": "_$E148",
       "options": [
         "/O2",
         "/Ob2",
@@ -898,7 +898,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "_$E144",
+          "symbol": "_$E146",
           "target": 4269648,
           "addend": 0,
           "resolved": 4269648
@@ -992,8 +992,8 @@
       "full_extent_sha256": "844faa2f1ff8cada3a4817806962a07c0d5793b8fadbd04994ce51ba7e285965",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E144",
-      "symbol_prefix": "_$E144",
+      "symbol": "_$E146",
+      "symbol_prefix": "_$E146",
       "options": [
         "/O2",
         "/Ob2",

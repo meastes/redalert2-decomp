@@ -656,7 +656,6 @@ bool MultiplayerGameMode::SpawnBaseUnits(HouseClass * house, unsigned unused) //
 /// units guard the area. Gives up after 20 failed placements.
 /// </summary>
 /// <returns>Returns false when no type fits the house.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 512 bytes differ (adopted text)
 bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount) // RA2: 0x005B8060
 {
 	if (amount > 0) { // RA2: as above
@@ -685,9 +684,9 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount
 		while (amount > 0 && tries > 0) { // RA2: as above
 			TechnoTypeClass * type; // RA2: as above
 			if (amount > total / 3 && units.Count() != 0) { // RA2: as above
-				type = units[Scen->RandomNumber(0, units.Count() - 1)]; // RA2: as above
+				type = units[Random_Pick(0, units.Count() - 1)]; // RA2: as above
 			} else { // RA2: as above
-				type = infantry[Scen->RandomNumber(0, infantry.Count() - 1)]; // RA2: as above
+				type = infantry[Random_Pick(0, infantry.Count() - 1)]; // RA2: as above
 			}
 			ObjectClass * object = type->Create_One_Of(house); // RA2: as above
 			TechnoClass * techno = dynamic_cast<TechnoClass *>(object); // RA2: as above
@@ -709,7 +708,6 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount
 	}
 	return(true); // RA2: as above
 }
-#endif
 
 /// <summary>
 /// A slot of the vtable not named yet: this mode answers true (what it is asked is open).

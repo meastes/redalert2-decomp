@@ -69,6 +69,10 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             unplaced_symbols=m['unplaced_symbols'], unplaced_bytes=m['unplaced_bytes'],
             content_symbols=m['content_symbols'], content_bytes=m['content_bytes'],
             count_sensitive_rows=m['count_sensitive_rows'], count_sensitive_bytes=m['count_sensitive_bytes'],
+            # Function-level beside the whole-unit count (review session, 2026-11-20; a separate column, no credit
+            # change): each function checked on its own, as ra2-decomp reports (rebuild_census.function_level).
+            function_level_functions=m['function_level_rows'], function_level_bytes=m['function_level_bytes'],
+            function_level_share_of_text='%.3f%%' % (100.0 * m['function_level_bytes'] / TEXT),
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []

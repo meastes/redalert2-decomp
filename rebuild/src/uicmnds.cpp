@@ -946,7 +946,6 @@ unsigned long TypeSelectKeyTime;
 /// <summary>
 /// The type select key went down: remembers the moment.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Type_Select_Key_Down(void)
 {
 	if (!TypeSelectKeyHeld) {
@@ -954,7 +953,6 @@ void Type_Select_Key_Down(void)
 		TypeSelectKeyTime = timeGetTime();
 	}
 }
-#endif
 
 /// <summary>
 /// Whether the type select key is down.
@@ -984,7 +982,6 @@ DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void)
 /// <summary>
 /// Applies the action to every object of a kind: those on the screen, or on the whole map after a selection by type reached over it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void __fastcall For_Each_Of_Type(char const * name, TechnoAction action, int argument)
 {
 	TechnoTest test = (TechnoTest)Is_Player_Alive_Unit_Of;
@@ -1000,7 +997,6 @@ void __fastcall For_Each_Of_Type(char const * name, TechnoAction action, int arg
 	}
 	delete list;
 }
-#endif
 
 /// <summary>
 /// Takes an object that is going away out of the list a type, state or rank selection works on.
@@ -1022,7 +1018,6 @@ int __fastcall Is_Selectable_Player_Techno(TechnoClass * techno, int argument);
 /// <summary>
 /// Makes the list a state or rank selection works on: the selected objects, or when none is a techno, the player's objects on the screen that are not buildings.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void __cdecl Refresh_Type_Select_List(void)
 {
 	if (TypeSelectList != NULL) {
@@ -1036,14 +1031,12 @@ void __cdecl Refresh_Type_Select_List(void)
 		TypeSelectList = Collect_Visible_Technos((TechnoTest)Is_Selectable_Player_Techno, 0);
 	}
 }
-#endif
 
 
 
 /// <summary>
 /// Whether the object is active, the player's, and not a building.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __fastcall Is_Selectable_Player_Techno(TechnoClass * techno, int argument)
 {
 	if (techno != NULL && techno->IsActive && Is_Player_Side(techno) && techno->Fetch_RTTI() != RTTI_BUILDING) {
@@ -1051,12 +1044,10 @@ int __fastcall Is_Selectable_Player_Techno(TechnoClass * techno, int argument)
 	}
 	return 0;
 }
-#endif
 
 /// <summary>
 /// The message that says which health state a selection by health picked.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 wchar_t const * __fastcall Health_Message(int kind)
 {
 	if (kind == 0) {
@@ -1070,12 +1061,10 @@ wchar_t const * __fastcall Health_Message(int kind)
 	}
 	return L"";
 }
-#endif
 
 /// <summary>
 /// The health state the next selection by health picks: the one after the last, -1 stands for none yet.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __fastcall Next_Health_Kind(int last)
 {
 	if (last == -1) {
@@ -1086,13 +1075,11 @@ int __fastcall Next_Health_Kind(int last)
 	}
 	return last == 1 ? 2 : 0;
 }
-#endif
 
 
 /// <summary>
 /// The message that says which rank a selection by rank picked.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 wchar_t const * __fastcall Rank_Message(int kind)
 {
 	if (kind == 0) {
@@ -1106,12 +1093,10 @@ wchar_t const * __fastcall Rank_Message(int kind)
 	}
 	return L"";
 }
-#endif
 
 /// <summary>
 /// The rank the next selection by rank picks: the one after the last, -1 stands for none yet.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int __fastcall Next_Rank_Kind(int last)
 {
 	if (last == -1) {
@@ -1122,7 +1107,6 @@ int __fastcall Next_Rank_Kind(int last)
 	}
 	return last == 1 ? 2 : 0;
 }
-#endif
 
 
 /// <summary>

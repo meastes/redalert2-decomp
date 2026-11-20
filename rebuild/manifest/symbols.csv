@@ -545,6 +545,7 @@ symbol,address,evidence
 ??_E?$VectorClass@PAVRadBeam@@@@UAEPAXI@Z,0x006365A0,slot +04 of ??_7?$VectorClass@PAVRadBeam@@@@6B@ at 007a8878; main row ?get@Leaf_6365a0@@QAEPAXI@Z
 ??_E?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z,0x00638270,slot +04 of ??_7?$VectorClass@PAVRadSiteClass@@@@6B@ at 007a8b80; main row ??_G?$VectorClass@PAVRadSiteClass@@@@UAEPAXI@Z
 ??_E?$VectorClass@PAVRadarEventClass@@@@UAEPAXI@Z,0x0063CAC0,slot +04 of ??_7?$VectorClass@PAVRadarEventClass@@@@6B@ at 007a8e88; main row ?get@Leaf_63cac0@@QAEPAXI@Z
+??_E?$VectorClass@PAVReestablish@@@@UAEPAXI@Z,0x00454A30,slot +04 of ??_7?$VectorClass@PAVReestablish@@@@6B@ at 0079d0ec; main row ??_G?$VectorClass@PAVReestablish@@@@UAEPAXI@Z
 ??_E?$VectorClass@PAVScriptClass@@@@UAEPAXI@Z,0x0040E8D0,slot +00 of ??_7?$VectorClass@PAVScriptClass@@@@6B@ at 0079ab34; main row ?get@Leaf_40e8d0@@QAEPAXI@Z
 ??_E?$VectorClass@PAVScriptTypeClass@@@@UAEPAXI@Z,0x004DCBE0,slot +00 of ??_7?$VectorClass@PAVScriptTypeClass@@@@6B@ at 007a2684; main row ?get@Leaf_4dcbe0@@QAEPAXI@Z
 ??_E?$VectorClass@PAVShadowControlClass@@@@UAEPAXI@Z,0x006AD060,slot +04 of ??_7?$VectorClass@PAVShadowControlClass@@@@6B@ at 007ac520; main row ??_G?$VectorClass@PAVShadowControlClass@@@@UAEPAXI@Z
@@ -1120,7 +1121,9 @@ symbol,address,evidence
 ?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z,0x00775060,slot +10 of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z
 ?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z,0x00774F00,slot +0c of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z
 ?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z,0x00774E60,slot +08 of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z
+?Block_Mouse@WWMouseClass@@CIXXZ,0x00773630,inferred: wwmouse rows 00772ac0 00772dd0 differ only at its sites
 ?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A,0x00A518C8,inferred: ion rows 0051f250 0051f250 0051f250 0051f250 differ only at its sites
+?BriefingButton@RadarClass@@1VShapeButtonClass@@A,0x00AB63E8,radar's object: its destructor thunk 0x0062ED70 shares RadarButton's guard byte 0x00AB6308 (a static member's); mischa85 names.csv binds the button here as the global ?BriefingButton
 ?Broadcast@MSEngine@@QAEXPAX@Z,0x005B3800,inferred: wdtmap rows 0072a6d0 0072a720 differ only at its sites
 ?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z,0x0076B7A0,slot +14 of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z
 ?BuildChoice@HouseClass@@0V?$DynamicVectorClass@PAUBuildChoiceClass@HouseClass@@@@A,0x00A40F20,inferred: house rows 004e15e0 004e15e0 004e15e0 004e15e0 differ only at its sites
@@ -1494,6 +1497,7 @@ symbol,address,evidence
 ?DrawVeterancyPips@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x006D5440,slot +3ec of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot250@TechnoClass@@UAEXABUPoint2D@@ABVRect@@@Z
 ?Draw_Action_Line@FootClass@@UBEX_NH@Z,0x004CA8B0,slot +3d0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot243@FootClass@@UAEX_NH@Z
 ?Draw_Action_Line@TechnoClass@@UBEX_NH@Z,0x00453BE0,slot +3d0 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453be0@@QAEXII@Z
+?Draw_All@AlphaShapeClass@@SIXABV?$TRect@H@@@Z,0x0041F5E0,main src/recovered/alphashp.cpp:343 (AlphaShapeClass::Draw_All 0x41F5E0 never matched; Tactical::Draw_Shroud 0x6A7820 calls it with the area in ECX)
 ?Draw_All@GadgetClass@@UAEX_N@Z,0x004CF260,slot +2c of ??_7RTacticalClass@RadarClass@@6B@ at 007a8694; main row ?Draw_All@GadgetClass@@UAEX_N@Z
 ?Draw_Current@CCToolTip@@UAEX_N@Z,0x0046E230,slot +10 of ??_7CCToolTip@@6B@ at 007af518; main row ?Refresh@CCToolTip@@UAEX_N@Z
 ?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z,0x00773C30,slot +4c of ??_7BSurface@@6B@ at 0079aef4; main row ?Draw_Dashed_Line@XSurface@@UAEHABUPoint2D@@0HPB_NH@Z
@@ -1533,6 +1537,7 @@ symbol,address,evidence
 ?Drawing_Code@LocomotionClass@@UAGHXZ,0x0053D5F0,slot +8c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Drawing_Code@LocomotionClass@@UAGHXZ
 ?Dropdown_Owner@OwnerDraw@@3PAUHWND__@@A,0x00A763E8,"main's exact row 0x5EAD20 stores the combo's parent there (?unknown_dropdown_owner_a763e8@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Owner"
 ?Dropdown_Window@OwnerDraw@@3PAUHWND__@@A,0x00A763E4,"main's exact row 0x5EAD20 stores the window there (?unknown_dropdown_window_a763e4@OwnerDraw@@3PAUHWND__@@A), as this tree's draft stores Dropdown_Window"
+?EBoltArray@@3V?$DynamicVectorClass@PAVEBolt@@@@A,0x00853050,"ra2-decomp src/ebolt.cpp:54 (EBoltArray, a plain global); mischa85 names.csv binds the list here as ?Bolts@EBolt; the original destructor thunk 0x004B17B0 has no guard, which a static member gets"
 ?EditorINI@@3VCCINIClass@@A,0x008396E0,inferred: _rules rows 0040e020 0040e020 0040e020 0040e020 differ only at its sites
 ?Editor_Draw_It@ObjectClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,0x005D4E70,slot +114 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?Editor_Draw_It@ObjectClass@@UAEXABUPoint2D@@ABVRect@@@Z
 ?EgoList@@3V?$DynamicVectorClass@PAVEgoClass@@@@A,0x00855930,inferred: egos rows 004b35a0 004b35a0 004b35a0 004b35a0 differ only at its sites
@@ -2448,6 +2453,7 @@ symbol,address,evidence
 ?Open@RawFileClass@@UAEHH@Z,0x00638C00,slot +20 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Open@RawFileClass@@UAEHH@Z
 ?Open@RawFileClass@@UAEHPBDH@Z,0x00638BE0,slot +24 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Open@RawFileClass@@UAEHPBDH@Z
 ?Open_Socket@WinsockInterfaceClass@@UAE_NI@Z,0x0076BA20,slot +3c of ??_7WinsockInterfaceClass@@6B@ at 007afa7c; main row ?Open_Socket@WinsockInterfaceClass@@UAE_NH@Z
+?OptionsButton@RadarClass@@1VShapeButtonClass@@A,0x00AB6380,radar's object: its destructor thunk 0x0062EDC0 shares RadarButton's guard byte 0x00AB6308 (a static member's); mischa85 names.csv binds the button here as the global ?OptionsButton
 ?Override_Mission@FootClass@@UAEXW4MissionType@@PAVAbstractClass@@1@Z,0x004C7AC0,slot +1e0 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?Override_Mission@FootClass@@UAEXHPAVAbstractClass@@0@Z
 ?Override_Mission@MissionClass@@UAEXW4MissionType@@PAVAbstractClass@@1@Z,0x00594D20,slot +1e0 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Override_Mission@MissionClass@@UAEXHPAVAbstractClass@@0@Z
 ?Override_Mission@TechnoClass@@UAEXW4MissionType@@PAVAbstractClass@@1@Z,0x006CD840,slot +1e0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Override_Mission@TechnoClass@@UAEXHPAVAbstractClass@@0@Z
@@ -2536,6 +2542,7 @@ symbol,address,evidence
 ?Read_INI@DisplayClass@@UAEXABVCCINIClass@@@Z,0x0049CFD0,slot +80 of ??_7RadarClass@@6B@ at 007a871c; main row ?Read_INI_0049CFD0@DisplayClass@@QAEXAAVCCINIClass@@@Z
 ?Read_INI@ObjectTypeClass@@UAE_NABVCCINIClass@@@Z,0x005D7810,slot +68 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Read_INI@ObjectTypeClass@@UAE_NAAVCCINIClass@@@Z
 ?Read_INI@TechnoTypeClass@@UAE_NABVCCINIClass@@@Z,0x006DAF60,slot +64 of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Read_INI@TechnoTypeClass@@UAE_NAAVCCINIClass@@@Z
+?Read_Text_File@@YIHXZ,0x006F9790,main src/recovered/uicmnds2.cpp Read_Text_File_006f9790 (StringTable::LoadFile 0x6F8E30 calls it; no independent bound yet)
 ?Ready_To_Commence@MissionClass@@UAE_NXZ,0x004CDDE0,slot +1ec of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4cdde0@@QAEEXZ
 ?Rearm_Delay@TechnoClass@@UBEHH@Z,0x006C9C00,slot +2f0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot187@TechnoClass@@UAEHH@Z
 ?ReceiveGunner@FootClass@@UAEXPAV1@@Z,0x004CD060,slot +464 of ??_7InfantryClass@@6BIPersistStream@@@ at 007a353c; main row ?get@Leaf_4cd060@@QAEXI@Z
@@ -2808,6 +2815,7 @@ symbol,address,evidence
 ?Save@SidebarClass@@UAEJPAUIStream@@@Z,0x006822A0,slot +7c of ??_7TabClass@@6BSidebarClass@@@ at 007a64e4; main row ?get@Leaf_6822a0@@QAEII@Z
 ?Save@TEventClass@@UAGJPAUIStream@@H@Z,0x006E6CD0,slot +1c of ??_7TEventClass@@6BIPersistStream@@@ at 007ad6fc; main row ?Save@TEventClass@@UAGJPAUIStream@@H@Z
 ?Save_Caption@LoadOptionsClass@@UBEPBGXZ,0x0053C990,slot +18 of ??_7LoadOptionsClass@@6B@ at 007a581c; main row _recover_53c990
+?ScalableBullets@BulletClass@@2V?$DynamicVectorClass@PAVBulletClass@@@@A,0x008502F8,"ra2-decomp include/bullet.h:131 (a static member of BulletClass); the destructor thunk 0x0045F350 is guarded (0x008502B0), which a static member gets; mischa85 names.csv binds the list here as the global ?ScalableBullets"
 ?Scatter@ObjectClass@@UAEXABVCoord@@_N1@Z,0x005D2CF0,slot +160 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Scatter@ObjectClass@@UAEXABUCoordStruct@@_N1@Z
 ?ScenUnusedTimer@@3V?$CDTimerClass@VSystemTimerClass@@@@A,0x00AB6EA8,inferred: scenario rows 0065b4b0 0065b4b0 0065b4b0 differ only at its sites
 ?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z,0x005C69E0,inferred: netshare rows 005c6960 differ only at its sites

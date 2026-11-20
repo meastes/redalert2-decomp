@@ -278,4 +278,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2601-2623 Inline constructors and template members the original calls out of line (found in the rebuild, lanes R8-R42) (4): Count the image's calls before moving a definition.
 - L2624-2643 Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25) (3): VC6 folds `1.0 / UINT_MAX` to exactly 2^-32, not to the 1/4294967295 the image pools;
 - L2644-2661 Select-any COMDAT copies and header-emitted data (found in the rebuild, lanes R7, R17, R19, R35, R43) (4): The linker keeps one copy of each select-any COMDAT image-wide, from the first object in link order that defi…
-- L2662-2670 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):
+- L2662-2671 Adopted Tiberian Sun text and routines RA2 lacks (found in the rebuild, lane R45) (1): Found in the rebuild (lane R45):
+- L2672-2741 Measuring a nested inline budget in the unit itself (found in the rebuild (Fable trial), lane FT1) (11): Found in the rebuild (Fable trial):

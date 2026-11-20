@@ -169,11 +169,11 @@ DWORD WINAPI Mouse_Thread(LPVOID parameter) // RA2: not in TibSun
 	info->Started = 1; // RA2: as above
 	info->Done = 0; // RA2: as above
 	while (!info->Quit) { // RA2: as above
-		_MousePtr->Block_Mouse(); // RA2: as above
+		WWMouseClass::Block_Mouse(); // RA2: as above
 		if (_MousePtr != NULL) { // RA2: as above
 			_MousePtr->Process_Mouse(); // RA2: as above
 		}
-		_MousePtr->Unblock_Mouse(); // RA2: as above
+		WWMouseClass::Unblock_Mouse(); // RA2: as above
 		Sleep((DWORD)info->Delay); // RA2: as above
 		info->Count++; // RA2: as above
 	}
@@ -511,7 +511,7 @@ Rect WWMouseClass::Matching_Rect(void) const
 {
 	Rect rect(0,0,0,0);
 	if (Is_Data_Valid()) {
-		((WWMouseClass *)this)->Block_Mouse();
+		Block_Mouse();
 
 		/*
 		**	Build the rectangle that the mouse shape will consume.
@@ -520,7 +520,7 @@ Rect WWMouseClass::Matching_Rect(void) const
 		rect.X += MouseX - MouseXHot;
 		rect.Y += MouseY - MouseYHot;
 
-		((WWMouseClass *)this)->Unblock_Mouse();
+		Unblock_Mouse();
 	}
 	return(rect);
 }
@@ -833,7 +833,6 @@ void WWMouseClass::Low_Hide_Mouse(void)
  * HISTORY:                                                                                    *
  *   03/10/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 300 bytes differ; the original expands Matching_Rect inside the inlined Save_Background (its rectangle constructors out of line), this calls it
 void WWMouseClass::Show_Mouse(void)
 {
 	if (MouseState != 0) {
@@ -851,7 +850,6 @@ void WWMouseClass::Show_Mouse(void)
 		Unblock_Mouse();
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -902,7 +900,6 @@ void WWMouseClass::Hide_Mouse(void)
  * HISTORY:                                                                                    *
  *   03/10/1997 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 270 bytes differ; the original expands Matching_Rect inside the inlined Save_Background (its rectangle constructors out of line), this calls it
 void WWMouseClass::Capture_Mouse(void)
 {
 	if (this != NULL && !Is_Captured()) {
@@ -916,7 +913,6 @@ void WWMouseClass::Capture_Mouse(void)
 		Unblock_Mouse();
 	}
 }
-#endif
 
 
 /***********************************************************************************************

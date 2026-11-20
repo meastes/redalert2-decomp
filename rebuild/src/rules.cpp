@@ -725,10 +725,8 @@ RulesClass::~RulesClass(void)
 /// </summary>
 /// <remarks>Every type object in the game is destroyed here, so nothing may be holding a
 /// pointer to one when this routine is called.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 229 bytes differ (the original calls GenericNode's constructor out of line for the LANGRULE.INI CCINIClass)
 void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 {
-	static char const * const RulesSection_Maximums = "Maximums"; // RA2: the executable's section name, a file-static pointer at 0x007A9060
 	while (ColorSchemes.Count()) delete ColorSchemes[0]; // RA2: as above
 	ColorSchemes.Clear(); // RA2: as above
 	SchemeLibrary_Free(); // RA2: as above
@@ -754,9 +752,7 @@ void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 	while (::Houses.Count()) delete ::Houses[0]; // RA2: as above
 	while (HouseTypes.Count()) delete HouseTypes[0]; // RA2: as above
 
-	if (ini.Is_Present(RulesSection_Maximums)) { // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
-		MaxPlayers = ini.Get_Int(RulesSection_Maximums, "Players", MaxPlayers); // RA2: as above
-	}
+	Heap_Maximums(ini); // RA2: the [Maximums] reader, expanded here by the compiler (ra2-decomp's twin calls it the same way)
 	Addition(ini);
 
 	CCFileClass file("LANGRULE.INI"); // RA2: the executable's Initialize (no Firestorm or art ini loading, scheme library and session ini)
@@ -771,7 +767,6 @@ void RulesClass::Initialize(CCINIClass & ini) // RA2: a writable INI
 		Addition(*Session.MPGameMode->GetINI()); // RA2: as above
 	}
 }
-#endif
 
 
 

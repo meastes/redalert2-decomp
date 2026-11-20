@@ -107,6 +107,17 @@
     "?Get_First_Ownable@HouseClass@@QBEPBVUnitTypeClass@@ABV?$TypeList@PBVUnitTypeClass@@@@@Z": 5175024,
     "??0UnitClass@@QAE@PBVUnitTypeClass@@PAVHouseClass@@@Z": 7316480,
     "?Scan_Place_Object@@YIHPAVObjectClass@@ABVCell@@H@Z": 6687584,
+    "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z": 6002752,
+    "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@": 8005604,
+    "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z": 6002832,
+    "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@": 8005732,
+    "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@": 8005764,
+    "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ": 5089760,
+    "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@": 8005636,
+    "??_R0?AVTechnoClass@@@8": 8185256,
+    "??_R0?AVObjectClass@@@8": 8185160,
+    "___RTDynamicCast": 7879908,
+    "?Set_Elite@VeterancyClass@@QAEX_N@Z": 7419216,
     "??_7InitializerBase@MultiplayerGameMode@@6B@": 8024752,
     "??_C@_0M@JELC@MPModes?4ini?$AA@": 8282432,
     "??0CCFileClass@@QAE@PBD@Z": 4624208,
@@ -201,7 +212,6 @@
     "?Create@RawFileClass@@UAEHXZ": 6525440,
     "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
-    "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z": 5996640,
     "??_GMultiplayerGameMode@@UAEPAXI@Z": 6000144,
     "??_GCCINIClass@@UAEPAXI@Z": 4252384,
     "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ": 5907328,
@@ -263,6 +273,12 @@
     "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "?GenerateUnits@MultiplayerGameMode@@QAE_NXZ": 5995744,
     "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@I@Z": 5996432,
+    "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z": 5996640,
+    "??_G?$VectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z": 5099424,
+    "??_G?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEPAXI@Z": 5099504,
+    "??_G?$VectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z": 5099744,
+    "??_G?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEPAXI@Z": 5099824,
+    "??_7type_info@@6B@": 8066532,
     "?vt_entry_70@MultiplayerGameMode@@UAE_NXZ": 5997600,
     "?TeamOfHouse@MultiplayerGameMode@@QAEHH@Z": 5997616,
     "?OnGameStart@MultiplayerGameMode@@UAE_NXZ": 5997680,
@@ -273,15 +289,21 @@
     "??1InitializerBase@MultiplayerGameMode@@UAE@XZ": 5999552,
     "?Init_Game_Modes@@YIXXZ": 5999568,
     "??_G?$Initializer@VMultiplayerSiege@@@MultiplayerGameMode@@UAEPAXI@Z": 6000416,
-    "??_G?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAXI@Z": 6000512,
     "??_G?$Initializer@VMultiplayerManBattle@@@MultiplayerGameMode@@UAEPAXI@Z": 6000384,
     "??_G?$Initializer@VMultiplayerBattle@@@MultiplayerGameMode@@UAEPAXI@Z": 6000352,
+    "??_G?$Initializer@VMPCooperative@@@MultiplayerGameMode@@UAEPAXI@Z": 6000512,
     "??_G?$Initializer@VFreeForAll@@@MultiplayerGameMode@@UAEPAXI@Z": 6000480,
     "??_G?$Initializer@VUnholyAlliance@@@MultiplayerGameMode@@UAEPAXI@Z": 6000448,
     "?Free_Game_Modes@@YIXXZ": 5999936,
     "?Clear@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEXXZ": 6000544,
     "?ID@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEHPBQAVMultiplayerTeam@@@Z": 6000592,
     "?GetItem@?$VectorClass@PAVMultiplayerTeam@@@@UBEPAVMultiplayerTeam@@H@Z": 6000624,
+    "?Clear@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEXXZ": 5068112,
+    "?ID@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEHPBQAVUnitTypeClass@@@Z": 5068160,
+    "?GetItem@?$VectorClass@PAVUnitTypeClass@@@@UBEPAVUnitTypeClass@@H@Z": 5068192,
+    "?Clear@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEXXZ": 5068304,
+    "?ID@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEHPBQAVInfantryTypeClass@@@Z": 5068352,
+    "?GetItem@?$VectorClass@PAVInfantryTypeClass@@@@UBEPAVInfantryTypeClass@@H@Z": 5068384,
     "?GetItem@?$VectorClass@VCell@@@@UBE?AVCell@@H@Z": 4377696,
     "?Clear@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEXXZ": 6000640,
     "?ID@?$DynamicVectorClass@PAVMultiplayerGameMode@@@@UAEHPBQAVMultiplayerGameMode@@@Z": 6000688,
@@ -299,6 +321,19 @@
     "?ID@?$VectorClass@PAVMultiplayerTeam@@@@UAEHPBQAVMultiplayerTeam@@@Z": 6001472,
     "?Resize@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAE_NHPBQAVMultiplayerTeam@@@Z": 6001504,
     "?ID@?$DynamicVectorClass@PAVMultiplayerTeam@@@@UAEHABQAVMultiplayerTeam@@@Z": 6001680,
+    "??8?$VectorClass@PAVUnitTypeClass@@@@UBE_NABV0@@Z": 5088304,
+    "?Resize@?$VectorClass@PAVUnitTypeClass@@@@UAE_NHPBQAVUnitTypeClass@@@Z": 5088368,
+    "?Clear@?$VectorClass@PAVUnitTypeClass@@@@UAEXXZ": 5088544,
+    "?ID@?$VectorClass@PAVUnitTypeClass@@@@UAEHABQAVUnitTypeClass@@@Z": 5088592,
+    "?ID@?$VectorClass@PAVUnitTypeClass@@@@UAEHPBQAVUnitTypeClass@@@Z": 5088656,
+    "?Resize@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAE_NHPBQAVUnitTypeClass@@@Z": 5088688,
+    "?ID@?$DynamicVectorClass@PAVUnitTypeClass@@@@UAEHABQAVUnitTypeClass@@@Z": 5088864,
+    "??8?$VectorClass@PAVInfantryTypeClass@@@@UBE_NABV0@@Z": 5089520,
+    "?Resize@?$VectorClass@PAVInfantryTypeClass@@@@UAE_NHPBQAVInfantryTypeClass@@@Z": 5089584,
+    "?ID@?$VectorClass@PAVInfantryTypeClass@@@@UAEHABQAVInfantryTypeClass@@@Z": 5089808,
+    "?ID@?$VectorClass@PAVInfantryTypeClass@@@@UAEHPBQAVInfantryTypeClass@@@Z": 5089872,
+    "?Resize@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAE_NHPBQAVInfantryTypeClass@@@Z": 5089904,
+    "?ID@?$DynamicVectorClass@PAVInfantryTypeClass@@@@UAEHABQAVInfantryTypeClass@@@Z": 5090080,
     "??8?$VectorClass@VCell@@@@UBE_NABV0@@Z": 4378128,
     "?Resize@?$VectorClass@VCell@@@@UAE_NHPBVCell@@@Z": 4378336,
     "?Clear@?$VectorClass@VCell@@@@UAEXXZ": 4378544,
@@ -377,7 +412,7 @@
           "resolved": 10951112
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5990976,
@@ -428,7 +463,7 @@
           "resolved": 10951216
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991024,
@@ -479,7 +514,7 @@
           "resolved": 10951176
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991056,
@@ -530,7 +565,7 @@
           "resolved": 10951168
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991088,
@@ -581,7 +616,7 @@
           "resolved": 10951120
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991120,
@@ -632,7 +667,7 @@
           "resolved": 10951080
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991152,
@@ -715,7 +750,7 @@
           "resolved": 10951224
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991184,
@@ -774,7 +809,7 @@
           "resolved": 10951128
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991248,
@@ -833,7 +868,7 @@
           "resolved": 10951160
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991296,
@@ -892,7 +927,7 @@
           "resolved": 10951208
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991344,
@@ -935,7 +970,7 @@
           "resolved": 10951106
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991392,
@@ -986,7 +1021,7 @@
           "resolved": 10951152
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991408,
@@ -1045,7 +1080,7 @@
           "resolved": 10951100
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991440,
@@ -1176,7 +1211,7 @@
           "resolved": 10951184
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991472,
@@ -1267,7 +1302,7 @@
           "resolved": 10951192
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991568,
@@ -1470,7 +1505,7 @@
           "resolved": 4294273504
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991632,
@@ -1553,7 +1588,7 @@
           "resolved": 1879709
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5991968,
@@ -1579,7 +1614,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992112,
@@ -1814,7 +1849,7 @@
           "resolved": 10951188
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992128,
@@ -1945,7 +1980,7 @@
           "resolved": 10951200
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992320,
@@ -2156,7 +2191,7 @@
           "resolved": 10951188
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992416,
@@ -2391,7 +2426,7 @@
           "resolved": 1806998
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992624,
@@ -2650,7 +2685,7 @@
           "resolved": 1806633
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5992928,
@@ -2725,7 +2760,7 @@
           "resolved": 10746508
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993296,
@@ -2751,7 +2786,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993376,
@@ -2777,7 +2812,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993392,
@@ -2803,7 +2838,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993408,
@@ -2829,7 +2864,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993424,
@@ -2855,7 +2890,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993440,
@@ -2881,7 +2916,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993456,
@@ -2948,7 +2983,7 @@
           "resolved": 765076
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993472,
@@ -2999,7 +3034,7 @@
           "resolved": 764972
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993584,
@@ -3042,7 +3077,7 @@
           "resolved": 767094
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993664,
@@ -3068,7 +3103,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993680,
@@ -3127,7 +3162,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993696,
@@ -3162,7 +3197,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993808,
@@ -3245,7 +3280,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5993936,
@@ -3271,7 +3306,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994160,
@@ -3338,7 +3373,7 @@
           "resolved": 10736984
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994272,
@@ -3364,7 +3399,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994464,
@@ -3399,7 +3434,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994528,
@@ -3425,7 +3460,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994544,
@@ -3564,7 +3599,7 @@
           "resolved": 4293360193
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994560,
@@ -3863,7 +3898,7 @@
           "resolved": 8282148
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5994784,
@@ -3954,7 +3989,7 @@
           "resolved": 1876077
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5995520,
@@ -4205,7 +4240,7 @@
           "resolved": 4293192066
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5995744,
@@ -4280,10 +4315,277 @@
           "resolved": 690980
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5996432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5996640,
+      "method": "005b8060",
+      "body_bytes": 954,
+      "body_sha256": "6d5e126d4bf1911302a4a92db57c8718b7d770a10d49d56f70a31cd317de7e79",
+      "padding_bytes": 6,
+      "full_extent_bytes": 960,
+      "full_extent_sha256": "2ffcd90163927340588bf266c9a73c160309360ff6340583e2b18471821b4cfe",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z",
+      "symbol_prefix": "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 34,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z",
+          "target": 6002752,
+          "addend": 0,
+          "resolved": 6074
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVUnitTypeClass@@@@6B@",
+          "target": 8005604,
+          "addend": 0,
+          "resolved": 8005604
+        },
+        {
+          "offset": 65,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z",
+          "target": 6002832,
+          "addend": 0,
+          "resolved": 6123
+        },
+        {
+          "offset": 82,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVInfantryTypeClass@@@@6B@",
+          "target": 8005732,
+          "addend": 0,
+          "resolved": 8005732
+        },
+        {
+          "offset": 109,
+          "kind": 6,
+          "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+          "target": 10706248,
+          "addend": 16,
+          "resolved": 10706264
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+          "target": 10706248,
+          "addend": 4,
+          "resolved": 10706252
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 281,
+          "kind": 6,
+          "symbol": "?UnitTypes@@3V?$DynamicVectorClass@PAVUnitTypeClass@@@@A",
+          "target": 10706248,
+          "addend": 16,
+          "resolved": 10706264
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+          "target": 10748752,
+          "addend": 16,
+          "resolved": 10748768
+        },
+        {
+          "offset": 325,
+          "kind": 6,
+          "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+          "target": 10748752,
+          "addend": 4,
+          "resolved": 10748756
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "?InfantryTypes@@3V?$DynamicVectorClass@PAVInfantryTypeClass@@@@A",
+          "target": 10748752,
+          "addend": 16,
+          "resolved": 10748768
+        },
+        {
+          "offset": 467,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+          "target": 8005764,
+          "addend": 0,
+          "resolved": 8005764
+        },
+        {
+          "offset": 472,
+          "kind": 20,
+          "symbol": "?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ",
+          "target": 5089760,
+          "addend": 0,
+          "resolved": 4294059940
+        },
+        {
+          "offset": 484,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+          "target": 8005636,
+          "addend": 0,
+          "resolved": 8005636
+        },
+        {
+          "offset": 502,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1874657
+        },
+        {
+          "offset": 580,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 595,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 525801
+        },
+        {
+          "offset": 611,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 626,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 525770
+        },
+        {
+          "offset": 655,
+          "kind": 6,
+          "symbol": "??_R0?AVTechnoClass@@@8",
+          "target": 8185256,
+          "addend": 0,
+          "resolved": 8185256
+        },
+        {
+          "offset": 660,
+          "kind": 6,
+          "symbol": "??_R0?AVObjectClass@@@8",
+          "target": 8185160,
+          "addend": 0,
+          "resolved": 8185160
+        },
+        {
+          "offset": 668,
+          "kind": 20,
+          "symbol": "___RTDynamicCast",
+          "target": 7879908,
+          "addend": 0,
+          "resolved": 1882596
+        },
+        {
+          "offset": 740,
+          "kind": 20,
+          "symbol": "?Scan_Place_Object@@YIHPAVObjectClass@@ABVCell@@H@Z",
+          "target": 6687584,
+          "addend": 0,
+          "resolved": 690200
+        },
+        {
+          "offset": 790,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 810,
+          "kind": 20,
+          "symbol": "?Set_Elite@VeterancyClass@@QAEX_N@Z",
+          "target": 7419216,
+          "addend": 0,
+          "resolved": 1421762
+        },
+        {
+          "offset": 817,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 4294168411
+        },
+        {
+          "offset": 873,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+          "target": 8005764,
+          "addend": 0,
+          "resolved": 8005764
+        },
+        {
+          "offset": 889,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1874270
+        },
+        {
+          "offset": 919,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+          "target": 8005636,
+          "addend": 0,
+          "resolved": 8005636
+        },
+        {
+          "offset": 935,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1874224
+        }
+      ],
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 5996640,
       "source_quality_family": "rebuild"
     },
     {
@@ -4306,7 +4608,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5997600,
@@ -4349,7 +4651,7 @@
           "resolved": 10746496
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5997616,
@@ -4375,7 +4677,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5997680,
@@ -4410,7 +4712,7 @@
           "resolved": 8024752
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5997696,
@@ -5781,7 +6083,7 @@
           "resolved": 4293355419
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5997712,
@@ -5816,7 +6118,7 @@
           "resolved": 8024752
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5999552,
@@ -6148,7 +6450,7 @@
           "resolved": 1789100
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5999568,
@@ -6375,7 +6677,7 @@
           "resolved": 10951188
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 5999936,
@@ -6466,7 +6768,7 @@
           "resolved": 1871499
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000144,
@@ -6509,7 +6811,7 @@
           "resolved": 1871460
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000320,
@@ -6553,7 +6855,7 @@
           "resolved": 1871428
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000352,
@@ -6596,7 +6898,7 @@
           "resolved": 1871396
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000384,
@@ -6639,7 +6941,7 @@
           "resolved": 1871364
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000416,
@@ -6682,7 +6984,7 @@
           "resolved": 1871332
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000448,
@@ -6725,7 +7027,7 @@
           "resolved": 1871300
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000480,
@@ -6768,7 +7070,7 @@
           "resolved": 1871268
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000512,
@@ -6803,7 +7105,7 @@
           "resolved": 1871232
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000544,
@@ -6830,7 +7132,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000592,
@@ -6857,7 +7159,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000624,
@@ -6893,7 +7195,7 @@
           "resolved": 1871136
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000640,
@@ -6920,7 +7222,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000688,
@@ -6946,7 +7248,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000720,
@@ -6990,7 +7292,7 @@
           "resolved": 4294873741
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000736,
@@ -7033,7 +7335,7 @@
           "resolved": 4294894557
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000800,
@@ -7076,7 +7378,7 @@
           "resolved": 4294911117
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000864,
@@ -7119,7 +7421,7 @@
           "resolved": 4294914525
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000928,
@@ -7162,7 +7464,7 @@
           "resolved": 4294893261
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6000992,
@@ -7205,7 +7507,7 @@
           "resolved": 4294875018
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001056,
@@ -7231,7 +7533,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001120,
@@ -7275,7 +7577,7 @@
           "resolved": 1870496
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001184,
@@ -7311,7 +7613,7 @@
           "resolved": 1870419
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001360,
@@ -7338,7 +7640,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001408,
@@ -7365,7 +7667,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001472,
@@ -7409,7 +7711,7 @@
           "resolved": 1870189
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001504,
@@ -7436,7 +7738,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001680,
@@ -7463,7 +7765,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001728,
@@ -7507,7 +7809,7 @@
           "resolved": 1869888
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001792,
@@ -7543,7 +7845,7 @@
           "resolved": 1869811
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6001968,
@@ -7570,7 +7872,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002016,
@@ -7597,7 +7899,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002080,
@@ -7649,7 +7951,7 @@
           "resolved": 8024440
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002112,
@@ -7693,7 +7995,7 @@
           "resolved": 1869485
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002208,
@@ -7720,7 +8022,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002384,
@@ -7772,7 +8074,7 @@
           "resolved": 1869307
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002432,
@@ -7824,7 +8126,7 @@
           "resolved": 1869227
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002512,
@@ -7876,7 +8178,7 @@
           "resolved": 1869147
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002592,
@@ -7928,12 +8230,100 @@
           "resolved": 1869067
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002672,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
+    },
+    {
+      "entry": 6002752,
+      "method": "5b9840",
+      "body_bytes": 74,
+      "body_sha256": "5a9d383d5fd5c1b71910ad820821df8b71d2b6415f2c068bff3affad7efdaa19",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "109b3b911da281db3657fec5fca5b1afc91973d945aada1741ec394b4081982e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVUnitTypeClass@@@@QAE@HPBQAVUnitTypeClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVUnitTypeClass@@@@6B@",
+          "target": 8005636,
+          "addend": 0,
+          "resolved": 8005636
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1869725
+        }
+      ],
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002752,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-22"
+    },
+    {
+      "entry": 6002832,
+      "method": "5b9890",
+      "body_bytes": 74,
+      "body_sha256": "553b52ab584a64ffeaad32c86cf6a14cdea24539be715a0af99557cf5291a96e",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "b0ee4d5dfdc086e7189cabba585f4419c214b7b83a1e8da526de56840ce10187",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAVInfantryTypeClass@@@@QAE@HPBQAVInfantryTypeClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVInfantryTypeClass@@@@6B@",
+          "target": 8005764,
+          "addend": 0,
+          "resolved": 8005764
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1869645
+        }
+      ],
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
+      "source": "rebuild/src/multiplayer.cpp",
+      "population": "rebuild-multiplayer",
+      "source_order": 6002832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-22"
     },
     {
       "entry": 6002912,
@@ -7972,7 +8362,7 @@
           "resolved": 1869565
         }
       ],
-      "source_sha256": "a698195b413dd0d1ad1ce87e3863149b1f9b22f732850b0be691d8a3174e785c",
+      "source_sha256": "5a50c388d794e4c761e6dff7dce893205dedfd25064806432f5315b49a3483a3",
       "source": "rebuild/src/multiplayer.cpp",
       "population": "rebuild-multiplayer",
       "source_order": 6002912,

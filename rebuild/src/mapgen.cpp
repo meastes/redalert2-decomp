@@ -11644,3 +11644,144 @@ void MapGeneratorClass::Generate_Veinholes(void)
 }
 #endif
 
+
+
+template<>
+bool DynamicVectorClass<Rect>::Resize(int newsize, Rect const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+template<>
+VectorClass<MapRegionClass *>::VectorClass(int size, MapRegionClass * const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) MapRegionClass *[size];
+		} else {
+			Vector = new MapRegionClass *[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+template<>
+VectorClass<Rect>::VectorClass(int size, Rect const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) Rect[size];
+		} else {
+			Vector = new Rect[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+
+template<>
+DynamicVectorClass<BuildingTypeClass const *>::DynamicVectorClass(unsigned size, BuildingTypeClass const * const * array)
+	: BASECLASS(size, array)
+{
+	GrowthStep = 10;
+	ActiveCount = 0;
+}
+
+template<>
+int DynamicVectorClass<Rect>::ID(Rect const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}
+
+template<>
+bool DynamicVectorClass<BuildingTypeClass const *>::Add(BuildingTypeClass const * const & object)
+{
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			if (!Resize(Length() + GrowthStep)) {
+
+				/*
+				**	Failure to increase the size of the vector is an error condition.
+				**	Return with the error flag.
+				*/
+				return(false);
+			}
+		} else {
+
+			/*
+			**	Increasing the size of this vector is not allowed! Bail this
+			**	routine with the error code.
+			*/
+			return(false);
+		}
+	}
+
+	/*
+	**	There is room for the new object now. Add it to the end of the object vector.
+	*/
+	(*this)[ActiveCount++] = object;
+	return(true);
+}
+
+
+template<>
+bool IndexClass<int, MapRegionClass *>::Increase_Table_Size(int amount)
+{
+	/*
+	**	Check size increase parameter for legality.
+	*/
+	if (amount < 0) return(false);
+
+	NodeElement * table = new NodeElement[IndexSize + amount];
+	if (table != NULL) {
+
+		/*
+		**	Copy all valid nodes into the new table.
+		*/
+		for (int index = 0; index < IndexCount; index++) {
+			table[index] = IndexTable[index];
+		}
+
+		/*
+		**	Make the new table the current one (and delete the old one).
+		*/
+		delete[] IndexTable;
+		IndexTable = table;
+		IndexSize += amount;
+		Invalidate_Archive();
+
+		/*
+		**	Return with success flag.
+		*/
+		return(true);
+	}
+
+	/*
+	**	Failure to allocate the memory results in a failure to increase
+	**	the size of the index table.
+	*/
+	return(false);
+}

@@ -37,11 +37,11 @@
     "_CELL_NONE": 10825388,
     "_COORD_NONE": 10932032,
     "?IsoTilePalette@@3VPaletteClass@@A": 10935568,
-    "_$E230": 5408208,
+    "_$E232": 5408208,
     "?TileInsertTypes@IsometricTileTypeClass@@2V?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@A": 10825416,
     "??_7?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@": 8016188,
     "_atexit": 7874954,
-    "_$S231": 10824812,
+    "_$S233": 10824812,
     "??_7?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@6B@": 8016220,
     "??3@YAXPAX@Z": 7871803,
     "?ShadowCasterCliffInfo@@3PAUShadowCasterInfo@@A": 10936584,
@@ -63,8 +63,8 @@
     "_?_land@?7??Land_Type@IsometricTileTypeClass@@QBE?AW4LandType@@H@Z@4PAW43@A": 8250604,
     "?Load_Tile_Data@IsometricTileTypeClass@@QAEHXZ": 5420384,
     "_stricmp": 7872288,
-    "_?$S241@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA": 10825352,
-    "_$E242": 5412112,
+    "_?$S243@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA": 10825352,
+    "_$E244": 5412112,
     "_?_occupy@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4PAV3@A": 10824836,
     "?VisibleSurface@@3PAVSurface@@A": 8624464,
     "?TileDrawers@@3V?$DynamicVectorClass@PAVLightConvertClass@@@@A": 8594328,
@@ -261,9 +261,9 @@
     "?DebugString@@YAXPBDZZ": 4221168,
     "?TacticalRect@@3V?$TRect@H@@A": 8623664,
     "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
-    "_?$S243@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA": 10936576,
+    "_?$S245@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA": 10936576,
     "_?_list@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4QAY05$$CBV3@A": 10931072,
-    "_$E244": 5423648,
+    "_$E246": 5423648,
     "_?_tilemask@?1??Get_Tile_Image@IsometricTileTypeClass@@QAE_NHPAPAEHH@Z@4PAEA": 8250668,
     "??0IsometricTileClass@@QAE@W4IsometricTileType@@ABVCell@@@Z": 5406416,
     "?Compute_CRC@AbstractTypeClass@@UBEXAAVCRCEngine@@@Z": 4262240,
@@ -302,13 +302,13 @@
     "_$E38": 5408080,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E227": 5408112,
-    "_$E233": 5408144,
+    "_$E229": 5408112,
+    "_$E235": 5408144,
     "??_G?$DynamicVectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z": 5434688,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAUTileInsertType@IsometricTileTypeClass@@@@UAEPAXI@Z": 5434608,
-    "_$E236": 5408304,
-    "_$E239": 5410224,
+    "_$E238": 5408304,
+    "_$E241": 5410224,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -371,7 +371,6 @@
     "??_GCCINIClass@@UAEPAXI@Z": 4252384,
     "??_R0?AVINIClass@@@8": 8183560,
     "??_R0?AVCCINIClass@@@8": 8183584,
-    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
     "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
     "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
     "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
@@ -382,8 +381,7 @@
     "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
     "??_GCCFileClass@@UAEPAXI@Z": 4200864,
     "??_R0?AVCCFileClass@@@8": 8177840,
-    "??_GGenericList@@UAEPAXI@Z": 4252192,
-    "??_R0?AVGenericList@@@8": 8183648,
+    "??_G?$List@PAUINISection@INIClass@@@@UAEPAXI@Z": 4252416,
     "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
     "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
@@ -403,6 +401,8 @@
     "??_R0?AVRawFileClass@@@8": 8177896,
     "??_R0?AVBufferIOFileClass@@@8": 8177928,
     "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_GGenericList@@UAEPAXI@Z": 4252192,
+    "??_R0?AVGenericList@@@8": 8183648,
     "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
     "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
     "??_GGenericNode@@UAEPAXI@Z": 4252112,
@@ -1220,8 +1220,8 @@
       "full_extent_sha256": "3a57af303ee9190a72017aa91859c1c18096c017df61b2b7c974b7eecdccc638",
       "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E227",
-      "symbol_prefix": "_$E227",
+      "symbol": "_$E229",
+      "symbol_prefix": "_$E229",
       "options": [
         "/O2",
         "/Ob2",
@@ -1256,8 +1256,8 @@
       "full_extent_sha256": "460157787c5f4bb59e54c7a4d82a2afe7b1ef36114ef5738695c96f2dad60989",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E233",
-      "symbol_prefix": "_$E233",
+      "symbol": "_$E235",
+      "symbol_prefix": "_$E235",
       "options": [
         "/O2",
         "/Ob2",
@@ -1270,7 +1270,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E230",
+          "symbol": "_$E232",
           "target": 5408208,
           "addend": 0,
           "resolved": 5408208
@@ -1364,8 +1364,8 @@
       "full_extent_sha256": "1c168fccb8e2a1bdadef25e3eaa03abcc00335d570bb788a7a720862e5c8a5a5",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E230",
-      "symbol_prefix": "_$E230",
+      "symbol": "_$E232",
+      "symbol_prefix": "_$E232",
       "options": [
         "/O2",
         "/Ob2",
@@ -1378,7 +1378,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S231",
+          "symbol": "_$S233",
           "target": 10824812,
           "addend": 0,
           "resolved": 10824812
@@ -1410,7 +1410,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S231",
+          "symbol": "_$S233",
           "target": 10824812,
           "addend": 0,
           "resolved": 10824812
@@ -1472,8 +1472,8 @@
       "full_extent_sha256": "7ce7bca140a11278a354d4715d05b9628a5958de5636dd33094c55440504bce6",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E236",
-      "symbol_prefix": "_$E236",
+      "symbol": "_$E238",
+      "symbol_prefix": "_$E238",
       "options": [
         "/O2",
         "/Ob2",
@@ -3076,8 +3076,8 @@
       "full_extent_sha256": "e28c0322717e67d32c30af997fa4ae17784de1d4a29a6c2ba4e4bf740f809e85",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E239",
-      "symbol_prefix": "_$E239",
+      "symbol": "_$E241",
+      "symbol_prefix": "_$E241",
       "options": [
         "/O2",
         "/Ob2",
@@ -4143,7 +4143,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_?$S241@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA",
+          "symbol": "_?$S243@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA",
           "target": 10825352,
           "addend": 0,
           "resolved": 10825352
@@ -4151,7 +4151,7 @@
         {
           "offset": 22,
           "kind": 6,
-          "symbol": "_$E242",
+          "symbol": "_$E244",
           "target": 5412112,
           "addend": 0,
           "resolved": 5412112
@@ -4159,7 +4159,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "_?$S241@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA",
+          "symbol": "_?$S243@?1??Occupy_List@IsometricTileTypeClass@@UBEPBVCell@@_N@Z@4EA",
           "target": 10825352,
           "addend": 0,
           "resolved": 10825352
@@ -4205,8 +4205,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E242",
-      "symbol_prefix": "_$E242",
+      "symbol": "_$E244",
+      "symbol_prefix": "_$E244",
       "options": [
         "/O2",
         "/Ob2",
@@ -9261,7 +9261,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "_?$S243@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA",
+          "symbol": "_?$S245@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA",
           "target": 10936576,
           "addend": 0,
           "resolved": 10936576
@@ -9269,7 +9269,7 @@
         {
           "offset": 55,
           "kind": 6,
-          "symbol": "_?$S243@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA",
+          "symbol": "_?$S245@?4??Shadow_Caster_List@IsometricTileTypeClass@@QBEPBVCell@@XZ@4EA",
           "target": 10936576,
           "addend": 0,
           "resolved": 10936576
@@ -11189,7 +11189,7 @@
         {
           "offset": 2315,
           "kind": 6,
-          "symbol": "_$E244",
+          "symbol": "_$E246",
           "target": 5423648,
           "addend": 0,
           "resolved": 5423648
@@ -11259,8 +11259,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E244",
-      "symbol_prefix": "_$E244",
+      "symbol": "_$E246",
+      "symbol_prefix": "_$E246",
       "options": [
         "/O2",
         "/Ob2",

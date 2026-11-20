@@ -4266,7 +4266,7 @@ void __fastcall Close_Slots_From(HWND dialog, int first) // RA2: 0x005CB7C0, not
 }
 
 void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 1211 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 201 bytes differ (main's text, Close_Slots_From's body written out as the original expands it; this calls Wstring::get where the original reads the buffer)
 int LobbySlotCount = 8; // RA2: 0x007E6DE4, the number of slots the scenario gave the lobby last (8 before one was chosen); used only by Change_Scenario_Slots, so parked with it
 int LobbyExtraSlot; // RA2: 0x00A72D5C, 1 when the observer takes a slot of its own beyond the scenario's; as above
 
@@ -4306,7 +4306,25 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 	if (added > 0) { // RA2: as above
 		Change_Slot_Range(dialog, LobbyExtraSlot + LobbySlotCount, added); // RA2: as above
 	} else if (added < 0) { // RA2: as above
-		Close_Slots_From(dialog, extra + players); // RA2: as above
+		int first = extra + players; // RA2: the original expands Close_Slots_From's body here (main's text writes it out)
+		int limit = Get_Lobby_Slot_Limit(); // RA2: as above
+		for (int slot = first; slot < 8; slot++) { // RA2: as above
+			int id = Get_Slot_Control_Id(slot); // RA2: as above
+			if (slot < limit) { // RA2: as above
+				if (slot != LobbyObserverSlot) { // RA2: as above
+					Change_Slot_Type(dialog, id, (int)LobbyEntries[0], 1); // RA2: as above
+				}
+			} else if (slot != LobbyObserverSlot) { // RA2: as above
+				Change_Slot_Type(dialog, id, (int)LobbyEntries[1], 1); // RA2: as above
+			}
+		}
+		Hide_Slot_Controls(dialog, first); // RA2: as above
+		if (g_pChat != NULL) { // RA2: as above
+			Redraw_Player_List(); // RA2: as above
+		} else {
+			Net2DisplayUsers(); // RA2: as above
+		}
+		Send_Lobby_Options(true, false); // RA2: as above
 	} else if (extra + players >= 7) { // RA2: as above
 		Change_Slot_Range(dialog, 7, 1); // RA2: as above
 	}

@@ -23,10 +23,12 @@
 #include "_zbuffer.h"
 #include "bitfont.h"
 #include "bsurface.h"
+#include "buttonfadeeffect.h"
 #include "ccfile.h"
 #include "ccrand.h"
 #include "conquer.h"
 #include "convert.h"
+#include "crossdissolveeffect.h"
 #include "data.h"
 #include "dialog.h"
 #include "draw.h"
@@ -213,58 +215,6 @@ int DropshipLoadoutClass::Get_Allowable_Index(TechnoTypeClass * ttype)
 	}
 	return(-1);
 }
-
-struct ButtonFadeEffect
-{
-	unsigned int StartTime;
-	int CandidateIndex;
-	float Alpha;
-	float Direction;
-	bool StopAtLow;
-
-	ButtonFadeEffect(unsigned int start_time, int candidate_index, float alpha, float direction, bool stop_at_low) :
-		StartTime(start_time),
-		CandidateIndex(candidate_index),
-		Alpha(alpha),
-		Direction(direction),
-		StopAtLow(stop_at_low)
-	{
-	}
-};
-
-/*
- * One cameo slot dissolving from one piece of art to another. The "from" art is
- * blitted over the slot as it is, then the "to" art is blitted on top of it through
- * the alpha buffer, whose level ramps up to 255 over the life of the effect.
- */
-struct CrossDissolveEffect
-{
-	Rect FromRect;
-	Rect ToRect;
-	Rect DestRect;
-	BSurface *FromSurface;
-	BSurface *ToSurface;
-	int Alpha;
-	unsigned int StartTime;
-	Blitter const *FromBlitter;
-	Blitter const *ToBlitter;
-	bool WasDrawn;
-
-	CrossDissolveEffect(Rect const &from_rect, Rect const &to_rect, Rect const &dest_rect, BSurface *from_surface, BSurface *to_surface, Blitter const *from_blitter, Blitter const *to_blitter) :
-		FromRect(from_rect),
-		ToRect(to_rect),
-		DestRect(dest_rect),
-		FromSurface(from_surface),
-		ToSurface(to_surface),
-		Alpha(0),
-		StartTime(::timeGetTime()),
-		FromBlitter(from_blitter),
-		ToBlitter(to_blitter),
-		WasDrawn(false)
-	{
-	}
-};
-
 
 /// <summary>
 /// Handles the dropship loadout screen.
@@ -1174,4 +1124,86 @@ void Draw_Unit_Info(Surface *surface, ConvertClass *drawer, TechnoTypeClass *tec
 		Fancy_Text_Print(cost, *HiddenSurface, HiddenSurface->Get_Rect(), Point2D(_xpos, _ypos + _offset * 3) + point, scheme, TBLACK, TextPrintType(TPF_6PT_GRAD|TPF_FULLSHADOW));
 	}
 
+}
+
+
+template<>
+VectorClass<ButtonFadeEffect *>::VectorClass(int size, ButtonFadeEffect * const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) ButtonFadeEffect *[size];
+		} else {
+			Vector = new ButtonFadeEffect *[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+template<>
+VectorClass<CrossDissolveEffect *>::VectorClass(int size, CrossDissolveEffect * const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) CrossDissolveEffect *[size];
+		} else {
+			Vector = new CrossDissolveEffect *[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+
+template<>
+bool DynamicVectorClass<ButtonFadeEffect *>::Resize(int newsize, ButtonFadeEffect * const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+template<>
+int DynamicVectorClass<ButtonFadeEffect *>::ID(ButtonFadeEffect * const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}
+
+template<>
+bool DynamicVectorClass<CrossDissolveEffect *>::Resize(int newsize, CrossDissolveEffect * const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+template<>
+int DynamicVectorClass<CrossDissolveEffect *>::ID(CrossDissolveEffect * const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
 }

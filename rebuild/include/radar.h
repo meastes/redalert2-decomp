@@ -44,6 +44,7 @@
 
 class DSurface;
 class BSurface;
+class ShapeButtonClass;
 template<class T> class DynamicVectorClass;
 
 typedef DynamicVectorClass<Point2D> FOUNDATION_LIST;
@@ -257,6 +258,13 @@ class RadarClass: public DisplayClass
 		**	It must be available to derived classes, for Save/Load purposes.
 		*/
 		static RTacticalClass RadarButton;
+
+		/*
+		**	RA2: the briefing (diplomacy in multiplayer) and options buttons beside the radar. Their
+		**	destructors share RadarButton's guard byte (0x00AB6308), which the compiler gives static members.
+		*/
+		static ShapeButtonClass BriefingButton; // RA2: 0x00AB63E8
+		static ShapeButtonClass OptionsButton; // RA2: 0x00AB6380
 
 	private:
 

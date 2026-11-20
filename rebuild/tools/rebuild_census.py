@@ -151,6 +151,40 @@ def parked_tail():
     return rows, total, large, large_total
 
 
+def function_level(regions):
+    """Two measures side by side (review session, 2026-11-20; no rule or credit change):
+    whole-unit: rows the catalog holds (catalogued units, whole-file exact).
+    function-level: each function checked on its own, as ra2-decomp reports: the catalog's rows, plus every
+    row of a unit in units.json that the unit's current check finds exact (held units included), every
+    count-sensitive row (exact in its probed window) and every row tailmap records as exact_when_open
+    (exact with its guard open; manifest/tail_buckets.csv). Rows count once; bytes are body plus padding.
+    Returns dict(whole=(rows, bytes), function=(rows, bytes), parts={part: (rows, bytes)})."""
+    import csv
+    whole = {'%08x' % r['entry']: r['full_extent_bytes'] for r in regions}
+    units = R.load_json(R.UNITS, {})
+    extent = {}
+    checked, sensitive = set(), set()
+    for unit, info in units.items():
+        last = R.last_check(unit, info)
+        status = {r['entry']: r['status'] for r in last['results']} if last else {}
+        for r in info['rows']:
+            extent[r['entry']] = r['body'] + (r.get('padding') or 0)
+            if status.get(r['entry']) == 'exact':
+                checked.add(r['entry'])
+        sensitive |= set(info.get('count_sensitive') or {})
+    path = R.MANIFEST / 'tail_buckets.csv'
+    when_open = {r['entry'] for r in csv.DictReader(open(path)) if r['bucket'] == 'exact_when_open'} \
+        if path.exists() else set()
+    parts, seen = {}, set(whole)
+    for part, entries in (('exact in the unit check, not catalogued', checked), ('count-sensitive', sensitive),
+                          ('exact with the guard open', when_open)):
+        new = (entries & set(extent)) - seen
+        parts[part] = (len(new), sum(extent[e] for e in new))
+        seen |= new
+    function_bytes = sum(whole.values()) + sum(b for _, b in parts.values())
+    return dict(whole=(len(whole), sum(whole.values())), function=(len(seen), function_bytes), parts=parts)
+
+
 def count_sensitive():
     """(rows, body bytes) parked as "exact form, count-sensitive" (review ruling 2026-11-18, lane R20): rows
     whose exact text flips with the declaration count before them when an evidenced header changes. Each is
@@ -327,6 +361,8 @@ def main(quiet=False):
     measures['layout_symbols'], measures['pending_ranges'], measures['pending_bytes'] = layout_and_pending(cat['regions'])
     measures['content_symbols'], measures['content_bytes'] = content_bound(cat['regions'])
     measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
+    level = function_level(cat['regions'])
+    measures['function_level_rows'], measures['function_level_bytes'] = level['function']
     # House format of new lines (lane F1): the diff BASE..working tree; adopted text and manifest/format_exempt.csv
     # are not counted. Gated when RA2_FMT_BASE names the base (the owner's landing, after fmtnew.py); without it the
     # merge-base with rebuild-trial is measured and reported only, so a lane's catalog is never refused for it.
@@ -374,6 +410,10 @@ def main(quiet=False):
         or 'none'))
     print('Count-sensitive rows (exact form, parked by declaration count; not in the parked tail): %d rows, %d body bytes' % (
         measures['count_sensitive_rows'], measures['count_sensitive_bytes']))
+    print('Exact functions (reported, not gated; no credit change): whole-unit (catalogued, whole-file exact) %d rows, '
+          '%d bytes; function-level (each function checked on its own, as ra2-decomp reports) %d rows, %d bytes (%s)' % (
+              level['whole'] + level['function'] + ('; '.join('+%d rows %d B %s' % (n, b, k)
+                                                              for k, (n, b) in level['parts'].items()),)))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
         measures['unplaced_symbols'], measures['unplaced_bytes']))
     print('Data placed by layout (data_bound_by: layout; declarations a hypothesis): %d symbols; pending data owned by '

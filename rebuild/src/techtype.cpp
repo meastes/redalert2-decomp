@@ -729,7 +729,7 @@ static inline int Get_Recoil_Frames(CCINIClass const & ini, char const * section
  * HISTORY:                                                                                    *
  *   07/19/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 9841 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 9793 bytes differ (adopted text; the original calls VectorClass<int>::Clear and the DynamicVectorClass<int> copy constructor out of line where this expands them)
 bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and art reading, meastes' body at 0x6DAF60
 {
 	if (BASECLASS::Read_INI(ini)) { // RA2: as above
@@ -1019,7 +1019,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		Load_Palette(); // RA2: Load_Palette 0x006DF620 builds the schemes of Palette= (outside this module)
 		if (Palette_Scheme_Count() > 1) { // RA2: 0x00603D50 counts the palettes that have a scheme list
 			DebugString("You have violated the limit of having only one extra building palette.\n"); // RA2: the exe aborts when more than one extra building palette is loaded
-			Emergency_Exit(); // RA2: as above
+			Exit_Process(-1); // RA2: exits with -1 through Exit_Process 0x691310 (main: Emergency_Exit(-1))
 		}
 		TurretOffset = ArtINI.Get_Int(GraphicName, "TurretOffset", TurretOffset); // RA2: as above
 		Rotation = ArtINI.Get_Int(GraphicName, "RotCount", Rotation); // RA2: as above

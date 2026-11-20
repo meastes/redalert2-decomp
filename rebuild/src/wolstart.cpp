@@ -25,6 +25,18 @@
 
 #include "geometry.h"
 
+// RA2: defined in wonline.cpp; declared here, not in wonline.h, where seven more declarations flip Draw_Player_List
+// (0x0073FEE0, 5,132 bytes) by count (probe: one to six exact, seven to nine off, whichever names).
+int __fastcall Login_Wonline(void); // RA2: 0x00742FD0
+int __fastcall Run_Lobby_Session(HWND window, bool first_time); // RA2: 0x00743720
+int Run_Wonline_Selection_Dialog(void); // RA2: 0x00753110
+void Reset_Channel_State(void); // RA2: 0x00753F10
+void Close_All_Dialogs(void); // RA2: 0x00753F50
+int Run_Wonline_Lobby(void); // RA2: 0x00753F70
+int __fastcall Run_Online_Menu(bool first_time); // RA2: 0x00759370
+int __fastcall Start_Quick_Match(void); // RA2: 0x00759E20
+void Open_Buddy_Dialog(void); // RA2: 0x0075CBA0
+
 int Online_Login_Kind = 0;
 
 
@@ -43,7 +55,6 @@ int Online_Session_Kind(void)
 /// Runs Westwood Online from the Internet button of the main menu: logs in when needed, then loops over the
 /// dialog of the current state until a game is ready (1), the player goes back (0) or quits (-1 or -2).
 /// </summary>
-#if 0
 int __fastcall Wonline_Main(bool returning)
 {
 	while (MouseCursor->Get_Mouse_State() < 0) {
@@ -210,5 +221,4 @@ int __fastcall Wonline_Main(bool returning)
 		}
 	}
 }
-#endif
 

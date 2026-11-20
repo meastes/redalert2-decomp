@@ -4715,7 +4715,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 		**	building for another reason (e.g., helicopter on helipad), then it
 		**	gets captured as well.
 		*/
-		DynamicVectorClass<ReestablishRecord *> reestablish; // RA2: RA2 walks every radio link and remembers the captured ones
+		DynamicVectorClass<Reestablish *> reestablish; // RA2: RA2 walks every radio link and remembers the captured ones
 		int i; // RA2: as above
 		for (i = 0; i < RadioLinks.Length(); i++) { // RA2: as above
 			TechnoClass * contact = Radio_Link(i); // RA2: as above
@@ -4733,7 +4733,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 					Transmit_Message(RADIO_RUN_AWAY, contact); // RA2: as above
 					Transmit_Message(RADIO_OVER_OUT, contact); // RA2: as above
 				} else {
-					ReestablishRecord * record = new ReestablishRecord(contact, was_tethered); // RA2: as above
+					Reestablish * record = new Reestablish(contact, was_tethered); // RA2: as above
 					reestablish.Add(record); // RA2: as above
 				}
 			}
@@ -4870,7 +4870,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 		}
 
 		for (i = 0; i < reestablish.Count(); i++) { // RA2: every remembered contact greets again
-			ReestablishRecord * record = reestablish[i]; // RA2: as above
+			Reestablish * record = reestablish[i]; // RA2: as above
 			Transmit_Message(RADIO_HELLO, record->Contact); // RA2: as above
 			record = reestablish[i]; // RA2: as above
 			if (record->WasTethered) { // RA2: as above
@@ -12062,4 +12062,48 @@ void BuildingClass::Discharge_Turret(void)
 	BuildingStage.Set_Rate(0);
 } // RA2: no IsTurretAnimExclusive (not in RA2's layout)
 #endif
+
+
+// RA2: the captured-contact record storage retains its vector constructor out of line.
+template<>
+VectorClass<Reestablish *>::VectorClass(int size, Reestablish * const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) Reestablish *[size];
+		} else {
+			Vector = new Reestablish *[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+
+template<>
+bool DynamicVectorClass<Reestablish *>::Resize(int newsize, Reestablish * const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
+}
+
+
+template<>
+int DynamicVectorClass<Reestablish *>::ID(Reestablish * const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}
 

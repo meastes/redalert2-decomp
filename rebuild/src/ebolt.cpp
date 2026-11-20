@@ -34,7 +34,7 @@
 #include "xsurface.h" // RA2: as above
 #include "convert.h" // RA2: as above
 
-DynamicVectorClass<EBolt *> EBolt::Bolts; // RA2: 0x00853050; the live bolts (its initializer is the one at 0x004B1770)
+DynamicVectorClass<EBolt *> EBoltArray; // RA2: 0x00853050; the live bolts (its initializer is the one at 0x004B1770)
 
 /// <summary>
 /// One saved half of a split bolt segment in Draw_Bolt: the three line end points still to be drawn and the values that go with them.
@@ -247,8 +247,8 @@ void EBolt::Draw(void) // RA2: 0x004B2170
 /// </summary>
 void __fastcall EBolt::Update_All(void) // RA2: 0x004B2210
 {
-	for (int i = Bolts.Count() - 1; i >= 0; i--) { // RA2: as above
-		EBolt * bolt = Bolts[i]; // RA2: as above
+	for (int i = EBoltArray.Count() - 1; i >= 0; i--) { // RA2: as above
+		EBolt * bolt = EBoltArray[i]; // RA2: as above
 		if (bolt->Owner != NULL) { // RA2: as above
 			Coord source = bolt->Owner->Fire_Coord(bolt->WeaponSlot); // RA2: as above
 			if (source != COORD_NONE) { // RA2: as above
@@ -257,7 +257,7 @@ void __fastcall EBolt::Update_All(void) // RA2: 0x004B2210
 		} // RA2: as above
 		bolt->Draw(); // RA2: as above
 		if (bolt->Lifetime == 0) { // RA2: as above
-			Bolts.Delete(bolt); // RA2: as above
+			EBoltArray.Delete(bolt); // RA2: as above
 			delete bolt; // RA2: as above
 		} // RA2: as above
 	} // RA2: as above
@@ -268,10 +268,10 @@ void __fastcall EBolt::Update_All(void) // RA2: 0x004B2210
 /// </summary>
 void __cdecl EBolt::Delete_All(void) // RA2: 0x004B23B0
 {
-	for (int i = 0; i < Bolts.Count(); i++) { // RA2: as above
-		delete Bolts[i]; // RA2: as above
+	for (int i = 0; i < EBoltArray.Count(); i++) { // RA2: as above
+		delete EBoltArray[i]; // RA2: as above
 	} // RA2: as above
-	Bolts.Clear(); // RA2: as above
+	EBoltArray.Clear(); // RA2: as above
 }
 
 /// <summary>
@@ -283,7 +283,7 @@ void EBolt::Fire(Coord source, Coord target, int zadjust) // RA2: 0x004B2430
 	Point2 = target; // RA2: as above
 	Unknown_18 = zadjust; // RA2: as above
 	Random = NonCriticalRandomNumber(0, 0x100); // RA2: as above
-	Bolts.Add(this); // RA2: as above
+	EBoltArray.Add(this); // RA2: as above
 	new ParticleSystemClass(Rule->DefaultSparkSystem, target); // RA2: as above
 }
 

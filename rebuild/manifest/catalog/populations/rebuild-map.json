@@ -36,14 +36,14 @@
     "_BRIDGE_LEPTON_HEIGHT": 10943296,
     "_CELL_NONE": 10940984,
     "_COORD_NONE": 10942920,
-    "_$E248": 5521888,
+    "_$E250": 5521888,
     "?RadiusOffset@MapClass@@2QBVCell@@B": 10941000,
     "??0Cell@@QAE@HH@Z": 4369712,
-    "_$E251": 5530016,
+    "_$E253": 5530016,
     "?OcclusionOffset@MapClass@@2QBVCell@@B": 10939672,
     "?BlubCell@@3VCellClass@@A": 10942968,
     "??0CellClass@@QAE@XZ": 4656912,
-    "_$E255": 5536080,
+    "_$E257": 5536080,
     "_atexit": 7874954,
     "??1CellClass@@UAE@XZ": 4656768,
     "??0GScreenClass@@QAE@XZ": 5114064,
@@ -171,9 +171,9 @@
     "?Overlay_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4673200,
     "?TacticalRect@@3V?$TRect@H@@A": 8623664,
     "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
-    "_?$S264@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA": 10942960,
+    "_?$S266@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA": 10942960,
     "_?_offsets@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4PAVCell@@A": 10940908,
-    "_$E265": 5565376,
+    "_$E267": 5565376,
     "??G?$TPoint3D@H@@QBE?BV0@ABV0@@Z": 4409584,
     "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
@@ -305,6 +305,17 @@
     "?Is_Low_Bridge2@MapClass@@CI_NABVCell@@@Z": 5646720,
     "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
     "?Is_Shrouded@MapClass@@QAE_NABVCoord@@@Z": 5669184,
+    "?DestroyableCliffs@IsometricTileTypeClass@@2W4IsometricTileType@@A": 10936568,
+    "?SlopeSetPieces@IsometricTileTypeClass@@2W4IsometricTileType@@A": 10936376,
+    "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z": 5569200,
+    "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z": 5661504,
+    "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z": 7175296,
+    "??_C@_08OHBM@XGRYMED1?$AA@": 8259696,
+    "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z": 4347456,
+    "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A": 8806880,
+    "??_C@_08BIKF@XGRYMED2?$AA@": 8259684,
+    "??_C@_08GCKA@XGRYSML1?$AA@": 8259672,
+    "?Get_Cell_Subzone_Index@MapClass@@QAEHABVCell@@@Z": 5569264,
     "?Register_Zone_Connection_Entries@MapClass@@QAEXPAUZoneConnectionClass@@H@Z": 5655392,
     "?Find_Bridge_Span_End_Cell@MapClass@@QAE?AVCell@@ABV2@0@Z": 5657536,
     "??0?$VectorClass@H@@QAE@HPBH@Z": 4640800,
@@ -317,12 +328,10 @@
     "??0?$VectorClass@G@@QAE@HPBG@Z": 4372000,
     "??_7?$DynamicVectorClass@G@@6B@": 7980372,
     "_?_subzone_flood_visited@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z@4PAY07DA": 10943472,
-    "?Get_Cell_Subzone_Index@MapClass@@QAEHABVCell@@@Z": 5569264,
     "_?_subzone_flood_stack@?1??Build_Reachable_Subzones@MapClass@@QAE_NPAVCellClass@@HABV?$DynamicVectorClass@G@@PBVFootClass@@@Z@4PAPAV3@A": 10942496,
     "?MZonePassability@@3PAY07HA": 8257732,
     "??_7?$VectorClass@G@@6B@": 7980340,
     "?BridgeSideFacings@@3PAW4FacingType@@A": 8258644,
-    "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z": 5569200,
     "?Delete_Index@?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE_NH@Z": 5681264,
     "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A": 10750712,
     "?Distance@ObjectClass@@QBEHPBVAbstractClass@@@Z": 6114304,
@@ -337,7 +346,6 @@
     "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z": 4659168,
     "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
     "?In_Local_Radar@MapClass@@QBE_NABV?$TRect@H@@_N@Z": 5612944,
-    "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z": 5661504,
     "?Damage_Train_Bridge@MapClass@@AAE_NABVCell@@@Z": 5585328,
     "?On_Bridge_Collapse@CellClass@@QAEXXZ": 4704560,
     "?Damage_High_Bridge@MapClass@@AAE_NABVCell@@@Z": 5607424,
@@ -385,13 +393,11 @@
     "_$E38": 5521840,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E249": 5521872,
-    "_$E252": 5530000,
-    "_$E257": 5536048,
+    "_$E251": 5521872,
+    "_$E254": 5530000,
+    "_$E259": 5536048,
     "??4SubzoneTrackingStruct@@QAEAAU0@ABU0@@Z": 5685984,
     "??0MapClass@@QAE@XZ": 5536096,
-    "??_G?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5686160,
-    "??_G?$DynamicVectorClass@UZoneConnectionClass@@@@UAEPAXI@Z": 5685760,
     "??_G?$VectorClass@PAVCellClass@@@@UAEPAXI@Z": 5680704,
     "?Set_Map_Dimensions@MapClass@@UAEXABV?$TRect@H@@_NH1@Z": 5539040,
     "__purecall": 4950368,
@@ -410,7 +416,9 @@
     "??_R0?AUIGameMap@@@8": 8181328,
     "??_R0?AVGScreenClass@@@8": 8181352,
     "??_R0?AVMapClass@@@8": 8181384,
+    "??_G?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5686160,
     "??_G?$DynamicVectorClass@VCell@@@@UAEPAXI@Z": 4379616,
+    "??_G?$DynamicVectorClass@UZoneConnectionClass@@@@UAEPAXI@Z": 5685760,
     "??_7type_info@@6B@": 8066532,
     "?AddRef@GScreenClass@@UAGKXZ": 4247808,
     "?Release@GScreenClass@@UAGKXZ": 4247824,
@@ -418,9 +426,9 @@
     "?Is_Scrolling@MapClass@@UBE_NXZ": 4844816,
     "??0MapClass@@QAE@ABVNoInitClass@@@Z": 5536352,
     "??_GGScreenClass@@UAEPAXI@Z": 5116176,
+    "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "??_G?$VectorClass@USubzoneTrackingStruct@@@@UAEPAXI@Z": 5685840,
     "??_G?$VectorClass@UZoneConnectionClass@@@@UAEPAXI@Z": 5685680,
-    "??_G?$VectorClass@VCell@@@@UAEPAXI@Z": 4379536,
     "?PlayRect_To_Cell_Point@MapClass@@QBE?AVPoint2D@@ABV2@@Z": 5537088,
     "?LocalRect_To_Cell_Point@MapClass@@QBE?AVPoint2D@@ABV2@@Z": 5537136,
     "?Cell_To_PlayRect_Point@MapClass@@QBE?AVPoint2D@@ABV2@@Z": 5537200,
@@ -492,11 +500,11 @@
     "?Is_Tile_Shore@MapClass@@SI_NW4IsometricTileType@@@Z": 5615456,
     "?Is_Tile_Cliff@MapClass@@SI_NW4IsometricTileType@@H@Z": 5615488,
     "?Build_All_Cliffs@MapClass@@QAE_NHH@Z": 5615712,
-    "_$E270": 5616928,
+    "_$E272": 5616928,
     "?Build_All_Shores@MapClass@@QAE_NH_N@Z": 5620416,
     "?Straight_Shore_Length@MapClass@@SIHPAVCellClass@@W4FacingType@@@Z": 5622528,
-    "_$E274": 5622720,
-    "_$E277": 5668032,
+    "_$E276": 5622720,
+    "_$E279": 5668032,
     "?Area_Reduce_Tiberium@MapClass@@QAEXABVCell@@@Z": 5626256,
     "?Spring_Low_Bridge_Destroyed_NS@MapClass@@AAEXVCell@@@Z": 5630256,
     "?Spring_Low_Bridge_Destroyed_EW@MapClass@@AAEXVCell@@@Z": 5630544,
@@ -509,6 +517,7 @@
     "?Repair_Low_Bridge2_Span@MapClass@@AAEXABVCell@@@Z": 5641024,
     "?Find_Nearby_Shroud@MapClass@@QAEPAVCellClass@@PAVFootClass@@@Z": 5646800,
     "?Shutdown@MapClass@@QAEXXZ": 5648032,
+    "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z": 5648208,
     "?Reset_All_Subzones@MapClass@@QAEXXZ": 5651776,
     "?Register_Subzone_Zone_Connections@MapClass@@QAEXH@Z": 5655328,
     "?Get_Bridge_Zone_Connection_Cell@MapClass@@QAE?AVCell@@PAVCellClass@@_N@Z": 5656432,
@@ -543,17 +552,26 @@
     "?Get_Max_Level@MapClass@@QAEHXZ": 5679264,
     "?Find_Compatible_Passability_Row@@YIHHH@Z": 5679360,
     "?Validate@MapClass@@QAEHXZ": 5564608,
+    "??0?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z": 5680864,
+    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
+    "??_G?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 5680784,
+    "?Resize@?$VectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z": 5684432,
+    "?Clear@?$VectorClass@W4PassabilityType@@@@UAEXXZ": 5684608,
+    "??8?$VectorClass@W4PassabilityType@@@@UBE_NABV0@@Z": 5684368,
+    "?ID@?$VectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z": 5684656,
+    "?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z": 5684928,
+    "?Add@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE_NABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5688672,
+    "?ID@?$VectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z": 5684720,
+    "?Add_Object@?$HashTableClass@IUSubzoneConnectionStruct@@@@QAE_NHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5684224,
+    "?Clear@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 5679728,
+    "?ID@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 5679776,
+    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "?Clear@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEXXZ": 5679808,
     "?ID@?$DynamicVectorClass@UZoneConnectionClass@@@@UAEHPBUZoneConnectionClass@@@Z": 5679856,
     "?GetItem@?$VectorClass@UZoneConnectionClass@@@@UBE?AUZoneConnectionClass@@H@Z": 5679888,
     "?Clear@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEXXZ": 5679936,
-    "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
-    "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "?ID@?$DynamicVectorClass@USubzoneTrackingStruct@@@@UAEHPBUSubzoneTrackingStruct@@@Z": 5680064,
     "?GetItem@?$VectorClass@USubzoneTrackingStruct@@@@UBE?AUSubzoneTrackingStruct@@H@Z": 5680112,
-    "??_G?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 5680784,
-    "?Clear@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 5679728,
-    "?ID@?$DynamicVectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 5679776,
     "?Clear@?$DynamicVectorClass@VCell@@@@UAEXXZ": 4377616,
     "?ID@?$DynamicVectorClass@VCell@@@@UAEHPBVCell@@@Z": 4377664,
     "?GetItem@?$VectorClass@VCell@@@@UBE?AVCell@@H@Z": 4377696,
@@ -564,6 +582,9 @@
     "?Clear@?$DynamicVectorClass@G@@UAEXXZ": 4370016,
     "?ID@?$DynamicVectorClass@G@@UAEHPBG@Z": 4370064,
     "?GetItem@?$VectorClass@G@@UBEGH@Z": 4370096,
+    "?Clear@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5680560,
+    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5680608,
+    "?GetItem@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE?AU?$HashObject@IUSubzoneConnectionStruct@@@@H@Z": 5680656,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
@@ -609,32 +630,29 @@
     "?ID@?$VectorClass@G@@UAEHPBG@Z": 4371152,
     "?Resize@?$DynamicVectorClass@G@@UAE_NHPBG@Z": 4371184,
     "?ID@?$DynamicVectorClass@G@@UAEHABG@Z": 4371360,
+    "??8?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE_NABV0@@Z": 5685312,
+    "?Resize@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685376,
+    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685632,
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??1Wstring@@QAE@XZ": 7789024,
     "??_E?$DynamicVectorClass@U?$HashObject@II@@@@UAEPAXI@Z": 5686288,
     "??_G?$VectorClass@U?$HashObject@II@@@@UAEPAXI@Z": 5687568,
     "??_E?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z": 5686816,
     "??_G?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEPAXI@Z": 5687648,
+    "?Resize@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5686992,
+    "?Clear@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5687248,
+    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687296,
+    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687360,
     "?Clear@?$DynamicVectorClass@U?$HashObject@II@@@@UAEXXZ": 5680448,
     "?ID@?$DynamicVectorClass@U?$HashObject@II@@@@UAEHPBU?$HashObject@II@@@Z": 5680496,
     "?GetItem@?$VectorClass@U?$HashObject@II@@@@UBE?AU?$HashObject@II@@H@Z": 5680528,
-    "?Clear@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5680560,
-    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5680608,
-    "?GetItem@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE?AU?$HashObject@IUSubzoneConnectionStruct@@@@H@Z": 5680656,
     "??8?$VectorClass@U?$HashObject@II@@@@UBE_NABV0@@Z": 5684976,
     "?Resize@?$VectorClass@U?$HashObject@II@@@@UAE_NHPBU?$HashObject@II@@@Z": 5686464,
     "?Clear@?$VectorClass@U?$HashObject@II@@@@UAEXXZ": 5686672,
     "?ID@?$VectorClass@U?$HashObject@II@@@@UAEHABU?$HashObject@II@@@Z": 5686720,
     "?ID@?$VectorClass@U?$HashObject@II@@@@UAEHPBU?$HashObject@II@@@Z": 5686784,
     "?Resize@?$DynamicVectorClass@U?$HashObject@II@@@@UAE_NHPBU?$HashObject@II@@@Z": 5685040,
-    "?ID@?$DynamicVectorClass@U?$HashObject@II@@@@UAEHABU?$HashObject@II@@@Z": 5685264,
-    "??8?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UBE_NABV0@@Z": 5685312,
-    "?Resize@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5686992,
-    "?Clear@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": 5687248,
-    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687296,
-    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5687360,
-    "?Resize@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685376,
-    "?ID@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": 5685632
+    "?ID@?$DynamicVectorClass@U?$HashObject@II@@@@UAEHABU?$HashObject@II@@@Z": 5685264
   },
   "regions": [
     {
@@ -691,7 +709,7 @@
           "resolved": 10940980
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521376,
@@ -759,7 +777,7 @@
           "resolved": 10940992
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521408,
@@ -811,7 +829,7 @@
           "resolved": 10943304
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521456,
@@ -863,7 +881,7 @@
           "resolved": 10942952
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521488,
@@ -915,7 +933,7 @@
           "resolved": 10942944
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521520,
@@ -967,7 +985,7 @@
           "resolved": 10942480
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521552,
@@ -1019,7 +1037,7 @@
           "resolved": 10940944
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521584,
@@ -1103,7 +1121,7 @@
           "resolved": 10943536
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521616,
@@ -1163,7 +1181,7 @@
           "resolved": 10942488
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521680,
@@ -1223,7 +1241,7 @@
           "resolved": 10942936
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521728,
@@ -1283,7 +1301,7 @@
           "resolved": 10943296
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521776,
@@ -1327,7 +1345,7 @@
           "resolved": 10940986
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521824,
@@ -1379,7 +1397,7 @@
           "resolved": 10942928
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521840,
@@ -1395,8 +1413,8 @@
       "full_extent_sha256": "873008af652c9e002ba5e1d0ed37f56b6a387e05183a82bd254e69f0942dbcf0",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E249",
-      "symbol_prefix": "_$E249",
+      "symbol": "_$E251",
+      "symbol_prefix": "_$E251",
       "options": [
         "/O2",
         "/Ob2",
@@ -1409,13 +1427,13 @@
         {
           "offset": 1,
           "kind": 20,
-          "symbol": "_$E248",
+          "symbol": "_$E250",
           "target": 5521888,
           "addend": 0,
           "resolved": 11
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521872,
@@ -1431,8 +1449,8 @@
       "full_extent_sha256": "014525191811a412ca8c616dadf2a469b8bc6b04f580d796045104329cae533b",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E248",
-      "symbol_prefix": "_$E248",
+      "symbol": "_$E250",
+      "symbol_prefix": "_$E250",
       "options": [
         "/O2",
         "/Ob2",
@@ -5043,7 +5061,7 @@
           "resolved": 10942472
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5521888,
@@ -5059,8 +5077,8 @@
       "full_extent_sha256": "873008af652c9e002ba5e1d0ed37f56b6a387e05183a82bd254e69f0942dbcf0",
       "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E252",
-      "symbol_prefix": "_$E252",
+      "symbol": "_$E254",
+      "symbol_prefix": "_$E254",
       "options": [
         "/O2",
         "/Ob2",
@@ -5073,13 +5091,13 @@
         {
           "offset": 1,
           "kind": 20,
-          "symbol": "_$E251",
+          "symbol": "_$E253",
           "target": 5530016,
           "addend": 0,
           "resolved": 11
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5530000,
@@ -5095,8 +5113,8 @@
       "full_extent_sha256": "4a530707b5fd6dcc2ae7bea8781fbbdae1ff96ae238425f0769bc59cbb2847b2",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E251",
-      "symbol_prefix": "_$E251",
+      "symbol": "_$E253",
+      "symbol_prefix": "_$E253",
       "options": [
         "/O2",
         "/Ob2",
@@ -8123,7 +8141,7 @@
           "resolved": 10940904
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5530016,
@@ -8139,8 +8157,8 @@
       "full_extent_sha256": "36e213e802b163429d2c24f00c3469f4d72769b6a527cb9ce3123bc3c6bb8132",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E257",
-      "symbol_prefix": "_$E257",
+      "symbol": "_$E259",
+      "symbol_prefix": "_$E259",
       "options": [
         "/O2",
         "/Ob2",
@@ -8169,7 +8187,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E255",
+          "symbol": "_$E257",
           "target": 5536080,
           "addend": 0,
           "resolved": 5536080
@@ -8183,7 +8201,7 @@
           "resolved": 2338886
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5536048,
@@ -8199,8 +8217,8 @@
       "full_extent_sha256": "6f6ca6900b95963b9423230dad790bf13f66e8aba0c8161d62283194414a0f64",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E255",
-      "symbol_prefix": "_$E255",
+      "symbol": "_$E257",
+      "symbol_prefix": "_$E257",
       "options": [
         "/O2",
         "/Ob2",
@@ -8227,7 +8245,7 @@
           "resolved": 4294087974
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5536080,
@@ -8335,7 +8353,7 @@
           "resolved": 8018236
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5536096,
@@ -8443,7 +8461,7 @@
           "resolved": 8018236
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5536352,
@@ -8623,7 +8641,7 @@
           "resolved": 8006716
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5536656,
@@ -8650,7 +8668,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537088,
@@ -8677,7 +8695,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537136,
@@ -8704,7 +8722,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537200,
@@ -8731,7 +8749,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537264,
@@ -8758,7 +8776,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537360,
@@ -8785,7 +8803,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537424,
@@ -8812,7 +8830,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537504,
@@ -8839,7 +8857,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537584,
@@ -8883,7 +8901,7 @@
           "resolved": 10943004
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537696,
@@ -8927,7 +8945,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537792,
@@ -8971,7 +8989,7 @@
           "resolved": 10943004
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537904,
@@ -8998,7 +9016,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5537968,
@@ -9114,7 +9132,7 @@
           "resolved": 8018520
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5538000,
@@ -9254,7 +9272,7 @@
           "resolved": 4293649805
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5538496,
@@ -9290,7 +9308,7 @@
           "resolved": 8018360
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5538672,
@@ -9326,7 +9344,7 @@
           "resolved": 4294841044
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5538768,
@@ -9362,7 +9380,7 @@
           "resolved": 4294085201
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5538960,
@@ -9486,7 +9504,7 @@
           "resolved": 4293787581
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5544384,
@@ -9578,7 +9596,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5544672,
@@ -9614,7 +9632,7 @@
           "resolved": 6
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5544992,
@@ -9874,7 +9892,7 @@
           "resolved": 1106
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5545040,
@@ -10118,7 +10136,7 @@
           "resolved": 939887
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5546256,
@@ -10266,7 +10284,7 @@
           "resolved": 1443539
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5547344,
@@ -10406,7 +10424,7 @@
           "resolved": 8594968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5547808,
@@ -10546,7 +10564,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5548272,
@@ -10573,7 +10591,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5548720,
@@ -10600,7 +10618,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5548800,
@@ -10740,7 +10758,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5548912,
@@ -10864,7 +10882,7 @@
           "resolved": 10943004
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5549936,
@@ -11092,7 +11110,7 @@
           "resolved": 61263
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5550816,
@@ -11888,7 +11906,7 @@
           "resolved": 2318038
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5551456,
@@ -12684,7 +12702,7 @@
           "resolved": 2315696
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5553792,
@@ -13152,7 +13170,7 @@
           "resolved": 10825328
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5556128,
@@ -13572,7 +13590,7 @@
           "resolved": 4294960345
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5557216,
@@ -13992,7 +14010,7 @@
           "resolved": 4294961465
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5558432,
@@ -14092,7 +14110,7 @@
           "resolved": 4294867208
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5559648,
@@ -14224,7 +14242,7 @@
           "resolved": 4294866771
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5559904,
@@ -14284,7 +14302,7 @@
           "resolved": 10940984
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5560336,
@@ -14408,7 +14426,7 @@
           "resolved": 4294906026
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5560688,
@@ -14540,7 +14558,7 @@
           "resolved": 4294905591
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5561104,
@@ -14720,7 +14738,7 @@
           "resolved": 4294866098
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5561536,
@@ -14876,7 +14894,7 @@
           "resolved": 4294865812
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5562016,
@@ -14984,7 +15002,7 @@
           "resolved": 4294061662
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5562304,
@@ -15140,7 +15158,7 @@
           "resolved": 4294905412
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5562560,
@@ -15304,7 +15322,7 @@
           "resolved": 4294905112
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5562848,
@@ -15388,7 +15406,7 @@
           "resolved": 171
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5563136,
@@ -15415,7 +15433,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5563248,
@@ -15467,7 +15485,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5563296,
@@ -15623,7 +15641,7 @@
           "resolved": 4294202437
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5563408,
@@ -15739,7 +15757,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5563776,
@@ -15863,7 +15881,7 @@
           "resolved": 1394580
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5564128,
@@ -15890,7 +15908,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5564608,
@@ -15921,7 +15939,7 @@
         {
           "offset": 53,
           "kind": 6,
-          "symbol": "_?$S264@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA",
+          "symbol": "_?$S266@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA",
           "target": 10942960,
           "addend": 0,
           "resolved": 10942960
@@ -15937,7 +15955,7 @@
         {
           "offset": 110,
           "kind": 6,
-          "symbol": "_?$S264@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA",
+          "symbol": "_?$S266@?1??Close_Object@MapClass@@QBEPAVObjectClass@@ABVCoord@@@Z@4EA",
           "target": 10942960,
           "addend": 0,
           "resolved": 10942960
@@ -15977,7 +15995,7 @@
         {
           "offset": 256,
           "kind": 6,
-          "symbol": "_$E265",
+          "symbol": "_$E267",
           "target": 5565376,
           "addend": 0,
           "resolved": 5565376
@@ -16087,7 +16105,7 @@
           "resolved": 10940944
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5564624,
@@ -16103,8 +16121,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E265",
-      "symbol_prefix": "_$E265",
+      "symbol": "_$E267",
+      "symbol_prefix": "_$E267",
       "options": [
         "/O2",
         "/Ob2",
@@ -16114,7 +16132,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5565376,
@@ -16141,7 +16159,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5567040,
@@ -16250,7 +16268,7 @@
           "resolved": 31
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5568448,
@@ -16358,7 +16376,7 @@
           "resolved": 4294098834
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5568752,
@@ -16385,7 +16403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5569120,
@@ -16412,7 +16430,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5569200,
@@ -16439,7 +16457,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5569264,
@@ -16499,7 +16517,7 @@
           "resolved": 4294963189
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5569312,
@@ -16559,7 +16577,7 @@
           "resolved": 4294962866
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5569632,
@@ -16586,7 +16604,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5570768,
@@ -16654,7 +16672,7 @@
           "resolved": 4294966967
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5570976,
@@ -16730,7 +16748,7 @@
           "resolved": 4294966790
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5571120,
@@ -17118,7 +17136,7 @@
           "resolved": 10940984
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5571296,
@@ -17178,7 +17196,7 @@
           "resolved": 4294080978
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5573872,
@@ -17278,7 +17296,7 @@
           "resolved": 10691240
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5574080,
@@ -17442,7 +17460,7 @@
           "resolved": 4294966830
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5574320,
@@ -17598,7 +17616,7 @@
           "resolved": 4294966890
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5574816,
@@ -17722,7 +17740,7 @@
           "resolved": 4294966100
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5575264,
@@ -17846,7 +17864,7 @@
           "resolved": 4294965842
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5575520,
@@ -18250,7 +18268,7 @@
           "resolved": 4294964916
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5575792,
@@ -18654,7 +18672,7 @@
           "resolved": 4294963988
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5576720,
@@ -18778,7 +18796,7 @@
           "resolved": 4294963711
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5577648,
@@ -18902,7 +18920,7 @@
           "resolved": 4294963437
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5577920,
@@ -19330,7 +19348,7 @@
           "resolved": 4294962469
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5578192,
@@ -19758,7 +19776,7 @@
           "resolved": 4294961493
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5579168,
@@ -20634,7 +20652,7 @@
           "resolved": 2288980
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5580144,
@@ -20990,7 +21008,7 @@
           "resolved": 4294965939
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5582848,
@@ -21346,7 +21364,7 @@
           "resolved": 1373818
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5584240,
@@ -22639,7 +22657,7 @@
           "resolved": 5588658
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5585328,
@@ -22763,7 +22781,7 @@
           "resolved": 4294952548
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5588816,
@@ -22887,7 +22905,7 @@
           "resolved": 4294952290
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5589072,
@@ -23291,7 +23309,7 @@
           "resolved": 4294951364
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5589344,
@@ -23695,7 +23713,7 @@
           "resolved": 4294950436
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5590272,
@@ -23819,7 +23837,7 @@
           "resolved": 4294950159
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5591200,
@@ -23943,7 +23961,7 @@
           "resolved": 4294949885
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5591472,
@@ -24371,7 +24389,7 @@
           "resolved": 4294948917
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5591744,
@@ -24799,7 +24817,7 @@
           "resolved": 4294947941
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5592720,
@@ -24875,7 +24893,7 @@
           "resolved": 10825328
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5598000,
@@ -25047,7 +25065,7 @@
           "resolved": 2972
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5598192,
@@ -25219,7 +25237,7 @@
           "resolved": 3976
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5598768,
@@ -25543,7 +25561,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5600928,
@@ -25867,7 +25885,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5601728,
@@ -26191,7 +26209,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5602528,
@@ -26515,7 +26533,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5603344,
@@ -26911,7 +26929,7 @@
           "resolved": 1423275
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5604160,
@@ -27267,7 +27285,7 @@
           "resolved": 4294965939
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5604960,
@@ -27639,7 +27657,7 @@
           "resolved": 1351728
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5606352,
@@ -28956,7 +28974,7 @@
           "resolved": 5610731
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5607424,
@@ -29072,7 +29090,7 @@
           "resolved": 8806984
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5610880,
@@ -29164,7 +29182,7 @@
           "resolved": 8594948
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5611184,
@@ -29264,7 +29282,7 @@
           "resolved": 893040
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5611280,
@@ -29348,7 +29366,7 @@
           "resolved": 892882
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5611472,
@@ -29440,7 +29458,7 @@
           "resolved": 892701
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5611632,
@@ -29628,7 +29646,7 @@
           "resolved": 4294469564
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5611808,
@@ -29800,7 +29818,7 @@
           "resolved": 4294469412
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612016,
@@ -29868,7 +29886,7 @@
           "resolved": 4294009806
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612160,
@@ -30024,7 +30042,7 @@
           "resolved": 22
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612288,
@@ -30051,7 +30069,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612688,
@@ -30078,7 +30096,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612880,
@@ -30138,7 +30156,7 @@
           "resolved": 32
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5612944,
@@ -30190,7 +30208,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5613152,
@@ -30217,7 +30235,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5613376,
@@ -30253,7 +30271,7 @@
           "resolved": 4294966832
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5613552,
@@ -30305,7 +30323,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5613632,
@@ -30357,7 +30375,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5613840,
@@ -30384,7 +30402,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5614160,
@@ -30509,7 +30527,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5614208,
@@ -30536,7 +30554,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5614784,
@@ -30613,7 +30631,7 @@
           "resolved": 4293864048
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5614800,
@@ -30640,7 +30658,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5614960,
@@ -30667,7 +30685,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5615184,
@@ -30703,7 +30721,7 @@
           "resolved": 10931060
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5615456,
@@ -30779,7 +30797,7 @@
           "resolved": 10935552
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5615488,
@@ -31119,7 +31137,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5615712,
@@ -31331,7 +31349,7 @@
           "resolved": 4294966543
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5616144,
@@ -31347,8 +31365,8 @@
       "full_extent_sha256": "6a196521633df81ebe6253a5be812bc46deebb098dc93dc02029621093c0e828",
       "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E270",
-      "symbol_prefix": "_$E270",
+      "symbol": "_$E272",
+      "symbol_prefix": "_$E272",
       "options": [
         "/O2",
         "/Ob2",
@@ -31935,7 +31953,7 @@
           "resolved": 10943468
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5616928,
@@ -32299,7 +32317,7 @@
           "resolved": 6396
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5617696,
@@ -32759,7 +32777,7 @@
           "resolved": 4294046532
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5619056,
@@ -33267,7 +33285,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5620416,
@@ -33375,7 +33393,7 @@
           "resolved": 3581
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5621024,
@@ -33779,7 +33797,7 @@
           "resolved": 4294966102
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5621296,
@@ -33871,7 +33889,7 @@
           "resolved": 4294039256
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5622528,
@@ -33887,8 +33905,8 @@
       "full_extent_sha256": "bf6dd38840b5037046e5622928da16d00aea7c4a68c93587cb4ca9a58730c552",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E274",
-      "symbol_prefix": "_$E274",
+      "symbol": "_$E276",
+      "symbol_prefix": "_$E276",
       "options": [
         "/O2",
         "/Ob2",
@@ -34515,7 +34533,7 @@
           "resolved": 10942916
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5622720,
@@ -34887,7 +34905,7 @@
           "resolved": 600
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5623536,
@@ -35027,7 +35045,7 @@
           "resolved": 4294036567
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5624848,
@@ -35103,7 +35121,7 @@
           "resolved": 4294017898
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5626256,
@@ -35252,7 +35270,7 @@
           "resolved": 5626688
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5626480,
@@ -35401,7 +35419,7 @@
           "resolved": 5626972
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5626768,
@@ -35573,7 +35591,7 @@
           "resolved": 1340
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5627040,
@@ -35697,7 +35715,7 @@
           "resolved": 4294940923
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5630256,
@@ -35821,7 +35839,7 @@
           "resolved": 4294940635
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5630544,
@@ -35970,7 +35988,7 @@
           "resolved": 5631046
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5630832,
@@ -36119,7 +36137,7 @@
           "resolved": 5631346
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5631136,
@@ -36291,7 +36309,7 @@
           "resolved": 1336
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5631408,
@@ -36415,7 +36433,7 @@
           "resolved": 4294936515
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5634656,
@@ -36539,7 +36557,7 @@
           "resolved": 4294936211
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5634960,
@@ -36895,7 +36913,7 @@
           "resolved": 4294036016
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5635264,
@@ -37195,7 +37213,7 @@
           "resolved": 4294034774
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5636592,
@@ -37551,7 +37569,7 @@
           "resolved": 4294033427
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5637840,
@@ -37851,7 +37869,7 @@
           "resolved": 4294032169
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5639184,
@@ -38023,7 +38041,7 @@
           "resolved": 1868
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5640448,
@@ -38195,7 +38213,7 @@
           "resolved": 3768
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5641024,
@@ -38584,7 +38602,7 @@
           "resolved": 5642754
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5641632,
@@ -38973,7 +38991,7 @@
           "resolved": 5644001
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5642880,
@@ -39362,7 +39380,7 @@
           "resolved": 5645262
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5644128,
@@ -39751,7 +39769,7 @@
           "resolved": 5646525
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5645392,
@@ -39803,7 +39821,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5646640,
@@ -39855,7 +39873,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5646720,
@@ -40131,7 +40149,7 @@
           "resolved": 10943004
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5646800,
@@ -40215,10 +40233,1022 @@
           "resolved": 1602029
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5648032,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5648208,
+      "method": "00562f50",
+      "body_bytes": 3562,
+      "body_sha256": "338f42fae30e095a022c9ea5c446397ee99d89f1474e4293d0f88f7c6388b137",
+      "padding_bytes": 6,
+      "full_extent_bytes": 3568,
+      "full_extent_sha256": "cdeb09379b76279f68a37d87c4903af6c1709204bcfd75a308152e54c0f5096e",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z",
+      "symbol_prefix": "?Collapse_Cliff@MapClass@@QAEXPAVCellClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 15,
+          "kind": 6,
+          "symbol": "?DestroyableCliffs@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936568,
+          "addend": 0,
+          "resolved": 10936568
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 213,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 219,
+          "kind": 6,
+          "symbol": "?SlopeSetPieces@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936376,
+          "addend": 0,
+          "resolved": 10936376
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?SlopeSetPieces@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936376,
+          "addend": 0,
+          "resolved": 10936376
+        },
+        {
+          "offset": 362,
+          "kind": 20,
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
+          "target": 5565392,
+          "addend": 0,
+          "resolved": 4294884114
+        },
+        {
+          "offset": 368,
+          "kind": 6,
+          "symbol": "?DestroyableCliffs@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936568,
+          "addend": 0,
+          "resolved": 10936568
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 482,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294931754
+        },
+        {
+          "offset": 498,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z",
+          "target": 5569200,
+          "addend": 0,
+          "resolved": 4294887786
+        },
+        {
+          "offset": 542,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 555,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 560,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 569,
+          "kind": 20,
+          "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
+          "target": 4662592,
+          "addend": 0,
+          "resolved": 4293981107
+        },
+        {
+          "offset": 689,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294931547
+        },
+        {
+          "offset": 705,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z",
+          "target": 5569200,
+          "addend": 0,
+          "resolved": 4294887579
+        },
+        {
+          "offset": 733,
+          "kind": 20,
+          "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+          "target": 5661504,
+          "addend": 0,
+          "resolved": 12559
+        },
+        {
+          "offset": 853,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294931383
+        },
+        {
+          "offset": 889,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 902,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 907,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 914,
+          "kind": 20,
+          "symbol": "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z",
+          "target": 7175296,
+          "addend": 0,
+          "resolved": 1526170
+        },
+        {
+          "offset": 923,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 929,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 844411
+        },
+        {
+          "offset": 994,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 1010,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 1016,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 1030,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 1062,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1071,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1308237
+        },
+        {
+          "offset": 1124,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 1145,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 1159,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 1207,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1216,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1308092
+        },
+        {
+          "offset": 1274,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1279,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 1309645
+        },
+        {
+          "offset": 1284,
+          "kind": 6,
+          "symbol": "??_C@_08OHBM@XGRYMED1?$AA@",
+          "target": 8259696,
+          "addend": 0,
+          "resolved": 8259696
+        },
+        {
+          "offset": 1289,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293665251
+        },
+        {
+          "offset": 1295,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 1300,
+          "kind": 6,
+          "symbol": "??_C@_08BIKF@XGRYMED2?$AA@",
+          "target": 8259684,
+          "addend": 0,
+          "resolved": 8259684
+        },
+        {
+          "offset": 1314,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293665226
+        },
+        {
+          "offset": 1320,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 1331,
+          "kind": 6,
+          "symbol": "??_C@_08GCKA@XGRYSML1?$AA@",
+          "target": 8259672,
+          "addend": 0,
+          "resolved": 8259672
+        },
+        {
+          "offset": 1340,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293665200
+        },
+        {
+          "offset": 1346,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 1441,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1456,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 873372
+        },
+        {
+          "offset": 1505,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2222818
+        },
+        {
+          "offset": 1523,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1538,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 873290
+        },
+        {
+          "offset": 1544,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1561,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 873267
+        },
+        {
+          "offset": 1592,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 1613,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 1618,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 1658,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1687,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 873141
+        },
+        {
+          "offset": 1714,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293643018
+        },
+        {
+          "offset": 1834,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 1980,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 1986,
+          "kind": 6,
+          "symbol": "?SlopeSetPieces@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936376,
+          "addend": 0,
+          "resolved": 10936376
+        },
+        {
+          "offset": 2043,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 2048,
+          "kind": 6,
+          "symbol": "?SlopeSetPieces@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936376,
+          "addend": 0,
+          "resolved": 10936376
+        },
+        {
+          "offset": 2132,
+          "kind": 20,
+          "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
+          "target": 5565392,
+          "addend": 0,
+          "resolved": 4294882344
+        },
+        {
+          "offset": 2138,
+          "kind": 6,
+          "symbol": "?DestroyableCliffs@IsometricTileTypeClass@@2W4IsometricTileType@@A",
+          "target": 10936568,
+          "addend": 0,
+          "resolved": 10936568
+        },
+        {
+          "offset": 2143,
+          "kind": 6,
+          "symbol": "?IsometricTileTypes@@3V?$DynamicVectorClass@PAVIsometricTileTypeClass@@@@A",
+          "target": 10751184,
+          "addend": 4,
+          "resolved": 10751188
+        },
+        {
+          "offset": 2253,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294929983
+        },
+        {
+          "offset": 2269,
+          "kind": 20,
+          "symbol": "?Get_Cell_Zone_Index@MapClass@@QAEHABVCell@@@Z",
+          "target": 5569200,
+          "addend": 0,
+          "resolved": 4294886015
+        },
+        {
+          "offset": 2313,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 2326,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 2331,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 2340,
+          "kind": 20,
+          "symbol": "?Recalc_Attributes@CellClass@@QAEXH@Z",
+          "target": 4662592,
+          "addend": 0,
+          "resolved": 4293979336
+        },
+        {
+          "offset": 2464,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294929772
+        },
+        {
+          "offset": 2480,
+          "kind": 20,
+          "symbol": "?Get_Cell_Subzone_Index@MapClass@@QAEHABVCell@@@Z",
+          "target": 5569264,
+          "addend": 0,
+          "resolved": 4294885868
+        },
+        {
+          "offset": 2523,
+          "kind": 20,
+          "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+          "target": 5661504,
+          "addend": 0,
+          "resolved": 10769
+        },
+        {
+          "offset": 2643,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 4294929593
+        },
+        {
+          "offset": 2679,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 2692,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 2697,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 2704,
+          "kind": 20,
+          "symbol": "?Remove_Target@TechnoClass@@SIXPAVAbstractClass@@@Z",
+          "target": 7175296,
+          "addend": 0,
+          "resolved": 1524380
+        },
+        {
+          "offset": 2713,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2719,
+          "kind": 20,
+          "symbol": "?Radar_Background@RadarClass@@QAEXABVCell@@@Z",
+          "target": 6493552,
+          "addend": 0,
+          "resolved": 842621
+        },
+        {
+          "offset": 2777,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 2793,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 2799,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 2813,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 2845,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2854,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1306454
+        },
+        {
+          "offset": 2904,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 2920,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 2925,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 2939,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 2987,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2996,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1306312
+        },
+        {
+          "offset": 3054,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 3059,
+          "kind": 20,
+          "symbol": "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z",
+          "target": 6959136,
+          "addend": 0,
+          "resolved": 1307865
+        },
+        {
+          "offset": 3064,
+          "kind": 6,
+          "symbol": "??_C@_08OHBM@XGRYMED1?$AA@",
+          "target": 8259696,
+          "addend": 0,
+          "resolved": 8259696
+        },
+        {
+          "offset": 3069,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293663471
+        },
+        {
+          "offset": 3075,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 3080,
+          "kind": 6,
+          "symbol": "??_C@_08BIKF@XGRYMED2?$AA@",
+          "target": 8259684,
+          "addend": 0,
+          "resolved": 8259684
+        },
+        {
+          "offset": 3094,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293663446
+        },
+        {
+          "offset": 3100,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 3111,
+          "kind": 6,
+          "symbol": "??_C@_08GCKA@XGRYSML1?$AA@",
+          "target": 8259672,
+          "addend": 0,
+          "resolved": 8259672
+        },
+        {
+          "offset": 3120,
+          "kind": 20,
+          "symbol": "?From_Name@AnimTypeClass@@SI?AW4AnimType@@PBD@Z",
+          "target": 4347456,
+          "addend": 0,
+          "resolved": 4293663420
+        },
+        {
+          "offset": 3126,
+          "kind": 6,
+          "symbol": "?AnimTypes@@3V?$DynamicVectorClass@PAVAnimTypeClass@@@@A",
+          "target": 8806880,
+          "addend": 4,
+          "resolved": 8806884
+        },
+        {
+          "offset": 3219,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3234,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 871594
+        },
+        {
+          "offset": 3283,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2221040
+        },
+        {
+          "offset": 3301,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3316,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 871512
+        },
+        {
+          "offset": 3322,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3339,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 871489
+        },
+        {
+          "offset": 3370,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 312,
+          "resolved": 8594968
+        },
+        {
+          "offset": 3391,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 36,
+          "resolved": 10943004
+        },
+        {
+          "offset": 3396,
+          "kind": 6,
+          "symbol": "?BlubCell@@3VCellClass@@A",
+          "target": 10942968,
+          "addend": 0,
+          "resolved": 10942968
+        },
+        {
+          "offset": 3410,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10943536,
+          "addend": 0,
+          "resolved": 10943536
+        },
+        {
+          "offset": 3436,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3465,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 871363
+        },
+        {
+          "offset": 3492,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4293641240
+        }
+      ],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5648208,
       "source_quality_family": "rebuild"
     },
     {
@@ -40267,7 +41297,7 @@
           "resolved": 4293680415
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5651776,
@@ -40303,7 +41333,7 @@
           "resolved": 20
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5655328,
@@ -40435,7 +41465,7 @@
           "resolved": 4294010902
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5656432,
@@ -40591,7 +41621,7 @@
           "resolved": 10940986
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5657056,
@@ -40787,7 +41817,7 @@
           "resolved": 2202404
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5657536,
@@ -40951,7 +41981,7 @@
           "resolved": 10940984
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5658128,
@@ -41107,7 +42137,7 @@
           "resolved": 2212610
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5658816,
@@ -41271,7 +42301,7 @@
           "resolved": 23645
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5659216,
@@ -41323,7 +42353,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5660192,
@@ -41511,7 +42541,7 @@
           "resolved": 2210316
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5660336,
@@ -41747,7 +42777,7 @@
           "resolved": 4294872130
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5663792,
@@ -41951,7 +42981,7 @@
           "resolved": 4294871064
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5664656,
@@ -42043,7 +43073,7 @@
           "resolved": 4294914075
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5665664,
@@ -42575,7 +43605,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5665936,
@@ -42803,7 +43833,7 @@
           "resolved": 4293678305
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5666576,
@@ -43151,7 +44181,7 @@
           "resolved": 10947108
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5667552,
@@ -43167,8 +44197,8 @@
       "full_extent_sha256": "df5b3f1b10008a7adf9ef31c93d6df11a1e09f52eec3767bc63fd5503d8001c3",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E277",
-      "symbol_prefix": "_$E277",
+      "symbol": "_$E279",
+      "symbol_prefix": "_$E279",
       "options": [
         "/O2",
         "/Ob2",
@@ -43211,7 +44241,7 @@
           "resolved": 10940964
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5668032,
@@ -43263,7 +44293,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5669024,
@@ -43355,7 +44385,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5669184,
@@ -43447,7 +44477,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5669504,
@@ -43563,7 +44593,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5669824,
@@ -43639,7 +44669,7 @@
           "resolved": 4293955757
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5670176,
@@ -43691,7 +44721,7 @@
           "resolved": 4294909513
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5670384,
@@ -43743,7 +44773,7 @@
           "resolved": 4294909426
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5670480,
@@ -43819,7 +44849,7 @@
           "resolved": 4294909436
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5670576,
@@ -43879,7 +44909,7 @@
           "resolved": 2200740
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5670832,
@@ -43963,7 +44993,7 @@
           "resolved": 4294957449
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5671072,
@@ -43990,7 +45020,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5671376,
@@ -44147,7 +45177,7 @@
           "resolved": 10942968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5671680,
@@ -44215,7 +45245,7 @@
           "resolved": 4294907830
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5672288,
@@ -44299,7 +45329,7 @@
           "resolved": 4294251476
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5672656,
@@ -44479,7 +45509,7 @@
           "resolved": 4294900970
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5673104,
@@ -44787,7 +45817,7 @@
           "resolved": 2202047
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5675872,
@@ -44991,7 +46021,7 @@
           "resolved": 10942928
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5676976,
@@ -45091,7 +46121,7 @@
           "resolved": 4293948220
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5678208,
@@ -45207,7 +46237,7 @@
           "resolved": 4293947693
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5678688,
@@ -45234,7 +46264,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679216,
@@ -45261,7 +46291,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679264,
@@ -45321,7 +46351,7 @@
           "resolved": 8258116
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679360,
@@ -45365,7 +46395,7 @@
           "resolved": 2192214
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679568,
@@ -45392,7 +46422,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679680,
@@ -45428,7 +46458,7 @@
           "resolved": 2192048
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679728,
@@ -45456,7 +46486,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679776,
@@ -45493,7 +46523,7 @@
           "resolved": 2191968
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679808,
@@ -45521,7 +46551,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679856,
@@ -45549,7 +46579,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679888,
@@ -45602,7 +46632,7 @@
           "resolved": 2191764
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5679936,
@@ -45629,7 +46659,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680064,
@@ -45690,7 +46720,7 @@
           "resolved": 8018648
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680112,
@@ -45717,7 +46747,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680336,
@@ -45754,7 +46784,7 @@
           "resolved": 2191328
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680448,
@@ -45782,7 +46812,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680496,
@@ -45810,7 +46840,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680528,
@@ -45847,7 +46877,7 @@
           "resolved": 2191216
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680560,
@@ -45875,7 +46905,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680608,
@@ -45903,7 +46933,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680656,
@@ -45956,7 +46986,7 @@
           "resolved": 2191035
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680704,
@@ -46009,12 +47039,65 @@
           "resolved": 2190955
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5680784,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
+    },
+    {
+      "entry": 5680864,
+      "method": "0056aee0",
+      "body_bytes": 144,
+      "body_sha256": "c496f39fb8681174516f99da2e72f079bcfc9d596a233eebaca9d8ccb8171ba7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "c496f39fb8681174516f99da2e72f079bcfc9d596a233eebaca9d8ccb8171ba7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z",
+      "symbol_prefix": "??0?$DynamicVectorClass@USubzoneConnectionStruct@@@@QAE@IPBUSubzoneConnectionStruct@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@",
+          "target": 7972716,
+          "addend": 0,
+          "resolved": 7972716
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2191590
+        },
+        {
+          "offset": 122,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@USubzoneConnectionStruct@@@@6B@",
+          "target": 8018648,
+          "addend": 0,
+          "resolved": 8018648
+        }
+      ],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5680864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3288"
     },
     {
       "entry": 5681008,
@@ -46054,7 +47137,7 @@
           "resolved": 2190611
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681008,
@@ -46082,7 +47165,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681264,
@@ -46110,7 +47193,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681328,
@@ -46138,7 +47221,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681376,
@@ -46183,7 +47266,7 @@
           "resolved": 2190065
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681488,
@@ -46220,7 +47303,7 @@
           "resolved": 2189987
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681792,
@@ -46248,7 +47331,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681840,
@@ -46276,7 +47359,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681936,
@@ -46337,7 +47420,7 @@
           "resolved": 2189607
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5681968,
@@ -46365,7 +47448,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5682272,
@@ -46393,7 +47476,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5682304,
@@ -46421,7 +47504,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5682384,
@@ -46522,7 +47605,7 @@
           "resolved": 2188872
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5682464,
@@ -46574,7 +47657,7 @@
           "resolved": 2188695
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683008,
@@ -46601,7 +47684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683136,
@@ -46629,7 +47712,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683216,
@@ -46698,7 +47781,7 @@
           "resolved": 4293523010
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683264,
@@ -46742,7 +47825,7 @@
           "resolved": 8018660
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683632,
@@ -46770,7 +47853,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683696,
@@ -46798,7 +47881,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683760,
@@ -46826,7 +47909,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683840,
@@ -46871,7 +47954,7 @@
           "resolved": 2187776
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5683904,
@@ -46908,7 +47991,7 @@
           "resolved": 2187699
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5684080,
@@ -46936,7 +48019,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5684128,
@@ -46964,12 +48047,233 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5684192,
       "source_quality_family": "rebuild",
       "bound_population": "population-1597"
+    },
+    {
+      "entry": 5684224,
+      "method": "0056bc00",
+      "body_bytes": 137,
+      "body_sha256": "e3c0a0a6d43d8c4c407a7c700a428a213f8bc4c88bb7b122c74acdda56c69a7f",
+      "padding_bytes": 7,
+      "full_extent_bytes": 144,
+      "full_extent_sha256": "beeaa23cc985942ee391fc36f1a22891ed937243d00f5dd0483de1e58b74e0dc",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add_Object@?$HashTableClass@IUSubzoneConnectionStruct@@@@QAE_NHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z",
+      "symbol_prefix": "?Add_Object@?$HashTableClass@IUSubzoneConnectionStruct@@@@QAE_NHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684224,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5684368,
+      "method": "56bc90",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@W4PassabilityType@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@W4PassabilityType@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684368,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-13"
+    },
+    {
+      "entry": 5684432,
+      "method": "0056bcd0",
+      "body_bytes": 174,
+      "body_sha256": "5fc1857a144743f547a950679ec2816d1c4c4da536ef7d991103d8faeeb238da",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "071162c1e4a2484f3e69b4495ae57396922aef4e018baccf357efbffc8b23318",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2188060
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2187248
+        }
+      ],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5684608,
+      "method": "0056bd80",
+      "body_bytes": 39,
+      "body_sha256": "0956cec072ee5986babbc231f312fde24999d7b2a63b851d91a29c756cab0a6b",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ab787b23990917927786e80071e1a2bfb4b784ef270bbdfeecfedb14fb251f78",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@W4PassabilityType@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@W4PassabilityType@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2187171
+        }
+      ],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684608,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5684656,
+      "method": "56bdb0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684656,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-14"
+    },
+    {
+      "entry": 5684720,
+      "method": "0056bdf0",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684720,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1597"
+    },
+    {
+      "entry": 5684928,
+      "method": "56bec0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHABW4PassabilityType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5684928,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-14"
     },
     {
       "entry": 5684976,
@@ -46992,7 +48296,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5684976,
@@ -47037,7 +48341,7 @@
           "resolved": 2186615
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685040,
@@ -47065,7 +48369,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685264,
@@ -47093,7 +48397,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685312,
@@ -47138,7 +48442,7 @@
           "resolved": 2186246
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685376,
@@ -47166,7 +48470,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685632,
@@ -47219,7 +48523,7 @@
           "resolved": 2186059
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685680,
@@ -47272,7 +48576,7 @@
           "resolved": 2185979
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685760,
@@ -47341,7 +48645,7 @@
           "resolved": 2185830
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685840,
@@ -47377,7 +48681,7 @@
           "resolved": 2186507
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5685984,
@@ -47445,7 +48749,7 @@
           "resolved": 2185532
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686160,
@@ -47521,7 +48825,7 @@
           "resolved": 2185362
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686288,
@@ -47566,7 +48870,7 @@
           "resolved": 2185182
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686464,
@@ -47603,7 +48907,7 @@
           "resolved": 2185107
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686672,
@@ -47631,7 +48935,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686720,
@@ -47659,7 +48963,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686784,
@@ -47736,7 +49040,7 @@
           "resolved": 2184834
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686816,
@@ -47781,7 +49085,7 @@
           "resolved": 2184621
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5686992,
@@ -47818,7 +49122,7 @@
           "resolved": 2184531
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687248,
@@ -47846,7 +49150,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687296,
@@ -47874,7 +49178,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687360,
@@ -47927,7 +49231,7 @@
           "resolved": 2184171
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687568,
@@ -47980,7 +49284,7 @@
           "resolved": 2184091
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687648,
@@ -48017,7 +49321,7 @@
           "resolved": 2184763
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687728,
@@ -48061,7 +49365,7 @@
           "resolved": 2184560
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5687888,
@@ -48097,7 +49401,7 @@
           "resolved": 2184443
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5688048,
@@ -48141,7 +49445,7 @@
           "resolved": 2184218
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5688208,
@@ -48217,11 +49521,39 @@
           "resolved": 8018648
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5688384,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5688672,
+      "method": "0056cd60",
+      "body_bytes": 97,
+      "body_sha256": "2ae5001b588233306c5063b121c70b812017580baa026fb5c986260aff528a5e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 112,
+      "full_extent_sha256": "3e611ec6d9edb4433de9fe05c39166cc642569145786de44362b088bcad90d3d",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE_NABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z",
+      "symbol_prefix": "?Add@?$DynamicVectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@QAE_NABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
+      "source": "rebuild/src/map.cpp",
+      "population": "rebuild-map",
+      "source_order": 5688672,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3295"
     },
     {
       "entry": 5688784,
@@ -48261,7 +49593,7 @@
           "resolved": 2183679
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5688784,
@@ -48306,7 +49638,7 @@
           "resolved": 2183536
         }
       ],
-      "source_sha256": "65a4839f79231314e230f9c195c741aa2db2fe77dd87d5a7135209591a35685f",
+      "source_sha256": "a05d572e5e0307dbb284af7b39f64fa74bd8ab7b96ee99e85c2bb347906cc5d8",
       "source": "rebuild/src/map.cpp",
       "population": "rebuild-map",
       "source_order": 5688912,

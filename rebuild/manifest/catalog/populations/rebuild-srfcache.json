@@ -24,19 +24,110 @@
     "??1Wstring@@QAE@XZ": 7789024,
     "??3@YAXPAX@Z": 7871803,
     "?shrink@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ": 6871024,
-    "?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z": 6866432,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z": 6344976,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "??_7XSurface@@6B@": 7974796,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??_7BSurface@@6B@": 7974648,
     "??0Wstring@@QAE@PBD@Z": 7788832,
+    "?toLower@Wstring@@QAEXXZ": 7794208,
+    "??8Wstring@@QBE_NABV0@@Z": 7789168,
+    "?remove@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@QAEDABVWstring@@AAUSurfaceCacheEntry@@@Z": 6870336,
+    "?expand@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ": 6871200,
+    "?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z": 6866432,
     "_?$S23@?1??GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z@4EA": 11260128,
     "_$E24": 6867744,
     "_?_x@?1??GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z@4USurfaceCacheEntry@@A": 11260136,
     "_atexit": 7874954,
-    "??8Wstring@@QBE_NABV0@@Z": 7789168,
     "_$E2": 6863952,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "?SurfaceCacheConvertPixel@@YIHHHH@Z": 6863984,
     "?SurfaceCacheConvertPalette@@YIXPAE@Z": 6864096,
     "??0SurfaceCacheClass@@QAE@XZ": 6864208,
     "??1SurfaceCacheClass@@QAE@XZ": 6864432,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "__purecall": 4950368,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
+    "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
+    "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
+    "?Get_Width@Surface@@UBEHXZ": 4264640,
+    "?Get_Height@Surface@@UBEHXZ": 4264656,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
+    "?Unlock@XSurface@@UBE_NXZ": 4264688,
+    "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
+    "?Is_Direct_Draw@XSurface@@UBE_NXZ": 4264720,
+    "??_GSurface@@UAEPAXI@Z": 4264784,
+    "??_7Surface@@6B@": 7974944,
+    "?Is_Direct_Draw@Surface@@UBE_NXZ": 4264768,
+    "?Lock@BSurface@@UBEPAXVPoint2D@@@Z": 4264816,
+    "?Bytes_Per_Pixel@BSurface@@UBEHXZ": 4264880,
+    "?Stride@BSurface@@UBEHXZ": 4264896,
     "?CachePalettedPCX@SurfaceCacheClass@@QAE_NPBD@Z": 6867488,
     "?GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z": 6867520,
     "?Remove@SurfaceCacheClass@@QAEXPBD@Z": 6867760,
@@ -98,7 +189,7 @@
           "resolved": 11260124
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6863952,
@@ -174,7 +265,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6863984,
@@ -202,7 +293,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864096,
@@ -246,7 +337,7 @@
           "resolved": 6864352
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864208,
@@ -306,7 +397,7 @@
           "resolved": 928134
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864352,
@@ -422,10 +513,270 @@
           "resolved": 1006859
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864432,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6866432,
+      "method": "0068c600",
+      "body_bytes": 1046,
+      "body_sha256": "d20d3100161e174947ee5354ba7b2009fba145c04580564339b724a21e6c6be1",
+      "padding_bytes": 10,
+      "full_extent_bytes": 1056,
+      "full_extent_sha256": "d91066aea663dc0f8c6c9631d0d598935dc48d0b151f92b4ab90fe7f501ebec9",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z",
+      "symbol_prefix": "?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 67,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4292725001
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+          "target": 6344976,
+          "addend": 0,
+          "resolved": 4294445751
+        },
+        {
+          "offset": 108,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292525460
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 137,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292488387
+        },
+        {
+          "offset": 196,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 233,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 258,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 311,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1005788
+        },
+        {
+          "offset": 353,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 365,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4292524879
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 648,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 921748
+        },
+        {
+          "offset": 657,
+          "kind": 20,
+          "symbol": "?toLower@Wstring@@QAEXXZ",
+          "target": 7794208,
+          "addend": 0,
+          "resolved": 927115
+        },
+        {
+          "offset": 718,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NABV0@@Z",
+          "target": 7789168,
+          "addend": 0,
+          "resolved": 922014
+        },
+        {
+          "offset": 797,
+          "kind": 20,
+          "symbol": "?remove@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@QAEDABVWstring@@AAUSurfaceCacheEntry@@@Z",
+          "target": 6870336,
+          "addend": 0,
+          "resolved": 3103
+        },
+        {
+          "offset": 819,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1005280
+        },
+        {
+          "offset": 835,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@XZ",
+          "target": 7788816,
+          "addend": 0,
+          "resolved": 921545
+        },
+        {
+          "offset": 858,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 922322
+        },
+        {
+          "offset": 974,
+          "kind": 20,
+          "symbol": "?expand@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ",
+          "target": 6871200,
+          "addend": 0,
+          "resolved": 3790
+        },
+        {
+          "offset": 983,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 921605
+        },
+        {
+          "offset": 998,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 1010,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292524570
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 1027,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292487497
+        }
+      ],
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
+      "source": "rebuild/src/srfcache.cpp",
+      "population": "rebuild-srfcache",
+      "source_order": 6866432,
       "source_quality_family": "rebuild"
     },
     {
@@ -458,7 +809,7 @@
           "resolved": 4294966226
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867488,
@@ -590,7 +941,7 @@
           "resolved": 921298
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867520,
@@ -617,7 +968,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867744,
@@ -725,7 +1076,7 @@
           "resolved": 920853
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867760,
@@ -752,7 +1103,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6868608,
@@ -779,12 +1130,120 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6868864,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 6870336,
+      "method": "0068d540",
+      "body_bytes": 684,
+      "body_sha256": "474e0681dce6e16a9034c87b31cbdcc0eb60384feb28e10e42d4f54854aa356a",
+      "padding_bytes": 4,
+      "full_extent_bytes": 688,
+      "full_extent_sha256": "979dd629b733ec552536d3c76b9f0898c7ffd238218d99720a885945e7405501",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?remove@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@QAEDABVWstring@@AAUSurfaceCacheEntry@@@Z",
+      "symbol_prefix": "?remove@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@QAEDABVWstring@@AAUSurfaceCacheEntry@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 114,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NABV0@@Z",
+          "target": 7789168,
+          "addend": 0,
+          "resolved": 918714
+        },
+        {
+          "offset": 159,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 918525
+        },
+        {
+          "offset": 165,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1001298
+        },
+        {
+          "offset": 257,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1001938
+        },
+        {
+          "offset": 364,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1001099
+        },
+        {
+          "offset": 402,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NABV0@@Z",
+          "target": 7789168,
+          "addend": 0,
+          "resolved": 918426
+        },
+        {
+          "offset": 470,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 918214
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1000987
+        },
+        {
+          "offset": 556,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1001639
+        },
+        {
+          "offset": 663,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1000800
+        }
+      ],
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
+      "source": "rebuild/src/srfcache.cpp",
+      "population": "rebuild-srfcache",
+      "source_order": 6870336,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 6871024,
@@ -824,10 +1283,54 @@
           "resolved": 1000614
         }
       ],
-      "source_sha256": "9a39f795f3b0dd1db7005f4626303c8d47e166eff45160b56e24089980c5ba01",
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6871024,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6871200,
+      "method": "0068d8a0",
+      "body_bytes": 162,
+      "body_sha256": "1f85b456d07a3bf1793db9edfed5d1e5794d0ae9d3ea4eac816b2ab9831b90d9",
+      "padding_bytes": 14,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "2be61af2738c887a5b5c6e19de4cd067f926a5752c375ee7f8c634c5c457e7b6",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?expand@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ",
+      "symbol_prefix": "?expand@?$Dictionary@VWstring@@USurfaceCacheEntry@@@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1001287
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1000450
+        }
+      ],
+      "source_sha256": "6185c860d4ea2fc240503e362cd230cec62e06e8e80b0062fc3175ee209202a6",
+      "source": "rebuild/src/srfcache.cpp",
+      "population": "rebuild-srfcache",
+      "source_order": 6871200,
       "source_quality_family": "rebuild"
     }
   ]

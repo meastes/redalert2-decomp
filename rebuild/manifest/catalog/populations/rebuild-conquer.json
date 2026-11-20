@@ -129,11 +129,11 @@
     "?g_SuspendChatPump@@3HA": 11709412,
     "?g_pNetUtil@@3PAUINetUtil@WOL@@A": 10956032,
     "?Call_Back@@YIXXZ": 4726704,
-    "_?$S159@?1??IPX_Call_Back@@YIXXZ@4EA": 8719796,
+    "_?$S161@?1??IPX_Call_Back@@YIXXZ@4EA": 8719796,
     "?ProbeDelay@@3HA": 8205116,
     "_?_probe_timer@?1??IPX_Call_Back@@YIXXZ@4V?$CDTimerClass@VSystemTimerClass@@@@A": 8719760,
     "??RSystemTimerClass@@QBEHXZ": 6923312,
-    "_$E160": 4729504,
+    "_$E162": 4729504,
     "_atexit": 7874954,
     "?Windows_Message_Handler@@YIXXZ": 5988064,
     "?Ipx@@3VIPXManagerClass@@A": 10750328,
@@ -2958,7 +2958,7 @@
         {
           "offset": 13,
           "kind": 6,
-          "symbol": "_?$S159@?1??IPX_Call_Back@@YIXXZ@4EA",
+          "symbol": "_?$S161@?1??IPX_Call_Back@@YIXXZ@4EA",
           "target": 8719796,
           "addend": 0,
           "resolved": 8719796
@@ -2982,7 +2982,7 @@
         {
           "offset": 47,
           "kind": 6,
-          "symbol": "_?$S159@?1??IPX_Call_Back@@YIXXZ@4EA",
+          "symbol": "_?$S161@?1??IPX_Call_Back@@YIXXZ@4EA",
           "target": 8719796,
           "addend": 0,
           "resolved": 8719796
@@ -3014,7 +3014,7 @@
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "_$E160",
+          "symbol": "_$E162",
           "target": 4729504,
           "addend": 0,
           "resolved": 4729504
@@ -5100,8 +5100,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E160",
-      "symbol_prefix": "_$E160",
+      "symbol": "_$E162",
+      "symbol_prefix": "_$E162",
       "options": [
         "/O2",
         "/Ob2",

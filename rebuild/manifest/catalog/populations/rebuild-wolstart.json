@@ -37,7 +37,36 @@
     "_CELL_NONE": 11691152,
     "_COORD_NONE": 11691184,
     "?Online_Session_State@@3HA": 10736292,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Reset_Channel_State@@YIXXZ": 7683856,
+    "?Theme@@3VThemeClass@@A": 10706296,
+    "??_C@_05KMPM@INTRO?$AA@": 8240272,
+    "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z": 7243024,
+    "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
+    "?Read_WOL_Settings@@YIXXZ": 7587776,
+    "?Apply_WOL_Settings@@YIXXZ": 7588240,
+    "?g_NickName@@3VWstring@@A": 11693240,
+    "?length@Wstring@@QBEIXZ": 7792544,
+    "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ": 7573680,
+    "??4Wstring@@QAEAAV0@ABV0@@Z": 7789616,
+    "??1Wstring@@QAE@XZ": 7789024,
+    "?Load@WOLOptionsClass@@QAE_NXZ": 5239296,
+    "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ": 5239488,
+    "?WOL_Last_Valid_Persona@@YI?AVWstring@@XZ": 7574320,
     "?Online_Login_Kind@@3HA": 11691248,
+    "?Login_Wonline@@YIHXZ": 7614416,
+    "?Online_Session_Return@@3HA": 10736296,
+    "?Run_Wonline_Selection_Dialog@@YIHXZ": 7680272,
+    "?Open_Buddy_Dialog@@YIXXZ": 7719840,
+    "?Start_Quick_Match@@YIHXZ": 7708192,
+    "?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z": 7616288,
+    "?WDT_Setup_Game@@YIH_N@Z": 7769744,
+    "?Run_Online_Menu@@YIH_N@Z": 7705456,
+    "?Run_Wonline_Lobby@@YIHXZ": 7683952,
+    "?Logout_WOnline@@YIXXZ": 7610016,
+    "?Session@@3VSessionClass@@A": 10736280,
+    "?Shutdown_Chat@@YIXXZ": 7610496,
+    "?Close_All_Dialogs@@YIXXZ": 7683920,
     "_$E2": 7577840,
     "_$E5": 7577872,
     "_$E8": 7577920,
@@ -52,10 +81,10 @@
     "_$E35": 7578288,
     "_$E38": 7578304,
     "?Online_Session_Kind@@YIHXZ": 7578336,
+    "?Wonline_Main@@YIH_N@Z": 7578368,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_EWstring@@QAEPAXI@Z": 4239168,
     "??3@YAXPAX@Z": 7871803,
-    "??1Wstring@@QAE@XZ": 7789024,
     "??_E?$rc_ptr@VWDTTerritory@@@@UAEPAXI@Z": 5367296,
     "??_R0?AVrc_ptr_base@@@8": 8248008,
     "??_7type_info@@6B@": 8066532,
@@ -124,7 +153,7 @@
           "resolved": 11691148
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7577840,
@@ -192,7 +221,7 @@
           "resolved": 11691160
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7577872,
@@ -244,7 +273,7 @@
           "resolved": 11691232
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7577920,
@@ -296,7 +325,7 @@
           "resolved": 11691216
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7577952,
@@ -348,7 +377,7 @@
           "resolved": 11691208
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7577984,
@@ -400,7 +429,7 @@
           "resolved": 11691168
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578016,
@@ -452,7 +481,7 @@
           "resolved": 11691128
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578048,
@@ -536,7 +565,7 @@
           "resolved": 11691240
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578080,
@@ -596,7 +625,7 @@
           "resolved": 11691176
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578144,
@@ -656,7 +685,7 @@
           "resolved": 11691200
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578192,
@@ -716,7 +745,7 @@
           "resolved": 11691224
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578240,
@@ -760,7 +789,7 @@
           "resolved": 11691154
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578288,
@@ -812,7 +841,7 @@
           "resolved": 11691192
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578304,
@@ -848,10 +877,727 @@
           "resolved": 10736292
         }
       ],
-      "source_sha256": "478bcef9413c6edbaaa18f3df7f078616befa192b1909c64d0796aeead2274d7",
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
       "source": "rebuild/src/wolstart.cpp",
       "population": "rebuild-wolstart",
       "source_order": 7578336,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7578368,
+      "method": "0073a300",
+      "body_bytes": 884,
+      "body_sha256": "3b1556db57a0320a9729207f68813e61180823511d35d3b7e594c76119ed3940",
+      "padding_bytes": 12,
+      "full_extent_bytes": 896,
+      "full_extent_sha256": "cb53332dc4d065aa6f84d4f0d06a9211d0468592fc9da19413ae8aeedf3f8504",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 24,
+      "symbol": "?Wonline_Main@@YIH_N@Z",
+      "symbol_prefix": "?Wonline_Main@@YIH_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 37,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Reset_Channel_State@@YIXXZ",
+          "target": 7683856,
+          "addend": 0,
+          "resolved": 105433
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 4,
+          "resolved": 10706300
+        },
+        {
+          "offset": 68,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 8,
+          "resolved": 10706304
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "??_C@_05KMPM@INTRO?$AA@",
+          "target": 8240272,
+          "addend": 0,
+          "resolved": 8240272
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 83,
+          "kind": 20,
+          "symbol": "?From_Name@ThemeClass@@QBE?AW4ThemeType@@PBD@Z",
+          "target": 7243024,
+          "addend": 0,
+          "resolved": 4294631865
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 99,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 4294630073
+        },
+        {
+          "offset": 104,
+          "kind": 20,
+          "symbol": "?Read_WOL_Settings@@YIXXZ",
+          "target": 7587776,
+          "addend": 0,
+          "resolved": 9300
+        },
+        {
+          "offset": 110,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 126,
+          "kind": 20,
+          "symbol": "?Apply_WOL_Settings@@YIXXZ",
+          "target": 7588240,
+          "addend": 0,
+          "resolved": 9742
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 136,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 214036
+        },
+        {
+          "offset": 149,
+          "kind": 20,
+          "symbol": "?WOL_Auto_Login_Persona@@YI?AVWstring@@XZ",
+          "target": 7573680,
+          "addend": 0,
+          "resolved": 4294962455
+        },
+        {
+          "offset": 154,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 160,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 211084
+        },
+        {
+          "offset": 169,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 210483
+        },
+        {
+          "offset": 174,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 179,
+          "kind": 20,
+          "symbol": "?length@Wstring@@QBEIXZ",
+          "target": 7792544,
+          "addend": 0,
+          "resolved": 213993
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "?Load@WOLOptionsClass@@QAE_NXZ",
+          "target": 5239296,
+          "addend": 0,
+          "resolved": 4292628017
+        },
+        {
+          "offset": 212,
+          "kind": 20,
+          "symbol": "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ",
+          "target": 5239488,
+          "addend": 0,
+          "resolved": 4292628200
+        },
+        {
+          "offset": 225,
+          "kind": 20,
+          "symbol": "?WOL_Last_Valid_Persona@@YI?AVWstring@@XZ",
+          "target": 7574320,
+          "addend": 0,
+          "resolved": 4294963019
+        },
+        {
+          "offset": 230,
+          "kind": 6,
+          "symbol": "?g_NickName@@3VWstring@@A",
+          "target": 11693240,
+          "addend": 0,
+          "resolved": 11693240
+        },
+        {
+          "offset": 236,
+          "kind": 20,
+          "symbol": "??4Wstring@@QAEAAV0@ABV0@@Z",
+          "target": 7789616,
+          "addend": 0,
+          "resolved": 211008
+        },
+        {
+          "offset": 245,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 210407
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 305,
+          "kind": 20,
+          "symbol": "?Login_Wonline@@YIHXZ",
+          "target": 7614416,
+          "addend": 0,
+          "resolved": 35739
+        },
+        {
+          "offset": 324,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 332,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 350,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 355,
+          "kind": 20,
+          "symbol": "?Apply_WOL_Settings@@YIXXZ",
+          "target": 7588240,
+          "addend": 0,
+          "resolved": 9513
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7579228,
+          "addend": 0,
+          "resolved": 7579228
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Run_Wonline_Selection_Dialog@@YIHXZ",
+          "target": 7680272,
+          "addend": 0,
+          "resolved": 101517
+        },
+        {
+          "offset": 407,
+          "kind": 20,
+          "symbol": "?Open_Buddy_Dialog@@YIXXZ",
+          "target": 7719840,
+          "addend": 0,
+          "resolved": 141061
+        },
+        {
+          "offset": 417,
+          "kind": 20,
+          "symbol": "?Start_Quick_Match@@YIHXZ",
+          "target": 7708192,
+          "addend": 0,
+          "resolved": 129403
+        },
+        {
+          "offset": 428,
+          "kind": 20,
+          "symbol": "?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z",
+          "target": 7616288,
+          "addend": 0,
+          "resolved": 37488
+        },
+        {
+          "offset": 442,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 456,
+          "kind": 20,
+          "symbol": "?Open_Buddy_Dialog@@YIXXZ",
+          "target": 7719840,
+          "addend": 0,
+          "resolved": 141012
+        },
+        {
+          "offset": 463,
+          "kind": 20,
+          "symbol": "?WDT_Setup_Game@@YIH_N@Z",
+          "target": 7769744,
+          "addend": 0,
+          "resolved": 190909
+        },
+        {
+          "offset": 485,
+          "kind": 20,
+          "symbol": "?Run_Online_Menu@@YIH_N@Z",
+          "target": 7705456,
+          "addend": 0,
+          "resolved": 126599
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 508,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 514,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 520,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 527,
+          "kind": 20,
+          "symbol": "?Run_Wonline_Lobby@@YIHXZ",
+          "target": 7683952,
+          "addend": 0,
+          "resolved": 105053
+        },
+        {
+          "offset": 559,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 592,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "?Logout_WOnline@@YIXXZ",
+          "target": 7610016,
+          "addend": 0,
+          "resolved": 31017
+        },
+        {
+          "offset": 635,
+          "kind": 6,
+          "symbol": "?Online_Login_Kind@@3HA",
+          "target": 11691248,
+          "addend": 0,
+          "resolved": 11691248
+        },
+        {
+          "offset": 660,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 672,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 677,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31447
+        },
+        {
+          "offset": 687,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 692,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104856
+        },
+        {
+          "offset": 708,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 713,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31411
+        },
+        {
+          "offset": 722,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 727,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104821
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 749,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 755,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 760,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31364
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 775,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104773
+        },
+        {
+          "offset": 795,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104753
+        },
+        {
+          "offset": 810,
+          "kind": 20,
+          "symbol": "?Shutdown_Chat@@YIXXZ",
+          "target": 7610496,
+          "addend": 0,
+          "resolved": 31314
+        },
+        {
+          "offset": 820,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 826,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 18,
+          "resolved": 10706314
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "?Online_Session_State@@3HA",
+          "target": 10736292,
+          "addend": 0,
+          "resolved": 10736292
+        },
+        {
+          "offset": 838,
+          "kind": 6,
+          "symbol": "?Online_Session_Return@@3HA",
+          "target": 10736296,
+          "addend": 0,
+          "resolved": 10736296
+        },
+        {
+          "offset": 843,
+          "kind": 20,
+          "symbol": "?Close_All_Dialogs@@YIXXZ",
+          "target": 7683920,
+          "addend": 0,
+          "resolved": 104705
+        },
+        {
+          "offset": 860,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578748,
+          "addend": 0,
+          "resolved": 7578748
+        },
+        {
+          "offset": 864,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578770,
+          "addend": 0,
+          "resolved": 7578770
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578819,
+          "addend": 0,
+          "resolved": 7578819
+        },
+        {
+          "offset": 872,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578791,
+          "addend": 0,
+          "resolved": 7578791
+        },
+        {
+          "offset": 876,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578850,
+          "addend": 0,
+          "resolved": 7578850
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7578894,
+          "addend": 0,
+          "resolved": 7578894
+        }
+      ],
+      "source_sha256": "3fb7fd816c2a4c8eaa63021c36f3d81c84a18fc80449322f98c41e83ca217919",
+      "source": "rebuild/src/wolstart.cpp",
+      "population": "rebuild-wolstart",
+      "source_order": 7578368,
       "source_quality_family": "rebuild"
     }
   ]

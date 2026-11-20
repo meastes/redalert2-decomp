@@ -155,6 +155,10 @@ inline bool RadarTrackingStruct::Use_Head(void) const { return(Object->House == 
 
 
 RadarClass::RTacticalClass RadarClass::RadarButton;
+Rect BriefingButtonRect; // RA2: 0x00AB6468
+ShapeButtonClass RadarClass::BriefingButton;
+Rect OptionsButtonRect; // RA2: 0x00AB6338
+ShapeButtonClass RadarClass::OptionsButton;
 
 void const * RadarClass::RadarAnim  = NULL;
 

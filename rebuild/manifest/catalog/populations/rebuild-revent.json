@@ -36,11 +36,11 @@
     "_CELL_NONE": 11233192,
     "_COORD_NONE": 11233240,
     "_RECT_NONE": 11233144,
-    "_$E142": 6534448,
+    "_$E144": 6534448,
     "?RadarEvents@RadarEventClass@@2V?$DynamicVectorClass@PAVRadarEventClass@@@@A": 11233256,
     "??_7?$DynamicVectorClass@PAVRadarEventClass@@@@6B@": 8031852,
     "_atexit": 7874954,
-    "_$S143": 11233128,
+    "_$S145": 11233128,
     "??_7?$VectorClass@PAVRadarEventClass@@@@6B@": 8031884,
     "??3@YAXPAX@Z": 7871803,
     "?LastRadarEventCell@@3VCell@@A": 11233208,
@@ -95,12 +95,12 @@
     "_$E38": 6534352,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E145": 6534384,
+    "_$E147": 6534384,
     "??_G?$DynamicVectorClass@PAVRadarEventClass@@@@UAEPAXI@Z": 6540048,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@PAVRadarEventClass@@@@UAEPAXI@Z": 6539968,
-    "_$E148": 6534544,
-    "_$E151": 6534560,
+    "_$E150": 6534544,
+    "_$E153": 6534560,
     "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
     "?Can_Suppress_Radar_Event@@YI_NW4RadarEventType@@@Z": 6534832,
     "??1RadarEventClass@@QAE@XZ": 6535232,
@@ -970,8 +970,8 @@
         "?RadarEventNames@@3PAPBDA": "content"
       },
       "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
-      "symbol": "_$E145",
-      "symbol_prefix": "_$E145",
+      "symbol": "_$E147",
+      "symbol_prefix": "_$E147",
       "options": [
         "/O2",
         "/Ob2",
@@ -984,7 +984,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E142",
+          "symbol": "_$E144",
           "target": 6534448,
           "addend": 0,
           "resolved": 6534448
@@ -1083,8 +1083,8 @@
         "?RadarEventNames@@3PAPBDA": "content"
       },
       "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
-      "symbol": "_$E142",
-      "symbol_prefix": "_$E142",
+      "symbol": "_$E144",
+      "symbol_prefix": "_$E144",
       "options": [
         "/O2",
         "/Ob2",
@@ -1097,7 +1097,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S143",
+          "symbol": "_$S145",
           "target": 11233128,
           "addend": 0,
           "resolved": 11233128
@@ -1129,7 +1129,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S143",
+          "symbol": "_$S145",
           "target": 11233128,
           "addend": 0,
           "resolved": 11233128
@@ -1196,8 +1196,8 @@
         "?RadarEventNames@@3PAPBDA": "content"
       },
       "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
-      "symbol": "_$E148",
-      "symbol_prefix": "_$E148",
+      "symbol": "_$E150",
+      "symbol_prefix": "_$E150",
       "options": [
         "/O2",
         "/Ob2",
@@ -1245,8 +1245,8 @@
         "?RadarEventNames@@3PAPBDA": "content"
       },
       "data_bound_by_note": "RadarEventNames bound by content (review session 2026-11-20): our object's 68 bytes relocated against its 17 literals (each bound by its text at its one 4-aligned occurrence, 0x7EE5FC-0x7EE774) occur once in the image, at 0x7EE5B8; enclosed by restate's D:\\Ra2\\Restate.cpp literal (ends 0x7EE5B7, one zero fill byte) and the Ally Base Attacked Event literal (0x7EE5FC); no image value points into it; .data, never .bss. Hypothesis: only the declaration (name RadarEventNames from TibSun, element type const char *, one array of RADAREVENT_COUNT). RadarEventTypes at 0x7A8D58 has 17 entries too (rows 15, 16 as ra2-decomp's YR table).",
-      "symbol": "_$E151",
-      "symbol_prefix": "_$E151",
+      "symbol": "_$E153",
+      "symbol_prefix": "_$E153",
       "options": [
         "/O2",
         "/Ob2",

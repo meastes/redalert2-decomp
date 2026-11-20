@@ -38,14 +38,14 @@
     "_COORD_NONE": 11264864,
     "?CommandButtons@TabClass@@2PAVShapeButtonClass@@A": 11262232,
     "??0ShapeButtonClass@@QAE@XZ": 6770720,
-    "_$E128": 6947984,
+    "_$E130": 6947984,
     "_atexit": 7874954,
-    "_$S129": 11262212,
+    "_$S131": 11262212,
     "??1ShapeButtonClass@@UAE@XZ": 6770928,
     "?ThumbOpenButton@TabClass@@2VShapeButtonClass@@A": 11265024,
-    "_$E134": 6948064,
+    "_$E136": 6948064,
     "?ThumbClosedButton@TabClass@@2VShapeButtonClass@@A": 11264912,
-    "_$E139": 6948128,
+    "_$E141": 6948128,
     "?ButtonShapeAllocated@TabClass@@2PA_NA": 11264812,
     "?ButtonShapes@TabClass@@2PAPBVShapeSet@@A": 11262112,
     "??3@YAXPAX@Z": 7871803,
@@ -140,8 +140,8 @@
     "?Group_Clear@@YIXH@Z": 7298576,
     "?AI@CreditClass@@QAEX_N@Z": 4802128,
     "?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6806672,
-    "_?$S143@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": 11264664,
-    "_$E144": 6952704,
+    "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": 11264664,
+    "_$E146": 6952704,
     "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A": 11264840,
     "?MouseCursor@@3PAVMouse@@A": 8625256,
     "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA": 11265152,
@@ -190,9 +190,9 @@
     "_$E38": 6947904,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E131": 6947936,
-    "_$E136": 6948032,
-    "_$E141": 6948096,
+    "_$E133": 6947936,
+    "_$E138": 6948032,
+    "_$E143": 6948096,
     "?Free_Button_Shape@TabClass@@SIXH@Z": 6948160,
     "?Command_From_Name@TabClass@@SIHPBD@Z": 6948224,
     "?Set_Command_Position@TabClass@@SIXHH@Z": 6948320,
@@ -228,7 +228,6 @@
     "?Init_Cells@MapClass@@UAEXXZ": 5538960,
     "?Free_Cells@MapClass@@UAEXXZ": 5538768,
     "?Alloc_Cells@MapClass@@UAEXXZ": 5538672,
-    "__purecall": 4950368,
     "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
@@ -241,6 +240,7 @@
     "??_GTabClass@@UAEPAXI@Z": 5898128,
     "?Is_Visible@MapClass@@UAGJUCellStruct@@@Z": 5537696,
     "?QueryInterface@GScreenClass@@UAGJABU_GUID@@PAPAX@Z": 5114096,
+    "__purecall": 4950368,
     "?AddRef@GScreenClass@@UAGKXZ": 4247808,
     "?Release@GScreenClass@@UAGKXZ": 4247824,
     "?Is_Scrolling@MapClass@@UBE_NXZ": 4844816,
@@ -1026,8 +1026,8 @@
       "full_extent_sha256": "dac96be6725bd7a63a307b656aa6211704bf3d80f2660bfba2068245c06d1d2a",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E131",
-      "symbol_prefix": "_$E131",
+      "symbol": "_$E133",
+      "symbol_prefix": "_$E133",
       "options": [
         "/O2",
         "/Ob2",
@@ -1055,7 +1055,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "_$E128",
+          "symbol": "_$E130",
           "target": 6947984,
           "addend": 0,
           "resolved": 6947984
@@ -1085,8 +1085,8 @@
       "full_extent_sha256": "336086792aa2f46f93f0431012d45ff60fb7e3780baa3b68ce49720a3142e7ae",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E128",
-      "symbol_prefix": "_$E128",
+      "symbol": "_$E130",
+      "symbol_prefix": "_$E130",
       "options": [
         "/O2",
         "/Ob2",
@@ -1098,7 +1098,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -1106,7 +1106,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -1144,8 +1144,8 @@
       "full_extent_sha256": "75606c6e33b2ea8363a37043a7d1f936af59e185c88156a4b48ff9a61ca6338c",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E136",
-      "symbol_prefix": "_$E136",
+      "symbol": "_$E138",
+      "symbol_prefix": "_$E138",
       "options": [
         "/O2",
         "/Ob2",
@@ -1173,7 +1173,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E134",
+          "symbol": "_$E136",
           "target": 6948064,
           "addend": 0,
           "resolved": 6948064
@@ -1203,8 +1203,8 @@
       "full_extent_sha256": "668f959798ff1fa7c9ae03d20d98638051f17ee11f907fdead88587aa815e10a",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E134",
-      "symbol_prefix": "_$E134",
+      "symbol": "_$E136",
+      "symbol_prefix": "_$E136",
       "options": [
         "/O2",
         "/Ob2",
@@ -1216,7 +1216,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -1224,7 +1224,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -1262,8 +1262,8 @@
       "full_extent_sha256": "d365cb357a9aeef4a27dbea4255b3e500a8e208e705ef6bc09a21e8c5b97f214",
       "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E141",
-      "symbol_prefix": "_$E141",
+      "symbol": "_$E143",
+      "symbol_prefix": "_$E143",
       "options": [
         "/O2",
         "/Ob2",
@@ -1291,7 +1291,7 @@
         {
           "offset": 11,
           "kind": 6,
-          "symbol": "_$E139",
+          "symbol": "_$E141",
           "target": 6948128,
           "addend": 0,
           "resolved": 6948128
@@ -1321,8 +1321,8 @@
       "full_extent_sha256": "f93ecc5be1bf910eb42c718bed5208081743a90a54e47a7891b1f1375024bc2e",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E139",
-      "symbol_prefix": "_$E139",
+      "symbol": "_$E141",
+      "symbol_prefix": "_$E141",
       "options": [
         "/O2",
         "/Ob2",
@@ -1334,7 +1334,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -1342,7 +1342,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$S129",
+          "symbol": "_$S131",
           "target": 11262212,
           "addend": 0,
           "resolved": 11262212
@@ -3762,7 +3762,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "_?$S143@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "symbol": "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
           "target": 11264664,
           "addend": 0,
           "resolved": 11264664
@@ -3770,7 +3770,7 @@
         {
           "offset": 30,
           "kind": 6,
-          "symbol": "_$E144",
+          "symbol": "_$E146",
           "target": 6952704,
           "addend": 0,
           "resolved": 6952704
@@ -3778,7 +3778,7 @@
         {
           "offset": 36,
           "kind": 6,
-          "symbol": "_?$S143@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
+          "symbol": "_?$S145@?1??Draw_It@TabClass@@UAEX_N@Z@4EA",
           "target": 11264664,
           "addend": 0,
           "resolved": 11264664
@@ -4296,8 +4296,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E144",
-      "symbol_prefix": "_$E144",
+      "symbol": "_$E146",
+      "symbol_prefix": "_$E146",
       "options": [
         "/O2",
         "/Ob2",

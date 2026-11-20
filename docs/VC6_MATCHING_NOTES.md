@@ -2668,3 +2668,74 @@ range do not count, and any reference inside the stretch resets the count. The w
   lists the declarations the tree carries with no RA2 body (rebuild/manifest/declared_never_defined.csv); a
   declaration leaves its header when its last user calls the image's routine instead (DECISIONS, "Members declared
   in adopted Tiberian Sun headers that RA2 never defines").
+
+## Measuring a nested inline budget in the unit itself (found in the rebuild (Fable trial), lane FT1)
+
+- Found in the rebuild (Fable trial): a callee's IL size can be read inside its own unit, with the unit's headers and
+  spellings, by `rebuild/tools/il_lab.py`: a small root `{ Spend(); f; }` has the floor budget 1000, the inline
+  `Spend` (constant stores: 12 empty, 6 per array element, 4 per scalar) is charged first, and f expands iff its
+  size fits what is left. ownrdraw, 2026-11-20, to 2 units: Dictionary keyHash 48, a node's scalar deleting
+  destructor 50, ~WinData 50, ??_GWideWstring 50, getPointer 132, WinData::operator= 132, Set_Wide_Text 116,
+  NodeList::Remove_Node 140, shrink 248, remove(key, value) 378, remove(key) 62, Restore_Child 106. Sweeping the
+  spend past f's own size lists the thresholds of f's nested sites in order, in f's own budget units.
+- A compiler-generated scalar deleting destructor (`delete node` of a class with a non-trivial member) is an
+  ordinary charged site (50 here, over the free limit of 40), with the implicit destructor and the member's
+  destructor decided inside it: the image's `call ~WinData; push node; call operator delete` at one delete and a
+  whole expanded destructor at another are the same source statement under two budgets.
+- An accepted nested site charges its parent's remaining budget, so the states of one body are not ordered by "more
+  budget, more expansion". Dictionary<K, WinData>::remove(key, value), as its body's budget grows: (A) the second
+  delete calls ??_G; (B) from 744 it expands ??_G and calls ~WinData; (C) from 754 the first shrink's keyHash is
+  accepted and its 48 units send the second delete back to a ??_G call; (D) from 792 both are expanded. The image's
+  OwnerDraw::Combo_Drop_Proc 0x5EAD20 is state B, a 10-unit window; the rebuild's text sat one unit under it.
+  The sums of the measured sizes miss these thresholds by 2 to 34 units once nested bodies are accepted: measure the
+  thresholds, do not add sizes.
+- Padding the top of a long root is not a ruler for a late site. Earlier nested sites of the root flip as its budget
+  grows, so the budget reaching a late site is a sawtooth: in Combo_Drop_Proc 24 `GetFocus();` statements left the
+  late remove in state A and 25 put it in D, while 16 to 18 global stores put it in C; state B was never reached that
+  way. To measure the gap at a late nested site, shrink the nearest enclosing callee in a scratch copy instead
+  (delete trailing statements that are not inline sites): only that site's budget moves, by the removed size over the
+  product of the enclosing N. Removing Restore_Child's last call statement (6 units) reached state B, and removing
+  all four trailing statements (about 44 units) stayed in it: with a divisor of about four between Restore_Child and
+  the innermost body (inferred from these two points, not measured), the deficit is one or two units of that body.
+- When a late site is within a unit or two of its window, look for spelling differences that cost single units in
+  the callees above it before reshaping the root: an explicit cast is one unit, and a reference cast at every call
+  site of one table (`table.remove((unsigned int const &)window)`) or inside a template member (`hashFunc((K &)key)`)
+  repeats that unit in every caller and callee of the family.
+- Found in the rebuild (Fable trial): a constructor with a long initializer list is a root whose member
+  constructor sites share one budget of 2*S, each decided with what is left divided by the sites still to come.
+  RulesClass::RulesClass 0x640B80 (533 entries, 83 vector members): the image expands TypeList's and
+  DynamicVectorClass's constructors at every member, calls VectorClass's at 82 of them and expands it only at the
+  last vector member, where few sites remain. The chain here is TypeList<int>() 58, DynamicVectorClass<int> 78,
+  VectorClass<int>(int, T const *) 138 units; the rebuild's root is 7 to 12 units short at that last member (two
+  probe stores in the body flip it, one does not, sixteen expand the member before it too).
+- What does not move such a budget: the spelling of constant initializers. TibSun's and ra2-decomp's forms
+  (`1.0/60.0`, `M_PI/2`, enumerators for `(CrateType)2`, `0` for `(char)0`) and integer literals for 66 double
+  members (`TunnelSpeed(1)`) left the call list unchanged: constants are folded before the size is taken.
+- What does: an implicit integral conversion of a parameter handed on to a base constructor is counted.
+  `DynamicVectorClass(unsigned size, ...) : VectorClass<T>(size, array)` over `VectorClass(int size, ...)` is a unit or
+  two larger than the same text with an `int` parameter, and over 83 chains that alone closes the RulesClass
+  constructor (probe: exact, rules 152/156). It is not the answer: the signed parameter loses the same rows the
+  unsigned VectorClass parameter loses (house 2, palette 1, smartdeform Commit_Deform_Grid, vein
+  Build_Growth_Queue), and RA95, TibSun, ra2-decomp and mischa85 all declare it unsigned. Those rows fix the
+  chain's size as it stands, so the constructor's missing 7 to 12 units are in its own root, not in the chain.
+- Found in the rebuild (Fable trial): an inline wrapper spelled out by hand costs its site. The nested budget of a
+  site is what is left divided by the inline sites from it to the end of the body, so a free inline call later in
+  the body lowers the share of every nested site before it without emitting anything. Westwood's
+  `Random_Pick(a, b)` (ccrand.h: `return(T(Scen->RandomNumber((int)a, (int)b)));`) is such a site; a draft that
+  calls `Scen->RandomNumber(a, b)` directly compiles the same call and has none. MultiplayerGameMode::
+  GenerateStartingUnits 0x5B8060: the image calls the infantry vector's Clear out of line at the early return and
+  expands the unit vector's destructor right after it (the later site has fewer sites after it, so a larger share);
+  three extra inline sites after the return (probe) reproduce it, and the two picks written through Random_Pick are
+  exact. MapClass::Collapse_Cliff 0x562F50, hard on main (Ob2Apply519 reshaped a callee for it): its six draws
+  through Random_Pick are exact with nothing else changed. When the image calls a small inline helper early in a
+  body that our text expands, count the later statements that Westwood would have written through an inline
+  wrapper (ccrand.h's Random_Pick, Sim_Random_Pick, Percent_Chance, Probability_Of) before reshaping anything.
+- Found in the rebuild (Fable trial): the same holds for a unit's own out-of-line function whose body a draft
+  spells out by hand. RulesClass::Initialize 0x6433A0 read [Maximums] inline with a static of its own while the unit
+  defines Heap_Maximums; written as the call (which /Ob2 expands, as ra2-decomp's twin has it) the root is smaller
+  and the later CCINIClass constructor calls GenericNode's constructor out of line, as the image does.
+- A cheap direction test for a row whose image calls a helper that our text expands: add K empty inline calls
+  (`static inline void Site(void) {}`) before the function's last statement in a scratch copy. If the image's call
+  list appears at a small K, the original has that many more inline sites after the helper (or as much less budget):
+  look for wrappers and for the unit's own functions written out by hand in the rest of the body. If no K helps,
+  the cause is not a later site (a deeper wrapper level, the 35000 cap, or the text).

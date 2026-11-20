@@ -38,7 +38,7 @@
     "_COORD_NONE": 10939272,
     "?InMainLoop@@3_NA": 10939184,
     "?Debug_MotionCapture@@3_NA": 10751241,
-    "_?$S175@?4??Motion_Capture@@YIXXZ@4EA": 10939264,
+    "_?$S177@?4??Motion_Capture@@YIXXZ@4EA": 10939264,
     "?Rule@@3PAVRulesClass@@A": 8624200,
     "__real@8@4008e100000000000000": 7976456,
     "_?_seqsize@?4??Motion_Capture@@YIXXZ@4HA": 10939312,
@@ -185,9 +185,9 @@
     "?Zoom_Mode_Control@SidebarClass@@QAEXXZ": 6822064,
     "?SpareTicks@@3HA": 10748700,
     "?Wait_Blit@@YIXXZ": 4809168,
-    "_?$S176@?BJ@??Sync_Delay@@YIXXZ@4EA": 10939265,
+    "_?$S178@?BJ@??Sync_Delay@@YIXXZ@4EA": 10939265,
     "_?fps_timer@?BJ@??Sync_Delay@@YIXXZ@4V?$CDTimerClass@VSystemTimerClass@@@@A": 10939232,
-    "_$E177": 5508112,
+    "_$E179": 5508112,
     "_atexit": 7874954,
     "?FramesThisSecond@@3IA": 10939160,
     "?TotalFrames@@3IA": 10939168,
@@ -306,24 +306,6 @@
     "??_GCDFileClass@@UAEPAXI@Z": 4200784,
     "??_GBSurface@@UAEPAXI@Z": 4264912,
     "??_R0?AVBSurface@@@8": 8184544,
-    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
-    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
-    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
-    "?Close@CCFileClass@@UAEXXZ": 4624880,
-    "?Size@CCFileClass@@UAEHXZ": 4624720,
-    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
-    "?Open@CCFileClass@@UAEHH@Z": 4624928,
-    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
-    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
-    "?Delete@RawFileClass@@UAEHXZ": 6525504,
-    "?Create@RawFileClass@@UAEHXZ": 6525440,
-    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
-    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
-    "??_R0?AVFileClass@@@8": 8177872,
-    "??_R0?AVRawFileClass@@@8": 8177896,
-    "??_R0?AVBufferIOFileClass@@@8": 8177928,
-    "??_R0?AVCDFileClass@@@8": 8177960,
-    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
     "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
     "__purecall": 4950368,
@@ -348,8 +330,26 @@
     "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
     "??_GXSurface@@UAEPAXI@Z": 4264736,
     "??_R0?AVSurface@@@8": 8184496,
-    "??_7type_info@@6B@": 8066532,
     "??_R0?AVXSurface@@@8": 8184520,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVCCFileClass@@@8": 8177840,
     "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
     "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
     "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
@@ -438,7 +438,7 @@
           "resolved": 10939212
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501552,
@@ -506,7 +506,7 @@
           "resolved": 10939224
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501584,
@@ -558,7 +558,7 @@
           "resolved": 10939320
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501632,
@@ -610,7 +610,7 @@
           "resolved": 10939304
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501664,
@@ -662,7 +662,7 @@
           "resolved": 10939296
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501696,
@@ -714,7 +714,7 @@
           "resolved": 10939248
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501728,
@@ -766,7 +766,7 @@
           "resolved": 10939192
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501760,
@@ -850,7 +850,7 @@
           "resolved": 10939328
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501792,
@@ -910,7 +910,7 @@
           "resolved": 10939256
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501856,
@@ -970,7 +970,7 @@
           "resolved": 10939288
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501904,
@@ -1030,7 +1030,7 @@
           "resolved": 10939316
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5501952,
@@ -1074,7 +1074,7 @@
           "resolved": 10939218
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502000,
@@ -1126,7 +1126,7 @@
           "resolved": 10939280
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502016,
@@ -1162,7 +1162,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502048,
@@ -1198,7 +1198,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502064,
@@ -1234,7 +1234,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502080,
@@ -1272,7 +1272,7 @@
         {
           "offset": 26,
           "kind": 6,
-          "symbol": "_?$S175@?4??Motion_Capture@@YIXXZ@4EA",
+          "symbol": "_?$S177@?4??Motion_Capture@@YIXXZ@4EA",
           "target": 10939264,
           "addend": 0,
           "resolved": 10939264
@@ -1280,7 +1280,7 @@
         {
           "offset": 37,
           "kind": 6,
-          "symbol": "_?$S175@?4??Motion_Capture@@YIXXZ@4EA",
+          "symbol": "_?$S177@?4??Motion_Capture@@YIXXZ@4EA",
           "target": 10939264,
           "addend": 0,
           "resolved": 10939264
@@ -1678,7 +1678,7 @@
           "resolved": 4294356534
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502096,
@@ -1826,7 +1826,7 @@
           "resolved": 978958
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5502848,
@@ -2726,7 +2726,7 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5503040,
@@ -4874,7 +4874,7 @@
           "resolved": 10939184
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5503952,
@@ -5254,7 +5254,7 @@
           "resolved": 10939356
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5506784,
@@ -5668,7 +5668,7 @@
         {
           "offset": 476,
           "kind": 6,
-          "symbol": "_?$S176@?BJ@??Sync_Delay@@YIXXZ@4EA",
+          "symbol": "_?$S178@?BJ@??Sync_Delay@@YIXXZ@4EA",
           "target": 10939265,
           "addend": 0,
           "resolved": 10939265
@@ -5684,7 +5684,7 @@
         {
           "offset": 497,
           "kind": 6,
-          "symbol": "_?$S176@?BJ@??Sync_Delay@@YIXXZ@4EA",
+          "symbol": "_?$S178@?BJ@??Sync_Delay@@YIXXZ@4EA",
           "target": 10939265,
           "addend": 0,
           "resolved": 10939265
@@ -5716,7 +5716,7 @@
         {
           "offset": 518,
           "kind": 6,
-          "symbol": "_$E177",
+          "symbol": "_$E179",
           "target": 5508112,
           "addend": 0,
           "resolved": 5508112
@@ -5874,7 +5874,7 @@
           "resolved": 10939240
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5507424,
@@ -5890,8 +5890,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E177",
-      "symbol_prefix": "_$E177",
+      "symbol": "_$E179",
+      "symbol_prefix": "_$E179",
       "options": [
         "/O2",
         "/Ob2",
@@ -5901,7 +5901,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5508112,
@@ -8441,7 +8441,7 @@
           "resolved": 10939360
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5508128,
@@ -9045,7 +9045,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5511648,
@@ -9072,7 +9072,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512848,
@@ -9099,7 +9099,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512896,
@@ -9143,7 +9143,7 @@
           "resolved": 2358849
         }
       ],
-      "source_sha256": "66c65e935940441822c0424732792823287afb381c6c28e24c27040c721113a8",
+      "source_sha256": "933b501321255e36b2be9c4ea7d7a9be72bba52057f28fe682fc0f0a63a062b9",
       "source": "rebuild/src/mainloop.cpp",
       "population": "rebuild-mainloop",
       "source_order": 5512928,

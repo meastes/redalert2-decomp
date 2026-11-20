@@ -102,7 +102,7 @@
 #include "globals.h"
 
 
-DynamicVectorClass<BulletClass *> ScalableBullets; // RA2: 0x008502F8 (YR name), the Scalable bullets in flight
+DynamicVectorClass<BulletClass *> BulletClass::ScalableBullets; // RA2: 0x008502F8, the Scalable bullets in flight
 
 
 

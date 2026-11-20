@@ -592,7 +592,7 @@ bool Main_Loop(void)
 			Scen->IsGamePaused = false; // RA2: as above
 			Release_Scenario(); // RA2: as above
 		} // RA2: as above
-		if (Scen->Unknown_62C) { // RA2: as above
+		if (Scen->HoldCount) { // RA2: as above
 			Windows_Message_Handler(); // RA2: as above
 			Call_Back(); // RA2: as above
 			TacticalMap->AI(); // RA2: as above

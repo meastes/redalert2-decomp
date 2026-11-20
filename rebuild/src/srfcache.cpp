@@ -289,7 +289,6 @@ bool SurfaceCacheClass::CacheBMP(char const * name, void * bitmap, int bytes, in
 /// palette entry's red component, turning the image into raw intensity
 /// values.</param>
 /// <returns>True on success, false if the file could not be read.</returns>
-#if 0
 bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 {
     int i;
@@ -368,7 +367,6 @@ bool SurfaceCacheClass::CachePCX(char const *name, int bpp, int red_channel)
 
 	return(true);
 }
-#endif
 
 
 

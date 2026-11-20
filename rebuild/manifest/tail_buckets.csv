@@ -10,17 +10,14 @@ fly,004be720,?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z,1633,cal
 house,004e4110,?AI@HouseClass@@UAEXXZ,3544,calls_differ,HouseClass::Update_Spy_Satellite,,"orig-only 10, ours-only 6, unresolved 3"
 houstype,004f9550,?Read_INI@HouseTypeClass@@UAE_NABVCCINIClass@@@Z,2275,calls_differ,DynamicVectorClass::Add,,"orig-only 3, ours-only 2, unresolved 0"
 mapgen,0056e100,?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z,1678,calls_differ,TPoint2D::??H,,"orig-only 4, ours-only 2, unresolved 0"
-netshare,005cb8d0,?Change_Scenario_Slots@@YIXPAUHWND__@@HH@Z,1243,calls_differ,Is_Current_Channel_Flag_8,,"orig-only 8, ours-only 2, unresolved 0"
 particle,00608bb0,?Gas_Behavior_AI@ParticleClass@@QAEXXZ,1601,calls_differ,Coord::Coord,,"orig-only 5, ours-only 0, unresolved 0"
 planmgr,00618c00,?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z,2076,calls_differ,Tactical::Coord_To_Pixel,,"orig-only 11, ours-only 7, unresolved 0"
 planmgr,00619420,?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z,994,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 5, ours-only 6, unresolved 0"
 planmgr,00619870,?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z,852,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 3, ours-only 5, unresolved 0"
 sidebar,0067dc90,?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1315,calls_differ,LinkClass::Zap,,"orig-only 3, ours-only 9, unresolved 0"
-strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,calls_differ,CCFileClass::~CCFileClass,,"orig-only 2, ours-only 2, unresolved 1"
 tactical,006a6bd0,?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABVPoint2D@@@Z,1265,calls_differ,Tactical::Coord_To_Pixel_Absolute,,"orig-only 2, ours-only 3, unresolved 0"
-tactical,006a7820,?Draw_Shroud@Tactical@@QAEXABV?$TRect@H@@@Z,894,calls_differ,Vector3::Vector3,,"orig-only 4, ours-only 1, unresolved 1"
 techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 46, ours-only 7, unresolved 3"
-techtype,006daf60,?Read_INI@TechnoTypeClass@@UAE_NABVCCINIClass@@@Z,12659,calls_differ,DynamicVectorClass::DynamicVectorClass,,"orig-only 7, ours-only 7, unresolved 0"
+techtype,006daf60,?Read_INI@TechnoTypeClass@@UAE_NABVCCINIClass@@@Z,12659,calls_differ,DynamicVectorClass::DynamicVectorClass,,"orig-only 6, ours-only 6, unresolved 0"
 unit,007053f0,?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,5651,calls_differ,_com_ptr_t::_AddRef,,"orig-only 9, ours-only 1, unresolved 1"
 wdtsel,0072e050,?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ,991,calls_differ,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,,"orig-only 6, ours-only 12, unresolved 1"
 wdtsel,0072e650,?Select_Territory_At@Selection@WorldDominationTour@@QAE_NABVPoint2D@@@Z,193,calls_differ,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,,"orig-only 4, ours-only 1, unresolved 0"
@@ -153,7 +150,6 @@ ownrdraw,00601c30,?keyHash@?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@AAEIABQAUHWND
 ownrdraw,00602040,?remove@?$Dictionary@UMessageKey@OwnerDraw@@_N@@QAEDABUMessageKey@OwnerDraw@@AA_N@Z,607,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,006022a0,?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,156,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,00602340,?keyHash@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEIABUMessageKey@OwnerDraw@@@Z,29,exact_when_open,,,exact with the guards open (the guard may protect another row)
-ownrdraw,00602510,??_G?$DNode@IUWinData@OwnerDraw@@@@QAEPAXI@Z,138,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,,exact with the guards open (the guard may protect another row)
 ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,,exact with the guards open (the guard may protect another row)
 rules,00652d20,??4?$DynamicVectorClass@PBVSmudgeTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -174,8 +170,6 @@ startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_0000000
 startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
 super,0069ecf0,??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z,47,exact_when_open,,,exact with the guards open (the guard may protect another row)
 techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,,exact with the guards open (the guard may protect another row)
-techtype,006df8c0,??4?$VectorClass@PBVParticleSystemTypeClass@@@@QAEAAV0@ABV0@@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
-techtype,006df9e0,??0?$TypeList@PBVParticleSystemTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072b090,??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z,25,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -240,10 +234,10 @@ mapgen,005743f0,?Build_Corner_Ramp_SE@MapRegionClass@@QAE_NABVCell@@0H@Z,1342,in
 mapgen,0058a1b0,?Generate_Rural_Roads@MapGeneratorClass@@QAE_NABVCell@@@Z,1321,inline_call,Cell::Cell,orig_calls,??0Cell@@QAE@HH@Z
 multiplayer,005b8060,?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z,954,inline_call,VectorClass::Clear,orig_calls,?Clear@?$VectorClass@PAVInfantryTypeClass@@@@UAEXXZ
 netshare,005c5ff0,?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z,793,inline_call,005cda50,orig_calls,005cda50
+netshare,005cb8d0,?Change_Scenario_Slots@@YIXPAUHWND__@@HH@Z,1243,inline_call,Wstring::get,ours_calls,?get@Wstring@@QBEPADXZ
 object,005d34e0,?Render@ObjectClass@@UBE_NAAV?$TRect@H@@_N1@Z,502,inline_call,Intersect,ours_calls,?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z
 ownrdraw,005e0760,?Is_Tested_Control@@YI_NIPAUHWND__@@@Z,1594,inline_call,Is_Listed_Kind,orig_calls,?Is_Listed_Kind@@YIIH@Z
 ownrdraw,005e4780,?Enable_Animated_Control@OwnerDraw@@YGHPAUHWND__@@J@Z,2468,inline_call,Dictionary::keyHash,orig_calls,?keyHash@?$Dictionary@IUWinData@OwnerDraw@@@@AAEIABI@Z
-ownrdraw,005ead20,?Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,7636,inline_call,??3@YAXPAX@Z,orig_calls,??3@YAXPAX@Z
 ownrdraw,005fee70,?Dialog_On_WM_PAINT@@YIXPAUHWND__@@@Z,1281,inline_call,Dictionary::keyHash,ours_calls,?keyHash@?$Dictionary@IUWinData@OwnerDraw@@@@AAEIABI@Z
 palette,00605850,??8?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UBE_NABV0@@Z,79,inline_call,004e12a0,orig_calls,004e12a0
 palette,00605a20,?ID@?$VectorClass@U?$HashObject@VHashString@@PAVSchemeNode@@@@@@UAEHABU?$HashObject@VHashString@@PAVSchemeNode@@@@@Z,86,inline_call,004e1290,orig_calls,004e1290
@@ -260,12 +254,15 @@ scenario,00660b60,?Scan_Place_Object@@YIHPAVObjectClass@@ABVCell@@H@Z,1020,inlin
 sidebar,006817d0,?Abandon_Production@StripClass@SidebarClass@@QAE_NPBVFactoryClass@@@Z,221,inline_call,FactoryClass::Get_Object,orig_calls,?Get_Object@FactoryClass@@QBEPAVTechnoClass@@XZ
 skirmish,006829f0,?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z,3264,inline_call,Skirmish_Is_Computer,orig_calls,?Skirmish_Is_Computer@@YIHPAUHWND__@@H@Z
 startup,0068e280,_WinMain@16,10076,inline_call,TClassFactory::TClassFactory,orig_calls,??0?$TClassFactory@VCStreamClass@@@@QAE@XZ
+strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,inline_call,CCFileClass::~CCFileClass,orig_calls,??1CCFileClass@@UAE@XZ
 super,0069d090,?Discharged@SuperClass@@QAE_N_NABVCell@@@Z,765,inline_call,0069ed90,orig_calls,0069ed90
 super,0069d850,?Place@SuperClass@@QAEXABVCell@@_N@Z,4388,inline_call,_com_ptr_t::_AddRef,orig_calls,?_AddRef@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ
+tactical,006a7820,?Draw_Shroud@Tactical@@QAEXABV?$TRect@H@@@Z,894,inline_call,Vector3::Vector3,orig_calls,??0Vector3@@QAE@MMM@Z
 tactical,006a8240,?Draw_Tile_Shadows@Tactical@@QAEXABV?$TRect@H@@0@Z,785,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
 taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,inline_call,TActionClass::TAction_STOP_AI_TRIGGERS,orig_calls,?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z
 techno,006c1f10,??0TechnoClass@@QAE@ABVNoInitClass@@@Z,409,inline_call,DynamicVectorClass::Add,ours_calls,?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z
 techno,006c2c40,?Draw_Post_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,3341,inline_call,CDTimerClass::Value,orig_calls,?Value@?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ
+techtype,006df9e0,??0?$TypeList@PBVParticleSystemTypeClass@@@@QAE@ABV0@@Z,136,inline_call,??2@YAPAXI@Z,orig_calls,??2@YAPAXI@Z
 unit,006fe610,?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z,3385,inline_call,_com_ptr_t::??C,orig_calls,??C?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QBEPAUILocomo
 wave,007221d0,?Load@WaveClass@@UAGJPAUIStream@@@Z,349,inline_call,WordStorage_007246d0::initialize,orig_calls,?initialize@WordStorage_007246d0@@QAEPAV1@IPAI@Z
 wdtconflict,00727e30,?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,236,inline_call,??H@YI?AVWideWstring@@ABV0@0@Z,orig_calls,??H@YI?AVWideWstring@@ABV0@0@Z
@@ -353,6 +350,7 @@ ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_
 ownrdraw,00602360,?Grow_Vector@?$WolArrayList@H@@QAE_NXZ,143,no_draft,,,
 ownrdraw,006023f0,?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ,134,no_draft,,,
 ownrdraw,00602480,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,136,no_draft,,,
+ownrdraw,00602510,??_G?$DNode@IUWinData@OwnerDraw@@@@QAEPAXI@Z,138,no_draft,,,
 ownrdraw,006025a0,??0UnknownListState_6025a0@@QAE@ABU0@@Z,388,no_draft,,,
 ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,135,no_draft,,,
 partsys,0060d0f0,?get@Leaf_60d0f0@@QAEXXZ,23,no_draft,,,

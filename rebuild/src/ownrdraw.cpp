@@ -4801,10 +4801,10 @@ inline int __cdecl Get_Item_Text(HWND owner, int const &index, wchar_t *text, in
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: calls ?shrink@?$Dictionary@IUWinData@OwnerDraw@@@@AAEXXZ, OwnerDraw::WinData::Copy_List out of line, which no row of the original has
 LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     static void *solid_brush = CreateSolidBrush(0x306030); // RA2: as above
+	(void)solid_brush; // RA2: the reference text's own statement here: TibSun archive code/ownrdraw.cpp:263, ComboDropWinCtrlProc (adopted text)
     RECT rect;
     Get_Display_Rect(window, &rect);
     RECT client;
@@ -5194,7 +5194,6 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     }
     return DefWindowProcA(window, message, wparam, lparam); // RA2: as above
 }
-#endif
 
 }
 
@@ -10261,7 +10260,6 @@ namespace OwnerDraw { // RA2: as above
 
 template<class T> inline T Max_Of(T a, T b) { return a < b ? b : a; } // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Blend_Color out of line, which no row of the original has
 void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text, int caret, // RA2: as above
                                               BitFont *font, unsigned int color, int *scroll, int ime, // RA2: as above
 	int password, int frame, int shown) // RA2: as above
@@ -10392,7 +10390,6 @@ void __fastcall Draw_Edit_Text(Surface *surface, Rect &rect, wchar_t const *text
     }
     Caret_Hidden = 0; // RA2: as above
 }
-#endif
 
 }
 

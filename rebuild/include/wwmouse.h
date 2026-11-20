@@ -223,8 +223,8 @@ class WWMouseClass : public Mouse {
 		void Low_Show_Mouse(void);
 		void Low_Hide_Mouse(void);
 
-		void Block_Mouse(void);
-		void Unblock_Mouse(void);
+		static void Block_Mouse(void); // RA2: static, the executable's callers pass no object
+		static void Unblock_Mouse(void); // RA2: as above
 		friend DWORD WINAPI Mouse_Thread(LPVOID parameter); // RA2: the mouse thread locks the mouse
 		//bool Is_Blocked(void) const {return(Blocked != 0);}
 

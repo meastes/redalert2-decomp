@@ -60,6 +60,14 @@ check counted them as parked (2,006 rows / 560 KB on the progress line of 2026-1
 497 KB, tailmap's count, once the 113 units with such checks were checked again). Functions inside a unit's range with no row at all
 (main has no bound for them) are not parked rows: `tools/nodraft_queue.py` lists them as `no_main_row` in
 `manifest/no_draft_queue.csv` beside the no_draft rows main has an exact body for (`main_exact`).
+Two counts of exact functions sit side by side (review session, 2026-11-20; no rule or credit change;
+`rebuild_census.function_level`, the census line "Exact functions", progress.py's `function_level_*` columns):
+**whole-unit** (catalogued, whole-file exact) is the catalog, the count every percentage above uses;
+**function-level** (each function checked on its own, as ra2-decomp reports) adds every row its unit's current
+check finds exact in a unit not yet catalogued (held units), the count-sensitive rows (exact in their probed
+window) and the rows tailmap records as exact with their guard open (`exact_when_open`). At the first
+measurement (2026-11-20): whole-unit 16,457 rows, 2,917,311 bytes; function-level 16,940 rows, 3,028,147 bytes
+(+314 rows / 76,500 B in held units, +2 / 14,320 count-sensitive, +167 / 20,016 exact with the guard open).
 The newest numbers are always the last `rebuild-trial` line of `manifest/progress.csv`, written only at a
 gated landing (column `tree`; older rows from worker branches are marked as such).
 Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's catalogued rows, while
@@ -314,3 +322,6 @@ the adopted text does.
   every pending unit of `units.json` from a catalog run's "left out" lines (worker, header, tooling,
   mismatch, binding, owner) and prints the breakdown by kind with bytes; header and tooling notes are set by
   hand with `--note` and kept until the unit lands.
+  The catalog also refuses a unit whose compiler-output rows (`_$` atexit destructors, which are not in the
+  .CRT$XCU table and cannot be guarded) differ, the test `tools/held_units.py` makes: the whole-file build would
+  refuse their section as unaccounted code (lane B4's finding; lane M1, 2026-11-20).

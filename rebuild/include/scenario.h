@@ -173,7 +173,7 @@ class ScenarioClass {
 		mutable TTimerClass<SystemTimerClass> ElapsedTimer;
 
 		CDTimerClass<SystemTimerClass> PauseTimer; // RA2: +0x620
-		int Unknown_62C; // RA2: +0x62C
+		int HoldCount; // RA2: +0x62C; the depth of Hold_Scenario calls not yet released (ra2-decomp's name)
 		bool IsGamePaused; // RA2: +0x630; the waypoints follow at +0x632
 
 	private:

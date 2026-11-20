@@ -52,6 +52,9 @@
     "?Blit_Block@@YIXAAVSurface@@AAVConvertClass@@ABV1@ABV?$TRect@H@@ABVPoint2D@@3PBEPBVBlitter@@HW4ZGradientType@@HH@Z": 4846496,
     "??1Buffer@@QAE@XZ": 4424720,
     "?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z": 4582736,
+    "??0?$TRect@H@@QAE@HHHH@Z": 4373712,
+    "?Block_Mouse@WWMouseClass@@CIXXZ": 7812656,
+    "??_C@_0BB@KEPO@Capture_Mouse?$CI?$CJ?6?$AA@": 8393672,
     "??_C@_0BB@NBHB@Release_Mouse?$CI?$CJ?6?$AA@": 8393692,
     "?AllowNegativeY@@3_NA": 11710296,
     "__imp__GetCursorPos@4": 7971752,
@@ -67,8 +70,6 @@
     "?Start_Mouse_Thread@@YIXXZ": 7804896,
     "?Kill_Mouse_Thread@@YIXXZ": 7805344,
     "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z": 7805472,
-    "?Capture_Mouse@WWMouseClass@@UAEXXZ": 7810512,
-    "?Show_Mouse@WWMouseClass@@UAEXXZ": 7809728,
     "??_GWWMouseClass@@UAEPAXI@Z": 7812880,
     "??_R0?AVWWMouseClass@@@8": 8393584,
     "__purecall": 4950368,
@@ -130,15 +131,16 @@
     "?Erase_Mouse@WWMouseClass@@UAEXPAVSurface@@_N@Z": 7808544,
     "?Low_Show_Mouse@WWMouseClass@@AAEXXZ": 7809184,
     "?Low_Hide_Mouse@WWMouseClass@@AAEXXZ": 7809536,
+    "?Show_Mouse@WWMouseClass@@UAEXXZ": 7809728,
     "?Hide_Mouse@WWMouseClass@@UAEXXZ": 7810208,
+    "?Capture_Mouse@WWMouseClass@@UAEXXZ": 7810512,
     "?Release_Mouse@WWMouseClass@@UAEXXZ": 7810976,
     "?Conditional_Hide_Mouse@WWMouseClass@@UAEXV?$TRect@H@@@Z": 7811296,
     "?Conditional_Show_Mouse@WWMouseClass@@UAEXXZ": 7811312,
     "?Convert_Coordinate@WWMouseClass@@UBEXAAH0@Z": 7811328,
     "?Get_Bounded_Position@WWMouseClass@@ABEXAAH0@Z": 7811424,
     "?Update_Mouse_Position@WWMouseClass@@AAEXHH_N@Z": 7811488,
-    "?Block_Mouse@WWMouseClass@@AAEXXZ": 7812656,
-    "?Unblock_Mouse@WWMouseClass@@AAEXXZ": 7812704
+    "?Unblock_Mouse@WWMouseClass@@CIXXZ": 7812704
   },
   "regions": [
     {
@@ -195,7 +197,7 @@
           "resolved": 11710252
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7804832,
@@ -247,7 +249,7 @@
           "resolved": 7208
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7804864,
@@ -507,7 +509,7 @@
           "resolved": 11710308
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7804896,
@@ -615,7 +617,7 @@
           "resolved": 11710304
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7805184,
@@ -739,7 +741,7 @@
           "resolved": 11710304
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7805344,
@@ -1023,7 +1025,7 @@
           "resolved": 7971788
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7805472,
@@ -1139,7 +1141,7 @@
           "resolved": 8059960
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7805888,
@@ -1199,7 +1201,7 @@
           "resolved": 4291382302
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7806032,
@@ -1226,7 +1228,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7806176,
@@ -1430,7 +1432,7 @@
           "resolved": 11710304
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7806192,
@@ -1457,7 +1459,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7806784,
@@ -1581,7 +1583,7 @@
           "resolved": 7974648
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7806800,
@@ -1697,7 +1699,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7807344,
@@ -1821,7 +1823,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7807568,
@@ -1848,7 +1850,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7807888,
@@ -1988,7 +1990,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7808016,
@@ -2072,7 +2074,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7808544,
@@ -2164,7 +2166,7 @@
           "resolved": 4291582848
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7808832,
@@ -2328,7 +2330,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7809184,
@@ -2412,10 +2414,198 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7809536,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7809728,
+      "method": "00772ac0",
+      "body_bytes": 465,
+      "body_sha256": "616f7e5b54de1e78300087051673d18f2f51a6b3db6452ae61872f9c8c91d782",
+      "padding_bytes": 15,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "ea679d03b25d03e91af797b9e104765843cb0e6cef7e9997eed79f38102b425c",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Show_Mouse@WWMouseClass@@UAEXXZ",
+      "symbol_prefix": "?Show_Mouse@WWMouseClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "__imp__WaitForSingleObject@8",
+          "target": 7971280,
+          "addend": 0,
+          "resolved": 7971280
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+          "target": 8393560,
+          "addend": 0,
+          "resolved": 8393560
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+          "target": 8393496,
+          "addend": 0,
+          "resolved": 8393496
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291378671
+        },
+        {
+          "offset": 73,
+          "kind": 6,
+          "symbol": "__imp__ReleaseMutex@4",
+          "target": 7971216,
+          "addend": 0,
+          "resolved": 7971216
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 128,
+          "kind": 6,
+          "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+          "target": 8393560,
+          "addend": 0,
+          "resolved": 8393560
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+          "target": 8393496,
+          "addend": 0,
+          "resolved": 8393496
+        },
+        {
+          "offset": 138,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291378594
+        },
+        {
+          "offset": 148,
+          "kind": 20,
+          "symbol": "?Validate_Copy_Buffer@WWMouseClass@@AAE_NXZ",
+          "target": 7806800,
+          "addend": 0,
+          "resolved": 4294964216
+        },
+        {
+          "offset": 184,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4291531092
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "?Block_Mouse@WWMouseClass@@CIXXZ",
+          "target": 7812656,
+          "addend": 0,
+          "resolved": 2728
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z",
+          "target": 4582736,
+          "addend": 0,
+          "resolved": 4291740087
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 376,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4291530900
+        },
+        {
+          "offset": 399,
+          "kind": 20,
+          "symbol": "?Raw_Draw_Mouse@WWMouseClass@@AAEXPAVSurface@@HH@Z",
+          "target": 7808832,
+          "addend": 0,
+          "resolved": 4294965997
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "__imp__ShowCursor@4",
+          "target": 7971788,
+          "addend": 0,
+          "resolved": 7971788
+        },
+        {
+          "offset": 451,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        }
+      ],
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
+      "source": "rebuild/src/wwmouse.cpp",
+      "population": "rebuild-wwmouse",
+      "source_order": 7809728,
       "source_quality_family": "rebuild"
     },
     {
@@ -2552,10 +2742,214 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7810208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7810512,
+      "method": "00772dd0",
+      "body_bytes": 450,
+      "body_sha256": "f5756fa8abf464acaf5f43fc64ca59daf4e8f70409e68da40358269c9efd840b",
+      "padding_bytes": 14,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "99f2a946a4e76dddd45e82c94c57a12222bcf7377149b1c28dc7792fd8bfb6bb",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Capture_Mouse@WWMouseClass@@UAEXXZ",
+      "symbol_prefix": "?Capture_Mouse@WWMouseClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "??_C@_0BB@KEPO@Capture_Mouse?$CI?$CJ?6?$AA@",
+          "target": 8393672,
+          "addend": 0,
+          "resolved": 8393672
+        },
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291377913
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__imp__WaitForSingleObject@8",
+          "target": 7971280,
+          "addend": 0,
+          "resolved": 7971280
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+          "target": 8393560,
+          "addend": 0,
+          "resolved": 8393560
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+          "target": 8393496,
+          "addend": 0,
+          "resolved": 8393496
+        },
+        {
+          "offset": 85,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291377863
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "__imp__ReleaseMutex@4",
+          "target": 7971216,
+          "addend": 0,
+          "resolved": 7971216
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 143,
+          "kind": 6,
+          "symbol": "??_C@_0BC@JOPK@D?3?2Ra2?2wwmous?4cpp?$AA@",
+          "target": 8393560,
+          "addend": 0,
+          "resolved": 8393560
+        },
+        {
+          "offset": 148,
+          "kind": 6,
+          "symbol": "??_C@_0EA@PAMP@Warning?3?5Probable?5deadlock?5occur@",
+          "target": 8393496,
+          "addend": 0,
+          "resolved": 8393496
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4291377795
+        },
+        {
+          "offset": 163,
+          "kind": 20,
+          "symbol": "?Validate_Copy_Buffer@WWMouseClass@@AAE_NXZ",
+          "target": 7806800,
+          "addend": 0,
+          "resolved": 4294963417
+        },
+        {
+          "offset": 199,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4291530293
+        },
+        {
+          "offset": 211,
+          "kind": 20,
+          "symbol": "?Block_Mouse@WWMouseClass@@CIXXZ",
+          "target": 7812656,
+          "addend": 0,
+          "resolved": 1929
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z",
+          "target": 4582736,
+          "addend": 0,
+          "resolved": 4291739288
+        },
+        {
+          "offset": 291,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 391,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4291530101
+        },
+        {
+          "offset": 414,
+          "kind": 20,
+          "symbol": "?Raw_Draw_Mouse@WWMouseClass@@AAEXPAVSurface@@HH@Z",
+          "target": 7808832,
+          "addend": 0,
+          "resolved": 4294965198
+        },
+        {
+          "offset": 420,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "__imp__ShowCursor@4",
+          "target": 7971788,
+          "addend": 0,
+          "resolved": 7971788
+        },
+        {
+          "offset": 436,
+          "kind": 6,
+          "symbol": "_MouseMutex",
+          "target": 11710304,
+          "addend": 0,
+          "resolved": 11710304
+        }
+      ],
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
+      "source": "rebuild/src/wwmouse.cpp",
+      "population": "rebuild-wwmouse",
+      "source_order": 7810512,
       "source_quality_family": "rebuild"
     },
     {
@@ -2708,7 +3102,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7810976,
@@ -2735,7 +3129,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7811296,
@@ -2762,7 +3156,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7811312,
@@ -2798,7 +3192,7 @@
           "resolved": 11710296
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7811328,
@@ -2834,7 +3228,7 @@
           "resolved": 7971752
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7811424,
@@ -3062,7 +3456,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7811488,
@@ -3410,7 +3804,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812096,
@@ -3426,8 +3820,8 @@
       "full_extent_sha256": "610a57ecf94e2fe50d7be92766dc72ed4ddf25c01f3f6f53aac308725ac45b0f",
       "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Block_Mouse@WWMouseClass@@AAEXXZ",
-      "symbol_prefix": "?Block_Mouse@WWMouseClass@@AAEXXZ",
+      "symbol": "?Block_Mouse@WWMouseClass@@CIXXZ",
+      "symbol_prefix": "?Block_Mouse@WWMouseClass@@CIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -3478,7 +3872,7 @@
           "resolved": 4291375764
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812656,
@@ -3494,8 +3888,8 @@
       "full_extent_sha256": "a2b428064b45a0e81621bfa86b16aba4d71b23e519f91daccbe1892d8ec41944",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Unblock_Mouse@WWMouseClass@@AAEXXZ",
-      "symbol_prefix": "?Unblock_Mouse@WWMouseClass@@AAEXXZ",
+      "symbol": "?Unblock_Mouse@WWMouseClass@@CIXXZ",
+      "symbol_prefix": "?Unblock_Mouse@WWMouseClass@@CIXXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -3522,7 +3916,7 @@
           "resolved": 7971216
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812704,
@@ -3566,7 +3960,7 @@
           "resolved": 59060
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812720,
@@ -3593,7 +3987,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812752,
@@ -3620,7 +4014,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812768,
@@ -3647,7 +4041,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812784,
@@ -3674,7 +4068,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812800,
@@ -3701,7 +4095,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812816,
@@ -3728,7 +4122,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812848,
@@ -3772,7 +4166,7 @@
           "resolved": 58902
         }
       ],
-      "source_sha256": "f2e2980fc865b9407122a7eac418b271fc97e137c9753ef2586f00b527a789bd",
+      "source_sha256": "2553cc8a638dd5279a3638ba4a932372e86c6172c655e9e44f02a4ea2b9fc155",
       "source": "rebuild/src/wwmouse.cpp",
       "population": "rebuild-wwmouse",
       "source_order": 7812880,

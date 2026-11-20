@@ -78,7 +78,34 @@
     "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
     "?Mark_Track@DriveLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z": 4852672,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ": 6858368,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "__real@8@4008e100000000000000": 7976456,
+    "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
+    "?Is_On_Priority_Mission@FootClass@@QBE_NXZ": 5016928,
+    "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
     "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "?Scan_Limit@TeamClass@@QAEXXZ": 7055920,
+    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
+    "?Ground@@3PAUGroundType@@A": 8720032,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?Get_Health_Ratio@ObjectClass@@QBENXZ": 6112576,
+    "__real@8@3ffec000000000000000": 7996888,
+    "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
     "_CLSID_DriveLocomotion": 8003440,
     "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
     "?AddRef@LocomotionClass@@UAGKXZ": 5493328,
@@ -270,7 +297,7 @@
           "resolved": 8726912
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846672,
@@ -322,7 +349,7 @@
           "resolved": 8726984
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846720,
@@ -374,7 +401,7 @@
           "resolved": 8726968
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846752,
@@ -426,7 +453,7 @@
           "resolved": 8726960
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846784,
@@ -478,7 +505,7 @@
           "resolved": 8726920
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846816,
@@ -530,7 +557,7 @@
           "resolved": 8726880
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846848,
@@ -614,7 +641,7 @@
           "resolved": 8726992
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846880,
@@ -674,7 +701,7 @@
           "resolved": 8726928
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846944,
@@ -734,7 +761,7 @@
           "resolved": 8726952
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846992,
@@ -794,7 +821,7 @@
           "resolved": 8726976
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847040,
@@ -838,7 +865,7 @@
           "resolved": 8726906
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847088,
@@ -890,7 +917,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847104,
@@ -950,7 +977,7 @@
           "resolved": 8726900
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847136,
@@ -1066,7 +1093,7 @@
           "resolved": 7996584
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847168,
@@ -1126,7 +1153,7 @@
           "resolved": 645349
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847328,
@@ -1202,7 +1229,7 @@
           "resolved": 3105109
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847376,
@@ -1246,7 +1273,7 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847648,
@@ -1322,7 +1349,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847744,
@@ -1390,7 +1417,7 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847872,
@@ -1417,7 +1444,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848096,
@@ -1444,7 +1471,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848176,
@@ -1471,7 +1498,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848240,
@@ -1547,7 +1574,7 @@
           "resolved": 2593284
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848288,
@@ -1591,7 +1618,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848528,
@@ -1627,7 +1654,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848624,
@@ -1663,7 +1690,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848688,
@@ -1715,7 +1742,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848752,
@@ -1775,7 +1802,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848912,
@@ -1802,7 +1829,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849024,
@@ -1854,7 +1881,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849072,
@@ -1930,7 +1957,7 @@
           "resolved": 8726976
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849200,
@@ -2030,7 +2057,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849392,
@@ -2098,7 +2125,7 @@
           "resolved": 7983472
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849600,
@@ -2174,7 +2201,7 @@
           "resolved": 641845
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4850944,
@@ -2201,7 +2228,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4851136,
@@ -2477,7 +2504,7 @@
           "resolved": 1117
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4851184,
@@ -2561,7 +2588,7 @@
           "resolved": 15051
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4852672,
@@ -2717,7 +2744,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853040,
@@ -2785,7 +2812,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853392,
@@ -2933,7 +2960,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853472,
@@ -2969,10 +2996,2374 @@
           "resolved": 96833
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4859504,
+      "method": "004a2670",
+      "body_bytes": 8373,
+      "body_sha256": "a59a485d53ffa40871e1299706aa71c8a65cde8c987ed50eaf41565b334b78d4",
+      "padding_bytes": 11,
+      "full_extent_bytes": 8384,
+      "full_extent_sha256": "5a0b3f6a1065ed77a3ec8d5a8325582fcc57e611074f8643a9540d8f4d70a106",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+      "symbol_prefix": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 164,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ",
+          "target": 6858368,
+          "addend": 0,
+          "resolved": 1998604
+        },
+        {
+          "offset": 412,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294413856
+        },
+        {
+          "offset": 441,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294414163
+        },
+        {
+          "offset": 499,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 542,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 554,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 559,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3000429
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 132889
+        },
+        {
+          "offset": 711,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 723,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 736,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 752,
+          "kind": 20,
+          "symbol": "?Is_On_Priority_Mission@FootClass@@QBE_NXZ",
+          "target": 5016928,
+          "addend": 0,
+          "resolved": 156668
+        },
+        {
+          "offset": 807,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294413461
+        },
+        {
+          "offset": 836,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294413768
+        },
+        {
+          "offset": 842,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 895,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 911,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 924,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 936,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1008,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 175948
+        },
+        {
+          "offset": 1058,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 90442
+        },
+        {
+          "offset": 1127,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1134,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1165,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1174,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 752470
+        },
+        {
+          "offset": 1201,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 90299
+        },
+        {
+          "offset": 1227,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 1252497
+        },
+        {
+          "offset": 1239,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1244,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 677152
+        },
+        {
+          "offset": 1281,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1286,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 754006
+        },
+        {
+          "offset": 1309,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1315,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 677081
+        },
+        {
+          "offset": 1385,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1406,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 751246
+        },
+        {
+          "offset": 1412,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 1433,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294765139
+        },
+        {
+          "offset": 1456,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 272732
+        },
+        {
+          "offset": 1537,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294412731
+        },
+        {
+          "offset": 1566,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294413038
+        },
+        {
+          "offset": 1572,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1592,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1655396
+        },
+        {
+          "offset": 1643,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 1683,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1688,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 676596
+        },
+        {
+          "offset": 1706,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 1722,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1735,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1748,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1756,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1802,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 175154
+        },
+        {
+          "offset": 1884,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 1924,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 1929,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294785827
+        },
+        {
+          "offset": 1959,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 1975,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1988,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 2000,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 2009,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 2071,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2094,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 2559758
+        },
+        {
+          "offset": 2172,
+          "kind": 20,
+          "symbol": "?Scan_Limit@TeamClass@@QAEXXZ",
+          "target": 7055920,
+          "addend": 0,
+          "resolved": 2194240
+        },
+        {
+          "offset": 2190,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 2206,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 2219,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 2231,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 2240,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 2275,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 174681
+        },
+        {
+          "offset": 2388,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 2395,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 2429,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2438,
+          "kind": 20,
+          "symbol": "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z",
+          "target": 5613152,
+          "addend": 0,
+          "resolved": 751206
+        },
+        {
+          "offset": 2460,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 1251264
+        },
+        {
+          "offset": 2479,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2486,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 675910
+        },
+        {
+          "offset": 2523,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2528,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 752764
+        },
+        {
+          "offset": 2552,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2557,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 675839
+        },
+        {
+          "offset": 2636,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2649,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 750003
+        },
+        {
+          "offset": 2655,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 2676,
+          "kind": 20,
+          "symbol": "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z",
+          "target": 4658784,
+          "addend": 0,
+          "resolved": 4294763896
+        },
+        {
+          "offset": 2699,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 271489
+        },
+        {
+          "offset": 2780,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294411488
+        },
+        {
+          "offset": 2809,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294411795
+        },
+        {
+          "offset": 2815,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2835,
+          "kind": 20,
+          "symbol": "?HasAnyLink@RadioClass@@QBE_NXZ",
+          "target": 6516496,
+          "addend": 0,
+          "resolved": 1654153
+        },
+        {
+          "offset": 2886,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 2926,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2931,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 675353
+        },
+        {
+          "offset": 2945,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 2961,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 2974,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 2987,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 2995,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3091,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 3131,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3136,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294784620
+        },
+        {
+          "offset": 3190,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 3217,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294411051
+        },
+        {
+          "offset": 3268,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3280,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 675004
+        },
+        {
+          "offset": 3341,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294410927
+        },
+        {
+          "offset": 3359,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3376,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 674908
+        },
+        {
+          "offset": 3457,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3503,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 751789
+        },
+        {
+          "offset": 3538,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 87962
+        },
+        {
+          "offset": 3625,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3667,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 674729
+        },
+        {
+          "offset": 3828,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 3855,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3861,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 674535
+        },
+        {
+          "offset": 3895,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3901,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 674495
+        },
+        {
+          "offset": 3922,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3927,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 674469
+        },
+        {
+          "offset": 3973,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3978,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 751314
+        },
+        {
+          "offset": 3985,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4004,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4017,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4031,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4039,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4088,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 4093,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 4126,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 4276,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 4340,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294409928
+        },
+        {
+          "offset": 4405,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 93287
+        },
+        {
+          "offset": 4413,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2996575
+        },
+        {
+          "offset": 4419,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 4474,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 4514,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4519,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 673765
+        },
+        {
+          "offset": 4537,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4553,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4566,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4579,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4587,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4628,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 172328
+        },
+        {
+          "offset": 4672,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4677,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673719
+        },
+        {
+          "offset": 4715,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4728,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673668
+        },
+        {
+          "offset": 4749,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 4784,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4790,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4795,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673601
+        },
+        {
+          "offset": 4802,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294782954
+        },
+        {
+          "offset": 4826,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4831,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673565
+        },
+        {
+          "offset": 4838,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4294790630
+        },
+        {
+          "offset": 4871,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294962421
+        },
+        {
+          "offset": 4886,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4902,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4915,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4931,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4940,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 5014,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 128502
+        },
+        {
+          "offset": 5090,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5096,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 5108,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 5113,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2995875
+        },
+        {
+          "offset": 5178,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5201,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 2556651
+        },
+        {
+          "offset": 5238,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 5270,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294962022
+        },
+        {
+          "offset": 5296,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5309,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673087
+        },
+        {
+          "offset": 5316,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294761720
+        },
+        {
+          "offset": 5336,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5349,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 673047
+        },
+        {
+          "offset": 5356,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294761680
+        },
+        {
+          "offset": 5371,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 268817
+        },
+        {
+          "offset": 5409,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5414,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 672982
+        },
+        {
+          "offset": 5421,
+          "kind": 20,
+          "symbol": "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z",
+          "target": 4659248,
+          "addend": 0,
+          "resolved": 4294761615
+        },
+        {
+          "offset": 5433,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5438,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 672958
+        },
+        {
+          "offset": 5452,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5458,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 672938
+        },
+        {
+          "offset": 5467,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 5496,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5501,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 672895
+        },
+        {
+          "offset": 5551,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 5573,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 5585,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 5598,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 5617,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 5625,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 5700,
+          "kind": 6,
+          "symbol": "?Ground@@3PAUGroundType@@A",
+          "target": 8720032,
+          "addend": 0,
+          "resolved": 8720032
+        },
+        {
+          "offset": 5710,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 5748,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5753,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 672643
+        },
+        {
+          "offset": 5760,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4294778988
+        },
+        {
+          "offset": 5766,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5771,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 746881
+        },
+        {
+          "offset": 5805,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5817,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 746835
+        },
+        {
+          "offset": 5868,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5882,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5938,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5952,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5972,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 6003,
+          "kind": 20,
+          "symbol": "?Get_Health_Ratio@ObjectClass@@QBENXZ",
+          "target": 6112576,
+          "addend": 0,
+          "resolved": 1247065
+        },
+        {
+          "offset": 6009,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 6032,
+          "kind": 6,
+          "symbol": "__real@8@3ffec000000000000000",
+          "target": 7996888,
+          "addend": 0,
+          "resolved": 7996888
+        },
+        {
+          "offset": 6260,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 91432
+        },
+        {
+          "offset": 6268,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2994720
+        },
+        {
+          "offset": 6358,
+          "kind": 20,
+          "symbol": "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z",
+          "target": 4993024,
+          "addend": 0,
+          "resolved": 127158
+        },
+        {
+          "offset": 6460,
+          "kind": 20,
+          "symbol": "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z",
+          "target": 4680384,
+          "addend": 0,
+          "resolved": 4294781712
+        },
+        {
+          "offset": 6478,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 6531,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 0,
+          "resolved": 7995776
+        },
+        {
+          "offset": 6554,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 8,
+          "resolved": 7995784
+        },
+        {
+          "offset": 6575,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 6580,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 671816
+        },
+        {
+          "offset": 6587,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4294782097
+        },
+        {
+          "offset": 6667,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 6674,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 6759,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 6764,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 671632
+        },
+        {
+          "offset": 6843,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 6848,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 671548
+        },
+        {
+          "offset": 6903,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 6912,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 748380
+        },
+        {
+          "offset": 6936,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 6942,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 6947,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 6985,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294960307
+        },
+        {
+          "offset": 7019,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294960273
+        },
+        {
+          "offset": 7085,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 7194,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 90498
+        },
+        {
+          "offset": 7202,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2993786
+        },
+        {
+          "offset": 7208,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 7263,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 7303,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 7308,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 670976
+        },
+        {
+          "offset": 7326,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 7342,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7355,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7368,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7376,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7418,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 169538
+        },
+        {
+          "offset": 7463,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 7468,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 670928
+        },
+        {
+          "offset": 7525,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 7556,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 7561,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294780195
+        },
+        {
+          "offset": 7584,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 7590,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 670806
+        },
+        {
+          "offset": 7597,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4294787871
+        },
+        {
+          "offset": 7634,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294959658
+        },
+        {
+          "offset": 7649,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 7665,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7678,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7690,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7699,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7748,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 169208
+        },
+        {
+          "offset": 7808,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 7844,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@DriveLocomotionClass@@AAE_NAA_N_N1@Z",
+          "target": 4859504,
+          "addend": 0,
+          "resolved": 4294959448
+        },
+        {
+          "offset": 7859,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 7875,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7888,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7900,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 7909,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 7935,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 169021
+        },
+        {
+          "offset": 8117,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 8132,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 8145,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 8158,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 8167,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 8179,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 8201,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 8209,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 8224,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 8244,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 670040
+        },
+        {
+          "offset": 8251,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4294780433
+        },
+        {
+          "offset": 8279,
+          "kind": 20,
+          "symbol": "?Mark_Track@DriveLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z",
+          "target": 4852672,
+          "addend": 0,
+          "resolved": 4294952181
+        },
+        {
+          "offset": 8307,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 8315,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 8323,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        }
+      ],
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4859504,
       "source_quality_family": "rebuild"
     },
     {
@@ -2996,7 +5387,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4867888,
@@ -3033,7 +5424,7 @@
           "resolved": 7995784
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4867904,
@@ -3077,7 +5468,7 @@
           "resolved": 746749
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868032,
@@ -3104,7 +5495,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868064,
@@ -3164,7 +5555,7 @@
           "resolved": 8003452
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868080,
@@ -3191,7 +5582,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868144,
@@ -3227,7 +5618,7 @@
           "resolved": 625766
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868160,
@@ -3263,7 +5654,7 @@
           "resolved": 168251
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868176,
@@ -3323,7 +5714,7 @@
           "resolved": 4294951667
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868240,
@@ -3423,7 +5814,7 @@
           "resolved": 8726992
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868320,
@@ -3491,7 +5882,7 @@
           "resolved": 7995560
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868800,
@@ -3518,7 +5909,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869024,
@@ -3545,7 +5936,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869040,
@@ -3572,7 +5963,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869056,
@@ -3599,7 +5990,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869072,
@@ -3626,7 +6017,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869088,
@@ -3653,7 +6044,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869104,
@@ -3680,7 +6071,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869136,
@@ -3707,7 +6098,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869152,
@@ -3734,7 +6125,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869168,
@@ -3761,7 +6152,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869184,
@@ -3788,7 +6179,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869200,
@@ -3824,7 +6215,7 @@
           "resolved": 624102
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869216,
@@ -3860,7 +6251,7 @@
           "resolved": 624118
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869232,
@@ -3887,7 +6278,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869248,
@@ -3914,7 +6305,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869280,
@@ -3982,7 +6373,7 @@
           "resolved": 3002451
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869296,
@@ -4009,7 +6400,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869376,
@@ -4036,7 +6427,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869392,
@@ -4072,7 +6463,7 @@
           "resolved": 4294945494
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869440,
@@ -4108,7 +6499,7 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869456,
@@ -4144,7 +6535,7 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869472,
@@ -4180,7 +6571,7 @@
           "resolved": 4294945446
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869488,
@@ -4216,7 +6607,7 @@
           "resolved": 4294966998
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869504,
@@ -4252,7 +6643,7 @@
           "resolved": 4294966998
         }
       ],
-      "source_sha256": "d5988c6b0e311ddb14d532e904fa7b9f9a845a3733dba5a13ce6f9dc477ec2b2",
+      "source_sha256": "f7507746502969b972116c06cf372919c3d39ec61ffd227b61249ee496004966",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869520,

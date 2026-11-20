@@ -10681,3 +10681,13 @@ bool DynamicVectorClass<DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ>:
 	}
 	return(false);
 }
+
+
+template<>
+int DynamicVectorClass<DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ>::ID(DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}

@@ -65,6 +65,10 @@
     "??_C@_1BE@KFNG@?$AAA?$AAr?$AAm?$AAo?$AAr?$AA?3?$AA?5?$AA?$CF?$AAs?$AA?$AA@": 8217092,
     "??_C@_05DKMC@Green?$AA@": 8217084,
     "??_C@_03GOGG@Red?$AA@": 8217080,
+    "??2@YAPAXI@Z": 7872535,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@": 7998224,
+    "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@": 7998256,
     "_$E2": 4876064,
     "_$E5": 4876112,
     "_$E8": 4876144,
@@ -89,15 +93,33 @@
     "?Get_Allowable_Index@DropshipLoadoutClass@@CIHPAVTechnoTypeClass@@@Z": 4877136,
     "?Draw_Cost@@YIXHHAAVSurface@@ABVPoint2D@@PBG_NAAVConvertClass@@PBVBlitter@@@Z": 4888000,
     "?Draw_Unit_Info@@YIXPAVSurface@@PAVConvertClass@@PAVTechnoTypeClass@@_N@Z": 4888496,
+    "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@HPBQAUButtonFadeEffect@@@Z": 4891152,
+    "??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z": 4890832,
+    "??_7type_info@@6B@": 8066532,
+    "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@HPBQAUCrossDissolveEffect@@@Z": 4891232,
+    "??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z": 4890992,
+    "?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z": 4889920,
+    "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": 4890096,
+    "?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z": 4890528,
+    "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": 4890704,
+    "?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z": 4889424,
+    "?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z": 4889520,
+    "??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z": 4889536,
+    "?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z": 4889600,
+    "?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ": 4889776,
+    "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z": 4889824,
+    "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z": 4889888,
+    "??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z": 4890144,
+    "?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z": 4890208,
+    "?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ": 4890384,
+    "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z": 4890432,
+    "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z": 4890496,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
-    "??_7type_info@@6B@": 8066532,
-    "??3@YAXPAX@Z": 7871803,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888
@@ -165,7 +187,7 @@
           "resolved": 8727200
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876064,
@@ -217,7 +239,7 @@
           "resolved": 8727304
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876112,
@@ -269,7 +291,7 @@
           "resolved": 8727288
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876144,
@@ -321,7 +343,7 @@
           "resolved": 8727280
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876176,
@@ -373,7 +395,7 @@
           "resolved": 8727208
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876208,
@@ -425,7 +447,7 @@
           "resolved": 8727136
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876240,
@@ -509,7 +531,7 @@
           "resolved": 8727312
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876272,
@@ -569,7 +591,7 @@
           "resolved": 8727216
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876336,
@@ -629,7 +651,7 @@
           "resolved": 8727272
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876384,
@@ -689,7 +711,7 @@
           "resolved": 8727296
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876432,
@@ -733,7 +755,7 @@
           "resolved": 8727194
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876480,
@@ -785,7 +807,7 @@
           "resolved": 8727264
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876496,
@@ -845,7 +867,7 @@
           "resolved": 8727188
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876528,
@@ -881,7 +903,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876560,
@@ -908,7 +930,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876592,
@@ -953,7 +975,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876608,
@@ -989,7 +1011,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4876816,
@@ -1025,7 +1047,7 @@
           "resolved": 4294967063
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877024,
@@ -1069,7 +1091,7 @@
           "resolved": 2068468
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877072,
@@ -1096,7 +1118,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877120,
@@ -1132,7 +1154,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4877136,
@@ -1328,7 +1350,7 @@
           "resolved": 4294894507
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4888000,
@@ -1652,11 +1674,741 @@
           "resolved": 4294893669
         }
       ],
-      "source_sha256": "ee44cf36f0b7eb1f561cb4863bed7328c510dabf09c3b443156a6cc0f862a8dc",
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
       "source": "rebuild/src/dropship.cpp",
       "population": "rebuild-dropship",
       "source_order": 4888496,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4889424,
+      "method": "004a9b50",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUButtonFadeEffect@@@@UBEPAUButtonFadeEffect@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889424,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889520,
+      "method": "004a9bb0",
+      "body_bytes": 13,
+      "body_sha256": "da1c0b5074b32d4e80b5f5f042a075a73f60de8e9432201ad45100959599be93",
+      "padding_bytes": 3,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "303129b1a01ef27e24f6b44e0c65b46e0fd9d0b94de6c447e930b7ddd8d30870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z",
+      "symbol_prefix": "?GetItem@?$VectorClass@PAUCrossDissolveEffect@@@@UBEPAUCrossDissolveEffect@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889536,
+      "method": "004a9bc0",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUButtonFadeEffect@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889600,
+      "method": "004a9c00",
+      "body_bytes": 174,
+      "body_sha256": "bf584bc1995392fb1a84b70dd400c98f0c6532070397d84629ae3723c9478ab4",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "f75a9a5dd9d571124c71983e29b678ef89100a43e8dd64c16343ca9447b5c65d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2982892
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2982080
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889776,
+      "method": "004a9cb0",
+      "body_bytes": 39,
+      "body_sha256": "29707582fd37fe655dc361784dc4b44feb2898e4dc7875ee26db4bf785d4178c",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "46ab662e89eddd9ddefff68e82180a85e5703bf64c8a2d1a63995f63a38ef80f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUButtonFadeEffect@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2982003
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889776,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889824,
+      "method": "004a9ce0",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889888,
+      "method": "004a9d20",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4889920,
+      "method": "004a9d40",
+      "body_bytes": 176,
+      "body_sha256": "145f765cf1eef76330ac7b5874e1835a3a725d35688a7666e5b9bb8eb3eef490",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "145f765cf1eef76330ac7b5874e1835a3a725d35688a7666e5b9bb8eb3eef490",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAE_NHPBQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2982576
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2981773
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4889920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1707"
+    },
+    {
+      "entry": 4890096,
+      "method": "004a9df0",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHABQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4490"
+    },
+    {
+      "entry": 4890144,
+      "method": "004a9e20",
+      "body_bytes": 62,
+      "body_sha256": "99fe6bd84f8a1f0d9572ae92ea81f06a015346609cbad0891ad8ecc2749ac66d",
+      "padding_bytes": 2,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "0eef8d7862a022f5ef32d9410122878a63096e608afd76a915433c41963b522d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z",
+      "symbol_prefix": "??8?$VectorClass@PAUCrossDissolveEffect@@@@UBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890144,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4890208,
+      "method": "004a9e60",
+      "body_bytes": 174,
+      "body_sha256": "030da6438e736a2cd5e4165bc2364f3bacf6f04c4c187f76a9388503ece87a81",
+      "padding_bytes": 2,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "44e832c702186d087f28dc0b459b468c57ed52716d69e157d16d8e5f4f99d70d",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "?Resize@?$VectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 39,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2982284
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2981472
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4890384,
+      "method": "004a9f10",
+      "body_bytes": 39,
+      "body_sha256": "e68d70ebe8803b32fe3ee69239c64d7703854d9c668d24ac0781b22266f24870",
+      "padding_bytes": 9,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "59cd18e40359ee6756a1c79a15dd6f32f2275209906386432e3ea7e8ad8dcfe0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$VectorClass@PAUCrossDissolveEffect@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 20,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2981395
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4890432,
+      "method": "004a9f40",
+      "body_bytes": 51,
+      "body_sha256": "e3e3573314364fc9fddd251c2209250fe9494b30d9deba04de380312643513d3",
+      "padding_bytes": 13,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "c6868881439f371398a306736b476d92acc4acea388f0261fff975e3b7d52e82",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890432,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4890496,
+      "method": "004a9f80",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "?ID@?$VectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890496,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4442"
+    },
+    {
+      "entry": 4890528,
+      "method": "004a9fa0",
+      "body_bytes": 176,
+      "body_sha256": "885d7faf1c126ec37b6e449bcf34669ed765dd81d43aaae88b2ad4d84a10b6c7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "885d7faf1c126ec37b6e449bcf34669ed765dd81d43aaae88b2ad4d84a10b6c7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "?Resize@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAE_NHPBQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2981968
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2981165
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-1708"
+    },
+    {
+      "entry": 4890704,
+      "method": "004aa050",
+      "body_bytes": 38,
+      "body_sha256": "f26d5ad5016911e9e8163dda6581e871aa8f94e75e09d2fd64ca9407bd4ef804",
+      "padding_bytes": 10,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "7f245f62d175c76d575c8b9ee7ac4dab5e79472b63942de246ae5c90719b8ef4",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHABQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4490"
+    },
+    {
+      "entry": 4890832,
+      "method": "4aa0d0",
+      "body_bytes": 73,
+      "body_sha256": "4b3f9a2aeca7d5a64150f0e63a613fc2c5a2826d7172aab6e23e9fee62ab617c",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "529628f93d6574561269a156e7efe607b18da4fb7f3769ae7bf0f663d95d6842",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@",
+          "target": 7998224,
+          "addend": 0,
+          "resolved": 7998224
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2980942
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2980907
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890832,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4890992,
+      "method": "4aa170",
+      "body_bytes": 73,
+      "body_sha256": "6ebf0f6e94fa0c2f3152f6cae42fcb7cd6d30e2705d44dc47c4b0785a9723353",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "0cf1479c5f44e87d4b6e4bee945c3755a9f0bf5b86c511775af078f0ffe2728f",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@",
+          "target": 7998256,
+          "addend": 0,
+          "resolved": 7998256
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2980782
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2980747
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4890992,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4891152,
+      "method": "4aa210",
+      "body_bytes": 74,
+      "body_sha256": "135062bbfc97e2b2ea3551de2f5800586aedb3fcfc241562dbbf8ad3d2aa459f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "74affd1947823699220a9a065f06b33db860ff2768e9ca51b011c1250e832d4b",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@HPBQAUButtonFadeEffect@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAUButtonFadeEffect@@@@QAE@HPBQAUButtonFadeEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUButtonFadeEffect@@@@6B@",
+          "target": 7998224,
+          "addend": 0,
+          "resolved": 7998224
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2981325
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4891152,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-22"
+    },
+    {
+      "entry": 4891232,
+      "method": "4aa260",
+      "body_bytes": 74,
+      "body_sha256": "23d7de6c14e3461d1467fceb1c57eade443f66a9d6382508e852c067a1efa159",
+      "padding_bytes": 6,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d36e1314e23cd47efa3e29aca7b1c301e6db8d39cfe8dec9fb1409ef88b888fc",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@HPBQAUCrossDissolveEffect@@@Z",
+      "symbol_prefix": "??0?$VectorClass@PAUCrossDissolveEffect@@@@QAE@HPBQAUCrossDissolveEffect@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAUCrossDissolveEffect@@@@6B@",
+          "target": 7998256,
+          "addend": 0,
+          "resolved": 7998256
+        },
+        {
+          "offset": 54,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2981245
+        }
+      ],
+      "source_sha256": "a4c078ccc0c85030dbb9a26f58021ff62982c298c4fa5d0576c6b81457511436",
+      "source": "rebuild/src/dropship.cpp",
+      "population": "rebuild-dropship",
+      "source_order": 4891232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-16"
     }
   ]
 }

@@ -31,6 +31,6 @@ class EBolt
 		void Fire(Coord source, Coord target, int zadjust); // RA2: 0x4B2430
 		Coord Owner_Coord(void) const; // RA2: 0x4B2510
 		~EBolt(void); // RA2: 0x4B25C0
-
-		static DynamicVectorClass<EBolt *> Bolts; // RA2: 0x853050
 };
+
+extern DynamicVectorClass<EBolt *> EBoltArray; // RA2: 0x853050; the live bolts (ra2-decomp's name: a plain global, its destructor thunk has no guard)

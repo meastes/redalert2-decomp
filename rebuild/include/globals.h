@@ -442,8 +442,6 @@ extern bool IsBriefingButtonShapeLoaded; // RA2: 0x00AB6369
 extern bool IsOptionsButtonShapeLoaded; // RA2: 0x00AB6368
 extern char const * BriefingButtonShapeName; // RA2: 0x007EE064
 extern char const * OptionsButtonShapeName; // RA2: 0x007EE068
-extern ShapeButtonClass BriefingButton; // RA2: 0x00AB63E8
-extern ShapeButtonClass OptionsButton; // RA2: 0x00AB6380
 extern ShapeSet const * RadarFrameShape; // RA2: 0x00AC0FF0
 extern ShapeSet const * RadarAnimShape; // RA2: 0x00AC1070
 extern DynamicVectorClass<MixFileClass *> ScenarioMixFiles; // RA2: 0x837480, the .mmx archives opened for the multiplayer maps

@@ -101,3 +101,4 @@ enum 78,MOUSE_PLACE_BEACON,mouse,"MouseType cursor 78, named after the action Mo
 0x008374BC,LanguageMix,startup,"name descriptive (LANGUAGE.MIX, which WinMain opens); no evidenced name (main unknown_language_mix_8374bc, none in ra2-decomp or mischa85); lane B3"
 0x0059D780,Mono_Window_Init,startup,"main's descriptive name; no evidenced name (mischa85 leaves 0x59D590-0x59E160 unassigned, ra2-decomp none); lane B3"
 0x0059D900,Mono_Window_Shutdown,startup,"main's descriptive name, as above; lane B3"
+0x00663490,Required_CD_Number,scenario,"name descriptive; no evidenced name (ra2-decomp FUN_0068BFE0, main unknown_player_value_00663490, mischa85 none); lane O1"

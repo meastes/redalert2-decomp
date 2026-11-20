@@ -37,17 +37,17 @@
     "_COORD_NONE": 11265344,
     "_RECT_NONE": 11265192,
     "?TacticalDimensions@@3V?$TRect@H@@A": 11265376,
-    "_$E271": 6955824,
+    "_$E273": 6955824,
     "?DirtyAreas@Tactical@@2V?$DynamicVectorClass@UDirtyAreaStruct@@@@A": 11265456,
     "??_7?$DynamicVectorClass@UDirtyAreaStruct@@@@6B@": 8045764,
     "_atexit": 7874954,
-    "_$S272": 11265176,
+    "_$S274": 11265176,
     "??_7?$VectorClass@UDirtyAreaStruct@@@@6B@": 8045796,
     "??3@YAXPAX@Z": 7871803,
-    "_$E280": 6956000,
+    "_$E282": 6956000,
     "?ShadowControls@Tactical@@2V?$DynamicVectorClass@PAVShadowControlClass@@@@A": 11265320,
     "??_7?$DynamicVectorClass@PAVShadowControlClass@@@@6B@": 8045828,
-    "_$S281": 11265177,
+    "_$S283": 11265177,
     "??_7?$VectorClass@PAVShadowControlClass@@@@6B@": 8045860,
     "_PixelsPerLepton": 11265360,
     "?sin@fastmath@@YANN@Z": 4957312,
@@ -166,9 +166,9 @@
     "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4674224,
     "?Draw_It@CellClass@@QBEXABVPoint2D@@ABV?$TRect@H@@_N@Z": 4675200,
     "?Draw_Shadow_Cast@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z": 4675024,
-    "_?$S291@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA": 11265488,
+    "_?$S293@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA": 11265488,
     "_?_scroll@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4PAVPoint2D@@A": 11265392,
-    "_$E292": 6982768,
+    "_$E294": 6982768,
     "_?_shadow@?1??Cell_Shadow@Tactical@@QAEHABVCell@@_N@Z@4QBDB": 8045500,
     "?Layer@DisplayClass@@2PAVLayerClass@@A": 8725880,
     "?Scen@@3PAVScenarioClass@@A": 10736272,
@@ -178,9 +178,9 @@
     "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
     "?SelectableObjects@Tactical@@2PAUSelectable@1@A": 11265528,
     "?Select_These@Tactical@@QAEXABV?$TRect@H@@P6IXPAVObjectClass@@@Z@Z": 6990784,
-    "_?$S293@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA": 11265212,
+    "_?$S295@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA": 11265212,
     "_?_scroll@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4PAVPoint2D@@A": 11265248,
-    "_$E294": 6990176,
+    "_$E296": 6990176,
     "_?_newdir@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4PAW43@A": 8350000,
     "?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z": 4250576,
     "?Is_Sensed@CellClass@@QBE_NW4HousesType@@@Z": 4702944,
@@ -235,17 +235,17 @@
     "_$E38": 6955696,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
-    "_$E268": 6955728,
-    "_$E274": 6955760,
+    "_$E270": 6955728,
+    "_$E276": 6955760,
     "??_G?$DynamicVectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z": 7000080,
     "??_7type_info@@6B@": 8066532,
     "??_G?$VectorClass@UDirtyAreaStruct@@@@UAEPAXI@Z": 7000000,
-    "_$E277": 6955920,
-    "_$E283": 6955936,
+    "_$E279": 6955920,
+    "_$E285": 6955936,
     "??_G?$DynamicVectorClass@PAVShadowControlClass@@@@UAEPAXI@Z": 7000240,
     "??_G?$VectorClass@PAVShadowControlClass@@@@UAEPAXI@Z": 7000160,
-    "_$E286": 6956096,
-    "_$E289": 6956160,
+    "_$E288": 6956096,
+    "_$E291": 6956160,
     "??0Tactical@@QAE@XZ": 6956208,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
@@ -1150,8 +1150,8 @@
       "full_extent_sha256": "a353b7c872890880939d4b53b32b2940761e8543e180974fe23b3f910fd4df31",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E268",
-      "symbol_prefix": "_$E268",
+      "symbol": "_$E270",
+      "symbol_prefix": "_$E270",
       "options": [
         "/O2",
         "/Ob2",
@@ -1210,8 +1210,8 @@
       "full_extent_sha256": "d5d0bf68178a0fa27ff7a26bd81e9650a92122e1e1cb68ef831f824bf8fa81a3",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E274",
-      "symbol_prefix": "_$E274",
+      "symbol": "_$E276",
+      "symbol_prefix": "_$E276",
       "options": [
         "/O2",
         "/Ob2",
@@ -1224,7 +1224,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E271",
+          "symbol": "_$E273",
           "target": 6955824,
           "addend": 0,
           "resolved": 6955824
@@ -1318,8 +1318,8 @@
       "full_extent_sha256": "71e115e8e37a4c7f3c59e70ad591854886be1a0bcbb01f90970b79501c0bd4cf",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E271",
-      "symbol_prefix": "_$E271",
+      "symbol": "_$E273",
+      "symbol_prefix": "_$E273",
       "options": [
         "/O2",
         "/Ob2",
@@ -1332,7 +1332,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S272",
+          "symbol": "_$S274",
           "target": 11265176,
           "addend": 0,
           "resolved": 11265176
@@ -1364,7 +1364,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S272",
+          "symbol": "_$S274",
           "target": 11265176,
           "addend": 0,
           "resolved": 11265176
@@ -1426,8 +1426,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E277",
-      "symbol_prefix": "_$E277",
+      "symbol": "_$E279",
+      "symbol_prefix": "_$E279",
       "options": [
         "/O2",
         "/Ob2",
@@ -1453,8 +1453,8 @@
       "full_extent_sha256": "42af108aee5fd36b04ab7c982eb75abd9d84e8f347a08095bce2ac31e7c67473",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E283",
-      "symbol_prefix": "_$E283",
+      "symbol": "_$E285",
+      "symbol_prefix": "_$E285",
       "options": [
         "/O2",
         "/Ob2",
@@ -1467,7 +1467,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_$E280",
+          "symbol": "_$E282",
           "target": 6956000,
           "addend": 0,
           "resolved": 6956000
@@ -1561,8 +1561,8 @@
       "full_extent_sha256": "e7544f5daeb90f457b091e8c7378bc2443e9403b8f4deed1d1073ab97974309e",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E280",
-      "symbol_prefix": "_$E280",
+      "symbol": "_$E282",
+      "symbol_prefix": "_$E282",
       "options": [
         "/O2",
         "/Ob2",
@@ -1575,7 +1575,7 @@
         {
           "offset": 2,
           "kind": 6,
-          "symbol": "_$S281",
+          "symbol": "_$S283",
           "target": 11265177,
           "addend": 0,
           "resolved": 11265177
@@ -1607,7 +1607,7 @@
         {
           "offset": 35,
           "kind": 6,
-          "symbol": "_$S281",
+          "symbol": "_$S283",
           "target": 11265177,
           "addend": 0,
           "resolved": 11265177
@@ -1669,8 +1669,8 @@
       "full_extent_sha256": "a405e0c36766dcc15ebbf173b4f3b8b8a9fc61350b9c34b923a725dc9b0bf298",
       "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E286",
-      "symbol_prefix": "_$E286",
+      "symbol": "_$E288",
+      "symbol_prefix": "_$E288",
       "options": [
         "/O2",
         "/Ob2",
@@ -1761,8 +1761,8 @@
       "full_extent_sha256": "e05a1c3a3bf7d5b43cde0ae241e23d5950b783cdf3f148e3a3eeedc074d47e3b",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E289",
-      "symbol_prefix": "_$E289",
+      "symbol": "_$E291",
+      "symbol_prefix": "_$E291",
       "options": [
         "/O2",
         "/Ob2",
@@ -7575,7 +7575,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "_?$S291@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA",
+          "symbol": "_?$S293@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA",
           "target": 11265488,
           "addend": 0,
           "resolved": 11265488
@@ -7695,7 +7695,7 @@
         {
           "offset": 135,
           "kind": 6,
-          "symbol": "_$E292",
+          "symbol": "_$E294",
           "target": 6982768,
           "addend": 0,
           "resolved": 6982768
@@ -7703,7 +7703,7 @@
         {
           "offset": 141,
           "kind": 6,
-          "symbol": "_?$S291@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA",
+          "symbol": "_?$S293@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA",
           "target": 11265488,
           "addend": 0,
           "resolved": 11265488
@@ -7766,8 +7766,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E292",
-      "symbol_prefix": "_$E292",
+      "symbol": "_$E294",
+      "symbol_prefix": "_$E294",
       "options": [
         "/O2",
         "/Ob2",
@@ -9669,7 +9669,7 @@
         {
           "offset": 1,
           "kind": 6,
-          "symbol": "_?$S293@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA",
+          "symbol": "_?$S295@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA",
           "target": 11265212,
           "addend": 0,
           "resolved": 11265212
@@ -9677,7 +9677,7 @@
         {
           "offset": 32,
           "kind": 6,
-          "symbol": "_?$S293@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA",
+          "symbol": "_?$S295@?1??Scroll_Dir@Tactical@@QAE?AW4FacingType@@W43@@Z@4EA",
           "target": 11265212,
           "addend": 0,
           "resolved": 11265212
@@ -9797,7 +9797,7 @@
         {
           "offset": 141,
           "kind": 6,
-          "symbol": "_$E294",
+          "symbol": "_$E296",
           "target": 6990176,
           "addend": 0,
           "resolved": 6990176
@@ -9884,8 +9884,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E294",
-      "symbol_prefix": "_$E294",
+      "symbol": "_$E296",
+      "symbol_prefix": "_$E296",
       "options": [
         "/O2",
         "/Ob2",

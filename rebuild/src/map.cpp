@@ -10526,7 +10526,6 @@ void MapClass::Shutdown(void)
 /// standing on the tile is retargeted, and a shower of rubble is thrown over the wreckage.
 /// </summary>
 /// <param name="cptr">Cell holding the destroyable cliff tile that came down.</param>
-#ifdef RA2_NON_MATCHING // not exact: 1634 bytes differ (main carry through the Subzone_Of helper)
 void MapClass::Collapse_Cliff(CellClass * cptr)
 {
 	if (cptr->ITType == IsometricTileTypeClass::DestroyableCliffs + DESTROYABLE_CLIFFS_COUNT-2) {
@@ -10618,7 +10617,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 				Cell cell = Cell(x, y);
 				AnimTypeClass * type = NULL;
 				for (int i = 0; i < 2; i++) {
-					switch (Scen->RandomNumber(0, 2)) {
+					switch (Random_Pick(0, 2)) {
 						case 0:
 							type = med1;
 							break;
@@ -10631,7 +10630,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 							type = sml1;
 							break;
 					}
-					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Random_Pick(-12, 12), Random_Pick(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			}
 		}
@@ -10729,7 +10728,7 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 				Cell cell = Cell(x, y);
 				AnimTypeClass * type = NULL;
 				for (int i = 0; i < 2; i++) {
-					switch (Scen->RandomNumber(0, 2)) {
+					switch (Random_Pick(0, 2)) {
 						case 0:
 							type = med1;
 							break;
@@ -10742,13 +10741,12 @@ void MapClass::Collapse_Cliff(CellClass * cptr)
 							type = sml1;
 							break;
 					}
-					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Scen->RandomNumber(-12, 12), Scen->RandomNumber(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+					AnimClass * anim = new AnimClass(type, Coord(cell, Map[cell].Height * LEVEL_LEPTON_H) + Coord(Random_Pick(-12, 12), Random_Pick(-8, 8), 0), Random_Pick(0, 2), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			}
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -14270,3 +14268,193 @@ void MapClass::Recalc_Ice_Cells(void)
 	Zone_Reset();
 }
 #endif
+
+
+// RA2: the subzone connection storage retains its constructor out of line.
+template<>
+DynamicVectorClass<SubzoneConnectionStruct>::DynamicVectorClass(unsigned size, SubzoneConnectionStruct const * array)
+	: VectorClass<SubzoneConnectionStruct>(size, array)
+{
+	GrowthStep = 10;
+	ActiveCount = 0;
+}
+
+
+template<>
+bool VectorClass<PassabilityType>::Resize(int newsize, PassabilityType const * array)
+{
+	if (newsize) {
+
+		/*
+		**	Allocate a new vector of the size specified. The default constructor
+		**	will be called for every object in this vector.
+		*/
+		PassabilityType * newptr;
+
+		/*
+		**	Either create a new memory block for the object array or initialize
+		**	an existing block as indicated by the array parameter. When creating a new
+		**	memory block, flag that the vector object is currently in an invalid
+		**	state. This is necessary because the default constructor for the object
+		**	elements may look to the vector to fetch their ID number.
+		*/
+		IsValid = false;
+		if (!array) {
+			newptr = new PassabilityType[newsize];
+		} else {
+			newptr = new ((void *)array) PassabilityType[newsize];
+		}
+		IsValid = true;
+		if (!newptr) {
+			return(false);
+		}
+
+		/*
+		**	If there is an old vector, then it must be copied (as much as is feasible)
+		**	to the new vector.
+		*/
+		if (Vector != NULL) {
+
+			/*
+			**	Copy as much of the old vector into the new vector as possible. This
+			**	presumes that there is a functional assignment operator for each
+			**	of the objects in the vector.
+			*/
+			int copycount = (newsize < VectorMax) ? newsize : VectorMax;
+			for (int index = 0; index < copycount; index++) {
+				newptr[index] = Vector[index];
+			}
+
+			/*
+			**	Delete the old vector. This might cause the destructors to be called
+			**	for all of the old elements. This makes the implementation of suitable
+			**	assignment operator very important. The default assignment operator will
+			**	only work for the simplest of objects.
+			*/
+			if (IsAllocated) {
+				delete[] Vector;
+				Vector = 0;
+			}
+		}
+
+		/*
+		**	Assign the new vector data to this class.
+		*/
+		Vector = newptr;
+		VectorMax = newsize;
+		IsAllocated = (Vector && !array);
+
+	} else {
+
+		/*
+		**	Resizing to zero is the same as clearing the vector.
+		*/
+		Clear();
+	}
+	return(true);
+}
+
+template<>
+void VectorClass<PassabilityType>::Clear(void)
+{
+	if (Vector && IsAllocated) {
+		delete[] Vector;
+		Vector = 0;
+	}
+	IsAllocated = false;
+	VectorMax = 0;
+}
+
+
+template<>
+bool VectorClass<PassabilityType>::operator == (VectorClass<PassabilityType> const & vector) const
+{
+	if (VectorMax == vector.Length()) {
+		for (int index = 0; index < VectorMax; index++) {
+			if (Vector[index] != vector[index]) {
+				return(false);
+			}
+		}
+		return(true);
+	}
+	return(false);
+}
+
+template<>
+int VectorClass<PassabilityType>::ID(PassabilityType const & object)
+{
+	if (!IsValid) return(0);
+
+	for (int index = 0; index < VectorMax; index++) {
+		if ((*this)[index] == object) {
+			return(index);
+		}
+	}
+	return(-1);
+}
+
+
+template<>
+int DynamicVectorClass<PassabilityType>::ID(PassabilityType const & object)
+{
+	for (int index = 0; index < Count(); index++) {
+		if ((*this)[index] == object) return(index);
+	}
+	return(-1);
+}
+
+
+template<>
+bool DynamicVectorClass<SUBZONE_CONNECTION_HASH_SET::ObjectType>::Add(SUBZONE_CONNECTION_HASH_SET::ObjectType const & object)
+{
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			if (!Resize(Length() + GrowthStep)) {
+
+				/*
+				**	Failure to increase the size of the vector is an error condition.
+				**	Return with the error flag.
+				*/
+				return(false);
+			}
+		} else {
+
+			/*
+			**	Increasing the size of this vector is not allowed! Bail this
+			**	routine with the error code.
+			*/
+			return(false);
+		}
+	}
+
+	/*
+	**	There is room for the new object now. Add it to the end of the object vector.
+	*/
+	(*this)[ActiveCount++] = object;
+	return(true);
+}
+
+
+template<>
+int VectorClass<PassabilityType>::ID(PassabilityType const * ptr)
+{
+	if (!IsValid) return(0);
+	return(((unsigned int)ptr - (unsigned int)&(*this)[0]) / sizeof(PassabilityType));
+}
+
+template<>
+bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)
+{
+	BucketType & bucket = Buckets[bucket_index];
+
+	ObjectType * obj = &bucket[0];
+	for (int index = bucket.Count() - 1; index >= 0; index--) {
+		if ((unsigned int &)object == (unsigned int &)*obj) {
+
+			return(false);
+		}
+		obj++;
+	}
+	bucket.Add(object);
+	return(true);
+}

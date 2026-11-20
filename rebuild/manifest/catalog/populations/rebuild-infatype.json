@@ -58,8 +58,8 @@
     "?Map@@3VMouseClass@@A": 8594656,
     "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
     "?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z": 4678832,
-    "_?$S146@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA": 10752416,
-    "_$E147": 5283936,
+    "_?$S148@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA": 10752416,
+    "_$E149": 5283936,
     "_?_list@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4QBV3@B": 10752380,
     "_atexit": 7874954,
     "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
@@ -235,12 +235,12 @@
     "?Release@AbstractClass@@UAGKXZ": 4260016,
     "?AddRef@AbstractClass@@UAGKXZ": 4260000,
     "?QueryInterface@AbstractClass@@UAGJABU_GUID@@PAPAX@Z": 4259840,
-    "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
     "??_G?$TypeList@H@@UAEPAXI@Z": 4640208,
+    "??_G?$TypeList@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288448,
     "?Init_Theater@AbstractTypeClass@@UAEXW4TheaterType@@@Z": 4262304,
     "?Get_Image_Data@ObjectTypeClass@@UBEPBXXZ": 4309760,
-    "??_G?$VectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
     "??_G?$VectorClass@H@@UAEPAXI@Z": 4643440,
+    "??_G?$VectorClass@PBVAnimTypeClass@@@@UAEPAXI@Z": 5288624,
     "??0InfantryTypeClass@@QAE@ABVNoInitClass@@@Z": 5283168,
     "??1InfantryTypeClass@@UAE@XZ": 5283248,
     "?Create_One_Of@InfantryTypeClass@@UBEPAVObjectClass@@PAVHouseClass@@@Z": 5283568,
@@ -1670,7 +1670,7 @@
         {
           "offset": 3,
           "kind": 6,
-          "symbol": "_?$S146@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA",
+          "symbol": "_?$S148@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA",
           "target": 10752416,
           "addend": 0,
           "resolved": 10752416
@@ -1678,7 +1678,7 @@
         {
           "offset": 16,
           "kind": 6,
-          "symbol": "_$E147",
+          "symbol": "_$E149",
           "target": 5283936,
           "addend": 0,
           "resolved": 5283936
@@ -1686,7 +1686,7 @@
         {
           "offset": 40,
           "kind": 6,
-          "symbol": "_?$S146@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA",
+          "symbol": "_?$S148@?1??Occupy_List@InfantryTypeClass@@UBEPBVCell@@_N@Z@4EA",
           "target": 10752416,
           "addend": 0,
           "resolved": 10752416
@@ -1740,8 +1740,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E147",
-      "symbol_prefix": "_$E147",
+      "symbol": "_$E149",
+      "symbol_prefix": "_$E149",
       "options": [
         "/O2",
         "/Ob2",

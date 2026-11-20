@@ -74,7 +74,7 @@
 #include "_tactica.h"
 #include "_timer.h"
 #include "_tooltip.h"
-#include "_wsproto.h"
+#include "_WSProto.h"
 #include "addon.h"
 #include "aircraft.h"
 #include "aitrig.h"
@@ -177,6 +177,7 @@
 #include "bench.hh"
 #include "wstring.h"
 #include "mpscore.h"
+#include "stlscore.h" // RA2: the single player score screen (0x69A640)
 
 void Audio_Pause_All(void); // RA2
 void Audio_Resume_All(void); // RA2
@@ -193,7 +194,6 @@ ConvertClass * Get_Splash_Bar_Drawer(void); // RA2: 0x6F2490
 static inline int Player_Side(void); // RA2: defined below, with the other RA2 helpers
  // RA2: the multiplayer score screen (YR: MPScoreScreen, ctor 0x5AAA20); 0x5AAA40 shows it (placeholder name)
 void Darken_Surface(Surface * surface, bool update); // RA2: 0x005159B0 (init.cpp declares it the same way)
-class UnknownScore_0069A640 { public: UnknownScore_0069A640(void); void Presentation_0069A650(void); }; // RA2: the single player score screen (ctor 0x69A640, Presentation 0x69A650; names_proposed: UnknownScore_0069A640::Presentation_0069A650)
 void Clear_Radar_Events(void); // RA2: 0x0063C640, clears the radar events (revent.cpp)
 void Show_Credits(void); // RA2: 0x4B37C0 (init.cpp declares it the same way; TibSun: Show_Who_Was_Responsible)
 void __fastcall Free_Interface_Art(void); // RA2: 0x006F30F0, frees the interface art (txtlabel2.cpp defines it, saveload.cpp declares it the same way)
@@ -211,7 +211,6 @@ static Cell const Clip_Scatter(Cell const & cell, int maxdist);
 static Cell const Clip_Move(Cell const & cell, FacingType facing, int dist);
 
 static void Multiplayer_Last_Minute_Fixups(bool official = true);
-static char const * Pick_Load_Background_Name(Point2D & text_pos);
 
 
 /***********************************************************************************************
@@ -305,7 +304,7 @@ void ScenarioClass::Reset(void)
 	ElapsedTimer.Stop();
 	PauseTimer = 0; // RA2: the pause timer (+0x620) and its count (+0x62C) are reset here
 	PauseTimer.Stop(); // RA2: as above
-	Unknown_62C = 0; // RA2: as above
+	HoldCount = 0; // RA2: as above
 	IsGamePaused = false; // RA2: as above
 	MissionTimer = 0;
 	MissionTimer.Stop();
@@ -607,7 +606,7 @@ void Hold_Scenario(int seconds) // RA2: at 0x65C1F0
 		Scen->IsGamePaused = true;
 	}
 
-	if (Scen->Unknown_62C == 0) {
+	if (Scen->HoldCount == 0) {
 		Audio_Pause_All();
 
 		if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
@@ -626,7 +625,7 @@ void Hold_Scenario(int seconds) // RA2: at 0x65C1F0
 			UnlockInputFrame = 0;
 		}
 	}
-	Scen->Unknown_62C++;
+	Scen->HoldCount++;
 }
 
 
@@ -636,11 +635,11 @@ void Hold_Scenario(int seconds) // RA2: at 0x65C1F0
 /// </summary>
 void Release_Scenario(void) // RA2: at 0x65C310
 {
-	if (Scen->Unknown_62C == 0) {
+	if (Scen->HoldCount == 0) {
 		return;
 	}
-	Scen->Unknown_62C--;
-	if (Scen->Unknown_62C != 0) {
+	Scen->HoldCount--;
+	if (Scen->HoldCount != 0) {
 		return;
 	}
 
@@ -802,103 +801,6 @@ bool Wait_For_Players_To_Load(void)
 
 
 
-/// <summary>
-/// Fetches the artwork to display while a scenario loads.
-/// The picture is chosen to suit the player's side and the current screen resolution, and
-/// one of the pair available is taken at random so that the loading screen is not always
-/// the same one.
-/// </summary>
-/// <param name="pos">Filled in with the position the loading text belongs at.</param>
-/// <returns>Returns with the filename of the backdrop picture to display.</returns>
-char const * Pick_Load_Background_Name(Point2D & pos)
-{
-	static char _backgrounds[12][13] = {
-		"LOAD400C.PCX",
-		"LOAD400D.PCX",
-		"LOAD400A.PCX",
-		"LOAD400B.PCX",
-		"LOAD480C.PCX",
-		"LOAD480D.PCX",
-		"LOAD480A.PCX",
-		"LOAD480B.PCX",
-		"LOAD600C.PCX",
-		"LOAD600D.PCX",
-		"LOAD600A.PCX",
-		"LOAD600B.PCX"
-	};
-
-	int player = 0;
-
-	if (Session.Type == GAME_NORMAL) {
-		if (Scen->Campaign != CAMPAIGN_NONE) {
-			CampaignClass * campaign = Campaigns[Scen->Campaign];
-			player = campaign->CDNumber;
-
-			if (player > 1) {
-				player = 0;
-				if (strstr(campaign->ScenarioName, "GDI") == 0) {
-					player = 1;
-				}
-			}
-		}
-	} else {
-		player = Session.Players[player]->Player.House;
-	}
-
-	int choice = (player << 1) + Random_Pick(0, 1);
-
-	if (VisibleRect.Width == 640) {
-		if (VisibleRect.Height == 480) {
-			if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
-				pos = Point2D(440, 189);
-			} else {
-				pos = Point2D(570, 180);
-			}
-			if (player == 1) {
-				pos += Point2D(-4, 10);
-			} else {
-				pos += Point2D(-4, 3);
-			}
-
-			return(_backgrounds[choice + 4]);
-		}
-	}
-
-	if (VisibleRect.Width >= 800 && VisibleRect.Height >= 600) {
-		if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
-			pos = Point2D(550, 236);
-		} else {
-			pos = Point2D(715, 230);
-		}
-
-		int x_adjust = (VisibleRect.Width - 800) / 2;
-		int y_adjust = (VisibleRect.Height- 600) / 2;
-
-		pos += Point2D(x_adjust, y_adjust);
-
-		if (player == 1) {
-			pos += Point2D(-4, 10);
-		} else {
-			pos += Point2D(-4, 3);
-		}
-
-		return(_backgrounds[choice + 8]);
-	}
-
-	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
-		pos = Point2D(440, 158);
-	} else {
-		pos = Point2D(570, 155);
-	}
-
-	if (player == 1) {
-		pos += Point2D(-4, 10);
-	} else {
-		pos += Point2D(-4, 3);
-	}
-
-	return(_backgrounds[choice]);
-}
 
 
 /***********************************************************************************************
@@ -1111,7 +1013,6 @@ bool Read_Scenario(char const * fname)
  * HISTORY:                                                                                    *
  *   10/07/1992 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void Fill_In_Data(void)
 {
 	/*
@@ -1256,7 +1157,6 @@ void Fill_In_Data(void)
 	Set_Frame_Rate_Limit(Rule->DetailMinFrameRateNormal); // RA2: the detail limits of the rules are applied (0x53D820)
 	Set_Buffer_Zone_Width(Rule->DetailBufferZoneWidth); // RA2: 0x53D830
 }
-#endif
 
 
 
@@ -1322,7 +1222,6 @@ void Post_Load_Game(void)
  *   03/21/1992 JLB : Changed buffer allocations, so changes memset code.                      *
  *   07/13/1995 JLB : End count down moved here.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void Clear_Scenario(void)
 {
 	int index;
@@ -1438,7 +1337,6 @@ void Clear_Scenario(void)
 
 	Scen->UniqueID = 1000 * 1000;
 }
-#endif
 
 
 
@@ -1551,7 +1449,7 @@ void Do_Win(void)
 		Keyboard->Clear();
 
 		if (!Scen->IsSkipScore) {
-			UnknownScore_0069A640().Presentation_0069A650(); // RA2: 0x69A640, 0x69A650 (in place of ScoreClass::Presentation)
+			STLScoreScreen().Present(); // RA2: 0x69A640, 0x69A650 (in place of ScoreClass::Presentation)
 		}
 
 		if (Scen->PostScoreMovie != VQ_NONE) {
@@ -2811,7 +2709,6 @@ void Assign_Houses(void)
 /// them for everyone playing has the shortfall made up with random spots on open ground.
 /// </summary>
 /// <returns>Returns with the list of cells that players may be started from.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 790 bytes differ (adopted text)
 DynamicVectorClass<Cell> Build_Start_Waypoint_List(char) // RA2: 0x65FFF0; the argument is passed (MultiplayerGameMode 0x005B7C00 loads it) and not used
 {
 	DynamicVectorClass<Cell> waypts;
@@ -2858,7 +2755,6 @@ DynamicVectorClass<Cell> Build_Start_Waypoint_List(char) // RA2: 0x65FFF0; the a
 
 	return(waypts);
 }
-#endif
 
 
 /// <summary>
@@ -3120,10 +3016,7 @@ static Cell const Clip_Scatter(Cell const & cell, int maxdist)
 		}
 	}
 
-	Cell result;
-	result.X = x;
-	result.Y = y;
-	return(result);
+	return(Cell(x, y));
 }
 
 
@@ -3226,7 +3119,6 @@ static Cell const Clip_Move(Cell const & cell, FacingType facing, int dist)
  * HISTORY:                                                                                    *
  *   06/09/1995 BRR : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 913 bytes differ (adopted text)
 int Scan_Place_Object(ObjectClass * obj, Cell const & cell, int start) // RA2: the locals are declared where they are first needed
 {
 	if (Map.In_Radar(cell)) { // RA2: In_Radar (0x54AAB0), not In_Local_Radar
@@ -3284,7 +3176,6 @@ int Scan_Place_Object(ObjectClass * obj, Cell const & cell, int start) // RA2: t
 
 	return(false);
 }
-#endif
 
 
 
@@ -3789,8 +3680,7 @@ static inline Point2D Header_Point(CellClass & cell)
 /// <param name="mplayer">Is the scenario being saved as a multiplayer map?</param>
 bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 {
-	static char const * VARIABLE_NAMES = "VariableNames"; // RA2: RA2's form
-	static char const * BASIC = "Basic"; // RA2: as above
+	static char const * const BASIC = "Basic"; // RA2: RA2's form
 	ini.Clear(BASIC);
 	ini.Clear(BASIC, "CivEvac");
 	if (strlen(Scen->BriefingCSF) != 0) { // RA2: as above
@@ -3844,17 +3734,7 @@ bool ScenarioClass::Write_INI(CCINIClass & ini, bool mplayer) const
 	ini.Put_Bool(BASIC, "FreeRadar", IsFreeRadar); // RA2: as above
 	ini.Put_Int(BASIC, "InitTime", InitTime);
 
-	ini.Clear(VARIABLE_NAMES); // RA2: as above
-	for (int index = 0; index < 50; index++) { // RA2: as above
-		ScenarioClass::ScenarioFlagType const &variable = LocalFlags[index]; // RA2: as above
-		if (variable.VariableName[0] != 0) { // RA2: as above
-			char entry[12]; // RA2: as above
-			char value[128]; // RA2: as above
-			wsprintfA(entry, "%d", index); // RA2: as above
-			wsprintfA(value, "%s,%d", (char *)&variable, variable.Value != 0); // RA2: as above
-			ini.Put_String(VARIABLE_NAMES, entry, value); // RA2: as above
-		}
-	}
+	Write_Local_INI(ini); // RA2: the local variable names (the image's one "VariableNames" pointer at 0x007A9200 serves both)
 
 	ini.Put_Time("Ranking", "ParTimeEasy", ParTimeEasy); // RA2: as above
 	ini.Put_Time("Ranking", "ParTimeMedium", ParTimeMedium); // RA2: as above
@@ -4033,7 +3913,6 @@ AbstractClass * ScenarioClass::Get_Waypoint_Target(WAYPOINT waypoint) const
 /// </summary>
 /// <returns>Returns with the coordinate of the waypoint.</returns>
 /// <remarks>Only call this routine for a waypoint that has been placed on the map.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 Coord ScenarioClass::Get_Waypoint_Coord(WAYPOINT waypoint) const
 {
 	CellClass const * cell = &Map[Waypoint[waypoint]];
@@ -4044,28 +3923,24 @@ Coord ScenarioClass::Get_Waypoint_Coord(WAYPOINT waypoint) const
 	}
 	return(coord);
 }
-#endif
 
 
 /// <summary>
 /// Removes every waypoint from the scenario.
 /// This routine is used when the scenario is being torn down to make room for another.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void ScenarioClass::Clear_All_Waypoints(void)
 {
 	for (int index = 0; index < ARRAY_SIZE(Waypoint); index++) {
 		Waypoint[index] = CELL_NONE;
 	}
 }
-#endif
 
 
 /// <summary>
 /// Has this waypoint been placed on the map?
 /// </summary>
 /// <returns>bool; Does the waypoint refer to a real cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 bool ScenarioClass::Is_Valid_Waypoint(WAYPOINT waypoint) const
 {
 	if (waypoint < ARRAY_SIZE(Waypoint) &&
@@ -4076,14 +3951,12 @@ bool ScenarioClass::Is_Valid_Waypoint(WAYPOINT waypoint) const
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
 /// Reads the waypoint list from an INI database.
 /// The cells named are also flagged as waypoints so that the editor can display them.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ (adopted text)
 void ScenarioClass::Read_Waypoints(CCINIClass const & ini)
 {
 	char buf[20];
@@ -4102,14 +3975,12 @@ void ScenarioClass::Read_Waypoints(CCINIClass const & ini)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
 /// Writes the placed waypoints to an INI database.
 /// Waypoints the designer never placed are not recorded.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void ScenarioClass::Write_Waypoints(CCINIClass & ini) const
 {
 	static char const * const WAYNAME = "Waypoints";
@@ -4123,18 +3994,15 @@ void ScenarioClass::Write_Waypoints(CCINIClass & ini) const
 		}
 	}
 }
-#endif
 
 
 /// <summary>
 /// Removes a single waypoint from the scenario.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 3 bytes differ (adopted text)
 void ScenarioClass::Clear_Waypoint(WAYPOINT waypoint)
 {
 	Waypoint[waypoint] = CELL_NONE;
 }
-#endif
 
 
 /// <summary>
@@ -4163,7 +4031,6 @@ CellClass * ScenarioClass::Get_Waypoint_CellClass(WAYPOINT waypoint) const
 /// </summary>
 /// <returns>Returns with the name of the first unused waypoint, or an empty string if
 /// every waypoint has been placed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 char const * ScenarioClass::First_Unused_Waypoint_Name(void) const
 {
 	for (int index = 0; index < ARRAY_SIZE(Waypoint); index++) {
@@ -4173,5 +4040,28 @@ char const * ScenarioClass::First_Unused_Waypoint_Name(void) const
 	}
 	return("");
 }
-#endif
 
+
+/// <summary>
+/// Fetches the CD the current game is played from.
+/// A campaign names its CD; a multiplayer game takes the side of the first player's country, a
+/// random country counting as the first.
+/// </summary>
+/// <returns>Returns with the CD number required.</returns>
+int Required_CD_Number(void) // RA2: ra2-decomp's twin is YR's 0x68BFE0
+{
+	int result = 0;
+
+	if (!Session.Type) {
+		if (Scen->Campaign != CAMPAIGN_NONE) {
+			result = Campaigns[Scen->Campaign]->CDNumber;
+		}
+	} else {
+		int country = Session.Players[0]->Slot.Country;
+		if (country == -3) {
+			country = 0;
+		}
+		result = HouseTypes[country]->Side;
+	}
+	return(result);
+}

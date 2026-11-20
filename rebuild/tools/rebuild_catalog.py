@@ -137,6 +137,15 @@ def write():
         if registered - exact_names:
             refused.append('%s: initializers not exact rows: %s' % (unit, ' '.join(sorted(registered - exact_names))[:80]))
             continue
+        # Compiler-output rows the object emits that differ (an atexit destructor is not in .CRT$XCU): they
+        # cannot be guarded, and the whole-file build would refuse their section as unaccounted code, so the
+        # unit is refused here first (lane B4's finding, lane M1; the test held_units.py makes).
+        emitted = [r for r in info['rows'] if results.get(r['entry'], {}).get('status') == 'differs'
+                   and r['symbol'].startswith('_$') and r['symbol'] not in registered]
+        if emitted:
+            refused.append('%s: compiler output differs: %s' % (unit, ' '.join('%s %s' % (r['entry'], r['symbol'])
+                                                                              for r in emitted)[:80]))
+            continue
         # Every other function the object emits must bind to an original address (a copy kept
         # elsewhere); an unbound one would be unaccounted code.
         resolve_u = R.resolver(unit, info)
