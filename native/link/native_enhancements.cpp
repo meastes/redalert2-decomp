@@ -159,7 +159,8 @@ void Native_Run_Enhancements(HWND options)
     hint_row = -1;
     ra2_enh_begin();
     if (options) {
-        OwnerDraw::unknown_5e5fc0(options);
+        bool slid = OwnerDraw::unknown_5e5fc0(options);
+        fprintf(stderr, "enhancements: the Options column %s\n", slid ? "slid out" : "did not slide out");
         ShowWindow(options, 0);
     }
     ra2port_native_page(1);     // the page's template under the Options id (port/src/native_dialogs.cpp)

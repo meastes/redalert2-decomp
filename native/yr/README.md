@@ -315,17 +315,29 @@ the longer a game runs (each a trap, as on the Mac).
   template is read the same way); two fixups in ownrdraw.cpp put it and the page's Ok, Original,
   Enhanced and Cancel in the right-hand column. The page (`Yr_Run_Enhancements`) runs RA2's page
   logic on the YR dialog code and lists the rows Yuri's Revenge uses: Fullscreen, Vertical sync,
-  Picture scaling, Menu fill (all the host's), Queue five with Shift and Controls. The settings are
+  Picture scaling, Menu fill (all the host's), Queue five with Shift and Controls (lane N18: Map zoom and
+  the zoom row too). The settings are
   the app's own file, so on iOS YR.app keeps its own choices.
-* **Not shared, and why.** Game interface size, Map zoom, Zoom gestures and HD vehicles are RA2's
-  native/link code on RA2's classes and addresses, reached by 20-40 native fixups each in RA2's
-  units (the sidebar surface's allocations and layout, Set_View_Dimensions and every site that takes
-  the view's width as the sidebar's x, the in-game dialog loop's screen size, the voxel renderer's
-  passes, Bit_Blit and the voxel caches). Yuri's Revenge has its own versions of those functions
-  (several still drafts in glue/, gamemd.exe's voxel renderer differs from RA2's), so each needs its
-  own set of YR fixups and a YR copy of the module; none is wired, and the YR page leaves the rows
-  off. The host's half of each (the split layout, the zoom region, the HD overlay) is shared and
-  would apply unchanged once the game side answers.
+* **Not shared, and why** (updated by lane N18, 2026-11-19). Map zoom and the zoom row (Trackpad and
+  wheel zoom, Wheel zoom or Pinch zoom by platform) are now Yuri's Revenge's too: `glue/yr_map_zoom.cpp`
+  is RA2's link/native_map_zoom.cpp on the YR tree's classes, hooked by 18 fixups (yr/fixups.json, lane
+  N18): DisplayClass::Set_View_Dimensions 0x004A8960 keeps the zoomed view; the sites that take the
+  view's width or right edge as the sidebar's x (SidebarClass 0x006A5130 and its five blits, RadarClass::AI
+  0x00653850, its Reposition_Sidebar and mouse test, the command bar's area, the mouse on the sidebar
+  surface, CCToolTip's Update, Reset and Draw) ask Yr_Sidebar_X; Start_Scenario 0x00683AB0, Get_All
+  0x0067E730 and Main_Loop's Do_Win/Do_Lose take or drop the zoom as RA2's do; the gestures' steps are
+  applied each loop frame (yr_app_hooks.cpp). Not carried over: RA2's render scale (zooming out below 1x
+  draws a game screen twice the window's, with its own in-play dialog layout), so the gestures zoom
+  between 1x and 3x. ctest `yr-native-map-zoom`.
+  Still RA2's only, each needing its own YR work: **Game interface size** (YR's FUN_0072FC60 lays out
+  the sidebar column and the command bar from one height, and the in-play dialogs place their buttons
+  and draw the column from the same rectangles: ownrdraw.cpp's compact dialogs and FUN_0072F540, so a
+  shorter sidebar surface needs a separate column height in that layout and a full-height relayout
+  around the in-play dialogs, RA2's Native_Dialog_Screen; plus the three surface allocations and a
+  new game's reallocation) and **HD vehicles** (RA2's 815-line module on RA2's voxel renderer, its
+  passes, Bit_Blit and caches; gamemd.exe's renderer differs and parts are drafts). The YR page leaves
+  those two rows off. Mod is the host's row and is shown in both games; widescreen on the Mac has no
+  row and is RA2's (YR's shell runs in its own 800x600 mode).
 * **Long games had one opponent.** The skirmish setup's map 0 (The Alamo) is a two-player map, and
   the setup closes every slot past the first opponent: lane Y6's ten-minute Mac runs and lane Y7's
   Simulator runs played one computer player. `yr_skirmish_long.py` and `ios_sim_skirmish.py

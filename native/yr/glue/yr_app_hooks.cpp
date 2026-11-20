@@ -148,12 +148,14 @@ static void yr_native_harness_save(int frame)
 
 void yr_native_harness_frame(int frame);
 
+void Yr_Map_Zoom_Frame();   // glue/yr_map_zoom.cpp: a zoom gesture's step (lane N18)
 bool yr_native_main_loop(void)
 {
     static int frames = 0;
     ra2_enh_in_play(1);
     bool over = Main_Loop();
     if (over) ra2_enh_in_play(0);
+    else Yr_Map_Zoom_Frame();
     ra2port_frame(++frames);
     yr_native_harness_save(frames);
     yr_native_harness_frame(frames);   // yr_harness.cpp: RA2_NATIVE_ORDERS, RA2_NATIVE_FORCE_END (lane Y12)

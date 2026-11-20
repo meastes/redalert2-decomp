@@ -268,6 +268,13 @@ add_test(NAME yr-native-controls COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-controls")
 set_tests_properties(yr-native-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
+# ctest yr-native-map-zoom (lane N18): Map zoom and the zoom gestures in a skirmish (glue/yr_map_zoom.cpp,
+# Red Alert 2's link/native_map_zoom.cpp carried over), against a run with the defaults
+add_test(NAME yr-native-map-zoom COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_map_zoom.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-map-zoom")
+set_tests_properties(yr-native-map-zoom PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
+
 # ctest yr-native-combat (lane Y12): a vehicle force-fires on another of the player's (glue/yr_harness.cpp
 # RA2_NATIVE_ORDERS): TechnoClass::Fire_At runs, damage is dealt and the target dies (yr/tests/yr_combat.py)
 add_test(NAME yr-native-combat COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_combat.py"

@@ -1600,6 +1600,120 @@
    "file": "src/mapgen.cpp",
    "append": "mapgen_native.inc",
    "why": "lane N8: the random map generator (MapGeneratorClass::Generate_Random_Map and the generator functions only it reaches: Load_Settings, Create_Tiberium, Place_Waterfall, Grow_Water_Region, Generate_Rural_Roads, MapRegionClass::Create_Region_From_Cell, Split_Region, Build_North_Ramp, the start points 0x00594B50) is unmatched in the YR tree and was a link-closure trap: the skirmish Choose Map dialog's Create Random Map stopped the game. NON-EXACT stand-ins from gamemd.exe's instructions in the shape of Red Alert 2's twins, appended to the unit (they use its static helpers)."
+  },
+  {
+   "file": "src/init.cpp",
+   "old": "\tdialog = UI::BeginDialog(0xE2, (DLGPROC)Main_Menu_Dialog_Proc, 0);\n\tif (dialog != NULL) {\n",
+   "new": "\tdialog = UI::BeginDialog(0xE2, (DLGPROC)Main_Menu_Dialog_Proc, 0);\n\tif (dialog != NULL) {\n\t\tEnableWindow(GetDlgItem(dialog, 0x684), FALSE);   /* NATIVE: no Internet play (lane N18, as RA2's lane C20) */\n",
+   "why": "Native (lane N18, user 2026-11-19): the native build has no Internet play (Westwood Online's units are left out, wonline.cpp and the rest above). The main menu dialog 0xE2's Internet button 0x684 (Main_Menu_Dialog_Proc 0x00531F60 answers it with 2, Select_Game's GAME_INTERNET) is disabled as soon as Main_Menu 0x00531CC0 makes the dialog, as Red Alert 2's port disables its own (native/port/fixups.json, lane C20): drawn with the original's disabled button look, a click does nothing."
+  },
+  {
+   "file": "src/display.cpp",
+   "old": "\tDSurface::ViewBounds = dimensions;\n",
+   "new": "\tRect Yr_Map_View(Rect const &rect);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\tDSurface::ViewBounds = Yr_Map_View(dimensions);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): DisplayClass::Set_View_Dimensions 0x004A8960 keeps the view rectangle Yr_Map_View answers: the tactical rectangle divided by the game's zoom (unchanged at 1x). The tactical view, its depth and alpha buffers, its button, tool tip and message list take it as they take any screen size; the host shows it over the whole tactical area."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "\tScen->Campaign = campaign;\n\n\tDebugString(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "new": "\tScen->Campaign = campaign;\n\n\tvoid Yr_Map_Zoom_Leave();   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\tYr_Map_Zoom_Leave();\n\tDebugString(\"\\n----- Starting scnenario: %s -----\\n\", name);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0's top: the loading screen and movies are shown whole until the game's first frame."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "\tHiddenSurface->Fill(0);\n\tUpdate_Visible_Surface(true, HiddenSurface);\n\n\tScen->ElapsedTimer.Start();\n",
+   "new": "\tHiddenSurface->Fill(0);\n\tUpdate_Visible_Surface(true, HiddenSurface);\n\n\tvoid Yr_Map_Zoom_Start();   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\tYr_Map_Zoom_Start();\n\tScen->ElapsedTimer.Start();\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0 after its display mode change: the game takes the Map zoom set now and its view is made for it."
+  },
+  {
+   "file": "src/saveload.cpp",
+   "old": "\tMap.Set_View_Dimensions(temp);\n\n\tEnvironment.Load(stream);\n",
+   "new": "\tvoid Yr_Map_Zoom_Load();   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\tYr_Map_Zoom_Load();\n\tMap.Set_View_Dimensions(temp);\n\n\tEnvironment.Load(stream);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Get_All 0x0067E730: a loaded game takes the Map zoom set now, before its Set_View_Dimensions."
+  },
+  {
+   "file": "src/mainloop.cpp",
+   "old": "\t\t\t\t\tDo_Win();\n",
+   "new": "\t\t\t\t\tvoid Yr_Map_Zoom_End();   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\t\t\t\t\tYr_Map_Zoom_End();\n\t\t\t\t\tDo_Win();\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Main_Loop's win: a zoomed game's last frame is cleared rather than shown whole (the zoomed view in a corner) before the score screen."
+  },
+  {
+   "file": "src/mainloop.cpp",
+   "old": "\t\t\t\t\tDo_Lose();\n",
+   "new": "\t\t\t\t\tvoid Yr_Map_Zoom_End();   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\t\t\t\t\tYr_Map_Zoom_End();\n\t\t\t\t\tDo_Lose();\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): Main_Loop's loss: as its win."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "// FUNCTION: GAMEMD 0x006A70E0\n",
+   "new": "int Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\nint Yr_Sidebar_Bottom(int view_bottom);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x006A70E0\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): declarations for the sidebar's sites below."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "\t\t\tSidebarRect.X = TacticalRect.X + TacticalRect.Width;\n",
+   "new": "\t\t\tSidebarRect.X = Yr_Sidebar_X(TacticalRect.X + TacticalRect.Width);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): SidebarClass 0x006A5130 places the sidebar at the view's right edge: at the tactical rectangle's while zoomed (Yr_Sidebar_X)."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "\t\t\tSidebarRect.Height = TacticalRect.Y + TacticalRect.Height + DAT_007F5BFC - 158;\n",
+   "new": "\t\t\tSidebarRect.Height = Yr_Sidebar_Bottom(TacticalRect.Y + TacticalRect.Height) + DAT_007F5BFC - 158;\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): and sizes it from the view's bottom edge: the tactical rectangle's while zoomed."
+  },
+  {
+   "file": "src/sidebar.cpp",
+   "old": "(Options.IsSidebarOnRight ? DSurface::ViewBounds.Width : 0)",
+   "new": "(Options.IsSidebarOnRight ? Yr_Sidebar_X(DSurface::ViewBounds.Width) : 0)",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): the sidebar's blits to the screen (SidebarClass::Draw) take the view's width as the sidebar's x: the tactical rectangle's right edge while zoomed (the tactical rectangle starts at x 0)."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "// FUNCTION: GAMEMD 0x00653850\n",
+   "new": "int Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x00653850\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): declaration for the radar's sites."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "\tint offset = Options.IsSidebarOnRight ? DAT_00886FA8 : 0;\n",
+   "new": "\tint offset = Options.IsSidebarOnRight ? Yr_Sidebar_X(DAT_00886FA8) : 0;\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): RadarClass::AI 0x00653850 and Reposition_Sidebar take the view's width (TacticalRect.Width) as the sidebar's x: the tactical rectangle's right edge while zoomed."
+  },
+  {
+   "file": "src/radar.cpp",
+   "old": "\tx -= Options.IsSidebarOnRight ? TacticalRect.Width : 0;\n",
+   "new": "\tx -= Options.IsSidebarOnRight ? Yr_Sidebar_X(TacticalRect.Width) : 0;\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): the radar's mouse test takes the view's width as the sidebar's x: as above."
+  },
+  {
+   "file": "src/tab.cpp",
+   "old": "\tRect area(DAT_00B0FC58->X, DAT_00B0FC58->Y, DAT_00886FA8, DAT_007F5BFC - 2);\n",
+   "new": "\tint Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\tRect area(DAT_00B0FC58->X, DAT_00B0FC58->Y, Yr_Sidebar_X(DAT_00886FA8), DAT_007F5BFC - 2);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): the command bar's area (TabClass::AI) is the view's width wide: the tactical rectangle's while zoomed."
+  },
+  {
+   "file": "src/wwmous.cpp",
+   "old": "\t\t\t\txoffset = -DSurface::ViewBounds.Width;\n",
+   "new": "\t\t\t\tint Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\n\t\t\t\txoffset = -Yr_Sidebar_X(DSurface::ViewBounds.Width);\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): the mouse drawn on the sidebar surface is offset by the view's width (the sidebar's x): the tactical rectangle's right edge while zoomed."
+  },
+  {
+   "file": "src/cctooltip.cpp",
+   "old": "// FUNCTION: GAMEMD 0x00478BA0\n",
+   "new": "int Yr_Sidebar_X(int view_right);   // NATIVE (lane N18): glue/yr_map_zoom.cpp\nvoid Yr_Tooltip_Zoom(bool map_side, int *x, int *y, int width, int height);   // NATIVE (lane N18)\n// FUNCTION: GAMEMD 0x00478BA0\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): declarations for the tool tips' sites."
+  },
+  {
+   "file": "src/cctooltip.cpp",
+   "old": "TacticalRect.X + TacticalRect.Width",
+   "new": "Yr_Sidebar_X(TacticalRect.X + TacticalRect.Width)",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): CCToolTip::Update, Reset and Draw take the view's right edge as the sidebar's x: the tactical rectangle's while zoomed."
+  },
+  {
+   "file": "src/cctooltip.cpp",
+   "old": "\t\t\t\tposition.y += 16;\n\t\t\t\tif (position.y + text->TextHeight - trect->Height - trect->Y > 0) {\n\t\t\t\t\tposition.y = position.y - text->TextHeight - 16;\n\t\t\t\t}\n\t\t\t}\n",
+   "new": "\t\t\t\tposition.y += 16;\n\t\t\t\tif (position.y + text->TextHeight - trect->Height - trect->Y > 0) {\n\t\t\t\t\tposition.y = position.y - text->TextHeight - 16;\n\t\t\t\t}\n\t\t\t}\n\t\t\tint tip_x = position.x, tip_y = position.y;   /* NATIVE (lane N18) */\n\t\t\tYr_Tooltip_Zoom(trect == &TacticalRect, &tip_x, &tip_y, text->TextWidth, text->TextHeight);\n\t\t\tposition.x = tip_x;\n\t\t\tposition.y = tip_y;\n",
+   "why": "Native addition (lane N18, Map zoom and Zoom gestures, Red Alert 2's lanes C4/C16 carried to Yuri's Revenge; not original behaviour): CCToolTip::Update 0x00478BA0, after it placed a tip: a tip placed for the map side that does not lie in the zoomed view (a command bar button's) is moved into the view at the same place on screen (Yr_Tooltip_Zoom)."
   }
  ]
 }

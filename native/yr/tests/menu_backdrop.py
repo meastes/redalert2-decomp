@@ -12,7 +12,9 @@ settings the user had: main menu -> Options -> Enhancements -> Cancel (back on O
 a window dump after each step settles. Checks on the backdrop region (the left part below the
 controls, where only the backdrop shows): on Options and Enhancements it is drawn (not black: some
 of it lit) and it is the backdrop's dark-red art, not noise (lit pixels mostly red); the main menu's
-region looks the same before and after. Then, at a 1024x768 game resolution, each game's shell
+region looks the same before and after; the Options column slides out before Enhancements shows
+(both games, lane N18), and a click on the disabled Internet button leaves the main menu (lane N18).
+Then, at a 1024x768 game resolution, each game's shell
 menu is shown as its original shows it (Yuri's Revenge's filling the screen, Red Alert 2's centred),
 and both fill the window with Menu fill = Scale to fit (see main). No trap, no fault.
 
@@ -121,6 +123,10 @@ def main():
         stop = [l for l in text.splitlines() if 'stopped:' in l]
         if 'trap reached' in text or ' reached\n' in text and 'unrecovered' in text or re.search(r'stopped: (signal|trap|fault)', text):
             failures.append('%s: a trap or fault: %s' % (game, stop[-1] if stop else 'no stop line'))
+        # The Options column slides out before the Enhancements page shows (lane N18, user report
+        # 2026-11-19: Yuri's Revenge's page appeared with the column still in place; RA2's slid out).
+        if 'enhancements: the Options column slid out' not in text:
+            failures.append('%s: the Options column did not slide out for the Enhancements page' % game)
         dumps = [int(n) for n in re.findall(r'^host: window dump (\d+)', text, re.M)]
         if len(dumps) < len(STEPS):
             failures.append('%s: %d window dumps, %d steps' % (game, len(dumps), len(STEPS)))
@@ -143,6 +149,18 @@ def main():
         if abs(stats[0][0] - stats[4][0]) > 0.05:
             failures.append('%s: the main menu\'s region changed after Options (%.0f%% lit, then %.0f%%)'
                             % (game, stats[0][0] * 100, stats[4][0] * 100))
+    # The Internet button is disabled in both games (lane N18, user 2026-11-19; Red Alert 2's since lane
+    # C20): no Internet play natively. A click on it (the main menu's second button) leaves the main menu
+    # in place: no other screen is shown, no trap.
+    for game in ('yr', 'ra2'):
+        text, work = run(a, game, game + '-internet', INI, 's1+1500 click 720 262\ns1+5000 dump\n', 20)
+        shown = re.findall(r'^dialog shown #\d+', text, re.M)
+        if 'trap reached' in text or re.search(r'stopped: (signal|trap|fault)', text):
+            failures.append('%s: a click on Internet reached a trap or fault' % game)
+        if len(shown) != 1:
+            failures.append('%s: a click on Internet showed %d screens (the main menu only expected)' % (game, len(shown)))
+        else:
+            print('%s: Internet is disabled (the click left the main menu)' % game)
     # The menus' size at a larger game resolution (1024x768 here; the phone's play size in the app; lane
     # Y11b, user rule 2026-11-17: the original by default, filling as an enhancement). By default each
     # game as its original: Red Alert 2 runs its menus at the game resolution with the 800x600 menu

@@ -105,3 +105,15 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
   cursors, 66 read). fixups.json gives both the original's size. Checked: ctest `yr-native-deployers` (GGI, GI, DESO
   deploy and undeploy, SCHP deploys, the mission's 10 GGIs deploy; fails on the old build). Needs a user check on the
   Duo: the first Allied mission's GGIs deploy and fight.
+- Pass (user, Duo, 2026-11-19, reported to the owner): Yuri's Revenge Guardian GIs deploy and undeploy (lane N13's fix
+  confirmed); the bottom toolbar's (the command bar's) buttons all work.
+- Requests (user, Duo, 2026-11-19), lane N18: in Yuri's Revenge (1) the main menu's buttons do not slide out when
+  Enhancements is chosen, (2) the Enhancements page lacks most of Red Alert 2's rows, (3) the Internet button should be
+  disabled as in Red Alert 2.
+  Lane N18 (2026-11-19), please check on the Duo: (1) fixed: the Options column now slides out before the
+  Enhancements page shows and back in after it, as in Red Alert 2 (the original's own slide, gamemd.exe 0x00608070);
+  (3) fixed: Yuri's Revenge's Internet button is disabled when the main menu opens, as Red Alert 2's (ctest
+  `one-game-menu-backdrop` checks both in both games); (2) partly: Map zoom and the zoom row (Pinch zoom on the Duo)
+  now work in Yuri's Revenge (glue/yr_map_zoom.cpp, ctest `yr-native-map-zoom`; the gestures zoom between 1x and 3x,
+  Red Alert 2's zoom-out below 1x is not carried over). Still Red Alert 2 only: Game interface size and HD vehicles,
+  each a separate piece of Yuri's Revenge work (native/yr/README.md "Not shared, and why"). Mod is shown in both games.

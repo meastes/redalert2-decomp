@@ -14,6 +14,8 @@ extern HWND DAT_00B73550;                                // the main window (own
 int FUN_00407000(void);                                  // wpaudio: a sound device is available
 void Yr_Run_Enhancements(HWND options);                  // below (NATIVE)
 void Yr_Enhancements_Button_Text(HWND options);
+bool WS_Save_Dialog_Values(HWND dialog);                 // 0x00608070: a dialog's buttons slide out (ownrdraw.cpp)
+bool __fastcall RunOpenAnimationIfNeeded(HWND dialog);   // 0x00608260: and slide in
 
 static int *Options_Modes = NULL;                        // 0x00ABCF58: EnumDisplayModes' width/height pairs
 static bool Options_Ready = false;                       // 0x00ABCF54: the sliders are set up
@@ -202,8 +204,9 @@ int enh_shown[32];
 int enh_count = 0;
 void Enh_Pick_Rows()
 {
-	static char const * const ra2_only[] = {"Game interface size", "Map zoom", "Trackpad and wheel zoom",
-		"Wheel zoom", "Pinch zoom", "HD vehicles"};	// the zoom row's label names the platform's input
+	// Map zoom and the zoom row (its label names the platform's input) are Yuri's Revenge's too (lane
+	// N18, glue/yr_map_zoom.cpp).
+	static char const * const ra2_only[] = {"Game interface size", "HD vehicles"};
 	enh_count = 0;
 	for (int i = 0; i < ra2_enh_rows() && enh_count < kEnhRows; ++i) {
 		bool skip = false;
@@ -296,15 +299,23 @@ BOOL CALLBACK Yr_Enhancements_Proc(HWND window, UINT message, WPARAM wparam, LPA
 }  // namespace
 
 // Runs the page over the Options dialog, as the Options dialog's runner runs its own pages:
-// created, shown, the shell's idle steps until Ok or Cancel, closed. The Options dialog is hidden
-// meanwhile (RA2's page also slides the Options column out first; not done here).
+// created, shown, the shell's idle steps until Ok or Cancel, closed. Around it the Options dialog's
+// buttons slide out and back in, as RA2's page does (link/native_enhancements.cpp; lane N18, user
+// report 2026-11-19: YR's page appeared with the Options column still in place): the original's own
+// in-place transition, the Choose Map dialog's Create Random Map button (netshare_native.inc 0x583):
+// the slide out (0x00608070, the pinned tree's WS_Save_Dialog_Values; GUIMoveOutSound) and the
+// dialog hidden, then shown again, its next paint sliding its column in (RunOpenAnimationIfNeeded).
 void Yr_Run_Enhancements(HWND options)
 {
 	int result = -1;
 	enh_hint_row = -1;
 	ra2_enh_begin();
 	Enh_Pick_Rows();
-	if (options) ShowWindow(options, SW_HIDE);
+	if (options) {
+		bool slid = WS_Save_Dialog_Values(options);
+		fprintf(stderr, "enhancements: the Options column %s\n", slid ? "slid out" : "did not slide out");
+		ShowWindow(options, SW_HIDE);
+	}
 	ra2port_native_page(1);
 	HWND dialog = UI::BeginDialog(0xD5, (DLGPROC)Yr_Enhancements_Proc, 0);
 	ra2port_native_page(0);
@@ -320,6 +331,7 @@ void Yr_Run_Enhancements(HWND options)
 	}
 	UI::EndDialog(dialog);
 	if (options) {
+		RunOpenAnimationIfNeeded(options);
 		ShowWindow(options, SW_SHOW);
 		InvalidateRect(options, NULL, FALSE);
 	}
