@@ -681,7 +681,6 @@ BOOL CALLBACK IPX_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 /// <param name="width">The width of the display mode to change to.</param>
 /// <param name="height">The height of the display mode to change to.</param>
 /// <returns>bool; Was the mode changed? If not, the previous mode has been restored.</returns>
-#if 0
 bool Change_Display_Mode(int width, int height)
 {
 	DebugString("About to set video mode\n");
@@ -838,7 +837,6 @@ bool Change_Display_Mode(int width, int height)
 
 	return(true);
 }
-#endif
 
 
 
@@ -851,7 +849,6 @@ bool Change_Display_Mode(int width, int height)
 /// <param name="width">The width of the display mode to try.</param>
 /// <param name="height">The height of the display mode to try.</param>
 /// <returns>bool; Was the new display mode accepted and left in place?</returns>
-#if 0
 bool Test_Display_Mode_Dialog(int width, int height)
 {
 	int rc = -1;
@@ -900,7 +897,6 @@ bool Test_Display_Mode_Dialog(int width, int height)
 	LogicalSurface = HiddenSurface;
 	return(true);
 }
-#endif
 
 
 

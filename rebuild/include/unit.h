@@ -143,6 +143,8 @@ class UnitClass : public FootClass
 
 		bool Goto_Clear_Spot(void);
 		bool Try_To_Deploy(void);
+		void Deploy(void); // RA2: 0x6FE5F0
+		void Undeploy(void); // RA2: 0x6FE600
 		virtual void Scatter(Coord const &, bool forced=false, bool nokidding=false) override;
 
 		bool Flag_Attach(HousesType house);

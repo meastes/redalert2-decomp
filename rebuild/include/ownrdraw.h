@@ -529,3 +529,5 @@ namespace OwnerDraw { extern int Caret_Hidden; } // RA2: 0xA763EC, the caret bli
 namespace OwnerDraw { extern char const * Dialog_Back_Name; } // RA2: as above
 extern HWND Dropdown_Window; // RA2: the open drop-down list (ownrdraw.cpp defines it)
 extern HWND Dropdown_Owner; // RA2: the combo box that owns it
+
+void __fastcall Resize_Dialog_To_Screen(HWND dialog, Point2D * old_size); // RA2: 0x5E9F00

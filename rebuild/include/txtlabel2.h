@@ -44,3 +44,5 @@ extern void * Art_Button_Back; // RA2: as above
 extern ShapeSet * Art_Score_Screen; // RA2: as above
 extern ShapeSet * Art_Dialog_Back640; // RA2: as above
 extern ShapeSet * Art_Dialog_Back; // RA2: as above
+
+void __fastcall Relayout_Interface_Art(int width, int height); // RA2: 0x6F33B0

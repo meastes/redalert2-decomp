@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -1558,73 +1559,70 @@ unsigned int SessionClass::Compute_Unique_ID(void)
 /// </summary>
 /// <param name="ini">The INI database that holds the mission list.</param>
 /// <param name="name">Name of the section that describes this mission.</param>
-#if 0
 MultiMission::MultiMission(INIClass const & ini, char const * name)
 {
-    ScenarioDescription[0] = 0;
-    Filename[sizeof(Filename) - 1] = '\0';
-    strcpy(Digest, "No Digest");
-    IsOfficial = true;
-    MinPlayers = 2;
-    MaxPlayers = 4;
-    Disks.Clear();
-    if (!name) {
-        return;
-    }
-    strcpy(Filename, name);
-    strcat(Filename, ".MAP");
-    if (ini.Is_Present(name, "DescriptionText")) {
-        char text[0x2C];
-        ini.Get_String(name, "DescriptionText", "", text, 0x2C);
-        Char_To_Wide(ScenarioDescription, text, -1);
-    } else {
-        ini.ReadStringtableEntry(name, "Description", ScenarioDescription, 0x2C);
-    }
-    MinPlayers = ini.Get_Int(name, "MinPlayers", MinPlayers);
-    MaxPlayers = ini.Get_Int(name, "MaxPlayers", MaxPlayers);
-    char disks[0x80];
-    if (ini.Get_String(name, "CD", "", disks, 0x80)) {
-        char *token = strtok(disks, ",");
-        while (token && *token) {
-            Disks.Add((DiskID)atoi(token));
-            token = strtok(0, ",");
-        }
-    }
-    Wstring modes;
-    bool found = ini.Get_String(name, "GameMode", "", modes) > 0;
-    if (found) {
-        Wstring token;
-        int position = modes.getToken(0, ",", token);
-        while (position != -1) {
-            token.trimLeading(" ");
-            token.trimTrailing(" ");
-            GameModes.Add(token);
-            position = modes.getToken(position, ",", token);
-        }
-    }
-    CCFileClass file(Filename);
-    if (!file.Is_Available()) {
-        DebugString("Unable to locate scenario %s - No digest info will be loaded\n", Filename);
-    } else {
-        if (!file.Open(FileClass::READ)) {
-            return;
-        }
-        file.Seek(-100, 2);
-        char tail[0x80];
-        memset(tail, 0, sizeof(tail));
-        file.Read(tail, 0x64);
-        file.Close();
-        if (strstr(tail, "[Digest]")) {
-            CCINIClass digest_ini;
-            BufferStraw straw(tail, 0x64);
-            digest_ini.Load(straw, false, false);
-            digest_ini.Get_String("Digest", "1", 0, tail, 0x80);
-            strncpy(Digest, tail, 0x20);
-            Digest[0x1F] = '\0';
-        }
-    }
+	ScenarioDescription[0] = 0;
+	Filename[sizeof(Filename) - 1] = '\0';
+	strcpy(Digest, "No Digest");
+	IsOfficial = true;
+	MinPlayers = 2;
+	MaxPlayers = 4;
+	Disks.Clear();
+	if (!name) {
+		return;
+	}
+	strcpy(Filename, name);
+	strcat(Filename, ".MAP");
+	if (ini.Is_Present(name, "DescriptionText")) {
+		char text[0x2C];
+		ini.Get_String(name, "DescriptionText", "", text, 0x2C);
+		Char_To_Wide(ScenarioDescription, text, -1);
+	} else {
+		ini.ReadStringtableEntry(name, "Description", ScenarioDescription, 0x2C);
+	}
+	MinPlayers = ini.Get_Int(name, "MinPlayers", MinPlayers);
+	MaxPlayers = ini.Get_Int(name, "MaxPlayers", MaxPlayers);
+	char disks[0x80];
+	if (ini.Get_String(name, "CD", "", disks, 0x80)) {
+		char * token = strtok(disks, ",");
+		while (token && *token) {
+			Disks.Add((DiskID)atoi(token));
+			token = strtok(0, ",");
+		}
+	}
+	Wstring modes;
+	bool found = ini.Get_String(name, "GameMode", "", modes) > 0;
+	if (found) {
+		Wstring token;
+		int position = modes.getToken(0, ",", token);
+		while (position != -1) {
+			token.trimLeading(" ");
+			token.trimTrailing(" ");
+			GameModes.Add(token);
+			position = modes.getToken(position, ",", token);
+		}
+	}
+	CCFileClass file(Filename);
+	if (!file.Is_Available()) {
+		DebugString("Unable to locate scenario %s - No digest info will be loaded\n", Filename);
+	} else {
+		if (!file.Open(FileClass::READ)) {
+			return;
+		}
+		file.Seek(-100, SEEK_END);
+		char tail[0x80];
+		memset(tail, 0, sizeof(tail));
+		file.Read(tail, 0x64);
+		file.Close();
+		if (strstr(tail, "[Digest]")) {
+			CCINIClass digest_ini;
+			BufferStraw straw(tail, 0x64);
+			digest_ini.Load(straw, false, false);
+			digest_ini.Get_String("Digest", "1", 0, tail, 0x80);
+			Set_Digest(tail);
+		}
+	}
 }
-#endif
 
 
 
@@ -1639,48 +1637,31 @@ MultiMission::MultiMission(INIClass const & ini, char const * name)
 /// <param name="description">The description to show in the scenario list.</param>
 /// <param name="digest">The digest the other players' copies are checked against.</param>
 /// <param name="official">Is this one of the missions that shipped with the game?</param>
-#if 0
-MultiMission::MultiMission(char const * filename, wchar_t const * description, char const * digest, bool official,
-                           char const * game_modes, int min_players, int max_players)
+MultiMission::MultiMission(char const * filename, wchar_t const * description, char const * digest, bool official, char const * game_modes, int min_players, int max_players)
 {
-    if (filename) {
-        strncpy(Filename, filename, sizeof(Filename));
-        Filename[sizeof(Filename) - 1] = '\0';
-    } else {
-        strcpy(Filename, "No File Name");
-    }
-    if (description) {
-        wcsncpy(ScenarioDescription, description, 0x2C);
-        ScenarioDescription[0x2B] = 0;
-    } else {
-        wcscpy(ScenarioDescription, StringTable::LoadString("MSG:NoDescription", 0, "D:\\Ra2\\Session.CPP", 0xb0a));
-    }
-    if (digest) {
-        strncpy(Digest, digest, sizeof(Digest));
-        Digest[sizeof(Digest) - 1] = '\0';
-    } else {
-        strcpy(Digest, "No Digest");
-    }
-    IsOfficial = official;
-    MinPlayers = min_players;
-    MaxPlayers = max_players;
-    Disks.Clear();
-    Disks.Add((DiskID)-2);
-    if (game_modes) {
-        Wstring list(game_modes);
-        if (list.length() > 0) {
-            Wstring token;
-            int position = list.getToken(0, ",", token);
-            while (position != -1) {
-                token.trimLeading(" ");
-                token.trimTrailing(" ");
-                GameModes.Add(token);
-                position = list.getToken(position, ",", token);
-            }
-        }
-    }
+	Set_Filename(filename);
+	Set_Description(description);
+	Set_Digest(digest);
+	IsOfficial = official;
+	MinPlayers = min_players;
+	MaxPlayers = max_players;
+	Disks.Clear();
+
+	Disks.Add(DISK_LOCAL);
+
+	if (game_modes != NULL) {
+		Wstring modes(game_modes);
+		if (modes.length() > 0) {
+			Wstring mode;
+			int pos = 0;
+			while ((pos = modes.getToken(pos, ",", mode)) != -1) {
+				mode.trimLeading(" ");
+				mode.trimTrailing(" ");
+				GameModes.Add(mode);
+			}
+		}
+	}
 }
-#endif
 
 
 

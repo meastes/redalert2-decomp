@@ -2044,6 +2044,22 @@ bool UnitClass::Try_To_Deploy(void)
 }
 
 
+/// <summary>
+/// RA2: empty in the exe; name and order from YR's UnitClass (after Try_To_Deploy).
+/// </summary>
+void UnitClass::Deploy(void) // RA2: 0x6FE5F0, not in TibSun
+{
+}
+
+
+/// <summary>
+/// RA2: empty in the exe; name and order from YR's UnitClass.
+/// </summary>
+void UnitClass::Undeploy(void) // RA2: 0x6FE600, not in TibSun
+{
+}
+
+
 
 
 

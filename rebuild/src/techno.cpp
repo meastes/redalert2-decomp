@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -6435,167 +6436,128 @@ int TechnoClass::Get_Z_Fudge_Cliff(void) const
 /// locomotor's own bias and with any bridge, tunnel or cliff fudge that applies.
 /// </summary>
 /// <returns>Returns with the amount to bias this object's depth by when it is drawn.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1506 bytes differ (adopted text)
+// RA2: Overlay_Is_Rock and Get_Z_Adjust are ra2-decomp's twin text
+static inline bool Overlay_Is_Rock(int overlay)
+{
+	OverlayTypeClass * otype = OverlayTypes[overlay];
+	return otype->IsARock;
+}
+
 int TechnoClass::Get_Z_Adjust(void) const
 {
-	static int _techno_zadj_ramp1 = -1;
-	static int _techno_zadj_ramp2 = -1;
-	static int _techno_zadj_rock = 3;
-
 	CellClass *cptrs[3];
 	int width;
 	int height;
-
+	static int _techno_zadj_ramp1 = -1;
+	static int _techno_zadj_ramp2 = -1;
+	static int _techno_zadj_rock = 3;
 	int z = -TacticalMap->Z_Lepton_To_Pixel(Get_Height());
 	int zadjust2 = z;
 	int zadjust = z;
 	Cell cell = PositionCell;
 	CellClass *cptr = &Map[cell];
-	UnitClass *unit = (UnitClass *)this;
-
-	if (unit->RTTI == RTTI_UNIT) {
+	if (RTTI == RTTI_UNIT) {
+		UnitClass const * unit = static_cast<UnitClass const *>(this);
 		if (unit->IsTethered) {
-			BuildingClass *building = (BuildingClass *)unit->Contact_With_Whom();
-			if (building->RTTI == RTTI_BUILDING && building->Mission == MISSION_UNLOAD) {
-				return(zadjust2 - 3);
+			BuildingClass * building = (BuildingClass *)unit->Radio_Link(0);
+			if (building->RTTI == RTTI_BUILDING && building->Get_Mission() == MISSION_UNLOAD) {
+				return zadjust2 - 3;
 			}
 		}
 		if (unit->Class->IsToHarvest) {
 			BuildingClass *building = Get_Cell_Ptr()->Cell_Building();
-			if (building != NULL && building->Class->IsRefinery) {
-				return(zadjust2 - 14);
+			if (building != 0 && building->Class->IsRefinery) {
+				return zadjust2 - 14;
 			}
 		}
 	}
-
 	if (cptr->Ramp) {
 		CellClass *cell_s = &Map[Adjacent_Cell(cell, FACING_S)];
 		CellClass *cell_e = &Map[Adjacent_Cell(cell, FACING_E)];
 		CellClass *cell_se = &Map[Adjacent_Cell(cell, FACING_SE)];
-
-		if (cell_s != NULL && cell_e != NULL && cell_se != NULL) {
-
+		if (cell_s != 0 && cell_e != 0 && cell_se != 0) {
+			bool rock = false;
 			if (cell_s->Overlay != OVERLAY_NONE) {
-				if (OverlayTypes[cell_s->Overlay]->IsARock) {
-					return(_techno_zadj_rock + zadjust2 - 1);
+				if (Overlay_Is_Rock(cell_s->Overlay)) {
+					rock = true;
+				}
+			} else if (cell_e->Overlay != OVERLAY_NONE) {
+				if (Overlay_Is_Rock(cell_e->Overlay)) {
+					rock = true;
+				}
+			} else if (cell_se->Overlay != OVERLAY_NONE) {
+				if (Overlay_Is_Rock(cell_se->Overlay)) {
+					rock = true;
 				}
 			}
-			else if (cell_e->Overlay != OVERLAY_NONE) {
-				if (OverlayTypes[cell_e->Overlay]->IsARock) {
-					return(_techno_zadj_rock + zadjust2 - 1);
-				}
-			}
-			else if (cell_se->Overlay != OVERLAY_NONE) {
-				if (OverlayTypes[cell_se->Overlay]->IsARock) {
-					return(_techno_zadj_rock + zadjust2 - 1);
-				}
+			if (rock) {
+				return _techno_zadj_rock + zadjust2 - 1;
 			}
 		}
 	}
-
 	CellClass *ahead_right = &Map[Adjacent_Cell(cell, Facing_Add(PrimaryFacing.Current().As_Dir8(), FACING_45))];
 	CellClass *ahead_left = &Map[Adjacent_Cell(cell, Facing_Sub(PrimaryFacing.Current().As_Dir8(), FACING_45))];
-
 	CellClass *ahead = &Map[Adjacent_Cell(cell, Facing_Add(PrimaryFacing.Current().As_Dir8(), FACING_0))];
 	CellClass *behind = &Map[Adjacent_Cell(cell, Facing_Sub(PrimaryFacing.Current().As_Dir8(), FACING_180))];
-
 	CellClass *behind_right = &Map[Adjacent_Cell(cell, Facing_Add(PrimaryFacing.Current().As_Dir8(), FACING_135))];
 	CellClass *behind_left = &Map[Adjacent_Cell(cell, Facing_Sub(PrimaryFacing.Current().As_Dir8(), FACING_135))];
-
-	if (ahead_right != NULL && ahead_left != NULL && ahead != NULL) {
-
+	bool ramp = false;
+	if (ahead_right != 0 && ahead_left != 0 && ahead != 0) {
 		if (ahead_right->Ramp == 0 && ahead_left->Ramp == 0 && ahead->Ramp == 0) {
-
-			if (behind != NULL && behind_right != NULL && behind_left != NULL) {
-
+			if (behind != 0 && behind_right != 0 && behind_left != 0) {
 				if (behind->Ramp == 0 && behind_right->Ramp == 0 && behind_left->Ramp == 0) {
-
-					if ( cptr->Ramp )
-					{
-						return(zadjust + _techno_zadj_ramp1);
+					if (cptr->Ramp) {
+						return zadjust + _techno_zadj_ramp1;
 					}
-
 					if (PrimaryFacing.Current().As_Dir8() == FACING_W || PrimaryFacing.Current().As_Dir8() == FACING_N) {
 						cptrs[0] = behind;
 						cptrs[1] = behind_right;
 						cptrs[2] = behind_left;
-					}
-					else if (PrimaryFacing.Current().As_Dir8() == FACING_S || PrimaryFacing.Current().As_Dir8() == FACING_E) {
+					} else if (PrimaryFacing.Current().As_Dir8() == FACING_S || PrimaryFacing.Current().As_Dir8() == FACING_E) {
 						cptrs[0] = ahead_right;
 						cptrs[1] = ahead_left;
 						cptrs[2] = ahead;
 					} else {
-						return(zadjust - 1);
+						return zadjust - 1;
 					}
-
-					if (!cptr->IsOvershadowed) {
-						for (int i = 0; i < ARRAY_SIZE(cptrs); i++) {
-							if (cptrs[i]->IsOvershadowed) {
-								return(zadjust - 1);
-							}
-						}
-
-						for (int j = 0; j < ARRAY_SIZE(cptrs); j++) {
-							IsometricTileType ittype = cptrs[j]->ITType;
-
-							int subtile;
-							IsometricTileTypeClass *iptr;
-
-							if (ittype == ISOTILE_NONE || ittype == ISOTILE_NONE_LEGACY) {
-								subtile = 0;
-								iptr = IsometricTileTypes[TILE_CLEAR];
-							} else {
-								iptr = IsometricTileTypes[ittype];
-								subtile = cptrs[j]->SubTile;
-							}
-
-							iptr->Get_Tile_Pixel_Dimensions(subtile, width, height);
-							if (height > 36) {
-								return(zadjust - 2);
-							}
+					if (cptr->IsOvershadowed) {
+						return zadjust - 1;
+					}
+					for (int i = 0; i < ARRAY_SIZE(cptrs); i++) {
+						if (cptrs[i]->IsOvershadowed) {
+							return zadjust - 1;
 						}
 					}
-					//return zadjust - 1;
+					for (int j = 0; j < ARRAY_SIZE(cptrs); j++) {
+						IsometricTileType ittype = cptrs[j]->ITType;
+						int subtile;
+						IsometricTileTypeClass * iptr;
+						if (ittype == ISOTILE_NONE || ittype == ISOTILE_NONE_LEGACY) {
+							iptr = IsometricTileTypes[TILE_CLEAR];
+							subtile = 0;
+						} else {
+							iptr = IsometricTileTypes[ittype];
+							subtile = cptrs[j]->SubTile;
+						}
+						iptr->Get_Tile_Pixel_Dimensions(subtile, width, height);
+						if (height > 36) {
+							return zadjust - 2;
+						}
+					}
+					return zadjust - 1;
 				} else {
-					return(_techno_zadj_ramp2 + zadjust);
+					ramp = true;
 				}
 			}
 		} else {
-			return(_techno_zadj_ramp2 + zadjust);
+			ramp = true;
 		}
 	}
-
-	return(zadjust - 1);
-
-	#if 0
-	index = 0;
-	for ( i = cptrs; ; ++i )
-	{
-		ittype = (*i)->ITType;
-		if ( ittype == ISOTILE_NONE || ittype == TILE_UNKNOWN_BRIDGE_INDEX )
-		{
-			subtile = 0;
-			iptr = IsometricTileTypes.Vector[TILE_CLEAR];
-		}
-		else
-		{
-			iptr = IsometricTileTypes.Vector[ittype];
-			subtile = (*i)->SubTile;
-		}
-		IsometricTileTypeClass::Get_Tile_Pixel_Dimensions(iptr, subtile, &width, &height);
-		if ( height > 36 )
-		{
-			break;
-		}
-		if ( ++index >= 3 )
-		{
-			return(zadjust - 1);
-		}
+	if (ramp) {
+		return _techno_zadj_ramp2 + zadjust;
 	}
-	#endif
-	return(zadjust - 2);
+	return zadjust - 1;
 }
-#endif
 
 
 static inline Rect Line_End_Rect(Point2D const & point)

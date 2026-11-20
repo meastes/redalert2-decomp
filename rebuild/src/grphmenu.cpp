@@ -58,10 +58,9 @@ GraphicMenu * __fastcall Do_Graphic_Menu(Wstring const & ini, Wstring const & na
 /// <param name="name">The name of the section that describes this menu.</param>
 /// <returns>Returns with a pointer to the menu built, or NULL if it could not be
 /// allocated.</returns>
-#if 0
 GraphicMenu * __fastcall _Graphic_Menu(INIClass & ini, Wstring const & name)
 {
-	if (!ini.Section_Present(name.text())) {
+	if (ini.Find_Section(name.text()) == NULL) {
 		return(NULL);
 	}
 	GraphicMenu * menu = new GraphicMenu;
@@ -115,7 +114,6 @@ GraphicMenu * __fastcall _Graphic_Menu(INIClass & ini, Wstring const & name)
 
 	return(menu);
 }
-#endif
 
 
 

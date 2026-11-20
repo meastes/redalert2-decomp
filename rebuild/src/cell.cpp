@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -1159,7 +1160,6 @@ void CellClass::Set_Wall_Owner(void)
  *   05/29/1994 JLB : Created.                                                                 *
  *   06/20/1994 JLB : Knows about template pointer in cell object.                             *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 551 bytes differ (adopted text)
 void CellClass::Recalc_Attributes(int cell_height)
 {
 	if (this == &BlubCell) {
@@ -1175,7 +1175,7 @@ void CellClass::Recalc_Attributes(int cell_height)
 	**	Check for wall effects.
 	*/
 	if (overlay != OVERLAY_NONE) {
-		OverlayTypeClass * otype = OverlayTypes[overlay]; // RA2: the overlay type is kept in a local
+		OverlayTypeClass const * otype = OverlayTypes[overlay]; // RA2: the overlay type is kept in a local
 		Land = otype->Land; // RA2: as above
 		if (Land == LAND_WALL || Land == LAND_RAILROAD || otype->IsNoUseTileLandType) { // RA2: as above
 			if (ITType != ISOTILE_NONE && ITType < IsometricTileTypes.Count()) {
@@ -1252,7 +1252,7 @@ void CellClass::Recalc_Attributes(int cell_height)
 		if (Overlay != OVERLAY_NONE) {
 			if (Which_Tiberium_Type(Overlay) != TIBERIUM_NONE) { // RA2: the tiberium type of the overlay is asked directly
 				if (Ramp > RAMP_SOUTH) {
-					Land = itype->Land_Type(SubTile);;
+					Land = itype->Land_Type(SubTile);
 					Overlay = OVERLAY_NONE;
 					OverlayData = 0;
 				} else if (!OverlayTypes[Overlay]->Land) {
@@ -1267,7 +1267,6 @@ void CellClass::Recalc_Attributes(int cell_height)
 
 		if (Land == LAND_TUNNEL) {
 			if (Tube < TUBE_FIRST || Tube >= Tubes.Count()) {
-				static FacingType _facings[5] = { FACING_E, FACING_S, FACING_W, FACING_N, FACING_NONE };
 				int tunnel_dir = -1; // RA2: the direction is taken straight from the tile's offset in its tunnel set
 
 				if (ITType >= IsometricTileTypeClass::Tunnels && ITType <= IsometricTileTypeClass::Tunnels + 3) {
@@ -1281,6 +1280,7 @@ void CellClass::Recalc_Attributes(int cell_height)
 				}
 
 				if (tunnel_dir != -1) { // RA2: as above
+					static FacingType const _facings[] = { FACING_E, FACING_S, FACING_W, FACING_N }; // RA2: as above
 					new TubeClass(CellID, _facings[tunnel_dir]);
 				}
 			}
@@ -1293,20 +1293,21 @@ void CellClass::Recalc_Attributes(int cell_height)
 		int width;
 		int height;
 		itype->Get_Tile_Pixel_Dimensions(SubTile, width, height);
-		Elevation = (height - 30) / 15; // RA2: isometric tile pixel sizes (30 and 15), not TibSun's CELL_PIXEL_H
+		Elevation = (height - ISO_TILE_PIXEL_H) / (ISO_TILE_PIXEL_H / 2); // RA2: isometric tile pixel sizes, not TibSun's CELL_PIXEL_H
 		if (!IsAnimAttached && itype->Anim != ANIM_NONE && itype->AttachesTo == SubTile) {
-			Coord anim_coord = TacticalMap->Pixel_To_Coord_Absolute(itype->Offset) + Coord(CellID, LEVEL_LEPTON_H * Height); // RA2: the pixel offset is the left operand of the sum
+			Coord anim_coord = Coord(CellID, LEVEL_LEPTON_H * Height) + TacticalMap->Pixel_To_Coord_Absolute(itype->Offset);
 			AnimClass * anim = new AnimClass(AnimTypes[itype->Anim], anim_coord, 0, -1, ShapeFlags_Type(SHAPE_ZREAD | SHAPE_WIN_REL | SHAPE_CENTER), 0);
-			anim->Attach_To_Cell(itype->ZAdjust);
+			anim->ZAdjust = itype->ZAdjust; // RA2: the fields are set here, ZAdjust first (TibSun calls Attach_To_Cell)
+			anim->IsAttachedToCell = true; // RA2: as above
+			anim->IsToDeleteOnOverpass = true; // RA2: as above
 			IsAnimAttached = true;
 		}
 
 		if (itype->IsShadowCaster) {
 			const Cell * list = itype->Shadow_Caster_List();
 			if (list) {
-				Cell pos; // RA2: the position is declared outside the loop
 				while (*list != REFRESH_EOL && *list != CELL_NONE) {
-					pos = *list + CellID; // RA2: the list entry is added to the cell, not the cell to the entry
+					Cell pos = *list + CellID; // RA2: the list entry is added to the cell, not the cell to the entry
 					Map[pos].IsOvershadowed = true;
 					list++;
 				}
@@ -1344,7 +1345,6 @@ void CellClass::Recalc_Attributes(int cell_height)
 	zone->Passability = Passability;
 	subzone->Height = Height;
 }
-#endif
 
 
 

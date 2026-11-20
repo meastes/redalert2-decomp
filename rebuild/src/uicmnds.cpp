@@ -200,7 +200,6 @@ void __cdecl Command_Deploy(void)
 /// <summary>
 /// Orders the selected objects to guard the area they stand in.
 /// </summary>
-#if 0
 void __fastcall Command_Guard(void)
 {
 	if (Planning_Is_Active()) {
@@ -212,7 +211,7 @@ void __fastcall Command_Guard(void)
 		int count = CurrentObject.Count();
 		for (int index = 0; index < count; index++) {
 			ObjectClass * object = CurrentObject[index];
-			if (object != NULL && (object->AbstractFlags & 1) && object->Can_Player_Move() && object->Can_Player_Fire()) {
+			if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO) && object->Can_Player_Move() && object->Can_Player_Fire()) {
 				agreed = ((TechnoClass *)object)->Player_Assign_Mission(MISSION_GUARD_AREA, (AbstractClass *)object->Get_Target_Cell_Ptr(), NULL, NULL);
 				if (!agreed) {
 					return;
@@ -224,7 +223,6 @@ void __fastcall Command_Guard(void)
 		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -452,7 +450,6 @@ void __cdecl Command_Ally(void)
 /// <summary>
 /// Deletes the planned node the player has selected, or else the player's beacon.
 /// </summary>
-#if 0
 void __cdecl Command_Delete_Plan_Or_Beacon(void)
 {
 	PlanningNodeClass * node = Planning_Selected_Node();
@@ -462,7 +459,6 @@ void __cdecl Command_Delete_Plan_Or_Beacon(void)
 		BeaconManager.Remove_Beacon(-1, -1);
 	}
 }
-#endif
 
 
 /// <summary>
@@ -479,7 +475,6 @@ void __cdecl Command_Beacon(void)
 /// <summary>
 /// Turns planning mode on.
 /// </summary>
-#if 0
 void __fastcall Command_Planning_Mode_On(bool sound)
 {
 	if (MuteSWLaunches == 0) {
@@ -487,13 +482,11 @@ void __fastcall Command_Planning_Mode_On(bool sound)
 		Planning_Show_Help(sound, true);
 	}
 }
-#endif
 
 
 /// <summary>
 /// Turns planning mode off.
 /// </summary>
-#if 0
 void __fastcall Command_Planning_Mode_Off(bool sound)
 {
 	Planning_End();
@@ -501,7 +494,6 @@ void __fastcall Command_Planning_Mode_Off(bool sound)
 		Planning_Show_Help(sound, false);
 	}
 }
-#endif
 
 
 /// <summary>

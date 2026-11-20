@@ -69,3 +69,15 @@ class SpotLightClass
 
 
 extern DynamicVectorClass<SpotLightClass *> SpotLights;
+
+// RA2: the pixel brighten routines used by spot lights
+extern "C" {
+void __cdecl Brighten_Color_565(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int width, int height); // RA2: 0x79813A
+void __cdecl Brighten_Color_555(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int width, int height); // RA2: 0x7983D1
+void __cdecl Brighten_Color_556(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int width, int height); // RA2: 0x7982F4
+void __cdecl Brighten_Color_655(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int width, int height); // RA2: 0x798217
+void __cdecl MMX_Brighten_Color_565(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int dst_width, int dst_height, int * mmx_buffer); // RA2: 0x7984C0
+void __cdecl MMX_Brighten_Color_555(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int dst_width, int dst_height, int * mmx_buffer); // RA2: 0x798602
+void __cdecl MMX_Brighten_Color_556(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int dst_width, int dst_height, int * mmx_buffer); // RA2: 0x798740
+void __cdecl MMX_Brighten_Color_655(unsigned char * mul_buffer, unsigned short * color_buffer, int mulbuff_width, int color_buff_width, int dst_width, int dst_height, int * mmx_buffer); // RA2: 0x798880
+}

@@ -107,6 +107,17 @@
     "?As_Cell@Coord@@QBE?AVCell@@XZ": 4274032,
     "?Sonic_Add_Cell@WaveClass@@AAEXABVCell@@@Z": 7479360,
     "?Lerp@@YI?AVCoord@@ABV1@0M@Z": 7479488,
+    "_?$S162@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4EA": 11505984,
+    "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A": 11505992,
+    "_$E163": 7487984,
+    "_atexit": 7874954,
+    "_WaveLengthFactor": 8055948,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?acos@fastmath@@YANN@Z": 4957568,
+    "?Make_Identity@Matrix3D@@QAEXXZ": 5832800,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z": 5837696,
     "__real@8@3ffbccccccccccccd000": 7980400,
     "__real@8@4001c000000000000000": 8007584,
     "__real@8@3ffefae147ae147ae000": 8056480,
@@ -353,7 +364,7 @@
           "resolved": 11505960
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475632,
@@ -405,7 +416,7 @@
           "resolved": 11687240
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475680,
@@ -457,7 +468,7 @@
           "resolved": 11507224
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475712,
@@ -509,7 +520,7 @@
           "resolved": 11507216
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475744,
@@ -561,7 +572,7 @@
           "resolved": 11505968
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475776,
@@ -613,7 +624,7 @@
           "resolved": 11505928
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475808,
@@ -697,7 +708,7 @@
           "resolved": 11687248
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475840,
@@ -757,7 +768,7 @@
           "resolved": 11505976
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475904,
@@ -817,7 +828,7 @@
           "resolved": 11507152
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7475952,
@@ -877,7 +888,7 @@
           "resolved": 11687232
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476000,
@@ -921,7 +932,7 @@
           "resolved": 11505954
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476048,
@@ -973,7 +984,7 @@
           "resolved": 11506144
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476064,
@@ -1033,7 +1044,7 @@
           "resolved": 11505948
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476096,
@@ -1365,7 +1376,7 @@
           "resolved": 11073
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476128,
@@ -1649,7 +1660,7 @@
           "resolved": 11507160
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7476944,
@@ -1789,7 +1800,7 @@
           "resolved": 4293593977
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7477504,
@@ -1929,7 +1940,7 @@
           "resolved": 8728508
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7477696,
@@ -2037,7 +2048,7 @@
           "resolved": 8728512
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7478016,
@@ -2169,7 +2180,7 @@
           "resolved": 11507160
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7478256,
@@ -2205,7 +2216,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7478464,
@@ -2265,7 +2276,7 @@
           "resolved": 7984504
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7478704,
@@ -2389,7 +2400,7 @@
           "resolved": 4293136161
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7478960,
@@ -2433,7 +2444,7 @@
           "resolved": 4293025822
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7479360,
@@ -2493,7 +2504,7 @@
           "resolved": 380922
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7479488,
@@ -2545,7 +2556,7 @@
           "resolved": 380820
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7479616,
@@ -2581,7 +2592,7 @@
           "resolved": 4293597741
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7479696,
@@ -2617,7 +2628,7 @@
           "resolved": 4291747193
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480112,
@@ -2677,7 +2688,7 @@
           "resolved": 8002716
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480224,
@@ -2704,7 +2715,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480288,
@@ -2731,7 +2742,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480304,
@@ -2758,7 +2769,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480320,
@@ -2850,7 +2861,7 @@
           "resolved": 4292984440
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480336,
@@ -2918,7 +2929,7 @@
           "resolved": 4292984417
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480528,
@@ -3002,7 +3013,7 @@
           "resolved": 16
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7480624,
@@ -3062,7 +3073,7 @@
           "resolved": 4293588268
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7483936,
@@ -3122,7 +3133,7 @@
           "resolved": 4293588156
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7484112,
@@ -3149,7 +3160,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7484224,
@@ -3585,10 +3596,833 @@
           "resolved": 7972648
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7484256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7485616,
+      "method": "007238b0",
+      "body_bytes": 2358,
+      "body_sha256": "23ba755298548a8035278db687ba1046b51716106554395c711e713d280be749",
+      "padding_bytes": 10,
+      "full_extent_bytes": 2368,
+      "full_extent_sha256": "532f214085fe7e06753c7d7e6e399a155c504c6a76e49d12c948a961b20af2ea",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z",
+      "symbol_prefix": "?Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "_?$S162@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4EA",
+          "target": 11505984,
+          "addend": 0,
+          "resolved": 11505984
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "_?$S162@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4EA",
+          "target": 11505984,
+          "addend": 0,
+          "resolved": 11505984
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 0,
+          "resolved": 11505992
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 4,
+          "resolved": 11505996
+        },
+        {
+          "offset": 116,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 8,
+          "resolved": 11506000
+        },
+        {
+          "offset": 133,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 12,
+          "resolved": 11506004
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 16,
+          "resolved": 11506008
+        },
+        {
+          "offset": 169,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 20,
+          "resolved": 11506012
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 24,
+          "resolved": 11506016
+        },
+        {
+          "offset": 204,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 28,
+          "resolved": 11506020
+        },
+        {
+          "offset": 222,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 32,
+          "resolved": 11506024
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 36,
+          "resolved": 11506028
+        },
+        {
+          "offset": 257,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 40,
+          "resolved": 11506032
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 44,
+          "resolved": 11506036
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 48,
+          "resolved": 11506040
+        },
+        {
+          "offset": 310,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 52,
+          "resolved": 11506044
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 56,
+          "resolved": 11506048
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 60,
+          "resolved": 11506052
+        },
+        {
+          "offset": 363,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 64,
+          "resolved": 11506056
+        },
+        {
+          "offset": 381,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 68,
+          "resolved": 11506060
+        },
+        {
+          "offset": 398,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 72,
+          "resolved": 11506064
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 76,
+          "resolved": 11506068
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 80,
+          "resolved": 11506072
+        },
+        {
+          "offset": 451,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 84,
+          "resolved": 11506076
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 88,
+          "resolved": 11506080
+        },
+        {
+          "offset": 487,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 92,
+          "resolved": 11506084
+        },
+        {
+          "offset": 500,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 96,
+          "resolved": 11506088
+        },
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 100,
+          "resolved": 11506092
+        },
+        {
+          "offset": 516,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 104,
+          "resolved": 11506096
+        },
+        {
+          "offset": 557,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 108,
+          "resolved": 11506100
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 112,
+          "resolved": 11506104
+        },
+        {
+          "offset": 569,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 116,
+          "resolved": 11506108
+        },
+        {
+          "offset": 610,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 120,
+          "resolved": 11506112
+        },
+        {
+          "offset": 616,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 124,
+          "resolved": 11506116
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 128,
+          "resolved": 11506120
+        },
+        {
+          "offset": 663,
+          "kind": 6,
+          "symbol": "_$E163",
+          "target": 7487984,
+          "addend": 0,
+          "resolved": 7487984
+        },
+        {
+          "offset": 668,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 132,
+          "resolved": 11506124
+        },
+        {
+          "offset": 674,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 136,
+          "resolved": 11506128
+        },
+        {
+          "offset": 680,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 140,
+          "resolved": 11506132
+        },
+        {
+          "offset": 685,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 388649
+        },
+        {
+          "offset": 709,
+          "kind": 6,
+          "symbol": "_WaveLengthFactor",
+          "target": 8055948,
+          "addend": 0,
+          "resolved": 8055948
+        },
+        {
+          "offset": 723,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 760,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 374116
+        },
+        {
+          "offset": 790,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 374086
+        },
+        {
+          "offset": 820,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 374056
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "_WaveLengthFactor",
+          "target": 8055948,
+          "addend": 0,
+          "resolved": 8055948
+        },
+        {
+          "offset": 870,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 889,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 373987
+        },
+        {
+          "offset": 910,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 373966
+        },
+        {
+          "offset": 931,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 373945
+        },
+        {
+          "offset": 1004,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292437872
+        },
+        {
+          "offset": 1012,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 373864
+        },
+        {
+          "offset": 1116,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1126,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294438070
+        },
+        {
+          "offset": 1144,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 1149,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294438047
+        },
+        {
+          "offset": 1209,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 0,
+          "resolved": 11505992
+        },
+        {
+          "offset": 1219,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 4,
+          "resolved": 11505996
+        },
+        {
+          "offset": 1233,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 8,
+          "resolved": 11506000
+        },
+        {
+          "offset": 1263,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 12,
+          "resolved": 11506004
+        },
+        {
+          "offset": 1276,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 16,
+          "resolved": 11506008
+        },
+        {
+          "offset": 1296,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 20,
+          "resolved": 11506012
+        },
+        {
+          "offset": 1335,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 24,
+          "resolved": 11506016
+        },
+        {
+          "offset": 1348,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 28,
+          "resolved": 11506020
+        },
+        {
+          "offset": 1368,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 32,
+          "resolved": 11506024
+        },
+        {
+          "offset": 1407,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 36,
+          "resolved": 11506028
+        },
+        {
+          "offset": 1417,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 40,
+          "resolved": 11506032
+        },
+        {
+          "offset": 1427,
+          "kind": 6,
+          "symbol": "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A",
+          "target": 11505992,
+          "addend": 44,
+          "resolved": 11506036
+        },
+        {
+          "offset": 1620,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4292437256
+        },
+        {
+          "offset": 1676,
+          "kind": 20,
+          "symbol": "?acos@fastmath@@YANN@Z",
+          "target": 4957568,
+          "addend": 0,
+          "resolved": 4292437568
+        },
+        {
+          "offset": 1717,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293312759
+        },
+        {
+          "offset": 1737,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4293315107
+        },
+        {
+          "offset": 1758,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293317614
+        },
+        {
+          "offset": 1799,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293317573
+        },
+        {
+          "offset": 1840,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293317532
+        },
+        {
+          "offset": 1881,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293317491
+        },
+        {
+          "offset": 1916,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372960
+        },
+        {
+          "offset": 1935,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372941
+        },
+        {
+          "offset": 1948,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372928
+        },
+        {
+          "offset": 1979,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372897
+        },
+        {
+          "offset": 1994,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372882
+        },
+        {
+          "offset": 2007,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372869
+        },
+        {
+          "offset": 2040,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372836
+        },
+        {
+          "offset": 2055,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372821
+        },
+        {
+          "offset": 2068,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372808
+        },
+        {
+          "offset": 2095,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372781
+        },
+        {
+          "offset": 2110,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372766
+        },
+        {
+          "offset": 2123,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 372753
+        },
+        {
+          "offset": 2159,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2164,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294437032
+        },
+        {
+          "offset": 2170,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2189,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294437007
+        },
+        {
+          "offset": 2195,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2214,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294436982
+        },
+        {
+          "offset": 2220,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 2239,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 4294436957
+        }
+      ],
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
+      "source": "rebuild/src/wave.cpp",
+      "population": "rebuild-wave",
+      "source_order": 7485616,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7487984,
+      "method": "007241f0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E163",
+      "symbol_prefix": "_$E163",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
+      "source": "rebuild/src/wave.cpp",
+      "population": "rebuild-wave",
+      "source_order": 7487984,
       "source_quality_family": "rebuild"
     },
     {
@@ -3885,7 +4719,7 @@
           "resolved": 4294962558
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7488000,
@@ -3912,7 +4746,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7489008,
@@ -4060,7 +4894,7 @@
           "resolved": 382581
         }
       ],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7489024,
@@ -4087,7 +4921,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "2dcb25e2ef9742acc24fd01bc086fcefc02f4c64763328eff16cd1dfae95ed94",
+      "source_sha256": "e546c47230e0fc04355fd97df396469f4edf383c4e75624332f130731666f6a0",
       "source": "rebuild/src/wave.cpp",
       "population": "rebuild-wave",
       "source_order": 7489328,

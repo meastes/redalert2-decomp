@@ -180,6 +180,11 @@
     "?As_Cell@xTargetClass@@QBEPAVCellClass@@XZ": 7038480,
     "?As_Techno@xTargetClass@@QBEPAVTechnoClass@@XZ": 7035152,
     "?Planning_Order_Stays_Put@@YI_NPAVTechnoClass@@HVTargetClass@@@Z": 6379792,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ": 6361536,
+    "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z": 6388240,
+    "?Dump@PlanningNodeClass@@QAEXXZ": 6363360,
+    "??0?$TRect@H@@QAE@HHHH@Z": 4373712,
     "?CurrentObject@@3V?$DynamicVectorClass@PAVObjectClass@@@@A": 10751072,
     "?Planning_Same_Last_Node@@YI_NPAVPlanningTokenClass@@0@Z": 6384592,
     "??_C@_0BK@INKB@MSG?3PlanningModeHeteroSel?$AA@": 8306112,
@@ -200,6 +205,9 @@
     "??_C@_0BM@JDCL@MSG?3PlanningModeNoBuildings?$AA@": 8306356,
     "??_C@_0BL@CGPI@MSG?3PlanningModeNoUnknowns?$AA@": 8306328,
     "?Unselect_All@Tactical@@QAEXXZ": 6991168,
+    "?Map@@3VMouseClass@@A": 8594656,
+    "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z": 5894240,
+    "?Planning_Connect_Selection@@YAXXZ": 6388464,
     "??0?$VectorClass@PAVTechnoClass@@@@QAE@HPBQAVTechnoClass@@@Z": 4242448,
     "?Get_Event@PlanningNodeClass@@QAE?AVEventClass@@H@Z": 6361248,
     "?First_Target_Object@EventClass@@QBEPAVAbstractClass@@XZ": 6389232,
@@ -272,10 +280,10 @@
     "?Get_Coord@PlanningBranchClass@@QAE?AVCoord@@XZ": 6359376,
     "?Get_Pixel@PlanningBranchClass@@QAE?AVPoint2D@@XZ": 6359584,
     "??0PlanningNodeClass@@QAE@H@Z": 6359680,
-    "??_G?$DynamicVectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z": 6404704,
     "??_G?$DynamicVectorClass@PAVPlanningBranchClass@@@@UAEPAXI@Z": 6404864,
-    "??_G?$VectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z": 6404624,
+    "??_G?$DynamicVectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z": 6404704,
     "??_G?$VectorClass@PAVPlanningBranchClass@@@@UAEPAXI@Z": 6404784,
+    "??_G?$VectorClass@PAVPlanningMemberClass@@@@UAEPAXI@Z": 6404624,
     "?Get_Id@PlanningNodeClass@@QAEHXZ": 6360080,
     "?Get_Count@PlanningNodeClass@@QAEHXZ": 6360096,
     "?Index_In@PlanningNodeClass@@QAEHPAVTechnoClass@@@Z": 6360112,
@@ -284,7 +292,6 @@
     "?Get_Event_For@PlanningNodeClass@@QAE?AVEventClass@@PAVTechnoClass@@@Z": 6361296,
     "?Has_Member@PlanningNodeClass@@QAE_NPAVTechnoClass@@@Z": 6361376,
     "?Lead_House@PlanningNodeClass@@QAEPAVHouseClass@@XZ": 6361456,
-    "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ": 6361536,
     "?Hit_Test@PlanningNodeClass@@QAE_NHH@Z": 6361648,
     "?Lead_Rect@PlanningNodeClass@@QAE?AV?$TRect@H@@XZ": 6361952,
     "?Is_Past_Start@PlanningNodeClass@@QAE_NXZ": 6362096,
@@ -304,11 +311,11 @@
     "?Set_Queued@PlanningNodeClass@@QAEXXZ": 6362896,
     "?Get_Queued@PlanningNodeClass@@QAE_NXZ": 6362912,
     "?Rebuild@PlanningNodeClass@@QAEXXZ": 6362928,
-    "?Dump@PlanningNodeClass@@QAEXXZ": 6363360,
     "?Is_Loop_Start@PlanningNodeClass@@QAE_NPAVTechnoClass@@@Z": 6365024,
     "?Locate_Loop_Branch@PlanningNodeClass@@QAEXXZ": 6365136,
     "?Select_All@PlanningNodeClass@@QAEXXZ": 6365328,
     "?Unselect_All@PlanningNodeClass@@QAEXXZ": 6365376,
+    "?Draw_Lead_Box@PlanningNodeClass@@QAEXH@Z": 6365424,
     "?Fill_Lead_Box@PlanningNodeClass@@QAEXH@Z": 6365744,
     "?Frame_Lead_Box@PlanningNodeClass@@QAEXH@Z": 6365952,
     "?Frame_Lead_Box_Outer@PlanningNodeClass@@QAEXH@Z": 6366240,
@@ -357,6 +364,7 @@
     "?Planning_Process_Queue@@YAXXZ": 6375104,
     "?Planning_Begin@@YAXXZ": 6375264,
     "?Planning_End@@YAXXZ": 6375344,
+    "?Planning_Is_Active@@YI_NXZ": 6375488,
     "?Commit_Plans@@YIXH@Z": 6375504,
     "?Send_Delete_Event@PlanningNodeClass@@QAEXXZ": 6376096,
     "?Planning_Allows_Event_Type@@YI_NH@Z": 6376272,
@@ -372,9 +380,13 @@
     "?Planning_Mission_Allows@@YI_NPAVTechnoClass@@@Z": 6380048,
     "?Planning_Add_To_Nodes@@YIXPAVPlanningNodeClass@@@Z": 6380384,
     "?Planning_Clear_Drawn@@YAXXZ": 6380480,
+    "?Planning_Hover@@YAXXZ": 6380544,
+    "?Planning_Node_At@@YIPAVPlanningNodeClass@@VPoint2D@@@Z": 6380848,
     "?Is_Planning_Selection_Valid@@YI_NXZ": 6381024,
     "?Planning_Can_Add@@YI_NXZ": 6381264,
     "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z": 6381488,
+    "?Planning_Pick_Node@@YIPAVPlanningNodeClass@@VPoint2D@@@Z": 6381680,
+    "?Planning_Pick_Drawn@@YIPAVPlanningNodeClass@@VPoint2D@@@Z": 6381888,
     "?Planning_Find_Drawn@@YGPAVPlanningNodeClass@@VCoord@@@Z": 6382096,
     "?Planning_Send_Pair@@YIXPAVAbstractClass@@PAVPlanningNodeClass@@@Z": 6382208,
     "?Planning_Path_Add@@YIXPAVTechnoClass@@PAVPlanningNodeClass@@@Z": 6382416,
@@ -392,13 +404,13 @@
     "?Planning_Event_Result@@YIHPAVPlanningTokenClass@@PBVEventClass@@@Z": 6386144,
     "?Planning_Set_Pending_Refusal@@YIXH@Z": 6386240,
     "?Planning_Refuse_Command@@YIXH@Z": 6386256,
+    "?Planning_Left_Release@@YG_NVPoint2D@@@Z": 6387328,
     "?Planning_Right_Press@@YGXHH@Z": 6387808,
     "?Planning_Right_Release@@YGXHH@Z": 6387872,
+    "?Planning_Mouse_AI@@YG_NHH@Z": 6387968,
     "?Planning_Selected_Node@@YIPAVPlanningNodeClass@@XZ": 6388224,
-    "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z": 6388240,
     "?Planning_Set_Picked_Node@@YIXPAVPlanningNodeClass@@@Z": 6388432,
     "?Planning_Get_Picked_Node@@YIPAVPlanningNodeClass@@XZ": 6388448,
-    "?Planning_Connect_Selection@@YAXXZ": 6388464,
     "?Planning_Set_Selected_Node@@YIXPAVPlanningNodeClass@@@Z": 6389280,
     "?Planning_Clear_Selected_Node@@YAXXZ": 6389296,
     "?Planning_Redraw@@YAXXZ": 6389312,
@@ -551,7 +563,7 @@
           "resolved": 10970792
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357424,
@@ -603,7 +615,7 @@
           "resolved": 10971032
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357472,
@@ -655,7 +667,7 @@
           "resolved": 10971008
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357504,
@@ -707,7 +719,7 @@
           "resolved": 10971000
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357536,
@@ -759,7 +771,7 @@
           "resolved": 10970832
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357568,
@@ -811,7 +823,7 @@
           "resolved": 10970728
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357600,
@@ -895,7 +907,7 @@
           "resolved": 10971040
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357632,
@@ -955,7 +967,7 @@
           "resolved": 10970864
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357696,
@@ -1015,7 +1027,7 @@
           "resolved": 10970928
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357744,
@@ -1075,7 +1087,7 @@
           "resolved": 10971028
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357792,
@@ -1119,7 +1131,7 @@
           "resolved": 10970790
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357840,
@@ -1171,7 +1183,7 @@
           "resolved": 10970912
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357856,
@@ -1231,7 +1243,7 @@
           "resolved": 10970748
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357888,
@@ -1339,7 +1351,7 @@
           "resolved": 1516975
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357920,
@@ -1447,7 +1459,7 @@
           "resolved": 10970704
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6357984,
@@ -1555,7 +1567,7 @@
           "resolved": 1516815
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358080,
@@ -1663,7 +1675,7 @@
           "resolved": 10970976
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358144,
@@ -1771,7 +1783,7 @@
           "resolved": 1516655
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358240,
@@ -1879,7 +1891,7 @@
           "resolved": 10970888
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358304,
@@ -1987,7 +1999,7 @@
           "resolved": 1516495
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358400,
@@ -2095,7 +2107,7 @@
           "resolved": 10970672
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358464,
@@ -2203,7 +2215,7 @@
           "resolved": 1516335
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358560,
@@ -2311,7 +2323,7 @@
           "resolved": 10970848
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358624,
@@ -2419,7 +2431,7 @@
           "resolved": 1516175
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358720,
@@ -2527,7 +2539,7 @@
           "resolved": 10970944
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358784,
@@ -2554,7 +2566,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358880,
@@ -2599,7 +2611,7 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358896,
@@ -2659,7 +2671,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6358944,
@@ -2686,7 +2698,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359008,
@@ -2713,7 +2725,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359040,
@@ -2740,7 +2752,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359056,
@@ -2767,7 +2779,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359072,
@@ -2794,7 +2806,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359088,
@@ -2821,7 +2833,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359104,
@@ -2848,7 +2860,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359120,
@@ -2875,7 +2887,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359136,
@@ -2902,7 +2914,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359152,
@@ -2929,7 +2941,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359168,
@@ -2956,7 +2968,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359200,
@@ -2983,7 +2995,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359232,
@@ -3010,7 +3022,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359248,
@@ -3037,7 +3049,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359264,
@@ -3064,7 +3076,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359280,
@@ -3091,7 +3103,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359296,
@@ -3118,7 +3130,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359312,
@@ -3145,7 +3157,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359344,
@@ -3172,7 +3184,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359360,
@@ -3208,7 +3220,7 @@
           "resolved": 32
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359376,
@@ -3260,7 +3272,7 @@
           "resolved": 675391
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359424,
@@ -3328,7 +3340,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359584,
@@ -3372,7 +3384,7 @@
           "resolved": 8028828
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359680,
@@ -3600,7 +3612,7 @@
           "resolved": 1511747
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6359792,
@@ -3627,7 +3639,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360080,
@@ -3655,7 +3667,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360096,
@@ -3692,7 +3704,7 @@
           "resolved": 788468
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360112,
@@ -3728,7 +3740,7 @@
           "resolved": 788418
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360160,
@@ -3764,7 +3776,7 @@
           "resolved": 788290
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360288,
@@ -3824,7 +3836,7 @@
           "resolved": 3439
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360416,
@@ -4052,7 +4064,7 @@
           "resolved": 1510651
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6360688,
@@ -4079,7 +4091,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361168,
@@ -4106,7 +4118,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361232,
@@ -4133,7 +4145,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361248,
@@ -4160,7 +4172,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361296,
@@ -4187,7 +4199,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361376,
@@ -4214,7 +4226,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361456,
@@ -4250,7 +4262,7 @@
           "resolved": 4294965226
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361472,
@@ -4318,7 +4330,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361536,
@@ -4370,7 +4382,7 @@
           "resolved": 84
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361648,
@@ -4397,7 +4409,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361808,
@@ -4433,7 +4445,7 @@
           "resolved": 4294964827
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361872,
@@ -4501,7 +4513,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6361952,
@@ -4537,7 +4549,7 @@
           "resolved": 786467
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362096,
@@ -4564,7 +4576,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362176,
@@ -4591,7 +4603,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362224,
@@ -4618,7 +4630,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362304,
@@ -4645,7 +4657,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362320,
@@ -4672,7 +4684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362336,
@@ -4699,7 +4711,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362368,
@@ -4726,7 +4738,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362416,
@@ -4753,7 +4765,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362464,
@@ -4780,7 +4792,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362480,
@@ -4807,7 +4819,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362560,
@@ -4843,7 +4855,7 @@
           "resolved": 4294964120
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362576,
@@ -4879,7 +4891,7 @@
           "resolved": 4294964063
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362640,
@@ -4947,7 +4959,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362688,
@@ -5015,7 +5027,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362800,
@@ -5042,7 +5054,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362896,
@@ -5069,7 +5081,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362912,
@@ -5121,7 +5133,7 @@
           "resolved": 19
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362928,
@@ -5189,7 +5201,7 @@
           "resolved": 4294963424
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6362992,
@@ -5297,7 +5309,7 @@
           "resolved": 4292824720
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6363360,
@@ -5373,7 +5385,7 @@
           "resolved": 4294962686
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6363776,
@@ -5473,7 +5485,7 @@
           "resolved": 35575
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6364112,
@@ -5573,7 +5585,7 @@
           "resolved": 10970972
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6364704,
@@ -5609,7 +5621,7 @@
           "resolved": 1506878
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6364896,
@@ -5645,7 +5657,7 @@
           "resolved": 783555
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365024,
@@ -5672,7 +5684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365088,
@@ -5716,7 +5728,7 @@
           "resolved": 4294961454
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365136,
@@ -5743,7 +5755,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365328,
@@ -5770,10 +5782,142 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365376,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6365424,
+      "method": "006120f0",
+      "body_bytes": 309,
+      "body_sha256": "b3d6952eba826f2c1d08f6c9e015700eccc7521312439edd22d22a23b5785d55",
+      "padding_bytes": 11,
+      "full_extent_bytes": 320,
+      "full_extent_sha256": "147a3c95be4ecb01ecff344d558d5efed4d183235e8965feab6ea7e2609c063b",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_Lead_Box@PlanningNodeClass@@QAEXH@Z",
+      "symbol_prefix": "?Draw_Lead_Box@PlanningNodeClass@@QAEXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 20,
+          "symbol": "?Get_Title_Screen_Area@@YI?AV?$TRect@H@@XZ",
+          "target": 7282480,
+          "addend": 0,
+          "resolved": 917039
+        },
+        {
+          "offset": 57,
+          "kind": 20,
+          "symbol": "?Planning_Event_Coord@@YI?AVCoord@@ABVEventClass@@@Z",
+          "target": 6359424,
+          "addend": 0,
+          "resolved": 4294961235
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
+          "target": 6358944,
+          "addend": 0,
+          "resolved": 4294960722
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 215,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 8,
+          "resolved": 10970848
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 16,
+          "resolved": 10970856
+        },
+        {
+          "offset": 231,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 13,
+          "resolved": 10970853
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 20,
+          "resolved": 10970860
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 0,
+          "resolved": 10970840
+        },
+        {
+          "offset": 265,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 0,
+          "resolved": 10970840
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 16,
+          "resolved": 10970856
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 16,
+          "resolved": 10970856
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 4,
+          "resolved": 10970844
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6365424,
       "source_quality_family": "rebuild"
     },
     {
@@ -5854,7 +5998,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365744,
@@ -5922,7 +6066,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6365952,
@@ -5998,7 +6142,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6366240,
@@ -6025,7 +6169,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6366576,
@@ -6261,7 +6405,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6366672,
@@ -6457,7 +6601,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6367200,
@@ -6653,7 +6797,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6367664,
@@ -6680,7 +6824,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368080,
@@ -6748,7 +6892,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368144,
@@ -6800,7 +6944,7 @@
           "resolved": 4294960723
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368304,
@@ -6836,7 +6980,7 @@
           "resolved": 8028700
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368448,
@@ -7032,7 +7176,7 @@
           "resolved": 1502886
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368544,
@@ -7059,7 +7203,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368944,
@@ -7280,7 +7424,7 @@
           "resolved": 10970896
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6368960,
@@ -7508,7 +7652,7 @@
           "resolved": 1501845
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6369456,
@@ -7535,7 +7679,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6369984,
@@ -7563,7 +7707,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370000,
@@ -7591,7 +7735,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370016,
@@ -7619,7 +7763,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370032,
@@ -7647,7 +7791,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370064,
@@ -7811,7 +7955,7 @@
           "resolved": 34966
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370096,
@@ -7887,7 +8031,7 @@
           "resolved": 4294960348
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6370640,
@@ -7963,7 +8107,7 @@
           "resolved": 4294959886
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6371104,
@@ -8103,7 +8247,7 @@
           "resolved": 1499897
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6371568,
@@ -8130,7 +8274,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6371968,
@@ -8157,7 +8301,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372144,
@@ -8185,7 +8329,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372160,
@@ -8212,7 +8356,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372192,
@@ -8240,7 +8384,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372208,
@@ -8268,7 +8412,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372224,
@@ -8296,7 +8440,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372256,
@@ -8323,7 +8467,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372352,
@@ -8350,7 +8494,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372432,
@@ -8377,7 +8521,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372448,
@@ -8404,7 +8548,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372480,
@@ -8431,7 +8575,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372512,
@@ -8458,7 +8602,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372608,
@@ -8485,7 +8629,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372640,
@@ -8512,7 +8656,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372672,
@@ -8540,7 +8684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372704,
@@ -8568,7 +8712,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372720,
@@ -8596,7 +8740,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372736,
@@ -8623,7 +8767,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372768,
@@ -8651,7 +8795,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372784,
@@ -8679,7 +8823,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372800,
@@ -8707,7 +8851,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372816,
@@ -8735,7 +8879,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372832,
@@ -8771,7 +8915,7 @@
           "resolved": 10970752
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372864,
@@ -8864,7 +9008,7 @@
           "resolved": 10970992
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372880,
@@ -8900,7 +9044,7 @@
           "resolved": 11
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372928,
@@ -9360,7 +9504,7 @@
           "resolved": 10970820
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6372944,
@@ -9452,7 +9596,7 @@
           "resolved": 1497592
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374128,
@@ -9561,7 +9705,7 @@
           "resolved": 10970700
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374224,
@@ -9781,7 +9925,7 @@
           "resolved": 10970800
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374368,
@@ -9865,7 +10009,7 @@
           "resolved": 10970952
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374640,
@@ -9973,7 +10117,7 @@
           "resolved": 10970896
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374736,
@@ -10041,7 +10185,7 @@
           "resolved": 10971046
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374880,
@@ -10141,7 +10285,7 @@
           "resolved": 10970972
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6374992,
@@ -10265,7 +10409,7 @@
           "resolved": 10970981
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6375104,
@@ -10333,7 +10477,7 @@
           "resolved": 10970752
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6375264,
@@ -10449,11 +10593,48 @@
           "resolved": 10970752
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6375344,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6375488,
+      "method": "00614840",
+      "body_bytes": 6,
+      "body_sha256": "70b96c286b0c1738a4caf4d7e9a6e1bd387c037d69ae803b6514a7405d336671",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "51293c0f8f6b2616a626dc9b955438ea889dbb72cfcfb51effd04122986910e2",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Is_Active@@YI_NXZ",
+      "symbol_prefix": "?Planning_Is_Active@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PlanningModeActive@PlanningNodeClass@@2_NA",
+          "target": 10971044,
+          "addend": 0,
+          "resolved": 10971044
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6375488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
     },
     {
       "entry": 6375504,
@@ -10573,7 +10754,7 @@
           "resolved": 27601
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6375504,
@@ -10641,7 +10822,7 @@
           "resolved": 105269
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6376096,
@@ -10677,7 +10858,7 @@
           "resolved": 10971044
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6376272,
@@ -10713,7 +10894,7 @@
           "resolved": 105174
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6376304,
@@ -11285,7 +11466,7 @@
           "resolved": 1043037
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6377152,
@@ -11409,7 +11590,7 @@
           "resolved": 10970700
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6378336,
@@ -11541,7 +11722,7 @@
           "resolved": 24874
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6378624,
@@ -11729,7 +11910,7 @@
           "resolved": 10970896
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6378976,
@@ -11829,7 +12010,7 @@
           "resolved": 10970844
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6379456,
@@ -11954,7 +12135,7 @@
           "resolved": 768834
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6379552,
@@ -11981,7 +12162,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6379760,
@@ -12026,7 +12207,7 @@
           "resolved": 655254
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6379792,
@@ -12053,7 +12234,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6379968,
@@ -12081,7 +12262,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6380000,
@@ -12117,7 +12298,7 @@
           "resolved": 653918
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6380048,
@@ -12169,7 +12350,7 @@
           "resolved": 4294948194
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6380160,
@@ -12269,7 +12450,7 @@
           "resolved": 10970668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6380384,
@@ -12354,10 +12535,234 @@
           "resolved": 10970848
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6380480,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6380544,
+      "method": "00615c00",
+      "body_bytes": 294,
+      "body_sha256": "af180ec84081ca70124234b8dac7462b5c55c8ae543384ff13078de8bbd722f3",
+      "padding_bytes": 10,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "1c8d7d740fd448e1e9957996182a8246f399ab8837d0945cef0d231cc9a6e60e",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Hover@@YAXXZ",
+      "symbol_prefix": "?Planning_Hover@@YAXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PlanningDragging@@3_NA",
+          "target": 10970992,
+          "addend": 0,
+          "resolved": 10970992
+        },
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 33,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 16,
+          "resolved": 10970856
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 4,
+          "resolved": 10970844
+        },
+        {
+          "offset": 77,
+          "kind": 20,
+          "symbol": "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ",
+          "target": 6361536,
+          "addend": 0,
+          "resolved": 4294948207
+        },
+        {
+          "offset": 98,
+          "kind": 20,
+          "symbol": "?Planning_Centered_Rect@@YI?AV?$TRect@H@@VPoint2D@@H@Z",
+          "target": 6361808,
+          "addend": 0,
+          "resolved": 4294948458
+        },
+        {
+          "offset": 139,
+          "kind": 20,
+          "symbol": "?Planning_Inflate@@YIXAAV?$TRect@H@@H@Z",
+          "target": 6366576,
+          "addend": 0,
+          "resolved": 4294953185
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 206,
+          "kind": 6,
+          "symbol": "?PlanningBlockedNode@@3HA",
+          "target": 10970876,
+          "addend": 0,
+          "resolved": 10970876
+        },
+        {
+          "offset": 225,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "?PlanningPickedNode@@3PAVPlanningNodeClass@@A",
+          "target": 10970872,
+          "addend": 0,
+          "resolved": 10970872
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z",
+          "target": 6388240,
+          "addend": 0,
+          "resolved": 7437
+        },
+        {
+          "offset": 266,
+          "kind": 6,
+          "symbol": "?PlanningBlockedNode@@3HA",
+          "target": 10970876,
+          "addend": 0,
+          "resolved": 10970876
+        },
+        {
+          "offset": 276,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 285,
+          "kind": 20,
+          "symbol": "?Dump@PlanningNodeClass@@QAEXXZ",
+          "target": 6363360,
+          "addend": 0,
+          "resolved": 4294949823
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6380544,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6380848,
+      "method": "00615d30",
+      "body_bytes": 173,
+      "body_sha256": "0a7b16969482ff7767e03e3c16fc245f5e9ede78dff6060eabfdf766f0b0ac89",
+      "padding_bytes": 3,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "4b54a41007d9961f56b210da3bc18c44b7787b111367791d8be22d1dfa4543e3",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Node_At@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "symbol_prefix": "?Planning_Node_At@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
+          "target": 6361472,
+          "addend": 0,
+          "resolved": 4294947891
+        },
+        {
+          "offset": 58,
+          "kind": 20,
+          "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
+          "target": 6358944,
+          "addend": 0,
+          "resolved": 4294945330
+        },
+        {
+          "offset": 86,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4292960070
+        },
+        {
+          "offset": 151,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6380848,
       "source_quality_family": "rebuild"
     },
     {
@@ -12502,7 +12907,7 @@
           "resolved": 1040114
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6381024,
@@ -12642,7 +13047,7 @@
           "resolved": 1039889
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6381264,
@@ -12710,10 +13115,146 @@
           "resolved": 10706356
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6381488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6381680,
+      "method": "00616070",
+      "body_bytes": 207,
+      "body_sha256": "200bbb9791d40b61797abbd23aebc299670429a5d958d6b93a9b074402900923",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "33ae8dc5596871afa70d009f387642dd6811ca0314ca1931402d093656b5642b",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Pick_Node@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "symbol_prefix": "?Planning_Pick_Node@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?Unknown1@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970664,
+          "addend": 16,
+          "resolved": 10970680
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?Unknown1@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970664,
+          "addend": 4,
+          "resolved": 10970668
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
+          "target": 6361472,
+          "addend": 0,
+          "resolved": 4294947038
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
+          "target": 6358944,
+          "addend": 0,
+          "resolved": 4294944477
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4292959217
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6381680,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6381888,
+      "method": "00616140",
+      "body_bytes": 207,
+      "body_sha256": "7fecbe654693627a355ac968c199c194045eaad783d56591a67a0e3108cb1bde",
+      "padding_bytes": 1,
+      "full_extent_bytes": 208,
+      "full_extent_sha256": "bb6cc423295a9d067eefa31c5965815e1c605fab9a1e8e8bb92f51c0f5764ac8",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Pick_Drawn@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "symbol_prefix": "?Planning_Pick_Drawn@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 16,
+          "resolved": 10970856
+        },
+        {
+          "offset": 31,
+          "kind": 6,
+          "symbol": "?DrawnNodes@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970840,
+          "addend": 4,
+          "resolved": 10970844
+        },
+        {
+          "offset": 46,
+          "kind": 20,
+          "symbol": "?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
+          "target": 6361472,
+          "addend": 0,
+          "resolved": 4294946830
+        },
+        {
+          "offset": 79,
+          "kind": 20,
+          "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
+          "target": 6358944,
+          "addend": 0,
+          "resolved": 4294944269
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4292959009
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6381888,
       "source_quality_family": "rebuild"
     },
     {
@@ -12762,7 +13303,7 @@
           "resolved": 4294944576
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6382096,
@@ -12838,7 +13379,7 @@
           "resolved": 99129
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6382208,
@@ -12986,7 +13527,7 @@
           "resolved": 215
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6382416,
@@ -13070,7 +13611,7 @@
           "resolved": 4294947298
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6382816,
@@ -13194,7 +13735,7 @@
           "resolved": 10971024
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6383008,
@@ -13262,7 +13803,7 @@
           "resolved": 4294947485
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6383600,
@@ -13338,7 +13879,7 @@
           "resolved": 4294946092
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6383968,
@@ -13382,7 +13923,7 @@
           "resolved": 10751076
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6384448,
@@ -13409,7 +13950,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6384592,
@@ -13445,7 +13986,7 @@
           "resolved": 10970756
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6384896,
@@ -13490,7 +14031,7 @@
           "resolved": 10970756
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6384928,
@@ -13526,7 +14067,7 @@
           "resolved": 10970756
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6384976,
@@ -13722,7 +14263,7 @@
           "resolved": 1036112
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385008,
@@ -13814,7 +14355,7 @@
           "resolved": 1036018
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385264,
@@ -13922,7 +14463,7 @@
           "resolved": 10970804
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385344,
@@ -14014,7 +14555,7 @@
           "resolved": 10970804
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385488,
@@ -14066,7 +14607,7 @@
           "resolved": 911635
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385584,
@@ -14150,7 +14691,7 @@
           "resolved": 1035671
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385616,
@@ -14338,7 +14879,7 @@
           "resolved": 1035449
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385696,
@@ -14526,7 +15067,7 @@
           "resolved": 1035220
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6385920,
@@ -14553,7 +15094,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6386144,
@@ -14589,7 +15130,7 @@
           "resolved": 10970960
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6386240,
@@ -14794,10 +15335,174 @@
           "resolved": 1034869
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6386256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6387328,
+      "method": "00617680",
+      "body_bytes": 466,
+      "body_sha256": "e3ef31d75998e8989e71ca4471ad2c6edc684a245ad4463df848637c54acf389",
+      "padding_bytes": 14,
+      "full_extent_bytes": 480,
+      "full_extent_sha256": "b449432977edcbb9c59697efd36c12ce804f800ca043fd689b95f799dffdbd63",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Left_Release@@YG_NVPoint2D@@@Z",
+      "symbol_prefix": "?Planning_Left_Release@@YG_NVPoint2D@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PlanningModeActive@PlanningNodeClass@@2_NA",
+          "target": 10971044,
+          "addend": 0,
+          "resolved": 10971044
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?PlanningPickedNode@@3PAVPlanningNodeClass@@A",
+          "target": 10970872,
+          "addend": 0,
+          "resolved": 10970872
+        },
+        {
+          "offset": 64,
+          "kind": 6,
+          "symbol": "?Unknown1@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970664,
+          "addend": 16,
+          "resolved": 10970680
+        },
+        {
+          "offset": 77,
+          "kind": 6,
+          "symbol": "?Unknown1@PlanningNodeClass@@2V?$DynamicVectorClass@PAVPlanningNodeClass@@@@A",
+          "target": 10970664,
+          "addend": 4,
+          "resolved": 10970668
+        },
+        {
+          "offset": 92,
+          "kind": 20,
+          "symbol": "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ",
+          "target": 6361536,
+          "addend": 0,
+          "resolved": 4294941408
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Planning_Centered_Rect@@YI?AV?$TRect@H@@VPoint2D@@H@Z",
+          "target": 6361808,
+          "addend": 0,
+          "resolved": 4294941659
+        },
+        {
+          "offset": 154,
+          "kind": 20,
+          "symbol": "?Planning_Inflate@@YIXAAV?$TRect@H@@H@Z",
+          "target": 6366576,
+          "addend": 0,
+          "resolved": 4294946386
+        },
+        {
+          "offset": 222,
+          "kind": 20,
+          "symbol": "?Lead_Pixel@PlanningNodeClass@@QAE?AVPoint2D@@XZ",
+          "target": 6361536,
+          "addend": 0,
+          "resolved": 4294941278
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Planning_Centered_Rect@@YI?AV?$TRect@H@@VPoint2D@@H@Z",
+          "target": 6361808,
+          "addend": 0,
+          "resolved": 4294941529
+        },
+        {
+          "offset": 284,
+          "kind": 20,
+          "symbol": "?Planning_Inflate@@YIXAAV?$TRect@H@@H@Z",
+          "target": 6366576,
+          "addend": 0,
+          "resolved": 4294946256
+        },
+        {
+          "offset": 345,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 378,
+          "kind": 20,
+          "symbol": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+          "target": 5894240,
+          "addend": 0,
+          "resolved": 4294473826
+        },
+        {
+          "offset": 383,
+          "kind": 20,
+          "symbol": "?Planning_Connect_Selection@@YAXXZ",
+          "target": 6388464,
+          "addend": 0,
+          "resolved": 749
+        },
+        {
+          "offset": 396,
+          "kind": 20,
+          "symbol": "?Planning_Selection_Node_State@@YIHPAVPlanningNodeClass@@@Z",
+          "target": 6388240,
+          "addend": 0,
+          "resolved": 512
+        },
+        {
+          "offset": 425,
+          "kind": 6,
+          "symbol": "?PlanningPickedNode@@3PAVPlanningNodeClass@@A",
+          "target": 10970872,
+          "addend": 0,
+          "resolved": 10970872
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6387328,
       "source_quality_family": "rebuild"
     },
     {
@@ -14878,7 +15583,7 @@
           "resolved": 10970924
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6387808,
@@ -14962,10 +15667,118 @@
           "resolved": 10970800
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6387872,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6387968,
+      "method": "00617900",
+      "body_bytes": 252,
+      "body_sha256": "9071ac602855cb03e1c57a1a9e9a763756607dff7a36247be58b6979f12afa3e",
+      "padding_bytes": 4,
+      "full_extent_bytes": 256,
+      "full_extent_sha256": "799a5e9a374224c00ad0c3a62e9479da3270b487eb03cce9b6cbb4ba07a3af53",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Mouse_AI@@YG_NHH@Z",
+      "symbol_prefix": "?Planning_Mouse_AI@@YG_NHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PlanningModeActive@PlanningNodeClass@@2_NA",
+          "target": 10971044,
+          "addend": 0,
+          "resolved": 10971044
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "?PlanningDragging@@3_NA",
+          "target": 10970992,
+          "addend": 0,
+          "resolved": 10970992
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?PlanningPickedNode@@3PAVPlanningNodeClass@@A",
+          "target": 10970872,
+          "addend": 0,
+          "resolved": 10970872
+        },
+        {
+          "offset": 68,
+          "kind": 20,
+          "symbol": "?Lead_Coord@PlanningNodeClass@@QAE?AVCoord@@XZ",
+          "target": 6361472,
+          "addend": 0,
+          "resolved": 4294940728
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "?Planning_Coord_Pixel@@YI?AVPoint2D@@ABVCoord@@@Z",
+          "target": 6358944,
+          "addend": 0,
+          "resolved": 4294938167
+        },
+        {
+          "offset": 129,
+          "kind": 20,
+          "symbol": "??0?$TRect@H@@QAE@HHHH@Z",
+          "target": 4373712,
+          "addend": 0,
+          "resolved": 4292952907
+        },
+        {
+          "offset": 194,
+          "kind": 6,
+          "symbol": "?PlanningHoverNode@@3PAVPlanningNodeClass@@A",
+          "target": 10971020,
+          "addend": 0,
+          "resolved": 10971020
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+          "target": 5894240,
+          "addend": 0,
+          "resolved": 4294473325
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6387968,
       "source_quality_family": "rebuild"
     },
     {
@@ -14998,7 +15811,7 @@
           "resolved": 10970800
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6388224,
@@ -15051,7 +15864,7 @@
           "resolved": 760298
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6388240,
@@ -15087,7 +15900,7 @@
           "resolved": 10970872
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6388432,
@@ -15124,7 +15937,7 @@
           "resolved": 10970872
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6388448,
@@ -15345,7 +16158,7 @@
           "resolved": 4294963575
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6388464,
@@ -15397,7 +16210,7 @@
           "resolved": 645617
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6389232,
@@ -15433,7 +16246,7 @@
           "resolved": 10970800
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6389280,
@@ -15470,7 +16283,7 @@
           "resolved": 10970800
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6389296,
@@ -15635,7 +16448,7 @@
           "resolved": 1034
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6389312,
@@ -15815,7 +16628,7 @@
           "resolved": 2946
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6389488,
@@ -15842,7 +16655,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6392752,
@@ -15878,7 +16691,7 @@
           "resolved": 4294930784
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6395920,
@@ -15970,7 +16783,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6396880,
@@ -16086,7 +16899,7 @@
           "resolved": 8728520
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6397088,
@@ -16202,10 +17015,94 @@
           "resolved": 8728520
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6397264,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6397440,
+      "method": "00619e00",
+      "body_bytes": 120,
+      "body_sha256": "875613c2645569ad57945b112e95c26b6ad1489ae74087cf2f81355ea48cd448",
+      "padding_bytes": 8,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "e001e003bc49deec7b15aeaa546211df159d0611743606426c97f42cdd2bd6ee",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Planning_Adjusted_Pixel@@YIHABVRGBClass@@0H@Z",
+      "symbol_prefix": "?Planning_Adjusted_Pixel@@YIHABVRGBClass@@0H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?Adjust@RGBClass@@QAEXHABV1@@Z",
+          "target": 6541088,
+          "addend": 0,
+          "resolved": 143615
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 70,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 78,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 86,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        }
+      ],
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
+      "source": "rebuild/src/planmgr.cpp",
+      "population": "rebuild-planmgr",
+      "source_order": 6397440,
       "source_quality_family": "rebuild"
     },
     {
@@ -16326,7 +17223,7 @@
           "resolved": 8728512
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6397568,
@@ -16394,7 +17291,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6397856,
@@ -16518,7 +17415,7 @@
           "resolved": 8728512
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398048,
@@ -16562,7 +17459,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398352,
@@ -16606,7 +17503,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398480,
@@ -16642,7 +17539,7 @@
           "resolved": 902334
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398608,
@@ -16679,7 +17576,7 @@
           "resolved": 902286
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398640,
@@ -16724,7 +17621,7 @@
           "resolved": 902248
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398672,
@@ -16784,7 +17681,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398704,
@@ -16884,7 +17781,7 @@
           "resolved": 4293413137
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6398912,
@@ -16984,7 +17881,7 @@
           "resolved": 8624484
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6399392,
@@ -17020,7 +17917,7 @@
           "resolved": 4294966985
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6399648,
@@ -17056,7 +17953,7 @@
           "resolved": 4294966887
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6399728,
@@ -17276,7 +18173,7 @@
           "resolved": 1471722
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6399824,
@@ -17352,7 +18249,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400096,
@@ -17379,7 +18276,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400176,
@@ -17415,7 +18312,7 @@
           "resolved": 1471488
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400288,
@@ -17443,7 +18340,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400336,
@@ -17471,7 +18368,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400368,
@@ -17508,7 +18405,7 @@
           "resolved": 1471392
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400384,
@@ -17536,7 +18433,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400432,
@@ -17564,7 +18461,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400464,
@@ -17601,7 +18498,7 @@
           "resolved": 1471296
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400480,
@@ -17629,7 +18526,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400528,
@@ -17657,7 +18554,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400560,
@@ -17694,7 +18591,7 @@
           "resolved": 1471200
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400576,
@@ -17722,7 +18619,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400624,
@@ -17750,7 +18647,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400656,
@@ -17787,7 +18684,7 @@
           "resolved": 1471104
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400672,
@@ -17815,7 +18712,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400720,
@@ -17843,7 +18740,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400752,
@@ -17871,7 +18768,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400768,
@@ -17916,7 +18813,7 @@
           "resolved": 1470848
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6400832,
@@ -17953,7 +18850,7 @@
           "resolved": 1470771
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401008,
@@ -17981,7 +18878,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401056,
@@ -18008,7 +18905,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401120,
@@ -18061,7 +18958,7 @@
           "resolved": 8028860
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401152,
@@ -18106,7 +19003,7 @@
           "resolved": 1470445
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401248,
@@ -18134,7 +19031,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401424,
@@ -18162,7 +19059,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401504,
@@ -18190,7 +19087,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401552,
@@ -18235,7 +19132,7 @@
           "resolved": 1470064
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401616,
@@ -18272,7 +19169,7 @@
           "resolved": 1469987
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401792,
@@ -18300,7 +19197,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401840,
@@ -18328,7 +19225,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401904,
@@ -18381,7 +19278,7 @@
           "resolved": 8028828
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6401936,
@@ -18426,7 +19323,7 @@
           "resolved": 1469661
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402032,
@@ -18454,7 +19351,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402208,
@@ -18482,7 +19379,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402256,
@@ -18527,7 +19424,7 @@
           "resolved": 1469360
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402320,
@@ -18564,7 +19461,7 @@
           "resolved": 1469283
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402496,
@@ -18592,7 +19489,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402544,
@@ -18620,7 +19517,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402608,
@@ -18665,7 +19562,7 @@
           "resolved": 1469053
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402640,
@@ -18693,7 +19590,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402816,
@@ -18721,7 +19618,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402896,
@@ -18749,7 +19646,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6402960,
@@ -18777,7 +19674,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403040,
@@ -18805,7 +19702,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403088,
@@ -18850,7 +19747,7 @@
           "resolved": 1468528
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403152,
@@ -18887,7 +19784,7 @@
           "resolved": 1468451
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403328,
@@ -18915,7 +19812,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403376,
@@ -18943,7 +19840,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403440,
@@ -18988,7 +19885,7 @@
           "resolved": 1468221
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403472,
@@ -19016,7 +19913,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403648,
@@ -19044,7 +19941,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403728,
@@ -19072,7 +19969,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403776,
@@ -19100,7 +19997,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403856,
@@ -19145,7 +20042,7 @@
           "resolved": 1467760
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6403920,
@@ -19182,7 +20079,7 @@
           "resolved": 1467683
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404096,
@@ -19210,7 +20107,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404144,
@@ -19238,7 +20135,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404208,
@@ -19283,7 +20180,7 @@
           "resolved": 1467453
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404240,
@@ -19311,7 +20208,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404416,
@@ -19339,7 +20236,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404496,
@@ -19367,7 +20264,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404576,
@@ -19420,7 +20317,7 @@
           "resolved": 1467115
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404624,
@@ -19473,7 +20370,7 @@
           "resolved": 1467035
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404704,
@@ -19526,7 +20423,7 @@
           "resolved": 1466955
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404784,
@@ -19579,7 +20476,7 @@
           "resolved": 1466875
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404864,
@@ -19632,7 +20529,7 @@
           "resolved": 1466795
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6404944,
@@ -19685,7 +20582,7 @@
           "resolved": 1466715
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405024,
@@ -19738,7 +20635,7 @@
           "resolved": 1466635
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405104,
@@ -19791,7 +20688,7 @@
           "resolved": 1466555
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405184,
@@ -19844,7 +20741,7 @@
           "resolved": 1466475
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405264,
@@ -19897,7 +20794,7 @@
           "resolved": 1466395
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405344,
@@ -19925,7 +20822,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405424,
@@ -19970,7 +20867,7 @@
           "resolved": 1466989
         }
       ],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405488,
@@ -19998,7 +20895,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405568,
@@ -20026,7 +20923,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d77bf303bcb91eed1fbcc7cf475b5cf339aac9ebb3145771b7b8682051d33563",
+      "source_sha256": "c23e482b12d790dfa7380997f092d1141f5050a2f0670f1adf3378ba59ecd9f4",
       "source": "rebuild/src/planmgr.cpp",
       "population": "rebuild-planmgr",
       "source_order": 6405632,

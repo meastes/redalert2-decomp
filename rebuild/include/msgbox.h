@@ -65,3 +65,6 @@ class WWMessageBox
 };
 
 bool Prompt_Dialog(wchar_t const * text); // RA2: 0x00600C80; shows the text and returns false when the player cancels
+
+class Surface;
+void __fastcall Darken_Surface(Surface * surface, bool update); // RA2: 0x5159B0, defined in init.cpp

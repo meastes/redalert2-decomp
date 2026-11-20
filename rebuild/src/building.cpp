@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -6620,18 +6621,17 @@ void BuildingClass::Death_Announcement(TechnoClass const * source) const
  * HISTORY:                                                                                    *
  *   07/04/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 8 bytes differ (adopted text)
+// RA2: ra2-decomp's twin (Yuri's Revenge 0x0044D7D0): the 32-facing turret direction is scaled to a DirType
 DirType BuildingClass::Fire_Direction(void) const
 {
 	if (TarCom == NULL) {
 		return((Dir256)DirType(PrimaryFacing.Current()).Round_To_256());
 	}
 	if (Is_Turret_Equipped() && !Class->IsTurretAnimAVoxel) {
-		return(PrimaryFacing.Current().As_Dir32());
+		return(PrimaryFacing.Current().As_Dir32() * (0x10000 / 32));
 	}
 	return(Aim_Direction(TarCom));
 }
-#endif
 
 
 

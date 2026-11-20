@@ -82043,7 +82043,8 @@
    "?Resize@?$VectorClass@PAVFoggedObjectClass@@@@UAE_NHPBQAVFoggedObjectClass@@@Z": "004548a0",
    "?Clear@?$VectorClass@PAVFoggedObjectClass@@@@UAEXXZ": "00454950",
    "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z": "00454980",
-   "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z": "004549c0"
+   "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z": "004549c0",
+   "?Fire_Direction@BuildingClass@@UBE?AVDirType@@XZ": "004491e0"
   },
   "partial_ok": true
  },
@@ -84345,7 +84346,11 @@
    "?Take_Damage@TechnoClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAV1@_N3@Z": "006cdc40",
    "?Can_Fire@TechnoClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z": "006c9260",
    "?Greatest_Threat@TechnoClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z": "006c6530",
-   "?Draw_Voxel@TechnoClass@@UBEXABUVoxelDataStruct@@HHPAV?$IndexClass@HPAUEntry@StaticBufferClass@@@@ABV?$TRect@H@@ABVPoint2D@@ABVMatrix3D@@HW4ShapeFlags_Type@@@Z": "006d1d00"
+   "?Draw_Voxel@TechnoClass@@UBEXABUVoxelDataStruct@@HHPAV?$IndexClass@HPAUEntry@StaticBufferClass@@@@ABV?$TRect@H@@ABVPoint2D@@ABVMatrix3D@@HW4ShapeFlags_Type@@@Z": "006d1d00",
+   "_?_techno_zadj_ramp1@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f7124",
+   "_?_techno_zadj_ramp2@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f7128",
+   "_?_techno_zadj_rock@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f712c",
+   "?Get_Z_Adjust@TechnoClass@@UBEHXZ": "006cfea0"
   },
   "partial_ok": true
  },
@@ -87105,7 +87110,9 @@
    "?Center_Coord@CellClass@@UBE?AVCoord@@XZ": "0047ba50",
    "?On_Ground@CellClass@@UBE_NXZ": "0047b9f0",
    "?As_Coord@CellClass@@UBE?AVCoord@@XZ": "0047baa0",
-   "?CellCount@@3HA": "00a35f28"
+   "?CellCount@@3HA": "00a35f28",
+   "_?_facings@?FK@??Recalc_Attributes@CellClass@@QAEXH@Z@4PAW4FacingType@@A": "007d2b08",
+   "_?_facings@?FK@??Recalc_Attributes@CellClass@@QAEXH@Z@4QBW4FacingType@@B": "007d2b08"
   },
   "partial_ok": true
  },
@@ -107261,7 +107268,8 @@
    "?Draw_It@WaveClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "00722530",
    "_?$S162@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4EA": "00af9140",
    "_?WaveSize@?1??Build_Wave_Shape@WaveClass@@AAEXABVCoord@@0@Z@4PAY03VVector3@@A": "00af9148",
-   "_WaveLengthFactor": "007aec8c"
+   "_WaveLengthFactor": "007aec8c",
+   "_$E163": "007241f0"
   },
   "partial_ok": true
  },
@@ -117895,7 +117903,8 @@
    "_DetailLabels": "007dfd80",
    "_DifficultyLabels": "007dfd8c",
    "_ScrollLabels": "007dfd98",
-   "_InitialResolution": "007dfdb4"
+   "_InitialResolution": "007dfdb4",
+   "_$E185": "00542150"
   },
   "partial_ok": true
  },
@@ -127309,7 +127318,7 @@
     "entry": "006120f0",
     "body": 309,
     "padding": 11,
-    "symbol": "?Draw_Marker@PlanningNodeClass@@QAEXH@Z",
+    "symbol": "?Draw_Lead_Box@PlanningNodeClass@@QAEXH@Z",
     "main_symbol": "?Draw_Marker@PlanningNodeClass@@QAEXH@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -127815,7 +127824,9 @@
     "padding": 0,
     "symbol": "?Planning_Is_Active@@YI_NXZ",
     "main_symbol": "?Planning_Active_00614840@seed_00614840@@YAEXZ",
-    "main_source": "src/recovered/planmgr/Planning_Active.cpp"
+    "main_source": "src/recovered/planmgr/Planning_Active.cpp",
+    "gap_padding": 10,
+    "gap_population": "population-106"
    },
    {
     "entry": "00614850",
@@ -127973,7 +127984,7 @@
     "entry": "00615d30",
     "body": 173,
     "padding": 3,
-    "symbol": "?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z",
+    "symbol": "?Planning_Node_At@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
     "main_symbol": "?Planning_Node_At@@YGPAVPlanningNodeClass@@HH@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -128005,7 +128016,7 @@
     "entry": "00616070",
     "body": 207,
     "padding": 1,
-    "symbol": "?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z",
+    "symbol": "?Planning_Pick_Node@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
     "main_symbol": "?Planning_Pick_Node@@YGPAVPlanningNodeClass@@HH@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -128013,7 +128024,7 @@
     "entry": "00616140",
     "body": 207,
     "padding": 1,
-    "symbol": "?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z",
+    "symbol": "?Planning_Pick_Drawn@@YIPAVPlanningNodeClass@@VPoint2D@@@Z",
     "main_symbol": "?Planning_Pick_Drawn@@YGPAVPlanningNodeClass@@HH@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -131527,7 +131538,7 @@
     "entry": "006fe5f0",
     "body": 1,
     "padding": 15,
-    "symbol": "?unknown_empty_006fe5f0@@YAXXZ",
+    "symbol": "?Deploy@UnitClass@@QAEXXZ",
     "main_symbol": "?unknown_empty_006fe5f0@@YAXXZ",
     "main_source": "src/recovered/unit.cpp"
    },
@@ -131535,7 +131546,7 @@
     "entry": "006fe600",
     "body": 1,
     "padding": 15,
-    "symbol": "?unknown_empty_006fe600@@YAXXZ",
+    "symbol": "?Undeploy@UnitClass@@QAEXXZ",
     "main_symbol": "?unknown_empty_006fe600@@YAXXZ",
     "main_source": "src/recovered/unit.cpp"
    },
@@ -146302,6 +146313,14 @@
     "padding": 7,
     "symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
     "main_symbol": "??_G?$DynamicVectorClass@PAVGraphicMenuItem@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/grphmenu.cpp"
+   },
+   {
+    "entry": "004df2e0",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PAVGraphicMenuItem@@@@QAE@HPBQAVGraphicMenuItem@@@Z",
+    "main_symbol": "?get@Storage_4df2e0@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/grphmenu.cpp"
    }
   ],

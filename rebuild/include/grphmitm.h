@@ -58,3 +58,5 @@ class GraphicMenuItem
 		 */
 		MSSfxEntry * SelectSound;
 };
+
+GraphicMenuItem * GM_Create_Item_From_INI(Wstring const & name, INIClass const & ini, MSEngine & engine, Point2D & image_size); // RA2: 0x4DFF80; Wstring

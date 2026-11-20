@@ -113,6 +113,79 @@
     "?Put_Int@INIClass@@QAE_NPBD0HH@Z": 5297888,
     "?Save@CCINIClass@@QBEHAAVFileClass@@_N@Z": 4626672,
     "??1RawFileClass@@UAE@XZ": 6523584,
+    "??_C@_0BJ@HFOH@About?5to?5set?5video?5mode?6?$AA@": 8257584,
+    "?VideoModeWidth@@3HA": 8725472,
+    "?VideoModeHeight@@3HA": 8725476,
+    "?Get_Red_Left@DSurface@@SIHXZ": 4897600,
+    "?Get_Red_Right@DSurface@@SIHXZ": 4897584,
+    "?Get_Green_Left@DSurface@@SIHXZ": 4897632,
+    "?Get_Green_Right@DSurface@@SIHXZ": 4897616,
+    "?Get_Blue_Left@DSurface@@SIHXZ": 4897664,
+    "?Get_Blue_Right@DSurface@@SIHXZ": 4897648,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Wait_Blit@@YIXXZ": 4809168,
+    "?WindowedMode@@3_NA": 8723632,
+    "??_C@_0BE@KPL@VisibleRect?3?5?$CFdx?$CFd?6?$AA@": 8257564,
+    "?VisibleRect@@3V?$TRect@H@@A": 8623680,
+    "??_C@_0BI@HBJI@Removing?5mouse?5handler?6?$AA@": 8257540,
+    "?VisibleSurface@@3PAVSurface@@A": 8624464,
+    "??_C@_0BK@HIPO@Deleting?5primary?5surface?6?$AA@": 8257512,
+    "?MainWindow@@3PAUHWND__@@A": 11690968,
+    "?Set_Video_Mode@@YI_NPAUHWND__@@HHH@Z": 4807824,
+    "??_C@_0BI@BHJ@Set_Video_Mode?5failed?4?6?$AA@": 8257488,
+    "??_C@_0BL@GPOC@Restoring?5primary?5surface?6?$AA@": 8257460,
+    "?Create_Primary@DSurface@@SIPAV1@PAPAV1@@Z": 4892256,
+    "??_C@_0BJ@LHDL@Restoring?5mouse?5handler?6?$AA@": 8257432,
+    "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z": 7805472,
+    "??_C@_09JKEA@MOUSE?4SHP?$AA@": 8239460,
+    "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
+    "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z": 5894240,
+    "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z": 5894736,
+    "??_C@_0BI@LBEK@Mode?5apparently?5set?5OK?6?$AA@": 8257408,
+    "?AlternateSurface@@3PAVSurface@@A": 8624472,
+    "??_C@_0BL@PKEH@Deleting?5AlternateSurface?6?$AA@": 8247412,
+    "?HiddenSurface@@3PAVSurface@@A": 8624468,
+    "??_C@_0BI@GOMM@Deleting?5HiddenSurface?6?$AA@": 8247388,
+    "?TileSurface@@3PAVSurface@@A": 8624452,
+    "??_C@_0BG@PLCA@Deleting?5TileSurface?6?$AA@": 8247336,
+    "?SidebarSurface@@3PAVSurface@@A": 8624456,
+    "??_C@_0BJ@GNMK@Deleting?5SidebarSurface?6?$AA@": 8247308,
+    "?CompositeSurface@@3PAVSurface@@A": 8624484,
+    "??_C@_0BL@BPEP@Deleting?5CompositeSurface?6?$AA@": 8247360,
+    "??_C@_0CC@OGBJ@Setting?5new?5window?5size?5to?5?$CFdx?$CFd@": 8257372,
+    "__imp__SetWindowPos@28": 7971792,
+    "??_C@_0BK@KENL@Creating?5primary?5surface?6?$AA@": 8257344,
+    "__imp__SetRect@20": 7972008,
+    "__imp__GetMenu@4": 7971728,
+    "__imp__AdjustWindowRectEx@16": 7971812,
+    "__imp__MoveWindow@24": 7971808,
+    "?Get_Title_Screen_Area@@YI?AV?$TRect@H@@XZ": 7282480,
+    "?SidebarWidth@@3HA": 8052096,
+    "?Allocate_Surfaces@@YI_NABV?$TRect@H@@000_N@Z": 5346560,
+    "??_C@_0BL@JIDJ@Recalc?5color?5remap?5tables?6?$AA@": 8257316,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Reinitialize_Hicolor_Tables@ConvertClass@@SIXHHHHHH@Z": 4743184,
+    "?Calc_Confining_Rect@WWMouseClass@@QAEXXZ": 7806032,
+    "?Set_View_Dimensions@DisplayClass@@UAEXABV?$TRect@H@@@Z": 4820096,
+    "?Relayout_Interface_Art@@YIXHH@Z": 7287728,
+    "?Init_IO@TabClass@@UAEXXZ": 6949968,
+    "?Activate@TabClass@@UAE_NH@Z": 6950304,
+    "?Reposition_Sidebar@SidebarClass@@UAEXXZ": 6822304,
+    "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
+    "?WS_Top_Window@@YIPAUHWND__@@XZ": 7559952,
+    "?On_WM_NCDESTROY@@YIXPAUHWND__@@@Z": 6288256,
+    "?Resize_Dialog_To_Screen@@YIXPAUHWND__@@PAVPoint2D@@@Z": 6201088,
+    "?WS_Next_Lower_Dialog@@YIPAUHWND__@@PAU1@@Z": 7559600,
+    "??_C@_0BH@DKEN@Mode?5change?5complete?4?6?$AA@": 8257292,
+    "??_C@_0BO@FBHC@Testing?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@": 8257676,
+    "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z": 5115024,
+    "?Change_Display_Mode@@YI_NHH@Z": 5518560,
+    "?Darken_Surface@@YIXPAVSurface@@_N@Z": 5331376,
+    "?Test_Display_Mode_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5520448,
+    "??RSystemTimerClass@@QBEHXZ": 6923312,
+    "__imp__PostMessageA@16": 7971952,
+    "??_C@_0CA@MBMA@Resetting?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@": 8257644,
+    "??_C@_0BO@IHHO@Keeping?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@": 8257612,
     "??_C@_0BG@CDBK@GUI?3ConfirmModeChange?$AA@": 8257708,
     "_InitialResolution": 8256948,
     "_ScrollLabels": 8256920,
@@ -148,7 +221,7 @@
     "_$E176": 5513552,
     "?Mode_Prompt_Dialog@@YI_NXZ": 5513744,
     "?Main_Options_Dialog@@YIXXZ": 5514336,
-    "?Test_Display_Mode_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5520448,
+    "?Test_Display_Mode_Dialog@@YI_NHH@Z": 5519984,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7type_info@@6B@": 8066532,
@@ -218,7 +291,7 @@
           "resolved": 10939388
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513056,
@@ -286,7 +359,7 @@
           "resolved": 10939400
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513088,
@@ -338,7 +411,7 @@
           "resolved": 10939648
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513136,
@@ -390,7 +463,7 @@
           "resolved": 10939632
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513168,
@@ -442,7 +515,7 @@
           "resolved": 10939624
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513200,
@@ -494,7 +567,7 @@
           "resolved": 10939408
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513232,
@@ -546,7 +619,7 @@
           "resolved": 10939368
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513264,
@@ -630,7 +703,7 @@
           "resolved": 10939656
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513296,
@@ -690,7 +763,7 @@
           "resolved": 10939416
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513360,
@@ -750,7 +823,7 @@
           "resolved": 10939440
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513408,
@@ -810,7 +883,7 @@
           "resolved": 10939640
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513456,
@@ -854,7 +927,7 @@
           "resolved": 10939394
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513504,
@@ -906,7 +979,7 @@
           "resolved": 10939432
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513520,
@@ -950,7 +1023,7 @@
           "resolved": 616166
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513552,
@@ -1034,7 +1107,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513568,
@@ -1118,7 +1191,7 @@
           "resolved": 775283
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513744,
@@ -1378,7 +1451,7 @@
           "resolved": 615961
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513856,
@@ -1598,7 +1671,7 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5514336,
@@ -2586,10 +2659,1578 @@
           "resolved": 1005060
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5516640,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5518560,
+      "method": "005434e0",
+      "body_bytes": 1414,
+      "body_sha256": "d37d9d0c12c3207a2e6626f30b6fd3a5f67211f029e940be23f2bcb4da76bb77",
+      "padding_bytes": 10,
+      "full_extent_bytes": 1424,
+      "full_extent_sha256": "4eaeeda0094369ce193d71409c8063ba41b41e434d5402a4674d9785770df1db",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Change_Display_Mode@@YI_NHH@Z",
+      "symbol_prefix": "?Change_Display_Mode@@YI_NHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@HFOH@About?5to?5set?5video?5mode?6?$AA@",
+          "target": 8257584,
+          "addend": 0,
+          "resolved": 8257584
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669883
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 28,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "?Get_Red_Left@DSurface@@SIHXZ",
+          "target": 4897600,
+          "addend": 0,
+          "resolved": 4294346288
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "?Get_Red_Right@DSurface@@SIHXZ",
+          "target": 4897584,
+          "addend": 0,
+          "resolved": 4294346265
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Get_Green_Left@DSurface@@SIHXZ",
+          "target": 4897632,
+          "addend": 0,
+          "resolved": 4294346304
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "?Get_Green_Right@DSurface@@SIHXZ",
+          "target": 4897616,
+          "addend": 0,
+          "resolved": 4294346279
+        },
+        {
+          "offset": 78,
+          "kind": 20,
+          "symbol": "?Get_Blue_Left@DSurface@@SIHXZ",
+          "target": 4897664,
+          "addend": 0,
+          "resolved": 4294346318
+        },
+        {
+          "offset": 87,
+          "kind": 20,
+          "symbol": "?Get_Blue_Right@DSurface@@SIHXZ",
+          "target": 4897648,
+          "addend": 0,
+          "resolved": 4294346293
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?Wait_Blit@@YIXXZ",
+          "target": 4809168,
+          "addend": 0,
+          "resolved": 4294257793
+        },
+        {
+          "offset": 113,
+          "kind": 6,
+          "symbol": "?WindowedMode@@3_NA",
+          "target": 8723632,
+          "addend": 0,
+          "resolved": 8723632
+        },
+        {
+          "offset": 127,
+          "kind": 6,
+          "symbol": "??_C@_0BE@KPL@VisibleRect?3?5?$CFdx?$CFd?6?$AA@",
+          "target": 8257564,
+          "addend": 0,
+          "resolved": 8257564
+        },
+        {
+          "offset": 132,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 0,
+          "resolved": 8623680
+        },
+        {
+          "offset": 138,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 4,
+          "resolved": 8623684
+        },
+        {
+          "offset": 144,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 8,
+          "resolved": 8623688
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 12,
+          "resolved": 8623692
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 162,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 167,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669733
+        },
+        {
+          "offset": 180,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 191,
+          "kind": 6,
+          "symbol": "??_C@_0BI@HBJI@Removing?5mouse?5handler?6?$AA@",
+          "target": 8257540,
+          "addend": 0,
+          "resolved": 8257540
+        },
+        {
+          "offset": 196,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669704
+        },
+        {
+          "offset": 202,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 227,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 234,
+          "kind": 6,
+          "symbol": "??_C@_0BK@HIPO@Deleting?5primary?5surface?6?$AA@",
+          "target": 8257512,
+          "addend": 0,
+          "resolved": 8257512
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669661
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 270,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 280,
+          "kind": 20,
+          "symbol": "?Set_Video_Mode@@YI_NPAUHWND__@@HHH@Z",
+          "target": 4807824,
+          "addend": 0,
+          "resolved": 4294256276
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "??_C@_0BI@BHJ@Set_Video_Mode?5failed?4?6?$AA@",
+          "target": 8257488,
+          "addend": 0,
+          "resolved": 8257488
+        },
+        {
+          "offset": 298,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669602
+        },
+        {
+          "offset": 303,
+          "kind": 6,
+          "symbol": "??_C@_0BL@GPOC@Restoring?5primary?5surface?6?$AA@",
+          "target": 8257460,
+          "addend": 0,
+          "resolved": 8257460
+        },
+        {
+          "offset": 308,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669592
+        },
+        {
+          "offset": 318,
+          "kind": 20,
+          "symbol": "?Create_Primary@DSurface@@SIPAV1@PAPAV1@@Z",
+          "target": 4892256,
+          "addend": 0,
+          "resolved": 4294340670
+        },
+        {
+          "offset": 323,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@LHDL@Restoring?5mouse?5handler?6?$AA@",
+          "target": 8257432,
+          "addend": 0,
+          "resolved": 8257432
+        },
+        {
+          "offset": 333,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669567
+        },
+        {
+          "offset": 343,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2353628
+        },
+        {
+          "offset": 356,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 362,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 371,
+          "kind": 20,
+          "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+          "target": 7805472,
+          "addend": 0,
+          "resolved": 2286537
+        },
+        {
+          "offset": 376,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 384,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+          "target": 8239460,
+          "addend": 0,
+          "resolved": 8239460
+        },
+        {
+          "offset": 394,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 335954
+        },
+        {
+          "offset": 412,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 435,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 440,
+          "kind": 20,
+          "symbol": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+          "target": 5894240,
+          "addend": 0,
+          "resolved": 375236
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 452,
+          "kind": 20,
+          "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z",
+          "target": 5894736,
+          "addend": 0,
+          "resolved": 375720
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "??_C@_0BI@LBEK@Mode?5apparently?5set?5OK?6?$AA@",
+          "target": 8257408,
+          "addend": 0,
+          "resolved": 8257408
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669417
+        },
+        {
+          "offset": 492,
+          "kind": 6,
+          "symbol": "??_C@_0BE@KPL@VisibleRect?3?5?$CFdx?$CFd?6?$AA@",
+          "target": 8257564,
+          "addend": 0,
+          "resolved": 8257564
+        },
+        {
+          "offset": 497,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 0,
+          "resolved": 8623680
+        },
+        {
+          "offset": 503,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 4,
+          "resolved": 8623684
+        },
+        {
+          "offset": 509,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 8,
+          "resolved": 8623688
+        },
+        {
+          "offset": 515,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 12,
+          "resolved": 8623692
+        },
+        {
+          "offset": 520,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669380
+        },
+        {
+          "offset": 529,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 536,
+          "kind": 6,
+          "symbol": "??_C@_0BL@PKEH@Deleting?5AlternateSurface?6?$AA@",
+          "target": 8247412,
+          "addend": 0,
+          "resolved": 8247412
+        },
+        {
+          "offset": 541,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669359
+        },
+        {
+          "offset": 547,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 566,
+          "kind": 6,
+          "symbol": "?AlternateSurface@@3PAVSurface@@A",
+          "target": 8624472,
+          "addend": 0,
+          "resolved": 8624472
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 579,
+          "kind": 6,
+          "symbol": "??_C@_0BI@GOMM@Deleting?5HiddenSurface?6?$AA@",
+          "target": 8247388,
+          "addend": 0,
+          "resolved": 8247388
+        },
+        {
+          "offset": 584,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669316
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 615,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 622,
+          "kind": 6,
+          "symbol": "??_C@_0BG@PLCA@Deleting?5TileSurface?6?$AA@",
+          "target": 8247336,
+          "addend": 0,
+          "resolved": 8247336
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669273
+        },
+        {
+          "offset": 633,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 652,
+          "kind": 6,
+          "symbol": "?TileSurface@@3PAVSurface@@A",
+          "target": 8624452,
+          "addend": 0,
+          "resolved": 8624452
+        },
+        {
+          "offset": 658,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 665,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@GNMK@Deleting?5SidebarSurface?6?$AA@",
+          "target": 8247308,
+          "addend": 0,
+          "resolved": 8247308
+        },
+        {
+          "offset": 670,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669230
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 695,
+          "kind": 6,
+          "symbol": "?SidebarSurface@@3PAVSurface@@A",
+          "target": 8624456,
+          "addend": 0,
+          "resolved": 8624456
+        },
+        {
+          "offset": 701,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 708,
+          "kind": 6,
+          "symbol": "??_C@_0BL@BPEP@Deleting?5CompositeSurface?6?$AA@",
+          "target": 8247360,
+          "addend": 0,
+          "resolved": 8247360
+        },
+        {
+          "offset": 713,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669187
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 738,
+          "kind": 6,
+          "symbol": "?CompositeSurface@@3PAVSurface@@A",
+          "target": 8624484,
+          "addend": 0,
+          "resolved": 8624484
+        },
+        {
+          "offset": 743,
+          "kind": 6,
+          "symbol": "?WindowedMode@@3_NA",
+          "target": 8723632,
+          "addend": 0,
+          "resolved": 8723632
+        },
+        {
+          "offset": 752,
+          "kind": 6,
+          "symbol": "??_C@_0CC@OGBJ@Setting?5new?5window?5size?5to?5?$CFdx?$CFd@",
+          "target": 8257372,
+          "addend": 0,
+          "resolved": 8257372
+        },
+        {
+          "offset": 759,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669141
+        },
+        {
+          "offset": 765,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 782,
+          "kind": 6,
+          "symbol": "__imp__SetWindowPos@28",
+          "target": 7971792,
+          "addend": 0,
+          "resolved": 7971792
+        },
+        {
+          "offset": 787,
+          "kind": 6,
+          "symbol": "??_C@_0BK@KENL@Creating?5primary?5surface?6?$AA@",
+          "target": 8257344,
+          "addend": 0,
+          "resolved": 8257344
+        },
+        {
+          "offset": 792,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669108
+        },
+        {
+          "offset": 802,
+          "kind": 20,
+          "symbol": "?Create_Primary@DSurface@@SIPAV1@PAPAV1@@Z",
+          "target": 4892256,
+          "addend": 0,
+          "resolved": 4294340186
+        },
+        {
+          "offset": 807,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 814,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293669086
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "__imp__SetRect@20",
+          "target": 7972008,
+          "addend": 0,
+          "resolved": 7972008
+        },
+        {
+          "offset": 837,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 843,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 854,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 862,
+          "kind": 6,
+          "symbol": "__imp__GetMenu@4",
+          "target": 7971728,
+          "addend": 0,
+          "resolved": 7971728
+        },
+        {
+          "offset": 868,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 892,
+          "kind": 6,
+          "symbol": "__imp__AdjustWindowRectEx@16",
+          "target": 7971812,
+          "addend": 0,
+          "resolved": 7971812
+        },
+        {
+          "offset": 919,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 930,
+          "kind": 6,
+          "symbol": "__imp__MoveWindow@24",
+          "target": 7971808,
+          "addend": 0,
+          "resolved": 7971808
+        },
+        {
+          "offset": 939,
+          "kind": 20,
+          "symbol": "?Get_Title_Screen_Area@@YI?AV?$TRect@H@@XZ",
+          "target": 7282480,
+          "addend": 0,
+          "resolved": 1762977
+        },
+        {
+          "offset": 966,
+          "kind": 6,
+          "symbol": "?SidebarWidth@@3HA",
+          "target": 8052096,
+          "addend": 0,
+          "resolved": 8052096
+        },
+        {
+          "offset": 1013,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 12,
+          "resolved": 8623692
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "?VisibleRect@@3V?$TRect@H@@A",
+          "target": 8623680,
+          "addend": 0,
+          "resolved": 8623680
+        },
+        {
+          "offset": 1053,
+          "kind": 20,
+          "symbol": "?Allocate_Surfaces@@YI_NABV?$TRect@H@@000_N@Z",
+          "target": 5346560,
+          "addend": 0,
+          "resolved": 4294794239
+        },
+        {
+          "offset": 1059,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 1064,
+          "kind": 6,
+          "symbol": "??_C@_0BL@JIDJ@Recalc?5color?5remap?5tables?6?$AA@",
+          "target": 8257316,
+          "addend": 0,
+          "resolved": 8257316
+        },
+        {
+          "offset": 1070,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1075,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293668825
+        },
+        {
+          "offset": 1109,
+          "kind": 20,
+          "symbol": "?Reinitialize_Hicolor_Tables@ConvertClass@@SIXHHHHHH@Z",
+          "target": 4743184,
+          "addend": 0,
+          "resolved": 4294190807
+        },
+        {
+          "offset": 1115,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1133,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2352838
+        },
+        {
+          "offset": 1146,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 1152,
+          "kind": 6,
+          "symbol": "?VisibleSurface@@3PAVSurface@@A",
+          "target": 8624464,
+          "addend": 0,
+          "resolved": 8624464
+        },
+        {
+          "offset": 1161,
+          "kind": 20,
+          "symbol": "??0WWMouseClass@@QAE@PAVSurface@@PAUHWND__@@@Z",
+          "target": 7805472,
+          "addend": 0,
+          "resolved": 2285747
+        },
+        {
+          "offset": 1166,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1174,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1179,
+          "kind": 6,
+          "symbol": "??_C@_09JKEA@MOUSE?4SHP?$AA@",
+          "target": 8239460,
+          "addend": 0,
+          "resolved": 8239460
+        },
+        {
+          "offset": 1184,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 335164
+        },
+        {
+          "offset": 1201,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1223,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1228,
+          "kind": 20,
+          "symbol": "?Set_Default_Mouse@MouseClass@@UAEXW4MouseType@@_N@Z",
+          "target": 5894240,
+          "addend": 0,
+          "resolved": 374448
+        },
+        {
+          "offset": 1233,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1240,
+          "kind": 20,
+          "symbol": "?Override_Mouse_Shape@MouseClass@@UAE_NW4MouseType@@_N@Z",
+          "target": 5894736,
+          "addend": 0,
+          "resolved": 374932
+        },
+        {
+          "offset": 1246,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1258,
+          "kind": 20,
+          "symbol": "?Calc_Confining_Rect@WWMouseClass@@QAEXXZ",
+          "target": 7806032,
+          "addend": 0,
+          "resolved": 2286210
+        },
+        {
+          "offset": 1267,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1273,
+          "kind": 20,
+          "symbol": "?Set_View_Dimensions@DisplayClass@@UAEXABV?$TRect@H@@@Z",
+          "target": 4820096,
+          "addend": 0,
+          "resolved": 4294267555
+        },
+        {
+          "offset": 1279,
+          "kind": 6,
+          "symbol": "?VideoModeHeight@@3HA",
+          "target": 8725476,
+          "addend": 0,
+          "resolved": 8725476
+        },
+        {
+          "offset": 1285,
+          "kind": 6,
+          "symbol": "?VideoModeWidth@@3HA",
+          "target": 8725472,
+          "addend": 0,
+          "resolved": 8725472
+        },
+        {
+          "offset": 1290,
+          "kind": 20,
+          "symbol": "?Relayout_Interface_Art@@YIXHH@Z",
+          "target": 7287728,
+          "addend": 0,
+          "resolved": 1767874
+        },
+        {
+          "offset": 1295,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1300,
+          "kind": 20,
+          "symbol": "?Init_IO@TabClass@@UAEXXZ",
+          "target": 6949968,
+          "addend": 0,
+          "resolved": 1430104
+        },
+        {
+          "offset": 1305,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1312,
+          "kind": 20,
+          "symbol": "?Activate@TabClass@@UAE_NH@Z",
+          "target": 6950304,
+          "addend": 0,
+          "resolved": 1430428
+        },
+        {
+          "offset": 1317,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1322,
+          "kind": 20,
+          "symbol": "?Reposition_Sidebar@SidebarClass@@UAEXXZ",
+          "target": 6822304,
+          "addend": 0,
+          "resolved": 1302418
+        },
+        {
+          "offset": 1327,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1334,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4294561670
+        },
+        {
+          "offset": 1339,
+          "kind": 20,
+          "symbol": "?WS_Top_Window@@YIPAUHWND__@@XZ",
+          "target": 7559952,
+          "addend": 0,
+          "resolved": 2040049
+        },
+        {
+          "offset": 1352,
+          "kind": 20,
+          "symbol": "?On_WM_NCDESTROY@@YIXPAUHWND__@@@Z",
+          "target": 6288256,
+          "addend": 0,
+          "resolved": 768340
+        },
+        {
+          "offset": 1363,
+          "kind": 20,
+          "symbol": "?Resize_Dialog_To_Screen@@YIXPAUHWND__@@PAVPoint2D@@@Z",
+          "target": 6201088,
+          "addend": 0,
+          "resolved": 681161
+        },
+        {
+          "offset": 1370,
+          "kind": 20,
+          "symbol": "?WS_Next_Lower_Dialog@@YIPAUHWND__@@PAU1@@Z",
+          "target": 7559600,
+          "addend": 0,
+          "resolved": 2039666
+        },
+        {
+          "offset": 1382,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 1392,
+          "kind": 6,
+          "symbol": "??_C@_0BH@DKEN@Mode?5change?5complete?4?6?$AA@",
+          "target": 8257292,
+          "addend": 0,
+          "resolved": 8257292
+        },
+        {
+          "offset": 1397,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293668503
+        }
+      ],
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
+      "source": "rebuild/src/mainopt.cpp",
+      "population": "rebuild-mainopt",
+      "source_order": 5518560,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5519984,
+      "method": "00543a70",
+      "body_bytes": 460,
+      "body_sha256": "159c1516446ce03f14205a82ba9b7de4d2ccfd85fea889bf8acae610cc1f153f",
+      "padding_bytes": 4,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "2847a2bcada6bd448c4f77a1dc890531e64129ce7a6d6ae1907a04c358fc1a9e",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Test_Display_Mode_Dialog@@YI_NHH@Z",
+      "symbol_prefix": "?Test_Display_Mode_Dialog@@YI_NHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0BO@FBHC@Testing?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@",
+          "target": 8257676,
+          "addend": 0,
+          "resolved": 8257676
+        },
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293668446
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 63,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 72,
+          "kind": 20,
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+          "target": 5115024,
+          "addend": 0,
+          "resolved": 4294562260
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Change_Display_Mode@@YI_NHH@Z",
+          "target": 5518560,
+          "addend": 0,
+          "resolved": 4294965787
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 120,
+          "kind": 20,
+          "symbol": "?Update_Visible_Surface@@YIX_NPAVSurface@@PAV?$TRect@H@@@Z",
+          "target": 5115024,
+          "addend": 0,
+          "resolved": 4294562212
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 4294778544
+        },
+        {
+          "offset": 145,
+          "kind": 6,
+          "symbol": "?Test_Display_Mode_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 5520448,
+          "addend": 0,
+          "resolved": 5520448
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z",
+          "target": 6288912,
+          "addend": 0,
+          "resolved": 768767
+        },
+        {
+          "offset": 182,
+          "kind": 6,
+          "symbol": "__imp__SetWindowLongA@12",
+          "target": 7971976,
+          "addend": 0,
+          "resolved": 7971976
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 769167
+        },
+        {
+          "offset": 198,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1403126
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "__imp__PostMessageA@16",
+          "target": 7971952,
+          "addend": 0,
+          "resolved": 7971952
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "?Dialog_Message_Handler@OwnerDraw@@YI_NXZ",
+          "target": 6291664,
+          "addend": 0,
+          "resolved": 771447
+        },
+        {
+          "offset": 240,
+          "kind": 20,
+          "symbol": "?Title_Screen_Restore@@YIX_N@Z",
+          "target": 5337968,
+          "addend": 0,
+          "resolved": 4294785036
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1403062
+        },
+        {
+          "offset": 300,
+          "kind": 20,
+          "symbol": "??RSystemTimerClass@@QBEHXZ",
+          "target": 6923312,
+          "addend": 0,
+          "resolved": 1403024
+        },
+        {
+          "offset": 344,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 768788
+        },
+        {
+          "offset": 359,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 36,
+          "resolved": 10750780
+        },
+        {
+          "offset": 365,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 32,
+          "resolved": 10750776
+        },
+        {
+          "offset": 372,
+          "kind": 6,
+          "symbol": "??_C@_0CA@MBMA@Resetting?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@",
+          "target": 8257644,
+          "addend": 0,
+          "resolved": 8257644
+        },
+        {
+          "offset": 377,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293668099
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 36,
+          "resolved": 10750780
+        },
+        {
+          "offset": 389,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 32,
+          "resolved": 10750776
+        },
+        {
+          "offset": 397,
+          "kind": 20,
+          "symbol": "?Change_Display_Mode@@YI_NHH@Z",
+          "target": 5518560,
+          "addend": 0,
+          "resolved": 4294965471
+        },
+        {
+          "offset": 403,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 413,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 429,
+          "kind": 6,
+          "symbol": "??_C@_0BO@IHHO@Keeping?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@",
+          "target": 8257612,
+          "addend": 0,
+          "resolved": 8257612
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293668042
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "?HiddenSurface@@3PAVSurface@@A",
+          "target": 8624468,
+          "addend": 0,
+          "resolved": 8624468
+        },
+        {
+          "offset": 447,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        }
+      ],
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
+      "source": "rebuild/src/mainopt.cpp",
+      "population": "rebuild-mainopt",
+      "source_order": 5519984,
       "source_quality_family": "rebuild"
     },
     {
@@ -2670,7 +4311,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "c6b0ae55911daa56e8bb49ccfe979cf751930f446f3a41f835d26216a8e5c7eb",
+      "source_sha256": "da6ac8eeef735b16817365e8306b2a09760986c05f4d05b7060c463df08a8981",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5520448,

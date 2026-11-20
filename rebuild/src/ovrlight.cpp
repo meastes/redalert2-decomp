@@ -13,6 +13,7 @@
 
 #include "ovrlight.h"
 #include "fpscounter.h"
+#include "detail.h"
 
 #include "_map.h"
 #include "_rect.h"
@@ -187,7 +188,6 @@ void SpotLightClass::Clear_All(void)
 /// ramp, so the light reads as a glow over whatever has been rendered beneath it. Nothing
 /// is drawn if the light lies off screen or under fog of war.
 /// </summary>
-#if 0
 void SpotLightClass::Draw_It(void)
 {
 	static char _index_table[SPOTLIGHT_MAX_RADIUS + 10] = {
@@ -348,7 +348,6 @@ void SpotLightClass::Draw_It(void)
 		}
 	}
 }
-#endif
 
 
 

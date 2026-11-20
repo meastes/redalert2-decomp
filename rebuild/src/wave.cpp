@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -1080,14 +1081,19 @@ void WaveClass::Wave_Recalc_Affected_Cells(void)
 static const float WaveLengthFactor[] = { 1.0f, 1.05f, 1.05f };
 
 
+static inline void Lerp_From(Coord & point, Coord const & origin, float t) // RA2: a point pulled toward an origin
+{
+	double inv = 1.0 - t; // RA2: the remaining weight
+	point = Coord(origin.X * inv + point.X * t, origin.Y * inv + point.Y * t, origin.Z * inv + point.Z * t); // RA2: blended per axis
+}
+
 /// <summary>
 /// Builds the geometry of the wave.
 /// This routine spans the wave between the firing point and the target, sizing it from the
 /// template for its wave type, rotating it to lie along the line of fire, and converting
 /// each corner into the screen points that the drawing routines rasterize from.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 94 bytes differ (the first Coord_To_Pixel and the end corners are scheduled differently)
-void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & target_coord) // RA2: defined before Wave_Shape_AI, at 0x7238B0
+void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & target_coord)
 {
 	static Vector3 WaveSize[WAVE_COUNT][4] = {
 		{
@@ -1116,84 +1122,90 @@ void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & targe
 		end_coord.Z += 50;
 	}
 
-	start_coord = Lerp(target_coord, start_coord, WaveLengthFactor[Type]);
+	Lerp_From(start_coord, target_coord, WaveLengthFactor[Type]);
 
-	TPoint3D<float> planar_delta(start_coord.X - end_coord.X, start_coord.Y - end_coord.Y, 0); // RA2: the 2D delta is a float vector, built before the length is taken
-	int distance2d = (int)fastmath::sqrt((double)planar_delta.Y * planar_delta.Y + (double)planar_delta.X * planar_delta.X); // RA2: the length is taken inline from the float components, Y first
+	TPoint3D<float> planar_delta(start_coord.X - end_coord.X, start_coord.Y - end_coord.Y, 0);
+	int distance2d =
+		fastmath::sqrt((double)planar_delta.Y * planar_delta.Y + (double)planar_delta.X * planar_delta.X);
 
-	/// Set initial coordinates
+	// Set initial coordinates
 	StartCoord = start_coord;
-	PositionCoord = StartCoord;
+	Set_Coord(StartCoord);
 	EndCoord = end_coord;
 
 	WaveShape.Count = 6;
 	WaveShape.Vertices = &ActiveWaveStartMiddle;
 
-	/// Calculate wave points
+	// Calculate wave points
 	TacticalMap->Coord_To_Pixel(start_coord, WaveStartMiddle);
 	TacticalMap->Coord_To_Pixel(end_coord, WaveEndMiddle);
 
-	WaveShape.Vertices[PolygonShapeStruct::END_MIDDLE]   = WaveEndMiddle;
+	WaveShape.Vertices[PolygonShapeStruct::END_MIDDLE] = WaveEndMiddle;
 	WaveShape.Vertices[PolygonShapeStruct::START_MIDDLE] = WaveStartMiddle;
 
 	double distance2d_f = distance2d;
 
-	Vector3 end_left 	= WaveSize[Type][0] + Vector3(distance2d_f, 0, 0);
-	Vector3 end_right 	= WaveSize[Type][1] + Vector3(distance2d_f, 0, 0);
-	Vector3 start_left 	= WaveSize[Type][2] + Vector3(0, 0, 0);
-	Vector3 start_right = WaveSize[Type][3] + Vector3(0, 0, 0);
+	Vector3 far_offset(distance2d_f, 0, 0);
+	Vector3 near_offset(0, 0, 0);
+	Vector3 end_left = WaveSize[Type][0] + far_offset;
+	Vector3 end_right = WaveSize[Type][1] + far_offset;
+	Vector3 start_left = WaveSize[Type][2] + near_offset;
+	Vector3 start_right = WaveSize[Type][3] + near_offset;
 
 	double dz = end_coord.Z - start_coord.Z;
 
-	end_left.Z 		= end_left.X 	* dz / distance2d_f + start_coord.Z;
-	end_right.Z 	= end_right.X 	* dz / distance2d_f + start_coord.Z;
-	start_left.Z 	= start_left.X 	* dz / distance2d_f + start_coord.Z;
-	start_right.Z 	= start_right.X * dz / distance2d_f + start_coord.Z;
+	end_left.Z = end_left.X * dz / distance2d_f + start_coord.Z;
+	end_right.Z = end_right.X * dz / distance2d_f + start_coord.Z;
+	start_left.Z = start_left.X * dz / distance2d_f + start_coord.Z;
+	start_right.Z = start_right.X * dz / distance2d_f + start_coord.Z;
 
-	TPoint3D<float> heading(end_coord.X - start_coord.X, end_coord.Y - start_coord.Y, 0); // RA2: the heading is a float vector with no height
-	double dx = heading.X; // RA2: as above
-	double dist = heading.Length(); // RA2: the length comes from the vector's own Length
-	if (dist < dx) dx = dist;
-	if (-dx > dist) dx = -dist;
+	TPoint3D<float> heading(end_coord.X - start_coord.X, end_coord.Y - start_coord.Y, 0);
+	double dx = heading.X;
+	double dist = heading.Length();
+
+	if (dist < dx) {
+		dx = dist;
+	}
+	if (-dx > dist) {
+		dx = -dist;
+	}
 
 	double theta = fastmath::acos(dx / dist);
 	if (start_coord.Y > end_coord.Y) {
 		theta = -theta;
 	}
 
-	/// Calculate wave vectors
+	// Calculate wave vectors
 	Matrix3D matrix;
 	matrix.Make_Identity();
 	matrix.Rotate_Z(theta);
 
-	end_left 	= matrix * end_left;
-	end_right 	= matrix * end_right;
-	start_left 	= matrix * start_left;
+	end_left = matrix * end_left;
+	end_right = matrix * end_right;
+	start_left = matrix * start_left;
 	start_right = matrix * start_right;
 
-	/// Set wave coordinates
-	WaveEndLeftCoord 	= Coord(start_coord.X + end_left.X,    start_coord.Y + end_left.Y,    end_left.Z);
-	WaveEndRightCoord 	= Coord(start_coord.X + end_right.X,   start_coord.Y + end_right.Y,   end_right.Z);
-	WaveStartLeftCoord 	= Coord(start_coord.X + start_left.X,  start_coord.Y + start_left.Y,  start_left.Z);
+	// Set wave coordinates
+	WaveEndLeftCoord = Coord(start_coord.X + end_left.X, start_coord.Y + end_left.Y, end_left.Z);
+	WaveEndRightCoord = Coord(start_coord.X + end_right.X, start_coord.Y + end_right.Y, end_right.Z);
+	WaveStartLeftCoord = Coord(start_coord.X + start_left.X, start_coord.Y + start_left.Y, start_left.Z);
 	WaveStartRightCoord = Coord(start_coord.X + start_right.X, start_coord.Y + start_right.Y, start_right.Z);
 
-	/// Convert coordinates to pixels
+	// Convert coordinates to pixels
 	TacticalMap->Coord_To_Pixel(WaveEndLeftCoord, WaveEndLeft);
 	TacticalMap->Coord_To_Pixel(WaveEndRightCoord, WaveEndRight);
 	TacticalMap->Coord_To_Pixel(WaveStartLeftCoord, WaveStartLeft);
 	TacticalMap->Coord_To_Pixel(WaveStartRightCoord, WaveStartRight);
 
-	/// Set wave points
+	// Set wave points
 	WaveShape.Vertices[PolygonShapeStruct::END_LEFT] = WaveEndLeft;
 	WaveShape.Vertices[PolygonShapeStruct::END_RIGHT] = WaveEndRight;
 	WaveShape.Vertices[PolygonShapeStruct::START_RIGHT] = WaveStartRight;
 	WaveShape.Vertices[PolygonShapeStruct::START_LEFT] = WaveStartLeft;
 
-	/// Copy facing
+	// Copy facing
 	Facing = Source->SecondaryFacing;
 }
-#endif
-
 
 
 /// <summary>
@@ -1253,11 +1265,7 @@ void WaveClass::Wave_Shape_AI(void) // RA2: defined after Wave_Recalc_Affected_C
 /// <summary>
 /// RA2
 /// </summary>
-static inline void Lerp_From(Coord & point, Coord const & origin, float t) // RA2: a point pulled toward an origin
-{
-	double inv = 1.0 - t; // RA2: the remaining weight
-	point = Coord(origin.X * inv + point.X * t, origin.Y * inv + point.Y * t, origin.Z * inv + point.Z * t); // RA2: blended per axis
-}
+
 
 
 
