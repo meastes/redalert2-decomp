@@ -3,8 +3,7 @@
 // Copyright 2025 Electronic Arts Inc.; 2026 OpenTS contributors
 // Derived from Electronic Arts source code; EA's GPL Section 7 terms apply (COPYING.md).
 
-#define GEOMETRY_H // geometry.h follows the includes
-#include "always.h"
+#include "always.h" // geometry.h follows the includes
 #include <math.h>
 #include "rect.h"
 

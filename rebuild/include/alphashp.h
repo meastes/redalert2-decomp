@@ -88,4 +88,3 @@ class AlphaShapeClass : public AbstractClass
 extern DynamicVectorClass<AlphaShapeClass *> AlphaShapes;
 
 // Declarations moved from the units that used them (one declaration per name).
-extern Rect const __fastcall Intersect(Rect const & bounding_rect, Rect const & draw_rect, int * x, int * y); // RA2: 0x0041FDF0, the compiled copy of rect.h's Intersect that the callers do not expand

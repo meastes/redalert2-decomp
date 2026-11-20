@@ -67,3 +67,5 @@ class BeaconManagerClass
 };
 
 extern BeaconManagerClass BeaconManager;
+
+extern Rect const __fastcall Intersect(Rect const & bounding_rect, Rect const & draw_rect, int * x, int * y); // RA2: 0x0041FDF0, the compiled copy of rect.h's Intersect that the beacon draws call (moved from alphashp.h: object.cpp expands it)

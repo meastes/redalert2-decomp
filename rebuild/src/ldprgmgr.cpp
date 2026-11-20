@@ -533,7 +533,6 @@ void LoadProgressManager::Draw(void)
 /// <summary>
 /// The area of the briefing text, 318 by 104 at 640 wide and 398 by 130 otherwise, centred on larger screens.
 /// </summary>
-#if 0
 Rect __fastcall Get_Briefing_Area(void)
 {
 	Rect area;
@@ -548,13 +547,11 @@ Rect __fastcall Get_Briefing_Area(void)
 	}
 	return area;
 }
-#endif
 
 
 /// <summary>
 /// The area of the word for loading, 200 by 20, centred on larger screens.
 /// </summary>
-#if 0
 Rect __fastcall Get_Loading_Text_Area(void)
 {
 	Rect area;
@@ -569,7 +566,6 @@ Rect __fastcall Get_Loading_Text_Area(void)
 	}
 	return area;
 }
-#endif
 
 
 /// <summary>

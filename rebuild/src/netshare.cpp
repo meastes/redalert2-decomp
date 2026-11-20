@@ -87,7 +87,6 @@ int __fastcall GetPlayerAccepted(Wstring const & name); // RA2: 0x0073D3F0, a pl
 int __fastcall Assign_House_And_Color(Wstring const & name, int country, int color); // RA2: 0x0073D550, the counterpart of Net2SetHouseAndColor
 bool Is_Tournament_Session(void); // RA2: 0x0073BDB0, Online_Session_State (Session.TournamentState) is 1 or 2
 void Draw_Player_List(int keep_selection, bool force); // RA2: 0x0073FEE0, redraws the chat service's player list (the counterpart of Net2DisplayUsers)
-extern NodeNameType * LobbyEntries[7]; // RA2: 0x00A72D2C, the fixed lobby entries: open, closed, easy, medium and hard computer, waiting and player
 bool __fastcall Is_Real_Player_Entry(NodeNameType * entry); // RA2: 0x005C9320, defined below
 Wstring __fastcall Lobby_Entry_Name(NodeNameType * entry); // RA2: 0x005CD0E0, the lobby's name for a fixed entry
 void __fastcall Fill_Observer_Combo(HWND dialog, int id); // RA2: 0x004D1640, as netdlg2.cpp
@@ -120,13 +119,10 @@ int __fastcall Slot_Color_Control_Id(int slot); // RA2: 0x005CA4E0, defined belo
 int __fastcall Is_Slot_Accepted(int slot); // RA2: 0x005CA3B0, defined below
 void __fastcall Refresh_Slot_Colors(HWND dialog); // RA2: 0x005CA540, defined below
 void __fastcall Refresh_Slot_Combos(HWND dialog); // RA2: 0x005CA6C0, defined below
-extern char const * LobbyHostImage; // RA2: 0x007E6DB8, the picture of the host in the slot list
-extern char const * LobbyAcceptImage; // RA2: 0x007E6DBC, the picture of a player who accepted
 int __fastcall Player_Control_ID(int player); // RA2: 0x004D0EE0, the id of the flag control of a player
 void __fastcall Set_Player_Map_State(char const * name, int state); // RA2: 0x005C3F00, defined above
 Wstring __fastcall Wstring_FromWide(WideWstring const & text); // RA2: 0x00771450, as netdlg2.cpp
 void Join_Lobby_Start_Reminder(void); // RA2: 0x005C28E0
-extern int LobbyObserverSlot; // RA2: 0x007E6D90, as netdlg2.cpp
 
 void __fastcall Char_To_Wide(wchar_t * dest, char const * source, int limit); // RA2: 0x006FA0C0, widens a narrow string
 #define OD_GETTEXTW (WM_USER + 182) // RA2: 0x4B6, a list box item's wide text (Get_List_Item_Wide_Text)

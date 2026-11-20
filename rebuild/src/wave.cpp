@@ -44,6 +44,16 @@
 #include "zbuffer.h"
 
 
+// RA2: the affected-cell storage retains this constructor as an ordinary function.
+// The implementation is the existing vector.h constructor for this element type.
+template<> DynamicVectorClass<CellClass *>::DynamicVectorClass(unsigned size, CellClass * const * array)
+	: VectorClass<CellClass *>(size, array)
+{
+	GrowthStep = 10;
+	ActiveCount = 0;
+}
+
+
 FacingType Facing_Between_Points(Point2D const & pt1, Point2D const & pt2);
 
 enum {

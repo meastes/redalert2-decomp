@@ -8357,13 +8357,12 @@ void HouseClass::Calculate_Defense_Values(BuildingClass const * building, int va
 /// <param name="cells">The threat cells to defend against, or NULL to simply defend the
 /// base.</param>
 /// <returns>bool; Was a defense settled upon the node?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2633 of 3264 bytes differ (mischa85 text; the old-tree body is not carried yet)
+#ifdef RA2_NON_MATCHING // not exact: 179 of 3264 bytes differ (mischa85 text; the old-tree body is not carried yet)
 bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cells) // RA2: RA2's form
 {
 	int i; // RA2: as above
 
-	int bestval; // RA2: assigned after the reference below, as meastes has it
-	int const & lowest = bestval; // RA2: the ratios below test the reference
+	int bestval; // RA2: assigned below, as meastes has it
 	int bestidx = -1; // RA2: as above
 	bestval = 999999; // RA2: as above
 
@@ -8404,7 +8403,8 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 	if (cells != NULL) { // RA2: as above
 		for (i = 0; i < cells->Count(); i++) { // RA2: as above
 			Cell offset = (*cells)[i] - Base.PlacementCenter; // RA2: as above
-			DirType dir = DirType(fastmath::atan2((double)-offset.Y, (double)offset.X)); // RA2: as above
+			Point2D delta(offset.X, offset.Y); // RA2: the offset as a Point2D
+			DirType dir = DirType(fastmath::atan2((double)-delta.Y, (double)delta.X)); // RA2: as above
 			cells2[dir.As_Dir4()].Add((*cells)[i]); // RA2: as above
 		}
 	}
@@ -8414,24 +8414,23 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 	 * accumulate the per-cell defense maps.
 	 */
 	int count = Buildings.Count(); // RA2: the count is read once
-	for (i = 0; i < count; i++) { // RA2: as above
+	for (i = 0; i < count; i++) { // RA2: no owner test, the list is the house's own
 		BuildingClass * building = Buildings[i]; // RA2: as above
-		{ // RA2: no owner test, the list is the house's own
-			Cell offset = building->Get_Coord().As_Cell() - Base.PlacementCenter; // RA2: the building's cell
-			if (offset.X != 0 || offset.Y != 0) { // RA2: as above
-				DirType dir = DirType(fastmath::atan2((double)-offset.Y, (double)offset.X)); // RA2: as above
-				int quadrant = dir.As_Dir4(); // RA2: as above
-				int air = building->Anti_Air_Defense_Value(); // RA2: as above
-				int armor = building->Anti_Armor_Defense_Value(); // RA2: as above
-				int infantry = building->Anti_Infantry_Defense_Value(); // RA2: as above
-				if (air + armor + infantry > 0) { // RA2: as above
-					aair_arr[quadrant] += air; // RA2: as above
-					aarr_arr[quadrant] += armor; // RA2: as above
-					agrnd_arr[quadrant] += infantry; // RA2: as above
-					Calculate_Defense_Values(building, air, aair, Base.BaseAreaRect); // RA2: as above
-					Calculate_Defense_Values(building, armor, aarmor, Base.BaseAreaRect); // RA2: as above
-					Calculate_Defense_Values(building, infantry, aground, Base.BaseAreaRect); // RA2: as above
-				}
+		Cell offset = building->Get_Cell() - Base.PlacementCenter; // RA2: the building's cell
+		if (offset.X != 0 || offset.Y != 0) { // RA2: as above
+			Point2D delta(offset.X, offset.Y); // RA2: as above
+			DirType dir = DirType(fastmath::atan2((double)-delta.Y, (double)delta.X)); // RA2: as above
+			int quadrant = dir.As_Dir4(); // RA2: as above
+			int air = building->Anti_Air_Defense_Value(); // RA2: as above
+			int armor = building->Anti_Armor_Defense_Value(); // RA2: as above
+			int infantry = building->Anti_Infantry_Defense_Value(); // RA2: as above
+			if (air + armor + infantry > 0) { // RA2: as above
+				aair_arr[quadrant] += air; // RA2: as above
+				aarr_arr[quadrant] += armor; // RA2: as above
+				agrnd_arr[quadrant] += infantry; // RA2: as above
+				Calculate_Defense_Values(building, air, aair, Base.BaseAreaRect); // RA2: as above
+				Calculate_Defense_Values(building, armor, aarmor, Base.BaseAreaRect); // RA2: as above
+				Calculate_Defense_Values(building, infantry, aground, Base.BaseAreaRect); // RA2: as above
 			}
 		}
 	}
@@ -8474,9 +8473,9 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 	 * Compare the share each defense category has in the chosen quadrant
 	 * against the predicted enemy force composition.
 	 */
-	float air_ratio = lowest != 0 ? air_value / (float)bestval : 0.0f; // RA2: as above
-	float armor_ratio = lowest != 0 ? armor_value / (float)bestval : 0.0f; // RA2: as above
-	float ground_ratio = lowest != 0 ? ground_value / (float)bestval : 0.0f; // RA2: as above
+	float air_ratio = bestval != 0 ? air_value / (float)bestval : 0.0f; // RA2: as above
+	float armor_ratio = bestval != 0 ? armor_value / (float)bestval : 0.0f; // RA2: as above
+	float ground_ratio = bestval != 0 ? ground_value / (float)bestval : 0.0f; // RA2: as above
 	float air_deficit = EnemyAirForcePrediction - air_ratio; // RA2: as above
 	float armor_deficit = EnemyArmorForcePrediction - armor_ratio; // RA2: as above
 	float ground_deficit = EnemyInfantryForcePrediction - ground_ratio; // RA2: as above
@@ -8552,7 +8551,22 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 				}
 				distribution.Add(type, weight); // RA2: as above
 			}
-			choice = distribution.Sample(); // RA2: as above
+			/*
+			 * RA2: Sample()'s walk written out in place; the inline call is
+			 * further from the original here.
+			 */
+			choice = NULL; // RA2: as above
+			unsigned int cumulative = 0; // RA2: as above
+			if (distribution.Get_Total_Weight() >= 1 && distribution.Count() != 0) { // RA2: as above
+				unsigned int pick = Random_Pick<unsigned int>(1, distribution.Get_Total_Weight()); // RA2: as above
+				for (int candidate = 0; candidate < distribution.Count(); candidate++) { // RA2: as above
+					cumulative += distribution[candidate].Weight; // RA2: as above
+					if (cumulative >= pick) { // RA2: as above
+						choice = distribution[candidate].Object; // RA2: as above
+						break; // RA2: as above
+					}
+				}
+			}
 		}
 
 		/*
@@ -8560,10 +8574,11 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 		 * picked defense at the following node instead.
 		 */
 		BuildingTypeClass * build_type; // RA2: as above
-		build_type = choice; // RA2: as above
 		if (type_id >= 0) { // RA2: as above
-			pending = choice; // RA2: as above
 			build_type = BuildingTypes[type_id]; // RA2: as above
+			pending = choice; // RA2: as above
+		} else {
+			build_type = choice; // RA2: as above
 		}
 
 		Cell cell(0, 0); // RA2: as above
@@ -10591,6 +10606,29 @@ int HouseClass::Fetch_Heap_ID(void) const
 #include "ihouse_i.c"
 
 
+// RA2: the weighted building records retain this vector constructor as an ordinary function.
+template<>
+VectorClass<DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ>::VectorClass(int size, DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ const * array) :
+	Vector(0),
+	VectorMax(size),
+	IsValid(true),
+	IsAllocated(false)
+{
+	/*
+	**	Allocate the vector. The default constructor will be called for every
+	**	object in this vector.
+	*/
+	if (size) {
+		if (array) {
+			Vector = new ((void *)array) DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ[size];
+		} else {
+			Vector = new DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ[size];
+			IsAllocated = true;
+		}
+	}
+}
+
+
 /// <summary>
 /// RA2: a base node for a building type at a cell, not yet placed and with no attempts made.
 /// </summary>
@@ -10600,4 +10638,46 @@ BaseNodeClass::BaseNodeClass(StructType building, Cell const & cell)
 	CellID = cell;
 	Placed = false;
 	Attempts = 0;
+}
+
+
+// RA2: these record-vector members retain ordinary copies in this unit.
+template<>
+bool DynamicVectorClass<DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ>::Add(DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ const & object)
+{
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			if (!Resize(Length() + GrowthStep)) {
+
+				/*
+				**	Failure to increase the size of the vector is an error condition.
+				**	Return with the error flag.
+				*/
+				return(false);
+			}
+		} else {
+
+			/*
+			**	Increasing the size of this vector is not allowed! Bail this
+			**	routine with the error code.
+			*/
+			return(false);
+		}
+	}
+
+	/*
+	**	There is room for the new object now. Add it to the end of the object vector.
+	*/
+	(*this)[ActiveCount++] = object;
+	return(true);
+}
+
+template<>
+bool DynamicVectorClass<DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ>::Resize(int newsize, DiscreteDistributionClass<BuildingTypeClass>::DIST_OBJ const * array)
+{
+	if (BASECLASS::Resize(newsize, array)) {
+		if (Length() < ActiveCount) ActiveCount = Length();
+		return(true);
+	}
+	return(false);
 }

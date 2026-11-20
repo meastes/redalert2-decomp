@@ -808,7 +808,6 @@ int score_font_count;
 /// The derived font classes build on this form and fill in their own glyph shapes and
 /// dimensions afterwards.
 /// </summary>
-#if 0
 ScoreFontClass::ScoreFontClass(void) :
 	Width(0),
 	Height(0),
@@ -818,7 +817,6 @@ ScoreFontClass::ScoreFontClass(void) :
 	Load_Sounds();
 	score_font_count++;
 }
-#endif
 
 
 
@@ -830,7 +828,6 @@ ScoreFontClass::ScoreFontClass(void) :
 /// <param name="h">The nominal glyph height.</param>
 /// <param name="data">The shape set holding the font's glyphs.</param>
 /// <param name="drawer">The palette converter to draw the glyphs with.</param>
-#if 0
 ScoreFontClass::ScoreFontClass(int w, int h, void const * data, ConvertClass * drawer) :
 	Width(w),
 	Height(h),
@@ -840,7 +837,6 @@ ScoreFontClass::ScoreFontClass(int w, int h, void const * data, ConvertClass * d
 	Load_Sounds();
 	score_font_count++;
 }
-#endif
 
 
 
@@ -1009,7 +1005,6 @@ void ScoreFontClass::Print_String(Surface *surf, const wchar_t * string, int x, 
 /// there. This is the font the score screen prints its labels and tallies with.
 /// </summary>
 /// <param name="drawer">The palette converter to draw the glyphs with.</param>
-#if 0
 ScoreFullFontClass::ScoreFullFontClass(ConvertClass * drawer) :
 	ScoreFontClass()
 {
@@ -1026,7 +1021,6 @@ ScoreFullFontClass::ScoreFullFontClass(ConvertClass * drawer) :
 	Drawer = drawer;
 	Height = 21;
 }
-#endif
 
 
 
@@ -1036,7 +1030,6 @@ ScoreFullFontClass::ScoreFullFontClass(ConvertClass * drawer) :
 /// there. This is the font the score screen prints its headline figures with.
 /// </summary>
 /// <param name="drawer">The palette converter to draw the glyphs with.</param>
-#if 0
 ScoreBigFontClass::ScoreBigFontClass(ConvertClass * drawer) :
 	ScoreFontClass()
 {
@@ -1053,7 +1046,6 @@ ScoreBigFontClass::ScoreBigFontClass(ConvertClass * drawer) :
 	Drawer = drawer;
 	Height = 35;
 }
-#endif
 
 
 

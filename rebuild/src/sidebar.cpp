@@ -137,6 +137,7 @@ inline int Max_Visible_Rows(void) // RA2: the rows that fit, inline in Draw_It (
 }
 PaletteClass * Get_Game_Palette(void); // RA2: 0x6F45E0, the pointer at 0xAC11A0 (the sidebar layout's module)
 void Set_Tab_Building(BuildingClass * building); // RA2: 0x6F8A00; the structure or defense tab (by the building type's build category) shows this building
+void Clear_Sidebar_Tab_Object(TechnoClass * techno); // RA2: 0x6F8A20 (scenario.cpp), forgets techno in the sidebar tab slots
 namespace Unsorted { extern bool ArmageddonMode; } // RA2: as above
 namespace Game { extern bool IsActive; extern HWND hWnd; } // RA2: as above
 namespace Unsorted { extern bool ScenarioStarted; } // RA2: as above
@@ -204,7 +205,6 @@ bool SidebarClass::IsToEraseSidebarMouse = false;
 ShapeSet const * SidebarClass::StripClass::DarkenShapes; // RA2: 0xAB9480
 
 void Print_Cameo_Text(wchar_t const * string, Point2D const & point, Rect const & cliprect, int maxlinelen); // RA2: wide text; the flag is a global
-extern bool IsCameoTextShown; // RA2: 0x8373C0
 /// <summary>
 /// Default constructor for the sidebar background gadget.
 /// This gadget exists to cover the sidebar so that the mouse reverts to its normal shape
@@ -3020,6 +3020,18 @@ bool SidebarClass::Abandon_Production(RTTIType type, FactoryClass * factory)
 #endif
 
 
+static inline bool Is_Building(TechnoClass * object) // RA2: ra2-decomp's sidebar.cpp text; expanded in Abandon_Production
+{
+	return(object != NULL && object->Fetch_RTTI() == RTTI_BUILDING);
+}
+
+
+static inline BuildingClass * As_Building(TechnoClass * object) // RA2: as in temporal.cpp (ra2-decomp's cast.h)
+{
+	return((object == NULL) ? NULL : ((object->Fetch_RTTI() == RTTI_BUILDING) ? (BuildingClass *)object : NULL));
+}
+
+
 /***********************************************************************************************
  * SidebarClass::StripClass::Abandon_Produ -- Abandons production associated with sidebar.     *
  *                                                                                             *
@@ -3036,16 +3048,23 @@ bool SidebarClass::Abandon_Production(RTTIType type, FactoryClass * factory)
  *   05/18/1995 JLB : Created.                                                                 *
  *   08/06/1995 JLB : More intelligent abandon logic for multiple factories.                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool SidebarClass::StripClass::Abandon_Production(FactoryClass const * factory)
 {
-	bool noprod = true;
-	bool abandon = false;
+	/*
+	**	A building whose production is abandoned is no longer the object of a sidebar tab.
+	*/
+	if (factory != NULL && factory->Get_Object() != NULL && Is_Building(factory->Get_Object())) { // RA2: ra2-decomp's text (YR twin 0x6ABB60)
+		Clear_Sidebar_Tab_Object(As_Building(factory->Get_Object())); // RA2: as above
+	}
+
+	bool abandon = false; // RA2: as above
+	bool noprod = true; // RA2: as above
 	for (int index = 0; index < BuildableCount; index++) {
 		if (Buildables[index].Factory == factory) {
 			((FactoryClass *)factory)->Abandon();
 			Buildables[index].Factory = NULL;
 			abandon = true;
+			Buildables[index].Unknown_10 = 0; // RA2: as above
 		} else {
 			if (Buildables[index].Factory != NULL) {
 				noprod = false;
@@ -3058,6 +3077,7 @@ bool SidebarClass::StripClass::Abandon_Production(FactoryClass const * factory)
 	*/
 	if (abandon) {
 		Flag_To_Redraw();
+		IsSidebarRedrawPending = true; // RA2: as above
 	}
 
 	/*
@@ -3068,7 +3088,6 @@ bool SidebarClass::StripClass::Abandon_Production(FactoryClass const * factory)
 	}
 	return(abandon);
 }
-#endif
 
 
 /***********************************************************************************************

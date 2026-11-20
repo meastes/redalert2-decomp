@@ -364,7 +364,6 @@ void ParticleSystemClass::Gas_AI(void)
 /// wanders from frame to frame so the shower appears to flicker. The system retires once the
 /// spark frames run out.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 57 bytes differ (adopted text)
 void ParticleSystemClass::Spark_AI(void)
 {
 	int index; // RA2: the loop counter is declared first
@@ -372,14 +371,14 @@ void ParticleSystemClass::Spark_AI(void)
 
 		if (SparkSpawnFrames == 1 || Random_Double(0.0, 1.0) <= Class->SpawnSparkPercentage) {
 
-			int random = Scen->RandomNumber();
+			int random = Scen->RandomNumber;
 			int count = Class->ParticleCap / 2 + abs(random) % (Class->ParticleCap / 2);
 
 			ParticleTypeClass * held = ParticleTypes[Class->HoldsWhat];
 
 			Random2Class & generator = Scen->RandomNumber; // RA2: the generator kept by reference
 			int rand_y = generator; // RA2: as above
-			int rand_x = Scen->RandomNumber(); // RA2: as above
+			int rand_x = Scen->RandomNumber; // RA2: as above
 
 			Vector3 spark;
 			float vertical_velocity = (float)(int(generator) % held->ZVelocityRange); // RA2: as above
@@ -393,9 +392,9 @@ void ParticleSystemClass::Spark_AI(void)
 				ParticleTypeClass const * ptype = particle->Class;
 				Vector3 & dir = particle->MovementDirection;
 
-				particle->MovementDirection.X = (float)(Scen->RandomNumber() % ptype->XVelocity);
-				particle->MovementDirection.Y = (float)(Scen->RandomNumber() % ptype->YVelocity);
-				particle->MovementDirection.Z = (float)(ptype->MinZVelocity + abs(Scen->RandomNumber()) % ptype->ZVelocityRange);
+				particle->MovementDirection.X = (float)(int(Scen->RandomNumber) % ptype->XVelocity);
+				particle->MovementDirection.Y = (float)(int(Scen->RandomNumber) % ptype->YVelocity);
+				particle->MovementDirection.Z = (float)(ptype->MinZVelocity + abs(int(Scen->RandomNumber)) % ptype->ZVelocityRange);
 
 				float speed = (float)dir.Length();
 				if (IsRandomSparkDirection) {
@@ -451,7 +450,6 @@ void ParticleSystemClass::Spark_AI(void)
 		}
 	}
 }
-#endif
 
 
 
@@ -706,7 +704,6 @@ static int _FireStepY[FACING_COUNT] = { 0,  1,  1,  1,  0, -1, -1, -1 };
 /// particle is launched toward a point that swings in and out along the line of fire, so
 /// that the jet appears to pulse.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 476 bytes differ (the original calls TPoint3D's constructor out of line for the aim point)
 void ParticleSystemClass::Fire_AI(void)
 {
 	int i;
@@ -732,7 +729,8 @@ void ParticleSystemClass::Fire_AI(void)
 				Coord cc = source->TarCom->Center_Coord();
 				Coord delta = cc - source->Get_Coord();
 				int dist = (int)fastmath::sqrt((double)delta.X * (double)delta.X + (double)delta.Y * (double)delta.Y + (double)delta.Z * (double)delta.Z);
-				SpawnCoord = Move_Coord(source->Get_Coord(), source->PrimaryFacing.Current(), dist);
+				Coord aim = Move_Coord(source->Get_Coord(), source->PrimaryFacing.Current(), dist); // RA2: the aim point is built, then copied in
+				SpawnCoord = aim;
 				Set_Coord(source->Fire_Coord(0));
 				reaimed = true;
 			}
@@ -748,7 +746,7 @@ void ParticleSystemClass::Fire_AI(void)
 		int index = Frame % 500;
 
 		Coord delta = Get_Coord() - SpawnCoord; // RA2: the offset as one subtraction
-		int distsq = delta.X * delta.X + delta.Y * delta.Y + delta.Z * delta.Z; // RA2: as above
+		int distsq = delta.Dot_Product(delta); // RA2: as above
 
 		int divisor;
 		if ((float)fastmath::sqrt((double)distsq) < 200.0f) {
@@ -759,15 +757,12 @@ void ParticleSystemClass::Fire_AI(void)
 
 		int offset = (int)((double)(12 * SineTable[index]) / ((float)divisor * 3.0f));
 
-		Point2D to(SpawnCoord.X, SpawnCoord.Y); // RA2: the target point as a Point2D
-		Coord position = Get_Coord(); // RA2: as above
-		FacingType face = Facing_Between_Points(Point2D(position.X, position.Y), to); // RA2: as above
+		FacingType face = Facing_Between_Points(Get_Coord(), SpawnCoord); // RA2: both points taken as Point2D
 
 		Coord spread = Coord(_FireStepX[face] * offset, _FireStepY[face] * offset, 0); // RA2: the spread offset as a Coord
 		Spawn_Held_Particle_Random(Get_Coord() + Coord(0, 0, 1), SpawnCoord + spread, 4); // RA2: the spread added to the aim point
 	}
 }
-#endif
 
 
 

@@ -1229,7 +1229,6 @@ Rect ObjectClass::Get_Render_Rect(void)
  * HISTORY:                                                                                    *
  *   06/19/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 498 bytes differ (adopted text)
 bool ObjectClass::Render(Rect & cliprect, bool forced, bool extras_only) const
 {
 	assert(this != NULL);
@@ -1261,7 +1260,6 @@ bool ObjectClass::Render(Rect & cliprect, bool forced, bool extras_only) const
 	}
 	return(false);
 }
-#endif
 
 
 #ifdef _DEBUG

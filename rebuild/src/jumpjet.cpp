@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
  ******************************************************************************/
@@ -883,27 +884,26 @@ CoordStruct STDMETHODCALLTYPE JumpjetLocomotionClass::Head_To_Coord(void)
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/// <summary>
+/// Copies the linked object type's jumpjet settings and starts its facing east.
+/// </summary>
+/// <param name="object">The foot object this locomotor drives.</param>
+HRESULT STDMETHODCALLTYPE JumpjetLocomotionClass::Link_To_Object(void * object) // RA2: 0x0052F230, not in TibSun; ra2-decomp's twin text
+{
+	FootClass * foot = (FootClass *)object;
+	TurnRate = foot->TClass->JumpjetTurnRate;
+	Speed = foot->TClass->JumpjetSpeed;
+	Climb = foot->TClass->JumpjetClimb;
+	Crash = foot->TClass->JumpjetCrash;
+	int height = foot->TClass->JumpjetHeight;
+	Height = MAX(height, LEVEL_LEPTON_H * 2);
+	Accel = foot->TClass->JumpjetAccel;
+	Wobbles = foot->TClass->JumpjetWobbles;
+	Deviation = foot->TClass->JumpjetDeviation;
+	NoWobbles = foot->TClass->JumpjetNoWobbles;
+	FacingClass turning(TurnRate);
+	Facing = turning;
+	Facing.Set_Desired(DIR_E);
+	Facing.Set(DIR_E);
+	return(BASECLASS::Link_To_Object(object));
+}

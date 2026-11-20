@@ -30,6 +30,7 @@ class JumpjetLocomotionClass : public LocomotionClass
 		virtual HRESULT STDMETHODCALLTYPE GetClassID(CLSID * retval) override;
 		virtual HRESULT STDMETHODCALLTYPE Load(IStream * stream) override;
 
+		virtual HRESULT STDMETHODCALLTYPE Link_To_Object(void * object) override; // RA2: 0x0052F230
 		virtual boolean STDMETHODCALLTYPE Is_Moving(void) override;
 		virtual CoordStruct STDMETHODCALLTYPE Destination(void) override;
 		virtual CoordStruct STDMETHODCALLTYPE Head_To_Coord(void) override;

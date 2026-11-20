@@ -92,7 +92,7 @@ class WWMouseClass : public Mouse {
 		virtual int Get_Mouse_X(void) const override {return(CursorX);} // RA2: CursorX
 		virtual int Get_Mouse_Y(void) const override {return(CursorY);} // RA2: CursorY
 		virtual Point2D Get_Mouse_Point(void) const override {return(Point2D(CursorX, CursorY));} // RA2: CursorX/CursorY
-		virtual void Set_Mouse_Point(int x, int y) override; // RA2
+		virtual void Set_Mouse_Point(int x, int y) override {CursorX = x; CursorY = y;} // RA2: CursorX/CursorY
 
 		/*
 		**	The following two routines can be used to render the mouse onto an alternate

@@ -172,7 +172,6 @@ SuperClass::SuperClass(SuperWeaponTypeClass * type, HouseClass * owner) :
 /// This routine unhooks the super weapon from the global super weapon list and from the
 /// trackers that watch its weapon type and its owning house.
 /// </summary>
-#pragma auto_inline(off) // RA2: the scalar deleting destructor (0x0069ECD0) calls this one out of line
 SuperClass::~SuperClass(void)
 {
 	Detach_Animation(); // RA2: as above
@@ -181,7 +180,6 @@ SuperClass::~SuperClass(void)
 	AbstractTypePtrTracker.Delete(this);
 	HousePtrTracker.Delete(this);
 }
-#pragma auto_inline(on)
 
 
 /***********************************************************************************************

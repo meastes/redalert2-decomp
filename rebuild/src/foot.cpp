@@ -142,6 +142,15 @@
 #include "tube.hh"
 
 
+// RA2: the weighted cell distribution retains its vector constructor out of line.
+template<>
+DynamicVectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *> >::DynamicVectorClass(unsigned size, DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *> const *array)
+	: VectorClass<DiscreteDistributionClass<CellClass>::DistributionObject<CellClass *> >(size, array)
+{
+	GrowthStep = 10;
+	ActiveCount = 0;
+}
+
 
 DynamicVectorClass<FootClass *> Feet;
 
@@ -5896,4 +5905,36 @@ bool FootClass::RefreshMegaMission(void) // RA2: 0x4CDD70
 // RA2: this virtual has no work in FootClass.
 void FootClass::Unknown_Virtual_4D0(void) // RA2: 0x004CA340
 {
+}
+
+
+// RA2: the weighted-cell record vector retains this Add member out of line.
+template<>
+bool DynamicVectorClass<DiscreteDistributionClass<CellClass>::DIST_OBJ>::Add(DiscreteDistributionClass<CellClass>::DIST_OBJ const & object)
+{
+	if (ActiveCount >= Length()) {
+		if ((IsAllocated || !VectorMax) && GrowthStep > 0) {
+			if (!Resize(Length() + GrowthStep)) {
+
+				/*
+				**	Failure to increase the size of the vector is an error condition.
+				**	Return with the error flag.
+				*/
+				return(false);
+			}
+		} else {
+
+			/*
+			**	Increasing the size of this vector is not allowed! Bail this
+			**	routine with the error code.
+			*/
+			return(false);
+		}
+	}
+
+	/*
+	**	There is room for the new object now. Add it to the end of the object vector.
+	*/
+	(*this)[ActiveCount++] = object;
+	return(true);
 }

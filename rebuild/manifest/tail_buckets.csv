@@ -21,7 +21,7 @@ tactical,006a6bd0,?Pixel_To_Cell@Tactical@@QAE?AVCell@@ABVPoint2D@@@Z,1265,calls
 tactical,006a7820,?Draw_Shroud@Tactical@@QAEXABV?$TRect@H@@@Z,894,calls_differ,Vector3::Vector3,,"orig-only 4, ours-only 1, unresolved 1"
 techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 46, ours-only 7, unresolved 3"
 techtype,006daf60,?Read_INI@TechnoTypeClass@@UAE_NABVCCINIClass@@@Z,12659,calls_differ,DynamicVectorClass::DynamicVectorClass,,"orig-only 7, ours-only 7, unresolved 0"
-unit,007053f0,?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,5651,calls_differ,UnknownComHolder_0069ed20::unknown_add_ref,,"orig-only 9, ours-only 1, unresolved 1"
+unit,007053f0,?Assign_Destination@UnitClass@@UAEXPAVAbstractClass@@_N@Z,5651,calls_differ,_com_ptr_t::_AddRef,,"orig-only 9, ours-only 1, unresolved 1"
 wdtsel,0072e050,?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ,991,calls_differ,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,,"orig-only 6, ours-only 12, unresolved 1"
 wdtsel,0072e650,?Select_Territory_At@Selection@WorldDominationTour@@QAE_NABVPoint2D@@@Z,193,calls_differ,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,,"orig-only 4, ours-only 1, unresolved 0"
 wdtsel,0072e780,?Do_Target_Anim@Selection@WorldDominationTour@@QAEXABV?$rc_ptr@VState@WorldDominationTour@@@@_N1@Z,1531,calls_differ,-,,"orig-only 4, ours-only 1, unresolved 3"
@@ -765,7 +765,6 @@ wonline,007670f0,?Get_Pointer_007670f0@WolLadderCache@@QBE_NABVWstring@@PAPAULad
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,,
 wonline,00767cd0,?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z,29,no_draft,,,
 wonline,00767d60,?Remove_00767d60@WolChannelDictionary@@QAE_NABVWstring@@PAUChannel@WOL@@@Z,684,no_draft,,,
-wwmouse,007736f0,?Set_Mouse_XY@WWMouseClass@@UAEXHH@Z,17,no_draft,,,
 building,00453e10,?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z,27,not_emitted,,,
 building,004545d0,?ID@?$VectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z,51,not_emitted,,,
 building,00454610,?ID@?$VectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z,27,not_emitted,,,

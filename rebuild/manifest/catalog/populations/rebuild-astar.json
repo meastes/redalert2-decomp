@@ -136,7 +136,7 @@
     "?Optimize_Moves@AStarClass@@AAEXPAUPathStruct@@PAVFootClass@@@Z": 4362432,
     "?Reset@AStarClass@@QAEXXZ": 4364944,
     "?Find_Path@AStarClass@@QAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@HW4MZoneType@@W4ObstacleAvoidanceType@1@@Z": 4366800,
-    "??_G?$VectorClass@G@@UAEPAXI@Z": 4371648,
+    "??_G?$VectorClass@G@@UAEPAXI@Z": 4371568,
     "??_G?$DynamicVectorClass@G@@UAEPAXI@Z": 4371648,
     "?Subzone_Edge_Banned@AStarClass@@AAE_NGGH@Z": 4368240,
     "?Ban_Subzone_Edge@AStarClass@@AAEXIIH@Z": 4368336,
@@ -4967,6 +4967,59 @@
       "bound_population": "population-15"
     },
     {
+      "entry": 4371568,
+      "method": "42b470",
+      "body_bytes": 73,
+      "body_sha256": "97b9b5fd2e8f682a686a98193382c418eb000a66b3382a0e493eb09040c4700e",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "d4792c06acf50ca20a5d22fe93efb67a5c9af232dc36231b05e186dd7702338c",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$VectorClass@G@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$VectorClass@G@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@G@@6B@",
+          "target": 7980340,
+          "addend": 0,
+          "resolved": 7980340
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3500206
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3500171
+        }
+      ],
+      "source_sha256": "08744978a974b073a701e696630a88f2c39be9ee6e699faee4c9957ebc693718",
+      "source": "rebuild/src/astar.cpp",
+      "population": "rebuild-astar",
+      "source_order": 4371568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
       "entry": 4371648,
       "method": "42b4c0",
       "body_bytes": 73,
@@ -4976,8 +5029,8 @@
       "full_extent_sha256": "86b563045b74c3e5f4edfa64113f98722b021e970ac1db23344182b0aa5531e2",
       "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "??_G?$VectorClass@G@@UAEPAXI@Z",
-      "symbol_prefix": "??_G?$VectorClass@G@@UAEPAXI@Z",
+      "symbol": "??_G?$DynamicVectorClass@G@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@G@@UAEPAXI@Z",
       "options": [
         "/O2",
         "/Ob2",

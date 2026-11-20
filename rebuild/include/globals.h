@@ -304,10 +304,6 @@ extern const double RAD_90;
 extern const double CELL_LEPTON_DIAG;
 
 extern const double ISO_TILE_SIZE;
-#ifndef GEOMETRY_H // geometry.h defines these itself
-const int ISO_TILE_PIXEL_W = 60; // RA2: fixed tile size, folded into the code
-const int ISO_TILE_PIXEL_H = 30;
-#endif
 extern const int LEVEL_PIXEL_H;
 extern const double CELL_SLOPE_ANGLE;
 extern const double CELL_DIAG_SLOPE_ANGLE;

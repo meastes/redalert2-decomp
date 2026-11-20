@@ -19,8 +19,7 @@
 **	0x0058FD80; ra2-decomp's mapsel.cpp).
 */
 
-#define GEOMETRY_H // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
-#include "always.h" // RA2: as above
+#include "always.h" // RA2: geometry.h follows the includes, as its constants take their initializers after those of the other headers
 #include "mapsel.h" // RA2: as above
 #include "_surface.h" // RA2: as above
 #include "convert.h" // RA2: as above

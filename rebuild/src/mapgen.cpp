@@ -3564,8 +3564,7 @@ namespace OwnerDraw { bool __fastcall Is_Control_Disabled(HWND control); } // RA
 /// <param name="wparam">Message-specific first parameter.</param>
 /// <param name="lparam">Message-specific second parameter.</param>
 /// <returns>TRUE if the message was processed, FALSE otherwise.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 00577bd0)
-BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: RA2's form (0x577BD0); near miss, 5 bytes short: after LoadOptionsClass::Load the exe normalizes the result (test al, al / setne al / test al, al), which no source form tried reproduces
+BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: RA2's form (0x577BD0)
 {
 	BOOL result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
 	if (result) { // RA2: as above
@@ -3751,7 +3750,7 @@ BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 				 */
 				case 0x6C2: { // RA2: the load button
 					RandomMapGen.SeedData.Get_Settings(window); // RA2: as above
-					bool loaded = RandomMapGen.SeedData.LoadOptionsClass::Load(); // RA2: held in a local
+					bool loaded = RandomMapGen.SeedData.Load(NULL); // RA2: MapSeedClass::Load (0x5791A0) expanded here, held in a local (TibSun asks LoadOptionsClass::Load directly)
 					if (loaded) { // RA2: as above
 						MapSeedPreviewFlag = false; // RA2: the next preview starts fresh
 						PostMessageA(window, WM_COMMAND, MAKEWPARAM(IDC_MAPGEN_PREVIEW, BN_CLICKED), (LPARAM)GetDlgItem(window, IDC_MAPGEN_PREVIEW)); // RA2: as above
@@ -3846,7 +3845,6 @@ BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	}
 	return(0); // RA2: as above
 }
-#endif
 
 
 
@@ -4331,10 +4329,7 @@ bool MapSeedClass::Load(const char * name)
 		return(Load_File(name));
 	}
 
-	if (BASECLASS::Load()) {
-		return(true);
-	}
-	return(false);
+	return(BASECLASS::Load() ? true : false); // RA2: the conditional form (TibSun tests and returns true or false); the dialog's expansion keeps its setne
 }
 
 

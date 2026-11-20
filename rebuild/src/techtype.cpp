@@ -1712,3 +1712,27 @@ void TechnoTypeClass::Set_Turret_Weapon(int weapon, int which)
 {
 	TurretWeapon[which] = weapon;
 }
+
+
+// RA2: copying the particle-system storage retains this assignment member out of line.
+template<>
+VectorClass<ParticleSystemTypeClass const *> & VectorClass<ParticleSystemTypeClass const *>::operator =(VectorClass<ParticleSystemTypeClass const *> const & vector)
+{
+	if (this != &vector) {
+		Clear();
+		VectorMax = vector.Length();
+		if (VectorMax) {
+			Vector = new ParticleSystemTypeClass const *[VectorMax];
+			if (Vector) {
+				IsAllocated = true;
+				for (int index = 0; index < VectorMax; index++) {
+					Vector[index] = vector[index];
+				}
+			}
+		} else {
+			Vector = 0;
+			IsAllocated = false;
+		}
+	}
+	return(*this);
+}

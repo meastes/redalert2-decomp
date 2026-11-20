@@ -98,15 +98,31 @@
     "?VisibleSurface@@3PAVSurface@@A": 8624464,
     "?SurfacesRestored@@3_NA": 8725468,
     "?StillUpdating@@3_NA": 11235228,
+    "??_7ScoreFontClass@@6B@": 8032928,
+    "?Load_Sounds@ScoreFontClass@@QAEXXZ": 6715648,
+    "?score_font_count@@3HA": 11235236,
     "__imp__CharToOemBuffA@12": 7972084,
     "?Draw_Shape@@YIXAAVSurface@@AAVConvertClass@@PBVShapeSet@@HABVPoint2D@@ABV?$TRect@H@@W4ShapeFlags_Type@@PBEHW4ZGradientType@@H2HV4@@Z": 4845216,
+    "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@": 8281548,
+    "??_7ScoreFullFontClass@@6B@": 8032952,
+    "?Retrieve@MixFileClass@@SIPBXPBD@Z": 5854912,
+    "??0CCFileClass@@QAE@PBD@Z": 4624208,
+    "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z": 4805168,
+    "?Close@CCFileClass@@UAEXXZ": 4624880,
+    "??_C@_0CC@BKPB@ScoreScreen?3?5Loaded?5FULLFNT3?4SHP@": 8334100,
+    "??_7CCFileClass@@6B@": 7972512,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "??_7CDFileClass@@6B@": 7972440,
+    "??1BufferIOFileClass@@UAE@XZ": 4387664,
+    "??_C@_0M@CEOJ@BIGFONT?4SHP?$AA@": 8334204,
+    "??_7ScoreBigFontClass@@6B@": 8032976,
+    "??_C@_0CB@HABD@ScoreScreen?3?5Loaded?5BIGFONT?4SHP?6@": 8334168,
     "??_7ScoreTimeClass@@6B@": 8032888,
     "_wcslen": 7878149,
     "_strdup": 7919638,
     "_free": 7874024,
     "??_7ScoreAnimClass@@6B@": 8032908,
     "??3@YAXPAX@Z": 7871803,
-    "?score_font_count@@3HA": 11235236,
     "_$E2": 6700528,
     "_$E5": 6700560,
     "_$E8": 6700608,
@@ -141,10 +157,55 @@
     "?Draw@ScoreClass@@AAEXXZ": 6715072,
     "?Timing@ScoreClass@@AAEXXZ": 6715264,
     "?DoSound@ScoreClass@@AAEXPBDH@Z": 6715376,
+    "??0ScoreFontClass@@QAE@XZ": 6715456,
+    "??_GScoreFontClass@@UAEPAXI@Z": 6718416,
+    "??_R0?AVScoreFontClass@@@8": 8333896,
+    "??1ScoreFontClass@@UAE@XZ": 6715568,
+    "??0ScoreFontClass@@QAE@HHPBXPAVConvertClass@@@Z": 6715504,
     "?String_Width@ScoreFontClass@@UAEHPBG@Z": 6716000,
     "?Char_Width@ScoreFontClass@@UAEHG@Z": 6716064,
     "?Print_Char@ScoreFontClass@@UAEXPAVSurface@@GHHH_N@Z": 6716256,
     "?Print_String@ScoreFontClass@@UAEXPAVSurface@@PBGHHH@Z": 6716528,
+    "??0ScoreFullFontClass@@QAE@PAVConvertClass@@@Z": 6716864,
+    "??_GScoreFullFontClass@@UAEPAXI@Z": 6718512,
+    "??_R0?AVScoreFullFontClass@@@8": 8334064,
+    "?Error@RawFileClass@@UAEXHHPBD@Z": 6523696,
+    "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "?Get_Date_Time@RawFileClass@@UAEIXZ": 6525600,
+    "?Close@BufferIOFileClass@@UAEXXZ": 4390304,
+    "?Write@BufferIOFileClass@@UAEHPBXH@Z": 4388912,
+    "?Size@BufferIOFileClass@@UAEHXZ": 4390272,
+    "?Seek@BufferIOFileClass@@UAEHHH@Z": 4390032,
+    "?Read@BufferIOFileClass@@UAEHPAXH@Z": 4389504,
+    "?Open@CDFileClass@@UAEHPBDH@Z": 4653648,
+    "?Open@CDFileClass@@UAEHH@Z": 4652560,
+    "?Is_Open@BufferIOFileClass@@UBE_NXZ": 4388608,
+    "?Is_Available@BufferIOFileClass@@UAE_NH@Z": 4388576,
+    "??_GCDFileClass@@UAEPAXI@Z": 4200784,
+    "?Error@CCFileClass@@UAEXHHPBD@Z": 4624384,
+    "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408,
+    "?Get_Date_Time@CCFileClass@@UAEIXZ": 4625232,
+    "?Write@CCFileClass@@UAEHPBXH@Z": 4624432,
+    "?Size@CCFileClass@@UAEHXZ": 4624720,
+    "?Seek@CCFileClass@@UAEHHH@Z": 4624624,
+    "?Read@CCFileClass@@UAEHPAXH@Z": 4624480,
+    "?Open@CCFileClass@@UAEHH@Z": 4624928,
+    "?Is_Open@CCFileClass@@UBE_NXZ": 4624864,
+    "?Is_Available@CCFileClass@@UAE_NH@Z": 4624800,
+    "?Delete@RawFileClass@@UAEHXZ": 6525504,
+    "?Create@RawFileClass@@UAEHXZ": 6525440,
+    "?Set_Name@CDFileClass@@UAEPBDPBD@Z": 4653392,
+    "??_GCCFileClass@@UAEPAXI@Z": 4200864,
+    "??_R0?AVFileClass@@@8": 8177872,
+    "??_R0?AVRawFileClass@@@8": 8177896,
+    "??_R0?AVBufferIOFileClass@@@8": 8177928,
+    "??_R0?AVCDFileClass@@@8": 8177960,
+    "??_R0?AVCCFileClass@@@8": 8177840,
+    "?File_Name@RawFileClass@@UBEPBDXZ": 4200768,
+    "?Open@CCFileClass@@UAEHPBDH@Z": 4200832,
+    "??0ScoreBigFontClass@@QAE@PAVConvertClass@@@Z": 6717056,
+    "??_GScoreBigFontClass@@UAEPAXI@Z": 6718608,
+    "??_R0?AVScoreBigFontClass@@@8": 8334136,
     "??0ScoreTimeClass@@QAE@HHPBXHHPAVConvertClass@@@Z": 6717248,
     "??_GScoreTimeClass@@UAEPAXI@Z": 6718352,
     "??_R0?AVScoreTimeClass@@@8": 8333200,
@@ -213,7 +274,7 @@
           "resolved": 11235116
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700528,
@@ -281,7 +342,7 @@
           "resolved": 11235128
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700560,
@@ -333,7 +394,7 @@
           "resolved": 11235216
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700608,
@@ -385,7 +446,7 @@
           "resolved": 11235200
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700640,
@@ -437,7 +498,7 @@
           "resolved": 11235192
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700672,
@@ -489,7 +550,7 @@
           "resolved": 11235136
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700704,
@@ -541,7 +602,7 @@
           "resolved": 11235088
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700736,
@@ -625,7 +686,7 @@
           "resolved": 11235224
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700768,
@@ -685,7 +746,7 @@
           "resolved": 11235144
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700832,
@@ -745,7 +806,7 @@
           "resolved": 11235184
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700880,
@@ -805,7 +866,7 @@
           "resolved": 11235212
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700928,
@@ -849,7 +910,7 @@
           "resolved": 11235122
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700976,
@@ -901,7 +962,7 @@
           "resolved": 11235176
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6700992,
@@ -928,7 +989,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6708816,
@@ -955,7 +1016,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6708928,
@@ -1239,7 +1300,7 @@
           "resolved": 4293708234
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6708960,
@@ -1443,7 +1504,7 @@
           "resolved": 4292478765
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6709312,
@@ -1607,7 +1668,7 @@
           "resolved": 17
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6709728,
@@ -1971,7 +2032,7 @@
           "resolved": 2268
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6710048,
@@ -2055,7 +2116,7 @@
           "resolved": 1998
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6712160,
@@ -2131,7 +2192,7 @@
           "resolved": 1661
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6712432,
@@ -2167,7 +2228,7 @@
           "resolved": 1165666
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6712784,
@@ -2491,7 +2552,7 @@
           "resolved": 417
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6712944,
@@ -2727,7 +2788,7 @@
           "resolved": 11235160
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6714016,
@@ -2754,7 +2815,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6714384,
@@ -2982,7 +3043,7 @@
           "resolved": 208456
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6714400,
@@ -3058,7 +3119,7 @@
           "resolved": 8624472
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6714912,
@@ -3166,7 +3227,7 @@
           "resolved": 8624468
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6715072,
@@ -3234,7 +3295,7 @@
           "resolved": 10751272
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6715264,
@@ -3278,11 +3339,133 @@
           "resolved": 1156866
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6715376,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6715456,
+      "method": "00667840",
+      "body_bytes": 43,
+      "body_sha256": "d009895f5ca9390c9f0043300b3e7f8e5d4023c20d9d42ebf6e4486560eb993f",
+      "padding_bytes": 5,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "12f4dc9504249c334c932d9af653fc23bb1b1e2c395fe028216e9563cb420c28",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ScoreFontClass@@QAE@XZ",
+      "symbol_prefix": "??0ScoreFontClass@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 19,
+          "kind": 6,
+          "symbol": "??_7ScoreFontClass@@6B@",
+          "target": 8032928,
+          "addend": 0,
+          "resolved": 8032928
+        },
+        {
+          "offset": 24,
+          "kind": 20,
+          "symbol": "?Load_Sounds@ScoreFontClass@@QAEXXZ",
+          "target": 6715648,
+          "addend": 0,
+          "resolved": 164
+        },
+        {
+          "offset": 29,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        }
+      ],
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
+      "source": "rebuild/src/score.cpp",
+      "population": "rebuild-score",
+      "source_order": 6715456,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3086"
+    },
+    {
+      "entry": 6715504,
+      "method": "00667870",
+      "body_bytes": 61,
+      "body_sha256": "95891177bae8bbf3009b69e4effa03a4d2c2603d89de345ef71e25ba0955f108",
+      "padding_bytes": 3,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "bfd0b42a995b76c93df9061e65b527d8a2cafab4874d1412a9ce9ba15eb6c385",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ScoreFontClass@@QAE@HHPBXPAVConvertClass@@@Z",
+      "symbol_prefix": "??0ScoreFontClass@@QAE@HHPBXPAVConvertClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 35,
+          "kind": 6,
+          "symbol": "??_7ScoreFontClass@@6B@",
+          "target": 8032928,
+          "addend": 0,
+          "resolved": 8032928
+        },
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "?Load_Sounds@ScoreFontClass@@QAEXXZ",
+          "target": 6715648,
+          "addend": 0,
+          "resolved": 100
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 51,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        }
+      ],
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
+      "source": "rebuild/src/score.cpp",
+      "population": "rebuild-score",
+      "source_order": 6715504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3086"
     },
     {
       "entry": 6716000,
@@ -3305,7 +3488,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6716000,
@@ -3374,7 +3557,7 @@
           "resolved": 11235116
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6716064,
@@ -3451,7 +3634,7 @@
           "resolved": 4293096008
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6716256,
@@ -3528,10 +3711,340 @@
           "resolved": 4293095700
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6716528,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3086"
+    },
+    {
+      "entry": 6716864,
+      "method": "00667dc0",
+      "body_bytes": 192,
+      "body_sha256": "fd7a51fdecc27a24bf577e4101ba9344d1f6c0578feb378df23d99c995130502",
+      "padding_bytes": 0,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "fd7a51fdecc27a24bf577e4101ba9344d1f6c0578feb378df23d99c995130502",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ScoreFullFontClass@@QAE@PAVConvertClass@@@Z",
+      "symbol_prefix": "??0ScoreFullFontClass@@QAE@PAVConvertClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7ScoreFontClass@@6B@",
+          "target": 8032928,
+          "addend": 0,
+          "resolved": 8032928
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Load_Sounds@ScoreFontClass@@QAEXXZ",
+          "target": 6715648,
+          "addend": 0,
+          "resolved": 4294966048
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@",
+          "target": 8281548,
+          "addend": 0,
+          "resolved": 8281548
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7ScoreFullFontClass@@6B@",
+          "target": 8032952,
+          "addend": 0,
+          "resolved": 8032952
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4294105280
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_C@_0N@HEOG@FULLFNT3?4SHP?$AA@",
+          "target": 8281548,
+          "addend": 0,
+          "resolved": 8281548
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4292874555
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 4293055506
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?Close@CCFileClass@@UAEXXZ",
+          "target": 4624880,
+          "addend": 0,
+          "resolved": 4292875202
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "??_C@_0CC@BKPB@ScoreScreen?3?5Loaded?5FULLFNT3?4SHP@",
+          "target": 8334100,
+          "addend": 0,
+          "resolved": 8334100
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4292471480
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292675008
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292637935
+        }
+      ],
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
+      "source": "rebuild/src/score.cpp",
+      "population": "rebuild-score",
+      "source_order": 6716864,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3086"
+    },
+    {
+      "entry": 6717056,
+      "method": "00667e80",
+      "body_bytes": 192,
+      "body_sha256": "69c769db1a764dbeeffc30056eb6c08682fefc44938ec1d86cbb5efebdfc6722",
+      "padding_bytes": 0,
+      "full_extent_bytes": 192,
+      "full_extent_sha256": "69c769db1a764dbeeffc30056eb6c08682fefc44938ec1d86cbb5efebdfc6722",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0ScoreBigFontClass@@QAE@PAVConvertClass@@@Z",
+      "symbol_prefix": "??0ScoreBigFontClass@@QAE@PAVConvertClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "??_7ScoreFontClass@@6B@",
+          "target": 8032928,
+          "addend": 0,
+          "resolved": 8032928
+        },
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Load_Sounds@ScoreFontClass@@QAEXXZ",
+          "target": 6715648,
+          "addend": 0,
+          "resolved": 4294965856
+        },
+        {
+          "offset": 34,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 39,
+          "kind": 6,
+          "symbol": "??_C@_0M@CEOJ@BIGFONT?4SHP?$AA@",
+          "target": 8334204,
+          "addend": 0,
+          "resolved": 8334204
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?score_font_count@@3HA",
+          "target": 11235236,
+          "addend": 0,
+          "resolved": 11235236
+        },
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "??_7ScoreBigFontClass@@6B@",
+          "target": 8032976,
+          "addend": 0,
+          "resolved": 8032976
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "?Retrieve@MixFileClass@@SIPBXPBD@Z",
+          "target": 5854912,
+          "addend": 0,
+          "resolved": 4294105088
+        },
+        {
+          "offset": 72,
+          "kind": 6,
+          "symbol": "??_C@_0M@CEOJ@BIGFONT?4SHP?$AA@",
+          "target": 8334204,
+          "addend": 0,
+          "resolved": 8334204
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "??0CCFileClass@@QAE@PBD@Z",
+          "target": 4624208,
+          "addend": 0,
+          "resolved": 4292874363
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "?Load_Alloc_Data@@YIPAXAAVFileClass@@@Z",
+          "target": 4805168,
+          "addend": 0,
+          "resolved": 4293055314
+        },
+        {
+          "offset": 106,
+          "kind": 20,
+          "symbol": "?Close@CCFileClass@@UAEXXZ",
+          "target": 4624880,
+          "addend": 0,
+          "resolved": 4292875010
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "??_C@_0CB@HABD@ScoreScreen?3?5Loaded?5BIGFONT?4SHP?6@",
+          "target": 8334168,
+          "addend": 0,
+          "resolved": 8334168
+        },
+        {
+          "offset": 116,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4292471288
+        },
+        {
+          "offset": 131,
+          "kind": 6,
+          "symbol": "??_7CCFileClass@@6B@",
+          "target": 7972512,
+          "addend": 0,
+          "resolved": 7972512
+        },
+        {
+          "offset": 140,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4292674816
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "??_7CDFileClass@@6B@",
+          "target": 7972440,
+          "addend": 0,
+          "resolved": 7972440
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "??1BufferIOFileClass@@UAE@XZ",
+          "target": 4387664,
+          "addend": 0,
+          "resolved": 4292637743
+        }
+      ],
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
+      "source": "rebuild/src/score.cpp",
+      "population": "rebuild-score",
+      "source_order": 6717056,
       "source_quality_family": "rebuild",
       "bound_population": "population-3086"
     },
@@ -3573,7 +4086,7 @@
           "resolved": 8032888
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6717248,
@@ -3665,7 +4178,7 @@
           "resolved": 4293094935
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6717328,
@@ -3709,7 +4222,7 @@
           "resolved": 8032868
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6717600,
@@ -3801,7 +4314,7 @@
           "resolved": 8624472
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6717680,
@@ -3845,7 +4358,7 @@
           "resolved": 1201526
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718080,
@@ -3882,7 +4395,7 @@
           "resolved": 1155884
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718128,
@@ -3927,7 +4440,7 @@
           "resolved": 8032908
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718144,
@@ -3963,7 +4476,7 @@
           "resolved": 205076
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718208,
@@ -3999,7 +4512,7 @@
           "resolved": 205007
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718288,
@@ -4044,7 +4557,7 @@
           "resolved": 1153460
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718320,
@@ -4088,7 +4601,7 @@
           "resolved": 1153428
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718352,
@@ -4133,7 +4646,7 @@
           "resolved": 1153396
         }
       ],
-      "source_sha256": "610dbe6139ba566bc1a3a4a444547e93d877fdab5d463ad5793b17c9b1bd1e95",
+      "source_sha256": "6977435dc00af6590db2ff10a3c963eea7411d01bffea63642cabf438d59fb76",
       "source": "rebuild/src/score.cpp",
       "population": "rebuild-score",
       "source_order": 6718384,

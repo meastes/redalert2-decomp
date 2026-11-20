@@ -3068,7 +3068,13 @@
    "?Resize@?$DynamicVectorClass@_N@@UAE_NHPB_N@Z": "004f7fc0",
    "?Clear@?$DynamicVectorClass@_N@@UAEXXZ": "004f6e00",
    "?ID@?$DynamicVectorClass@_N@@UAEHAB_N@Z": "004f8070",
-   "?ID@?$DynamicVectorClass@_N@@UAEHPB_N@Z": "004f6e30"
+   "?ID@?$DynamicVectorClass@_N@@UAEHPB_N@Z": "004f6e30",
+   "??8?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UBE_NABV0@@Z": "004f80a0",
+   "?Resize@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": "004f8100",
+   "?Clear@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ": "004f8210",
+   "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHABV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": "004f8250",
+   "?ID@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z": "004f82a0",
+   "?GetItem@?$VectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UBE?AV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@H@Z": "004f6ec0"
   },
   "partial_ok": true
  },
@@ -66277,7 +66283,11 @@
    "?Stop@ScoreAnimClass@@UAEXXZ": "00668300",
    "?Start@ScoreAnimClass@@UAEXXZ": "00668350",
    "?Update@ScorePrintClass@@UAE_NPAVSurface@@@Z": "006680f0",
-   "?Update@ScoreTimeClass@@UAE_NPAVSurface@@@Z": "00667f90"
+   "?Update@ScoreTimeClass@@UAE_NPAVSurface@@@Z": "00667f90",
+   "?Char_Width@ScoreFontClass@@UAEHG@Z": "00667aa0",
+   "?String_Width@ScoreFontClass@@UAEHPBG@Z": "00667a60",
+   "?Print_String@ScoreFontClass@@UAEXPAVSurface@@PBGHHH@Z": "00667c70",
+   "?Print_Char@ScoreFontClass@@UAEXPAVSurface@@GHHH_N@Z": "00667b60"
   },
   "partial_ok": true
  },
@@ -77743,7 +77753,7 @@
     "entry": "00577bd0",
     "body": 2116,
     "padding": 12,
-    "symbol": "?Map_Seed_Dialog_Proc_00577bd0@@YGHPAUHWND__@@IIJ@Z",
+    "symbol": "?Map_Seed_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
     "main_symbol": "?Map_Seed_Dialog_Proc_00577bd0@@YGHPAUHWND__@@IIJ@Z",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79516,15 +79526,17 @@
    "_?_random_weight@?1??Get_Angle_Score@MapRegionClass@@QAENABVCell@@0N@Z@4NB": "007a5be0",
    "??_7?$DynamicVectorClass@V?$TRect@H@@@@6B@": "007a5edc",
    "__real@8@3ffde666666666666800": "007a5ed0",
-   "_?_raise_chance@?FM@??Seed_River@MapGeneratorClass@@QAE_NABVCell@@N_N@Z@4NB": "007a5cb0"
+   "_?_raise_chance@?FM@??Seed_River@MapGeneratorClass@@QAE_NABVCell@@N_N@Z@4NB": "007a5cb0",
+   "??_C@_0L@BPAO@Random?5Map?$AA@": "007e1608",
+   "??_C@_0M@FHFI@RandMap?4Map?$AA@": "007e15fc",
+   "_MapSeedPreviewFlag": "007e0ae0",
+   "_MapSeedSelection": "007e0adc"
   },
   "partial_ok": true,
   "data_bound_by": {
-   "_MapSeedSelection": "layout",
-   "_MapSeedPreviewFlag": "layout",
    "__theater_names": "layout"
   },
-  "data_bound_by_note": "DECISIONS 'Rebuild data no exact code refers to' (review 2026-11-19), A: file-scope data placed by position, run-anchored (Read_RMG_INI's static is missing while it is parked, so the section has no one base). MapSeedSelection 0x7E0ADC and MapSeedPreviewFlag 0x7E0AE0 (read only by the parked Map_Seed_Dialog_Proc) between Build_West_Ramp's RampShapes and _map_type_names; _theater_names 0x7E0B08 (no code reads it) between _resource_names and _time_names. Names and types are mischa85's mapgen.cpp text (hypothesis). The 20-byte tables at 0x7E0B94 and 0x7E0C4C (no reference, no name in TibSun, ra2-decomp or mischa85) are not declared and stay scaffolding.",
+  "data_bound_by_note": "DECISIONS 'Rebuild data no exact code refers to' (review 2026-11-19), A: file-scope data placed by position, run-anchored (Read_RMG_INI's static is missing while it is parked, so the section has no one base). MapSeedSelection 0x7E0ADC and MapSeedPreviewFlag 0x7E0AE0 are bound by Map_Seed_Dialog_Proc's references since it is exact (lane R55); _theater_names 0x7E0B08 (no code reads it) between _resource_names and _time_names. Names and types are mischa85's mapgen.cpp text (hypothesis). The 20-byte tables at 0x7E0B94 and 0x7E0C4C (no reference, no name in TibSun, ra2-decomp or mischa85) are not declared and stay scaffolding.",
   "data_pending": [
    {
     "address": "007e0be4",
@@ -88801,7 +88813,17 @@
    "?Clear@?$VectorClass@PAVAbstractClass@@@@UAEXXZ": "004ce0d0",
    "?ID@?$VectorClass@PAVAbstractClass@@@@UAEHABQAVAbstractClass@@@Z": "004ce100",
    "?ID@?$VectorClass@PAVAbstractClass@@@@UAEHPBQAVAbstractClass@@@Z": "004ce140",
-   "?Unknown_Virtual_4D0@FootClass@@UAEXXZ": "004ca340"
+   "?Unknown_Virtual_4D0@FootClass@@UAEXXZ": "004ca340",
+   "??8?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE_NABV0@@Z": "004ce4f0",
+   "?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAE_NHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce820",
+   "?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEXXZ": "004ce7c0",
+   "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce9b0",
+   "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce800",
+   "?GetItem@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UBE?AV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@H@Z": "004cdf10",
+   "?Resize@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAE_NHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce550",
+   "?Clear@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEXXZ": "004ce660",
+   "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHABV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce6a0",
+   "?ID@?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@UAEHPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z": "004ce6f0"
   },
   "partial_ok": true
  },
@@ -102442,7 +102464,7 @@
     "entry": "0042b470",
     "body": 73,
     "padding": 7,
-    "symbol": "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z",
+    "symbol": "??_G?$VectorClass@G@@UAEPAXI@Z",
     "main_symbol": "??_G?$VectorClass@G@@UAEPAXI@Z",
     "main_source": "src/recovered/astar.cpp"
    },
@@ -102450,7 +102472,7 @@
     "entry": "0042b4c0",
     "body": 73,
     "padding": 7,
-    "symbol": "??_G?$VectorClass@G@@UAEPAXI@Z",
+    "symbol": "??_G?$DynamicVectorClass@G@@UAEPAXI@Z",
     "main_symbol": "??_G?$DynamicVectorClass@G@@UAEPAXI@Z",
     "main_source": "src/recovered/astar.cpp"
    },
@@ -107250,7 +107272,7 @@
     "entry": "007246d0",
     "body": 93,
     "padding": 3,
-    "symbol": "?initialize@WordStorage_007246d0@@QAEPAV1@IPAI@Z",
+    "symbol": "??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z",
     "main_symbol": "?initialize@WordStorage_007246d0@@QAEPAV1@IPAI@Z",
     "main_source": "src/recovered/wave.cpp"
    },
@@ -111759,7 +111781,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0052ef70",
    "00531360"
@@ -112083,7 +112105,7 @@
     "entry": "00531320",
     "body": 6,
     "padding": 10,
-    "symbol": "?Size@JumpjetLocomotionClass@@UAEHXZ",
+    "symbol": "?Fetch_Object_Size@JumpjetLocomotionClass@@UBEHXZ",
     "main_symbol": "?Size@JumpjetLocomotionClass@@UAEHXZ",
     "main_source": "src/recovered/jumpjet.cpp"
    },
@@ -112121,13 +112143,13 @@
    "?Is_Moving_Now@JumpjetLocomotionClass@@UAGEXZ": "00530ae0",
    "?Mark_All_Occupation_Bits@JumpjetLocomotionClass@@UAGXH@Z": "00531250",
    "?GetClassID@JumpjetLocomotionClass@@UAGJPAU_GUID@@@Z": "0052fba0",
-   "?Load@JumpjetLocomotionClass@@UAGJPAUIStream@@@Z": "0052fbe0"
+   "?Load@JumpjetLocomotionClass@@UAGJPAUIStream@@@Z": "0052fbe0",
+   "?Link_To_Object@JumpjetLocomotionClass@@UAGJPAX@Z": "0052f230",
+   "?Move_To@JumpjetLocomotionClass@@UAGXUCoordStruct@@@Z": "0052f600",
+   "?Stop_Moving@JumpjetLocomotionClass@@UAGXXZ": "0052f960",
+   "?Fetch_Object_Size@JumpjetLocomotionClass@@UBEHXZ": "00531320"
   },
   "partial_ok": true,
-  "build_refused": {
-   "source_sha256": "10ecf1c3f5b049c349cb1a9dd1656dabdac19941519a610717396953451aa87b",
-   "reason": "Unsupported allocatable data section .rdata #61 in accepted.obj (['.rdata', '??_7JumpjetLocomotionClass@@6BILocomotion@@@']): +0c ?Link_To_Object@LocomotionClass@@UAGJPAX@Z bound 0053d010, original 00"
-  },
   "holder": "codex1",
   "held_reason": "worker",
   "held_note": "codex1; catalog: whole-file build refused: Unsupported allocatable data section .rdata #61 in accepted.obj (['.rdata', '??_7JumpjetLocomo"
@@ -117188,7 +117210,7 @@
     "entry": "007736f0",
     "body": 17,
     "padding": 15,
-    "symbol": "?Set_Mouse_XY@WWMouseClass@@UAEXHH@Z",
+    "symbol": "?Set_Mouse_Point@WWMouseClass@@UAEXHH@Z",
     "main_symbol": "?Set_Mouse_XY@WWMouseClass@@UAEXHH@Z",
     "main_source": "src/recovered/wwmouse.cpp"
    },
@@ -133778,7 +133800,7 @@
     "entry": "006817d0",
     "body": 221,
     "padding": 3,
-    "symbol": "?Unknown_006817D0@StripClass@SidebarClass@@QAE_NPAVUnknownFactory@@@Z",
+    "symbol": "?Abandon_Production@StripClass@SidebarClass@@QAE_NPBVFactoryClass@@@Z",
     "main_symbol": "?Unknown_006817D0@StripClass@SidebarClass@@QAE_NPAVUnknownFactory@@@Z",
     "main_source": "src/recovered/sidebar.cpp"
    },
@@ -147119,10 +147141,9 @@
    "/Ob2",
    "/G5",
    "/Gy",
-   "/Gr",
-   "/GR"
+   "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00535720",
    "00536ed0"
@@ -147370,7 +147391,31 @@
    "_RAD_60": "00a6e778",
    "_RAD_90": "00a6e750",
    "_RECT_NONE": "00a6e758",
-   "?Unknown_Virtual_0@LoadProgressManager@@UAE_NHH@Z": "00536ea0"
+   "?Unknown_Virtual_0@LoadProgressManager@@UAE_NHH@Z": "00536ea0",
+   "?UKShapeName@@3PBDB": "007df370",
+   "??_C@_0BB@FKFJ@ls?$CFsukingdom?4shp?$AA@": "007df434",
+   "?CubaShapeName@@3PBDB": "007df374",
+   "??_C@_0N@NGIK@ls?$CFscuba?4shp?$AA@": "007df424",
+   "?FranceShapeName@@3PBDB": "007df378",
+   "??_C@_0P@GJDN@ls?$CFsfrance?4shp?$AA@": "007df414",
+   "?GermanyShapeName@@3PBDB": "007df37c",
+   "??_C@_0BA@CNPC@ls?$CFsgermany?4shp?$AA@": "007df404",
+   "?IraqShapeName@@3PBDB": "007df380",
+   "??_C@_0N@HCPO@ls?$CFsiraq?4shp?$AA@": "007df3f4",
+   "?KoreaShapeName@@3PBDB": "007df384",
+   "??_C@_0O@PAGO@ls?$CFskorea?4shp?$AA@": "007df3e4",
+   "?LibyaShapeName@@3PBDB": "007df388",
+   "??_C@_0O@EHKI@ls?$CFslibya?4shp?$AA@": "007df3d4",
+   "?RussiaShapeName@@3PBDB": "007df38c",
+   "??_C@_0P@PILM@ls?$CFsrussia?4shp?$AA@": "007df3c4",
+   "?USShapeName@@3PBDB": "007df390",
+   "??_C@_0BA@EPNO@ls?$CFsustates?4shp?$AA@": "007df3b4",
+   "?ObserverShapeName@@3PBDB": "007df394",
+   "??_C@_0M@LHID@ls?$CFsobs?4shp?$AA@": "007df3a8",
+   "?Suffix640@@3PBDB": "007df398",
+   "??_C@_03JBAJ@640?$AA@": "007df3a4",
+   "?Suffix800@@3PBDB": "007df39c",
+   "??_C@_03LHGB@800?$AA@": "007df3a0"
   },
   "holder": "codex2",
   "partial_ok": true,
@@ -147388,24 +147433,6 @@
     "entry": "00535b90",
     "symbol": "?Load_Mixes@LoadProgressManager@@QAEXXZ",
     "body": 92,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Dependent txtlabel2/OwnerDraw external APIs lack landed declarations; draft guarded, no credit"
-   },
-   {
-    "entry": "00536b80",
-    "symbol": "?Get_Briefing_Area@@YI?AV?$TRect@H@@XZ",
-    "body": 118,
-    "best_differing": null,
-    "class": "a",
-    "text_source": "mischa85",
-    "note": "Dependent txtlabel2/OwnerDraw external APIs lack landed declarations; draft guarded, no credit"
-   },
-   {
-    "entry": "00536c00",
-    "symbol": "?Get_Loading_Text_Area@@YI?AV?$TRect@H@@XZ",
-    "body": 108,
     "best_differing": null,
     "class": "a",
     "text_source": "mischa85",
