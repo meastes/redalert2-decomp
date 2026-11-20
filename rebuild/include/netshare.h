@@ -54,7 +54,7 @@ void LBRestoreSelections(HWND win, Dictionary<WideWstring,bool> & lbdict);
 char * CalcRandomMapDigest(void);
 int CreateRandomMap(void);
 
-extern COLORREF PlayerColorTable[MAX_PLAYERS];
+extern COLORREF PlayerColorTable[9]; // RA2: nine colors (GDlgSupp.cpp)
 
 extern const COLORREF ColorSystem;
 extern const COLORREF ColorUser;

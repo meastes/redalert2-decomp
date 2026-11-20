@@ -2918,7 +2918,7 @@ int FootClass::Rescue_Mission(AbstractClass * tarcom)
 void FootClass::Death_Announcement(TechnoClass const * ) const
 {
 	if (House->Is_Player_Control() && !Techno_Type_Class()->Spawned) { // RA2: RA2's form
-		if (Submit_Radar_Event((RadarEventType)7, Get_Cell())) { // RA2: as above
+		if (Submit_Radar_Event(RADAREVENT_UNIT_LOST, Get_Cell())) { // RA2: as above
 			Queue_Speech("EVA_UnitLost", -1, -1); // RA2: as above
 		}
 	}

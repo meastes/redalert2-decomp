@@ -108,6 +108,7 @@
 #include "geometry.h" // RA2: the header statics, in the order of the unit's initializer table
 
 #include "building.h"
+#include "psystype.h"
 
 #include "_convert.h"
 #include "_keyboar.h"
@@ -495,7 +496,7 @@ void BuildingClass::Create_Damage_Fires(void) // RA2: not in TibSun, at 0x4395F0
 			AnimClass * fire = new AnimClass(Rule->DamageFireTypes[type_index], coord, 0, 1, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER), 0);
 			if (fire != NULL) {
 				DamageFireAnims[index] = fire;
-				fire->ZAdjust = ((Class->DamageFireOffset[index].Y - (Class->Height(false) + Class->Width()) * 15) * 3 >> 1) - 10;
+				fire->ZAdjust = ((Class->DamageFireOffset[index].Y - (Class->Height() + Class->Width()) * 15) * 3 >> 1) - 10;
 				if (fire->ZAdjust > 0) fire->ZAdjust = 0;
 				int stages = fire->Class->Stages;
 				if (stages > 0) fire->Set_Stage(Scen->RandomNumber(0, stages - 1));
@@ -1538,7 +1539,7 @@ bool BuildingClass::Mark(MarkType mark)
 				if (Class->ToTile != NULL) {
 					if (Can_Enter_Cell(&Map[cell], FACING_NONE, -1, NULL, true) == MOVE_OK) { // RA2: all the arguments
 						int w = Class->Width();
-						int h = Class->Height(false); // RA2: without the bib
+						int h = Class->Height(); // RA2: without the bib
 						bool any_created = false;
 						int x; // RA2: the loop counters are declared with the blocks that use them
 						int y; // RA2: as above
@@ -1616,7 +1617,7 @@ bool BuildingClass::Mark(MarkType mark)
 					Set_Anim_Coords();
 
 					int w = Class->Width(); // RA2: the smudges under the footprint go as well
-					int h = Class->Height(false); // RA2: as above
+					int h = Class->Height(); // RA2: as above
 					int x; // RA2: as above
 					int y; // RA2: as above
 					for (y = 0; y < h; y++) { // RA2: as above
@@ -2165,7 +2166,7 @@ bool BuildingClass::Unlimbo(Coord const & coord, Dir256 dir)
 		}
 
 		int width = Class->Width();
-		int height = Class->Height(false); // RA2: without the bib
+		int height = Class->Height(); // RA2: without the bib
 		Cell cell = coord.As_Cell();
 
 		for (int y = 0; y < height + 2; y++) {
@@ -2316,16 +2317,13 @@ inline void Register_Dirty(Rect const & area)
 /// <param name="forced">Should the destruction be forced, leaving no survivors?</param>
 /// <param name="offset">Pointer to the REFRESH_EOL terminated list of cell offsets that
 /// make up the building's footprint.</param>
-#ifdef RA2_NON_MATCHING // not exact: 2205 bytes differ (adopted text)
-void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *source, bool forced, Cell const *offset)
+void BuildingClass::Do_Destruction(TechnoClass * last_contact, TechnoClass * source, bool forced, Cell const * offset) // RA2: ra2-decomp's twin text
 {
-	int shakes;
-	int i;
-
 	/*
 	**	Destroy all attached objects.
 	*/
 	Kill_Cargo(source);
+	Remove_Damage_Fires(); // RA2: the damage fires go with the cargo
 
 	/*
 	**	Destruction of a radar facility or advanced communications
@@ -2349,6 +2347,10 @@ void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *sourc
 	}
 
 
+	if (TClass->DieSound.Count() == 0) { // RA2: not in TibSun
+		VocClass::PlayIndexAtPos(Rule->BuildingDieSound, Get_Coord(), 0);
+	}
+
 	if (Class->Width() >= 2 && Class->Height() >= 2) { // RA2: no CrumbleSound (not in RA2's layout)
 		if (Class->Width() > 2) {
 			Random_Pick(0, Class->Width() - 2);
@@ -2357,71 +2359,85 @@ void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *sourc
 			Random_Pick(0, Class->Height() - 2);
 		}
 		if (Percent_Chance(50)) {
-			SmudgeTypeClass::Scorch_The_Ground(PositionCoord.As_Cell(), 100, 100, true);
+			SmudgeTypeClass::Scorch_The_Ground(Coord(Get_Coord().As_Cell()), 100, 100, true);
 		} else {
-			SmudgeTypeClass::Crater_The_Ground(PositionCoord.As_Cell(), 100, 100, true);
+			SmudgeTypeClass::Crater_The_Ground(Coord(Get_Coord().As_Cell()), 100, 100, true);
 		}
 	}
 
 	while (*offset != REFRESH_EOL) {
 		Coord pos;
-		Coord coord(0,0,0);
+		Coord coord(0, 0, 0);
 		Cell cell = Render_Coord().As_Cell() + *offset++;
 
 		/*
 		**	If the building is destroyed, then lots of
 		**	explosions occur.
 		*/
-		if (Percent_Chance(50)) {
-			coord.Z = PositionCoord.Z;
-			Coord ccoord = cell;
-			pos = coord + Coord_Scatter(ccoord, CELL_LEPTON / 2);
-			new AnimClass(Rule->SmallFire, pos, Random_Pick(0, 7), Random_Pick(1, 3));
-			if (Percent_Chance(50)) {
-				coord.Z = PositionCoord.Z;
-				Coord ccoord = cell;
-				pos = coord + Coord_Scatter(ccoord, CELL_LEPTON / 4);
-				new AnimClass(Rule->LargeFire, pos, Random_Pick(0, 7), Random_Pick(1, 3));
-			}
-		}
+		// RA2: no SmallFire/LargeFire scatter (not in RA2)
 		if (Class->Explosion.Count() > 0) {
-			coord.Z = PositionCoord.Z;
+			coord.Z = Get_Coord().Z;
 			Coord ccoord = cell;
 			pos = coord + Coord_Scatter(ccoord, CELL_LEPTON / 4);
-			new AnimClass((Class->Explosion.Pick(Scen->RandomNumber())), pos, Random_Pick(0, 3), 1);
+			new AnimClass(Class->Explosion.Pick(Scen->RandomNumber()), pos, Random_Pick(0, 3), 1, ShapeFlags_Type(0x600), 0);
 		}
 	}
 
 	if (Class->IsExploding) {
 		static FacingType _facings[] = { FACING_N, FACING_E, FACING_S, FACING_W };
-		for (i = 0; i < ARRAY_SIZE(_facings); i++) {
-			Coord coord = Adjacent_Coord_With_Height(PositionCoord, _facings[i]);
+		for (int i = 0; i < 4; i++) {
+			Coord coord = Adjacent_Coord_With_Height(Get_Coord(), _facings[i]);
 			if (Map[coord].Overlay != OVERLAY_NONE) {
 				if (OverlayTypes[Map[coord].Overlay]->IsExplosive) {
-					new AnimClass(AnimTypes[AnimTypeClass::From_Name("FIRE3")], coord, Random_Pick(1, 3) + 3);
+					new AnimClass(AnimTypes[AnimTypeClass::From_Name("FIRE3")], coord, Random_Pick(1, 3) + 3, 1, ShapeFlags_Type(0x600), 0);
 				}
 			}
 		}
 	}
 
-	while (Storage.Get_Total_Amount() != 0) {
+	while (Storage.Get_Total_Amount() >= 1.0f) {
 		int slot = Storage.First_Used_Slot();
-		Storage.Decrease_Amount(1, slot);
-		House->Tiberium.Decrease_Amount(1, slot);
-		Coord coord = Coord_Scatter(PositionCoord, Random_Pick(CELL_LEPTON, 3 * CELL_LEPTON), true);
+		Storage.Decrease_Amount(1.0f, slot);
+		House->Tiberium.Decrease_Amount(1.0f, slot);
+		Coord coord = Coord_Scatter(Get_Coord(), Random_Pick(CELL_LEPTON, 3 * CELL_LEPTON), true);
 		Map[coord].Place_Tiberium((TiberiumType)slot, 1);
 	}
 
-	shakes = Class->Cost_Of(House) / Rule->ShakeScreen;
+	int shakes = Class->Cost_Of(House) / Rule->ShakeScreen;
 	if (shakes > 0) {
 		Shake_The_Screen(shakes);
 	}
 
-	if (Mission == MISSION_DECONSTRUCTION || Class->IsExploding) {
+	if (Get_Mission() == MISSION_DECONSTRUCTION || Class->IsExploding) {
 		CountDown = 0;
 		Set_Rate(0);
 	} else {
 		CountDown = 8;
+	}
+
+	if (Class->DestroyAnim.Count() > 0) { // RA2: not in TibSun, as the smoke below
+		AnimTypeClass const * type = Class->DestroyAnim.Pick(Scen->RandomNumber());
+		if (type != NULL) {
+			AnimClass * anim = new AnimClass(type, Render_Coord(), 0, 1, ShapeFlags_Type(0x600), 0);
+			if (TClass->Palette != NULL) {
+				anim->AlternativeDrawer = (ConvertClass *)GetRemapColour();
+				if (Class->PaletteFile[0]) {
+					strncpy(anim->PaletteName, Class->PaletteFile, 32);
+				}
+			}
+		}
+	}
+
+	DynamicVectorClass<ParticleSystemTypeClass const *> list;
+	for (int i = TClass->DestroyParticleSystems.Count() - 1; i >= 0; i--) {
+		if (TClass->DestroyParticleSystems[i]->BehavesLike == PSYS_BEHAVIOR_SMOKE) {
+			list.Add(TClass->DestroyParticleSystems[i]);
+		}
+	}
+
+	if (ParticleSystems[7] == NULL && list.Count() > 0 && Get_Height_AGL() > -10) {
+		Coord off = TClass->DestroySmokeOffset;
+		ParticleSystems[7] = new ParticleSystemClass(list[Random_Pick(0, list.Count() - 1)], Get_Coord() + off, NULL, this, COORD_NONE);
 	}
 
 	Strength = 0;
@@ -2435,7 +2451,6 @@ void BuildingClass::Do_Destruction(TechnoClass *last_contact, TechnoClass *sourc
 
 	Drop_Debris(WhomToRepay);
 }
-#endif
 
 
 
@@ -2641,7 +2656,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 						**	damage level has occurred.
 						*/
 						if (warhead->IsSparky) {
-							switch (Random_Pick(0, 5+Class->Height(false)+Class->Width())) { // RA2: as above
+							switch (Random_Pick(0, 5 + Class->Height() + Class->Width())) { // RA2: as above
 								case 0:
 									break;
 
@@ -3701,7 +3716,7 @@ bool BuildingClass::Limbo(void)
 
 			if (Class->ToTile == NULL) {
 				int w = Class->Width();
-				int h = Class->Height(false); // RA2: without the bib
+				int h = Class->Height(); // RA2: without the bib
 				Cell position = Get_Cell(); // RA2: through the virtual
 
 				for (int y = 0; y < h + 2; y++) {
@@ -3932,7 +3947,7 @@ void BuildingClass::Grand_Opening(bool captured)
 			Coord coordinate = Get_Coord(); // RA2: as above
 			Map.RevealArea3(coordinate, 0, LastSightRange + 3, 0); // RA2: as above
 		}
-		Submit_Radar_Event(RadarEventType(12), Cell(Get_Coord())); // RA2: as above
+		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_DETECTED, Cell(Get_Coord())); // RA2: as above
 	}
 
 	if (!House->Is_Player_Control() && MuteSWLaunches == 0 && Session.Type != GAME_NORMAL && (Class->SuperWeapon == -1 || !SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding || House->ABQuantity.Value(SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding->HeapID) != 0)) { // RA2: other players hear about the detected super weapon
@@ -4360,7 +4375,7 @@ void BuildingClass::Begin_Mode(BStateType bstate)
  *=============================================================================================*/
 Coord BuildingClass::Center_Coord(void) const
 {
-	int h = (Class->Height(false) * (CELL_LEPTON_H / 2)) - (CELL_LEPTON_H / 2); // RA2: Center_Coord at 0x444080 matches only so
+	int h = (Class->Height() * (CELL_LEPTON_H / 2)) - (CELL_LEPTON_H / 2); // RA2: Center_Coord at 0x444080 matches only so
 	int w = (Class->Width() * (CELL_LEPTON_W / 2)) - (CELL_LEPTON_W / 2); // RA2: as above
 
 	return(PositionCoord + Coord(w, h));
@@ -4666,7 +4681,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 						}
 					}
 				} else {
-					if (Submit_Radar_Event(RadarEventType(10), Get_Cell())) { // RA2: as above
+					if (Submit_Radar_Event(RADAREVENT_BUILDING_CAPTURED, Get_Cell())) { // RA2: as above
 						Queue_Speech("EVA_BuildingCaptured", -1, -1); // RA2: as above
 					}
 				}
@@ -5941,7 +5956,7 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 					switch (Transmit_Message(RADIO_REPAIR)) { // RA2: as above
 						case RADIO_ALL_DONE: // RA2: as above
 							if (House->Is_Player_Control()) { // RA2: the player hears and sees the unit leave repaired
-								if (Submit_Radar_Event(RadarEventType(8), Get_Cell())) { // RA2: as above
+								if (Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) { // RA2: as above
 									Queue_Speech("EVA_UnitRepaired", -1, -1); // RA2: as above
 								}
 								VocClass::PlayAt(Rule->HealCrateSound, Get_Coord(), 0); // RA2: as above
@@ -6200,7 +6215,7 @@ int BuildingClass::Do_MISSION_REPAIR(void)
 						*/
 						default:
 							{
-								if (IsOwnedByPlayer && Submit_Radar_Event(RadarEventType(8), Get_Cell())) Queue_Speech("EVA_UnitRepaired", -1, -1); // RA2: as above
+							if (IsOwnedByPlayer && Submit_Radar_Event(RADAREVENT_UNIT_REPAIRED, Get_Cell())) Queue_Speech("EVA_UnitRepaired", -1, -1); // RA2: as above
 								End_Anim(BANIM_PRODUCTION);
 								End_Anim(BANIM_SPECIAL_TWO);
 								Begin_Anim(BANIM_SPECIAL_THREE, HealthRatio <= Rule->ConditionYellow, false, 0); // RA2: as above
@@ -9516,17 +9531,16 @@ Coord BuildingClass::Fire_Coord(int slot) const
 /// </summary>
 /// <param name="slot">The weapon slot to fetch the mounting for.</param>
 /// <returns>Returns with the coordinate that the projectile should appear at.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 230 bytes differ (adopted text)
-Coord BuildingClass::Turret_Coord(int slot) const
+Coord BuildingClass::Turret_Coord(int slot) const // RA2: ra2-decomp's twin text
 {
-	if (Class->CanBeOccupied && Occupants.Count() > 0) { // RA2: an occupied garrison uses the occupant's muzzle flash
-		Coord offset(TacticalMap->Pixel_To_Lepton(Class->MuzzleFlash[FiringOccupantIndex]), 0); // RA2: an occupied garrison uses the occupant's muzzle flash
-		return(Render_Coord() + offset); // RA2: as above
-	}
-	Point2D const & pixel = Class->PrimaryFirePixelOffset; // RA2: the pixel offset is held by reference
-	if (pixel != Point2D(0xFFFF, 0xFFFF)) {
-		Coord offset(TacticalMap->Pixel_To_Lepton(pixel), 0);
-		return(Render_Coord() + offset);
+	if (!Class->CanBeOccupied || GetOccupantCount() <= 0) {
+		if (Class->PrimaryFirePixelOffset != Point2D(0xFFFF, 0xFFFF)) {
+			Coord pt(TacticalMap->Pixel_To_Lepton(Class->PrimaryFirePixelOffset), 0);
+			return(Render_Coord() + pt);
+		}
+	} else {
+		Coord pt(TacticalMap->Pixel_To_Lepton(Class->MuzzleFlash[FiringOccupantIndex]), 0); // RA2: an occupied garrison uses the occupant's muzzle flash
+		return(pt + Render_Coord());
 	}
 	if (Class->IsBarrelAnimAVoxel) {
 		return(Voxel_Fire_Coord(slot, false));
@@ -9539,7 +9553,6 @@ Coord BuildingClass::Turret_Coord(int slot) const
 	}
 	return(coord);
 }
-#endif
 
 
 /// <summary>
@@ -11049,7 +11062,7 @@ void BuildingClass::Spied_By(HouseClass * house)
 {
 	bool visible = false; // RA2: whether the spying is announced (a radar event was submitted for this cell)
 	if (House->Is_Player_Control() || house->Is_Player_Control()) { // RA2: as above
-		if (Submit_Radar_Event(RadarEventType(9), Get_Cell())) { // RA2: as above
+		if (Submit_Radar_Event(RADAREVENT_BUILDING_INFILTRATED, Get_Cell())) { // RA2: as above
 			visible = true; // RA2: as above
 		}
 	}
@@ -11413,7 +11426,7 @@ void BuildingClass::Eject_Occupants(bool hunt) // RA2: not in TibSun, at 0x452F5
 	Cell selected;
 	memcpy(&selected, &CELL_NONE, sizeof(selected)); // RA2: as above
 	int width = Class->Width();
-	int height = Class->Height(false);
+	int height = Class->Height();
 	bool found = false;
 	Cell probe = Get_Cell();
 	probe.X = (short)((unsigned int)(int)probe.X + (unsigned int)width); // RA2: as above
@@ -11527,7 +11540,7 @@ void BuildingClass::Update_Garrison_Owner(void) // RA2: not in TibSun, at 0x4533
 		if (House != civilian) { // RA2: as above
 			if (House->Is_Player_Control()) { // RA2: as above
 				VocClass::PlayGlobal(Rule->BuildingAbandonedSound, 1.0f, 0x2000, 0); // RA2: as above
-				if (Submit_Radar_Event(RadarEventType(15), Get_Cell())) { // RA2: as above
+				if (Submit_Radar_Event(RADAREVENT_GARRISON_ABANDONED, Get_Cell())) { // RA2: as above
 					Queue_Speech("EVA_StructureAbandoned", -1, -1); // RA2: as above
 				}
 			}

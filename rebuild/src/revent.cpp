@@ -23,7 +23,6 @@
 #include "rules.h"
 #include "vector.h"
 
-Cell EmptyRadarEventCell(0,0); // RA2: at 0x00AB67A8, the empty cell the ring is filled with and compared against (static initializer 0x0063B4A0)
 
 DynamicVectorClass<RadarEventClass *> RadarEventClass::RadarEvents;
 
@@ -39,7 +38,7 @@ int RecentRadarEventCurrent; // RA2: at 0x00AB6818
 
 /*
 **	RA2: the radar event kinds' parameters are a static table in the executable at 0x007A8D58
-**	(16 bytes per kind, 15 kinds), not rules.ini lists as in Tiberian Sun.
+**	(16 bytes per kind, one per kind), not rules.ini lists as in Tiberian Sun.
 */
 struct RadarEventTypeStruct { // RA2: one row of the table at 0x007A8D58
 	int SuppressionDistance; // RA2: +0, read by the function at 0x0063C630
@@ -48,7 +47,7 @@ struct RadarEventTypeStruct { // RA2: one row of the table at 0x007A8D58
 	bool CanSuppress; // RA2: +12, read inline by the suppression test
 };
 
-RadarEventTypeStruct RadarEventTypes[15] = { // RA2: initial values as stored in the executable
+const RadarEventTypeStruct RadarEventTypes[RADAREVENT_COUNT] = { // RA2: in the executable's .rdata (0x007A8D58), so const
 	{8, 200, 400, true}, // RA2: as above
 	{8, 200, 400, false}, // RA2: as above
 	{8, 200, 400, false}, // RA2: as above
@@ -63,7 +62,9 @@ RadarEventTypeStruct RadarEventTypes[15] = { // RA2: initial values as stored in
 	{8, 200, 200, true}, // RA2: as above
 	{8, 200, 400, false}, // RA2: as above
 	{8, 0, 5, false}, // RA2: as above
-	{8, 0, 200, true} // RA2: as above
+	{ 8, 0, 200, true }, // RA2: as above
+	{ 8, 0, 400, true }, // RA2: as above
+	{ 8, 200, 600, true } // RA2: as above
 };
 
 const char * RadarEventNames[RADAREVENT_COUNT] = {
@@ -72,7 +73,18 @@ const char * RadarEventNames[RADAREVENT_COUNT] = {
 	"DropZone Event",
 	"Base Attacked Event",
 	"Harvester Attacked Event",
-	"Enemy Sensed Event"
+	"Enemy Sensed Event",
+	"Unit Produced Event", // RA2: the image's names from here on (0x007EE5B8, 17)
+	"Unit Lost Event",
+	"Unit Repaired Event",
+	"Building Infiltrated Event",
+	"Building Captured Event",
+	"Beacon Placed Event",
+	"Superweapon Detected Event",
+	"Superweapon Activated Event",
+	"Bridge Repaired Event",
+	"Garrison Abandoned Event",
+	"Ally Base Attacked Event"
 };
 
 
@@ -605,7 +617,7 @@ void Record_Event_Cell(Cell const & cell) // RA2: not in TibSun, at 0x0063C6C0
 Cell Recall_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C6F0
 {
 	if (RecentRadarEventNewest == -1) { // RA2: as above
-		return EmptyRadarEventCell; // RA2: as above
+		return CELL_NONE; // RA2: as above
 	}
 	RecentRadarEventCurrent = RecentRadarEventNewest; // RA2: as above
 	return RecentRadarEventCells[RecentRadarEventNewest]; // RA2: as above
@@ -619,13 +631,13 @@ Cell Recall_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C6F0
 Cell Recall_Previous_Radar_Event_Cell(void) // RA2: not in TibSun, at 0x0063C720
 {
 	if (RecentRadarEventNewest == -1) { // RA2: as above
-		return EmptyRadarEventCell; // RA2: as above
+		return CELL_NONE; // RA2: as above
 	}
 	int previous = RecentRadarEventCurrent - 1; // RA2: as above
 	if (previous < 0) { // RA2: as above
 		previous += 8; // RA2: as above
 	}
-	if (RecentRadarEventCells[previous] == EmptyRadarEventCell) { // RA2: as above
+	if (RecentRadarEventCells[previous] == CELL_NONE) { // RA2: as above
 		Cell result = RecentRadarEventCells[RecentRadarEventNewest]; // RA2: as above
 		RecentRadarEventCurrent = RecentRadarEventNewest; // RA2: as above
 		return result; // RA2: as above
@@ -644,6 +656,6 @@ void Reset_Radar_Event_Cells(void) // RA2: not in TibSun, at 0x0063C790
 	RecentRadarEventNewest = -1; // RA2: as above
 	RecentRadarEventCurrent = -1; // RA2: as above
 	for (int i = 0; i < 8; i++) { // RA2: as above
-		RecentRadarEventCells[i] = EmptyRadarEventCell; // RA2: as above
+		RecentRadarEventCells[i] = CELL_NONE; // RA2: as above
 	}
 }

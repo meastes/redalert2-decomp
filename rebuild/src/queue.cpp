@@ -3262,7 +3262,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
  * HISTORY:                                                                *
  *   11/21/1995 BRR : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 29 bytes differ (class-b carry through tree event and session names)
+#ifdef RA2_NON_MATCHING // not exact: 28 bytes differ (class-b carry; published PAGEUSER event filter)
 int Execute_DoList(int max_houses, HousesType base_house,
 	ConnManClass *net, CDTimerClass<FrameTimerClass> *skip_crc,
 	FrameSyncStruct *their)
@@ -3323,7 +3323,7 @@ int Execute_DoList(int max_houses, HousesType base_house,
 					continue;
 				}
 
-				if (DoList[j].Type == EventClass::EXIT || DoList[j].Type == EventClass::OPTIONS || DoList[j].Type == EventClass::REMOVEPLAYER) {
+				if (DoList[j].Type == EventClass::EXIT || DoList[j].Type == EventClass::OPTIONS || DoList[j].Type == EventClass::PAGEUSER) {
 					if (DoList[j].Type == EventClass::EXIT) {
 						HouseClass * quithptr = 0;
 						for (int player = 0; player < house_count; player++) {

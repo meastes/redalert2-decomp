@@ -118,7 +118,7 @@ Cell const BuildingTypeClass::OccupyLists[BSIZE_COUNT][30] /* RA2: rows of 30 */
 	/* BSIZE_53,	*/ { Cell(0,0),Cell(1,0),Cell(2,0),Cell(3,0),Cell(4,0),Cell(0,1),Cell(1,1),Cell(2,1),Cell(3,1),Cell(4,1),Cell(0,2),Cell(1,2),Cell(2,2),Cell(3,2),Cell(4,2),REFRESH_EOL },
 	/* BSIZE_44,	*/ { Cell(0,0),Cell(1,0),Cell(2,0),Cell(3,0),Cell(0,1),Cell(1,1),Cell(2,1),Cell(3,1),Cell(0,2),Cell(1,2),Cell(2,2),Cell(3,2),Cell(0,3),Cell(1,3),Cell(2,3),Cell(3,3),REFRESH_EOL },
 	/* BSIZE_34,	*/ { Cell(0,0),Cell(1,0),Cell(2,0),Cell(0,1),Cell(1,1),Cell(2,1),Cell(0,2),Cell(1,2),Cell(2,2),Cell(0,3),Cell(1,3),Cell(2,3),REFRESH_EOL },
-	/* BSIZE_64,	*/ { Cell(0,0),Cell(1,0),Cell(2,0),Cell(3,0),Cell(4,0),Cell(5,0),Cell(0,1),Cell(1,1),Cell(2,1),Cell(3,1),Cell(4,1),Cell(5,1),Cell(0,2),Cell(1,2),Cell(2,2),Cell(3,2),Cell(4,2),Cell(5,2),Cell(1,3),Cell(2,3),Cell(3,3),REFRESH_EOL },
+	/* BSIZE_64,	*/ { Cell(0, 0), Cell(1, 0), Cell(2, 0), Cell(3, 0), Cell(4, 0), Cell(5, 0), Cell(0, 1), Cell(1, 1), Cell(2, 1), Cell(3, 1), Cell(4, 1), Cell(5, 1), Cell(0, 2), Cell(1, 2), Cell(2, 2), Cell(3, 2), Cell(4, 2), Cell(5, 2), Cell(0, 3), Cell(1, 3), Cell(2, 3), Cell(3, 3), Cell(4, 3), Cell(5, 3), REFRESH_EOL },
 	/* BSIZE_00,	*/ { REFRESH_EOL }
 };
 
@@ -2454,6 +2454,22 @@ Rect BuildingTypeClass::Get_Draw_Rect(void)
 #endif
 
 
+/// <summary>
+/// A building cannot be given waypoints (RA2; ra2-decomp builtype.cpp).
+/// </summary>
+bool BuildingTypeClass::CanUseWaypoint(void) const // RA2: 0x45E740
+{
+	return(false);
+}
+
+
+/// <summary>
+/// A building cannot be ordered to attack-move (RA2; ra2-decomp builtype.cpp).
+/// </summary>
+bool BuildingTypeClass::CanAttackMove(void) const // RA2: 0x45E750
+{
+	return(false);
+}
 
 
 /// <summary>

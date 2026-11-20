@@ -60,7 +60,6 @@
 
 void Combat_Lighting(Coord coord, int damage, WarheadTypeClass const * warhead, int forced, int flags); // RA2: 0x0047F600; combat.h declares the call with one argument less (bool forced)
 
-enum { RADAREVENT_SUPERWEAPON_ACTIVATED = 13 }; // RA2: the radar event of a storm that has broken
 
 /*
 **	RA2: the color scheme lists give the storm tints (palette.h walks them; 0x00603C10 counts the schemes of a list).
@@ -77,10 +76,10 @@ int IonStormClass::StartFrame = -1; // RA2: 0x007DDB10
 int IonStormClass::Duration = -1; // RA2: 0x007DDB14
 int IonStormClass::NukeFlashStart = -1; // RA2: 0x007DDB18
 int IonStormClass::NukeFlashDelay = -1; // RA2: 0x007DDB1C
-Cell IonStormClass::Coords; // RA2: 0x00A51878
-DynamicVectorClass<AnimClass *> IonStormClass::CloudsManifesting; // RA2: 0x00A51880
-DynamicVectorClass<AnimClass *> IonStormClass::CloudsPresent; // RA2: 0x00A518C8
-DynamicVectorClass<AnimClass *> IonStormClass::BoltsPresent; // RA2: 0x00A51908
+Cell IonStormClass::Coords = CELL_NONE; // RA2: 0x00A51878; its initializer 0x51F100 copies the unit's CELL_NONE (ra2-decomp ion.cpp: LightningStorm::Coords = DAT_00A9F9F8)
+DynamicVectorClass<AnimClass const *> IonStormClass::CloudsManifesting; // RA2: 0x00A51908
+DynamicVectorClass<AnimClass const *> IonStormClass::CloudsPresent; // RA2: 0x00A51880
+DynamicVectorClass<AnimClass const *> IonStormClass::BoltsPresent; // RA2: 0x00A518C8
 
 
 /// <summary>
@@ -148,7 +147,7 @@ HRESULT IonStormClass::Save(IStream * stream)
 	if (FAILED(hr)) return(hr); // RA2: as above
 
 	for (int i = 0; i < count; i++) { // RA2: as above
-		AnimClass * anim = CloudsManifesting[i]; // RA2: as above
+		AnimClass const * anim = CloudsManifesting[i]; // RA2: as above
 		hr = stream->Write(&anim, sizeof(anim), NULL); // RA2: as above
 		if (FAILED(hr)) return(hr); // RA2: as above
 	}
@@ -158,7 +157,7 @@ HRESULT IonStormClass::Save(IStream * stream)
 	if (FAILED(hr)) return(hr); // RA2: as above
 
 	for (int j = 0; j < count; j++) { // RA2: as above
-		AnimClass * anim = CloudsPresent[j]; // RA2: as above
+		AnimClass const * anim = CloudsPresent[j]; // RA2: as above
 		hr = stream->Write(&anim, sizeof(anim), NULL); // RA2: as above
 		if (FAILED(hr)) return(hr); // RA2: as above
 	}
@@ -168,7 +167,7 @@ HRESULT IonStormClass::Save(IStream * stream)
 	if (FAILED(hr)) return(hr); // RA2: as above
 
 	for (int k = 0; k < count; k++) { // RA2: as above
-		AnimClass * anim = BoltsPresent[k]; // RA2: as above
+		AnimClass const * anim = BoltsPresent[k]; // RA2: as above
 		hr = stream->Write(&anim, sizeof(anim), NULL); // RA2: as above
 		if (FAILED(hr)) return(hr); // RA2: as above
 	}
@@ -307,7 +306,7 @@ void IonStormClass::Ion_Storm_Begin(int duration, int deferment, Cell cell, Hous
 		Duration = duration;
 		return; // RA2: as above
 	}
-	Submit_Radar_Event(RadarEventType(RADAREVENT_SUPERWEAPON_ACTIVATED), cell); // RA2: as above
+	Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
 	Duration = duration;
 	StartFrame = Frame;
 	IsActive = true; // RA2: as above
@@ -504,7 +503,7 @@ void IonStormClass::AI(void)
 
 	if (BoltsPresent.Count() > 0) { // RA2: as above
 		for (int index = BoltsPresent.Count() - 1; index >= 0; index--) { // RA2: as above
-			AnimClass * bolt = BoltsPresent[index]; // RA2: as above
+			AnimClass const * bolt = BoltsPresent[index]; // RA2: as above
 			int stage = bolt->Fetch_Stage(); // RA2: as above
 			if (stage >= ((ShapeSet const *)bolt->Class_Of()->Get_Image_Data())->Get_Count() / 2) { // RA2: as above
 				BoltsPresent.Delete_Index(index); // RA2: as above
@@ -512,7 +511,7 @@ void IonStormClass::AI(void)
 		}
 	}
 	for (int index = CloudsManifesting.Count() - 1; index >= 0; index--) { // RA2: as above
-		AnimClass * cloud = CloudsManifesting[index]; // RA2: as above
+		AnimClass const * cloud = CloudsManifesting[index]; // RA2: as above
 		int stage = cloud->Fetch_Stage(); // RA2: as above
 		if (stage > ((ShapeSet const *)cloud->Class_Of()->Get_Image_Data())->Get_Count() / 2) { // RA2: as above
 			Lightning_Strike(cloud->Center_Coord()); // RA2: as above
@@ -521,7 +520,7 @@ void IonStormClass::AI(void)
 	}
 	if (CloudsPresent.Count() > 0) { // RA2: as above
 		for (int index = CloudsPresent.Count() - 1; index >= 0; index--) { // RA2: as above
-			AnimClass * cloud = CloudsPresent[index]; // RA2: as above
+			AnimClass const * cloud = CloudsPresent[index]; // RA2: as above
 			int stage = cloud->Fetch_Stage(); // RA2: as above
 			if (stage >= ((ShapeSet const *)cloud->Class_Of()->Get_Image_Data())->Get_Count() - 1) { // RA2: as above
 				CloudsPresent.Delete_Index(index); // RA2: as above

@@ -21,8 +21,8 @@ import rebuild as R  # noqa: E402
 MANUAL = {'header', 'tooling'}
 # codex2's backlog units that a landing helper is moving into the tree by source; workers.csv does not
 # list them yet. Drop a name once its unit lands.
-IN_TRANSIT = {u: 'codex2' for u in ('tab scroll strtable mouse ion ebolt mainopt options ldprgmgr session '
-                                    'netshare scenario saveload revent startup beacon').split()}
+IN_TRANSIT = {u: 'codex2' for u in ('tab scroll mouse ebolt mainopt options ldprgmgr session '
+                                    'scenario saveload revent startup beacon').split()}
 
 
 def classify(line):

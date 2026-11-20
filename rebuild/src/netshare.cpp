@@ -150,22 +150,16 @@ const COLORREF ColorPaged      = RGB(255, 255, 255);            /// 0x00FFFFFF
 const COLORREF ColorMe         = RGB(255, 255, 64);             /// 0x0040FFFF
 const COLORREF ColorNoJoin     = RGB(128, 128, 128);            /// 0x00808080
 
-/*
- * If the host is forcing a color reassignment, then this flag will be true. It is set when
- * the host accepts the game options and cleared once the assignment has been processed, and
- * it suppresses the "color in use" message that would otherwise appear.
- */
-int IsColorChangePending;
-
-COLORREF PlayerColorTable[MAX_PLAYERS] = {
-	RGB(255, 223, 94),	/// 0x005EDFFF
-	RGB(255, 26, 20),	/// 0x00141AFF
-	RGB(39, 60, 179),	/// 0x00B33C27
-	RGB(11, 148, 11),	/// 0x000B940B
-	RGB(218, 137, 26),	/// 0x001A89DA
-	RGB(20, 177, 255),	/// 0x00FFB114
-	RGB(185, 20, 255),	/// 0x00FF14B9
-	RGB(255, 70, 173)	/// 0x00AD46FF
+COLORREF PlayerColorTable[9] = { // RA2: 0x007E6D94, the nine player colors (GDlgSupp.cpp's Gold..Gray abbreviations), not TibSun's eight
+	RGB(221, 226, 13),	/// 0x000DE2DD, Gold
+	RGB(255, 25, 25),	/// 0x001919FF, Red
+	RGB(42, 116, 226),	/// 0x00E2742A, Blue
+	RGB(62, 209, 46),	/// 0x002ED13E, Green
+	RGB(255, 160, 25),	/// 0x0019A0FF, Orange
+	RGB(50, 215, 230),	/// 0x00E6D732, SkyBlue
+	RGB(149, 40, 189),	/// 0x00BD2895, Purple
+	RGB(255, 154, 235),	/// 0x00EB9AFF, Pink
+	RGB(96, 96, 96)	/// 0x00606060, Gray
 };
 
 
@@ -1059,6 +1053,15 @@ int __fastcall Get_Slot_Control_Id(int slot); // RA2: 0x005C97A0, as above
 /// <param name="options">The encoded option string as received.</param>
 /// <param name="name">Name of the player the options came from.</param>
 /// <returns>bool; Did the scenario change?</returns>
+bool __fastcall Net2DecodeGameopt(char const * text, char const * sender); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row)
+/*
+ * If the host is forcing a color reassignment, then this flag will be true. It is set when
+ * the host accepts the game options and cleared once the assignment has been processed, and
+ * it suppresses the "color in use" message that would otherwise appear.
+ */
+int IsColorChangePending; // RA2: used only by Net2DecodeGameopt (and wonline's parked draft), so parked with it (DECISIONS: a global whose only user is a parked function)
+
 bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2: 0x005C3FF0, replaces TibSun's DecodePubGameopt; the executable decodes every kind of game options string (Z, O, A, C, L, G, K, P and the host's full options) and returns true when the scenario changed
 {
 	static int _last_game_speed = -1; // RA2: 0x007E6DD8, the previous options are kept in function statics: three ints in the data segment
@@ -1720,6 +1723,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	_last_goodies = Session.Options.Goodies; // RA2: as above
 	return(!same); // RA2: as above
 }
+#endif
 
 
 /// <summary>
@@ -2146,6 +2150,7 @@ static inline void Change_Lobby_Game_Mode(HWND window, unsigned wparam, wchar_t 
 /// </summary>
 /// <returns>Returns with TRUE if the message was dealt with here, FALSE to leave it to the
 /// dialog manager.</returns>
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c69e0 has no row)
 int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message) { // RA2: as above
@@ -2269,6 +2274,7 @@ int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM l
 	}
 	return(FALSE); // RA2: as above
 }
+#endif
 
 
 /// <summary>
@@ -2672,6 +2678,8 @@ bool Set_Scenario_Info_From_Index(int index)
 /// have all answered, the compressed image is handed to the remote file sender.
 /// </summary>
 /// <remarks>Only the game host should call this routine.</remarks>
+void __fastcall Send_Map_Preview(MapPreviewClass * preview); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c7ef0 has no row)
 void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, TibSun's Send_Preview_To_Guests takes no preview; it is called when a guest asks for the preview
 {
 	CDTimerClass<SystemTimerClass> response_timer;
@@ -2796,6 +2804,7 @@ void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, 
 		}
 	}
 }
+#endif
 
 
 /// <summary>
@@ -3126,32 +3135,6 @@ void __fastcall Get_Slot_Names(wchar_t * list) // RA2: 0x005C8CF0, not in TibSun
 	}
 }
 
-inline int __fastcall Slot_Control_Id_Expanded(int slot) // RA2: the executable expands Get_Slot_Control_Id (0x005C97A0, which stands later in the file) into Set_Slot_Names; this twin with the same body does that, it has no address of its own
-{
-	if (slot == 0) { // RA2: as above
-		return(1041); // RA2: as above
-	}
-	if (slot == 1) { // RA2: as above
-		return(1042); // RA2: as above
-	}
-	if (slot == 2) { // RA2: as above
-		return(1043); // RA2: as above
-	}
-	if (slot == 3) { // RA2: as above
-		return(1044); // RA2: as above
-	}
-	if (slot == 4) { // RA2: as above
-		return(1045); // RA2: as above
-	}
-	if (slot == 5) { // RA2: as above
-		return(1046); // RA2: as above
-	}
-	if (slot == 6) { // RA2: as above
-		return(1047); // RA2: as above
-	}
-	return(slot == 7 ? 1048 : -1); // RA2: as above
-}
-
 inline HWND Find_Lobby_Dialog(void) // RA2: the lobby dialog of the session type: the dialog is kept in a variable between the four searches (GameoptWindow returns without it)
 {
 	HWND dialog = WS_Find_Dialog(IDD_WOL_GAMEOPT); // RA2: as above
@@ -3167,6 +3150,7 @@ inline HWND Find_Lobby_Dialog(void) // RA2: the lobby dialog of the session type
 	return(dialog); // RA2: as above
 }
 
+#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (adopted text)
 void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in TibSun; takes the slot names the host sent, seats the entries and sets the observer's combo boxes
 {
 	if (*list == L'\0') { // RA2: as above
@@ -3207,7 +3191,7 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 			if (!observer[slot]) { // RA2: as above
 				Set_Player_Slot(slot, entry); // RA2: the seat is set through Set_Player_Slot (0x005C8CC0), expanded inline
 				Fill_Observer_Combo(dialog, Player_Side_Combo_ID(slot)); // RA2: as above
-				SendMessageA(GetDlgItem(dialog, Slot_Control_Id_Expanded(slot)), 0x4F1, 0, 1); // RA2: as above
+				SendMessageA(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 1); // RA2: as above
 				int id = Player_Color_Combo_ID(slot); // RA2: as above
 				Fill_Random_Color_Combo(dialog, id); // RA2: as above
 				Select_Color_Combo(dialog, id, 8); // RA2: as above
@@ -3218,7 +3202,7 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 				int id = Player_Side_Combo_ID(slot); // RA2: as above
 				if (Side_Combo_Data(dialog, id, -1) == -3) { // RA2: as above
 					Fill_Side_Combo(dialog, id); // RA2: as above
-					SendMessageA(GetDlgItem(dialog, Slot_Control_Id_Expanded(slot)), 0x4F1, 0, 0); // RA2: as above
+					SendMessageA(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 0); // RA2: as above
 					id = Player_Color_Combo_ID(slot); // RA2: as above
 					Fill_Color_Combo(dialog, id); // RA2: as above
 					Select_Color_Combo(dialog, id, -2); // RA2: as above
@@ -3229,6 +3213,7 @@ void __fastcall Set_Slot_Names(wchar_t const * list) // RA2: 0x005C8DD0, not in 
 		slot++; // RA2: as above
 	}
 }
+#endif
 
 int __fastcall Assign_Slot(NodeNameType * entry) // RA2: 0x005C9170, not in TibSun; seats a joining entry in an open slot, or an observer in an observer slot, and gives the slot
 {
@@ -3364,6 +3349,8 @@ bool __fastcall Is_Observer_Slot_Full(void) // RA2: 0x005C9490, not in TibSun; n
 	return(true); // RA2: as above
 }
 
+bool __fastcall Is_Observer_Slot_Occupied(void); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 13 bytes differ (adopted text)
 bool __fastcall Is_Observer_Slot_Occupied(void) // RA2: 0x005C94B0, not in TibSun; the observer slot holds a seated entry whose spectator flag is set
 {
 	for (int i = 0; i < 8; i++) { // RA2: as above
@@ -3373,7 +3360,10 @@ bool __fastcall Is_Observer_Slot_Occupied(void) // RA2: 0x005C94B0, not in TibSu
 	}
 	return(false); // RA2: as above
 }
+#endif
 
+bool Is_Channel_Full(void); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005c9510)
 bool Is_Channel_Full(void) // RA2: 0x005C9510, not in TibSun; more players than the channel takes, the observer not counted
 {
 	int limit = Session.MaxPlayers < Session.ScenarioMaxPlayers ? Session.MaxPlayers : Session.ScenarioMaxPlayers; // RA2: as above
@@ -3383,6 +3373,7 @@ bool Is_Channel_Full(void) // RA2: 0x005C9510, not in TibSun; more players than 
 	}
 	return(false); // RA2: as above
 }
+#endif
 
 bool __fastcall Is_Color_Taken(int color) // RA2: 0x005C95D0, not in TibSun; a color is taken by a seated player or by a computer player's choice
 {
@@ -3650,8 +3641,6 @@ void __fastcall Lock_Slots(HWND dialog, int slot) // RA2: 0x005C9DA0, not in Tib
 
 char const * LobbyHostImage = "wolhost.pcx"; // RA2: 0x007E6DB8, the host's picture of the slot list (a variable holding the file name, not a literal at the call)
 char const * LobbyAcceptImage = "wolacpt.pcx"; // RA2: 0x007E6DBC, the picture of a player who accepted
-int LobbySlotCount = 8; // RA2: 0x007E6DE4, the number of slots the scenario gave the lobby last (8 before one was chosen)
-int LobbyExtraSlot; // RA2: 0x00A72D5C, 1 when the observer takes a slot of its own beyond the scenario's
 
 void __fastcall Refresh_Slot_Images(HWND dialog) // RA2: 0x005C9EC0, not in TibSun; shows the host's or accepted picture at every slot's control
 {
@@ -4018,6 +4007,8 @@ inline void Show_Slot(HWND dialog, int slot) // RA2: not in TibSun; shows the co
 	}
 }
 
+void __fastcall Show_Slot_Controls(HWND dialog, int first, int count); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 415 bytes differ (adopted text)
 // RA2: the executable calls Show_Slot_Controls (Change_Slot_Count does not expand it); written with the per-slot helper it compiles to the executable's size, but its small source tree would be expanded into Change_Slot_Count, so automatic inlining is off for it (debt: the original source got the call without this)
 #pragma auto_inline(off) // RA2: as above
 void __fastcall Show_Slot_Controls(HWND dialog, int first, int count) // RA2: 0x005CAE00, not in TibSun; shows the controls of count slots from the first one on
@@ -4028,6 +4019,7 @@ void __fastcall Show_Slot_Controls(HWND dialog, int first, int count) // RA2: 0x
 	}
 }
 #pragma auto_inline() // RA2: as above
+#endif
 
 void __fastcall Show_Observer_Slot_Controls(HWND dialog) // RA2: 0x005CAFD0, not in TibSun; shows the controls of the observer's slot (the last one when the observer is the first), the color box stays hidden for an observer
 {
@@ -4098,6 +4090,8 @@ void __fastcall Show_Observer_Slot_Controls(HWND dialog) // RA2: 0x005CAFD0, not
 	}
 }
 
+void __fastcall Hide_Slot_Controls(HWND dialog, int first); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 383 bytes differ (adopted text)
 // RA2: as for Show_Slot_Controls: the executable calls Hide_Slot_Controls; the loop written with while compiles to the executable's size, but it would be expanded into the callers, so automatic inlining is off for it (debt)
 #pragma auto_inline(off) // RA2: as above
 void __fastcall Hide_Slot_Controls(HWND dialog, int first) // RA2: 0x005CB170, not in TibSun; hides the controls of the slots from the first one on, except the observer's
@@ -4155,6 +4149,7 @@ void __fastcall Hide_Slot_Controls(HWND dialog, int first) // RA2: 0x005CB170, n
 	}
 }
 #pragma auto_inline() // RA2: as above
+#endif
 
 void __fastcall Change_Slot_Count(HWND dialog, int old_count, int count, MultiplayerGameMode * mode) // RA2: 0x005CB300, not in TibSun; shows or hides the controls of the slots that were added or removed, both counts limited to the lobby's
 {
@@ -4274,6 +4269,11 @@ void __fastcall Close_Slots_From(HWND dialog, int first) // RA2: 0x005CB7C0, not
 	Send_Lobby_Options(true, false); // RA2: as above
 }
 
+void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 1211 bytes differ (adopted text)
+int LobbySlotCount = 8; // RA2: 0x007E6DE4, the number of slots the scenario gave the lobby last (8 before one was chosen); used only by Change_Scenario_Slots, so parked with it
+int LobbyExtraSlot; // RA2: 0x00A72D5C, 1 when the observer takes a slot of its own beyond the scenario's; as above
+
 void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) // RA2: 0x005CB8D0, not in TibSun; the lobby takes the number of slots of the scenario: new slots are shown and filled, removed ones are closed, and the observer's slot is moved to the last slot when the game mode asks for one
 {
 	int players = Get_Scenario_Slot_Limit(scenario); // RA2: as above
@@ -4338,6 +4338,7 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 	LobbySlotCount = players; // RA2: as above
 	LobbyExtraSlot = extra; // RA2: as above
 }
+#endif
 
 
 bool __fastcall Lobby_Update_Dialog(HWND dialog, int count, bool flag1, bool flag2) // RA2: 0x005CBDB0, not in TibSun; tells whether the combo boxes hold a computer player where the game mode takes none, or a player beyond the count: an observer beyond it counts only when the game mode takes observers
@@ -4377,6 +4378,7 @@ void Send_Player_List(void); // RA2: 0x0073C480, defined in wonline.cpp
 void __fastcall Kick_Channel_User(wchar_t const * name); // RA2: 0x0075CAE0, looks the channel user up by name and has the chat service remove it (WOL)
 void Update_Channel_Player_Limit(void); // RA2: 0x00749F20, tells the chat service the channel's new player limit (WOL)
 
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005cbf20 has no row)
 void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode) // RA2: 0x005CBF20, not in TibSun; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
 {
 	NodeNameType * entry = (NodeNameType *)data; // RA2: as above
@@ -4585,6 +4587,7 @@ void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode) // RA2
 		}
 	}
 }
+#endif
 
 void __fastcall Select_Entry_Kind(HWND dialog, int id, int kind) // RA2: 0x005CC700, not in TibSun; picks the item of a type (see Get_Entry_Kind) in a slot's combo box and seats it
 {
@@ -4632,6 +4635,8 @@ void __fastcall Save_Lobby_Options(HWND dialog, SessionOptionsClass * options) /
 	options->CratesAppear = Session.Options.Goodies; // RA2: as above
 }
 
+void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 693 bytes differ (adopted text)
 void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options) // RA2: 0x005CCA30, not in TibSun; the saved game mode, map and settings are made current again (a restricted channel takes the first game mode if the saved one is not allowed) and every slot but the first is set to its saved type, side and color
 {
 	if (options->MPGameMode < 1 || options->MPGameMode > MultiplayerGameMode::GetModeCount()) { // RA2: as above
@@ -4734,6 +4739,7 @@ void __fastcall Load_Lobby_Options(HWND dialog, SessionOptionsClass * options) /
 	Session.Options.MCVRedeploy = options->MCVRepacks; // RA2: as above
 	Session.Options.Goodies = options->CratesAppear; // RA2: as above
 }
+#endif
 
 
 void __fastcall Get_Window_Wide_Text(HWND window, WideWstring & text); // RA2: 0x00600E50, the text of a window, as Get_List_Item_Wide_Text for a list box item

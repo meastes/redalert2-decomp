@@ -54,9 +54,9 @@ class IonStormClass
 		static int NukeFlashStart; // RA2: 0x007DDB18
 		static int NukeFlashDelay; // RA2: 0x007DDB1C
 		static Cell Coords; // RA2: 0x00A51878; the cell the storm is aimed at
-		static DynamicVectorClass<AnimClass *> CloudsManifesting; // RA2: 0x00A51880; clouds that have yet to strike
-		static DynamicVectorClass<AnimClass *> CloudsPresent; // RA2: 0x00A518C8
-		static DynamicVectorClass<AnimClass *> BoltsPresent; // RA2: 0x00A51908
+		static DynamicVectorClass<AnimClass const *> CloudsManifesting; // RA2: 0x00A51908; clouds that have yet to strike
+		static DynamicVectorClass<AnimClass const *> CloudsPresent; // RA2: 0x00A51880
+		static DynamicVectorClass<AnimClass const *> BoltsPresent; // RA2: 0x00A518C8
 };
 
 /*

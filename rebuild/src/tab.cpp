@@ -70,10 +70,6 @@
 #include "surface.h"
 
 
-
-ShapeSet const * TabClass::TabShape = NULL;
-
-
 ShapeButtonClass TabClass::CommandButtons[TabClass::BUTTON_COUNT]; // RA2: 0xABD918
 ShapeButtonClass TabClass::ThumbOpenButton; // RA2: 0xABE400
 ShapeButtonClass TabClass::ThumbClosedButton; // RA2: 0xABE390
@@ -156,7 +152,6 @@ void TabClass::Free_Button_Shape(int index)	// RA2: frees the button shape when 
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int TabClass::Command_From_Name(char const * name)	// RA2: the index of the name among the 11 command names
 {
 	for (int index = 0; index < COMMAND_COUNT; index++) {	// RA2: as above
@@ -166,25 +161,20 @@ int TabClass::Command_From_Name(char const * name)	// RA2: the index of the name
 	}
 	return(NoAdvancedCommand);	// RA2: as above
 }
-#endif
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TabClass::Set_Command_Position(int command, int position)	// RA2: maps the command to a button position
 {
 	SlotButton[command] = position;	// RA2: as above
 }
-#endif
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int TabClass::Get_Command_Position(int command)	// RA2: the button position of a command
 {
 	return(SlotButton[command]);	// RA2: as above
 }
-#endif
 
 
 
@@ -206,7 +196,6 @@ Rect TabClass::Get_Button_Rect(int command)	// RA2: the first slot rectangle mov
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void TabClass::Set_Button_Count(int count)	// RA2: sets the number of rows; the buttons' left edge is not left of the open thumb button's right edge
 {
 	ButtonRows = count;	// RA2: as above
@@ -214,11 +203,9 @@ void TabClass::Set_Button_Count(int count)	// RA2: sets the number of rows; the 
 	int limit = ThumbOpenRect->X + ThumbOpenRect->Width;	// RA2: as above
 	ButtonsLeft = left > limit ? left : limit;	// RA2: as above
 }
-#endif
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int TabClass::Is_Team_Command(int command)	// RA2: whether the command lies in Team01 to Team03
 {
 	if (command >= Team01Command && command <= Team03Command) {	// RA2: as above
@@ -226,16 +213,13 @@ int TabClass::Is_Team_Command(int command)	// RA2: whether the command lies in T
 	}
 	return(0);	// RA2: as above
 }
-#endif
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int TabClass::Team_Number(int command)	// RA2: the team of a team command, from 1
 {
 	return(command - Team01Command + 1);	// RA2: as above
 }
-#endif
 
 
 
@@ -253,7 +237,6 @@ int TabClass::Team_Number(int command)	// RA2: the team of a team command, from 
  * HISTORY:                                                                                    *
  *   12/15/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 37 bytes differ (adopted text)
 TabClass::TabClass(void) :	// RA2: looks up the command numbers by name and registers as the planning mode's notice sink
 	IsThumbActive(true),	// RA2: as above
 	IsToRedraw(true),	// RA2: as above
@@ -272,7 +255,6 @@ TabClass::TabClass(void) :	// RA2: looks up the command numbers by name and regi
 	TypeSelectCommand = Command_From_Name("TypeSelect");	// RA2: as above
 	Planning_Set_Sink(this);	// RA2: as above
 }
-#endif
 
 
 
@@ -316,7 +298,6 @@ void TabClass::DisposeOfArt(void)	// RA2: after the sidebar's, frees every comma
 /// This routine is called once the player's house has been established. It fetches the
 /// tab artwork and resets the credits readout so that it will tick up from nothing.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 175 bytes differ (adopted text)
 void TabClass::Init_For_House(void)	// RA2: after the sidebar's, loads Button00.SHP to Button24.SHP and derives the bar's metrics
 {
 	BASECLASS::Init_For_House();	// RA2: as above
@@ -340,7 +321,6 @@ void TabClass::Init_For_House(void)	// RA2: after the sidebar's, loads Button00.
 	SlotPitch = SlotGap + ButtonWidth;	// RA2: as above
 	Credits.Current = 0;	// RA2: as above
 }
-#endif
 
 
 
@@ -465,7 +445,6 @@ bool TabClass::Activate(int control)	// RA2: the sidebar shown or hidden: update
  *   05/31/1995 JLB : Fixed to handle mouse shape properly.                                    *
  *   08/25/1995 JLB : Handles new scrolling option.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 518 bytes differ (adopted text)
 void TabClass::AI(KeyNumType &input, Point2D const & xy)	// RA2: a pressed command or thumb button runs its command; the bar's area keeps the normal mouse. Not a match: the exe inlines Close_Thumb and Hide_Buttons here but not Get_Button in the loop
 {
 	if (MoneyFlashTimer == 1) {	// RA2: as above
@@ -529,7 +508,6 @@ void TabClass::AI(KeyNumType &input, Point2D const & xy)	// RA2: a pressed comma
 	Credits.AI();	// RA2: as above
 	BASECLASS::AI(input, xy);	// RA2: as above
 }
-#endif
 
 
 
@@ -573,7 +551,6 @@ void TabClass::Add_Button_ToolTip(ControlClass * control, char const * label)	//
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 686 bytes differ (adopted text)
 void TabClass::Draw_It(bool complete)	// RA2: draws the command bar when flagged, when a button changed or when the mouse moved over it
 {
 	static TabMouseSpot LastMouseSpot;	// RA2: as above
@@ -679,7 +656,6 @@ drawn:;	// RA2: as above
 
 	BASECLASS::Draw_It(complete);	// RA2: as above
 }
-#endif
 
 
 
@@ -689,14 +665,12 @@ drawn:;	// RA2: as above
 /// over, and prints the mission timer alongside it whenever a timer is running. The
 /// credit display calls this before it prints the new money value.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 26 bytes differ (adopted text)
 void TabClass::Draw_Credits_Tab(void)	// RA2: only the backdrop shape on the sidebar surface
 {
 	ShapeSet const * shape = TabBackShape;	// RA2: as above
 	Draw_Shape(*SidebarSurface, *SidebarDrawer, shape, 0, Point2D(0, 0), SidebarSurface->Get_Rect());	// RA2: as above
 	IsToBlitSidebar = true;	// RA2: as above
 }
-#endif
 
 
 
@@ -765,7 +739,6 @@ void TabClass::Redraw_Tab(void)	// RA2: out-of-line copy of the inline
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 60 bytes differ (adopted text)
 void __cdecl Load_Button_Shapes(void)	// RA2: out-of-line copy of the loop Init_For_House has
 {
 	char name[256];	// RA2: as above
@@ -776,7 +749,6 @@ void __cdecl Load_Button_Shapes(void)	// RA2: out-of-line copy of the loop Init_
 		TabClass::ButtonShapeAllocated[index] = allocated;	// RA2: as above
 	}
 }
-#endif
 
 
 
@@ -789,7 +761,6 @@ void __cdecl Free_Button_Shapes(void)	// RA2: out-of-line copy of the loop Dispo
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 void Init_Shape_Button(ShapeButtonClass * button, int id, unsigned flags)	// RA2: out-of-line copy of the button set-up the thumb buttons share
 {
 	button->ID = id;	// RA2: as above
@@ -798,7 +769,6 @@ void Init_Shape_Button(ShapeButtonClass * button, int id, unsigned flags)	// RA2
 	button->IsToggleType = 0;	// RA2: as above
 	button->Set_Flags(flags);	// RA2: as above
 }
-#endif
 
 
 
@@ -992,6 +962,8 @@ char const * TabClass::Help_Text(int id)	// RA2: only the sidebar's
 /// <param name="tab">The tab to highlight; zero for the controls tab, non-zero for the
 /// sidebar tab.</param>
 #ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+ShapeSet const * TabClass::TabShape = NULL; // RA2: no reference in the executable; read only by this draft, so parked with it
+
 void TabClass::Hilite_Tab(int tab)
 {
 	int xpos = 0;

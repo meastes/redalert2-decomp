@@ -34024,9 +34024,7 @@
    "source_sha256": "e1414013e51ee4334f8d248468a983536410852587beffaf16d3e1b6e0c0fabb",
    "reason": "Unsupported allocatable data section .rdata #112 in accepted.obj (['.rdata', '??_7ScriptTypeClass@@6BIPersistStream@@@']): the original RTTI names the vtable at 007a93b8 ??_7ScriptTypeClass@@6B@; +28 "
   },
-  "holder": "codex1",
-  "held_reason": "worker",
-  "held_note": "codex1; catalog: whole-file build refused: Unsupported allocatable data section .rdata #112 in accepted.obj (['.rdata', '??_7ScriptTypeCl"
+  "holder": "codex1"
  },
  "bittext": {
   "core": [
@@ -51539,7 +51537,7 @@
     "entry": "0063b4a0",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E142",
+    "symbol": "_$E32",
     "main_symbol": "_$E32",
     "main_source": "src/recovered/header_statics/revent/HeaderStatics_k_init.cpp"
    },
@@ -51563,7 +51561,7 @@
     "entry": "0063b4f0",
     "body": 61,
     "padding": 3,
-    "symbol": "_$E45",
+    "symbol": "_$E145",
     "main_symbol": "_$E45",
     "main_source": "src/recovered/classes/RadarEventClass/RadarEventClass_list_init.cpp"
    },
@@ -51571,7 +51569,7 @@
     "entry": "0063b530",
     "body": 88,
     "padding": 8,
-    "symbol": "_$E42",
+    "symbol": "_$E142",
     "main_symbol": "_$E42",
     "main_source": "src/recovered/classes/RadarEventClass/RadarEventClass_list_atexit_destructor.cpp"
    },
@@ -51579,7 +51577,7 @@
     "entry": "0063b590",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E151",
+    "symbol": "_$E148",
     "main_symbol": "_unknown_init_globals_63b590",
     "main_source": "src/recovered/revent/unknown_init_globals.cpp"
    },
@@ -51587,7 +51585,7 @@
     "entry": "0063b5a0",
     "body": 1,
     "padding": 15,
-    "symbol": "?get@Leaf_63b5a0@@QAEXXZ",
+    "symbol": "_$E151",
     "main_symbol": "?get@Leaf_63b5a0@@QAEXXZ",
     "main_source": "src/recovered/revent.cpp"
    },
@@ -51928,11 +51926,14 @@
    "_RAD_90": "00ab6770",
    "_RECT_NONE": "00ab6778",
    "__real@4@3ff9a3d70a0000000000": "007a8ea8",
-   "__real@8@3ffeb504f333f9de6800": "007a8eb0"
+   "__real@8@3ffeb504f333f9de6800": "007a8eb0",
+   "_CELL_NONE": "00ab67a8",
+   "_$S143": "00ab6768",
+   "_RadarEventTypes": "007a8d58"
   },
   "partial_ok": true,
   "held_reason": "worker",
-  "held_note": "codex2; catalog: initializers not exact rows: _$E148 _$E154 _$E32"
+  "held_note": "codex2; catalog: emitted functions with no row or binding: ?RadarEventNames@@3PAPBDA"
  },
  "cdcntrl": {
   "core": [
@@ -59834,7 +59835,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "0051ef10",
    "00520fa0"
@@ -60181,7 +60182,7 @@
     "entry": "00520c40",
     "body": 42,
     "padding": 6,
-    "symbol": "?Clear@?$DynamicVectorClass@PAVAnimClass@@@@UAEXXZ",
+    "symbol": "?Clear@?$DynamicVectorClass@PBVAnimClass@@@@UAEXXZ",
     "main_symbol": "?Clear@?$DynamicVectorClass@PAVAnimClass@@@@UAEXXZ",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60189,7 +60190,7 @@
     "entry": "00520c70",
     "body": 27,
     "padding": 5,
-    "symbol": "?ID@?$DynamicVectorClass@PAVAnimClass@@@@UAEHPBQAVAnimClass@@@Z",
+    "symbol": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
     "main_symbol": "?ID@?$DynamicVectorClass@PAVAnimClass@@@@UAEHPBQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60197,7 +60198,7 @@
     "entry": "00520c90",
     "body": 13,
     "padding": 3,
-    "symbol": "?GetItem@?$VectorClass@PAVAnimClass@@@@UBEPAVAnimClass@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@PBVAnimClass@@@@UBEPBVAnimClass@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAVAnimClass@@@@UBEPAVAnimClass@@H@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60205,7 +60206,7 @@
     "entry": "00520ca0",
     "body": 62,
     "padding": 2,
-    "symbol": "??8?$VectorClass@PAVAnimClass@@@@UBE_NABV0@@Z",
+    "symbol": "??8?$VectorClass@PBVAnimClass@@@@UBE_NABV0@@Z",
     "main_symbol": "??8?$VectorClass@PAVAnimClass@@@@UBE_NABV0@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60213,7 +60214,7 @@
     "entry": "00520ce0",
     "body": 174,
     "padding": 2,
-    "symbol": "?Resize@?$VectorClass@PAVAnimClass@@@@UAE_NHPBQAVAnimClass@@@Z",
+    "symbol": "?Resize@?$VectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
     "main_symbol": "?Resize@?$VectorClass@PAVAnimClass@@@@UAE_NHPBQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60221,7 +60222,7 @@
     "entry": "00520d90",
     "body": 39,
     "padding": 9,
-    "symbol": "?Clear@?$VectorClass@PAVAnimClass@@@@UAEXXZ",
+    "symbol": "?Clear@?$VectorClass@PBVAnimClass@@@@UAEXXZ",
     "main_symbol": "?Clear@?$VectorClass@PAVAnimClass@@@@UAEXXZ",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60229,7 +60230,7 @@
     "entry": "00520dc0",
     "body": 51,
     "padding": 13,
-    "symbol": "?ID@?$VectorClass@PAVAnimClass@@@@UAEHABQAVAnimClass@@@Z",
+    "symbol": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
     "main_symbol": "?ID@?$VectorClass@PAVAnimClass@@@@UAEHABQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60237,7 +60238,7 @@
     "entry": "00520e00",
     "body": 27,
     "padding": 5,
-    "symbol": "?ID@?$VectorClass@PAVAnimClass@@@@UAEHPBQAVAnimClass@@@Z",
+    "symbol": "?ID@?$VectorClass@PBVAnimClass@@@@UAEHPBQBVAnimClass@@@Z",
     "main_symbol": "?ID@?$VectorClass@PAVAnimClass@@@@UAEHPBQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60245,7 +60246,7 @@
     "entry": "00520e20",
     "body": 176,
     "padding": 0,
-    "symbol": "?Resize@?$DynamicVectorClass@PAVAnimClass@@@@UAE_NHPBQAVAnimClass@@@Z",
+    "symbol": "?Resize@?$DynamicVectorClass@PBVAnimClass@@@@UAE_NHPBQBVAnimClass@@@Z",
     "main_symbol": "?Resize@?$DynamicVectorClass@PAVAnimClass@@@@UAE_NHPBQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60253,7 +60254,7 @@
     "entry": "00520ed0",
     "body": 38,
     "padding": 10,
-    "symbol": "?ID@?$DynamicVectorClass@PAVAnimClass@@@@UAEHABQAVAnimClass@@@Z",
+    "symbol": "?ID@?$DynamicVectorClass@PBVAnimClass@@@@UAEHABQBVAnimClass@@@Z",
     "main_symbol": "?ID@?$DynamicVectorClass@PAVAnimClass@@@@UAEHABQAVAnimClass@@@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60261,7 +60262,7 @@
     "entry": "00520f00",
     "body": 73,
     "padding": 7,
-    "symbol": "??_G?$VectorClass@PAVAnimClass@@@@UAEPAXI@Z",
+    "symbol": "??_G?$VectorClass@PBVAnimClass@@@@UAEPAXI@Z",
     "main_symbol": "??_G?$VectorClass@PAVAnimClass@@@@UAEPAXI@Z",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -60269,7 +60270,7 @@
     "entry": "00520f50",
     "body": 73,
     "padding": 7,
-    "symbol": "??_G?$DynamicVectorClass@PAVAnimClass@@@@UAEPAXI@Z",
+    "symbol": "??_G?$DynamicVectorClass@PBVAnimClass@@@@UAEPAXI@Z",
     "main_symbol": "??_G?$DynamicVectorClass@PAVAnimClass@@@@UAEPAXI@Z",
     "main_source": "src/recovered/ion.cpp"
    }
@@ -60294,10 +60295,10 @@
    "_RAD_90": "00a51870",
    "_RECT_NONE": "00a51898",
    "_$S191": "00a51869",
-   "_$S197": "00a51868"
-  },
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: initializers not exact rows: _$E187"
+   "_$S197": "00a51868",
+   "??_7?$DynamicVectorClass@PBVAnimClass@@@@6B@": "007a4554",
+   "??_7?$VectorClass@PBVAnimClass@@@@6B@": "007a4574"
+  }
  },
  "convert": {
   "core": [
@@ -69899,9 +69900,10 @@
    "/O2",
    "/Ob2",
    "/G5",
-   "/Gy"
+   "/Gy",
+   "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "006a0270",
    "006a20e0"
@@ -70238,7 +70240,7 @@
     "entry": "006a1700",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E97",
+    "symbol": "_$E144",
     "main_symbol": "_$E97",
     "main_source": "src/recovered/tab.cpp"
    },
@@ -70400,11 +70402,15 @@
    "_RAD_60": "00abe2b0",
    "_RAD_90": "00abd908",
    "_RECT_NONE": "00abe280",
-   "_$S129": "00abd904"
+   "_$S129": "00abd904",
+   "_$E144": "006a1700",
+   "_?$S143@?1??Draw_It@TabClass@@UAEX_N@Z@4EA": "00abe298",
+   "_?DrawnCount@?1??Draw_It@TabClass@@UAEX_N@Z@4HA": "00abe484",
+   "_?DrawnOn@?1??Draw_It@TabClass@@UAEX_N@Z@4PAPAVSurface@@A": "00abe350",
+   "_?LastMouseSpot@?1??Draw_It@TabClass@@UAEX_N@Z@4UTabMouseSpot@@A": "00abe348",
+   "_?MouseInside@?1??Draw_It@TabClass@@UAEX_N@Z@4_NA": "00abe480"
   },
-  "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: unguarded drafts: ?Show_Buttons@TabClass@@QAEXXZ"
+  "partial_ok": true
  },
  "vein": {
   "core": [
@@ -81429,7 +81435,7 @@
     "entry": "00453cc0",
     "body": 42,
     "padding": 6,
-    "symbol": "?Clear@?$DynamicVectorClass@PAUReestablishRecord@@@@UAEXXZ",
+    "symbol": "?Clear@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEXXZ",
     "main_symbol": "?Clear@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAEXXZ",
     "main_source": "src/recovered/classes/DynamicVectorClass_ParticleSystemTypeClass_ptr/Clear.cpp"
    },
@@ -81437,7 +81443,7 @@
     "entry": "00453cf0",
     "body": 27,
     "padding": 5,
-    "symbol": "?ID@?$DynamicVectorClass@PAUReestablishRecord@@@@UAEHPBQAUReestablishRecord@@@Z",
+    "symbol": "?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHPBQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?ID@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAEHPBQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/DynamicVectorClass_ParticleSystemTypeClass_ptr/ID_pointer.cpp"
    },
@@ -81445,7 +81451,7 @@
     "entry": "00453d10",
     "body": 13,
     "padding": 3,
-    "symbol": "?GetItem@?$VectorClass@PAUReestablishRecord@@@@UBEPAUReestablishRecord@@H@Z",
+    "symbol": "?GetItem@?$VectorClass@PBVParticleSystemTypeClass@@@@UBEPBVParticleSystemTypeClass@@H@Z",
     "main_symbol": "?Fetch@?$VectorClass@PAVParticleSystemTypeClass@@@@UBEPAVParticleSystemTypeClass@@H@Z",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/Fetch.cpp"
    },
@@ -81557,7 +81563,7 @@
     "entry": "00453ed0",
     "body": 62,
     "padding": 2,
-    "symbol": "??8?$VectorClass@PAVParticleSystemTypeClass@@@@UBE_NABV0@@Z",
+    "symbol": "??8?$VectorClass@PBVParticleSystemTypeClass@@@@UBE_NABV0@@Z",
     "main_symbol": "??8?$VectorClass@PAVParticleSystemTypeClass@@@@UBE_NABV0@@Z",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/operator_equal.cpp"
    },
@@ -81565,7 +81571,7 @@
     "entry": "00453f10",
     "body": 174,
     "padding": 2,
-    "symbol": "?Resize@?$VectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z",
+    "symbol": "?Resize@?$VectorClass@PBVParticleSystemTypeClass@@@@UAE_NHPBQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?Resize@?$VectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/Resize.cpp"
    },
@@ -81573,7 +81579,7 @@
     "entry": "00453fc0",
     "body": 39,
     "padding": 9,
-    "symbol": "?Clear@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEXXZ",
+    "symbol": "?Clear@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEXXZ",
     "main_symbol": "?Clear@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEXXZ",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/Clear.cpp"
    },
@@ -81581,7 +81587,7 @@
     "entry": "00453ff0",
     "body": 51,
     "padding": 13,
-    "symbol": "?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z",
+    "symbol": "?ID@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEHABQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/ID_object.cpp"
    },
@@ -81589,7 +81595,7 @@
     "entry": "00454030",
     "body": 27,
     "padding": 5,
-    "symbol": "?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHPBQAVParticleSystemTypeClass@@@Z",
+    "symbol": "?ID@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEHPBQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?ID@?$VectorClass@PAVParticleSystemTypeClass@@@@UAEHPBQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/VectorClass_ParticleSystemTypeClass_ptr/ID_pointer.cpp"
    },
@@ -81597,7 +81603,7 @@
     "entry": "00454050",
     "body": 176,
     "padding": 0,
-    "symbol": "?Resize@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z",
+    "symbol": "?Resize@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAE_NHPBQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?Resize@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAE_NHPBQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/DynamicVectorClass_ParticleSystemTypeClass_ptr/Resize.cpp"
    },
@@ -81605,7 +81611,7 @@
     "entry": "00454100",
     "body": 38,
     "padding": 10,
-    "symbol": "?ID@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z",
+    "symbol": "?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHABQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?ID@?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@UAEHABQAVParticleSystemTypeClass@@@Z",
     "main_source": "src/recovered/classes/DynamicVectorClass_ParticleSystemTypeClass_ptr/ID_object.cpp"
    },
@@ -81845,7 +81851,7 @@
     "entry": "00454ad0",
     "body": 74,
     "padding": 6,
-    "symbol": "?get@Storage_454ad0@@QAEPAXIPAI@Z",
+    "symbol": "??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@HPBQBVParticleSystemTypeClass@@@Z",
     "main_symbol": "?get@Storage_454ad0@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/building.cpp"
    },
@@ -82040,7 +82046,21 @@
    "?Clear@?$VectorClass@PAVFoggedObjectClass@@@@UAEXXZ": "00454950",
    "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHABQAVFoggedObjectClass@@@Z": "00454980",
    "?ID@?$VectorClass@PAVFoggedObjectClass@@@@UAEHPBQAVFoggedObjectClass@@@Z": "004549c0",
-   "?Fire_Direction@BuildingClass@@UBE?AVDirType@@XZ": "004491e0"
+   "?Fire_Direction@BuildingClass@@UBE?AVDirType@@XZ": "004491e0",
+   "??_C@_05HAKN@FIRE3?$AA@": "007cf7b8",
+   "_?_facings@?CH@??Do_Destruction@BuildingClass@@UAEXPAVTechnoClass@@0_NPBVCell@@@Z@4PAW4FacingType@@A": "007cf660",
+   "?Turret_Coord@BuildingClass@@UBE?AVCoord@@H@Z": "0044ebf0",
+   "?Do_Destruction@BuildingClass@@UAEXPAVTechnoClass@@0_NPBVCell@@@Z": "0043e270",
+   "??8?$VectorClass@PBVParticleSystemTypeClass@@@@UBE_NABV0@@Z": "00453ed0",
+   "?Resize@?$VectorClass@PBVParticleSystemTypeClass@@@@UAE_NHPBQBVParticleSystemTypeClass@@@Z": "00453f10",
+   "?Clear@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEXXZ": "00453fc0",
+   "?ID@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEHABQBVParticleSystemTypeClass@@@Z": "00453ff0",
+   "?ID@?$VectorClass@PBVParticleSystemTypeClass@@@@UAEHPBQBVParticleSystemTypeClass@@@Z": "00454030",
+   "?GetItem@?$VectorClass@PBVParticleSystemTypeClass@@@@UBEPBVParticleSystemTypeClass@@H@Z": "00453d10",
+   "?Resize@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAE_NHPBQBVParticleSystemTypeClass@@@Z": "00454050",
+   "?Clear@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEXXZ": "00453cc0",
+   "?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHABQBVParticleSystemTypeClass@@@Z": "00454100",
+   "?ID@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEHPBQBVParticleSystemTypeClass@@@Z": "00453cf0"
   },
   "partial_ok": true
  },
@@ -84346,7 +84366,10 @@
    "_?_techno_zadj_ramp1@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f7124",
    "_?_techno_zadj_ramp2@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f7128",
    "_?_techno_zadj_rock@?1??Get_Z_Adjust@TechnoClass@@UBEHXZ@4HA": "007f712c",
-   "?Get_Z_Adjust@TechnoClass@@UBEHXZ": "006cfea0"
+   "?Get_Z_Adjust@TechnoClass@@UBEHXZ": "006cfea0",
+   "?Draw_Pre_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "006c3b30",
+   "?CreateGap@TechnoClass@@UAEXXZ": "006c83f0",
+   "?DestroyGap@TechnoClass@@UAEXXZ": "006c86f0"
   },
   "partial_ok": true
  },
@@ -88817,7 +88840,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005c29b0",
    "005cda50"
@@ -90023,9 +90046,7 @@
    "?ColorPrivAction@@3KB": "007a736c",
    "?ColorPriv@@3KB": "007a7368"
   },
-  "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: unguarded drafts: ?Hide_Slot_Controls@@YIXPAUHWND__@@H@Z ?Is_Observer_Slot_Occupied@@YI_NXZ ?Set_Slot_Names@@YIXPBG@Z"
+  "partial_ok": true
  },
  "infantry": {
   "core": [
@@ -94020,7 +94041,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "00454cf0",
    "0045f120"
@@ -94747,10 +94768,7 @@
   "build_refused": {
    "source_sha256": "52739bd85375745ab5f73e64a48602b5f3d6a7ffee8da0773f83338a01862410",
    "reason": "Unaccounted emitted code section bytes"
-  },
-  "held_reason": "mismatch",
-  "held_note": "not tooling: the uncovered section is _$E230 (0x454EF0, OccupyLists' dynamic initializer, 4,389 bytes), which differs (842 bytes) and an initializer cannot be guarded. Ours stops inlining one Cell expansion early (vector constructor iterator for the Cell() tail of BSIZE row 18, then out-of-line Cell(x,y) from 0x84F6D4) where the original zero-fills and inlines one more. Range widened to 0x45F120 (78/85)",
-  "held_manual": true
+  }
  },
  "dsurface": {
   "core": [
@@ -95535,7 +95553,7 @@
     "entry": "005be6b0",
     "body": 1889,
     "padding": 15,
-    "symbol": "?Join_Dialog_Proc_005be6b0@@YGJPAUHWND__@@IIJ@Z",
+    "symbol": "?MPlayer_Game_List_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z",
     "main_symbol": "?Join_Dialog_Proc_005be6b0@@YGJPAUHWND__@@IIJ@Z",
     "main_source": "src/recovered/netdlg2.cpp"
    },
@@ -101825,7 +101843,7 @@
   },
   "holder": "codex1",
   "held_reason": "worker",
-  "held_note": "codex1; catalog: whole-file build refused: Unaccounted emitted code section bytes"
+  "held_note": "codex1; catalog: unguarded drafts: ?Class_Of@BulletClass@@UBEPBVObjectTypeClass@@XZ"
  },
  "astar": {
   "core": [
@@ -106824,8 +106842,6 @@
    "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVAITriggerTypeClass@@@@@Z": "006580c0"
   },
   "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: unguarded drafts: ?Get_All@@YI_NPAUIStream@@_N@Z ?Put_All@@YI_NPAUIStream@@H@Z ?Save_Game@@YI_NPBDPBG_N@Z",
   "kept_copies": {
    "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVScriptClass@@@@@Z": "kept copy: 34 byte-identical copies in the image (first 006580c0), every relocation bound and agreeing; ours is a linker-discarded duplicate, omitted and compared with the first",
    "?Save_Vector@@YIJPAUIStream@@ABV?$DynamicVectorClass@PAVTagTypeClass@@@@@Z": "kept copy: 34 byte-identical copies in the image (first 006580c0), every relocation bound and agreeing; ours is a linker-discarded duplicate, omitted and compared with the first",
@@ -121565,7 +121581,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "006f8be0",
    "006fa1e0"
@@ -121896,9 +121912,7 @@
    "??_C@_01IJJ@c?$AA@": "007f8da4",
    "_RECT_NONE": "00ac1358"
   },
-  "partial_ok": true,
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: emitted functions with no row or binding: ?ReversedText@@3PADA ?LabelBuffer@@3PADA ?TextBuffer@@3PADA ?TextFile@@3PAU_io"
+  "partial_ok": true
  },
  "rocket": {
   "core": [
@@ -132231,9 +132245,7 @@
   "build_refused": {
    "source_sha256": "e14a4a8c523ee008c8a34125e989b79fefc0d43ef9b15e87a1cfe456d5e96deb",
    "reason": "Unsupported allocatable data section .rdata #88 in accepted.obj (['.rdata', '??_7UnitClass@@6BIPersistStream@@@']): the original RTTI names the vtable at 007addf8 ??_7UnitClass@@6B@; +324 ?IsUnderEMP@"
-  },
-  "held_reason": "worker",
-  "held_note": "codex1; catalog: whole-file build refused: Unsupported allocatable data section .rdata #88 in accepted.obj (['.rdata', '??_7UnitClass@@6B"
+  }
  },
  "radbeam": {
   "core": [
@@ -145388,9 +145400,7 @@
     "note": "Private IMA_DATA/TRANSFER/AudioDriverChannel/AudioThread/AudioLock closure missing; driver root tables omitted and dependent routines guarded; draft guarded, no credit"
    }
   ],
-  "note": "Private IMA_DATA/TRANSFER/AudioDriverChannel/AudioThread/AudioLock closure missing; driver root tables omitted and dependent routines guarded; source extern declarations/private layouts/RA2 geometry switches omitted; original initializer ordering complete; function bounds unchanged.",
-  "held_reason": "worker",
-  "held_note": "codex2; catalog: whole-file build refused: Unsupported allocatable data section .bss #3 in accepted.obj (['.bss', '?AUD_primary_buffer@@3"
+  "note": "Private IMA_DATA/TRANSFER/AudioDriverChannel/AudioThread/AudioLock closure missing; driver root tables omitted and dependent routines guarded; source extern declarations/private layouts/RA2 geometry switches omitted; original initializer ordering complete; function bounds unchanged."
  },
  "srfcache": {
   "core": [

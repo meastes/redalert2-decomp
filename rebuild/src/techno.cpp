@@ -1721,27 +1721,27 @@ void TechnoClass::Debug_Dump(MonoClass * mono) const
 /// edges and the front edges drawn by Draw_Post_Render. The box turns yellow while a
 /// limpet mine is attached and black while the building sits below ground.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 198 bytes differ (adopted text)
-void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) const
+void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) const // RA2: ra2-decomp's twin text
 {
-	if (RTTI == RTTI_BUILDING && IsSelected && RTTI != RTTI_INFANTRY) {
-		int color = WHITE;
-		if (HeightAGL < -4) { // RA2: no LimpetType (not in RA2's layout)
-			color = BLACK;
+	if (RTTI == RTTI_BUILDING && IsSelected) {
+		if (RTTI != RTTI_INFANTRY) {
+			int color = WHITE;
+			if (HeightAGL < -4) { // RA2: no LimpetType (not in RA2's layout)
+				color = BLACK;
+			}
+			Point3D dim = TClass->Lepton_Dimensions();
+			dim.X /= 2;
+			dim.Y /= 2;
+			color = NormalDrawer->Convert_Pixel(color);
+			Coord center = Center_Coord();
+			Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(-dim.X, -dim.Y, dim.Z), color);
+			Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(dim.X, -dim.Y, 0), color);
+			Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(-dim.X, dim.Y, 0), color);
+			Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, dim.Z), center + Coord(-dim.X, dim.Y, dim.Z), color);
+			Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, dim.Z), center + Coord(dim.X, -dim.Y, dim.Z), color);
 		}
-		Coord dim = TClass->Lepton_Dimensions();
-		dim.X /= 2;
-		dim.Y /= 2;
-		color = NormalDrawer->Convert_Pixel(color);
-		Coord center = Center_Coord();
-		Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(-dim.X, -dim.Y, dim.Z), color);
-		Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(dim.X, -dim.Y, 0), color);
-		Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, 0), center + Coord(-dim.X, dim.Y, 0), color);
-		Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, dim.Z), center + Coord(-dim.X, dim.Y, dim.Z), color);
-		Draw_Double_Selection_Bracket(center + Coord(-dim.X, -dim.Y, dim.Z), center + Coord(dim.X, -dim.Y, dim.Z), color);
 	}
 }
-#endif
 
 
 /// <summary>
@@ -3585,39 +3585,43 @@ void TechnoClass::Start_Reload_Timer(void) // RA2: not in TibSun, at 0x6C8300
 /// Starts this gap generator: shrouds the cells within its radius for everyone but the player's side and
 /// counts the gap on each of them.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 433 bytes differ (adopted text)
-void TechnoClass::CreateGap(void) // RA2: not in TibSun; does not match (RA2 sums the cell's X before its Y)
+void TechnoClass::CreateGap(void) // RA2: not in TibSun; ra2-decomp's twin text
 {
 	if (PlayerPtr != NULL && !GeneratingGap && IsPowerOnline()) {
 		if (GapRadius == 0) {
-			GapRadius = Techno_Type_Class()->GapRadiusInCells;
+			GapRadius = TClass->GapRadiusInCells;
 		}
 		GeneratingGap = true;
-		Coord projected = Position;
-		projected.X += (Tactical::Z_Lepton_To_Pixel(projected.Z) / -30) * 256;
-		projected.Y += (Tactical::Z_Lepton_To_Pixel(projected.Z) / -30) * 256;
-		Cell center(projected);
+
+		Coord coord = Position;
+		coord.X += (Tactical::Z_Lepton_To_Pixel(coord.Z) / -30) << 8;
+		coord.Y += (Tactical::Z_Lepton_To_Pixel(coord.Z) / -30) << 8;
+		Cell center = coord.As_Cell();
+
 		int radius = GapRadius;
-		for (int x = -radius - 2; x < radius + 2; x++) {
-			for (int y = -radius - 2; y < radius + 2; y++) {
-				if (x * x + y * y < (radius + 1) * (radius + 1)) {
-					Cell cell = Cell(center.X + x, center.Y + y);
+		for (int dx = -2 - radius; dx < radius + 2; dx++) {
+			for (int dy = -2 - radius; dy < radius + 2; dy++) {
+				if (dx * dx + dy * dy < (radius + 1) * (radius + 1)) {
+					Cell cell = center + Cell(dx, dy);
 					if (!Owner_HouseClass()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->IsDefeated) {
-						if (Map[cell].ShroudCounter != 1 && Map[cell].ShroudCounter >= 0) {
-							Map[cell].ShroudCounter++;
+						if (Map[cell].ShroudCounter != 1) {
+							if (Map[cell].ShroudCounter >= 0) {
+								++Map[cell].ShroudCounter;
+							}
 						}
-						Map[cell].GapsCoveringThisCell++;
+						++Map[cell].GapsCoveringThisCell;
 						if (Map[cell].ShroudCounter >= 1) {
 							Map[cell].IsVisible = false;
 							Map[cell].IsMapped = false;
 						}
 					}
 					if (Owner_HouseClass()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->IsDefeated) {
-						Map[cell].AlliedGapsCoveringThisCell++;
+						++Map[cell].AlliedGapsCoveringThisCell;
 					}
 				}
 			}
 		}
+
 		if (PlayerPtr != NULL) {
 			PlayerPtr->IsVisionary = false;
 		}
@@ -3625,33 +3629,33 @@ void TechnoClass::CreateGap(void) // RA2: not in TibSun; does not match (RA2 sum
 		Map.Flag_To_Redraw(GS_REDRAW_ALL);
 	}
 }
-#endif
 
 /// <summary>
 /// Stops this gap generator: takes its count off the cells within its radius and reveals the ones no gap
 /// covers any more when the player's spy satellite is up.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 419 bytes differ (adopted text)
-void TechnoClass::DestroyGap(void) // RA2: not in TibSun; does not match (RA2 sums the cell's X before its Y)
+void TechnoClass::DestroyGap(void) // RA2: not in TibSun; ra2-decomp's twin text
 {
 	if (PlayerPtr != NULL && GeneratingGap) {
 		if (GapRadius == 0) {
-			GapRadius = Techno_Type_Class()->GapRadiusInCells;
+			GapRadius = TClass->GapRadiusInCells;
 		}
 		GeneratingGap = false;
-		Coord projected = Position;
-		projected.X += (Tactical::Z_Lepton_To_Pixel(projected.Z) / -30) * 256;
-		projected.Y += (Tactical::Z_Lepton_To_Pixel(projected.Z) / -30) * 256;
-		Cell center(projected);
+
+		Coord coord = Position;
+		coord.X += (Tactical::Z_Lepton_To_Pixel(coord.Z) / -30) << 8;
+		coord.Y += (Tactical::Z_Lepton_To_Pixel(coord.Z) / -30) << 8;
+		Cell center = coord.As_Cell();
+
 		int radius = GapRadius;
-		for (int x = -radius - 2; x < radius + 2; x++) {
-			for (int y = -radius - 2; y < radius + 2; y++) {
-				if (x * x + y * y < (radius + 1) * (radius + 1)) {
-					Cell cell = Cell(center.X + x, center.Y + y);
+		for (int dx = -2 - radius; dx < radius + 2; dx++) {
+			for (int dy = -2 - radius; dy < radius + 2; dy++) {
+				if (dx * dx + dy * dy < (radius + 1) * (radius + 1)) {
+					Cell cell = center + Cell(dx, dy);
 					if (!Owner_HouseClass()->Is_Player_Control() && !House->Is_Ally(PlayerPtr) && !PlayerPtr->IsDefeated) {
-						Map[cell].GapsCoveringThisCell--;
+						--Map[cell].GapsCoveringThisCell;
 						if (PlayerPtr->SpySatActive && Map[cell].GapsCoveringThisCell <= 0) {
-							Map[cell].ShroudCounter--;
+							--Map[cell].ShroudCounter;
 							if (Map[cell].ShroudCounter <= 0) {
 								Map[cell].IsMapped = true;
 								Map[cell].IsVisible = true;
@@ -3659,11 +3663,12 @@ void TechnoClass::DestroyGap(void) // RA2: not in TibSun; does not match (RA2 su
 						}
 					}
 					if (Owner_HouseClass()->Is_Player_Control() || House->Is_Ally(PlayerPtr) || PlayerPtr->IsDefeated) {
-						Map[cell].AlliedGapsCoveringThisCell--;
+						--Map[cell].AlliedGapsCoveringThisCell;
 					}
 				}
 			}
 		}
+
 		if (PlayerPtr != NULL) {
 			PlayerPtr->IsVisionary = false;
 		}
@@ -3671,7 +3676,6 @@ void TechnoClass::DestroyGap(void) // RA2: not in TibSun; does not match (RA2 su
 		Map.Flag_To_Redraw(GS_REDRAW_ALL);
 	}
 }
-#endif
 
 /// <summary>
 /// RA2

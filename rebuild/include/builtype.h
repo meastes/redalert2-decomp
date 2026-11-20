@@ -888,6 +888,8 @@ class BuildingTypeClass : public TechnoTypeClass
 
 		virtual RTTIType Fetch_RTTI(void) const override;
 		virtual int Fetch_Object_Size(void) const override; // RA2: no argument
+		virtual bool CanUseWaypoint(void) const override; // RA2
+		virtual bool CanAttackMove(void) const override; // RA2
 		// RA2: Get_Object_Size_Delta is not in RA2's vtables (see abstract.h).
 		virtual void Compute_CRC(CRCEngine & crc) const override;
 		virtual int Fetch_Heap_ID(void) const override;

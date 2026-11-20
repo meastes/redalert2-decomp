@@ -9,6 +9,7 @@ symbol,address,evidence
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAUtConnInfoStruct@@@@QAE@HPBQAUtConnInfoStruct@@@Z,0x007680C0,inferred: wonline rows 0074fcb0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
+??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@HPBQBVParticleSystemTypeClass@@@Z,0x00454AD0,inferred: building rows 0043e270 differ only at its sites
 ??0?$VectorClass@USubzoneConnectionStruct@@@@QAE@HPBUSubzoneConnectionStruct@@@Z,0x0056CA50,"inferred: VectorClass<SubzoneTrackingStruct>::Resize (0x0056B4A0, bound copy) calls it at offsets 90 and 178 (lane R5)"
 ??0BaseNodeClass@@QAE@W4StructType@@ABVCell@@@Z,0x004F6BE0,"main: ??0BaseNodeClass@@QAE@HABVCell@@@Z (the same constructor, its first parameter typed int there)"
 ??0BuildType@StripClass@SidebarClass@@QAE@XZ,0x00682480,inferred: sidebar rows 0067b700 differ only at its sites
@@ -1117,6 +1118,7 @@ symbol,address,evidence
 ?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z,0x00775060,slot +10 of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NABVRect@@0AAVSurface@@00_N2@Z
 ?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z,0x00774F00,slot +0c of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NABVRect@@AAVSurface@@0_N2@Z
 ?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z,0x00774E60,slot +08 of ??_7BSurface@@6B@ at 0079aef4; main row ?Copy_From@XSurface@@UAE_NAAVSurface@@_N1@Z
+?BoltsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A,0x00A518C8,inferred: ion rows 0051f250 0051f250 0051f250 0051f250 differ only at its sites
 ?Broadcast@MSEngine@@QAEXPAX@Z,0x005B3800,inferred: wdtmap rows 0072a6d0 0072a720 differ only at its sites
 ?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z,0x0076B7A0,slot +14 of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Broadcast@WinsockInterfaceClass@@UAEXPAXH_N@Z
 ?BuildChoice@HouseClass@@0V?$DynamicVectorClass@PAUBuildChoiceClass@HouseClass@@@@A,0x00A40F20,inferred: house rows 004e15e0 004e15e0 004e15e0 004e15e0 differ only at its sites
@@ -1358,6 +1360,8 @@ symbol,address,evidence
 ?Close@CCFileClass@@UAEXXZ,0x004691F0,slot +38 of ??_7CCFileClass@@6B@ at 0079a69c; main row ?Close@CCFileClass@@UAEXXZ
 ?Close@RawFileClass@@UAEXXZ,0x00638D50,slot +38 of ??_7RawFileClass@@6B@ at 007a8cc0; main row ?Close@RawFileClass@@UAEXXZ
 ?Close_Socket@WinsockInterfaceClass@@UAEXXZ,0x0076AE40,slot +08 of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Close_Socket@WinsockInterfaceClass@@UAEXXZ
+?CloudsManifesting@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A,0x00A51908,inferred: ion rows 0051f110 0051f110 0051f110 0051f110 differ only at its sites
+?CloudsPresent@IonStormClass@@0V?$DynamicVectorClass@PBVAnimClass@@@@A,0x00A51880,inferred: ion rows 0051f1b0 0051f1b0 0051f1b0 0051f1b0 differ only at its sites
 ?Collect_Remote_Player_Names@@YIXXZ,0x0075A6C0,main row ?Collect_Remote_Player_Names_0075a6c0@@YIXXZ (wonline rows 00759e20)
 ?ColorAction@@3KB,0x007A7370,inferred: wonline rows 0074c660 differ only at its sites
 ?ColorOp@@3KB,0x007A7374,inferred: wonline rows 007626b0 007628d0 differ only at its sites

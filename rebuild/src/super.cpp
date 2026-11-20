@@ -636,8 +636,8 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 		break;
 
 	case SUPER_CHRONO_WARP: { // RA2: as above
-		Submit_Radar_Event(RadarEventType(13), ChronoMapCoords); // RA2: as above
-		Submit_Radar_Event(RadarEventType(13), cell); // RA2: as above
+		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, ChronoMapCoords); // RA2: as above
+		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
 		Coord dest = Map[cell].Center_Coord(); // RA2: as above
 		Coord from = Map[ChronoMapCoords].Center_Coord(); // RA2: as above
 		if (Map[cell].IsUnderBridge) { // RA2: as above
@@ -731,7 +731,7 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 			if (!MuteSWLaunches) { // RA2: as above
 				Queue_Speech("EVA_IronCurtainActivated", -1, -1); // RA2: as above
 			}
-			Submit_Radar_Event(RadarEventType(13), cell); // RA2: as above
+			Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, cell); // RA2: as above
 			for (int index = 0; index < 9; index++) { // RA2: as above
 				Cell const *offset = &CellAndNeighbors[index]; // RA2: as above
 				for (ObjectClass *object = Map[cell + *offset].Cell_Occupier(); object != 0; object = object->Next) { // RA2: as above

@@ -65,16 +65,18 @@ CSFLanguage Languages[11] = { // RA2: 0x007F8CF0; the table ends with the entry 
 };
 
 char NarrowBuffers[8][1024]; // RA2: 0x00AC136C; the eight results Wide_To_Narrow hands out in turn
+wchar_t WideBuffers[8][1024]; // RA2: 0x00AC53FC; the eight results Narrow_To_Wide hands out in turn
+wchar_t CSFWideText[8192]; // RA2: 0x00AC93FC; the text of one string while it is made ready
+char TextLine[4096]; // RA2: 0x00ACF410; one line of a text file, and the label of a .csf file
+int NarrowIndex; // RA2: 0x00AD045C; which of the eight buffers Wide_To_Narrow uses next
+int WideIndex; // RA2: 0x00AD0460; which of the eight buffers Narrow_To_Wide uses next
+#ifdef RA2_NON_MATCHING // used only by the parked LoadFile and Read_Text_File drafts (DECISIONS: a global whose only user is a parked function)
 char TextBuffer[4104]; // RA2: 0x00AC3378; the text of one entry of a text file (the executable gives only the distance to the next object)
 char LabelBuffer[4104]; // RA2: 0x00AC4380; the speech name of one entry of a text file
 char CSFName[116]; // RA2: 0x00AC5388; the file name with its extension replaced by .csf
-wchar_t WideBuffers[8][1024]; // RA2: 0x00AC53FC; the eight results Narrow_To_Wide hands out in turn
-wchar_t CSFWideText[8192]; // RA2: 0x00AC93FC; the text of one string while it is made ready
 char ReversedText[8192]; // RA2: 0x00ACD410; the text of one entry with its runs of letters reversed
-char TextLine[4096]; // RA2: 0x00ACF410; one line of a text file, and the label of a .csf file
 FILE * TextFile; // RA2: 0x00AD0430; the text file being read
-int NarrowIndex; // RA2: 0x00AD045C; which of the eight buffers Wide_To_Narrow uses next
-int WideIndex; // RA2: 0x00AD0460; which of the eight buffers Narrow_To_Wide uses next
+#endif
 
 /// <summary>
 /// The table entry of a language, or NULL when the language is not in the table.

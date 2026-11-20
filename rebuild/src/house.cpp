@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2040,7 +2041,7 @@ void HouseClass::Attacked(BuildingClass * source)
 			VocClass::PlayGlobal(Rule->BaseUnderAttackSound, 1.0f, 0x2000); // RA2: as above
 		}
 	} else if (is_ally) { // RA2: as above
-		if (Submit_Radar_Event(RadarEventType(16), source->Center_Coord().As_Cell())) { // RA2: the radar event of an attacked ally is 16
+		if (Submit_Radar_Event(RADAREVENT_ALLY_BASE_ATTACKED, source->Center_Coord().As_Cell())) { // RA2: the radar event of an attacked ally is 16
 			Queue_Speech("EVA_OurAllyIsUnderAttack", -1, -1); // RA2: as above
 			VocClass::PlayGlobal(Rule->BaseUnderAttackSound, 1.0f, 0x2000); // RA2: as above
 		}
@@ -8709,17 +8710,18 @@ void HouseClass::Calculate_Enemy_Predictions(void)
 }
 
 
+static FacingType const wall_step_facings[4] = { FACING_E, FACING_E, FACING_S, FACING_S }; // RA2: the direction each side is walked (ra2-decomp's twin text)
+static FacingType const wall_adjacent_facings[4] = { FACING_N, FACING_S, FACING_W, FACING_E }; // RA2: and the neighbour each side is checked against
+
 /// <summary>
 /// Plans a perimeter wall around the computer's base.
 /// This routine surveys the edges of the base area and adds wall nodes to the base plan
 /// wherever the ground will take them, setting a gate into the middle of any run long enough
 /// to need one. GDI additionally gets a share of wall towers to man the finished line.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1879 of 2405 bytes differ (mischa85 text; the old-tree body is not carried yet)
-void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no GDI wall defenses)
+void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no GDI wall defenses); ra2-decomp's twin text
 {
-	Rect & area = Base.BaseAreaRect; // RA2: the base area is widened by one cell on every side into a local first
-	Rect perimeter = area; // RA2: as above
+	Rect perimeter = Base.BaseAreaRect; // RA2: the base area is widened by one cell on every side into a local first
 	perimeter.X--; // RA2: as above
 	perimeter.Y--; // RA2: as above
 	perimeter.Width += 2; // RA2: as above
@@ -8746,11 +8748,9 @@ void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no
 	BuildingTypeClass const * east_west_gate = Get_First_Ownable(Rule->EWGates); // RA2: as above
 	BuildingTypeClass const * north_south_gate = Get_First_Ownable(Rule->NSGates); // RA2: as above
 	BuildingTypeClass const * gate_types[4] = {east_west_gate, east_west_gate, north_south_gate, north_south_gate}; // RA2: as above
-	static FacingType const wall_step_facings[4] = {FACING_E, FACING_E, FACING_S, FACING_S}; // RA2: the direction each side is walked
-	static FacingType const wall_adjacent_facings[4] = {FACING_N, FACING_S, FACING_W, FACING_E}; // RA2: and the neighbour each side is checked against
 	Cell beginning(0, 0); // RA2: as above
 	int elevation = Map[Base.PlacementCenter].Height; // RA2: as above
-	int side; // RA2: as above
+	int side; // RA2: as above; also counts the nodes appended at the end
 	for (side = 0; side < 4; side++) { // RA2: as above
 		FacingType direction = wall_step_facings[side]; // RA2: as above
 		Cell cell = starts[side]; // RA2: as above
@@ -8759,15 +8759,15 @@ void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no
 		int soft_blocks = 0; // RA2: as above
 		while (cell != ends[side]) { // RA2: as above
 			CellClass * current = &Map[cell]; // RA2: as above
-			Cell adjacent = Adjacent_Cell(cell, wall_adjacent_facings[side]); // RA2: as above
-			CellClass * neighbor = &Map[adjacent]; // RA2: as above
+			CellClass * neighbor = &Map[Adjacent_Cell(cell, wall_adjacent_facings[side])]; // RA2: as above
 			LandType land = current->Land_Type(); // RA2: as above
 			LandType adjacent_land = neighbor->Land_Type(); // RA2: as above
-			bool level = abs(current->Height - elevation) <= 2; // RA2: as above
+			int height_diff = abs(current->Height - elevation); // RA2: as above
+			bool level = height_diff <= 2; // RA2: as above
 			bool ground = land != LAND_ROCK && land != LAND_WATER && land != LAND_ICE && adjacent_land != LAND_ROCK && adjacent_land != LAND_WATER && adjacent_land != LAND_ICE; // RA2: as above
 			bool overlay = current->Overlay == OVERLAY_NONE; // RA2: as above
-			bool buildings = current->Cell_Building() == NULL && neighbor->Cell_Building() == NULL; // RA2: as above
-			bool terrain = current->Cell_Terrain() == NULL && neighbor->Cell_Terrain() == NULL; // RA2: as above
+			bool buildings = !current->Cell_Building() && !neighbor->Cell_Building(); // RA2: as above
+			bool terrain = !current->Cell_Terrain() && !neighbor->Cell_Terrain(); // RA2: as above
 			bool flat = current->Ramp == 0; // RA2: as above
 			bool visible = Map.In_Local_Radar(cell); // RA2: as above
 			if (level && ground && overlay && buildings && terrain && flat && visible) { // RA2: as above
@@ -8779,21 +8779,21 @@ void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no
 					length++; // RA2: as above
 				}
 			} else {
-				buildings = !(level && ground && buildings && terrain && visible); // RA2: the same flag is reused as the "hard blocked" result
-				if (buildings) { // RA2: as above
+				bool hard_blocked = !(level && ground && buildings && terrain && visible); // RA2: as above
+				if (hard_blocked) { // RA2: as above
 					if (soft_blocks > 0) { // RA2: as above
-						buildings = false; // RA2: as above
+						hard_blocked = false; // RA2: as above
 						soft_blocks = 0; // RA2: as above
 					}
 				} else {
 					soft_blocks++; // RA2: as above
 				}
-				if (length >= 5 || !buildings) { // RA2: as above
+				if (length >= 5 || !hard_blocked) { // RA2: as above
 					Cell position = beginning; // RA2: as above
 					int placed = 0; // RA2: as above
 					int middle = length / 2 - 1; // RA2: as above
 					while (placed < length) { // RA2: as above
-						if (placed == middle && buildings) { // RA2: as above
+						if (placed == middle && hard_blocked) { // RA2: as above
 							gates.Add(BaseNodeClass(gate_types[side]->HeapID, position)); // RA2: as above
 							placed += 3; // RA2: as above
 							position = Adjacent_Cell(Adjacent_Cell(Adjacent_Cell(position, direction), direction), direction); // RA2: as above
@@ -8826,15 +8826,14 @@ void HouseClass::AI_Build_Wall(void) // RA2: the body follows the executable (no
 			}
 		}
 	}
-	for (int w = 0; w < walls.Count(); w++) { // RA2: no GDI wall defenses and no outer cells follow
-		Base.Nodes.Add(walls[w]); // RA2: as above
+	for (side = 0; side < walls.Count(); side++) { // RA2: no GDI wall defenses and no outer cells follow
+		Base.Nodes.Add(walls[side]); // RA2: as above
 	}
-	for (int g = 0; g < gates.Count(); g++) { // RA2: as above
-		Base.Nodes.Add(gates[g]); // RA2: as above
+	for (side = 0; side < gates.Count(); side++) { // RA2: as above
+		Base.Nodes.Add(gates[side]); // RA2: as above
 	}
 	Base.BaseAreaRect = Base.LastBaseAreaRect; // RA2: as above
 }
-#endif
 
 
 

@@ -140,7 +140,6 @@ void __fastcall Slide_Pending_Dialog(HWND window); // RA2: as above
 bool __fastcall Is_Owner_Tested_Control(unsigned int key, HWND window); // RA2: as above
 unsigned int __fastcall Count_Free_Buttons(HWND window); // RA2: as above
 void __fastcall Assign_All_Control_Sounds(HWND window); // RA2: as above
-void __fastcall Resize_Dialog_To_Screen(HWND dialog, Point2D *old_size); // RA2: as above
 int __fastcall Dialog_Box(int resource, int (__stdcall *proc)(struct HWND__ *, unsigned int, unsigned int, long), bool Show); // RA2: as above
 int __fastcall OD_Draw_Text(unsigned int color, BitFont *font, Rect const &area, wchar_t const *text, int length, int x_alignment, int y_alignment, Surface *surface, int unknown9); // RA2: as above
 void __fastcall Dialog_On_OD_4EC(HWND dialog); // RA2: 0x5E8710

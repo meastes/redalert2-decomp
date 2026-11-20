@@ -147,7 +147,7 @@ def write():
         # address: the audit checks its conditions (data_bindings.unplaced).
         # A symbol declared layout (DECISIONS, "Rebuild data no exact code refers to", A) is bound by the
         # audit from its position (data_bindings.bind, run-anchored where a parked function's data is missing).
-        unplaced = {n for n, k in (info.get('data_bound_by') or {}).items() if k in ('unplaced-unreferenced', 'layout')}
+        unplaced = {n for n, k in (info.get('data_bound_by') or {}).items() if k in ('unplaced-unreferenced', 'layout', 'content')}
         for i, s in enumerate(coff.sections, 1):
             if s['flags'] & 0xc0 and not s['flags'] & 0x1020 and not s['name'].startswith(('.CRT', '.debug', '.drectve')):
                 loose += [n['name'] for n in coff.symbols.values() if n['section'] == i and n['storage'] in (2, 3)

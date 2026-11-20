@@ -310,7 +310,7 @@ void ModemHost::InitDialog(void)
 		SendMessage(handle, 0x4c1, -1, (LPARAM)StringTable::LoadString("TXT_PURPLE", NULL, "D:\\Ra2\\ModemHst.cpp", 0x19d));
 		SendMessage(handle, 0x4c1, -1, (LPARAM)StringTable::LoadString("TXT_PINK", NULL, "D:\\Ra2\\ModemHst.cpp", 0x19e));
 
-		for (int i = 0; i < ARRAY_SIZE(PlayerColorTable); i++) {
+		for (int i = 0; i < MAX_PLAYERS; i++) { // RA2: the first eight of the nine colors
 			SendMessage(handle, OD_SETCOLOR, i, PlayerColorTable[i]);
 		}
 

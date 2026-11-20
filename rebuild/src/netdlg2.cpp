@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -1344,175 +1345,205 @@ bool Net2ReadyToGo(int load_game)
 /// host when it is happy for the game to begin.
 /// </summary>
 /// <returns>Returns with TRUE if the message was consumed by this dialog.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005be6b0)
-LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BE6B0; the join dialog of the LAN lobby
+LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BE6B0; the join dialog of the LAN lobby, ra2-decomp's twin text
 {
 	switch (message) {
-	case WM_ERASEBKGND:
-		return(1);
-	case WM_PAINT:
-		Dialog_On_WM_PAINT(window); // RA2: as above
-		Slide_Pending_Dialog(window); // RA2: as above
-		ValidateRect(window, NULL);
-		return(0);
-	case WM_DRAWITEM:
-		Dialog_On_WM_DRAWITEM(lparam); // RA2: as above
-		return(1);
-	case WM_COMMAND:
-		switch ((unsigned short)wparam) { // RA2: as above
-		case 0x549: // the game list // RA2: as above
-			if (JoinState <= 0) { // RA2: as above
-				int old_index = CurGame; // RA2: as above
-				int index = SendDlgItemMessage(window, 0x549, 0x188, 0, 0); // RA2: as above
-				if (index >= 0 && Net2JoinListEnabled) { // RA2: as above
-					CurGame = index; // RA2: as above
-					wcscpy(Session.GameName, Session.Games[index]->Name); // RA2: as above
-				}
-				if ((unsigned short)(wparam >> 16) == 1) { // RA2: as above
-					Clear_Vector(&Session.Players);
-					if (old_index != CurGame) { // RA2: as above
-						Send_Join_Queries(1, 1, 1, 0);
-					}
-					Net2DisplayUsersFull(false); // RA2: as above
-					return(0);
-				}
-				if ((unsigned short)(wparam >> 16) == 2) { // RA2: as above
-					_netresponse = ObserverMode == 1 ? 0x6CE : 0x6CD; // RA2: as above
-					return(0);
-				}
-			}
-			break;
-		case 0x541: // the name edit // RA2: as above
-			if (IsWindowEnabled(window) && _netresponse == 0) { // RA2: as above
-				wchar_t name[20]; // RA2: as above
-				name[0] = 0; // RA2: as above
-				HWND edit = GetDlgItem(window, 0x541); // RA2: as above
-				SendMessage(edit, 0x4B3, 20, (LPARAM)name); // RA2: as above
-				wchar_t * text = name; // RA2: as above
-				while (*text != 0 && *text == ' ') { // RA2: as above
-					text++; // RA2: as above
-				}
-				if (*text == 0 && name[0] != 0) { // RA2: as above
-					name[0] = 0; // RA2: as above
-					edit = GetDlgItem(window, 0x541); // RA2: as above
-					SendMessage(edit, 0x4B2, 0, (LPARAM)name); // RA2: as above
-				}
-				if (strcmp(Wide_To_Narrow(name), Session.Handle) != 0) { // RA2: as above
-					strcpy(Session.Handle, Wide_To_Narrow(name)); // RA2: as above
-					Send_Join_Queries(0, 0, 1, 0);
-					Net2DisplayUsersFull(false); // RA2: as above
-					return(0);
-				}
-			}
-			break;
-		case 0x540: // the chat line // RA2: as above
-			Limit_Name_Text((HWND)lparam); // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 0x501) { // RA2: as above
-				Send_Chat_Message(window, ColorMe, ColorUser); // RA2: as above
-				return(0);
-			}
-			break;
-		case 0x5C0: // RA2: as above
-			_netresponse = 0x5C0; // RA2: as above
-			Save_Observer_Mode(); // RA2: as above
-			return(0);
-		case 0x6CC: // RA2: as above
-			_netresponse = (unsigned short)wparam; // RA2: as above
-			Net2ObserverMode = ObserverMode == 1; // RA2: as above
-			return(0);
-		case 0x6CD: // RA2: as above
-		case 0x6CE: { // RA2: as above
-			EnableWindow(window, FALSE); // RA2: as above
-			HWND edit = GetDlgItem(window, 0x541); // RA2: as above
-			if (edit != NULL) { // RA2: as above
-				EnableWindow(edit, FALSE); // RA2: as above
-			}
-			_netresponse = (unsigned short)wparam; // RA2: as above
-			return(0);
-		}
-		case 0x75F: // RA2: as above
-		case 0x760: { // the observer radio buttons // RA2: as above
-			int checked = 0; // RA2: as above
-			HWND button = GetDlgItem(window, 0x760); // RA2: as above
-			if (button != NULL) { // RA2: as above
-				checked = SendMessage(button, 0xF0, 0, 0); // RA2: as above
-			}
-			if ((unsigned short)wparam == 0x75F) { // RA2: as above
-				checked = checked == 0; // RA2: as above
-			}
-			ObserverMode = checked; // RA2: as above
-			Update_Observer_Buttons(NULL); // RA2: as above
-			return(0);
-		}
-		}
-		break;
-	case WM_MOUSEMOVE: { // the tool tip of the control under the cursor // RA2: as above
-		HWND tip = GetDlgItem(window, 0x695); // RA2: as above
-		if (tip != NULL) { // RA2: as above
-			POINT point; // RA2: as above
-			point.x = lparam & 0xFFFF; // RA2: as above
-			point.y = (unsigned long)lparam >> 16; // RA2: as above
-			RECT rect; // RA2: as above
-			GetWindowRect(window, &rect); // RA2: as above
-			point.x -= rect.left; // RA2: as above
-			point.y -= rect.top; // RA2: as above
-			wchar_t const * text = L""; // RA2: as above
-			HWND control = ChildWindowFromPointEx(window, point, 1); // RA2: as above
-			if (control != NULL) { // RA2: as above
-				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, control); // RA2: as above
-				if (label != NULL) { // RA2: as above
-					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2285); // RA2: as above
-				}
-			}
-			SendMessage(tip, 0x4B2, 0, (LPARAM)text); // RA2: as above
-			return(0);
-		}
-		break;
-	}
-	case 0x497: { // RA2: as above
+		case 0x497: { // RA2: the dialog's set-up message
 		CurGame = 0;
-		Net2JoinListEnabled = true; // RA2: as above
-		Update_Observer_Buttons(window); // RA2: as above
-		SendDlgItemMessage(window, 0x541, 0xC5, 16, 0); // RA2: as above
-		SendDlgItemMessage(window, 0x541, 0x4EB, 0, (LPARAM)L","); // RA2: as above
-		SendDlgItemMessage(window, 0x541, 0x4D1, 1, 0); // RA2: as above
-		wchar_t * name = Narrow_To_Wide(Session.Handle); // RA2: as above
-		HWND edit = GetDlgItem(window, 0x541); // RA2: as above
-		SendMessage(edit, 0x4B2, 0, (LPARAM)name); // RA2: as above
-		Session.Options.ScenarioDescription[0] = 0; // RA2: as above
-		Session.PrefColor = Session.Color; // RA2: as above
-		Session.ColorIdx = Session.Color2; // RA2: as above
+			Net2JoinListEnabled = true;
+			Update_Observer_Buttons(window);
+
+			SendDlgItemMessage(window, 0x541, EM_SETLIMITTEXT, 16, 0);
+			SendDlgItemMessage(window, 0x541, 0x4eb, 0, (LPARAM)L",");
+			SendDlgItemMessage(window, 0x541, 0x4d1, 1, 0);
+			wchar_t * handle = Narrow_To_Wide(Session.Handle);
+			HWND edit = GetDlgItem(window, 0x541);
+			SendMessage(edit, 0x4b2, 0, (LPARAM)handle);
+
+			Session.Options.ScenarioDescription[0] = 0;
+			int color = Session.Color;
+			int color2 = Session.Color2;
+			Game::PlayerColor = color;
+			Session.ColorIdx = color2;
+
 		Clear_Vector(&Session.Games);
 		Clear_Vector(&Session.Players);
 		Clear_Vector(&Session.Chat);
-		NodeNameType * node = new NodeNameType; // RA2: as above
-		wcscpy(node->Name, Narrow_To_Wide(Session.Handle)); // RA2: as above
-		node->Chat.LastTime = 0; // RA2: as above
-		node->Chat.LastChance = 0; // RA2: as above
-		node->Chat.Color = Session.GPacket.Chat.Color; // RA2: as above
-		Session.Chat.Add(node); // RA2: as above
-		node = new NodeNameType; // RA2: as above
-		wcscpy(node->Name, L""); // RA2: as above
-		node->Game.IsOpen = 0; // RA2: as above
-		node->Game.LastTime = 0; // RA2: as above
-		Session.Games.Add(node); // RA2: as above
-		Send_Join_Queries(1, 0, 1, 1); // RA2: as above
+
+			NodeNameType * who = new NodeNameType;
+			wcscpy(who->Name, Narrow_To_Wide(Session.Handle));
+			who->Chat.LastTime = 0;
+			who->Chat.LastChance = 0;
+			who->Chat.Color = Session.GPacket.Chat.Color;
+			Session.Chat.Add(who);
+
+			NodeNameType * game = new NodeNameType;
+			wcscpy(game->Name, L"");
+			game->Game.IsOpen = 0;
+			game->Game.LastTime = 0;
+			Session.Games.Add(game);
+
+			Send_Join_Queries(1, 0, 1, 1);
 		Net2DisplayGameList();
-		Net2DisplayUsersFull(false); // RA2: as above
-		Dialog_On_WM_PAINT(window); // RA2: as above
-		SetFocus(GetDlgItem(window, 0x540)); // RA2: as above
-		break;
-	}
-	case 0x4DB: // RA2: as above
-		Focus_Next_Tab_Item(lparam, wparam != 0); // RA2: as above
-		return(0);
-	case 0x4EC: // RA2: as above
-		Dialog_On_OD_4EC(window); // RA2: as above
+			Net2DisplayUsersFull(false);
+			Dialog_On_WM_PAINT(window);
+			SetFocus(GetDlgItem(window, 0x540));
 		return(0);
 	}
+
+	case WM_COMMAND:
+		switch (LOWORD(wparam)) {
+			case 0x541: { // the name edit
+				if (!IsWindowEnabled(window)) {
+					return(0);
+				}
+				if (_netresponse != 0) {
+					return(0);
+				}
+				wchar_t name[20];
+				name[0] = 0;
+				HWND edit = GetDlgItem(window, 0x541);
+				SendMessage(edit, 0x4b3, 20, (LPARAM)name);
+				wchar_t first = name[0];
+				wchar_t * p = name;
+				while (first != 0 && *p == L' ') {
+					p++;
+					if (*p == 0) {
+						break;
+					}
+				}
+				if (*p == 0 && first != 0) {
+					name[0] = 0;
+					edit = GetDlgItem(window, 0x541);
+					SendMessage(edit, 0x4b2, 0, (LPARAM)name);
+				}
+				if (strcmp(Wide_To_Narrow(name), Session.Handle) != 0) {
+					strcpy(Session.Handle, Wide_To_Narrow(name));
+					Send_Join_Queries(0, 0, 1, 0);
+					Net2DisplayUsersFull(false);
+				}
+				return(0);
+			}
+
+			case 0x549: { // the game list
+				if (JoinState > JOIN_NOTHING) {
+					return(0);
+				}
+				int old_game = CurGame;
+				int sel = SendDlgItemMessage(window, 0x549, LB_GETCURSEL, 0, 0);
+				if (sel >= 0 && Net2JoinListEnabled) {
+					CurGame = sel;
+					wcscpy(Session.GameName, Session.Games[sel]->Name);
+				}
+				if (HIWORD(wparam) == LBN_SELCHANGE) {
+					Clear_Vector(&Session.Players);
+					if (old_game != CurGame) {
+						Send_Join_Queries(1, 1, 1, 0);
+					}
+					Net2DisplayUsersFull(false);
+					return(0);
+			}
+				if (HIWORD(wparam) == LBN_DBLCLK) {
+					_netresponse = (ObserverMode == 1) ? 0x6ce : 0x6cd;
+				return(0);
+			}
+			return(0);
+			}
+
+			case 0x540: { // the chat line
+				Limit_Name_Text((HWND)lparam);
+				if (HIWORD(wparam) == EN_MAXTEXT) {
+					Send_Chat_Message(window, ColorMe, ColorUser);
+				}
+				return(0);
+			}
+
+			case 0x5c0:
+				_netresponse = 0x5c0;
+				Save_Observer_Mode();
+			return(0);
+
+			case 0x6cc:
+				_netresponse = LOWORD(wparam);
+				Net2ObserverMode = (ObserverMode == 1);
+				return(0);
+
+			case 0x6cd:
+			case 0x6ce: {
+				EnableWindow(window, FALSE);
+				HWND name = GetDlgItem(window, 0x541);
+				if (name) {
+					EnableWindow(name, FALSE);
+			}
+				_netresponse = LOWORD(wparam);
+			return(0);
+		}
+
+			case 0x75f:
+			case 0x760: { // the observer radio buttons
+				int state = 0;
+				HWND item = GetDlgItem(window, 0x760);
+				if (item) {
+					state = SendMessage(item, BM_GETCHECK, 0, 0);
+			}
+				if (LOWORD(wparam) == 0x75f) {
+					state = (state == 0);
+			}
+				ObserverMode = state;
+				Update_Observer_Buttons(NULL);
+			return(0);
+		}
+		}
+		return(0);
+
+	case WM_MOUSEMOVE: { // the tool tip of the control under the cursor
+		HWND tip = GetDlgItem(window, 0x695);
+		if (tip == NULL) {
+			return(0);
+		}
+		POINT pt;
+		pt.x = LOWORD(lparam);
+		pt.y = HIWORD(lparam);
+		RECT rect;
+		GetWindowRect(window, &rect);
+		pt.x -= rect.left;
+		pt.y -= rect.top;
+		wchar_t const * text = L"";
+		HWND child = ChildWindowFromPointEx(window, pt, CWP_SKIPINVISIBLE);
+		if (child) {
+			char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, child);
+			if (label) {
+				text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2285);
+			}
+		}
+		SendMessage(tip, 0x4b2, 0, (LPARAM)text);
+		return(0);
+	}
+
+	case 0x4db:
+		Focus_Next_Tab_Item(lparam, wparam != 0);
+		return(0);
+
+	case 0x4ec:
+		Dialog_On_OD_4EC(window);
+		return(0);
+
+	case WM_DRAWITEM:
+		Dialog_On_WM_DRAWITEM(lparam);
+		return(1);
+
+	case WM_PAINT:
+		Dialog_On_WM_PAINT(window);
+		Slide_Pending_Dialog(window);
+		ValidateRect(window, NULL);
+		return(0);
+
+	case WM_ERASEBKGND:
+		return(1);
+	}
+
 	return(0);
 }
-#endif
 
 
 void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE20; sends the text of the chat line to the lobby
@@ -1876,22 +1907,21 @@ LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
  * OUTPUT:                                                                                     *
  *      1 = Packet sent, 0 = wasn't                                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1034 bytes differ (adopted text)
 int Request_To_Join(int join_index, bool observer) // RA2: as above
 {
 	if (join_index < 1) { // RA2: as above
 		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_MUST_SELECT_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 3423)); // RA2: as above
-		VocClass::VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
 		return(0);
 	}
 	if (Session.Games.Count() <= 1 || join_index > Session.Games.Count()) { // RA2: as above
 		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NOTHING_TO_JOIN", NULL, "D:\\Ra2\\netdlg2.cpp", 3430)); // RA2: as above
-		VocClass::VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
 		return(0);
 	}
 	if (strlen(Session.Handle) == 0) { // RA2: as above
 		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_NAME_ERROR", NULL, "D:\\Ra2\\netdlg2.cpp", 3438)); // RA2: as above
-		VocClass::VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
 		return(0);
 	}
 	if (strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[0])) == 0 // RA2: as above
@@ -1903,12 +1933,12 @@ int Request_To_Join(int join_index, bool observer) // RA2: as above
 		|| strcmp(Session.Handle, Wide_To_Narrow(LobbyEntryTexts[6])) == 0 // RA2: as above
 		|| Is_Lobby_Name(Session.Handle)) { // RA2: as above
 		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("ERROR:NameIsReservedWord", NULL, "D:\\Ra2\\netdlg2.cpp", 3453)); // RA2: as above
-		VocClass::VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
 		return(0);
 	}
 	if (!Session.Games[join_index]->Game.IsOpen) { // RA2: as above
 		Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("TXT_GAME_IS_CLOSED", NULL, "D:\\Ra2\\netdlg2.cpp", 3461)); // RA2: as above
-		VocClass::VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
+		VocClass::PlayGlobal(Rule->SystemError, 1.0f, 0x2000, NULL); // RA2: as above
 		return(0);
 	}
 	GlobalPacketType packet;
@@ -1928,7 +1958,6 @@ int Request_To_Join(int join_index, bool observer) // RA2: as above
 	Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Games[join_index]->Address); // RA2: as above
 	return(1);
 }
-#endif
 
 
 /***********************************************************************************************

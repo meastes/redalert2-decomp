@@ -374,7 +374,7 @@ void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id)
 				Ipx.Send_Global_Message(&packet, 0x3D, 1, &Session.Players[player]->Address, 0, 0);
 			}
 		} else if (beacon->Is_Visible_To_Player()) {
-			if (Submit_Radar_Event((RadarEventType)11, Cell(coord.X / 256, coord.Y / 256))) {
+			if (Submit_Radar_Event(RADAREVENT_BEACON_PLACED, Cell(coord.X / 256, coord.Y / 256))) {
 				Queue_Speech("EVA_BeaconDetected", -1, -1);
 			}
 		}
@@ -578,7 +578,7 @@ void BeaconManagerClass::EditBeaconMessage(wchar_t const * text, int house, int 
 				}
 			} else if (beacon->HouseID != PlayerPtr->HeapID && beacon->Is_Visible_To_Player()) {
 				Coord coord = beacon->BeaconCoord;
-				Submit_Radar_Event((RadarEventType)11, Cell(coord.X / 256, coord.Y / 256));
+				Submit_Radar_Event(RADAREVENT_BEACON_PLACED, Cell(coord.X / 256, coord.Y / 256));
 			}
 		}
 	}
