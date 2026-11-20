@@ -415,8 +415,11 @@ bool update_layout_scaled()
             // link/native_map_zoom.cpp Native_Dialog_Screen): that part at the window's scale, as the
             // original at the window's size.
             double px = usable.x + (usable.w - nominal_w * scale) / 2, py = usable.y + (usable.h - nominal_h * scale) / 2;
-            picture = hostos::Rect{px, py, pic_w * scale, pic_h * scale};
+            picture = hostos::Rect{px, py, nominal_w * scale, nominal_h * scale};
             regions.clear();
+            // Only that part is shown (lane N20): with a Game interface size the window is wider than the
+            // part, and the rest of the screen (the last game frame past the dialogs) showed beside it.
+            regions.push_back(Region{0, 0, nominal_w, nominal_h, px, py, nominal_w * scale, nominal_h * scale});
             log_layout("host: layout: in-play dialogs at %.0fx%.0f, the screen's top left\n", nominal_w, nominal_h);
             if (system_toolbar) hostos::keys_button_place(keys_rect());
             return true;

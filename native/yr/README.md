@@ -326,9 +326,9 @@ the longer a game runs (each a trap, as on the Mac).
   0x00653850, its Reposition_Sidebar and mouse test, the command bar's area, the mouse on the sidebar
   surface, CCToolTip's Update, Reset and Draw) ask Yr_Sidebar_X; Start_Scenario 0x00683AB0, Get_All
   0x0067E730 and Main_Loop's Do_Win/Do_Lose take or drop the zoom as RA2's do; the gestures' steps are
-  applied each loop frame (yr_app_hooks.cpp). Not carried over: RA2's render scale (zooming out below 1x
-  draws a game screen twice the window's, with its own in-play dialog layout), so the gestures zoom
-  between 1x and 3x. ctest `yr-native-map-zoom`.
+  applied each loop frame (yr_app_hooks.cpp). RA2's render scale (zooming out below 1x draws a game screen
+  twice the window's, with its own in-play dialog layout) is Yuri's Revenge's too since lane N20 (below), so
+  the gestures zoom between 0.5x and 3x. ctest `yr-native-map-zoom`.
   **Game interface size** is Yuri's Revenge's too (lane N19, 2026-11-19): `glue/yr_interface_size.cpp`
   is RA2's link/native_enhancements.cpp (C3, C7) on the YR tree's classes, hooked by 5 fixups and two glue
   lines. The sidebar surface is made Yr_Sidebar_Height rows tall (the host's ra2_enh_sidebar_height: the
@@ -367,7 +367,7 @@ the longer a game runs (each a trap, as on the Mac).
   row (RA2's used the buffer's head). The host's overlay is shared. ctest `yr-native-hd-vehicles`
   (yr/tests/yr_hd_vehicles.py): a skirmish at 2x with Map zoom 1.5x and one at 3x, the view scrolled: every
   count has renders and Nx blits, vehicles shown at Nx (about 8,000 screen pixels), mismatched 0. The YR
-  page now shows every row. Not carried over yet: Map zoom below 1x (the lane N19 section: the plan). Mod is the host's row and is shown in both games; widescreen on the Mac has no
+  page now shows every row. Map zoom below 1x: lane N20 (its section). Mod is the host's row and is shown in both games; widescreen on the Mac has no
   row and is RA2's (YR's shell runs in its own 800x600 mode).
 * **Long games had one opponent.** The skirmish setup's map 0 (The Alamo) is a two-player map, and
   the setup closes every slot past the first opponent: lane Y6's ten-minute Mac runs and lane Y7's
@@ -1560,6 +1560,50 @@ Native_Dialog_Screen and Native_View_Asked) and the YR tree's twins:
    the art's own size), a mapping check, the in-game menu's dump at the window's layout; then the Duo
    (in-game menu, Abort, Save/Load, Diplomacy at 0.5x).
 
+## Lane N20 (2026-11-20): Map zoom below 1x
+
+Zoom gestures now zoom out to 0.5x in Yuri's Revenge, as in Red Alert 2 (lane C16's render scale), following
+lane N19's plan; `glue/yr_map_zoom.cpp` (its second half) and 12 fixups (yr/fixups.json, lane N20; two of
+N19's rows changed).
+
+1. **The render scale, for the game's mode only.** With Zoom gestures on and a game size of 800x600 or more,
+   the game's own display mode is Options.ScreenWidth x ScreenHeight made twice as large in its map column
+   and above the command bar ((w - 168) * 2 + 168 by (h - 32) * 2 + 32: 1432x1168 for 800x600), while the
+   menus' 800x600 shell mode keeps its size. Yr_Game_Mode_Size answers that size where the game asks for its
+   mode: Start_Scenario's and Toggle_Display_Mode's mode checks (Yr_Game_Mode_Change: the screen against the
+   scaled size, so a scaled screen is not changed at every check, then N19's Yr_Sidebar_Remake), the
+   tactical rectangle for the game's size FUN_0072AD90 (SidebarClass 0x006A5130's full layout, the command
+   bar's width) and the interface art layout FUN_0072FC60's three callers. Options keeps the player's size
+   (the Options dialog and RA2MD.INI). Change_Display_Mode 0x00560BF0 tells the host the render scale of
+   each mode it sets (Yr_Render_Size: 2 for the scaled game mode, 1 for the shell's and any other) before
+   the surfaces are made, and makes the interface art layout (laid out once at Init_Game) again when the
+   size it needs differs (Yr_Art_Relayout; FUN_0072FC60 records its size). A game's zoom keeps the player's
+   zoom across a change of render scale (a game loaded from the menus takes its zoom in the shell's mode,
+   Get_All, and changes mode after). The host's side (the window, the scaled play layout, the sidebar
+   surface's rows) is Red Alert 2's, shared.
+2. **The zoom.** kZoomMin 0.5; the game's zoom is the player's times the render scale (1 at 0.5x: the art's
+   own pixels, the view the whole tactical area). Tactical::Set_Tactical_Position 0x006D6000 records the
+   point asked before its clamp (Yr_View_Asked, RA2's Native_View_Asked): the start's zoomed view is
+   centred on it.
+3. **The in-play dialogs at the window's size.** Ingame_Menu_Dialog 0x0048C8B0 (conquer.cpp) wraps its
+   dialog loop (the in-game menu, Game Controls, Abort, Save/Load, Diplomacy) in Yr_Dialog_Screen: for its
+   time Drawing::RenderWidth x RenderHeight and VideoModeWidth x Height (the dialogs' size and placement)
+   are the window's, the interface art (FUN_00730720) and the dialogs' backdrop (FUN_0072E1B0) are laid out
+   for it, and the host shows that top-left part at the window's scale (ra2_enh_set_dialog_screen); restored
+   after. The host (shared, platform/sdl/host.cpp) now shows only that part: with a Game interface size
+   the window is wider than it, and the last game frame showed beside the menu (Red Alert 2 too).
+4. The score screen: Do_Win/Do_Lose change to the shell's mode first, so it is the menus' (render scale 1).
+
+ctest `yr-native-map-zoom` (extended): with Map zoom 2x and Zoom gestures on, the game's mode is 1432x1168
+for the 800x600 window, the start's view half the window's tactical area, the steps 2 -> 2.6 -> 0.5 (the
+whole 1264x1136 tactical area), mapping checks at each, then the in-game menu laid out at 800x600 (its dump
+within 0.7 of 255 of the defaults' menu) and Resume Mission clicked through the window, play back at 0.5x.
+Combinations run once by hand (Mac): Interface size 1.5x with HD vehicles 2x and Zoom gestures (sidebar 400
+of 1168 rows, a 252-point column in the 884-wide window, mapping checks, the in-game menu at 800x600);
+yr_keys_load.py with Zoom gestures and Map zoom 2x (Diplomacy and the in-game Load at the window's layout,
+the loaded game at 2x); yr_save_roundtrip.py with Zoom gestures, Map zoom 1.5x, Interface 1.25x and HD 2x
+(loads from the menus). Red Alert 2's `native-zoom-menu` and `native-zoom-menu-ui` pass with the host change.
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;
@@ -1580,5 +1624,5 @@ Native_Dialog_Screen and Native_View_Asked) and the YR tree's twins:
    and the port loading one the installed game wrote (yr-native-save picks it up from the data folder).
 6. (lane Y8) Map zoom, Zoom gestures, Game interface size and HD vehicles for Yuri's Revenge: a YR
    copy of each native/link module and its fixups in the YR units (lane Y8 section: why). Map zoom and
-   the gestures from 1x up (lane N18), Game interface size and HD vehicles (lane N19) are done; Map zoom
-   below 1x remains (lane N19's plan below).
+   the gestures from 1x up (lane N18), Game interface size and HD vehicles (lane N19) and Map zoom below 1x
+   (lane N20) are done: every Enhancements row Red Alert 2 has is Yuri's Revenge's too.

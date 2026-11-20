@@ -268,8 +268,9 @@ add_test(NAME yr-native-controls COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CUR
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-controls")
 set_tests_properties(yr-native-controls PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
 
-# ctest yr-native-map-zoom (lane N18): Map zoom and the zoom gestures in a skirmish (glue/yr_map_zoom.cpp,
-# Red Alert 2's link/native_map_zoom.cpp carried over), against a run with the defaults
+# ctest yr-native-map-zoom (lanes N18, N20): Map zoom and the zoom gestures in a skirmish (glue/yr_map_zoom.cpp,
+# Red Alert 2's link/native_map_zoom.cpp carried over), down to 0.5x (the render scale) and the in-game menu at
+# the window's layout, against a run with the defaults
 add_test(NAME yr-native-map-zoom COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_map_zoom.py"
          --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-map-zoom")

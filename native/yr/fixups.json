@@ -1730,13 +1730,19 @@
   {
    "file": "src/scenario.cpp",
    "old": "\tif (VisibleRect.Width != Options.ScreenWidth || VisibleRect.Height != Options.ScreenHeight) {\n",
-   "new": "\tif (VisibleRect.Width != Options.ScreenWidth || VisibleRect.Height != Options.ScreenHeight || Yr_Sidebar_Remake(Options.ScreenHeight)) {\n",
-   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0 and Toggle_Display_Mode 0x006842F0 (in game) change the display mode when the screen's size differs from the game's; a new game whose screen keeps its size also changes it (to the same size) when the sidebar surface's rows differ from what the interface size asks now (Yr_Sidebar_Remake), so Change_Display_Mode makes the surfaces, the view and the sidebar's layout again. Never at 1x with a 1x surface."
+   "new": "\tint game_width, game_height;   /* NATIVE (lanes N19, N20): glue/yr_map_zoom.cpp */\n\tif (Yr_Game_Mode_Change(&game_width, &game_height)) {\n",
+   "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0 and Toggle_Display_Mode 0x006842F0 (in game) change the display mode when the screen's size differs from the game's; a new game whose screen keeps its size also changes it (to the same size) when the sidebar surface's rows differ from what the interface size asks now (Yr_Sidebar_Remake), so Change_Display_Mode makes the surfaces, the view and the sidebar's layout again. Never at 1x with a 1x surface. Lane N20 (Map zoom below 1x): the check compares the screen with the game mode's size, which with Zoom gestures on is Options' size scaled by the render scale (Yr_Game_Mode_Change, glue/yr_map_zoom.cpp: the screen's size, then Yr_Sidebar_Remake); the original compares with Options.ScreenWidth/Height, so a scaled screen would be changed again at every check."
+  },
+  {
+   "file": "src/scenario.cpp",
+   "old": "Options.ScreenWidth, Options.ScreenHeight);\n",
+   "new": "game_width, game_height);\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): Start_Scenario 0x00683AB0 and Toggle_Display_Mode 0x006842F0 (in game) log and change to the game mode's size (Yr_Game_Mode_Change's answer: Options' size, scaled with Zoom gestures on), not Options' own."
   },
   {
    "file": "src/scenario.cpp",
    "old": "// FUNCTION: GAMEMD 0x00683AB0\n",
-   "new": "bool Yr_Sidebar_Remake(int screen_height);   // NATIVE (lane N19): glue/yr_interface_size.cpp\n// FUNCTION: GAMEMD 0x00683AB0\n",
+   "new": "bool Yr_Game_Mode_Change(int *w, int *h);   // NATIVE (lanes N19, N20): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x00683AB0\n",
    "why": "Native addition (lane N19, Game interface size, Red Alert 2's lanes C3/C7 carried to Yuri's Revenge; not original behaviour): the declaration for the mode checks below."
   },
   {
@@ -1804,6 +1810,72 @@
    "old": "\t\tHRESULT result = SurfacePtr->Blt(&xdestrect, source.SurfacePtr, &xsrcrect, DDBLT_WAIT, NULL);\n\t\treturn(result == DD_OK);\n",
    "new": "\t\tHRESULT result = SurfacePtr->Blt(&xdestrect, source.SurfacePtr, &xsrcrect, DDBLT_WAIT, NULL);\n\t\tvoid Yr_Hd_Copied(Surface & dest, Rect const & destrect, Surface & source, Rect const & sourcerect);   // NATIVE (lane N19)\n\t\tif (result == DD_OK) Yr_Hd_Copied(*this, Rect(xdestrect.left, xdestrect.top, drect.Width, drect.Height), (Surface &)ssource, Rect(xsrcrect.left, xsrcrect.top, srect.Width, srect.Height));\n\t\treturn(result == DD_OK);\n",
    "why": "Native addition (lane N19, HD vehicles, Red Alert 2's lanes C16/C17 carried to Yuri's Revenge; not original behaviour): DSurface::Blit_From's DirectDraw copy: the Nx pixels follow the 1x ones (glue/yr_hd_vehicles.cpp Yr_Hd_Copied)."
+  },
+  {
+   "file": "src/mainopt.cpp",
+   "old": "bool Change_Display_Mode(int width, int height)\n{\n\tDebugString(\"About to set video mode\\n\");\n",
+   "new": "void Yr_Render_Size(int width, int height);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\nvoid Yr_Art_Relayout();\nbool Change_Display_Mode(int width, int height)\n{\n\tDebugString(\"About to set video mode\\n\");\n\tYr_Render_Size(width, height);\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): Change_Display_Mode 0x00560BF0 at its top: the render scale of the mode set now (2 for the game's own mode scaled with Zoom gestures on, 1 for the shell's 800x600 and any other size), told to the host before the surfaces are made (the sidebar surface's rows, the window's layout; glue/yr_map_zoom.cpp Yr_Render_Size). Off (the default and the Original preset): 1 always."
+  },
+  {
+   "file": "src/mainopt.cpp",
+   "old": "\tFUN_0072E1B0(Drawing::RenderWidth, Drawing::RenderHeight);\n\tMap.Init_IO();\n",
+   "new": "\tFUN_0072E1B0(Drawing::RenderWidth, Drawing::RenderHeight);\n\tYr_Art_Relayout();   // NATIVE (lane N20)\n\tMap.Init_IO();\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): Change_Display_Mode, after its backdrop layout: the interface art layout (FUN_0072FC60: the in-play sidebar column's and the command bar's pieces), made once at Init_Game for Options' size, is made again for the game mode's size when that differs (render scale 2: the command bar at the larger screen's bottom), and back (glue/yr_map_zoom.cpp Yr_Art_Relayout). Never at the render scale 1."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "old": "\tr.Width = Options.ScreenWidth;\n\tr.X = 0;\n\tr.Y = 0;\n\tr.Height = Options.ScreenHeight;\n",
+   "new": "\tr.X = 0;\n\tr.Y = 0;\n\tYr_Game_Mode_Size(&r.Width, &r.Height);   /* NATIVE (lane N20): glue/yr_map_zoom.cpp */\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): FUN_0072AD90, the tactical rectangle for the game's screen (SidebarClass 0x006A5130's full layout, the command bar's width in FUN_0072FC60), takes the game mode's size (Options' size, scaled with Zoom gestures on; the window's while the in-play dialogs are up) rather than Options' own."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "old": "FUN_0072FC60(Options.ScreenWidth, Options.ScreenHeight);",
+   "new": "{ int art_width, art_height; Yr_Game_Mode_Size(&art_width, &art_height); FUN_0072FC60(art_width, art_height); }   /* NATIVE (lane N20) */",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): the interface art layout's three callers (FUN_0072F270, FUN_0072F350 at Init_Game, the side shapes' first load) lay it out for the game mode's size (Options' size, scaled with Zoom gestures on)."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "old": "void __fastcall FUN_0072FC60(int width, int height)\n{\n",
+   "new": "void __fastcall FUN_0072FC60(int width, int height)\n{\n\tYr_Art_Laid_Out(width, height);   /* NATIVE (lane N20): glue/yr_map_zoom.cpp */\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): FUN_0072FC60 records the size it lays the interface art out for, so Change_Display_Mode and the in-play dialogs make it again only when the size they need differs (Yr_Art_Relayout)."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
+   "old": "// FUNCTION: GAMEMD 0x0072AD90\n",
+   "new": "void Yr_Game_Mode_Size(int *w, int *h);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\nvoid Yr_Art_Laid_Out(int width, int height);\n// FUNCTION: GAMEMD 0x0072AD90\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): declarations for the rows below."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "old": "\tTacticalCoord = result;\n\tDesiredTacticalCoord = result;\n",
+   "new": "\tYr_View_Asked(point.X, point.Y);   /* NATIVE (lane N20): glue/yr_map_zoom.cpp */\n\tTacticalCoord = result;\n\tDesiredTacticalCoord = result;\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): Tactical::Set_Tactical_Position 0x006D6000 records the point asked before its clamp: with Zoom gestures on the game frames the start for its larger screen, where the map's edge can move the point it asked for, and the start's zoomed view is centred on the point asked (glue/yr_map_zoom.cpp Yr_View_Asked, Yr_Map_Zoom_Start; RA2's Native_View_Asked). Off (the default and the Original preset) the point is only recorded."
+  },
+  {
+   "file": "src/tactical.cpp",
+   "old": "// FUNCTION: GAMEMD 0x006D6000\n",
+   "new": "void Yr_View_Asked(int x, int y);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x006D6000\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): the declaration for the row above."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\twhile (Game::SpecialDialog != SDLG_NONE) {\n",
+   "new": "\t\tYr_Dialog_Screen(true);   /* NATIVE (lane N20): glue/yr_map_zoom.cpp */\n\t\twhile (Game::SpecialDialog != SDLG_NONE) {\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): with Zoom gestures on the game's screen is twice the window's in its map column, and the in-game dialogs (the in-game menu, Abort Mission, Save/Load, Game Controls, Diplomacy, the message boxes) are laid out for the screen size (Drawing::RenderWidth x RenderHeight); for their time the screen size is the window's, so each is laid out as the original lays it out at the window's size and the host shows it at the window's scale (glue/yr_map_zoom.cpp Yr_Dialog_Screen, RA2's Native_Dialog_Screen). Off (the default and the Original preset): nothing changes. This row: Ingame_Menu_Dialog 0x0048C8B0 before its dialog loop."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "\t\tUpdateWindow(Game::hWnd);\n",
+   "new": "\t\tYr_Dialog_Screen(false);   /* NATIVE (lane N20) */\n\t\tUpdateWindow(Game::hWnd);\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): Ingame_Menu_Dialog after its dialog loop: the screen size and the layouts restored (Yr_Dialog_Screen)."
+  },
+  {
+   "file": "src/conquer.cpp",
+   "old": "// FUNCTION: GAMEMD 0x0048C8B0\n",
+   "new": "void Yr_Dialog_Screen(bool on);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x0048C8B0\n",
+   "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): the declaration for the rows above."
   }
  ]
 }
