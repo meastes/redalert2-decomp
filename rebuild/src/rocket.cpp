@@ -134,7 +134,8 @@ double RocketLocomotionClass::Pitch_To_Target(void) // RA2: 0x0063DE10
 {
 	Coord pos = LinkedTo->PositionCoord;
 	Coord diff = MovingDestination - pos;
-	float flat = fastmath::sqrt((double)(diff.X * diff.X + diff.Y * diff.Y));
+	Point2D ground(diff);
+	float flat = fastmath::sqrt((double)ground.Dot_Product(ground));
 	if (flat > 0.0) {
 		return(fastmath::atan((double)(diff.Z / flat)));
 	}
@@ -173,14 +174,9 @@ static inline DirType Direction_To(ObjectClass * object, Coord const & to) // RA
 	return(Direction(object->Center_Coord(), to));
 }
 
-static inline int Distance_To(ObjectClass * object, Coord const & to) // RA2: inline in 0x0063DE90
-{
-	return(Distance(object->Center_Coord(), to));
-}
 
 
 /// <returns>bool; Is the rocket still flying?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1032 bytes differ (adopted text)
 boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE90
 {
 	RocketStruct const * data; // RA2: the V3 rocket's data for the V3, the Dreadnought missile's for every other aircraft type
@@ -237,8 +233,7 @@ boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE9
 					exploded = true;
 					break;
 				}
-				int distance = Ground_Distance2(MovingDestination, LinkedTo);
-				double ratio = (double)distance / CruiseDistance;
+				double ratio = (double)Ground_Distance2(MovingDestination, LinkedTo) / CruiseDistance;
 				double rest = 1.0 - ratio;
 				CurrentPitch = Pitch_To_Target() * rest + data->PitchFinal * ratio * 1.5707963267948966;
 			} else {
@@ -252,7 +247,7 @@ boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE9
 				Coord coord = LinkedTo->PositionCoord;
 				int height = coord.Z - dest.Z;
 				dest.Z = LinkedTo->PositionCoord.Z;
-				if (Distance_To(LinkedTo, dest) <= height) {
+				if (LinkedTo->Distance(dest) <= height) {
 					MissionState = 5;
 				}
 			}
@@ -271,8 +266,7 @@ boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE9
 					if (diff < 0.0) {
 						CurrentPitch -= data->TurnRate;
 					} else {
-						float rate = data->TurnRate;
-						CurrentPitch += rate;
+						CurrentPitch += data->TurnRate;
 					}
 				} else {
 					CurrentPitch += diff;
@@ -288,8 +282,7 @@ boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE9
 		TrailerTimer = 3; // RA2: a trail animation every three frames
 	}
 	if (CurrentSpeed > 0.0) {
-		Coord coord = Position_At((int)CurrentSpeed);
-		LinkedTo->Set_Coord(coord); // RA2: moves the rocket along its facing and pitch
+		LinkedTo->Set_Coord(Position_At((int)CurrentSpeed)); // RA2: moves the rocket along its facing and pitch
 		Cell cell = LinkedTo->Get_Cell();
 		if (cell != LinkedTo->LastFlightMapCoords && LinkedTo->IsActive) {
 			AircraftTracker.Update(LinkedTo, LinkedTo->LastFlightMapCoords, cell);
@@ -300,7 +293,6 @@ boolean STDMETHODCALLTYPE RocketLocomotionClass::Process(void) // RA2: 0x0063DE9
 	}
 	return(Is_Moving());
 }
-#endif
 
 
 /// <summary>

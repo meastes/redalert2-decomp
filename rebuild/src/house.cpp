@@ -8357,7 +8357,7 @@ void HouseClass::Calculate_Defense_Values(BuildingClass const * building, int va
 /// <param name="cells">The threat cells to defend against, or NULL to simply defend the
 /// base.</param>
 /// <returns>bool; Was a defense settled upon the node?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 179 of 3264 bytes differ (mischa85 text; the old-tree body is not carried yet)
+#ifdef RA2_NON_MATCHING // not exact: 11 of 3264 bytes differ (mischa85 text, Sample() as ra2-decomp and main call it; operand order only, moves with the declaration count)
 bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cells) // RA2: RA2's form
 {
 	int i; // RA2: as above
@@ -8551,22 +8551,7 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 				}
 				distribution.Add(type, weight); // RA2: as above
 			}
-			/*
-			 * RA2: Sample()'s walk written out in place; the inline call is
-			 * further from the original here.
-			 */
-			choice = NULL; // RA2: as above
-			unsigned int cumulative = 0; // RA2: as above
-			if (distribution.Get_Total_Weight() >= 1 && distribution.Count() != 0) { // RA2: as above
-				unsigned int pick = Random_Pick<unsigned int>(1, distribution.Get_Total_Weight()); // RA2: as above
-				for (int candidate = 0; candidate < distribution.Count(); candidate++) { // RA2: as above
-					cumulative += distribution[candidate].Weight; // RA2: as above
-					if (cumulative >= pick) { // RA2: as above
-						choice = distribution[candidate].Object; // RA2: as above
-						break; // RA2: as above
-					}
-				}
-			}
+			choice = distribution.Sample(); // RA2: as above
 		}
 
 		/*

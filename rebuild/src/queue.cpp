@@ -3790,6 +3790,7 @@ inline char const * Sync_Target_Name(AbstractClass * target, int & id)
 	return name;
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; AbstractClass::Is_Techno and Wstring::c_str became inline class members, ra2-decomp's headers)
 void __fastcall Print_CRCs(EventClass * event)
 {
 	char filename[0x200];
@@ -4417,6 +4418,7 @@ void __fastcall Print_CRCs(EventClass * event)
 	delete crc;
 	fclose(file);
 }	/* end of Print_CRCs */
+#endif
 
 
 /// <summary>

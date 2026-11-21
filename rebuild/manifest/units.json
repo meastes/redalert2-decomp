@@ -79592,7 +79592,14 @@
     "size": 4,
     "owner": "00579960"
    }
-  ]
+  ],
+  "count_sensitive": {
+   "00586b40": {
+    "windows": "plain probe declarations at the end of abstract.h. New headers (Is_Techno and c_str inline): +8 +10 +12 +16 exact; +0 +1 +2 +3 +4 +5 +6 off. Old headers (main 6b8bd54e0): +0 +10 +12 +16 exact; +1 +2 +3 +4 +5 +6 +8 off",
+    "header": "abstract.h and wstring.h (lane O8, 2026-11-21, review ruling: AbstractClass::Is_Techno defined in the class, as ra2-decomp's abstract.h has it, the executable holding one out-of-line copy, 0x6F8A70, and one call of it in uicmnds Select_All_Combatants 0x6F6D00; Wstring::c_str inline, as ra2-decomp's wstring.h has it; with them cell CellClass::Goodie_Check 0x476CC0 and netshare Change_Scenario_Slots 0x5CB8D0 are exact)",
+    "note": "lane O8 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing changes are evidenced content (ra2-decomp's abstract.h and wstring.h); (b)(i) mapgen.cpp does not name Is_Techno or c_str and no header inline calls either; (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old headers (main 6b8bd54e0). Lane F4's earlier probe with Is_Techno alone: rebuild/manifest/b_log_f4.csv. Guarding the function lowers the compiler's _$E counter by one for the DirtRoadTiles initializers after it; xcu.py renames those rows by the .CRT$XCU table, and they go back when the row returns"
+   }
+  }
  },
  "building": {
   "core": [
@@ -90107,7 +90114,8 @@
    "?ColorOp@@3KB": "007a7374",
    "?ColorAction@@3KB": "007a7370",
    "?ColorPrivAction@@3KB": "007a736c",
-   "?ColorPriv@@3KB": "007a7368"
+   "?ColorPriv@@3KB": "007a7368",
+   "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ": "005cda50"
   },
   "partial_ok": true
  },
@@ -131284,7 +131292,14 @@
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "0062a360": {
+    "windows": "plain probe declarations at the end of abstract.h. New headers (Is_Techno and c_str inline): +1 +16 exact; +0 +2 +3 +4 +5 +6 +8 off (4 bytes), +10 +12 off (8). Old headers (main 6b8bd54e0): +0 +4 +5 exact; +1 +2 +3 +8 +12 +16 off (4), +6 +10 off (8)",
+    "header": "abstract.h and wstring.h (lane O8, 2026-11-21, review ruling: AbstractClass::Is_Techno defined in the class, as ra2-decomp's abstract.h has it, the executable holding one out-of-line copy, 0x6F8A70, and one call of it in uicmnds Select_All_Combatants 0x6F6D00; Wstring::c_str inline, as ra2-decomp's wstring.h has it; with them cell CellClass::Goodie_Check 0x476CC0 and netshare Change_Scenario_Slots 0x5CB8D0 are exact)",
+    "note": "lane O8 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing changes are evidenced content (ra2-decomp's abstract.h and wstring.h); (b)(i) queue.cpp does not name Is_Techno or c_str and no header inline calls either; (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old headers (main 6b8bd54e0). Lane F4's earlier probe with Is_Techno alone: rebuild/manifest/b_log_f4.csv"
+   }
+  }
  },
  "unit": {
   "core": [
@@ -134005,14 +134020,7 @@
    "_$S189": "00ab9270",
    "_$S195": "00ab9271"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "006809f0": {
-    "windows": "plain probe declarations at the end of houstype.h on lane FH1's headers (houstype.h without the coined CountryName, ParentCountry a TStringID<24>): +0 off (4 bytes), +1 +2 +3 +4 +5 +6 +8 +10 +12 +16 exact. On the old houstype.h (main 420a38a76 with lane FH1's techtype.h): exact; techtype.h with TurretControl's eight accessors defined in the class instead of declared: off",
-    "header": "houstype.h (lane FH1, 2026-11-20: ra2-decomp's coined CountryName struct and its four inline members removed; ParentCountry is the tree's TStringID<24>, with which HouseTypeClass::Read_INI and the whole houstype unit are exact)",
-    "note": "lane FH1 probe 2026-11-20 under the owner rule (evidenced content is never held back for a count-sensitive row; this row is its first precedent): (a) the displacing change removes a coined class; (b)(i) sidebar.cpp uses neither CountryName nor ParentCountry; (ii) windows above: any one added declaration makes it exact again; (c) the unchanged text is exact on the old header"
-   }
-  }
+  "partial_ok": true
  },
  "event": {
   "core": [
@@ -139127,7 +139135,7 @@
     "entry": "00752710",
     "body": 28,
     "padding": 4,
-    "symbol": "_$E395",
+    "symbol": "_$E396",
     "main_symbol": "_$E304",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140071,7 +140079,7 @@
     "entry": "00765980",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E9",
+    "symbol": "?_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z@$AV?$BasicTimerClass@VSystemTimerClass@@@@A",
     "main_symbol": "_$E9",
     "main_source": "src/recovered/classes/CChatEventSink/CChatEventSink_OnPublicGameOptions_preview_timer_atexit.cpp"
    },
@@ -140623,7 +140631,7 @@
     "entry": "00767d60",
     "body": 684,
     "padding": 4,
-    "symbol": "?Remove_00767d60@WolChannelDictionary@@QAE_NABVWstring@@PAUChannel@WOL@@@Z",
+    "symbol": "?remove@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEDABVWstring@@AAUChannel@WOL@@@Z",
     "main_symbol": "?Remove_00767d60@WolChannelDictionary@@QAE_NABVWstring@@PAUChannel@WOL@@@Z",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140981,14 +140989,16 @@
    "?remove@?$ArrayList@I@@QAEDH@Z": "007681a0",
    "??_C@_0DF@POMM@Received?5private?5preview?5request@": "007fdf98",
    "??_C@_0FP@EJBK@Got?5private?5options?5from?5?$CFs?3?5Hou@": "007fdfd0",
-   "_?$S394@?4??Initialize_WDT_Sounds@@YIXXZ@4EA": "00b29734",
    "?getPointer@?$Dictionary@VWstring@@ULadder@WOL@@@@QAEDABVWstring@@PAPAULadder@WOL@@@Z": "007670f0",
    "??_C@_0CE@GAPJ@Poke_The_Host?5?9?5Host?5address?5is?5@": "007ff904",
    "??_C@_06GOGO@Europe?$AA@": "007fe6b4",
    "??_C@_0M@KMBL@A?5territory?$AA@": "007fe6a8",
    "??_C@_0N@PBDL@NorthAmerica?$AA@": "007fe6bc",
    "??_C@_0O@KJFF@Territory?$CF02d?$AA@": "007fe6cc",
-   "??_C@_0BG@KNCE@TXT_CONNECTING_SERVER?$AA@": "007fe4d0"
+   "??_C@_0BG@KNCE@TXT_CONNECTING_SERVER?$AA@": "007fe4d0",
+   "_?$S395@?4??Initialize_WDT_Sounds@@YIXXZ@4EA": "00b29734",
+   "??_B?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z@51": "00b2b400",
+   "?_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4V?$BasicTimerClass@VSystemTimerClass@@@@A": "00b2b408"
   },
   "partial_ok": true,
   "parked_rows": [

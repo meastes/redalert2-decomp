@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -179,7 +180,7 @@ class AbstractClass : public IPersistStream, public IRTTITypeInfo, public INotic
 
 		virtual bool Is_Inactive(void) const;
 
-		bool Is_Techno(void) const;
+		bool Is_Techno(void) const { if (this == NULL) return(false); bool flag = AbstractFlags & 1; return(flag); } // RA2: inline, as ra2-decomp's abstract.h has it; the executable holds one out-of-line copy (0x6F8A70) and one call of it
 
 		/*
 		**	Coordinate query support functions.

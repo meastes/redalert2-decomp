@@ -3083,3 +3083,52 @@ range do not count, and any reference inside the stretch resets the count. The w
 - Such a test or action has no copy in the image when every site expands it: it is declared `inline` (the rebuild
   ruling "a function our object emits that the image lacks takes the linkage that does not emit it"); VC6 emits no
   body for an inline function whose address was only ever an argument that the expansion consumed.
+
+## Image order tells in-class virtuals from out-of-line ones; fitting a budget from sizes (found in the rebuild (lane F5, high))
+
+- A unit's select-any functions (virtuals defined in the class, `??_G`) lie after its ordinary functions in the
+  image, in object order, although the object holds them right after the first constructor. So the tail of a
+  unit's range reads off which virtuals the header defines: overtype, smudtype, airctype and terrtype end with
+  Fetch_RTTI, Fetch_Object_Size, Fetch_Heap_ID, `??_G` (all three in the class, declaration order), while unittype
+  ends with Find_Or_Make, Fetch_Object_Size 0x70B5D0, Fetch_RTTI 0x70B5E0, Fetch_Heap_ID 0x70B5F0, `??_G`. That
+  order allows two forms only: all three out of line in that order (the TibSun archive's unittype.cpp ends with
+  exactly these definitions) or Fetch_Object_Size out of line and the other two in the class (ra2-decomp). One of
+  the two in the class alone (Fetch_RTTI) would put it after Fetch_Heap_ID. A virtual has no direct call, so
+  nothing else in the image separates the two forms; an inventory difference of this kind moves no parked row.
+- Defining two declared virtuals of a class in the class can flip a row that no unrelated probe moves: with
+  UnitTypeClass::Fetch_RTTI and Fetch_Heap_ID both in the class, UnitClass::Draw_It 0x700E70 is 387 bytes off
+  (either one alone: exact), while on the unchanged header 0..16 plain declarations and up to six unrelated
+  in-class virtual bodies, inline functions or inline members leave it exact. Such a row does not meet the
+  count-sensitive rule; it is the row that refuses the header form (it also refused lane F4's inline Is_Techno).
+- Fitting a budget instead of searching forms: read the sizes of every callee of the row with il_lab (rocket:
+  Pitch_To_Target 126, TPoint3D operator- 72, the 3-argument constructor 48 decided with half the rest, Length
+  64, ObjectClass::Distance 46), write each disputed nest's states as intervals of the budget it receives (the
+  cruise test: 182 and more expands constructor and Length, 166..181 calls Length, 134..165 calls the constructor
+  instead; the dive's Pitch_To_Target: 168 and more expands the constructor), then place three probes: K empty
+  inline sites before the last statement, one charged spend at the top, one charged spend just before the later
+  nest. Their flip points give the remaining budget and the site count of each nest, and so what the original
+  must differ by: here "about 170..213 units less before the cruise test, or one more site after the dive and
+  1..47 units less". The non-monotone K response (K=1 fixes one nest, K=2 fixes the other and breaks the first)
+  is the signature of two nests wanting different divisors: it rules out trailing sites alone.
+- Pass-through named locals are budget: each costs 6 units of the root's size and so 12 of its budget once the
+  root is past 500. In RocketLocomotionClass::Process three of them (`int distance`, `float rate`, the tail's
+  `Coord coord`) are byte-neutral, and only without them does one more trailing site give the exact function.
+  Remove byte-neutral aliases before measuring a budget.
+- A coined wrapper that takes the object and calls Center_Coord() inside may be a real member: the cruise test's
+  `Distance_To(LinkedTo, dest)` is ObjectClass::Distance(Coord const &) (TibSun's object.h), byte for byte. Each
+  such temporary lies in an inlined body in the original: written at the site, the same call costs 8 bytes of
+  frame per temporary (the slots are no longer shared).
+- A probe helper that replaces statements also shrinks the root: an inline absolute value of the dive's pitch
+  difference (one site in the right place) removes three statements from Process and overshoots to the K=2 state.
+  Judge a candidate site by the exact function, not by the site count it adds.
+- The same trailing-site reading holds in a second unit: BuildingClass::Captured 0x444660 (3,359 B) is the
+  original's instruction for instruction with two or three empty inline sites before its last return (nine bytes
+  left: three unbound literals), and one is not enough. Two shared-header explanations were tested and fail on
+  building's own exact rows: a larger Length (through a named double result) and three other bodies for
+  ObjectClass::Distance(Coord const &) each flip exact rows there and do not give Captured's calls. The missing
+  sites are in each function's own text.
+- A lead, not a finding: the trailing-site count equals the `new` plus `delete` expressions after the nest in
+  rocket Process (1) and Captured (2), and those of the whole function in mapgen Generate_Rural_Roads (2; their
+  place against its nest not checked); it fails in infantry Assign_Destination (0 against 3). Routing `new` through an inline pass-through operator new (scratch only) makes
+  rocket Process exact; nothing shows what a `delete` would carry. Test it on a row with several of each before
+  believing it.

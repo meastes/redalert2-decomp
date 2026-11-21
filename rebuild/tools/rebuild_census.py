@@ -236,6 +236,20 @@ def count_sensitive():
     return rows, total
 
 
+def header_form_parked():
+    """(rows, body bytes) of exact rows parked for evidenced header forms (review session, 2026-11-21): a row
+    whose exact text is lost when evidenced header forms land (here AbstractClass::Is_Techno and Wstring::c_str
+    inline, ra2-decomp's headers), parked as an ordinary draft with its last exact text kept in a dossier. Each
+    is listed in its unit's `header_form_parked` (entry -> {header, score, dossier, note}) in units.json; the
+    rows stay in the parked tail."""
+    rows = total = 0
+    for info in R.load_json(R.UNITS, {}).values():
+        body = {r['entry']: r['body'] for r in info['rows']}
+        for entry in info.get('header_form_parked') or {}:
+            rows += 1; total += body.get(entry, 0)
+    return rows, total
+
+
 def judgment_calls(regions):
     """(rows, body bytes) of the accepted rows flagged as judgment calls in provenance.csv (AGENTS.md
     Decision policy: real computed or looked-up values kept and flagged, each with its evidence)."""
@@ -474,6 +488,7 @@ def main(quiet=False):
         (measures['helper_asm_rows'], measures['helper_asm_bytes']) = evidenced_inline_asm(cat['regions'])
     measures['asm_unflagged_rows'], measures['asm_unflagged_bytes'], unflagged = asm_not_flagged(cat['regions'])
     measures['count_sensitive_rows'], measures['count_sensitive_bytes'] = count_sensitive()
+    measures['header_form_parked_rows'], measures['header_form_parked_bytes'] = header_form_parked()
     level = function_level(cat['regions'])
     measures['function_level_rows'], measures['function_level_bytes'] = level['function']
     # House format of new lines (lane F1): the diff BASE..working tree; adopted text and manifest/format_exempt.csv
@@ -527,6 +542,8 @@ def main(quiet=False):
         or 'none'))
     print('Count-sensitive rows (exact form, parked by declaration count; not in the parked tail): %d rows, %d body bytes' % (
         measures['count_sensitive_rows'], measures['count_sensitive_bytes']))
+    print('Exact rows parked for evidenced header forms (in the parked tail; last exact text in a dossier): '
+          '%d rows, %d bytes' % (measures['header_form_parked_rows'], measures['header_form_parked_bytes']))
     print('Exact functions (reported, not gated; no credit change): whole-unit (catalogued, whole-file exact) %d rows, '
           '%d bytes; function-level (each function checked on its own, as ra2-decomp reports) %d rows, %d bytes (%s)' % (
               level['whole'] + level['function'] + ('; '.join('+%d rows %d B %s' % (n, b, k)

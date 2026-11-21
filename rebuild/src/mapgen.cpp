@@ -2492,7 +2492,6 @@ bool MapRegionClass::Build_West_Ramp(Cell const &first,Cell const &second,int lo
 /// <param name="region_id">The region on the low side, whose height the leveled ground
 /// takes.</param>
 /// <returns>bool; Was the corner ramp carved?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 500 bytes differ (row 005743f0: one Cell(int, int) out of line inside the expanded Flatten_Area, inline budget)
 bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2, int region_id)
 {
 	int dx = cell2.X - cell1.X;
@@ -2512,7 +2511,8 @@ bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2
 				MapGeneratorClass::Place_Tile((IsometricTileType)(IsometricTileTypeClass::SlopeSetPieces + 3), cell2, region_id, CellHeight);
 
 				for (int i = 0; i < 4; ++i) {
-					CellClass * cptr = &Map[Cell(cell2.X + i, cell1.Y + i)];
+					Cell const & offset = Cell(i, i); // RA2: ra2-decomp's identical twin (0x592AF0) names the step
+					CellClass * cptr = &Map[Cell(cell2.X + offset.X, cell1.Y + offset.Y)];
 					cptr->Height = CellHeight - (char)i - 1;
 					cptr->Ramp = 7;
 					cptr->ITType = (IsometricTileType)(IsometricTileTypeClass::RampStart + 6);
@@ -2545,7 +2545,6 @@ bool MapRegionClass::Build_Corner_Ramp_SE(Cell const & cell1, Cell const & cell2
 	}
 	return(false);
 }
-#endif
 
 
 /// <summary>
@@ -8635,6 +8634,7 @@ void MapGeneratorClass::Generate_Urban_Areas(void)
 /// <param name="cell">The seed cell to grow the urban area from.</param>
 /// <param name="size">The maximum number of cells to process during the flood fill.</param>
 /// <returns>The collected urban area cells, or NULL if the area is too small or sparse.</returns>
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; AbstractClass::Is_Techno and Wstring::c_str became inline class members, ra2-decomp's headers)
 DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cell, int size)
 {
 	DynamicVectorClass<Cell> * cells; // RA2: Create_Urban_Area at 0x586B40 matches only so
@@ -8739,6 +8739,7 @@ DynamicVectorClass<Cell> * MapGeneratorClass::Create_Urban_Area(Cell const & cel
 
 	return(cells);
 }
+#endif
 
 
 /// <summary>

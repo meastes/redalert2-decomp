@@ -3311,7 +3311,6 @@ static inline Coord Crate_Sound_Coord(CellClass const & cell)
  *   06/17/1996 JLB : Revamped for Red Alert                                                   *
  *=============================================================================================*/
 
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact when AbstractClass::Is_Techno is the class's inline member (ra2-decomp's abstract.h; the executable has one out-of-line copy and one call of it); with that header two count-sensitive rows flip (queue Print_CRCs, mapgen Create_Urban_Area) and the copy 0x6F8A70 waits for its caller in uicmnds, so the header change is the owner's ruling
 bool CellClass::Goodie_Check(FootClass * object)
 {
 	if (object != NULL && Overlay != OVERLAY_NONE && OverlayTypes[Overlay]->IsCrate) {
@@ -3789,7 +3788,6 @@ crate_money:
 
 	return(true);
 }
-#endif
 
 
 /***********************************************************************************************

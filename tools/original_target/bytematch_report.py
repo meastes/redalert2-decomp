@@ -285,12 +285,15 @@ def build_rebuild(treemap, worktree):
     # Rebuild in-scope matched body bytes by main's ledger scope (CRT, handwritten ranges and evidenced
     # inline asm out; false rows are not catalogued bodies of real functions, so they are left out too).
     asm = asm_ranges(catalog)
+    # Evidenced inline asm by main's flags, so the scope matches the in-scope rows above (the rebuild
+    # flags more rows, e.g. through file-static helpers; those stay in scope here as main counts them).
+    main_asm = {r['entry'] for r in catalog['regions'] if status.evidenced_inline_asm(r)}
     false_path = REPOSITORY / 'manifests/original_target/false_rows.json'
     false_rows = {int(r['entry'], 16) for r in json.loads(false_path.read_text())['rows']} if false_path.exists() else set()
     matched = sum(r['body_bytes'] for r in rebuilt['regions']
                   if r['entry'] < status.CRT_START and not status.inside(r['entry'], asm)
                   and r['entry'] not in false_rows and r['entry'] not in sensitive
-                  and not status.evidenced_inline_asm(r))
+                  and r['entry'] not in main_asm)
     units.append(reconcile(units, matched))
     return assemble(units)
 

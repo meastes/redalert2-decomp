@@ -1371,18 +1371,6 @@ TechnoClass * Get_Defense_Tab_Object(void)
 }
 
 /// <summary>
-/// Whether this is a TechnoClass object, by its abstract flags.
-/// </summary>
-bool AbstractClass::Is_Techno(void) const
-{
-	if (this == NULL) {
-		return false;
-	}
-	bool flag = AbstractFlags & 1;
-	return flag;
-}
-
-/// <summary>
 /// Centers the view on the newest radar event, or the previous event after a repeated press.
 /// </summary>
 void Jump_To_Radar_Event(void)

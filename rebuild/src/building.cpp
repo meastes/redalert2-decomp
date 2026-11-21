@@ -190,6 +190,7 @@
 
 #include "side.h" // RA2: SideClass::From_Name for the garrison owner
 #include "bomb.h" // RA2: Active_Click_With reads the attached bomb's owner
+#include "reestablish.h" // RA2: Captured remembers the captured contacts
 
 void __fastcall Cloak_Cell_Occupiers(CellClass * cellptr); // RA2: defined after its first caller
 
@@ -4633,8 +4634,6 @@ bool BuildingClass::Toggle_Primary(void)
  *   05/03/1995 JLB : Created.                                                                 *
  *   07/05/1995 JLB : Fixed production problem with capturing enemy buildings.                 *
  *=============================================================================================*/
-#include "reestablish.h"
-
 #ifdef RA2_NON_MATCHING // not exact: 2366 bytes differ (adopted text)
 bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: announce
 {

@@ -2360,6 +2360,7 @@ symbol,address,evidence
 ?Join_Selected_Lobby@@YIH_N@Z,0x00744930,inferred: wonline rows 00741750 00741750 differ only at its sites
 ?JumpJet_To_Walk@FootClass@@UAE_NXZ,0x0041B480,slot +488 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?get@Leaf_41b480@@QAE_NXZ
 ?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
+?Laser_Zap@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPBVWeaponTypeClass@@ABVCoord@@@Z,0x006C9DF0,called at 0x6C9DF0 by BulletClass::Shrapnel 0x462C50 (lane O2 probe: the twin-mapped text exact with it bound); main's unknown_6c9df0 (non-exact)
 ?LastAdjacentZone@@3HA,0x00A6FC34,main: the accepted map.cpp rows name this global unknown_zone_a6fc34 (0x00A6FC34) (lane R5)
 ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x006DE0E0,slot +ac of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Lepton_Dimensions@ObjectTypeClass@@UBE?AV?$TPoint3D@H@@XZ,0x005D5D30,slot +7c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ
@@ -2376,6 +2377,8 @@ symbol,address,evidence
 ?Load@RadioClass@@UAGJPAUIStream@@@Z,0x00636C60,slot +18 of ??_7RadioClass@@6BIPersistStream@@@ at 007a88e4; main row ?Load@RadioClass@@UAGJPAUIStream@@@Z
 ?Load@SidebarClass@@UAEJPAUIStream@@@Z,0x00682290,slot +78 of ??_7TabClass@@6BSidebarClass@@@ at 007a64e4; main row ?get@Leaf_682290@@QAEII@Z
 ?Load_Caption@LoadOptionsClass@@UBEPBGXZ,0x0053C970,slot +14 of ??_7LoadOptionsClass@@6B@ at 007a581c; main row _recover_53c970
+?LobbyExtraSlot@@3HA,0x00A72D5C,inferred: netshare rows 005cb8d0 005cb8d0 005cb8d0 005cb8d0 differ only at its sites
+?LobbySlotCount@@3HA,0x007E6DE4,inferred: netshare rows 005cb8d0 005cb8d0 005cb8d0 005cb8d0 differ only at its sites
 ?Lock@BSurface@@UBEPAXVPoint2D@@@Z,0x00411370,slot +60 of ??_7BSurface@@6B@ at 0079aef4; main row ?Lock@BSurface@@UAEPAXUPoint2D@@@Z
 ?Lock@LocomotionClass@@UAGXXZ,0x004A65D0,slot +b4 of ??_7FlyLocomotionClass@@6BILocomotion@@@ at 007a1000; main row ?Lock@LocomotionClass@@UAGXXZ
 ?Lock@XSurface@@UBEPAXVPoint2D@@@Z,0x004112E0,slot +60 of ??_7XSurface@@6B@ at 0079af88; main row ?Lock@XSurface@@UAEPAXUPoint2D@@@Z
@@ -3180,4 +3183,3 @@ _IID_IRegistrar,0x007AF6C0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes o
 _LIBID_ATLLib,0x007AF6E0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes occur once in the image, right after wolapi_i.c's ids in wonline's .rdata"
 __GUID_92fea800_a184_11d1_b70a_00a024ddafd1,0x007CFC30,"main: accepted rows of 7 populations refer to the __uuidof(IPiggyback) copy there (writable data, the select-any GUID); IID_IPiggyback is the .rdata copy at 0x007A2050"
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
-?Laser_Zap@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPBVWeaponTypeClass@@ABVCoord@@@Z,0x006C9DF0,"called at 0x6C9DF0 by BulletClass::Shrapnel 0x462C50 (lane O2 probe: the twin-mapped text exact with it bound); main's unknown_6c9df0 (non-exact)"

@@ -491,7 +491,9 @@ void Dictionary<K,V>::expand(void)
 		temp=oldtable[i];
 		while (temp!=NULL)
 		{
-			offset=keyHash(temp->key);
+			unsigned int hash = hashFunc(temp->key); // RA2: hashed and masked here, as ra2-decomp's include/dict.h has it
+			offset = ((1u << tableBits) - 1) & hash;
+			assert(offset < getSize());
 			first=table[offset];
 			table[offset]=temp;
 			next=temp->hashNext;

@@ -1728,23 +1728,13 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 /// A list box that keeps wide text answers message 0x4CF; the others hand out their narrow text,
 /// which is widened here.
 /// </summary>
-inline bool List_Row_Is_Wide(HWND listbox, int index) // RA2: whether the list box keeps its text wide (message 0x4CF)
+static inline void LBGetText(HWND listbox, int index, wchar_t * wide, char * narrow) // RA2: ra2-decomp's file-local helper of the same name (src/netshare.cpp)
 {
-	return(SendMessage(listbox, WM_USER + 207, index, 0) != 0);
-}
-
-inline void List_Row_Wide_Text(HWND listbox, int index, wchar_t * wide, char * narrow)
-{
-	SendMessage(listbox, OD_GETTEXTA, index, (LPARAM)narrow);
-	Char_To_Wide(wide, narrow, -1);
-}
-
-inline void Get_List_Row_Text(HWND listbox, int index, wchar_t * wide, char * narrow)
-{
-	if (List_Row_Is_Wide(listbox, index)) {
+	if (SendMessage(listbox, WM_USER + 207, index, 0) != 0) {
 		SendMessage(listbox, OD_GETTEXTW, index, (LPARAM)wide);
 	} else {
-		List_Row_Wide_Text(listbox, index, wide, narrow);
+		SendMessage(listbox, OD_GETTEXTA, index, (LPARAM)narrow);
+		Char_To_Wide(wide, narrow, -1);
 	}
 }
 
@@ -1766,7 +1756,6 @@ inline void Select_List_Row_Text(HWND listbox, wchar_t const * text) // RA2: the
 /// </summary>
 /// <param name="listbox">The list box to record the selection of.</param>
 /// <param name="lbdict">The dictionary to record the selected entries into.</param>
-#ifdef RA2_NON_MATCHING // not exact: 203 bytes differ (adopted text)
 void LBSaveSelections(HWND listbox, Dictionary<WideWstring,bool> & lbdict) // RA2: 0x005C5FF0, the dictionary and the key are wide
 {
 	int count = ListBox_GetCount(listbox);
@@ -1774,25 +1763,17 @@ void LBSaveSelections(HWND listbox, Dictionary<WideWstring,bool> & lbdict) // RA
 	wchar_t wide[1024]; // RA2: the item text is fetched wide, through the narrow text when the list box has no wide text
 	char buffer[1024]; // RA2: as above
 
-	if (count) {
-		int style = GetWindowLong(listbox, GWL_STYLE);
-		if (style & LBS_MULTIPLESEL) {
-			for (int i = 0; i < count; i++) {
-				if (ListBox_GetSel(listbox, i) != 0) {
-					Get_List_Row_Text(listbox, i, wide, buffer); // RA2: as above
-					key = wide; // RA2: as above
-					bool value = true;
-					lbdict.add(key, value);
-				}
-			}
-		} else if (!(style & LBS_NOSEL)) {
-			int index = ListBox_GetCurSel(listbox);
-			if (index >= 0) {
-				wide[0] = '\0'; // RA2: as above
-				if (SendMessage(listbox, WM_USER + 207, index, 0)) { // RA2: the text of the item is fetched wide, through the narrow text when the list box has no wide text
-					SendMessage(listbox, OD_GETTEXTW, index, (LPARAM)wide); // RA2: message 0x4B6, as Get_List_Item_Wide_Text
+	if (count == 0) {
+		return;
+	}
+	int style = GetWindowLong(listbox, GWL_STYLE);
+	if (style & LBS_MULTIPLESEL) {
+		for (int i = 0; i < count; i++) {
+			if (ListBox_GetSel(listbox, i) != 0) {
+				if (SendMessage(listbox, WM_USER + 207, i, 0)) { // RA2: the text of the item is fetched wide, through the narrow text when the list box has no wide text (written out here, as ra2-decomp's twin has it)
+					SendMessage(listbox, OD_GETTEXTW, i, (LPARAM)wide); // RA2: message 0x4B6, as Get_List_Item_Wide_Text
 				} else {
-					SendMessage(listbox, OD_GETTEXTA, index, (LPARAM)buffer); // RA2: message 0x4B7, as Get_List_Item_Text
+					SendMessage(listbox, OD_GETTEXTA, i, (LPARAM)buffer); // RA2: message 0x4B7, as Get_List_Item_Text
 					Char_To_Wide(wide, buffer, -1); // RA2: 0x006FA0C0
 				}
 				key = wide; // RA2: as above
@@ -1800,9 +1781,17 @@ void LBSaveSelections(HWND listbox, Dictionary<WideWstring,bool> & lbdict) // RA
 				lbdict.add(key, value);
 			}
 		}
+	} else if (!(style & LBS_NOSEL)) {
+		int index = ListBox_GetCurSel(listbox);
+		if (index >= 0) {
+			wide[0] = '\0'; // RA2: as above
+			LBGetText(listbox, index, wide, buffer); // RA2: as above
+			key = wide; // RA2: as above
+			bool value = true;
+			lbdict.add(key, value);
+		}
 	}
 }
-#endif
 
 
 /// <summary>
@@ -4194,9 +4183,9 @@ void __fastcall Close_Slots_From(HWND dialog, int first) // RA2: 0x005CB7C0, not
 	Send_Lobby_Options(true, false); // RA2: as above
 }
 
-void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 201 bytes differ (main's text, Close_Slots_From's body written out as the original expands it; this calls Wstring::get where the original reads the buffer)
-int LobbySlotCount = 8; // RA2: 0x007E6DE4, the number of slots the scenario gave the lobby last (8 before one was chosen); used only by Change_Scenario_Slots, so parked with it
+inline void Format_Slot(char * buffer, Wstring const & narrow) { sprintf(buffer, "O%d%s", LobbyObserverSlot, narrow.c_str()); } // RA2: ra2-decomp's file-local helper of the same name (src/netshare.cpp): the observer slot as the host sends it
+
+int LobbySlotCount = 8; // RA2: 0x007E6DE4, the number of slots the scenario gave the lobby last (8 before one was chosen); used only by Change_Scenario_Slots
 int LobbyExtraSlot; // RA2: 0x00A72D5C, 1 when the observer takes a slot of its own beyond the scenario's; as above
 
 void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) // RA2: 0x005CB8D0, not in TibSun; the lobby takes the number of slots of the scenario: new slots are shown and filled, removed ones are closed, and the observer's slot is moved to the last slot when the game mode asks for one
@@ -4262,7 +4251,6 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 		LobbyObserverSlot = 7; // RA2: as above
 		Clear_Observer_Slots(dialog); // RA2: as above
 		DebugString("Sending observer slot of 7\n"); // RA2: as above
-		char text[256]; // RA2: as above
 		NodeNameType * entry = Session.Slots[LobbyObserverSlot]; // RA2: as above
 		WideWstring name; // RA2: as above
 		if (entry == NULL || entry == LobbyEntries[0] || entry == LobbyEntries[1] || entry == LobbyEntries[5] || entry == LobbyEntries[6] // RA2: as above
@@ -4272,16 +4260,13 @@ void __fastcall Change_Scenario_Slots(HWND dialog, int previous, int scenario) /
 		} else {
 			name = entry->Name; // RA2: as above
 		}
-		{
-			WideWstring wide(name.get()); // RA2: as above
-			sprintf(text, "O%d%s", LobbyObserverSlot, Wstring_Narrow(wide).get()); // RA2: as above
-		}
+		char text[256]; // RA2: as above
+		Format_Slot(text, Wstring_Narrow(name.get())); // RA2: as above
 		Send_Host_Option(text); // RA2: as above
 	}
 	LobbySlotCount = players; // RA2: as above
 	LobbyExtraSlot = extra; // RA2: as above
 }
-#endif
 
 
 bool __fastcall Lobby_Update_Dialog(HWND dialog, int count, bool flag1, bool flag2) // RA2: 0x005CBDB0, not in TibSun; tells whether the combo boxes hold a computer player where the game mode takes none, or a player beyond the count: an observer beyond it counts only when the game mode takes observers

@@ -285,4 +285,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L2835-2886 Later inline sites of a long reader, and specializations left behind (found in the rebuild (lane FH1)) (7): Found in the rebuild (lane FH1):
 - L2887-2962 Hand-written blocks in a reader's root, accessor conditionals and named-local ties (found in the rebuild (lane F2, high)) (9): Found in the rebuild (lane F2, high):
 - L2963-3052 Empty constructors as inline sites, the reader templates under the cap, index signedness and frame maps (found in the rebuild (lane F3, high)) (12): Found in the rebuild (lane F3, high):
-- L3053-3085 Uncalled function-pointer helpers are inline sites; a constant test expands through them (found in the rebuild (lane F4, high)) (5): Found in the rebuild (lane F4, high):
+- L3053-3086 Uncalled function-pointer helpers are inline sites; a constant test expands through them (found in the rebuild (lane F4, high)) (5): Found in the rebuild (lane F4, high):
+- L3087-3134 Image order tells in-class virtuals from out-of-line ones; fitting a budget from sizes (found in the rebuild (lane F5, high)) (8): A unit's select-any functions (virtuals defined in the class, `??_G`) lie after its ordinary functions in the…

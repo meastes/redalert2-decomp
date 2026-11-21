@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2735,11 +2736,15 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			return(S_OK);
 		}
 		STDMETHOD(OnChannelTopic)(HRESULT, struct Channel *, const char *) { return(S_OK); }
-#ifdef RA2_NON_MATCHING // not exact: 210 bytes differ; the original builds a Wstring of the text before the visibility test and destroys it after (Is_User_Message_Shown taking it as an unused Wstring const & gives the exact body, but that parameter flips Draw_Player_List, which is count-sensitive)
 		STDMETHOD(OnPrivateAction)(HRESULT r, struct User * user, const char * action)
 		{
 			if (!g_PlayingNetGame && SUCCEEDED(r)) {
-				if (Is_User_Message_Shown(user)) {
+				bool allowed;
+				{
+					Wstring narrow(action); // RA2: the narrow text is copied around the visibility test and freed after it, as the original does (ra2-decomp's statement at the same place)
+					allowed = Is_User_Message_Shown(user);
+				}
+				if (allowed) {
 					WideWstring wide = Wstring_ToWide(action);
 					if (_stricmp(Session.Handle, (char *)user->name)) {
 						Lobby_Chat_Printf(ColorPrivAction, L"%hs %s", user->name, wide.get());
@@ -2748,9 +2753,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnPrivateAction)(HRESULT r, struct User * user, const char * action);
-#endif
 
 		STDMETHOD(OnPrivateUnicodeAction)(HRESULT r, struct User * user, const unsigned short * action)
 		{
@@ -2768,11 +2770,15 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#ifdef RA2_NON_MATCHING // not exact: 209 bytes differ; the original builds a Wstring of the text before the visibility test and destroys it after (Is_User_Message_Shown taking it as an unused Wstring const & gives the exact body, but that parameter flips Draw_Player_List, which is count-sensitive)
 		STDMETHOD(OnPublicAction)(HRESULT r, struct Channel *, struct User * user, const char * action)
 		{
 			if (!g_PlayingNetGame && SUCCEEDED(r)) {
-				if (Is_User_Message_Shown(user)) {
+				bool allowed;
+				{
+					Wstring narrow(action); // RA2: the narrow text is copied around the visibility test and freed after it, as the original does (ra2-decomp's statement at the same place)
+					allowed = Is_User_Message_Shown(user);
+				}
+				if (allowed) {
 					WideWstring wide = Wstring_ToWide(action);
 					if (_stricmp(Session.Handle, (char *)user->name)) {
 						Lobby_Chat_Printf(ColorAction, L"%hs %s", user->name, wide.get());
@@ -2781,9 +2787,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnPublicAction)(HRESULT r, struct Channel *, struct User * user, const char * action);
-#endif
 
 		STDMETHOD(OnPublicUnicodeAction)(HRESULT r, struct Channel *, struct User * user, const unsigned short * action)
 		{
@@ -2944,7 +2947,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 #else
 		STDMETHOD(OnUserList)(HRESULT r, struct Channel *, struct User * user);
 #endif
-#ifdef RA2_NON_MATCHING // not exact: 265 bytes differ; the original builds a Wstring of the text before the visibility test and destroys it after (Is_User_Message_Shown taking it as an unused Wstring const & gives the exact body, but that parameter flips Draw_Player_List, which is count-sensitive)
 		STDMETHOD(OnPublicMessage)(HRESULT r, struct Channel *, struct User * user, const char * text)
 		{
 			if (!g_PlayingNetGame && SUCCEEDED(r)) {
@@ -2954,7 +2956,12 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					}
 					return(S_OK);
 				}
-				if (!Is_User_Message_Shown(user)) return(S_OK);
+				bool allowed;
+				{
+					Wstring narrow(text); // RA2: the narrow text is copied around the visibility test and freed after it, as the original does (ra2-decomp's statement at the same place)
+					allowed = Is_User_Message_Shown(user);
+				}
+				if (!allowed) return(S_OK);
 				WideWstring wide = Wstring_ToWide(text);
 
 				/*
@@ -2968,9 +2975,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnPublicMessage)(HRESULT r, struct Channel *, struct User * user, const char * text);
-#endif
 
 		STDMETHOD(OnPublicUnicodeMessage)(HRESULT r, struct Channel *, struct User * user, const unsigned short * text)
 		{
@@ -2987,7 +2991,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#ifdef RA2_NON_MATCHING // not exact: 295 bytes differ; the original builds a Wstring of the text before the visibility test and destroys it after (Is_User_Message_Shown taking it as an unused Wstring const & gives the exact body, but that parameter flips Draw_Player_List, which is count-sensitive)
 		STDMETHOD(OnPrivateMessage)(HRESULT r, struct User * user, const char * text)
 		{
 			if (!g_PlayingNetGame && SUCCEEDED(r)) {
@@ -2999,7 +3002,12 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					DebugString("Received message from non-channel owner %s: %s\n", user->name, text);
 					return(S_OK);
 				}
-				if (!Is_User_Message_Shown(user)) return(S_OK);
+				bool allowed;
+				{
+					Wstring narrow(text); // RA2: the narrow text is copied around the visibility test and freed after it, as the original does (ra2-decomp's statement at the same place)
+					allowed = Is_User_Message_Shown(user);
+				}
+				if (!allowed) return(S_OK);
 				WideWstring wide = Wstring_ToWide(text);
 
 				/*
@@ -3013,9 +3021,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnPrivateMessage)(HRESULT r, struct User * user, const char * text);
-#endif
 
 		STDMETHOD(OnPrivateUnicodeMessage)(HRESULT r, struct User * user, const unsigned short * text)
 		{
@@ -3077,7 +3082,6 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			}
 			return(S_OK);
 		}
-#ifdef RA2_NON_MATCHING // not exact: 847 bytes differ (TibSun class text with ra2-decomp's YR twin): the executable saves ebp with the other registers on entry and keeps two copies of the tournament return (the failed checks share the first), where this build saves ebp only after the tournament block and merges the returns; everything after the push matches. The function static _timer and its exit thunk _$E9 (0x00765980) park with it
 		STDMETHOD(OnPublicGameOptions)(HRESULT r, struct Channel *, struct User * user, const char * options)
 		{
 			static BasicTimerClass<SystemTimerClass> _timer;
@@ -3173,12 +3177,10 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 				g_pChat->RequestPrivateGameOptions(&host, options_text);
 				DebugString("Sent private game option packet requesting a preview download\n");
 				Poke_The_Host();
+				return(S_OK); // RA2: returns here as well, as ra2-decomp's twin and main do
 			}
 			return(S_OK);
 		}
-#else
-		STDMETHOD(OnPublicGameOptions)(HRESULT r, struct Channel *, struct User * user, const char * options);
-#endif
 		STDMETHOD(OnPrivateGameOptions)(HRESULT, struct User * user, const char * options)
 		{
 			if (g_PlayingNetGame) return(S_OK);
@@ -10130,7 +10132,7 @@ LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND combo, WPARAM index, WideWstrin
 
 LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x00753370, below (not exact yet)
 
-#ifdef RA2_NON_MATCHING // not exact: 130 bytes differ (main's text): the stack slots of the temporary Wstrings in the forget-persona (0x6EB) and auto-login (0x6FF) commands lie 4 to 8 bytes lower, and the frame is 4 bytes smaller; the original builds the empty name for PopulateDialog (which takes a pointer) before pushing the arguments, which a named local in the branch gives but in other slots
+#ifdef RA2_NON_MATCHING // not exact: 117 bytes differ (main's text): the stack slots of the temporary Wstrings in the forget-persona (0x6EB) and auto-login (0x6FF) commands lie 4 to 8 bytes lower, and the frame is 4 bytes smaller; the original builds the empty name for PopulateDialog (which takes a pointer) before pushing the arguments, which a named local in the branch gives but in other slots
 LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00753370, the dialog proc of the persona dialog (0x114): picks one of the stored personas and keeps its profile (server, country, side, color) and the auto login
 {
 	if (message == WM_INITDIALOG && lparam) { // RA2: the control comes with the dialog's creation data
@@ -10146,7 +10148,7 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 		Dialog_On_WM_PAINT(window); // RA2: as above
 		Slide_Pending_Dialog(window); // RA2: as above
 		ValidateRect(window, NULL); // RA2: as above
-		return(1);
+		// RA2: falls through to the erase-background result
 	case WM_ERASEBKGND:
 		return(1);
 	case WM_DRAWITEM:
@@ -10369,7 +10371,8 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 		BOOL valid = selected_nick != -1; // RA2: as above
 		EnableWindow(GetDlgItem(window, 0x6EB), valid); // RA2: as above
 		EnableWindow(GetDlgItem(window, 0x687), valid); // RA2: as above
-		EnableWindow(GetDlgItem(window, 0x6FF), valid); // RA2: as above
+		HWND automatic_button = GetDlgItem(window, 0x6FF); // RA2: the auto login check box
+		EnableWindow(automatic_button, valid); // RA2: as above
 		Wstring automatic = WOL_Auto_Login_Persona(); // RA2: as above
 		SendMessageA(GetDlgItem(window, 0x6FF), BM_SETCHECK, (automatic == g_NickName) ? 1 : 0, 0); // RA2: as above
 		break;
@@ -11129,8 +11132,11 @@ void __fastcall Request_Add_Buddy(Wstring const & name) // RA2: 0x00756B40, asks
 	}
 }
 
-void __fastcall Remove_Buddy(Wstring const & name); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 690 bytes differ (adopted text)
+static inline char Remove_Channel(Wstring & key, Channel & value) // RA2: ra2-decomp's file-local helper at this place (its LadderC is WOL::Channel here)
+{
+	return(g_BuddyChannels.remove(key, value));
+}
+
 void __fastcall Remove_Buddy(Wstring const & name) // RA2: 0x00756E10, removes the buddy here and asks the chat server to delete it
 {
 	for (int i = 0; i < g_BuddyList.length(); ++i) {
@@ -11140,7 +11146,7 @@ void __fastcall Remove_Buddy(Wstring const & name) // RA2: 0x00756E10, removes t
 			g_BuddyList.remove(i); // RA2: as above
 			Wstring key(name); // RA2: as above
 			Channel channel; // RA2: as above
-			g_BuddyChannels.remove(key, channel); // RA2: as above
+			Remove_Channel(key, channel); // RA2: as above
 			g_BuddyStatus.remove(key); // RA2: as above
 			User user; // RA2: as above
 			memset(&user, 0, sizeof(user)); // RA2: as above
@@ -11150,7 +11156,6 @@ void __fastcall Remove_Buddy(Wstring const & name) // RA2: 0x00756E10, removes t
 		}
 	}
 }
-#endif
 
 void Refresh_Buddy_Status(void) // RA2: 0x007570E0, asks for the game channels and queues a find request for every buddy
 {
