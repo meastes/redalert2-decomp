@@ -104,7 +104,7 @@ void BeaconClass::Draw(Surface * surface, Rect bounds)
 	}
 
 	int half = BeaconManager.BeaconFrameCount / 2;
-	Draw_Shape(*surface, *scheme->Converter, BeaconArt, (IsFlashing ? half : 0) + Frame % half, pt, bounds, (ShapeFlags_Type)0x600);
+	Draw_Shape(*surface, *scheme->Converter, BeaconArt, (IsFlashing ? half : 0) + Frame % half, pt, bounds, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL));
 
 	if (wcslen(Text) == 0) {
 		return;
@@ -211,7 +211,7 @@ void BeaconClass::Draw_On_Radar(Surface * surface, Rect bounds, bool toclear)
 	if (frame < BeaconManager.RadarBeaconFrameCount + 1 || toclear) {
 		Point2D pt = Map.Coord_To_Radar_Pixel(BeaconCoord, true);
 		if (frame < BeaconManager.RadarBeaconFrameCount && !toclear) {
-			Draw_Shape(*surface, *ColorSchemes[Houses[HouseID]->Scheme]->Converter, RadarBeaconArt, frame, pt, bounds, (ShapeFlags_Type)0x600);
+			Draw_Shape(*surface, *ColorSchemes[Houses[HouseID]->Scheme]->Converter, RadarBeaconArt, frame, pt, bounds, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL));
 		}
 		int width = BeaconManager.RadarBeaconSize.X;
 		int height = BeaconManager.RadarBeaconSize.Y;

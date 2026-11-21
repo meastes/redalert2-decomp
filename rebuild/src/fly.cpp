@@ -597,7 +597,7 @@ void FlyLocomotionClass::Movement_AI(void)
 			LinkedTo->Take_Damage(LinkedTo->Strength, 0, Rule->C4Warhead, NULL, true, true);
 			Cell cell = coord.As_Cell();
 
-			new AnimClass(Combat_Anim(damage, Rule->C4Warhead, Map[cell].Land_Type(), oldcoord), coord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(coord)); // RA2: animation flags 0x2600, at the lowered coordinate
+			new AnimClass(Combat_Anim(damage, Rule->C4Warhead, Map[cell].Land_Type(), oldcoord), coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(coord)); // RA2: animation flags 0x2600, at the lowered coordinate
 			Combat_Lighting(coord, damage, Rule->C4Warhead, 0, 0); // RA2: the light kind flags form
 			Explosion_Damage(coord, damage, NULL, Rule->C4Warhead, true);
 			return;
@@ -1026,9 +1026,9 @@ bool FlyLocomotionClass::Process_Landing(void)
 		CommencedLanding = true;
 
 		if (LinkedTo->TClass->IsDropship) {
-			new AnimClass(AnimTypes[AnimTypeClass::From_Name("DROPLAND")], coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: all arguments given
+			new AnimClass(AnimTypes[AnimTypeClass::From_Name("DROPLAND")], coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: all arguments given
 		} else if (LinkedTo->RTTI == RTTI_AIRCRAFT && ((AircraftClass*)LinkedTo)->Class->IsCarryall) {
-			new AnimClass(AnimTypes[AnimTypeClass::From_Name("CARYLAND")], coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+			new AnimClass(AnimTypes[AnimTypeClass::From_Name("CARYLAND")], coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		}
 
 		if (LinkedTo->Strength > 0) {

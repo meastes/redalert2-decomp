@@ -893,9 +893,9 @@ void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 				coord.Z += BRIDGE_LEPTON_HEIGHT;
 			}
 			if (Data.Anim.What == ANIM_NONE) {
-				anim = new AnimClass(Rule->MoveFlash, coord, 0, 1, ShapeFlags_Type(0x600), 0);
+				anim = new AnimClass(Rule->MoveFlash, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 			} else {
-				anim = new AnimClass(AnimTypes[Data.Anim.What], coord, 0, 1, ShapeFlags_Type(0x600), 0);
+				anim = new AnimClass(AnimTypes[Data.Anim.What], coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 			}
 			if (anim) {
 				if (Data.Anim.Owner != HOUSE_NONE && !Houses[Data.Anim.Owner]->Is_Player_Control()) {

@@ -665,7 +665,7 @@ void AircraftClass::AI(void)
 		TemporalTargetingMe->AI(); // RA2: as above
 	}
 	if ((IsBeingWarpedOut() || IsWarpingIn()) && Frame % 24 == 0 && Rule->ChronoSparkle1 != NULL) { // RA2: as above
-		new AnimClass(Rule->ChronoSparkle1, PositionCoord, 0, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+		new AnimClass(Rule->ChronoSparkle1, PositionCoord, 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	}
 	if (IsWarpingIn() || (IsBeingWarpedOut() && IsImmobilized)) { // RA2: as above
 		Locomotion->Process(); // RA2: as above
@@ -717,13 +717,13 @@ void AircraftClass::AI(void)
 			Coord offset(offset_x, offset_y, -HeightAGL); // RA2: as above
 			current = PositionCoord; // RA2: as above
 			current = current + offset; // RA2: as above
-			new AnimClass(Rule->Wake, current, 0, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+			new AnimClass(Rule->Wake, current, 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		}
 	}
 
 	Coord position = PositionCoord; // RA2: the trailer animation
 	if (Class->Trailer != NULL && Frame % Class->SpawnDelay == 0) { // RA2: as above
-		new AnimClass(Class->Trailer, position, 1, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+		new AnimClass(Class->Trailer, position, 1, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	}
 
 	if (!Map.In_Local_Radar(Get_Cell(), true) && Should_Delete_Off_Map()) { // RA2: the virtual Get_Cell
@@ -757,7 +757,7 @@ void AircraftClass::AI(void)
 	if (HealthRatio < Rule->ConditionRed && HeightAGL > 0) {
 		int chance = Strength != 0 ? 10 : 80; // RA2: as above
 		if (Scen->RandomNumber(0, 99) < chance) { // RA2: Percent_Chance open coded
-			new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], PositionCoord, 0, 1, (ShapeFlags_Type)0x600, 0);
+			new AnimClass(AnimTypes[AnimTypeClass::From_Name("SGRYSMK1")], PositionCoord, 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 		}
 	}
 

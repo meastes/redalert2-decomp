@@ -709,7 +709,7 @@ boolean STDMETHODCALLTYPE DriveLocomotionClass::Process(void)
 	if (Is_Moving_Now() && (Frame % 10) == 0) {
 		if (!LinkedTo->IsOnBridge && LinkedTo->Get_Cell_Ptr()->Land_Type() == LAND_WATER) {
 			if (Rule->Wake != NULL) {
-				new AnimClass(Rule->Wake, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: the executable passes the extra arguments 0, 1, 0x600, 0
+				new AnimClass(Rule->Wake, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: the executable passes the extra arguments 0, 1, 0x600, 0
 			}
 		}
 	}

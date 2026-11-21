@@ -1460,7 +1460,7 @@ void InfantryClass::AI(void)
 	**	cannot do anything else.
 	*/
 	if ((IsBeingWarpedOut() || IsWarpingIn()) && Frame % 24 == 0 && Rule->ChronoSparkle1 != NULL) { // RA2: the executable's AI order (chrono warp, guard area, inline Edge_Of_World_AI)
-		new AnimClass(Rule->ChronoSparkle1, PositionCoord + Coord(120, 120, 0), 0, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+		new AnimClass(Rule->ChronoSparkle1, PositionCoord + Coord(120, 120, 0), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	}
 	if (TemporalTargetingMe != NULL) { // RA2: as above
 		TemporalTargetingMe->AI(); // RA2: as above
@@ -4049,10 +4049,10 @@ void InfantryClass::Doing_AI(void)
 				if (Fetch_Stage() >= Class->DoControls[Doing].Count) {
 					if (Class->DeadBodies.Count() > 0) { // RA2: the type's own dead bodies first
 						new AnimClass(Pick_Dead_Body(Scen->RandomNumber(), Class->DeadBodies), // RA2: the draw is made before the list is read (as meastes' Pick_Dead_Body)
-						 Center_Coord(), 0, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+							Center_Coord(), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 					} else if (!Class->NotHuman) { // RA2: else the rules' for humans
 						new AnimClass(Pick_Dead_Body(Scen->RandomNumber(), Rule->DeadBodies), // RA2: as above
-						 Center_Coord(), 0, 1, (ShapeFlags_Type)0x600, 0); // RA2: as above
+							Center_Coord(), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 					}
 					Delete_Me();
 				}

@@ -794,15 +794,15 @@ void AnimClass::AI(void)
 			bool bridge = z >= height;
 			if (water && !bridge) {
 				if (Class->IsMeteor) {
-					new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], Get_Coord() + Coord(0, 0, 3), 0, 1, ShapeFlags_Type(0x600), 0);
+					new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], Get_Coord() + Coord(0, 0, 3), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				} else {
-					new AnimClass(Rule->Wake, Get_Coord(), 0, 1, ShapeFlags_Type(0x600), 0);
-					new AnimClass(Rule->SplashList[0], Get_Coord() + Coord(0, 0, 3), 0, 1, ShapeFlags_Type(0x600), 0);
+					new AnimClass(Rule->Wake, Get_Coord(), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
+					new AnimClass(Rule->SplashList[0], Get_Coord() + Coord(0, 0, 3), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			} else {
 				if (Class->ExpireAnim) {
 					Vector3 position = Bounce.MyCoord;
-					new AnimClass(Class->ExpireAnim, Coord((int)position.X, (int)position.Y, (int)position.Z), 0, 1, ShapeFlags_Type(0x2600), -30);
+					new AnimClass(Class->ExpireAnim, Coord((int)position.X, (int)position.Y, (int)position.Z), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), -30);
 					Explosion_Damage(Bounce.Get_Bounce_Coord(), (int)Class->Damage, 0, Class->Warhead, 1);
 					Combat_Lighting(Bounce.Get_Bounce_Coord(), (int)Class->Damage, Class->Warhead, 0, 0);
 				}
@@ -813,7 +813,7 @@ void AnimClass::AI(void)
 					int first = Random_Pick(0, Class->SpawnCount);
 					int count = first + Random_Pick(0, Class->SpawnCount);
 					for (int i = 0; i < count; i++)
-						new AnimClass(Class->Spawns, coord, 0, 1, ShapeFlags_Type(0x600), 0);
+						new AnimClass(Class->Spawns, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 				Rect update(0, 0, 0, 0);
 				if (Class->IsTiberium && !bridge) {
@@ -845,7 +845,7 @@ void AnimClass::AI(void)
 	}
 	if (IsActive && !IsToDelete) {
 		if (Class->TrailerAnim && (Class->TrailerSeperation == 1 || Frame % Class->TrailerSeperation == 0))
-			new AnimClass(Class->TrailerAnim, Center_Coord(), 1, 1, ShapeFlags_Type(0x600), 0);
+			new AnimClass(Class->TrailerAnim, Center_Coord(), 1, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 	}
 	if (Class == Rule->FlareAnim && Map[Center_Coord()].Cell_Building()) IsToDelete = true;
 	if (IsToDelete) { Delete_Me(); return; }

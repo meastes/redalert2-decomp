@@ -88,8 +88,6 @@ struct AudioSearch
 	unsigned stamp;
 };
 
-void __fastcall FUN_004085A0(AudioFormat * format);
-
 void __fastcall audioAddChannel(AudioDevice * dev, AudioChannel * chan);
 void __fastcall audioRemoveChannel(AudioChannel * chan);
 void AudioServiceAllDevices(void);

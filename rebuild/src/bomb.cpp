@@ -105,7 +105,7 @@ void BombClass::Detonate(void) // RA2: 0x00435D30
 			Harmless = true; // RA2: as above
 			Coord coord = Target->Position; // RA2: the blast is centred on the target
 			Explosion_Damage(coord, Rule->IvanDamage, Owner, Rule->IvanWarhead, true); // RA2: the rules' Ivan damage and warhead, credited to the planter
-			new AnimClass(Combat_Anim(Rule->IvanDamage, Rule->IvanWarhead, Map[coord.As_Cell()].Land_Type(), coord), coord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(coord)); // RA2: the explosion animation for the Ivan warhead on the land under the target; flags 0x2600 as the executable passes
+			new AnimClass(Combat_Anim(Rule->IvanDamage, Rule->IvanWarhead, Map[coord.As_Cell()].Land_Type(), coord), coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(coord)); // RA2: the explosion animation for the Ivan warhead on the land under the target; flags 0x2600 as the executable passes
 			if (Target != NULL && Target->Fetch_RTTI() == RTTI_BUILDING && ((BuildingClass *)Target)->Class->IsBridgeRepairHut) { // RA2: a bridge repair hut takes the bridge next to it
 				bool found = false; // RA2: whether a bridge lies within two cells of the hut
 				for (int y = -2; y < 3; y++) { // RA2: as above

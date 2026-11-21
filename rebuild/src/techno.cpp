@@ -8865,7 +8865,7 @@ void TechnoClass::DrawVeterancyPips(Point2D const & point, Rect const & rect) co
 			position.X += 5;
 			position.Y += 4;
 		}
-		Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)pips, frame, position, rect, (ShapeFlags_Type)0xE00, NULL, -2, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
+		Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)pips, frame, position, rect, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ALPHA), NULL, -2, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 	}
 }
 
