@@ -1311,6 +1311,44 @@ keys type their characters only with `RA2_NATIVE_SCRIPT_AS_USER=1`. ctests
 32 bits there), the Options page's check boxes reach RA2.INI, and the in-game commands with the
 diplomacy screen run to their frame target.
 
+### Mission soak (lane N25)
+
+`tests/mission_soak.py` (ctests `mission-soak-ra2-allied`, `-ra2-soviet`, `-yr-allied`, `-yr-soviet`,
+label `soak`, outside the default gate) plays every campaign mission of a side headless: mission n is
+reached through the menus with missions 1 to n-1 won by `RA2_NATIVE_FORCE_END`, then played (no forced
+end) for 4,000 game frames with scripted orders, twice with one seed, and the two runs compared. The
+harness side is `link/harness_soak.cpp` (RA2) and the soak part of `yr/glue/yr_harness.cpp` (YR), the
+same lines in both, all test scaffolding:
+
+- `RA2_NATIVE_SOAK=<period>`: `soak-mission` at each scenario start; `soak-trigger <frame> gone|new|tripped`
+  as the live triggers change (a volatile trigger that sprang leaves the list; a persistent one that springs
+  and resets in one frame is not seen); `soak-timer`, `soak-house ... defeated`; `soak-digest` every
+  `<period>` game frames (a hash of every techno's type, house, place, strength and mission, the houses'
+  money, and a hash of the scenario's random generator).
+- `RA2_NATIVE_SOAK_SEED=<n>`: the custom seed Init_Random takes instead of GetTickCount (RA2 CustomSeed,
+  set at Select_Game's seam; YR DAT_00A8ED98, set by a static initialiser, which runs after the original data).
+- `RA2_NATIVE_SOAK_SPEED=<0-6>`: a campaign's frame delay. Main_Loop fixes single play at 2 ticks (30 frames
+  a second) unless `-SPEEDCONTROL`'s flag is set; the harness sets the flag and the delay, so a soak runs
+  at several hundred frames a second.
+- `RA2_NATIVE_SOAK_END=<frames>[@<n>]`: the n-th scenario of the run ends the run (milestone `soak-end`,
+  `--run-to=soak-end`) at that game frame, or when it is won or lost.
+- `RA2_NATIVE_SOAK_DUMP=<from>[-<to>]`: every techno at those frames (to find what a desync changed).
+- `RA2_NATIVE_ORDERS` takes `+<n>[/<p>] <order>`: n game frames into each scenario, then every p frames.
+  RA2's scripted orders gained `deploy <ID|*>` (an MCV unpacks, mission 16).
+
+Runs with one seed at one speed give the same digests. Runs at different speeds do not, and should
+not: the speed is the game's setting, not only a wait. `unknown_a40b18` is Options.GameSpeed (0x00A40B18,
+offset 0), which Main_Loop forces to 2 in a campaign, and normalized animations (`Normalized=yes`, the
+explosions among them) take their rate from it (OptionsClass::Normalize_Delay 0x005D9760). Allied 1, lane
+N25: at speed 0 an explosion (TWLT036) lasts longer, LogicClass::AI's object loop skips the object after
+one that leaves the list during its AI (the original's loop), so a Dreadnought missile misses its frame-64
+fire check, and its target is dropped 32 frames earlier (TechnoClass::AI's `Frame % 16` Can_Fire check).
+Nothing there reads the clock; network games share one speed. Diagnostics for such a hunt:
+`RA2_NATIVE_SOAK_DUMP` also lists spawn managers, targets with their fire error, and the logic list;
+`RA2_NATIVE_SOAK_TRAP=<frame>,<index>` stops at that frame (SIGTRAP) with techno #index's TarCom address in
+`soak_watch_address` and the object in `soak_watch_object`, for a debugger's watchpoint or breakpoint
+condition; `RA2_NATIVE_SOAK_FPS=<n>` holds the measured frame rate (the detail checks).
+
 ## Layers
 
 1. **Native view** (`tools/native_units.py`, run at configure time). Reads the

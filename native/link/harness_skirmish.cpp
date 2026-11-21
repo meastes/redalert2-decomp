@@ -215,8 +215,10 @@ namespace {
 
 }  // namespace
 
+void Native_Soak_Seed();   // harness_soak.cpp (RA2_NATIVE_SOAK_SEED)
 bool Native_Select_Game_Seam(bool fade)
 {
+    Native_Soak_Seed();
     char const *map = ra2port_skirmish_map();
     if (map == 0) {
         return Select_Game(fade);
@@ -265,6 +267,7 @@ bool Native_Skirmish_Menu_Bypass()
 void Native_Harness_Orders(int frame);   // harness_orders.cpp
 void Native_Harness_Input(int frame);    // harness_input.cpp
 void Native_Harness_Save(int frame);     // harness_save.cpp
+void Native_Harness_Soak(int frame);     // harness_soak.cpp (RA2_NATIVE_SOAK, lane N25)
 void Native_Checkpoint();               // harness_save.cpp (host checkpoints)
 void Native_Harness_Event_Test(int frame);   // harness_event_test.cpp (RA2_NATIVE_EVENT_TEST)
 void Native_Harness_Theme_Test(int frame);   // harness_theme_test.cpp (RA2_NATIVE_THEME_TEST)
@@ -418,6 +421,7 @@ bool Native_Main_Loop_Seam()
         char detail[16] = "";
         Append_Int(detail, ++frames_done, sizeof detail);
         ra2port_progress("frame", detail);
+        Native_Harness_Soak(frames_done);
         Native_Harness_Orders(frames_done);
         Native_Alliance_Log(frames_done);
         Native_Harness_Input(frames_done);

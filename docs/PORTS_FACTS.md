@@ -440,6 +440,23 @@ platform layer. It earns no exact-match credit.
   original loops forever there), 2 partly fixed (two menu-control procedures: the combo box's paint and
   some rarely used edit-control messages), 2 not fixed (an unreachable tab control; LCW_Comp on 0-1
   bytes, where the original reads past its data).
+- Campaign missions played (lane N25, 2026-11-21): tests/mission_soak.py reaches each mission as a player does
+  (Single Player, New Campaign, the emblem; the missions before it won by RA2_NATIVE_FORCE_END through their score
+  screens) and plays it 4,000 game frames headless at full speed with a fixed seed, the MCV deployed at frame 30 and
+  the player's army hunting from frame 1,200, every mission twice. The harness logs each scenario start, the triggers
+  leaving the live list (a volatile trigger that sprang), new and tripped ones, the mission timer, defeated houses
+  and a digest every 250 frames (every techno's type, house, place, strength and mission, the money, the random
+  generator). Red Alert 2: 24 of 24 run, Allied 12 lost at frame 1,448 and Soviet 8 at 3,345 (the hunt), no fault,
+  every pair the same. Yuri's Revenge: 14 of 14 run to frame 4,000, no fault, every pair the same. Found and fixed:
+  the Yuri's Revenge harness's `deploy` order remembered a unit by its address across scenarios, and a later
+  mission's enemy submarine allocated at that address was deployed (the two runs of Allied 5 and Allied 7 parted);
+  test scaffolding only, no game fault. Red Alert 2's Allied 1 at the normal campaign speed and at full speed part
+  at frame 62, not from the clock but from the speed setting: the harness's speed is Options.GameSpeed
+  (0x00A40B18), and normalized animations take their rate from it (Normalize_Delay), so an explosion (TWLT036)
+  lives longer at speed 0; LogicClass::AI's loop then skips the next object for a frame, a Dreadnought missile
+  misses its frame-64 fire check and drops its target 32 frames earlier. Original behaviour (the original's loop and
+  rates), and network games share one speed, so no LAN desync. Not compared under Wine: the original carries no
+  digest, and the cause is in matched original code.
 - No signed or notarised builds: no TestFlight, no Mac notarisation, no Windows code signing.
   Gatekeeper and SmartScreen will warn.
 

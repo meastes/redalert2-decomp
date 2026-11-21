@@ -12,6 +12,11 @@ which are left for a person to play. Real campaign wins are the user's (AGENTS.m
   next-mission saves, the ending movies) but plays nothing.
 - **All 24 start and play:** each mission started and ran about 5,000 frames with a save and
   load (lane C3 start sweep, 2026-11-12; C17w audit 2026-11-15).
+- **All 24 played 4,000 frames each (lane N25, 2026-11-21):** ctests `mission-soak-ra2-allied` and
+  `-soviet` (label `soak`) reach each mission through the menus and play it with scripted orders
+  (the MCV deploys, the army hunts every 1,200 frames), twice with one seed: no fault, triggers fire,
+  both runs the same. Allied 12 and Soviet 8 end lost (the scripted hunt loses the player's units),
+  the rest are still running at frame 4,000. Yuri's Revenge's 14 the same (`mission-soak-yr-*`).
 - **Won in a real game (scripted orders, Mac):** 9 of 24.
 
 | Mission | Map | How it was won | Record |

@@ -431,6 +431,16 @@ foreach(yr_campaign_side allied soviet)
   set_tests_properties(yr-native-campaign-${yr_campaign_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 900)
 endforeach()
 
+# ctest mission-soak-yr-allied / -soviet (lane N25; label soak, not in the default gate; named outside yr-native so
+# the gate's -R yr-native leaves them out): every mission of the side reached through the menus and forced wins,
+# then played 4,000 game frames with the soak's scripted orders, twice with one seed (tests/mission_soak.py).
+foreach(yr_soak_side allied soviet)
+  add_test(NAME mission-soak-yr-${yr_soak_side} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/mission_soak.py"
+           --game yr --side ${yr_soak_side} --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+           --work "${CMAKE_CURRENT_BINARY_DIR}/mission-soak/yr-${yr_soak_side}" --twice --jobs 4)
+  set_tests_properties(mission-soak-yr-${yr_soak_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 3600 LABELS soak)
+endforeach()
+
 # ctest yr-native-lan-lobby (lane YW): two games on this Mac over UDP through the Network screens: the
 # host screen, the guest's lobby listing the host's game and its join request (first stage: the join's
 # answer and the game are not reached yet; yr/tests/yr_lan_lobby.py).

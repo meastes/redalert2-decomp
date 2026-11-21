@@ -45,6 +45,8 @@
 #include "shared/rules.hpp"
 #include "shared/terrain.hpp"
 #include "shared/tactical.hpp"
+#include "shared/id_source.hpp"
+#include "shared/cd_timer.hpp"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -406,6 +408,20 @@ int Scripted_Order(char const *command)
     // Capture (an engineer into a building), Sabotage (Tanya's C4: the building is the destination,
     // as a player's click gives it; Scout1231) or Attack.
     int attack_mission = Same(word[1], "capture", 8) ? 8 : Same(word[1], "sabotage", 9) ? 17 : 1;
+    if (Same(word[1], "deploy", 7) && words >= 3) {
+        // `deploy <ID|*>` (lane N25): the player's vehicles of type ID ('*': every one) whose type
+        // deploys into a building (the MCV) unload there (mission 16, the D key's order).
+        int count = 0;
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House != PlayerPtr || techno->Kind_Of() != 1) continue;
+            TechnoTypeClass *type = techno->Techno_Type_Class();
+            if (type == 0 || type->DeploysInto == 0 || !Same_Type(type->ID.Buffer, word[2])) continue;
+            Queue_Mission(TargetClass(techno), 16, TargetClass(), TargetClass());
+            ++count;
+        }
+        return count;
+    }
     if (Same(word[1], "hold", 5) && words >= 3) {
         // `hold <ID>` (lane N5, test scaffolding): the production of ID put on hold, the right click on its cameo
         // (SUSPEND, 0x0F: the event after PRODUCE; InfantryTypeClass kind 0x10, UnitTypeClass 0x28 as `train`).
@@ -711,6 +727,26 @@ void Scripted_Orders(int frame)
     static bool read = false;
     if (!read) { read = true; text = getenv("RA2_NATIVE_ORDERS"); }
     if (!text) return;
+    enum { kRelative = 64 };
+    static int due[kRelative], every[kRelative];
+    static int last_frame = -1;
+    static char scenario[64] = "";
+    static bool cleared = false;
+    if (!cleared) {
+        cleared = true;
+        for (int k = 0; k < kRelative; ++k) due[k] = -1;
+    }
+    bool fresh = false;
+    if (Scen != 0) {
+        fresh = Frame < last_frame;
+        for (int k = 0; k < (int)sizeof scenario - 1; ++k) {
+            if (scenario[k] != Scen->FileName[k]) fresh = true;
+            scenario[k] = Scen->FileName[k];
+            if (scenario[k] == 0) break;
+        }
+        last_frame = Frame;
+    }
+    int index = -1;
     for (char const *p = text; *p;) {
         char command[96];
         int n = 0;
@@ -719,7 +755,23 @@ void Scripted_Orders(int frame)
         if (*p == ';') ++p;
         char const *q = command;
         while (*q == ' ') ++q;
-        if (atoi(q) != frame) continue;
+        ++index;
+        if (*q == '+') {
+            // Lane N25 (the mission soak): "+<n>[/<p>] <order>" runs n game frames (Frame) into each
+            // scenario, then every p frames; a new scenario (Frame went back, or another file) starts
+            // the count again.
+            if (index >= kRelative) continue;
+            if (fresh) {
+                due[index] = atoi(q + 1);
+                every[index] = 0;
+                for (char const *r = q + 1; *r && *r != ' '; ++r)
+                    if (*r == '/') every[index] = atoi(r + 1);
+            }
+            if (due[index] < 0 || Frame < due[index]) continue;
+            due[index] = every[index] > 0 ? Frame + every[index] : -1;
+        } else if (atoi(q) != frame) {
+            continue;
+        }
         int count = Scripted_Order(q);
         char detail[160] = "";
         Append(detail, q);

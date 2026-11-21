@@ -479,6 +479,19 @@ if(RA2_NATIVE_SDL)
                  ${ra2_wine_args_campaign${ra2_campaign_side}})
         set_tests_properties(native-campaign-${ra2_campaign_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1500)
       endforeach()
+      # 8a''. Mission soak (lane N25; label soak, not in the default gate): every mission of a side
+      #      reached through the menus and the forced wins before it, then played 4,000 game frames
+      #      with the soak's scripted orders, twice with one seed (tests/mission_soak.py; about
+      #      10 minutes a side with four runs at a time). Mac build only.
+      if(NOT WIN32 AND NOT CMAKE_SYSTEM_NAME STREQUAL "iOS")
+        foreach(ra2_soak_side allied soviet)
+          add_test(NAME mission-soak-ra2-${ra2_soak_side} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/mission_soak.py"
+                   --game ra2 --side ${ra2_soak_side} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/mission-soak/ra2-${ra2_soak_side}"
+                   --twice --jobs 4)
+          set_tests_properties(mission-soak-ra2-${ra2_soak_side} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 3600 LABELS soak)
+        endforeach()
+      endif()
       # 8f. Pointers moved by negative unsigned 32-bit offsets (C17 pitch sweep; codex4 R749/R751 SAVE0029):
       #     link/selftest_draw.cpp in the game binary; under Wine on the Windows build.
       if(WIN32)
@@ -810,7 +823,8 @@ set(ra2_slow_tests native-lan-pair network native-lan-lobby network native-lan-b
     native-lan-random-map network
     native-campaign-allied campaign native-campaign-soviet campaign
     native-original-save-write saves native-hd-air-base hd-aircraft native-hd-air-base-3x hd-aircraft
-    native-widescreen widescreen)
+    native-widescreen widescreen
+    mission-soak-ra2-allied soak mission-soak-ra2-soviet soak mission-soak-yr-allied soak mission-soak-yr-soviet soak)
 get_property(ra2_all_tests DIRECTORY PROPERTY TESTS)
 set(ra2_tiered "")
 foreach(ra2_test IN LISTS ra2_static_tests)

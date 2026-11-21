@@ -111,6 +111,18 @@
 //                   at the player's first techno (a SpotLightClass, as Combat_Lighting makes for a bright warhead;
 //                   lane N5: Delete_All_Objects deletes the living ones when a game is loaded or a new one starts);
 //   occupants <BLDG>  logs `harness-occupants <BLDG> h<house> <n>[p]`: the garrison of each building of type BLDG;
+// "+<n>[/<p>] <order>" (lane N25, the mission soak): n game frames (Unsorted::CurrentFrame) into each scenario, then
+// every p frames; a new scenario starts the count again.
+// RA2_NATIVE_SOAK=<period> and the rest of the mission soak (lane N25; RA2's link/harness_soak.cpp, the same lines):
+//   soak-mission <file> loop <n> triggers <live> types <n>; soak-trigger <frame> gone|new <ID> <name>;
+//   soak-trigger <frame> tripped <ID> <bits>; soak-timer <frame> started|stopped <left>; soak-house <frame> <i>:<name>
+//   defeated; soak-digest <frame> <hash> technos <n> player <n> credits <n> rng <hash> every <period> game frames;
+//   RA2_NATIVE_SOAK_DUMP=<from>[-<to>] every techno at those frames; RA2_NATIVE_SOAK_SEED=<n> the custom seed
+//   (DAT_00A8ED98, which Game::InitRandom 0x0052FC20 then takes instead of GetTickCount; set by a static
+//   initialiser, which runs after the original data, glue/yr_host_glue.cpp); RA2_NATIVE_SOAK_SPEED=<0-6> a campaign's
+//   frame delay (Main_Loop keeps it at 2 ticks unless DAT_00A8EDDC, -SPEEDCONTROL's flag, is set: the harness sets it and
+//   Options.GameSpeed); RA2_NATIVE_SOAK_END=<frames>[@<n>] ends the run (milestone soak-end) when the n-th scenario
+//   reaches that frame, or is won or lost.
 // RA2_NATIVE_FORCE_END=<f1>[,<f2>...][,lose]: at the first loop frame at or past each entry the game
 // ends as the house AI ends it on a win or defeat (PlayerWins / PlayerLoses, read by the main loop);
 // logs `force-end: win|loss at frame <f> in <scenario>`, so a campaign goes on mission by mission. With
@@ -125,6 +137,10 @@
 #include "target.h"
 #include "queue.h"
 #include "scenario.h"
+#include "trigger.h"
+#include "trigtype.h"
+#include "options.h"
+#include "goptions.h"
 #include "mission.hh"
 #include "rtti.hh"
 #include "_tactica.h"
@@ -196,6 +212,10 @@ struct Order { int frame; char text[64]; };
 Order orders[128];
 int order_count = -1;
 int order_done = 0;
+// "+<n>[/<p>]" orders (lane N25): run at game frame n of each scenario, then every p frames
+struct Relative { int at; int every; int due; char text[64]; };
+Relative relative[32];
+int relative_count = 0;
 
 TechnoClass * shoot_target = NULL;
 TechnoClass * produced = NULL;		// produce: the last unit made and its factory (lane N3)
@@ -230,6 +250,24 @@ void Read_Orders(void)
 	for (char const * p = env; p && *p && order_count < 128;) {
 		while (*p == ' ' || *p == ';') ++p;
 		if (!*p) break;
+		if (*p == '+') {
+			Relative & r = relative[relative_count < 32 ? relative_count : 31];
+			r.at = atoi(p + 1);
+			r.every = 0;
+			r.due = -1;
+			++p;
+			while ((*p >= '0' && *p <= '9') || *p == '/') {
+				if (*p == '/') r.every = atoi(p + 1);
+				++p;
+			}
+			while (*p == ' ') ++p;
+			int n = 0;
+			while (*p && *p != ';') { if (n < 63) r.text[n++] = *p; ++p; }
+			while (n > 0 && r.text[n - 1] == ' ') --n;
+			r.text[n] = 0;
+			if (relative_count < 32) ++relative_count;
+			continue;
+		}
 		Order & o = orders[order_count];
 		o.frame = atoi(p);
 		while (*p >= '0' && *p <= '9') ++p;
@@ -320,7 +358,14 @@ TechnoClass * Tracked(char const * id, bool * gone)
 	*gone = false;
 	for (int k = 0; k < deploy_count; ++k) {
 		if (strcmp(deploy_type[k], id)) continue;
-		for (int i = 0; i < Technos.Count(); ++i) if (Technos[i] == deploy_last[k] && !Technos[i]->IsInLimbo) return(Technos[i]);
+		// the same object only if it is still the player's of that type: a freed unit's memory may hold a new object
+		// (lane N25: a mission soak's tracked MCV of an earlier mission came back as an enemy submarine and was deployed)
+		for (int i = 0; i < Technos.Count(); ++i) {
+			TechnoClass * techno = Technos[i];
+			if (techno == deploy_last[k] && !techno->IsInLimbo && techno->House == PlayerPtr && !strcmp(Type_Name(techno), id)) {
+				return(techno);
+			}
+		}
 		*gone = true;
 	}
 	return(NULL);
@@ -1222,11 +1267,205 @@ void Force_End(int frame)
 	}
 }
 
+
+// The mission soak (lane N25): see the file comment; the same lines as RA2's link/harness_soak.cpp.
+} // namespace
+extern "C" void ra2port_progress(const char * milestone, const char * detail);	// port/src/run_progress.cpp
+namespace {
+extern int DAT_00A8ED98;	// init.cpp: the custom seed (Red Alert's CustomSeed)
+extern bool DAT_00A8EDDC;	// mainloop.cpp: -SPEEDCONTROL's flag (Red Alert 2's GameControlsShown)
+int const soak_seed_set = (getenv("RA2_NATIVE_SOAK_SEED") ? (DAT_00A8ED98 = atoi(getenv("RA2_NATIVE_SOAK_SEED")), 1) : 0);
+
+unsigned Soak_Mix(unsigned hash, unsigned value)
+{
+	for (int i = 0; i < 4; ++i) {
+		hash ^= (value >> (8 * i)) & 0xFF;
+		hash *= 16777619u;
+	}
+	return(hash);
+}
+unsigned Soak_Mix_Text(unsigned hash, char const * text)
+{
+	for (; text && *text; ++text) hash = Soak_Mix(hash, (unsigned char)*text);
+	return(hash);
+}
+struct SoakSeen { TriggerClass * trigger; TriggerTypeClass * type; int tripped; };
+int const kSoakTriggers = 4096;
+SoakSeen soak_seen[kSoakTriggers];
+int soak_seen_count = 0;
+char soak_scenario[_MAX_PATH] = "";
+int soak_last_frame = -1;
+bool soak_timer = false;
+bool soak_house_done[64];
+int soak_missions = 0;
+
+char const * Soak_Id(TriggerTypeClass * type) { return(type != NULL ? type->Name() : "?"); }
+char const * Soak_Name(TriggerTypeClass * type) { return(type != NULL ? type->Full_Name() : "?"); }
+
+void Soak_Triggers(bool report, int frame)
+{
+	static SoakSeen now[kSoakTriggers];
+	int count = 0;
+	for (int i = 0; i < Triggers.Count() && count < kSoakTriggers; ++i) {
+		TriggerClass * trigger = Triggers[i];
+		if (trigger == NULL) continue;
+		now[count].trigger = trigger;
+		now[count].type = trigger->Class;
+		now[count].tripped = 0;
+		for (int bit = 0; bit < 32; ++bit) {
+			if (trigger->Is_Event_Tripped(bit)) now[count].tripped |= 1 << bit;
+		}
+		++count;
+	}
+	if (report) {
+		for (int i = 0; i < soak_seen_count; ++i) {
+			int k = 0;
+			while (k < count && !(now[k].trigger == soak_seen[i].trigger && now[k].type == soak_seen[i].type)) ++k;
+			if (k == count) {
+				fprintf(stderr, "soak-trigger %d gone %s %s\n", frame, Soak_Id(soak_seen[i].type), Soak_Name(soak_seen[i].type));
+			} else if (now[k].tripped != soak_seen[i].tripped) {
+				fprintf(stderr, "soak-trigger %d tripped %s %x\n", frame, Soak_Id(now[k].type), (unsigned)now[k].tripped);
+			}
+		}
+		for (int k = 0; k < count; ++k) {
+			int i = 0;
+			while (i < soak_seen_count && !(now[k].trigger == soak_seen[i].trigger && now[k].type == soak_seen[i].type)) ++i;
+			if (i == soak_seen_count) fprintf(stderr, "soak-trigger %d new %s %s\n", frame, Soak_Id(now[k].type), Soak_Name(now[k].type));
+		}
+	}
+	for (int k = 0; k < count; ++k) soak_seen[k] = now[k];
+	soak_seen_count = count;
+}
+
+void Soak_Digest(int frame, bool dump)
+{
+	unsigned hash = 2166136261u;
+	int player = 0;
+	for (int i = 0; i < Technos.Count(); ++i) {
+		TechnoClass * techno = Technos[i];
+		if (techno == NULL) continue;
+		Coord coord = techno->Center_Coord();
+		int house = techno->House != NULL ? techno->House->ID : -1;
+		int mission = (int)techno->Get_Mission();
+		if (dump) {
+			fprintf(stderr, "soak-techno %d #%d %s h%d %d,%d,%d s%d m%d\n", frame, i, Type_Name(techno), house, coord.X, coord.Y,
+				coord.Z, techno->Strength, mission);
+			continue;
+		}
+		hash = Soak_Mix_Text(hash, Type_Name(techno));
+		hash = Soak_Mix(hash, house);
+		hash = Soak_Mix(hash, coord.X);
+		hash = Soak_Mix(hash, coord.Y);
+		hash = Soak_Mix(hash, coord.Z);
+		hash = Soak_Mix(hash, techno->Strength);
+		hash = Soak_Mix(hash, mission);
+		if (techno->House == PlayerPtr) ++player;
+	}
+	if (dump) return;
+	for (int i = 0; i < Houses.Count(); ++i) {
+		if (Houses[i] != NULL) hash = Soak_Mix(hash, Houses[i]->Credits);
+	}
+	unsigned rng = 2166136261u;
+	unsigned char const * bytes = (unsigned char const *)&Scen->RandomNumber;
+	for (unsigned i = 0; i < sizeof(Scen->RandomNumber); ++i) rng = Soak_Mix(rng, bytes[i]);
+	fprintf(stderr, "soak-digest %d %08x technos %d player %d credits %d rng %08x\n", frame, hash, Technos.Count(), player,
+		PlayerPtr != NULL ? PlayerPtr->Credits : -1, rng);
+}
+
+void Soak(int loop_frame)
+{
+	static int period = -2, speed = -2, dump_from = -1, dump_to = -2, end_frames = -2, end_mission = 1;
+	if (period == -2) {
+		char const * env = getenv("RA2_NATIVE_SOAK");
+		period = env != NULL ? atoi(env) : -1;
+		if (period == 0) period = 500;
+		env = getenv("RA2_NATIVE_SOAK_SPEED");
+		speed = env != NULL && *env ? atoi(env) : -1;
+		if ((env = getenv("RA2_NATIVE_SOAK_DUMP")) != NULL) {
+			dump_from = dump_to = atoi(env);
+			for (char const * p = env; *p; ++p) if (*p == '-') dump_to = atoi(p + 1);
+		}
+		env = getenv("RA2_NATIVE_SOAK_END");
+		end_frames = env != NULL ? atoi(env) : -1;
+		for (char const * p = env; p != NULL && *p; ++p) if (*p == '@') end_mission = atoi(p + 1);
+	}
+	if (speed >= 0) {
+		DAT_00A8EDDC = true;
+		Options.GameSpeed = speed;
+	}
+	if (period < 0 || Scen == NULL) return;
+	int frame = Unsorted::CurrentFrame;
+	bool renamed = strncmp(soak_scenario, Scen->ScenarioName, sizeof(soak_scenario)) != 0;
+	if (frame < soak_last_frame || renamed) {
+		strncpy(soak_scenario, Scen->ScenarioName, sizeof(soak_scenario) - 1);
+		++soak_missions;
+		Soak_Triggers(false, frame);
+		fprintf(stderr, "soak-mission %s loop %d triggers %d types %d\n", soak_scenario, loop_frame, soak_seen_count,
+			TriggerTypes.Count());
+		soak_timer = false;
+		memset(soak_house_done, 0, sizeof(soak_house_done));
+	} else if (frame != soak_last_frame) {
+		Soak_Triggers(true, frame);
+	}
+	if (frame != soak_last_frame) {
+		bool active = Scen->MissionTimer.Is_Active();
+		if (active != soak_timer) {
+			fprintf(stderr, "soak-timer %d %s %ld\n", frame, active ? "started" : "stopped", (long)Scen->MissionTimer);
+			soak_timer = active;
+		}
+		for (int i = 0; i < Houses.Count() && i < 64; ++i) {
+			HouseClass * house = Houses[i];
+			if (house == NULL || soak_house_done[i] || !house->IsDefeated) continue;
+			soak_house_done[i] = true;
+			fprintf(stderr, "soak-house %d %d:%s defeated\n", frame, i, (char const *)house->IniName);
+		}
+		if (frame % period == 0) Soak_Digest(frame, false);
+		if (frame >= dump_from && frame <= dump_to) Soak_Digest(frame, true);
+	}
+	soak_last_frame = frame;
+	if (end_frames >= 0 && soak_missions == end_mission) {
+		char const * how = NULL;
+		if (PlayerWins) how = "won";
+		else if (PlayerLoses || (PlayerPtr != NULL && PlayerPtr->IsDefeated)) how = "lost";
+		else if (frame >= end_frames) how = "played";
+		if (how != NULL) {
+			char detail[_MAX_PATH + 64];
+			snprintf(detail, sizeof(detail), "%s %s at frame %d", soak_scenario, how, frame);
+			fprintf(stderr, "soak-end %s\n", detail);
+			ra2port_progress("soak-end", detail);
+			end_frames = -1;
+		}
+	}
+}
+
+// The "+<n>[/<p>]" orders of the scenario playing (Read_Orders keeps them apart).
+void Relative_Orders(int frame)
+{
+	static int last = -1;
+	static char scenario[_MAX_PATH] = "";
+	if (Scen == NULL || relative_count == 0) return;
+	int now = Unsorted::CurrentFrame;
+	if (now < last || strncmp(scenario, Scen->ScenarioName, sizeof(scenario)) != 0) {
+		strncpy(scenario, Scen->ScenarioName, sizeof(scenario) - 1);
+		for (int i = 0; i < relative_count; ++i) relative[i].due = relative[i].at;
+		deploy_count = 0;	// `deploy` tracks units of the scenario playing only
+	}
+	last = now;
+	for (int i = 0; i < relative_count; ++i) {
+		Relative & r = relative[i];
+		if (r.due < 0 || now < r.due) continue;
+		r.due = r.every > 0 ? now + r.every : -1;
+		int result = Run_Order(frame, r.text);
+		fprintf(stderr, "harness-order +%d %s: %d\n", now, r.text, result);
+	}
+}
 } // namespace
 
 void yr_native_harness_frame(int frame)
 {
 	if (order_count < 0) Read_Orders();
+	Soak(frame);
+	Relative_Orders(frame);
 	while (order_done < order_count && frame >= orders[order_done].frame) {
 		int result = Run_Order(frame, orders[order_done].text);
 		fprintf(stderr, "harness-order %d %s: %d\n", frame, orders[order_done].text, result);
