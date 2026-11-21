@@ -2663,7 +2663,7 @@ static inline bool Should_Draw_Active_Action(TechnoClass * techno, bool has_node
 		&& (has_nodes || techno->IsSelected);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 1665 bytes differ (both waypoint renderers use the same node and active-order predicates; all 50 direct calls agree)
+#ifdef RA2_NON_MATCHING // not exact: 1665 bytes differ (both waypoint renderers use the same node and active-order predicates; all 50 direct calls agree and every instruction is the image's but for its stack offsets: the frame is 0x178 against 0x174, the attack-move flag not beside has_nodes)
 void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token();
@@ -2744,7 +2744,6 @@ bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; wh
 	return false; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2018 bytes differ (ra2-decomp's filled-waypoints twin text through RA2's helpers; the direct calls agree but two: the image calls Planning_Fill_Dot at the attack-move end where this text expands it, and expands Reached where this text calls it, 16 to 34 inline budget units apart)
 // RA2: the filled waypoints and their helpers are ra2-decomp's twin text
 int __fastcall Planning_Mega_Frame(TechnoClass * techno);
 void __fastcall Planning_Draw_Line(Point2D start, Point2D end, int offset, int color, bool dashed);
@@ -2793,8 +2792,7 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 	Coord origin = techno->As_Coord(); // RA2: as above
 	Point2D center = Planning_Coord_Pixel(origin); // RA2: as above
 	Point2D source; // RA2: as above
-	source.X = center.X; // RA2: as above
-	source.Y = center.Y; // RA2: as above
+	source = center; // RA2: assigned whole, as the family's other points and rectangles are (ra2-decomp's twin copies the two fields)
 	int color = Unit_Path_Tint(techno, WAYPOINT_NORMAL); // RA2: as above
 	int bright = Unit_Path_Tint(techno, WAYPOINT_BRIGHT); // RA2: as above
 	bool has_nodes = Has_Planned_Nodes(token); // RA2: as above
@@ -2854,7 +2852,6 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno)); // RA2: as above
 	if (frame != -1) Planning_Draw_Midpoint_Shape(source, target, path_color, fill, frame); // RA2: as above
 }
-#endif
 
 void __fastcall Planning_Draw_Node(PlanningNodeClass * node) // RA2: 0x00619420; draws the lines from the nodes before this one (and from its own loop) to it as solid lines, and its box
 {

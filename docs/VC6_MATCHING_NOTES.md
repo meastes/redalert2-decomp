@@ -3589,3 +3589,48 @@ Found in the rebuild (lane F14, high): two inline_call rows worked from prepared
   Pick_Random_Tile_Variant 0x55D640 was one register swap from the image with the diamond test written as four
   comparisons, and exact with the matched twin's `Map.In_Radar(cell)` (expanded; the member reads the cell into
   x and y first). The twin's other forms with the test spelled out stayed at 694 bytes.
+
+## A budget a few units long can sit in how a small struct is copied; depth 9 and the wlib lists (found in the rebuild (lane F16, high))
+
+- Found in the rebuild (lane F16, high): planmgr Planning_Draw_Filled_Techno 0x618C00 was two call decisions from
+  the image with the matched twin's text (lane F15). Before changing a callee, test whether the body is already
+  right: make the disputed callee free with a probe form (here `Reached` as one `&&` expression; its own row then
+  differs, so the form is not its text) and give the other the size the window asks for. Every instruction then
+  agreed except the expanded test itself, so only the budget was open and no statement had to move.
+- Map the window with probe stores inside a callee that is expanded once before the disputed sites (scalar
+  global stores, 4 units each, in `Has_Planned_Nodes`): 24 units and up give the image's calls, 16 to 20 flip a
+  third site (`Lead_Pixel`) first. A top-of-root spend cannot reach under 42 (40 or less is free), a callee's
+  body can.
+- The root's own size counts twice when 2 * S is over 1000: a root 12 units smaller is 24 units of budget. The
+  twin copied the path start field by field (`Point2D source; source.X = center.X; source.Y = center.Y;`);
+  declared and assigned whole (`Point2D source; source = center;`) is the same instructions, a smaller root and
+  the image's call list: exact (2,076 B). Other spellings of the same copy are each a different result:
+  `Point2D source = center;` leaves `Reached` a call and `Point2D source(center.X, center.Y);` expands
+  `Lead_Pixel`. When a budget is a few units long and the callees are the twin's, list the root's struct copies
+  and coordinate locals before the callees.
+- Declared-then-assigned rectangles cost 8 to 10 units each over initialised ones (Planning_Fill_Dot 68, 76,
+  86), with the same bytes for the function's own row; a sibling's form (Planning_Draw_Dot is declared then
+  assigned, 78) is not evidence for the other (Fill_Dot at 76 or 86 breaks the filled renderer).
+- wlib's `ArrayList` in this tree is the archive's text unchanged (mischa85's is the same file, ra2-decomp uses
+  the archive's), and both references' `Dictionary` takes keys as `K &`; the tree's `K const &` exists for
+  ownrdraw's `unsigned int` keys, where ra2-decomp keys all three tables by `HWND` with one hash function (the
+  image has one, 0x5DE970, bound here under three names). With `K &` wonline's lookups compile and decide the
+  same, so the const is not what expands `keyHash` in CChatEventSink::OnFind 0x762F70.
+- `growVector` is 170 units and `shrinkVector` 174 (il_lab, wonline, `#define private public` in the spec's
+  `pre`): both just under the auto-inline limit, so they expand wherever the budget allows and a root a few call
+  statements larger flips them (OnFind expands `shrinkVector` with three more call statements).
+  `#pragma auto_inline(off)` around a template member's definition in a header does nothing (the members are
+  instantiated where the pragma no longer holds); to probe "never expanded", change the member's size instead.
+- Tell a frame miss from an inline miss before working a "calls agree" row: disassemble both, replace every
+  `[esp + n]` and the frame size by one token and compare. planmgr Planning_Draw_Techno 0x6182F0 (1,665 bytes
+  counted) is then the image instruction for instruction; all of the difference is displacement sizes from a
+  frame of 0x178 against 0x174. Its three flags show the shape: the image keeps has_nodes and the attack-move
+  flag in one dword (0x12, 0x13), ours gives each its own. Where a declaration stands (function top, block, or
+  apart from its assignment) does not move them, and every statement form that changes the frame here does it by
+  changing which members expand.
+- Wonline_Main_Dialog_Proc 0x7469C0: the image expands the placement new of `ArrayList<int>::add` and calls
+  `growVector` twice beside it at four sites. Under main's helper chain the placement new is at depth 9 (a call,
+  as "Inline depth limit" says); one helper level less, in eight combinations, expands the placement new and
+  `growVector` with it, the budget there being ample. So the image has the two `growVector` calls one level below
+  the placement new of the same `add`, which the archive's `add` cannot give and no reference has (main's
+  `Make_Room`): the row is on the variation list.
