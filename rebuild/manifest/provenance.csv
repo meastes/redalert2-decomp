@@ -7464,9 +7464,11 @@ map,005550a0,?Internal_Damage_High_Bridge_NS_BottomLeft@MapClass@@AAEXABVCell@@W
 map,005551b0,?Internal_Damage_High_Bridge_NS_TopRight@MapClass@@AAEXABVCell@@W4FacingType@@@Z,263,a,mischa85,yes,,,
 map,005552c0,?Internal_Destroy_High_Bridge_NS_BottomLeft@MapClass@@AAEXABVCell@@W4FacingType@@@Z,964,a,mischa85,yes,,,
 map,00555690,?Internal_Destroy_High_Bridge_NS_TopRight@MapClass@@AAEXABVCell@@W4FacingType@@@Z,964,a,mischa85,yes,,,
+map,00556520,?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z,1546,a,ra2-decomp,edit,12,4 bytes -> exact with the twin's deck-walk statement and helper (lane F12),"twin statement at the same place: `Cell const & from = walk; walk = Adjacent_Cell_L(from, step);` is ra2-decomp src/map.cpp DestroyConcreteBridgeAt 0x574000 (matched there), with its file-local Adjacent_Cell_L (twin_helpers.csv); the reference local and the table-first helper give the image its mixed sum (X table + cell, Y cell + table); lane F12"
 map,00556b30,?Is_Bridge_Span_End@@YI_NHHPBVCellClass@@@Z,187,a,mischa85,yes,,,
 map,00556bf0,?Destroy_Low_Bridge_Span@MapClass@@AAEXABVCell@@@Z,572,a,mischa85,yes,,,
 map,00556e30,?Destroy_Low_Bridge2_Span@MapClass@@AAEXABVCell@@@Z,608,a,mischa85,yes,,,
+map,00557090,?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z,1542,a,ra2-decomp,edit,2,4 bytes -> exact with the twin's deck-walk statement and helper (lane F12),"twin statement at the same place: `Cell const & from = walk; walk = Adjacent_Cell_L(from, step);` is ra2-decomp src/map.cpp DestroyWoodBridgeAt 0x574C20 (matched there), with its file-local Adjacent_Cell_L (twin_helpers.csv); the reference local and the table-first helper give the image its mixed sum (X table + cell, Y cell + table); lane F12"
 map,005576a0,?Destroy_Low_Bridge_EW@MapClass@@AAEXABVCell@@@Z,798,a,mischa85,yes,,,
 map,005579c0,?Destroy_Low_Bridge_NS@MapClass@@AAEXABVCell@@@Z,800,a,mischa85,yes,,,
 map,00557ce0,?Destroy_Low_Bridge2_EW@MapClass@@AAEXABVCell@@@Z,813,a,mischa85,yes,,,

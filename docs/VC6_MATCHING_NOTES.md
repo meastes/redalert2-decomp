@@ -3373,3 +3373,49 @@ r2491 to r2495). Nothing landed: the form is a perturbation, not the text.
 - Reading it: `rebuild/tools/tailmap.compile_text` on a scratch copy with the guard open, one edit list per variant,
   about one second a compile; sweep the number of converted sites in source order from both ends before reading any
   single site as the cause.
+
+## A mixed-order member sum comes from a table-first helper called through a reference local, and equal locals tie by object, not by count (found in the rebuild (lane F12, high))
+Found in the rebuild (lane F12, high): the register_order bucket of `rebuild/manifest/tail_buckets.csv`, one lane-hour.
+- A two-member sum whose members take opposite operand orders is not an operand spelling. MapClass::Destroy_Bridge2_Near
+  0x556520 and Destroy_Low_Bridge_Near 0x557090 (4 bytes each) add the deck walk's X as table + cell and its Y as
+  cell + table. `Adjacent_Cell(from, step)` (inline.h: cell + table) gives cell-first for both; the direct sum
+  `AdjacentCell[step & 7] + walk` gives table-first for both and also turns the later `(table + walk) + table`
+  statement (one-object spellings are shared across sites). Only the twin's statement gives the mix: a file-local
+  `static inline Cell Adjacent_Cell_L(Cell const &cell, FacingType facing) {return (AdjacentCell[(int)facing & 7] + cell);}`
+  called as `Cell const & from = walk; walk = Adjacent_Cell_L(from, step);` (ra2-decomp src/map.cpp,
+  DestroyConcreteBridgeAt and DestroyWoodBridgeAt). Without the reference local (`walk = Adjacent_Cell_L(walk, step)`)
+  the frame changes (0x30 for 0x34) and 1,250 bytes differ. Read a mixed sum as "a helper with the other operand order
+  at this one site", and look for it in the twin unit before trying spellings.
+- Two locals with equal uses, each loaded from a global, tie by the objects they are loaded from. netshare
+  Set_Slot_Names 0x5C8DD0 (4 bytes): `open` and `closed` are read from the fixed lobby entries. With the entries as
+  one array (`LobbyEntries[0]`, `LobbyEntries[1]`, mischa85's form) the declaration order sets the load order and the
+  later-declared local takes ebx, so the image's pair (open loaded first, into ebx) cannot be written: either the
+  loads or the registers are exchanged. With the entries as separate objects (main's lobby.hpp and ra2-decomp's
+  DAT_00AC119C.. both declare seven pointers) the twin's order (open, then closed) is exact, in either declaration
+  order of the two globals. The tie does not move with file-scope declarations: 0 to 63 probe structs before the
+  function leave the 4 bytes as they are. A register exchange between two locals loaded from neighbouring elements of
+  one array is a question about the array, not about the function.
+  Not landed: with the seven entries declared separately tree-wide, netshare keeps every row and gains this one, but
+  wonline's CChatEventSink::OnPrivateGameOptions 0x761C50 (2,360 B), which reads two of the entries, loses one
+  `lea ebx, [eax + edi]` operand order in its user-list walk at every count tried, and Draw_Player_List 0x73FEE0
+  flips by count (the patch is kept in private/dossiers/f12_lobby_entries_separate.patch). One function's tie under
+  the array form and another's under the separate form: settle the reader of two entries first.
+- The expanded DynamicVectorClass::Add growth sum (`add G,L` or `add L,G`) is not a file-scope declaration count
+  either: wonline's Add_Test_Player_Ol_Cruddy 0x7513E0, Add_Test_Player_Potato 0x7514D0, Add_Test_Player_Potato_Too
+  0x7515B0 (image `add ecx, eax`, sum in the GrowthStep register) and Apply_Endpoint_Map 0x75C570 (image the other
+  way) keep their 2 bytes at every one of 0 to 63 probe structs, and a standalone vector object in place of
+  `Session.Players` changes nothing. Their text is main's and the twin's word for word, and main's unit had no Add
+  switch; the Scout1065 note (a whole-function count) still describes them, and nothing in the function's own text
+  is left to differ.
+- A flat floating-point sum handed to a double parameter is sorted before the argument slot is reserved, so the
+  place of `sub esp, 8` does not answer to the sum's text. TechnoClass::Railgun_Beam_Damage 0x6D6ED0 (19 bytes): the
+  image reserves the slot after the third product, ours after the second; `x*x + z*z + y*y`, `x*x + y*y + z*z`,
+  `y*y + z*z + x*x`, the twin's `y*y + (x*x + z*z)`, a named `double sum` and a float-returning root all give the
+  same bytes (reading the members without the three double locals changes the loads instead). Main's accepted text
+  is the same helper; what differs is outside the helper.
+- Twelve commutative sums over one table do not map one to one onto their spellings. LaserDrawClass::Draw_It
+  0x5334F0: with the function statics masked the tree's text is one load pair from the image (the second
+  antialiased line's start X: the image loads the table entry first). Each of the twelve single flips is worse or
+  inert (four are inert: both sums of the second multiplying line and of the first shaded line), flipping the
+  differing sum itself moves the difference to its neighbour, and the twin's twelve orders are 41 bytes further
+  off. A masked diff (statics normalised) is the first step for a row whose first difference is an unbound static.

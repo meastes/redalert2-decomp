@@ -6159,7 +6159,12 @@ void MapClass::Repair_Bridge(Cell const & cell)
 #endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (the X input and the scheduling of two sign extensions in the first deck walk)
+// Adjacent_Cell_L: text adopted from ra2-decomp src/map.cpp (file-local there; its DestroyConcreteBridgeAt and DestroyWoodBridgeAt match through it)
+static inline Cell Adjacent_Cell_L(Cell const & cell, FacingType facing)
+{
+	return (AdjacentCell[(int)facing & 7] + cell);
+}
+
 void MapClass::Destroy_Bridge2_Near(Cell const &cell) // RA2: RA2's form
 {
 	for (int x = -2; x < 3; ++x) { // RA2: as above
@@ -6200,7 +6205,8 @@ void MapClass::Destroy_Bridge2_Near(Cell const &cell) // RA2: RA2's form
 		else step = FACING_E; // RA2: as above
 		CellClass *walkptr; // RA2: as above
 		while (true) {
-			Cell const & from = walk; walk = Adjacent_Cell(from, step); // RA2: as above
+			Cell const & from = walk; // RA2: as above
+			walk = Adjacent_Cell_L(from, step); // RA2: the twin's statement (ra2-decomp DestroyConcreteBridgeAt, DestroyWoodBridgeAt): the table entry is the left operand
 			walkptr = &Map[walk];
 			if (walkptr->WasUnderBridge) { // RA2: as above
 				if (++count >= 4) return; // RA2: as above
@@ -6265,7 +6271,6 @@ destroy_connections: // RA2: as above
 finished: // RA2: as above
 	Zone_Reset();
 }
-#endif
 
 
 bool __fastcall Is_Bridge_Span_End(int tile, int kind, CellClass const *cell) // RA2: RA2's form
@@ -6355,7 +6360,6 @@ void MapClass::Destroy_Low_Bridge2_Span(Cell const &cell) // RA2: RA2's form
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (the early span walk exchanges the X input and moves two sign extensions)
 void MapClass::Destroy_Low_Bridge_Near(Cell const &cell) // RA2: RA2's form
 {
 	for (int x = -2; x < 3; ++x) { // RA2: as above
@@ -6396,7 +6400,8 @@ void MapClass::Destroy_Low_Bridge_Near(Cell const &cell) // RA2: RA2's form
 		else step = FACING_E; // RA2: as above
 		CellClass *walkptr; // RA2: as above
 		while (true) {
-			Cell const & from = walk; walk = Adjacent_Cell(from, step); // RA2: as above
+			Cell const & from = walk; // RA2: as above
+			walk = Adjacent_Cell_L(from, step); // RA2: the twin's statement (ra2-decomp DestroyConcreteBridgeAt, DestroyWoodBridgeAt): the table entry is the left operand
 			walkptr = &Map[walk];
 			if (walkptr->WasUnderBridge) { // RA2: as above
 				if (++count >= 4) return; // RA2: as above
@@ -6461,7 +6466,6 @@ destroy_connections: // RA2: as above
 finished: // RA2: as above
 	Zone_Reset();
 }
-#endif
 
 
 void MapClass::Destroy_Low_Bridge_EW(Cell const &cell) // RA2: RA2's form
