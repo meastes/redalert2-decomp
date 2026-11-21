@@ -384,6 +384,29 @@ platform layer. It earns no exact-match credit.
   drone's, an Ivan bomb's and an Iron Curtain's loops were tried; the default sound type's minimum volume keeps most
   audible at any distance), the 8-bit BlitTrans and the 25%/75% depth-writing translucent blitters; each keeps its
   behaviour verdict against the original's instructions (lane N2).
+  Lane N24 (2026-11-21): 7 -> 0, one real bug fixed. **No sound looped, and every sound had the lowest
+  priority:** original_data.cpp stored the audio control keyword table (0x007CCB90: ALL, LOOP, RANDOM, PREDELAY,
+  INTERRUPT, ATTACK, DECAY, AMBIENT) and the priority names (0x007CCAE8: LOWEST to CRITICAL) under the `PTR_` names
+  of a removed seed with the shape of one pointer, so only each table's first entry was loaded: sound.ini's Control=
+  keywords were all ignored (the oil derrick's, a Kirov's, a terror drone's, the ambient and fire loops played once;
+  no random sample choice, attack or decay) and Priority= fell to 0. Both are records now under the names their user
+  declares (native/data/original_data.cpp, address_aliases.tsv); `original_data.py --check` (ctest
+  `native-original-data-extents`) fails on a declared pointer table stored narrower, as these two were. Reached:
+  `n24-earshot` (audio on: a terror drone drives to and fro beside the base while the harness's new `view` order
+  takes the view 40 cells away and back: its looping move sound is stopped out of earshot and made again,
+  Audio_Event_Set_Flag_8; only reachable after the fix) and `n24-unholy` (lan_pair.py `--mode 3`: the LAN game type
+  list has 16-pixel rows in MPModes.ini order, Battle, Free For All, Cooperative, Unholy Alliance, Megawealth, Land
+  Rush, Meat Grinder, Naval War; N22's 18-pixel formula had landed row 3 on Megawealth; UnholyAlliance::
+  CheckStartConditions at Start Game, both games play 1,500 frames in step). Shown unreachable (5):
+  MPCooperative::PopulateTeamDropdownForPlayer (a game mode's slot 16 has no caller: none of game.exe's 223 calls
+  through +0x40 is in mode, lobby, map dialog, modem, skirmish or Westwood Online code), the observer team's
+  IsTeamIncluded (observer teams are made only by CreateMPTeams, which only slot 16 and GetTeam call, GetTeam only
+  from FreeForAll's slot 16), CellClass::Can_Enter_Tunnel (needs a tube: no shipped map has [Tubes], and the two maps
+  that use tunnel-set tiles, SOV01T.MAP and an unnamed snow map, use sub-tiles whose TMP terrain is not the tunnel
+  land; a run on SOV01T made no tube), the 8-bit BlitTrans (only for a transparent copy onto an 8-bit surface; the
+  game's two transparent copies go to 16-bit surfaces) and the 25%/75% depth-writing translucent blitters (no draw
+  passes translucency 2 or 6 with depth write and without alpha; techno and anim draws always add alpha). The
+  harness gained `view <ID> <dx> <dy>` and relative `goto <ID> ~dx ~dy` (link/harness_orders.cpp).
 - Data read from game.exe by size (lane N14, the Red Alert 2 side of lane N13's check): every stored scalar array's
   extent against its declaration found one short, the campaign score screen's control table
   (`unknown_score_controls_7d1484[8][6]`, 192 bytes stored as 32: the generator counted the first dimension only), so

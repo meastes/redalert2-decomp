@@ -217,7 +217,9 @@ add_test(NAME native-asm-check COMMAND native-asm-check)
 
 # 6b. The data read from game.exe (data/original_data.cpp): every stored scalar array covers
 #     its declaration over every dimension (lane N14: unknown_score_controls_7d1484[8][6] was
-#     sized from its first dimension, 32 of 192 bytes).
+#     sized from its first dimension, 32 of 192 bytes), and every table of records with pointers is
+#     stored as records (lane N24: the audio control keywords and priority names were stored as one
+#     pointer, so no sound looped and every sound had the lowest priority).
 add_test(NAME native-original-data-extents COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tools/original_data.py" --check)
 # 6c. The Steam game.exe and gamemd.exe (lane N15; ra2port/game_builds.hpp) are recognised and,
 #     against the target and the retail gamemd.exe, differ in what the port reads only by the

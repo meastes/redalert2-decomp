@@ -310,10 +310,32 @@ def main():
                     short.append('%s %s: stored %d bytes, declared %d' % (r['address'], r['name'], r['extent'], width * count))
                 r['extent'] = max(r['extent'], width * count)
     if args.check:
+        # Lane N24: a table of records with data pointers (or of pointers) stored under another name of its
+        # address with the shape of one pointer: only its first pointer was loaded, the rest stayed zero (the
+        # audio control keywords and priority names, kept as PTR_DAT_ rows of a removed seed: no sound looped).
+        by_address = {}
+        for sym, r in rows.items():
+            by_address.setdefault(r['address'], []).append(r['shape'])
+        narrow = []
+        for line in TSV.read_text().splitlines():
+            if line.startswith('#') or line.startswith('address\t'):
+                continue
+            addr, section, extent, sym, name, msvc, user = (line.split('\t') + [''] * 7)[:7]
+            decl = declaration(bare(name), lines_of(name))
+            if decl is None or not decl[2]:
+                continue
+            base, stars, array = decl
+            table = (stars == 1) or (stars == 0 and 'p' in (record_fields(base) or ''))
+            shapes = by_address.get(addr, [])
+            if table and shapes and all(x in ('ptr', 'bytes') for x in shapes):
+                narrow.append('%s %s: declared %s%s[], stored as %s' % (addr, name, base, ' *' * stars, '/'.join(shapes)))
         for line in short:
             print('short:', line)
-        print('original data: %d stored scalar arrays shorter than declared' % len(short))
-        return 1 if short else 0
+        for line in narrow:
+            print('narrow:', line)
+        print('original data: %d stored scalar arrays shorter than declared, %d pointer tables stored narrower than '
+              'declared' % (len(short), len(narrow)))
+        return 1 if short or narrow else 0
     skipped = []
     # Names data/address_aliases.tsv binds to another name's storage (one storage
     # per address): their storage is the other name's, never loaded twice.

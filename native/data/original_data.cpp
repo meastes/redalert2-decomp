@@ -1482,12 +1482,12 @@ __asm__(".globl _global_402940_7cc968\n.set _global_402940_7cc968, _Audio_System
 __asm__(".globl _global_402c00_7cc968\n.set _global_402c00_7cc968, _Audio_System_Instance\n");
 // row	_Audio_Time_Span_Spinner	0x007CC96C	12	ptr	Audio_Time_Span_Spinner	src/recovered/unowned/AudioTimeSpan_Set_00403870.cpp
 alignas(16) unsigned char ra2_orig_0444[32] __asm__("_Audio_Time_Span_Spinner");
-// row	_PTR_s_LOWEST_007ccae8	0x007CCAE8	48	ptr	PTR_s_LOWEST_007ccae8	src/recovered/004919b0.cpp
-alignas(16) unsigned char ra2_orig_0445[96] __asm__("_PTR_s_LOWEST_007ccae8");
+// row	_Audio_Priority_Names	0x007CCAE8	48	rec:p4	Audio_Priority_Names	src/recovered/audevent.cpp
+alignas(16) unsigned char ra2_orig_0445[96] __asm__("_Audio_Priority_Names");
 // row	_Audio_Event_Keywords	0x007CCB18	120	rec:p4	Audio_Event_Keywords	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 alignas(16) unsigned char ra2_orig_0446[240] __asm__("_Audio_Event_Keywords");
-// row	_PTR_DAT_007ccb90	0x007CCB90	72	ptr	PTR_DAT_007ccb90	src/recovered/header_statics/00437740/HeaderStatics_diagonal_init_00437740.cpp
-alignas(16) unsigned char ra2_orig_0447[144] __asm__("_PTR_DAT_007ccb90");
+// row	_Audio_Control_Keywords	0x007CCB90	72	rec:p4	Audio_Control_Keywords	src/recovered/audevent.cpp
+alignas(16) unsigned char ra2_orig_0447[144] __asm__("_Audio_Control_Keywords");
 // row	_Audio_Enabled	0x007CCBD8	4	bytes	Audio_Enabled	src/recovered/unowned/AudioSourceInfo_Detach_00408520.cpp
 // row	_Audio_Enabled_007ccbd8	0x007CCBD8	4	bytes	Audio_Enabled_007ccbd8	src/recovered/classes/TClassFactory_CStreamClass/TClassFactory_CStreamClass_AddRef_00691560.cpp
 alignas(16) unsigned char ra2_orig_0448[16] __asm__("_Audio_Enabled");
@@ -6255,9 +6255,9 @@ extern "C" const ra2_original_global ra2_original_globals[] = {
     {ra2_orig_0442, 0x007CC958u, 8u, 0},
     {ra2_orig_0443, 0x007CC968u, 4u, 1},
     {ra2_orig_0444, 0x007CC96Cu, 12u, 1},
-    {ra2_orig_0445, 0x007CCAE8u, 48u, 1},
+    {ra2_orig_0445, 0x007CCAE8u, 48u, 0x123u},
     {ra2_orig_0446, 0x007CCB18u, 120u, 0x123u},
-    {ra2_orig_0447, 0x007CCB90u, 72u, 1},
+    {ra2_orig_0447, 0x007CCB90u, 72u, 0x123u},
     {ra2_orig_0448, 0x007CCBD8u, 4u, 0},
     {ra2_orig_0449, 0x007CCBDCu, 20u, 0},
     {ra2_orig_0450, 0x007CCCD4u, 12u, 0},
@@ -7965,9 +7965,9 @@ extern "C" const ra2_original_place ra2_original_storage[] = {
     {0x007CC958u, 8u, ra2_orig_0442, 0},
     {0x007CC968u, 4u, ra2_orig_0443, 1},
     {0x007CC96Cu, 4u, ra2_orig_0444, 1},
-    {0x007CCAE8u, 4u, ra2_orig_0445, 1},
+    {0x007CCAE8u, 4u, ra2_orig_0445, 0},
     {0x007CCB18u, 4u, ra2_orig_0446, 0},
-    {0x007CCB90u, 4u, ra2_orig_0447, 1},
+    {0x007CCB90u, 4u, ra2_orig_0447, 0},
     {0x007CCBD8u, 4u, ra2_orig_0448, 0},
     {0x007CCBDCu, 20u, ra2_orig_0449, 0},
     {0x007CCCD4u, 12u, ra2_orig_0450, 0},

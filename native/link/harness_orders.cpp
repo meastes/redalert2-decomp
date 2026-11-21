@@ -13,7 +13,7 @@
 // either way and shows the score screen), "win" (Scout1125, M15: the MCV
 // deploys, the long build order of harness_build.cpp, then harness_army.cpp's
 // tanks hunt the enemy; the start units wait and join the attack).
-// RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y>; <frame> attack <ID|*> <x> <y>;
+// RA2_NATIVE_ORDERS="<frame> goto <ID|*> <x> <y> (lane N24: ~dx ~dy from each techno's cell); <frame> attack <ID|*> <x> <y>;
 // <frame> hunt; <frame> health; <frame> shoot <ID> (C22); <frame> capture <ID> <x> <y>; <frame> sabotage <ID> <x> <y>; <frame> train <ID>; <frame> super <index> <x> <y>;
 // <frame> amove <ID|*> <x> <y> (attack-move, C3); <frame> grant <index>; <frame> super <index> enemy [<house>] [units]; <frame> super <index> home [<dx> <dy>] (C17); <frame> board <ID> <TRANSPORT>; <frame> unload <TRANSPORT>" (board/unload, train of a vehicle: Scout1295) (Scout1153, M19; super/grant Scout1170, M21: the human house's SuperWeapons[index];
 // attack/capture: the building in cell x,y, mission 1 / 8 (`attack <ID> <TYPE>`: the first enemy
@@ -518,6 +518,23 @@ int Scripted_Order(char const *command)
         Append_Int(text, cell.Y);
         return Scripted_Order(text);
     }
+    if (Same(word[1], "view", 5) && words == 5) {
+        // `view <ID> <dx> <dy>` (lane N24, test scaffolding): the tactical view centred dx,dy cells from the player's
+        // first techno of type ID (MapClass slot 52, Set_Tactical_Position), so a run can take a sound out of earshot
+        // and back (coverage_runs.py n24-earshot). Logs `harness-view-at <ID> @x,y`.
+        for (int i = 0; i < Technos.Count(); ++i) {
+            TechnoClass *techno = Technos[i];
+            if (techno == 0 || techno->House != PlayerPtr || techno->Techno_Type_Class() == 0) continue;
+            if (!Same_Type(techno->Techno_Type_Class()->ID.Buffer, word[2])) continue;
+            CoordStruct at = techno->Center_Coord();
+            at.X += atoi(word[3]) * 256;
+            at.Y += atoi(word[4]) * 256;
+            Map.Set_Tactical_Position(at);
+            fprintf(stderr, "harness-view-at %s @%d,%d\n", word[2], at.X / 256, at.Y / 256);
+            return 1;
+        }
+        return -1;
+    }
     if (Same(word[1], "terrain", 8) && words >= 3 && Same(word[2], "view", 5)) {
         // `terrain view [mine]` (lane N14, test scaffolding): the tactical view centred on the terrain object nearest
         // the player's first techno (MapClass slot 52, Set_Tactical_Position), so an input script can rest the mouse
@@ -674,9 +691,11 @@ int Scripted_Order(char const *command)
             else Queue_Mission(TargetClass(techno), attack_mission, TargetClass(target), TargetClass());
             ++count;
         } else if (go && Same_Type(id, word[2])) {
+            // Lane N24: "~dx ~dy" is relative to the techno's own cell (a skirmish's start position varies).
+            Cell here = techno->Center_Coord().As_Cell();
             Cell cell;
-            cell.X = (short)atoi(word[3]);
-            cell.Y = (short)atoi(word[4]);
+            cell.X = (short)(word[3][0] == '~' ? here.X + atoi(word[3] + 1) : atoi(word[3]));
+            cell.Y = (short)(word[4][0] == '~' ? here.Y + atoi(word[4] + 1) : atoi(word[4]));
             Queue_Mission(TargetClass(techno), amove ? 0x1D : 2, TargetClass(), TargetClass(cell));
             ++count;
         } else if (hunt && !Same_Type(id, "TANY") && !Same_Type(id, "ENGINEER") && (type == 0 || type->DeploysInto == 0)) {

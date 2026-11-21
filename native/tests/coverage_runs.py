@@ -215,6 +215,13 @@ SCENARIOS = [
     skirmish('n22-next', 500, order='both', seconds=200,
              script=['100 key N', '110 key N', '120 key N', '130 key M', '140 key M', '150 key N'],
              files={'KEYBOARD.INI': '[Hotkey]\nNextObject=78\nPreviousObject=77\n'}),
+    # Lane N24: a sound that loops forever out of earshot and back. A terror drone spawned beside the base drives to
+    # and fro (its MoveSound, TerrorDroneMoveLoop: Control=loop); the view is moved 40 cells away (out of the sound's
+    # range: Voc_Update_At 0x007141B0 stops the event) and back, where the handle has a looping type and no event:
+    # a new event is made and flagged, Audio_Event_Set_Flag_8. Audio on. Before lane N24's data fix no sound had
+    # its Control keywords (the keyword table was read as one pointer), so nothing looped and this never ran.
+    skirmish('n24-earshot', 1200, order='deploy', audio=True, seconds=300,
+             env=dict(RA2_NATIVE_ORDERS='50 spawn DRON; 60 view GACNST 0 0; 100 goto DRON ~-10 ~0; 180 goto DRON ~10 ~0; 260 goto DRON ~-10 ~0; 340 goto DRON ~10 ~0; 420 goto DRON ~-10 ~0; 500 goto DRON ~10 ~0; 580 goto DRON ~-10 ~0; 660 goto DRON ~10 ~0; 740 goto DRON ~-10 ~0; 820 goto DRON ~10 ~0; 900 goto DRON ~-10 ~0; 980 goto DRON ~10 ~0; 1060 goto DRON ~-10 ~0; 300 view GACNST 40 -40; 600 view GACNST 0 0; 800 view GACNST 40 -40; 1000 view GACNST 0 0')),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
@@ -354,6 +361,12 @@ SCENARIOS = [
     # was not found in the LAN list.
     dict(name='n22-coop', harness='lan_pair.py', args=['--mode', '2', '--hd', '0', '--binary', '{binary}', '--data-dir',
                                                        '{data}', '--game-exe', '{exe}', '--work', '{work}', '--frames', '2000'],
+         env={}, seconds=900),
+    # Lane N24: a LAN game of the Unholy Alliance game type (lan_pair.py --mode 3, the game type list's fourth row at
+    # 16 pixels a row): at Start Game the host asks UnholyAlliance::CheckStartConditions (0x005AC390: bases on and the
+    # base mode's check); both houses get an MCV of each side (UnholyAlliance::SpawnBaseUnits).
+    dict(name='n24-unholy', harness='lan_pair.py', args=['--mode', '3', '--hd', '0', '--binary', '{binary}', '--data-dir',
+                                                         '{data}', '--game-exe', '{exe}', '--work', '{work}', '--frames', '1500'],
          env={}, seconds=900),
     # The game binary's own self tests (test scaffolding, not a game path): the VQA player's
     # reset around a mod's .VQA movie and the drawing checks.

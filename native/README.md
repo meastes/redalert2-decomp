@@ -421,7 +421,7 @@ army's hunt (a campaign is lost when she dies). `RA2_NATIVE_ORDERS="<frame> goto
 (`link/harness_orders.cpp`, test scaffolding, any game) queues, at that frame, a
 move to a cell, an attack on (or an engineer's capture of) the building in a cell,
 a barracks cameo click, or the hunt, for the player's units, as a click would. An
-input-script point `@=X,Y` is the screen pixel of cell X,Y; `@terrain` (`@terrain=mine`) that of the terrain object (ore mine) nearest the player's first techno, which the order `<frame> terrain view [mine]` centres the view on (lane N14). CellClass::Is_Tile_Water
+input-script point `@=X,Y` is the screen pixel of cell X,Y; `@terrain` (`@terrain=mine`) that of the terrain object (ore mine) nearest the player's first techno, which the order `<frame> terrain view [mine]` centres the view on (lane N14); `<frame> view <ID> <dx> <dy>` centres it dx,dy cells from the player's first techno of type ID, and a goto's `~dx ~dy` is relative to each unit's own cell (lane N24: a skirmish's start position varies). CellClass::Is_Tile_Water
 0x0047A270 is a behaviour row (the computer's superweapon placement reached it). Allied 1 after the Dreadnoughts: Tanya walks into the fort
 (the map's "Change House 2a" cell tag at about 64..77, 28..48), the fort's
 buildings change to the player (construction yard, pillboxes, dogs) and objective
@@ -784,7 +784,12 @@ its own address, e.g. unknown_geometry.hpp's `unknown_geometry_j` at 0x00AD057C)
 are copied into the zeroed storage of the extern names other units read at the
 same address (`unknown_bridge_height_ad057c`) right after the header-statics
 row's own initialisers (native_units.py `header_static_copies`, Scout1103).
-Other class-typed globals and pointers to pointers are not loaded (`--report`).
+Other class-typed globals and pointers to pointers are not loaded (`--report`). A table of records with data pointers keeps the record shape (`rec:`) under the
+name its user declares: lane N24 found the audio control keywords (0x007CCB90) and
+priority names (0x007CCAE8) stored under a removed seed's `PTR_` names as one pointer, so
+no sound looped (no LOOP, RANDOM, ALL, ATTACK or DECAY) and every priority name but
+LOWEST read as 0; `--check` (ctest `native-original-data-extents`) now also fails on a
+declared pointer or pointer-record table stored narrower.
 
 ### Enhancements menu (C3)
 

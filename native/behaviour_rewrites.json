@@ -1741,9 +1741,9 @@
    "notes": "same family as the darken row; Scout1125 (M15)",
    "behaviour_verdict": "same (0x00487D20 25%: palette * 3 + dest, 0x00487B80 75%: palette + dest * 3, each quarter masked; the backward slots 0x00487DC0/0x00487C20/0x00487CF0 call the forward slot)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the depth-reading translucent blitters (25%/75% forward and backward, 50% backward): shapes with depth drawn translucent; no run drew one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "The 25% and 75% depth-writing translucent blitters are ConvertClass::Blitters[23] and [21] (stored at +0x64 and +0x5C by Create_Blitters 0x00483B00, vtables 0x0079E2CC and 0x0079E2EC; nothing else reads those slots). Select_Blitter 0x00485AA0 returns them only for flags with translucency 2 or 6, depth write 0x4000, and neither remap 0x10 nor alpha 0x800. No drawing call passes such flags: of Select_Blitter's callers, the voxel paths (Render_Voxel_Object, the voxel shadows, Unit_Blit_Voxel, BulletClass::Draw_Voxel, VoxelAnimClass::Draw_It) pass 0, 0x800, 0x2001, 0x28xx and add only translucency, the dropship screen 0 and 0x40; Draw_Shape 0x0049EEA0 passes its flags on (adding only remap), and its callers' flags are constants without that combination (every immediate pushed at the flags argument in game.exe: 0x400, 0x600, 0xE00, 0x4E00, 0x2E00, 0x4601, ...) or computed: TechnoClass::Techno_Draw_Object always adds 0x800 (its callers' removed flags are 0, 0x2800 and 0x2820 for the 8-bit composite, which also drops depth write), AnimClass::Draw_It adds 0x800 unless darkened and never 0x4000 (ShapeFlags 0x600, 0x2600, 0x1600, 0x604), TerrainClass 0x2E00/0x4E00, particles 0x28xx, the placement cursors 0x10600/0x20600/0x10606/0x20606, the menu animations 0/0x200 with fade stages 0x400-0x406. The backward slots are called only by Bit_Blit for a surface copied onto itself (lane N22: these blitters convert 8-bit shapes to 16-bit). The darkened depth-writing blitter, Blitters[19], is reached (the shadow frames, flags | 0x601: darken is tested after translucency and without the alpha test)",
+   "reach_checked_by": "N24 2026-11-21: static check of game.exe (the blitters' vtable stores, Select_Blitter's callers, the flags pushed for Draw_Shape) and of every CC_Draw_Shape and Select_Blitter call's flags in src/recovered and native/link (scratch scripts)"
   },
   {
    "entry": "0x0053B190",
@@ -1918,9 +1918,9 @@
    "notes": "forwards to MultiplayerTeam slot 1; the vtable's key function; Scout1133 (M16)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MultiplayerObserverTeam vtable slot 1: observer teams are made by MP_Score_Dialog_Proc and MultiplayerGameMode::CreateMPTeams; reached with an observer in a network game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "MultiplayerObserverTeam's slot 1, called only through slot 2 (MultiplayerTeam::SetPlayerTeam 0x005B9B80 calls [vtable+4]) on an observer team. An observer team is made only by CreateMPTeams (mode slot 41: the base 0x005B7720 and MultiplayerSiege 0x005AB970, the latter misnamed MP_Score_Dialog_Proc by names.csv) and lives only in the mode's Teams vector (+0x08), which only the constructor, destructor, slot 16 0x005B75D0, GetTeam 0x005B76B0 and DeleteTeams 0x005B77E0 touch (every [reg+0x18] read in the mode code); slot 41 is called only by slot 16 and GetTeam, GetTeam only by FreeForAll's slot 16 0x005A7150, and slot 16 has no caller (see MPCooperative::PopulateTeamDropdownForPlayer). Coverage runs of LAN games (Battle, Cooperative, Unholy Alliance) never reached CreateMPTeams",
+   "reach_checked_by": "N24 2026-11-21: static check of game.exe (the observer vtable 0x007A6B5C's one store, Teams accesses, slot 41 and slot 16 calls; scratch scripts) and coverage runs n22-coop, n24-unholy"
   },
   {
    "entry": "0x005E8710",
@@ -2414,9 +2414,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "InfantryClass/UnitClass::What_Action over a tunnel entrance cell; tunnels are a Tiberian Sun feature and no shipped Red Alert 2 map was seen with one (probably unreachable; not proven)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "Called only by InfantryClass::What_Action (0x00506820) and UnitClass::What_Action (0x007043E8), each after CellClass::Has_Tunnel (0x00479CC0: the cell's tube index +0x116 is a valid index into Tubes (count 0x008661D8) and its land type +0xEC is 10, tunnel). Tubes come only from a map's [Tubes] section (TubeClass::Read_INI 0x006EF5C0) and from Recalc_Attributes for a land-10 cell whose tile is one of the first four of the theater's Tunnels, TrackTunnels, DirtTunnels or DirtTrackTunnels sets. No shipped map has a [Tubes] entry (138 maps in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps). Their IsoMapPack5 cells (LZO decoded) use tunnel-set tiles in two maps only: SOV01T.MAP (54 cells of DirtTunnel Floor tile 1, sub-tile 11) and an unnamed snow map (sub-tile 0); the land type of a cell is game.exe's table 0x007DE4EC indexed by the TMP cell's terrain byte (+0x29), and dtunn01.urb sub-tile 11 has terrain 11 (land 1), the .sno sub-tile 0 terrain 15 (land 3): only terrain 5 gives land 10, so no cell makes a tube; a run on SOV01T.MAP (ra2-native --skirmish=SOV01T.MAP) made no TubeClass. The random map generator does not use the tunnel sets (they carry no RequiredForRMG). The original body is `mov al, 1; ret 4`, as the rewrite",
+   "reach_checked_by": "N24 2026-11-21: static check of game.exe (callers, Has_Tunnel, the land table) and of the shipped maps (scratch scripts: mix, LZO IsoMapPack5, TMP terrain bytes of the theater .ini tunnel sets), and a coverage run on SOV01T.MAP"
   },
   {
    "entry": "0x0041B310",
@@ -3125,9 +3125,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "VocClass::UpdateAt for a controlled voice; the audio runs updated none",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n24-earshot (audio on): a terror drone spawned beside the base drives to and fro with its MoveSound TerrorDroneMoveLoop (Control=loop, no Loop count: loops forever); the harness's new `view GACNST 40 -40` takes the view 40 cells away, out of the sound's range (Voc_Volume_At gives 0: Voc_Update_At 0x007141B0 stops the event and keeps the type in the handle), and `view GACNST 0 0` brings it back: the handle has a looping type and no event, Voc_Update_At makes a new event and flags it here. Lane N22's tries could not reach it in the port because of a data fault lane N24 fixed: the control keyword table (Audio_Control_Keywords 0x007CCB90) was read from game.exe as one pointer, so no sound type had LOOP (or RANDOM, ALL, ATTACK, DECAY...) and nothing looped forever",
+   "reach_checked_by": "N24 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n24-earshot"
   },
   {
    "entry": "0x005B55E0",
@@ -3305,9 +3305,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot 16 (the team combo box's fill); lane N22's n22-coop played a two-player LAN Cooperative game (every other MPCooperative slot reached, DrawTeamDropdown among them) without a team combo being filled through this slot",
-   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
+   "reach": "unreachable in the base game",
+   "reach_reason": "MPCooperative's vtable slot 16 (+0x40). game.exe calls a game mode's slot 16 nowhere: none of its 223 calls through +0x40 (call dword ptr [reg+0x40]; no register call loads +0x40) is in a game mode, lobby, map dialog, modem, skirmish or Westwood Online function (they are in house, file, VQA, CRC log, score, audio and drawing code), no mode method calls it on itself (0x005A2000-0x005AC600, 0x005B6C00-0x005B8E20), and no call follows a CB_GETITEMDATA or LB_GETITEMDATA within 80 instructions; the only reference to the base slot 0x005B75D0 besides the vtables is this function's own call. Neither ra2-decomp nor mischa85 has a caller. Lane N22's n22-coop reached every other MPCooperative slot",
+   "reach_checked_by": "N24 2026-11-21: static check of game.exe (every call through +0x40, register calls, mode-range calls, item-data reads; scratch scripts) with mischa85 names.csv"
   },
   {
    "entry": "0x005A5340",
@@ -3350,9 +3350,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "UnholyAlliance vtable slot: the start check of a network game in the Unholy Alliance mode; no test starts one",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n24-unholy (lan_pair.py --mode 3): the LAN host's Choose Map lists the game types in MPModes.ini id order with 16-pixel rows (Battle, Free For All, Cooperative, Unholy Alliance, Megawealth, Land Rush, Meat Grinder, Naval War: RA2_NATIVE_LIST_LOG); lane N22's 18-pixel row formula had put row 3 on Megawealth. Row 3 picks Unholy Alliance; at Start Game the host lobby (netdlg2) asks the mode's slot 5, this function, with bases on; the game starts and UnholyAlliance::AssignTeamsAtStart and SpawnBaseUnits run, both games play 1,500 frames in step",
+   "reach_checked_by": "N24 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n24-unholy"
   },
   {
    "entry": "0x00775980",
@@ -3365,9 +3365,9 @@
    "notes": "Scout1177 M22 8-bit transparent copy",
    "behaviour_verdict": "same for lengths >= 0 (a negative length would run the original's counter round; no caller passes one)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the 8-bit transparent blitter (vtable slot after Mouse's): only 8-bit surfaces use it, and the game draws 16-bit surfaces",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "A BlitTrans<unsigned char> is made only by XSurface::Copy_From (0x00774F00/0x00775060, Bit_Blit_Trans expanded) and Bit_Blit_Trans 0x007755C0 (no caller) when the destination has 1 byte a pixel and the copy is transparent. The only transparent copies in game.exe (calls through the surface slots +0x08/+0x0C with trans set; every other passes 0) are Movie_Blit_To_Screen_Hidden 0x005A0EC0 (into HiddenSurface) and BinkClass::Draw_Subtitle 0x00430A30 (into the movie's target, which BinkCopyToBuffer fills in the 16-bit surface format); both destinations are 16-bit. The game's 8-bit surfaces (EightBitSurface for SHP vehicles with a turret, of which rules.ini has none; the dropship screen's images, 8-bit PCX pictures, spotlight masks, depth shapes) are only sources or shape-drawing targets",
+   "reach_checked_by": "N24 2026-11-21: static check of game.exe (the BlitTrans<unsigned char> vtable 0x007AFCB4's three stores, Copy_From's direct callers, every surface slot call's trans argument) and src/recovered's Copy_From calls; rules.ini and art.ini for SHP turret vehicles"
   },
   {
    "entry": "(741 entries)",

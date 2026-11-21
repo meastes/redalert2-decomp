@@ -111,10 +111,12 @@ RANDMAP_HOST_LOBBY = ['s3+15000 click @ctl=1450', 's4+2500 click @ctl=1411', 's5
 
 
 # Lane N22 (--mode ROW, coverage_runs.py n22-coop): before Bravo joins, the host screen's Choose Map, the game type
-# list's row ROW (0x6EB, 18 pixels a row: row 2 is Cooperative, 3 Megawealth, 4 Duel), the map list's first row (0x553)
-# and Use Map (0x6C5).
+# list's row ROW (0x6EB), the map list's first row (0x553) and Use Map (0x6C5). Lane N24: the list (at 222,270, 197x264
+# at 1024x768) has 16-pixel rows in MPModes.ini's id order: 0 Battle, 1 Free For All, 2 Cooperative, 3 Unholy Alliance,
+# 4 Megawealth, 5 Land Rush (Duel), 6 Meat Grinder, 7 Naval War (RA2_NATIVE_LIST_LOG); N22's 18-pixel rows had made
+# row 3 land on Megawealth.
 def mode_host_lobby(row):
-    return ['s3+2500 click @ctl=1450', 's4+3000 click 300 %d' % (280 + 18 * row), 's4+4500 click 540 280',
+    return ['s3+2500 click @ctl=1450', 's4+3000 click 300 %d' % (278 + 16 * row), 's4+4500 click 540 280',
             's4+6000 click @ctl=1733']
 
 
