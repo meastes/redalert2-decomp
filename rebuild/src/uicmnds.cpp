@@ -789,38 +789,39 @@ int __fastcall Find_Name_Index(DynamicVectorClass<char const *> const & names, c
 
 int __fastcall Is_Owned_Active(TechnoClass * techno, int argument);
 
-static inline TechnoList * Collect_Owned_Visible(void)
+/// <summary>
+/// Whether the object is a combatant the select-all command takes: not a building, and of a type marked selectable.
+/// </summary>
+inline int __fastcall Is_Selectable_Combatant(TechnoClass * techno, int argument) // RA2: no copy in the executable (expanded at its one use); Yuri's Revenge keeps it out of line at 0x7325C0 (ra2-decomp's name)
 {
-	TechnoList * list = new TechnoList(0, NULL);
-	int count = TacticalMap->Selectable_Count();
-	for (int index = 0; index < count; index++) {
-		ObjectClass * object = TacticalMap->Selectable_Object(index);
-		if (object->Is_Techno()) {
-			TechnoClass * techno = (TechnoClass *)object;
-			if (((TechnoTest)Is_Owned_Active)(techno, 0)) {
-				list->Add(techno);
-			}
-		}
-	}
-	return list;
-}
-
-static inline bool Has_Unselected_Combatants(TechnoList * list)
-{
-	int count = list->Count();
-	for (int index = 0; index < count; index++) {
-		TechnoClass * techno = (*list)[index];
-		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant && !techno->IsSelected) {
-			return true;
-		}
+	if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant) {
+		return true;
 	}
 	return false;
 }
 
 /// <summary>
+/// Whether the object is such a combatant and not yet selected.
+/// </summary>
+inline int __fastcall Is_Unselected_Combatant(TechnoClass * techno, int argument) // RA2: no copy in the executable
+{
+	if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant && !techno->IsSelected) {
+		return true;
+	}
+	return false;
+}
+
+/// <summary>
+/// Selects the object.
+/// </summary>
+inline void __fastcall Select_Techno(TechnoClass * techno, int argument) // RA2: no copy in the executable
+{
+	techno->Select();
+}
+
+/// <summary>
 /// Selects the player's combatants on the screen, or all over the map when none on the screen is left to select.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 98 bytes differ (no_draft bucket; the message helper expands inline)
 void __fastcall Select_All_Combatants(bool clear)
 {
 	if (MuteSWLaunches != 0) {
@@ -835,8 +836,8 @@ void __fastcall Select_All_Combatants(bool clear)
 	if (SelectAcrossMap) {
 		list = Collect_Technos(test, 0);
 	} else {
-		list = Collect_Owned_Visible();
-		if (!Has_Unselected_Combatants(list)) {
+		list = Collect_Visible_Technos(test, 0);
+		if (!Any_Techno_Passes(list, (TechnoTest)Is_Unselected_Combatant, 0)) {
 			SelectAcrossMap = true;
 		}
 		if (SelectAcrossMap) {
@@ -847,13 +848,7 @@ void __fastcall Select_All_Combatants(bool clear)
 	if (clear) {
 		TacticalMap->Unselect_All();
 	}
-	int count = list->Count();
-	for (int index = 0; index < count; index++) {
-		TechnoClass * techno = (*list)[index];
-		if (techno->Fetch_RTTI() != RTTI_BUILDING && techno->TClass->IsSelectableCombatant) {
-			techno->Select();
-		}
-	}
+	For_Each_Techno_If(list, (TechnoTest)Is_Selectable_Combatant, Select_Techno, 0, 0);
 	wchar_t buffer[256];
 	Get_Selection_Scope_Text(buffer);
 	Show_Player_Message(buffer, -1);
@@ -861,7 +856,6 @@ void __fastcall Select_All_Combatants(bool clear)
 	TypeSelectMode = 1;
 	AttackMoveMode = false;
 }
-#endif
 
 
 /// <summary>

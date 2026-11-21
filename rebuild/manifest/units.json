@@ -82110,7 +82110,8 @@
    "?Clear@?$VectorClass@PAVReestablish@@@@UAEXXZ": "004545a0",
    "?ID@?$VectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z": "004545d0",
    "?ID@?$VectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z": "00454610",
-   "?GetItem@?$VectorClass@PAVReestablish@@@@UBEPAVReestablish@@H@Z": "00453e30"
+   "?GetItem@?$VectorClass@PAVReestablish@@@@UBEPAVReestablish@@H@Z": "00453e30",
+   "??_C@_0BC@LGBI@EVA_StructureSold?$AA@": "007cf9d4"
   },
   "partial_ok": true
  },
@@ -87118,7 +87119,7 @@
     "entry": "0047d060",
     "body": 38,
     "padding": 10,
-    "symbol": "?Length@Point2D@@QBEHXZ",
+    "symbol": "?Length@?$TPoint2D@H@@QBEHXZ",
     "main_symbol": "?Length@Point2D@@QBEHXZ",
     "main_source": "src/recovered/classes/Point2D/Length.cpp"
    },
@@ -87180,7 +87181,10 @@
    "?CellCount@@3HA": "00a35f28",
    "_?_facings@?FK@??Recalc_Attributes@CellClass@@QAEXH@Z@4PAW4FacingType@@A": "007d2b08",
    "_?_facings@?FK@??Recalc_Attributes@CellClass@@QAEXH@Z@4QBW4FacingType@@B": "007d2b08",
-   "_?$S287@?1??Get_Height@CellClass@@QBEHABVPoint2D@@@Z@4EA": "00850bb8"
+   "_?$S287@?1??Get_Height@CellClass@@QBEHABVPoint2D@@@Z@4EA": "00850bb8",
+   "_?_alternate@?1??Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV3@_N1@Z@4PAY03EA": "007d2b80",
+   "_?_sequence@?1??Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV3@_N1@Z@4PAY03EA": "007d2b6c",
+   "_?_offsets@?1??Wall_Update@CellClass@@QAEX_N@Z@4PAW4FacingType@@A": "007d2b58"
   },
   "partial_ok": true
  },
@@ -101610,7 +101614,7 @@
     "entry": "00462c50",
     "body": 2757,
     "padding": 11,
-    "symbol": "?unknown_func_462c50@BulletClass@@QAEXXZ",
+    "symbol": "?Shrapnel@BulletClass@@QAEXXZ",
     "main_symbol": "?unknown_func_462c50@BulletClass@@QAEXXZ",
     "main_source": "src/recovered/bullet.cpp"
    },
@@ -109215,7 +109219,7 @@
     "entry": "0069ed20",
     "body": 13,
     "padding": 3,
-    "symbol": "?_AddRef@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ",
+    "symbol": "?_AddRef@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ",
     "main_symbol": "?unknown_add_ref@UnknownComHolder_0069ed20@@QAEXXZ",
     "main_source": "src/recovered/awaiting_join/nested_class_members/unknown_add_ref_member_0069ed20.cpp"
    },
@@ -116885,7 +116889,8 @@
    "_RAD_90": "00850430",
    "_RECT_NONE": "00850438",
    "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z": "00466a50",
-   "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@HHHPBG@Z": "00467a20"
+   "?Presentation@CampaignEndScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@HHHPBG@Z": "00467a20",
+   "_ScoreCount": "0085050c"
   },
   "partial_ok": true
  },
@@ -146899,7 +146904,7 @@
     "entry": "006f6d00",
     "body": 725,
     "padding": 11,
-    "symbol": "?Unknown_006F6D00@@YIX_N@Z",
+    "symbol": "?Select_All_Combatants@@YIX_N@Z",
     "main_symbol": "?Unknown_006F6D00@@YIX_N@Z",
     "main_source": "src/recovered/uicmnds.cpp"
    },

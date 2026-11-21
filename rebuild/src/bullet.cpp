@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -53,6 +54,7 @@
 
 #include "bullet.h"
 #include "temporal.h"
+#include "cast.h"
 #include "parasite.h"
 #include "bomb.h"
 #include "bomblist.h"
@@ -1302,7 +1304,6 @@ static inline Vector3 Normalize_Dir(const Vector3 & vec)
 /// launch their bomblets.
 /// </summary>
 /// <param name="coord">The location that the projectile detonates at.</param>
-#ifdef RA2_NON_MATCHING // not exact: 1831 bytes differ (class-b carry)
 void BulletClass::Detonate(Coord const &position)
 {
     int damage_result = 1;
@@ -1324,13 +1325,13 @@ void BulletClass::Detonate(Coord const &position)
             bool target_house = TarCom != 0 && (TarCom->AbstractFlags & 1) &&
                 static_cast<TechnoClass *>(TarCom)->House->Is_Player_Control();
             if (object != 0 && object->IsActive && object->Tag != 0) {
-                object->Tag->Spring((TEventType)6, object, CELL_NONE, false, Payback);
-                object->Tag->Spring((TEventType)0x2c, object, CELL_NONE, false, Payback);
+				object->Tag->Spring(TEVENT_ATTACKED, object, CELL_NONE, false, Payback);
+				object->Tag->Spring(TEVENT_ATTACKED_BY, object, CELL_NONE, false, Payback);
             }
             if (static_cast<CaptureManagerClass *>(Payback->CaptureManager)->Capture(static_cast<TechnoClass *>(TarCom))
                 && Rule->YuriMindControlSound != -1
                 && (Payback->House->Is_Player_Control() || target_house)) {
-                VocClass::PlayAt(Rule->YuriMindControlSound, Coord(object->PositionCoord), 0);
+				VocClass::PlayAt(Rule->YuriMindControlSound, object->PositionCoord, 0);
             }
         }
     } else if (Warhead->IvanBomb) {
@@ -1338,7 +1339,7 @@ void BulletClass::Detonate(Coord const &position)
             (TarCom->AbstractFlags & 1 ? static_cast<TechnoClass *>(TarCom) : 0);
         BombList.Plant(Payback, target);
     } else if (Warhead->ElectricAssault) {
-        if (TarCom != 0 && TarCom->Fetch_RTTI() == 6 && Payback != 0 && Payback->Fetch_RTTI() == 15)
+		if (TarCom != 0 && TarCom->Fetch_RTTI() == RTTI_BUILDING && Payback != 0 && Payback->Fetch_RTTI() == RTTI_INFANTRY)
             static_cast<BuildingClass *>(TarCom)->Rotate_Overpowerer(static_cast<InfantryClass *>(Payback));
     } else if (Warhead->Parasite) {
         if (Payback != 0) {
@@ -1348,7 +1349,7 @@ void BulletClass::Detonate(Coord const &position)
         }
     } else if (Warhead->Temporal) {
         if (Payback != 0 && TarCom != 0) {
-            TechnoClass *target = (TarCom != 0 && (TarCom->AbstractFlags & 1) ? static_cast<TechnoClass *>(TarCom) : 0);
+			TechnoClass * target = As_Techno(TarCom); // RA2: ra2-decomp's twin statement
             Payback->TemporalImUsing->Fire(target);
         }
     } else if (Warhead->BombDisarm) {
@@ -1371,16 +1372,16 @@ void BulletClass::Detonate(Coord const &position)
     if (Class->IsInvisible) impact = Coord_Scatter(impact, 32, false);
     int land = -1;
     if (Get_Height_AGL() < LEVEL_LEPTON_H * 2) {
-        land = Map[Coord(PositionCoord)].Land_Type();
-        if (land == 2 && damage_result == 0) {
-            ObjectClass *occupier = Map[Coord(PositionCoord)].Cell_Occupier();
-            if (occupier != 0 && occupier->Fetch_RTTI() == 1) {
+		land = Map[Get_Coord()].Land_Type();
+		if (land == LAND_WATER && damage_result == 0) {
+			ObjectClass * occupier = Map[Get_Coord()].Cell_Occupier();
+			if (occupier != 0 && occupier->Fetch_RTTI() == RTTI_UNIT) {
                 UnitTypeClass const *type = static_cast<UnitClass *>(occupier)->Class;
                 if (type->Naval && !type->Underwater) land = -1;
             }
         }
     }
-    AnimTypeClass const *animation = Combat_Anim(Strength, Warhead, (LandType)land, Coord(PositionCoord));
+	AnimTypeClass const * animation = Combat_Anim(Strength, Warhead, (LandType)land, PositionCoord);
     if (IsBright && !special_impact) {
         unsigned flags = 0;
         if (Warhead->CLDisableRed) flags = 2;
@@ -1412,33 +1413,18 @@ void BulletClass::Detonate(Coord const &position)
                 facing = (facing + 1) & 7;
                 BulletClass *fragment = projectile->Create_Bullet(&neighbor, Payback, weapon->Attack, weapon->WarheadPtr, 50, false);
                 if (fragment != 0) {
-                    int random_direction = Scen->RandomNumber(0, 32);
-                    short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
-                    double speed = (double)(weapon->MaxSpeed / 10);
-                    double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
-                    TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(4.712436918747274) * speed, fastmath::sin(angle) * fastmath::cos(4.712436918747274) * speed);
-                    TVelocity3D<double> velocity;
-                    static_cast<TVelocity2D<double> &>(velocity) = planar;
-                    velocity.Z = fastmath::sin(4.712436918747274) * speed;
-                    fragment->Unlimbo(Coord(PositionCoord), velocity);
+					TVelocity3D<double> velocity(DirType((Dir256)Random_Pick(DIR_MIN, DIR_NE)), DirType(DIR_S), weapon->MaxSpeed / 10); // RA2: ra2-decomp's twin velocity
+					fragment->Unlimbo(PositionCoord, velocity);
                 }
             } while (--remaining != 0);
             BulletClass *fragment = projectile->Create_Bullet(center, Payback, weapon->Attack, weapon->WarheadPtr, 50, false);
             if (fragment != 0) {
-                int random_direction = Scen->RandomNumber(0, 32);
-                short raw = (short)((unsigned short)(unsigned char)random_direction << 8);
-                double speed = (double)(weapon->MaxSpeed / 10);
-                double angle = ((int)raw - 0x3fff) * -9.587672516830327e-05;
-                TVelocity2D<double> planar(fastmath::cos(angle) * fastmath::cos(4.712436918747274) * speed, fastmath::sin(angle) * fastmath::cos(4.712436918747274) * speed);
-                TVelocity3D<double> velocity;
-                static_cast<TVelocity2D<double> &>(velocity) = planar;
-                velocity.Z = fastmath::sin(4.712436918747274) * speed;
-                fragment->Unlimbo(Coord(PositionCoord), velocity);
+				TVelocity3D<double> velocity(DirType((Dir256)Random_Pick(DIR_MIN, DIR_NE)), DirType(DIR_S), weapon->MaxSpeed / 10); // RA2: as above
+				fragment->Unlimbo(PositionCoord, velocity);
             }
         }
     }
 }
-#endif
 
 
 /// <summary>

@@ -2073,7 +2073,6 @@ void UnitClass::Undeploy(void) // RA2: 0x6FE600, not in TibSun
  *   06/17/1995 JLB : Handles case when building says "NO!"                                    *
  *   06/30/1995 JLB : Gunboats head back and forth now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2847 bytes differ (one SDK assignment reference unresolved)
 void UnitClass::Per_Cell_Process(PCPType reason)
 {
 	Cell cell = Get_Cell();
@@ -2087,10 +2086,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 			Coord center = Center_Coord().As_Cell().As_Coord();
 			Coord contact_center = contact->Docking_Coord(this).As_Cell().As_Coord();
 			if (center.As_Cell() == contact_center.As_Cell()) {
-				IPersistPtr persist;
-				if (Locomotion) {
-					persist = Locomotion;
-				}
+				IPersistPtr persist(Locomotion);
 				GUID clsid;
 				persist->GetClassID(&clsid);
 				if (clsid == CLSID_HoverLocomotion && ((BuildingClass *)contact)->Class->IsCanUnitRepair && !NavCom) NavCom = contact;
@@ -2178,12 +2174,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 			}
 			if (Map[Get_Coord()].Cell_Building() && !NavCom && NavQueue.Count() == 0 && RouteQueue.Count() == 0) Scatter(COORD_NONE, true, true);
 		}
-		if (Get_Mission() == MISSION_GUARD && !Map.In_Radar(Get_Coord()) && IsLocked) {
-			if (Team) Team->IsLeaveMap = true;
-			Stun();
-			Delete_Me();
-			return;
-		}
+		if (Edge_Of_World_AI()) return; // RA2: ra2-decomp's twin statement
 		RemoveSight(false, false, false, 0);
 		UpdateSight(false, false, false, 0);
 		Map.RevealArea3(Get_Coord(), 0, LastSightRange + 3, 0);
@@ -2214,7 +2205,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 	if ((Class->IsCrusher || Has_Ability(ABILITY_CRUSHER)) && current_cell->Overlay != -1) {
 		OverlayTypeClass const * overlay = OverlayTypes[current_cell->Overlay];
 		if (overlay->IsCrushable) {
-			VocClass::PlayIndexAtPos(overlay->CrushSound, Center_Coord(), 0);
+			VocClass::PlayAt(overlay->CrushSound, Center_Coord(), NULL); // RA2: as above
 			current_cell->Reduce_Wall(-1);
 			IsCrushing = false;
 			RockingForwardsPerFrame += 0.019999999552965164f;
@@ -2223,7 +2214,6 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 	Overrun_Square(Get_Cell(), false);
 	if (IsActive) FootClass::Per_Cell_Process(reason);
 }
-#endif
 
 
 

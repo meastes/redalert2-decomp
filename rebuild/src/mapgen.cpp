@@ -707,8 +707,8 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 /// <param name="cptr">The cell to grow the region out from.</param>
 /// <returns>Returns with the region created. NULL is returned when the patch was
 /// dissolved rather than kept.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1401 bytes differ (adopted text)
-MapRegionClass *MapRegionClass::Create_Region_From_Cell(CellClass *cptr) // RA2: RA2's form (0x56E100): green-LAT ground counts as water-like and the wipes call Clear_Region_Cells; near miss, the exe calls TPoint2D::operator+ out of line
+#ifdef RA2_NON_MATCHING // not exact: 1024 bytes differ (adopted text)
+MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA2: RA2's form (0x56E100): green-LAT ground counts as water-like and the wipes call Clear_Region_Cells
 {
 	int i;
 	int region_id = MapRegionClass::TotalCount;
@@ -772,11 +772,9 @@ MapRegionClass *MapRegionClass::Create_Region_From_Cell(CellClass *cptr) // RA2:
 
 			delete region_cells;
 		} else {
-			Cell seed = cptr->Fetch_CellID();
-			Cell side_cell;
-			side_cell = Cell(seed.X - 1, seed.Y);
+			Cell side_cell = Cell(-1, 0) + cptr->Fetch_CellID(); // RA2: try west first, then fetch the origin again for the northern neighbor
 			if (!My_In_Radar(side_cell)) {
-				side_cell = Cell(seed.X, seed.Y - 1);
+				side_cell = cptr->Fetch_CellID() + Cell(0, -1);
 			}
 
 			if (My_In_Radar(side_cell)) {

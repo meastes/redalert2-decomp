@@ -3049,3 +3049,37 @@ range do not count, and any reference inside the stretch resets the count. The w
   line equal, the switch tables four bytes early. Decode both byte streams and compare instruction sizes: the first
   difference was a near `je` to the end of the switch where ours had a short one over the next statement (the
   reveal crate plays its sound inside the player test in RA2).
+
+## Uncalled function-pointer helpers are inline sites; a constant test expands through them (found in the rebuild (lane F4, high))
+
+- Found in the rebuild (lane F4, high): a unit's out-of-line helper that takes a function pointer and that the image
+  neither calls nor takes the address of is used only through its expansions. uicmnds has four of them in a row
+  (For_Each_Techno 0x6F6B90, For_Each_Techno_If 0x6F6BC0, All_Technos_Pass 0x6F6C10, Any_Techno_Passes 0x6F6C50): a
+  scan of every `E8`/`E9` rel32 and every imm32 of .text finds no reference to any of them (the link kept
+  unreferenced code). Every "count; for; element; test; act" loop of the unit is then a candidate site of one of
+  them, and writing the loop open-coded gives the same instructions with a different inline budget.
+- VC6 expands a call through a function pointer when the pointer is a constant at the site: after the helper is
+  expanded with `(TechnoTest)Is_Unselected_Combatant` as its argument the inner `test(techno, argument)` is itself an
+  inline site (il_lab in uicmnds: Is_Owned_Active, 44 units, expands inside Collect_Technos when its address is
+  written at the call). Through a local (`TechnoTest test = (TechnoTest)Is_Owned_Active; Collect_Technos(test, 0)`)
+  it is not a site: the call stays, and constant propagation later makes it direct (`call 0x6F6FE0`). So one function
+  can hold both pictures: a direct call of a test whose pointer went through a local, and a loop with a test's body
+  and no call, where the function was named at the site.
+- The signature is in the budget, not in the loop. Select_All_Combatants 0x6F6D00 (725 B) was 98 bytes off at one
+  site with both loops open-coded: the image expands Get_Selection_Scope_Text (116 units) and then calls
+  Show_Player_Message (84 units) out of line, ours expanded both. The loops written as the unit's own helpers
+  (`Any_Techno_Passes(list, (TechnoTest)Is_Unselected_Combatant, 0)` and `For_Each_Techno_If(list,
+  (TechnoTest)Is_Selectable_Combatant, Select_Techno, 0, 0)`) charge the helpers and their tests and leave less than
+  84 at the last site: exact, with the same loop instructions. Either helper alone does not do it (the final loop
+  alone: 613 bytes off; the test loop alone: the same 98). Sizes read with il_lab in uicmnds: Show_Player_Message 84,
+  Get_Selection_Scope_Text 116, Collect_Technos 128, Collect_Visible_Technos 148, DynamicVectorClass's (unsigned,
+  T const *) constructor 80, AbstractClass::Is_Techno with its statement body 48, a ra2-decomp-style
+  Has_Unselected_Combatants 112.
+- The Yuri's Revenge twin shows the other side of it: there the final loop calls a real function of the helper's
+  pointer shape directly (0x7325C0, `int __fastcall (TechnoClass *, int unused)`; ra2-decomp wrote the loop out and
+  named the function Is_Selectable_Combatant). That is the same source with the test refused (YR's test is larger
+  by CanBeSelectedNow), left as a direct call by constant propagation and so emitted. A twin's "real function with an
+  unused parameter called from a hand-written loop" points at a pointer-taking helper in our unit.
+- Such a test or action has no copy in the image when every site expands it: it is declared `inline` (the rebuild
+  ruling "a function our object emits that the image lacks takes the linkage that does not emit it"); VC6 emits no
+  body for an inline function whose address was only ever an argument that the expansion consumed.

@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -522,6 +523,15 @@ bool Campaign_Score_Service(void) // RA2: 0x00466A20
 
 
 /// <summary>
+/// Sets the text of a dialog control (ra2-decomp's twin helper in campscor.cpp).
+/// </summary>
+inline void _Set_Text(HWND dialog, int id, wchar_t const * text)
+{
+	HWND item = GetDlgItem(dialog, id);
+	SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text);
+}
+
+/// <summary>
 /// Shows the score screen of a map and waits until the players are done with it.
 /// The scores are copied from the caller's list, the session's table is filled from the houses and
 /// sorted, and the dialog is run until this player has quit or pressed continue and every other
@@ -533,7 +543,6 @@ bool Campaign_Score_Service(void) // RA2: 0x00466A20
 /// <param name="more">Whether more maps follow; the screen is left when this player is ready if not.</param>
 /// <param name="difficulty">The difficulty, 0 to 2, or -1 when it is not known.</param>
 /// <param name="name">The name of the campaign.</param>
-#ifdef RA2_NON_MATCHING // not exact: 12 bytes differ (adopted text)
 void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> scores, int time, bool more, int difficulty, wchar_t const * name) // RA2: 0x00466A50
 {
 	ScoreCount = scores.Count(); // RA2: as above
@@ -593,9 +602,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
 				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
 					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
 						int id = CampScoreControls[row][5]; // RA2: as above
-						wchar_t const * text = StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 582); // RA2: as above
-						HWND item = GetDlgItem(window, id); // RA2: as above
-						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+						_Set_Text(window, id, StringTable::LoadString("TXT_READY", NULL, "D:\\Ra2\\CampScor.cpp", 582)); // RA2: as above
 						ScoreReady[row] = true; // RA2: as above
 						break; // RA2: as above
 					}
@@ -609,9 +616,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
 				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
 					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
 						int id = CampScoreControls[row][5]; // RA2: as above
-						wchar_t const * text = StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 602); // RA2: as above
-						HWND item = GetDlgItem(window, id); // RA2: as above
-						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+						_Set_Text(window, id, StringTable::LoadString("TXT_ABORTED", NULL, "D:\\Ra2\\CampScor.cpp", 602)); // RA2: as above
 						ScoreReady[row] = false; // RA2: as above
 						break; // RA2: as above
 					}
@@ -629,9 +634,7 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
 				for (row = 0; row < Session.NumScores; row++) { // RA2: as above
 					if (strcmp(Session.GPacket.Name, Wide_To_Narrow(CampaignSortedScores[row]->Name)) == 0) { // RA2: as above
 						int id = CampScoreControls[row][5]; // RA2: as above
-						wchar_t const * text = StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 625); // RA2: as above
-						HWND item = GetDlgItem(window, id); // RA2: as above
-						SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
+						_Set_Text(window, id, StringTable::LoadString("TXT_WAITING", NULL, "D:\\Ra2\\CampScor.cpp", 625)); // RA2: as above
 						ScoreReady[row] = false; // RA2: as above
 						break; // RA2: as above
 					}
@@ -654,7 +657,6 @@ void CampaignScoreClass::Presentation(DynamicVectorClass<MPlayerScoreType *> sco
 	}
 	Free_Score_Art(); // RA2: as above
 }
-#endif
 
 
 /// <summary>

@@ -393,7 +393,6 @@ TPoint2D<int> UnitTypeClass::Turret_Adjust(Dir256 dir, TPoint2D<int> const & xy)
  * HISTORY:                                                                                    *
  *   07/19/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 27 bytes differ (text_if0 bucket; RA2 rules and IFV turrets)
 bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 {
 	if (BASECLASS::Read_INI(ini)) {
@@ -466,7 +465,7 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 		}
 
 		if (StartDeathFrame == -1) {
-			StartDeathFrame = DeathFrames ? Facings * (FiringFrames + WalkFrames + 1) : -1;
+			StartDeathFrame = DeathFrames == 0 ? -1 : Facings * (FiringFrames + WalkFrames + 1); // RA2: ra2-decomp's twin statement
 			MaxDeathCounter = StartDeathFrame + DeathFrames;
 		}
 
@@ -567,7 +566,6 @@ bool UnitTypeClass::Read_INI(CCINIClass const & ini)
 	}
 	return(false);
 }
-#endif
 
 
 

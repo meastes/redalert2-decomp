@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -144,7 +145,7 @@ inline int Lepton_To_Cell(LEPTON lepton_distance)
  *=============================================================================================*/
 inline Coord Coord_Snap(Coord const & coord)
 {
-	return(Coord(coord.X - (coord.X & (CELL_LEPTON_W-1)) + CELL_LEPTON_W/2, coord.Y - (coord.Y & (CELL_LEPTON_H-1)) + CELL_LEPTON_H/2, coord.Z));
+	return(Coord(coord.X / CELL_LEPTON_W * CELL_LEPTON_W + CELL_LEPTON_W / 2, coord.Y / CELL_LEPTON_H * CELL_LEPTON_H + CELL_LEPTON_H / 2, coord.Z));
 }
 
 

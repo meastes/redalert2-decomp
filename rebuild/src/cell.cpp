@@ -2583,8 +2583,7 @@ static inline int Wall_Frame(CellClass & cell, FacingType const * offsets)
  *   09/19/1994 JLB : Created.                                                                 *
  *   09/19/1994 BWG : Updated to handle partially-damaged walls.                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact (ra2-decomp's twin: the redraw rectangle block and Wall_Frame; the first wall case leaves the owner alone), but its static _offsets (0x7D2B58) lies 36 bytes before Clear_Icon's tables with Closest_Free_Spot's _sequence and _alternate (0x7D2B6C, parked) between them, so the object pads _small_pattern and the data audit refuses the section; lands with Closest_Free_Spot 0x4764B0
-void CellClass::Wall_Update(bool justneighbors)
+void CellClass::Wall_Update(bool justneighbors) // RA2: ra2-decomp's twin text (the redraw rectangle block, Wall_Frame; the first wall case leaves the owner alone)
 {
 	static FacingType _offsets[FACING_COUNT / 2 + 1] = {FACING_N, FACING_E, FACING_S, FACING_W, FACING_NONE};
 
@@ -2666,7 +2665,6 @@ void CellClass::Wall_Update(bool justneighbors)
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2846,7 +2844,9 @@ int CellClass::Reduce_Wall(int damage)
  *=============================================================================================*/
 int CellClass::Spot_Index(Coord const & coord)
 {
-	Point2D rel = Coord_Fraction(coord);		// Sub coordinate value within cell.
+	int x = coord.X & (CELL_LEPTON_W - 1); // RA2: keep the sub-cell X and Y for the quadrant test
+	int y = coord.Y & (CELL_LEPTON_H - 1);
+	Point2D rel(x, y);		// Sub coordinate value within cell.
 
 	/*
 	**	If the coordinate is close enough to the center of the cell, then return
@@ -2863,8 +2863,8 @@ int CellClass::Spot_Index(Coord const & coord)
 	**	from left to right, top to bottom.
 	*/
 	int index = 0;
-	if (rel.X > CELL_LEPTON/2) index |= 0x01;
-	if (rel.Y > CELL_LEPTON/2) index |= 0x02;
+	if (x > CELL_LEPTON / 2) index |= 0x01;
+	if (y > CELL_LEPTON / 2) index |= 0x02;
 	if (index == 0) return(0);
 	return(index+1);
 }
@@ -2919,7 +2919,6 @@ bool CellClass::Is_Spot_Free(int spot_index, bool bridge) const
  *   12/10/1994 JLB : Picks best of closest stopping positions.                                *
  *   12/21/1994 JLB : Adds a mix-up factor if center location is occupied.                     *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 656 bytes differ (adopted text)
 Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge) const
 {
 	int spot_index = Spot_Index(xcoord);
@@ -2949,7 +2948,10 @@ Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge) 
 		{4,1,2,3},
 	};
 
-	Coord coord = Coord_Whole(xcoord);
+	// RA2: placement rounds negative coordinates down to the cell boundary.
+	int x = xcoord.X - (xcoord.X & (CELL_LEPTON_W - 1));
+	int y = xcoord.Y - (xcoord.Y & (CELL_LEPTON_H - 1));
+	Coord coord(x, y, xcoord.Z);
 
 	/*
 	**	Cells occupied by buildings or vehicles don't have any free spots.
@@ -2974,7 +2976,7 @@ Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge) 
 	**	then just return with the stopping coordinate value.
 	*/
 	if (any || Is_Spot_Free(spot_index, bridge)) {
-		coord += StoppingCoordAbs[spot_index];
+		coord = coord + StoppingCoordAbs[spot_index];
 		coord.Z = Map.Get_Height_GL(xcoord);
 		if (bridge) {
 			coord.Z += BRIDGE_LEPTON_HEIGHT;
@@ -2997,7 +2999,7 @@ Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge) 
 		int pos = *sequence++;
 
 		if (Is_Spot_Free(pos, bridge)) {
-			coord += StoppingCoordAbs[pos];
+			coord = coord + StoppingCoordAbs[pos];
 			coord.Z = Map.Get_Height_GL(xcoord);
 			if (bridge) {
 				coord.Z += BRIDGE_LEPTON_HEIGHT;
@@ -3011,7 +3013,6 @@ Coord CellClass::Closest_Free_Spot(Coord const & xcoord, bool any, bool bridge) 
 	*/
 	return(COORD_NONE);
 }
-#endif
 
 
 /// <summary>

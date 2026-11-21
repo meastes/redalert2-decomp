@@ -93,6 +93,22 @@
     "?Net2Callback@@YI_NXZ": 6012176,
     "?WOL_Wait_Callback@@YI_NXZ": 7594240,
     "?Call_Back@@YIXXZ": 4726704,
+    "_ScoreCount": 8717580,
+    "?Tally_Scores@CampaignScoreClass@@QAEXXZ": 4611344,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "?Load_Score_Art@@YIXH@Z": 7284496,
+    "?Clear_Global_Routed@IPXManagerClass@@QAEXXZ": 5404656,
+    "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 4612032,
+    "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z": 6288912,
+    "__imp__SetWindowLongA@12": 7971976,
+    "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289344,
+    "?Windows_Message_Handler@@YIXXZ": 5988064,
+    "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z": 5397168,
+    "?Process_Global_Packet@@YI_NPAUGlobalPacketType@@PAVIPXAddressClass@@@Z": 6030832,
+    "??3@YAXPAX@Z": 7871803,
+    "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z": 6289120,
+    "?Set_Global_Routed@IPXManagerClass@@QAEXXZ": 5404672,
+    "?Free_Score_Art@@YAXXZ": 7284560,
     "??_7CampaignEndScoreClass@@6B@": 7984944,
     "_EndScoreDifficulty": 8717520,
     "_EndScoreCount": 8717544,
@@ -104,14 +120,10 @@
     "_EndScores": 8717480,
     "__imp__PostMessageA@16": 7971952,
     "__imp__SendDlgItemMessageA@20": 7971972,
-    "?Scen@@3PAVScenarioClass@@A": 10736272,
-    "?Load_Score_Art@@YIXH@Z": 7284496,
     "?Load_MP_Score_Art@@YIXH@Z": 7285296,
     "?Campaign_End_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 4617008,
     "?Dialog_Box@@YIHHP6GHPAUHWND__@@IIJ@Z_N@Z": 6204256,
     "?Free_MP_Score_Art@@YIXXZ": 7285424,
-    "?Free_Score_Art@@YAXXZ": 7284560,
-    "??3@YAXPAX@Z": 7871803,
     "_$E2": 4610560,
     "_$E5": 4610608,
     "_$E8": 4610640,
@@ -127,21 +139,19 @@
     "_$E51": 4611024,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0CampaignScoreClass@@QAE@XZ": 4611056,
-    "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z": 4614736,
     "??_GCampaignScoreClass@@UAEPAXI@Z": 4619008,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVCampaignScoreClass@@@8": 8197448,
     "??1CampaignScoreClass@@UAE@XZ": 4611088,
     "?Campaign_Score_Format_Time@@YIXPAGH@Z": 4611104,
     "?Campaign_Score_Set_Number@@YIXPAUHWND__@@HH@Z": 4611264,
-    "?Tally_Scores@CampaignScoreClass@@QAEXXZ": 4611344,
     "?Campaign_Score_Sort@@YIXXZ": 4611808,
     "?Campaign_Score_Reset_Ready@@YIXH@Z": 4611920,
     "?Campaign_Score_All_Ready@@YI_NXZ": 4611968,
     "?Campaign_Score_Set_Ready@@YIXH_N@Z": 4612000,
     "?Campaign_Score_Is_Ready@@YI_NH@Z": 4612016,
-    "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 4612032,
     "?Campaign_Score_Service@@YI_NXZ": 4614688,
+    "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z": 4614736,
     "??0CampaignEndScoreClass@@QAE@XZ": 4616704,
     "??_GCampaignEndScoreClass@@UAEPAXI@Z": 4619040,
     "??_R0?AVCampaignEndScoreClass@@@8": 8197824,
@@ -217,7 +227,7 @@
           "resolved": 8717424
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610560,
@@ -269,7 +279,7 @@
           "resolved": 8717560
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610608,
@@ -321,7 +331,7 @@
           "resolved": 8717536
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610640,
@@ -373,7 +383,7 @@
           "resolved": 8717528
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610672,
@@ -425,7 +435,7 @@
           "resolved": 8717432
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610704,
@@ -477,7 +487,7 @@
           "resolved": 8717360
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610736,
@@ -561,7 +571,7 @@
           "resolved": 8717568
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610768,
@@ -621,7 +631,7 @@
           "resolved": 8717440
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610832,
@@ -681,7 +691,7 @@
           "resolved": 8717472
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610880,
@@ -741,7 +751,7 @@
           "resolved": 8717548
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610928,
@@ -785,7 +795,7 @@
           "resolved": 8717418
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610976,
@@ -837,7 +847,7 @@
           "resolved": 8717464
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4610992,
@@ -897,7 +907,7 @@
           "resolved": 8717380
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611024,
@@ -949,7 +959,7 @@
           "resolved": 8197248
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611056,
@@ -985,7 +995,7 @@
           "resolved": 7984932
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611088,
@@ -1045,7 +1055,7 @@
           "resolved": 3267253
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611104,
@@ -1105,7 +1115,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611264,
@@ -1405,7 +1415,7 @@
           "resolved": 4294576703
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611344,
@@ -1481,7 +1491,7 @@
           "resolved": 3259949
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611808,
@@ -1508,7 +1518,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611872,
@@ -1561,7 +1571,7 @@
           "resolved": 8717512
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611920,
@@ -1597,7 +1607,7 @@
           "resolved": 8717512
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4611968,
@@ -1633,7 +1643,7 @@
           "resolved": 8717512
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4612000,
@@ -1669,7 +1679,7 @@
           "resolved": 8717512
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4612016,
@@ -2825,7 +2835,7 @@
           "resolved": 7971992
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4612032,
@@ -2885,10 +2895,1198 @@
           "resolved": 111986
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4614688,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4614736,
+      "method": "00466a50",
+      "body_bytes": 1956,
+      "body_sha256": "221325de7102385c2715694fe5add2c33ca22b8cf5b14ab093710a81e9e11b3b",
+      "padding_bytes": 12,
+      "full_extent_bytes": 1968,
+      "full_extent_sha256": "40b179266a78df78318bc0518bee00433e7e4f5f6ad0f64246fd16426898228a",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z",
+      "symbol_prefix": "?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_ScoreCount",
+          "target": 8717580,
+          "addend": 0,
+          "resolved": 8717580
+        },
+        {
+          "offset": 44,
+          "kind": 6,
+          "symbol": "_ScoreName",
+          "target": 8717588,
+          "addend": 0,
+          "resolved": 8717588
+        },
+        {
+          "offset": 50,
+          "kind": 6,
+          "symbol": "_ScoreTime",
+          "target": 8717576,
+          "addend": 0,
+          "resolved": 8717576
+        },
+        {
+          "offset": 56,
+          "kind": 6,
+          "symbol": "_CampaignDifficulty",
+          "target": 8197248,
+          "addend": 0,
+          "resolved": 8197248
+        },
+        {
+          "offset": 61,
+          "kind": 20,
+          "symbol": "_wcscpy",
+          "target": 7878281,
+          "addend": 0,
+          "resolved": 3263480
+        },
+        {
+          "offset": 81,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 87,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 93,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 4,
+          "resolved": 8717516
+        },
+        {
+          "offset": 99,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 4,
+          "resolved": 8717516
+        },
+        {
+          "offset": 105,
+          "kind": 6,
+          "symbol": "_ScoreCount",
+          "target": 8717580,
+          "addend": 0,
+          "resolved": 8717580
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 141,
+          "kind": 20,
+          "symbol": "?Tally_Scores@CampaignScoreClass@@QAEXXZ",
+          "target": 4611344,
+          "addend": 0,
+          "resolved": 4294963759
+        },
+        {
+          "offset": 147,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 156,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 161,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8052,
+          "resolved": 10744332
+        },
+        {
+          "offset": 184,
+          "kind": 6,
+          "symbol": "?Campaign_Score_Compare@@YAHPBX0@Z",
+          "target": 4611872,
+          "addend": 0,
+          "resolved": 4611872
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 197,
+          "kind": 20,
+          "symbol": "_qsort",
+          "target": 7871814,
+          "addend": 0,
+          "resolved": 3256877
+        },
+        {
+          "offset": 205,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 221,
+          "kind": 20,
+          "symbol": "?Load_Score_Art@@YIXH@Z",
+          "target": 7284496,
+          "addend": 0,
+          "resolved": 2669535
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 716406
+        },
+        {
+          "offset": 236,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "?Clear_Global_Routed@IPXManagerClass@@QAEXXZ",
+          "target": 5404656,
+          "addend": 0,
+          "resolved": 789667
+        },
+        {
+          "offset": 255,
+          "kind": 6,
+          "symbol": "?Campaign_Score_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+          "target": 4612032,
+          "addend": 0,
+          "resolved": 4612032
+        },
+        {
+          "offset": 265,
+          "kind": 20,
+          "symbol": "?Begin_Dialog@OwnerDraw@@YIPAUHWND__@@HP6GHPAU2@IIJ@ZJ@Z",
+          "target": 6288912,
+          "addend": 0,
+          "resolved": 1673907
+        },
+        {
+          "offset": 297,
+          "kind": 6,
+          "symbol": "__imp__SetWindowLongA@12",
+          "target": 7971976,
+          "addend": 0,
+          "resolved": 7971976
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?Display_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289344,
+          "addend": 0,
+          "resolved": 1674300
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?Windows_Message_Handler@@YIXXZ",
+          "target": 5988064,
+          "addend": 0,
+          "resolved": 1372998
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 360,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 371,
+          "kind": 20,
+          "symbol": "_wcscmp",
+          "target": 7878611,
+          "addend": 0,
+          "resolved": 3263500
+        },
+        {
+          "offset": 383,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "_ScoreIsReady",
+          "target": 8717584,
+          "addend": 0,
+          "resolved": 8717584
+        },
+        {
+          "offset": 405,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 422,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 463,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 468,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 783160
+        },
+        {
+          "offset": 473,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9600,
+          "resolved": 10745880
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9588,
+          "resolved": 10745868
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9584,
+          "resolved": 10745864
+        },
+        {
+          "offset": 488,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9128,
+          "resolved": 10745408
+        },
+        {
+          "offset": 493,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 498,
+          "kind": 20,
+          "symbol": "?Get_Global_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z",
+          "target": 5397168,
+          "addend": 0,
+          "resolved": 781930
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9600,
+          "resolved": 10745880
+        },
+        {
+          "offset": 526,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9588,
+          "resolved": 10745868
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9128,
+          "resolved": 10745408
+        },
+        {
+          "offset": 536,
+          "kind": 20,
+          "symbol": "?Process_Global_Packet@@YI_NPAUGlobalPacketType@@PAVIPXAddressClass@@@Z",
+          "target": 6030832,
+          "addend": 0,
+          "resolved": 1415556
+        },
+        {
+          "offset": 549,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9128,
+          "resolved": 10745408
+        },
+        {
+          "offset": 563,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 585,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2700419
+        },
+        {
+          "offset": 592,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9132,
+          "resolved": 10745412
+        },
+        {
+          "offset": 642,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 666,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 675,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 20,
+          "resolved": 8197272
+        },
+        {
+          "offset": 680,
+          "kind": 6,
+          "symbol": "??_C@_09IMGH@TXT_READY?$AA@",
+          "target": 8197648,
+          "addend": 0,
+          "resolved": 8197648
+        },
+        {
+          "offset": 685,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2699711
+        },
+        {
+          "offset": 699,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 713,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 719,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 728,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 777,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 792,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 799,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2700205
+        },
+        {
+          "offset": 806,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9132,
+          "resolved": 10745412
+        },
+        {
+          "offset": 856,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 889,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 20,
+          "resolved": 8197272
+        },
+        {
+          "offset": 894,
+          "kind": 6,
+          "symbol": "??_C@_0M@LCFM@TXT_ABORTED?$AA@",
+          "target": 8197660,
+          "addend": 0,
+          "resolved": 8197660
+        },
+        {
+          "offset": 899,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2699497
+        },
+        {
+          "offset": 913,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 927,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 933,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 938,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 954,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 962,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2700042
+        },
+        {
+          "offset": 969,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9132,
+          "resolved": 10745412
+        },
+        {
+          "offset": 1019,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1031,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1040,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3256023
+        },
+        {
+          "offset": 1046,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1054,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10212,
+          "resolved": 10746492
+        },
+        {
+          "offset": 1063,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10212,
+          "resolved": 10746492
+        },
+        {
+          "offset": 1077,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1090,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1098,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1112,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1126,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1141,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 1176,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 1191,
+          "kind": 6,
+          "symbol": "_CampaignSortedScores",
+          "target": 8717384,
+          "addend": 0,
+          "resolved": 8717384
+        },
+        {
+          "offset": 1198,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2699806
+        },
+        {
+          "offset": 1205,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9132,
+          "resolved": 10745412
+        },
+        {
+          "offset": 1255,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 8952,
+          "resolved": 10745232
+        },
+        {
+          "offset": 1282,
+          "kind": 6,
+          "symbol": "??_C@_0BE@LFCN@D?3?2Ra2?2CampScor?4cpp?$AA@",
+          "target": 8197508,
+          "addend": 0,
+          "resolved": 8197508
+        },
+        {
+          "offset": 1291,
+          "kind": 6,
+          "symbol": "_CampScoreControls",
+          "target": 8197252,
+          "addend": 20,
+          "resolved": 8197272
+        },
+        {
+          "offset": 1296,
+          "kind": 6,
+          "symbol": "??_C@_0M@MHCJ@TXT_WAITING?$AA@",
+          "target": 8197672,
+          "addend": 0,
+          "resolved": 8197672
+        },
+        {
+          "offset": 1301,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 2699095
+        },
+        {
+          "offset": 1315,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 1329,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 1335,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 1357,
+          "kind": 6,
+          "symbol": "_ScoreReady",
+          "target": 8717512,
+          "addend": 0,
+          "resolved": 8717512
+        },
+        {
+          "offset": 1417,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1428,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 1444,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2699560
+        },
+        {
+          "offset": 1479,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1500,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1512,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1522,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 780634
+        },
+        {
+          "offset": 1527,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1532,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 782096
+        },
+        {
+          "offset": 1537,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1553,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 1575,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 1584,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1602,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2699402
+        },
+        {
+          "offset": 1637,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1661,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1673,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1684,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 780472
+        },
+        {
+          "offset": 1689,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1694,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 781934
+        },
+        {
+          "offset": 1699,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1715,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 1738,
+          "kind": 6,
+          "symbol": "?CampaignScoreDone@@3_NA",
+          "target": 8717572,
+          "addend": 0,
+          "resolved": 8717572
+        },
+        {
+          "offset": 1747,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1765,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 2699239
+        },
+        {
+          "offset": 1800,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1817,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1829,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1839,
+          "kind": 20,
+          "symbol": "?Send_Global_Message_To_Name@IPXManagerClass@@QAEHPAXHHPBG@Z",
+          "target": 5396896,
+          "addend": 0,
+          "resolved": 780317
+        },
+        {
+          "offset": 1844,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1849,
+          "kind": 20,
+          "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+          "target": 5398368,
+          "addend": 0,
+          "resolved": 781779
+        },
+        {
+          "offset": 1854,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1868,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 714768
+        },
+        {
+          "offset": 1877,
+          "kind": 20,
+          "symbol": "?End_Dialog@OwnerDraw@@YIXPAUHWND__@@@Z",
+          "target": 6289120,
+          "addend": 0,
+          "resolved": 1672503
+        },
+        {
+          "offset": 1886,
+          "kind": 20,
+          "symbol": "?Darken_Surface@@YIXPAVSurface@@_N@Z",
+          "target": 5331376,
+          "addend": 0,
+          "resolved": 714750
+        },
+        {
+          "offset": 1899,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 1907,
+          "kind": 6,
+          "symbol": "?Ipx@@3VIPXManagerClass@@A",
+          "target": 10750328,
+          "addend": 0,
+          "resolved": 10750328
+        },
+        {
+          "offset": 1912,
+          "kind": 20,
+          "symbol": "?Set_Global_Routed@IPXManagerClass@@QAEXXZ",
+          "target": 5404672,
+          "addend": 0,
+          "resolved": 788020
+        },
+        {
+          "offset": 1917,
+          "kind": 20,
+          "symbol": "?Free_Score_Art@@YAXXZ",
+          "target": 7284560,
+          "addend": 0,
+          "resolved": 2667903
+        },
+        {
+          "offset": 1936,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3255127
+        }
+      ],
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
+      "source": "rebuild/src/campscor.cpp",
+      "population": "rebuild-campscor",
+      "source_order": 4614736,
       "source_quality_family": "rebuild"
     },
     {
@@ -2945,7 +4143,7 @@
           "resolved": 8717468
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4616704,
@@ -2981,7 +4179,7 @@
           "resolved": 7984944
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4616752,
@@ -3041,7 +4239,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4616768,
@@ -3101,7 +4299,7 @@
           "resolved": 3261506
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4616848,
@@ -3769,7 +4967,7 @@
           "resolved": 7971972
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4617008,
@@ -3829,7 +5027,7 @@
           "resolved": 3253034
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4618752,
@@ -4017,7 +5215,7 @@
           "resolved": 3252810
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4618784,
@@ -4061,7 +5259,7 @@
           "resolved": 3252772
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4619008,
@@ -4105,7 +5303,7 @@
           "resolved": 3252740
         }
       ],
-      "source_sha256": "55e80a0ca95f4dcd9c5af1c920c7513785798424e11a4231740811bb5f9541dd",
+      "source_sha256": "a1102128efac525f406511bebd598968ca926aa1bf0b8ab99121d18c085ba11b",
       "source": "rebuild/src/campscor.cpp",
       "population": "rebuild-campscor",
       "source_order": 4619040,

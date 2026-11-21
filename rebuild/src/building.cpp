@@ -5267,7 +5267,6 @@ bool BuildingClass::Can_Be_Undeployed(void)
  *   08/13/1995 JLB : Enable selling of units on a repair bay.                                 *
  *   08/20/1995 JLB : Scatters infantry from scattered starting points.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3098 bytes differ (adopted text)
 int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 {
 	int i;
@@ -5287,7 +5286,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 	switch (Status) {
 		case INITIAL:
 
-			if (Can_Be_Undeployed() && Class->Is_Mobile_Deployer()) {
+			if (Can_Be_Undeployed() && (Class->IsArtillary || Class->IsTickTank)) { // RA2: only artillery and tick tanks drop their target
 				Assign_Target(NULL);
 			}
 
@@ -5297,12 +5296,12 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			**	it will be sold. If there is nothing on the repair bay, then
 			**	the repair bay itself will be sold.
 			*/
-			if (Class->IsCanUnitRepair && Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER && ::Distance(Center_Coord(), Contact_With_Whom()->Center_Coord()) < CELL_LEPTON / 2) {
-				TechnoClass * tech = Contact_With_Whom();
+			if (Class->IsCanUnitRepair && Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER && Distance_To(Radio_Link(0)) < CELL_LEPTON / 2) { // RA2: the first radio link
+				TechnoClass * tech = Radio_Link(0);
 				Transmit_Message(RADIO_OVER_OUT);
-				if (IsOwnedByPlayer) Speak(VOX_UNIT_SOLD);
+				if (IsOwnedByPlayer) Queue_Speech("EVA_UnitSold", -1, -1); // RA2: EVA speaks by name
 				tech->Sell_Back(1);
-				Assign_Mission(MISSION_GUARD);
+				QueueMission(MISSION_GUARD, false); // RA2: QueueMission, not Assign_Mission
 				return(1);
 			}
 
@@ -5315,35 +5314,26 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				House->RecalcPower = true;
 				House->RecalcRadar = true;
 				Adjust_House_Power(House);
-				if (IsOwnedByPlayer) Speak(VOX_STRUCTURE_SOLD);
-				Assign_Mission(MISSION_GUARD);
+				if (IsOwnedByPlayer) Queue_Speech("EVA_StructureSold", -1, -1);
+				QueueMission(MISSION_GUARD, false);
 				return(1);
 			}
 
-			/*
-			 * A juggernaut must rotate back to its starting facing before the
-			 * deconstruction can proceed.
-			 */
-
-			End_Anim(BANIM_ALL); // RA2: no IsJuggernaut (not in RA2's layout)
-
 			IsReadyToCommence = false;
-			Transmit_Message(RADIO_RUN_AWAY);
+			SendToEachLink(RADIO_RUN_AWAY); // RA2: every radio link
 
 			if (Class->IsLaserFencePost) {
 				Toggle_Laser_Fence_Post(false);
 			}
 
 
-			if (Class->AuxSound2 != VOC_NONE) { // RA2: no IsJuggernaut (not in RA2's layout)
-				Sound_Effect(Class->AuxSound2, PositionCoord);
-			}
+			Remove_Damage_Fires(); // RA2: no juggernaut facing or AuxSound2; damage fires are removed
 
 			Status = HOLDING;
 			break;
 
 		case HOLDING:
-			Transmit_Message(RADIO_OVER_OUT);
+			SendToEachLink(RADIO_OVER_OUT); // RA2: as above
 			if (!IsTethered) {
 
 				/*
@@ -5351,14 +5341,14 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				**	members leaving is equal to the unrecovered cost of the building
 				**	divided by 100 (the typical cost of a minigunner infantryman).
 				*/
-				if (ArchiveTarget == NULL && Class->UndeploysInto == NULL) {
+				if (ArchiveTarget == NULL || Class->UndeploysInto == NULL) { // RA2: either, not both
 					int count = How_Many_Survivors();
 					bool engineer = false;
 
 					const Cell * list = Occupy_List();
 					const Cell * occupy = list;
 					int num_cells = 0;
-					while (*occupy != REFRESH_EOL) {
+					while (occupy->X != REFRESH_EOL.X || occupy->Y != REFRESH_EOL.Y) { // RA2: X and Y compared apart
 						num_cells++;
 						occupy++;
 					}
@@ -5392,7 +5382,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 								ScenarioInit--;
 								infantry->Scatter(COORD_NONE, true);
 								ScenarioInit++;
-								infantry->Assign_Mission(MISSION_MOVE);
+								infantry->QueueMission(MISSION_MOVE, false);
 							} else {
 								delete infantry;
 							}
@@ -5403,7 +5393,8 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 				}
 
 				if (House->Is_Player_Control() && !Considered_Vehicle()) {
-					Sound_Effect(Rule->SellSound, PositionCoord);
+					VocClass::PlayAt(Rule->SellSound, PositionCoord, NULL);
+					if (Class->PackupSound != VOC_NONE) VocClass::PlayAt(Class->PackupSound, PositionCoord, &BuildupSoundController); // RA2: packup sound on the buildup controller
 				}
 				Status = DURING;
 				Begin_Mode(BSTATE_CONSTRUCTION);
@@ -5420,20 +5411,17 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 			break;
 
 		case DURING:
+			VocClass::UpdateAt(PositionCoord, &BuildupSoundController); // RA2: as above
 			if (IsReadyToCommence) {
 				House->IsRecalcNeeded = true;
 				Assign_Target(NULL);
-				if (IsOwnedByPlayer && Class->UndeploysInto == NULL) Speak(VOX_STRUCTURE_SOLD);
+				if (IsOwnedByPlayer && Class->UndeploysInto == NULL) Queue_Speech("EVA_StructureSold", -1, -1);
 
 				/*
 				**	Construction yards that deconstruct, really just revert back
 				**	to an MCV.
 				*/
-				if (Class->UndeploysInto != NULL &&
-					(Class->Is_Mobile_Deployer() ||
-					Class->Can_Always_Undeploy() ||
-					(Session.Type != GAME_NORMAL && ArchiveTarget != NULL && House->Is_Human_Player() && (Session.Type == GAME_NORMAL || Session.Options.MCVRedeploy)))
-				) {
+				if (Can_Be_Undeployed()) { // RA2: the undeploy test is Can_Be_Undeployed
 
 					if (Class->IsArtillary && (BarrelPitch.Current() != Class->StartPitch || PrimaryFacing.Current() != Class->StartFace)) {
 						BarrelPitch.Set_Desired(Class->StartPitch);
@@ -5455,7 +5443,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 						AbstractClass * arch = ArchiveTarget;
 
 						Coord place;
-						if (Class->Is_Mobile_Deployer()) {
+						if (Class->IsSensorArray || Class->IsTickTank || Class->IsICBMLauncher || Class->IsArtillary) { // RA2: the mobile deployer flags tested here
 							place = PositionCoord;
 						} else {
 							Coord adjacent = Adjacent_Cell(PositionCoord, DIR_SE);
@@ -5470,17 +5458,12 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 
 						/*
 						 * Collect everything that was targeting this building so that it
-						 * can be retargeted onto the undeployed unit. Engineers that were
-						 * trying to capture the building just lose their target.
+						 * can be retargeted onto the undeployed unit.
 						 */
 						for (i = 0; i < Technos.Count(); i++) {
 							TechnoClass * tptr = Technos[i];
 							if (tptr->TarCom != NULL && tptr->TarCom->RTTI == RTTI_BUILDING && tptr->TarCom == this && tptr->IsActive && tptr != this && tptr != unit) {
-								if (tptr->RTTI == RTTI_INFANTRY && ((InfantryTypeClass *)tptr->TClass)->IsEngineer) {
-									tptr->Assign_Target(NULL);
-								} else {
-									targetters.Add(tptr);
-								}
+								targetters.Add(tptr); // RA2: engineers are not singled out
 							}
 						}
 
@@ -5489,9 +5472,11 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 						if (unit->Unlimbo(place, dir)) {
 							unit->Strength = (int)(unit->Class_Of()->MaxStrength * ratio);
 							unit->Strength = max(unit->Strength, 1);
+							unit->EstimatedHealth = unit->Strength; // RA2: as in the executable
 							unit->ActLike = ActLike;
 							unit->Group = Group;
-							unit->Veterancy.Experience = Veterancy.Experience;
+							unit->Veterancy = Veterancy; // RA2: the whole veterancy
+							if (Class->IsArtillary) unit->BarrelPitch.Set(DirType((Dir256)Class->StartPitch)); // RA2: artillery keeps its barrel pitch
 
 
 							/*
@@ -5500,7 +5485,7 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 							*/
 							if (arch != NULL) { // RA2: no LimpetType, LimpetSpeedFactor (not in RA2's layout)
 								unit->Assign_Destination(arch);
-								unit->Assign_Mission(MISSION_MOVE);
+								unit->QueueMission(MISSION_MOVE, false);
 							}
 
 							if (Tag != NULL) {
@@ -5528,7 +5513,8 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 					} else {
 						House->Refund_Money(Refund_Amount());
 					}
-					Detach_All();
+					Detach_All(true); // RA2: as in the executable
+					BuildupSoundController.EndLooping(); // RA2: as above
 					Delete_Me();
 					Adjust_House_Power(House);
 
@@ -5590,7 +5576,6 @@ int BuildingClass::Do_MISSION_DECONSTRUCTION(void)
 	}
 	return(1);
 }
-#endif
 
 
 

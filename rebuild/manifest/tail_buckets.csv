@@ -1,15 +1,14 @@
 unit,entry,function,bytes,bucket,top_callee,direction,detail
 building,00445620,?Do_MISSION_GUARD@BuildingClass@@UAEHXZ,788,calls_differ,CounterClass::Value,,"orig-only 5, ours-only 5, unresolved 0"
-building,00445b30,?Do_MISSION_DECONSTRUCTION@BuildingClass@@UAEHXZ,3308,calls_differ,VocClass::UpdateAt,,"orig-only 10, ours-only 7, unresolved 5"
 cell,00476cc0,?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z,6672,calls_differ,Adjacent_Cell,,"orig-only 3, ours-only 7, unresolved 0"
 fly,004be720,?Nearing_Target@FlyLocomotionClass@@QAEH_NUCoordStruct@@@Z,1633,calls_differ,DirType::Direction,,"orig-only 3, ours-only 2, unresolved 0"
 house,004e4110,?AI@HouseClass@@UAEXXZ,3544,calls_differ,HouseClass::Update_Spy_Satellite,,"orig-only 10, ours-only 6, unresolved 3"
-mapgen,0056e100,?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z,1678,calls_differ,TPoint2D::??H,,"orig-only 4, ours-only 2, unresolved 0"
+mapgen,0056e100,?Create_Region_From_Cell@MapRegionClass@@SIPAV1@PAVCellClass@@@Z,1678,calls_differ,VectorClass::Clear,,"orig-only 3, ours-only 2, unresolved 0"
 particle,00608bb0,?Gas_Behavior_AI@ParticleClass@@QAEXXZ,1601,calls_differ,Coord::Coord,,"orig-only 5, ours-only 0, unresolved 0"
 planmgr,00618c00,?Planning_Draw_Filled_Techno@@YIXPAVTechnoClass@@@Z,2076,calls_differ,Tactical::Coord_To_Pixel,,"orig-only 11, ours-only 7, unresolved 0"
 planmgr,00619420,?Planning_Draw_Node@@YIXPAVPlanningNodeClass@@@Z,994,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 5, ours-only 6, unresolved 0"
 planmgr,00619870,?Planning_Draw_Filled_Node@@YIXPAVPlanningNodeClass@@@Z,852,calls_differ,PlanningNodeClass::Member_Owner,,"orig-only 3, ours-only 5, unresolved 0"
-sidebar,0067dc90,?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1315,calls_differ,LinkClass::Zap,,"orig-only 3, ours-only 9, unresolved 0"
+taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,calls_differ,TActionClass::TAction_STOP_AI_TRIGGERS,,"orig-only 4, ours-only 1, unresolved 0"
 techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 46, ours-only 7, unresolved 3"
 wdtsel,0072e050,?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ,991,calls_differ,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,,"orig-only 6, ours-only 12, unresolved 1"
 wdtsel,0072e650,?Select_Territory_At@Selection@WorldDominationTour@@QAE_NABVPoint2D@@@Z,193,calls_differ,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,,"orig-only 4, ours-only 1, unresolved 0"
@@ -22,7 +21,6 @@ building,00453e10,?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablis
 building,00454a80,??_G?$DynamicVectorClass@PAVReestablish@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
 builtype,0045ed50,?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
 builtype,0045efe0,?Union@@YI?BV?$TRect@H@@ABV1@0@Z,240,exact_when_open,,,exact with the guards open (the guard may protect another row)
-cell,0047d060,?Length@?$TPoint2D@H@@QBEHXZ,38,exact_when_open,,,exact with the guards open (the guard may protect another row)
 combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,,exact with the guards open (the guard may protect another row)
 combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
 combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -62,10 +60,7 @@ map,0056ad30,?GetItem@?$VectorClass@W4PassabilityType@@@@UBE?AW4PassabilityType@
 mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
 mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,,exact with the guards open (the guard may protect another row)
 mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,,exact with the guards open (the guard may protect another row)
-mapgen,0058dd90,?Clear@?$DynamicVectorClass@V?$TRect@H@@@@UAEXXZ,42,exact_when_open,,,exact with the guards open (the guard may protect another row)
-mapgen,0058ddc0,?ID@?$DynamicVectorClass@V?$TRect@H@@@@UAEHPBV?$TRect@H@@@Z,27,exact_when_open,,,exact with the guards open (the guard may protect another row)
 mapgen,0058dec0,??_G?$TypeList@PBVBuildingTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
-mapgen,0058ed90,??_G?$DynamicVectorClass@V?$TRect@H@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
 mapgen,0058eed0,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
 mapgen,0058f1e0,?search_compfunc@?$IndexClass@HPAVMapRegionClass@@@@CAHPBX0@Z,34,exact_when_open,,,exact with the guards open (the guard may protect another row)
 missile,005940d0,??GDirType@@QBE?AV0@ABV0@@Z,28,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -96,6 +91,7 @@ startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_0
 startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
 startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
 super,0069ecf0,??H?$TPoint3D@H@@QBE?BV0@ABV0@@Z,47,exact_when_open,,,exact with the guards open (the guard may protect another row)
+super,0069ed20,?_AddRef@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
 techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -127,9 +123,9 @@ house,004f1190,?AI_Build_Defense@HouseClass@@QAE_NHPAV?$DynamicVectorClass@VCell
 house,004f6d20,?GetItem@?$VectorClass@UScoutStruct@@@@UBE?AUScoutStruct@@H@Z,28,inline_body,,,instructions 10 vs original 9
 init,00519500,?Allocate_Surfaces@@YI_NABV?$TRect@H@@000_N@Z,1118,inline_body,,,instructions 386 vs original 387
 map,00556520,?Destroy_Bridge2_Near@MapClass@@QAEXABVCell@@@Z,1546,inline_body,,,instructions 436 vs original 431
-map,00557090,?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z,1542,inline_body,,,instructions 436 vs original 431
 map,0055d640,?Pick_Random_Tile_Variant@MapClass@@QAE_NW4IsometricTileType@@HHHAA_N_N@Z,848,inline_body,,,instructions 258 vs original 257
 map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,inline_body,,,instructions 14 vs original 13
+sidebar,0067dc90,?AI@SidebarClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z,1315,inline_body,,,instructions 366 vs original 365
 team,006b7ad0,?AI@TeamClass@@UAEXXZ,3460,inline_body,,,instructions 1250 vs original 1249
 techno,006d24e0,?Techno_Render_Voxel_Object@TechnoClass@@QBE?AUSurfaceRegion@@ABUVoxelDataStruct@@ABVMatrix3D@@ABVPoint2D@@ABV?$TRect@H@@HW4ShapeFlags_Type@@H@Z,814,inline_body,,,instructions 253 vs original 238
 wonline,00743720,?Run_Lobby_Session@@YIHPAUHWND__@@_N@Z,2404,inline_body,,,instructions 728 vs original 726
@@ -137,8 +133,7 @@ wonline,0074a710,?Wonline_Game_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,7899,inl
 blight,00433970,?AI@BuildingLightClass@@UAEXXZ,1818,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
 building,004440e0,?Docking_Coord@BuildingClass@@UBE?AVCoord@@PAVTechnoClass@@@Z,463,inline_call,ObjectClass::Docking_Coord,orig_calls,?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z
 building,00444660,?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z,3359,inline_call,TPoint3D::Length,orig_calls,?Length@?$TPoint3D@H@@QBEHXZ
-bullet,00462110,?Detonate@BulletClass@@QAEXABVCoord@@@Z,2879,inline_call,TemporalClass::Fire,orig_calls,?Fire@TemporalClass@@QAEXPAVTechnoClass@@@Z
-cell,004764b0,?Closest_Free_Spot@CellClass@@QBE?AVCoord@@ABV2@_N1@Z,662,inline_call,TPoint2D::??G,ours_calls,??G?$TPoint2D@H@@QBE?BV0@ABV0@@Z
+bullet,00462c50,?Shrapnel@BulletClass@@QAEXXZ,2757,inline_call,TVelocity2D::Speed,orig_calls,?Speed@?$TVelocity2D@N@@QBENXZ
 coord,00491750,?Coord_Scatter@@YI?AVCoord@@ABV1@H_N@Z,289,inline_call,TPoint3D::TPoint3D,orig_calls,??0?$TPoint3D@H@@QAE@HHH@Z
 hover,004fbfc0,?Process@HoverLocomotionClass@@UAGEXZ,2229,inline_call,TPoint2D::??8,orig_calls,??8?$TPoint2D@H@@QBE_NABV0@@Z
 infantry,00504bc0,?Start_Driver@InfantryClass@@UAE_NAAVCoord@@@Z,817,inline_call,TPoint2D::??8,orig_calls,??8?$TPoint2D@H@@QBE_NABV0@@Z
@@ -163,14 +158,10 @@ skirmish,006829f0,?Skirmish_On_WM_COMMAND@@YIXPAUHWND__@@H0H@Z,3264,inline_call,
 startup,0068e280,_WinMain@16,10076,inline_call,TClassFactory::TClassFactory,orig_calls,??0?$TClassFactory@VCStreamClass@@@@QAE@XZ
 strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,inline_call,CCFileClass::~CCFileClass,orig_calls,??1CCFileClass@@UAE@XZ
 super,0069d090,?Discharged@SuperClass@@QAE_N_NABVCell@@@Z,765,inline_call,0069ed90,orig_calls,0069ed90
-super,0069d850,?Place@SuperClass@@QAEXABVCell@@_N@Z,4388,unbound,?_AddRef@?$_com_ptr_t@V?$_com_IIID@UIPiggyback@@$1?_GUID_92fea800_a184_11d1_b70a_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ,,unbound callee
-taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,calls_differ,TActionClass::TAction_STOP_AI_TRIGGERS,,"orig-only 4, ours-only 1, unresolved 0"
 techno,006c1f10,??0TechnoClass@@QAE@ABVNoInitClass@@@Z,409,inline_call,DynamicVectorClass::Add,ours_calls,?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z
 techno,006c2c40,?Draw_Post_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,3341,inline_call,CDTimerClass::Value,orig_calls,?Value@?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ
-uicmnds,006f6d00,?Select_All_Combatants@@YIX_N@Z,725,inline_call,Show_Player_Message,orig_calls,?Show_Player_Message@@YIXPBGH@Z
 uicmnds,006f7b80,?Select_By_Health@@YIX_N@Z,614,inline_call,??2@YAPAXI@Z,orig_calls,??2@YAPAXI@Z
 uicmnds,006f7ec0,?Select_By_Rank@@YIX_N@Z,624,inline_call,??2@YAPAXI@Z,orig_calls,??2@YAPAXI@Z
-unit,006fe610,?Per_Cell_Process@UnitClass@@UAEXW4PCPType@@@Z,3385,inline_call,_com_ptr_t::??C,orig_calls,??C?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@QBEPAUILocomo
 wave,007221d0,?Load@WaveClass@@UAGJPAUIStream@@@Z,349,inline_call,DynamicVectorClass::DynamicVectorClass,orig_calls,??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z
 wdtconflict,00727e30,?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,236,inline_call,??H@YI?AVWideWstring@@ABV0@0@Z,orig_calls,??H@YI?AVWideWstring@@ABV0@0@Z
 wdtsel,0072d560,??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z,1072,inline_call,007304c0,orig_calls,007304c0
@@ -188,7 +179,6 @@ wonline,00764500,?OnPublicAction@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@
 _rtti,0040db40,_$E41,23,no_draft,,,
 abstract,0040fef0,?get@Leaf_40fef0@@QAEXXZ,23,no_draft,,,
 bitfont,00432270,?get@Leaf_432270@@QAEXXZ,23,no_draft,,,
-bullet,00462c50,?unknown_func_462c50@BulletClass@@QAEXXZ,2757,no_draft,,,
 bullet,004642a0,??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z,33,no_draft,,,
 effects,004b3140,_$E41,23,no_draft,,,
 fly,004bfb30,?Magnitude_At_Least_004bfb30@UnknownFacingDir@@QBE_NABU1@@Z,36,no_draft,,,
@@ -217,7 +207,6 @@ partsys,0060d0f0,?get@Leaf_60d0f0@@QAEXXZ,23,no_draft,,,
 planmgr,0061a8e0,?unknown_rect_contains_0061a8e0@Owner_0061a8e0@seed_0061a8e0@@QAEIPAH@Z,58,no_draft,,,
 sidebar,00681690,?Unknown_00681690@SelectClass@StripClass@SidebarClass@@QAE_NXZ,25,no_draft,,,
 sidebar,00682520,?get@Leaf_682520@@QAEIXZ,29,no_draft,,,
-super,0069ed20,?_AddRef@?$_com_ptr_t@V?$_com_IIID@UILocomotion@@$1?_GUID_070f3290_9841_11d1_b709_00a024ddafd1@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
 tactical,006ac7a0,?unknown_empty_006ac7a0@seed_006ac7a0@@YAXXZ,1,no_draft,,,
 wdtconflict,00727cc0,??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z,36,no_draft,,,
 wonline,00765980,_$E9,1,no_draft,,,
@@ -228,19 +217,18 @@ wonline,00767cd0,?Key_Hash_00767cd0@WolNameTable@@QBEIABVWstring@@@Z,29,no_draft
 wonline,00767d60,?Remove_00767d60@WolChannelDictionary@@QAE_NABVWstring@@PAUChannel@WOL@@@Z,684,no_draft,,,
 ownrdraw,00601410,?get@Leaf_601410@@QAEIXZ,21,not_emitted,,,
 xsurface,007743c0,?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z,748,not_emitted,,,
-campscor,00466a50,?Presentation@CampaignScoreClass@@UAEXV?$DynamicVectorClass@PAUMPlayerScoreType@@@@H_NHPBG@Z,1956,register_order,,,"+11 mov dword ptr [0], eax | orig mov dword ptr [0x85050c], eax"
 combat,0047e2c0,?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z,4611,register_order,,,"+326 mov cx, word ptr [eax*4 + 0xa6f248] | orig mov cx, word ptr [esp + 0x14]"
 laser,005334f0,?Draw_It@LaserDrawClass@@QAEXXZ,1906,register_order,,,"+28 mov al, byte ptr [0] | orig mov al, byte ptr [0xa6e539]"
+map,00557090,?Destroy_Low_Bridge_Near@MapClass@@QAEXABVCell@@@Z,1542,register_order,,,"+289 mov dx, bx | orig mov dx, word ptr [eax]"
 map,00567d20,?Region_Threat@MapClass@@QAEHPAVHouseClass@@HHH@Z,885,register_order,,,"+1e2 mov bp, word ptr [eax*4 + 0xa6f218] | orig mov bp, si"
-mapgen,0057c4f0,?Seed_Land_Type0@MapGeneratorClass@@QAEXXZ,645,register_order,,,"+175 shl ecx, 1 | orig fadd qword ptr [0x7a5ed0]"
 netshare,005c8dd0,?Set_Slot_Names@@YIXPBG@Z,920,register_order,,,"+2b mov ebp, dword ptr [0xa72d30] | orig mov ebx, dword ptr [0xa72d2c]"
 score,00663fe0,?Presentation@ScoreClass@@QAEXXZ,7782,register_order,,,"+0 sub esp, 0x69c | orig sub esp, 0x6a0"
 sidebar,0067f800,?Draw_It@StripClass@SidebarClass@@QAEX_N@Z,2760,register_order,,,"+494 mov edx, dword ptr [0] | orig mov edx, dword ptr [0x8323b0]"
 sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,register_order,,,"+ef mov edx, dword ptr [0x839638] | orig mov edx, dword ptr [0x839630]"
+super,0069d850,?Place@SuperClass@@QAEXABVCell@@_N@Z,4388,register_order,,,"+32e mov cx, word ptr [ebx] | orig mov cx, word ptr [edi]"
 techno,006d6ed0,?Railgun_Beam_Damage@TechnoClass@@QAE?AVCoord@@AAV2@PAVAbstractClass@@PAVWeaponTypeClass@@@Z,1521,register_order,,,"+31b sub esp, 8 | orig faddp st(1)"
 techtype,006d9b40,??0TechnoTypeClass@@QAE@PBDW4SpeedType@@@Z,2961,register_order,,,"+478 push ebx | orig mov dword ptr [esi + 0x53c], ebx"
 uicmnds,006f7670,?Type_Select_Key_Up@@YIXXZ,58,register_order,,,"+2d push 1 | orig mov ecx, 0x8324e0"
-unittype,0070ab40,?Read_INI@UnitTypeClass@@UAE_NABVCCINIClass@@@Z,2013,register_order,,,+3bf je 0x70af18 | orig jne 0x70af05
 voxel,00718060,?Init_Voxel_Matrices@@YIXXZ,3290,register_order,,,"+673 xor esi, esi | orig xor edi, edi"
 wdtmap,0072a880,?WDT_Write_Map_Ini@@YIXABVWstring@@0@Z,1652,register_order,,,"+121 mov dword ptr [esp + 0x2c], 0 | orig mov dword ptr [esp + 0x2c], 0x7af298"
 wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,register_order,,,"+9 mov ecx, dword ptr [ecx + 8] | orig mov dword ptr [eax + 4], edx"
@@ -255,7 +243,6 @@ builtype,0045e290,?Get_Draw_Rect@BuildingTypeClass@@QAE?AV?$TRect@H@@XZ,1189,sta
 map,0054f250,?Zone_Span@MapClass@@QAEHPAUCellZoneStruct@@HAAH@Z,1386,stack_layout,,,"+26 mov dword ptr [esp + 0x1c], edi | orig mov dword ptr [esp + 0x20], edi"
 wonline,0073ccb0,?Encode_Game_Options@@YIXPAD@Z,797,stack_layout,,,"+161 mov dword ptr [esp + 0x24], ebp | orig mov dword ptr [esp + 0x2c], ebp"
 ldprgmgr,00536c70,?Shade_Text_Area@@YIXPBGPAVSurface@@HHHH_N@Z,177,text_if0,,,
-cell,00475960,?Wall_Update@CellClass@@QAEX_N@Z,1015,unbound,_?_offsets@?1??Wall_Update@CellClass@@QAEX_N@Z@4PAW4FacingType@@A,,unbound data
 foot,004cbb40,?Search_For_Tiberium_Weighted@FootClass@@QAE?AVCell@@H@Z,1467,unbound,??0?$VectorClass@V?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@@QAE@HPBV?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@@Z,,unbound callee
 map,0056c870,??_G?$VectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,??_7?$VectorClass@W4PassabilityType@@@@6B@,,unbound data
 map,0056c8c0,??_G?$DynamicVectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,??_7?$VectorClass@W4PassabilityType@@@@6B@,,unbound data

@@ -111,3 +111,7 @@ enum 78,MOUSE_PLACE_BEACON,mouse,"MouseType cursor 78, named after the action Mo
 0x006f7670,Type_Select_Key_Up,uicmnds,descriptive opposite of tree Type_Select_Key_Down; main Unknown_006F7670 body; worker delivery
 ,Selection_Message,uicmnds,descriptive inline helper name inherited from main body;no standalone original address; worker delivery
 ,Experience_Message,uicmnds,descriptive inline helper name inherited from main body;no standalone original address; worker delivery
+
+0x006f6d00,Select_All_Combatants,uicmnds,"descriptive: the routine CombatantSelectCommandClass::Execute calls (command ""CombatantSelect""); ra2-decomp FUN_00732280, main Unknown_006F6D00; lane F4"
+,Is_Unselected_Combatant,uicmnds,descriptive inline test passed to Any_Techno_Passes; no standalone original address (expanded at its one site); lane F4
+,Select_Techno,uicmnds,descriptive inline action passed to For_Each_Techno_If; no standalone original address (expanded at its one site); lane F4

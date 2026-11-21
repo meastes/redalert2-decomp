@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -1132,7 +1133,7 @@ bool SidebarClass::Stop_Tab_Flash(int index) // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 971 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 480 bytes differ (adopted text)
 void SidebarClass::AI(KeyNumType & input, Point2D const & xy)
 {
 	Point2D point = xy - Point2D(SidebarRect.X, 0); // RA2: as above
@@ -1171,8 +1172,7 @@ void SidebarClass::AI(KeyNumType & input, Point2D const & xy)
 			VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, 0); // RA2: as above
 		} else if ((input & ~0x4000) == (ScrollDownButton.ID | 0x8000)) { // RA2: as above
 			ScrollDownButton.IsPressed = false; // RA2: as above
-			StripClass &strip = Column[ActiveTabIndex]; // RA2: as above
-			if (!strip.Scroll(false, Max_Visible_Rows())) { // RA2: as above
+			if (!Column[ActiveTabIndex].Page(false)) { // RA2: as above
 				VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as above
 			} else {
 				VocClass::PlayGlobal(Rule->GUITabSound, 1.0f, 0x2000, 0); // RA2: as above
