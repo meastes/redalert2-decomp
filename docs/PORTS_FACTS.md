@@ -407,6 +407,25 @@ platform layer. It earns no exact-match credit.
   game's two transparent copies go to 16-bit surfaces) and the 25%/75% depth-writing translucent blitters (no draw
   passes translucency 2 or 6 with depth write and without alpha; techno and anim draws always add alpha). The
   harness gained `view <ID> <dx> <dy>` and relative `goto <ID> ~dx ~dy` (link/harness_orders.cpp).
+  Lane N26 (2026-11-21): none of the 110 is left reached by no run (checked again: every row of
+  native/behaviour_rewrites.json has a test, a coverage run or an unreachable label). Function-level reach says
+  nothing about the branches inside, so `coverage_runs.py blocks` reports block coverage: a build of the rewrites
+  alone with edge guards and line tables (native/tests/coverage_allowlist.txt), every scenario run on it, and per
+  function the guarded edges taken and the source lines of those not taken. Over all 51 scenarios: 896 of the
+  rewrite files' 1,477 functions entered, 1,770 of their 3,015 edges taken. The busiest gameplay gap was base
+  defences: BuildingClass::Do_MISSION_ATTACK (0x00446920) had run only in a loaded Allied 1 (a pillbox's plain
+  Fire_At); its prism, delayed-fire and facing branches never. Scenario `n26-defence` (four prism towers, a Tesla
+  coil, a Rhino at each) runs them and the result is the original's: the first tower gathers the other three as
+  supports (support beams), charges its own shot and kills the 400-strength Rhino in one boosted shot (120 x (1 +
+  3 x 1.5)); the coil's charged bolt fires. The SAM branch cannot run in Red Alert 2 (no rules.ini building sets
+  SAM=yes) nor the two-shooter one (no PowersUpBuilding). Scenario `n26-infiltrate` reaches the native bridges of
+  InfantryClass::Per_Cell_Process no run had entered: a spy's infiltration, Tanya's C4 (going to blow, armed) and a
+  Chrono Legionnaire's warp of a building, frozen and, when it dies mid-warp, thawed (link/behaviour_m10_building.cpp,
+  behaviour_temporal_building.cpp). A harness note for its owner: the `sabotage <ID> <TYPE>` order leaves Tanya in
+  guard beside the building (no C4); a click on the building plants it, so the scenario clicks. No behaviour fault
+  found; a static re-read of about 45 small rewrites against game.exe's instructions (the M22 defaults, the radiation and
+  super leaves, the temporal freeze and thaw, ThemeClass::Is_Allowed, the drive locomotor's slope matrix) found none
+  either, and every game-visible string in the rewrites is game.exe's own.
 - Data read from game.exe by size (lane N14, the Red Alert 2 side of lane N13's check): every stored scalar array's
   extent against its declaration found one short, the campaign score screen's control table
   (`unknown_score_controls_7d1484[8][6]`, 192 bytes stored as 32: the generator counted the first dimension only), so

@@ -1641,7 +1641,7 @@
    "source": "pass-6a decompile 00446920",
    "notes": "follows the pass-6a decompile and the original's jump table 0x00447214 case by case (SAM two-state launcher, voxel-turret facing snap within ROT, fire results 0-10: two-shooter upgrades, prism tower support gathering up to Rules->PrismSupportMax and the delayed shot 0x0044B870, IsAnimDelayedFire, FACING/REARM return 2, CLOAKED uncloaks, AMMO/ILLEGAL/CANT/RANGE drop the target); Scout1121 (M14b), full body Scout1191 (M24)",
    "behaviour_verdict": "same",
-   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav)"
+   "behaviour_checked_by": "C16 audit 2026-11-15: static check of the rewrite against the original's instructions; reached in the coverage runs (load-ALL01T.sav); N26 2026-11-21: run-checked in coverage scenario n26-defence (block coverage: no earlier run took its prism or delayed-fire branches, only a loaded Allied 1's plain Fire_At): four prism towers on a Rhino, the first gathers the other three (Start_Delayed_Fire(2) each, support beams through Fire_Prism_Support), charges its own shot (Start_Delayed_Fire(1)) and kills the 400-strength Rhino in one boosted shot (120 x (1 + 3 x 1.5) = 660, the exact unknown_44b770 multiplier); a Tesla coil (IsAnimDelayedFire) charges and fires. Its SAM branch cannot run in Red Alert 2: no rules.ini building sets SAM=yes; the two-shooter branch needs an installed upgrade (UpgradeLevel), and no rules.ini building sets PowersUpBuilding"
   },
   {
    "entry": "0x0041B300",

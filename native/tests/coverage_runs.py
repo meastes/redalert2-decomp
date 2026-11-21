@@ -20,6 +20,13 @@ coverage (port/src/run_progress.cpp) when UBSAN_OPTIONS=coverage=1:coverage_dir=
   coverage_runs.py report --binary B --out DIR [--json FILE] [--rows unchecked|all]
       maps each run's PCs to the binary's functions and lists every native/behaviour_rewrites.json
       row with the runs that reached it.
+  coverage_runs.py blocks --binary B --out DIR [--file behaviour_m14b] [--json FILE] [--all]
+      block coverage (lane N26): for each function of the instrumented files, the guarded edges the runs took
+      and the source lines of those they did not. The binary is a coverage build of the rewrites alone, with
+      line tables:
+        -g -fsanitize-coverage=trace-pc-guard -fsanitize-coverage-allowlist=native/tests/coverage_allowlist.txt
+        -fno-inline (C and C++ flags; the linker flag as above)
+      (edge guards in native/link/behaviour_*.cpp only; the allowlist needs both its src: and fun: lines).
   coverage_runs.py list
       the scenarios.
 
@@ -222,6 +229,26 @@ SCENARIOS = [
     # its Control keywords (the keyword table was read as one pointer), so nothing looped and this never ran.
     skirmish('n24-earshot', 1200, order='deploy', audio=True, seconds=300,
              env=dict(RA2_NATIVE_ORDERS='50 spawn DRON; 60 view GACNST 0 0; 100 goto DRON ~-10 ~0; 180 goto DRON ~10 ~0; 260 goto DRON ~-10 ~0; 340 goto DRON ~10 ~0; 420 goto DRON ~-10 ~0; 500 goto DRON ~10 ~0; 580 goto DRON ~-10 ~0; 660 goto DRON ~10 ~0; 740 goto DRON ~-10 ~0; 820 goto DRON ~10 ~0; 900 goto DRON ~-10 ~0; 980 goto DRON ~10 ~0; 1060 goto DRON ~-10 ~0; 300 view GACNST 40 -40; 600 view GACNST 0 0; 800 view GACNST 40 -40; 1000 view GACNST 0 0')),
+    # Lane N26: base defences in their attack mission (BuildingClass::Do_MISSION_ATTACK 0x00446920; no earlier run
+    # took its prism or delayed-fire branches: block coverage showed only a loaded Allied 1's plain Fire_At). Four
+    # prism towers on two power plants: the first to take the spawned Rhino gathers the other three as supports (each
+    # starts its delayed support beam, Start_Delayed_Fire(2)), then charges its own shot (Start_Delayed_Fire(1));
+    # the boosted beam (PrismSupportModifier 150% a support: 120 x 5.5) kills the 400-strength Rhino in one shot, as
+    # the original. A Tesla coil (IsAnimDelayedFire) on the other side takes the second Rhino.
+    skirmish('n26-defence', 900, order='deploy', seconds=320, env=dict(RA2_NATIVE_ORDERS=(
+        '60 spawn GAPOWR 0 6; 61 spawn GAPOWR 2 6; 62 spawn GAPOWR -2 6; 70 spawn ATESLA 5 0; 72 spawn ATESLA 5 3; '
+        '74 spawn ATESLA 5 -3; 76 spawn ATESLA 3 3; 78 spawn TESLA -5 0; 200 spawn HTNK enemy 8 1; '
+        '200 spawn HTNK enemy -8 1; ' + '; '.join('%d health' % f for f in range(200, 900, 50))))),
+    # Lane N26: infantry specials on buildings, the native bridges of InfantryClass::Per_Cell_Process (no earlier run
+    # entered them): a spy into a refinery (Native_Building_Infiltrate_00452390), Tanya sent onto a power plant by
+    # clicks (her C4: Native_Building_Set_Going_To_Blow_00500AA0, Arm_C4; the harness's `sabotage` order leaves her
+    # standing in guard, a click does not), a Chrono Legionnaire on a war factory, killed mid-warp (the temporal
+    # freeze 0x0044D320 and, at the release, the thaw 0x0044D380). The buildings are a passive house's (spawn ... enemy).
+    skirmish('n26-infiltrate', 700, order='deploy', seconds=300, env=dict(RA2_NATIVE_ORDERS=(
+        '60 spawn NAPOWR enemy 8 2; 62 spawn NAREFN enemy 8 -4; 64 spawn NAWEAP enemy -6 6; 80 spawn TANY 3 2; '
+        '82 spawn SPY 3 -2; 84 spawn CLEG -2 4; 122 capture SPY NAREFN; 124 attack CLEG NAWEAP; 200 kill CLEG; '
+        '300 health; 650 health')),
+        script=['130 click @TANY', '140 move @!NAPOWR', '145 move @!NAPOWR', '150 click @!NAPOWR']),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
@@ -527,6 +554,77 @@ def report(a):
         json.dump(result, open(a.json, 'w'), indent=1)
 
 
+def guard_sites(binary):
+    """Every trace-pc-guard call in the binary: [(address, function, source file, line)], cached beside it.
+    The callee is the stub otool lists for __sanitizer_cov_trace_pc_guard; atos gives each site's line."""
+    cache = binary + '.guards.json'
+    if os.path.isfile(cache) and os.path.getmtime(cache) > os.path.getmtime(binary):
+        return json.load(open(cache))
+    stub = None
+    for line in subprocess.run(['otool', '-Iv', binary], capture_output=True, text=True).stdout.splitlines():
+        if line.rstrip().endswith('___sanitizer_cov_trace_pc_guard'):
+            stub = int(line.split()[0], 16)
+            break
+    if stub is None:
+        sys.exit('blocks: %s has no trace-pc-guard calls (build it with the allowlist flags above)' % binary)
+    call = '\tbl\t0x%x ' % stub
+    found, fn = [], None
+    dis = subprocess.run(['xcrun', 'llvm-objdump', '-d', '--no-show-raw-insn', binary], capture_output=True, text=True).stdout
+    for line in dis.splitlines():
+        m = re.match(r'^([0-9a-f]+) <(.*)>:$', line)
+        if m:
+            fn = m.group(2)
+        elif call in line:
+            found.append((int(line.split(':')[0], 16), fn))
+    sites = []
+    for i in range(0, len(found), 2000):
+        chunk = found[i:i + 2000]
+        names = subprocess.run(['atos', '-o', binary, '-arch', 'arm64', '-l', '0x0'] + ['0x%x' % x for x, _ in chunk],
+                               capture_output=True, text=True).stdout.splitlines()
+        for (address, f), loc in zip(chunk, names):
+            m = re.search(r'\(([^()]+):(\d+)\)\s*$', loc)
+            sites.append([address, f, m.group(1) if m else '?', int(m.group(2)) if m else 0])
+    json.dump(sites, open(cache, 'w'))
+    return sites
+
+
+def blocks(a):
+    """Block coverage of the behaviour rewrites (lane N26): which guarded edges of each function the runs
+    took. A function entered with edges no run took is a branch the runs never compared."""
+    sites = guard_sites(a.binary)
+    hit = collections.defaultdict(set)
+    for f in glob.glob(os.path.join(a.out, '*', 'cov', '*.sancov')):
+        run = f.split(os.sep)[-3]
+        b = open(f, 'rb').read()
+        for pc in struct.unpack_from('<%dQ' % ((len(b) - 8) // 8), b, 8):
+            hit[pc].add(run)
+    per = collections.defaultdict(list)
+    for address, f, src, line in sites:
+        runs = hit.get(address + 4, set()) | hit.get(address, set())   # the guard call's return address
+        per[(os.path.basename(src), f)].append((line, runs))
+    rows = []
+    for (src, f), ls in sorted(per.items()):
+        if a.file and a.file not in src:
+            continue
+        taken = set(l for l, r in ls if r)
+        rows.append(dict(file=src, function=f, sites=len(ls), reached=sum(1 for _, r in ls if r),
+                         runs=sorted(set().union(*[r for _, r in ls])), lines_not_taken=sorted(set(l for l, r in ls if not r) - taken)))
+    for x in rows:
+        if x['reached'] and (a.all or x['reached'] < x['sites']):
+            print('%-30s %4d/%-4d %-60s not taken: %s' % (x['file'], x['reached'], x['sites'], x['function'][:60],
+                                                          ' '.join(map(str, x['lines_not_taken'][:16]))))
+    if a.all:
+        for x in rows:
+            if not x['reached']:
+                print('%-30s %4d/%-4d %s' % (x['file'], 0, x['sites'], x['function'][:90]))
+    entered = [x for x in rows if x['reached']]
+    print('%d functions, %d entered (%d of their %d edges taken), %d not entered' % (
+        len(rows), len(entered), sum(x['reached'] for x in entered), sum(x['sites'] for x in entered),
+        len(rows) - len(entered)), file=sys.stderr)
+    if a.json:
+        json.dump(rows, open(a.json, 'w'), indent=1)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest='cmd', required=True)
@@ -544,6 +642,12 @@ def main():
     p.add_argument('--rows', choices=('unchecked', 'all'), default='unchecked')
     p.add_argument('--all', action='store_true', help='list the rows not reached too')
     p.add_argument('--merge', action='append', default=[], help='an earlier report (--json) whose runs are added')
+    b = sub.add_parser('blocks')
+    b.add_argument('--binary', required=True)
+    b.add_argument('--out', required=True)
+    b.add_argument('--file', default='', help='only functions from source files whose name contains this')
+    b.add_argument('--json', default='')
+    b.add_argument('--all', action='store_true', help='list fully taken and not entered functions too')
     sub.add_parser('list')
     a = ap.parse_args()
     if a.cmd == 'list':
@@ -552,6 +656,9 @@ def main():
         return 0
     if a.cmd == 'report':
         report(a)
+        return 0
+    if a.cmd == 'blocks':
+        blocks(a)
         return 0
     names = a.scenarios or [s['name'] for s in SCENARIOS]
     bad = [n for n in names if n not in BY_NAME]
