@@ -787,7 +787,6 @@ static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * secon
 /// house, and color, into a single comma-separated string for transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
-void Encode_Game_Options(char * out); // RA2: the definition is not exact yet
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
@@ -1801,7 +1800,6 @@ void Refresh_Game_List(void)
 	if (dialog == WS_Top_Window()) SetFocus(GetDlgItem(dialog, 0x540));
 }
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; HouseClass::Production_Status_Changed, the TibSun archive's inline member, came into house.h)
 void Draw_Player_List(int keep_selection, bool force)
 {
 	HWND win = GameoptWindow();
@@ -2088,7 +2086,6 @@ void Draw_Player_List(int keep_selection, bool force)
 	SendDlgItemMessageA(win, 0x53E, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(GetDlgItem(win, 0x53E), NULL, 0);
 }
-#endif
 
 
 
@@ -4078,7 +4075,7 @@ class CNetUtilEventSink : public CComObjectRoot, public INetUtilEvent
 						profile->Save(&ladder_name);
 						HWND dialog = WS_Find_Dialog(0x10E);
 						if (dialog == NULL) dialog = WS_Find_Dialog(0x114);
-						if (dialog != NULL) profile->PopulateDialog(dialog, &g_NickName, false);
+						if (dialog != NULL) profile->PopulateDialog(dialog, g_NickName, false);
 					}
 				}
 
@@ -4155,7 +4152,7 @@ class CNetUtilEventSink : public CComObjectRoot, public INetUtilEvent
 					if (!combo_mode) {
 						EnableWindow(GetDlgItem(dlg, 0x6EB), true);
 						Wstring name(nick);
-						profile->PopulateDialog(dlg, &name, true);
+						profile->PopulateDialog(dlg, name, true);
 					}
 				}
 			}
@@ -5311,6 +5308,7 @@ started: // RA2: as above
 }
 
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the five never-defined CCINIClass Put_ declarations left ccini.h and Inflate_Rect and Blend_Rect moved into rect.h and ownrdraw.h with five other evidenced header changes)
 int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the lobby with the fewest players that still has room; the index in the channel list, -1 when there is none
 {
 	int count = g_UserChannels.length(); // RA2: as above
@@ -5397,6 +5395,7 @@ int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the
 	}
 	return(best); // RA2: as above
 }
+#endif
 
 bool Leave_Current_Channel(unsigned int event, bool block) // RA2: 0x00744610, not in TibSun: leaves the channel the chat is in, waits up to 15 seconds for the server to confirm; true when no channel is left
 {
@@ -10023,7 +10022,7 @@ LRESULT CALLBACK Wonline_Profile_Mode_Menu_Dialog_Proc(HWND window, UINT message
 		if (g_NickName.length() > 0) { // RA2: the persona's profile fills the dialog
 			rc_ptr<PlayerProfile> profile = PlayerProfile::Load(g_NickName); // RA2: as above
 			if (profile.Get()) {
-				profile->PopulateDialog(window, &g_NickName, true); // RA2: as above
+				profile->PopulateDialog(window, g_NickName, true); // RA2: as above
 			}
 		}
 		HWND image_control = GetDlgItem(window, 0x746); // RA2: as above
@@ -10127,9 +10126,6 @@ void Fill_Locale_Combo(HWND combo) // RA2: 0x00753240, fills the country box of 
 
 LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND combo, WPARAM index, WideWstring & text); // RA2: 0x00600FD0, the wide text of a combo box item, defined in ownrdraw.cpp
 
-LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x00753370, below (not exact yet)
-
-#ifdef RA2_NON_MATCHING // not exact: 117 bytes differ (main's text): the stack slots of the temporary Wstrings in the forget-persona (0x6EB) and auto-login (0x6FF) commands lie 4 to 8 bytes lower, and the frame is 4 bytes smaller; the original builds the empty name for PopulateDialog (which takes a pointer) before pushing the arguments, which a named local in the branch gives but in other slots
 LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00753370, the dialog proc of the persona dialog (0x114): picks one of the stored personas and keeps its profile (server, country, side, color) and the auto login
 {
 	if (message == WM_INITDIALOG && lparam) { // RA2: the control comes with the dialog's creation data
@@ -10192,7 +10188,7 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 				ShowWindow(automatic, SW_SHOW); // RA2: as above
 				InvalidateRect(automatic, NULL, FALSE); // RA2: as above
 				if (profile.Get()) {
-					profile->PopulateDialog(window, &g_NickName, false); // RA2: as above
+					profile->PopulateDialog(window, g_NickName, false); // RA2: as above
 				}
 				EnableWindow(GetDlgItem(window, 0x6EB), nick_index != -1 && g_NickName.length() > 0); // RA2: as above
 				EnableWindow(GetDlgItem(window, 0x687), nick_index != -1 && g_NickName.length() > 0); // RA2: as above
@@ -10307,8 +10303,7 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 			SendMessageA(nicknames, CB_SETCURSEL, 0, 0); // RA2: as above
 			rc_ptr<PlayerProfile> profile = PlayerProfile::Load_Default(); // RA2: as above
 			if (profile.Get()) {
-				Wstring none(""); // RA2: no persona
-				profile->PopulateDialog(window, &none, false); // RA2: as above
+				profile->PopulateDialog(window, "", false); // RA2: no persona
 				HWND automatic = GetDlgItem(window, 0x6FF); // RA2: as above
 				SendMessageA(automatic, 0x49D, 0, 1); // RA2: as above
 				EnableWindow(automatic, FALSE); // RA2: as above
@@ -10358,7 +10353,7 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 		Populate_Server_Choices(GetDlgItem(window, 0x629), true); // RA2: as above
 		rc_ptr<PlayerProfile> profile = PlayerProfile::Load(g_NickName); // RA2: as above
 		if (profile.Get()) {
-			profile->PopulateDialog(window, &g_NickName, true); // RA2: as above
+			profile->PopulateDialog(window, g_NickName, true); // RA2: as above
 		}
 		int selected_nick = -1; // RA2: as above
 		int selected = SendMessageA(nicknames, CB_GETCURSEL, 0, 0); // RA2: as above
@@ -10377,7 +10372,6 @@ LRESULT CALLBACK Wonline_Profile_Login_Dialog_Proc(HWND window, UINT message, WP
 	}
 	return(0);
 }
-#endif
 
 void Reset_Channel_State(void) // RA2: 0x00753F10, empties the lobby, game channel and user lists and the current and pending channel (ra2-decomp's twin, Yuri's Revenge 0x00799CD0)
 {

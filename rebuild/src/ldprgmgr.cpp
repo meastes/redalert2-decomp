@@ -44,6 +44,7 @@
 #undef LoadString
 #include "stringtable.h"
 #include "ldprgmgr.h"
+#include "ownrdraw.h"
 
 
 #include "geometry.h"
@@ -577,7 +578,6 @@ Rect __fastcall Get_Loading_Text_Area(void)
 /// Darkens the area behind a text: the area the text takes from a corner and a width (flags 1 centres it, 2
 /// aligns it to the right, fill makes it as wide as the width), moved in by four pixels.
 /// </summary>
-#if 0
 void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, int y, int width, int flags, bool fill)
 {
 	int text_width = 0;
@@ -596,7 +596,6 @@ void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, 
 	Inflate_Rect(area, -4);
 	Blend_Rect(&area, surface, 0, 159);
 }
-#endif
 
 
 /// <summary>

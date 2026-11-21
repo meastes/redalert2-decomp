@@ -182,16 +182,11 @@ class CCINIClass : public INIClass
 		bool Put_HSVClass(char const * section, char const * entry, HSVClass const & value);
 		bool Put_BSizeType(char const * section, char const * entry, BSizeType value);
 		bool Put_MZoneType(char const * section, char const * entry, MZoneType value);
-		bool Put_ActionType(char const * section, char const * entry, ActionType value);
-		bool Put_SuperWeaponType(char const * section, char const * entry, SuperWeaponType value);
-		bool Put_VoxType(char const * section, char const * entry, VoxType value);
 		bool Put_RTTIType(char const * section, char const * entry, RTTIType value);
 		bool Put_BuildCat(char const * section, char const * entry, int value); // RA2
 		bool Put_LandType(char const * section, char const * entry, LandType value);
 		bool Put_IntList(char const * section, char const * entry, TypeList<int> const & value);
 		bool Put_Target_List(const char * section, const char * entry, TypeList<int> const & value);
-		bool Put_Vector(char const * section, char const * entry, TPoint3D<float> const & value);
-		bool Put_Offset(char const * section, char const * entry, TPoint3D<int> const & value);
 		bool Put_TechnoType_List(char const * section, char const * entry, TypeList<TechnoTypeClass *> const & value);
 		bool Put_House_List(char const * section, char const * entry, TypeList<HousesType> value);
 		bool Put_Target(char const * section, char const * entry, TargetClass const & value);

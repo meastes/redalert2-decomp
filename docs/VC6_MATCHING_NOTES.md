@@ -3288,6 +3288,7 @@ places: the first line of the unit (before every header) and the function's own 
   (505 bytes off without it). Its `description` local leaves the same 6 bytes at +0..+5; its
   `memcpy(&address, node, sizeof(address))` compiles to the tree's bytes with the same window (-1, +0); its loop
   text (slot_name, player_name, stricmp written out) is 143 bytes off at every count.
+- Landed as a set (lane O10, owner ruling): with the workers' delivered texts the set's fragile rows changed again. All six with r2459's Blend_Rect line after Resize_Dialog_To_Screen cost Encode_Game_Options; the six alone cost SelectClass::Action and loaddlg LoadOptionsClass::Dialog 0x53B770 (9 B, off only when D, H, C and P are all in); the six with codex1 r2486's form (Inflate_Rect in rect.h, Blend_Rect in ownrdraw.h, four unit-local copies removed) keep the pair's Encode_Game_Options, Action and Dialog and cost Print_CRCs and Pick_Lobby 0x744090, both with DoType windows on both header states (probes at the end of rect.h), so those two park. A fourth row's measurement on old texts says little about the final set: measure the final texts together.
 
 ## A name local in place of an accessor removes the pending sites that keep a nested template a call (found in the rebuild (lane F9, high))
 Found in the rebuild (lane F9, high): AnimTypeClass::Read_INI 0x425690 and the out-of-line TFind_Or_Make<AnimTypeClass>
@@ -3329,3 +3330,46 @@ Found in the rebuild (lane F9, high): AnimTypeClass::Read_INI 0x425690 and the o
 - WDT_Write_Map_Ini 0x72A880 sits on an inline-budget edge: two dead locals at its top, or the uncalled
   Territory_Of_Color 0x72A870 used for its two colour comparisons, expand the VectorCursor constructor that the
   image calls. A dead-local survey of its one lea tie reads the budget, not the tie.
+
+## The global tie counts signedness conversions, not index operators (found in the rebuild (lane F10, high))
+Found in the rebuild (lane F10, high): Dropship_Screen 0x4A6B90 (10,797 B) and WDT_Write_Map_Ini 0x72A880 (1,652 B),
+the two rows that are exact but for bindings when VectorClass<T>::operator[] indexes unsigned (lane F3; codex1
+r2491 to r2495). Nothing landed: the form is a perturbation, not the text.
+- What the unsigned index does is add one same-size signed/unsigned conversion to the function's IL per expansion,
+  and the five sites answer to how many such conversions the whole function holds, wherever they are. Measured on
+  Dropship_Screen with a scratch accessor `UX(int index) {return(Vector[(unsigned)index]);}` (never landed) put at
+  chosen sites: no single site matters (each of the 33 direct sites can be left out of the full conversion with no
+  change; converting only the two scroll-loop `candidates[]` sites and the hover site, the sites that differ,
+  changes nothing). The states come in a fixed order as conversions are added: the Get_Data `add` for `lea` first
+  (14 direct sites, or the nested ones in Add/Delete_Index/ID and Get_Allowable_Index), then
+  `cameo_top + (col + 2*row)` (nested plus 14 direct), then the two `[index*4 + Vector]` loads and the reload
+  register together (nested plus 25 direct), and past that window the function leaves again (all 63 expansions plus
+  21 raw sites: 64 bytes off; 33 direct plus 18 raw: frame change).
+- The unit is not the operator. `buttons[(unsigned)(i)]` on the raw pointer arrays moves the same counter (12 raw
+  sites give the first state, all 33 the second, 33 direct plus 12 raw the exact one), and so does one cast on a
+  constant in ordinary arithmetic (`(unsigned)_cameo_count + 2 + ...` or `(unsigned long)`, one step short of the
+  window, completes it). What does not count: `(long)`, an enum cast (the archive's `KeyNumType input`), pointer
+  casts, a comma expression, a dead local, ten dead locals, `(int)(unsigned)index` (folded), an unsigned parameter
+  with `Vector[(int)index]`, `*(Vector + index)`, `((void)0);` or Renegade's compiled-out assert before the return.
+  `(__int64)index` reaches the second state only. Return types count too: `unsigned` on ShapeSet::Get_Width and
+  Get_Height (scratch; 46 uses in the function, no other byte moves) gives the first state. Weights are not uniform
+  across sites (raw sites move it further than operator sites, return conversions less), so read thresholds on one
+  kind of site at a time.
+- WDT_Write_Map_Ini is the same counter at small scale: its one lea (the expanded Resize copy loop) turns when the
+  VectorCursor dereference and the two `[index]` sites whose index is already an `unsigned` variable index
+  unsigned together (four expansions; the dereference alone, the three direct sites alone, or the dereference
+  with `centroids[i]` do nothing).
+- Evidence against the header form. Yuri's Revenge 0x4B6C30 (ra2-decomp: exact with `operator[](int)`) has the same
+  three statements in the order the int header gives (`[eax + ebx]`, `[edi + ebx]`, `lea eax, [edx + ecx]`; read
+  from the user's installed gamemd.exe). The archive, ra2-decomp, mischa85 and Renegade declare int; only Red Alert
+  1 declares unsigned. Every twin and archive statement that differs from the tree's inside the function
+  (`AlphaBuffer->Bounds`, `(unsigned short)falpha`, the two spelled-out MINs, `techtype->Level` without the cast,
+  `delete []`, the typed shape buffer, `KeyNumType input`) leaves all 34 lines as they are; the archive's
+  `!Count() ? -1 :` guard and `if (a || b) a = true;` change bytes. So Red Alert 2's own text holds some 45 or more
+  signedness conversions that the tree's does not (types of values the function mixes, not one statement), and no
+  reference shows where. Not its own locals: each of the function's 81 `int` and `static const int` declarations
+  made unsigned alone either changes bytes beyond the ties (38, the image fixes them signed) or changes nothing (43). Before spending on a row with operand-order ties, count how the candidate fix changes
+  unsigned arithmetic: a fix that works only by adding conversions everywhere is this counter.
+- Reading it: `rebuild/tools/tailmap.compile_text` on a scratch copy with the guard open, one edit list per variant,
+  about one second a compile; sweep the number of converted sites in source order from both ends before reading any
+  single site as the cause.

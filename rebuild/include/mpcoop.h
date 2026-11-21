@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -49,7 +50,7 @@ class MPCooperative : public MultiplayerGameMode // RA2: vtable 0x007A678C, 0x34
 		virtual bool vt_entry_58(void) override; // RA2: 0x005A4250
 		virtual int RandomHumanCountryIndex(void) override; // RA2: 0x005A4540
 		virtual int RandomAICountryIndex(void) override; // RA2: 0x005A45F0
-		virtual bool vt_entry_70(void) override; // RA2: 0x005A43C0
+		virtual bool AllyTeams(void) override; // RA2: 0x005A43C0
 		virtual bool OnGameStart(void) override; // RA2: 0x005A46A0
 		virtual bool IsAIAllowed(void) override; // RA2: 0x005A46B0
 		virtual void vt_entry_88(bool player_wins) override; // RA2: 0x005A46C0

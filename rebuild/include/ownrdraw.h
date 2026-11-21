@@ -85,7 +85,7 @@ namespace OwnerDraw {
 
 	struct ColumnData {
 		ColumnData(void) : xPos(0), width(0), cells() {}
-		ColumnData(ColumnData & that) : xPos(that.xPos), width(that.width), cells(that.cells) {}
+		ColumnData(ColumnData & that);
 
 		/*
 		 * This is the offset of the column from the left edge of a row, expressed in pixels.
@@ -532,3 +532,5 @@ extern HWND Dropdown_Window; // RA2: the open drop-down list (ownrdraw.cpp defin
 extern HWND Dropdown_Owner; // RA2: the combo box that owns it
 
 void __fastcall Resize_Dialog_To_Screen(HWND dialog, Point2D * old_size); // RA2: 0x5E9F00
+
+void __fastcall Blend_Rect(Rect * area, Surface * surface, int color, int alpha); // RA2: blends the color over the area (ownrdraw.cpp)

@@ -179,6 +179,7 @@ class SidebarClass : public PowerClass
 					SelectClass(NoInitClass const & x) : ControlClass(x) {};
 
 					void Set_Owner(StripClass & strip, int index);
+					bool Is_Hovered(void); // RA2: the cameo is highlighted and accepts input
 
 					StripClass * Strip;
 					int Index;

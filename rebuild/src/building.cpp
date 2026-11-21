@@ -4401,7 +4401,6 @@ Coord BuildingClass::Center_Coord(void) const
  * HISTORY:                                                                                    *
  *   09/21/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 303 bytes differ (published docking lifetimes with refinery offset)
 Coord BuildingClass::Docking_Coord(TechnoClass * docker) const // RA2: the docking object; ra2-decomp's twin text without its bunker branch (not in RA2)
 {
 	if (Class->IsWeeder) {
@@ -4412,9 +4411,7 @@ Coord BuildingClass::Docking_Coord(TechnoClass * docker) const // RA2: the docki
 	}
 
 	if (Class->IsRefinery) {
-		Coord result = ObjectClass::Docking_Coord(docker); // RA2: the docker is passed on to ObjectClass
-		result.X += CELL_LEPTON_W / 2; // RA2: as above
-		return(result); // RA2: as above
+		return(ObjectClass::Docking_Coord(docker) + Coord(CELL_LEPTON_W / 2, 0, 0)); // RA2: the docker is passed on to ObjectClass
 	} else if (!Class->IsHelipad && !Class->IsCanUnitRepair) { // RA2: other buildings dock at the center
 		return(ObjectClass::Docking_Coord(docker)); // RA2: as above
 	} else {
@@ -4434,7 +4431,6 @@ Coord BuildingClass::Docking_Coord(TechnoClass * docker) const // RA2: the docki
 		}
 	}
 }
-#endif
 
 
 

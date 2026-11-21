@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2882,6 +2883,13 @@ bool ObjectClass::CanBeSelected(void) const // RA2: not in TibSun, at 0x005D54B0
 	return(Class_Of()->IsSelectable);
 }
 
+
+
+// RA2: ra2-decomp also defines this virtual in object.cpp. An ordinary object docks at its center.
+Coord ObjectClass::Docking_Coord(TechnoClass *) const
+{
+	return(Center_Coord());
+}
 
 
 // RA2: replace the object's custom sound; -1 stops the current sound.

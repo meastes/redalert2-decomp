@@ -65185,7 +65185,7 @@
     "entry": "005a43c0",
     "body": 371,
     "padding": 13,
-    "symbol": "?vt_entry_70@MPCooperative@@UAE_NXZ",
+    "symbol": "?AllyTeams@MPCooperative@@UAE_NXZ",
     "main_symbol": "?unknown_slot28@MPCooperative@@UAE_NXZ",
     "main_source": "src/recovered/mpcoop.cpp"
    },
@@ -65711,7 +65711,7 @@
    "?vt_entry_64@MPCooperative@@UAEXIPAD@Z": "005a3ca0",
    "?UnfixAlliances@MPCooperative@@UAE_NXZ": "005a3ee0",
    "?StartingPositionsToHouseBaseCells@MPCooperative@@UAE_ND@Z": "005a4170",
-   "?vt_entry_70@MPCooperative@@UAE_NXZ": "005a43c0",
+   "?AllyTeams@MPCooperative@@UAE_NXZ": "005a43c0",
    "?OnGameStart@MPCooperative@@UAE_NXZ": "005a46a0",
    "?vt_entry_78@MPCooperative@@UAEXXZ": "005a5000",
    "?vt_entry_7C@MPCooperative@@UAEXXZ": "005a5190",
@@ -71271,7 +71271,7 @@
     "entry": "00739b70",
     "body": 1309,
     "padding": 3,
-    "symbol": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@PBVWstring@@_N@Z",
+    "symbol": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
     "main_symbol": "?Populate_Dialog_00739b70@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
     "main_source": "src/recovered/wolpersonainformation.cpp"
    },
@@ -109716,7 +109716,7 @@
     "entry": "005b8420",
     "body": 3,
     "padding": 13,
-    "symbol": "?vt_entry_70@MultiplayerGameMode@@UAE_NXZ",
+    "symbol": "?AllyTeams@MultiplayerGameMode@@UAE_NXZ",
     "main_symbol": "?unknown_slot28@MultiplayerGameMode@@UAE_NXZ",
     "main_source": "src/recovered/multiplayer.cpp"
    },
@@ -110157,7 +110157,7 @@
    "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ": "005b74d0",
    "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ": "005b7820",
    "?StartingPositionsToHouseBaseCells@MultiplayerGameMode@@UAE_ND@Z": "005b7c00",
-   "?vt_entry_70@MultiplayerGameMode@@UAE_NXZ": "005b8420",
+   "?AllyTeams@MultiplayerGameMode@@UAE_NXZ": "005b8420",
    "?OnGameStart@MultiplayerGameMode@@UAE_NXZ": "005b8470",
    "?CreateMPTeams@MultiplayerGameMode@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z": "005b7720",
    "?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAEPAVCell@@PAV2@HPAV?$DynamicVectorClass@VCell@@@@PAE@Z": "005b7920",
@@ -131316,7 +131316,14 @@
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "0062a360": {
+    "windows": "plain probe declarations at the end of rect.h. New headers: +6 +10 exact; +0 +1 +2 +3 +4 +5 +8 +12 +16 +24 +32 +48 off. Old headers (main cd567aa24): +0 +3 +4 +16 exact; +1 +2 +5 +6 +10 +12 +24 +32 +48 off",
+    "header": "ccini.h, object.h, sidebar.h, _house.h, ownrdraw.h, rect.h (lane O10, 2026-11-21, owner ruling: all six held changes land as a set with ldprgmgr): CCINIClass Put_ActionType, Put_SuperWeaponType, Put_VoxType, Put_Vector, Put_Offset removed (never defined, no users; codex2 r5344/r5352); ObjectClass::Docking_Coord out of line in object.cpp (ra2-decomp; codex1 r2448/r2487); SelectClass::Is_Hovered declared after Set_Owner (ra2-decomp; r2464); ScoutStruct copy constructor (ra2-decomp _house.h; r2413/r2485); ColumnData copy constructor declared in the class, defined in ownrdraw.cpp (ra2-decomp; r2474/r2475/r2485); Inflate_Rect declared in rect.h and Blend_Rect in ownrdraw.h, the unit-local copies in ownrdraw, progress, mpscore and sidebar removed (codex1 r2486); the stale Encode_Game_Options prototype above its definition removed",
+    "note": "lane O10 probe 2026-11-21 on the final tree (DoType precedent): (a) every displacing change is evidenced content or plain hygiene; (b)(i) the function names none of what the changes add or remove (no Docking_Coord, Is_Hovered, ScoutStruct, ColumnData, Put_, Inflate_Rect, Blend_Rect); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main cd567aa24)"
+   }
+  }
  },
  "unit": {
   "core": [
@@ -133797,7 +133804,7 @@
     "entry": "00681690",
     "body": 25,
     "padding": 7,
-    "symbol": "?Unknown_00681690@SelectClass@StripClass@SidebarClass@@QAE_NXZ",
+    "symbol": "?Is_Hovered@SelectClass@StripClass@SidebarClass@@QAE_NXZ",
     "main_symbol": "?Unknown_00681690@SelectClass@StripClass@SidebarClass@@QAE_NXZ",
     "main_source": "src/recovered/sidebar.cpp"
    },
@@ -142401,10 +142408,10 @@
    }
   ],
   "count_sensitive": {
-   "0073fee0": {
-    "windows": "plain probe declarations at the end of house.h. New header (Production_Status_Changed in): +1 +16 exact; +0 +2 +3 +4 +5 +6 +8 +10 +12 off. Old header (main 669a80996): +0 +1 +3 +16 exact; +2 +4 +5 +6 +8 +10 +12 off",
-    "header": "house.h (lane F6, 2026-11-21): HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;} defined in the class at the TibSun archive's place (house.h, after Update_Production_Mode; ra2-decomp's house.h has it too); BuildingClass::Captured 0x444660 (3,359 B) is exact through it and queue Print_CRCs 0x62A360 is exact again with it",
-    "note": "lane F6 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing change is evidenced content (the archive's inline member, at its place); (b)(i) wonline.cpp does not name Production_Status_Changed and no header inline calls it (its only users are Captured's two closing statements); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main 669a80996)"
+   "00744090": {
+    "windows": "plain probe declarations at the end of rect.h. New headers: +32 exact; +0..+6 +8 +10 +12 +16 +24 +48 off. Old headers (main cd567aa24): +0..+4 +16 +24 +48 exact; +5 +6 +8 +10 +12 +32 off",
+    "header": "ccini.h, object.h, sidebar.h, _house.h, ownrdraw.h, rect.h (lane O10, 2026-11-21, owner ruling: all six held changes land as a set with ldprgmgr): CCINIClass Put_ActionType, Put_SuperWeaponType, Put_VoxType, Put_Vector, Put_Offset removed (never defined, no users; codex2 r5344/r5352); ObjectClass::Docking_Coord out of line in object.cpp (ra2-decomp; codex1 r2448/r2487); SelectClass::Is_Hovered declared after Set_Owner (ra2-decomp; r2464); ScoutStruct copy constructor (ra2-decomp _house.h; r2413/r2485); ColumnData copy constructor declared in the class, defined in ownrdraw.cpp (ra2-decomp; r2474/r2475/r2485); Inflate_Rect declared in rect.h and Blend_Rect in ownrdraw.h, the unit-local copies in ownrdraw, progress, mpscore and sidebar removed (codex1 r2486); the stale Encode_Game_Options prototype above its definition removed",
+    "note": "lane O10 probe 2026-11-21 on the final tree (DoType precedent): (a) every displacing change is evidenced content or plain hygiene; (b)(i) the function names none of what the changes add or remove (no Docking_Coord, Is_Hovered, ScoutStruct, ColumnData, Put_, Inflate_Rect, Blend_Rect); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main cd567aa24)"
    }
   }
  },
@@ -156883,7 +156890,7 @@
     "entry": "005de980",
     "body": 7,
     "padding": 9,
-    "symbol": "?Product@@YIHPAH@Z",
+    "symbol": "?Hash_CtrlMsg@@YIHPAH@Z",
     "main_symbol": "?unknown_product_005de980@@YIHPAH@Z",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -158541,7 +158548,7 @@
     "entry": "00601780",
     "body": 61,
     "padding": 3,
-    "symbol": "??0UnknownListEntry_6017c0@@QAE@ABU0@@Z",
+    "symbol": "??0CellData@OwnerDraw@@QAE@ABU01@@Z",
     "main_symbol": "??0UnknownListEntry_6017c0@@QAE@ABU0@@Z",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -158549,7 +158556,7 @@
     "entry": "006017c0",
     "body": 135,
     "padding": 9,
-    "symbol": "?Grow_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ",
+    "symbol": "?growVector@?$ArrayList@UCellData@OwnerDraw@@@@AAEDXZ",
     "main_symbol": "?Grow_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -158677,7 +158684,7 @@
     "entry": "006025a0",
     "body": 388,
     "padding": 12,
-    "symbol": "??0UnknownListState_6025a0@@QAE@ABU0@@Z",
+    "symbol": "??0ColumnData@OwnerDraw@@QAE@AAU01@@Z",
     "main_symbol": "??0UnknownListState_6025a0@@QAE@ABU0@@Z",
     "main_source": "src/recovered/ownrdraw.cpp"
    },
@@ -158745,11 +158752,6 @@
   },
   "partial_ok": true,
   "count_sensitive": {
-   "005e5150": {
-    "windows": "plain probe declarations at the end of data.h on lane B3's headers: +0..+5 both off; +6 +8 Trackbar_Proc exact, Slide_Dialog off; +12 both exact; +16 Slide_Dialog exact, Trackbar_Proc off. On the old headers (rebuild-trial 508acfa81) both exact; any one of the seven headers below gaining its declaration alone flips Trackbar_Proc",
-    "header": "_mixfile.h (LanguageMix), data.h (LanguageResources), globals.h (Init_Direct3D), misc.h (set_control_word), init.h (Get_Performance_Profile), stringtable.h (Message_Box_Wide), txtlabel2.h (Free_All_Art), ownrdraw.h (OwnerDraw::Shutdown): lane B3, the declarations RA2's WinMain and Prog_End need",
-    "note": "lane B3 2026-11-20 under the owner rule (evidenced content is never held back for a count-sensitive row; precedents sidebar 006809f0, queue 0062a360): (b)(i) neither function uses the new declarations; (ii) windows above; (c) the unchanged text is exact on the old headers"
-   },
    "005fb270": {
     "windows": "plain probe declarations at the end of house.h. New header (Production_Status_Changed in): +3 +4 exact; +0 +1 +2 +5 +6 +8 +10 +12 +16 off. Old header (main 669a80996): +0 +5 +6 +16 exact; +1 +2 +3 +4 +8 +10 +12 off",
     "header": "house.h (lane F6, 2026-11-21): HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;} defined in the class at the TibSun archive's place (house.h, after Update_Production_Mode; ra2-decomp's house.h has it too); BuildingClass::Captured 0x444660 (3,359 B) is exact through it and queue Print_CRCs 0x62A360 is exact again with it",

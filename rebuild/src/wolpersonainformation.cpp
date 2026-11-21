@@ -487,21 +487,21 @@ static inline void Profile_Set_Text(HWND dialog, int id, WideWstring const & tex
 /// <summary>
 /// Fills the profile dialog from the profile: the nickname list (when asked), the server, the locale, country and color lists, the statistics and the title. Statistics that are not known show the "unknown" text.
 /// </summary>
-void PlayerProfile::PopulateDialog(HWND dialog, Wstring const * name, bool update) // RA2: 0x00739B70
+void PlayerProfile::PopulateDialog(HWND dialog, Wstring const & name, bool update) // RA2: 0x00739B70
 {
 	if (update) { // RA2: as above
 		HWND item = GetDlgItem(dialog, PERSONA_NICKNAMES); // RA2: as above
 		bool wide = SendMessageA(item, PM_HAS_WIDE_TEXT, 0, 0) != 0; // RA2: as above
-		if (name->length() != 0 && !wide) { // RA2: as above
-			int selected = SendMessageA(item, PM_FIND_STRING, -1, (LPARAM)name->text()); // RA2: as above
+		if (name.length() != 0 && !wide) { // RA2: as above
+			int selected = SendMessageA(item, PM_FIND_STRING, -1, (LPARAM)name.text()); // RA2: as above
 			SendMessageA(item, CB_SETCURSEL, selected, 0); // RA2: as above
 			if (selected == -1) { // RA2: as above
-				SendMessageA(item, PM_SET_TEXT, 0, (LPARAM)name->text()); // RA2: as above
+				SendMessageA(item, PM_SET_TEXT, 0, (LPARAM)name.text()); // RA2: as above
 			}
 		} else {
-			WideWstring nickname = Wstring_ToWide(*name); // RA2: as above
+			WideWstring nickname = Wstring_ToWide(name); // RA2: as above
 			int selected = -1; // RA2: as above
-			if (name->length() > 0) { // RA2: as above
+			if (name.length() > 0) { // RA2: as above
 				selected = SendMessageA(item, PM_FIND_STRING_WIDE, -1, (LPARAM)nickname.text()); // RA2: as above
 			}
 			if (selected == -1) { // RA2: as above
@@ -563,10 +563,10 @@ void PlayerProfile::PopulateDialog(HWND dialog, Wstring const * name, bool updat
 	Profile_Set_Text(dialog, PERSONA_LOSSES, Losses == -1 ? unknown : WideWstring_FromInt(Losses)); // RA2: as above
 	Profile_Set_Text(dialog, PERSONA_DISCONNECTS, Disconnects == -1 ? unknown : WideWstring_FromInt(Disconnects)); // RA2: as above
 
-	if (name->length() > 0) { // RA2: as above
+	if (name.length() > 0) { // RA2: as above
 		WideWstring label(StringTable::LoadString("GUI:UserProfileLabel", NULL, "D:\\Ra2\\WOLPersonaInformation.cpp", 737)); // RA2: as above
-		wchar_t * title = new wchar_t[label.length() + name->length() + 1]; // RA2: as above
-		swprintf(title, label.get(), name->text()); // RA2: as above
+		wchar_t * title = new wchar_t[label.length() + name.length() + 1]; // RA2: as above
+		swprintf(title, label.get(), name.text()); // RA2: as above
 		HWND titleItem = GetDlgItem(dialog, PERSONA_TITLE); // RA2: as above
 		SendMessageA(titleItem, PM_SET_TEXT_WIDE, 0, (LPARAM)title); // RA2: as above
 		delete [] title; // RA2: as above

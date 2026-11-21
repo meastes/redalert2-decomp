@@ -262,10 +262,6 @@ struct LockedDataType {
 extern LockedDataType LockedData;
 //#pragma pack(4);
 
-int Simple_Copy(void ** source, int * ssize, void ** alternate, int * altsize, void **dest, int size);
-int Sample_Copy(SampleTrackerType *st, void ** source, int * ssize, void ** alternate, int * altsize, void * dest, int size, SCompressType scomp, void * trailer, short int *trailersize);
-VOID far __cdecl maintenance_callback(VOID);
-void	DPMI_Unlock(VOID const *ptr, int const size);
 extern "C" {
 	void __cdecl Audio_Mem_Set(void const *ptr, unsigned char value, int size);
 //	void	Mem_Copy(void *source, void *dest, unsigned long bytes_to_copy);

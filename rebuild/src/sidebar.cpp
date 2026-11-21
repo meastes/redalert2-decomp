@@ -74,6 +74,7 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "ownrdraw.h"
 #include "rect.h" // RA2: the header statics, in the order of the unit's initializer table
 #include "geometry.h"
 
@@ -147,7 +148,6 @@ namespace Game { extern int SpecialDialog; } // RA2: as above
 namespace Unsorted { extern int WSDialogCount; } // RA2: as above
 Rect * Drawing_GetTextDimensions(Rect * out, wchar_t const * text, Point2D loc, unsigned short flags, int marginX, int marginY); // RA2: 0x497360 (dialog.cpp)
 static inline Rect Text_Rect(wchar_t const * text, Point2D loc, unsigned short flags, int marginx, int marginy) {Rect rect; return(*Drawing_GetTextDimensions(&rect, text, loc, flags, marginx, marginy));} // RA2: the box a text needs
-void __fastcall Blend_Rect(Rect * area, Surface * surface, int color, int alpha); // RA2: 0x5FEB60 (ownrdraw.cpp), dims the box behind the text
 
 
 ShapeSet const * SidebarClass::SidebarShapes[SBSHAPE_COUNT]; // RA2: 0xABCD20; one array instead of TibSun's four shapes
@@ -2531,6 +2531,12 @@ void SidebarClass::StripClass::SelectClass::Set_Owner(StripClass & strip, int in
 {
 	Strip = &strip;
 	Index = index;
+}
+
+
+bool SidebarClass::StripClass::SelectClass::Is_Hovered(void) // RA2: the mouse is over an enabled cameo
+{
+	return IsHovered && !IgnoreInput;
 }
 
 

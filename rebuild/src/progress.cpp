@@ -37,8 +37,6 @@
 #include "dsurface.h" // RA2
 
 Surface * __fastcall Country_Flag(int country); // RA2: 0x4D1120, the flag image of a country (-2 random, -3 observer)
-void __fastcall Inflate_Rect(Rect & rect, int amount); // RA2: 0x6F1B00, moves each edge in by amount
-void __fastcall Blend_Rect(Rect * area, Surface * surface, int color, int alpha); // RA2: 0x5FEB60 (ownrdraw.cpp), blends a colour over the rectangle
 Rect __fastcall Get_Title_Screen_Area(void); // RA2: 0x6F1F30
 wchar_t * __fastcall Narrow_To_Wide(char const * narrow); // RA2: 0x6FA180, static buffer
 

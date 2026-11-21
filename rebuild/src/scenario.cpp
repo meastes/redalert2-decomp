@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -2009,7 +2010,7 @@ void Multiplayer_Last_Minute_Fixups(bool official)
 	}
 
 	if (Session.MPGameMode != NULL) { // RA2: the game mode is told (slots 0x70 and 0x74)
-		Session.MPGameMode->vt_entry_70(); // RA2: as above
+		Session.MPGameMode->AllyTeams(); // RA2: as above
 		Session.MPGameMode->OnGameStart(); // RA2: as above
 	}
 	memset(Session.PlayerChatEnabled, 1, sizeof(Session.PlayerChatEnabled)); // RA2: chat is enabled for every player (0x65EB1F)

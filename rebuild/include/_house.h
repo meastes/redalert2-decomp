@@ -38,6 +38,7 @@ struct ScoutStruct
 {
 	ScoutStruct(void) : House(NULL), IsScouted(false) {}
 	ScoutStruct(HouseClass * house) : House(house), IsScouted(false) {}
+	ScoutStruct(ScoutStruct const & that) : House(that.House) { IsScouted = that.IsScouted; } // RA2: the ra2-decomp copy constructor
 
 	bool operator==(const ScoutStruct &that) const { return(House == that.House && IsScouted == that.IsScouted); }
 	bool operator!=(const ScoutStruct &that) const { return(House != that.House || IsScouted != that.IsScouted); }

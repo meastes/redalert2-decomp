@@ -249,7 +249,7 @@ class ObjectClass : public AbstractClass
 		**	combat purposes.
 		*/
 		virtual Coord Target_Coord(void) const {return(Center_Coord());}
-		virtual Coord Docking_Coord(TechnoClass * docker) const {return(Center_Coord());} // RA2: the docking object
+		virtual Coord Docking_Coord(TechnoClass * docker) const; // RA2: the docking object
 		virtual Coord Center_Coord(void) const override;
 		virtual Coord Render_Coord(void) const {return(Center_Coord());}
 		virtual Coord Fire_Coord(int which) const {return(Center_Coord() + Coord(0, 0, 50));}

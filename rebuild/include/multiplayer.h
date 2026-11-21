@@ -94,7 +94,7 @@ class MultiplayerGameMode
 		virtual void vt_entry_64(unsigned a, char * text) {} // RA2: Net2DecodeGameopt passes the digit after C and the rest of the text; MPCooperative splits it with strtok, so it is not const
 		virtual bool UnfixAlliances(void);
 		virtual bool StartingPositionsToHouseBaseCells(char unused);
-		virtual bool vt_entry_70(void);
+		virtual bool AllyTeams(void);
 		virtual bool OnGameStart(void);
 		virtual void vt_entry_78(void) {}
 		virtual void vt_entry_7C(void) {}

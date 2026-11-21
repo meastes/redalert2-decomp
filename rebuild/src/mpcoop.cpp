@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -848,7 +849,7 @@ bool MPCooperative::vt_entry_58(void) // RA2: 0x005A4250
 /// <summary>
 /// Makes allies of all the human houses.
 /// </summary>
-bool MPCooperative::vt_entry_70(void) // RA2: 0x005A43C0
+bool MPCooperative::AllyTeams(void) // RA2: 0x005A43C0
 {
 	DebugString("@@@@ Making Alliances\n"); // RA2: as above
 	for (int i = 0; i < Houses.Count(); i++) { // RA2: as above

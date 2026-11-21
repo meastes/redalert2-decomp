@@ -4604,7 +4604,7 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 5835 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 5834 bytes differ (adopted text; projectile creation and early exits recovered)
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
 	BulletClass * bullet;            // Projectile.
@@ -4612,7 +4612,7 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 	Coord target_coord;              // Coordinate of the target.
 	Coord fire_coord;                // Coordinate of firing position.
 	ObjectClass * object;
-	WeaponTypeClass const * weapon = Get_Class_Weapon_Data(which)->Weapon;
+	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
 
 	/*
 	**	If this object doesn't have a weapon, then it is obvious that firing
@@ -4625,10 +4625,17 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 	/*
 	**	Perform a quick legality check to see if firing can occur.
 	*/
-	if (Debug_Map || target == NULL) {
+	object = target && (target->AbstractFlags & ABSTRACT_OBJECT) ? static_cast<ObjectClass *>(target) : NULL; // RA2: reject an object in limbo
+	if (Debug_Map || target == NULL || (object != NULL && object->IsInLimbo)) {
 		return(NULL);
 	}
 
+
+	if (weapon->Suicide) { // RA2: expend the firer before checking its active emitters
+		int damage = TClass->MaxStrength;
+		Take_Damage(damage, 0, Rule->C4Warhead, NULL, true, false);
+		return(NULL);
+	}
 
 	if ((weapon->UseFireParticles && ParticleSystems[ATTACHED_PARTICLE_FIRE]) // RA2: no LimpetType, LimpetFactor, LimpetSpeedFactor (not in RA2's layout)
 		|| (weapon->IsRailgun && ParticleSystems[ATTACHED_PARTICLE_RAILGUN])
@@ -4641,7 +4648,6 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 	/*
 	**	Fetch the target coordinate for the target specified.
 	*/
-	object = target->As_ObjectClass();
 	if (object != NULL) {
 		target_coord = object->Target_Coord();
 	} else {
@@ -4671,9 +4677,13 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 		}
 	}
 
-	int max_speed = weapon->MaxSpeed;
+	Point2D delta = Point2D(target_coord) - Point2D(fire_coord); // RA2: projectile speed depends on horizontal distance
+	int distance = (int)fastmath::sqrt(double(delta.X * delta.X + delta.Y * delta.Y));
+	int max_speed = weapon->Get_Speed(distance);
+	bullet = btype.Create_Bullet(target, this, firepower, weapon->WarheadPtr, max_speed, weapon->IsBright); // RA2: as above
 
 	if (bullet != NULL) { // RA2: no ProjectileRange (not in RA2's layout)
+		bullet->Set_Weapon_Type(weapon); // RA2: remember the weapon on its projectile
 		bullet->Limbo();
 
 		/*

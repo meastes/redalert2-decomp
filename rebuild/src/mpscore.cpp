@@ -41,7 +41,6 @@
 #include <wchar.h> // RA2: wcscpy
 
 int __fastcall Dialog_Box(int resource, int (__stdcall * proc)(struct HWND__ *, unsigned int, unsigned int, long), bool show); // RA2: 0x005EAB60 (ownrdraw.cpp)
-void __fastcall Blend_Rect(Rect * area, Surface * surface, int color, int alpha); // RA2: 0x005FEB60 (ownrdraw.cpp), blends a colour over the rectangle
 void __fastcall Inflate_Rect(Rect & rect, int dx, int dy); // RA2: 0x006F1B30 (txtlabel2.cpp)
 void __fastcall Load_MP_Score_Art(int side); // RA2: 0x006F2A30 (txtlabel2.cpp)
 void __fastcall Free_MP_Score_Art(void); // RA2: 0x006F2AB0 (txtlabel2.cpp)

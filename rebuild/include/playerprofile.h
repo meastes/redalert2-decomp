@@ -26,7 +26,7 @@ class PlayerProfile : public ReferenceCounted
 		void SetColor(int color); // RA2: 0x007399D0, renamed from the YR decompilation's SetField20: the member is the color
 		void UpdateStats(WOL::Ladder const * record); // RA2: 0x007399F0
 		void Save(Wstring const * name); // RA2: 0x007395D0
-		void PopulateDialog(HWND window, Wstring const * name, bool update); // RA2: 0x00739B70, fills the profile dialog's controls from the profile
+		void PopulateDialog(HWND window, Wstring const & name, bool update); // RA2: 0x00739B70, fills the profile dialog's controls from the profile
 
 		bool IsDirty; // RA2: +0x08, set by every change; Save writes only then and clears it
 		Wstring Name; // RA2: +0x0C, the Server key of wolinfo.ini

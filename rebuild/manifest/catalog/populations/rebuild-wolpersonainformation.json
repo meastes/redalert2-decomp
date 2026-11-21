@@ -4,8 +4,8 @@
     "id": "rebuild-wolpersonainformation",
     "inventory_sha256": "db9b4b7ea7bd5885baac63cd52a300120c67c120d631b960bac4169986164e82",
     "gaps_sha256": "f82c2ce029a41914e9f8121d23f606d4119dee0b8d4e9a3259805628a9bd5baa",
-    "historical_population_sha256": "7bb718a5883f5650fc38064cd97486c2fe252fd5d22e4683f72e68f93a7cc35d",
-    "historical_acceptance_sha256": "ec24e97b8094afd4e136fa4da4f87ce2ce18b052d5f262cbd26634970e69787b"
+    "historical_population_sha256": "2c48f7ea230f25aa04a67c5c72b5c9326fd081d82183790e2a47842a349c40b9",
+    "historical_acceptance_sha256": "8753f93ade007202314e7a42df95fc3ded1096a71bd44c1f4a8103299060e08a"
   },
   "references": {
     "_RECT_NONE": 11691016,
@@ -187,7 +187,7 @@
     "?SetColor@PlayerProfile@@QAEXH@Z": 7576016,
     "?UpdateStats@PlayerProfile@@QAEXPBULadder@WOL@@@Z": 7576048,
     "?WOL_Unknown_Stats_Text@@YIXPAUHWND__@@_N@Z": 7576144,
-    "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@PBVWstring@@_N@Z": 7576432
+    "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z": 7576432
   },
   "regions": [
     {
@@ -244,7 +244,7 @@
           "resolved": 11691028
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570512,
@@ -312,7 +312,7 @@
           "resolved": 11691040
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570544,
@@ -364,7 +364,7 @@
           "resolved": 11691112
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570592,
@@ -416,7 +416,7 @@
           "resolved": 11691096
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570624,
@@ -468,7 +468,7 @@
           "resolved": 11691088
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570656,
@@ -520,7 +520,7 @@
           "resolved": 11691048
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570688,
@@ -572,7 +572,7 @@
           "resolved": 11691008
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570720,
@@ -656,7 +656,7 @@
           "resolved": 11691120
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570752,
@@ -716,7 +716,7 @@
           "resolved": 11691056
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570816,
@@ -776,7 +776,7 @@
           "resolved": 11691080
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570864,
@@ -836,7 +836,7 @@
           "resolved": 11691104
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570912,
@@ -880,7 +880,7 @@
           "resolved": 11691038
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570960,
@@ -932,7 +932,7 @@
           "resolved": 11691072
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7570976,
@@ -1000,7 +1000,7 @@
           "resolved": 303921
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7571008,
@@ -1045,7 +1045,7 @@
           "resolved": 217974
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7571040,
@@ -1442,7 +1442,7 @@
           "resolved": 217457
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7571056,
@@ -2094,7 +2094,7 @@
           "resolved": 4291782429
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7571584,
@@ -2146,7 +2146,7 @@
           "resolved": 8058196
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7572544,
@@ -2318,7 +2318,7 @@
           "resolved": 4291782076
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7572656,
@@ -2514,7 +2514,7 @@
           "resolved": 4291781810
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7572896,
@@ -2686,7 +2686,7 @@
           "resolved": 4291781564
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7573168,
@@ -2882,7 +2882,7 @@
           "resolved": 4291781298
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7573408,
@@ -3102,7 +3102,7 @@
           "resolved": 4291780981
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7573680,
@@ -3330,7 +3330,7 @@
           "resolved": 4291780660
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7574000,
@@ -3550,7 +3550,7 @@
           "resolved": 4291780341
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7574320,
@@ -3778,7 +3778,7 @@
           "resolved": 4291780020
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7574640,
@@ -3830,7 +3830,7 @@
           "resolved": 4293919048
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7574960,
@@ -4395,7 +4395,7 @@
           "resolved": 213207
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7574992,
@@ -4439,7 +4439,7 @@
           "resolved": 213744
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7575840,
@@ -4467,7 +4467,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7575888,
@@ -4495,7 +4495,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7575984,
@@ -4523,7 +4523,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7576016,
@@ -4551,7 +4551,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7576048,
@@ -4700,7 +4700,7 @@
           "resolved": 220911
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7576144,
@@ -4716,8 +4716,8 @@
       "full_extent_sha256": "0bb02cb30c13a527302cd91587ed4231ab348bb95e55451a4c7daf6f8cbf1531",
       "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@PBVWstring@@_N@Z",
-      "symbol_prefix": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@PBVWstring@@_N@Z",
+      "symbol": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
+      "symbol_prefix": "?PopulateDialog@PlayerProfile@@QAEXPAUHWND__@@ABVWstring@@_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -5208,7 +5208,7 @@
           "resolved": 219597
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7576432,
@@ -5269,7 +5269,7 @@
           "resolved": 294022
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7577744,
@@ -5321,7 +5321,7 @@
           "resolved": 293984
         }
       ],
-      "source_sha256": "34d78068165d901d2a0fb7b0d878c4cf0e3deb000ea2a35fe88bafb27381f044",
+      "source_sha256": "97837d64aff8635c2e22f96622b539835f1973f4b75da826010d52875c30b550",
       "source": "rebuild/src/wolpersonainformation.cpp",
       "population": "rebuild-wolpersonainformation",
       "source_order": 7577792,

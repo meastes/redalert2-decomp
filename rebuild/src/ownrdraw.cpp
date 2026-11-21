@@ -125,7 +125,7 @@ struct TextRequest { // RA2: as above
 
 // RA2: the module's functions, declared before their first use
 unsigned int __fastcall Hash_Key(unsigned int &key); // RA2: as above
-int __fastcall Product(int *pair); // RA2: as above
+int __fastcall Hash_CtrlMsg(int * pair); // RA2: as above
 bool __fastcall Focus_Next_Tab_Item(HWND window, unsigned int previous); // RA2: as above
 int __fastcall OwnerDraw_Control_Height(unsigned int key, HWND window); // RA2: as above
 unsigned char __fastcall Kind_Test(int kind); // RA2: as above
@@ -146,7 +146,6 @@ void __fastcall Dialog_On_OD_4EC(HWND dialog); // RA2: 0x5E8710
 int __fastcall Dialog_ID_Of_Window(HWND window); // RA2: 0x5EAB00
 void __fastcall Dialog_On_WM_PAINT(HWND dialog); // RA2: 0x5FEE70
 void __fastcall Dialog_On_WM_DRAWITEM(long item); // RA2: as above
-void __fastcall Blend_Rect(Rect *area, Surface *surface, int color, int alpha); // RA2: as above
 BOOL __stdcall Redraw_Window(HWND window, RECT *rect); // RA2: as above
 void __fastcall Show_Dialog(HWND dialog, int kind); // RA2: as above
 void __fastcall Move_Window(HWND window, int x, int y); // RA2: as above
@@ -306,7 +305,6 @@ bool __fastcall Main_Loop(); // RA2: as above
 void __stdcall Set_Paint_Disabled_Children(struct HWND__ *window, int unknown2); // RA2: as above
 
 
-void __fastcall Inflate_Rect(Rect & rect, int amount); // RA2: 0x6F1B00 (progress.cpp)
 
 namespace OwnerDraw { // RA2: as above
 
@@ -390,6 +388,13 @@ void Init_Default_Colors() // RA2: as above
 }
 
 
+// RA2: the ra2-decomp column copy constructor is defined in the owner-draw unit.
+OwnerDraw::ColumnData::ColumnData(ColumnData & that)
+	: xPos(that.xPos), width(that.width), cells(that.cells)
+{
+}
+
+
 // RA2: TibSun's list box cell constructor (its stores in TibSun's order).
 OwnerDraw::CellData::CellData(void)
 {
@@ -418,7 +423,7 @@ unsigned int __fastcall Hash_Key(unsigned int &key) // RA2: the key as its own h
 /// already in the middle of handling.
 /// </summary>
 /// <returns>Returns with the hash value formed from the window and the message.</returns>
-int __fastcall Product(int *pair) // RA2: as above
+int __fastcall Hash_CtrlMsg(int * pair) // RA2: as above
 {
     return pair[1] * *pair; // RA2: as above
 }
@@ -2805,7 +2810,6 @@ inline int __cdecl Last_Step(int const *order, int pieces) // RA2: as above
     return steps; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive
 void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
 {
     WinData *record = Get_Record(dialog); // RA2: as above
@@ -3000,7 +3004,6 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
         SendMessageA(dialog, 0x4ed, 0, 0); // RA2: as above
     }
 }
-#endif
 
 }
 
@@ -5548,7 +5551,7 @@ namespace OwnerDraw { // RA2: as above
 void __fastcall WideToCharString(char * dest, wchar_t const * src, int count); // RA2: 0x6FA0F0
 }
 void __fastcall Rect_Shrink(Rect *rect, int x, int y); // RA2: as above
-int __fastcall Pair_Key_Hash(int *); // RA2: as above
+int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
@@ -5593,7 +5596,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
     BOOL allow_proc = 1; // RA2: as above
 	int anim_state = 0;
 
-	static Dictionary<MessageKey, bool> ctrlmessages((unsigned int (__fastcall *)(MessageKey &))Pair_Key_Hash); // RA2: as above
+	static Dictionary<MessageKey, bool> ctrlmessages((unsigned int(__fastcall *)(MessageKey &))Hash_CtrlMsg); // RA2: as above
 
 	MessageKey key; // RA2: as above
 	key.Window = (int)window; // RA2: as above

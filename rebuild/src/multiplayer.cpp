@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -710,9 +711,9 @@ bool MultiplayerGameMode::GenerateStartingUnits(HouseClass * house, int & amount
 }
 
 /// <summary>
-/// A slot of the vtable not named yet: this mode answers true (what it is asked is open).
+/// Forms alliances when the mode needs them. The base mode has none to make.
 /// </summary>
-bool MultiplayerGameMode::vt_entry_70(void) // RA2: 0x005B8420, slot 0x70 of the vtable; true
+bool MultiplayerGameMode::AllyTeams(void) // RA2: 0x005B8420, slot 0x70 of the vtable; true
 {
 	return(true); // RA2: as above
 }
