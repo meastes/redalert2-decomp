@@ -3166,3 +3166,76 @@ range do not count, and any reference inside the stretch resets the count. The w
   Mouse_Hover_Flag / Techno_Is_Selected readers of main's text; with ra2-decomp's plain
   `IsMouseHovering && !IsSelected` the register allocation differs through the whole function (ebp for `this`).
   Check the helpers a draft uses before reading its bucket as an inline-budget question.
+## A dispatcher whose budget runs out, handler sizes at the free limit, and budget windows read with pads (found in the rebuild (lane F7, high))
+
+- TActionClass::operator() 0x6ADAE0 (7,752 B) is not a 35000-cap cut-over (lane R42's reading above). After
+  TAction_STOP_AI_TRIGGERS the image still expands PLAY_INGAME_MOVIE, ACTIVATE_FIRESTORM, DEACTIVATE_FIRESTORM,
+  PAUSE_SCENARIO and PLAY_INGAME_MOVIE_PAUSE and calls every other handler: the free handlers (40 units or less)
+  go on expanding and the charged ones are refused, which is the root's budget running out. The whole instruction
+  diff of the rebuild's text is the four handlers it expands and the image calls (STOP_AI_TRIGGERS 58,
+  SET_AI_TRIGGER_TEAM_RATIO 50, SET_TEAM_AIRCRAFT_RATIO 50, SET_TEAM_INFANTRY_RATIO 50 units); nothing else differs.
+- Handler sizes in the unit (il_lab.py, `lab_a->TAction_X(lab_h, lab_o, lab_t, *lab_c);` with
+  `#define private public`, step 2; 85 handlers in one five-second run). Free: TOGGLE_TRAIN_CARGO, VEIN/TIB/ICE_GROWTH,
+  ANNOUNCE_WIN/LOSE, FORCE_END, CREEP_SHADOW, PLAY_SPEECH, CHANGE_ZOOM, LOCK_INPUT, UNLOCK_INPUT, RESHROUD,
+  SET_AMBIENT_STEP/RATE, PLAY_INGAME_MOVIE, ACTIVATE_FIRESTORM, PAUSE_SCENARIO. A handler of one member call with two
+  arguments and `return(true)` is 42, just over the limit (SET_GLOBAL, CLEAR_GLOBAL, SET_LOCAL, CLEAR_LOCAL,
+  PLAY_SOUND, PLAY_MUSIC, ION_STORM_STOP; PLAY_MOVIE and ALL_HUNT 44, ION_LIGHTNING_STRIKE 46, PREFERRED_TARGET 48).
+  Others: DESTROY_TEAM 50, REINFORCEMENTS 52, RADAR_EVENT 54, BEGIN_PRODUCTION/FIRE_SALE/AUTOCREATE/
+  BEGIN_AI_TRIGGERS 58, CREATE_TEAM/SET_AMBIENT_LIGHT 60, REDUCE_TIBERIUM/START_TIMER/STOP_TIMER/ION_STORM_START 62,
+  REINFORCEMENTS_SPECIAL 64, LIGHT_SMALL/MEDIUM/LARGE 66, ZOOM_OUT 74, MAKE_ALLY/MAKE_ENEMY 82, ADD_TIMER 86,
+  ZOOM_IN 92, ION_CANNON 104, PLAY_SOUND_AT 106, 1_SPECIAL/DISABLE_TRIGGER 120, REVEAL_ALL 122, FORCE_TRIGGER 124,
+  TEXT_TRIGGER/SET_TIMER 126, ALL_CHANGE_HOUSE 130, GO_BERZERK 140, SELL/TURN_OFF/TURN_ON_ATTACHED 142,
+  WAKEUP_ALL_SLEEP/HARMLESS 144, FULL_SPECIAL 146, CENTER_VIEWPOINT/DESTROY_TRIGGER/DESTROY_TAG 148,
+  CHANGE_HOUSE/SUB_TIMER 152, PLAY_SOUND_RANDOM 158, SET_TIMER_TEXT 160, WAKEUP_GROUP 164, LIGHTNING_STORM 166,
+  BASE_BUILDING and CHANGE_SPOTLIGHT_BEHAVIOR 172. With so many bodies within a few units of 40, one extra node in
+  a free handler charges its whole size.
+- The dispatcher's deficit, read with pads. `GetFocus();` statements (4 units each) spread over six small handlers
+  after BASE_BUILDING (SET_GLOBAL, CLEAR_GLOBAL, SET_LOCAL, CLEAR_LOCAL, WIN, LOSE): 44 to 52 of them (176 to 208
+  units) give the image's call list with no other site moved; 40 leave SET_AI_TRIGGER_TEAM_RATIO expanded and 56
+  refuse BEGIN_AI_TRIGGERS. So the budget left at the cut is 208 to 221 units here and under 46 in the image
+  (ION_LIGHTNING_STRIKE, 46, is refused there too). The same pads in the first handler are not equivalent: 40 units
+  are tolerated, 80 refuse the nested Coord::As_Cell in BASE_BUILDING (the image expands it and calls
+  Cell(int, int) 0x42AD30), so at most about 40 to 79 of the missing units lie before BASE_BUILDING. Put pads where
+  the hypothesis puts the wordiness; a pad host must stay under the size cap (a padded SUB_TIMER goes out of line).
+- BASE_BUILDING with the archive's and ra2-decomp's `BuildingClass *building = house->ConYards[0];` local is called
+  out of line even with 60 extra call statements in the root (480 units of budget): the non-inline size cap (about
+  175), not the budget. The tree's one-statement form (172 units) stands.
+- A real member spelled out by hand is not always the answer. LIGHT_SMALL/MEDIUM/LARGE call
+  `Waypoint_As_Coord()` in the archive and in ra2-decomp's twins (their YR dispatcher 0x6DD8B0 is matched); the tree
+  writes `Scen->Get_Waypoint_Coord(Data.Value)`. Both are exact standalone. Waypoint_As_Coord is 48 units and the
+  handler through it 56 (66 by hand), so each expansion charges 104 against 66: three of them move the cut two
+  handlers toward the image's but refuse BASE_BUILDING's As_Cell. Sixteen units more in the root (four call
+  statements) bring As_Cell back with the cut still two handlers late. Read together: if the original has the
+  member there, its root is some 16 units larger and its handlers after BASE_BUILDING 62 to 158 units wordier
+  still. No reference text supplies either; TActionClass::Get_Text (0x6B2F20, free) in SET_TIMER_TEXT in place of
+  ra2-decomp's `Text[0] ? Text : NULL` loses the handler's own row (127 bytes) and changes nothing in the
+  dispatcher; the root without the archive's unused `Cell waypoint; Coord coord;` (ra2-decomp's matched root has
+  neither) moves the cut one handler.
+- Init_Game 0x5116A0 (4,420 B): the budget window at the SOUND.INI load-failure return. `GetFocus();` at the top of
+  the root (8 budget units each): 0 to 3 nothing; 4 expands eva_ini's CCINIClass constructor instead (the
+  constructor is smaller than ~CCFileClass); 5 to 11 the image's call list; 12 the constructor again; 13 and more
+  expand the EVA.INI failure path's destructors too. With four pads, removing one `(void *)` cast of Bootstrap's
+  palette loads is enough: the image has 33 or 34 to about 95 budget units more than the rebuild at that site. All
+  sixteen memmove casts of the archive's text weigh three pads (24 units): an explicit pointer cast in an expanded
+  callee is about 1.5 units.
+- What does not supply them: the archive's own calls that the draft spells out or drops (Init_Heaps(),
+  Init_Threads() as empty statics, Anim_Init() for its two statements, Init_Color_Remaps() for the colour scheme
+  store) are byte-neutral and two or three units worse (with four pads three casts must go, not one); main's
+  hand-written `CD().Force_Available(RequiredCD)` for the archive's inline CD::Force_Available changes nothing
+  measurable (one pad is the resolution). main's exact text reaches the window by hand-spelling (no casts, fields
+  for the RGB accessors, no CD wrappers).
+- The nearest evidenced form: ra2-decomp's twin (their YR Init_Game 0x52BA60 is in their manifest of matched
+  functions) writes Bootstrap's palette loads without the archive's casts, `memmove(&pal[0], <load>, sizeof(pal))`,
+  and stores `VoxelDrawSystem::EnableLighting`/`EnableZBuffer` directly. In the RA2 draft the cast-free loads are
+  those 24 units (the call list then needs two pads instead of five) and the direct stores add nothing; 8 to 10
+  budget units are still missing after them, and no reference text supplies those. Not landed: the row stays
+  parked, the archive's casts stay in the draft.
+- A reference header form can be refuted by exact rows. ra2-decomp's `WOLOptionsClass(void) : Options(0),
+  IsValid(false) { Load(); }` (all sixteen users here construct and then call Load) loses wonline Login_Wonline
+  0x742FD0 (1,782 bytes differ) and Host_Game 0x7459A0 (947), and gains nothing in init, startup, wolstart or
+  wolpersonainformation. The explicit `options.Load();` after an empty-bodied constructor is RA2's form as far as
+  those two rows show.
+- A row "exact with every guard open" may need one body before it, any body. SidebarClass::Reposition_Sidebar
+  0x6819A0 (1,314 B): 2 bytes off with its own guard open; exact with its guard and Activate's (0x67E210) or its
+  guard and the unplaced TibSun Abandon_Production draft; 4 bytes with SidebarClass::AI's guard, 6 with all but
+  that one. It is a declaration-count row that returns when Activate lands, and Activate has no bound on main.
