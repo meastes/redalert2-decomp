@@ -250,7 +250,7 @@ static bool Init_CDROM_Access(void); // RA2: as above
  *    RA2 has Bootstrap, Init_Mouse and Init_CDROM_Access expanded inline in here.             *
  *=============================================================================================*/
 #ifdef RA2_NON_MATCHING // not exact: 1032 bytes differ (adopted text)
-int Init_Game(int, char * []) // RA2: 0x005116A0, 4420 bytes; this compiles to 4416: the executable also expands the CCFileClass destructor in the SOUND.INI load failure path, one inline expansion more than the budget allows here (unplaced)
+int Init_Game(int, char *[]) // RA2: 0x005116A0, 4420 bytes; this compiles to 4416: in the SOUND.INI load failure path this shares the parser and file cleanup, while the executable destroys the parser there and shares only the expanded file cleanup (unplaced)
 {
 	DebugString("Init Game\n"); // RA2: as above
 	Scen = new ScenarioClass; // RA2: as above

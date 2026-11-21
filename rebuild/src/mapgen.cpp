@@ -3251,7 +3251,6 @@ void MapSeedClass::Set_Default_Description(void) // RA2: not in TibSun, at 0x576
 /// The game keeps a single generator for its whole run; this routine merely puts it into the
 /// idle state it must be in before the first map is asked of it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00577010 has no row); main: best 86.79, tried 2 times (inline, asm, layout)
 MapGeneratorClass::MapGeneratorClass(void) :
 	SeedData(),
 	MapSeeder(NULL),
@@ -3267,7 +3266,6 @@ MapGeneratorClass::MapGeneratorClass(void) :
 	PlaceWaterfall(false) // RA2: as above
 {
 }
-#endif
 
 
 /// <summary>

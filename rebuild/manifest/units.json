@@ -59390,7 +59390,7 @@
     "entry": "00426890",
     "body": 128,
     "padding": 0,
-    "symbol": "?Find_Or_Make_Type@@YIPAVAnimTypeClass@@PBDAAV?$TypeList@PAVAnimTypeClass@@@@@Z",
+    "symbol": "?TFind_Or_Make@@YIPAVAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVAnimTypeClass@@@@@Z",
     "main_symbol": "?Find_Or_Make_Type@@YIPAVAnimTypeClass@@PBDAAV?$TypeList@PAVAnimTypeClass@@@@@Z",
     "main_source": "src/recovered/classes/AnimTypeClass/Find_Or_Make_Type.cpp"
    }
@@ -77709,6 +77709,19 @@
     "symbol": "?Set_Default_Description@MapSeedClass@@QAEXXZ",
     "main_symbol": "?Set_Default_Description_00576fe0@MapSeedClass@@QAEXXZ",
     "main_source": "src/recovered/classes/MapSeedClass/Set_Default_Description.cpp"
+   },
+   {
+    "entry": "00577010",
+    "body": 404,
+    "padding": 12,
+    "symbol": "??0MapGeneratorClass@@QAE@XZ",
+    "main_symbol": "??0MapGeneratorClass@@QAE@XZ",
+    "main_source": "src/recovered/mapgen.cpp",
+    "frozen_bound": {
+     "population": "population-54",
+     "kind": "ordinary function main never bounded",
+     "note": "MapGeneratorClass::MapGeneratorClass (mischa85 names.csv); seeded-pass5-aligned row 404 bytes + its 12-byte NOP gap row (every frozen pass holds the same 404-byte row); bounded by mapgen's exact rows MapSeedClass::Set_Default_Description (ends 0x577010) and ~MapGeneratorClass (0x5771B0); main has it non-exact, best 86.79 (lane F9, the session 0x673090 precedent)"
+    }
    },
    {
     "entry": "005771b0",
@@ -98086,6 +98099,19 @@
     "symbol": "?Slot_To_Player@SessionClass@@QAEHH@Z",
     "main_symbol": "?Slot_To_Player@SessionClass@@QAEHH@Z",
     "main_source": "src/recovered/session.cpp"
+   },
+   {
+    "entry": "00673090",
+    "body": 1845,
+    "padding": 11,
+    "symbol": "?Allocate_Player_Ports@SessionPortAllocator@@QAEXXZ",
+    "main_symbol": "?Allocate_Ports_00673090@UnknownSessionState@@QAEXXZ",
+    "main_source": "src/recovered/session.cpp",
+    "frozen_bound": {
+     "population": "population-54",
+     "kind": "ordinary function main never bounded",
+     "note": "SessionPortAllocator::Allocate_Player_Ports (mischa85 names.csv); seeded-pass5-aligned row 1845 bytes + its 11-byte NOP gap row; bounded by session's exact rows Slot_To_Player (ends 0x673090) and DynamicVectorClass<DiskID>::Clear (0x6737D0); main has it non-exact (c2land run 24, codex1 r2482)"
+    }
    },
    {
     "entry": "006737d0",

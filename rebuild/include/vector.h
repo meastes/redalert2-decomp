@@ -1160,9 +1160,8 @@ class VectorCursor
 
 		VectorCursor & operator = (const VectorCursor & that)
 		{
-			VectorCursor tmp(*that.Vector, that.Cursor);
-			Vector = tmp.Vector;
-			Cursor = tmp.Cursor;
+			Vector = that.Vector; // RA2: plain member copies (ra2-decomp's vector.h; the out-of-line copy at 0x0072AF50)
+			Cursor = that.Cursor;
 			return(*this);
 		}
 

@@ -2363,6 +2363,8 @@ symbol,address,evidence
 ?Jump_To_Radar_Event@@YIXXZ,0x006F88F0,inferred: init rows 0051c640 differ only at its sites
 ?Laser_Zap@TechnoClass@@QAEPAVLaserDrawClass@@PAVAbstractClass@@HPBVWeaponTypeClass@@ABVCoord@@@Z,0x006C9DF0,called at 0x6C9DF0 by BulletClass::Shrapnel 0x462C50 (lane O2 probe: the twin-mapped text exact with it bound); main's unknown_6c9df0 (non-exact)
 ?LastAdjacentZone@@3HA,0x00A6FC34,main: the accepted map.cpp rows name this global unknown_zone_a6fc34 (0x00A6FC34) (lane R5)
+?LastHealthKind@@3HA,0x007F8BD8,inferred: uicmnds rows 006f7b80 006f7b80 differ only at its sites
+?LastRankKind@@3HA,0x007F8BDC,inferred: uicmnds rows 006f7ec0 006f7ec0 differ only at its sites
 ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z,0x006DE0E0,slot +ac of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Legal_Placement@TechnoTypeClass@@UBE_NABVCell@@PAVHouseClass@@@Z
 ?Lepton_Dimensions@ObjectTypeClass@@UBE?AV?$TPoint3D@H@@XZ,0x005D5D30,slot +7c of ??_7TechnoTypeClass@@6BIPersistStream@@@ at 007ad080; main row ?Lepton_Dimensions@ObjectTypeClass@@UBE?AUCoordStruct@@XZ
 ?Likely_Coord@FootClass@@UBE?AVCoord@@XZ,0x004C8AC0,slot +480 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot287@FootClass@@UAE?AUCoordStruct@@XZ

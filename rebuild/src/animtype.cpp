@@ -67,17 +67,6 @@
 void Generic_Theater_Name(char * name); // RA2: 0x5D7C20 (objtype.cpp)
 void Theater_Name_Fixup(char * name, TheaterType theater); // RA2: 0x5D7BD0 (objtype.cpp)
 
-AnimTypeClass * __fastcall Find_Or_Make_Type(char const * name, TypeList<AnimTypeClass *> & list); // RA2: 0x426890, the out-of-line TFind_Or_Make<AnimTypeClass> instance of the executable (outside the module)
-
-static inline AnimTypeClass const * Get_Anim_Type(CCINIClass const & ini, char const * section, char const * entry, AnimTypeClass const * defvalue) // RA2: the animation an INI entry names, else the default (the executable calls TFind_Or_Make at 0x426890 for it)
-{ // RA2: as above
-	char buffer[128]; // RA2: as above
-	if (ini.Get_String(section, entry, "", buffer, sizeof(buffer)) != 0) { // RA2: as above
-		return(Find_Or_Make_Type(buffer, (TypeList<AnimTypeClass *> &)AnimTypes)); // RA2: as above
-	} // RA2: as above
-	return(defvalue); // RA2: as above
-} // RA2: as above
-
 namespace Unsorted { extern bool ArmageddonMode; }
 
 
@@ -410,8 +399,7 @@ AnimType AnimTypeClass::From_Name(char const * name)
 bool AnimTypeClass::Read_INI(CCINIClass const & ini) // RA2: the executable's body (meastes' source; Shadow, Layer, ForceBigCraters, PsiWarning, HideIfNoOre, ZAdjust, StopSound and the Report fallback are RA2's)
 { // RA2: as above
 	if (BASECLASS::Read_INI(ini)) { // RA2: as above
-		char const * section = Name(); // RA2: as above
-		bool shadow = ini.Get_Bool(section, "Shadow", Shadow); // RA2: as above
+		bool shadow = ini.Get_Bool(Name(), "Shadow", Shadow); // RA2: as above
 		if (shadow != Shadow) { // RA2: as above
 			Shadow = shadow; // RA2: as above
 			if (Shadow) { // RA2: as above
@@ -426,88 +414,88 @@ bool AnimTypeClass::Read_INI(CCINIClass const & ini) // RA2: the executable's bo
 
 		if (GraphicName[0] != '\0') { // RA2: as above
 			if (ImageData == 0) { // RA2: as above
-				IsTheater = ArtINI.Get_Bool(section, "Theater", IsTheater); // RA2: as above
-				IsNewTheater = ArtINI.Get_Bool(section, "NewTheater", IsNewTheater); // RA2: as above
+				IsTheater = ArtINI.Get_Bool(Name(), "Theater", IsTheater); // RA2: as above
+				IsNewTheater = ArtINI.Get_Bool(Name(), "NewTheater", IsNewTheater); // RA2: as above
 			} // RA2: as above
 			Load_Image(THEATER_NONE); // RA2: as above
 		} // RA2: as above
 
-		Layer = ini.Get_LayerType(section, "Layer", Layer); // RA2: as above
-		IsAltPalette = ArtINI.Get_Bool(section, "AltPalette", IsAltPalette); // RA2: as above
-		IsFlat = ini.Get_Bool(section, "Flat", IsFlat); // RA2: as above
-		IsFlameThrower = ini.Get_Bool(section, "Flamer", IsFlameThrower); // RA2: as above
-		IsNormalized = ini.Get_Bool(section, "Normalized", IsNormalized); // RA2: as above
-		IsTranslucent = ini.Get_Bool(section, "Translucent", IsTranslucent); // RA2: as above
-		IsScorcher = ini.Get_Bool(section, "Scorch", IsScorcher); // RA2: as above
-		IsCraterForming = ini.Get_Bool(section, "Crater", IsCraterForming); // RA2: as above
-		ForceBigCraters = ini.Get_Bool(section, "ForceBigCraters", ForceBigCraters); // RA2: as above
-		IsSticky = ini.Get_Bool(section, "Sticky", IsSticky); // RA2: as above
-		IsPingPong = ini.Get_Bool(section, "PingPong", IsPingPong); // RA2: as above
-		IsReverse = ini.Get_Bool(section, "Reverse", IsReverse); // RA2: as above
-		PsiWarning = ini.Get_Bool(section, "PsiWarning", PsiWarning); // RA2: as above
-		IsTiberiumChainReaction = ini.Get_Bool(section, "TiberiumChainReaction", IsTiberiumChainReaction); // RA2: as above
+		Layer = ini.Get_LayerType(Name(), "Layer", Layer); // RA2: as above
+		IsAltPalette = ArtINI.Get_Bool(Name(), "AltPalette", IsAltPalette); // RA2: as above
+		IsFlat = ini.Get_Bool(Name(), "Flat", IsFlat); // RA2: as above
+		IsFlameThrower = ini.Get_Bool(Name(), "Flamer", IsFlameThrower); // RA2: as above
+		IsNormalized = ini.Get_Bool(Name(), "Normalized", IsNormalized); // RA2: as above
+		IsTranslucent = ini.Get_Bool(Name(), "Translucent", IsTranslucent); // RA2: as above
+		IsScorcher = ini.Get_Bool(Name(), "Scorch", IsScorcher); // RA2: as above
+		IsCraterForming = ini.Get_Bool(Name(), "Crater", IsCraterForming); // RA2: as above
+		ForceBigCraters = ini.Get_Bool(Name(), "ForceBigCraters", ForceBigCraters); // RA2: as above
+		IsSticky = ini.Get_Bool(Name(), "Sticky", IsSticky); // RA2: as above
+		IsPingPong = ini.Get_Bool(Name(), "PingPong", IsPingPong); // RA2: as above
+		IsReverse = ini.Get_Bool(Name(), "Reverse", IsReverse); // RA2: as above
+		PsiWarning = ini.Get_Bool(Name(), "PsiWarning", PsiWarning); // RA2: as above
+		IsTiberiumChainReaction = ini.Get_Bool(Name(), "TiberiumChainReaction", IsTiberiumChainReaction); // RA2: as above
 
-		int rate = ini.Get_Int(section, "Rate", -1); // RA2: as above
+		int rate = ini.Get_Int(Name(), "Rate", -1); // RA2: as above
 		if (rate != -1) { // RA2: as above
 			Delay = rate > 0 ? TICKS_PER_MINUTE / rate : 0; // RA2: as above
 		} // RA2: as above
 
-		Damage = ini.Get_Float(section, "Damage", Damage); // RA2: as above
-		Start = ini.Get_Int(section, "Start", Start); // RA2: as above
-		Stages = ini.Get_Int(section, "End", Stages); // RA2: as above
-		LoopStart = ini.Get_Int(section, "LoopStart", LoopStart); // RA2: as above
-		LoopEnd = ini.Get_Int(section, "LoopEnd", LoopEnd); // RA2: as above
-		Loops = ini.Get_Int(section, "LoopCount", Loops); // RA2: as above
+		Damage = ini.Get_Float(Name(), "Damage", Damage); // RA2: as above
+		Start = ini.Get_Int(Name(), "Start", Start); // RA2: as above
+		Stages = ini.Get_Int(Name(), "End", Stages); // RA2: as above
+		LoopStart = ini.Get_Int(Name(), "LoopStart", LoopStart); // RA2: as above
+		LoopEnd = ini.Get_Int(Name(), "LoopEnd", LoopEnd); // RA2: as above
+		Loops = ini.Get_Int(Name(), "LoopCount", Loops); // RA2: as above
 
-		ChainTo = Get_Anim_Type(ini, section, "Next", ChainTo); // RA2: as above
+		ChainTo = TGet_Class(ini, Name(), "Next", ChainTo); // RA2: as above
 
-		DetailLevel = ini.Get_Int(section, "DetailLevel", DetailLevel); // RA2: as above
-		TranslucencyDetailLevel = ini.Get_Int(section, "TranslucencyDetailLevel", TranslucencyDetailLevel); // RA2: as above
-		Point2D delay = ini.Get_Point(section, "RandomLoopDelay", Point2D(RandomLoopDelayMin, RandomLoopDelayMax)); // RA2: as above
+		DetailLevel = ini.Get_Int(Name(), "DetailLevel", DetailLevel); // RA2: as above
+		TranslucencyDetailLevel = ini.Get_Int(Name(), "TranslucencyDetailLevel", TranslucencyDetailLevel); // RA2: as above
+		Point2D delay = ini.Get_Point(Name(), "RandomLoopDelay", Point2D(RandomLoopDelayMin, RandomLoopDelayMax)); // RA2: as above
 		RandomLoopDelayMin = delay.X; // RA2: as above
 		RandomLoopDelayMax = delay.Y; // RA2: as above
-		Translucency = ini.Get_Int(section, "Translucency", Translucency); // RA2: as above
-		IsTiberium = ini.Get_Bool(section, "IsTiberium", IsTiberium); // RA2: as above
-		HideIfNoOre = ini.Get_Bool(section, "HideIfNoOre", HideIfNoOre); // RA2: as above
-		YSortAdjust = ini.Get_Int(section, "YSortAdjust", YSortAdjust); // RA2: as above
-		IsDemandLoad = ini.Get_Bool(section, "DemandLoad", IsDemandLoad); // RA2: as above
-		IsFreeAfterPlaying = ini.Get_Bool(section, "FreeAfterPlaying", IsFreeAfterPlaying); // RA2: as above
-		Elasticity = ini.Get_Float(section, "Elasticity", Elasticity); // RA2: as above
-		MaxXYVel = ini.Get_Float(section, "MaxXYVel", MaxXYVel); // RA2: as above
-		MinZVel = ini.Get_Float(section, "MinZVel", MinZVel); // RA2: as above
+		Translucency = ini.Get_Int(Name(), "Translucency", Translucency); // RA2: as above
+		IsTiberium = ini.Get_Bool(Name(), "IsTiberium", IsTiberium); // RA2: as above
+		HideIfNoOre = ini.Get_Bool(Name(), "HideIfNoOre", HideIfNoOre); // RA2: as above
+		YSortAdjust = ini.Get_Int(Name(), "YSortAdjust", YSortAdjust); // RA2: as above
+		IsDemandLoad = ini.Get_Bool(Name(), "DemandLoad", IsDemandLoad); // RA2: as above
+		IsFreeAfterPlaying = ini.Get_Bool(Name(), "FreeAfterPlaying", IsFreeAfterPlaying); // RA2: as above
+		Elasticity = ini.Get_Float(Name(), "Elasticity", Elasticity); // RA2: as above
+		MaxXYVel = ini.Get_Float(Name(), "MaxXYVel", MaxXYVel); // RA2: as above
+		MinZVel = ini.Get_Float(Name(), "MinZVel", MinZVel); // RA2: as above
 
-		Spawns = Get_Anim_Type(ini, section, "Spawns", Spawns); // RA2: as above
+		Spawns = TGet_Class(ini, Name(), "Spawns", Spawns); // RA2: as above
 
-		SpawnCount = ini.Get_Int(section, "SpawnCount", SpawnCount); // RA2: as above
-		IsMeteor = ini.Get_Bool(section, "IsMeteor", IsMeteor); // RA2: as above
-		IsVeins = ini.Get_Bool(section, "IsVeins", IsVeins); // RA2: as above
-		TiberiumSpreadRadius = ini.Get_Int(section, "TiberiumSpreadRadius", TiberiumSpreadRadius); // RA2: as above
-		TiberiumSpawnType = TGet_Class(ini, section, "TiberiumSpawnType", TiberiumSpawnType); // RA2: as above
-		IsAnimatedTiberium = ini.Get_Bool(section, "IsAnimatedTiberium", IsAnimatedTiberium); // RA2: as above
-		IsShouldFogRemove = ini.Get_Bool(section, "ShouldFogRemove", IsShouldFogRemove); // RA2: as above
-		IsFlamingGuy = ini.Get_Bool(section, "IsFlamingGuy", IsFlamingGuy); // RA2: as above
-		RunningFrames = ini.Get_Int(section, "RunningFrames", RunningFrames); // RA2: as above
-		YDrawOffset = ini.Get_Int(section, "YDrawOffset", YDrawOffset); // RA2: as above
-		ZAdjust = ini.Get_Int(section, "ZAdjust", ZAdjust); // RA2: as above
+		SpawnCount = ini.Get_Int(Name(), "SpawnCount", SpawnCount); // RA2: as above
+		IsMeteor = ini.Get_Bool(Name(), "IsMeteor", IsMeteor); // RA2: as above
+		IsVeins = ini.Get_Bool(Name(), "IsVeins", IsVeins); // RA2: as above
+		TiberiumSpreadRadius = ini.Get_Int(Name(), "TiberiumSpreadRadius", TiberiumSpreadRadius); // RA2: as above
+		TiberiumSpawnType = TGet_Class(ini, Name(), "TiberiumSpawnType", TiberiumSpawnType); // RA2: as above
+		IsAnimatedTiberium = ini.Get_Bool(Name(), "IsAnimatedTiberium", IsAnimatedTiberium); // RA2: as above
+		IsShouldFogRemove = ini.Get_Bool(Name(), "ShouldFogRemove", IsShouldFogRemove); // RA2: as above
+		IsFlamingGuy = ini.Get_Bool(Name(), "IsFlamingGuy", IsFlamingGuy); // RA2: as above
+		RunningFrames = ini.Get_Int(Name(), "RunningFrames", RunningFrames); // RA2: as above
+		YDrawOffset = ini.Get_Int(Name(), "YDrawOffset", YDrawOffset); // RA2: as above
+		ZAdjust = ini.Get_Int(Name(), "ZAdjust", ZAdjust); // RA2: as above
 
-		StartSound = ini.Get_VocType(section, "StartSound", StartSound); // RA2: as above
+		StartSound = ini.Get_VocType(Name(), "StartSound", StartSound); // RA2: as above
 		if (StartSound == -1) { // RA2: as above
-			StartSound = ini.Get_VocType(section, "Report", (VocType)-1); // RA2: as above
+			StartSound = ini.Get_VocType(Name(), "Report", (VocType)-1); // RA2: as above
 		} // RA2: as above
-		StopSound = ini.Get_VocType(section, "StopSound", StopSound); // RA2: as above
+		StopSound = ini.Get_VocType(Name(), "StopSound", StopSound); // RA2: as above
 
-		BounceAnim = TGet_Class(ini, section, "BounceAnim", BounceAnim); // RA2: as above
-		ExpireAnim = TGet_Class(ini, section, "ExpireAnim", ExpireAnim); // RA2: as above
-		TrailerAnim = TGet_Class(ini, section, "TrailerAnim", TrailerAnim); // RA2: as above
-		TrailerSeperation = ini.Get_Int(section, "TrailerSeperation", TrailerSeperation); // RA2: as above
-		DamageRadius = ini.Get_Int(section, "DamageRadius", DamageRadius); // RA2: as above
-		Warhead = TGet_Class(ini, section, "Warhead", Warhead); // RA2: as above
-		IsBouncer = ini.Get_Bool(section, "Bouncer", IsBouncer); // RA2: as above
-		IsTiled = ini.Get_Bool(section, "Tiled", IsTiled); // RA2: as above
-		IsShouldUseCellDrawer = ini.Get_Bool(section, "ShouldUseCellDrawer", IsShouldUseCellDrawer); // RA2: as above
-		IsUseNormalLight = ini.Get_Bool(section, "UseNormalLight", IsUseNormalLight); // RA2: as above
+		BounceAnim = TGet_Class(ini, Name(), "BounceAnim", BounceAnim); // RA2: as above
+		ExpireAnim = TGet_Class(ini, Name(), "ExpireAnim", ExpireAnim); // RA2: as above
+		TrailerAnim = TGet_Class(ini, Name(), "TrailerAnim", TrailerAnim); // RA2: as above
+		TrailerSeperation = ini.Get_Int(Name(), "TrailerSeperation", TrailerSeperation); // RA2: as above
+		DamageRadius = ini.Get_Int(Name(), "DamageRadius", DamageRadius); // RA2: as above
+		Warhead = TGet_Class(ini, Name(), "Warhead", Warhead); // RA2: as above
+		IsBouncer = ini.Get_Bool(Name(), "Bouncer", IsBouncer); // RA2: as above
+		IsTiled = ini.Get_Bool(Name(), "Tiled", IsTiled); // RA2: as above
+		IsShouldUseCellDrawer = ini.Get_Bool(Name(), "ShouldUseCellDrawer", IsShouldUseCellDrawer); // RA2: as above
+		IsUseNormalLight = ini.Get_Bool(Name(), "UseNormalLight", IsUseNormalLight); // RA2: as above
 
-		Point2D rates = ini.Get_Point(section, "RandomRate", Point2D(-1, -1)); // RA2: as above
+		Point2D rates = ini.Get_Point(Name(), "RandomRate", Point2D(-1, -1)); // RA2: as above
 		if (rates.X != -1) { // RA2: as above
 			RandomRateMin = rates.X > 0 ? TICKS_PER_MINUTE / rates.X : 0; // RA2: as above
 		} // RA2: as above
@@ -718,24 +706,3 @@ void AnimTypeClass::Free_Image(void)
 		ImageAllocated = false; // RA2: as Get_Image_Data sets it
 	}
 }
-
-
-
-/// <summary>
-/// Finds the animation type by name, making a new one when none of that name exists.
-/// "<none>" and "none" name no animation.
-/// </summary>
-#ifdef RA2_NON_MATCHING // not exact: main's form, exact alone; defined in this unit it is expanded into Read_INI (0x425690), which calls it out of line
-AnimTypeClass * __fastcall Find_Or_Make_Type(char const * name, TypeList<AnimTypeClass *> & list)
-{
-	if (_stricmp("<none>", name) == 0 || _stricmp("none", name) == 0) {
-		return(NULL);
-	}
-	for (int index = 0; index < list.Count(); index++) {
-		if (_stricmp(list[index]->Name(), name) == 0) {
-			return(list[index]);
-		}
-	}
-	return(new AnimTypeClass(name));
-}
-#endif

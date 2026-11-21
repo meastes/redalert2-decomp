@@ -3239,3 +3239,93 @@ range do not count, and any reference inside the stretch resets the count. The w
   0x6819A0 (1,314 B): 2 bytes off with its own guard open; exact with its guard and Activate's (0x67E210) or its
   guard and the unplaced TibSun Abandon_Production draft; 4 bytes with SidebarClass::AI's guard, 6 with all but
   that one. It is a declaration-count row that returns when Activate lands, and Activate has no bound on main.
+
+## Count-sensitive rows flip one change at a time and return under sets of changes (found in the rebuild (lane F8, high))
+Found in the rebuild (lane F8, high): queue Print_CRCs 0x62A360 (11,223 B) and wonline Encode_Game_Options 0x73CCB0
+(797 B) lose 4 to 12 and 4 to 6 bytes with almost any single evidenced header change and are exact again under the
+right set of changes. Windows are read with `struct P;` lines put on one existing line (no line moves), at two
+places: the first line of the unit (before every header) and the function's own line (after every header).
+- Encode_Game_Options: the only difference at every count is the frame order of three equal-weight locals
+  (`int address = 0; int port = 0; int ping = 0;`, zeroed before the slot loop, reloaded after it). The image has
+  address at [esp+2Ch], port at +28h, ping at +24h; the off form rotates them (address +24h, port +2Ch, ping +28h;
+  a 4-byte form at window edges) and the three reloads after the loop follow the slots. First line of the unit:
+  exact at +0, +22..+38, +41..+62 (40 of 64; period 64 confirmed at +64..+66). Own line: exact only at -1, +0,
+  +38, +40 (4 of 64). Declarations between the headers and the function move it far more than declarations before
+  both (Scout1114's two edges); a late declaration of weight 1 always flips it.
+- Print_CRCs: three independent sites, each the order of two spill reloads after the long fprintf at the foot of a
+  per-house object loop (`mov edi,[esp+74h]` / `mov eax,[esp+44h]` swapped, 4 bytes a site). First line of the
+  unit: exact at +0 +3 +4 +7 +8 +9 +16 +42 +56 +57 +60 +63 (12 of 64). Own line: exact at +0 +3 +4 +5 +7 +8 +9
+  +16..+21 +23 +56 +57 +60 +63 (18 of 64).
+- Probe weights on these rows: `struct P;` 1; a plain prototype `void f(void);` 2 a line (Print_CRCs on its own
+  line: structs +1 4 B, +2 8 B, +3 exact, +4 exact; prototypes +1 8 B, +2 exact, +3 8 B); a new member declaration
+  2; an in-class virtual body turned into a declaration moves Encode_Game_Options' own-line window by 4 the other
+  way (ObjectClass::Docking_Coord: exact at +3 +4 afterwards) and leaves Print_CRCs exact.
+- A prototype left above a definition bears count. `void Encode_Game_Options(char * out);` stood directly above
+  the definition in wonline.cpp since the row's guard came off (wonline.h already declares the function; its
+  comment said the definition was not exact). It weighs 2, not the 0 Scout1114 gives a redeclaration: with it the
+  row is exact at -1/+0 on its own line, without it at +1/+2. Remove such a line in the landing that measures the
+  row, never by itself.
+- Single changes flip, sets restore. Six held changes, each evidenced, each costing at least one of the two rows
+  alone: D ObjectClass::Docking_Coord out of line; S the SelectClass member declaration after Set_Owner (ra2-decomp's
+  place); H ScoutStruct's copy constructor (ra2-decomp's _house.h); C OwnerDraw's ColumnData copy constructor
+  declared in the class; P the five never-defined CCINIClass Put_ declarations removed; R the stale prototype
+  removed. Of the 63 non-empty subsets both rows are exact under exactly seven: S+C, H+C, D+S+H, C+P+R, D+S+P+R,
+  D+H+P+R and all six; no subset of five. On the full set the windows are again narrow (own line:
+  Encode_Game_Options exact at +0 only of +0..+6, Print_CRCs at +0 +5 +6).
+- A set that suits two rows can cost a third: check every count-sensitive row of the tree on each candidate set.
+  sidebar SelectClass::Action 0x6809F0 (3,083 B, the first DoType row) loses 4 bytes with P alone and under every
+  set that holds P (C+P+R, D+S+P+R, D+H+P+R, all six), and stays exact under S+C, H+C and D+S+H. The sets that
+  keep all three rows are therefore S+C, H+C and D+S+H, and they exclude one another (D+S+H+C costs both rows of
+  the pair): C and D meet only with P and R, and P costs Action.
+- So held header changes are measured as a set and landed as a set: apply each subset of the delivered texts to
+  the headers, check the fragile rows, land the largest subset that keeps them (Scout1114 r1's rule for held
+  header edits, applied to evidenced content only; nothing is added, removed or reordered for the count, and a
+  set that cannot be found parks the rows under the DoType precedent). The weights depend on the delivered text
+  and its place: two new free-function prototypes appended to txtlabel2.h and ownrdraw.h moved neither row here,
+  while the worker's placement of the same two flipped both.
+- Reference forms do not harden Encode_Game_Options. ra2-decomp's matched YR twin (0x77E430) has the same named
+  local for the maximum players (`int value = Session.ScenarioMaxPlayers;`), evidence for the tree's flagged local
+  (505 bytes off without it). Its `description` local leaves the same 6 bytes at +0..+5; its
+  `memcpy(&address, node, sizeof(address))` compiles to the tree's bytes with the same window (-1, +0); its loop
+  text (slot_name, player_name, stricmp written out) is 143 bytes off at every count.
+
+## A name local in place of an accessor removes the pending sites that keep a nested template a call (found in the rebuild (lane F9, high))
+Found in the rebuild (lane F9, high): AnimTypeClass::Read_INI 0x425690 and the out-of-line TFind_Or_Make<AnimTypeClass>
+0x426890 (128 B), and what holds the 92 rows that are exact only with their guards open.
+- The image's Read_INI expands TGet_Class and AnimTypeClass::Find_Or_Make at "Next" and "Spawns" and calls
+  TFind_Or_Make<AnimTypeClass> out of line at both. The tree read the section name once
+  (`char const * section = Name();`) and passed the local to its 63 INI calls; with that text both TGet_Class and a
+  direct TFind_Or_Make expand the template at both sites (2,060 bytes off), which is why the unit carried a coined
+  static inline lookup and an external stand-in for the instance. With the archive's and ra2-decomp's text,
+  `Name()` at every call, the 63 pending accessor sites keep the depth-3 TFind_Or_Make a call, the instance is
+  emitted and both rows are exact from findmake.h (the UICmnds206 rule: the sites still pending later in the caller
+  decide a nested expansion, not definition order; Find_Or_Make itself is defined after Read_INI and still
+  expands there).
+- Recipe: when a root expands a helper the image calls only through a coined stand-in, list the inline accessors
+  the reference text calls per statement that the draft has folded into one local (`Name()`, `Count()`,
+  `Length()`); restore them before trying budget pads. A free accessor emits the same bytes as the local (the
+  compiler keeps `this + 0x24` in a register either way) and only its pending sites differ.
+- A guard labelled "no independent bound yet" can hide an exact function. Main records its never-matched functions
+  with their extent in manifests/original_target/non_exact.json and no catalog row; of the 67 such guards (31 units)
+  opened alone and compared with the image over that extent, one was exact as it stood: MapGeneratorClass's
+  constructor 0x577010 (404 B, main's best 86.79). Its bound is the row every frozen pass holds plus the 12-byte
+  NOP gap row of seeded-pass5-aligned, between two exact rows of the unit (`frozen_bound` in units.json, the
+  session 0x673090 precedent). Re-run the comparison after header landings; the nearest now are
+  MapClass::Damage_Low_Bridge_EW/_NS (5 bytes each of 1,302) and radar Update_Diplomacy_Row 0x634670 (6 bytes).
+- What holds an "exact with the guards open" row is almost never the row. Of 92 rows in 20 units, 2 are variation
+  candidates whose guard could come off as it stands (drive While_Moving, saveload Put_All), 1 is a
+  declaration-count row (sidebar Reposition_Sidebar), and 89 are template or inline copies that only a parent
+  which is not exact emits; no unit showed a COMDAT-order or instance-move cause. The bytes at stake are the
+  parent's: read the bucket by parent (`rebuild/tools/guardprobe.py UNIT`), not by row.
+- One Union site, three functions. The whole difference of builtype Get_Draw_Rect 0x45E290 and of
+  MapClass::Damage_Low_Bridge_EW 0x55DEF0 and _NS 0x55E410 is the same five bytes: which right edge of the
+  expanded Union's `result.X+result.Width < rect2.X+rect2.Width` is loaded first (rect2's in the image).
+  Union's text is the archive's and ra2-decomp's and its out-of-line copy 0x45EFE0 is exact; a header form that
+  turned the compare (lane R52) was worse.
+- Dropship_Screen 0x4A6B90's five operand-order sites do not move with file-scope declarations: 0 to 66 probe
+  structs on the function's own line or on the first line of the unit leave all 34 differing lines as they are.
+  A row with operand-order sites is not thereby a declaration-count row; sweep one full period before parking it
+  as one.
+- WDT_Write_Map_Ini 0x72A880 sits on an inline-budget edge: two dead locals at its top, or the uncalled
+  Territory_Of_Color 0x72A870 used for its two colour comparisons, expand the VectorCursor constructor that the
+  image calls. A dead-local survey of its one lea tie reads the budget, not the tie.

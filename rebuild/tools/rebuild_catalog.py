@@ -97,6 +97,8 @@ def write():
     # empty rows naming header and class"; owner, lane R35): the unit row names `frozen_bound` {population},
     # a frozen pass whose inventory holds the entry with the row's body, and whose gap row after it holds
     # the padding; the region takes that pass's bound (the audit checks it against the pass again).
+    # `kind` names any other such row, e.g. an ordinary function main never bounded whose pass row
+    # sits between two exact rows (c2land run 24, session 0x673090); without it the label is as above.
     for unit_info in R.load_json(R.UNITS, {}).values():
         for row in unit_info['rows']:
             frozen = row.get('frozen_bound')
@@ -108,8 +110,9 @@ def write():
             by_entry[entry] = dict(entry=entry, method=row['entry'], body_bytes=row['body'], body_sha256=sha(body),
                                    padding_bytes=row['padding'], full_extent_bytes=row['body'] + row['padding'],
                                    full_extent_sha256=sha(body + pad), padding_sha256=sha(pad),
-                                   boundary_confidence='Frozen independent analysis hypothesis (%s); compiler-generated '
-                                   'header row: %s' % (frozen['population'], frozen['note']),
+                                   boundary_confidence='Frozen independent analysis hypothesis (%s); %s: %s'
+                                   % (frozen['population'], frozen.get('kind', 'compiler-generated header row'),
+                                      frozen['note']),
                                    padding_provenance=None, population=frozen['population'])
     populations = {p['id']: p for p in catalog['populations']}
     # A unit whose last check is not of its current text and rows (a merge brought new text, or rows were

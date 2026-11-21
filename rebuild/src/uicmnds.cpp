@@ -1117,29 +1117,17 @@ int __fastcall Next_Rank_Kind(int last)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: Select_By_Health and Select_By_Rank (580 and 587 bytes differ; no_draft bucket)
 // RA2: remembers the last health state and rank selected; -1 means no selection yet.
 int LastHealthKind = -1;
 int LastRankKind = -1;
 
-static wchar_t const * Selection_Message(int kind)
-{
-	wchar_t const * text = Health_Message(kind);
-	TechnoList * objects = Collect_Selected_Technos();
-	int objects_count = objects->Count();
-	for (int check = 0; check < objects_count; check++) {
-		if ((*objects)[check]->Health_Status() != kind) {
-			text = StringTable::LoadString("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x599);
-			break;
-		}
-	}
-	delete objects;
-	return text;
-}
-
-// not exact: 580 bytes differ (register allocation and nested inlining)
+/// <summary>
+/// Selects the type-select list's objects in the next health state (the first, when the list is new), and reports
+/// the state, or "mixed" when the current selection holds objects in other states.
+/// </summary>
 void __fastcall Select_By_Health(bool flag)
 {
+	wchar_t buffer[256];
 	if (MuteSWLaunches != 0) {
 		return;
 	}
@@ -1162,8 +1150,17 @@ void __fastcall Select_By_Health(bool flag)
 			techno->Select();
 		}
 	}
-	wchar_t const * text = Selection_Message(kind);
-	wchar_t buffer[256];
+	wchar_t const * text = Health_Message(kind);
+	SmartPtr<TechnoList> objects(Collect_Selected_Technos());
+	int objects_count = objects->Count();
+	for (int check = 0; check < objects_count; check++) {
+		TechnoClass * item = (*objects)[check];
+		if (item->Health_Status() != kind) {
+			text = StringTable::LoadString("MSG:Mixed", NULL, "D:\\Ra2\\UICmnds.cpp", 0x599);
+			break;
+		}
+	}
+	delete objects;
 	Get_Selection_Info_Text(buffer, text);
 	Show_Player_Message(buffer, -1);
 	LastHealthKind = kind;
@@ -1175,25 +1172,13 @@ void __fastcall Select_By_Health(bool flag)
 	AttackMoveMode = false;
 }
 
-static wchar_t const * Experience_Message(int kind)
-{
-	wchar_t const * text = Rank_Message(kind);
-	TechnoList * objects = Collect_Selected_Technos();
-	int objects_count = objects->Count();
-	for (int check = 0; check < objects_count; check++) {
-		TechnoClass * item = (*objects)[check];
-		if (item->Veterancy.Remaining_Levels() != kind) {
-			text = StringTable::LoadString("MSG:Mixed", 0, "D:\\Ra2\\UICmnds.cpp", 0x5e4);
-			break;
-		}
-	}
-	delete objects;
-	return text;
-}
-
-// not exact: 587 bytes differ (register allocation and nested inlining)
+/// <summary>
+/// Selects the type-select list's objects of the next rank (the first, when the list is new), and reports the
+/// rank, or "mixed" when the current selection holds objects of other ranks.
+/// </summary>
 void __fastcall Select_By_Rank(bool flag)
 {
+	wchar_t buffer[256];
 	if (MuteSWLaunches != 0) {
 		return;
 	}
@@ -1216,8 +1201,17 @@ void __fastcall Select_By_Rank(bool flag)
 			techno->Select();
 		}
 	}
-	wchar_t const * text = Experience_Message(kind);
-	wchar_t buffer[256];
+	wchar_t const * text = Rank_Message(kind);
+	SmartPtr<TechnoList> objects(Collect_Selected_Technos());
+	int objects_count = objects->Count();
+	for (int check = 0; check < objects_count; check++) {
+		TechnoClass * item = (*objects)[check];
+		if (item->Veterancy.Remaining_Levels() != kind) {
+			text = StringTable::LoadString("MSG:Mixed", NULL, "D:\\Ra2\\UICmnds.cpp", 0x5e4);
+			break;
+		}
+	}
+	delete objects;
 	Get_Selection_Info_Text(buffer, text);
 	Show_Player_Message(buffer, -1);
 	LastRankKind = kind;
@@ -1228,7 +1222,6 @@ void __fastcall Select_By_Rank(bool flag)
 	}
 	AttackMoveMode = false;
 }
-#endif
 
 /// <summary>
 /// Collects the type names of a list of objects, each once.
