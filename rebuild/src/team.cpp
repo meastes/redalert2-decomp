@@ -1268,7 +1268,7 @@ int TeamClass::Recruit(int typeindex)
 				while (passenger != 0) { // RA2: as above
 					Add(passenger); // RA2: as above
 					ObjectClass *next = passenger->Next; // RA2: as above
-					passenger = next != 0 && (next->AbstractFlags & 4) ? (FootClass *)next : 0; // RA2: as above
+					passenger = next != 0 && (next->AbstractFlags & ABSTRACT_FOOT) ? (FootClass *)next : 0; // RA2: as above
 				}
 			}
 			break; // RA2: as above
@@ -1680,7 +1680,7 @@ bool TeamClass::Coordinate_Regroup(void)
 
 		if (_Is_It_Playing(unit)) {
 			TeamMissionType action = Script->Get_Current_Mission().Mission; // RA2: as above
-			int stray = (action == (TeamMissionType)0x36 || action == (TeamMissionType)0x35) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
+			int stray = (action == TMISSION_GATHER_AT_BASE || action == TMISSION_GATHER_AT_ENEMY_BASE) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
 			if (unit->Distance(Zone) > stray) { // RA2: as above
 				if (unit->Mission == MISSION_GUARD_AREA && unit->TarCom != NULL) { // RA2: as above
 					goto hold; // RA2: as above
@@ -1747,11 +1747,11 @@ void TeamClass::Coordinate_Move(void)
 				if (Coordinate_Conscript(unit)) {
 					finished = false;
 				}
-				if (unit->Get_Mission() == 0x10 || unit->MissionQueue == 0x10) { // RA2: as above
+				if (unit->Get_Mission() == MISSION_UNLOAD || unit->MissionQueue == MISSION_UNLOAD) { // RA2: as above
 					finished = false;
 				}
 				if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Fetch_RTTI() == RTTI_AIRCRAFT) // RA2: as above
-					&& unit->Get_Mission() != 0x10 && unit->MissionQueue != 0x10) { // RA2: as above
+					&& unit->Get_Mission() != MISSION_UNLOAD && unit->MissionQueue != MISSION_UNLOAD) { // RA2: as above
 					int stray = Stray_Distance(); // RA2: as above
 					if (unit->In_Air()) { // RA2: as above
 						stray *= 2; // RA2: as above
@@ -1793,7 +1793,7 @@ void TeamClass::Coordinate_Move(void)
 						}
 					}
 					bool arrived = unit->Fetch_RTTI() == RTTI_AIRCRAFT && unit->NavCom == unit->Get_Cell_Ptr(); // RA2: as above
-					bool hovering = (unit->AbstractFlags & 1) && unit->Techno_Type_Class()->BalloonHover && distance < stray; // RA2: as above
+					bool hovering = (unit->AbstractFlags & ABSTRACT_TECHNO) && unit->Techno_Type_Class()->BalloonHover && distance < stray; // RA2: as above
 					if (unit->NavCom != 0 && !arrived && !hovering) { // RA2: as above
 						finished = false; // RA2: as above
 					}
@@ -1853,7 +1853,7 @@ bool TeamClass::Lagging_Units(void)
 
 		if (_Is_It_Playing(unit)) {
 			TeamMissionType action = Script->Get_Current_Mission().Mission; // RA2: Lagging_Units at 0x6BA600 matches only so
-			int stray = (action == (TeamMissionType)0x36 || action == (TeamMissionType)0x35) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
+			int stray = (action == TMISSION_GATHER_AT_BASE || action == TMISSION_GATHER_AT_ENEMY_BASE) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
 			if (unit->RTTI == RTTI_AIRCRAFT) { // RA2: as above
 				stray *= 3;
 			}
@@ -2405,7 +2405,7 @@ void TeamClass::TMission_PATROL(TeamMissionClass * mission, bool first_time)
 		}
 	}
 
-	if (Target != NULL && (Target->AbstractFlags & 2)) { // RA2: as above
+	if (Target != NULL && (Target->AbstractFlags & ABSTRACT_OBJECT)) { // RA2: as above
 		Coordinate_Attack();
 	} else {
 		Coordinate_Move();
@@ -2672,7 +2672,7 @@ void TeamClass::TMission_DEPLOY(TeamMissionClass * mission, bool)
 		if (_Is_It_Breathing(unit) && (unit->IsInitiated || unit->Fetch_RTTI() == RTTI_AIRCRAFT)) { // RA2: as above
 			bool mcv = unit->Fetch_RTTI() == RTTI_UNIT && ((UnitClass *)unit)->Class->DeploysInto != 0; // RA2: as above
 			bool deployer = unit->Fetch_RTTI() == RTTI_UNIT && (((UnitClass *)unit)->Class)->IsSimpleDeployer; // RA2: as above
-			bool infantry = unit->Fetch_RTTI() == 0xF && ((InfantryClass *)unit)->Is_Deployer(); // RA2: as above
+			bool infantry = unit->Fetch_RTTI() == RTTI_INFANTRY && ((InfantryClass *)unit)->Is_Deployer(); // RA2: as above
 			if (mcv) { // RA2: as above
 				finished = false; // RA2: as above
 				if (unit->Get_Mission() != MISSION_UNLOAD) { // RA2: as above
@@ -2748,7 +2748,7 @@ void TeamClass::TMission_DO(TeamMissionClass * mission, bool)
 		if (_Is_It_Playing(unit)) {
 			if (unit->TarCom == NULL && unit->NavCom == NULL) { // RA2: TMission_DO at 0x6BBBB0 matches only so
 				TeamMissionType action = Script->Get_Current_Mission().Mission; // RA2: as above
-				int stray = (action == (TeamMissionType)0x36 || action == (TeamMissionType)0x35) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
+				int stray = (action == TMISSION_GATHER_AT_BASE || action == TMISSION_GATHER_AT_ENEMY_BASE) ? Rule->RelaxedStray : Rule->StrayDistance; // RA2: as above
 				if (unit->Distance(Zone) > stray * 2 && do_mission != MISSION_GUARD_AREA) { // RA2: as above
 					unit->QueueMission(MISSION_MOVE, false); // RA2: as above
 					unit->Assign_Destination(Zone, true); // RA2: as above
@@ -3994,7 +3994,7 @@ void TeamClass::TMission_CHRONO_ATTACK(TeamMissionClass * mission, bool) // RA2:
 int TeamClass::Stray_Distance(void) // RA2: not in TibSun, at 0x6BE6A0
 {
 	TeamMissionType action = Script->Get_Current_Mission().Mission;
-	return((action == (TeamMissionType)0x36 || action == (TeamMissionType)0x35) ? Rule->RelaxedStray : Rule->StrayDistance);
+	return((action == TMISSION_GATHER_AT_BASE || action == TMISSION_GATHER_AT_ENEMY_BASE) ? Rule->RelaxedStray : Rule->StrayDistance);
 }
 
 

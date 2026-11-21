@@ -208,7 +208,7 @@ Matrix3DStruct STDMETHODCALLTYPE HoverLocomotionClass::Shadow_Matrix(int *key) /
 
 
 /// <returns>bool; Is the object still moving?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1961 bytes differ (adopted text): the expanded Start() calls Coord::As_Cell and the cell comparison out of line in the original
+#ifdef RA2_NON_MATCHING // not exact: 1890 bytes differ (adopted text): the original calls the cell comparison inside the expanded Start() out of line, moves the coordinate as a 2D point (X and Y only) and tests ok without threading it
 boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 {
 	if (Is_Moving() && Is_Moving1()) {
@@ -224,7 +224,7 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 			speed = LinkedTo->Current_Speed() * Acceleration;
 		}
 
-		if (speed >= Point2D(LinkedTo->PositionCoord).Distance_To(HeadToCoord)) {
+		if (speed >= Point2D(LinkedTo->PositionCoord).Distance_To(Point2D(HeadToCoord))) {
 			LinkedTo->IsOccupyingCell = true;
 			LinkedTo->IsToPathAroundBlockage = false;
 			WasPushed = false;
@@ -235,10 +235,10 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 				HeadToCoord = COORD_NONE;
 			}
 
-			Cell dock = CELL_NONE; // RA2: a unit that has reached its docking cell carries on moving
 			TechnoClass * contact = LinkedTo->Radio_Link(0); // RA2: the radio contact
+			Cell dock = CELL_NONE; // RA2: a unit that has reached its docking cell carries on moving
 			if (contact != NULL) { // RA2: if there is one
-				dock = contact->Docking_Coord(LinkedTo).As_Cell(); // RA2: gives the docking cell
+				dock = contact->Destination_Coord(LinkedTo).As_Cell(); // RA2: gives the cell it is bound for
 			}
 			bool at_dock = (LinkedTo->Get_Cell() == dock); // RA2: has the unit reached it
 

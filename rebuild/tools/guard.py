@@ -20,7 +20,7 @@ def demangle(sym):
     if m:
         scope = [s for s in m.group(2).split('@') if s]
         return '::'.join(list(reversed(scope)) + [m.group(1)])
-    m = re.match(r'_([A-Za-z_]\w*)$', sym)
+    m = re.match(r'_([A-Za-z_]\w*)(?:@\d+)?$', sym)
     return m.group(1) if m else None
 
 

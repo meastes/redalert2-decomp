@@ -579,10 +579,10 @@ int TechnoTypeClass::GetRefund(HouseClass * house, bool full) const // RA2: at 0
  *=============================================================================================*/
 void const * TechnoTypeClass::Get_Cameo_Data(void) const
 {
-	if (PlayerPtr && PlayerPtr->BarracksInfiltrated && Fetch_RTTI() == 0x10 && AltCameoData && IsTrainable) { // RA2: RA2's form
+	if (PlayerPtr && PlayerPtr->BarracksInfiltrated && Fetch_RTTI() == RTTI_INFANTRYTYPE && AltCameoData && IsTrainable) { // RA2: RA2's form
 		return AltCameoData; // RA2: as above
 	}
-	if (PlayerPtr && PlayerPtr->WarFactoryInfiltrated && Fetch_RTTI() == 0x28 && AltCameoData && IsTrainable) { // RA2: as above
+	if (PlayerPtr && PlayerPtr->WarFactoryInfiltrated && Fetch_RTTI() == RTTI_UNITTYPE && AltCameoData && IsTrainable) { // RA2: as above
 		return AltCameoData; // RA2: as above
 	}
 	return CameoData; // RA2: as above

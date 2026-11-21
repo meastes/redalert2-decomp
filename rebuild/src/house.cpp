@@ -3199,7 +3199,7 @@ bool HouseClass::Manual_Place(BuildingClass * builder,  BuildingClass * object)
 		Map.IsPowerMode = false; // RA2: placing also leaves power, waypoint, beacon and targetting mode
 		Map.IsWaypointMode = false; // RA2: as above
 		Map.IsBeaconMode = false; // RA2: as above
-		Map.IsTargettingMode = (SuperWeaponType)-1; // RA2: as above
+		Map.IsTargettingMode = SUPER_NONE; // RA2: as above
 
 		Map.PendingObject = object->Class;
 		Map.PendingObjectPtr = object;
@@ -8346,7 +8346,7 @@ void HouseClass::Calculate_Defense_Values(BuildingClass const * building, int va
 /// <param name="cells">The threat cells to defend against, or NULL to simply defend the
 /// base.</param>
 /// <returns>bool; Was a defense settled upon the node?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 11 of 3264 bytes differ (mischa85 text, Sample() as ra2-decomp and main call it; operand order only, moves with the declaration count)
+#ifdef RA2_NON_MATCHING // not exact: 5 of 3264 bytes differ (mischa85 text, Sample() as ra2-decomp and main call it; operand order only, moves with the declaration count)
 bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cells) // RA2: RA2's form
 {
 	int i; // RA2: as above
@@ -8355,23 +8355,26 @@ bool HouseClass::AI_Build_Defense(int nodeindex, DynamicVectorClass<Cell> * cell
 	int bestidx = -1; // RA2: as above
 	bestval = 999999; // RA2: as above
 
-	int aair_arr[4]; // RA2: as above
-	aair_arr[0] = 0; // RA2: as above
-	aair_arr[1] = 0; // RA2: as above
-	aair_arr[2] = 0; // RA2: as above
-	aair_arr[3] = 0; // RA2: as above
+	int aair_arr[4] = { // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0 // RA2: as above
+	};
 
-	int aarr_arr[4]; // RA2: as above
-	aarr_arr[0] = 0; // RA2: as above
-	aarr_arr[1] = 0; // RA2: as above
-	aarr_arr[2] = 0; // RA2: as above
-	aarr_arr[3] = 0; // RA2: as above
+	int aarr_arr[4] = { // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0 // RA2: as above
+	};
 
-	int agrnd_arr[4]; // RA2: as above
-	agrnd_arr[0] = 0; // RA2: as above
-	agrnd_arr[1] = 0; // RA2: as above
-	agrnd_arr[2] = 0; // RA2: as above
-	agrnd_arr[3] = 0; // RA2: as above
+	int agrnd_arr[4] = { // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0, // RA2: as above
+		0 // RA2: as above
+	};
 
 	int types[4]; // RA2: as above
 

@@ -687,7 +687,7 @@ void AircraftClass::AI(void)
 		if (TarCom->In_Air()) {
 			Assign_Target(NULL);
 		} else if (TarCom != NULL) {
-			unsigned char const & techno = TarCom->AbstractFlags & 1; // RA2: the Is_Techno test is read into a byte temporary
+			unsigned char const & techno = TarCom->AbstractFlags & ABSTRACT_TECHNO; // RA2: the Is_Techno test is read into a byte temporary
 			if (techno && !House->Is_Ally(TarCom) && ((TechnoClass*)TarCom)->Cloak == CLOAKED && !((TechnoClass*)TarCom)->Is_Sensed_By_House(House)) {
 				Assign_Target(NULL);
 			}
@@ -1532,7 +1532,7 @@ int AircraftClass::Do_MISSION_MOVE_Carryall(void)
 			if (target != NULL &&
 				!Cargo.Is_Something_Attached() &&
 				House->Is_Ally(target)) {
-				bool const & techno_ref = (target->AbstractFlags & 1); // RA2: the Is_Techno test is read into a byte temporary
+				bool const & techno_ref = (target->AbstractFlags & ABSTRACT_TECHNO); // RA2: the Is_Techno test is read into a byte temporary
 				if (!techno_ref || target->Owner_HouseClass()->Is_Ally(this)) { // RA2: as above
 				if (target->Fetch_RTTI() == RTTI_UNIT) { // RA2: the virtual Fetch_RTTI
 				DebugString("Do_MISSION_MOVE_Carryall - VALIDATE_LZ - target != NULL\n");
@@ -1739,7 +1739,7 @@ int AircraftClass::Do_MISSION_PATROL(void)
 
 			if (Ammo != 0) {
 				AbstractClass * threat = Greatest_Threat(THREAT_AREA, PositionCoord, false); // RA2: the position goes in directly, only objects count
-				if (threat != NULL && (threat->AbstractFlags & 2)) { // RA2: only objects
+				if (threat != NULL && (threat->AbstractFlags & ABSTRACT_OBJECT)) { // RA2: only objects
 					Override_Mission(MISSION_ATTACK, threat, NULL);
 					Status = VALIDATE_LZ;
 					return(1);
@@ -2914,7 +2914,7 @@ MoveType AircraftClass::Can_Enter_Cell(CellClass const * cell, FacingType, int c
 	TechnoClass *occupier = (TechnoClass *)cell->Cell_Occupier(); // RA2: as above
 	bool active; // RA2: as above
 	if (occupier != 0) { // RA2: as above
-		active = (occupier->AbstractFlags & 1); // RA2: as above
+		active = (occupier->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 	}
 	if ((occupier == 0 || !active || occupier->House->Is_Ally(House) // RA2: as above
 		 || (occupier->Cloak != 2 && ScenarioInit == 0 // RA2: as above
@@ -2967,7 +2967,7 @@ AbstractClass * AircraftClass::Good_Fire_Location(AbstractClass * target) const
 		**	Try to get closer to a target that is moving.
 		*/
 		Coord altcoord = COORD_NONE;
-		if (target->AbstractFlags & 4) { // RA2: Good_Fire_Location at 0x418F10 matches only so
+		if (target->AbstractFlags & ABSTRACT_FOOT) { // RA2: Good_Fire_Location at 0x418F10 matches only so
 			AbstractClass * alttarg = ((FootClass *)target)->NavCom; // RA2: as above
 			if (alttarg != NULL) {
 				altcoord = alttarg->Center_Coord();

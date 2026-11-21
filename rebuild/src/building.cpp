@@ -641,7 +641,7 @@ RadioMessageType BuildingClass::Receive_Message(RadioClass * from, RadioMessageT
 				bool needs_to_move = false; // RA2: as above
 
 				if (ContainsLink((TechnoClass *)from) && (Class->IsDockUnload || Class->IsWeeder)) { // RA2: as above
-					FootClass * foot = (from == NULL) ? NULL : ((from->AbstractFlags & 4) ? (FootClass *)from : NULL); // RA2: the docker, not the building's contact (the cast tests bit 2 of the abstract flags)
+					FootClass * foot = (from == NULL) ? NULL : ((from->AbstractFlags & ABSTRACT_FOOT) ? (FootClass *)from : NULL); // RA2: the docker, not the building's contact (the cast tests bit 2 of the abstract flags)
 					CellClass * docking_cell = &Map[Docking_Coord(foot)]; // RA2: Docking_Coord takes the docker
 					AbstractClass * navcom = foot->NavCom; // RA2: as above
 					if (navcom != NULL && docking_cell != navcom) {
@@ -4717,7 +4717,7 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 			if (contact) { // RA2: as above
 				bool captured = false; // RA2: as above
 				bool was_tethered = false; // RA2: as above
-				if (!(contact->AbstractFlags & 4)) { // RA2: only units are taken along (bit 2 of the abstract flags, tested in memory)
+				if (!(contact->AbstractFlags & ABSTRACT_FOOT)) { // RA2: only units are taken along (bit 2 of the abstract flags, tested in memory)
 					contact = NULL; // RA2: as above
 				} else if (Transmit_Message(RADIO_NEED_TO_MOVE, contact) == RADIO_ROGER && (Class->IsWeaponsFactory || contact->Distance(Docking_Coord(contact)) < CELL_LEPTON / 4) ) { // RA2: Docking_Coord takes the docker
 					was_tethered = contact->IsTethered; // RA2: as above
@@ -7842,8 +7842,8 @@ void BuildingClass::Start_Delayed_Fire(int stage, Coord const & coord) // RA2: n
 	DelayBeforeFiring = Class->DelayedFireDelay;
 	PrismStage = stage;
 	memcpy(&PrismTargetCoords, &coord, sizeof(PrismTargetCoords));
-	End_Anim((BAnimType)3);
-	Begin_Anim((BAnimType)10, HealthRatio <= Rule->ConditionYellow, false, 0);
+	End_Anim(BANIM_ACTIVE_ONE);
+	Begin_Anim(BANIM_SPECIAL_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
 }
 
 
@@ -9800,7 +9800,7 @@ void BuildingClass::Disable_Powered_Anims(void) // RA2: not in TibSun, at 0x44F8
 			if (Anims[index] != NULL) {
 				End_Anim((BAnimType)index);
 				if (index == 10 && Class->IsAnimDelayedFire && Class->AnimData[3].Powered) {
-					Begin_Anim((BAnimType)3, HealthRatio <= Rule->ConditionYellow, false, 0);
+					Begin_Anim(BANIM_ACTIVE_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
 				}
 			}
 		}

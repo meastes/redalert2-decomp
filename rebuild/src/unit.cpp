@@ -932,7 +932,7 @@ void UnitClass::Firing_AI(void)
 			case FIRE_ILLEGAL:
 				if (Combat_Damage(primary) < 0) {
 					AbstractClass * target = TarCom; // RA2: only a unit target that is not damaged enough keeps being attacked
-					if (target != NULL && (target->AbstractFlags & 2) && target->Fetch_RTTI() == RTTI_UNIT) { // RA2: as above
+					if (target != NULL && (target->AbstractFlags & ABSTRACT_OBJECT) && target->Fetch_RTTI() == RTTI_UNIT) { // RA2: as above
 						if (((ObjectClass *)target)->HealthRatio >= Rule->ConditionGreen) { // RA2: as above
 							Assign_Target(NULL); // RA2: as above
 							return; // RA2: as above
@@ -1060,7 +1060,7 @@ RadioMessageType UnitClass::Receive_Message(RadioClass * from, RadioMessageType 
 		case RADIO_CAN_LOAD:
 			if (Class->MaxPassengers != 0 && from != NULL && House->Is_Ally(sender)) { // RA2: as above
 				if (IsBeingWarpedOut()) return(RADIO_STATIC); // RA2: as above
-				if (sender->MindControlledBy == NULL && (!(from->AbstractFlags & 4) || ((FootClass *)from)->ParasiteEatingMe == NULL)) { // RA2: a mind controlled or eaten passenger is refused
+				if (sender->MindControlledBy == NULL && (!(from->AbstractFlags & ABSTRACT_FOOT) || ((FootClass *)from)->ParasiteEatingMe == NULL)) { // RA2: a mind controlled or eaten passenger is refused
 					if (sender->CaptureManager != NULL && sender->CaptureManager->Unit != NULL) return(RADIO_STATIC); // RA2: as above
 					int capacity = Class->MaxPassengers; // RA2: the cargo size must fit the capacity and the size limit
 					if (!(Cargo.GetTotalSize() + sender->Techno_Type_Class()->Size <= capacity)) goto no_transport_room; // RA2: the executable shares one refusal exit
@@ -1130,7 +1130,7 @@ RadioMessageType UnitClass::Receive_Message(RadioClass * from, RadioMessageType 
 				CellClass & tile = Map[cell]; // RA2: as above
 				int own_zone = Map.Get_Cell_Zone(LastAdjacencyCell, sender->Techno_Type_Class()->MZone, false); // RA2: as above
 				int sender_zone = -1; // RA2: as above
-				if (from != NULL && (from->AbstractFlags & 4)) { // RA2: as above
+				if (from != NULL && (from->AbstractFlags & ABSTRACT_FOOT)) { // RA2: as above
 					sender_zone = Map.Get_Cell_Zone(((FootClass *)from)->LastAdjacencyCell, sender->Techno_Type_Class()->MZone, false); // RA2: as above
 				}
 				if (own_zone != sender_zone) { // RA2: as above
@@ -2179,19 +2179,19 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 		UpdateSight(false, false, false, 0);
 		Map.RevealArea3(Get_Coord(), 0, LastSightRange + 3, 0);
 		if (!IsDumping && Ready_To_Commence()) Commence();
-		if (Class->IsToHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != 7 && MissionQueue != 7 && !IsDumping) {
+		if (Class->IsToHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != MISSION_ENTER && MissionQueue != MISSION_ENTER && !IsDumping) {
 			RadioClass * radio = Radio_Link(0);
-			if (radio && radio->What_Am_I() == 6 && ((BuildingClass *)radio)->Class->IsRefinery) Transmit_Message(RADIO_OVER_OUT);
+			if (radio && radio->What_Am_I() == RTTI_BUILDING && ((BuildingClass *)radio)->Class->IsRefinery) Transmit_Message(RADIO_OVER_OUT);
 		}
-		if (Class->IsToVeinHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != 7 && MissionQueue != 7 && !IsDumping) {
+		if (Class->IsToVeinHarvest && Get_Mission() != MISSION_UNLOAD && CurrentMission != MISSION_ENTER && MissionQueue != MISSION_ENTER && !IsDumping) {
 			RadioClass * radio = Radio_Link(0);
-			if (radio && radio->What_Am_I() == 6 && ((BuildingClass *)radio)->Class->IsWeeder) Transmit_Message(RADIO_OVER_OUT);
+			if (radio && radio->What_Am_I() == RTTI_BUILDING && ((BuildingClass *)radio)->Class->IsWeeder) Transmit_Message(RADIO_OVER_OUT);
 		}
 		if (!NavCom && Path[0] == -1 && !Class->MobileFire) Arm = Rearm_Delay(1) / 4;
 		CellClass * current_cell = &Map[Get_Coord()];
 		LandType land = current_cell->Land_Type();
 		if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell, FACING_NONE, -1, 0, true) == 7 && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
-			if (CurrentMission != 7) {
+			if (CurrentMission != MISSION_ENTER) {
 				new AnimClass(Combat_Anim(Strength, Rule->C4Warhead, land, Get_Coord()), Get_Coord(), 0, 1, (ShapeFlags_Type)0x2600, Get_Explosion_Z(Get_Coord()));
 				int damage = Strength;
 				Combat_Lighting(Center_Coord(), damage, Rule->C4Warhead, 0, 0);
@@ -2230,7 +2230,7 @@ bool UnitClass::Render(Rect & rect, bool forced, bool extras_only) const
 {
 	if (IsTethered) {
 		TechnoClass *contact = Radio_Link(0); // RA2: RA2's form
-		if (contact->Fetch_RTTI() == RTTI_BUILDING && (contact->Get_Mission() == MISSION_UNLOAD || contact->MissionQueue == 16)) { // RA2: as above
+		if (contact->Fetch_RTTI() == RTTI_BUILDING && (contact->Get_Mission() == MISSION_UNLOAD || contact->MissionQueue == MISSION_UNLOAD)) { // RA2: as above
 			DelayTimerClass *state = &contact->Door; // RA2: as above
 			if (state->Is_Count_Up_Active() || state->Is_Count_Down_Active() || state->Is_Count_Up_Complete() || state->Is_Count_Down_Complete()) { // RA2: as above
 				return(false); // RA2: as above
@@ -2636,7 +2636,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 if (Locomotion->Is_Moving()) return 10;
                 Cell current=Get_Cell();
                 CellClass &current_cell=Map[current];
-                if (!NavCom && current_cell.Land_Type()==2) {
+				if (!NavCom && current_cell.Land_Type() == LAND_WATER) {
                     Cell destination=Map.Nearby_Location(Get_Cell(),SPEED_WHEEL,-1,MZONE_NORMAL,false,Point2D(1,1),0,0,0,1,Cell(0,0),0);
                     Assign_Destination(&Map[destination],true);
                     return 10;
@@ -2653,7 +2653,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                     Status=1;
                     return 1;
                 }
-                QueueMission((MissionType)5,false);
+				QueueMission(MISSION_GUARD, false);
                 break;
             }
             case 1:
@@ -2686,7 +2686,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         placed=passenger->Unlimbo(position,direction.As_Dir256());
                         --ScenarioInit;
                         if (placed) {
-                            passenger->QueueMission((MissionType)2,false);
+							passenger->QueueMission(MISSION_MOVE, false);
                             if (prefer_far) passenger->Assign_Destination(&Map[far_cell],true);
                             else passenger->Assign_Destination(&Map[near_cell],true);
                             if (Team) Team->Add(passenger);
@@ -2698,7 +2698,7 @@ int UnitClass::Do_MISSION_UNLOAD()
             } else Status=4;
             break;
             case 4:
-            QueueMission((MissionType)5,false);
+				QueueMission(MISSION_GUARD, false);
             IsMissionUnloadStandby=true;
             break;
         }
@@ -2715,7 +2715,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                 } else if (!Try_To_Deploy() && NavCom) IsDeploying=false;
                 break;
                 case 0:
-                Transmit_Message((RadioMessageType)3);
+					Transmit_Message(RADIO_OVER_OUT);
                 Path[0]=FACING_NONE;
                 Status=1;
                 // Initial setup falls through into the movement check.
@@ -2724,16 +2724,16 @@ int UnitClass::Do_MISSION_UNLOAD()
                     Try_To_Deploy();
                     if (IsActive) {
                         if (IsDeploying) Status=2;
-                        else if (!House->Is_Human_Player() && Session.Type) QueueMission((MissionType)15,false);
-                        else QueueMission((MissionType)5,false);
+						else if (!House->Is_Human_Player() && Session.Type) QueueMission(MISSION_HUNT, false);
+						else QueueMission(MISSION_GUARD, false);
                     }
-                } else if (MissionQueue!=-1 && MissionQueue!=16) Commence();
+				} else if (MissionQueue != -1 && MissionQueue != MISSION_UNLOAD) Commence();
                 break;
                 default: break;
             }
         } else {
             if (Class->IsSimpleDeployer) {
-                QueueMission((MissionType)5,false);
+				QueueMission(MISSION_GUARD, false);
                 Commence();
             }
             return FootClass::Do_MISSION_UNLOAD();
@@ -2759,7 +2759,7 @@ int UnitClass::Do_MISSION_UNLOAD()
         Set_Rate(1);
         if (Class->IsToHarvest) {
             BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
-            if (building) building->Begin_Anim((BAnimType)7,building->HealthRatio<=Rule->ConditionYellow,false,0);
+			if (building) building->Begin_Anim(BANIM_PRE_PRODUCTION, building->HealthRatio <= Rule->ConditionYellow, false, 0);
         }
         Status=3;
     } else {
@@ -2767,25 +2767,25 @@ int UnitClass::Do_MISSION_UNLOAD()
             case 4: {
                 if (Class->IsToVeinHarvest) {
                     IsDumping=false;
-                    if (NavCom && MissionQueue!=-1 && MissionQueue!=10) {
+					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
                         if (Locomotion->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
                     } else {
-                        QueueMission((MissionType)10,false);
-                        if (Ready_To_Commence()) { if (HasAnyLink()) Transmit_Message((RadioMessageType)3);Commence(); }
+						QueueMission(MISSION_HARVEST, false);
+						if (Ready_To_Commence()) { if (HasAnyLink()) Transmit_Message(RADIO_OVER_OUT);Commence(); }
                     }
                 } else {
                     BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
                     bool active=false;
-                    if (building && building->Class->IsRefinery) active=building->Anims[8]!=0;
+					if (building && building->Class->IsRefinery) active = building->Anims[BANIM_PRODUCTION] != 0;
                     if (active) return 1;
                     IsDumping=false;
-                    if (NavCom && MissionQueue!=-1 && MissionQueue!=10) {
+					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
                         if (Locomotion->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
                     } else {
-                        QueueMission((MissionType)10,false);
-                        if (Ready_To_Commence()) { if (HasAnyLink()) Transmit_Message((RadioMessageType)3);Commence(); }
+						QueueMission(MISSION_HARVEST, false);
+						if (Ready_To_Commence()) { if (HasAnyLink()) Transmit_Message(RADIO_OVER_OUT);Commence(); }
                     }
                 }
                 break;
@@ -2793,8 +2793,8 @@ int UnitClass::Do_MISSION_UNLOAD()
             case 3: {
                 BuildingClass *building=(BuildingClass *)Map[Get_Cell()+AdjacentCell[6]].Cell_Building();
                 if (!building) {
-                    if (HasAnyLink()) Transmit_Message((RadioMessageType)3);
-                    QueueMission((MissionType)10,true);
+					if (HasAnyLink()) Transmit_Message(RADIO_OVER_OUT);
+					QueueMission(MISSION_HARVEST, true);
                     int delay=Current_Mission_Control().Normal_Delay();
                     return delay+Random_Pick(0,2);
                 } else {
@@ -2813,7 +2813,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                             TPoint3D<int> const &o=type->RefinerySmokeOffsetTwo; Coord offset=o;
                             building->ParticleSystems[6]=new ParticleSystemClass(const_cast<ParticleSystemTypeClass *>(smoke[Scen->RandomNumber(0,smoke.Count()-1)]),building->Get_Coord()+offset,0,building,COORD_NONE);
                         }
-                        if (!building->Anims[10]) building->Begin_Anim((BAnimType)10,building->HealthRatio<=Rule->ConditionYellow,false,0);
+						if (!building->Anims[BANIM_SPECIAL_ONE]) building->Begin_Anim(BANIM_SPECIAL_ONE, building->HealthRatio <= Rule->ConditionYellow, false, 0);
                         int slot=Storage.First_Used_Slot();
                         HouseClass *owner=building->Owner_HouseClass();
                         int purifiers=owner->NumOrePurifiers;
@@ -2832,19 +2832,19 @@ int UnitClass::Do_MISSION_UNLOAD()
                                 Set_Stage(0);
                             }
                         } else {
-                            if (building->Class->IsRefinery) building->Begin_Anim((BAnimType)8,building->HealthRatio<=Rule->ConditionYellow,false,0);
+							if (building->Class->IsRefinery) building->Begin_Anim(BANIM_PRODUCTION, building->HealthRatio <= Rule->ConditionYellow, false, 0);
                             Status=4;
                             if (building->ParticleSystems[5]) building->ParticleSystems[5]->Delete_Me();
                             if (building->ParticleSystems[6]) building->ParticleSystems[6]->Delete_Me();
-                            if (building->Anims[10]) building->End_Anim((BAnimType)10);
+							if (building->Anims[BANIM_SPECIAL_ONE]) building->End_Anim(BANIM_SPECIAL_ONE);
                         }
                     }
-                    if (NavCom && MissionQueue!=-1 && MissionQueue!=10) {
-                        if (building->Class->IsRefinery) building->Begin_Anim((BAnimType)8,building->HealthRatio<=Rule->ConditionYellow,false,0);
+					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
+						if (building->Class->IsRefinery) building->Begin_Anim(BANIM_PRODUCTION, building->HealthRatio <= Rule->ConditionYellow, false, 0);
                         Status=4;
                         if (building->ParticleSystems[5]) building->ParticleSystems[5]->Delete_Me();
                         if (building->ParticleSystems[6]) building->ParticleSystems[6]->Delete_Me();
-                        if (building->Anims[10]) building->End_Anim((BAnimType)10);
+						if (building->Anims[BANIM_SPECIAL_ONE]) building->End_Anim(BANIM_SPECIAL_ONE);
                     }
                     return 1;
                 }
@@ -3369,7 +3369,7 @@ MoveType UnitClass::Can_Enter_Cell(CellClass const * cellptr, FacingType dir, in
 				}
 			}
 
-			TechnoClass * contact = (obj->AbstractFlags & 1) ? (TechnoClass *)obj : NULL; // RA2: the Is_Techno test is inline
+			TechnoClass * contact = (obj->AbstractFlags & ABSTRACT_TECHNO) ? (TechnoClass *)obj : NULL; // RA2: the Is_Techno test is inline
 			if (ContainsLink(contact) && obj->Fetch_RTTI() == RTTI_BUILDING && !((BuildingClass *)obj)->Is_Impassable_Cell(cellptr)) { // RA2: a building this unit is linked to lets it through
 				obj = obj->Next; // RA2: as above
 				continue; // RA2: as above
@@ -3436,7 +3436,7 @@ MoveType UnitClass::Can_Enter_Cell(CellClass const * cellptr, FacingType dir, in
 			}
 
 			FootClass * foot; // RA2: as above
-			if (obj->AbstractFlags & 4) { // RA2: the Is_Foot test is inline
+			if (obj->AbstractFlags & ABSTRACT_FOOT) { // RA2: the Is_Foot test is inline
 				foot = (FootClass *)obj; // RA2: as above
 			} else {
 				foot = NULL; // RA2: as above
@@ -4632,37 +4632,37 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	**	Transport vehicles must tell all passengers that are about to load, that they
 	**	cannot proceed. This is accomplished with a radio message to this effect.
 	*/
-	if (HasAnyLink() && Class->MaxPassengers > 0 && Radio_Link(0)->Fetch_RTTI() == 15) {
-		if(target && (target->AbstractFlags & 1) && !ContainsLink((TechnoClass *)target)) Transmit_Message((RadioMessageType)3);
+	if (HasAnyLink() && Class->MaxPassengers > 0 && Radio_Link(0)->Fetch_RTTI() == RTTI_INFANTRY) {
+		if (target && (target->AbstractFlags & ABSTRACT_TECHNO) && !ContainsLink((TechnoClass *)target)) Transmit_Message(RADIO_OVER_OUT);
 	}
 
 	/*
 	 * If tethered to a carryall while sleeping, untether before moving.
 	 */
-	if (target != 0 && HasAnyLink() && Get_Mission() == 0 && IsTethered && Radio_Link(0)->Fetch_RTTI() == 2) {
+	if (target != 0 && HasAnyLink() && Get_Mission() == MISSION_SLEEP && IsTethered && Radio_Link(0)->Fetch_RTTI() == RTTI_AIRCRAFT) {
 		AircraftClass * a = (AircraftClass *)Radio_Link(0);
 		if (a->Class->IsCarryall) {
 			a->Assign_Destination(0, true);
-			Transmit_Message((RadioMessageType)25);
-			Transmit_Message((RadioMessageType)3);
+			Transmit_Message(RADIO_UNTETHER);
+			Transmit_Message(RADIO_OVER_OUT);
 		}
 	}
 
 	BuildingClass * b = As_Building(target);
-    if(Get_Mission()==16 || MissionQueue==16) {
+	if (Get_Mission() == MISSION_UNLOAD || MissionQueue == MISSION_UNLOAD) {
         Cell unload_cell=Get_Cell()+AdjacentCell[6];
         BuildingClass *refinery=(BuildingClass *)Map[unload_cell].Cell_Building();
         if(refinery && Class->IsToHarvest) {
             if(refinery->ParticleSystems[5]) refinery->ParticleSystems[5]->Delete_Me();
             if(refinery->ParticleSystems[6]) refinery->ParticleSystems[6]->Delete_Me();
-            if(refinery->Anims[10]) refinery->End_Anim(BANIM_SPECIAL_ONE);
+			if (refinery->Anims[BANIM_SPECIAL_ONE]) refinery->End_Anim(BANIM_SPECIAL_ONE);
         }
     }
 
 	/*
 	**	Handle entry logic here.
 	*/
-	if (Get_Mission() == 7 || MissionQueue == 7) {
+	if (Get_Mission() == MISSION_ENTER || MissionQueue == MISSION_ENTER) {
 
 		/*
 		**	If not already in radio contact (presumed with the transport), then
@@ -4671,10 +4671,10 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		*/
 		if (!HasAnyLink()) {
 			TechnoClass *destination_techno=Dynamic_Cast<TechnoClass *>(target);
-            if(destination_techno && destination_techno->Fetch_RTTI()==1) {
+			if (destination_techno && destination_techno->Fetch_RTTI() == RTTI_UNIT) {
 				QueueUpToEnter = As_Unit(target);
                 Assign_Archive_Target(0);target=0;
-            } else if (b != 0 && b->Fetch_RTTI()==6) {
+			} else if (b != 0 && b->Fetch_RTTI() == RTTI_BUILDING) {
 
 				/*
 				**	Determine if the transport is already in radio contact. If so, then just move
@@ -4689,12 +4689,12 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					*/
 					if (b->Class->IsCanUnitRepair) {
 						if(HealthRatio<Rule->ConditionGreen) {target=0;QueueUpToEnter=b;}
-                        else {Transmit_Message((RadioMessageType)3);target=0;}
+                        else {Transmit_Message(RADIO_OVER_OUT);target = 0;}
 					}
 				} else {
 					AbstractClass * oldnav = NavCom;
-					if (Transmit_Message((RadioMessageType)14,b) != 1) {
-						Transmit_Message((RadioMessageType)3);
+					if (Transmit_Message(RADIO_DOCKING, b) != 1) {
+						Transmit_Message(RADIO_OVER_OUT);
 						if (b->Class->IsCanUnitRepair) {
 							Assign_Archive_Target(target);
 						}
@@ -4705,7 +4705,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					}
 				}
 			} else {
-				TechnoClass * techno = target && (target->AbstractFlags & 1) ? (TechnoClass *)target : 0;
+				TechnoClass * techno = target && (target->AbstractFlags & ABSTRACT_TECHNO) ? (TechnoClass *)target : 0;
 				if (techno != 0) {
 
 					/*
@@ -4715,11 +4715,11 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 					if (techno->HasAnyLink()) {
 						Assign_Archive_Target(target);
 					} else {
-						if (Transmit_Message((RadioMessageType)2,techno) == 1) {
-							if (Transmit_Message((RadioMessageType)14) == 1) {
+						if (Transmit_Message(RADIO_HELLO, techno) == 1) {
+							if (Transmit_Message(RADIO_DOCKING) == 1) {
                             // RA2 retains the destination and continues after the handshake.
                         } else
-							Transmit_Message((RadioMessageType)3);
+								Transmit_Message(RADIO_OVER_OUT);
 						}
 					}
 				}
@@ -4748,7 +4748,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			target = tcell;
 			immediate = false;
 			if (tcell != 0 && tcell->IsUnderBridge && !Is_Moving_Onto_Bridge()) {
-				Cell nearby = Map.Nearby_Location(tcell->CellID,(SpeedType)1,Map.Get_Cell_Zone(tcell->CellID, Class->MZone, false),Class->MZone,false,Point2D(1, 1),false,true,false,false,Cell(0,0),0);
+				Cell nearby = Map.Nearby_Location(tcell->CellID, SPEED_TRACK, Map.Get_Cell_Zone(tcell->CellID, Class->MZone, false), Class->MZone, false, Point2D(1, 1), false, true, false, false, Cell(0, 0), 0);
 				if (nearby != CELL_NONE) {
 					target = &Map[nearby];
 				}
@@ -4827,7 +4827,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
         persist->GetClassID(&tclsid);
         bool drive=true;
         if(contact) {
-            if(contact->Fetch_RTTI()==6) {
+			if (contact->Fetch_RTTI() == RTTI_BUILDING) {
 				BuildingClass * building = As_Building(contact);
 				CellClass * cell = As_Cell(target);
                 if(building->Class->IsDockUnload && cell && !cell->Cell_Unit(false)) {
@@ -4839,7 +4839,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
                         } else {
                             Locomotion->Stop_Moving();
                             Set_Mission(MISSION_NONE);
-                            QueueMission((MissionType)7,false);
+							QueueMission(MISSION_ENTER, false);
                             IsMoveToSkipped=true;
                             UnlimboingInfantry=true;
                         }
@@ -4919,8 +4919,8 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 			**	Establish radio contact protocol. If the facility responds correctly,
 			**	then remain in radio contact and proceed toward the desired destination.
 			*/
-			if (Transmit_Message((RadioMessageType)2,b) == 1) {
-				if (Transmit_Message((RadioMessageType)14) == 1) {
+			if (Transmit_Message(RADIO_HELLO, b) == 1) {
+				if (Transmit_Message(RADIO_DOCKING) == 1) {
 					FootClass::Assign_Destination(target, immediate);
 					Path[0] = FACING_NONE;
 					return;
@@ -4930,7 +4930,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 				**	Failure to establish a docking relationship with the refinery.
 				**	Bail & await further instructions.
 				*/
-				Transmit_Message((RadioMessageType)3);
+				Transmit_Message(RADIO_OVER_OUT);
 				target = 0;
 			}
 		}
@@ -4958,16 +4958,16 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 	 * clicked target is that building (and the houses are allied).
 	 */
 	if (b != 0 && Class->Dock.Count() > 0 && Unit_Type_Has_Dock(Class, b->Class) &&
-		Fetch_RTTI() == 1 && (Class->IsToHarvest || Class->IsToVeinHarvest) &&
-		Get_Mission() != 16) {
+		Fetch_RTTI() == RTTI_UNIT && (Class->IsToHarvest || Class->IsToVeinHarvest) &&
+		Get_Mission() != MISSION_UNLOAD) {
 
-		if (Radio_Link(0) != b && !b->HasAnyLink() && Transmit_Message((RadioMessageType)2,b) == 1 &&
-			Get_Mission() != 7 && Get_Mission() != 10) {
-			QueueMission((MissionType)7,false);
+		if (Radio_Link(0) != b && !b->HasAnyLink() && Transmit_Message(RADIO_HELLO, b) == 1 &&
+			Get_Mission() != MISSION_ENTER && Get_Mission() != MISSION_HARVEST) {
+			QueueMission(MISSION_ENTER, false);
 			target = 0;
 		} else {
-			if (target != 0 && target->Fetch_RTTI() == 6 && Radio_Link(0) != target) {
-				Cell nearby = Map.Nearby_Location(Cell(b->Get_Coord()),(SpeedType)2,Map.Get_Cell_Zone(Cell(b->Get_Coord()), Class->MZone, false),Class->MZone,false,Point2D(1, 1),false,true,false,false,Cell(0,0),0);
+			if (target != 0 && target->Fetch_RTTI() == RTTI_BUILDING && Radio_Link(0) != target) {
+				Cell nearby = Map.Nearby_Location(Cell(b->Get_Coord()), SPEED_WHEEL, Map.Get_Cell_Zone(Cell(b->Get_Coord()), Class->MZone, false), Class->MZone, false, Point2D(1, 1), false, true, false, false, Cell(0, 0), 0);
 				if (nearby != CELL_NONE) {
 					target = &Map[nearby];
 				} else {
@@ -4986,7 +4986,7 @@ void UnitClass::Assign_Destination(AbstractClass *target, bool immediate)
 		if (!(cellptr->IsUnderBridge)) {
 			ObjectClass * occupier = cellptr->Cell_Occupier();
 			while (occupier != 0) {
-				if (occupier != this && occupier->Fetch_RTTI() == 6 && ((BuildingClass *)occupier)->Class->IsCanUnitRepair) {
+				if (occupier != this && occupier->Fetch_RTTI() == RTTI_BUILDING && ((BuildingClass *)occupier)->Class->IsCanUnitRepair) {
 					Locomotion->Power_On();
 					break;
 				}
@@ -5378,7 +5378,7 @@ void UnitClass::Scatter(Coord const &threat, bool forced, bool nokidding)
         if (Current_Mission_Control().IsParalyzed) {
             return;
         }
-        if ((Fetch_RTTI() != 1 || !IsDumping)
+		if ((Fetch_RTTI() != RTTI_UNIT || !IsDumping)
             && (NavCom == 0 || (nokidding && !IsRotating))
             && (TarCom == 0 || forced || Random_Pick(1, 4) == 1)) {
             int facing;
@@ -5953,7 +5953,7 @@ bool UnitClass::Is_Route_Broken(Cell const & from, Cell const & to) const
 bool UnitClass::Unknown_Virtual_0(int code, int)
 {
 	if ((Class->BalloonHover || Class->JumpJet) && code == 0x117B && HasAnyLink()) {
-		Transmit_Message((RadioMessageType)8);
+		Transmit_Message(RADIO_UNLOADED);
 		if (ArchiveTarget != NULL && ArchiveTarget != NavCom) {
 			Assign_Destination(ArchiveTarget, true);
 			return(true);
@@ -6814,7 +6814,7 @@ void UnitClass::Visceroid_AI()
             direction = (direction + 1) & 7;
             Cell const &neighbor = Adjacent_Cell(position, (FacingType)direction);
             ObjectClass *object = Map[neighbor].Cell_Occupier();
-            if (object && object->Fetch_RTTI() == 1 && ((UnitClass *)object)->Class->IsSmallVisceroid) {
+			if (object && object->Fetch_RTTI() == RTTI_UNIT && ((UnitClass *)object)->Class->IsSmallVisceroid) {
                 UnitClass *other = (UnitClass *)object;
                 if (other->NavCom || other->TarCom) return;
                 other->Assign_Destination(this, true);

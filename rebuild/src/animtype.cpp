@@ -480,7 +480,7 @@ bool AnimTypeClass::Read_INI(CCINIClass const & ini) // RA2: the executable's bo
 
 		StartSound = ini.Get_VocType(Name(), "StartSound", StartSound); // RA2: as above
 		if (StartSound == -1) { // RA2: as above
-			StartSound = ini.Get_VocType(Name(), "Report", (VocType)-1); // RA2: as above
+			StartSound = ini.Get_VocType(Name(), "Report", VOC_NONE); // RA2: as above
 		} // RA2: as above
 		StopSound = ini.Get_VocType(Name(), "StopSound", StopSound); // RA2: as above
 

@@ -94,10 +94,17 @@ def open_guard(text, symbol):
         at = body_start(text, symbol)
     except SystemExit:
         return text         # a name the definition finder cannot spell (an operator): probed as written
-    guard_at = text.rfind('#ifdef RA2_NON_MATCHING', 0, at)
-    if guard_at >= 0 and text.rfind('#endif', 0, at) < guard_at:
-        end = text.index('\n', guard_at)
-        text = text[:guard_at] + '#if 1' + text[end:]
+    stack = []              # open conditionals before the body, nested ones (#ifndef X ... #endif) included
+    for m in re.finditer(r'^[ \t]*#[ \t]*(if|ifdef|ifndef|endif)\b.*$', text[:at], re.M):
+        if m.group(1) == 'endif':
+            if stack:
+                stack.pop()
+        else:
+            stack.append(m)
+    for m in reversed(stack):
+        if re.match(r'[ \t]*#[ \t]*ifdef[ \t]+RA2_NON_MATCHING\b', m.group(0)):
+            text = text[:m.start()] + '#if 1' + text[m.end():]
+            break
     return text
 
 

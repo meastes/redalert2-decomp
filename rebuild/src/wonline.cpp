@@ -390,15 +390,15 @@ void Set_Lobby_Music(bool online)
 	if (online) {
 		if (!Theme.Still_Playing()) {
 			Theme.Stop();
-			Theme.Queue_Song((ThemeType)-2);
+			Theme.Queue_Song(THEME_PICK_ANOTHER);
 			return;
 		}
 		if (Theme.What_Is_Playing() == Theme.From_Name("INTRO")) {
 			Theme.Stop();
-			Theme.Queue_Song((ThemeType)-2);
+			Theme.Queue_Song(THEME_PICK_ANOTHER);
 		}
 	} else {
-		Theme.Queue_Song((ThemeType)-3);
+		Theme.Queue_Song(THEME_QUIET);
 	}
 }
 
@@ -670,7 +670,7 @@ void Apply_WOL_Settings(void)
 			Restart_Lobby_Music();
 		}
 	} else if (!music) {
-		Theme.Queue_Song((ThemeType)-3);
+		Theme.Queue_Song(THEME_QUIET);
 	}
 }
 
@@ -3501,7 +3501,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			return(S_OK);
 		}
 		STDMETHOD(OnUserIP)(HRESULT, User *) { return(S_OK); }
-#ifdef RA2_NON_MATCHING // not exact: 97 diff lines (main's text in TibSun's names): the original calls Dictionary<Wstring,unsigned int>::keyHash (0x00767CD0) out of line in the first getPointer and ArrayList<Wstring>::shrinkVector (0x00767B20) out of line in the expanded Service_Buddy_Find_Queue, where this build expands both (inline budget, as Draw_Player_List's neighbours with 0x00767550)
+#ifdef RA2_NON_MATCHING // not exact: 2701 bytes differ (main-derived tree; getValue and HRESULT switch; keyHash still expands where the original calls it)
 		STDMETHOD(OnFind)(HRESULT r, Channel * chan)
 		{
 			unsigned int status = 0;
@@ -3510,12 +3510,9 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 			 * An answer for the buddy list: record where the buddy is, then ask for the next one.
 			 */
 			if (g_BuddyFindName.length() != 0) {
-				unsigned int * previous = NULL;
-				g_BuddyStatus.getPointer(g_BuddyFindName, &previous);
-				if (previous) status = *previous;
+				g_BuddyStatus.getValue(g_BuddyFindName, status);
 				char name[64];
 				name[0] = '\0';
-				User user;
 				if (chan) {
 					if (chan->type == 0) {
 						if (_strnicmp((char *)chan->name, "Lob_38_", strlen("Lob_38_")) == 0) {
@@ -3552,17 +3549,22 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 					SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDOK", NULL, "D:\\Ra2\\wonline.cpp", 7086), name);
 				} else {
 					if (g_BuddyFindName.length() > 0) g_BuddyChannels.remove(g_BuddyFindName);
-					if (r == CHAT_S_FIND_NOCHAN) {
+					switch (r) {
+						case CHAT_S_FIND_NOCHAN:
 						status = 3;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDNONE", NULL, "D:\\Ra2\\wonline.cpp", 7095));
-					} else if (r == CHAT_S_FIND_NOTHERE) {
+							break;
+						case CHAT_S_FIND_NOTHERE:
 						status = 2;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDGONE", NULL, "D:\\Ra2\\wonline.cpp", 7099));
-					} else if (r == CHAT_S_FIND_OFF) {
+							break;
+						case CHAT_S_FIND_OFF:
 						status = 1;
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDDISABLED", NULL, "D:\\Ra2\\wonline.cpp", 7103));
-					} else {
+							break;
+						default:
 						SMessagePrintf(ColorSystem, StringTable::LoadString("TXT_FINDFAILED", NULL, "D:\\Ra2\\wonline.cpp", 7106));
+							break;
 					}
 				}
 				if (g_BuddyFindName.length() > 0) {
@@ -5308,7 +5310,7 @@ started: // RA2: as above
 }
 
 
-int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the lobby with the fewest players that still has room; the index in the channel list, -1 when there is none
+int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the first matching lobby with room, else the least populated candidate (even when full); the index in the channel list, -1 when there is none
 {
 	int count = g_UserChannels.length(); // RA2: as above
 	Channel channel; // RA2: as above
@@ -6205,7 +6207,7 @@ void * g_OptionsDialogMemory; // RA2: freed when the options dialog (700) closes
 wchar_t g_PingTooltip[256]; // RA2: the text Player_Ping_Tooltip returns
 
 
-#ifdef RA2_NON_MATCHING // not exact: 2318 bytes differ (main's text; the original calls ArrayList<int>::growVector 0x00768290 out of line where this build expands it)
+#ifdef RA2_NON_MATCHING // not exact: 1257 bytes differ (4 unresolved references; provisional comparison) (main-derived tree; all eight growVector calls are present; four placement-new calls remain)
 int g_LastJoinedGameIndex = -1; // RA2: the game list entry the join button last tried
 int g_LastSelectedGameIndex = -1; // RA2: the game list entry last selected
 char g_LastSelectedGameName[17]; // RA2: the name of the game channel last selected
@@ -7121,7 +7123,7 @@ int CALLBACK WOL_Options_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPAR
 				bool checked=SendMessageA((HWND)lparam,0xf0,0,0)==1;
 				if(checked && !Theme.Still_Playing()) Restart_Lobby_Music();
 				else if(checked) { if(Theme.What_Is_Playing()==Theme.From_Name("INTRO")) Restart_Lobby_Music(); }
-				else if(!checked) Theme.Queue_Song((ThemeType)-3);
+				else if (!checked) Theme.Queue_Song(THEME_QUIET);
 				break;
 			}
 			break;
@@ -7362,7 +7364,7 @@ void __fastcall Select_Player_Side(HWND dialog, int player); // RA2: 0x004D1820,
 void __fastcall Select_Player_Color(HWND dialog, int player); // RA2: 0x004D23C0, defined in gdlgsupp.cpp
 void __fastcall Send_User_Pings(void); // RA2: 0x0075B1B0, below: sends the host's pings of the channel's users to them
 
-#ifdef RA2_NON_MATCHING // not exact: 423 bytes differ (main's text; in the start button's checks the slot sum keeps the AI count, so the later temporaries take other registers)
+#ifdef RA2_NON_MATCHING // not exact: 386 bytes differ (main's text; in the start button's checks the slot sum keeps the AI count, so the later temporaries take other registers)
 BOOL CALLBACK Wonline_Game_Options_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lparam)
 {
     int i;
@@ -9539,7 +9541,7 @@ void Start_Test_Network_Game(void) // RA2: 0x007516C0, not in TibSun, no caller:
 	Session.Options.Bases = true; // RA2: as above
 	Session.Options.CTF = false; // RA2: as above
 	Session.Options.AIPlayers = 0; // RA2: as above
-	Session.Options.AIDifficulty = (DiffType)0; // RA2: as above
+	Session.Options.AIDifficulty = DIFF_EASY; // RA2: as above
 	Session.Options.ShortGame = true; // RA2: as above
 	Session.Options.SWAllowed = true; // RA2: as above
 	Session.Options.BuildOffAlly = false; // RA2: as above
@@ -11444,7 +11446,7 @@ LRESULT CALLBACK Add_Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 }
 
 BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 2258 bytes differ (main's text and helpers; since Refresh_Buddy_Status asks through Request_Game_Channel_List this build also calls the expanded Reset_Buddy_State's Reset_Buddy_Ladders, which the original expands here; 1728 before): best of 150 forms (top-level case order, main's Run_Add_Buddy_Dialog and Start_Buddy_Refresh helpers, the page dialog in place or called, Reset_Buddy_State flat or with main's Restart_Buddy_Requests): both expanded Refresh_Buddy_Status copies call ArrayList<Wstring>::remove(Wstring &, int) out of line where the original expands it (inline budget)
+#ifdef RA2_NON_MATCHING // not exact: 1728 bytes differ (provisional: two unresolved ArrayList<Wstring>::remove references; main's text and helpers, Reset_Buddy_Ladders expands as in the original; 2258 before the nested WM_INITDIALOG test): best of 150 forms (top-level case order, main's Run_Add_Buddy_Dialog and Start_Buddy_Refresh helpers, the page dialog in place or called, Reset_Buddy_State flat or with main's Restart_Buddy_Requests): both expanded Refresh_Buddy_Status copies call ArrayList<Wstring>::remove(Wstring &, int) out of line where the original expands it (inline budget)
 void __fastcall Get_Window_Item_Text(HWND window, int index, Wstring & text); // RA2: 0x00600EB0, defined in ownrdraw.cpp
 
 inline void Run_Add_Buddy_Dialog(HWND window) // RA2: main's helper
@@ -11463,7 +11465,9 @@ inline void Start_Buddy_Refresh(HWND window, HWND refresh) // RA2: main's helper
 
 BOOL CALLBACK Buddy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x00758750, the buddy list dialog (0x116) (main's text)
 {
-	if (message == WM_INITDIALOG && lparam) SetWindowLongA(window, 8, *(long *)(lparam + 4));
+	if (message == WM_INITDIALOG) {
+		if (lparam) SetWindowLongA(window, 8, *(long *)(lparam + 4));
+	}
 	BOOL result = OwnerDraw::Default_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
 	if (result) return(result);
 	OwnerDraw::DialogControl * control = (OwnerDraw::DialogControl *)GetWindowLongA(window, 8); // RA2: as above

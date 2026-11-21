@@ -157003,7 +157003,7 @@
     "entry": "005e0da0",
     "body": 149,
     "padding": 11,
-    "symbol": "?Is_Listed_Kind@@YIIH@Z",
+    "symbol": "?Is_Listed_Kind@@YI_NH@Z",
     "main_symbol": "?Is_Listed_Kind_005e0da0@seed_005e0da0@@YIIH@Z",
     "main_source": "src/recovered/ownrdraw/Is_Listed_Kind.cpp"
    },
@@ -158743,7 +158743,14 @@
    "_?$S179@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4EA": "00a73438",
    "_?solid_brush@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAXA": "00a733e0"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "005fb270": {
+    "windows": "plain probe declarations (struct TrackbarCountProbeN { int x; };) directly before the function. New ownrdraw.cpp (lane F14): +1 +2 +5 +8 exact; +0 +3 +4 +6 +10 +12 +16 off. Old ownrdraw.cpp (main 6af07023a, lane F11 headers): +0 +3 +6 +10 exact; +1 +2 +4 +5 +8 +12 +16 off",
+    "header": "ownrdraw.cpp (lane F14, 2026-11-21): five unused coined inline predicates removed (Is_Kind_103, Is_Kind_108, Is_Rail_ID, Is_Owner_Button, Is_Free_Record), Is_Listed_Kind typed bool (its callers test al), Enable_Animated_Control's guarded draft in ra2-decomp's text with its helpers (Get_Dialog_Type, Get_Data, Is_Quick_Control_B/D, Is_Flag_Control_B)",
+    "note": "owner ruling 2026-11-21 (DECISIONS row 91): F14's changes are hygiene and evidenced text; landing probe on the merged tree: (a) the displacing changes are hygiene (unused predicates) and evidenced text (ra2-decomp's draft, the al-testing callers); (b)(i) Trackbar_Proc names none of the removed or added predicates; (ii) windows above, exact and off on both states; (c) the unchanged text is exact on the old state (main 6af07023a, as lane F11 left it)"
+   }
+  }
  },
  "mpobserver": {
   "core": [

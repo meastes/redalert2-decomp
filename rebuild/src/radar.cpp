@@ -669,12 +669,12 @@ void RadarClass::AI(KeyNumType & input, Point2D const & xy)
 
 	if (input == 0x80F2) {
 		if (Session.Type != GAME_NORMAL && !((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode && Session.MPGameMode->vt_entry_08() && Session.MPGameMode->vt_entry_04())) {
-			SpecialDialog = (SpecialDialogType)8;
+			SpecialDialog = SDLG_SPECIAL;
 		} else {
 			SpecialDialog = (SpecialDialogType)9;
 		}
 	} else if (input == 0x80F3) {
-		SpecialDialog = (SpecialDialogType)1;
+		SpecialDialog = SDLG_OPTIONS;
 	}
 
 	if (IngameVQ.Count() > 0 && RadarMode != RMODE_MOVIE && RadarMode != RMODE_4) {

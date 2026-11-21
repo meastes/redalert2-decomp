@@ -644,7 +644,7 @@ int FootClass::Do_MISSION_PATROL(void)
 
 		case PATROL_FIND_TARGET: {
 			AbstractClass * target = Greatest_Threat(THREAT_AREA, Get_Coord(), false);
-			ObjectClass * optr = (target == NULL) ? NULL : ((target->AbstractFlags & 2) ? (ObjectClass *)target : NULL); // RA2: the object flag test of the abstract, not a call
+			ObjectClass * optr = (target == NULL) ? NULL : ((target->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)target : NULL); // RA2: the object flag test of the abstract, not a call
 			int primary = What_Weapon_Should_I_Use(optr);
 
 			if (optr != NULL && (In_Range(optr, primary) || Search.Test_Cell_Walk(Cell(Destination_Coord()), Cell(optr->Destination_Coord()), this, Is_Moving_Onto_Bridge(), optr->Is_Moving_Onto_Bridge(), MZONE_NONE) < dist)) {
@@ -691,7 +691,7 @@ int FootClass::Do_MISSION_PATROL(void)
 		}
 
 		case PATROL_ENGAGE_TARGET: {
-			ObjectClass * optr = (TarCom == NULL) ? NULL : ((TarCom->AbstractFlags & 2) ? (ObjectClass *)TarCom : NULL); // RA2: as above
+			ObjectClass * optr = (TarCom == NULL) ? NULL : ((TarCom->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)TarCom : NULL); // RA2: as above
 			int primary = What_Weapon_Should_I_Use(optr);
 
 			/*
@@ -718,7 +718,7 @@ int FootClass::Do_MISSION_PATROL(void)
 			 */
 			if (TarCom == NULL) {
 				AbstractClass * target = Greatest_Threat(THREAT_AREA, PatrolCell->Center_Coord(), false);
-				ObjectClass * scanptr = (target == NULL) ? NULL : ((target->AbstractFlags & 2) ? (ObjectClass *)target : NULL); // RA2: as above
+				ObjectClass * scanptr = (target == NULL) ? NULL : ((target->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)target : NULL); // RA2: as above
 				int scanweapon = What_Weapon_Should_I_Use(scanptr);
 				if (scanptr != NULL && (In_Range(scanptr, scanweapon) || Search.Test_Cell_Walk(PatrolCell->CellID, Cell(scanptr->Destination_Coord()), this, PatrolCell->IsUnderBridge, scanptr->Is_Moving_Onto_Bridge(), MZONE_NONE) < dist)) {
 					Assign_Target(target);
@@ -753,7 +753,7 @@ int FootClass::Do_MISSION_PATROL(void)
 
 		case PATROL_RETURN: {
 			AbstractClass * target = Greatest_Threat(THREAT_AREA, PatrolCell->Center_Coord(), false);
-			ObjectClass * optr = (target == NULL) ? NULL : ((target->AbstractFlags & 2) ? (ObjectClass *)target : NULL); // RA2: the object flag test of the abstract, not a call
+			ObjectClass * optr = (target == NULL) ? NULL : ((target->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)target : NULL); // RA2: the object flag test of the abstract, not a call
 			int primary = What_Weapon_Should_I_Use(optr);
 
 			if (optr != NULL && (In_Range(optr, primary) || Search.Test_Cell_Walk(PatrolCell->CellID, Cell(optr->Destination_Coord()), this, PatrolCell->IsUnderBridge, optr->Is_Moving_Onto_Bridge(), MZONE_NONE) < dist)) {
@@ -1330,7 +1330,7 @@ void FootClass::Approach_Target(void)
 				tarbridge = ((CellClass *)TarCom)->IsUnderBridge;
 			} else {
 				AbstractClass * target = TarCom; // RA2: the object test is the abstract's flag
-				if (target && (target->AbstractFlags & 2)) { // RA2: as above
+				if (target && (target->AbstractFlags & ABSTRACT_OBJECT)) { // RA2: as above
 					tarbridge = ((ObjectClass *)target)->IsOnBridge; // RA2: as above
 				}
 			}
@@ -1528,7 +1528,7 @@ int FootClass::Do_MISSION_GUARD_AREA(void)
 	AbstractClass * archive = ArchiveTarget; // RA2: the home position's foot flag goes through a local
 	bool foot; // RA2: as above
 	if (archive != NULL) { // RA2: as above
-		foot = (archive->AbstractFlags & 4); // RA2: as above
+		foot = (archive->AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 	}
 	if (archive != NULL && foot) { // RA2: a Foot object as home position limits the stray distance to the rules value
 		maxrange = Rule->GuardModeStray; // RA2: as above
@@ -2383,7 +2383,7 @@ void FootClass::Per_Cell_Process(PCPType why)
 		*/
 		int primary = What_Weapon_Should_I_Use(TarCom);
 		bool inrange = false;
-		if (TarCom != NULL && (TarCom->AbstractFlags & 4)) { // RA2: the foot flag test of the abstract, not a dynamic_cast
+		if (TarCom != NULL && (TarCom->AbstractFlags & ABSTRACT_FOOT)) { // RA2: the foot flag test of the abstract, not a dynamic_cast
 			inrange = In_Range(((FootClass *)TarCom)->Likely_Coord(), primary); // RA2: as above
 		}
 
@@ -2887,7 +2887,7 @@ int FootClass::Rescue_Mission(AbstractClass * tarcom)
 		return(-Risk());
 	}
 
-	if (TarCom != NULL && (TarCom->AbstractFlags & 1) && ((TechnoClass *)TarCom)->Is_Weapon_Equipped()) { // RA2: Rescue_Mission at 0x4C82A0 matches only so
+	if (TarCom != NULL && (TarCom->AbstractFlags & ABSTRACT_TECHNO) && ((TechnoClass *)TarCom)->Is_Weapon_Equipped()) { // RA2: Rescue_Mission at 0x4C82A0 matches only so
 		return(0);
 	}
 
@@ -3033,7 +3033,7 @@ void FootClass::Detach(AbstractClass const * target, bool all)
 		bool forget = true; // RA2: a flag replaces the old single condition
 		bool techno = false; // RA2: as above
 		if (!all && target != NULL) { // RA2: as above
-			techno = target->AbstractFlags & 1; // RA2: the Is_Techno test is read into a local
+			techno = target->AbstractFlags & ABSTRACT_TECHNO; // RA2: the Is_Techno test is read into a local
 		}
 		if (!all && target != NULL && techno) { // RA2: as above
 			CellClass * cptr = &Map[target->Center_Coord()]; // RA2: as above
@@ -3041,7 +3041,7 @@ void FootClass::Detach(AbstractClass const * target, bool all)
 				forget = false; // RA2: as above
 			}
 		}
-		if (Mission == MISSION_CAPTURE && RTTI == RTTI_INFANTRY && ((InfantryClass *)this)->Class->Occupier && NavCom != NULL && (NavCom->AbstractFlags & 2) && ((ObjectClass *)NavCom)->IsActive && ((ObjectClass *)NavCom)->Strength > 0) { // RA2: an infantry unit capturing an occupiable building keeps its NavCom while the building lives
+		if (Mission == MISSION_CAPTURE && RTTI == RTTI_INFANTRY && ((InfantryClass *)this)->Class->Occupier && NavCom != NULL && (NavCom->AbstractFlags & ABSTRACT_OBJECT) && ((ObjectClass *)NavCom)->IsActive && ((ObjectClass *)NavCom)->Strength > 0) { // RA2: an infantry unit capturing an occupiable building keeps its NavCom while the building lives
 		} else if (forget) { // RA2: as above
 			FollowTarget = NULL; // RA2: the follow target is dropped with the NavCom
 			NavCom = NULL;

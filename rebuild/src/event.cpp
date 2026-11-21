@@ -1033,7 +1033,7 @@ void EventClass::Execute(void) // RA2: ra2-decomp's twin text
 				techno->QueueMission((MissionType)mission, false);
 
 				FootClass * foot;
-				if (techno->AbstractFlags & 4) {
+				if (techno->AbstractFlags & ABSTRACT_FOOT) {
 					foot = (FootClass *)techno;
 				} else {
 					foot = NULL;

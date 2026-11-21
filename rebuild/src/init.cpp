@@ -5653,7 +5653,7 @@ ObjectClass * Best_Selected_Object(Cell const * cell, ObjectClass const * object
 
 			bool is_techno = false; // RA2: as above
 			if (obj != NULL) {
-				is_techno = obj->AbstractFlags & 1; // RA2: as above
+				is_techno = obj->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
 			}
 			if (is_techno) { // RA2: as above
 				value = 2;

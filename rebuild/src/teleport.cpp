@@ -300,7 +300,7 @@ bool TeleportLocomotionClass::Pick_Arrival(Coord const & coord)
 
 			if (LastCoords == COORD_NONE) {
 				ObjectClass * obj = (ObjectClass *)LinkedTo->NavCom;
-				if (obj != NULL && (obj->AbstractFlags & 2)) {
+				if (obj != NULL && (obj->AbstractFlags & ABSTRACT_OBJECT)) {
 					MZoneType mzone = LinkedTo->Techno_Type_Class()->MZone;
 					Cell navcell = obj->Destination_Coord().As_Cell();
 					CellClass * cellptr = &Map[LinkedTo->Destination_Coord()];

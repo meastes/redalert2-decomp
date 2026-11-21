@@ -347,7 +347,7 @@ HouseClass * PlanningNodeClass::Lead_House(void) // RA2: 0x00611170
 
 Coord PlanningNodeClass::Lead_Coord(void) // RA2: 0x00611180
 {
-	Coord coord = Planning_Event_Coord(*PlanningMembers[0]->Packet); // RA2: as above
+	Coord coord = Planning_Event_Coord(*PlanningMembers[0]->Get_Packet()); // RA2: as above
 	return coord; // RA2: as above
 }
 
@@ -366,7 +366,8 @@ bool PlanningNodeClass::Hit_Test(int x, int y) // RA2: 0x00611230
 Rect __fastcall Planning_Centered_Rect(Point2D center, int size) // RA2: 0x006112D0; a size by size rectangle centered on a pixel
 {
 	int offset = -(size / 2); // RA2: as above
-	Point2D corner = center; // RA2: as above
+	Point2D corner; // RA2: as above
+	corner = center; // RA2: as above
 	corner.X += offset; // RA2: as above
 	corner.Y += offset; // RA2: as above
 	Rect rect(corner.X, corner.Y, size, size); // RA2: as above
@@ -383,8 +384,7 @@ Rect PlanningNodeClass::Lead_Rect(void) // RA2: 0x00611360
 {
 	Point2D pixel; // RA2: as above
 	pixel = Lead_Pixel(); // RA2: as above
-	Rect rect = Planning_Centered_Rect(pixel, 8); // RA2: as above
-	return rect; // RA2: as above
+	return Planning_Centered_Rect(pixel, 8); // RA2: as above
 }
 
 bool PlanningNodeClass::Is_Past_Start(void) // RA2: 0x006113F0
@@ -401,7 +401,7 @@ void PlanningNodeClass::Promote_Events(void) // RA2: 0x00611440
 	int count = PlanningMembers.Count(); // RA2: as above
 	for (int i = 0; i < count; i++) { // RA2: as above
 		EventClass * packet = PlanningMembers[i]->Packet; // RA2: as above
-		if (packet->Data.MegaMission.Mission == 2) packet->Data.MegaMission.Mission = 0x1d; // RA2: as above
+		if (packet->Data.MegaMission.Mission == MISSION_MOVE) packet->Data.MegaMission.Mission = MISSION_ATTACK_MOVE; // RA2: as above
 	}
 }
 
@@ -742,12 +742,27 @@ void PlanningNodeClass::Draw_Lead_Box(int color) // RA2: 0x006120F0; the marker 
 	}
 }
 
+// RA2: the one-pixel shrink is ra2-decomp's unit-local twin helper (no function of its own; expanded in the lead box members)
+static inline void Shrink_Rect(Rect & r)
+{
+	if (r.Width <= -2) goto none; // RA2: as above
+	if (r.Height <= -2) { // RA2: as above
+	none:
+		r.Set(0, 0, 0, 0); // RA2: as above
+	} else {
+		r.X += 1; // RA2: as above
+		r.Y += 1; // RA2: as above
+		r.Width -= 2; // RA2: as above
+		r.Height -= 2; // RA2: as above
+	}
+}
+
 void PlanningNodeClass::Fill_Lead_Box(int color) // RA2: 0x00612230
 {
 	Rect rect; // RA2: as above
 	Rect clip = Get_Title_Screen_Area(); // RA2: as above
 	rect = Lead_Rect(); // RA2: as above
-	Planning_Inflate(rect, -1); // RA2: as above
+	Shrink_Rect(rect); // RA2: as above
 	CompositeSurface->Fill_Rect(clip, rect, color); // RA2: as above
 }
 
@@ -757,7 +772,7 @@ void PlanningNodeClass::Frame_Lead_Box(int color) // RA2: 0x00612300
 	Rect rect = Lead_Box_Rect(); // RA2: as above
 	for (int i = 0; i < 3; i++) { // RA2: as above
 		CompositeSurface->Draw_Rect(clip, rect, color); // RA2: as above
-		Planning_Inflate(rect, -1); // RA2: as above
+		Shrink_Rect(rect); // RA2: as above
 	}
 }
 
@@ -767,7 +782,7 @@ void PlanningNodeClass::Frame_Lead_Box_Outer(int color) // RA2: 0x00612420
 	Rect rect = Lead_Box_Rect2(); // RA2: as above
 	for (int i = 0; i < 3; i++) { // RA2: as above
 		CompositeSurface->Draw_Rect(clip, rect, color); // RA2: as above
-		Planning_Inflate(rect, -1); // RA2: as above
+		Shrink_Rect(rect); // RA2: as above
 	}
 }
 
@@ -903,8 +918,7 @@ void PlanningNodeClass::Reset_Colors(bool all) // RA2: 0x00612B50
 
 Rect PlanningNodeClass::Lead_Box_Rect(void) // RA2: 0x00612B90
 {
-	Rect rect; // RA2: as above
-	rect = Lead_Rect(); // RA2: as above
+	Rect rect = Lead_Rect(); // RA2: as above
 	Planning_Inflate(rect, 4); // RA2: as above
 	return rect; // RA2: as above
 }
@@ -978,7 +992,7 @@ bool PlanningTokenClass::Get_F1C(void) // RA2: 0x00611720
 
 bool PlanningTokenClass::Owner_Is_Mission(void) // RA2: 0x006132F0
 {
-	return OwnerUnit->CurrentMission == 0x1c || OwnerUnit->MissionQueue == 0x1c; // RA2: as above
+	return OwnerUnit->CurrentMission == MISSION_WAIT || OwnerUnit->MissionQueue == MISSION_WAIT; // RA2: as above
 }
 
 bool PlanningTokenClass::Has_Started(void) // RA2: 0x00613310
@@ -1918,7 +1932,7 @@ bool __fastcall Planning_Can_Add(void) // RA2: 0x00615ED0; whether the selected 
 			ObjectClass * object = CurrentObject[i]; // RA2: as above
 			bool techno; // RA2: as above
 			if (object != NULL) { // RA2: as above
-				techno = object->AbstractFlags & 1; // RA2: as above
+				techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
 			}
 			if (object != NULL && techno) { // RA2: as above
 				PlanningTokenClass * token = ((TechnoClass *)object)->Get_Planning_Token(); // RA2: as above
@@ -2161,7 +2175,7 @@ int __cdecl Planning_Selection_Kind(void) // RA2: 0x00616B40; what the selected 
 		ObjectClass * object = CurrentObject[i]; // RA2: as above
 		bool techno; // RA2: as above
 		if (object != NULL) { // RA2: as above
-			techno = object->AbstractFlags & 1; // RA2: as above
+			techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
 		}
 		TechnoClass * candidate = (object != NULL && techno) ? (TechnoClass *)object : NULL; // RA2: as above
 		if (candidate == NULL || !candidate->CanUseWaypoint()) { // RA2: as above
@@ -2476,7 +2490,7 @@ int __fastcall Planning_Selection_Node_State(PlanningNodeClass * node) // RA2: 0
 		ObjectClass * object = CurrentObject[i]; // RA2: as above
 		bool techno; // RA2: as above
 		if (object != NULL) { // RA2: as above
-			techno = object->AbstractFlags & 1; // RA2: as above
+			techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
 		}
 		if (object != NULL && techno) { // RA2: as above
 			PlanningTokenClass * token = ((TechnoClass *)object)->Get_Planning_Token(); // RA2: as above
@@ -2622,8 +2636,6 @@ void __cdecl Planning_Draw_All(void) // RA2: 0x00617EF0; draws the filled versio
 	}
 }
 
-void __cdecl Planning_Draw_Remembered(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 184 bytes differ (adopted text)
 void __cdecl Planning_Draw_Remembered(void) // RA2: 0x00618090; outlines the node under the mouse and the selected node in white
 {
 	int color = Planning_Pixel(&WhiteColor); // RA2: as above
@@ -2634,7 +2646,6 @@ void __cdecl Planning_Draw_Remembered(void) // RA2: 0x00618090; outlines the nod
 		PlanningSelectedNode->Frame_Lead_Box_Outer(color); // RA2: as above
 	}
 }
-#endif
 
 
 // RA2: the two waypoint renderers use these predicates from the ra2-decomp filled-waypoint text.
@@ -2722,12 +2733,9 @@ void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; whether a techno is on its move mission with nothing to move to or to attack
 {
 	if (techno->Get_Mission() == MISSION_GUARD_AREA) { // RA2: as above
-		bool foot; // RA2: as above
-		if (techno != NULL) { // RA2: as above
-			foot = techno->AbstractFlags & 4; // RA2: as above
-		}
-		if (techno != NULL && foot) { // RA2: as above
-			if (((FootClass *)techno)->NavCom != NULL || techno->TarCom != NULL) { // RA2: as above
+		if (techno->Is_Foot()) { // RA2: as above
+			FootClass * foot = (FootClass *)techno; // RA2: as above
+			if (foot->NavCom != 0 || foot->TarCom != 0) { // RA2: as above
 				return false; // RA2: as above
 			}
 		}
@@ -2736,14 +2744,19 @@ bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; wh
 	return false; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 1947 bytes differ (published filled-waypoints twin through current planning interfaces)
+#ifdef RA2_NON_MATCHING // not exact: 2018 bytes differ (ra2-decomp's filled-waypoints twin text through RA2's helpers; the direct calls agree but two: the image calls Planning_Fill_Dot at the attack-move end where this text expands it, and expands Reached where this text calls it, 16 to 34 inline budget units apart)
 // RA2: the filled waypoints and their helpers are ra2-decomp's twin text
 int __fastcall Planning_Mega_Frame(TechnoClass * techno);
 void __fastcall Planning_Draw_Line(Point2D start, Point2D end, int offset, int color, bool dashed);
 
+static inline int RGB_Pixel(RGBClass const & color)
+{
+	return DSurface::Build_Hicolor_Pixel(color.Get_Red(), color.Get_Green(), color.Get_Blue()); // RA2: as above
+}
+
 static inline int Waypoint_Fill_Color(TechnoClass * techno)
 {
-	int normal = DSurface::Build_Hicolor_Pixel(BlackColor.Get_Red(), BlackColor.Get_Green(), BlackColor.Get_Blue()); // RA2: as above
+	int normal = RGB_Pixel(BlackColor); // RA2: as above
 	int result; // RA2: as above
 	if (techno) { // RA2: as above
 		int highlight = Planning_Pixel(&WhiteColor); // RA2: as above
@@ -2769,6 +2782,11 @@ static inline int Active_Waypoint_Frame(TechnoClass * techno, bool mega_mission,
 	return frame; // RA2: as above
 }
 
+static inline int Planned_Waypoint_Frame(EventClass order)
+{
+	return order.Get_Event_Frame(); // RA2: as above
+}
+
 void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token();
@@ -2787,11 +2805,11 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 		EventClass packet(token->Popped); // RA2: as above
 		Coord coord = Planning_Event_Or_Object_Coord(packet, techno); // RA2: as above
 		Point2D target = Planning_Coord_Pixel(coord); // RA2: as above
-		Planning_Draw_Dot(center, color); // RA2: as above
+		Planning_Fill_Dot(center, color); // RA2: as above
 		Planning_Draw_Dashed_Thick_Line(center, target, 3, color); // RA2: as above
 		int frame = packet.Get_Event_Frame(); // RA2: as above
 		if (frame != -1) Planning_Draw_Midpoint_Shape(center, target, color, fill, frame); // RA2: as above
-		Planning_Draw_Dot(target, color); // RA2: as above
+		Planning_Fill_Dot(target, color); // RA2: as above
 		return;
 	}
 
@@ -2801,21 +2819,21 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 		Coord coord = techno->GetAttackCoordinates();
 		Point2D action = Planning_Coord_Pixel(coord); // RA2: as above
 		if (techno->IsInLimbo) {
-			Planning_Draw_Dot(action, color); // RA2: as above
+			Planning_Fill_Dot(action, color); // RA2: as above
 			return;
 		}
-		Planning_Draw_Dot(center, color); // RA2: as above
+		Planning_Fill_Dot(center, color); // RA2: as above
 		Planning_Draw_Dashed_Thick_Line(center, action, 3, color); // RA2: as above
 		int frame = Active_Waypoint_Frame(techno, mega_mission, attack_move); // RA2: as above
 		if (frame != -1) Planning_Draw_Midpoint_Shape(center, action, color, fill, frame); // RA2: as above
-		Planning_Draw_Dot(action, color); // RA2: as above
+		Planning_Fill_Dot(action, color); // RA2: as above
 		if (attack_move) { // RA2: as above
 			Coord attack_coord = techno->GetAttackMoveCoords(); // RA2: as above
 			Point2D dest = Planning_Coord_Pixel(attack_coord); // RA2: as above
 			Planning_Draw_Line(action, dest, 0, color, true); // RA2: as above
 			frame = techno->GetMegaMission() == MISSION_ATTACK_MOVE ? Cursor_Start_Frame_77() : -1; // RA2: as above
 			if (frame != -1) Planning_Draw_Midpoint_Shape(action, dest, color, fill, frame); // RA2: as above
-			Planning_Draw_Dot(dest, color); // RA2: as above
+			Planning_Fill_Dot(dest, color); // RA2: as above
 			return;
 		}
 		if (!has_nodes) return;
@@ -2830,10 +2848,10 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 	PlanningBranchClass * branch = node->Branch_Of(techno); // RA2: as above
 	if (branch) target = Planning_Event_Pixel(&branch->Event, techno); // RA2: as above
 	int path_color = token->Reached(0) ? bright : color; // RA2: as above
-	Planning_Draw_Dot(source, path_color); // RA2: as above
+	Planning_Fill_Dot(source, path_color); // RA2: as above
 	Planning_Draw_Dashed_Thick_Line(source, target, width, path_color); // RA2: as above
-	if (branch) Planning_Draw_Dot(target, path_color); // RA2: as above
-	int frame = node->Get_Event_For(techno).Get_Event_Frame(); // RA2: as above
+	if (branch) Planning_Fill_Dot(target, path_color); // RA2: as above
+	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno)); // RA2: as above
 	if (frame != -1) Planning_Draw_Midpoint_Shape(source, target, path_color, fill, frame); // RA2: as above
 }
 #endif
@@ -2989,14 +3007,10 @@ void __fastcall Planning_Draw_Dot(Point2D center, int color) // RA2: 0x0061A190;
 
 void __fastcall Planning_Fill_Dot(Point2D center, int color) // RA2: 0x0061A210; fills a 6 by 6 square around a pixel, less its edge
 {
-	Point2D point = center; // RA2: as above
-	Rect view; // RA2: as above
-	view = Get_Title_Screen_Area(); // RA2: as above
-	Rect square; // RA2: as above
-	square = Planning_Centered_Rect(point, 6); // RA2: as above
-	Planning_Inflate(square, -1); // RA2: as above
-	Surface * surface = CompositeSurface; // RA2: as above
-	surface->Fill_Rect(view, square, color); // RA2: as above
+	Rect clip = Get_Title_Screen_Area(); // RA2: as above
+	Rect rect = Planning_Centered_Rect(center, 6); // RA2: as above
+	Planning_Inflate(rect, -1); // RA2: as above
+	CompositeSurface->Fill_Rect(clip, rect, color); // RA2: as above
 }
 
 int __fastcall Planning_Guard_Frame(TechnoClass * techno); // RA2: the definition is not exact yet
@@ -3114,7 +3128,12 @@ void __fastcall Planning_Draw_Dashed_Thick_Line(Point2D start, Point2D end, int 
 
 int __fastcall Planning_Pixel(RGBClass const * color) // RA2: 0x0061A860
 {
-	return ((color->Get_Red() >> DSurface::RedLeft) << DSurface::RedRight) | ((color->Get_Green() >> DSurface::GreenLeft) << DSurface::GreenRight) | ((color->Get_Blue() >> DSurface::BlueLeft) << DSurface::BlueRight); // RA2: as above
+	unsigned char rr = DSurface::RedLeft; // RA2: as above
+	unsigned char gr = DSurface::GreenLeft; // RA2: as above
+	unsigned char br = DSurface::BlueLeft; // RA2: as above
+	return (color->Get_Red() >> rr << DSurface::RedRight) // RA2: as above
+		| (color->Get_Green() >> gr << DSurface::GreenRight)
+		| (color->Get_Blue() >> br << DSurface::BlueRight);
 }
 
 

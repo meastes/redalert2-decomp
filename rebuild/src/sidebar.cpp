@@ -2101,7 +2101,7 @@ int SidebarClass::StripClass::Get_Progress(int index) // RA2: as above
  *   12/31/1994 JLB : Created.                                                                 *
  *   08/06/1995 JLB : Handles multi factory tracking in same strip.                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 50 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (outline pixel channel shifts)
 void SidebarClass::StripClass::Draw_It(bool complete)
 {
 	if (AllowedToDraw && (IsToRedraw || complete)) { // RA2: only an active strip is drawn
@@ -2276,9 +2276,9 @@ void SidebarClass::StripClass::Draw_It(bool complete)
 					/*
 					**	RA2: the mouse is over this cameo, so it gets an outline in the tooltip colour.
 					*/
+					RGBClass const & color = TooltipColor; // RA2: shared by the outline and the text below.
 					if (hover) { // RA2: as above
-						RGBClass color = TooltipColor; // RA2: as above
-						int outline = DSurface::Build_Hicolor_Pixel(color); // RA2: as above
+						int outline = DSurface::Build_Hicolor_Pixel(RGBClass(color)); // RA2: as above
 						SidebarSurface->Draw_Rect(window, Rect(x, y, 60, 48), outline); // RA2: as above
 					}
 
@@ -2302,7 +2302,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
 					}
 
 					bool hasqueuecount = false; // RA2: as above
-					unsigned pixel = DSurface::Build_Hicolor_Pixel(TooltipColor); // RA2: the text colour is the tooltip colour
+					unsigned pixel = DSurface::Build_Hicolor_Pixel(color); // RA2: the text colour is the tooltip colour
 					if (obj != NULL) { // RA2: as above
 						FactoryClass * queue = PlayerPtr->Fetch_Factory(obj->Fetch_RTTI(), obj->Naval, 0); // RA2: the factory is picked by type and naval flag
 						if (queue != NULL) { // RA2: as above

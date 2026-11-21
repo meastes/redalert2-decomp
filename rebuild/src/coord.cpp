@@ -57,8 +57,8 @@
 
 
 /*
-**	RA2: Coord_Scatter moves the coordinate through this wrapper; calling Move_Coord directly
-**	compiles to different code.
+**	RA2: Coord_Scatter below calls Move_Coord directly with the input
+**	coordinate, a random facing and the requested distance.
 */
 
 /***************************************************************************

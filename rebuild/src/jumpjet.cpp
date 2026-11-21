@@ -119,7 +119,7 @@ boolean STDMETHODCALLTYPE JumpjetLocomotionClass::Process(void)
 			FlightLevel = -5; // RA2: as above
 			CurrentState = CRASHING; // RA2: as above
 			if (LinkedTo->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: infantry start their tumble sequence
-				((InfantryClass *)LinkedTo)->Do_Action((DoType)34, false, false); // RA2: as above
+				((InfantryClass *)LinkedTo)->Do_Action(DO_AIR_DEATH_START, false, false); // RA2: as above
 			}
 		}
 

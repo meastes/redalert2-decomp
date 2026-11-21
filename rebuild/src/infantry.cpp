@@ -2047,7 +2047,7 @@ FireErrorType InfantryClass::Can_Fire(AbstractClass * target, int which, bool ig
 				return(FIRE_ILLEGAL);
 			}
 			WarheadTypeClass const * warhead = weapon->WarheadPtr; // RA2: no Ivan bomb on a target that already carries one
-			if (warhead != NULL && warhead->IvanBomb && target != NULL && (target->AbstractFlags & 2) && ((ObjectClass *)target)->AttachedBomb != NULL) { // RA2: as above
+			if (warhead != NULL && warhead->IvanBomb && target != NULL && (target->AbstractFlags & ABSTRACT_OBJECT) && ((ObjectClass *)target)->AttachedBomb != NULL) { // RA2: as above
 				return(FIRE_ILLEGAL);
 			}
 		}
@@ -2508,10 +2508,10 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
  *=============================================================================================*/
 bool InfantryClass::Stop_Driver(void)
 {
-	if (Doing == 0x1b) goto deploy_fire; // RA2: Stop_Driver at 0x504AE0 matches only so
-	if (Doing == 0x1c) goto deploy_fire; // RA2: as above
-	if (Doing == 0x1d) goto deploy_fire; // RA2: as above
-	if (Doing == 0x1e) { // RA2: as above
+	if (Doing == DO_DEPLOY) goto deploy_fire; // RA2: Stop_Driver at 0x504AE0 matches only so
+	if (Doing == DO_DEPLOYED) goto deploy_fire; // RA2: as above
+	if (Doing == DO_DEPLOYED_FIRE) goto deploy_fire; // RA2: as above
+	if (Doing == DO_DEPLOYED_IDLE) { // RA2: as above
 deploy_fire: // RA2: as above
 	Do_Action(DO_DEPLOYED); // RA2: as above
 	} else if (IsProne) { // RA2: as above
@@ -2743,7 +2743,7 @@ AbstractClass * InfantryClass::Greatest_Threat(ThreatType threat, Coord const & 
 		AbstractClass * victim = NavCom; // RA2: the flag test goes through a local that is only set for a non-NULL target
 		bool active; // RA2: as above
 		if (victim != NULL) { // RA2: as above
-			active = (victim->AbstractFlags & 1); // RA2: as above
+			active = (victim->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 		}
 		if (victim != NULL && active && ((TechnoClass *)NavCom)->Considered_Vehicle() && !((TechnoClass *)NavCom)->Techno_Type_Class()->IsTrain && Distance(NavCom) < 15 * CELL_LEPTON) { // RA2: the flags test instead of Is_Techno
 			return(NavCom);
@@ -3247,10 +3247,10 @@ int InfantryClass::Do_MISSION_ATTACK(void)
 	}
 
 	if (House->Is_Human_Player()) { // RA2: as above
-		if (Doing == 0x1b) goto deploy_fire; // RA2: as above
-		if (Doing == 0x1c) goto deploy_fire; // RA2: as above
-		if (Doing == 0x1d) goto deploy_fire; // RA2: as above
-		if (Doing == 0x1e) { // RA2: as above
+		if (Doing == DO_DEPLOY) goto deploy_fire; // RA2: as above
+		if (Doing == DO_DEPLOYED) goto deploy_fire; // RA2: as above
+		if (Doing == DO_DEPLOYED_FIRE) goto deploy_fire; // RA2: as above
+		if (Doing == DO_DEPLOYED_IDLE) { // RA2: as above
 deploy_fire: // RA2: as above
 			Reacquire_Target(); // RA2: as above
 			return(Current_Mission_Control().Normal_Delay() + Random_Pick(0, 2)); // RA2: as above
@@ -3891,7 +3891,7 @@ void InfantryClass::Firing_AI(void)
 				case FIRE_ILLEGAL:
 					if (Combat_Damage(primary) < 0) {
 						AbstractClass * targ = TarCom; // RA2: the target is tested for infantry by its flags and type
-						if (targ != NULL && (targ->AbstractFlags & 2) && targ->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: as above
+						if (targ != NULL && (targ->AbstractFlags & ABSTRACT_OBJECT) && targ->Fetch_RTTI() == RTTI_INFANTRY) { // RA2: as above
 							if (!(((ObjectClass *)targ)->Get_Health_Ratio() < Rule->ConditionGreen)) { // RA2: as above
 								Assign_Target(NULL);
 							}
@@ -4137,9 +4137,9 @@ void InfantryClass::Movement_AI(void)
 			Do_Action(DO_WALK, false, false);
 		}
 	} else {
-		if (Doing == 3 || Doing == DO_FLY || Doing == DO_HOVER) {
+		if (Doing == DO_WALK || Doing == DO_FLY || Doing == DO_HOVER) {
 			Do_Action(DO_STAND_READY, false, false);
-		} else if (Doing == 6) {
+		} else if (Doing == DO_CRAWL) {
 			Do_Action(DO_PRONE, false, false);
 		} else if (Doing == DO_SWIM) {
 			Do_Action(DO_TREAD, false, false);
@@ -4259,14 +4259,14 @@ bool InfantryClass::Is_Ready_To_Random_Animate(void) const
 	if (IsFiring) {
 		return(false);
 	}
-	if (Doing == 0x1b) goto not_ready; // RA2: Is_Ready_To_Random_Animate at 0x508320 matches only so
-	if (Doing == 0x1c) goto not_ready; // RA2: as above
-	if (Doing == 0x1d) goto not_ready; // RA2: as above
-	if (Doing == 0x1e) { // RA2: as above
+	if (Doing == DO_DEPLOY) goto not_ready; // RA2: Is_Ready_To_Random_Animate at 0x508320 matches only so
+	if (Doing == DO_DEPLOYED) goto not_ready; // RA2: as above
+	if (Doing == DO_DEPLOYED_FIRE) goto not_ready; // RA2: as above
+	if (Doing == DO_DEPLOYED_IDLE) { // RA2: as above
 not_ready: // RA2: as above
 		return(false);
 	}
-	if (Doing == 1 || Doing == 0 || Doing == 0x10) { // RA2: as above
+	if (Doing == DO_STAND_GUARD || Doing == DO_STAND_READY || Doing == DO_TREAD) { // RA2: as above
 		return(true); // RA2: as above
 	}
 	return(false); // RA2: as above
@@ -4424,8 +4424,8 @@ HRESULT STDMETHODCALLTYPE InfantryClass::Save(IStream * stream, BOOL cleardirty)
 /// </summary>
 void InfantryClass::Stop_Movement_Animation(void)
 {
-	if (Doing == 6 || Doing == 3 || Doing == 0x11) { // RA2: Stop_Movement_Animation at 0x508730 matches only so
-		Doing = (DoType)-1; // RA2: as above
+	if (Doing == DO_CRAWL || Doing == DO_WALK || Doing == DO_SWIM) { // RA2: Stop_Movement_Animation at 0x508730 matches only so
+		Doing = DO_NOTHING; // RA2: as above
 	}
 }
 
@@ -4967,7 +4967,7 @@ void InfantryClass::Enter_Occupiable(BuildingClass * building)
 bool InfantryClass::Unknown_Virtual_0(int code, int)
 {
 	if ((Class->BalloonHover || Class->JumpJet) && code == 0x117B && HasAnyLink()) {
-		Transmit_Message((RadioMessageType)8);
+		Transmit_Message(RADIO_UNLOADED);
 		if (ArchiveTarget != NULL && ArchiveTarget != NavCom) {
 			Assign_Destination(ArchiveTarget, true);
 			return(true);
@@ -4991,7 +4991,7 @@ bool InfantryClass::Unknown_Virtual_0(int code, int)
 bool InfantryClass::CanCheer(void) const
 {
 	if (Get_Mission() == MISSION_GUARD || Get_Mission() == MISSION_GUARD_AREA) {
-		if (Doing == 0 || Doing == 9 || Doing == 10 || Doing == DO_CHEER) {
+		if (Doing == DO_STAND_READY || Doing == DO_IDLE1 || Doing == DO_IDLE2 || Doing == DO_CHEER) {
 			return(true);
 		}
 	}
@@ -5015,7 +5015,7 @@ void InfantryClass::Cheer(void)
 /// </summary>
 bool InfantryClass::Is_Idle_Doing(DoType doing) const
 {
-	if (doing == 9 || doing == 10 || doing == 18 || doing == 19 || doing == 23 || doing == 32) {
+	if (doing == DO_IDLE1 || doing == DO_IDLE2 || doing == DO_WET_IDLE1 || doing == DO_WET_IDLE2 || doing == DO_HOVER || doing == DO_CHEER) {
 		return(true);
 	}
 	return(false);
@@ -5027,7 +5027,7 @@ bool InfantryClass::Is_Idle_Doing(DoType doing) const
 /// </summary>
 bool InfantryClass::Is_Death_Doing(DoType doing) const
 {
-	return(doing == 11 || doing == 12 || doing == 13 || doing == 14 || doing == 15 || doing == 34 || doing == 35 || doing == 36 || doing == 20 || doing == 21);
+	return(doing == DO_GUN_DEATH || doing == DO_EXPLOSION_DEATH || doing == DO_EXPLOSION2_DEATH || doing == DO_GRENADE_DEATH || doing == DO_FIRE_DEATH || doing == DO_AIR_DEATH_START || doing == DO_AIR_DEATH_FALLING || doing == DO_AIR_DEATH_FINISH || doing == DO_WET_DIE1 || doing == DO_WET_DIE2);
 }
 
 
@@ -5036,7 +5036,7 @@ bool InfantryClass::Is_Death_Doing(DoType doing) const
 /// </summary>
 bool InfantryClass::Is_Dying(void) const
 {
-	return(Doing == 11 || Doing == 12 || Doing == 13 || Doing == 14 || Doing == 15 || Doing == DO_AIR_DEATH_START || Doing == DO_AIR_DEATH_FALLING || Doing == DO_AIR_DEATH_FINISH || Doing == DO_WET_DIE1 || Doing == DO_WET_DIE2);
+	return(Doing == DO_GUN_DEATH || Doing == DO_EXPLOSION_DEATH || Doing == DO_EXPLOSION2_DEATH || Doing == DO_GRENADE_DEATH || Doing == DO_FIRE_DEATH || Doing == DO_AIR_DEATH_START || Doing == DO_AIR_DEATH_FALLING || Doing == DO_AIR_DEATH_FINISH || Doing == DO_WET_DIE1 || Doing == DO_WET_DIE2);
 }
 
 

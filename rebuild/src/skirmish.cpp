@@ -157,7 +157,7 @@ bool __fastcall Skirmish_Has_Computer_After(int player)
 /// <summary>
 /// The commands of the skirmish dialog.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 2857 bytes differ (draft structure)
+#ifdef RA2_NON_MATCHING // not exact: 2819 bytes differ (draft structure)
 void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int code)
 {
 	int * result = (int *)GetWindowLong(dialog, DWL_USER);
@@ -173,7 +173,7 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 			int row = Skirmish_Player_Index(id) + 1;
 			int row_color = Player_Color_Combo_ID(row);
 			int row_side = Player_Side_Combo_ID(row);
-			bool enable = Skirmish_Is_Computer(dialog, id);
+			BOOL enable = Skirmish_Is_Computer(dialog, id);
 			if (!enable) {
 				Select_Color_Combo(dialog, row_color, -2);
 				Select_Side_Combo(dialog, row_side, -2);
@@ -289,9 +289,8 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 				return;
 			}
 		}
-			MultiplayerGameMode * mode = Session.MPGameMode;
 			WideWstring message;
-			if (!mode->CheckStartConditions(&message)) {
+			if (!Session.MPGameMode->CheckStartConditions(&message)) {
 				if (id == 0x617) {
 					WWMessageBox(L" ").Process(message.get(), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\Skirmish.cpp", 0x34B), NULL, NULL, false);
 					EnableWindow(GetDlgItem(dialog, 0x617), TRUE);
@@ -344,8 +343,7 @@ void __fastcall Skirmish_On_WM_COMMAND(HWND dialog, int id, HWND control, int co
 				Session.Skirmish.SlotData[player][1] = side;
 				Session.Skirmish.SlotData[player][2] = color;
 		}
-			int local_color = Color_Combo_Data(dialog, 0x6A2, -1);
-			Session.Set_Color(local_color, true);
+		Session.Set_Color(Color_Combo_Data(dialog, 0x6A2, -1), true);
 			NodeNameType * node = new NodeNameType;
 			if (node != NULL) {
 				wcscpy(node->Name, Narrow_To_Wide(Session.Handle));

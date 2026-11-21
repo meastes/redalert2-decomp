@@ -1091,7 +1091,7 @@ bool BulletClass::Unlimbo(Coord const &source, TVelocity3D<double> const &veloci
                 Velocity.Set_Speed(0.0);
             }
         }
-        int arm = TarCom != 0 && TarCom->Fetch_RTTI() == 2 ? 0 : Class->Arming;
+		int arm = TarCom != 0 && TarCom->Fetch_RTTI() == RTTI_AIRCRAFT ? 0 : Class->Arming;
         Fuse.Arm_Fuse(Coord(PositionCoord), target, arm, 0x7fffffff);
         if (Class->ROT > 0) {
             Velocity.Set_Speed(1.0);
@@ -1321,8 +1321,8 @@ void BulletClass::Detonate(Coord const &position)
     if (Warhead->MindControl) {
         if (Payback != 0 && Payback->CaptureManager != 0) {
             ObjectClass *object = TarCom == 0 ? 0 :
-                (TarCom->AbstractFlags & 2 ? static_cast<ObjectClass *>(TarCom) : 0);
-            bool target_house = TarCom != 0 && (TarCom->AbstractFlags & 1) &&
+                (TarCom->AbstractFlags & ABSTRACT_OBJECT ? static_cast<ObjectClass *>(TarCom) : 0);
+			bool target_house = TarCom != 0 && (TarCom->AbstractFlags & ABSTRACT_TECHNO) &&
                 static_cast<TechnoClass *>(TarCom)->House->Is_Player_Control();
             if (object != 0 && object->IsActive && object->Tag != 0) {
 				object->Tag->Spring(TEVENT_ATTACKED, object, CELL_NONE, false, Payback);
@@ -1336,7 +1336,7 @@ void BulletClass::Detonate(Coord const &position)
         }
     } else if (Warhead->IvanBomb) {
         TechnoClass *target = TarCom == 0 ? 0 :
-            (TarCom->AbstractFlags & 1 ? static_cast<TechnoClass *>(TarCom) : 0);
+            (TarCom->AbstractFlags & ABSTRACT_TECHNO ? static_cast<TechnoClass *>(TarCom) : 0);
         BombList.Plant(Payback, target);
     } else if (Warhead->ElectricAssault) {
 		if (TarCom != 0 && TarCom->Fetch_RTTI() == RTTI_BUILDING && Payback != 0 && Payback->Fetch_RTTI() == RTTI_INFANTRY)
@@ -1344,7 +1344,7 @@ void BulletClass::Detonate(Coord const &position)
     } else if (Warhead->Parasite) {
         if (Payback != 0) {
             FootClass *target = TarCom == 0 ? 0 :
-                (TarCom->AbstractFlags & 4 ? static_cast<FootClass *>(TarCom) : 0);
+                (TarCom->AbstractFlags & ABSTRACT_FOOT ? static_cast<FootClass *>(TarCom) : 0);
             static_cast<FootClass *>(Payback)->ParasiteImUsing->TryInfect(target);
         }
     } else if (Warhead->Temporal) {
@@ -1353,7 +1353,7 @@ void BulletClass::Detonate(Coord const &position)
             Payback->TemporalImUsing->Fire(target);
         }
     } else if (Warhead->BombDisarm) {
-        if (TarCom != 0 && (TarCom->AbstractFlags & 2)) {
+		if (TarCom != 0 && (TarCom->AbstractFlags & ABSTRACT_OBJECT)) {
             ObjectClass *object = static_cast<ObjectClass *>(TarCom);
             if (object->AttachedBomb != 0) object->AttachedBomb->Disarm();
         }

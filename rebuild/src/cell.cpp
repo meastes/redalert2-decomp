@@ -583,7 +583,7 @@ TechnoClass * CellClass::Cell_Techno(Point2D const & xy, bool bridge, TechnoClas
 		while (object != 0) { // RA2: as above
 			bool techno; // RA2: as above
 			if (object != 0) { // RA2: as above
-				techno = object->AbstractFlags & 1; // RA2: as above
+				techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
 			}
 			if (object != 0 && techno && object != (ObjectClass *) notthis) { // RA2: as above
 				Coord coord = object->Center_Coord();
@@ -3387,11 +3387,11 @@ bool CellClass::Goodie_Check(FootClass * object)
 					if (object->ArmorBias != 1) powerup = CRATE_MONEY; // RA2: as above
 					break;
 				case CRATE_VETERAN: // RA2: as above
-					if ((object->AbstractFlags & 1) && !object->Techno_Type_Class()->IsTrainable) { // RA2: as above
+					if ((object->AbstractFlags & ABSTRACT_TECHNO) && !object->Techno_Type_Class()->IsTrainable) { // RA2: as above
 						powerup = CRATE_MONEY; // RA2: as above
 						break;
 					}
-					if ((object->AbstractFlags & 1) && object->Veterancy.Is_Elite()) powerup = CRATE_MONEY; // RA2: as above
+					if ((object->AbstractFlags & ABSTRACT_TECHNO) && object->Veterancy.Is_Elite()) powerup = CRATE_MONEY; // RA2: as above
 					break;
 
 				case CRATE_SPEED:
@@ -5660,7 +5660,7 @@ void CellClass::Trigger_Veins(void)
 			if (object->HeightAGL <= 5) { // RA2: as above
 				bool is_techno; // RA2: as above
 				if (object != NULL) { // RA2: as above
-					is_techno = (object->AbstractFlags & 1); // RA2: as above
+					is_techno = (object->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 				}
 				TechnoClass * techno = (object != NULL && is_techno) ? (TechnoClass *)object : NULL; // RA2: as above
 				if (techno != NULL && !techno->TClass->IsImmuneToVeins && !techno->Has_Ability(ABILITY_VEIN_PROOF)) { // RA2: as above

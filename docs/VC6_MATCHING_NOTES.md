@@ -3400,25 +3400,47 @@ Found in the rebuild (lane F12, high): the register_order bucket of `rebuild/man
   `lea ebx, [eax + edi]` operand order in its user-list walk at every count tried, and Draw_Player_List 0x73FEE0
   flips by count (the patch is kept in private/dossiers/f12_lobby_entries_separate.patch). One function's tie under
   the array form and another's under the separate form: settle the reader of two entries first.
-- The expanded DynamicVectorClass::Add growth sum (`add G,L` or `add L,G`) is not a file-scope declaration count
-  either: wonline's Add_Test_Player_Ol_Cruddy 0x7513E0, Add_Test_Player_Potato 0x7514D0, Add_Test_Player_Potato_Too
-  0x7515B0 (image `add ecx, eax`, sum in the GrowthStep register) and Apply_Endpoint_Map 0x75C570 (image the other
-  way) keep their 2 bytes at every one of 0 to 63 probe structs, and a standalone vector object in place of
-  `Session.Players` changes nothing. Their text is main's and the twin's word for word, and main's unit had no Add
-  switch; the Scout1065 note (a whole-function count) still describes them, and nothing in the function's own text
-  is left to differ.
+- A unit-local explicit specialisation of a template member reaches every later site of that type in the unit.
+  wonline's Add_Test_Player_Ol_Cruddy 0x7513E0, Add_Test_Player_Potato 0x7514D0 and Add_Test_Player_Potato_Too
+  0x7515B0 (2 bytes each: the image's growth sum is `add ecx, eax`, in the GrowthStep register) have main's and the
+  twin's text word for word, do not move with 0 to 63 probe structs, and do not move with a standalone vector object
+  in place of `Session.Players`. The cause is 3,500 lines above them: `template<> inline bool
+  DynamicVectorClass<NodeNameType *>::Add` (the named `new_length` form, lane R21, written for Host_Game 0x7459A0's
+  one growth sum, which the image has the other way round). Without it the three are exact and Host_Game is 8 bytes
+  off (`add ecx, eax` for the image's `add eax, ecx`); main matched all four with one Add, so the image's two
+  orientations are the whole-function count of the Scout1065 note, not two bodies. When a small function's inlined
+  template member differs and its text is the reference's, grep the unit for `template<>` before sweeping counts.
+  Not changed here: parking Host_Game also unemits three rows only it references (Close_Wait_Window 0x74D780, the
+  WonlineStringDialogControl constructor 0x765AA0, CreateGameDialogControl's deleting destructor 0x765AC0), 2,361 B
+  for 719 B; link2.cpp and objtype.cpp carry the same kind of specialisation. Apply_Endpoint_Map 0x75C570 (2 bytes,
+  the reverse orientation on a `DynamicVectorClass<MultiMission *>` with no specialisation) keeps its bytes at every
+  one of 0 to 63 probe structs.
 - A flat floating-point sum handed to a double parameter is sorted before the argument slot is reserved, so the
   place of `sub esp, 8` does not answer to the sum's text. TechnoClass::Railgun_Beam_Damage 0x6D6ED0 (19 bytes): the
   image reserves the slot after the third product, ours after the second; `x*x + z*z + y*y`, `x*x + y*y + z*z`,
   `y*y + z*z + x*x`, the twin's `y*y + (x*x + z*z)`, a named `double sum` and a float-returning root all give the
-  same bytes (reading the members without the three double locals changes the loads instead). Main's accepted text
-  is the same helper; what differs is outside the helper.
+  same bytes (reading the members without the three double locals changes the loads instead), and so do the
+  helper declared `__cdecl`, the helper placed as main has it, and 0 to 63 probe structs before the function.
+  Main's accepted text is the same helper; what differs is outside the helper.
 - Twelve commutative sums over one table do not map one to one onto their spellings. LaserDrawClass::Draw_It
-  0x5334F0: with the function statics masked the tree's text is one load pair from the image (the second
-  antialiased line's start X: the image loads the table entry first). Each of the twelve single flips is worse or
-  inert (four are inert: both sums of the second multiplying line and of the first shaded line), flipping the
-  differing sum itself moves the difference to its neighbour, and the twin's twelve orders are 41 bytes further
-  off. A masked diff (statics normalised) is the first step for a row whose first difference is an unbound static.
+  0x5334F0: with the function statics masked the tree's text is one load pair from the image, in the second
+  antialiased glow line. Arguments are evaluated right to left, so the end sum is the first in the code; read the
+  frame offsets of the two points before naming a site (the first reading here had them reversed, and the sums
+  looked cross-coupled). Four sums are inert (both of the second multiplying line and of the first shaded line; the
+  last shaded line's pair moves together); all 256 orders of the other eight were compiled and none is exact, ten
+  tying at one exchanged load pair. For the differing line, `start + g, end + g` has the start sum right and the
+  end sum's loads exchanged; `start + g, g + end` (the twin's order for the line) has the end sum right and the
+  start sum's loads exchanged; `g + start, g + end` is another body, 16 bytes shorter. Named points for the line change the frame, so the image passes temporaries. What is left under
+  the twin's order is one commutation of a sum whose operands are both loads: lane F10's global tie, not a
+  spelling. A masked diff (statics normalised) is the first step for a row whose first difference is an unbound
+  static, and a full search of the live sums costs about a second a pattern.
+
+## A bool function that returns an `||` chain sets eax, and its callers test al; inline shares measured by padding the callee (found in the rebuild (lane F14, high))
+Found in the rebuild (lane F14, high): two inline_call rows worked from prepared dossiers, one lane-hour.
+- **`return a || b || ...;` in a `bool` function ends `xor eax, eax` / `mov eax, 1`; `if (...) return true; return false;` ends `xor al, al` / `mov al, 1`.** ownrdraw's Is_Listed_Kind 0x5E0DA0 (and Is_Listed_Dialog_Kind 0x5E8590) return through eax while every caller in the image tests al (0x5E08ED, 0x5E491B, 0x5E9614; 0x5E834B, 0x5E8424, 0x5E84FF); Kind_Test 0x5DF660, the if/return form, returns through al. One `bool` prototype with the chain as the return expression gives both the eax body and the al tests: no int body behind a char prototype, no `(char)` cast at the caller. `(chain) ? TRUE : FALSE` gives the same bytes; `(chain) != 0`, a BOOL local, a bool local set in an if, and nested `?:` do not.
+- **Enable_Animated_Control 0x5E4780 is ra2-decomp's text with RA2's id lists, apart from one call.** With the twin's Get_Dialog_Type -> Get_Data -> getPointer levels the first lookup expands getPointer and calls keyHash 0x602020, and the two Is_Plain_Control sites and Set_Control_Disabled expand both, as the image has it (il_lab in the unit: Get_Dialog_Type about 42, Get_Data 48, getPointer 132, keyHash 48, Is_Plain_Control 88, Is_Listed_Kind 95, Is_Flag_Control_A 185, Is_Quick_Control_B 88, Is_Quick_Control_D 216, Is_Listed_Dialog_Kind 165, Kind_Test over the cap). What is left is Is_Listed_Kind: the image calls it out of line at all three of its call sites and ours expands it. No budget explains that: at the root it would need less than 95 units left where the later sites still get 180 each, and inside Is_Flag_Control_A the first lookup's share (at least 180 a site) and the helper's (under 95 after its own 185) cannot both hold for any site count. With the predicate kept from expansion (a declared-only name as the twin has it, or `#pragma auto_inline(off)`, both measured as probes only) the row is exact. The four places where the image shows the list expanded (Control_Height, Control_Kind, Control_Flags, Is_Owner_Tested_Control) are one explicit list in the twin too, so nothing in the image need be an expansion of the predicate. Placement: each of the three kind predicates lies directly after its lowest-address caller (Kind_Test 0x5DF660 after Control_Height, Is_Listed_Kind after Is_Tested_Control, Is_Listed_Dialog_Kind 0x5E8590 after Init_Control_Animation 0x5E8130), which is where VC6 puts an on-demand copy of an inline function; but Is_Listed_Kind declared `inline` and defined at the end of the file is still expanded here (probe).
+- **Measuring a callee body's share in place.** Pad the expanded helper with k distinct array-element stores (6 units each; repeated stores to one scalar do not count) and watch its nested sites flip: the k of each flip, set against il_lab's thresholds for the helper alone, gives the share y = (budget left - s) / N at k = 0 and N from the spacing of the flips (6/N per store). strtable LoadFile 0x6F8E30: ours gives the header helper about 385 units (N = 3: the helper, Strip_Line, GetLanguageName; about 1,290 left at its site); the image's pattern (the failing exit calls ~CCFileClass 0x51AD20, the other exit expands it down to ~BufferIOFileClass) needs 155 to 185, which is N = 7. ra2-decomp's `static inline _Read_Header` form (header declared first, early return) changes nothing here: both forms sit in the same state. Main reached N = 7 with four coined wrapper sites (Open_File once, Close_File three times). Declaring Read_Text_Entry and Read_Text_File file-static raised N by one only.
+
 ## A tiny comparison kept out of line at the top of a function is a missing accessor level (found in the rebuild (lane F11, high))
 
 - The image keeps five calls to `TPoint2D<int>::operator==` (0x4BFB60, 46 units) in four functions: infantry
@@ -3461,3 +3483,109 @@ Found in the rebuild (lane F12, high): the register_order bucket of `rebuild/man
   128`), not `Coord_Snap`; eight natural spellings of it leave `TPoint3D<int>(int, int, int)` expanded inside
   `Move_Coord`, so the level ra2-decomp supplies with its pass-through `_Move_Coord` is still unexplained (Red
   Alert's COORD.CPP has an out-of-line `Coord_Move` at that place; the image has none in coord's range).
+
+## Counting sites with empty probes, and a callee too small to refuse (found in the rebuild (lane F13, high))
+
+- Count sites before measuring charge. An empty `static inline void Probe_Site(void) {}` called k times late in
+  the root adds k sites and no charge (measurement only, never landed). hover Process 0x4FBFC0: k = 0 expands
+  `Coord::As_Cell` inside the expanded `Start()` and calls `Cell(int, int)`; k = 1 calls `As_Cell` and expands the
+  cell comparison; k = 2 calls both, the image's list. Lane F11's charged pads (240..288 units at the top) and
+  two sites after `Start()` are the same shortfall; the site count is the smaller statement of it.
+- One of the two sites was a conversion the siblings spell out: `Point2D(a).Distance_To(Point2D(b))` (jumpjet,
+  aircraft, object, techno, missile) against the archive's `Distance_To(HeadToCoord)` in hover. An explicit
+  temporary of the argument's own class is an inline site; an implicit base-class reference is none.
+- A wrong virtual hides in a draft that is far off for other reasons: hover Process called `Docking_Coord`
+  (slot 0xA4) where the image calls slot 0x4C, `AbstractClass::Destination_Coord(TechnoClass *)`. Compare the
+  slot offsets of every virtual call in the diff before reading register differences.
+- A two-coordinate level changes operand order where no flat spelling does. hover Process reads `HeadToCoord.Y`
+  into ebx before the position's temporary and `HeadToCoord.X` after it; twelve flat spellings of the 2D
+  distance do not, and a probe `(Coord const & from, Coord const & to) {return(Point2D(from).Distance_To(
+  Point2D(to)));}` gives the site exactly. No reference has such a function (main coined one per unit, in hover
+  and in fly); the row stays parked.
+- An X-and-Y-only copy of a coordinate before `Facing.Current()`, with only X and Y stored back, is a 2D twin of
+  `Move_Coord` over `Point2D` (hover Process; frame 0x4C and the block order come right with a probe twin). Not
+  in the archive, ra2-decomp or mischa85.
+- A callee of 40 units or less is never refused, so an out-of-line call to one is a statement about its body.
+  0x4BFB30 (`abs(Facing) >= abs(rvalue.Facing)`, 36 B) has one caller in the image, fly Nearing_Target, and sits
+  among the refused inline copies at the end of fly's object. il_lab (fly): `DirType::operator>=` with the
+  references' one-line body is free (expanded at every budget, also inside `Is_Complete_Turn`, 68 units, beside
+  `operator-`, about 52), so neither pads nor sites can make it a call. Bodies with the same meaning and more
+  nodes (`if (...) return(true); return(false);`, two named ints) are charged, and then three more sites after
+  the call give the image's call. The original's body was therefore wordier than both references'; which
+  wording is not evidenced, so nothing landed.
+- To tell a free callee from a charged one with `il_lab.py`: put the callee's caller in the spec (here
+  `Lab_B = Lab_D1.Is_Complete_Turn(Lab_D2, Lab_D3);`) and read the range just above the caller's own size; a
+  callee that never appears as a call there is free.
+- Pads that flip nothing mean the root is not the level that refuses. particle Gas_Behavior_AI 0x608BB0: the
+  image calls `Coord(int, int, int)` twice, `Vector3::operator+=`, `Vector3(float, float, float)` and
+  `Vector3::operator*=`. Charged pads at the top of the root: up to 1092 units flip nothing, 1812 gives the
+  image's calls inside `Slope_Vector` with the three root sites still expanded, 2292 refuses `Slope_Vector`
+  itself. No pad refuses three small root sites while a large callee decided after them still expands.
+- The same statements in two functions with the same refused callees are one inline function. Spark_Behavior_AI
+  0x609540 holds Gas_Behavior_AI's RA2 block word for word (`old_coord`, `position += velocity`, `coord2`, the
+  bridge and blocked tests) and the image makes the same out-of-line calls in both; Railgun_Behavior_AI, which
+  has `Coord pos(...)` and `PrecisePosition += velocity` at its root, expands both. A probe level around the block (results by reference) makes
+  `TPoint3D<int>(int, int, int)` a call inside both `Coord` constructors, and with 8 to 16 empty sites after it
+  `operator+=`, `operator*=` and the second `Coord` constructor are calls: the image's family, not yet its list.
+  The archive's text is flat in both functions, so the level is RA2's own and has no reference name. When a
+  parked function's budget cannot be explained at the root, search the unit for a second function with the same
+  statements before measuring further.
+- Scratch compiles through `tailmap.compile_text` share one source path per unit; run variants of one unit one
+  after another, never in parallel (parallel runs silently score each other's text).
+- Probe sites must stand after the disputed call to count (N runs from the call to the end); before it only a
+  charged pad moves anything. mapgen Create_Region_From_Cell 0x56E100: empty sites at the top change nothing,
+  a pad of 48 units makes `TPoint2D<short>::operator!=` a call and one of 144 gives the image's whole call list
+  (`VectorClass<Cell>::Clear` from the destructor at both returns), 300 overshoots: the image has about
+  100..190 units more charged before the returns. A pad sweep is not monotonic past its window, so step it
+  finely (48 units) before reading a bracket.
+- Fewer free sites late can mean less budget later: the expansions between them and the end divide by a
+  smaller N, take more, and leave less for the last sites. Create_Region_From_Cell's pop with the count read
+  as a member (`cells[cells.ActiveCount - 1]`, probe only: the member is protected) instead of through
+  `Count()` gives the image's loop head and makes `operator!=` near the end a call (1024 -> 555 bytes off).
+  A shared index where the image computes `count - 1` twice (`[ecx+edx*4-4]`, then `lea eax, [edx-1]`) is the
+  sign that the image did not go through the accessor.
+
+## A family of small members is one coupled budget system: adopt the twin's forms for all of it, and read free limits before reshaping (found in the rebuild (lane F15, high))
+
+- Found in the rebuild (lane F15, high): a row that is only expansions of small members (planmgr
+  Planning_Draw_Remembered 0x618090: a colour, `Frame_Lead_Box`, `Frame_Lead_Box_Outer`) is decided by the IL
+  sizes of the whole chain under it, and every member of that chain is also a root or a site of other exact rows.
+  `rebuild/tools/il_lab.py` over the chain gives the sizes in one compile (Planning_Pixel 56, both frames 96,
+  Lead_Box_Rect 62, Lead_Box_Rect2 54, Lead_Rect 72, Lead_Pixel 60, Lead_Coord 58, the centered rectangle 82,
+  Planning_Inflate 112, Planning_Coord_Pixel 68); with them the rule of the "Nested inline sites" section predicts
+  every threshold il_lab prints: the first frame expands both inflates iff its body gets
+  Lead_Box_Rect + 2 * (Lead_Rect + Planning_Inflate) = 430, and it got (1000 - 56 - 96) / 2 = 424.
+- The standalone rows hold each size to a unit or two, so no single form can be moved: Frame_Lead_Box as a root
+  refuses the centered rectangle with 80 left against 82, Draw_Lead_Box refuses Planning_Coord_Pixel with 66 left
+  against 68. A lighter Lead_Rect or Lead_Box_Rect alone fixes the first frame and breaks two standalone rows.
+- ra2-decomp's texts of the same family (YR, all matched there) differ from the tree's in six places, and only
+  the six together satisfy every row here: Lead_Coord through `Get_Packet()` (an out-of-line accessor of the unit
+  is a site: 58 -> 62), the centered rectangle's `Point2D corner; corner = center;` (82 -> 92), Lead_Rect
+  `return Planning_Centered_Rect(pixel, 8);` (72 -> 64), Lead_Box_Rect `Rect rect = Lead_Rect();` (62 -> 54), the
+  pixel packer with three `unsigned char` locals for the shift counts (56 -> 76), and a file-local `Shrink_Rect`
+  in place of `Planning_Inflate(rect, -1)` in the three lead box members (the same instructions, a site of 96
+  against 112). Any five
+  leave a row off. When a twin family is matched as a whole, adopt its forms as a whole before measuring a single
+  one: the twin's sizes are a consistent solution of the same system.
+- A draft that calls a sibling the image expands may be a mapping error, not a budget one: the twin's
+  FUN_0063D480 is the filled dot (Planning_Fill_Dot 0x61A210), and the draft of Planning_Draw_Filled_Techno
+  0x618C00 called the outline dot at eight sites. With the right callee, the twin's `RGB_Pixel` wrapper (one more
+  level over the three-int Build_Hicolor_Pixel keeps 0x432D90 a call) and the twin's Fill_Dot text (68 units;
+  main's alias locals made it 98) 51 of 53 direct calls agree.
+- Measuring the rest with a charged spend at the top of the root (an inline of 12 + 6k units of global array
+  stores; `rebuild/tools/inline_probe.py --source` aligns the calls): spends of 40 or less are free and only raise
+  the root by the call statement, so the first usable point is 42. Here 42 reproduces every call and 48 loses the
+  late `Reached(0)` (44 units): the text is 16 to 34 units richer than the image before the fifth dot. Sizes just
+  over the free limit (Has_Planned_Nodes 44, Owner_Is_Mission 42, Should_Draw_Active_Action 46, Reached 44) are
+  where a one-unit difference in a header (a member's type, a cast) changes a whole charge; list them first.
+- A dword zeroed at entry and never read again is a temporary-construction flag whose condition folded
+  (wdtsel Selection::Select_Territory_At 0x72E650): `c ? f() : T()` builds f's result in a temporary,
+  copy-constructs the destination and destroys the temporary, and keeps the flag's entry store when c is
+  constant. No spelling of a plain initialisation gives the copy (direct, functional cast, reference then copy,
+  declare then assign: 174 to 180 bytes). Here only main's `true ?` reaches it and no independent reference has the
+  condition, so the row and its dependent Handle_Click 0x72E430 are on the variation list; look for an inline
+  predicate or a parameter with a constant argument before calling such a flag unreachable.
+- A draft that spells out a test the unit has a member for loses the member's locals: map
+  Pick_Random_Tile_Variant 0x55D640 was one register swap from the image with the diamond test written as four
+  comparisons, and exact with the matched twin's `Map.In_Radar(cell)` (expanded; the member reads the cell into
+  x and y first). The twin's other forms with the test spelled out stayed at 694 bytes.

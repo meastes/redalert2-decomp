@@ -1118,7 +1118,7 @@ bool ObjectClass::Select(void)
 
 	bool is_techno; // RA2: the flag test is kept in a local (meastes' form)
 	if (this != NULL) { // RA2: as above
-		is_techno = AbstractFlags & 1; // RA2: the flag test is inline (bit 0 of the abstract flags)
+		is_techno = AbstractFlags & ABSTRACT_TECHNO; // RA2: the flag test is inline (bit 0 of the abstract flags)
 	} // RA2: as above
 	if (this != NULL && is_techno && ((TechnoTypeClass *)Class_Of())->IsLeader) { // RA2: as above
 		CurrentObject.Add_Head(this);
@@ -1572,7 +1572,7 @@ void ObjectClass::Detach_All(bool all)
 	} else { // RA2: as above
 		bool techno; // RA2: the executable keeps the flag test in a local (meastes' form)
 		if (this != NULL) { // RA2: as above
-			techno = AbstractFlags & 1; // RA2: the flag test is inline (bit 0 of the abstract flags), not a call of Is_Techno
+			techno = AbstractFlags & ABSTRACT_TECHNO; // RA2: the flag test is inline (bit 0 of the abstract flags), not a call of Is_Techno
 		} // RA2: as above
 		if (this != NULL && techno && ((TechnoClass *)this)->Is_Sensed_By_Player()) { // RA2: as above
 			sensed = true; // RA2: as above
@@ -1968,7 +1968,7 @@ bool ObjectClass::Paradrop(Coord const & coord)
 			*/
 			bool techno; // RA2: the flag test is kept in a local (meastes' form)
 			if (this != NULL) { // RA2: as above
-				techno = AbstractFlags & 1; // RA2: the flag test is inline (bit 0 of the abstract flags)
+				techno = AbstractFlags & ABSTRACT_TECHNO; // RA2: the flag test is inline (bit 0 of the abstract flags)
 			} // RA2: as above
 			bool clear = true; // RA2: as above
 			if (this != NULL && techno) { // RA2: as above

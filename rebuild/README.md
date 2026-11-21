@@ -329,6 +329,12 @@ the adopted text does.
   every pending unit of `units.json` from a catalog run's "left out" lines (worker, header, tooling,
   mismatch, binding, owner) and prints the breakdown by kind with bytes; header and tooling notes are set by
   hand with `--note` and kept until the unit lands.
+  `tools/order_search.py UNIT ENTRY [--split] [--alt ALTS.json]` searches ordinary matching iteration for one
+  function in a scratch copy of its unit (the tree's file is not written): the order of adjacent independent
+  statements and declarations, declared-then-assigned locals, pre/post increment, for/while form, and statement
+  texts from the twin, the archive or main given in ALTS. Each variant is compiled under the compiler lock and
+  scored; the ranked table goes to `build/r/order_search/`. It never adds a statement, a local, an alias or a
+  cast (lane O12, 2026-11-21).
   The catalog also refuses a unit whose compiler-output rows (`_$` atexit destructors, which are not in the
   .CRT$XCU table and cannot be guarded) differ, the test `tools/held_units.py` makes: the whole-file build would
   refuse their section as unaccounted code (lane B4's finding; lane M1, 2026-11-20).

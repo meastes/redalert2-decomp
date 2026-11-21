@@ -158,7 +158,7 @@ void __cdecl Command_Deploy(void)
 		BuildingClass * building = (BuildingClass *)CurrentObject[0];
 		if (building != NULL && building->Fetch_RTTI() == RTTI_BUILDING && building->GetOccupantCount() > 0 && building->House->Is_Player_Control()) {
 			ObjectClass * object = CurrentObject[0];
-			if (object != NULL && (object->AbstractFlags & 1) && ((TechnoClass *)object)->ClickedEvent(EventClass::DEPLOY)) {
+			if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO) && ((TechnoClass *)object)->ClickedEvent(EventClass::DEPLOY)) {
 				VocClass::PlayGlobal(Rule->DeploySound, 1.0f, 0x2000);
 			}
 			return;
@@ -183,7 +183,7 @@ void __cdecl Command_Deploy(void)
 	}
 	for (index = 0; index < count; index++) {
 		ObjectClass * object = CurrentObject[index];
-		if (object != NULL && (object->Can_Player_Move() || object->Can_Player_Fire()) && (object->AbstractFlags & 1) && ((TechnoClass *)object)->Can_Attack_Now() && ((TechnoClass *)object)->Can_Deploy_Now()) {
+		if (object != NULL && (object->Can_Player_Move() || object->Can_Player_Fire()) && (object->AbstractFlags & ABSTRACT_TECHNO) && ((TechnoClass *)object)->Can_Attack_Now() && ((TechnoClass *)object)->Can_Deploy_Now()) {
 			if (object->Fetch_RTTI() == RTTI_INFANTRY && ((InfantryClass *)object)->Is_Deployer() && deploying && undeployed && ((InfantryClass *)object)->Is_Deploying()) {
 				continue;
 			}
@@ -235,7 +235,7 @@ void __cdecl Command_Stop(void)
 		int count = CurrentObject.Count();
 		for (int index = 0; index < count; index++) {
 			ObjectClass * object = CurrentObject[index];
-			if (object != NULL && (object->AbstractFlags & 1) && (object->Can_Player_Move() || object->Can_Player_Fire())) {
+			if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO) && (object->Can_Player_Move() || object->Can_Player_Fire())) {
 				agreed = ((TechnoClass *)object)->ClickedEvent(EventClass::IDLE);
 				if (!agreed) {
 					break;
@@ -272,7 +272,7 @@ void __cdecl Command_Scatter(void)
 		int count = CurrentObject.Count();
 		for (int index = 0; index < count; index++) {
 			ObjectClass * object = CurrentObject[index];
-			if (object != NULL && (object->AbstractFlags & 1) && object->Can_Player_Move()) {
+			if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO) && object->Can_Player_Move()) {
 				agreed = ((TechnoClass *)object)->ClickedEvent(EventClass::SCATTER);
 				if (!agreed) {
 					break;

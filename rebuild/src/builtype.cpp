@@ -1030,7 +1030,7 @@ int BuildingTypeClass::Flush_For_Placement(Cell const & cell, HouseClass * house
 					if (occupier->RTTI == RTTI_TERRAIN) {
 						return(2);
 					}
-					if (occupier->AbstractFlags & 1) { // RA2: Flush_For_Placement at 0x458B10 matches only so
+					if (occupier->AbstractFlags & ABSTRACT_TECHNO) { // RA2: Flush_For_Placement at 0x458B10 matches only so
 						TechnoClass * techno = (TechnoClass *)occupier; // RA2: as above
 						if (techno->RTTI == RTTI_BUILDING) {
 							if (!((BuildingClass *)techno)->Can_Upgrade(this, house)) {

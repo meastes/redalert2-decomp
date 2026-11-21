@@ -202,7 +202,7 @@ RadioMessageType RadioClass::Receive_Message(RadioClass * from, RadioMessageType
 		}
 	} else if (message == RADIO_HELLO && Strength) {
 		if (!((TechnoClass *)from)->House->Is_Ally(this)) return RADIO_NEGATIVE;
-		if (this != NULL && (AbstractFlags & 1) && !((TechnoClass *)this)->House->Is_Ally(from)) return RADIO_NEGATIVE;
+		if (this != NULL && (AbstractFlags & ABSTRACT_TECHNO) && !((TechnoClass *)this)->House->Is_Ally(from)) return RADIO_NEGATIVE;
 		if (from != NULL) {
 			if (Index_Of(RadioLinks, (TechnoClass *)from) != -1) return RADIO_ROGER;
 		}

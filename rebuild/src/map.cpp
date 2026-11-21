@@ -3278,7 +3278,7 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
 		Cell newcell = Cell(cell + _offsets[index]); // RA2: as above
 		if (In_Radar(newcell)) {
 			for (ObjectClass * o = (*this)[newcell].Cell_Occupier(); o != NULL; o = o->Next) { // RA2: as above
-				if (!(o->AbstractFlags & 1) || ((TechnoClass *)o)->IsOwnedByPlayer || ((TechnoClass *)o)->Cloak != CLOAKED) { // RA2: as above
+				if (!(o->AbstractFlags & ABSTRACT_TECHNO) || ((TechnoClass *)o)->IsOwnedByPlayer || ((TechnoClass *)o)->Cloak != CLOAKED) { // RA2: as above
 					int d=-1;
 					if (o->RTTI == RTTI_BUILDING) {
 						d = Distance(coord, (Coord)newcell);
@@ -9073,7 +9073,6 @@ int MapClass::Get_Water_Mask(CellClass * cellptr, int control)
 /// <param name="success">Cleared when the tile clashes with a shore or cliff already on the
 /// ground. Left alone otherwise.</param>
 /// <returns>bool; Did the placement go through without a clash?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 694 bytes differ (adopted text)
 bool MapClass::Pick_Random_Tile_Variant(IsometricTileType tile, int max_tile, int base_height, int seed, bool & success, bool set_region) // RA2: 0x55D640, with the region flag
 {
 	if (Map.PendingObject->RTTI == RTTI_ISOTILETYPE) {
@@ -9085,108 +9084,104 @@ bool MapClass::Pick_Random_Tile_Variant(IsometricTileType tile, int max_tile, in
 		IsoTileSet const * image = (IsoTileSet const *)ttype->Get_Image_Data();
 		if (image != NULL) {
 
-			{ // RA2: as above
-				for (int row = 0; row < ttype->Height; row++) { // RA2: as above
-					for (int col = 0; col < ttype->Width; col++) {
+			for (int row = 0; row < ttype->Height; row++) { // RA2: the loops and the tests below are ra2-decomp's twin text (YR 0x57B440)
+				for (int col = 0; col < ttype->Width; col++) {
 
-						Cell cell = Map.ZoneCell + Cell(col, row);
+					Cell cell; // RA2: as above
+					cell = Map.ZoneCell + Cell(col, row); // RA2: as above
 
-						/*
-						 * Skip subtiles that fall outside the visible diamond playfield.
-						 */
-						if (cell.X + cell.Y <= Map.PlayRect.Width
-							|| cell.X - cell.Y >= Map.PlayRect.Width
-							|| cell.Y - cell.X >= Map.PlayRect.Width
-							|| cell.X + cell.Y > Map.PlayRect.Width + 2 * Map.PlayRect.Height) {
-							continue;
-						}
+					/*
+					 * Skip subtiles that fall outside the visible diamond playfield.
+					 */
+					if (!Map.In_Radar(cell)) { // RA2: as above
+						continue;
+					}
 
-						CellClass * cellptr = &Map[cell];
+					CellClass * cellptr = &Map[cell];
 
-						int subtile = col + ttype->Width * row;
-						IsoTileRecord const * record = image->Fetch_Record_Pointer_Unsafe(subtile);
-						if (record == NULL) {
-							continue;
-						}
+					int subtile = col + ttype->Width * row;
+					IsoTileRecord const * record = image->Fetch_Record_Pointer_Unsafe(subtile);
+					if (record == NULL) {
+						continue;
+					}
 
-						int id = RandomMapGen.Get_Cell_Data_Region(cell);
-						if (set_region) { // RA2: as above
-							id = 0; // RA2: as above
-						}
-						bool place = true; // RA2: a cell of another region is skipped by this flag, not by continue
-						if (id > 0 && id != seed && seed != -1) {
+					int id = RandomMapGen.Get_Cell_Data_Region(cell);
+					if (set_region) { // RA2: as above
+						id = 0; // RA2: as above
+					}
+					int existing; // RA2: as above
+					int pending; // RA2: as above
+					bool place = true; // RA2: a cell of another region is skipped by this flag, not by continue
+					if (id > 0 && id != seed && seed != -1) {
 
-							int existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
-							int pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
+						existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
 
-							if (!cellptr->Is_Tile_Clear()) {
-								if (existing < 0 || pending < 0 || existing > 41 || pending > 41
-									|| ShorePieceGroups[existing] != ShorePieceGroups[pending]) {
-									success = false;
-									return(false);
-								}
-								return(true);
-							}
-
-							RandomMapGen.Set_Cell_Data_Region(cell, seed);
-
-						} else if (id == seed) {
-
-							int existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
-							int pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
-
-							if (existing >= 0 && pending >= 0 && existing <= 41 && pending <= 41) {
-								int diff = abs(ShorePieceFacings[existing] - ShorePieceFacings[pending]);
-								if (diff >= 3 && diff <= 5) {
-									success = false;
-									return(false);
-								}
-							}
-
-						} else if (cellptr->Is_Tile_Clear()) {
-							RandomMapGen.Set_Cell_Data_Region(cell, seed);
-
-						} else {
-							if (seed != -1) {
+						if (!cellptr->Is_Tile_Clear()) {
+							if (existing < 0 || pending < 0 || existing > 41 || pending > 41
+								|| ShorePieceGroups[existing] != ShorePieceGroups[pending]) {
 								success = false;
 								return(false);
 							}
-							place = false; // RA2: as above
+							return(true);
 						}
 
-						if (place) { // RA2: as above
-							if (cellptr->Is_Tile_Clear() // RA2: as above
-								|| (cellptr->ITType >= tile && cellptr->ITType <= max_tile)) { // RA2: as above
+						RandomMapGen.Set_Cell_Data_Region(cell, seed);
 
-								cellptr->ITType = ttype->HeapID; // RA2: as above
-								cellptr->SubTile = subtile; // RA2: as above
-								cellptr->Height = base_height + record->Height; // RA2: as above
-							} else { // RA2: as above
-								/*
-								 * The existing tile is outside the replaceable range. Only a shore-vs-cliff
-								 * conflict blocks placement; anything else is silently skipped.
-								 */
-								if (cellptr->Is_Tile_Shore() && MapClass::Is_Tile_Cliff(ttype->HeapID, subtile) // RA2: as above
-									|| (ttype->HeapID >= IsometricTileTypeClass::ShorePieces // RA2: as above
-										&& ttype->HeapID < IsometricTileTypeClass::ShorePieces + SHORE_PIECES_COUNT // RA2: as above
-										&& cellptr->Is_Tile_Cliff())) { // RA2: as above
-									success = false; // RA2: as above
-								}
-								return(false); // RA2: as above
+					} else if (id == seed) {
+
+						existing = cellptr->ITType - IsometricTileTypeClass::ShorePieces;
+						pending = ttype->HeapID - IsometricTileTypeClass::ShorePieces;
+
+						if (existing >= 0 && pending >= 0 && existing <= 41 && pending <= 41) {
+							int diff = abs(ShorePieceFacings[existing] - ShorePieceFacings[pending]);
+							if (diff >= 3 && diff <= 5) {
+								success = false;
+								return(false);
 							}
+						}
+
+					} else {
+						place = cellptr->Is_Tile_Clear(); // RA2: as above
+						if (place) { // RA2: as above
+							RandomMapGen.Set_Cell_Data_Region(cell, seed);
+						} else if (seed != -1) { // RA2: as above
+							success = false;
+							return(false);
 						}
 					}
 
-				}
+					if (place) { // RA2: as above
+						if (cellptr->Is_Tile_Clear() // RA2: as above
+							|| (cellptr->ITType >= tile && cellptr->ITType <= max_tile)) { // RA2: as above
 
-				return(true);
+							cellptr->ITType = ttype->HeapID; // RA2: as above
+							cellptr->SubTile = subtile; // RA2: as above
+							cellptr->Height = base_height + record->Height; // RA2: as above
+							continue; // RA2: as above
+						}
+
+						/*
+						 * The existing tile is outside the replaceable range. Only a shore-vs-cliff
+						 * conflict blocks placement; anything else is silently skipped.
+						 */
+						if (cellptr->Is_Tile_Shore() && MapClass::Is_Tile_Cliff(ttype->HeapID, subtile) // RA2: as above
+							|| (ttype->HeapID >= IsometricTileTypeClass::ShorePieces // RA2: as above
+								   && ttype->HeapID < IsometricTileTypeClass::ShorePieces + SHORE_PIECES_COUNT // RA2: as above
+								   && cellptr->Is_Tile_Cliff())) { // RA2: as above
+							success = false; // RA2: as above
+						}
+						return(false); // RA2: as above
+					}
+				}
 			}
+
+			return(true);
 		}
 	}
 
 	return(false);
 }
-#endif
 
 
 /// <summary>

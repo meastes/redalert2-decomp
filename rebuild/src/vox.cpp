@@ -548,7 +548,7 @@ static inline int Index_Of_Name(char const * name) // RA2: as above
 VoxType __fastcall Vox_From_Name(char const * name) // RA2: 0x00716640; the index of the VoxClass of a name, -1 for none or a null name
 {
 	if (name == NULL) { // RA2: as above
-		return (VoxType)-1; // RA2: as above
+		return VOX_NONE; // RA2: as above
 	}
 	return (VoxType)Index_Of_Name(name); // RA2: as above
 }

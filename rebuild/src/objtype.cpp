@@ -676,7 +676,7 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 	UnitTypeClass *utype = (UnitTypeClass *)this;
 	TechnoTypeClass *ttype = (TechnoTypeClass *)this; // RA2: as above
 
-	if (Fetch_RTTI() == 0x28 && !utype->IsTurretEquipped) { // RA2: as above
+	if (Fetch_RTTI() == RTTI_UNITTYPE && !utype->IsTurretEquipped) { // RA2: as above
 		if (strcmp((const char *)utype->IniName, "APC") == 0) { // RA2: as above
 			sprintf(name, "%sW", (char const *)GraphicName); // RA2: as above
 			_makepath(fullname, 0, 0, name, ".VXL"); // RA2: as above
@@ -721,7 +721,7 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 				}
 			}
 		}
-	} else if (Fetch_RTTI() == 0x28 && ttype->Has_Turret_Weapons()) { // RA2: as above
+	} else if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
 		int count = ttype->TurretCount; // RA2: as above
 		for (int index = 0; index < count; index++) { // RA2: as above
 			if (!Load_Charger_Turret(GraphicName, index)) { // RA2: as above
@@ -752,8 +752,8 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 		}
 	}
 
-	if (Fetch_RTTI() != 0x28 || utype->IsTurretEquipped) { // RA2: as above
-		if (Fetch_RTTI() == 0x28 && ttype->Has_Turret_Weapons()) { // RA2: as above
+	if (Fetch_RTTI() != RTTI_UNITTYPE || utype->IsTurretEquipped) { // RA2: as above
+		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
 			int count = ttype->TurretCount; // RA2: as above
 			for (int index = 0; index < count; index++) { // RA2: as above
 				if (!Load_Charger_Barrel(GraphicName, index)) { // RA2: as above
@@ -794,7 +794,7 @@ void ObjectTypeClass::Fetch_Voxel_Image(void)
 			delete Voxel.MotLib;
 			Voxel.MotLib = NULL; // RA2: as above
 		}
-		if (Fetch_RTTI() == 0x28 && ttype->Has_Turret_Weapons()) { // RA2: as above
+		if (Fetch_RTTI() == RTTI_UNITTYPE && ttype->Has_Turret_Weapons()) { // RA2: as above
 			Free_Charger_Voxels(); // RA2: as above
 		} else { // RA2: as above
 			if (AuxVoxel.VoxLib != NULL) { // RA2: as above

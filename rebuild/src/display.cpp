@@ -1866,7 +1866,7 @@ void DisplayClass::Mouse_Right_Release(Point2D const & point)
 	ObjectClass * pending = PendingObjectPtr; // RA2: as above
 	bool techno; // RA2: as above
 	if (pending != NULL) { // RA2: as above
-		techno = (pending->AbstractFlags & 1); // RA2: as above
+		techno = (pending->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 	}
 	if (pending != NULL && techno) { // RA2: as above
 		//PendingObjectPtr->Transmit_Message(RADIO_OVER_OUT);
@@ -3661,7 +3661,7 @@ void DisplayClass::All_To_Look(bool units_only, bool is_fog)
 {
 	for (int index = 0; index < Layer[LAYER_GROUND].Count(); index++) {
 		ObjectClass * object = Layer[LAYER_GROUND][index]; // RA2: RA2's form
-		if (object != NULL && (object->AbstractFlags & 1)) { // RA2: as above
+		if (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) { // RA2: as above
 			TechnoClass * tech = (TechnoClass *)object; // RA2: as above
 			if (tech->Fetch_RTTI() == RTTI_BUILDING && units_only) continue; // RA2: as above
 
@@ -3842,7 +3842,7 @@ char const * DisplayClass::Help_Text(int id)
 	if (object == NULL) {
 		return(NULL);
 	}
-	TechnoClass * techno = (object != NULL && (object->AbstractFlags & 1)) ? (TechnoClass *)object : NULL; // RA2: as above
+	TechnoClass * techno = (object != NULL && (object->AbstractFlags & ABSTRACT_TECHNO)) ? (TechnoClass *)object : NULL; // RA2: as above
 	if (techno != NULL && !techno->IsOwnedByPlayer) {
 		if (techno->Cloak == CLOAKED && !Map[techno->Center_Coord()].Is_Sensed(PlayerPtr->HeapID)) {
 			return(NULL);

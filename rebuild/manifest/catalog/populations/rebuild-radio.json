@@ -76,6 +76,7 @@
     "_$E35": 6514672,
     "_$E38": 6514704,
     "??0RadioClass@@QAE@XZ": 6514736,
+    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
     "?Unknown_Virtual_0@AbstractClass@@UAEXH@Z": 4260656,
     "?Unknown_Virtual_0@AbstractClass@@UAE_NHH@Z": 4260640,
     "?Create_ID@AbstractClass@@UAGXXZ": 4259792,
@@ -161,6 +162,7 @@
     "?Unlimbo@ObjectClass@@UAE_NABVCoord@@W4Dir256@@@Z": 6109328,
     "?Is_Moving_Onto_Bridge@ObjectClass@@UBE_NPAVTechnoClass@@@Z": 6116080,
     "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
+    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Can_Player_Move@ObjectClass@@UBE_NXZ": 6106176,
     "?Can_Player_Fire@ObjectClass@@UBE_NXZ": 6106160,
     "?Can_Demolish@ObjectClass@@UBE_NXZ": 6106144,
@@ -199,9 +201,8 @@
     "??_R0?AVAbstractClass@@@8": 8184384,
     "??_R0?AVObjectClass@@@8": 8185160,
     "??_R0?AVMissionClass@@@8": 8185192,
-    "??_R0?AVRadioClass@@@8": 8185224,
-    "??_G?$VectorClass@PAVTechnoClass@@@@UAEPAXI@Z": 4242288,
     "??_7type_info@@6B@": 8066532,
+    "??_R0?AVRadioClass@@@8": 8185224,
     "?Is_Players_Army@ObjectClass@@UBE_NXZ": 4341008,
     "?Visual_Character@ObjectClass@@UBE?AW4VisualType@@_NPBVHouseClass@@@Z": 4341024,
     "?Considered_Vehicle@ObjectClass@@UBE_NXZ": 4341040,
@@ -209,7 +210,6 @@
     "?Full_Name@ObjectClass@@UBEPBGXZ": 4341056,
     "??_C@_1BA@MEGH@?$AAN?$AAo?$AA?5?$AAn?$AAa?$AAm?$AAe?$AA?$AA@": 8187056,
     "?Target_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305472,
-    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Render_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305520,
     "?Fire_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4341072,
     "?Exit_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4305568,
@@ -329,7 +329,7 @@
           "resolved": 11232600
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514240,
@@ -381,7 +381,7 @@
           "resolved": 11232672
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514288,
@@ -433,7 +433,7 @@
           "resolved": 11232656
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514320,
@@ -485,7 +485,7 @@
           "resolved": 11232648
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514352,
@@ -537,7 +537,7 @@
           "resolved": 11232608
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514384,
@@ -589,7 +589,7 @@
           "resolved": 11232568
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514416,
@@ -673,7 +673,7 @@
           "resolved": 11232680
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514448,
@@ -733,7 +733,7 @@
           "resolved": 11232616
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514512,
@@ -793,7 +793,7 @@
           "resolved": 11232640
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514560,
@@ -853,7 +853,7 @@
           "resolved": 11232664
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514608,
@@ -897,7 +897,7 @@
           "resolved": 11232594
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514656,
@@ -949,7 +949,7 @@
           "resolved": 11232632
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514672,
@@ -1009,7 +1009,7 @@
           "resolved": 11232588
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514704,
@@ -1093,7 +1093,7 @@
           "resolved": 8030396
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514736,
@@ -1169,7 +1169,7 @@
           "resolved": 8030396
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514880,
@@ -1229,7 +1229,7 @@
           "resolved": 4293585842
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6514944,
@@ -1273,7 +1273,7 @@
           "resolved": 4292702458
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515280,
@@ -1309,7 +1309,7 @@
           "resolved": 4294560645
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515552,
@@ -1345,7 +1345,7 @@
           "resolved": 10750944
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515584,
@@ -1381,7 +1381,7 @@
           "resolved": 4294561820
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515616,
@@ -1441,7 +1441,7 @@
           "resolved": 4293251810
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515696,
@@ -1501,7 +1501,7 @@
           "resolved": 429586
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6515808,
@@ -1537,7 +1537,7 @@
           "resolved": 4292711305
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516000,
@@ -1573,7 +1573,7 @@
           "resolved": 10750944
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516112,
@@ -1609,7 +1609,7 @@
           "resolved": 10750944
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516160,
@@ -1636,7 +1636,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516240,
@@ -1663,7 +1663,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516256,
@@ -1690,7 +1690,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516272,
@@ -1717,7 +1717,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516336,
@@ -1744,7 +1744,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516384,
@@ -1771,7 +1771,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516432,
@@ -1798,7 +1798,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516496,
@@ -1825,7 +1825,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516544,
@@ -1949,7 +1949,7 @@
           "resolved": 1355036
         }
       ],
-      "source_sha256": "3b5e9d12a7ae25385fe8e14b70e30dc19b3c13c01b1804cb5b0058c41573924a",
+      "source_sha256": "d520f8a07699d099a24c81ffb2506ffd22f8000667316f904bad4e1381ca3d79",
       "source": "rebuild/src/radio.cpp",
       "population": "rebuild-radio",
       "source_order": 6516624,

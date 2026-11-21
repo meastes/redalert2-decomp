@@ -548,7 +548,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass * target) const
 	if (Fetch_RTTI() == RTTI_AIRCRAFT && ((AircraftClass const *)this)->IsKamikaze) { // RA2: as above
 		return(1);
 	}
-	if (!(target->AbstractFlags & 1)) { // RA2: only technos are weighed against the armor
+	if (!(target->AbstractFlags & ABSTRACT_TECHNO)) { // RA2: only technos are weighed against the armor
 		return(0);
 	}
 	ObjectClass const * object = (ObjectClass const *)target; // RA2: as above
@@ -583,7 +583,7 @@ int TechnoClass::What_Weapon_Should_I_Use(AbstractClass * target) const
 /// </summary>
 int TechnoClass::SelectNavalTargeting(AbstractClass * target) const // RA2: not in TibSun, at 0x6C15D0
 {
-	bool active = target != NULL && (target->AbstractFlags & 1);
+	bool active = target != NULL && (target->AbstractFlags & ABSTRACT_TECHNO);
 	if (!active) {
 		return(-1);
 	}
@@ -736,7 +736,7 @@ Coord TechnoClass::Fire_Coord(int which) const
 	double angle; // RA2: as above
 	FootClass const * foot = static_cast<FootClass const *>(this); // RA2: as above
 
-	if (foot != NULL && (AbstractFlags & 4) && foot->Locomotion != NULL) { // RA2: as above
+	if (foot != NULL && (AbstractFlags & ABSTRACT_FOOT) && foot->Locomotion != NULL) { // RA2: as above
 		matrix = foot->Locomotion->Draw_Matrix(NULL); // RA2: as above
 		angle = Turret_Facing().As_Radian32() - PrimaryFacing.Current().As_Radian32(); // RA2: as above
 	} else {
@@ -772,7 +772,7 @@ Coord TechnoClass::Turret_Coord(int which) const
 	double angle; // RA2: as above
 	FootClass const * foot = static_cast<FootClass const *>(this); // RA2: as above
 
-	if (foot != NULL && (AbstractFlags & 4) && foot->Locomotion != NULL) { // RA2: as above
+	if (foot != NULL && (AbstractFlags & ABSTRACT_FOOT) && foot->Locomotion != NULL) { // RA2: as above
 		matrix = foot->Locomotion->Draw_Matrix(NULL);
 		angle = Turret_Facing().As_Radian32() - PrimaryFacing.Current().As_Radian32(); // RA2: as above
 	} else {
@@ -1272,7 +1272,7 @@ RadioMessageType TechnoClass::Receive_Message(RadioClass * from, RadioMessageTyp
 					EstimatedHealth += step; // RA2: the estimate follows
 					bool foot; // RA2: a parasite that is eating this object is made to let go
 					if (this != NULL) { // RA2: as above
-						foot = (AbstractFlags & 4); // RA2: as above
+						foot = (AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 					}
 					if (this != NULL && foot && ((FootClass *)this)->ParasiteEatingMe != NULL) { // RA2: as above
 						((FootClass *)this)->ParasiteEatingMe->ParasiteImUsing->SuppressionTimer = 50; // RA2: as above
@@ -1922,7 +1922,7 @@ bool TechnoClass::Limbo(void)
 		House->Tracking_Active_Remove(this, false);
 		if (Risk() > 0) { // RA2: the risk is read once; the threat lent is taken back
 			CellClass * cell; // RA2: the threat this object lent is taken back (ThreatPosed, not the risk)
-			if (this != NULL && (AbstractFlags & 4)) { // RA2: a foot, by its flag
+			if (this != NULL && (AbstractFlags & ABSTRACT_FOOT)) { // RA2: a foot, by its flag
 				cell = &Map[((FootClass *)this)->LastAdjacencyCell]; // RA2: as above
 				if (cell != NULL) { // RA2: as above
 					cell->Adjust_Threat(Owner(), -(int)ThreatPosed); // RA2: as above
@@ -2979,7 +2979,7 @@ bool TechnoClass::Evaluate_Cell(ThreatType method, int mask, Cell const & cell, 
 			if (!tentative) { // RA2: as above
 				tech = NULL; // RA2: as above
 			} else { // RA2: as above
-				if (tentative->AbstractFlags & 1) { // RA2: as above
+				if (tentative->AbstractFlags & ABSTRACT_TECHNO) { // RA2: as above
 					tech = static_cast<TechnoClass *>((ObjectClass *)tentative); // RA2: as above
 				} else {
 					tech = NULL; // RA2: as above
@@ -3144,13 +3144,13 @@ AbstractClass * TechnoClass::Greatest_Threat(ThreatType method, Coord const & co
 	int zone = -1;
 	++TargetScan;
 	if (Techno_Type_Class()->IsNoAutoFire && House->Is_Human_Player()) return 0;
-	if (!(method & 1) && Fetch_RTTI() != 6 && Fetch_RTTI() != 2) {
+	if (!(method & 1) && Fetch_RTTI() != RTTI_BUILDING && Fetch_RTTI() != RTTI_AIRCRAFT) {
 		zone = Map.Get_Cell_Zone(Center_Coord().As_Cell(), Techno_Type_Class()->MZone, true);
 	}
-	if (Fetch_RTTI() == 15) {
+	if (Fetch_RTTI() == RTTI_INFANTRY) {
 		if (Combat_Damage(-1) < 0) method = ThreatType((method & 3) | 0x4008);
 		else if (static_cast<InfantryClass const *>(this)->Class->IsEngineer) method = ThreatType(method & ~0x18);
-	} else if (Fetch_RTTI() == 1) {
+	} else if (Fetch_RTTI() == RTTI_UNIT) {
 		if (Combat_Damage(-1) < 0) method = ThreatType((method & 3) | 0x4010);
 	}
 	int mask = 0;
@@ -3271,7 +3271,7 @@ AbstractClass * TechnoClass::Greatest_Threat(ThreatType method, Coord const & co
 		for (index = 0; index < Technos.Count(); ++index) {
 			TechnoClass * object = Technos[index];
 			int value = 0;
-			if ((!House->Is_Ally(object) || Combat_Damage(-1) < 0 || (!House->Is_Human_Player() && this && Fetch_RTTI() == 15 && (this && Fetch_RTTI() == 15 ? static_cast<InfantryClass const *>(this) : 0)->Class->IsEngineer)) && object->Layer == LAYER_GROUND && (!onlyenemy || object->House->HeapID == House->Enemy) && (!(method & 0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method, mask, -1, object, value, zone, coord) && value > best_value) {best_object = object;best_value = value;}
+			if ((!House->Is_Ally(object) || Combat_Damage(-1) < 0 || (!House->Is_Human_Player() && this && Fetch_RTTI() == RTTI_INFANTRY && (this && Fetch_RTTI() == RTTI_INFANTRY ? static_cast<InfantryClass const *>(this) : 0)->Class->IsEngineer)) && object->Layer == LAYER_GROUND && (!onlyenemy || object->House->HeapID == House->Enemy) && (!(method & 0x4000) || House->Is_Ally(object->House)) && Evaluate_Object(method, mask, -1, object, value, zone, coord) && value > best_value) {best_object = object;best_value = value;}
 		}
 	}
 	return (ObjectClass *)best_object;
@@ -3417,26 +3417,26 @@ void TechnoClass::AI(void)
 	Cell where(Center_Coord().As_Cell());
 	CellClass & cell = Map[where];
 	bool draw_behind;
-	if (Fetch_RTTI() == 6) {
+	if (Fetch_RTTI() == RTTI_BUILDING) {
 		if (static_cast<BuildingClass *>(this)->Class->CanBeHidden) draw_behind = cell.OccupyHeightsCoveringMe > 1;
 		else draw_behind = false;
 	} else draw_behind = cell.OccupyHeightsCoveringMe != 0;
-	if (draw_behind && !(this && Fetch_RTTI() == 2)) {
+	if (draw_behind && !(this && Fetch_RTTI() == RTTI_AIRCRAFT)) {
 		Draw_Behind_Marker(point, &window);
 	} else if (BehindAnim) {
-		if (Fetch_RTTI() != 6) AnimPtrTracker.Delete(this);
+		if (Fetch_RTTI() != RTTI_BUILDING) AnimPtrTracker.Delete(this);
 		BehindAnim->Delete_Me();
 		BehindAnim = 0;
 	}
 	if (!House->Is_Human_Player() && TarCom && House->Is_Ally(TarCom)) {
-		bool infantry = Fetch_RTTI() == 15;
-		bool building = TarCom->Fetch_RTTI() == 6;
+		bool infantry = Fetch_RTTI() == RTTI_INFANTRY;
+		bool building = TarCom->Fetch_RTTI() == RTTI_BUILDING;
 		bool can_enter = infantry && building && static_cast<BuildingClass *>(TarCom)->CanBeOccupiedBy((InfantryClass *)this);
 		bool engineer = infantry && static_cast<InfantryClass *>(this)->Class->IsEngineer;
 		bool assault = Get_Class_Weapon_Data(1)->Weapon && Get_Class_Weapon_Data(1)->Weapon->WarheadPtr->ElectricAssault && building && static_cast<BuildingClass *>(TarCom)->Class->Overpowerable;
 		if (!engineer && !assault && !can_enter) Assign_Target(0);
 	}
-	if ((int)Frame % 16 == 0 && CurrentMission != 8 && CurrentMission != 17) {
+	if ((int)Frame % 16 == 0 && CurrentMission != MISSION_CAPTURE && CurrentMission != MISSION_SABOTAGE) {
 		int fire_error = GetFireErrorWithoutRange(TarCom, What_Weapon_Should_I_Use(TarCom));
 		if (TarCom && (fire_error == 5 || fire_error == 6)) Assign_Target(0);
 	}
@@ -3453,13 +3453,13 @@ void TechnoClass::AI(void)
 	if (Door.Has_Ended()) Door.End_Count();
 	if (Cooldown) --Cooldown;
 	if (TarCom && ShouldLoseTargetNow) {
-		if (CurrentMission == 0 || CurrentMission == 7 || CurrentMission == 13 || CurrentMission == 14 || CurrentMission == 16 || CurrentMission == 18 || CurrentMission == 19 || CurrentMission == 20 || CurrentMission == 22 || CurrentMission == 23 || CurrentMission == 28 || CurrentMission == 24) Assign_Target(0);
+		if (CurrentMission == MISSION_SLEEP || CurrentMission == MISSION_ENTER || CurrentMission == MISSION_STOP || CurrentMission == MISSION_AMBUSH || CurrentMission == MISSION_UNLOAD || CurrentMission == MISSION_CONSTRUCTION || CurrentMission == MISSION_DECONSTRUCTION || CurrentMission == MISSION_REPAIR || CurrentMission == MISSION_MISSILE || CurrentMission == MISSION_HARMLESS || CurrentMission == MISSION_WAIT || CurrentMission == MISSION_OPEN) Assign_Target(0);
 	}
 	MissionClass::AI();
 	if (TargetingTimer.Value() == 0) {
 		if (MegaMissionIsAttackMove()) {
 			UpdateAttackMove();
-		} else if ((CurrentMission == 2 || CurrentMission == 10 || CurrentMission == 5) && Should_Scan_For_Target()) {
+		} else if ((CurrentMission == MISSION_MOVE || CurrentMission == MISSION_HARVEST || CurrentMission == MISSION_GUARD) && Should_Scan_For_Target()) {
 			LastTargetScanFrame = Frame;
 			AbstractClass * target = TarCom;
 			Coord coord = PositionCoord;
@@ -3478,11 +3478,11 @@ void TechnoClass::AI(void)
 	if (Cloak == 2 && !Map[Center_Coord()].Is_Cloaked(House->HeapID)) Try_To_Cloak();
 	if (Session.Type == 0 && !House->Is_Player_Control() && TarCom && !House->Is_Ally(TarCom) && Combat_Damage(-1) < 0) Assign_Target(0);
 	if (TarCom && Session.Type != 0 && House->IsHuman && Combat_Damage(-1) < 0 && !House->Is_Ally(TarCom)) Assign_Target(0);
-	if (TarCom && TarCom->Fetch_RTTI() == 2) {
+	if (TarCom && TarCom->Fetch_RTTI() == RTTI_AIRCRAFT) {
 		ObjectClass * aircraft = static_cast<ObjectClass *>(TarCom);
-		if (Fetch_RTTI() == 1 && Combat_Damage(-1) < 0 && (aircraft->HeightAGL > 0 || Map[aircraft->Get_Coord()].Cell_Building())) Assign_Target(0);
+		if (Fetch_RTTI() == RTTI_UNIT && Combat_Damage(-1) < 0 && (aircraft->HeightAGL > 0 || Map[aircraft->Get_Coord()].Cell_Building())) Assign_Target(0);
 	}
-	if (Fetch_RTTI() != 2 && TarCom && !Is_In_Team()) {
+	if (Fetch_RTTI() != RTTI_AIRCRAFT && TarCom && !Is_In_Team()) {
 		FootClass * foot = 0;
 		if (Is_Foot_Object(this)) foot = static_cast<FootClass *>(this);
 		if (!foot || !foot->NavCom) {
@@ -3495,11 +3495,11 @@ void TechnoClass::AI(void)
 			}
 		}
 	}
-	if (Fetch_RTTI() != 6) StageClass::Graphic_Logic();
+	if (Fetch_RTTI() != RTTI_BUILDING) StageClass::Graphic_Logic();
 	unsigned old_flash = FlashCount;
 	bool was_flash_on = (old_flash & 2) == 2;
 	if (FlasherClass::Process()) Mark(MARK_CHANGE);
-	if (old_flash && old_flash != FlashCount && Fetch_RTTI() == 6 && was_flash_on != ((FlashCount & 2) == 2)) {
+	if (old_flash && old_flash != FlashCount && Fetch_RTTI() == RTTI_BUILDING && was_flash_on != ((FlashCount & 2) == 2)) {
 		TacticalMap->Register_Dirty_Area(Get_Render_Rect(), false);
 		static_cast<BuildingClass *>(this)->Update_Anim_Appearance();
 	}
@@ -3518,12 +3518,12 @@ void TechnoClass::AI(void)
 	}
 	Update_Radar_Position(false);
 	if (StunDuration > 0 && --StunDuration == 0) {
-		if (Fetch_RTTI() == 6) {
+		if (Fetch_RTTI() == RTTI_BUILDING) {
 			BuildingClass * building = static_cast<BuildingClass *>(this);
 			if (building && !building->Class->IsInvisibleInGame) { building->Power_On(); if (building->Class->IsRadar) House->RecalcRadar = true; }
 		} else {
 			bool is_foot = false;
-			if (this) is_foot = (AbstractFlags & 4);
+			if (this) is_foot = (AbstractFlags & ABSTRACT_FOOT);
 			if (is_foot) {
 				FootClass * foot = static_cast<FootClass *>(this);
 				if (foot->Locomotion) foot->Locomotion->Power_On();
@@ -4000,7 +4000,7 @@ FireErrorType TechnoClass::Can_Fire(AbstractClass * target, int which, bool chec
 	if (IsBeingWarpedOut()) goto ILLEGAL;
 	if (IsSinking) goto ILLEGAL;
 	if (IsWarpingSomethingOut() && TemporalImUsing && target == TemporalImUsing->Target) return FIRE_REARM;
-	techno = (target->AbstractFlags & 1) ? static_cast<TechnoClass *>(target) : 0;
+	techno = (target->AbstractFlags & ABSTRACT_TECHNO) ? static_cast<TechnoClass *>(target) : 0;
 	cellptr = reinterpret_cast<CellClass *>(&Map[target->Center_Coord()]);
 	if (techno) {
 		if (techno->IsInLimbo) goto ILLEGAL;
@@ -4012,7 +4012,7 @@ FireErrorType TechnoClass::Can_Fire(AbstractClass * target, int which, bool chec
 	}
 	if (IsFalling) goto ILLEGAL;
 	if (IsUnderEMP()) {
-		if (Fetch_RTTI() != 1) goto CANT;
+		if (Fetch_RTTI() != RTTI_UNIT) goto CANT;
 		UnitClass const * unit = static_cast<UnitClass const *>(this);
 		if (!unit->Class->IsLargeVisceroid && !unit->Class->IsSmallVisceroid) goto CANT;
 	}
@@ -4037,10 +4037,10 @@ FireErrorType TechnoClass::Can_Fire(AbstractClass * target, int which, bool chec
 			if (target->On_Ground() && !water && Techno_Type_Class()->LandTargeting == 1) return FIRE_ILLEGAL;
 		} else {
 			if (!target->In_Air() && !weapon->Bullet->IsAntiGround) return FIRE_ILLEGAL;
-			if (target->Fetch_RTTI() == 0xb && ((CellClass *)(target->Fetch_RTTI() == RTTI_CELL ? target : 0))->Land_Type() != LAND_WATER && ((CellClass *)(target->Fetch_RTTI() == RTTI_CELL ? target : 0))->Land_Type() != LAND_BEACH && Techno_Type_Class()->LandTargeting == 1) goto ILLEGAL;
+			if (target->Fetch_RTTI() == RTTI_CELL && ((CellClass *)(target->Fetch_RTTI() == RTTI_CELL ? target : 0))->Land_Type() != LAND_WATER && ((CellClass *)(target->Fetch_RTTI() == RTTI_CELL ? target : 0))->Land_Type() != LAND_BEACH && Techno_Type_Class()->LandTargeting == 1) goto ILLEGAL;
 		}
 		check_rearm = true;
-		if (which == 0 && this && Fetch_RTTI() == 1) {
+		if (which == 0 && this && Fetch_RTTI() == RTTI_UNIT) {
 			UnitClass const * unit = static_cast<UnitClass const *>(this);
 			int burst = BurstIndex % weapon->Burst;
 			if (burst < 2 && unit->Class->FiringSyncFrame[burst] != -1 && unit->FiringSyncDelay != -1) {
@@ -4054,14 +4054,14 @@ FireErrorType TechnoClass::Can_Fire(AbstractClass * target, int which, bool chec
 		if (weapon->UseSparkParticles && ParticleSystems[1]) return FIRE_REARM;
 		if (weapon->IsSonic && Wave) return FIRE_REARM;
 		if (Ammo == 0) return FIRE_AMMO;
-		if (weapon->DecloakToFire && Cloak != 0 && (Fetch_RTTI() != 2 || Cloak == 2)) return FIRE_CLOAKED;
+		if (weapon->DecloakToFire && Cloak != 0 && (Fetch_RTTI() != RTTI_AIRCRAFT || Cloak == 2)) return FIRE_CLOAKED;
 		if (Techno_Type_Class()->IsHunterSeeker) return FIRE_RANGE;
-		if (weapon->WarheadPtr->Parasite && this && (AbstractFlags & 4)) {
-			foot = (target->AbstractFlags & 4) ? static_cast<FootClass *>(target) : 0;
+		if (weapon->WarheadPtr->Parasite && this && (AbstractFlags & ABSTRACT_FOOT)) {
+			foot = (target->AbstractFlags & ABSTRACT_FOOT) ? static_cast<FootClass *>(target) : 0;
 			if (!static_cast<FootClass const *>(this)->ParasiteImUsing->CanInfect(foot)) return FIRE_ILLEGAL;
 		}
 		parasite = weapon->WarheadPtr->Parasite;
-		if (parasite && (target->AbstractFlags & 4) && Frame < static_cast<FootClass *>(target)->LastBeParasitedStartFrame) return FIRE_ILLEGAL;
+		if (parasite && (target->AbstractFlags & ABSTRACT_FOOT) && Frame < static_cast<FootClass *>(target)->LastBeParasitedStartFrame) return FIRE_ILLEGAL;
 		if (techno) {
 			if (parasite && techno->Unknown_Virtual_32C()) return FIRE_ILLEGAL;
 			if (weapon->WarheadPtr->MindControl && !reinterpret_cast<CaptureManagerClass *>(CaptureManager)->Can_Capture(techno)) return FIRE_ILLEGAL;
@@ -4149,7 +4149,7 @@ void TechnoClass::Assign_Target(AbstractClass * target)
 		*/
 		if (target == this) {
 			target = &Map[(Coord const &)PositionCoord];
-		} else if (target->AbstractFlags & 2) { // RA2: only objects are tested; the flag byte says object, not As_Object()
+		} else if (target->AbstractFlags & ABSTRACT_OBJECT) { // RA2: only objects are tested; the flag byte says object, not As_Object()
 
 			/*
 			**	Make sure that the target is not already dead.
@@ -4406,7 +4406,7 @@ void TechnoClass::Rad_Zap(AbstractClass * target, int kind) // RA2: not in TibSu
 	}
 
 	Coord dest;
-	bool object = target != NULL && (target->AbstractFlags & 2);
+	bool object = target != NULL && (target->AbstractFlags & ABSTRACT_OBJECT);
 	if (!object) {
 		dest = target->As_Coord();
 	} else {
@@ -5707,7 +5707,7 @@ bool TechnoClass::Captured(HouseClass * newowner, bool announce) // RA2: signatu
 		if (!IsInLimbo) {
 			bool foot; // RA2: as above
 			if (this != NULL) { // RA2: the foot test by flag, with its local
-				foot = (AbstractFlags & 4); // RA2: as above
+				foot = (AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 			}
 			bool moving = this != NULL && foot; // RA2: as above
 			if (!moving) { // RA2: as above
@@ -5817,7 +5817,7 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 		House->Add_Anger((int)(type->Raw_Cost() * (incoming / Techno_Type_Class()->MaxStrength)), attacker->House);
 	}
 	if (result == 4) {
-		if (Fetch_RTTI() == 6 && warhead && warhead->CausesDelayKill) {
+		if (Fetch_RTTI() == RTTI_BUILDING && warhead && warhead->CausesDelayKill) {
 			BuildingClass * building = As_Building(this);
 			if (building->Class->EligibleForDelayKill) {
 				int delay = warhead->DelayKillFrames;
@@ -5948,7 +5948,7 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 						Override_Mission(MISSION_ATTACK, target, 0);
 					}
 				}
-				FootClass * foot = (this && (AbstractFlags & 4) ? static_cast<FootClass *>(this) : 0);
+				FootClass * foot = (this && (AbstractFlags & ABSTRACT_FOOT) ? static_cast<FootClass *>(this) : 0);
 				if (foot) {
 					if (!TarCom && !foot->NavCom) {
 						if (Rule->IsScatter || Has_Ability(ABILITY_SCATTER)) {
@@ -5957,11 +5957,11 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 					}
 				}
 			} else {
-				FootClass * foot = (this && (AbstractFlags & 4) ? static_cast<FootClass *>(this) : 0);
+				FootClass * foot = (this && (AbstractFlags & ABSTRACT_FOOT) ? static_cast<FootClass *>(this) : 0);
 				if (foot) {
 					if (Current_Mission_Control().IsScatter) {
 						if (!IsTethered) {
-							if (!foot->Locomotion->Is_Moving() && !TarCom && !foot->NavCom && Fetch_RTTI() != 2) {
+							if (!foot->Locomotion->Is_Moving() && !TarCom && !foot->NavCom && Fetch_RTTI() != RTTI_AIRCRAFT) {
 								if (!House->Is_Human_Player() || Rule->IsScatter || Has_Ability(ABILITY_SCATTER)) {
 									Scatter(COORD_NONE, true, false);
 								}
@@ -7045,8 +7045,8 @@ void TechnoClass::Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int k
 			case 5: return;
 		}
 	}
-	if ((IsBeingWarpedOut() || IsWarpingIn()) && (Fetch_RTTI() != 1 || !((UnitClass const *)this)->IsCompositingToEightBitSurface)) flags |= 0x2004;
-	if (House->Is_Player_Control() && IsDisguised() && (Fetch_RTTI() != 1 || !((UnitClass const *)this)->IsCompositingToEightBitSurface)) flags = GetDisguiseFlags(flags);
+	if ((IsBeingWarpedOut() || IsWarpingIn()) && (Fetch_RTTI() != RTTI_UNIT || !((UnitClass const *)this)->IsCompositingToEightBitSurface)) flags |= 0x2004;
+	if (House->Is_Player_Control() && IsDisguised() && (Fetch_RTTI() != RTTI_UNIT || !((UnitClass const *)this)->IsCompositingToEightBitSurface)) flags = GetDisguiseFlags(flags);
 	flags = (flags | 0x800) & ~negflags;
 	Rect window = cliprect;
 	brightness = Apparent_Brightness(brightness);
@@ -7065,7 +7065,7 @@ void TechnoClass::Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int k
 	SurfaceRegion region = Techno_Render_Voxel_Object(voxeldata, transform, draw_point, window, frame, ShapeFlags_Type(flags), brightness);
 	int height = region.Bounds.Height;
 	int width = region.Bounds.Width;
-	if (Fetch_RTTI() == 1) UnitCompositeDirtyRect = Union(UnitCompositeDirtyRect, Rect(region.Point.X + draw_point.X, region.Point.Y + draw_point.Y, width, height));
+	if (Fetch_RTTI() == RTTI_UNIT) UnitCompositeDirtyRect = Union(UnitCompositeDirtyRect, Rect(region.Point.X + draw_point.X, region.Point.Y + draw_point.Y, width, height));
 	if (key == -1) return;
 	StaticBufferClass::Entry * data = VoxelStaticBuffer.Add(*VoxelDrawSystem::Get_Surface(), region);
 	if (!data || !cache->Add_Index(key, data)) {
@@ -7329,7 +7329,7 @@ void TechnoClass::Detach(AbstractClass const * target, bool all)
 
 	bool techno; // RA2: the techno flag of the target is tested by byte, with a local
 	if (!all && target != NULL) { // RA2: as above
-		techno = (target->AbstractFlags & 1); // RA2: as above
+		techno = (target->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 	}
 	if (!all && target != NULL && techno) { // RA2: as above
 		CellClass * cptr = &Map[target->Center_Coord()];
@@ -7673,7 +7673,7 @@ void TechnoClass::Base_Is_Attacked(TechnoClass const * enemy)
 
 	bool is_foot; // RA2: the foot test is kept in a local, left unset for a null enemy
 	if (enemy != NULL) { // RA2: as above
-		is_foot = (enemy->AbstractFlags & 4); // RA2: as above
+		is_foot = (enemy->AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 	}
 	if (enemy != NULL && is_foot && ((FootClass *)enemy)->BaseAttackTimer != 0) { // RA2: as above
 		return;
@@ -7806,7 +7806,7 @@ void TechnoClass::Base_Is_Attacked(TechnoClass const * enemy)
 
 	if (risktotal > desired) { // RA2: as above
 		if (enemy != NULL) { // RA2: the foot test is repeated
-			is_foot = (enemy->AbstractFlags & 4); // RA2: as above
+			is_foot = (enemy->AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 		}
 		if (enemy != NULL && is_foot) { // RA2: as above
 			((FootClass *)enemy)->BaseAttackTimer = (int)(Rule->BaseDefenseDelay * 900.0); // RA2: minutes of 900 ticks
@@ -7906,7 +7906,7 @@ bool TechnoClass::Is_Allowed_To_Retaliate(TechnoClass const * source, WarheadTyp
 	*/
 	bool foot; // RA2: the foot flag is tested by byte, with a local
 	if (this != NULL) { // RA2: as above
-		foot = (AbstractFlags & 4); // RA2: as above
+		foot = (AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 	}
 	if (this != NULL && foot && ((FootClass const *)this)->Team != NULL && ((FootClass const *)this)->Team->Class->IsSuicide) { // RA2: as above
 		return(false);
@@ -7920,7 +7920,7 @@ bool TechnoClass::Is_Allowed_To_Retaliate(TechnoClass const * source, WarheadTyp
 		AbstractClass * target = TarCom; // RA2: as above
 		bool techno; // RA2: as above
 		if (target != NULL) { // RA2: as above
-			techno = (target->AbstractFlags & 2); // RA2: as above
+			techno = (target->AbstractFlags & ABSTRACT_OBJECT); // RA2: as above
 		}
 		if (target != NULL && techno && Target_Threat((TechnoClass *)target, COORD_NONE) > Target_Threat((TechnoClass *)source, COORD_NONE)) { // RA2: as above
 			return(false);
@@ -7932,7 +7932,7 @@ bool TechnoClass::Is_Allowed_To_Retaliate(TechnoClass const * source, WarheadTyp
 	*/
 	bool foot2; // RA2: as above
 	if (this != NULL) { // RA2: as above
-		foot2 = (AbstractFlags & 4); // RA2: as above
+		foot2 = (AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 	}
 	if (this != NULL && foot2 && source == ((FootClass const *)this)->ParasiteEatingMe) { // RA2: as above
 		return(false);
@@ -8258,7 +8258,7 @@ bool TechnoClass::Should_Scan_For_Target(void) // RA2: not in TibSun, at 0x6D418
 	bool foot;
 	bool foot2;
 	if (TarCom == NULL && !House->Is_Human_Player() && this != NULL) {
-		if (this != NULL) foot = (AbstractFlags & 4) != 0;
+		if (this != NULL) foot = (AbstractFlags & ABSTRACT_FOOT) != 0;
 		if (foot && ((FootClass *)this)->Team != NULL) {
 			TeamTypeClass const * team_type = ((FootClass *)this)->Team->Class;
 			if (!team_type->IsSuicide && team_type->IsAggressive && CurrentMission == MISSION_MOVE) {
@@ -8271,7 +8271,7 @@ bool TechnoClass::Should_Scan_For_Target(void) // RA2: not in TibSun, at 0x6D418
 	}
 	if (CurrentMission == MISSION_MOVE && Techno_Type_Class()->BalloonHover) {
 		foot2 = false;
-		if (this != NULL) foot2 = (AbstractFlags & 4) != 0;
+		if (this != NULL) foot2 = (AbstractFlags & ABSTRACT_FOOT) != 0;
 		if (!foot2) {
 			return(false);
 		}
@@ -8328,7 +8328,7 @@ bool TechnoClass::Scan_For_Target(void) // RA2: not in TibSun, at 0x6D4310
 		LastTargetScanFrame = Frame;
 		AbstractClass * target = TarCom;
 		Coord coord = PositionCoord;
-		result = Target_Something_Nearby(coord, (ThreatType)1);
+		result = Target_Something_Nearby(coord, THREAT_RANGE);
 		if (result && TarCom != target) {
 			ShouldLoseTargetNow = true;
 		}
@@ -8526,7 +8526,7 @@ bool TechnoClass::Target_Something_Nearby(Coord const & coord, ThreatType threat
 			int weapon = What_Weapon_Should_I_Use(TarCom); // RA2: the damage the shot is expected to do is booked on the target
 			TechnoClass * techno = (TechnoClass *)target; // RA2: as above
 			if (techno != NULL) { // RA2: as above
-				techno = (techno->AbstractFlags & 1) ? techno : NULL; // RA2: as above
+				techno = (techno->AbstractFlags & ABSTRACT_TECHNO) ? techno : NULL; // RA2: as above
 			}
 			WeaponTypeClass const * wtype = Get_Class_Weapon_Data(weapon)->Weapon; // RA2: as above
 			if (techno != NULL && wtype != NULL && !wtype->Bullet->IsInaccurate) { // RA2: as above
@@ -9325,7 +9325,7 @@ void TechnoClass::Rocking_AI(void)
 		float angle = (float)DEG_TO_RAD(45);
 
 		bool foot; // RA2: the foot flag is tested by byte, with a local
-		if (this != NULL) foot = (AbstractFlags & 4); // RA2: as above
+		if (this != NULL) foot = (AbstractFlags & ABSTRACT_FOOT); // RA2: as above
 		if (this != NULL && foot && ((FootClass *)this)->IsCrushing) { // RA2: as above
 			angle = (float)DEG_TO_RAD(18);
 		}
@@ -10185,7 +10185,7 @@ bool TechnoClass::Enter_Object_Nearby(void)
 	}
 	if (((ObjectClass *)QueueUpToEnter)->IsActive) { // RA2: as above
 		AbstractClass *contact = QueueUpToEnter; // RA2: as above
-		if (contact != 0 && (contact->AbstractFlags & 1)) { // RA2: as above
+		if (contact != 0 && (contact->AbstractFlags & ABSTRACT_TECHNO)) { // RA2: as above
 			TechnoClass *techno = (TechnoClass *)contact; // RA2: as above
 			if (Transmit_Message(RADIO_HELLO, techno) == RADIO_ROGER) { // RA2: as above
 				if (Transmit_Message(RADIO_CAN_LOAD, techno) == RADIO_ROGER) { // RA2: as above
@@ -10224,7 +10224,7 @@ bool TechnoClass::Move_To_Object_Nearby(void)
 {
 	TechnoClass * techno = QueueUpToEnter; // RA2: Move_To_Object_Nearby at 0x6D8080 matches only so
 	if (techno != NULL) { // RA2: as above
-		if ((techno->AbstractFlags & 1) && techno->IsActive) { // RA2: as above
+		if ((techno->AbstractFlags & ABSTRACT_TECHNO) && techno->IsActive) { // RA2: as above
 			Cell cell = Nearby_Location(techno); // RA2: as above
 			if (cell != CELL_NONE) { // RA2: as above
 				Assign_Destination(&Map[cell], true); // RA2: as above
@@ -10277,7 +10277,7 @@ void TechnoClass::Update_Radar_Position(bool force_update)
 	if (detected != DETECTED_NONE && visible) { // RA2
 		bool foot;
 		if (this != NULL) {
-			foot = (AbstractFlags & 4) != 0; // RA2
+			foot = (AbstractFlags & ABSTRACT_FOOT) != 0; // RA2
 		}
 		if (this == NULL || !foot || ((FootClass *)this)->CurrentTube < TUBE_FIRST) { // RA2
 			Submit_Radar_Event(RADAREVENT_ENEMY_SENSED, Get_Coord().As_Cell()); // RA2: no speech
@@ -10783,7 +10783,7 @@ bool TechnoClass::CanDisguiseAs(AbstractClass * target) const // RA2: not in Tib
 		&& OverlayTypes[((CellClass *)target)->Overlay]->IsARock) {
 		return(true);
 	}
-	if (target != NULL && (target->AbstractFlags & 2) && ((ObjectClass *)target)->IsDisguised() && ((ObjectClass *)target)->GetDisguiseHouse(true) == NULL) {
+	if (target != NULL && (target->AbstractFlags & ABSTRACT_OBJECT) && ((ObjectClass *)target)->IsDisguised() && ((ObjectClass *)target)->GetDisguiseHouse(true) == NULL) {
 		return(true);
 	}
 	return(false);

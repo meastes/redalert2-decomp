@@ -868,7 +868,7 @@ void AnimClass::AI(void)
 		if (!IsDisabled && !Paused && StageClass::Graphic_Logic()) {
 			int stage = Fetch_Stage();
 			if (Class->Damage > 0.0 && !IsBouncing) {
-				if (xObject && xObject->Fetch_RTTI() == 36) Accum += Class->Damage * 5.0;
+				if (xObject && xObject->Fetch_RTTI() == RTTI_TERRAIN) Accum += Class->Damage * 5.0;
 				else Accum += Class->Damage;
 				if (Accum >= 1.0 && !IsInert) {
 					int damage = (int)Accum;

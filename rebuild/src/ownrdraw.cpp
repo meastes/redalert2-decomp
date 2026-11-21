@@ -132,7 +132,7 @@ unsigned char __fastcall Kind_Test(int kind); // RA2: as above
 int __fastcall OwnerDraw_Control_Kind(unsigned int key, HWND window); // RA2: as above
 int __fastcall OwnerDraw_Control_Flags(unsigned int key, HWND window); // RA2: as above
 bool __fastcall Is_Tested_Control(unsigned int key, HWND window); // RA2: as above
-unsigned int __fastcall Is_Listed_Kind(int kind); // RA2: as above
+bool __fastcall Is_Listed_Kind(int kind); // RA2: as above
 void __fastcall Send_Control_Value(HWND window, unsigned char value); // RA2: as above
 void __fastcall Send_Control_Flag(HWND window, unsigned char flag); // RA2: as above
 void __fastcall Send_Control_Pair(HWND window, int low, int high); // RA2: as above
@@ -946,7 +946,7 @@ bool __fastcall Is_Tested_Control(unsigned int key, HWND window) // RA2: as abov
               (((kind == 0xff || (kind == 0x6b)) || // RA2: as above
                 ((kind == 0x100 || // RA2: as above
                   ((((kind == 0x102 || (kind == 0xb8)) || (kind == 0xd6)) || // RA2: as above
-                    ((kind == 0x103 || (char)Is_Listed_Kind(kind) != 0))))))))))) && (id == 0x694) // RA2: as above
+									   ((kind == 0x103 || Is_Listed_Kind(kind)))))))))))) && (id == 0x694) // RA2: as above
           ; // RA2: as above
     if (general) { // RA2: as above
         return true; // RA2: as above
@@ -1010,17 +1010,25 @@ bool __fastcall Is_Tested_Control(unsigned int key, HWND window) // RA2: as abov
 #endif
 
 
-unsigned int __fastcall Is_Listed_Kind(int kind) // RA2: as above
+bool __fastcall Is_Listed_Kind(int kind) // RA2: as above
 {
-    if (((((((kind != 0x125) && (kind != 0xe7)) && (kind != 0x116)) && // RA2: as above
-                ((kind != 0xc2 && (kind != 0xc9)))) && // RA2: as above
-              ((kind != 0x11d && ((kind != 0x11c && (kind != 0x114)))))) && (kind != 700)) && // RA2: as above
-          ((((kind != 0x113 && (kind != 0x109)) && (kind != 0x10f)) && // RA2: as above
-            (((kind != 0x117 && (kind != 0xe6)) && // RA2: as above
-              ((kind != 0xf3 && ((kind != 0xf4 && (kind != 0x10e)))))))))) { // RA2: as above
-        return 0; // RA2: as above
-    }
-    return 1; // RA2: as above
+	return kind == 0x125 ||
+		kind == 0xe7 ||
+		kind == 0x116 ||
+		kind == 0xc2 ||
+		kind == 0xc9 ||
+		kind == 0x11d ||
+		kind == 0x11c ||
+		kind == 0x114 ||
+		kind == 0x2bc ||
+		kind == 0x113 ||
+		kind == 0x109 ||
+		kind == 0x10f ||
+		kind == 0x117 ||
+		kind == 0xe6 ||
+		kind == 0xf3 ||
+		kind == 0xf4 ||
+		kind == 0x10e;
 }
 
 
@@ -2691,54 +2699,135 @@ inline bool __cdecl Is_Option_Kind(int kind) // RA2: as above
 {
     return kind == 0xbc || kind == 0xbd || kind == 0x102 || kind == 0xc2 || kind == 0xc9; // RA2: as above
 }
-inline bool __cdecl Is_Kind_103(int kind) // RA2: as above
-{
-    return kind == 0x103 || kind == 0xbc7; // RA2: as above
-}
-inline bool __cdecl Is_Kind_108(int kind) // RA2: as above
-{
-    return kind == 0x108 || kind == 0xbc6; // RA2: as above
-}
-inline bool __cdecl Is_Rail_ID(int id) // RA2: as above
-{
-    return id == 0x6ec || id == 0x5a8; // RA2: as above
-}
-inline bool __cdecl Is_Owner_Button(HWND window) // RA2: as above
-{
-    return (GetWindowLongA(window, GWL_STYLE) & 0xb) == 0xb; // RA2: as above
-}
-inline bool __cdecl Is_Free_Record(HWND window) // RA2: as above
-{
-    WinData *record = 0; // RA2: as above
-    Control_Table.getPointer((unsigned int)window, &record); // RA2: as above
-    return record != 0 && record->SkipTests == 0; // RA2: as above
-}
 inline int __cdecl Kind_Of(unsigned int key) // RA2: as above
 {
     WinData *record = 0; // RA2: as above
     Control_Table.getPointer(key, &record); // RA2: as above
     return record != 0 ? record->Kind : 0; // RA2: as above
 }
-#ifdef RA2_NON_MATCHING // not exact: no exact match yet (row 005e4780)
+inline bool __cdecl Is_Plain_Control(HWND window) // RA2: as above
+{
+	if ((GetWindowLongA(window, GWL_STYLE) & BS_OWNERDRAW) == BS_OWNERDRAW) { // RA2: as above
+		HWND control = window; // RA2: as above
+		WinData * record = 0; // RA2: as above
+		Control_Table.getPointer((unsigned int const &)control, &record); // RA2: as above
+		if (record != 0 && record->SkipTests == 0) { // RA2: as above
+			return true; // RA2: as above
+		}
+	}
+	return false; // RA2: as above
+}
+
+#ifdef RA2_NON_MATCHING // not exact: 2216 bytes differ (adopted text; the image calls Is_Listed_Kind out of line, ours expands it)
+inline bool Is_Quick_Control_B(int id)
+{
+	return id == 0x411 ||
+		id == 0x412 ||
+		id == 0x419 ||
+		id == 0x41a ||
+		id == 0x6a3 ||
+		id == 0x6a4 ||
+		id == 0x6a5 ||
+		id == 0x6a7 ||
+		id == 0x6a6 ||
+		id == 0x6a8 ||
+		id == 0x73a ||
+		id == 0x739 ||
+		id == 0x73b ||
+		id == 0x738;
+}
+
+inline bool Is_Quick_Control_D(int id)
+{
+	return id == 0x419 ||
+		id == 0x41a ||
+		id == 0x41b ||
+		id == 0x41c ||
+		id == 0x41d ||
+		id == 0x41e ||
+		id == 0x41f ||
+		id == 0x420 ||
+		id == 0x6a3 ||
+		id == 0x6a4 ||
+		id == 0x6a9 ||
+		id == 0x6ac ||
+		id == 0x6af ||
+		id == 0x6b2 ||
+		id == 0x6b5 ||
+		id == 0x6b8 ||
+		id == 0x6a5 ||
+		id == 0x6a7 ||
+		id == 0x6aa ||
+		id == 0x6ad ||
+		id == 0x6b0 ||
+		id == 0x6b3 ||
+		id == 0x6b6 ||
+		id == 0x6b9 ||
+		id == 0x6a6 ||
+		id == 0x6a8 ||
+		id == 0x6ab ||
+		id == 0x6ae ||
+		id == 0x6b1 ||
+		id == 0x6b4 ||
+		id == 0x6b7 ||
+		id == 0x6ba ||
+		id == 0x70a ||
+		id == 0x70b ||
+		id == 0x70c ||
+		id == 0x70d ||
+		id == 0x70e ||
+		id == 0x70f ||
+		id == 0x710 ||
+		id == 0x711;
+}
+
+inline WinData * Get_Data(HWND window)
+{
+	WinData * data = NULL;
+	if (!Control_Table.getPointer((unsigned int const &)window, &data)) {
+		return NULL;
+	}
+	return data;
+}
+
+inline bool Is_Flag_Control_B(int type, int id)
+{
+	return (type == 0xbc ||
+			type == 0xbd ||
+			type == 0x102 ||
+			type == 0xc2 ||
+			   type == 0xc9) && (id == 0x6ec ||
+			id == 0x5a8);
+}
+
+inline int Get_Dialog_Type(HWND dialog)
+{
+	WinData * data = Get_Data(dialog);
+	if (data != NULL) {
+		return data->Kind;
+	}
+	return 0;
+}
+
 BOOL __stdcall Enable_Animated_Control(HWND window, LPARAM lparam) // RA2: as above
 {
-    HWND parent = GetParent(window);
-    int kind = Kind_Of((unsigned int)parent); // RA2: as above
-    int id = GetDlgCtrlID(window); // RA2: as above
-    bool value = lparam != 0; // RA2: as above
-    if (!(((kind == 0x10c || kind == 0x94 || kind == 0xa3 || kind == 0x73 || kind == 0xd8 || kind == 0xbbb || kind == 0xf5 || kind == 0x105 || kind == 0xe2 || kind == 0xd5 || kind == 0x2b5 || kind == 0xb7 || kind == 0x2b4 || kind == 0xbc7 || kind == 0x101 || kind == 0x129 || kind == 0xbc6 || kind == 0xd7 || kind == 0x108 || kind == 0xbc || kind == 0xbd || kind == 0xbb || kind == 0xb5 || kind == 0xbba || kind == 0xff || kind == 0x6b || kind == 0x100 || kind == 0x102 || kind == 0xb8 || kind == 0xd6 || kind == 0x103 || Is_Listed_Kind(kind)) && id == 0x694) // RA2: as above
-        || (Kind_Test(kind) && id == 0x695) // RA2: as above
-        || (Is_Listed_Dialog_Kind(kind) && id == 0x71c) // RA2: as above
-        || ((Is_Option_Kind(kind) || kind == 0x105 || kind == 0x6b || kind == 0x113) && id == 0x468) // RA2: as above
-        || ((Is_Option_Kind(kind)) && Is_Rail_ID(id)) // RA2: as above
-        || (Is_Kind_103(kind) && (id == 0x6f3 || id == 0x6f4 || id == 0x72b || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2 || id == 0x69f || id == 0x6f6 || id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x736 || id == 0x737 || id == 0x73c || id == 0x73d || id == 0x73e || id == 0x73f || id == 0x740 || id == 0x411 || id == 0x412 || id == 0x419 || id == 0x41a || id == 0x6a3 || id == 0x6a4 || id == 0x6a5 || id == 0x6a7 || id == 0x6a6 || id == 0x6a8 || id == 0x73a || id == 0x739 || id == 0x73b || id == 0x738)) // RA2: as above
-        || (Is_Kind_108(kind) && (id == 0x6d2 || id == 0x3ea || id == 0x69d || id == 0x69f || id == 0x69e || id == 0x6a0 || id == 0x6a1 || id == 0x5c8 || id == 0x411 || id == 0x412 || id == 0x413 || id == 0x414 || id == 0x415 || id == 0x416 || id == 0x417 || id == 0x418 || id == 0x419 || id == 0x41a || id == 0x41b || id == 0x41c || id == 0x41d || id == 0x41e || id == 0x41f || id == 0x420 || id == 0x6a3 || id == 0x6a4 || id == 0x6a9 || id == 0x6ac || id == 0x6af || id == 0x6b2 || id == 0x6b5 || id == 0x6b8 || id == 0x6a5 || id == 0x6a7 || id == 0x6aa || id == 0x6ad || id == 0x6b0 || id == 0x6b3 || id == 0x6b6 || id == 0x6b9 || id == 0x6a6 || id == 0x6a8 || id == 0x6ab || id == 0x6ae || id == 0x6b1 || id == 0x6b4 || id == 0x6b7 || id == 0x6ba || id == 0x70a || id == 0x70b || id == 0x70c || id == 0x70d || id == 0x70e || id == 0x70f || id == 0x710 || id == 0x711 || id == 0x733 || id == 0x732 || id == 0x71b || id == 0x735)) // RA2: as above
-        || (Is_Owner_Button(window) && Is_Free_Record(window) && Is_Owner_Tested_Control((unsigned int)parent, window)) // RA2: as above
-        || (Is_Owner_Button(window) && Is_Free_Record(window) && Is_Default_Button((unsigned int)parent, window)))) { // RA2: as above
-        return TRUE; // RA2: as above
-    }
-    Set_Control_Disabled(window, value); // RA2: as above
-    return TRUE; // RA2: as above
+	HWND parent = GetParent(window);
+	int type = Get_Dialog_Type(parent);
+	int id = GetDlgCtrlID(window);
+	bool value = lparam != 0;
+
+	if (((type == 0x10c || type == 0x94 || type == 0xa3 || type == 0x73 || type == 0xd8 || type == 0xbbb || type == 0xf5 || type == 0x105 || type == 0xe2 || type == 0xd5 || type == 0x2b5 || type == 0xb7 || type == 0x2b4 || type == 0xbc7 || type == 0x101 || type == 0x129 || type == 0xbc6 || type == 0xd7 || type == 0x108 || type == 0xbc || type == 0xbd || type == 0xbb || type == 0xb5 || type == 0xbba || type == 0xff || type == 0x6b || type == 0x100 || type == 0x102 || type == 0xb8 || type == 0xd6 || type == 0x103 || Is_Listed_Kind(type)) && id == 0x694) ||
+		(Kind_Test(type) && id == 0x695) ||
+		((type == 0x94 || type == 0xd8 || type == 0xf5 || type == 0xe2 || type == 0xd5 || type == 0x101 || type == 0x129 || type == 0xd7 || type == 0xbb || type == 0x100 || type == 0xd6 || type == 0x125 || type == 0x122 || type == 0x112 || type == 0xe7 || type == 0x116 || type == 0x11d || type == 0x11c || type == 0xfe || type == 0x10f || type == 0x117 || type == 0x114 || type == 0xe6 || type == 0xf3 || type == 0xf4 || type == 0x2bc || type == 0x10e || type == 0xbc6 || type == 0xbc7) && id == 0x71c) ||
+		((type == 0xbc || type == 0xbd || type == 0x102 || type == 0xc2 || type == 0xc9 || type == 0x105 || type == 0x6b || type == 0x113) && id == 0x468) ||
+		Is_Flag_Control_B(type, id) ||
+		((type == 0x103 || type == 0xbc7) && (id == 0x6f3 || id == 0x6f4 || id == 0x72b || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2 || id == 0x69f || id == 0x6f6 || id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x736 || id == 0x737 || id == 0x73c || id == 0x73d || id == 0x73e || id == 0x73f || id == 0x740 || Is_Quick_Control_B(id))) ||
+		((type == 0x108 || type == 0xbc6) && (id == 0x6d2 || id == 0x3ea || id == 0x69d || id == 0x69f || id == 0x69e || id == 0x6a0 || id == 0x6a1 || id == 0x5c8 || id == 0x411 || id == 0x412 || id == 0x413 || id == 0x414 || id == 0x415 || id == 0x416 || id == 0x417 || id == 0x418 || Is_Quick_Control_D(id) || id == 0x733 || id == 0x732 || id == 0x71b || id == 0x735)) ||
+		(Is_Plain_Control(window) && Is_Owner_Tested_Control((unsigned int)parent, window)) ||
+		(Is_Plain_Control(window) && Is_Default_Button((unsigned int)parent, window))) {
+		Set_Control_Disabled(window, value);
+	}
+	return TRUE;
 }
 #endif
 
@@ -3494,19 +3583,6 @@ bool __fastcall Is_Flag_Control(unsigned int key, HWND window) // RA2: as above
 
 
 namespace OwnerDraw { // RA2: as above
-
-inline bool __cdecl Is_Plain_Control(HWND window) // RA2: as above
-{
-    if ((GetWindowLongA(window, GWL_STYLE) & BS_OWNERDRAW) == BS_OWNERDRAW) { // RA2: as above
-        HWND control = window; // RA2: as above
-        WinData *record = 0; // RA2: as above
-        Control_Table.getPointer((unsigned int const &)control, &record); // RA2: as above
-        if (record != 0 && record->SkipTests == 0) { // RA2: as above
-            return true; // RA2: as above
-        }
-    }
-    return false; // RA2: as above
-}
 
 bool __fastcall Is_Campaign_Button(unsigned int key, HWND window) // RA2: as above
 {
@@ -8345,6 +8421,7 @@ struct TrackBarState { // RA2: as above
     int click_suppress; // RA2: as above
 };
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; lane F14 removed five unused coined predicates above it, typed Is_Listed_Kind bool and put Enable_Animated_Control's guarded draft in ra2-decomp's text)
 LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     bool play_click = true;
@@ -8677,6 +8754,7 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     return 0; // RA2: as above
 }
+#endif
 
 }
 
