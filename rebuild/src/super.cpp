@@ -609,8 +609,7 @@ bool SuperClass::Can_Place() // RA2: is not const (0x0069D820)
 /// <param name="cell">The cell that was designated as the target.</param>
 /// <param name="player">Is this for a player owned super weapon? If so, then the
 /// targeting cursor gets cleared.</param>
-#ifdef RA2_NON_MATCHING // not exact: 29 bytes differ (register order; a cell addition, argument order and registers)
-void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon type's effect here; not a byte match yet, see the report (0x0069D850)
+void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon type's effect here (0x0069D850)
 {
 	switch (Class->Type) {
 	case SUPER_CHRONO_SPHERE: // RA2: as above
@@ -651,9 +650,9 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 			Cell const *offset = &CellAndNeighbors[index]; // RA2: as above
 			ObjectClass *object; // RA2: as above
 			if (Map[ChronoMapCoords + *offset].IsUnderBridge) { // RA2: as above
-				object = Map[ChronoMapCoords + *offset].Cell_Occupier(true); // RA2: as above
+				object = Map[*offset + ChronoMapCoords].Cell_Bridge_Occupier(); // RA2: as above
 			} else {
-				object = Map[ChronoMapCoords + *offset].Cell_Occupier(); // RA2: as above
+				object = Map[*offset + ChronoMapCoords].Cell_Occupier(); // RA2: as above
 			}
 			while (object != 0) { // RA2: as above
 				FootClass *foot = (FootClass *)object; // RA2: as above
@@ -830,7 +829,8 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 				CellClass *target = &Map[coord]; // RA2: as above
 				Coord sound = coord; // RA2: as above
 				Coord launch(sound.X, sound.Y, sound.Z + 20000); // RA2: as above
-				BulletClass * bullet = payload->Bullet->Create_Bullet(target, NULL, payload->Attack, payload->WarheadPtr, payload->MaxSpeed, false); // RA2: as above
+				BulletTypeClass const * bullet_type = payload->Bullet; // RA2: TAction_MULTI_MISSILE's form (YR's twin text)
+				BulletClass * bullet = bullet_type->Create_Bullet(target, NULL, payload->Attack, payload->WarheadPtr, payload->MaxSpeed, false); // RA2: as above
 				bullet->Set_Weapon_Type(payload); // RA2: as above
 				Create_Attached_Anim(House, target, bullet, "PSIWARN"); // RA2: the bullet comes before the name
 				if (bullet != 0) { // RA2: as above
@@ -885,7 +885,6 @@ void SuperClass::Place(Cell const &cell, bool player) // RA2: does each weapon t
 		break;
 	}
 }
-#endif
 
 
 /// <summary>

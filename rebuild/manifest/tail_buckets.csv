@@ -225,7 +225,6 @@ netshare,005c8dd0,?Set_Slot_Names@@YIXPBG@Z,920,register_order,,,"+2b mov ebp, d
 score,00663fe0,?Presentation@ScoreClass@@QAEXXZ,7782,register_order,,,"+0 sub esp, 0x69c | orig sub esp, 0x6a0"
 sidebar,0067f800,?Draw_It@StripClass@SidebarClass@@QAEX_N@Z,2760,register_order,,,"+494 mov edx, dword ptr [0] | orig mov edx, dword ptr [0x8323b0]"
 sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,register_order,,,"+ef mov edx, dword ptr [0x839638] | orig mov edx, dword ptr [0x839630]"
-super,0069d850,?Place@SuperClass@@QAEXABVCell@@_N@Z,4388,register_order,,,"+32e mov cx, word ptr [ebx] | orig mov cx, word ptr [edi]"
 techno,006d6ed0,?Railgun_Beam_Damage@TechnoClass@@QAE?AVCoord@@AAV2@PAVAbstractClass@@PAVWeaponTypeClass@@@Z,1521,register_order,,,"+31b sub esp, 8 | orig faddp st(1)"
 techtype,006d9b40,??0TechnoTypeClass@@QAE@PBDW4SpeedType@@@Z,2961,register_order,,,"+478 push ebx | orig mov dword ptr [esi + 0x53c], ebx"
 uicmnds,006f7670,?Type_Select_Key_Up@@YIXXZ,58,register_order,,,"+2d push 1 | orig mov ecx, 0x8324e0"

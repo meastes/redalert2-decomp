@@ -9,13 +9,16 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 <!-- generated:status -->
 
-| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-19T17:34Z) |
+| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-21T00:58Z) |
 | --- | ---: | ---: |
-| Reproduced .text | 93.54% | 71.404% |
-| C/C++ built from source | 86.86% of .text | 68.588% of .text |
-| Accepted | 17,910 regions | 15,455 functions in 421 units |
-| Rebuild provenance (rebuild/README.md) | | adopted 11,786 fn / 1,828,610 B; reshaped from src/ 82 / 110,208 B; fresh 127 / 14,928 B; Windows workers 3,460 / 631,901 B |
-| Rebuild structure | | duplicates 0, externs 6 landed / 10 all, address-suffixed 4; parked 1,618 functions / 578,876 B (>=1 KB: 140 / 411,979 B); judgment 2 rows / 4,558 B; count-sensitive 3 rows / 10,128 B |
+| Reproduced .text | 93.54% | 86.719% |
+| C/C++ built from source | 86.86% of .text | 83.851% of .text |
+| Accepted | 17,910 regions | 17,431 functions in 437 units |
+| Rebuild provenance (rebuild/README.md) | | adopted 16,589 fn / 2,775,247 B; reshaped from src/ 174 / 172,308 B; fresh 163 / 19,920 B; Windows workers 505 / 195,520 B |
+| Rebuild structure | | duplicates 0, externs 5 landed / 5 all, address-suffixed 1; parked 252 functions / 235,361 B (>=1 KB: 66 / 202,779 B); judgment 13 rows / 26,803 B; count-sensitive 2 rows / 6,618 B |
+| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | 4 rows / 1,976 B |
+| Rebuild evidenced inline assembly reached through a file-static helper of its unit | | 2 rows / 789 B |
+| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | 2 rows / 115 B |
 
 | Measure | Value |
 | --- | ---: |
@@ -44,6 +47,9 @@ the native port is in progress. Per-batch evidence through A15 is in
 | Handwritten assembly reproduced from adopted TibSun .asm sources (manifests/original_target/assembly.json; own ledger) | 16,999 in 51 procedures |
 | Handwritten blitter/codec assembly bytes (9 owner-ruled ranges plus evidenced inline asm; own ledger) | 23,156 (0.61% of .text) |
 | In-scope matched C/C++ bytes (of .text minus CRT, handwritten assembly and in-scope padding) | 3,274,382 of 3,515,642 (93.14%) |
+| In-scope functions matched (game code below 0x781000, handwritten ranges and known false rows excluded) | 17,892 of 17,986 (99.48%) |
+| Partial-match average (unmatched functions at best recorded score, 0 if none, sized by inventory bounds; 90 of 94 scored) | 98.92% by bytes, 99.87% per function |
+| In-scope functions with source (exact or draft: accepted rows plus non-exact drafts in source) | 17,983 of 17,986 (99.98%) |
 | Non-exact drafts in source (#ifdef RA2_NON_MATCHING, manifests/original_target/non_exact.json; never compiled by the exact build; no .text credit) | 96 functions, 181,989 bytes, mean score 68.49 |
 | Structure: class/struct names defined more than once under src/ (cleanup_census.py --structure (a)) | 155 of 1,986 names (276 extra definitions) |
 | Structure: files under src/recovered/ outside their unit's file ((c); a one-function file holds one catalog row) | 1,967 (1,962 one-function) beside 406 unit files |
