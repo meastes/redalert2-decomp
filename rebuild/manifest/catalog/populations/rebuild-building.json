@@ -302,6 +302,23 @@
     "?What_Action@TechnoClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": 7130336,
     "?Can_Fire@TechnoClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z": 7115360,
     "??_C@_0BM@POLG@EVA_PrimaryBuildingSelected?$AA@": 8190116,
+    "?Disarm@BombClass@@QAEXXZ": 4415408,
+    "??_C@_0BF@HINA@EVA_TechBuildingLost?$AA@": 8190296,
+    "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@": 8190268,
+    "??_C@_0BF@PPPA@EVA_BuildingCaptured?$AA@": 8190244,
+    "?Enable@AnimClass@@QAEXXZ": 4336672,
+    "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z": 7390352,
+    "?Attached_Object@CargoClass@@QBEPAVFootClass@@XZ": 4622864,
+    "??0?$VectorClass@PAVReestablish@@@@QAE@HPBQAVReestablish@@@Z": 4541344,
+    "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@": 7983376,
+    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
+    "?Abandon@FactoryClass@@QAE_NXZ": 4954048,
+    "?Captured@TechnoClass@@UAE_NPAVHouseClass@@_N@Z": 7133504,
+    "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z": 4820752,
+    "?Set_Anim_Drawer@BuildingClass@@QAEXPAVConvertClass@@H@Z": 4509936,
+    "?Set_Anim_Translucency@BuildingClass@@QAEXH@Z": 4510416,
+    "?Remove_Upgrade@BuildingClass@@QAE_NXZ": 4507744,
+    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
     "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
     "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
     "??_C@_0CG@NOKL@Weapons?5factory?5clearing?5?$CFs?5from@": 8190364,
@@ -317,9 +334,7 @@
     "??_7?$VectorClass@PAVTechnoClass@@@@6B@": 7972860,
     "?Get_Amount@StorageClass@@QBEMH@Z": 6925888,
     "?Give_Tiberium@HouseClass@@QAEMMH@Z": 5132544,
-    "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
     "??_C@_0N@GEGF@EVA_UnitSold?$AA@": 8190404,
-    "?Remove_Upgrade@BuildingClass@@QAE_NXZ": 4507744,
     "??0LaserDrawClass@@QAE@VCoord@@0H_NVRGBClass@@22H11MM@Z": 5452048,
     "?Do_MISSION_CAPTURE@MissionClass@@UAEHXZ": 5850544,
     "?Do_MISSION_HARVEST@MissionClass@@UAEHXZ": 5850608,
@@ -362,7 +377,6 @@
     "?Detach_Anim@BuildingClass@@QAEXPAVAnimClass@@@Z": 4508896,
     "?Crew_Type@TechnoClass@@UBEPBVInfantryTypeClass@@XZ": 7155888,
     "?Abandon_Production@HouseClass@@QAE?AW4ProdFailType@@W4RTTIType@@H_N@Z": 5137648,
-    "?Abandon@FactoryClass@@QAE_NXZ": 4954048,
     "?Detach_All@ObjectClass@@UAEX_N@Z": 6110224,
     "?Flush_For_Placement@BuildingTypeClass@@QBEHABVCell@@PAVHouseClass@@@Z": 4557584,
     "?In_Radar@MapClass@@QBE_NABVCell@@@Z": 5548720,
@@ -380,7 +394,6 @@
     "?From_Name@TagTypeClass@@SIPAV1@PBD@Z": 7030912,
     "?Find_Or_Make@@YIPAVTagClass@@PAVTagTypeClass@@@Z": 7028016,
     "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z": 4408176,
-    "?Enable@AnimClass@@QAEXXZ": 4336672,
     "??_C@_0BD@BHPD@EVA_BuildingOnLine?$AA@": 8190552,
     "?Turn_Off@BuildingClass@@QAEXXZ": 4511024,
     "?Power_Off@BuildingClass@@QAEXXZ": 4511424,
@@ -404,8 +417,6 @@
     "?Fire_Prism_Support@BuildingClass@@QAEXVCoord@@@Z": 4483104,
     "__real@8@4009e100000000000000": 7983424,
     "__real@8@4006e100000000000000": 7983416,
-    "?Set_Anim_Drawer@BuildingClass@@QAEXPAVConvertClass@@H@Z": 4509936,
-    "?Set_Anim_Translucency@BuildingClass@@QAEXH@Z": 4510416,
     "__real@4@4008f780000000000000": 7983436,
     "__real@4@3ff591a2b40000000000": 7983432,
     "?Begin_Anim@BuildingClass@@QAEXW4BAnimType@@_N1H@Z": 4507936,
@@ -522,7 +533,6 @@
     "_CLSID_BuildingClass": 8002576,
     "??1BuildingClass@@UAE@XZ": 4428352,
     "??_7?$VectorClass@PAVFoggedObjectClass@@@@6B@": 7983516,
-    "??_7?$VectorClass@PAVReestablish@@@@6B@": 7983344,
     "__GUID_0000010c_0000_0000_c000_000000000046": 8188424,
     "__GUID_92fea800_a184_11d1_b70a_00a024ddafd1": 8191024,
     "??_C@_0L@FKND@Structures?$AA@": 8189592,
@@ -588,7 +598,6 @@
     "?GetSecondaryWeaponIndex@TechnoClass@@UBEHXZ": 7177472,
     "?IsNotSprayAttack@TechnoClass@@UBEHXZ": 7177456,
     "?IsAreaFire@TechnoClass@@UBE_NXZ": 7177424,
-    "?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z": 4474464,
     "?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z": 7121040,
     "?GetFireErrorWithoutRange@TechnoClass@@UBEHPAVAbstractClass@@H@Z": 7115328,
     "?InAuxiliarySearchRange@TechnoClass@@UBE_NPAVAbstractClass@@@Z": 7098784,
@@ -791,6 +800,9 @@
     "?Destination_Coord@BuildingClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 4473664,
     "?Can_Fire@BuildingClass@@UBE?AW4FireErrorType@@PAVAbstractClass@@H_N@Z": 4473776,
     "?Toggle_Primary@BuildingClass@@UAE_NXZ": 4474240,
+    "?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z": 4474464,
+    "??_G?$VectorClass@PAVReestablish@@@@UAEPAXI@Z": 4540976,
+    "??_G?$DynamicVectorClass@PAVReestablish@@@@UAEPAXI@Z": 4541056,
     "?Sort_Y@BuildingClass@@UBEHXZ": 4477824,
     "?Can_Enter_Cell@BuildingClass@@UBE?AW4MoveType@@PBVCellClass@@W4FacingType@@H0_N@Z": 4477872,
     "?Can_Demolish@BuildingClass@@UBE_NXZ": 4478000,
@@ -908,8 +920,6 @@
     "?Full_Name@BuildingClass@@UBEPBGXZ": 4537424,
     "?Class_Of@BuildingClass@@UBEPBVObjectTypeClass@@XZ": 4537440,
     "?Render_Coord@BuildingClass@@UBE?AVCoord@@XZ": 4537456,
-    "??0?$VectorClass@PAVReestablish@@@@QAE@HPBQAVReestablish@@@Z": 4541344,
-    "??_G?$VectorClass@PAVReestablish@@@@UAEPAXI@Z": 4540976,
     "?Resize@?$DynamicVectorClass@PAVReestablish@@@@UAE_NHPBQAVReestablish@@@Z": 4539952,
     "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z": 4540128,
     "?Clear@?$DynamicVectorClass@PBVParticleSystemTypeClass@@@@UAEXXZ": 4537536,
@@ -924,6 +934,8 @@
     "?GetItem@?$VectorClass@PAVFoggedObjectClass@@@@UBEPAVFoggedObjectClass@@H@Z": 4537808,
     "?Clear@?$DynamicVectorClass@PAVTechnoClass@@@@UAEXXZ": 4240816,
     "?ID@?$DynamicVectorClass@PAVTechnoClass@@@@UAEHPBQAVTechnoClass@@@Z": 4240864,
+    "?Clear@?$DynamicVectorClass@PAVReestablish@@@@UAEXXZ": 4537824,
+    "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z": 4537872,
     "?GetItem@?$VectorClass@PAVReestablish@@@@UBEPAVReestablish@@H@Z": 4537904,
     "__GUID_070f3290_9841_11d1_b709_00a024ddafd1": 8185344,
     "__imp__OleRun@4": 7972340,
@@ -1043,7 +1055,7 @@
           "resolved": 8711448
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4424960,
@@ -1095,7 +1107,7 @@
           "resolved": 8711528
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425008,
@@ -1147,7 +1159,7 @@
           "resolved": 8711512
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425040,
@@ -1199,7 +1211,7 @@
           "resolved": 8711504
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425072,
@@ -1251,7 +1263,7 @@
           "resolved": 8711456
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425104,
@@ -1303,7 +1315,7 @@
           "resolved": 8711408
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425136,
@@ -1387,7 +1399,7 @@
           "resolved": 8711536
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425168,
@@ -1447,7 +1459,7 @@
           "resolved": 8711464
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425232,
@@ -1507,7 +1519,7 @@
           "resolved": 8711488
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425280,
@@ -1567,7 +1579,7 @@
           "resolved": 8711520
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425328,
@@ -1611,7 +1623,7 @@
           "resolved": 8711442
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425376,
@@ -1663,7 +1675,7 @@
           "resolved": 8711480
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425392,
@@ -1723,7 +1735,7 @@
           "resolved": 8711436
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4425424,
@@ -1807,7 +1819,7 @@
           "resolved": 3433944
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4426336,
@@ -1883,7 +1895,7 @@
           "resolved": 4294875793
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4426624,
@@ -1975,7 +1987,7 @@
           "resolved": 7981968
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4426784,
@@ -2587,7 +2599,7 @@
           "resolved": 2088205
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4426976,
@@ -3039,7 +3051,7 @@
           "resolved": 2656969
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4428352,
@@ -3179,7 +3191,7 @@
           "resolved": 2093351
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4429296,
@@ -3206,7 +3218,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4429760,
@@ -3643,7 +3655,7 @@
           "resolved": 4432289
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4429808,
@@ -3751,7 +3763,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4432384,
@@ -3875,7 +3887,7 @@
           "resolved": 2715459
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4432768,
@@ -4255,7 +4267,7 @@
           "resolved": 2713945
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4433376,
@@ -4923,7 +4935,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4434896,
@@ -5031,7 +5043,7 @@
           "resolved": 407308
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4437600,
@@ -5067,7 +5079,7 @@
           "resolved": 2519486
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4437920,
@@ -5327,7 +5339,7 @@
           "resolved": 2681229
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4437984,
@@ -5427,7 +5439,7 @@
           "resolved": 3421268
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4438992,
@@ -5471,7 +5483,7 @@
           "resolved": 8047280
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4439264,
@@ -5523,7 +5535,7 @@
           "resolved": 68697
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4439360,
@@ -5599,7 +5611,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4439584,
@@ -6108,7 +6120,7 @@
           "resolved": 4440105
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4440000,
@@ -6616,7 +6628,7 @@
           "resolved": 4294847897
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4442416,
@@ -7604,7 +7616,7 @@
           "resolved": 741147
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4445088,
@@ -8232,7 +8244,7 @@
           "resolved": 3420592
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4448880,
@@ -8476,7 +8488,7 @@
           "resolved": 1111834
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4451232,
@@ -8536,7 +8548,7 @@
           "resolved": 127061
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4454464,
@@ -8812,7 +8824,7 @@
           "resolved": 2394676
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4454624,
@@ -9064,7 +9076,7 @@
           "resolved": 370
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4455728,
@@ -9236,7 +9248,7 @@
           "resolved": 10691384
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4456416,
@@ -9616,7 +9628,7 @@
           "resolved": 10691384
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4456768,
@@ -9668,7 +9680,7 @@
           "resolved": 740868
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4457552,
@@ -9985,7 +9997,7 @@
           "resolved": 4464667
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4464304,
@@ -10381,7 +10393,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4464736,
@@ -10449,7 +10461,7 @@
           "resolved": 484772
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4466080,
@@ -10501,7 +10513,7 @@
           "resolved": 2637427
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4466256,
@@ -11346,7 +11358,7 @@
           "resolved": 4468801
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4466384,
@@ -11446,7 +11458,7 @@
           "resolved": 2950865
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4470400,
@@ -11506,7 +11518,7 @@
           "resolved": 727665
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4470688,
@@ -11630,7 +11642,7 @@
           "resolved": 1066256
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4470944,
@@ -11754,7 +11766,7 @@
           "resolved": 726374
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4471712,
@@ -11974,7 +11986,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4472160,
@@ -12018,7 +12030,7 @@
           "resolved": 84105
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4472960,
@@ -12062,7 +12074,7 @@
           "resolved": 3386847
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4473520,
@@ -12089,7 +12101,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4473664,
@@ -12133,7 +12145,7 @@
           "resolved": 477024
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4473776,
@@ -12160,7 +12172,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4474032,
@@ -12212,10 +12224,614 @@
           "resolved": 2954488
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4474240,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4474464,
+      "method": "00444660",
+      "body_bytes": 3359,
+      "body_sha256": "bd1cea9858347f9c26ea7138351073943a1248667057ed3541e23cde1e20b4a2",
+      "padding_bytes": 1,
+      "full_extent_bytes": 3360,
+      "full_extent_sha256": "57e1f71078d295546eecb4f68470e6070956327996947f4ae5072414cda187c4",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z",
+      "symbol_prefix": "?Captured@BuildingClass@@UAE_NPAVHouseClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 47,
+          "kind": 20,
+          "symbol": "?Disarm@BombClass@@QAEXXZ",
+          "target": 4415408,
+          "addend": 0,
+          "resolved": 4294908189
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "?Refund_Money@HouseClass@@QAEXH@Z",
+          "target": 5133376,
+          "addend": 0,
+          "resolved": 658795
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 639491
+        },
+        {
+          "offset": 345,
+          "kind": 20,
+          "symbol": "?Update_Laser_Fence_Connections@BuildingClass@@QAEXH@Z",
+          "target": 4512832,
+          "addend": 0,
+          "resolved": 38019
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 723688
+        },
+        {
+          "offset": 367,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 723677
+        },
+        {
+          "offset": 431,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 723613
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "??_C@_0BF@HINA@EVA_TechBuildingLost?$AA@",
+          "target": 8190296,
+          "addend": 0,
+          "resolved": 8190296
+        },
+        {
+          "offset": 450,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 2954010
+        },
+        {
+          "offset": 457,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 723587
+        },
+        {
+          "offset": 471,
+          "kind": 6,
+          "symbol": "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@",
+          "target": 8190268,
+          "addend": 0,
+          "resolved": 8190268
+        },
+        {
+          "offset": 501,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 2059607
+        },
+        {
+          "offset": 515,
+          "kind": 6,
+          "symbol": "??_C@_0BF@PPPA@EVA_BuildingCaptured?$AA@",
+          "target": 8190244,
+          "addend": 0,
+          "resolved": 8190244
+        },
+        {
+          "offset": 520,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXPBDHH@Z",
+          "target": 7428928,
+          "addend": 0,
+          "resolved": 2953940
+        },
+        {
+          "offset": 527,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 533,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 5384,
+          "resolved": 8600040
+        },
+        {
+          "offset": 539,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 639265
+        },
+        {
+          "offset": 641,
+          "kind": 20,
+          "symbol": "?Toggle_Laser_Fence_Post@BuildingClass@@QAEX_N@Z",
+          "target": 4515232,
+          "addend": 0,
+          "resolved": 40123
+        },
+        {
+          "offset": 648,
+          "kind": 20,
+          "symbol": "?Update_Power_State@BuildingClass@@QAEXXZ",
+          "target": 4520160,
+          "addend": 0,
+          "resolved": 45044
+        },
+        {
+          "offset": 674,
+          "kind": 20,
+          "symbol": "?Enable@LightSourceClass@@QAEX_N@Z",
+          "target": 5469504,
+          "addend": 0,
+          "resolved": 994362
+        },
+        {
+          "offset": 699,
+          "kind": 20,
+          "symbol": "?Toggle_Laser_Fence_Post@BuildingClass@@QAEX_N@Z",
+          "target": 4515232,
+          "addend": 0,
+          "resolved": 40065
+        },
+        {
+          "offset": 736,
+          "kind": 20,
+          "symbol": "?Enable@AnimClass@@QAEXXZ",
+          "target": 4336672,
+          "addend": 0,
+          "resolved": 4294828764
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 787,
+          "kind": 20,
+          "symbol": "?Increment_Unit_Total@UnitTrackerClass@@QAEXH@Z",
+          "target": 7390352,
+          "addend": 0,
+          "resolved": 2915097
+        },
+        {
+          "offset": 798,
+          "kind": 20,
+          "symbol": "?Attached_Object@CargoClass@@QBEPAVFootClass@@XZ",
+          "target": 4622864,
+          "addend": 0,
+          "resolved": 147598
+        },
+        {
+          "offset": 832,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@PAVReestablish@@@@QAE@HPBQAVReestablish@@@Z",
+          "target": 4541344,
+          "addend": 0,
+          "resolved": 66044
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@PAVReestablish@@@@6B@",
+          "target": 7983376,
+          "addend": 0,
+          "resolved": 7983376
+        },
+        {
+          "offset": 882,
+          "kind": 20,
+          "symbol": "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z",
+          "target": 6516240,
+          "addend": 0,
+          "resolved": 2040890
+        },
+        {
+          "offset": 1030,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294798278
+        },
+        {
+          "offset": 1059,
+          "kind": 20,
+          "symbol": "?Length@?$TPoint3D@H@@QBEHXZ",
+          "target": 4306816,
+          "addend": 0,
+          "resolved": 4294798585
+        },
+        {
+          "offset": 1098,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 3396969
+        },
+        {
+          "offset": 1224,
+          "kind": 20,
+          "symbol": "?Abandon@FactoryClass@@QAE_NXZ",
+          "target": 4954048,
+          "addend": 0,
+          "resolved": 478356
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "?Active_Remove@HouseClass@@QAEXPBVTechnoClass@@@Z",
+          "target": 5155744,
+          "addend": 0,
+          "resolved": 680013
+        },
+        {
+          "offset": 1283,
+          "kind": 20,
+          "symbol": "??0TargetClass@@QAE@PBVAbstractClass@@@Z",
+          "target": 7034016,
+          "addend": 0,
+          "resolved": 2558265
+        },
+        {
+          "offset": 1296,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1872,
+          "kind": 20,
+          "symbol": "?Captured@TechnoClass@@UAE_NPAVHouseClass@@_N@Z",
+          "target": 7133504,
+          "addend": 0,
+          "resolved": 2657164
+        },
+        {
+          "offset": 1998,
+          "kind": 20,
+          "symbol": "?Become_Primary@BuildingClass@@QAE_N_N@Z",
+          "target": 4474032,
+          "addend": 0,
+          "resolved": 4294964862
+        },
+        {
+          "offset": 2011,
+          "kind": 20,
+          "symbol": "?Recalc_Center@HouseClass@@QAEXXZ",
+          "target": 5146176,
+          "addend": 0,
+          "resolved": 669697
+        },
+        {
+          "offset": 2022,
+          "kind": 20,
+          "symbol": "?Recalc_Center@HouseClass@@QAEXXZ",
+          "target": 5146176,
+          "addend": 0,
+          "resolved": 669686
+        },
+        {
+          "offset": 2049,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 721995
+        },
+        {
+          "offset": 2075,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2081,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4512,
+          "resolved": 8599168
+        },
+        {
+          "offset": 2087,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4516,
+          "resolved": 8599172
+        },
+        {
+          "offset": 2093,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 4520,
+          "resolved": 8599176
+        },
+        {
+          "offset": 2102,
+          "kind": 20,
+          "symbol": "?Set_Cursor_Shape@DisplayClass@@QAEXPBVCell@@@Z",
+          "target": 4820752,
+          "addend": 0,
+          "resolved": 344182
+        },
+        {
+          "offset": 2114,
+          "kind": 20,
+          "symbol": "?Active_Add@HouseClass@@QAEXPBVTechnoClass@@@Z",
+          "target": 5155952,
+          "addend": 0,
+          "resolved": 679370
+        },
+        {
+          "offset": 2155,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 2179,
+          "kind": 20,
+          "symbol": "?Connect_Laser_Fence@BuildingClass@@QAEXW4FacingType@@@Z",
+          "target": 4513728,
+          "addend": 0,
+          "resolved": 37081
+        },
+        {
+          "offset": 2188,
+          "kind": 20,
+          "symbol": "?Connect_Laser_Fence@BuildingClass@@QAEXW4FacingType@@@Z",
+          "target": 4513728,
+          "addend": 0,
+          "resolved": 37072
+        },
+        {
+          "offset": 2197,
+          "kind": 20,
+          "symbol": "?Connect_Laser_Fence@BuildingClass@@QAEXW4FacingType@@@Z",
+          "target": 4513728,
+          "addend": 0,
+          "resolved": 37063
+        },
+        {
+          "offset": 2206,
+          "kind": 20,
+          "symbol": "?Connect_Laser_Fence@BuildingClass@@QAEXW4FacingType@@@Z",
+          "target": 4513728,
+          "addend": 0,
+          "resolved": 37054
+        },
+        {
+          "offset": 2215,
+          "kind": 20,
+          "symbol": "?Toggle_Laser_Fence_Post@BuildingClass@@QAEX_N@Z",
+          "target": 4515232,
+          "addend": 0,
+          "resolved": 38549
+        },
+        {
+          "offset": 2221,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 2256,
+          "kind": 20,
+          "symbol": "?Is_Player_Control@HouseClass@@QBE_NXZ",
+          "target": 5198512,
+          "addend": 0,
+          "resolved": 721788
+        },
+        {
+          "offset": 2281,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2286,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 637518
+        },
+        {
+          "offset": 2386,
+          "kind": 20,
+          "symbol": "?GetEffectTintIntensity@TechnoClass@@QBEHH@Z",
+          "target": 7177968,
+          "addend": 0,
+          "resolved": 2701114
+        },
+        {
+          "offset": 2410,
+          "kind": 20,
+          "symbol": "?Set_Anim_Drawer@BuildingClass@@QAEXPAVConvertClass@@H@Z",
+          "target": 4509936,
+          "addend": 0,
+          "resolved": 33058
+        },
+        {
+          "offset": 2425,
+          "kind": 20,
+          "symbol": "?Set_Anim_Translucency@BuildingClass@@QAEXH@Z",
+          "target": 4510416,
+          "addend": 0,
+          "resolved": 33523
+        },
+        {
+          "offset": 2431,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2951,
+          "kind": 20,
+          "symbol": "?Update_Factories@HouseClass@@QAEXW4RTTIType@@_NH@Z",
+          "target": 5190000,
+          "addend": 0,
+          "resolved": 712581
+        },
+        {
+          "offset": 2980,
+          "kind": 20,
+          "symbol": "?Update_Factories@HouseClass@@QAEXW4RTTIType@@_NH@Z",
+          "target": 5190000,
+          "addend": 0,
+          "resolved": 712552
+        },
+        {
+          "offset": 3063,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 3078,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 721030
+        },
+        {
+          "offset": 3139,
+          "kind": 20,
+          "symbol": "?Refund_Money@HouseClass@@QAEXH@Z",
+          "target": 5133376,
+          "addend": 0,
+          "resolved": 655769
+        },
+        {
+          "offset": 3146,
+          "kind": 20,
+          "symbol": "?Remove_Upgrade@BuildingClass@@QAE_NXZ",
+          "target": 4507744,
+          "addend": 0,
+          "resolved": 30130
+        },
+        {
+          "offset": 3236,
+          "kind": 20,
+          "symbol": "?Toggle_Laser_Fence_Post@BuildingClass@@QAEX_N@Z",
+          "target": 4515232,
+          "addend": 0,
+          "resolved": 37528
+        },
+        {
+          "offset": 3243,
+          "kind": 20,
+          "symbol": "?Update_Power_State@BuildingClass@@QAEXXZ",
+          "target": 4520160,
+          "addend": 0,
+          "resolved": 42449
+        },
+        {
+          "offset": 3313,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVReestablish@@@@6B@",
+          "target": 7983344,
+          "addend": 0,
+          "resolved": 7983344
+        },
+        {
+          "offset": 3332,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3394003
+        }
+      ],
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4474464,
       "source_quality_family": "rebuild"
     },
     {
@@ -12248,7 +12864,7 @@
           "resolved": 1638600
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4477824,
@@ -12300,7 +12916,7 @@
           "resolved": 181433
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4477872,
@@ -12327,7 +12943,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4478000,
@@ -12451,7 +13067,7 @@
           "resolved": 201517
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4478128,
@@ -12478,7 +13094,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4479296,
@@ -12570,7 +13186,7 @@
           "resolved": 2941900
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4479312,
@@ -12630,7 +13246,7 @@
           "resolved": 10736448
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4479664,
@@ -13346,7 +13962,7 @@
           "resolved": 32195
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4479792,
@@ -13414,7 +14030,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4483104,
@@ -13450,7 +14066,7 @@
           "resolved": 1364843
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4485696,
@@ -13486,7 +14102,7 @@
           "resolved": 1364891
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4485712,
@@ -14666,7 +15282,7 @@
           "resolved": 3370313
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4485728,
@@ -14742,7 +15358,7 @@
           "resolved": 705143
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493280,
@@ -14802,7 +15418,7 @@
           "resolved": 4294945899
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493488,
@@ -14854,7 +15470,7 @@
           "resolved": 3366832
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493584,
@@ -14898,7 +15514,7 @@
           "resolved": 2045163
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493680,
@@ -14942,7 +15558,7 @@
           "resolved": 457116
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493792,
@@ -15355,7 +15971,7 @@
           "resolved": 4495294
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4493968,
@@ -15399,7 +16015,7 @@
           "resolved": 1042126
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4495664,
@@ -15764,7 +16380,7 @@
           "resolved": 4496515
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4495824,
@@ -15808,7 +16424,7 @@
           "resolved": 3363660
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4496704,
@@ -15835,7 +16451,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4496848,
@@ -15903,7 +16519,7 @@
           "resolved": 11700
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4496960,
@@ -15963,7 +16579,7 @@
           "resolved": 2658486
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4497328,
@@ -16007,7 +16623,7 @@
           "resolved": 640128
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4497408,
@@ -16171,7 +16787,7 @@
           "resolved": 1611846
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4497536,
@@ -16207,7 +16823,7 @@
           "resolved": 59163
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4498384,
@@ -16611,7 +17227,7 @@
           "resolved": 8711440
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4498432,
@@ -16663,7 +17279,7 @@
           "resolved": 698736
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4499760,
@@ -16715,7 +17331,7 @@
           "resolved": 8711480
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4499872,
@@ -16775,7 +17391,7 @@
           "resolved": 8594956
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4500032,
@@ -16819,7 +17435,7 @@
           "resolved": 613938
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4500224,
@@ -17495,7 +18111,7 @@
           "resolved": 8047280
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4500352,
@@ -17571,7 +18187,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4502016,
@@ -17751,7 +18367,7 @@
           "resolved": 799195
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4502096,
@@ -17778,7 +18394,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4502576,
@@ -17966,7 +18582,7 @@
           "resolved": 450333
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4502656,
@@ -17993,7 +18609,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4503392,
@@ -18038,7 +18654,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4503408,
@@ -18098,7 +18714,7 @@
           "resolved": 4445
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4503664,
@@ -18142,7 +18758,7 @@
           "resolved": 7972616
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4503824,
@@ -18394,7 +19010,7 @@
           "resolved": 4294902017
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4503984,
@@ -18838,7 +19454,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4504896,
@@ -18874,7 +19490,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4506912,
@@ -18901,7 +19517,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4507040,
@@ -19017,7 +19633,7 @@
           "resolved": 536
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4507088,
@@ -19077,7 +19693,7 @@
           "resolved": 688658
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4507744,
@@ -19113,7 +19729,7 @@
           "resolved": 204
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4507936,
@@ -19157,7 +19773,7 @@
           "resolved": 2449906
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4508064,
@@ -19257,7 +19873,7 @@
           "resolved": 2669150
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4508256,
@@ -19494,7 +20110,7 @@
           "resolved": 4509519
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4508896,
@@ -19521,7 +20137,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4509648,
@@ -19548,7 +20164,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4509744,
@@ -19585,7 +20201,7 @@
           "resolved": 4294965650
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4509808,
@@ -19612,7 +20228,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4509936,
@@ -19648,7 +20264,7 @@
           "resolved": 2667799
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510096,
@@ -19675,7 +20291,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510416,
@@ -19702,7 +20318,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510496,
@@ -19730,7 +20346,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510592,
@@ -19758,7 +20374,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510672,
@@ -19858,7 +20474,7 @@
           "resolved": 2917910
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4510688,
@@ -19942,7 +20558,7 @@
           "resolved": 660888
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511024,
@@ -20010,7 +20626,7 @@
           "resolved": 4294792564
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511232,
@@ -20078,7 +20694,7 @@
           "resolved": 4294792277
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511424,
@@ -20130,7 +20746,7 @@
           "resolved": 299761
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511696,
@@ -20166,7 +20782,7 @@
           "resolved": 299647
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511872,
@@ -20202,7 +20818,7 @@
           "resolved": 2620824
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4511936,
@@ -20238,7 +20854,7 @@
           "resolved": 3360246
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512000,
@@ -20282,7 +20898,7 @@
           "resolved": 2665336
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512128,
@@ -20309,7 +20925,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512208,
@@ -20336,7 +20952,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512288,
@@ -20380,7 +20996,7 @@
           "resolved": 3347956
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512416,
@@ -20432,7 +21048,7 @@
           "resolved": 3347796
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512576,
@@ -20508,7 +21124,7 @@
           "resolved": 2409
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512736,
@@ -20616,7 +21232,7 @@
           "resolved": 8189528
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4512832,
@@ -20684,7 +21300,7 @@
           "resolved": 437464
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4513200,
@@ -20784,7 +21400,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4513600,
@@ -20956,7 +21572,7 @@
           "resolved": 144748
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4513728,
@@ -21048,7 +21664,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4514400,
@@ -21156,7 +21772,7 @@
           "resolved": 4294966543
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4514880,
@@ -21192,7 +21808,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4515184,
@@ -21397,7 +22013,7 @@
           "resolved": 4515910
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4515232,
@@ -21513,7 +22129,7 @@
           "resolved": 2440499
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4516400,
@@ -21605,7 +22221,7 @@
           "resolved": 2440139
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4516848,
@@ -21689,7 +22305,7 @@
           "resolved": 2439767
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4517216,
@@ -21733,7 +22349,7 @@
           "resolved": 1020254
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4517584,
@@ -21777,7 +22393,7 @@
           "resolved": 1020158
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4517680,
@@ -22189,7 +22805,7 @@
           "resolved": 2426967
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4517776,
@@ -22225,7 +22841,7 @@
           "resolved": 2652024
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4518640,
@@ -22252,7 +22868,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4518832,
@@ -22560,7 +23176,7 @@
           "resolved": 280570
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4518848,
@@ -22668,7 +23284,7 @@
           "resolved": 2620568
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4519424,
@@ -22728,7 +23344,7 @@
           "resolved": 4294955642
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4519728,
@@ -22796,7 +23412,7 @@
           "resolved": 4294955414
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4519936,
@@ -22840,7 +23456,7 @@
           "resolved": 4294966722
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520160,
@@ -22884,7 +23500,7 @@
           "resolved": 4294966877
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520512,
@@ -22911,7 +23527,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520592,
@@ -22938,7 +23554,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520656,
@@ -22965,7 +23581,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520720,
@@ -23193,7 +23809,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4520784,
@@ -23237,7 +23853,7 @@
           "resolved": 7972616
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4522848,
@@ -23305,7 +23921,7 @@
           "resolved": 179844
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4523008,
@@ -23373,7 +23989,7 @@
           "resolved": 179469
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4523344,
@@ -23441,7 +24057,7 @@
           "resolved": 179199
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4523696,
@@ -23509,7 +24125,7 @@
           "resolved": 178907
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4523952,
@@ -23569,7 +24185,7 @@
           "resolved": 134828
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4524224,
@@ -23725,7 +24341,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4524368,
@@ -23809,7 +24425,7 @@
           "resolved": 4294767457
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4525232,
@@ -23861,7 +24477,7 @@
           "resolved": 54297
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4525520,
@@ -23905,7 +24521,7 @@
           "resolved": 2636190
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4525824,
@@ -23932,7 +24548,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4525904,
@@ -24032,7 +24648,7 @@
           "resolved": 8711404
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4525968,
@@ -24124,7 +24740,7 @@
           "resolved": 175317
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4526288,
@@ -24264,7 +24880,7 @@
           "resolved": 1010083
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4527024,
@@ -24291,7 +24907,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4527888,
@@ -24318,7 +24934,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4527968,
@@ -24345,7 +24961,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528048,
@@ -24405,7 +25021,7 @@
           "resolved": 1966278
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528128,
@@ -24465,7 +25081,7 @@
           "resolved": 1966662
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528224,
@@ -24525,7 +25141,7 @@
           "resolved": 1969417
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528320,
@@ -24569,7 +25185,7 @@
           "resolved": 2649250
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528432,
@@ -24749,7 +25365,7 @@
           "resolved": 36
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4528592,
@@ -24776,7 +25392,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4529120,
@@ -25308,7 +25924,7 @@
           "resolved": 8189592
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4529136,
@@ -25352,7 +25968,7 @@
           "resolved": 2647601
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4530272,
@@ -25379,7 +25995,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4530608,
@@ -25415,7 +26031,7 @@
           "resolved": 2647269
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4530656,
@@ -25523,7 +26139,7 @@
           "resolved": 602599
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4530720,
@@ -25935,7 +26551,7 @@
           "resolved": 2896970
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4531088,
@@ -25995,7 +26611,7 @@
           "resolved": 4294955308
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4531984,
@@ -26022,7 +26638,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532192,
@@ -26066,7 +26682,7 @@
           "resolved": 259278
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532224,
@@ -26110,7 +26726,7 @@
           "resolved": 259182
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532320,
@@ -26194,7 +26810,7 @@
           "resolved": 10706520
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532416,
@@ -26294,7 +26910,7 @@
           "resolved": 136367
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532544,
@@ -26394,7 +27010,7 @@
           "resolved": 136031
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4532880,
@@ -26438,7 +27054,7 @@
           "resolved": 1004579
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4533216,
@@ -26514,7 +27130,7 @@
           "resolved": 7983484
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4533360,
@@ -26558,7 +27174,7 @@
           "resolved": 2643986
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4533856,
@@ -26602,7 +27218,7 @@
           "resolved": 599625
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4533936,
@@ -26830,7 +27446,7 @@
           "resolved": 2646840
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4534096,
@@ -26857,7 +27473,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4535024,
@@ -27037,7 +27653,7 @@
           "resolved": 2886172
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4535040,
@@ -27185,7 +27801,7 @@
           "resolved": 4294939549
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4535376,
@@ -27253,7 +27869,7 @@
           "resolved": 2645461
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4536016,
@@ -27305,7 +27921,7 @@
           "resolved": 596407
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4536400,
@@ -27332,7 +27948,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4536528,
@@ -27512,7 +28128,7 @@
           "resolved": 1296521
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4536576,
@@ -27572,7 +28188,7 @@
           "resolved": 3323447
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537008,
@@ -27608,7 +28224,7 @@
           "resolved": 122033
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537072,
@@ -27635,7 +28251,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537168,
@@ -27663,7 +28279,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537184,
@@ -27691,7 +28307,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537200,
@@ -27728,7 +28344,7 @@
           "resolved": 8711440
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537216,
@@ -27756,7 +28372,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537232,
@@ -27784,7 +28400,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537248,
@@ -27812,7 +28428,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537264,
@@ -27840,7 +28456,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537280,
@@ -27868,7 +28484,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537296,
@@ -27896,7 +28512,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537312,
@@ -27924,7 +28540,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537328,
@@ -27984,7 +28600,7 @@
           "resolved": 8002588
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537344,
@@ -28011,7 +28627,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537408,
@@ -28038,7 +28654,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537424,
@@ -28065,7 +28681,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537440,
@@ -28092,7 +28708,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537456,
@@ -28136,7 +28752,7 @@
           "resolved": 3334278
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537504,
@@ -28172,7 +28788,7 @@
           "resolved": 3334240
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537536,
@@ -28200,7 +28816,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537584,
@@ -28228,7 +28844,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537616,
@@ -28265,7 +28881,7 @@
           "resolved": 3334144
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537632,
@@ -28293,7 +28909,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537680,
@@ -28321,7 +28937,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537712,
@@ -28358,7 +28974,7 @@
           "resolved": 3334048
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537728,
@@ -28386,7 +29002,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537776,
@@ -28414,12 +29030,77 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537808,
       "source_quality_family": "rebuild",
       "bound_population": "population-4442"
+    },
+    {
+      "entry": 4537824,
+      "method": "453de0",
+      "body_bytes": 42,
+      "body_sha256": "e21a8ddf884cab40b9368d7ed147924cf7becbc184d4a651fa630c4ac78f04d1",
+      "padding_bytes": 6,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5244f6fe83b105ea42928d7b065a8318a2f4f0d78846b0db2e7be8413a0e6390",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Clear@?$DynamicVectorClass@PAVReestablish@@@@UAEXXZ",
+      "symbol_prefix": "?Clear@?$DynamicVectorClass@PAVReestablish@@@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3333952
+        }
+      ],
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4537824,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-10"
+    },
+    {
+      "entry": 4537872,
+      "method": "00453e10",
+      "body_bytes": 27,
+      "body_sha256": "eeb29d112613b0653ee85b4ff58bddb59157c8b4fc65a386db3052b948d71bbb",
+      "padding_bytes": 5,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "50ac6ede411dbd3deb1da7a115478ddc8a3fd5d49ffa3ed64f4c1597a5486ebc",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z",
+      "symbol_prefix": "?ID@?$DynamicVectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4537872,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4489"
     },
     {
       "entry": 4537904,
@@ -28442,7 +29123,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537904,
@@ -28470,7 +29151,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537920,
@@ -28498,7 +29179,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4537968,
@@ -28525,7 +29206,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538016,
@@ -28561,7 +29242,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538032,
@@ -28589,7 +29270,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538064,
@@ -28634,7 +29315,7 @@
           "resolved": 3333552
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538128,
@@ -28671,7 +29352,7 @@
           "resolved": 3333475
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538304,
@@ -28699,7 +29380,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538352,
@@ -28727,7 +29408,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538416,
@@ -28772,7 +29453,7 @@
           "resolved": 3333245
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538448,
@@ -28800,7 +29481,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538624,
@@ -28828,7 +29509,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538672,
@@ -28873,7 +29554,7 @@
           "resolved": 3332944
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538736,
@@ -28910,7 +29591,7 @@
           "resolved": 3332867
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538912,
@@ -28938,7 +29619,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4538960,
@@ -28966,7 +29647,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539024,
@@ -29011,7 +29692,7 @@
           "resolved": 3332637
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539056,
@@ -29039,7 +29720,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539232,
@@ -29067,7 +29748,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539280,
@@ -29112,7 +29793,7 @@
           "resolved": 3332349
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539344,
@@ -29140,7 +29821,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539520,
@@ -29168,7 +29849,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539568,
@@ -29213,7 +29894,7 @@
           "resolved": 3332048
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539632,
@@ -29250,7 +29931,7 @@
           "resolved": 3331971
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539808,
@@ -29278,7 +29959,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539856,
@@ -29306,7 +29987,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539920,
@@ -29351,7 +30032,7 @@
           "resolved": 3331741
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4539952,
@@ -29379,7 +30060,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540128,
@@ -29432,7 +30113,7 @@
           "resolved": 3331563
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540176,
@@ -29485,7 +30166,7 @@
           "resolved": 3331483
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540256,
@@ -29538,7 +30219,7 @@
           "resolved": 3331403
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540336,
@@ -29591,7 +30272,7 @@
           "resolved": 3331323
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540416,
@@ -29644,7 +30325,7 @@
           "resolved": 3331243
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540496,
@@ -29689,7 +30370,7 @@
           "resolved": 3331104
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540576,
@@ -29726,7 +30407,7 @@
           "resolved": 3331027
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540752,
@@ -29754,7 +30435,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540800,
@@ -29782,7 +30463,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540864,
@@ -29835,7 +30516,7 @@
           "resolved": 3330843
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540896,
@@ -29888,10 +30569,63 @@
           "resolved": 3330763
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4540976,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-15"
+    },
+    {
+      "entry": 4541056,
+      "method": "454a80",
+      "body_bytes": 73,
+      "body_sha256": "6ecffd56745856b13b7d1e70c76816821710fd80e9e3fd4daf7cb4f9bb8bba33",
+      "padding_bytes": 7,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "c41fcb3ff53bfd144580600814306f9350411b0abf2ebd414272d6d3aa659faf",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_G?$DynamicVectorClass@PAVReestablish@@@@UAEPAXI@Z",
+      "symbol_prefix": "??_G?$DynamicVectorClass@PAVReestablish@@@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PAVReestablish@@@@6B@",
+          "target": 7983344,
+          "addend": 0,
+          "resolved": 7983344
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3330718
+        },
+        {
+          "offset": 60,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3330683
+        }
+      ],
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
+      "source": "rebuild/src/building.cpp",
+      "population": "rebuild-building",
+      "source_order": 4541056,
       "source_quality_family": "rebuild",
       "bound_population": "population-15"
     },
@@ -29933,7 +30667,7 @@
           "resolved": 3331341
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541136,
@@ -29961,7 +30695,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541216,
@@ -29988,7 +30722,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541280,
@@ -30032,7 +30766,7 @@
           "resolved": 3331133
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541344,
@@ -30069,7 +30803,7 @@
           "resolved": 8188424
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541424,
@@ -30105,7 +30839,7 @@
           "resolved": 8191024
         }
       ],
-      "source_sha256": "1867afd74e20b6141a62e90a4a90b28f5d4422068847b1927ad15dab58ccfd47",
+      "source_sha256": "063712016d4ad2b3f5b8207bafc1ebcf4a84fdb4fe1f0dbcf656c40f243a3d40",
       "source": "rebuild/src/building.cpp",
       "population": "rebuild-building",
       "source_order": 4541552,

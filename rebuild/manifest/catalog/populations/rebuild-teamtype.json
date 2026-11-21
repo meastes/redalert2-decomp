@@ -57,6 +57,23 @@
     "??2@YAPAXI@Z": 7872535,
     "??0TeamClass@@QAE@PBVTeamTypeClass@@PAVHouseClass@@PAX@Z": 7042096,
     "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A": 8806776,
+    "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@IPBQBVTeamTypeClass@@@Z": 7078880,
+    "??_7?$TypeList@PBVTeamTypeClass@@@@6B@": 8007364,
+    "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "?Scen@@3PAVScenarioClass@@A": 10736272,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@HPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7080352,
+    "??_7?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@": 8047232,
+    "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A": 10736224,
+    "?Process@AITriggerTypeClass@@QAE_NPAVHouseClass@@0_N@Z": 4311440,
+    "??_C@_0DB@IAHD@Infinite?5weight?5AIT?5hit?$DL?5clearin@": 8351616,
+    "?Add@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079824,
+    "??_7?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@": 8047200,
+    "??_E?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAEPAXI@Z": 7080080,
+    "??3@YAXPAX@Z": 7871803,
+    "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@": 8007396,
+    "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z": 7080240,
     "_stricmp": 7872288,
     "?Read_INI@AbstractTypeClass@@UAE_NABVCCINIClass@@@Z": 4261856,
     "??_C@_05DIE@House?$AA@": 8183360,
@@ -107,7 +124,6 @@
     "?Put_Bool@INIClass@@QAE_NPBD0_N@Z": 5305216,
     "?Put_HousesType@CCINIClass@@QAE_NPBD0W4HousesType@@@Z": 4631216,
     "?Put_String@INIClass@@QAE_NPBD00@Z": 5301744,
-    "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z": 6697344,
     "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
     "??_C@_04KIKH@none?$AA@": 8184044,
@@ -132,7 +148,6 @@
     "?Flash@TeamClass@@QAEXH@Z": 7068048,
     "?Find_Compatible_Passability_Row@@YIHHH@Z": 5679360,
     "?Process_Task_Force@TeamTypeClass@@QAEXXZ": 7078272,
-    "??3@YAXPAX@Z": 7871803,
     "_$E2": 7071584,
     "_$E5": 7071632,
     "_$E8": 7071664,
@@ -186,6 +201,11 @@
     "??1TeamTypeClass@@UAE@XZ": 7072688,
     "?Create_One_Of@TeamTypeClass@@QBEPAVTeamClass@@PAVHouseClass@@@Z": 7072896,
     "?Destroy_All_Of@TeamTypeClass@@QBEXXZ": 7073040,
+    "?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z": 7073104,
+    "??_G?$TypeList@PBVTeamTypeClass@@@@UAEPAXI@Z": 5205728,
+    "??_G?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7079984,
+    "??_G?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z": 7080144,
+    "??_G?$VectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5211920,
     "?From_Name@TeamTypeClass@@SIPAV1@PBD@Z": 7074400,
     "?Detach@TeamTypeClass@@UAEXPBVAbstractClass@@_N@Z": 7074512,
     "?Read_INI@TeamTypeClass@@UAE_NABVCCINIClass@@@Z": 7074608,
@@ -204,6 +224,29 @@
     "?Flash@TeamTypeClass@@QAEXH@Z": 7078160,
     "?Find_First_Of_Type@TeamTypeClass@@QAEPAVTeamClass@@XZ": 7078224,
     "?Process_All_Task_Forces@TeamTypeClass@@SIXXZ": 7078432,
+    "?Clear@?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEXXZ": 5205408,
+    "?ID@?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEHPBQBVTeamTypeClass@@@Z": 5205456,
+    "?GetItem@?$VectorClass@PBVTeamTypeClass@@@@UBEPBVTeamTypeClass@@H@Z": 5205488,
+    "?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ": 7078752,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7078816,
+    "?GetItem@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE?AV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@H@Z": 7078848,
+    "??8?$VectorClass@PBVTeamTypeClass@@@@UBE_NABV0@@Z": 5209056,
+    "?Resize@?$VectorClass@PBVTeamTypeClass@@@@UAE_NHPBQBVTeamTypeClass@@@Z": 5209120,
+    "?Clear@?$VectorClass@PBVTeamTypeClass@@@@UAEXXZ": 5209296,
+    "?ID@?$VectorClass@PBVTeamTypeClass@@@@UAEHABQBVTeamTypeClass@@@Z": 5209344,
+    "?ID@?$VectorClass@PBVTeamTypeClass@@@@UAEHPBQBVTeamTypeClass@@@Z": 5209408,
+    "??_G?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEPAXI@Z": 5205952,
+    "??_7?$DynamicVectorClass@PBVTeamTypeClass@@@@6B@": 8007660,
+    "?Resize@?$DynamicVectorClass@PBVTeamTypeClass@@@@UAE_NHPBQBVTeamTypeClass@@@Z": 5209440,
+    "?ID@?$DynamicVectorClass@PBVTeamTypeClass@@@@UAEHABQBVTeamTypeClass@@@Z": 5209616,
+    "??8?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE_NABV0@@Z": 7078976,
+    "?Resize@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079072,
+    "?Clear@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ": 7079344,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079408,
+    "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079488,
+    "?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079520,
+    "??1?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAE@XZ": 7079808,
+    "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": 7079920,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -285,7 +328,7 @@
           "resolved": 11272400
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071584,
@@ -337,7 +380,7 @@
           "resolved": 11272472
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071632,
@@ -389,7 +432,7 @@
           "resolved": 11272456
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071664,
@@ -441,7 +484,7 @@
           "resolved": 11272448
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071696,
@@ -493,7 +536,7 @@
           "resolved": 11272408
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071728,
@@ -545,7 +588,7 @@
           "resolved": 11272368
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071760,
@@ -629,7 +672,7 @@
           "resolved": 11272480
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071792,
@@ -689,7 +732,7 @@
           "resolved": 11272416
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071856,
@@ -749,7 +792,7 @@
           "resolved": 11272440
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071904,
@@ -809,7 +852,7 @@
           "resolved": 11272464
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7071952,
@@ -853,7 +896,7 @@
           "resolved": 11272394
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072000,
@@ -905,7 +948,7 @@
           "resolved": 11272432
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072016,
@@ -965,7 +1008,7 @@
           "resolved": 11272388
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072048,
@@ -1025,7 +1068,7 @@
           "resolved": 803351
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072080,
@@ -1253,7 +1296,7 @@
           "resolved": 11275444
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072176,
@@ -1425,7 +1468,7 @@
           "resolved": 4292156113
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072688,
@@ -1525,7 +1568,7 @@
           "resolved": 4294936363
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7072896,
@@ -1577,10 +1620,366 @@
           "resolved": 8806792
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7073040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7073104,
+      "method": "006bed50",
+      "body_bytes": 1282,
+      "body_sha256": "b352ac722371c67f25862e3ca25dc245ed3c6a1bc0f2def21c0743100f214578",
+      "padding_bytes": 14,
+      "full_extent_bytes": 1296,
+      "full_extent_sha256": "92a85d92b58039bac97c800cadc838e4feca3746af48e07a4ea2fda383aabe48",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z",
+      "symbol_prefix": "?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@IPBQBVTeamTypeClass@@@Z",
+          "target": 7078880,
+          "addend": 0,
+          "resolved": 5746
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVTeamTypeClass@@@@6B@",
+          "target": 8007364,
+          "addend": 0,
+          "resolved": 8007364
+        },
+        {
+          "offset": 55,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 67,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 82,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294417146
+        },
+        {
+          "offset": 114,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 4,
+          "resolved": 8806780
+        },
+        {
+          "offset": 167,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 214,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 4,
+          "resolved": 8806780
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 339,
+          "kind": 20,
+          "symbol": "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@HPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+          "target": 7080352,
+          "addend": 0,
+          "resolved": 6905
+        },
+        {
+          "offset": 351,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+          "target": 8047232,
+          "addend": 0,
+          "resolved": 8047232
+        },
+        {
+          "offset": 373,
+          "kind": 6,
+          "symbol": "??_7?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+          "target": 8047232,
+          "addend": 12,
+          "resolved": 8047244
+        },
+        {
+          "offset": 378,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 16,
+          "resolved": 10736240
+        },
+        {
+          "offset": 394,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 4,
+          "resolved": 10736228
+        },
+        {
+          "offset": 423,
+          "kind": 20,
+          "symbol": "?Process@AITriggerTypeClass@@QAE_NPAVHouseClass@@0_N@Z",
+          "target": 4311440,
+          "addend": 0,
+          "resolved": 4292205205
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 786950
+        },
+        {
+          "offset": 478,
+          "kind": 6,
+          "symbol": "??_C@_0DB@IAHD@Infinite?5weight?5AIT?5hit?$DL?5clearin@",
+          "target": 8351616,
+          "addend": 0,
+          "resolved": 8351616
+        },
+        {
+          "offset": 483,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4292114873
+        },
+        {
+          "offset": 514,
+          "kind": 20,
+          "symbol": "?Add@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+          "target": 7079824,
+          "addend": 0,
+          "resolved": 6202
+        },
+        {
+          "offset": 523,
+          "kind": 6,
+          "symbol": "?AITriggerTypes@@3V?$DynamicVectorClass@PAVAITriggerTypeClass@@@@A",
+          "target": 10736224,
+          "addend": 16,
+          "resolved": 10736240
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 579,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294416649
+        },
+        {
+          "offset": 798,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@6B@",
+          "target": 8047200,
+          "addend": 0,
+          "resolved": 8047200
+        },
+        {
+          "offset": 821,
+          "kind": 20,
+          "symbol": "??_E?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAEPAXI@Z",
+          "target": 7080080,
+          "addend": 0,
+          "resolved": 6151
+        },
+        {
+          "offset": 826,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 846,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 4,
+          "resolved": 8806780
+        },
+        {
+          "offset": 903,
+          "kind": 6,
+          "symbol": "?Teams@@3V?$DynamicVectorClass@PAVTeamClass@@@@A",
+          "target": 8806776,
+          "addend": 16,
+          "resolved": 8806792
+        },
+        {
+          "offset": 940,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 797755
+        },
+        {
+          "offset": 987,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+          "target": 8007396,
+          "addend": 0,
+          "resolved": 8007396
+        },
+        {
+          "offset": 992,
+          "kind": 20,
+          "symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
+          "target": 7080240,
+          "addend": 0,
+          "resolved": 6140
+        },
+        {
+          "offset": 998,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVTeamTypeClass@@@@6B@",
+          "target": 8007364,
+          "addend": 0,
+          "resolved": 8007364
+        },
+        {
+          "offset": 1006,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+          "target": 8007396,
+          "addend": 0,
+          "resolved": 8007396
+        },
+        {
+          "offset": 1050,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 797645
+        },
+        {
+          "offset": 1130,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+          "target": 8007396,
+          "addend": 0,
+          "resolved": 8007396
+        },
+        {
+          "offset": 1140,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+          "target": 8007396,
+          "addend": 12,
+          "resolved": 8007408
+        },
+        {
+          "offset": 1160,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 798267
+        },
+        {
+          "offset": 1239,
+          "kind": 6,
+          "symbol": "??_7?$TypeList@PBVTeamTypeClass@@@@6B@",
+          "target": 8007364,
+          "addend": 0,
+          "resolved": 8007364
+        },
+        {
+          "offset": 1247,
+          "kind": 6,
+          "symbol": "??_7?$VectorClass@PBVTeamTypeClass@@@@6B@",
+          "target": 8007396,
+          "addend": 0,
+          "resolved": 8007396
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 797432
+        }
+      ],
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
+      "source": "rebuild/src/teamtype.cpp",
+      "population": "rebuild-teamtype",
+      "source_order": 7073104,
       "source_quality_family": "rebuild"
     },
     {
@@ -1661,7 +2060,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074400,
@@ -1688,7 +2087,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074512,
@@ -2324,7 +2723,7 @@
           "resolved": 4294932603
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7074608,
@@ -2888,7 +3287,7 @@
           "resolved": 4293192620
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7075696,
@@ -2915,7 +3314,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076448,
@@ -2967,7 +3366,7 @@
           "resolved": 4294588099
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076496,
@@ -3019,7 +3418,7 @@
           "resolved": 4294588035
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076560,
@@ -3135,7 +3534,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076624,
@@ -3307,7 +3706,7 @@
           "resolved": 10751052
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7076768,
@@ -3487,7 +3886,7 @@
           "resolved": 10751064
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077024,
@@ -3523,7 +3922,7 @@
           "resolved": 4292150060
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077248,
@@ -3663,7 +4062,7 @@
           "resolved": 4294835453
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077280,
@@ -3723,7 +4122,7 @@
           "resolved": 8002812
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077424,
@@ -3943,7 +4342,7 @@
           "resolved": 4292689711
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077488,
@@ -3987,7 +4386,7 @@
           "resolved": 4293741859
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7077904,
@@ -4047,7 +4446,7 @@
           "resolved": 8806792
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078160,
@@ -4091,7 +4490,7 @@
           "resolved": 8806780
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078224,
@@ -4127,7 +4526,7 @@
           "resolved": 4293568281
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078272,
@@ -4187,7 +4586,7 @@
           "resolved": 10751064
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078432,
@@ -4214,7 +4613,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078480,
@@ -4241,7 +4640,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078496,
@@ -4268,7 +4667,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078512,
@@ -4448,7 +4847,7 @@
           "resolved": 793071
         }
       ],
-      "source_sha256": "08f124474286ce0a2e2ed99e98af2f26c30d002798f6d9a228e1c37bc52037c0",
+      "source_sha256": "8e70a112cfada6dab8bc7b426776d742c693c47bb32472d87006cb43e06a869b",
       "source": "rebuild/src/teamtype.cpp",
       "population": "rebuild-teamtype",
       "source_order": 7078528,

@@ -9,7 +9,12 @@
   },
   "references": {
     "__imp__QueryPerformanceFrequency@4": 7971276,
-    "?Get_CPU_Rate@@YIIAAI@Z": 5947168
+    "_TSC_Low": 10950528,
+    "_TSC_High": 10950524,
+    "__imp__QueryPerformanceCounter@4": 7971272,
+    "?Get_CPU_Rate@@YIIAAI@Z": 5947168,
+    "?RDTSC@@YIXXZ": 5947232,
+    "?Get_RDTSC_CPU_Speed@@YIHXZ": 5947248
   },
   "regions": [
     {
@@ -42,10 +47,116 @@
           "resolved": 7971276
         }
       ],
-      "source_sha256": "ccc141aa18df90f43e40250855afda9646574a947ac1a66578ab201ac7cd10b2",
+      "source_sha256": "9a7fe7f96ecf58a7240059db7af9f8c18c0bc0eba62be829b822dbe7e844a151",
       "source": "rebuild/src/mpu.cpp",
       "population": "rebuild-mpu",
       "source_order": 5947168,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5947232,
+      "method": "005abf60",
+      "body_bytes": 14,
+      "body_sha256": "2b9670645c008d8b00676c2e3562331ad981a0489805efb6f4767d6afb990248",
+      "padding_bytes": 2,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "79e3831f9ca35fa018c128de86fd64905d2f33be7e2d4fd8016752c2fd33da07",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "inline_asm": "evidenced",
+      "inline_asm_citation": [
+        "TibSun mpu.cpp:154",
+        "TibSun mpu.cpp:156",
+        "TibSun mpu.cpp:134",
+        "TibSun mpu.cpp:134"
+      ],
+      "symbol": "?RDTSC@@YIXXZ",
+      "symbol_prefix": "?RDTSC@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_TSC_Low",
+          "target": 10950528,
+          "addend": 0,
+          "resolved": 10950528
+        },
+        {
+          "offset": 9,
+          "kind": 6,
+          "symbol": "_TSC_High",
+          "target": 10950524,
+          "addend": 0,
+          "resolved": 10950524
+        }
+      ],
+      "source_sha256": "9a7fe7f96ecf58a7240059db7af9f8c18c0bc0eba62be829b822dbe7e844a151",
+      "source": "rebuild/src/mpu.cpp",
+      "population": "rebuild-mpu",
+      "source_order": 5947232,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5947248,
+      "method": "005abf70",
+      "body_bytes": 450,
+      "body_sha256": "2f4b2533466ff8e547eaa17c641b81dfde94fb48f534b8f2fdf80acdc3aa3a29",
+      "padding_bytes": 14,
+      "full_extent_bytes": 464,
+      "full_extent_sha256": "deffce2e602d75cc8871a496ca0e64dbd9f964908f9136ac4775ab32d224a7df",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "inline_asm": "evidenced",
+      "inline_asm_citation": [
+        "TibSun mpu.cpp:236",
+        "TibSun mpu.cpp:134",
+        "TibSun mpu.cpp:134",
+        "TibSun mpu.cpp:237",
+        "TibSun mpu.cpp:250",
+        "TibSun mpu.cpp:134",
+        "TibSun mpu.cpp:134",
+        "TibSun mpu.cpp:251"
+      ],
+      "symbol": "?Get_RDTSC_CPU_Speed@@YIHXZ",
+      "symbol_prefix": "?Get_RDTSC_CPU_Speed@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 27,
+          "kind": 6,
+          "symbol": "__imp__QueryPerformanceFrequency@4",
+          "target": 7971276,
+          "addend": 0,
+          "resolved": 7971276
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "__imp__QueryPerformanceCounter@4",
+          "target": 7971272,
+          "addend": 0,
+          "resolved": 7971272
+        }
+      ],
+      "source_sha256": "9a7fe7f96ecf58a7240059db7af9f8c18c0bc0eba62be829b822dbe7e844a151",
+      "source": "rebuild/src/mpu.cpp",
+      "population": "rebuild-mpu",
+      "source_order": 5947248,
       "source_quality_family": "rebuild"
     }
   ]

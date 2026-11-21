@@ -3132,3 +3132,37 @@ range do not count, and any reference inside the stretch resets the count. The w
   place against its nest not checked); it fails in infantry Assign_Destination (0 against 3). Routing `new` through an inline pass-through operator new (scratch only) makes
   rocket Process exact; nothing shows what a `delete` would carry. Test it on a row with several of each before
   believing it.
+
+## A missing trailing inline site can be a real accessor of the reference headers (found in the rebuild (lane F6, high))
+
+- BuildingClass::Captured 0x444660 (3,359 B) lacked two inline sites before its last return (lane F5's probe).
+  They are `oldowner->Production_Status_Changed(); newowner->Production_Status_Changed();`:
+  `HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;}` is a member of the TibSun archive's
+  house.h (after Update_Production_Mode) and of ra2-decomp's house.h, which the rebuild's header did not carry.
+  The archive's own Captured stores the flag directly at that place, and ra2-decomp calls the member once
+  (temporal.cpp) beside three direct stores, so the member's use is read off the caller's budget, not off a
+  reference text: a free (40 units or less) accessor expands to the very store, the standalone bytes are the
+  same either way, and only the count of sites after the disputed nest differs.
+- Recipe once a trailing-site probe gives K: list the statements after the nest that write or read one member
+  through a pointer, and search the reference headers for an inline member whose whole body is that statement
+  (`grep -n '{.*IsRecalcNeeded = true' include/*.h`). K real accessors used K times is the candidate; judge it
+  by the exact function.
+- Sites before the nest do not count: two or four empty inline sites at the top of Captured change nothing, two
+  before the last return give the exact function. One charged spend at the top flips the same nest between 252
+  and 312 units, so "two trailing sites" and "about 250..310 units spent earlier" are the same reading here.
+- The natural spellings are byte-neutral in Captured: the greet loop through `reestablish[i]->` three times,
+  `reestablish.Add(new Reestablish(...))`, the archive's `::Distance(contact->Center_Coord(), ...)`.
+  `!contact->Is_Foot()` in place of the flag test is 16 bytes longer (the null test stays).
+- One inline member added to a widely included class moves the declaration count like about two plain
+  declarations: with Production_Status_Changed in house.h, OwnerDraw::Trackbar_Proc 0x5FB270's exact windows
+  move from +0 +5 +6 +16 to +3 +4, wonline Draw_Player_List 0x73FEE0's from +0 +1 +3 +16 to +1 +16, and queue
+  Print_CRCs 0x62A360 (parked count-sensitive by the inline Is_Techno) comes back exact. A function parked
+  under its guard also leaves the count: wonline Pick_Lobby 0x744090 flips with the member in and is exact again
+  once Draw_Player_List, earlier in the unit, is guarded. Run countsens.py after the guards are in, not before.
+- A cast that names the member's own type is no code: ra2-decomp's `((unsigned char)AbstractFlags >> 2) & 1` in
+  ObjectClass::Is_Foot leaves all 174 units that include object.h unchanged (AbstractFlags is an unsigned char).
+- A draft that is "one site off" may rest on coined helpers: TechnoClass::Draw_Post_Render 0x6C2C40 is 16
+  instructions off (the talk bubble timer's Value expanded, the original calls it) only with the unit-local
+  Mouse_Hover_Flag / Techno_Is_Selected readers of main's text; with ra2-decomp's plain
+  `IsMouseHovering && !IsSelected` the register allocation differs through the whole function (ebp for `this`).
+  Check the helpers a draft uses before reading its bucket as an inline-budget question.

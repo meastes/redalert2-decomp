@@ -81554,7 +81554,7 @@
     "entry": "00453de0",
     "body": 42,
     "padding": 6,
-    "symbol": "?get@Cleanup_453de0@@QAEXXZ",
+    "symbol": "?Clear@?$DynamicVectorClass@PAVReestablish@@@@UAEXXZ",
     "main_symbol": "?get@Cleanup_453de0@@QAEXXZ",
     "main_source": "src/recovered/building.cpp"
    },
@@ -82118,7 +82118,10 @@
    "?ID@?$VectorClass@PAVReestablish@@@@UAEHABQAVReestablish@@@Z": "004545d0",
    "?ID@?$VectorClass@PAVReestablish@@@@UAEHPBQAVReestablish@@@Z": "00454610",
    "?GetItem@?$VectorClass@PAVReestablish@@@@UBEPAVReestablish@@H@Z": "00453e30",
-   "??_C@_0BC@LGBI@EVA_StructureSold?$AA@": "007cf9d4"
+   "??_C@_0BC@LGBI@EVA_StructureSold?$AA@": "007cf9d4",
+   "??_C@_0BF@HINA@EVA_TechBuildingLost?$AA@": "007cf958",
+   "??_C@_0BF@PPPA@EVA_BuildingCaptured?$AA@": "007cf924",
+   "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@": "007cf93c"
   },
   "partial_ok": true
  },
@@ -120218,7 +120221,8 @@
    "?Compute_CRC@TeamTypeClass@@UBEXAAVCRCEngine@@@Z": "006bfe70",
    "?Read_INI@TeamTypeClass@@UAE_NABVCCINIClass@@@Z": "006bf330",
    "?Write_INI@TeamTypeClass@@UBE_NAAVCCINIClass@@@Z": "006bf770",
-   "?Fetch_RTTI@TeamTypeClass@@UBE?AW4RTTIType@@XZ": "006c0250"
+   "?Fetch_RTTI@TeamTypeClass@@UBE?AW4RTTIType@@XZ": "006c0250",
+   "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@HPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z": "006c09a0"
   },
   "partial_ok": true
  },
@@ -131292,14 +131296,7 @@
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "0062a360": {
-    "windows": "plain probe declarations at the end of abstract.h. New headers (Is_Techno and c_str inline): +1 +16 exact; +0 +2 +3 +4 +5 +6 +8 off (4 bytes), +10 +12 off (8). Old headers (main 6b8bd54e0): +0 +4 +5 exact; +1 +2 +3 +8 +12 +16 off (4), +6 +10 off (8)",
-    "header": "abstract.h and wstring.h (lane O8, 2026-11-21, review ruling: AbstractClass::Is_Techno defined in the class, as ra2-decomp's abstract.h has it, the executable holding one out-of-line copy, 0x6F8A70, and one call of it in uicmnds Select_All_Combatants 0x6F6D00; Wstring::c_str inline, as ra2-decomp's wstring.h has it; with them cell CellClass::Goodie_Check 0x476CC0 and netshare Change_Scenario_Slots 0x5CB8D0 are exact)",
-    "note": "lane O8 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing changes are evidenced content (ra2-decomp's abstract.h and wstring.h); (b)(i) queue.cpp does not name Is_Techno or c_str and no header inline calls either; (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old headers (main 6b8bd54e0). Lane F4's earlier probe with Is_Techno alone: rebuild/manifest/b_log_f4.csv"
-   }
-  }
+  "partial_ok": true
  },
  "unit": {
   "core": [
@@ -140231,7 +140228,7 @@
     "entry": "00766060",
     "body": 7,
     "padding": 9,
-    "symbol": "?clear@?$ArrayList@I@@QAEXXZ",
+    "symbol": "?clear@?$ArrayList@H@@QAEXXZ",
     "main_symbol": "?Set_Empty@WolIntArray@@QAEXXZ",
     "main_source": "src/recovered/wonline/WolIntArray_Set_Empty.cpp"
    },
@@ -140495,7 +140492,7 @@
     "entry": "00766f90",
     "body": 346,
     "padding": 6,
-    "symbol": "?add@?$ArrayList@I@@QAEDAAIH@Z",
+    "symbol": "?add@?$ArrayList@H@@QAEDAAHH@Z",
     "main_symbol": "?Insert_00766f90@WolIntArray@@QAE_NABHH@Z",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140663,7 +140660,7 @@
     "entry": "007681a0",
     "body": 190,
     "padding": 2,
-    "symbol": "?remove@?$ArrayList@I@@QAEDH@Z",
+    "symbol": "?remove@?$ArrayList@H@@QAEDH@Z",
     "main_symbol": "?Remove_007681a0@WolIntArray@@QAE_NH@Z",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140671,7 +140668,7 @@
     "entry": "00768260",
     "body": 34,
     "padding": 14,
-    "symbol": "?get@?$ArrayList@I@@QBEDAAIH@Z",
+    "symbol": "?get@?$ArrayList@H@@QBEDAAHH@Z",
     "main_symbol": "?Get@UnknownList_768260@@QAE_NPAPAXH@Z",
     "main_source": "src/recovered/awaiting_join/nested_class_members/unknown_list_get_00768260.cpp"
    },
@@ -140679,7 +140676,7 @@
     "entry": "00768290",
     "body": 143,
     "padding": 1,
-    "symbol": "?growVector@?$ArrayList@I@@AAEDXZ",
+    "symbol": "?growVector@?$ArrayList@H@@AAEDXZ",
     "main_symbol": "?Grow_00768290@WolIntArray@@QAE_NXZ",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -140727,7 +140724,7 @@
    "??_C@_09JOJJ@TXT_LOB_4?$AA@": "007fd7ac",
    "??_C@_09MLHM@TXT_LOB_3?$AA@": "007fd7b8",
    "??_C@_09MLLH@TXT_LOB_6?$AA@": "007fd794",
-   "?clear@?$ArrayList@I@@QAEXXZ": "00766060",
+   "?clear@?$ArrayList@H@@QAEXXZ": "00766060",
    "?clear@?$ArrayList@VWstring@@@@QAEXXZ": "007661c0",
    "?clear@?$Dictionary@VWstring@@I@@QAEXXZ": "007662f0",
    "?shrink@?$Dictionary@VWstring@@UChannel@@@@AAEXXZ": "00768010",
@@ -140985,8 +140982,8 @@
    "??_C@_0L@GOAI@TXT_FINDOK?$AA@": "007fe1b4",
    "?growVector@?$ArrayList@UServer@WOL@@@@AAEDXZ": "00768110",
    "?add@?$ArrayList@UChannel@WOL@@@@QAEDAAUChannel@WOL@@H@Z": "00766c20",
-   "?get@?$ArrayList@I@@QBEDAAIH@Z": "00768260",
-   "?remove@?$ArrayList@I@@QAEDH@Z": "007681a0",
+   "?get@?$ArrayList@H@@QBEDAAHH@Z": "00768260",
+   "?remove@?$ArrayList@H@@QAEDH@Z": "007681a0",
    "??_C@_0DF@POMM@Received?5private?5preview?5request@": "007fdf98",
    "??_C@_0FP@EJBK@Got?5private?5options?5from?5?$CFs?3?5Hou@": "007fdfd0",
    "?getPointer@?$Dictionary@VWstring@@ULadder@WOL@@@@QAEDABVWstring@@PAPAULadder@WOL@@@Z": "007670f0",
@@ -142382,7 +142379,14 @@
      "00765990"
     ]
    }
-  ]
+  ],
+  "count_sensitive": {
+   "0073fee0": {
+    "windows": "plain probe declarations at the end of house.h. New header (Production_Status_Changed in): +1 +16 exact; +0 +2 +3 +4 +5 +6 +8 +10 +12 off. Old header (main 669a80996): +0 +1 +3 +16 exact; +2 +4 +5 +6 +8 +10 +12 off",
+    "header": "house.h (lane F6, 2026-11-21): HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;} defined in the class at the TibSun archive's place (house.h, after Update_Production_Mode; ra2-decomp's house.h has it too); BuildingClass::Captured 0x444660 (3,359 B) is exact through it and queue Print_CRCs 0x62A360 is exact again with it",
+    "note": "lane F6 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing change is evidenced content (the archive's inline member, at its place); (b)(i) wonline.cpp does not name Production_Status_Changed and no header inline calls it (its only users are Captured's two closing statements); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main 669a80996)"
+   }
+  }
  },
  "skirmish": {
   "core": [
@@ -158725,6 +158729,11 @@
     "windows": "plain probe declarations at the end of data.h on lane B3's headers: +0..+5 both off; +6 +8 Trackbar_Proc exact, Slide_Dialog off; +12 both exact; +16 Slide_Dialog exact, Trackbar_Proc off. On the old headers (rebuild-trial 508acfa81) both exact; any one of the seven headers below gaining its declaration alone flips Trackbar_Proc",
     "header": "_mixfile.h (LanguageMix), data.h (LanguageResources), globals.h (Init_Direct3D), misc.h (set_control_word), init.h (Get_Performance_Profile), stringtable.h (Message_Box_Wide), txtlabel2.h (Free_All_Art), ownrdraw.h (OwnerDraw::Shutdown): lane B3, the declarations RA2's WinMain and Prog_End need",
     "note": "lane B3 2026-11-20 under the owner rule (evidenced content is never held back for a count-sensitive row; precedents sidebar 006809f0, queue 0062a360): (b)(i) neither function uses the new declarations; (ii) windows above; (c) the unchanged text is exact on the old headers"
+   },
+   "005fb270": {
+    "windows": "plain probe declarations at the end of house.h. New header (Production_Status_Changed in): +3 +4 exact; +0 +1 +2 +5 +6 +8 +10 +12 +16 off. Old header (main 669a80996): +0 +5 +6 +16 exact; +1 +2 +3 +4 +8 +10 +12 off",
+    "header": "house.h (lane F6, 2026-11-21): HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;} defined in the class at the TibSun archive's place (house.h, after Update_Production_Mode; ra2-decomp's house.h has it too); BuildingClass::Captured 0x444660 (3,359 B) is exact through it and queue Print_CRCs 0x62A360 is exact again with it",
+    "note": "lane F6 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing change is evidenced content (the archive's inline member, at its place); (b)(i) ownrdraw.cpp does not name Production_Status_Changed and no header inline calls it (its only users are Captured's two closing statements); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main 669a80996)"
    }
   }
  },

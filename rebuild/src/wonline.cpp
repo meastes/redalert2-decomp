@@ -193,7 +193,7 @@ ArrayList<Server> g_Servers;
 ArrayList<Channel> g_UserChannels;
 ArrayList<Channel> g_GameChannelList;
 ArrayList<User> g_UserList;
-ArrayList<unsigned int> g_ChanListQueue;
+ArrayList<int> g_ChanListQueue;
 
 Dictionary<Wstring, Ladder> g_BattleClansLadderDict(Wstring_Hash);
 Dictionary<Wstring, Ladder> g_WDTLadderDict(Wstring_Hash);
@@ -788,7 +788,6 @@ static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * secon
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
 void Encode_Game_Options(char * out); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 6 bytes differ (adopted text)
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
@@ -841,7 +840,6 @@ void Encode_Game_Options(char * out)
 
 	strcat(out, useroptions);
 }
-#endif
 
 /// <summary>
 /// Combines the rules, AI, and art CRCs into a single hash used to verify that all players
@@ -1106,8 +1104,7 @@ bool Request_Channel_List(int channel_type, unsigned char autoping)
 		return(false);
 	}
 	/// Not found -- use the first empty slot instead.
-	unsigned int type = channel_type;
-	g_ChanListQueue.addTail(type);
+	g_ChanListQueue.addTail(channel_type);
 	return(true);
 }
 
@@ -1804,6 +1801,7 @@ void Refresh_Game_List(void)
 	if (dialog == WS_Top_Window()) SetFocus(GetDlgItem(dialog, 0x540));
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; HouseClass::Production_Status_Changed, the TibSun archive's inline member, came into house.h)
 void Draw_Player_List(int keep_selection, bool force)
 {
 	HWND win = GameoptWindow();
@@ -2090,6 +2088,7 @@ void Draw_Player_List(int keep_selection, bool force)
 	SendDlgItemMessageA(win, 0x53E, OD_DISABLEPAINT, 0, 0);
 	InvalidateRect(GetDlgItem(win, 0x53E), NULL, 0);
 }
+#endif
 
 
 
@@ -2581,7 +2580,7 @@ class CChatEventSink : public CComObjectRoot, public IChatEvent
 				return(S_OK);
 			}
 
-			unsigned int requested_type = 0; // RA2: the chat channels
+			int requested_type = 0; // RA2: the chat channels
 
 			/*
 			 * A ping-list reply is always the game channel list; otherwise the list type
@@ -5164,7 +5163,6 @@ inline void Print_Message_Of_The_Day(void) // RA2: the message of the day
 	}
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2210 bytes differ (adopted text)
 int __fastcall Run_Lobby_Session(HWND window, bool first_time) // RA2: 0x00743720, not in TibSun: the lobby session of Westwood Online: ends the finished game (the tour's victory and defeat sounds), logs in again when the connection was lost, opens the lobby dialog (0x113) with the message of the day, requests the channel list, joins a lobby and waits for the events of the chat: 1 when a game starts, 2 when the skirmish event ended it, 0 otherwise (the dialog, the chat and the wait dialogs are closed again)
 {
 	int result = 0; // RA2: as above
@@ -5311,7 +5309,6 @@ started: // RA2: as above
 	g_LastErrorMessage[0] = 0; // RA2: as above
 	goto cleanup; // RA2: as above
 }
-#endif
 
 
 int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the lobby with the fewest players that still has room; the index in the channel list, -1 when there is none
@@ -6211,7 +6208,7 @@ void * g_OptionsDialogMemory; // RA2: freed when the options dialog (700) closes
 wchar_t g_PingTooltip[256]; // RA2: the text Player_Ping_Tooltip returns
 
 
-#ifdef RA2_NON_MATCHING // not exact: 2318 bytes differ (main's text; the original calls ArrayList<unsigned int>::growVector 0x00768290 out of line where this build expands it)
+#ifdef RA2_NON_MATCHING // not exact: 2318 bytes differ (main's text; the original calls ArrayList<int>::growVector 0x00768290 out of line where this build expands it)
 int g_LastJoinedGameIndex = -1; // RA2: the game list entry the join button last tried
 int g_LastSelectedGameIndex = -1; // RA2: the game list entry last selected
 char g_LastSelectedGameName[17]; // RA2: the name of the game channel last selected

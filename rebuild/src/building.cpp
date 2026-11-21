@@ -4634,7 +4634,6 @@ bool BuildingClass::Toggle_Primary(void)
  *   05/03/1995 JLB : Created.                                                                 *
  *   07/05/1995 JLB : Fixed production problem with capturing enemy buildings.                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2366 bytes differ (adopted text)
 bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: announce
 {
 	if (newowner != House) {
@@ -4870,13 +4869,10 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 		}
 
 		for (i = 0; i < reestablish.Count(); i++) { // RA2: every remembered contact greets again
-			Reestablish * record = reestablish[i]; // RA2: as above
-			Transmit_Message(RADIO_HELLO, record->Contact); // RA2: as above
-			record = reestablish[i]; // RA2: as above
-			if (record->WasTethered) { // RA2: as above
+			Transmit_Message(RADIO_HELLO, reestablish[i]->Contact); // RA2: as above
+			if (reestablish[i]->WasTethered) { // RA2: as above
 				IsTethered = true;
-				record = reestablish[i]; // RA2: as above
-				record->Contact->IsTethered = true; // RA2: as above
+				reestablish[i]->Contact->IsTethered = true; // RA2: as above
 			}
 		}
 
@@ -4884,14 +4880,13 @@ bool BuildingClass::Captured(HouseClass * newowner, bool announce) // RA2: annou
 			Sell_All_Upgrades(); // RA2: as above
 		}
 
-		oldowner->IsRecalcNeeded = true;
-		newowner->IsRecalcNeeded = true;
+		oldowner->Production_Status_Changed(); // RA2: both houses through the inline member (TibSun stores the flag directly here)
+		newowner->Production_Status_Changed(); // RA2: as above
 
 		return(true);
 	}
 	return(false);
 }
-#endif
 
 
 

@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -283,7 +284,6 @@ void TeamTypeClass::Destroy_All_Of(void) const
  *   07/13/1995 JLB : Created.                                                                 *
  *   07/21/1995 JLB : Will autocreate team even if no members in field.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 912 bytes differ (adopted text)
 SUGGESTED_TEAM_LIST TeamTypeClass::Suggested_New_Team(HouseClass * house, bool)
 {
 	int i;
@@ -369,10 +369,11 @@ SUGGESTED_TEAM_LIST TeamTypeClass::Suggested_New_Team(HouseClass * house, bool)
 	}
 
 	for (i = 0; i < Teams.Count(); i++) {
-		if (Teams[i]->House == house && (Teams[i]->IsReforming || !Teams[i]->IsMoving)) {
+		TeamClass * team = Teams[i]; // RA2: ra2-decomp's twin reads the team once
+		if (team->House == house && (team->IsReforming || !team->IsMoving)) {
 			int j = 0;
 			if (j < best.Count()) {
-				TeamTypeClass *cls = Teams[i]->Class;
+				TeamTypeClass * cls = team->Class;
 				while (true) {
 					if (cls == best[j]) {
 						best.Clear();
@@ -394,7 +395,6 @@ SUGGESTED_TEAM_LIST TeamTypeClass::Suggested_New_Team(HouseClass * house, bool)
 
 	return(best);
 }
-#endif
 
 
 
