@@ -90,7 +90,6 @@ class ScoreClass {
 		void Presentation(void);
 
 	private:
-		void Score_Delay(int ticks);
 		void Print_Minutes(int time);
 		Rect Count_Up_Print(Surface * surf, wchar_t const *str, int percent, int max, int xpos, int ypos); // RA2: 0x666DD0 takes the format as a wide string
 		void Show_Credits(void);

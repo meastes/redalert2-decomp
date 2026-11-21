@@ -951,7 +951,6 @@ void Type_Select_Key_Down(void)
 /// <summary>
 /// Releases the type select key; a quick tap selects the types and redraws the tactical map.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 7 bytes differ (no_draft bucket; call setup order after the type selection)
 void __fastcall Type_Select_Key_Up(void)
 {
 	if (TypeSelectKeyHeld) {
@@ -962,8 +961,6 @@ void __fastcall Type_Select_Key_Up(void)
 		}
 	}
 }
-
-#endif
 
 /// <summary>
 /// Whether the type select key is down.

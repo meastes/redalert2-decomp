@@ -75,6 +75,11 @@
 //                   click orders it (Player_Assign_Mission): in planning mode a planned waypoint (lane N3);
 //   plans           logs `harness-plans mode <0|1> tokens <n> nodes <n>`: planning mode on or off, the planning tokens
 //                   and the planned nodes (lane N3);
+//   centermap       centres the view on the selection (DisplayClass::Center_Map) (lane N23);
+//   planloop        logs `harness-planloop picked <i> hover <i> refused <0|1> loop <start> <count> path <n>`: the planned
+//                   nodes picked up and hovered with the mouse, a refusal shown this frame, the loop and the nodes
+//                   of the first node's first member's path; then each node's place and FUN_0063AC70's verdict
+//                   (lane N23);
 //   beaconmode      the beacon placement mode as the Beacon command gives it (FUN_00731A30: the command bar's
 //                   button in network games, the key; a skirmish's bar has no Beacon button); logs
 //                   `harness-beaconmode on|off` (lane N3);
@@ -159,6 +164,24 @@ LayerType Layer_From_Name(char const * name);
 #include <string.h>
 
 extern Rect TacticalRect;
+extern PlanningNodeClass * DAT_00AC4CCC;   // planmgr.cpp: the planned node under the mouse
+extern PlanningNodeClass * DAT_00AC4C38;   // planmgr.cpp: the planned node picked up with the mouse
+extern bool DAT_00AC4C08;                  // planmgr.cpp: a planning refusal was shown
+int __fastcall FUN_0063AC70(PlanningNodeClass * node);   // planmgr.cpp: whether the selection's paths can take the node
+
+// Test scaffolding (lane N23): an input script's point "@node=N" is the N-th planned node's lead on the screen
+// (glue/yr_app_hooks.cpp's resolver asks it).
+extern "C" int yr_harness_node_point(int n, int * x, int * y)
+{
+	if (n < 0 || n >= PlanningNodeClass::Unknown1.Count()) {
+		fprintf(stderr, "input-script: no planned node %d (%d planned)\n", n, PlanningNodeClass::Unknown1.Count());
+		return(0);
+	}
+	Point2D pixel = PlanningNodeClass::Unknown1[n]->Lead_Pixel();
+	*x = pixel.X + TacticalRect.X;
+	*y = pixel.Y + TacticalRect.Y;
+	return(1);
+}
 extern Rect VisibleRect;
 extern Rect * DAT_00B0FC58;	// the command bar's area (FUN_0072FC60)
 extern bool DAT_00B0FC0C;	// the command bar laid out
@@ -771,6 +794,30 @@ int Run_Order(int frame, char const * text)
 		fprintf(stderr, "harness-plans mode %d tokens %d nodes %d\n", PlanningNodeClass::PlanningModeActive ? 1 : 0,
 			PlanningTokenClass::Array.Count(), PlanningNodeClass::Unknown1.Count());
 		return(PlanningNodeClass::Unknown1.Count());
+	}
+	if (!strcmp(word[0], "centermap")) {
+		// the view is centred on the selection (DisplayClass::Center_Map, the Home key's centring) (lane N23)
+		Map.Center_Map();
+		fprintf(stderr, "harness-centermap %d selected\n", CurrentObject.Count());
+		return(1);
+	}
+	if (!strcmp(word[0], "planloop")) {
+		// logs `harness-planloop picked <i> hover <i> refused <0|1> loop <start> <count> path <n>`: the planned node picked up
+		// with the mouse (DAT_00AC4C38) and the hovered one (DAT_00AC4CCC) as indexes into the planned nodes (-1:
+		// none), whether a planning refusal was shown this frame (DAT_00AC4C08), and the closed loop and node count of the
+		// first node's first member's path (lane N23)
+		TechnoClass * lead = PlanningNodeClass::Unknown1.Count() ? PlanningNodeClass::Unknown1[0]->Member_Owner(0) : NULL;
+		PlanningTokenClass * token = lead != NULL ? lead->FUN_00705D20() : NULL;
+		Point2D node = PlanningNodeClass::Unknown1.Count() ? PlanningNodeClass::Unknown1[0]->Lead_Pixel() : Point2D(-1, -1);
+		fprintf(stderr, "harness-planloop picked %d hover %d refused %d loop %d %d path %d (node 0 at %d,%d, mouse %d,%d)\n",
+			PlanningNodeClass::Unknown1.ID(DAT_00AC4C38), PlanningNodeClass::Unknown1.ID(DAT_00AC4CCC), DAT_00AC4C08 ? 1 : 0,
+			token ? token->Get_Loop_Start() : -2, token ? token->ClosedLoopNodeCount : -2, token ? token->Node_Count() : -2, node.X, node.Y,
+			MouseCursor->Get_Mouse_X(), MouseCursor->Get_Mouse_Y());
+		for (int i = 0; i < PlanningNodeClass::Unknown1.Count(); ++i) {
+			Point2D pixel = PlanningNodeClass::Unknown1[i]->Lead_Pixel();
+			fprintf(stderr, "harness-planloop node %d at %d,%d state %d\n", i, pixel.X, pixel.Y, FUN_0063AC70(PlanningNodeClass::Unknown1[i]));
+		}
+		return(1);
 	}
 	if (!strcmp(word[0], "beaconmode")) {
 		FUN_00731A30();

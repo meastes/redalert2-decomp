@@ -114,6 +114,7 @@
     "?Is_Type_Named@ObjectClass@@QBE_NPBD@Z": 6105040,
     "?TypeSelectKeyHeld@@3_NA": 11277117,
     "?TypeSelectKeyTime@@3KA": 11277120,
+    "?Command_Type_Select@@YIXXZ": 7304032,
     "??_7?$DynamicVectorClass@PBD@@6B@": 8021476,
     "??_C@_0N@IEJB@MSG?3Critical?$AA@": 8359080,
     "??_C@_0BD@EMHN@MSG?3HeavilyDamaged?$AA@": 8359060,
@@ -198,6 +199,7 @@
     "?Select_Type@@YIXPBD@Z": 7303648,
     "?Matches_Any_Name@@YI_NPAVTechnoClass@@ABV?$DynamicVectorClass@PBD@@@Z": 7304720,
     "?Type_Select_Key_Down@@YIXXZ": 7304784,
+    "?Type_Select_Key_Up@@YIXXZ": 7304816,
     "?Is_Type_Select_Key_Held@@YI_NXZ": 7304880,
     "?Collect_Selected_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@XZ": 7304896,
     "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z": 5907152,
@@ -322,7 +324,7 @@
           "resolved": 11277004
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296496,
@@ -390,7 +392,7 @@
           "resolved": 11277016
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296528,
@@ -442,7 +444,7 @@
           "resolved": 11277088
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296576,
@@ -494,7 +496,7 @@
           "resolved": 11277072
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296608,
@@ -546,7 +548,7 @@
           "resolved": 11277064
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296640,
@@ -598,7 +600,7 @@
           "resolved": 11277024
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296672,
@@ -650,7 +652,7 @@
           "resolved": 11276984
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296704,
@@ -734,7 +736,7 @@
           "resolved": 11277096
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296736,
@@ -794,7 +796,7 @@
           "resolved": 11277032
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296800,
@@ -854,7 +856,7 @@
           "resolved": 11277056
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296848,
@@ -914,7 +916,7 @@
           "resolved": 11277080
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296896,
@@ -958,7 +960,7 @@
           "resolved": 11277010
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296944,
@@ -1010,7 +1012,7 @@
           "resolved": 11277048
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296960,
@@ -1054,7 +1056,7 @@
           "resolved": 11277124
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7296992,
@@ -1114,7 +1116,7 @@
           "resolved": 4292868719
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297024,
@@ -1174,7 +1176,7 @@
           "resolved": 4292868602
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297136,
@@ -1226,7 +1228,7 @@
           "resolved": 4293653640
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297248,
@@ -1254,7 +1256,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297312,
@@ -1282,7 +1284,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297328,
@@ -1439,7 +1441,7 @@
           "resolved": 123577
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297344,
@@ -1515,7 +1517,7 @@
           "resolved": 123382
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297808,
@@ -1575,7 +1577,7 @@
           "resolved": 123252
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7297984,
@@ -1747,7 +1749,7 @@
           "resolved": 11277132
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298128,
@@ -1807,7 +1809,7 @@
           "resolved": 122929
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298320,
@@ -1867,7 +1869,7 @@
           "resolved": 4292867295
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298448,
@@ -1927,7 +1929,7 @@
           "resolved": 4292867167
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298576,
@@ -1987,7 +1989,7 @@
           "resolved": 4292867049
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298688,
@@ -2287,7 +2289,7 @@
           "resolved": 4294842577
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7298816,
@@ -2515,7 +2517,7 @@
           "resolved": 8227030
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7299280,
@@ -2695,7 +2697,7 @@
           "resolved": 8227030
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7299568,
@@ -2843,7 +2845,7 @@
           "resolved": 10691384
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7299792,
@@ -3039,7 +3041,7 @@
           "resolved": 10691384
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7299968,
@@ -3099,7 +3101,7 @@
           "resolved": 4292052194
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300240,
@@ -3152,7 +3154,7 @@
           "resolved": 4292503035
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300272,
@@ -3205,7 +3207,7 @@
           "resolved": 4294052310
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300304,
@@ -3258,7 +3260,7 @@
           "resolved": 4294052278
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300336,
@@ -3295,7 +3297,7 @@
           "resolved": 4294042411
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300368,
@@ -3339,7 +3341,7 @@
           "resolved": 10751076
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300384,
@@ -3495,7 +3497,7 @@
           "resolved": 4293650255
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300464,
@@ -3531,7 +3533,7 @@
           "resolved": 11277104
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300704,
@@ -3680,7 +3682,7 @@
           "resolved": 10751076
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300720,
@@ -3707,7 +3709,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300912,
@@ -3735,7 +3737,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300928,
@@ -3780,7 +3782,7 @@
           "resolved": 4293560850
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300944,
@@ -3825,7 +3827,7 @@
           "resolved": 4293560834
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300960,
@@ -3862,7 +3864,7 @@
           "resolved": 11277104
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300976,
@@ -3906,7 +3908,7 @@
           "resolved": 11277104
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7300992,
@@ -4046,7 +4048,7 @@
           "resolved": 577155
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7301008,
@@ -4210,7 +4212,7 @@
           "resolved": 576877
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7301136,
@@ -4270,7 +4272,7 @@
           "resolved": 10751012
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7301424,
@@ -4346,7 +4348,7 @@
           "resolved": 4294663533
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7301616,
@@ -4406,7 +4408,7 @@
           "resolved": 10751076
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7301840,
@@ -4433,7 +4435,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302032,
@@ -4460,7 +4462,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302080,
@@ -4487,7 +4489,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302160,
@@ -4514,7 +4516,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302224,
@@ -4541,7 +4543,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302288,
@@ -4953,7 +4955,7 @@
           "resolved": 11277104
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7302400,
@@ -4997,7 +4999,7 @@
           "resolved": 4292862627
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7303136,
@@ -5153,7 +5155,7 @@
           "resolved": 4291937891
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7303200,
@@ -5206,7 +5208,7 @@
           "resolved": 4293768705
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7303568,
@@ -5386,7 +5388,7 @@
           "resolved": 8227030
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7303648,
@@ -5423,7 +5425,7 @@
           "resolved": 4293767585
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7304720,
@@ -5484,12 +5486,96 @@
           "resolved": 11277120
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7304784,
       "source_quality_family": "rebuild",
       "bound_population": "population-4394"
+    },
+    {
+      "entry": 7304816,
+      "method": "006f7670",
+      "body_bytes": 58,
+      "body_sha256": "398e833f4c3e139dfc1d557c14d6c875df6754a8b1dc7bcf2f61c31fab345e8f",
+      "padding_bytes": 6,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "94ad53a20ef1ca09777e271cf10e5f6e12abca61aac392ebd35e5db96c854098",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Type_Select_Key_Up@@YIXXZ",
+      "symbol_prefix": "?Type_Select_Key_Up@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?TypeSelectKeyHeld@@3_NA",
+          "target": 11277117,
+          "addend": 0,
+          "resolved": 11277117
+        },
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "?TypeSelectKeyHeld@@3_NA",
+          "target": 11277117,
+          "addend": 0,
+          "resolved": 11277117
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "?TypeSelectKeyTime@@3KA",
+          "target": 11277120,
+          "addend": 0,
+          "resolved": 11277120
+        },
+        {
+          "offset": 41,
+          "kind": 20,
+          "symbol": "?Command_Type_Select@@YIXXZ",
+          "target": 7304032,
+          "addend": 0,
+          "resolved": 4294966467
+        },
+        {
+          "offset": 46,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4292776695
+        }
+      ],
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
+      "source": "rebuild/src/uicmnds.cpp",
+      "population": "rebuild-uicmnds",
+      "source_order": 7304816,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 7304880,
@@ -5521,7 +5607,7 @@
           "resolved": 11277117
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7304880,
@@ -5581,7 +5667,7 @@
           "resolved": 10751076
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7304896,
@@ -5737,7 +5823,7 @@
           "resolved": 4291935868
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7305216,
@@ -5773,7 +5859,7 @@
           "resolved": 11277124
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7305584,
@@ -5953,7 +6039,7 @@
           "resolved": 11277124
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7305664,
@@ -5997,7 +6083,7 @@
           "resolved": 4292859024
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7306736,
@@ -6105,7 +6191,7 @@
           "resolved": 8625484
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7306816,
@@ -6133,7 +6219,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7306912,
@@ -6242,7 +6328,7 @@
           "resolved": 8625484
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7307568,
@@ -6270,7 +6356,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7307664,
@@ -6315,7 +6401,7 @@
           "resolved": 8021476
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7308448,
@@ -6407,7 +6493,7 @@
           "resolved": 563067
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7308768,
@@ -6563,7 +6649,7 @@
           "resolved": 4292479740
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309552,
@@ -6615,7 +6701,7 @@
           "resolved": 8358868
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309792,
@@ -6659,7 +6745,7 @@
           "resolved": 11277108
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309824,
@@ -6736,7 +6822,7 @@
           "resolved": 11277112
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309856,
@@ -6772,7 +6858,7 @@
           "resolved": 11277108
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309904,
@@ -6809,7 +6895,7 @@
           "resolved": 11277112
         }
       ],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309920,
@@ -6837,7 +6923,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "1484e8e27d8c4980e160dc2736f54ed4cd474e73f38bbe92c343c3edd599a512",
+      "source_sha256": "073887e8e80c334b4107b99d7e33dcbe3b5a03ea1fc8dfc72f89aa3c07be620a",
       "source": "rebuild/src/uicmnds.cpp",
       "population": "rebuild-uicmnds",
       "source_order": 7309936,

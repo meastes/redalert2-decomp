@@ -124,6 +124,7 @@ symbol,address,evidence
 ??8?$VectorClass@_N@@UBE_NABV0@@Z,0x004F7E40,slot +08 of ??_7?$VectorClass@_N@@6B@ at 007a2f60; main row ??8?$VectorClass@_N@@UBE_NABV0@@Z
 ??8?$_com_ptr_t@V?$_com_IIID@UIFlyControl@@$1?_GUID_820f501c_4f39_11d2_9b70_00104b972fe8@@3U__s_GUID@@A@@@@QAE_NH@Z,0x004BFB90,inferred: fly rows 004bc3e0 differ only at its sites
 ??8?$_com_ptr_t@V?$_com_IIID@UIStream@@$1?_GUID_0000000c_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAE_NH@Z,0x004951D0,inferred: cstream rows 004950f0 differ only at its sites
+??8HashString@@QAE_NABV0@@Z,0x004E11F0,"palette's mutable-key comparisons (11 sites in prior exact rows) call it; main row ??8HashString@@QBE_NABV0@@Z (outside_units, gscreen); ra2-decomp hashstr.h declares the member nonconst (codex1 r2412)"
 ??B?$VectorCursor@IV?$DynamicVectorClass@I@@@@UBE_NXZ,0x004E0690,slot +08 of ??_7?$VectorCursor@IV?$DynamicVectorClass@I@@@@6B@ at 007a2c04; main row ?VectorCursor_UnsignedInt_Boolean_Conversion_004e0690@@YI_NH@Z
 ??B?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@UBE_NXZ,0x004DEF90,slot +08 of ??_7?$VectorCursor@PAVGraphicMenuItem@@V?$DynamicVectorClass@PAVGraphicMenuItem@@@@@@6B@ at 007a2b80; main row ?VectorCursor_GraphicMenuItem_Boolean_Conversion_004def90@@YI_NH@Z
 ??B?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@UBE_NXZ,0x007303A0,slot +08 of ??_7?$VectorCursor@PAVMSAnim@@V?$DynamicVectorClass@PAVMSAnim@@@@@@6B@ at 007af3a0; main row ?unknown_in_range_007303a0@seed_007303a0@@YI_NH@Z

@@ -175,7 +175,7 @@ void Command_Guard(void); // RA2: 0x6F5B10
 void Command_Planning_Mode_On(bool sound); // RA2: 0x6F64D0
 void Command_Planning_Mode_Off(bool sound); // RA2: 0x6F64F0
 void __cdecl Command_Stop(void); // RA2: 0x6F5BC0
-void __cdecl Command_Type_Select(void); // RA2: 0x6F7360
+void __fastcall Command_Type_Select(void); // RA2: 0x6F7360
 int Group_Count(int group); // RA2: 0x6F5870; the player's technos in a team
 void Group_Assign(int group); // RA2: 0x6F5D90; the selection becomes the team
 bool Group_Is_All_Selected(int group); // RA2: 0x6F5800

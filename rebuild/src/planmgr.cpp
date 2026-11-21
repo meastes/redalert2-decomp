@@ -2638,25 +2638,32 @@ void __cdecl Planning_Draw_Remembered(void) // RA2: 0x00618090; outlines the nod
 #endif
 
 
-static inline bool Planning_Current_Order(TechnoClass * techno, bool has_nodes) // RA2: no function of its own; whether the techno has an order of its own to draw: it is not guarding or idle, and has planned nodes or is selected
+// RA2: the two waypoint renderers use these predicates from the ra2-decomp filled-waypoint text.
+static inline bool Has_Planned_Nodes(PlanningTokenClass * token)
 {
-	if (techno->Get_Mission() == MISSION_GUARD || Planning_Idle_Mover(techno)) { // RA2: as above
-		return false; // RA2: as above
-	}
-	return has_nodes || techno->IsSelected; // RA2: as above
+	int count; // RA2: as above
+	if (!token) count = 0; // RA2: as above
+	else count = token->Node_Count(); // RA2: as above
+	return count > 0; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 2095 bytes differ (main carry through the existing planning interfaces)
+static inline bool Should_Draw_Active_Action(TechnoClass * techno, bool has_nodes) // RA2: no function of its own; whether the techno has an order of its own to draw: it is not guarding or idle, and has planned nodes or is selected
+{
+	return techno->Get_Mission() != MISSION_GUARD && !Planning_Idle_Mover(techno) // RA2: as above
+		&& (has_nodes || techno->IsSelected);
+}
+
+#ifdef RA2_NON_MATCHING // not exact: 1665 bytes differ (both waypoint renderers use the same node and active-order predicates; all 50 direct calls agree)
 void __fastcall Planning_Draw_Techno(TechnoClass * techno)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token();
 	Coord current_coord = techno->As_Coord();
 	Point2D start = Planning_Coord_Pixel(current_coord);
 	int color = Planning_Techno_Color(techno);
-	bool has_nodes = (!token ? 0 : token->PlanningNodes.Count()) > 0;
-	bool current_order = Planning_Current_Order(techno, has_nodes);
+	bool has_nodes = Has_Planned_Nodes(token);
+	bool current_order = Should_Draw_Active_Action(techno, has_nodes);
 	int thickness = 4;
-	if (token && (token->OwnerUnit->CurrentMission == MISSION_WAIT || token->OwnerUnit->MissionQueue == MISSION_WAIT)) {
+	if (token && token->Owner_Is_Mission()) {
 		EventClass event = token->Popped;
 		Coord coord = Planning_Event_Or_Object_Coord(event, techno);
 		Point2D end = Planning_Coord_Pixel(coord);
@@ -2734,20 +2741,6 @@ bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; wh
 // RA2: the filled waypoints and their helpers are ra2-decomp's twin text
 int __fastcall Planning_Mega_Frame(TechnoClass * techno);
 void __fastcall Planning_Draw_Line(Point2D start, Point2D end, int offset, int color, bool dashed);
-
-static inline bool Has_Planned_Nodes(PlanningTokenClass * token)
-{
-	int count; // RA2: as above
-	if (!token) count = 0; // RA2: as above
-	else count = token->Node_Count(); // RA2: as above
-	return count > 0; // RA2: as above
-}
-
-static inline bool Should_Draw_Active_Action(TechnoClass * techno, bool has_nodes)
-{
-	return techno->Get_Mission() != MISSION_GUARD && !Planning_Idle_Mover(techno) // RA2: as above
-		&& (has_nodes || techno->IsSelected);
-}
 
 static inline int Waypoint_Fill_Color(TechnoClass * techno)
 {

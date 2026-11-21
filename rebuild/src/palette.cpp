@@ -291,12 +291,16 @@ class HashString { // RA2: the table key, a 256 byte name (the hash functions ar
 		HashString(char const * str); // RA2: 0x004E1140
 		HashString(HashString const & that); // RA2: 0x004E1180
 		HashString & operator = (HashString const & that); // RA2: 0x004E11C0
-		bool operator == (HashString const & that) const; // RA2: 0x004E11F0
-		bool operator != (HashString const & that) const { return(!(*this == that)); } // RA2: the table's entry compare asks for it, the executable never calls it
+		bool operator == (HashString const & that); // RA2: 0x004E11F0
+		bool operator != (HashString const & that); // RA2: member comparisons on a mutable key
 		bool operator ! (void) const; // RA2: 0x004E11B0, true for an empty name
 
 		char Str[256]; // RA2: +0x0
 };
+
+// RA2: const hash-table entries use the free comparisons declared in ra2-decomp/include/hashstr.h.
+bool operator == (HashString const & a, HashString const & b);
+bool operator != (HashString const & a, HashString const & b);
 
 
 class SchemeNode { // RA2: the schemes generated from one palette file

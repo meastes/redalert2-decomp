@@ -1624,6 +1624,77 @@ the loaded game at 2x); yr_save_roundtrip.py with Zoom gestures, Map zoom 1.5x, 
    Flag_To_Win as the house AI raises them, banner and EVA, glue/yr_harness.cpp): the banner's middle 120 of 255,
    27 on the old build.
 
+
+## Lane N23 (2026-11-21): planning mode's mouse, the 89 functions still missing at the Mac link
+
+1. **Planning mode: picking up planned waypoints with the mouse** (PORTS_REMAINING "Campaign stand-ins", left partial
+   since lane Y3). FUN_0063AB60 (the mouse over the map, ScrollClass::Scroll_AI) and FUN_0063A5A0 (a left press,
+   ScrollClass::Message_Handler) returned false, so every press on a planned node fell through to the map and planned
+   another waypoint there: a path could not be closed into a loop by hand. glue/planmgr_native.inc: NON-EXACT
+   stand-ins from gamemd.exe's instructions (0x0063AB60, 252 bytes; 0x0063A5A0, 818 bytes) in the shape of Red Alert
+   2's twins (Planning_Mouse_Move_00617900, Planning_Left_Down_00617340); gamemd.exe inlines the hovered node's hit
+   test and the node search (the tree's Hit_Test and Find_Node_At) and shows each refusal once with the scold sound
+   ("InvalidNodeX", "NoAircraft", "NoBuildings", "NoUnknowns"). ctest `yr-native-planning` gained the mouse part
+   (harness orders `centermap`, `planloop`; script point `@node=N`, the N-th planned node, glue/yr_harness.cpp and
+   glue/yr_app_hooks.cpp): three waypoints; a press on the second (next to last) leaves the path as it was (the
+   refusal; the old build's map click there changed nothing either, so this part is a guard, not a discriminator);
+   the mouse on the first makes it the hovered node, the press picks it up, the release closes the path into a loop
+   (loop start 0 over 3 nodes); the commit; the tanks set out. On the old build the node is hovered but never
+   picked up and no loop closes (the test fails there).
+2. **The 89 functions still missing at the Mac link** (gen-yr/link_closure.json; each symbol's referencing object from
+   `nm -u` over closure_inputs.txt, each caller's guard read in the unit and in gamemd.exe: call and pointer
+   references over .text and data, the writes to its guard globals). None is reached in skirmish, LAN or either
+   campaign with the shipped data. By family, with the evidence:
+   - **Westwood Online** (42): webbrowser.cpp FUN_00778A20 and FUN_00789500 (WebBrowser::Show_Page); laser.cpp's
+     ViewHTML and its GetWindowsDirectoryA / GetTempFileNameA (only caller gamemd.exe 0x00773834,
+     WebBrowser::Show_Page); netshare.cpp FUN_0077DB90, FUN_0077E430, FUN_0077E900, FUN_0077EBA0, FUN_00785360,
+     FUN_0078F000, FUN_007A2750, FUN_007A27D0, FUN_007A28B0 (each under `g_pChat != NULL`: the WOL chat object, which
+     no unit ever sets), FUN_007A2730, FUN_007A2800, FUN_007A0E50, FUN_0077F900 (each under `Session.Type ==
+     GAME_INTERNET`; FUN_0077F900 also in campscor.cpp's coop score); init.cpp FUN_0077B2A0 (Select_Game's
+     GAME_INTERNET case); sidebar.cpp FUN_0077DA50 and mainloop.cpp FUN_0078A470 / FUN_0078A6B0 / FUN_0078A8F0 (chat
+     page commands and the Diplomacy screen's ladder stats, `Session.Type == GAME_INTERNET`); sendfile.cpp
+     FUN_007931A0 (the non-IPX, non-modem branch: Internet); queue.cpp / mainloop.cpp Send_Statistics_Packet (both
+     forms) and GameStatisticsPacketSent (`Session.Type == GAME_INTERNET`); conquer.cpp DoFindPage (Game::SpecialDialog 7,
+     which nothing sets: the special dialogs set are SURRENDER, ABORT, SETTINGS, OPTIONS, WOL_OPTIONS, KEYBOARD, SOUND);
+     pk.cpp Generate_Prime and Int<64>::Error / Borrow (PKey::Generate, no caller in gamemd.exe); the World Domination
+     Tour (worlddom.cpp FUN_0076ED10 / FUN_00797800 / FUN_0079FC40, wdtsel.cpp's four WorldDominationTour::Selection
+     functions); msanim.cpp's five MSTextLayout functions (MSButtonAnim's text, made only by _Graphic_Menu <-
+     Do_Graphic_Menu, whose one caller is WDT_Theater_Choice_Menu 0x007AFB15).
+   - **Coop campaign** (3): coopcamp.cpp FUN_0049B430, campscor.cpp FUN_0046DFD0 (CampaignScoreClass::Show's coop
+     dialog), mpcoop.cpp MPCoopReporter::MPCoopReporter (lane N10).
+   - **Modem** (1): modemgst.cpp MapPreviewClass::Blit_Preview (lane N8).
+   - **VQA movies** (17, with the interpolation helpers): vqa.cpp / vqalib__*.cpp's ASM_UnVQ*, UnVQ1/UnVQ2_4x2_Table, VQA_LCW_Uncompress,
+     VQA_sosCODEC*, AudioUnzap, VQA_Reset and ahandle.cpp's Convert_HMI_To_Direct_Sound_Volume (Start_Audio_Handler,
+     the VQA player's audio). Play_Movie plays a name that resolves to .BIK as Bink and returns; the VQA path runs only
+     for a .VQA file, which Yuri's Revenge does not ship. interpal.cpp's Asm_Interpolate and its two line helpers
+     (Interpolate_2X_Scale, no caller in gamemd.exe).
+   - **Tiberian Sun only** (8): CellClass::Place_Veins (OverlayClass::Mark for OVERLAY_VEINS and
+     Post_Read_Vein_Fixups for solid vein cells: no shipped map has veins), VeinholeMonsterClass::Class_Of (made only
+     for OVERLAY_VEINHOLE), InfantryClass / UnitClass::Tunnel_AI (CurrentTube >= 0: TibSun's tunnels, no [Tubes] in the
+     shipped maps), Tactical::Draw_Fence_Placement / Draw_Firestorm_Wall_Placement (IsLaserFencePost /
+     IsFirestormWall buildings, none in rulesmd.ini), score.cpp ScoreFontClass::Print_String (ScoreClass::Count_Up_Print
+     0x0068FB10, no caller: YR uses CampaignScoreClass), isotype.cpp Iso_Blit_Asm2 (under IsoTileUseAsmDrawFunc,
+     which nothing sets).
+   - **Editor, debug and recording** (9): taction.cpp Speech_Name (TActionClass::PrepareSaveToINI, only from
+     TriggerTypeClass::Write_INI: scenario writing); lcwpipe.cpp / lcwstraw.cpp LCW_Comp (compressing pipes: MapClass's
+     Write_Binary_1/2, with no caller, and OverlayClass::Write_INI from Write_Scenario_INI, which the random map dialog
+     calls only under Debug_Map); mainloop.cpp TeamEvent / TeamNumber (written under Session.Record: gamemd.exe only
+     clears that bit, 0x0052E968 `and al, 0xfe`, never sets it) and Debug_Trap_Check_Heap (under [MultiPlayer]
+     CheckHeap, a debugging key; data, a zero placeholder at the link); motlib.cpp AudioGetDevice(int, int) (the sound
+     test window's key handler FUN_005BC6E0, whose window FUN_005BC530 makes only when DAT_00ABF239 is set, by
+     FUN_005BC370, which has no caller, or from queue.cpp under DAT_00B04874, which gamemd.exe only reads);
+     startup.cpp OutOfLineDtor::~OutOfLineDtor (Prog_End deletes DAT_00A83DB8, which gamemd.exe never writes);
+     facing.cpp getch / __conio_common_vcprintf (Exception_Dialog's recursive-exception console, after a crash).
+   - **COM template members** (5): CLSIDFromProgID, GetActiveObject, VariantInit / VariantClear / VariantChangeType
+     come only from `_com_ptr_t<...>::GetActiveObject` and `QueryStdInterfaces(_variant_t
+     const &)` in the units' explicit instantiations (`template class _com_ptr_t<...>`, building.cpp, drive.cpp, fly.cpp,
+     foot.cpp, saveload.cpp, savever.cpp, startup.cpp, super.cpp); no unit calls those members (a
+     `_variant_t` is never made).
+   - **Default virtual slots and dialogs** (4): TechnoClass::ForceCreate (the base slot; every techno is a FootClass or
+     BuildingClass, which override it), OwnerDraw::SysTabHandler and PrepareDialogChildControls (lane N10),
+     init.cpp Get_Language_Version (Version_Dialog_Proc, the version dialog).
+   Nothing reachable was found, so no stand-in was written for them; the count stays 89.
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;
