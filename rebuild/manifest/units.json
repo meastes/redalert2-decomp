@@ -131319,7 +131319,7 @@
   "partial_ok": true,
   "count_sensitive": {
    "0062a360": {
-    "windows": "plain probe declarations at the end of rect.h. New headers: +6 +10 exact; +0 +1 +2 +3 +4 +5 +8 +12 +16 +24 +32 +48 off. Old headers (main cd567aa24): +0 +3 +4 +16 exact; +1 +2 +5 +6 +10 +12 +24 +32 +48 off",
+    "windows": "plain probe declarations at the end of rect.h. New headers: +6 +10 exact; +0 +1 +2 +3 +4 +5 +8 +12 +16 +24 +32 +48 off. Old headers (main cd567aa24): +0 +3 +4 +16 exact; +1 +2 +5 +6 +10 +12 +24 +32 +48 off. Lane F11 headers (2026-11-21: ObjectClass::Direction(Coord const &) in object.h, DirType::operator>= a member in face.h; the function names neither), struct declarations at the end of rect.h: +2 +3 +6 +9 +10 +14 exact; +0 +1 +4 +5 +7 +8 +11 +12 +16 off (8 bytes at +0)",
     "header": "ccini.h, object.h, sidebar.h, _house.h, ownrdraw.h, rect.h (lane O10, 2026-11-21, owner ruling: all six held changes land as a set with ldprgmgr): CCINIClass Put_ActionType, Put_SuperWeaponType, Put_VoxType, Put_Vector, Put_Offset removed (never defined, no users; codex2 r5344/r5352); ObjectClass::Docking_Coord out of line in object.cpp (ra2-decomp; codex1 r2448/r2487); SelectClass::Is_Hovered declared after Set_Owner (ra2-decomp; r2464); ScoutStruct copy constructor (ra2-decomp _house.h; r2413/r2485); ColumnData copy constructor declared in the class, defined in ownrdraw.cpp (ra2-decomp; r2474/r2475/r2485); Inflate_Rect declared in rect.h and Blend_Rect in ownrdraw.h, the unit-local copies in ownrdraw, progress, mpscore and sidebar removed (codex1 r2486); the stale Encode_Game_Options prototype above its definition removed",
     "note": "lane O10 probe 2026-11-21 on the final tree (DoType precedent): (a) every displacing change is evidenced content or plain hygiene; (b)(i) the function names none of what the changes add or remove (no Docking_Coord, Is_Hovered, ScoutStruct, ColumnData, Put_, Inflate_Rect, Blend_Rect); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main cd567aa24)"
    }
@@ -142406,14 +142406,7 @@
      "00765990"
     ]
    }
-  ],
-  "count_sensitive": {
-   "00744090": {
-    "windows": "plain probe declarations at the end of rect.h. New headers: +32 exact; +0..+6 +8 +10 +12 +16 +24 +48 off. Old headers (main cd567aa24): +0..+4 +16 +24 +48 exact; +5 +6 +8 +10 +12 +32 off",
-    "header": "ccini.h, object.h, sidebar.h, _house.h, ownrdraw.h, rect.h (lane O10, 2026-11-21, owner ruling: all six held changes land as a set with ldprgmgr): CCINIClass Put_ActionType, Put_SuperWeaponType, Put_VoxType, Put_Vector, Put_Offset removed (never defined, no users; codex2 r5344/r5352); ObjectClass::Docking_Coord out of line in object.cpp (ra2-decomp; codex1 r2448/r2487); SelectClass::Is_Hovered declared after Set_Owner (ra2-decomp; r2464); ScoutStruct copy constructor (ra2-decomp _house.h; r2413/r2485); ColumnData copy constructor declared in the class, defined in ownrdraw.cpp (ra2-decomp; r2474/r2475/r2485); Inflate_Rect declared in rect.h and Blend_Rect in ownrdraw.h, the unit-local copies in ownrdraw, progress, mpscore and sidebar removed (codex1 r2486); the stale Encode_Game_Options prototype above its definition removed",
-    "note": "lane O10 probe 2026-11-21 on the final tree (DoType precedent): (a) every displacing change is evidenced content or plain hygiene; (b)(i) the function names none of what the changes add or remove (no Docking_Coord, Is_Hovered, ScoutStruct, ColumnData, Put_, Inflate_Rect, Blend_Rect); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main cd567aa24)"
-   }
-  }
+  ]
  },
  "skirmish": {
   "core": [
@@ -158750,14 +158743,7 @@
    "_?$S179@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4EA": "00a73438",
    "_?solid_brush@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAXA": "00a733e0"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "005fb270": {
-    "windows": "plain probe declarations at the end of house.h. New header (Production_Status_Changed in): +3 +4 exact; +0 +1 +2 +5 +6 +8 +10 +12 +16 off. Old header (main 669a80996): +0 +5 +6 +16 exact; +1 +2 +3 +4 +8 +10 +12 off",
-    "header": "house.h (lane F6, 2026-11-21): HouseClass::Production_Status_Changed(void) {IsRecalcNeeded = true;} defined in the class at the TibSun archive's place (house.h, after Update_Production_Mode; ra2-decomp's house.h has it too); BuildingClass::Captured 0x444660 (3,359 B) is exact through it and queue Print_CRCs 0x62A360 is exact again with it",
-    "note": "lane F6 probe 2026-11-21 on the final tree (DoType precedent): (a) the displacing change is evidenced content (the archive's inline member, at its place); (b)(i) ownrdraw.cpp does not name Production_Status_Changed and no header inline calls it (its only users are Captured's two closing statements); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main 669a80996)"
-   }
-  }
+  "partial_ok": true
  },
  "mpobserver": {
   "core": [

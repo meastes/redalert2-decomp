@@ -8345,7 +8345,6 @@ struct TrackBarState { // RA2: as above
     int click_suppress; // RA2: as above
 };
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; HouseClass::Production_Status_Changed, the TibSun archive's inline member, came into house.h)
 LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     bool play_click = true;
@@ -8678,7 +8677,6 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     return 0; // RA2: as above
 }
-#endif
 
 }
 

@@ -3419,3 +3419,45 @@ Found in the rebuild (lane F12, high): the register_order bucket of `rebuild/man
   inert (four are inert: both sums of the second multiplying line and of the first shaded line), flipping the
   differing sum itself moves the difference to its neighbour, and the twin's twelve orders are 41 bytes further
   off. A masked diff (statics normalised) is the first step for a row whose first difference is an unbound static.
+## A tiny comparison kept out of line at the top of a function is a missing accessor level (found in the rebuild (lane F11, high))
+
+- The image keeps five calls to `TPoint2D<int>::operator==` (0x4BFB60, 46 units) in four functions: infantry
+  Start_Driver 0x504BC0 (twice), fly Nearing_Target 0x4BE720, hover Process 0x4FBFC0 and hover Motion_AI 0x4FDAF0.
+  Each discards the result (the `Facing = 0` store of `DirType::Direction(Coord, Coord)` is dead) and each follows a
+  virtual `Center_Coord()` of the object asked. At a function's first statement the root budget is whole, so a
+  46-unit callee cannot be refused one level down: `(1000 - 98) / N` stays above 46 until N reaches 20.
+- The missing level is Red Alert's inline member, `DirType Direction(COORDINATE coord) const {return
+  ::Direction(Center_Coord(), coord);}` (ABSTRACT.H:115; INFANTRY.CPP:2089 calls it as `Direction(headto)+DIR_S`).
+  As `ObjectClass::Direction(Coord const & coord) const {return(DirType().Direction(Center_Coord(), coord));}` it
+  measures 58 units (il_lab, infantry), `DirType::Direction` 98 inside it and `operator==` 46 inside that: alone the
+  comparison is a call for budgets of 156..201, with `+ DirType` after it 254..345 (the wrapper's body is divided
+  by the sites that follow it in the caller).
+- With the member hover Motion_AI is exact without ra2-decomp's unit-local `Facing_To` wrapper, anim stays whole
+  without its `_Direction(object, to)` wrapper (the member with the object as a parameter), and the comparison
+  sites of hover Process, fly Nearing_Target and both statements of Start_Driver are the image's. Start_Driver's
+  first `DirType::Direction` was then 4 units short (`(1000 - 58) / 10 = 94` against 98): one inline site too many
+  after it. The archive's `Clear_Occupy_Bit(PositionCoord)` reads a property (`Get_Coord()`, an inline site);
+  ra2-decomp's twin has `Clear_Occupy_Bit(Coord(Position))`, a plain copy and no site, and the row is exact
+  (817 B, infantry whole). Three spellings of the member's body (temporary, named local returned, the named local's
+  call returned) give the same lists.
+- A property read is an inline site: when a budget is one site out, look for `PositionCoord`-style property reads
+  after the disputed call and at the twin's spelling of the same statement.
+- hover Process 0x4FBFC0 after the member: the expanded `Start()` still expands `Coord::As_Cell` (50 units) and
+  `TPoint2D<short>::operator==` where the image calls both; charged 48-unit pads at the top of the root give
+  As_Cell a call at 3 and the image's whole call list at 6, so the image has 240..288 units less there.
+- ra2-decomp's reading (the template's `operator==` declared only, defined at the end of six units, `Point2D` and
+  `Cell` with their own) is not RA2's: the image holds ordinary out-of-line copies of
+  `TPoint2D<short>::operator==` (0x4FEF20), `operator!=` (0x58DB50) and `TPoint3D<int>::operator==` (0x61A8B0), and
+  with the declaration alone Start_Driver still calls `TPoint3D<int>(int, int, int)` where the image expands it.
+- The second tiny callee of Nearing_Target, 0x4BFB30 (`abs(Facing) >= abs(rvalue.Facing)`), takes `this` in ecx and
+  one stack argument: it is a member, as ra2-decomp's face.h has it (`bool operator >= (DirType const & rvalue)
+  const`), not the archive's free inline (which /Gr would pass in ecx and edx). The form shows only where the
+  image keeps the call.
+- Recipe: when a callee of 40..60 units is a call at a function's first statement, list every image site of that
+  callee (`rebuild/tools/disasm.py` of each caller) and read what the sites share before the call; a shared
+  argument expression is the body of an accessor. Look for it in Red Alert's headers as well as the archive's: the
+  archive's callers can be spelled one level flatter than the source was.
+- Coord_Scatter 0x491750: the lock branch is ra2-decomp's spelled-out expression in the image (`X - (X & 255) +
+  128`), not `Coord_Snap`; eight natural spellings of it leave `TPoint3D<int>(int, int, int)` expanded inside
+  `Move_Coord`, so the level ra2-decomp supplies with its pass-through `_Move_Coord` is still unexplained (Red
+  Alert's COORD.CPP has an out-of-line `Coord_Move` at that place; the image has none in coord's range).

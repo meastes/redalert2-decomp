@@ -276,6 +276,7 @@ class ObjectClass : public AbstractClass
 		int Relative_Distance(Coord const & coord) const;
 
 		DirType Direction(AbstractClass const * object) const;
+		DirType Direction(Coord const & coord) const { return(DirType().Direction(Center_Coord(), coord)); } // RA2: Red Alert's inline member (ABSTRACT.H:115, Direction(COORDINATE)), in DirType's terms; every call the image keeps to TPoint2D<int>::operator== (0x4BFB60) follows the Center_Coord() of the object asked
 
 		/*
 		**	Object entry and exit from the game system.

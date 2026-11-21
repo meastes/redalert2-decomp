@@ -5308,7 +5308,6 @@ started: // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the five never-defined CCINIClass Put_ declarations left ccini.h and Inflate_Rect and Blend_Rect moved into rect.h and ownrdraw.h with five other evidenced header changes)
 int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the lobby channel to join. In a World Domination Tour game it is the one that carries the player's territory; else the lobby that was joined last, else the lobby with the fewest players that still has room; the index in the channel list, -1 when there is none
 {
 	int count = g_UserChannels.length(); // RA2: as above
@@ -5395,7 +5394,6 @@ int Pick_Lobby(bool require_room) // RA2: 0x00744090, not in TibSun: chooses the
 	}
 	return(best); // RA2: as above
 }
-#endif
 
 bool Leave_Current_Channel(unsigned int event, bool block) // RA2: 0x00744610, not in TibSun: leaves the channel the chat is in, waits up to 15 seconds for the server to confirm; true when no channel is left
 {

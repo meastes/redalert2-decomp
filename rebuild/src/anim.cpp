@@ -1451,13 +1451,6 @@ int AnimClass::Get_Height(void) const
 }
 
 
-/// <summary>
-/// RA2
-/// </summary>
-static inline DirType _Direction(ObjectClass * object, Coord const & to)
-{
-	return(DirType().Direction(object->Center_Coord(), to));
-}
 
 
 /// <summary>
@@ -1535,7 +1528,7 @@ void AnimClass::Flaming_Guy_AI(void)
 			}
 		} else {
 			int z = PositionCoord.Z;
-			DirType direction = _Direction(this, FlamingGuyCoords);
+			DirType direction = Direction(FlamingGuyCoords); // RA2: ObjectClass::Direction
 			Coord newcoord = _Move_Coord(PositionCoord, direction, 18);
 			if (z <= Map.Get_Height_GL(newcoord) + 2 * LEVEL_LEPTON_H) {
 				newcoord.Z = Map.Get_Height_GL(newcoord);

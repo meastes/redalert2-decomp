@@ -2549,7 +2549,6 @@ deploy_fire: // RA2: as above
  *   05/14/1995 JLB : Tries to move to closest spot possible.                                  *
  *   05/15/1995 JLB : Uses closest spot if moving onto transport.                              *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 784 bytes differ (adopted text)
 bool InfantryClass::Start_Driver(Coord & headto)
 {
 	Coord old = headto;
@@ -2557,9 +2556,9 @@ bool InfantryClass::Start_Driver(Coord & headto)
 	/*
 	**	Convert the head to coordinate to a legal sub-position location.
 	*/
-	headto = Map[headto].Closest_Free_Spot(Move_Coord(headto, DirType().Direction(Center_Coord(), headto)+((DIR_S << 8)-1), CELL_LEPTON / 2 - 4), false, Map[headto].IsUnderBridge);
+	headto = Map[headto].Closest_Free_Spot(Move_Coord(headto, Direction(headto) + ((DIR_S << 8) - 1), CELL_LEPTON / 2 - 4), false, Map[headto].IsUnderBridge); // RA2: Red Alert's Direction(headto), ObjectClass::Direction
 	if (headto == COORD_NONE && Can_Enter_Cell(&Map[old]) == MOVE_OK) {
-		headto = Map[old].Closest_Free_Spot(Move_Coord(old, DirType().Direction(Center_Coord(), headto)+((DIR_S << 8)-1), CELL_LEPTON / 2), true, Map[old].IsUnderBridge);
+		headto = Map[old].Closest_Free_Spot(Move_Coord(old, Direction(headto) + ((DIR_S << 8) - 1), CELL_LEPTON / 2), true, Map[old].IsUnderBridge);
 	}
 
 	/*
@@ -2571,7 +2570,7 @@ bool InfantryClass::Start_Driver(Coord & headto)
 		/*
 		**	Remove the occupation bit from the infantry's current location.
 		*/
-		Clear_Occupy_Bit(PositionCoord);
+		Clear_Occupy_Bit(Coord(Position)); // RA2: a copy of the position, as ra2-decomp's twin has it
 
 		/*
 		**	Set the occupation bit for the new headto location.
@@ -2582,7 +2581,6 @@ bool InfantryClass::Start_Driver(Coord & headto)
 
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************

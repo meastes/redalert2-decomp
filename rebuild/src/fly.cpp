@@ -1094,7 +1094,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 /// </summary>
 /// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
 /// <returns>Returns with the distance remaining to the destination.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1445 bytes differ (the comparison members inline; frame 0x44 against 0x2c)
+#ifdef RA2_NON_MATCHING // not exact: 1441 bytes differ (DirType's operator>= inline where the original calls it; frame 0x44 against 0x2c)
 int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 {
 	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
@@ -1150,8 +1150,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 		}
 
 		if (turn) {
-			DirType desired;
-			desired.Direction(LinkedTo->Center_Coord(), coord); // RA2: as above
+			DirType desired = LinkedTo->Direction(coord); // RA2: ObjectClass::Direction
 			LinkedTo->PrimaryFacing.Set_Desired(desired); // RA2: as above
 		}
 	}

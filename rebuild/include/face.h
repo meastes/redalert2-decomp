@@ -53,7 +53,6 @@ bool operator != (DirType const & lvalue, DirType const & rvalue);
 bool operator < (DirType const & lvalue, DirType const & rvalue);
 bool operator > (DirType const & lvalue, DirType const & rvalue);
 bool operator <= (DirType const & lvalue, DirType const & rvalue);
-bool operator >= (DirType const & lvalue, DirType const & rvalue);
 
 /*
  * The 32 facing grid of the body and turret artwork. Typed only so that a
@@ -227,6 +226,8 @@ class DirType
 		const DirType & operator *= (int rvalue) { Facing *= rvalue; return *this; }
 		const DirType & operator /= (int rvalue) { Facing /= rvalue; return *this; }
 
+		bool operator >= (DirType const & rvalue) const { return abs(Facing) >= abs(rvalue.Facing); } // RA2: a member, as ra2-decomp's face.h has it: the image's out-of-line copy (0x4BFB30) takes this in ecx
+
 		bool Is_Complete_Turn(DirType const & towards, DirType const & by)
 		{
 			DirType diff(*this - towards);
@@ -275,5 +276,4 @@ inline bool operator != (DirType const & lvalue, DirType const & rvalue) { retur
 inline bool operator < (DirType const & lvalue, DirType const & rvalue) {return abs(lvalue.Facing) < abs(rvalue.Facing); }
 inline bool operator > (DirType const & lvalue, DirType const & rvalue) {return abs(lvalue.Facing) > abs(rvalue.Facing); }
 inline bool operator <= (DirType const & lvalue, DirType const & rvalue) {return abs(lvalue.Facing) <= abs(rvalue.Facing); }
-inline bool operator >= (DirType const & lvalue, DirType const & rvalue) {return abs(lvalue.Facing) >= abs(rvalue.Facing); }
 

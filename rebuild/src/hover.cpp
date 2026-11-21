@@ -208,7 +208,7 @@ Matrix3DStruct STDMETHODCALLTYPE HoverLocomotionClass::Shadow_Matrix(int *key) /
 
 
 /// <returns>bool; Is the object still moving?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 2060 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1961 bytes differ (adopted text): the expanded Start() calls Coord::As_Cell and the cell comparison out of line in the original
 boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 {
 	if (Is_Moving() && Is_Moving1()) {
@@ -217,7 +217,7 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 
 		int height = LinkedTo->Height;
 		int speed = LinkedTo->Current_Speed() * Acceleration;
-		DirType direction = DirType().Direction(LinkedTo->Center_Coord(), HeadToCoord); // RA2: through DirType's Direction
+		DirType direction = LinkedTo->Direction(HeadToCoord); // RA2: ObjectClass::Direction
 
 		if (speed == 0 && Facing.Current().Is_Complete_Turn(direction, 0)) {
 			Start();
@@ -698,15 +698,6 @@ void HoverLocomotionClass::Stop_Driver(void)
 
 
 /// <summary>
-/// Fetches the facing from one coordinate to another.
-/// </summary>
-static inline DirType Facing_To(Coord const & from, Coord const & to) // RA2: the facing between two coordinates
-{
-	return(DirType().Direction(from, to)); // RA2: through DirType's Direction
-}
-
-
-/// <summary>
 /// Handles the steering and the throttle for a hovering object.
 /// This routine is called from the locomotor's main process. It swings the drive around
 /// toward the next stop, eases the throttle up to cruising speed or back off as the
@@ -716,7 +707,7 @@ static inline DirType Facing_To(Coord const & from, Coord const & to) // RA2: th
 void HoverLocomotionClass::Motion_AI(void)
 {
 	if (Is_Moving() && HeadToCoord != COORD_NONE) {
-		DirType newdir = Facing_To(LinkedTo->Center_Coord(), HeadToCoord); // RA2: through Facing_To
+		DirType newdir = LinkedTo->Direction(HeadToCoord); // RA2: ObjectClass::Direction
 		if (!WasPushed) {
 			Facing.Set_Desired(newdir);
 		} else {
