@@ -1233,9 +1233,9 @@
    "source": "seed decompile 0x004C2030",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TechnoClass::What_Action over a fogged cell (0x006CCE70); fogged objects exist only under fog of war, which no Red Alert 2 menu turns on (probably unreachable; not proven)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "TechnoClass::What_Action (0x006CCE70, 0x006CCE7B) calls it on the fogged objects listed for the cell under the mouse. FoggedObjectClass objects exist only under fog of war, which the shipped game never turns on: they are made only by BuildingClass::Make_Fogged (0x00452C70, from BuildingClass::Unlimbo 0x0043DA70 and CellClass::Fog_Cell 0x0047BD91, both behind the scenario's FogOfWar bit, Scen+0 bit 12, tested at 0x0043D9F5 and 0x0047BC80) and by the class factory when a save holds one (0x006981EC); Fog_Cell's other callers (Map Init_Fog_System 0x0065F924, DisplayClass Encroach_Fog from LogicClass::AI and Environment_AI) are behind the same bit. The bit is set only from Special.FogOfWar: Read_Scenario_INI (0x0065EB40) clears it in a campaign and copies the session's fog flag (0x00A3D33F) in a multiplayer game, and SpecialClass::Read_INI reads FogOfWar= only in a campaign; the session flag is written by Init_Rules from rules.ini [MultiplayerDialogSettings] FogOfWar=no, cleared by the skirmish dialog and the World Domination Tour, saved and put back by MPCooperative (slots 34, 37), and set otherwise only by the modem dialogs (ModemHost/ModemGuest, reached only through Select_Serial_Dialog 0x005CDF00, which has no caller, or Select_Game's modem branch, entered only with session type 1 or 2, which only Select_Serial_Dialog and the load of a saved modem game set) and Westwood Online. Every map in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps has FogOfWar=no (130 [Basic] sections, 130 FogOfWar=no)",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (calls of the FoggedObjectClass constructors and Make_Fogged with their guards, every reference to 0x00A3D33F, Session.Type writes; scratch scripts) with manifests/function_map.csv and mischa85 names.csv, the shipped rules.ini, and FogOfWar= in the map text of maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00405A00",
@@ -1332,9 +1332,9 @@
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x004870E0 calls the forward slot with the same arguments and 0)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the blitter's backward slot: a translucent shape drawn right to left (mirrored); the runs drew the sidebar clock only forwards",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "a Blitter's backward slot (slot 2, +8) is called only by Bit_Blit (0x00434B40: 0x00434D7A, 0x00434EF9; the other calls through +8 after seven pushes are Surface slot 2 in Movie_Blit_To_Screen_Hidden and WWMouseClass), and only when Prep_For_Blit (0x007753B0) reports an overlapping copy, which it does only when the destination and source are one surface. This blitter converts 8-bit palette indices (one byte read per pixel) to 16-bit pixels, so its source and destination are always two surfaces of different pixel sizes: its Bit_Blit callers (CC_Draw_Shape with the shape frame's surface, Blit_Block with a voxel, cameo, title or cursor image, UnitClass slot 312 with the 8-bit voxel buffer) never pass the destination as the source. The original's slot calls the forward slot (behaviour verdict), as the rewrite",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every call through +8 preceded by seven argument pushes, the callers of Bit_Blit 0x00434B40/0x00434AE0 and Prep_For_Blit; scratch scripts) with manifests/function_map.csv and the matched src/recovered/blit.cpp, draw.cpp, unit.cpp and xsurface.cpp"
   },
   {
    "entry": null,
@@ -1348,9 +1348,9 @@
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x00487170 calls the forward slot)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the blitter's backward slot (as the 50% row)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "a Blitter's backward slot (slot 2, +8) is called only by Bit_Blit (0x00434B40: 0x00434D7A, 0x00434EF9; the other calls through +8 after seven pushes are Surface slot 2 in Movie_Blit_To_Screen_Hidden and WWMouseClass), and only when Prep_For_Blit (0x007753B0) reports an overlapping copy, which it does only when the destination and source are one surface. This blitter converts 8-bit palette indices (one byte read per pixel) to 16-bit pixels, so its source and destination are always two surfaces of different pixel sizes: its Bit_Blit callers (CC_Draw_Shape with the shape frame's surface, Blit_Block with a voxel, cameo, title or cursor image, UnitClass slot 312 with the 8-bit voxel buffer) never pass the destination as the source. The original's slot calls the forward slot (behaviour verdict), as the rewrite",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every call through +8 preceded by seven argument pushes, the callers of Bit_Blit 0x00434B40/0x00434AE0 and Prep_For_Blit; scratch scripts) with manifests/function_map.csv and the matched src/recovered/blit.cpp, draw.cpp, unit.cpp and xsurface.cpp"
   },
   {
    "entry": null,
@@ -1364,9 +1364,9 @@
    "notes": "vtable slot of the blitter (entry address not bound in the catalog); the sidebar build clock reaches the 50% forward blit (Scout1111)",
    "behaviour_verdict": "same (the original 0x00487050 calls the forward slot)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the blitter's backward slot (as the 50% row)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "a Blitter's backward slot (slot 2, +8) is called only by Bit_Blit (0x00434B40: 0x00434D7A, 0x00434EF9; the other calls through +8 after seven pushes are Surface slot 2 in Movie_Blit_To_Screen_Hidden and WWMouseClass), and only when Prep_For_Blit (0x007753B0) reports an overlapping copy, which it does only when the destination and source are one surface. This blitter converts 8-bit palette indices (one byte read per pixel) to 16-bit pixels, so its source and destination are always two surfaces of different pixel sizes: its Bit_Blit callers (CC_Draw_Shape with the shape frame's surface, Blit_Block with a voxel, cameo, title or cursor image, UnitClass slot 312 with the 8-bit voxel buffer) never pass the destination as the source. The original's slot calls the forward slot (behaviour verdict), as the rewrite",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every call through +8 preceded by seven argument pushes, the callers of Bit_Blit 0x00434B40/0x00434AE0 and Prep_For_Blit; scratch scripts) with manifests/function_map.csv and the matched src/recovered/blit.cpp, draw.cpp, unit.cpp and xsurface.cpp"
   },
   {
    "entry": "0x006F8A00",
@@ -1768,9 +1768,9 @@
    "notes": "string table labels GUI:LoadMissionMenu, GUI:SaveMissionMenu, GUI:DeleteMissionMenu, TXT_GAME_WAS_SAVED; Scout1125 (M15)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "LoadOptionsClass vtable slot 5 (the load/save/delete dialog's captions); the in-game save and load ran through other slots",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenarios n22-load (the single-player menu's Load Saved Game: Select_Game's LoadOptionsClass::Dialog 0x0053B770 in the load style, its title from Load_Menu_Name) and n22-saves (the in-game menu's Save Game, its Save and the message after it: Save_Menu_Name, Saved_Message; then Delete Game: Delete_Menu_Name); all four names reached on a LoadOptionsClass itself (MapSeedClass overrides them; the earlier load runs used the harness's resume path, which skips Dialog)",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-load, n22-saves"
   },
   {
    "entry": "0x0047A410",
@@ -1957,9 +1957,10 @@
    "notes": "reached by an aircraft taking off (the win loop, frame ~19k); Scout1133 (M16)",
    "behaviour_verdict": "same (as the recovered copies 0x00509860 / 0x004A4D10: Release through slot 2 of what is held; this instance's own copy is not located)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions (of the sibling copies); not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "an aircraft taking off (the win loop at frame ~19k, Scout1133); the instance has no symbol the coverage report can find (template instance, out-of-line copy not located), so no run can credit it",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario supers-save: each super weapon used on an enemy, then a save and its load (the planes the super weapons send fly; the run's input does nothing else with aircraft); the row now names the instance's mangled symbol (UnknownComPtr<UnknownFlyInterface, &unknown_uuid_7d80a8>::Release_Held), so the coverage report can credit it",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run (every scenario) and report; the symbol read with nm from the coverage binary",
+   "symbol": "__ZN13UnknownComPtrI19UnknownFlyInterfaceXadL_Z19unknown_uuid_7d80a8EEE12Release_HeldEv"
   },
   {
    "entry": "0x0058FE10",
@@ -2503,9 +2504,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectClass slot (Is_Players_Army) default slot inherited by AnimClass, BuildingLightClass, BulletClass, IsometricTileClass, OverlayClass, ParticleClass, ParticleSystemClass, SmudgeClass, TerrainClass, VoxelAnimClass, VeinholeMonsterClass, WaveClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-next: the Next Object and Previous Object keys (bound to N and M by the run's own KEYBOARD.INI) in a skirmish: NextObjectCommandClass::Execute (0x0051B8B0) and PreviousObjectCommandClass::Execute call DisplayClass::Next_Object (0x0049A5D0) and Prev_Object (0x0049A670), which ask every object of the ground, air and top layers for slot 24 (+0x60); the trees and animations there keep the default (0x00423D10, xor al,al: false, as the rewrite) and are passed over. The other named callers' receivers are technos (TechnoClass 0x006C1320 overrides it)",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-next and report; game.exe's calls through +0x60 read with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x00423D20",
@@ -2653,9 +2654,9 @@
    "notes": "Scout1177 M22 default slot in live vtables (coverage ranking)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ObjectTypeClass slot (Get_Ownable) default slot inherited by AnimTypeClass, BulletTypeClass, IsometricTileTypeClass, OverlayTypeClass, ParticleSystemTypeClass, ParticleTypeClass, SmudgeTypeClass, TerrainTypeClass, VoxelAnimTypeClass; reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "the default (0x00426760, or eax,-1) is kept by the non-techno type classes (Anim, Bullet, IsometricTile, Overlay, ParticleSystem, Particle, Smudge, Terrain, VoxelAnim); TechnoTypeClass overrides slot 28 (0x006DACF0). game.exe has 89 calls through +0x70; the only ones on an ObjectTypeClass are ObjectTypeClass::Who_Can_Build_Me (slot 37, 0x005D5FC0) on itself (0x005D5FCD) and on the factory building's type (0x005D6075, a BuildingTypeClass); TechnoClass::Get_Ownable (0x006D3E40) jumps to it on Techno_Type_Class(). Every receiver of Who_Can_Build_Me (calls through +0x94 on types) is a techno type: Fetch_Techno_Type (0x00482C00: building, unit, infantry and aircraft types only) in HouseClass::Begin_Production, Factory_Producing_This and SidebarClass::StripClass::Recalc; Techno_Type_Class() (+0x80) in BuildingClass::Abandon_Orphaned_Production, Detach_All and HouseClass::Update_Factories; a building's type in AI_Takeover; a task force's members in Can_Create_Team; and ObjectClass::Who_Can_Build_Me (slot 94, +0x178, no override; Class_Of()->Who_Can_Build_Me), whose callers pass FactoryClass::Get_Object()'s techno (HouseClass 0x004E6950, StripClass::Recalc 0x00680FA7). The other +0x70/+0x94 calls are on surfaces, gadgets, list boxes, COM locomotors, the game mode (Do_Win, Do_Lose, Multiplayer_Last_Minute_Fixups: 0x00A3D29C), ObjectClass slots 28 and 37 (ScrollClass::What_Action) and Westwood Online; no jmp or register call through either slot, no direct call or reference to 0x00426760 outside the vtables",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (call/jmp [reg+0x70] and [reg+0x94] and [reg+0x178] instructions with the receiver's setup read at each site, register calls loaded from those slots, direct references, .rdata vtable entries from manifests/rtti_classes.json; scratch scripts) with the function names of mischa85 names.csv"
   },
   {
    "entry": "0x006D4880",
@@ -2938,9 +2939,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same (the CRT's _isctype(c, _SPACE) in the C locale: 8 for the six space characters, else 0)",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "StringTable::LoadFile/ReadFile, Read_Text_Entry and the CRT's _winput: the text-file string loaders (the game reads ra2.csf through another path) and wide scanf",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "in the port its only callers are the string table's text-file reader (src/recovered/uicmnds2.cpp: Strip_Line in String_Table_Init 0x006F8E30, Unknown_Read_Text_Entry 0x006F92A0, Read_Text_File 0x006F9790); the CRT's scanf internals that call it in game.exe (0x0078B1E7) are the host C library's in the port. String_Table_Init (from WinMain 0x00690049 with ra2's table name, and the two Set_Text_Option command-line handlers) reads a text table only when Read_CSF_Header finds no .csf: the installation's language.mix holds ra2.csf, which every run loads (the menus' strings), so the text branch never runs",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (calls of 0x00784AA8, String_Table_Init's callers and its CSF/text branch; scratch scripts) with manifests/function_map.csv, the matched src/recovered/uicmnds2.cpp, and grep of native/ for the rewrite's callers"
   },
   {
    "entry": "0x00672140",
@@ -2951,11 +2952,11 @@
    "file": "native/link/behaviour_m22_misc.cpp",
    "source": "pass-6a decompile",
    "notes": "Scout1177 M22 coverage ranking",
-   "behaviour_verdict": "same",
-   "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Find_Owner_User, Net2ReadyToGo, Update_Network_Dialog_Preview; Open_Buddy_Dialog online); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "behaviour_verdict": "fixed (lane N22: compared against \"RandMap_Sed\", the data label, instead of the original's string \"RandMap.Sed\" at 0x007E16E8)",
+   "behaviour_checked_by": "N22 2026-11-21: the original's instructions (0x00672140: _stricmp with 0x007E16E8) and bytes at 0x007E16E8; LAN random map game with ctest native-lan-random-map",
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-lanrand (lan_pair.py --randmap: the LAN host makes a random map after Bravo has joined): at Start Game Bravo has no RandMap.Sed and the map is official, so Start_Joined_Game (0x005BE538) asks whether it is the random map before fetching it. The rewrite compared the name with \"RandMap_Sed\" (the data label of the string at 0x007E16E8, not its text \"RandMap.Sed\"), so the port answered no and Bravo was told it could not play the map (TXT_UNABLE_PLAY_WAAUGH) and the game never began; fixed by lane N22, ctest native-lan-random-map (both games play the random map for 3,000 frames, Bravo having downloaded it)",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-lanrand; the string read in game.exe; ctest native-lan-random-map"
   },
   {
    "entry": "0x006715C0",
@@ -2968,9 +2969,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "Main_Loop calls it for the session's object trap, a debugging aid set from the debug keys; release play never sets it",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "Main_Loop (0x0053FC3F) calls it once Frame reaches Session.TrapFrame (+0x3054), which stays 0x7FFFFFFF unless SessionClass's RA2.INI reader takes [SyncBug] Frame=, and it does so only with Session.Play (+0x2368 bit 1) set. Play is set only at 0x00513956 in Select_Game, for an attract-mode start (-ATTRACT, bit 2, Parse_Command_Line 0x005154E0) whose main menu times out with RECORD.BIN present; the game writes RECORD.BIN only with Session.Record (bit 0), which every instruction only clears (0x00514508, Main_Game, Select_Game), and the installation has none. The original body is a bare ret (0x006715C0), as the rewrite",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every reference to 0x00A3F600 with its bit operation, the call at 0x0053FC3F; scratch scripts) with manifests/function_map.csv and the matched src/recovered/init.cpp, session.cpp and mainloop.cpp"
   },
   {
    "entry": "0x005D5F40",
@@ -3067,9 +3068,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MouseClass::Load and MapClass::One_Time on a branch the runs did not take",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "never called: game.exe has no call or jump to 0x0054F240; its four references (MapClass::One_Time 0x0054812E/0x005481FC, MouseClass::Load 0x0059F796/0x0059F861) store it as the hash function (+4) of the map's zone-adjacency and subzone-connection HashTableClass tables, and nothing calls a table's hash through that field: every use of those tables (MapClass's zone and subzone builders through Add_Object, which works out the bucket inline from the key and value, the A* readers 0x00429DD1/0x00429E17/0x0042A942 and the Clear and destructor loops, which index the buckets directly) leaves it alone, and the only calls through +4 followed by the bucket modulo (cdq/idiv) are the colour-scheme table's (0x00603380-0x006050C0). The matched src/recovered/map.cpp and mouse.cpp make the same uses",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (references to 0x0054F240 in code and data, the calls through +4 followed by cdq/idiv, the references to the Map's table fields; scratch scripts) with manifests/function_map.csv and the matched src/recovered/map.cpp"
   },
   {
    "entry": "0x0040CAF0",
@@ -3094,9 +3095,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "LayerClass slot 9 default slot inherited by LogicClass (the Logic object); reached only when a caller makes that virtual call on one of those objects, which no test or coverage run did",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "LayerClass slot 9 (+0x24; TibSun layer.h's One_Time, empty: 0x0040CB00 ret) has no caller: the only LayerClass objects are the Map's five layers (0x00852578, vptr 0x0079E868 written only by their initialiser 0x00498980) and the Logic (0x00832470, LogicClass vptr 0x0079A8EC written only at 0x0040CA9C); every code reference to them (Submit, Remove, Init_Clear's Clear through +0x0C, Load, Save, Next_Object, Prev_Object, All_To_Look, Draw_Objects, Main_Loop's Logic.AI, Clear_Scenario, Detach_This_From_All, the CRC and sync dumps) uses other members, RA2's Init_Game makes no Logic.One_Time() call, and no direct call or reference to 0x0040CB00 exists outside the two vtables",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every instruction referencing 0x00852578-0x008525F0 and 0x00832470/0x00832474, the vptr writes, direct references to 0x0040CB00; scratch scripts) with manifests/rtti_classes.json and TibSun layer.h"
   },
   {
    "entry": "0x004C2040",
@@ -3109,9 +3110,9 @@
    "notes": "Scout1177 M22 coverage ranking",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "FoggedObjectClass vtable slot: fogged objects exist only under fog of war, which no Red Alert 2 menu turns on (probably unreachable; not proven)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "a FoggedObjectClass vtable slot. FoggedObjectClass objects exist only under fog of war, which the shipped game never turns on: they are made only by BuildingClass::Make_Fogged (0x00452C70, from BuildingClass::Unlimbo 0x0043DA70 and CellClass::Fog_Cell 0x0047BD91, both behind the scenario's FogOfWar bit, Scen+0 bit 12, tested at 0x0043D9F5 and 0x0047BC80) and by the class factory when a save holds one (0x006981EC); Fog_Cell's other callers (Map Init_Fog_System 0x0065F924, DisplayClass Encroach_Fog from LogicClass::AI and Environment_AI) are behind the same bit. The bit is set only from Special.FogOfWar: Read_Scenario_INI (0x0065EB40) clears it in a campaign and copies the session's fog flag (0x00A3D33F) in a multiplayer game, and SpecialClass::Read_INI reads FogOfWar= only in a campaign; the session flag is written by Init_Rules from rules.ini [MultiplayerDialogSettings] FogOfWar=no, cleared by the skirmish dialog and the World Domination Tour, saved and put back by MPCooperative (slots 34, 37), and set otherwise only by the modem dialogs (ModemHost/ModemGuest, reached only through Select_Serial_Dialog 0x005CDF00, which has no caller, or Select_Game's modem branch, entered only with session type 1 or 2, which only Select_Serial_Dialog and the load of a saved modem game set) and Westwood Online. Every map in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps has FogOfWar=no (130 [Basic] sections, 130 FogOfWar=no)",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (calls of the FoggedObjectClass constructors and Make_Fogged with their guards, every reference to 0x00A3D33F, Session.Type writes; scratch scripts) with manifests/function_map.csv and mischa85 names.csv, the shipped rules.ini, and FogOfWar= in the map text of maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x004052F0",
@@ -3244,9 +3245,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "OverlayClass::Save on a save with overlay objects (the scenario's overlays are saved as packs instead)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "OverlayClass::Save (IPersistStream slot 6, 0x005DBCE0) is referenced only by the OverlayClass vtable (0x007A780C) and runs only when the save code hands an OverlayClass to OleSaveToStream. Put_All saves 32 object vectors, each through one template helper (0x00658140-0x00659140: QueryInterface for IPersistStream, then OleSaveToStream, ole32's and the port's alike calling Save) passed the vector in edx (0x006563E9-0x006567F6), and the Overlays vector (0x00A40C00) is not among them: its only code references are OverlayClass's constructor and destructor, Delete_All_Objects, Post_Read_Vein_Fixups and its static initialiser. Layers and other objects save overlay pointers as pointers (LayerClass::Save 0x00534A10 writes the count and the pointer values), and the cells' overlays are saved as the map's overlay packs; no direct call to 0x005DBCE0",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (Save_Game/Put_All's helper calls and their vector arguments, every code reference to 0x00A40C00-0x00A40C14, references to 0x005DBCE0 in code and data; scratch scripts) with mischa85 names.csv and manifests/rtti_classes.json"
   },
   {
    "entry": "0x005A6280",
@@ -3259,9 +3260,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-coop (lan_pair.py --mode 2: the LAN host's Choose Map, the game type list's Cooperative row, the first map C1M1C.MAP, Use Map, Bravo joins and accepts, Start Game): the Cooperative mode object is the session's mode in the lobby and the game, which both play for 2,000 frames",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005A31F0",
@@ -3274,9 +3275,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-coop (lan_pair.py --mode 2: the LAN host's Choose Map, the game type list's Cooperative row, the first map C1M1C.MAP, Use Map, Bravo joins and accepts, Start Game): the Cooperative mode object is the session's mode in the lobby and the game, which both play for 2,000 frames",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005A46B0",
@@ -3289,9 +3290,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-coop (lan_pair.py --mode 2: the LAN host's Choose Map, the game type list's Cooperative row, the first map C1M1C.MAP, Use Map, Bravo joins and accepts, Start Game): the Cooperative mode object is the session's mode in the lobby and the game, which both play for 2,000 frames",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005A3F70",
@@ -3305,8 +3306,8 @@
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
    "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach_reason": "MPCooperative vtable slot 16 (the team combo box's fill); lane N22's n22-coop played a two-player LAN Cooperative game (every other MPCooperative slot reached, DrawTeamDropdown among them) without a team combo being filled through this slot",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005A5340",
@@ -3319,9 +3320,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-coop (lan_pair.py --mode 2: the LAN host's Choose Map, the game type list's Cooperative row, the first map C1M1C.MAP, Use Map, Bravo joins and accepts, Start Game): the Cooperative mode object is the session's mode in the lobby and the game, which both play for 2,000 frames",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005A62A0",
@@ -3334,9 +3335,9 @@
    "notes": "Scout1177 M22 live vtable slot (saves with bombs/EMP pulses; cooperative mode)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "MPCooperative vtable slot: the Cooperative game mode object is made with the other modes at start-up (0x005B91D1) but its slots run only while that mode is the session's mode; no test starts a cooperative game",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-coop (lan_pair.py --mode 2: the LAN host's Choose Map, the game type list's Cooperative row, the first map C1M1C.MAP, Use Map, Bravo joins and accepts, Start Game): the Cooperative mode object is the session's mode in the lobby and the game, which both play for 2,000 frames",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-coop"
   },
   {
    "entry": "0x005AC390",
@@ -3392,9 +3393,9 @@
    "notes": "forwards to the recovered CRCEngine body at the same address (one class, two names); Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "CRCEngine::operator()(char) from the Compute_CRC methods: sync CRCs, taken in network games when a CRC check is due; the LAN-pair run did not take it",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-desync (lan_pair.py --desync 1200: in a two-game LAN pair the host alone gets a tank at frame 1200): Execute_DoList's CRC check (0x00628880) finds the frames differ and calls Print_CRCs (0x0062A360), which takes every object's Compute_CRC through WWCRCEngine (the only callers: the object Compute_CRC methods, which only Print_CRCs and the unreferenced Game_CRC 0x00654C90 call; the per-frame Compute_Game_CRC hashes coordinates); both games wrote SYNC<n>.TXT and showed the out-of-sync box, no fault",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-desync and report; the callers read in game.exe (Print_CRCs 0x0062A360, Execute_DoList's CRC check)"
   },
   {
    "entry": "0x00493E80",
@@ -3408,9 +3409,9 @@
    "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "CRCEngine::operator()(bool) from the Compute_CRC methods (as 0x00493DF0)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-desync (lan_pair.py --desync 1200: in a two-game LAN pair the host alone gets a tank at frame 1200): Execute_DoList's CRC check (0x00628880) finds the frames differ and calls Print_CRCs (0x0062A360), which takes every object's Compute_CRC through WWCRCEngine (the only callers: the object Compute_CRC methods, which only Print_CRCs and the unreferenced Game_CRC 0x00654C90 call; the per-frame Compute_Game_CRC hashes coordinates); both games wrote SYNC<n>.TXT and showed the out-of-sync box, no fault",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-desync and report; the callers read in game.exe (Print_CRCs 0x0062A360, Execute_DoList's CRC check)"
   },
   {
    "entry": "0x00493FC0",
@@ -3424,9 +3425,9 @@
    "notes": "forwards to CRCEngine (same address); Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "CRCEngine::operator()(void const *, int) (as 0x00493DF0; also INIClass::Clear)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-desync (lan_pair.py --desync 1200: in a two-game LAN pair the host alone gets a tank at frame 1200): Execute_DoList's CRC check (0x00628880) finds the frames differ and calls Print_CRCs (0x0062A360), which takes every object's Compute_CRC through WWCRCEngine (the only callers: the object Compute_CRC methods, which only Print_CRCs and the unreferenced Game_CRC 0x00654C90 call; the per-frame Compute_Game_CRC hashes coordinates); both games wrote SYNC<n>.TXT and showed the out-of-sync box, no fault (INIClass::Clear's calls go to CRCEngine, the same address, which every run reaches)",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-desync and report; the callers read in game.exe (Print_CRCs 0x0062A360, Execute_DoList's CRC check)"
   },
   {
    "entry": "0x006E9380",
@@ -3440,9 +3441,9 @@
    "notes": "pass-6a decompile: AbstractClass size + Debris count*4 + 4; Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TiberiumClass COM slot (GetSizeMax): only a COM stream sizing the object calls it; the save code does not",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "IPersistStream::GetSizeMax (slot 7, +0x1C), referenced only by the vtable. TiberiumClass objects are made only by its constructor (from the [Tiberiums] list) and its load, and reached only through the Tiberiums vector (0x00AC0B30): every code reference to its elements reads fields or calls Compute_CRC (+0x34: Print_CRCs, Game_CRC); Put_All saves them through the shared helper (QueryInterface, then OleSaveToStream, which calls GetClassID and Save, never GetSizeMax); the destructor passes the object to Detach_This_From_All (0x006ECB90), which switches on its Kind_Of (+0x2C), and coverage run n4-randmap (the random map generator rebuilds the theater's tiberiums) ran TiberiumClass::~TiberiumClass and that detach without reaching this slot",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every reference to 0x00AC0B30-0x00AC0B40 with the virtual calls after it, the TiberiumClass vtable 0x007AD8B0 and its writers, Put_All's helpers; scratch scripts) with manifests/function_map.csv, and the coverage build's runs of every scenario (coverage_runs.py)"
   },
   {
    "entry": "0x006EA9E0",
@@ -3456,9 +3457,9 @@
    "notes": "returns ArrayIndex (+0x98); Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "TiberiumClass vtable slot 16 (Fetch_Heap_ID)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "AbstractClass slot 16 (+0x40), referenced only by the vtable (0x007AD8F0). TiberiumClass objects are made only by its constructor (from the [Tiberiums] list) and its load, and reached only through the Tiberiums vector (0x00AC0B30): every code reference to its elements reads fields or calls Compute_CRC (+0x34: Print_CRCs, Game_CRC); Put_All saves them through the shared helper (QueryInterface, then OleSaveToStream, which calls GetClassID and Save, never GetSizeMax); the destructor passes the object to Detach_This_From_All (0x006ECB90), which switches on its Kind_Of (+0x2C), and coverage run n4-randmap (the random map generator rebuilds the theater's tiberiums) ran TiberiumClass::~TiberiumClass and that detach without reaching this slot",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every reference to 0x00AC0B30-0x00AC0B40 with the virtual calls after it, the TiberiumClass vtable 0x007AD8B0 and its writers, Put_All's helpers; scratch scripts) with manifests/function_map.csv, and the coverage build's runs of every scenario (coverage_runs.py)"
   },
   {
    "entry": "0x004C1F80",
@@ -3472,9 +3473,9 @@
    "notes": "pass-6a decompile; Scout1191 (M24)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "FoggedObjectClass::Compute_CRC: fogged objects need fog of war (probably unreachable; not proven)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "called for each fogged object when a CRC is taken. FoggedObjectClass objects exist only under fog of war, which the shipped game never turns on: they are made only by BuildingClass::Make_Fogged (0x00452C70, from BuildingClass::Unlimbo 0x0043DA70 and CellClass::Fog_Cell 0x0047BD91, both behind the scenario's FogOfWar bit, Scen+0 bit 12, tested at 0x0043D9F5 and 0x0047BC80) and by the class factory when a save holds one (0x006981EC); Fog_Cell's other callers (Map Init_Fog_System 0x0065F924, DisplayClass Encroach_Fog from LogicClass::AI and Environment_AI) are behind the same bit. The bit is set only from Special.FogOfWar: Read_Scenario_INI (0x0065EB40) clears it in a campaign and copies the session's fog flag (0x00A3D33F) in a multiplayer game, and SpecialClass::Read_INI reads FogOfWar= only in a campaign; the session flag is written by Init_Rules from rules.ini [MultiplayerDialogSettings] FogOfWar=no, cleared by the skirmish dialog and the World Domination Tour, saved and put back by MPCooperative (slots 34, 37), and set otherwise only by the modem dialogs (ModemHost/ModemGuest, reached only through Select_Serial_Dialog 0x005CDF00, which has no caller, or Select_Game's modem branch, entered only with session type 1 or 2, which only Select_Serial_Dialog and the load of a saved modem game set) and Westwood Online. Every map in maps01.mix, maps02.mix, multi.mix and the installed .mmx maps has FogOfWar=no (130 [Basic] sections, 130 FogOfWar=no)",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (calls of the FoggedObjectClass constructors and Make_Fogged with their guards, every reference to 0x00A3D33F, Session.Type writes; scratch scripts) with manifests/function_map.csv and mischa85 names.csv, the shipped rules.ini, and FogOfWar= in the map text of maps01.mix, maps02.mix, multi.mix and the installed .mmx maps"
   },
   {
    "entry": "0x00448400",
@@ -3582,9 +3583,9 @@
    "notes": "same body as operator long; Scout1208 (M26)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the original's 160 callers are compiled natively against the inline operator long (shared/system_timer.hpp, 554 native call sites), so this out-of-line copy keeps two native callers: Register_Game_Start_Time 0x0069A130 (SystemTimerClass::operator()) and unknown_restart_timer 0x0069A160 (UnknownTimeSource_0069a160::Value), neither on a path the runs took",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the port",
+   "reach_reason": "both native callers run only in an Internet (Westwood Online) game, session type 4: Register_Game_Start_Time (0x0069A130) is called once, by Main_Game (0x00481D65) under Session.Type == 4; unknown_restart_timer (0x0069A160)'s 11 calls (Process_Game_End 0x0053F987/0x0053FA15, Queue_AI_Multiplayer 0x00623E7C/0x0062459E/0x00624763/0x006247A6, Kick_Player_Now 0x006277F6, Execute_DoList 0x00628D12, Enqueue_Event 0x0062E782/0x0062E829) are each behind a session type 4 test (the matched src/recovered/mainloop.cpp and queue.cpp); the port has no Westwood Online, so its session type is never 4. The original's other callers reach the inline operator long natively",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (the calls of 0x0069A130 and 0x0069A160; scratch scripts) with manifests/function_map.csv and the matched src/recovered/conquer/Main_Game.cpp, mainloop.cpp and queue.cpp"
   },
   {
    "entry": "0x00770400",
@@ -3730,9 +3731,9 @@
    "notes": "Scout1209 (r3): heap tie order; an empty height list keeps the height (the original indexes past it)",
    "behaviour_verdict": "same except the empty height list guard (the original reads past an empty list): the heap's insert and sift-down compare strictly as the original's (0x0056F14D, 0x0058F090)",
    "behaviour_checked_by": "C16 audit 2026-11-15: static check of the heap against the original's instructions; not reached in the coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet (MapRegionClass::Make_Ice_Regions)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-wetmap: Choose Map > Create Random Map, Surprise Me (0x621: Theater, MapType 1-4, time, resources and size drawn at random), Preview, OK, Start Game: the drawn map type was wet (3 or 4) in both runs, so MapGeneratorClass's region steps ran MapRegionClass::Make_Ice_Regions (0x005704C0) and Split_Region (0x005706E2), and the generated map played to the time limit without a fault",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-wetmap (twice) and report"
   },
   {
    "entry": "0x006F7020",
@@ -3762,9 +3763,9 @@
    "notes": "Scout1209 (r5): unknown_restart_timer 0x0069A160's name for the system clock",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the original's 160 callers are compiled natively against the inline operator long (shared/system_timer.hpp, 554 native call sites), so this out-of-line copy keeps two native callers: Register_Game_Start_Time 0x0069A130 (SystemTimerClass::operator()) and unknown_restart_timer 0x0069A160 (UnknownTimeSource_0069a160::Value), neither on a path the runs took",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the port",
+   "reach_reason": "both native callers run only in an Internet (Westwood Online) game, session type 4: Register_Game_Start_Time (0x0069A130) is called once, by Main_Game (0x00481D65) under Session.Type == 4; unknown_restart_timer (0x0069A160)'s 11 calls (Process_Game_End 0x0053F987/0x0053FA15, Queue_AI_Multiplayer 0x00623E7C/0x0062459E/0x00624763/0x006247A6, Kick_Player_Now 0x006277F6, Execute_DoList 0x00628D12, Enqueue_Event 0x0062E782/0x0062E829) are each behind a session type 4 test (the matched src/recovered/mainloop.cpp and queue.cpp); the port has no Westwood Online, so its session type is never 4. The original's other callers reach the inline operator long natively",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (the calls of 0x0069A130 and 0x0069A160; scratch scripts) with manifests/function_map.csv and the matched src/recovered/conquer/Main_Game.cpp, mainloop.cpp and queue.cpp"
   },
   {
    "entry": "0x006729F0",
@@ -3833,9 +3834,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (IPX_Options_Proc and Net2ReadyToGo: Tab in a network dialog); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-tab: the main menu's Network (the LAN lobby, Join_Dialog_Proc 0x005BE6B0), a click in its chat line (0x540) and Tab, Tab, Shift+Tab: the owner-drawn edit line (OwnerDraw 0x005F2120) sends its dialog 0x4DB and Join_Dialog_Proc moves the focus to the next (previous) tab stop (0x005BEB4E -> 0x005DEF80); its other callers are the Network options dialog (Main_Options_Proc2 0x00542D60) and four Westwood Online dialogs",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run and report n22-tab; the senders of 0x4DB read in game.exe"
   },
   {
    "entry": "0x005C9320",
@@ -3849,9 +3850,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the LAN/network dialogs (Send_Player_List, Find_Owner_User, Compare_Users, Show_Wait_Window, Store_Slot_Pings); the LAN-pair run did not take this branch",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the port",
+   "reach_reason": "all 11 calls in game.exe are Westwood Online code (src/recovered/wonline.cpp: 0x0073C480, Handle_User_Leave, Update_Channel_Player_Limit, WOL_Game_Options_Proc, Wonline_Guest_Dialog, Users_To_Session_Players, 0x0074E070, Store_Slot_Pings); the LAN dialogs named before do not call it. The port has no Westwood Online",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (every call of 0x005C9320; scratch scripts) with manifests/function_map.csv"
   },
   {
    "entry": "0x005C9370",
@@ -3926,9 +3927,9 @@
    "notes": "Scout1209 (r9): the named declaration callers use; the accepted seed's int-typed globals and namespace keep it from being a native alias target. Reached from the LAN lobby (Net_Join_Dialog 0x005BD070)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "the version dialog, Print_CRCs/Write_Sync_File (a desync) and Dump_Exception_Info (a crash)",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "reached in a coverage run",
+   "reach_reason": "tests/coverage_runs.py scenario n22-desync (lan_pair.py --desync 1200): Print_CRCs (0x0062A360, 0x0062A466) writes the build line at the head of SYNC<n>.TXT (\"Release Build: 39 by gsmallwoo - 06/06/2001 - 16:26:10\" in both games' logs); its other callers are the version dialog (0x00516C40, whose opener 0x00516E70 has no caller), the per-slot sync dump 0x0062DBA0 and Dump_Exception",
+   "reach_checked_by": "N22 2026-11-21: coverage build (-fsanitize-coverage=func,trace-pc-guard -fno-inline), coverage_runs.py run n22-desync and report; the callers read in game.exe (Print_CRCs 0x0062A360, Execute_DoList's CRC check)"
   },
   {
    "entry": "0x00738100",
@@ -4003,9 +4004,9 @@
    "notes": "Scout1209 (r14): reachable from the random map dialog (Write_Scenario_INI 0x0065F980)",
    "behaviour_verdict": "same",
    "behaviour_checked_by": "C21 audit 2026-11-16: static check against the original's instructions; not reached in the C21 coverage runs",
-   "reach": "reviewed",
-   "reach_reason": "ScriptTypeClass::Write_All from Write_Scenario_INI, which only Do_Random_Map calls: the random map generator: Choose Map (dialog 107) > Create Random Map (control 0x583, Scenario_Dialog 0x005C6AD1) > CreateRandomMap 0x005C84E0 > Do_Random_Map_Dialog; no test generates a random map yet",
-   "reach_checked_by": "N1 2026-11-17: game.exe references (rel32 calls/jumps, imm32 and .rdata vtable slots, RTTI vtables) and the callers named by mischa85 names.csv"
+   "reach": "unreachable in the base game",
+   "reach_reason": "its one caller, Write_Scenario_INI (0x0065F980, at 0x0065FB33), calls it only with Debug_Map (0x00A40D13) set or its flag argument false, and Write_Scenario_INI's one caller, the random map dialog's OK (Map_Seed_Dialog_Proc 0x0057823B), runs it only with Debug_Map set. Debug_Map is cleared by Parse_Command_Line (0x0051512E) and set otherwise only inside MapGeneratorClass::Generate_Lights (0x0058AA0F, restored at 0x0058AD81 before it returns), which writes no scenario; the coverage runs n4-randmap and n22-wetmap press that OK and never reach Write_Scenario_INI",
+   "reach_checked_by": "N22 2026-11-21: static check of game.exe (references to 0x00668EA0 and 0x0065F980, every write of 0x00A40D13; scratch scripts) with manifests/function_map.csv and the matched src/recovered/mapgen.cpp and scenario.cpp; coverage runs of every scenario"
   },
   {
    "entry": "0x006F8A50",

@@ -353,6 +353,37 @@ platform layer. It earns no exact-match credit.
   40 remain reviewed. Side note for the exact tree's owner:
   src/shared/keyboard.hpp calls 0x00A40BA4/0x00A40BA8 unknown_key and 0x00A40BB4/0x00A40BB8 KeyForceMove, but they are
   Options' KeyForceMove1/2 (VK_MENU) and KeySelect1/2 (VK_SHIFT) (Options at 0x00A40B18, options.cpp's constructor).
+  Lane N22 (2026-11-21): 40 -> 7, one real bug fixed. **LAN games on a random map never began:** the rewrite of
+  SessionClass 0x00672140 (is the scenario the generated random map?) compared the file name with "RandMap_Sed", the
+  data label of the string at 0x007E16E8, not its text "RandMap.Sed"; a LAN guest at Start Game, without the host's
+  random map, was told it could not play the map instead of fetching it. Fixed (native/link/behaviour_m22_misc.cpp); ctest
+  `native-lan-random-map` (lan_pair.py `--randmap`: the host makes a random map after Bravo has joined, Bravo downloads
+  it at Start Game, both play 3,000 frames in step; before the fix Bravo stopped at the "unable to play" box). A search of
+  every other underscored string literal in native/ against game.exe's strings found no other label-for-text slip.
+  Reached 15 with new coverage scenarios: `n22-next` (Next/Previous Object keys: ObjectClass::Is_Players_Army on the
+  layers' trees and animations), `n22-desync` (lan_pair.py `--desync`: the host alone gets a tank, the pair parts,
+  Execute_DoList's CRC check calls Print_CRCs: WWCRCEngine's char, bool and buffer operators and Build_By_String; both
+  games write SYNC<n>.TXT and show the out-of-sync box, no fault), `n22-wetmap` (Surprise Me draws a wet random map:
+  MapRegionClass::Split_Region; the map plays), `n22-load` and `n22-saves` (Load Saved Game, the in-game Save and Delete:
+  LoadOptionsClass's four captions), `n22-tab` (Tab in the LAN lobby's chat line: 0x005DEF80), `n22-coop` (lan_pair.py
+  `--mode 2`: a LAN Cooperative game on C1M1C.MAP, 2,000 frames: five MPCooperative slots) and `n22-lanrand` (the random
+  map check above); the fly locomotor's Release_Held was reached in supers-save all along and now carries its mangled
+  symbol. Shown unreachable from game.exe's instructions, the shipped rules and maps (15): ObjectTypeClass::Get_Ownable
+  (every Get_Ownable/Who_Can_Build_Me receiver is a techno type), LayerClass slot 9 (One_Time, never called on the Map's
+  layers or Logic), OverlayClass::Save (Put_All never saves the Overlays vector), the three fog-of-war rows (fogged
+  objects need the scenario's FogOfWar bit; rules.ini and all 130 maps say FogOfWar=no and only modem and Westwood Online
+  set the session's), the three backward translucent blits (only Bit_Blit calls the slot, for one surface copied onto
+  itself, and these blitters convert 8-bit to 16-bit), the subzone hash (stored, never called: Add_Object works out the
+  bucket inline), the CRT isspace (only the text string table, used without ra2.csf), SessionClass::Trap_Object (needs
+  -ATTRACT playback of a RECORD.BIN the game never writes), TiberiumClass's GetSizeMax and Fetch_Heap_ID, and
+  0x00668EA0 (Write_Scenario_INI runs only with Debug_Map). Westwood Online only (3): SystemTimerClass::operator()'s two
+  native callers and 0x005C9320. Left reviewed (7): MPCooperative::PopulateTeamDropdownForPlayer (not called in the
+  two-player Cooperative game), UnholyAlliance::CheckStartConditions (the LAN game type list's rows 3, 4 and 7 gave
+  Megawealth, Duel and a Battle map), the observer team's IsTeamIncluded, CellClass::Can_Enter_Tunnel (needs a tunnel
+  tile on a map), Audio_Event_Set_Flag_8 (a forever-looping sound out of earshot and back: the oil derrick's, a terror
+  drone's, an Ivan bomb's and an Iron Curtain's loops were tried; the default sound type's minimum volume keeps most
+  audible at any distance), the 8-bit BlitTrans and the 25%/75% depth-writing translucent blitters; each keeps its
+  behaviour verdict against the original's instructions (lane N2).
 - Data read from game.exe by size (lane N14, the Red Alert 2 side of lane N13's check): every stored scalar array's
   extent against its declaration found one short, the campaign score screen's control table
   (`unknown_score_controls_7d1484[8][6]`, 192 bytes stored as 32: the generator counted the first dimension only), so

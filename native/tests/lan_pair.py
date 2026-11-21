@@ -102,11 +102,28 @@ EXTRA_HOST_LOBBY = ['s3+2500 click @ctl=1450', 's4+3000 click @ctl=1363', 's4+45
                     's5+1500 key Tab', 's5+2000 key Tab']
 
 
-def host_script(frames, extras=False):
+# Lane N22 (--randmap, coverage_runs.py n22-lanrand): the host screen's Choose Map (0x5AA), Create Random Map (0x583),
+# Preview (0x620) and OK (0x6C5) after Bravo has joined: Bravo has no such map, so its lobby asks the session whether
+# the game is on a random map (SessionClass 0x00672140) and fetches the map from the host; then Start Game on the
+# host screen shown again (dialog 6).
+RANDMAP_HOST_LOBBY = ['s3+15000 click @ctl=1450', 's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568',
+                      's5+40000 click @ctl=1733', 's6+20000 click 834 346', 's6+24000 click 834 346']
+
+
+# Lane N22 (--mode ROW, coverage_runs.py n22-coop): before Bravo joins, the host screen's Choose Map, the game type
+# list's row ROW (0x6EB, 18 pixels a row: row 2 is Cooperative, 3 Megawealth, 4 Duel), the map list's first row (0x553)
+# and Use Map (0x6C5).
+def mode_host_lobby(row):
+    return ['s3+2500 click @ctl=1450', 's4+3000 click 300 %d' % (280 + 18 * row), 's4+4500 click 540 280',
+            's4+6000 click @ctl=1733']
+
+
+def host_script(frames, extras=False, randmap=False, mode=None):
     # An input script runs its events in their order (an event waits for the one before it): the lobby's extras come
     # before Start Game.
-    lines = ['s1+1000 click 834 388', 's2+1500 click 834 304'] + (EXTRA_HOST_LOBBY if extras else []) + [
-        's3+20000 click 834 346', 's3+24000 click 834 346']
+    lines = ['s1+1000 click 834 388', 's2+1500 click 834 304'] + (EXTRA_HOST_LOBBY if extras else []) + (
+        mode_host_lobby(mode) if mode is not None else []) + (
+        RANDMAP_HOST_LOBBY if randmap else ['s3+20000 click 834 346', 's3+24000 click 834 346'])
     if extras:
         lines += EXTRA_HOST
     # Lane N6: Tab twice, meant for the host's lobby (the network dialogs' Tab handling, coverage_runs.py lanpair); as
@@ -132,8 +149,10 @@ BACKGROUND_SECONDS = 10
 BACKGROUND = [(1500, 'resign'), (1650, 'foreground'), (2700, 'background'), (2900, 'foreground'), (3300, 'background')]
 
 
-def joiner_script(frames, background=False):
+def joiner_script(frames, background=False, randmap=False):
     lines = ['s1+1000 click 834 388', 's2+5000 click 539 238', 's2+6000 click 834 346', 's3+3000 click 834 346']
+    if randmap:     # the host's new map clears the ready marks: Accept again once the map has come down (lane N22)
+        lines += ['s3+70000 click 834 346']
     # Escape > Game Controls (877,227) > Sound (877,227); Back (877,702) twice, Resume Mission
     # (877,702); each click 5 s after its dialog is shown (the column's slide-in done: a click
     # during the slide lands on the dialog, not the button; the "settled" anchor comes late in a
@@ -372,6 +391,12 @@ def main():
     ap.add_argument('--hd', default='3', help='HD vehicles chosen in all three games (0: off; the cap checks need 3)')
     ap.add_argument('--background', action='store_true', help='Bravo plays as the iOS app: resign, backgrounds, no broadcast (C22)')
     ap.add_argument('--extras', action='store_true', help='coverage runs (N10): a beacon placed and deleted in the game')
+    ap.add_argument('--randmap', action='store_true', help='coverage runs (N22): the host picks a generated random map '
+                    'after Bravo joins')
+    ap.add_argument('--mode', type=int, default=None, help='coverage runs (N22): the game type list row the host picks')
+    ap.add_argument('--desync', type=int, default=0, help='coverage runs (N22): at this frame Alpha alone gets a tank '
+                    '(RA2_NATIVE_ORDERS spawn), so the games part: passes when one of them reports it (Print_CRCs, SYNC*.TXT) '
+                    'and neither faults')
     ap.add_argument('--wine-prefix-b', default='')
     ap.add_argument('--wine', default='')
     a = ap.parse_args()
@@ -397,9 +422,11 @@ def main():
     solo.run(300)
     solo_rates = scroll_rate(solo.out)
 
-    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames, a.extras), hd=a.hd)
-    bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames, a.background), prefix=prefix,
+    alpha = Instance('Alpha', a.binary, work, a.data_dir, a.game_exe, host_script(a.frames, a.extras, a.randmap, a.mode), hd=a.hd)
+    bravo = Instance('Bravo', a.binary_b or a.binary, work, a.data_dir, a.game_exe, joiner_script(a.frames, a.background, a.randmap), prefix=prefix,
                      ios_like=a.background, hd=a.hd)
+    if a.desync:
+        alpha.env['RA2_NATIVE_ORDERS'] = '%d spawn MTNK 2 2' % a.desync
     # Alpha leaves at its frame count; Bravo, told the host has gone, is then closed (20 s on).
     # Alpha's wait follows its own frames (finish_paced): a loaded machine plays the pair slower.
     try:
@@ -424,6 +451,30 @@ def main():
             problems.append('%s: exit %s, %d bad lines%s' % (inst.name, inst.code, len(bad), (': ' + bad[0][:120]) if bad else ''))
         if 'Starting scnenario' not in inst.out:
             problems.append('%s never reached the game' % inst.name)
+    if a.desync:
+        # Lane N22: the out-of-sync path (Execute_DoList's CRC check, Print_CRCs and its object CRCs, the
+        # TXT_OUT_OF_SYNC box), not the rest of the pair's checks.
+        import glob
+        logs = glob.glob(os.path.join(work, 'Alpha', '**', 'SYNC*.TXT'), recursive=True) + glob.glob(
+            os.path.join(work, 'Bravo', '**', 'SYNC*.TXT'), recursive=True)
+        print('lan-pair: desync at frame %d: %d sync logs %s' % (a.desync, len(logs), [os.path.relpath(x, work) for x in logs]))
+        # (the out-of-sync box stops the games: a stalled wait is expected, a fault is not)
+        problems = [x for x in problems if not re.match(r'\w+: exit timeout, 0 bad lines$', x)]
+        if not logs:
+            problems.append('no sync log written after the desync')
+        if problems:
+            print('lan-pair: FAILED (%s)' % '; '.join(problems))
+            return 1
+        print('lan-pair: passed')
+        return 0
+    if a.randmap:
+        # Lane N22: both games play the host's generated map (Bravo fetched it at Start Game).
+        for inst in (alpha, bravo):
+            if 'Starting scnenario: RandMap.Sed' not in inst.out:
+                problems.append('%s did not start the random map' % inst.name)
+        if 'Failed to find local scenario' in bravo.out and 'Requesting file download' not in bravo.out.split(
+                'Failed to find local scenario', 1)[1]:
+            problems.append('Bravo, without the random map at Start Game, did not ask the host for it')
     if a.background:
         problems += background_problems(alpha.out, bravo.out)
     # HD vehicles in a network game (C22): 3x chosen, 2x played; the skirmish keeps 3x.
@@ -447,7 +498,7 @@ def main():
         problems.append('%d frames played together (wanted at least %d)' % (len(both), a.frames // 2))
     sounds = len(re.findall(SOUND, bravo.out))
     print('lan-pair: Bravo opened the Sound dialog %d times' % sounds)
-    if sounds < 2:
+    if sounds < 2 and not a.randmap:      # (--randmap: the lobby's extra dialogs move Bravo's dialog count)
         problems.append('the Sound dialog opened %d times in the network game (wanted 2)' % sounds)
     rates = scroll_rate(alpha.out)
     print('lan-pair: edge scroll pixels a frame: network %s, skirmish %s' % (rates, solo_rates))

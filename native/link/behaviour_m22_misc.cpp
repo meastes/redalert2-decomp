@@ -49,12 +49,16 @@ int __cdecl Unknown_isspace_00784aa8(short character)
     return character >= 0 && character < 256 && isspace((unsigned char)character) ? 8 : 0;
 }
 
-// 0x00672140 (pass-6a decompile): whether the scenario file is "RandMap_Sed"
-// (_stricmp 0x00781F20; the string at 0x007E16E8). Reached by 0x005C7570.
+// 0x00672140 (pass-6a decompile): whether the scenario file is the generated random map,
+// "RandMap.Sed" (_stricmp 0x00781F20; the string at 0x007E16E8, whose data label is
+// s_RandMap_Sed: lane N22 found the draft comparing against the label's spelling, so a LAN
+// guest joining a random map game was told it could not play it instead of fetching the map).
+// Reached by Start_Joined_Game 0x005BE3B0 (a LAN guest without the host's official map) and
+// 0x005C7570.
 extern "C" int __cdecl _stricmp(char const *left, char const *right);
 bool SessionClass::Unknown_00672140()
 {
-    return _stricmp(ScenarioFileName_658, "RandMap_Sed") == 0;
+    return _stricmp(ScenarioFileName_658, "RandMap.Sed") == 0;
 }
 
 // 0x006715C0: does nothing (Main_Loop calls it each frame).

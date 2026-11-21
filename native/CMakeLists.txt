@@ -652,6 +652,14 @@ if(RA2_NATIVE_SDL)
                    --background --frames 9000 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-background")
           set_tests_properties(native-lan-background PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1800 RUN_SERIAL TRUE)
+          # A LAN game on a random map (lane N22): the host makes one (Choose Map > Create Random Map)
+          # after Bravo has joined; at Start Game Bravo, without the map, must see it is the random map
+          # (SessionClass 0x00672140) and fetch it from the host, then both play (tests/lan_pair.py
+          # --randmap). Before N22's fix Bravo was told it could not play the map and the game never began.
+          add_test(NAME native-lan-random-map COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/lan_pair.py"
+                   --randmap --hd 0 --frames 3000 --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/lan-random-map")
+          set_tests_properties(native-lan-random-map PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 1800 RUN_SERIAL TRUE)
           # The LAN lobby (C20, the user's reports of 2026-11-16): chat lines sent with Return
           # arrive both ways, and the host's game is seen and joined, with either side unable to
           # broadcast as the iOS app is (RA2_NATIVE_TEST_NO_BROADCAST); the main menu's Internet
@@ -797,6 +805,7 @@ set(ra2_static_tests native-core-check native-mod-layers native-asm-check native
     native-link-closure-selftest native-name-rules native-draw-selftest native-vqa-selftest
     native-original-data-extents)
 set(ra2_slow_tests native-lan-pair network native-lan-lobby network native-lan-background network
+    native-lan-random-map network
     native-campaign-allied campaign native-campaign-soviet campaign
     native-original-save-write saves native-hd-air-base hd-aircraft native-hd-air-base-3x hd-aircraft
     native-widescreen widescreen)

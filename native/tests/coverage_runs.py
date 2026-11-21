@@ -208,10 +208,37 @@ SCENARIOS = [
         '120 click @GAWEAP', '130 keydown Left_Option', '133 move @GAWEAP+5,0', '137 move @GAWEAP+6,1',
         '141 move @GAWEAP+6,2', '145 move @MTNK', '149 move @MTNK', '153 keyup Left_Option',
     ]),
+    # Lane N22: the Next Object and Previous Object keys (KEYBOARD.INI in the run's write folder binds them to N and
+    # M): DisplayClass::Next_Object and Prev_Object ask every object of the ground, air and top layers whether it is
+    # the player's army (ObjectClass slot 24); the trees and animations there keep the default, ObjectClass::
+    # Is_Players_Army, and are passed over.
+    skirmish('n22-next', 500, order='both', seconds=200,
+             script=['100 key N', '110 key N', '120 key N', '130 key M', '140 key M', '150 key N'],
+             files={'KEYBOARD.INI': '[Hotkey]\nNextObject=78\nPreviousObject=77\n'}),
     # Lane N4: the skirmish's Choose Map (control 0x5AA), its Create Random Map (0x583), the random map dialog's
     # Preview (0x620: the map generated) and its accept (0x6C5).
     menus('n4-randmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
                          's4+2500 click @ctl=1411', 's5+3000 click @ctl=1568', 's5+40000 click @ctl=1733', 's6+3000 ' + START_GAME], 200),
+    # Lane N22: the random map dialog's Surprise Me (0x621: a random map type 1-4 among the rest) before Preview: a wet
+    # map type (3 or 4, half the runs) takes MapGeneratorClass's wet-map steps (MapRegionClass::Make_Ice_Regions,
+    # Split_Region).
+    menus('n22-wetmap', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 ' + SKIRMISH, 's3+2500 click @ctl=1450',
+                         's4+2500 click @ctl=1411', 's5+3000 click @ctl=1569', 's5+4500 click @ctl=1568',
+                         's5+40000 click @ctl=1733', 's6+3000 ' + START_GAME], 120),
+    # Lane N22: the single-player menu's Load Saved Game (Select_Game: LoadOptionsClass::Load_Dialog_0053b190, Dialog
+    # 0x0053B770 with the load style: the title from LoadOptionsClass::Load_Menu_Name, slot 5), then its Back.
+    menus('n22-load', ['s1+1500 ' + SINGLE_PLAYER, 's2+1500 click 834 346', 's3+3000 click @ctl=1670'], 60),
+    # Lane N22: the in-game menu's Save Game (0x51F: the save dialog, LoadOptionsClass::Save_Menu_Name; its Save 0x6C7
+    # and the message's OK 0x5AE: Saved_Message), then Delete Game (0x520: Delete_Menu_Name; the list's first row
+    # 0x528, Delete 0x6C8 and the question's OK).
+    skirmish('n22-saves', 900, order='both', seconds=300, script=[
+        '100 key Escape', 'd1+2500 click @ctl=1311', 'd2+3000 click @ctl=1735', 'd3+2000 click @ctl=1454',
+        '500 key Escape', 'd4+2500 click @ctl=1312', 'd5+3000 click @ctl=1320', 'd5+4000 click @ctl=1736',
+        'd6+2000 click @ctl=1454']),
+    # Lane N22: Tab in the LAN lobby (the main menu's Network): the owner-drawn edit line with the focus sends the
+    # dialog 0x4DB, and Join_Dialog_Proc moves the focus to the next tab stop (0x005DEF80).
+    menus('n22-tab', ['s1+1000 click 834 388', 's2+2500 click @ctl=1344', 's2+3000 key Tab', 's2+3500 key Tab',
+                      's2+4000 click @ctl=1344', 's2+4500 keydown Left_Shift', 's2+4600 key Tab', 's2+4800 keyup Left_Shift'], 40),
     # Lane N6: the random map dialog's Save seed button (0x6C3) after a preview opens the seed list's save dialog
     # (MapSeedClass, a LoadOptionsClass kind: MapSeedClass::Save_Menu_Name). It saved nothing: 0x527 is the dialog's
     # list and 0x686 its Back (lane N8; n8-seeds below saves, loads and deletes a seed).
@@ -311,6 +338,22 @@ SCENARIOS = [
     # (Scenario_Select_Callback in a LAN game: 0x005BBD10) and the command bar's Attack Move (0x006F6730's cursor).
     dict(name='n11-lan', harness='lan_pair.py', args=['--extras', '--binary', '{binary}', '--data-dir', '{data}',
                                                       '--game-exe', '{exe}', '--work', '{work}', '--frames', '4000'],
+         env={}, seconds=900),
+    # Lane N22: a LAN game made to part (lan_pair.py --desync: Alpha alone gets a tank at frame 1200): the CRC check
+    # of Execute_DoList finds the frames differ, Print_CRCs writes SYNC<n>.TXT (every object's Compute_CRC through
+    # WWCRCEngine, the build name Build_By_String_00737b00) and the out-of-sync box comes up.
+    dict(name='n22-desync', harness='lan_pair.py', args=['--desync', '1200', '--hd', '0', '--binary', '{binary}', '--data-dir',
+                                                         '{data}', '--game-exe', '{exe}', '--work', '{work}', '--frames', '3000'],
+         env={}, seconds=900),
+    # Lane N22: a LAN game on a generated random map (lan_pair.py --randmap: the host makes it after Bravo has joined).
+    dict(name='n22-lanrand', harness='lan_pair.py', args=['--randmap', '--hd', '0', '--binary', '{binary}', '--data-dir',
+                                                          '{data}', '--game-exe', '{exe}', '--work', '{work}', '--frames', '3000'],
+         env={}, seconds=1200),
+    # Lane N22: a LAN game of the Cooperative game type (lan_pair.py --mode 2, the host's game type list's third row):
+    # the mode object's slots (MPCooperative). Rows 3, 4 and 7 gave Megawealth, Duel and a Battle map: Unholy Alliance
+    # was not found in the LAN list.
+    dict(name='n22-coop', harness='lan_pair.py', args=['--mode', '2', '--hd', '0', '--binary', '{binary}', '--data-dir',
+                                                       '{data}', '--game-exe', '{exe}', '--work', '{work}', '--frames', '2000'],
          env={}, seconds=900),
     # The game binary's own self tests (test scaffolding, not a game path): the VQA player's
     # reset around a mod's .VQA movie and the drawing checks.
