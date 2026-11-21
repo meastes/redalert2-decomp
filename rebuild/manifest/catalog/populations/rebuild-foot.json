@@ -15948,6 +15948,34 @@
       "bound_population": "population-2187"
     },
     {
+      "entry": 5040448,
+      "method": "004ce940",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@QAE@XZ",
+      "symbol_prefix": "??1?$DistributionObject@PAVCellClass@@@?$DiscreteDistributionClass@VCellClass@@@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "5fb34539cac219875c90a91dbe95ef3f4b5523a943b14f003a94b7bda64bb67e",
+      "source": "rebuild/src/foot.cpp",
+      "population": "rebuild-foot",
+      "source_order": 5040448,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-67"
+    },
+    {
       "entry": 5040464,
       "method": "004ce950",
       "body_bytes": 87,

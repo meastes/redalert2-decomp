@@ -5,6 +5,7 @@
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
  *
+ * WOL interface names also follow ra2-decomp include/wolapi/wolapi.h.
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
  * EA's GPLv3 Section 7 additional terms and supplemental warranty
@@ -395,17 +396,17 @@ typedef struct Squad Squad;
         virtual /* [helpstring] */ HRESULT STDMETHODCALLTYPE SetClientVersion( 
             unsigned long version) = 0;
         
-        // RA2: IChat has ten more slots after SetClientVersion (vtable offsets 0xD8-0xFC); the names of 0xD8-0xE4 are the WOLAPI's (ra2-decomp include/wolapi/wolapi.h)
+        // RA2: IChat has ten more slots after SetClientVersion (vtable offsets 0xD8-0xFC); the names of 0xD8-0xFC are the WOLAPI's (ra2-decomp include/wolapi/wolapi.h)
         virtual HRESULT STDMETHODCALLTYPE SetCodepageFilter(int filter) = 0;
         virtual HRESULT STDMETHODCALLTYPE RequestBuddyList(void) = 0;
         virtual HRESULT STDMETHODCALLTYPE RequestBuddyAdd(User *newbuddy) = 0;
         virtual HRESULT STDMETHODCALLTYPE RequestBuddyDelete(User *buddy) = 0;
-        virtual HRESULT STDMETHODCALLTYPE RequestPublicMessageWide(unsigned short const *message) = 0; // RA2: slot 58, called by 0x0073CA50 (Send_Chat_Message)
-        virtual HRESULT STDMETHODCALLTYPE RequestPrivateMessageWide(User *users, unsigned short const *message) = 0; // RA2: as above
-        virtual HRESULT STDMETHODCALLTYPE RequestPublicActionWide(unsigned short const *action) = 0; // RA2: slot 60, called by 0x0073CB80 (Send_Chat_Action)
-        virtual HRESULT STDMETHODCALLTYPE RequestPrivateActionWide(User *users, unsigned short const *action) = 0; // RA2: as above
-        virtual HRESULT STDMETHODCALLTYPE RequestPageWide(User *user, unsigned short const *message) = 0; // RA2: slot 62 (0xF8), the wide counterpart of RequestPage (Parse_Page_Command and Reply_To_Last_Pager)
-        virtual HRESULT STDMETHODCALLTYPE Unknown_Virtual_FC(int update, int count) = 0;
+		virtual HRESULT STDMETHODCALLTYPE RequestPublicUnicodeMessage(unsigned short const * message) = 0; // RA2: slot 58, called by 0x0073CA50 (Send_Chat_Message)
+		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeMessage(User * users, unsigned short const * message) = 0; // RA2: as above
+		virtual HRESULT STDMETHODCALLTYPE RequestPublicUnicodeAction(unsigned short const * action) = 0; // RA2: slot 60, called by 0x0073CB80 (Send_Chat_Action)
+		virtual HRESULT STDMETHODCALLTYPE RequestPrivateUnicodeAction(User * users, unsigned short const * action) = 0; // RA2: as above
+		virtual HRESULT STDMETHODCALLTYPE RequestUnicodePage(User * user, unsigned short const * message) = 0; // RA2: slot 62 (0xF8), the wide counterpart of RequestPage (Parse_Page_Command and Reply_To_Last_Pager)
+		virtual HRESULT STDMETHODCALLTYPE RequestSetPlayerCount(int update, int count) = 0;
         
     };
 

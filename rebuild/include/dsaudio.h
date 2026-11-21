@@ -28,7 +28,6 @@ class DSAudio
 
 		int File_Stream_Sample(char const *filename, bool real_time_start = false);
 		int File_Stream_Sample_Vol(char const *filename, int volume, bool real_time_start = false);
-		void maintenance_callback(void);
 		//void *Load_Sample(char const *filename);
 		//long Load_Sample_Into_Buffer(char const *filename, void *buffer, long size);
 		//long Sample_Read(int fh, void *buffer, long size);

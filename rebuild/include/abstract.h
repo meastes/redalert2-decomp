@@ -157,6 +157,8 @@ class AbstractClass : public IPersistStream, public IRTTITypeInfo, public INotic
 		AbstractClass & operator = (const AbstractClass & that)
 		{
 			ID = that.ID;
+			AbstractFlags = that.AbstractFlags;
+			Unknown_18 = that.Unknown_18;
 			RefCount = that.RefCount;
 			Dirty = that.Dirty;
 			return(*this);

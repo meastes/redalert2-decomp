@@ -231,8 +231,4 @@ class BulletClass : public ObjectClass
 		void Set_Weapon_Type(WeaponTypeClass * weapon); // RA2: out of line, at 0x00463BA0 (WeaponType at +0x118)
 
 		static DynamicVectorClass<BulletClass *> ScalableBullets; // RA2: 0x008502F8, the Scalable bullets in flight (ra2-decomp's static member; its destructor thunk is guarded)
-		friend BulletClass *Create_Bullet(BulletTypeClass const *type, TechnoClass *target, TechnoClass *payback, int strength, WarheadTypeClass const *warhead, int max_speed, int range, bool bright);
 };
-
-
-BulletClass * Create_Bullet(BulletTypeClass const *type, AbstractClass *target, TechnoClass *payback, int strength, WarheadTypeClass const *warhead, int max_speed, int range, bool bright);

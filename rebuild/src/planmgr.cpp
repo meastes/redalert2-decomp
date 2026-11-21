@@ -471,8 +471,7 @@ EventClass * PlanningNodeClass::Loop_Event(void) // RA2: 0x006115C0
 
 Coord PlanningNodeClass::Branch_Coord(int index) // RA2: 0x006115D0
 {
-	PlanningBranchClass * branch = PlanningBranches[index];
-	Coord coord = branch->Get_Coord(); // RA2: as above
+	Coord coord = Get_Branch(index)->Get_Coord(); // RA2: as above
 	return coord; // RA2: as above
 }
 
@@ -2839,7 +2838,6 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 }
 #endif
 
-#ifdef RA2_NON_MATCHING // not exact: 844 bytes differ (class-b carry)
 void __fastcall Planning_Draw_Node(PlanningNodeClass * node) // RA2: 0x00619420; draws the lines from the nodes before this one (and from its own loop) to it as solid lines, and its box
 {
 	Point2D pixel = node->Lead_Pixel(); // RA2: as above
@@ -2876,7 +2874,6 @@ void __fastcall Planning_Draw_Node(PlanningNodeClass * node) // RA2: 0x00619420;
 	}
 	node->Draw_Lead_Box(color); // RA2: as above
 }
-#endif
 
 Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, AbstractClass * object) // RA2: 0x00619810; where the order of an event points, or where the object is when it points nowhere
 {
@@ -2887,7 +2884,6 @@ Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, Abstra
 	return coord; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 715 bytes differ (class-b carry)
 void __fastcall Planning_Draw_Filled_Node(PlanningNodeClass * node) // RA2: 0x00619870; draws the lines from the nodes before this one (and from its own loop) to it as dashed lines, and fills its box
 {
 	Point2D pixel = node->Lead_Pixel(); // RA2: as above
@@ -2926,7 +2922,6 @@ void __fastcall Planning_Draw_Filled_Node(PlanningNodeClass * node) // RA2: 0x00
 	}
 	node->Fill_Lead_Box(node->Node_Color()); // RA2: as above
 }
-#endif
 
 
 void __fastcall Planning_Fill_Node(PlanningNodeClass * node) // RA2: 0x00619BD0; fills the box of a node in its color
@@ -2980,19 +2975,7 @@ Point2D __fastcall Planning_Event_Pixel(EventClass const * event, AbstractClass 
 
 int PlanningNodeClass::Lead_Color(void) // RA2: 0x0061A060 (a member of the node in YR); black, or white for a node whose lead owner is selected (or a member of the selected node)
 {
-	TechnoClass * owner = PlanningMembers[0]->Owner; // RA2: as above
-	int result = Planning_Pixel(&BlackColor); // RA2: as above
-	if (owner != NULL) { // RA2: as above
-		int lighter = Planning_Pixel(&WhiteColor); // RA2: as above
-		if (PlanningSelectedNode != NULL) { // RA2: as above
-			if (PlanningSelectedNode->Has_Member(owner)) { // RA2: as above
-				result = lighter; // RA2: as above
-			}
-		} else if (owner->IsSelected) { // RA2: as above
-			result = lighter; // RA2: as above
-		}
-	}
-	return result; // RA2: as above
+	return Planning_Techno_Color(Member_Owner(0)); // RA2: both the owner lookup and its selection color match the YR method
 }
 
 void __fastcall Planning_Draw_Dot(Point2D center, int color) // RA2: 0x0061A190; draws a 6 by 6 frame around a pixel
@@ -3048,8 +3031,7 @@ int EventClass::Get_Event_Frame(void) const // RA2: 0x0061A2D0
 
 void __fastcall Planning_Draw_Midpoint(Point2D start, Point2D end, int color) // RA2: 0x0061A2F0; draws a 21 by 21 frame halfway along a line when it is at least 37 pixels long
 {
-	int length = start.Distance_To(end); // RA2: as above
-	if (length >= 37) { // RA2: as above
+	if (Distance(start, end) >= 37) { // RA2: as above
 		int x = (start.X + end.X) / 2 - 10; // RA2: as above
 		int y = (start.Y + end.Y) / 2 - 10; // RA2: as above
 		Rect view = Get_Title_Screen_Area(); // RA2: as above

@@ -152,6 +152,7 @@
 #include "building.h"
 #include "builtype.h"
 #include "ccrand.h"
+#include "cast.h" // RA2: As_Foot in the house flag check
 #include "cell.h"
 #include "conquer.h"
 #include "cpoint.h"
@@ -1500,17 +1501,25 @@ FactoryClass *HouseClass::Factory_Producing_This(ObjectTypeClass const * object)
  *   12/27/1994 JLB : Created.                                                                 *
  *   07/17/1995 JLB : Limits EVA speaking unless the player can do something.                  *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 3426 of 3544 bytes differ (mischa85 text; the old-tree body is not carried yet)
 void HouseClass::AI(void)
 {
 	//assert(Houses.ID(this) == ID);
 
+	if (PowerBlackoutTimer.Value() == 1) { // RA2: an expiring blackout requests a fresh power calculation
+		PowerBlackoutTimer = CDTimerClass<FrameTimerClass>(0);
+		RecalcPower = true;
+	}
+	if (RadarBlackoutTimer.Value() == 1) {
+		RadarBlackoutTimer = CDTimerClass<FrameTimerClass>(0);
+		RecalcRadar = true;
+	}
 	if (RecalcPower) {
 		Recalc_Power_Drain();
 		RecalcRadar = true;
 	}
-	if (RecalcRadar) {
+	if (RecalcRadar && !MuteSWLaunches) { // RA2: update both radar and satellite coverage
 		Recalc_Radar_Availability();
+		Update_Spy_Satellite();
 	}
 
 	if ((Frame % 100) == 0) {
@@ -1548,6 +1557,13 @@ void HouseClass::AI(void)
 		IsToWin = false;
 		if (Is_Player_Control()) {
 			PlayerWins = true;
+		} else if ((Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.MPGameMode &&
+			Session.MPGameMode->vt_entry_04() && Session.MPGameMode->vt_entry_08()) { // RA2: a win for a human cooperative ally also wins for the player
+			if (Is_Human_Player()) {
+				PlayerWins = true;
+			} else {
+				PlayerLoses = true;
+			}
 		} else {
 			PlayerLoses = true;
 		}
@@ -1561,8 +1577,13 @@ void HouseClass::AI(void)
 		while (Is_Speaking() && _timer) {
 			Call_Back();
 		}
-		IsToLose = false;
-		if (Is_Player_Control()) {
+		if (Session.Type == GAME_NORMAL) { // RA2: the loss flag remains set
+			if (Is_Player_Control()) {
+				PlayerLoses = true;
+			} else {
+				PlayerWins = true;
+			}
+		} else if (Is_Player_Control()) {
 			PlayerLoses = true;
 		} else {
 			PlayerWins = true;
@@ -1623,7 +1644,7 @@ void HouseClass::AI(void)
 		TechnoClass * techno = Map[FlagHome].Cell_Techno();
 		if (techno != NULL) {
 			bool moving = false;
-			FootClass * foot = dynamic_cast<FootClass *>(techno);
+			FootClass * foot = As_Foot(techno); // RA2: the flag occupant may be a foot unit
 			if (foot != NULL) {
 				if (foot->NavCom != NULL) {
 					moving = true;
@@ -1662,7 +1683,7 @@ void HouseClass::AI(void)
 	**	Create teams for this house if necessary.
 	** (Use the same timer for some extra capture-the-flag logic.)
 	*/
-	if (/*!IsAlerted &&*/ !TeamTime) {
+	if (/*!IsAlerted &&*/ !TeamTime && !Is_Human_Player() && !Class->IsMultiplayPassive) { // RA2: active computer houses create teams
 
 		SUGGESTED_TEAM_LIST team = Suggested_New_Team(false);
 		if (team.Count() > 0) {
@@ -1674,92 +1695,70 @@ void HouseClass::AI(void)
 		TeamTime = Rule->TeamDelays[Difficulty];
 	}
 
-	/*
-	**	If there is insufficient power, then all buildings that are above
-	**	half strength take a little bit of damage.
-	*/
-	if (DamageTime == 0) {
-
-		/*
-		**	When the power is below required, then the buildings will take damage over
-		**	time.
-		*/
-		if (Power_Fraction() < 1) {
-			for (int index = 0; index < Buildings.Count(); index++) {
-				BuildingClass & b = *Buildings[index];
-
-				if (b.House == this && b.HealthRatio > Rule->ConditionYellow) {
-					// BG: Only damage buildings that require power, to keep the
-					//     land mines from blowing up under low-power conditions
-					if (b.Class->Drain) {
-						int damage = 1;
-						b.Take_Damage(damage, 0, Rule->C4Warhead, 0);
-					}
-				}
-			}
-		}
-		DamageTime = int(TICKS_PER_MINUTE * Rule->DamageDelay);
-	}
+	// RA2: no low-power damage to buildings (TibSun's DamageTime block)
 
 	/*
 	**	If there are no more buildings to sell, then automatically cancel the
 	**	sell mode.
 	*/
-	if (PlayerPtr == this && !CurBuildings && Map.IsSellMode) {
-		Map.Sell_Mode_Control(0);
-	}
-
-	/*
-	**	Various base conditions may be announced to the player. Typically, this would be
-	**	low tiberium capacity or low power.
-	*/
 	if (PlayerPtr == this) {
-
-		if (SpeakMaxedDelay == 0 && Available_Money() < 100 && UnitFactories+BuildingFactories+InfantryFactories > 0) {
-			Speak(VOX_NO_CASH);
-			Map.Flash_Money();
-			SpeakMaxedDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
+		if (!CurBuildings && Map.IsSellMode) {
+			Map.Sell_Mode_Control(0);
 		}
 
-		if (SpeakMaxedDelay == 0/* && IsMaxedOut*/) {
-			//IsMaxedOut = false;
-			if ((Capacity - Tiberium.Get_Total_Amount()) < 30/*0*/ && Capacity > 50/*0*/ /*&& (ActiveBScan & (STRUCTF_REFINERY | STRUCTF_CONST))*/) {
-				Speak(VOX_NEED_MO_CAPACITY);
+		/*
+		**	Various base conditions may be announced to the player. Typically, this would be
+		**	low tiberium capacity or low power.
+		*/
+		if (PlayerPtr == this) {
+
+			if (SpeakMaxedDelay == 0 && Available_Money() < 100 && NumShipyards + BuildingFactories + UnitFactories + InfantryFactories > 0) {
+				Queue_Speech("EVA_InsufficientFunds", -1, -1); // RA2: the EVA voice by name
+				Map.Flash_Money();
 				SpeakMaxedDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
 			}
-		}
-		if (SpeakPowerDelay == 0 && Power_Fraction() < 1) {
-			if (ABQuantity.Value(Rule->BuildConst[0]->HeapID) > 0) {
-				Speak(VOX_LOW_POWER);
-				SpeakPowerDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
-//				Map.Flash_Power();
-// RA2: no Add_Message (TibSun's use does not compile against RA2's declaration)
+
+			if (SpeakMaxedDelay == 0/* && IsMaxedOut*/) {
+				//IsMaxedOut = false;
+				if (Capacity - (int)Tiberium.Get_Total_Amount() < 30/*0*/ && Capacity > 50/*0*/ /*&& (ActiveBScan & (STRUCTF_REFINERY | STRUCTF_CONST))*/) { // RA2: no EVA line for low capacity, only the delay restarts
+					SpeakMaxedDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
+				}
+			}
+			static int low_power_notice; // RA2: the player hears this warning once per low-power period
+			if (Power_Fraction() < 1) {
+				if (ABQuantity.Value(Rule->BuildConst[0]->HeapID) > 0 || ABQuantity.Value(Rule->BuildConst[1]->HeapID) > 0) {
+					if (!low_power_notice) {
+						Queue_Speech("EVA_LowPower", -1, -1);
+						Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_LOW_POWER", NULL, "D:\\Ra2\\House.CPP", 2194),
+							Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+						low_power_notice = 1;
+					}
+					SpeakPowerDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
+//					Map.Flash_Power();
+				}
+			} else {
+				low_power_notice = 0;
 			}
 		}
+
 	}
 
 	/*
 	**	If there is a flag associated with this house, then mark it to be
 	**	redrawn.
 	*/
-	if (FlagLocation != NULL) {
-		UnitClass * unit = FlagLocation->As_UnitClass();
-		if (unit) {
-			unit->Mark(MARK_CHANGE);
-		} else {
-			//CELL cell = As_Cell(FlagLocation);
-			//Map[cell].Redraw_Objects();
-		}
+	ObjectClass * flag = static_cast<ObjectClass *>(FlagLocation);
+	if (flag && flag->Fetch_RTTI() == RTTI_UNIT) {
+		flag->Mark(MARK_CHANGE);
 	}
-
-	bool is_time = false;
+	//CELL cell = As_Cell(FlagLocation);
+	//Map[cell].Redraw_Objects();
 
 	/*
 	**	Triggers are only checked every so often. If the trigger timer has expired,
 	**	then set the trigger processing flag.
 	*/
 	if (TriggerTime == 0 || IsBuiltSomething) {
-		is_time = true;
 		TriggerTime = TICKS_PER_MINUTE/10;
 		IsBuiltSomething = false;
 	}
@@ -1778,17 +1777,15 @@ void HouseClass::AI(void)
 	if (Session.Type != GAME_NORMAL && !IsDefeated && Frame > 0 && !Class->IsMultiplayPassive) {
 		bool defeated = false;
 		if (Session.Options.ShortGame) {
-			if (!CurBuildings && !(UQuantity.Value(Rule->BaseUnit[0]->HeapID) + UQuantity.Value(Rule->BaseUnit[1]->HeapID))) { // RA2: BaseUnit is a list of two
+			int units = UQuantity.Value(Rule->BaseUnit[0]->HeapID) + UQuantity.Value(Rule->BaseUnit[1]->HeapID); // RA2: both base units count
+			if (!CurBuildings && units <= 0) {
 				defeated = true;
 			}
 		} else {
 			if (!CurBuildings && !CurAircraft && !CurInfantry) {
 				int units = CurUnits;
-				if (units == 0) {
-					defeated = true;
-				}
 				if (units && Scen->Special.IsHarvesterImmune) {
-					units -= UQuantity.Value(Rule->HarvesterUnit[0]->HeapID);
+					units -= UQuantity.Value(Rule->HarvesterUnit[0]->HeapID) + UQuantity.Value(Rule->HarvesterUnit[1]->HeapID); // RA2: both harvesters are immune
 				}
 				if (units <= 0) {
 					defeated = true;
@@ -1806,10 +1803,9 @@ void HouseClass::AI(void)
 	**	Try to spring all events attached to this house. The triggers will check
 	**	for themselves if they actually need to be sprung or not.
 	*/
-	for (int index = 0; index < HouseTags.Count(); index++) {
-		if (HouseTags[index]->Spring() && index > 0) {
-			index--;
-			continue;
+	if ((Frame % 8) == 0) { // RA2: check the tags backwards every eighth frame
+		for (int index = HouseTags.Count() - 1; index >= 0; index--) {
+			HouseTags[index]->Spring();
 		}
 	}
 
@@ -1898,7 +1894,7 @@ void HouseClass::AI(void)
 			}
 		} else if (ProductionMode == UNITS) {
 			AI_Unit();
-			if (BuildUnit != Rule->HarvesterUnit[0]->HeapID) {
+			if (BuildUnit != Get_First_Ownable(Rule->HarvesterUnit)->HeapID) { // RA2: the harvester this house can build
 				AI_Infantry();
 				AI_Aircraft();
 			}
@@ -1929,26 +1925,20 @@ void HouseClass::AI(void)
 	if (PlayerPtr == this) {
 		if (IsRecalcNeeded) {
 			recalc_supers = true;
-			IsRecalcNeeded = false;
-			Map.Recalc();
-			Map.SidebarClass::IsToRedraw = true;
-			Map.IsToBlitSidebar = true;
-			Map.Column[0].Flag_To_Redraw();
-			Map.Column[1].Flag_To_Redraw();
-
+			IsRecalcNeeded = false; // RA2: no sidebar redraw flags here
 			/*
 			**	This placement might affect any prerequisite requirements for construction
 			**	lists. Update the buildable options accordingly.
 			*/
-			for (int index = 0; index < Buildings.Count(); index++) {
+			int count = Buildings.Count();
+			for (int index = 0; index < count; index++) {
 				BuildingClass * building = Buildings[index];
-				if (building && building->IsActive && building->Strength > 0 && building->House == this && building->Mission != MISSION_DECONSTRUCTION && building->MissionQueue != MISSION_DECONSTRUCTION) {
-
-					if (PlayerPtr == building->House) {
-						building->Update_Buildables();
-					}
+				if (building && building->IsActive && building->Strength > 0 && building->Get_Mission() != MISSION_DECONSTRUCTION &&
+					building->MissionQueue != MISSION_DECONSTRUCTION && PlayerPtr == building->House) {
+					building->Update_Buildables();
 				}
 			}
+			Map.Recalc(); // RA2: after the factories update their build lists
 		}
 	} else {
 		if (IsRecalcNeeded) {
@@ -1971,10 +1961,9 @@ void HouseClass::AI(void)
 
 	if (this == PlayerPtr && IsToLook) {
 		IsToLook = false;
-		Map.All_To_Look();
+		Map.Reveal_Technos(false, false); // RA2: refresh technos in sight
 	}
 }
-#endif
 
 
 /***********************************************************************************************

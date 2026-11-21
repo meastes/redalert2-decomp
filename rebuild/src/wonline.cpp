@@ -692,7 +692,7 @@ int Send_Chat_Message(WideWstring const & msg)
 		/*
 		 * No users selected -- broadcast to the whole channel.
 		 */
-		g_pChat->RequestPublicMessageWide((unsigned short const *)msg.text());
+		g_pChat->RequestPublicUnicodeMessage((unsigned short const *)msg.text());
 		return(0);
 	} else {
 		/*
@@ -713,7 +713,7 @@ int Send_Chat_Message(WideWstring const & msg)
 			last = item;
 		}
 
-		if (head) g_pChat->RequestPrivateMessageWide(head, (unsigned short const *)msg.text());
+		if (head) g_pChat->RequestPrivateUnicodeMessage(head, (unsigned short const *)msg.text());
 
 		/// Free the temporary user list.
 		while (head) {
@@ -743,7 +743,7 @@ int Send_Chat_Action(WideWstring const & msg)
 		/*
 		 * No users selected -- broadcast to the whole channel.
 		 */
-		g_pChat->RequestPublicActionWide((unsigned short const *)msg.text());
+		g_pChat->RequestPublicUnicodeAction((unsigned short const *)msg.text());
 		return(0);
 	} else {
 		/*
@@ -764,7 +764,7 @@ int Send_Chat_Action(WideWstring const & msg)
 			last = item;
 		}
 
-		if (head) g_pChat->RequestPrivateActionWide(head, (unsigned short const *)msg.text());
+		if (head) g_pChat->RequestPrivateUnicodeAction(head, (unsigned short const *)msg.text());
 
 		/// Free the temporary user list.
 		while (head) {
@@ -6096,7 +6096,7 @@ int __fastcall Parse_Page_Command(wchar_t const * text) // RA2: 0x00746480, not 
 			if (!recipient_is_player) { // RA2: as above
 				if (wcslen(message) > 0) { // RA2: as above
 					strcpy((char *)recipient.name, Wide_To_Narrow(nickname)); // RA2: as above
-					g_pChat->RequestPageWide(&recipient, message); // RA2: virtual 0xF8
+					g_pChat->RequestUnicodePage(&recipient, message); // RA2: virtual 0xF8
 				}
 				result = 1; // RA2: as above
 			} else {
@@ -6152,7 +6152,7 @@ int __fastcall Reply_To_Last_Pager(wchar_t const * text) // RA2: 0x007466C0, not
 			if (strlen(LastPagerName) > 0) { // RA2: as above
 				if (wcslen(message) > 0) { // RA2: as above
 					strcpy((char *)recipient.name, LastPagerName); // RA2: as above
-					g_pChat->RequestPageWide(&recipient, message); // RA2: virtual 0xF8
+					g_pChat->RequestUnicodePage(&recipient, message); // RA2: virtual 0xF8
 				}
 				result = 1; // RA2: as above
 			} else {
@@ -6394,7 +6394,7 @@ int __stdcall Wonline_Main_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LP
 				User user;
 				memset(&user,0,sizeof(user));
 				strcpy((char *)user.name,"0");
-				g_pChat->RequestPrivateMessageWide(&user,text.get());
+				g_pChat->RequestPrivateUnicodeMessage(&user, text.get());
 			} else Lobby_Chat_Printf(-1,StringTable::LoadString("TXT_NOSQUAD",0,"D:\\Ra2\\wonline.cpp",0x2c74));
 			return 0;
 		}
@@ -6654,7 +6654,7 @@ BOOL CALLBACK WOL_Find_Page_Dialog_Proc(HWND window,UINT message,WPARAM wparam,L
 					}
 				}
 				if(!recipient_is_player) {
-					g_pChat->RequestPageWide(&user,text.get());
+					g_pChat->RequestUnicodePage(&user, text.get());
 					SMessagePrintf(ColorMe,L"[%hs] %s",g_NickName,text.get());
 				} else {
 					SMessagePrintf(-1,StringTable::LoadString("TXT_OBSERVER_CANT_PAGE",0,"D:\\Ra2\\wonline.cpp",0x30ed));
@@ -6691,7 +6691,7 @@ BOOL CALLBACK WOL_Find_Page_Dialog_Proc(HWND window,UINT message,WPARAM wparam,L
 					SetFocus(edit);
 					User user;
 					strcpy((char *)user.name,"0");
-					if(text.length()>0) g_pChat->RequestPageWide(&user,text.get());
+					if (text.length() > 0) g_pChat->RequestUnicodePage(&user, text.get());
 					else SMessagePrintf(-1,StringTable::LoadString("TXT_ENTER_MESSAGE",0,"D:\\Ra2\\wonline.cpp",0x311a));
 				}
 			}
@@ -7196,7 +7196,7 @@ void Update_Channel_Player_Limit(void) // RA2: 0x00749F20, not in TibSun: tells 
 		Encode_Channel_ExInfo(info); // RA2: as above
 		info[40] = 0; // RA2: as above
 		g_pChat->SetChannelExInfo(info); // RA2: virtual 0xA8
-		g_pChat->Unknown_Virtual_FC(1, capacity + player_slots); // RA2: virtual 0xFC
+		g_pChat->RequestSetPlayerCount(1, capacity + player_slots); // RA2: virtual 0xFC
 	}
 }
 
@@ -11260,7 +11260,7 @@ BOOL CALLBACK Buddy_Message_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 				User user; // RA2: as above
 				memset(&user, 0, sizeof(user)); // RA2: as above
 				strcpy((char *)user.name, g_SelectedBuddy.get()); // RA2: as above
-				g_pChat->RequestPageWide(&user, text.get()); // RA2: virtual 0xF8
+				g_pChat->RequestUnicodePage(&user, text.get()); // RA2: virtual 0xF8
 			}
 			InvalidateRect(edit, NULL, FALSE); // RA2: as above
 			WS_Destroy_Dialog(window, 0x5C2); // RA2: as above
@@ -11367,7 +11367,7 @@ BOOL CALLBACK Page_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 				text.trimTrailing(L"\n\r"); // RA2: as above
 				memset(&user, 0, sizeof(user)); // RA2: as above
 				strcpy((char *)user.name, name.get()); // RA2: as above
-				g_pChat->RequestPageWide(&user, text.get()); // RA2: virtual 0xF8
+				g_pChat->RequestUnicodePage(&user, text.get()); // RA2: virtual 0xF8
 				Lobby_Chat_Printf(ColorUser, L"[%hs] %s", g_NickName, text.get()); // RA2: the name is passed as the object, as the other chat lines do
 			}
 			EnableWindow((HWND)lparam, FALSE); // RA2: as above
