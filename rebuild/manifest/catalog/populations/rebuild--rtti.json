@@ -4,11 +4,10 @@
     "id": "rebuild--rtti",
     "inventory_sha256": "f7e6938ba82b1f58a6e5486fe53182de54c1b304fd41b687eb5cbdb73ee90ae6",
     "gaps_sha256": "a43c0adcad57c084b13d02132384d05b3018efaa756c5aa525cff7d2a756ccb6",
-    "historical_population_sha256": "ca5170cac89815d79f52f0c240a249ef91d7f10ef96e44618a61b553c78d33b8",
-    "historical_acceptance_sha256": "647bb430682d4c320b6030f3f2601e0d06413717f99920df55915ca1d55baddc"
+    "historical_population_sha256": "798157b72ef6b1c4f43aaa4c30a1e1c21699d0f0fc67b671b4981e1741ecdbed",
+    "historical_acceptance_sha256": "6be0ed2ad91efb03a6c64858b008eb37f9c7924e4a4dea66e6b4ca3ad863a41b"
   },
   "references": {
-    "_RECT_NONE": 8623648,
     "__real@8@40078000000000000000": 7972608,
     "__real@8@40008000000000000000": 7972600,
     "__CIpow": 7872944,
@@ -36,6 +35,7 @@
     "_BRIDGE_LEPTON_HEIGHT": 8623792,
     "_CELL_NONE": 8623720,
     "_COORD_NONE": 8623752,
+    "_RECT_NONE": 8623704,
     "?RTTIs@@3PAU__unnamed@@A": 8182136,
     "_UNKNOWN_RTTI_NAME": 8182704,
     "_stricmp": 7872288,
@@ -110,85 +110,25 @@
     "??_C@_08KGJO@Aircraft?$AA@": 8183480,
     "??_C@_04CCAG@Unit?$AA@": 8183492,
     "??_C@_06CPHF@?$DMnone?$DO?$AA@": 8183500,
-    "_$E2": 4249936,
-    "_$E5": 4249968,
-    "_$E8": 4250016,
-    "_$E11": 4250048,
-    "_$E14": 4250080,
-    "_$E17": 4250112,
-    "_$E20": 4250144,
-    "_$E23": 4250176,
-    "_$E26": 4250240,
-    "_$E29": 4250288,
-    "_$E32": 4250336,
-    "_$E35": 4250384,
-    "_$E38": 4250400,
+    "_$E2": 4249968,
+    "_$E5": 4250016,
+    "_$E8": 4250048,
+    "_$E11": 4250080,
+    "_$E14": 4250112,
+    "_$E17": 4250144,
+    "_$E20": 4250176,
+    "_$E23": 4250240,
+    "_$E26": 4250288,
+    "_$E29": 4250336,
+    "_$E32": 4250384,
+    "_$E35": 4250400,
+    "_$E38": 4250432,
     "?Name_From_RTTI@@YIPBDW4RTTIType@@@Z": 4250464,
     "?RTTI_From_Name@@YI?AW4RTTIType@@PBD@Z": 4250512,
     "?Dynamic_Cast@@YIPBVTechnoClass@@PBVAbstractClass@@@Z": 4250576,
     "?Dynamic_Cast@@YIPAVTechnoClass@@PAVAbstractClass@@@Z": 4250656
   },
   "regions": [
-    {
-      "entry": 4249936,
-      "method": "0040d950",
-      "body_bytes": 23,
-      "body_sha256": "80c0e18fbe5669bec595e0ffeb4f6e113d3c454a5c34131e15488698919e2a25",
-      "padding_bytes": 9,
-      "full_extent_bytes": 32,
-      "full_extent_sha256": "5bf0228ab4f6252522d49e48a587d95fee203b36875cf6561b147c1d2cdc41b0",
-      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
-      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E2",
-      "symbol_prefix": "_$E2",
-      "options": [
-        "/O2",
-        "/Ob2",
-        "/G5",
-        "/Gy",
-        "/Gr",
-        "/GR"
-      ],
-      "relocations": [
-        {
-          "offset": 3,
-          "kind": 6,
-          "symbol": "_RECT_NONE",
-          "target": 8623648,
-          "addend": 0,
-          "resolved": 8623648
-        },
-        {
-          "offset": 8,
-          "kind": 6,
-          "symbol": "_RECT_NONE",
-          "target": 8623648,
-          "addend": 4,
-          "resolved": 8623652
-        },
-        {
-          "offset": 13,
-          "kind": 6,
-          "symbol": "_RECT_NONE",
-          "target": 8623648,
-          "addend": 8,
-          "resolved": 8623656
-        },
-        {
-          "offset": 18,
-          "kind": 6,
-          "symbol": "_RECT_NONE",
-          "target": 8623648,
-          "addend": 12,
-          "resolved": 8623660
-        }
-      ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
-      "source": "rebuild/src/_rtti.cpp",
-      "population": "rebuild--rtti",
-      "source_order": 4249936,
-      "source_quality_family": "rebuild"
-    },
     {
       "entry": 4249968,
       "method": "0040d970",
@@ -199,8 +139,8 @@
       "full_extent_sha256": "bcd403883a68553fa1b38d0fee6a7ccd6b258b186d4bebbc96050a46e09305f3",
       "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E5",
-      "symbol_prefix": "_$E5",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
       "options": [
         "/O2",
         "/Ob2",
@@ -251,7 +191,7 @@
           "resolved": 8623728
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4249968,
@@ -267,8 +207,8 @@
       "full_extent_sha256": "e0bff9e6c849016dee15e8ee288bd454ea0241319471f2a7c56d17472cd76d1e",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E8",
-      "symbol_prefix": "_$E8",
+      "symbol": "_$E5",
+      "symbol_prefix": "_$E5",
       "options": [
         "/O2",
         "/Ob2",
@@ -303,7 +243,7 @@
           "resolved": 8623800
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250016,
@@ -319,8 +259,8 @@
       "full_extent_sha256": "9ec4c835b49b993cc8b5367706c37ee3e8d03ff129e1ed8841ebab798fbe3bd0",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E11",
-      "symbol_prefix": "_$E11",
+      "symbol": "_$E8",
+      "symbol_prefix": "_$E8",
       "options": [
         "/O2",
         "/Ob2",
@@ -355,7 +295,7 @@
           "resolved": 8623784
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250048,
@@ -371,8 +311,8 @@
       "full_extent_sha256": "87bcaf8e648282a34e82735456563af4a68ebb240d638d44007ad8bd7721ece4",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E14",
-      "symbol_prefix": "_$E14",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
       "options": [
         "/O2",
         "/Ob2",
@@ -407,7 +347,7 @@
           "resolved": 8623776
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250080,
@@ -423,8 +363,8 @@
       "full_extent_sha256": "7c1633f277b8a54046b2fef0f1101246f8aa9254ea95297b098089e26ac61ef9",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E17",
-      "symbol_prefix": "_$E17",
+      "symbol": "_$E14",
+      "symbol_prefix": "_$E14",
       "options": [
         "/O2",
         "/Ob2",
@@ -459,7 +399,7 @@
           "resolved": 8623736
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250112,
@@ -475,8 +415,8 @@
       "full_extent_sha256": "9df106911b406dd2c8cda1968990bd287f418fee5852a8f96c0840e96cc9e479",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E20",
-      "symbol_prefix": "_$E20",
+      "symbol": "_$E17",
+      "symbol_prefix": "_$E17",
       "options": [
         "/O2",
         "/Ob2",
@@ -511,7 +451,7 @@
           "resolved": 8623696
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250144,
@@ -527,8 +467,8 @@
       "full_extent_sha256": "3ec7d98f54af9d4e6decce4be1801dbd179d48dfc5859cc718eca7d263d680e6",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E23",
-      "symbol_prefix": "_$E23",
+      "symbol": "_$E20",
+      "symbol_prefix": "_$E20",
       "options": [
         "/O2",
         "/Ob2",
@@ -595,7 +535,7 @@
           "resolved": 8623808
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250176,
@@ -611,8 +551,8 @@
       "full_extent_sha256": "12b31b9feb7f24488109e88bb2fe3cbbb0f1984edad55d9be25be0f701bb8bf5",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E26",
-      "symbol_prefix": "_$E26",
+      "symbol": "_$E23",
+      "symbol_prefix": "_$E23",
       "options": [
         "/O2",
         "/Ob2",
@@ -655,7 +595,7 @@
           "resolved": 8623744
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250240,
@@ -671,8 +611,8 @@
       "full_extent_sha256": "0729f673de6abe74612dcf62b58e13aa71b5bc2d9f557353d224ae5063cb34a0",
       "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E29",
-      "symbol_prefix": "_$E29",
+      "symbol": "_$E26",
+      "symbol_prefix": "_$E26",
       "options": [
         "/O2",
         "/Ob2",
@@ -715,7 +655,7 @@
           "resolved": 8623768
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250288,
@@ -731,8 +671,8 @@
       "full_extent_sha256": "5f2242534773af11fcf6154a627019ee068e611775ad0cb1d67aff53905eba0b",
       "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E32",
-      "symbol_prefix": "_$E32",
+      "symbol": "_$E29",
+      "symbol_prefix": "_$E29",
       "options": [
         "/O2",
         "/Ob2",
@@ -775,7 +715,7 @@
           "resolved": 8623792
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250336,
@@ -791,8 +731,8 @@
       "full_extent_sha256": "098a5f3e27acb9d6e0854bbf3eaea002abe12c2fb835c54d95ac0f78d2c922f4",
       "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E35",
-      "symbol_prefix": "_$E35",
+      "symbol": "_$E32",
+      "symbol_prefix": "_$E32",
       "options": [
         "/O2",
         "/Ob2",
@@ -819,7 +759,7 @@
           "resolved": 8623722
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250384,
@@ -835,8 +775,8 @@
       "full_extent_sha256": "a243a26636ccf24b7cc2f1f542e9f6b9b196377c90afc66c733855b58c596cdb",
       "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E38",
-      "symbol_prefix": "_$E38",
+      "symbol": "_$E35",
+      "symbol_prefix": "_$E35",
       "options": [
         "/O2",
         "/Ob2",
@@ -871,10 +811,70 @@
           "resolved": 8623760
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250400,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4250432,
+      "method": "0040db40",
+      "body_bytes": 23,
+      "body_sha256": "7618a534e416e0dd3b0eecf2b22ea8982d4fcdd9531ddcd3affd28650f0a8c2e",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2b212813fa98305a477a28589e7f025d559c4d81b39acac5ab3717a01a014569",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E38",
+      "symbol_prefix": "_$E38",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 0,
+          "resolved": 8623704
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 4,
+          "resolved": 8623708
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 8,
+          "resolved": 8623712
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8623704,
+          "addend": 12,
+          "resolved": 8623716
+        }
+      ],
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
+      "source": "rebuild/src/_rtti.cpp",
+      "population": "rebuild--rtti",
+      "source_order": 4250432,
       "source_quality_family": "rebuild"
     },
     {
@@ -931,7 +931,7 @@
           "resolved": 8182136
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250464,
@@ -991,7 +991,7 @@
           "resolved": 8182140
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250512,
@@ -1052,7 +1052,7 @@
           "resolved": 4250613
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250576,
@@ -1113,7 +1113,7 @@
           "resolved": 4250693
         }
       ],
-      "source_sha256": "9d97c4c6bdc51dced9a26d5bfbae972a7ffe779bae1fcb46a175b647a4053c89",
+      "source_sha256": "359a0c8ea4223e21db48b5961290d1cf3f901de66c9a74838a9533b8c3f6febf",
       "source": "rebuild/src/_rtti.cpp",
       "population": "rebuild--rtti",
       "source_order": 4250656,

@@ -7436,7 +7436,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "0040d950",
+   "0040d970",
    "0040dc70"
   ],
   "mischa85": "tibsun: functions compiled from src/_rtti.cpp, matched, without gaps; two placed by definition order; one placed by the gap",
@@ -7451,18 +7451,10 @@
   ],
   "rows": [
    {
-    "entry": "0040d950",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E2",
-    "main_symbol": "_$E2",
-    "main_source": "src/recovered/header_statics/_rtti/HeaderStatics_empty_rect_init.cpp"
-   },
-   {
     "entry": "0040d970",
     "body": 40,
     "padding": 8,
-    "symbol": "_$E5",
+    "symbol": "_$E2",
     "main_symbol": "_$E5",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7470,7 +7462,7 @@
     "entry": "0040d9a0",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E8",
+    "symbol": "_$E5",
     "main_symbol": "_$E8",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7478,7 +7470,7 @@
     "entry": "0040d9c0",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E11",
+    "symbol": "_$E8",
     "main_symbol": "_$E11",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7486,7 +7478,7 @@
     "entry": "0040d9e0",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E14",
+    "symbol": "_$E11",
     "main_symbol": "_$E14",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7494,7 +7486,7 @@
     "entry": "0040da00",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E17",
+    "symbol": "_$E14",
     "main_symbol": "_$E17",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7502,7 +7494,7 @@
     "entry": "0040da20",
     "body": 19,
     "padding": 13,
-    "symbol": "_$E20",
+    "symbol": "_$E17",
     "main_symbol": "_$E20",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7510,7 +7502,7 @@
     "entry": "0040da40",
     "body": 49,
     "padding": 15,
-    "symbol": "_$E23",
+    "symbol": "_$E20",
     "main_symbol": "_$E23",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7518,7 +7510,7 @@
     "entry": "0040da80",
     "body": 33,
     "padding": 15,
-    "symbol": "_$E26",
+    "symbol": "_$E23",
     "main_symbol": "_$E26",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7526,7 +7518,7 @@
     "entry": "0040dab0",
     "body": 44,
     "padding": 4,
-    "symbol": "_$E29",
+    "symbol": "_$E26",
     "main_symbol": "_$E29",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7534,7 +7526,7 @@
     "entry": "0040dae0",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E32",
+    "symbol": "_$E29",
     "main_symbol": "_$E32",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7542,7 +7534,7 @@
     "entry": "0040db10",
     "body": 15,
     "padding": 1,
-    "symbol": "_$E35",
+    "symbol": "_$E32",
     "main_symbol": "_$E35",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7550,7 +7542,7 @@
     "entry": "0040db20",
     "body": 18,
     "padding": 14,
-    "symbol": "_$E38",
+    "symbol": "_$E35",
     "main_symbol": "_$E38",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7558,7 +7550,7 @@
     "entry": "0040db40",
     "body": 23,
     "padding": 9,
-    "symbol": "_$E41",
+    "symbol": "_$E38",
     "main_symbol": "_$E41",
     "main_source": "src/recovered/_rtti.cpp"
    },
@@ -7662,7 +7654,7 @@
    "_RAD_45": "008396a0",
    "_RAD_60": "00839678",
    "_RAD_90": "00839650",
-   "_RECT_NONE": "00839620"
+   "_RECT_NONE": "00839658"
   }
  },
  "emember": {
@@ -160106,12 +160098,13 @@
  "_rect": {
   "core": [
    "0040d8d0",
-   "0040d950"
+   "0040d970"
   ],
   "symbol_overrides": {
    "0040d8d0": "_$E2",
    "0040d8f0": "_$E5",
-   "0040d920": "_$E8"
+   "0040d920": "_$E8",
+   "0040d950": "_$E11"
   },
   "source": "rebuild/src/_rect.cpp",
   "options": [
@@ -160125,7 +160118,7 @@
   "status": "catalogued",
   "range": [
    "0040d8d0",
-   "0040d950"
+   "0040d970"
   ],
   "mischa85": "none: no mischa85 module (its unk_0040D7D0 holds two of the palette initializers as TibSun text); range from main's unit map and TibSun's file layout (_palette.cpp, _pk.cpp, _rand.cpp, _rect.cpp, linked in name order before _rtti.cpp; each initializer stores to that file's globals)",
   "main_options": [
@@ -160161,6 +160154,14 @@
     "symbol": "_$E8",
     "main_symbol": "_$E47",
     "main_source": "src/recovered/_rect.cpp"
+   },
+   {
+    "entry": "0040d950",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E11",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/_rtti/HeaderStatics_empty_rect_init.cpp"
    }
   ],
   "references": {

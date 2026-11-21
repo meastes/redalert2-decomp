@@ -11,9 +11,11 @@
     "_RECT_NONE": 8623632,
     "?TacticalRect@@3V?$TRect@H@@A": 8623664,
     "?VisibleRect@@3V?$TRect@H@@A": 8623680,
+    "?SidebarRect@@3V?$TRect@H@@A": 8623648,
     "_$E2": 4249808,
     "_$E5": 4249840,
-    "_$E8": 4249888
+    "_$E8": 4249888,
+    "_$E11": 4249936
   },
   "regions": [
     {
@@ -70,7 +72,7 @@
           "resolved": 8623644
         }
       ],
-      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source_sha256": "3dd0c7a743cc99a9c2a997f34bf5dc4043dff8c3957dd6e738b2ad182d123744",
       "source": "rebuild/src/_rect.cpp",
       "population": "rebuild--rect",
       "source_order": 4249808,
@@ -130,7 +132,7 @@
           "resolved": 8623676
         }
       ],
-      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source_sha256": "3dd0c7a743cc99a9c2a997f34bf5dc4043dff8c3957dd6e738b2ad182d123744",
       "source": "rebuild/src/_rect.cpp",
       "population": "rebuild--rect",
       "source_order": 4249840,
@@ -190,11 +192,72 @@
           "resolved": 8623692
         }
       ],
-      "source_sha256": "1d3f9d94b3ce4339400b0fc4176f3a3e6b9785b0109fe34fc428608d99df28cf",
+      "source_sha256": "3dd0c7a743cc99a9c2a997f34bf5dc4043dff8c3957dd6e738b2ad182d123744",
       "source": "rebuild/src/_rect.cpp",
       "population": "rebuild--rect",
       "source_order": 4249888,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4249936,
+      "method": "0040d950",
+      "body_bytes": 23,
+      "body_sha256": "80c0e18fbe5669bec595e0ffeb4f6e113d3c454a5c34131e15488698919e2a25",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "5bf0228ab4f6252522d49e48a587d95fee203b36875cf6561b147c1d2cdc41b0",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E11",
+      "symbol_prefix": "_$E11",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 0,
+          "resolved": 8623648
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 4,
+          "resolved": 8623652
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 8,
+          "resolved": 8623656
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "?SidebarRect@@3V?$TRect@H@@A",
+          "target": 8623648,
+          "addend": 12,
+          "resolved": 8623660
+        }
+      ],
+      "source_sha256": "3dd0c7a743cc99a9c2a997f34bf5dc4043dff8c3957dd6e738b2ad182d123744",
+      "source": "rebuild/src/_rect.cpp",
+      "population": "rebuild--rect",
+      "source_order": 4249936,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3664"
     }
   ]
 }
