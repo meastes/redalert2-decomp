@@ -161,7 +161,6 @@ static inline int Light_Follow_Distance(ObjectClass const * object, Coord const 
 /// the owner's spotlight triggers whenever an enemy is caught in the light. A light
 /// whose owner has left the game deletes itself here.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 585 bytes differ (stack layout only; the follow distance through the twin's unit-local Light_Follow_Distance)
 void BuildingLightClass::AI(void)
 {
 	if (Owner == NULL || !Owner->IsActive) {
@@ -273,7 +272,6 @@ void BuildingLightClass::AI(void)
 		}
 	}
 }
-#endif
 
 
 
@@ -451,7 +449,7 @@ int BuildingLightClass::Detection_Radius(void) const
 /// to home.</returns>
 int BuildingLightClass::Sweep_Stage(void) const
 {
-	int dist = Center_Coord().Distance_To(Owner->Center_Coord());
+	int dist = Distance_To(Owner);
 	int radius = Rule->SpotlightLocationRadius;
 	if (dist < radius) {
 		return(0);

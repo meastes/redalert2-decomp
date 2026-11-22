@@ -1,0 +1,377 @@
+unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance
+abstract,0040fef0,Leaf_40fef0::get,23,no_draft,,a,variation_candidates.csv: main's coined unknown_static_rect header (a second 16-byte Rect static),,no,,
+building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1321,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,
+builtype,0045e290,BuildingTypeClass::Get_Draw_Rect,1189,stack_layout,5,a,variation_candidates.csv: main's unit-local Union<Rect> specialisation naming the two right edges (count-calibrated locals),,yes,,
+bullet,00462c50,BulletClass::Shrapnel,2757,inline_call,1787,a,"variation_candidates.csv: a split declaration `Cell cell; cell = Get_Cell();` in the second loop, found by a count probe (the Cell default constructor is the extra inline-candidate site ",,yes,,
+combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,
+coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,
+drive,004a1000,DriveLocomotionClass::While_Moving,5736,exact_when_open,,a,variation_candidates.csv: as ship's,b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
+dropship,004a6b90,Dropship_Screen,10797,inline_body,,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 15 exact rows (26,806 B)",,yes,,
+effects,004b3140,_$E41,23,no_draft,,a,variation_candidates.csv: main's coined unknown_static_rect header (a second 16-byte Rect static),,no,,
+foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,unbound,1391,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),d,yes,,
+init,00519500,Allocate_Surfaces,1118,inline_body,1015,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,
+map,0054f250,MapClass::Zone_Span,1386,stack_layout,17,a,variation_candidates.csv: main's threaded Add specialisation with a dummy eligible flag (RA2_MAP_ZONE_SPAN),,yes,,
+map,00555a60,MapClass::Repair_Bridge,2743,inline_call,2536,a,"variation_candidates.csv: main's coined second-kind helpers (Is_Low_Bridge2, Repair_Low_Bridge2_Span) and TPoint2D<short>::operator+ out of line",,yes,,
+map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,87,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,
+ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,
+ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,
+ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,
+saveload,006558b0,Put_All,4055,exact_when_open,,a,"variation_candidates.csv: main's empty-inline DebugString lines (6 to 20 of the archive's `Saving ...` / FAILED lines, a budget form)",b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
+ship,00676f60,ShipLocomotionClass::While_Moving,5720,unbound,,a,"variation_candidates.csv: main's `FootClass * train = LinkedTo`, `ObjectClass *& ref`, `Cell gate`, `ttype`, `cell`, Coord copies and `Cell here`",d,yes,,
+strtable,006f8e30,StringTable::LoadFile,1134,inline_call,783,a,"variation_candidates.csv: main's coined Open_File / Close_File wrappers (one of two fopen sites, three fclose sites)",,yes,,
+techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,110,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,
+techtype,006d9b40,TechnoTypeClass::TechnoTypeClass,2961,register_order,15,a,"variation_candidates.csv: main's coined `Leptons` class for GuardRange (a class with an inline constructor, after YRpp's name)",,yes,,
+wdtconflict,00727e30,?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,236,inline_call,,a,"variation_candidates.csv: main's operator+ form (free operator+(WideWstring, WideWstring) 0x771460)",,yes,,
+wdtsel,0072e430,WorldDominationTour::Selection::Handle_Click,532,inline_call,,a,variation_candidates.csv: none of its own: exact once Select_Territory_At carries main's constant conditional (it expands Select_Territory_At),,yes,,
+wdtsel,0072e650,WorldDominationTour::Selection::Select_Territory_At,193,calls_differ,,a,"variation_candidates.csv: main's dead construct (src/recovered/wdtsel.cpp Selection::Hover, 'DEAD CONSTRUCT, owner ruling'): `rc_ptr<Territory> territory = true ? WorldMap->Get_Territory",,yes,,
+wonline,007469c0,Wonline_Main_Dialog_Proc,7172,inline_call,1257,a,variation_candidates.csv: main's Make_Room level under Add_At (src/shared/wol_sink.hpp RA2_WOL_INT_ARRAY_MAKE_ROOM) with main's chain of inline helpers above it: the two growVector calls,,yes,,
+wonline,0074a120,Player_Info_Tooltip,959,inline_call,857,a,"variation_candidates.csv: main's Key_Hash specialisation switch, as CChatEventSink::OnFind 0x762F70",,yes,,
+wonline,00750330,Negotiate_Scenario_Transfer,2520,register_order,32,a,variation_candidates.csv: Session.Players alias (main's text),,yes,,
+wonline,00760c00,CChatEventSink::OnUserList,2402,register_order,,a,variation_candidates.csv: Session.Players alias (main's text),,yes,,
+wonline,00762f70,CChatEventSink::OnFind,2867,inline_call,,a,variation_candidates.csv: main's Key_Hash specialisation switch (src/shared/wol_dictionary.hpp RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS: keyHash declared in the class and defined per key t,,yes,,
+builtype,0045ed50,ShapeSet::Get_Rect,108,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+builtype,0045efe0,Union,240,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd50,??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd90,?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fe40,?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fe70,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047feb0,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fed0,?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047ff80,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047ffb0,??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,00480000,??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,00480050,??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z,74,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+drive,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9af0,RGBClass::RGBClass,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b30,?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b60,?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b90,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+fly,004bfb60,??8?$TPoint2D@H@@QBE_NABV0@@Z,37,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,53,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ad10,CDFileClass::~CDFileClass,11,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ad20,CCFileClass::~CCFileClass,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ade0,CCINIClass::CCINIClass,140,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,exact_when_open,,b,exact with every guard of the unit open,,yes,"guard-open exact, opening its guard loses 2 rows",a count-holding declaration
+map,0056ace0,?Clear@?$DynamicVectorClass@W4PassabilityType@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056ad10,?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056ad30,?GetItem@?$VectorClass@W4PassabilityType@@@@UBE?AW4PassabilityType@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058eed0,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058f1e0,?search_compfunc@?$IndexClass@HPAVMapRegionClass@@@@CAHPBX0@Z,34,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005940d0,??GDirType@@QBE?AV0@ABV0@@Z,28,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005940f0,??KDirType@@QBE?AV0@H@Z,26,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,00594110,DirType::Is_Complete_Turn,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,00594140,DirType::Turn,100,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005941b0,?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z,342,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd590,?Clear@?$DynamicVectorClass@PBVMultiMission@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5c0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5e0,?GetItem@?$VectorClass@PBVMultiMission@@@@UBEPBVMultiMission@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5f0,??8?$VectorClass@PBVMultiMission@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd630,?Resize@?$VectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd6e0,?Clear@?$VectorClass@PBVMultiMission@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd710,?ID@?$VectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd750,?ID@?$VectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd7d0,?Resize@?$DynamicVectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd880,?Add@?$DynamicVectorClass@PBVMultiMission@@@@QAE_NABQBVMultiMission@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd8d0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00601c30,?keyHash@?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@AAEIABQAUHWND__@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602040,?remove@?$Dictionary@UMessageKey@OwnerDraw@@_N@@QAEDABUMessageKey@OwnerDraw@@AA_N@Z,607,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,006022a0,?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,156,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602340,?keyHash@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEIABUMessageKey@OwnerDraw@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b090,??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z,25,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b0b0,??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ,14,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b0f0,??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z,32,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b6c0,??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z,92,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b720,?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z,249,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b820,?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b850,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8a0,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z,36,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8d0,??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8e0,??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,007302b0,WorldDominationTour::Map::Get_Territory,26,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,007302e0,??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z,35,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,00730310,??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ,11,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,00730330,??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ,4,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00765e90,?add@?$ArrayList@UUser@WOL@@@@QAEDAAUUser@WOL@@H@Z,390,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00766400,?clear@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEXXZ,276,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00767bb0,?getPointer@?$Dictionary@VWstring@@I@@QAEDABVWstring@@PAPAI@Z,107,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00767cf0,?getPointer@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEDABVWstring@@PAPAUChannel@WOL@@@Z,110,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00768290,?growVector@?$ArrayList@H@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,00586b40,MapGeneratorClass::Create_Urban_Area,1913,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
+ownrdraw,005fb270,OwnerDraw::Trackbar_Proc,3489,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
+queue,0062a360,Print_CRCs,11223,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
+map,0056c870,??_G?$VectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+map,0056c8c0,??_G?$DynamicVectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+netshare,005cd770,??0?$DynamicVectorClass@PBVMultiMission@@@@QAE@IPBQBVMultiMission@@@Z,93,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+netshare,005cd900,??_G?$VectorClass@PBVMultiMission@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+netshare,005cd950,??_G?$DynamicVectorClass@PBVMultiMission@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+wdtmap,0072baa0,??_G?$VectorClass@VCentroid@WorldDominationTour@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,
+alphashp,0041f1c0,AlphaShapeClass::Draw_In_Area,0,no_draft (no_main_row),,e,no draft yet,,no,,
+astar,00427370,AStarClass::Find_Path_Regular,2506,no_row,main best 78.55%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+bitfont,00432270,Leaf_432270::get,23,no_draft,,e,no draft yet,,no,,
+bounce,,BounceClass::AI,0,unplaced,main best 99.77%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+building,,BuildingClass::Charge_Turret,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+building,,BuildingClass::Charging_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+building,,BuildingClass::Discharge_Turret,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+building,,BuildingClass::Get_Collateral_Damage,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+building,00440520,BuildingClass::Exit_Object,6505,no_row,main best 92.27%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+building,00445620,BuildingClass::Do_MISSION_GUARD,788,calls_differ,768,e,stays a flagged draft,,yes,,
+building,00446920,BuildingClass::Do_MISSION_ATTACK,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+building,00448400,BuildingClass::Do_MISSION_MISSILE,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+bullet,0045f710,BulletClass::AI,6438,no_row,main best 87.78%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+bullet,004642a0,??Y?$TVelocity3D@N@@QAEAAU0@ABU0@@Z,33,no_draft,,e,no draft yet,,no,,
+cell,,CellClass::Draw_Shroud_Or_Fog_Shape,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+cell,00474260,CellClass::Draw_Shroud_Or_Fog_Shape,0,no_draft (no_main_row),,e,no draft yet,,no,,
+cell,00475db0,CellClass::Reduce_Tiberium,556,no_row,main best 76.76%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+cell,0047ad00,CellClass::Place_Veins,2191,no_row,main best 78.39%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+combuf,,CommBufferClass::Mono_Debug_Print,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+combuf,,CommBufferClass::Mono_Debug_Print2,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+diskswap,,DiskSwap::Request_Disk,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+display,004994d0,DisplayClass::Set_Cursor_Pos,832,no_row,main best 78.48%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+display,0049b0f0,DisplayClass::Mouse_Left_Up,2145,no_row,main best 62.84%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+drive,,DriveLocomotionClass::Draw_Matrix,0,unplaced,main best 95.91%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+egos,004b37c0,Show_Credits,2924,no_row,main best 99.54%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+expand,,Expansion_Dialog,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+fly,004be720,FlyLocomotionClass::Nearing_Target,1633,inline_call,1441,e,stays a flagged draft,,yes,,
+fly,004bfb30,UnknownFacingDir::Magnitude_At_Least_004bfb30,36,no_draft,,e,no draft yet,,no,,
+gdlgsupp,004d2080,Fill_Color_Combo,53,no_row,main best 86.09%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+house,004eca50,HouseClass::Random_Cell_In_Zone,1253,no_row,main best 54.60%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+house,004f03c0,HouseClass::Where_To_Place_Building,2629,inline_body,803,e,stays a flagged draft,,yes,,
+house,004f0e10,_$E67,1,no_draft,,e,no draft yet,,no,,
+house,004f0e20,_$E66,1,no_draft,,e,no draft yet,,no,,
+house,004f1190,HouseClass::AI_Build_Defense,3264,register_order,5,e,stays a flagged draft,,yes,,
+hover,004fbfc0,HoverLocomotionClass::Process,2229,inline_call,1890,e,stays a flagged draft,,yes,,
+infantry,,InfantryClass::Is_Immobilized,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+infantry,,InfantryClass::Per_Cell_Process,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+infantry,005025c0,InfantryClass::Tunnel_AI,1876,no_row,main best 61.13%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+init,005116a0,Init_Game,4420,inline_call,1032,e,stays a flagged draft,,yes,,
+ionblast,00521a90,IonBlastClass::One_Time,0,no_draft (no_main_row),,e,no draft yet,,no,,
+ionblast,00522540,Leaf_522540::get,23,no_draft,,e,no draft yet,,no,,
+ipxmgr,00525f60,IPXManagerClass::Service,2691,no_row,main best 97.99%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+isotype,0052c230,Iso_Blit_Asm2,6967,no_row,main best 81.25%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+isotype,0052e390,IsometricTileTypeClass::Preview_Tile,52,no_row,main best 81.25%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+keyboard,,WWKeyboardClass::Noop,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+laser,005334f0,LaserDrawClass::Draw_It,1906,register_order,182,e,stays a flagged draft,,yes,,
+laser,00533c70,_$E50,1,no_draft,,e,no draft yet,,no,,
+ldprgmgr,00535bf0,LoadProgressManager::Draw,0,no_draft (no_main_row),,e,no draft yet,,no,,
+map,,MapClass::Break_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Crack_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Deform_Terrain,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Ice_Growth_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Ice_Solidification_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Is_Tile_Water_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Recalc_Ice_Cells,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Smoothen_Full_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Smoothen_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Smoothen_Ice_Edge,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Smoothen_Ice_Shore,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Subzone_Span,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,,MapClass::Terrain_Deformation_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,main best 94.60%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0054ebd0,MapClass::Zone_Reset,1646,no_row,main best 85.14%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0054fda0,MapClass::Compute_Zone_Connections,804,no_row,main best 62.12%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0055def0,MapClass::Damage_Low_Bridge_EW,1302,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0055e410,MapClass::Damage_Low_Bridge_NS,1302,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0055f020,MapClass::Damage_Low_Bridge2_EW,1308,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0055f540,MapClass::Damage_Low_Bridge2_NS,1308,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,00563d80,MapClass::Reset_Subzone,1287,no_row,main best 76.89%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,00566340,MapClass::Update_Cell_Subzones,2281,no_row,main best 64.37%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,main best 99.49%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+map,0056aa20,??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z,23,no_draft,,e,no draft yet,,no,,
+map,0056be10,?Resize@?$DynamicVectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z,176,inline_call,,e,stays a flagged draft,,yes,,
+mapgen,,MapGeneratorClass::Generate_Crystals,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Generate_Mold,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Generate_Swamp,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Generate_Veinholes,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Get_Ice_Score,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Grow_Water_Region,0,unplaced,main best 90.35%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Is_Cell_Area_Clear,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Seed_Arctic_Lake,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Seed_Arctic_River,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Seed_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapGeneratorClass::Smooth_Ice,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapSeedClass::Clamp_Setting,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapSeedClass::Set_Checkbox,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,,MapSeedClass::Set_Scroll_Bar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,calls_differ,1024,e,stays a flagged draft,,yes,,
+mapgen,0056ef20,MapRegionClass::Split_Region,4012,no_row,main best 70.68%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+mapgen,00576420,Generate_Starting_Points,925,no_row,main best 64.79%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+mapgen,00577010,MapGeneratorClass::MapGeneratorClass,0,no_draft (no_main_row),,e,no draft yet,,no,,
+mapgen,00579960,MapGeneratorClass::Read_RMG_INI,1897,no_row,main best 61.57%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+mapgen,0057d3a0,MapGeneratorClass::Spread_Land,2415,no_row,main best 74.41%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+mech,005919a0,MechLocomotionClass::Movement_AI,5575,no_row,main best 89.00%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+missile,00593870,Projectile_Motion,2101,no_row,main best 99.22%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+missile,005940b0,??HDirType@@QBE?AV0@ABV0@@Z,28,no_draft,,e,no draft yet,,no,,
+netdlg2,005bccf0,Net2SetHouseAndColor,403,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+netdlg2,005befe0,MPlayer_Host_Dialog_Proc,2507,no_row,main best 85.37%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+netshare,005c3ff0,Net2DecodeGameopt,8191,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+netshare,005c69e0,Scenario_DlgProc,1920,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+netshare,005c7ef0,Send_Map_Preview,1325,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+netshare,005c8dd0,Set_Slot_Names,920,register_order,4,e,stays a flagged draft,,yes,,
+netshare,005cbf20,Change_Slot_Type,2003,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+objtype,,ObjectTypeClass::Theater_Naming_Convention,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+ownrdraw,,Control_Proc,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+ownrdraw,,Is_Quick_Control_B,0,unplaced,2216,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+ownrdraw,,OwnerDraw::Default_Dialog_Proc,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+ownrdraw,005e8130,Init_Control_Animation,1110,no_row,main best 49.20%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005e9410,Adjust_Control_Position,1938,no_row,main best 99.79%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005f00c0,unknown_modal_list_atexit_5f00c0,23,no_draft,,e,no draft yet,,no,,
+ownrdraw,005f00e0,unknown_active_messages_atexit_5f00e0,291,no_draft,,e,no draft yet,,no,,
+ownrdraw,005f0320,Owner_Button_Proc,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005f0f40,Tab_Proc,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005f22a0,New_Edit_Proc,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005f2b50,Static_Proc,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+ownrdraw,005ffb00,OwnerDraw::Default_Dialog_Proc,0,no_draft (no_main_row),,e,no draft yet,,no,,
+ownrdraw,00601410,Leaf_601410::get,21,not_emitted,,e,stays a flagged draft,,yes,,
+ownrdraw,00601490,?Clear_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAEXXZ,68,no_draft,,e,no draft yet,,no,,
+ownrdraw,00601780,UnknownListEntry_6017c0::UnknownListEntry_6017c0,61,no_draft (main_exact),,e,no draft yet,,no,,
+ownrdraw,006017c0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,135,no_draft (main_exact),,e,no draft yet,,no,,
+ownrdraw,00601850,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_6017c0@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,
+ownrdraw,00602360,?Grow_Vector@?$WolArrayList@H@@QAE_NXZ,143,no_draft,,e,no draft yet,,no,,
+ownrdraw,006023f0,?Shrink_Vector@?$WolArrayList@H@@QAE_NXZ,134,no_draft,,e,no draft yet,,no,,
+ownrdraw,00602480,?Shrink_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,136,no_draft,,e,no draft yet,,no,,
+ownrdraw,00602510,??_G?$DNode@IUWinData@OwnerDraw@@@@QAEPAXI@Z,138,no_draft,,e,no draft yet,,no,,
+ownrdraw,006025a0,UnknownListState_6025a0::UnknownListState_6025a0,388,no_draft (main_exact),,e,no draft yet,,no,,
+ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,135,no_draft,,e,no draft yet,,no,,
+palette,00603750,Set_Scheme_Table_Theater,0,no_draft (no_main_row),,e,no draft yet,,no,,
+particle,,ParticleClass::Web_Behavior_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+particle,00608bb0,ParticleClass::Gas_Behavior_AI,1601,calls_differ,1259,e,stays a flagged draft,,yes,,
+particle,00609540,ParticleClass::Spark_Behavior_AI,1069,no_row,main best 66.45%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+partsys,0060bb70,ParticleSystemClass::Smoke_AI,1240,no_row,main best 54.23%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+partsys,0060d0f0,Leaf_60d0f0::get,23,no_draft,,e,no draft yet,,no,,
+planmgr,00614ba0,Planning_Execute,786,no_row,main best 89.13%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+planmgr,00616a50,Planning_Convert_Loop_Moves,239,no_row,main best 77.83%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+planmgr,00617340,Planning_Left_Press,818,no_row,main best 38.59%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+planmgr,006182f0,Planning_Draw_Techno,2230,inline_body,1665,e,stays a flagged draft,,yes,,
+planmgr,0061a8e0,seed_0061a8e0::Owner_0061a8e0::unknown_rect_contains_0061a8e0,58,no_draft,,e,no draft yet,,no,,
+quarry,,Name_From_Quarry,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+queue,00626cb0,Draw_Sync_Bars,741,no_row,main best 75.78%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+queue,006282d0,Extract_Compressed_Events,1455,no_row,main best 57.62%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+radar,00634670,RadarDiplomacy::Update_Diplomacy_Row,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+radbeam,,RadBeam::Compute_Pulse_Step,0,unplaced,main best 96.92%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+radbeam,,RadBeam::Compute_Swing_Step,0,unplaced,main best 95.83%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+radbeam,00635c30,RadBeam::Compute_Pulse_Step,0,no_draft (no_main_row),,e,no draft yet,,no,,
+radbeam,00636130,RadBeam::Compute_Swing_Step,0,no_draft (no_main_row),,e,no draft yet,,no,,
+reinf,00639970,Do_Reinforcements,1069,inline_call,432,e,stays a flagged draft,,yes,,
+scenario,0065b780,ScenarioClass,171,no_row,main best 93.48%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+scenario,0065c520,Wait_For_Players_To_Load,676,no_row,main best 96.97%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+score,00663fe0,ScoreClass::Presentation,7782,register_order,279,e,stays a flagged draft,,yes,,
+ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,main best 97.08%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+sidebar,,SidebarClass::Activate_Upgrade,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+sidebar,,SidebarClass::Reload_Sidebar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+sidebar,,SidebarClass::Which_Column,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+sidebar,0067dc90,SidebarClass::AI,1315,inline_body,480,e,stays a flagged draft,,yes,,
+sidebar,0067e210,SidebarClass::Activate,1067,no_row,main best 99.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+sidebar,0067f800,SidebarClass::StripClass::Draw_It,2760,register_order,6,e,stays a flagged draft,,yes,,
+sidebar,006802d0,SidebarClass::StripClass::Recalc,1732,no_row,main best 62.52%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+sidebar,00681690,SidebarClass::StripClass::SelectClass::Unknown_00681690,25,no_draft (main_exact),,e,no draft yet,,no,,
+sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,4,e,stays a flagged draft,,yes,,
+sidebar,00682520,Leaf_682520::get,29,no_draft,,e,no draft yet,,no,,
+skirmish,006829f0,Skirmish_On_WM_COMMAND,3264,inline_call,2819,e,stays a flagged draft,,yes,,
+srfcache,0068cce0,SurfaceCacheClass::Draw,0,no_draft (no_main_row),,e,no draft yet,,no,,
+startup,0068e280,WinMain,10076,inline_call,7223,e,stays a flagged draft,,yes,,
+strtable,006f9790,Read_Text_File,1317,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+super,0069d090,SuperClass::Discharged,765,inline_call,163,e,stays a flagged draft,,yes,,
+tab,,TabClass::Hilite_Tab,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+tab,,TabClass::Set_Active,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+tactical,,Tactical::Draw_Radial_Indicators,0,unplaced,main best 78.52%,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+tactical,006a45a0,Tactical::Render,3288,no_row,main best 64.69%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+tactical,006a7e80,Tactical::Draw_Pixel_Effects,954,no_row,main best 86.26%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+tactical,006a8560,Tactical::Draw_Tiles,824,no_row,main best 63.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+tactical,006ac7a0,seed_006ac7a0::unknown_empty_006ac7a0,1,no_draft,,e,no draft yet,,no,,
+taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,calls_differ,,e,stays a flagged draft,,yes,,
+team,006b7ad0,TeamClass::AI,3460,inline_body,2027,e,stays a flagged draft,,yes,,
+techno,,TechnoClass::Area_Modify,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Can_Deploy_Now,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Draw_Health_Bar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Find_Docking_Bay,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Laser_Zap,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Rock,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techno,006c1f10,TechnoClass::TechnoClass,409,inline_call,93,e,stays a flagged draft,,yes,,
+techno,006c5570,TechnoClass::Evaluate_Object,2998,no_row,main best 91.81%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+techno,006ca890,TechnoClass::Fire_At,6019,calls_differ,5834,e,stays a flagged draft,,yes,,
+techno,006d0990,TechnoClass::Draw_Link_Line,1059,no_row,main best 86.96%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+techno,006d24e0,TechnoClass::Techno_Render_Voxel_Object,814,inline_body,611,e,stays a flagged draft,,yes,,
+techno,006d6ed0,TechnoClass::Railgun_Beam_Damage,1521,register_order,19,e,stays a flagged draft,,yes,,
+techtype,,TechnoTypeClass::In_Range,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+techtype,,TechnoTypeClass::Set_Weapon,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+uicmnds,006f7360,Command_Type_Select,0,no_draft (no_main_row),,e,no draft yet,,no,,
+unit,,UnitClass::EMPulse_Blast,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,,UnitClass::Get_Max_Speed,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,,UnitClass::Jellyfish_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,,UnitClass::Reload_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,,UnitClass::Unit_Draw_Voxel,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,,UnitClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+unit,006faa30,UnitClass::Tunnel_AI,1730,no_row,main best 58.99%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+vanim,0070c800,VoxelAnimClass,1308,no_row,main best 99.19%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+vox,00716780,Speech_Always_True,0,no_draft (no_main_row),,e,no draft yet,,no,,
+voxel,00718060,Init_Voxel_Matrices,3290,register_order,25,e,stays a flagged draft,,yes,,
+vqalib_task,0077c7d0,VQA_Reset,0,no_draft (no_main_row),,e,no draft yet,,no,,
+walk,0071e220,WalkLocomotionClass::Movement_AI,4967,no_row,main best 89.83%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+wave,007221d0,WaveClass::Load,349,inline_call,305,e,stays a flagged draft,,yes,,
+wave,007225b0,WaveClass::Draw_Sonic,1777,no_row,main best 86.89%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+wave,00722cb0,WaveClass::Draw_Laser,1382,no_row,main best 61.27%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
+wdtconflict,00727cc0,??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z,36,no_draft,,e,no draft yet,,no,,
+wdtmap,0072a880,WDT_Write_Map_Ini,1652,register_order,7,e,stays a flagged draft,,yes,,
+wdtnet,,WDTState::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtnet,,WDTTerritory::Get_Game_Options,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtnet,,WDTTerritory::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,,Selection,0,unplaced,959,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,,Selection::Do_Target_Anim,0,unplaced,841,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,,Selection::Handle_Click,0,unplaced,505,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,,Selection::Pick_Territory,0,unplaced,912,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,,Selection::Select_Territory_At,0,unplaced,175,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wdtsel,0072d560,WorldDominationTour::Selection::Selection,1072,inline_call,,e,stays a flagged draft,,yes,,
+wdtsel,0072e050,WorldDominationTour::Selection::Pick_Territory,991,calls_differ,,e,stays a flagged draft,,yes,,
+wdtsel,0072e780,WorldDominationTour::Selection::Do_Target_Anim,1531,calls_differ,,e,stays a flagged draft,,yes,,
+wonline,,WOL_Wait_Callback,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
+wonline,0073e100,WOL_Wait_Callback,0,no_draft (no_main_row),,e,no draft yet,,no,,
+wonline,0074a710,Wonline_Game_Options_Dialog_Proc,7899,inline_body,386,e,stays a flagged draft,,yes,,
+wonline,007513e0,Add_Test_Player_Ol_Cruddy,228,register_order,2,e,stays a flagged draft,,yes,,
+wonline,007514d0,Add_Test_Player_Potato,224,register_order,2,e,stays a flagged draft,,yes,,
+wonline,007515b0,Add_Test_Player_Potato_Too,267,register_order,2,e,stays a flagged draft,,yes,,
+wonline,00758750,Buddy_Dialog_Proc,2935,calls_differ,1728,e,stays a flagged draft,,yes,,
+wonline,00759370,Run_Online_Menu,2687,inline_call,34,e,stays a flagged draft,,yes,,
+wonline,00759e20,Start_Quick_Match,2202,inline_call,1762,e,stays a flagged draft,,yes,,
+wonline,0075c570,Apply_Endpoint_Map,698,register_order,2,e,stays a flagged draft,,yes,,
+wonline,00766dc0,WolChannelArray::Shrink_00766dc0,150,no_draft,,e,no draft yet,,no,,
+wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,e,no draft yet,,no,,
+wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,
+wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,
+(total),,flex a: 30 functions,75100,,,a,,,,,
+(total),,flex b: 89 functions,7125,,,b,,,,,
+(total),,flex c: 3 functions,16625,,,c,,,,,
+(total),,flex d: 6 functions,458,,,d,,,,,
+(total),,flex e: 235 functions,223903,,,e,,,,,
+(total),,no draft yet: 47 functions,2531,,,e,,,no,,
+(gap),,88 functions,7632,,,,,,,exact only inside a parked parent (guard-open exact),a mask
+(gap),,2 functions,9808,,,,,,,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
+(gap),,1 functions,48,,,,,,,"guard-open exact, opening its guard loses 2 rows",a count-holding declaration
+(gap),,3 functions,16656,,,,,,,exact form parked count-sensitive,a count-holding declaration
+(gap),,94 functions,34144,,,,,,,total: function-level minus whole-unit,
+(gap),,0 functions,0,,,,,,,exact but unbound / data not bound,an unverified reference
+(not counted),,8 functions,7645,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference

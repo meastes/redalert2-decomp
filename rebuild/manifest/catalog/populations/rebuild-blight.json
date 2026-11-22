@@ -78,6 +78,14 @@
     "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
     "?Clip_Line_To_Rect@@YI_NAAVPoint2D@@0ABV?$TRect@H@@@Z": 7820832,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?Lerp@@YI?AVCoord@@ABV1@0M@Z": 7479488,
+    "__real@8@40018000000000000000": 7981504,
+    "__real@8@4001c90fdaa22168c000": 7981496,
+    "__real@8@00000000000000000000": 7976464,
+    "__real@8@bffe8000000000000000": 7981488,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
+    "?Spring@TagClass@@QAE_NW4TEventType@@PAVObjectClass@@VCell@@_NPAVTechnoClass@@@Z": 7028208,
     "_CLSID_BuildingLightClass": 8002720,
     "?Load@ObjectClass@@UAGJPAUIStream@@@Z": 6113120,
     "??0ObjectClass@@QAE@ABVNoInitClass@@@Z": 6104320,
@@ -85,8 +93,6 @@
     "?Swizzle@SwizzleManagerClass@@UAGJPAPAX@Z": 6945568,
     "?Save@AbstractClass@@UAGJPAUIStream@@H@Z": 4260032,
     "?Detach@ObjectClass@@UAEXPBVAbstractClass@@_N@Z": 6110160,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
     "?Compute_CRC@ObjectClass@@UBEXAAVCRCEngine@@@Z": 6114064,
     "??RCRCEngine@@QAEXN@Z": 4800368,
     "??RCRCEngine@@QAEXH@Z": 4800304,
@@ -160,6 +166,7 @@
     "?Detach_All@ObjectClass@@UAEX_N@Z": 6110224,
     "?Is_Moving_Onto_Bridge@ObjectClass@@UBE_NPAVTechnoClass@@@Z": 6116080,
     "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
+    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Can_Player_Move@ObjectClass@@UBE_NXZ": 6106176,
     "?Can_Player_Fire@ObjectClass@@UBE_NXZ": 6106160,
     "?Can_Demolish@ObjectClass@@UBE_NXZ": 6106144,
@@ -170,7 +177,6 @@
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@PBV1@_N@Z": 6106016,
     "?What_Action@ObjectClass@@UBE?AW4ActionType@@ABVCell@@_N1@Z": 6106032,
     "?Get_Image_Data@ObjectClass@@UBEPBXXZ": 6105008,
-    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
     "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": 4260576,
     "?In_Air@ObjectClass@@UBE_NXZ": 6116368,
     "?On_Ground@ObjectClass@@UBE_NXZ": 6116320,
@@ -203,7 +209,6 @@
     "?Full_Name@ObjectClass@@UBEPBGXZ": 4341056,
     "??_C@_1BA@MEGH@?$AAN?$AAo?$AA?5?$AAn?$AAa?$AAm?$AAe?$AA?$AA@": 8187056,
     "?Target_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305472,
-    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Render_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305520,
     "?Fire_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4341072,
     "?Exit_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4305568,
@@ -230,6 +235,7 @@
     "?Fetch_RTTI@BuildingLightClass@@UBE?AW4RTTIType@@XZ": 4409408,
     "??1BuildingLightClass@@UAE@XZ": 4403952,
     "?Draw_It@BuildingLightClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": 4404096,
+    "?AI@BuildingLightClass@@UAEXXZ": 4405616,
     "?Fetch_Object_Size@BuildingLightClass@@UBEHXZ": 4407440,
     "?GetClassID@BuildingLightClass@@UAGJPAU_GUID@@@Z": 4407456,
     "?Load@BuildingLightClass@@UAGJPAUIStream@@@Z": 4407520,
@@ -318,7 +324,7 @@
           "resolved": 8710672
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402640,
@@ -370,7 +376,7 @@
           "resolved": 8710744
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402688,
@@ -422,7 +428,7 @@
           "resolved": 8710728
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402720,
@@ -474,7 +480,7 @@
           "resolved": 8710720
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402752,
@@ -526,7 +532,7 @@
           "resolved": 8710680
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402784,
@@ -578,7 +584,7 @@
           "resolved": 8710640
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402816,
@@ -662,7 +668,7 @@
           "resolved": 8710752
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402848,
@@ -722,7 +728,7 @@
           "resolved": 8710688
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402912,
@@ -782,7 +788,7 @@
           "resolved": 8710712
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4402960,
@@ -842,7 +848,7 @@
           "resolved": 8710736
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403008,
@@ -886,7 +892,7 @@
           "resolved": 8710666
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403056,
@@ -938,7 +944,7 @@
           "resolved": 8710704
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403072,
@@ -998,7 +1004,7 @@
           "resolved": 8710660
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403104,
@@ -1362,7 +1368,7 @@
           "resolved": 8806948
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403136,
@@ -1502,7 +1508,7 @@
           "resolved": 1700285
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4403952,
@@ -1938,10 +1944,342 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4404096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4405616,
+      "method": "00433970",
+      "body_bytes": 1818,
+      "body_sha256": "18aaeb49b37fbbb067adb5bd75207315546f998441212ea60041ee5b1c3878b0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 1824,
+      "full_extent_sha256": "e4a223a4300b7cac00c382d9606c477171cd76dc0ab03301509dd5d25e4c8f46",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?AI@BuildingLightClass@@UAEXXZ",
+      "symbol_prefix": "?AI@BuildingLightClass@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 206,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 551374
+        },
+        {
+          "offset": 214,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3454662
+        },
+        {
+          "offset": 220,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 306,
+          "kind": 20,
+          "symbol": "?Lerp@@YI?AVCoord@@ABV1@0M@Z",
+          "target": 7479488,
+          "addend": 0,
+          "resolved": 3073562
+        },
+        {
+          "offset": 336,
+          "kind": 20,
+          "symbol": "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z",
+          "target": 4408176,
+          "addend": 0,
+          "resolved": 2220
+        },
+        {
+          "offset": 369,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 385,
+          "kind": 6,
+          "symbol": "__real@8@40018000000000000000",
+          "target": 7981504,
+          "addend": 0,
+          "resolved": 7981504
+        },
+        {
+          "offset": 397,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 416,
+          "kind": 6,
+          "symbol": "__real@8@4001c90fdaa22168c000",
+          "target": 7981496,
+          "addend": 0,
+          "resolved": 7981496
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 1426742
+        },
+        {
+          "offset": 460,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 1429088
+        },
+        {
+          "offset": 544,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 1431532
+        },
+        {
+          "offset": 577,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3454299
+        },
+        {
+          "offset": 592,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3454284
+        },
+        {
+          "offset": 639,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 653,
+          "kind": 6,
+          "symbol": "__real@8@3ffe8000000000000000",
+          "target": 7972648,
+          "addend": 0,
+          "resolved": 7972648
+        },
+        {
+          "offset": 688,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "__real@8@bffe8000000000000000",
+          "target": 7981488,
+          "addend": 0,
+          "resolved": 7981488
+        },
+        {
+          "offset": 791,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 870,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 1426310
+        },
+        {
+          "offset": 892,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 1428656
+        },
+        {
+          "offset": 991,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 1431085
+        },
+        {
+          "offset": 1026,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453850
+        },
+        {
+          "offset": 1043,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453833
+        },
+        {
+          "offset": 1060,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453816
+        },
+        {
+          "offset": 1284,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294866872
+        },
+        {
+          "offset": 1349,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 550231
+        },
+        {
+          "offset": 1357,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453519
+        },
+        {
+          "offset": 1363,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1433,
+          "kind": 6,
+          "symbol": "_?_scale@?1??Detection_Radius@BuildingLightClass@@QBEHXZ@4NB",
+          "target": 7980968,
+          "addend": 0,
+          "resolved": 7980968
+        },
+        {
+          "offset": 1438,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453438
+        },
+        {
+          "offset": 1522,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1527,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 1130757
+        },
+        {
+          "offset": 1579,
+          "kind": 20,
+          "symbol": "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z",
+          "target": 5133696,
+          "addend": 0,
+          "resolved": 726497
+        },
+        {
+          "offset": 1688,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 549892
+        },
+        {
+          "offset": 1696,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3453180
+        },
+        {
+          "offset": 1768,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 8710664,
+          "addend": 0,
+          "resolved": 8710664
+        },
+        {
+          "offset": 1788,
+          "kind": 20,
+          "symbol": "?Spring@TagClass@@QAE_NW4TEventType@@PAVObjectClass@@VCell@@_NPAVTechnoClass@@@Z",
+          "target": 7028208,
+          "addend": 0,
+          "resolved": 2620800
+        }
+      ],
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
+      "source": "rebuild/src/blight.cpp",
+      "population": "rebuild-blight",
+      "source_order": 4405616,
       "source_quality_family": "rebuild"
     },
     {
@@ -1965,7 +2303,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407440,
@@ -2025,7 +2363,7 @@
           "resolved": 8002732
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407456,
@@ -2133,7 +2471,7 @@
           "resolved": 2537948
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407520,
@@ -2169,7 +2507,7 @@
           "resolved": 4294819676
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407632,
@@ -2196,7 +2534,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407664,
@@ -2223,7 +2561,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407680,
@@ -2259,7 +2597,7 @@
           "resolved": 1702445
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407696,
@@ -2399,7 +2737,7 @@
           "resolved": 3452373
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4407760,
@@ -2467,7 +2805,7 @@
           "resolved": 3451975
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4408176,
@@ -2535,7 +2873,7 @@
           "resolved": 3451666
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4408624,
@@ -2587,7 +2925,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4408848,
@@ -2719,7 +3057,7 @@
           "resolved": 391040
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409040,
@@ -2771,7 +3109,7 @@
           "resolved": 1088409
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409280,
@@ -2823,7 +3161,7 @@
           "resolved": 1088299
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409312,
@@ -2850,7 +3188,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409376,
@@ -2878,7 +3216,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409408,
@@ -3026,7 +3364,7 @@
           "resolved": 3462235
         }
       ],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409424,
@@ -3053,7 +3391,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f1a9ed27dc8f155e76cc8d702e0afbe86db1ce0af86bdf8fc6fcf3a07ed1222a",
+      "source_sha256": "98e123bb8d7671b29952ba986fcd8af34ff4583c1c00819d926a003c70973903",
       "source": "rebuild/src/blight.cpp",
       "population": "rebuild-blight",
       "source_order": 4409584,

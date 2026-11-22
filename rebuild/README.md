@@ -36,7 +36,16 @@ The percentage this tree reproduces is mostly adopted work (class a). Read it to
 below.
 
 <!-- numbers: updated at each gated landing -->
-**At the last gated landing (2026-11-18 04:22Z):** 262 units, 6,347 functions exact; 24.61% of `.text`
+**Headline (owner, 2026-11-21): function-level**, each function checked on its own as ra2-decomp reports, with the
+whole-unit figures (the catalog, what the whole-file exact build accepts) beside them; the whole-file build stays
+the gate and every credit rule is unchanged. At 2026-11-22 00:05Z: **85.954% of `.text` built from source and
+88.834% reproduced** at function level (17,585 functions), against 85.049% and 87.929% whole-unit (17,491 functions
+in 437 units). The newest figures are the last line of `manifest/progress.csv` (`function_level_source_share_of_text`,
+`function_level_reproduced_text` beside `source_share_of_text`, `reproduced_text`), and docs/STATUS.md shows the same
+pair. What the gap holds and what would have to be allowed to build it is itemised in `manifest/flex_menu.csv`
+(rows whose unit is "(gap)").
+
+Older snapshot (2026-11-18 04:22Z), kept for the series: 262 units, 6,347 functions exact; 24.61% of `.text`
 built from source, 27.42% reproduced with the linked library and assembled bytes.
 
 | Class | Functions | Bytes |

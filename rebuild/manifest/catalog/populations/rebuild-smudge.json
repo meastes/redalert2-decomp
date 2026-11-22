@@ -4,8 +4,8 @@
     "id": "rebuild-smudge",
     "inventory_sha256": "29e29256c2fe8566936c170dfe1beb3e9243895fdb19fc6e921f0e6ed1b6dd91",
     "gaps_sha256": "deeb6d29d687073fc2c535a40daa14a6d1b8d7de38fd92d38f89f246fa2f3550",
-    "historical_population_sha256": "37347f5df4f24dad1b93e184edbae969869bc93d00a9bb10d777ab2503ccdd10",
-    "historical_acceptance_sha256": "212bad2e402d573d40bdfe56473dca13ac57bd6335a1de0ed4cc6d54c87fe199"
+    "historical_population_sha256": "02fe33aabf379c1ba157b6562b67fd31d0d4053e35c13ad000529e15cfcb6640",
+    "historical_acceptance_sha256": "a878b1ce072c78d54cbbcc781587fb53536e8d5b7bacaf9d6f4e7bca6f9450b0"
   },
   "references": {
     "__real@8@40078000000000000000": 7972608,
@@ -146,6 +146,7 @@
     "?Detach_All@ObjectClass@@UAEX_N@Z": 6110224,
     "?Is_Moving_Onto_Bridge@ObjectClass@@UBE_NPAVTechnoClass@@@Z": 6116080,
     "?Sort_Y@ObjectClass@@UBEHXZ": 6116432,
+    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Can_Player_Move@ObjectClass@@UBE_NXZ": 6106176,
     "?Can_Player_Fire@ObjectClass@@UBE_NXZ": 6106160,
     "?Can_Demolish@ObjectClass@@UBE_NXZ": 6106144,
@@ -192,7 +193,6 @@
     "?Full_Name@ObjectClass@@UBEPBGXZ": 4341056,
     "??_C@_1BA@MEGH@?$AAN?$AAo?$AA?5?$AAn?$AAa?$AAm?$AAe?$AA?$AA@": 8187056,
     "?Target_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305472,
-    "?Docking_Coord@ObjectClass@@UBE?AVCoord@@PAVTechnoClass@@@Z": 6116592,
     "?Render_Coord@ObjectClass@@UBE?AVCoord@@XZ": 4305520,
     "?Fire_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4341072,
     "?Exit_Coord@ObjectClass@@UBE?AVCoord@@H@Z": 4305568,

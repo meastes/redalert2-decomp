@@ -73,7 +73,6 @@ class SmudgeTypeClass : public ObjectTypeClass
 		static SmudgeType From_Name(char const * name);
 		static void Init(TheaterType);
 		static void One_Time(void) {BASECLASS::One_Time();}
-		static void Prep_For_Add(void);
 
 		static SmudgeTypeClass * Find_Or_Make(const char *name);
 

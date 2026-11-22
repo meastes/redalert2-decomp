@@ -3634,3 +3634,47 @@ Found in the rebuild (lane F14, high): two inline_call rows worked from prepared
   `growVector` with it, the budget there being ample. So the image has the two `growVector` calls one level below
   the placement new of the same `add`, which the archive's `add` cannot give and no reference has (main's
   `Make_Room`): the row is on the variation list.
+
+## Look inside the expanded callee before the root; a doubled property read; a second Length site sized by root pads (found in the rebuild (lane F17, high))
+
+- A call difference reported at an offset of the root can lie inside a callee the root expands. BuildingLightClass::AI
+  0x433970 showed `TPoint3D<int>(int, int, int)` 0x41B630 called and Length expanded at +0x503; that offset is not the
+  follow test but `Detection_Radius` -> `Sweep_Stage`, both expanded there. Sweep_Stage read the distance as
+  `Center_Coord().Distance_To(Owner->Center_Coord())`; ra2-decomp's twin and the archive's object.h have
+  `Distance_To(Owner)` (`ObjectClass::Distance_To` -> `Distance(Coord const &)` -> `TPoint3D::Distance_To`). The two
+  levels leave Sweep_Stage 0x434610 and Detection_Radius 0x434530 the same bytes on their own rows and leave the
+  constructor a call three levels down in AI: exact (1,818 B) with AI's text untouched. When a parked root expands
+  small functions of its own unit that are exact rows, compare their texts with the twin's first: a form that is
+  neutral for the callee's own row is not neutral for its expansion.
+- A register that holds 0 through a function (`xor ebp, ebp` early, `cmp eax, ebp` for `test eax, eax`) is what is left
+  when another value has lost that register. In FootClass::AI 0x4C8FF0 the image keeps `&Locomotion` in ebx and has
+  no zero register; the draft had no spare register because `TClass->MoveSound[random % (unsigned)TClass->
+  MoveSound.Count()]` reads the `TClass` property twice (two virtual `Techno_Type_Class` calls, the image has one).
+  The archive's `TypeList<T>::Pick(int index)` (typelist.h) takes the list once: `TClass->MoveSound.Pick(
+  NonCriticalRandomNumber())` is exact (2,184 B). Count indirect calls too: a "calls identical" verdict made from
+  direct calls alone missed the extra `call [eax + 0x80]`. A property written twice in one expression is two calls;
+  look for the member that takes the object once (`Pick`, `Random_Pick`) before a helper.
+- BuildingClass::Take_Damage 0x43EE70: the frame (0x98 for 0x8C) was two spellings. The archive sums the occupy
+  offset first, `Cell(*offset++) + Get_Cell()` (the image copies `*offset` before the virtual call), and both
+  distances go through `Distance_To(contact)`: the image's two sites share their temporaries, which only the same
+  member chain at both gives (16 combinations of `Distance_To`, `Distance(Coord)`, `::Distance(a, b)` and
+  `Coord::Distance_To` compiled; the others add one or two Coord temporaries to the frame). One site is left: the
+  image expands Length at the second site and calls it at the first. K out-of-line call statements before the
+  final return flip the second site alone between K=32 and K=36, and the function is then the image's, the
+  expanded Length converting Y, Z, X as the image does (lane F2's note: the order follows the function's other
+  expansions, here it follows the right call list). A flip that needs more than thirty call statements reads either
+  as 264 to 288 units of root budget or as the root crossing the 1000 floor only there (2 * S passes 1000 near
+  K=33). Three more probes tell them apart: the site does not answer to what the root spent before it (it stays
+  a call without the first distance, without `contacts.Add` and without `Delete_All`), and with one inline site
+  less after it (`Coord(Position)` for the `Get_Coord()` property at the sound, the same bytes) the flip moves to
+  K=17..24. So the root is above the floor, a site after the disputed one is worth 12 to 16 call statements, and
+  the image is about three sites lighter after the second distance or 132 to 144 units larger at the root. Pads
+  at the end of the root and a site count after the disputed call, taken together, give both numbers in six
+  compiles; `Scen->RandomNumber` in place of an expanded `Random_Pick` is told from it by the argument order
+  (the expanded helper's call comes before the outer call's pushes).
+- `if (x < 0 || x > 3) x = 0;` on an int and the archive's `switch` over the four values with a default compile to
+  the same object here (the signed pair `jl` / `jle`), and the same inline decisions: reinf's `_Create_Paradrop` has
+  the archive's Create_Air_Reinforcement as its ancestor (reinf.cpp:841), whose switch is the form main's text has,
+  and it does not move `Coord(Cell const &, int)` 0x61EA80 in Do_Reinforcements 0x639970. Out-of-line call
+  statements inside the paradrop (4 units each) leave the constructor a call from ten on and not at nine: the
+  original's paradrop body is 37 to 40 units larger than ours, one size class, not a cast or two.

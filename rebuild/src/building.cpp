@@ -2535,7 +2535,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1334 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1321 bytes differ (one site: the second distance's Length is a call where the image expands it)
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2633,7 +2633,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 						for (int index = 0; index < RadioLinks.Length(); index++) { // RA2: as above
 							TechnoClass * contact = Radio_Link(index); // RA2: as above
 							if (contact) { // RA2: as above
-								int separation = Distance(contact->Center_Coord()); // RA2: as above
+								int separation = Distance_To(contact); // RA2: as above
 								if (separation < 2 * CELL_LEPTON && !Class->IsHelipad) { // RA2: as above
 									Transmit_Message(RADIO_RUN_AWAY, contact); // RA2: as above
 									contact->QueueUpToEnter = NULL; // RA2: as above
@@ -2647,7 +2647,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 					}
 
 					while (*offset != REFRESH_EOL) { // RA2: no BlowupSound (not in RA2's layout)
-						Cell cell = Get_Cell() + *offset++; // RA2: the building's cell plus the occupy offset
+						Cell cell = Cell(*offset++) + Get_Cell(); // RA2: the building's cell through Get_Cell
 
 						AnimClass * anim = NULL;
 

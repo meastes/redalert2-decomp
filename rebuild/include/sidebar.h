@@ -207,7 +207,6 @@ class SidebarClass : public PowerClass
 				wchar_t const * Help_Text(int id); // RA2: 0x67F580; the cameo name and cost (wide text)
 				void Draw_It(bool complete);
 				void One_Time(int id);
-				void Init_Clear(void);
 				void Clear_Buildables(void); // RA2: 0x67E770; the scroll state and every entry are cleared
 				void Init_Buttons(int id); // RA2: 0x67E7E0; numbers the strip and places its cameo buttons
 				void Add_Buttons(void); // RA2: 0x67E8F0
@@ -216,7 +215,6 @@ class SidebarClass : public PowerClass
 				void Insert_Buildable(RTTIType type, int id); // RA2: 0x67ED10
 				int Get_Progress(int index); // RA2: 0x67F7C0; how far an entry's production has come
 				void Set_Flash(int id, int delay); // RA2: 0x682400; the entry flashes until this many frames from now
-				void Init_IO(int id);
 				bool Recalc(void);
 				void Activate(void);
 				bool Has_Buildables(void) const; // RA2: 0x681730, any cameos on this strip

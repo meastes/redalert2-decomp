@@ -81,6 +81,11 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             # change): each function checked on its own, as ra2-decomp reports (rebuild_census.function_level).
             function_level_functions=m['function_level_rows'], function_level_bytes=m['function_level_bytes'],
             function_level_share_of_text='%.3f%%' % (100.0 * m['function_level_bytes'] / TEXT),
+            # The rebuild's headline (owner, 2026-11-21): function-level from source (evidenced inline asm left out,
+            # as in source_share_of_text) and reproduced (with the linked library and assembled bytes), beside the
+            # whole-unit source_share_of_text / reproduced_text; the whole-file build stays the gate.
+            function_level_source_share_of_text='%.3f%%' % (100.0 * (m['function_level_bytes'] - asm_b) / TEXT),
+            function_level_reproduced_text='%.3f%%' % (100.0 * (m['function_level_bytes'] + LIBRARY + ASSEMBLY) / TEXT),
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []

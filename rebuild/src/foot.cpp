@@ -3683,7 +3683,6 @@ VisualType FootClass::Visual_Character(bool raw, HouseClass const * house) const
  * HISTORY:                                                                                    *
  *   09/17/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2006 bytes differ (adopted text)
 void FootClass::AI(void)
 {
 	BASECLASS::AI();
@@ -3736,7 +3735,7 @@ void FootClass::AI(void)
 	if ((frame != TotalFramesWalked || Locomotion->Is_Moving_Now()) && !IsFalling && !IsRocking) { // RA2: the move sound plays while the object walks
 		if (!IsMoveSoundPlaying && TClass->MoveSound.Count() > 0) { // RA2: as above
 			MoveSoundAudioController.Stop(); // RA2: as above
-			VocClass::PlayAt(TClass->MoveSound[NonCriticalRandomNumber() % (unsigned)TClass->MoveSound.Count()], Coord(PositionCoord), &MoveSoundAudioController); // RA2: a move sound picked with the noncritical generator
+			VocClass::PlayAt(TClass->MoveSound.Pick(NonCriticalRandomNumber()), Coord(PositionCoord), &MoveSoundAudioController); // RA2: a move sound picked with the noncritical generator
 			IsMoveSoundPlaying = true; // RA2: as above
 		}
 		MoveSoundDelay = 3; // RA2: as above
@@ -3806,7 +3805,6 @@ void FootClass::AI(void)
 		ParasiteEatingMe->ParasiteImUsing->AI(); // RA2: as above
 	}
 }
-#endif
 
 
 

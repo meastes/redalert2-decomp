@@ -150,7 +150,6 @@ class HouseTypeClass : public AbstractTypeClass
 		virtual int Fetch_Heap_ID(void) const override;
 
 		static HousesType From_Name(char const * name);
-		static void One_Time(void);
 		static HouseTypeClass * Find_Or_Make(char const * ininame);
 
 		virtual bool Read_INI(CCINIClass const & ini) override;

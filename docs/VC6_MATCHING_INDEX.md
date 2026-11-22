@@ -297,4 +297,5 @@ diff class matches your row (`notes_index.py --section <title>` prints one), not
 - L3444-3486 A tiny comparison kept out of line at the top of a function is a missing accessor level (found in the rebuild (lane F11, high)) (9): The image keeps five calls to `TPoint2D<int>::operator==` (0x4BFB60, 46 units) in four functions:
 - L3487-3547 Counting sites with empty probes, and a callee too small to refuse (found in the rebuild (lane F13, high)) (12): Count sites before measuring charge.
 - L3548-3592 A family of small members is one coupled budget system: adopt the twin's forms for all of it, and read free limits before reshaping (found in the rebuild (lane F15, high)) (7): Found in the rebuild (lane F15, high):
-- L3593-3636 A budget a few units long can sit in how a small struct is copied; depth 9 and the wlib lists (found in the rebuild (lane F16, high)) (8): Found in the rebuild (lane F16, high):
+- L3593-3637 A budget a few units long can sit in how a small struct is copied; depth 9 and the wlib lists (found in the rebuild (lane F16, high)) (8): Found in the rebuild (lane F16, high):
+- L3638-3680 Look inside the expanded callee before the root; a doubled property read; a second Length site sized by root pads (found in the rebuild (lane F17, high)) (4): A call difference reported at an offset of the root can lie inside a callee the root expands.

@@ -88,7 +88,7 @@ def split_call(head):
         elif ch == '>':
             depth_angle = max(0, depth_angle - 1)
         elif ch == '(' and depth_angle == 0:
-            m = re.search(r'((?:[A-Za-z_]\w*(?:<[^<>()]*>)?\s*::\s*)*)(~?\s*[A-Za-z_]\w*)\s*$', head[:i])
+            m = re.search(r'((?:[A-Za-z_]\w*(?:\s*<[^<>()]*>)?\s*::\s*)*)(~?\s*[A-Za-z_]\w*)\s*$', head[:i])
             if not m:
                 return None
             depth, j = 0, i
@@ -116,6 +116,9 @@ def scan(code, lines_of):
             in_body = any(k in ('body', 'other') for k, _ in stack)
             scope = '::'.join(name for k, name in stack if k in ('class', 'namespace') and name)
             at_class = bool(stack) and stack[-1][0] == 'class'
+            if at_class and re.match(r'(?:(?:public|private|protected)\s*:\s*)*(?:template\s*<[^{};]*>\s*)?friend\b', head):
+                # An unqualified friend function names a function of the enclosing namespace, not a member.
+                scope = '::'.join(name for k, name in stack if k == 'namespace' and name)
             if ch == '{':
                 m = SCOPE_HEAD.search(code[start:i]) if not in_body else None
                 if m and '(' not in head and '=' not in head:

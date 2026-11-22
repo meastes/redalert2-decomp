@@ -5,6 +5,14 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Week plan from the 2026-11-22 14:00Z account switch (user-confirmed 2026-11-21)
+
+- Fable: about 4 high lane-hours a day on the active account, about 8 once the user presses his account-1 Fable reset (only he presses it; ask when the Fable line passes ~85% with days left). Each hour starts from a finished dossier (private/dossiers/fable). Ladder: medium for small/first passes, max only after high fails with 4 KB or more at stake.
+- Opus: two lanes continuously, from the backlog in order: dossiers for Fable; the register-order search (rebuild/tools/order_search.py); applying Fable/Astra fixes and landings; readability budgets; the end-of-week flex menu (rebuild/manifest/flex_menu.csv) and parked drafts; ports last. The count never reaches zero.
+- Windows: codex1 on gpt-6.2-astra on the tail, codex2 on GPT-6.1-Sol on readability and mechanical work; credits to the user's 5,000 floor; neither idle on a list gap (feed from the dossier list).
+- A lane ending starts its successor in the same turn. Usage is estimated from lane-hours; a reading corrects the lane count and never gates work or takes it to zero. Stops per account: 95% all models, 96% Fable; at a stop write the switch checkpoint and tell the user.
+- The user gives the strict rebuild tail one week (to about 2026-11-29); after that he intends to flex the rules where it helps and keep drafts for the rest, on his own word. Until then acceptance is unchanged; lanes record working variations in flex_menu.csv / variation_candidates.csv and do not land them. Every parked function should end the week with its best draft guarded with its score.
+
 ## The rebuild is on main (2026-11-19, user)
 
 `rebuild-trial` (tip 1a05e4e1c, tag `rebuild-trial-premerge`) is merged into main with full history

@@ -605,6 +605,14 @@ def structure_lines(result):
     ]
 
 
+def rebuild_pair(r, function_key, unit_key, suffix=''):
+    """'F function-level (U whole-unit)' of .text for a progress.csv row; the whole-unit figure alone for rows
+    written before the function-level columns."""
+    if r.get(function_key):
+        return '**{} function-level** ({} whole-unit){}'.format(r[function_key], r[unit_key], suffix)
+    return '{}{}'.format(r[unit_key], suffix)
+
+
 def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
     """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added.
     The rebuild's numbers are the last gated-landing row of rebuild/manifest/progress.csv."""
@@ -619,11 +627,16 @@ def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
     return ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
             '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
             '| --- | ---: | ---: |',
-            '| Reproduced .text | {:.2f}% | {} |'.format(100.0 * reproduced / text, r['reproduced_text']),
-            '| C/C++ built from source | {:.2f}% of .text | {} of .text |'.format(100.0 * body / text,
-                                                                               r['source_share_of_text']),
-            '| Accepted | {:,} regions | {:,} functions in {:,} units |'.format(regions, int(r['functions_exact']),
-                                                                         int(r['units'])),
+            # Rebuild headline (owner, 2026-11-21): function-level (each function checked on its own, as ra2-decomp
+            # reports) first, the whole-unit figures (catalogued, the whole-file build's gate) beside them; main's
+            # figures unchanged.
+            '| Reproduced .text | {:.2f}% | {} |'.format(100.0 * reproduced / text, rebuild_pair(
+                r, 'function_level_reproduced_text', 'reproduced_text')),
+            '| C/C++ built from source | {:.2f}% of .text | {} |'.format(100.0 * body / text, rebuild_pair(
+                r, 'function_level_source_share_of_text', 'source_share_of_text', ' of .text')),
+            '| Accepted | {:,} regions | {:,} functions in {:,} units{} |'.format(regions, int(r['functions_exact']),
+                int(r['units']), '; function-level {:,} functions'.format(int(r['function_level_functions']))
+                if r.get('function_level_functions') else ''),
             '| Rebuild provenance (rebuild/README.md) | | adopted {:,} fn / {:,} B; reshaped from src/ {:,} / {:,} B; '
             'fresh {:,} / {:,} B; Windows workers {:,} / {:,} B |'.format(
                 int(r['a_functions']), int(r['a_bytes']), int(r['b_functions']), int(r['b_bytes']),

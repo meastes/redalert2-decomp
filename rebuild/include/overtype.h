@@ -165,7 +165,6 @@ class OverlayTypeClass: public ObjectTypeClass
 		static OverlayTypeClass * Find_Or_Make(char const * name);
 		static OverlayType From_Name(char const * name);
 		static void Init(TheaterType);
-		static void Prep_For_Add(void);
 
 		virtual RTTIType Fetch_RTTI(void) const override {return(RTTI_OVERLAYTYPE);}
 		virtual void Compute_CRC(CRCEngine & crc) const override;
