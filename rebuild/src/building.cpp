@@ -5618,7 +5618,6 @@ void BuildingClass::Fire_Prism_Support(Coord destination) // RA2: not in TibSun,
  *   06/25/1995 JLB : Created.                                                                 *
  *   02/22/1996 JLB : SAM doesn't lower back into ground.                                      *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row); 1621 bytes differ against main's function-map extent
 #include "cast.h"
 int BuildingClass::Do_MISSION_ATTACK(void)
 {
@@ -5640,7 +5639,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 				if (TarCom == NULL || !air || air->Height == 0) {
 					Assign_Target(NULL);
 					Status = SAM_READY;
-					Assign_Mission(MISSION_GUARD);
+					QueueMission(MISSION_GUARD, false);
 					Commence();
 					return(1);
 				} else {
@@ -5695,7 +5694,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 		SupportingPrisms = 0;
 		if (IsNotWarpingIn()) Next_Planning_Node();
 		if (Get_Mission() == MISSION_WAIT) return(1);
-		Assign_Mission(MISSION_GUARD);
+		QueueMission(MISSION_GUARD, false);
 		Commence();
 		return(1);
 	}
@@ -5721,7 +5720,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 			SupportingPrisms = 0;
 			if (IsNotWarpingIn()) Next_Planning_Node();
 			if (Get_Mission() == MISSION_WAIT) return(1);
-			Assign_Mission(MISSION_GUARD);
+			QueueMission(MISSION_GUARD, false);
 			Commence();
 			break;
 
@@ -5758,26 +5757,40 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					int count = House->Buildings.Count();
 					for (int i = 0; i < count; i++) {
 						BuildingClass * building = House->Buildings[i];
-						if (!building || !building->IsActive || building->Class != Rule->PrismType ||
-							building->Arm != 0 || building->DelayBeforeFiring != 0 ||
-							building->Get_Mission() == MISSION_ATTACK || building == this) continue;
+						if (building == NULL) continue;
+						if (!building->IsActive) continue;
+						if (building->Class != Rule->PrismType) continue;
+						if (building->Arm != 0) continue;
+						if (building->DelayBeforeFiring != 0) continue;
+						if (building->Get_Mission() == MISSION_ATTACK) continue;
+						if (building == this) continue;
 						Coord const & coord = building->Render_Coord();
-						TPoint3D<double> delta(center.X - coord.X, coord.Y - center.Y, center.Z - coord.Z);
+						TPoint3D<float> delta(center.X - coord.X, coord.Y - center.Y, center.Z - coord.Z);
 						int distance = (int)delta.Length();
-						if (distance <= Weapon_Range(1) && (!best || distance < best_distance)) {
-							best = building;
-							best_distance = distance;
+						if (distance <= Weapon_Range(1)) {
+							if (best == NULL) {
+								best = building;
+								best_distance = distance;
+							} else if (distance < best_distance) {
+								best = building;
+								best_distance = distance;
+							}
 						}
+
 					}
 				}
 				if (best) {
 					SupportingPrisms++;
 					best->Start_Delayed_Fire(2, Fire_Coord(0));
 				} else {
-					Start_Delayed_Fire(1, Coord(0, 0, 0));
+					CoordStruct coord;
+					coord.X = 0;
+					Start_Delayed_Fire(1, coord);
 				}
 			} else if (Class->IsAnimDelayedFire) {
-				Start_Delayed_Fire(1, Coord(primary, 0, 0));
+				CoordStruct coord;
+				coord.X = primary;
+				Start_Delayed_Fire(1, coord);
 			} else {
 				Fire_At(TarCom, primary);
 			}
@@ -5793,7 +5806,6 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 
 	return(1);
 }
-#endif
 
 
 
@@ -7884,11 +7896,11 @@ void BuildingClass::Delayed_Fire_AI(void) // RA2: not in TibSun, at 0x44B770 (RA
 /// Records a delayed shot (the stage, the type's delay and the coordinate) and starts the delayed-fire
 /// animation in place of the idle one.
 /// </summary>
-void BuildingClass::Start_Delayed_Fire(int stage, Coord const & coord) // RA2: not in TibSun, at 0x44B870
+void BuildingClass::Start_Delayed_Fire(int stage, CoordStruct const & coord) // RA2: not in TibSun, at 0x44B870
 {
 	DelayBeforeFiring = Class->DelayedFireDelay;
 	PrismStage = stage;
-	memcpy(&PrismTargetCoords, &coord, sizeof(PrismTargetCoords));
+	PrismTargetCoords = coord;
 	End_Anim(BANIM_ACTIVE_ONE);
 	Begin_Anim(BANIM_SPECIAL_ONE, HealthRatio <= Rule->ConditionYellow, false, 0);
 }

@@ -1225,7 +1225,7 @@ bool Request_Game_Channel_List(unsigned char autoping, bool wait)
 	return(Queue_Channel_List_Request(0x21, autoping, wait));
 }
 
-#ifdef RA2_NON_MATCHING // not exact: differs from the original at 0x0073E100 (main has no row for it, so no independent bound)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (main has no row for 0x0073E100); 23 bytes differ against main's function-map extent
 bool WOL_Wait_Callback(void)
 {
 	Title_Screen_Restore(false);
@@ -1247,7 +1247,7 @@ bool WOL_Wait_Callback(void)
 		if (g_MatchState >= 2 && g_MatchState <= 5) {
 			Set_Match_State(0, -1, 2);
 		} else {
-			Lobby_Chat_Printf(0x20BFFF, StringTable::LoadString("WOL:MatchTimeout", NULL, "D:\\Ra2\\wonline.cpp", 2155));
+			Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchTimeout", NULL, "D:\\Ra2\\wonline.cpp", 2155));
 			Set_Match_State(2, 30, 0);
 		}
 		SetEvent(g_WaitEventHandles[EV_ERROR]);

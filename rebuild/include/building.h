@@ -620,7 +620,7 @@ class BuildingClass : public TechnoClass
 		void Set_Anim_Translucency(int translucency);
 		void Fire_Prism_Support(Coord destination); // RA2: 0x446820
 		void Delayed_Fire_AI(void); // RA2: 0x44B770
-		void Start_Delayed_Fire(int stage, Coord const & coord); // RA2: 0x44B870
+		void Start_Delayed_Fire(int stage, CoordStruct const & coord); // RA2: 0x44B870
 		void Update_Overpowerers(void); // RA2: 0x44B910
 		void DisableTemporal(void); // RA2: 0x44D320
 		void EnableTemporal(void); // RA2: 0x44D380

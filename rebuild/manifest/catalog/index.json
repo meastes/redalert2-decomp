@@ -504,7 +504,7 @@
       },
       {
         "path": "rebuild/include/building.h",
-        "sha256": "8243a59ea74329b3b6d8025b0054e1fa3b3034b74c7b88697fc044dd633c9955"
+        "sha256": "dbd8647d79d13b97273e46dc5de5695b06404e8e7886c8da35b180469e940fe2"
       },
       {
         "path": "rebuild/include/builtype.h",
@@ -3786,7 +3786,8 @@
     "population-2901",
     "population-3406",
     "population-4322",
-    "population-3477"
+    "population-3477",
+    "image-bounds"
   ],
   "region_runs": [
     ["rebuild-audattr", 6],
@@ -3861,7 +3862,7 @@
     ["rebuild-brain", 35],
     ["rebuild-buff", 8],
     ["rebuild-buffer", 4],
-    ["rebuild-building", 286],
+    ["rebuild-building", 287],
     ["rebuild-builtype", 82],
     ["rebuild-bullet", 63],
     ["rebuild-bullettype", 32],
@@ -4228,6 +4229,7 @@
     ["rebuild-vqalib-unvqtran", 5]
   ],
   "shards": {
+    "image-bounds": "194591c368a23edcfc0c55f970f19144ee04c3e6118060ca13f6a79f55d72131",
     "population-02": "51b13f07c7cdc88e029eca563d9e9ce1d63bf2c00633b0b5f7a3f94a90a572d2",
     "population-03": "9c9ed3da9ff29422ecdb110a22015295496956419bb697b9041be6eefd5e365f",
     "population-08": "82b847cac1e6880e662559c0bcddf5fb9f09e8f045825a45759f7ca3ec6f61c4",
@@ -4977,7 +4979,7 @@
     "rebuild-brain": "4ce1782e7d3f83f632bd1f5dfeee6e318e7cf4f185dfd49e8eec815078a504b5",
     "rebuild-buff": "0434ec1361751702332b397c1d14a9f6b497d2cc7c5743f6623bd49639719508",
     "rebuild-buffer": "df377f8392a175ffa7a1164fa166cb3974815004525399688cbd846ea4fe09fe",
-    "rebuild-building": "62205ad60b952bec5ed06ffec77cb813117e2e7e32dcf922fabba8e1013d6ac1",
+    "rebuild-building": "1f32e510756d37cdebbaea043ee1a0de359c8b74ccfa7260334edc8db74d7776",
     "rebuild-builtype": "05f601d6b00f5a5d35b65eed167751941ce5eae3f4aff9782f074031307f418a",
     "rebuild-bullet": "447b786e5b4111870c2d901851ddf65f6eec4c006f81a142046c730414cf9d34",
     "rebuild-bullettype": "19529c5aad79d6edcbf4ce03015f427fd34058654fef727bcf9f5a414ffc4ee3",
@@ -5249,7 +5251,7 @@
     "rebuild-suprtype": "1223f38fe74c815e3b9dabb3ad9b82b1598f3f366fb28bdb7d5ca8e5654a7c39",
     "rebuild-swizzle": "cd59f43911e8fad345baa406d7575c34dd445ff110543f87e5ca3514f8c566fc",
     "rebuild-tab": "5997f0fd913b00b3db3e224f5dd3bf436aad1ef381ee8d304afa30742fad4cbf",
-    "rebuild-tactical": "38f94df09d5adb0a78cf01cb4a9b3b7395985a3f8a53dfcc5cd19947a4ba38a7",
+    "rebuild-tactical": "a3609acaee8d4cec6e02ba32787fa471e92f44b9be2fd4ee20d9eea23cb8dec6",
     "rebuild-taction": "b29efcd6b69be2e37903990c1250c1f734cdbe205d28d7574ed2277bb451f83a",
     "rebuild-tag": "b6c8a62c64ea2e8c6e23b9d00e341610507b40446e33193fd463a0cbc78ec09d",
     "rebuild-tagtype": "e12dcfe3ce588f5ff6faf6fe6115f5be9e5ce1e91f681ec5873dbf01f67d7482",
@@ -5330,7 +5332,7 @@
     "rebuild-winstub": "dfd868de5c78a1bc1d3db7115865a20c5f8d253031df029902c053a4b9e84a09",
     "rebuild-wolpersonainformation": "4b6b19964c42d42fc47439de031437e248e4982de561b338e9461ed41d2244f8",
     "rebuild-wolstart": "cac7159c8dd1d72f42c765f912ebcb08ddf7a0a5fd27e8fba39354b69ef41c2c",
-    "rebuild-wonline": "854ee578888c93eaeeb515141e5a6b48e10a9c722ce7bb0d36fc8d56ee496d65",
+    "rebuild-wonline": "4b0e5c5f611ec0c05ef7fc95864cc736fa9dbaa1b11a6673d69e9e2becd490ab",
     "rebuild-worlddom": "22aaa79e43407f740e921d4bae16ec93844fafa7d67702d9f7af66f9dfe9b06e",
     "rebuild-writepcx": "bb502f4a93e2bc386cb02d8aa64d0831044fe5d9f1847cd64b81f2cf0809209f",
     "rebuild-wspipx": "aba10eb69e7ae7f3247dfb97de8eb305ecfd89ae6a3efe76f132eac38f0ad683",

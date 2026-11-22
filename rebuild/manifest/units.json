@@ -80273,6 +80273,15 @@
     "main_source": "src/recovered/building.cpp"
    },
    {
+    "entry": "00446920",
+    "body": 2336,
+    "padding": 0,
+    "symbol": "?Do_MISSION_ATTACK@BuildingClass@@UAEHXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00447240",
     "body": 5,
     "padding": 11,
@@ -80516,7 +80525,7 @@
     "entry": "0044b870",
     "body": 151,
     "padding": 9,
-    "symbol": "?Start_Delayed_Fire@BuildingClass@@QAEXHABVCoord@@@Z",
+    "symbol": "?Start_Delayed_Fire@BuildingClass@@QAEXHABUCoordStruct@@@Z",
     "main_symbol": "?Start_Delayed_Fire@BuildingClass@@QAEXHABUCoordStruct@@@Z",
     "main_source": "src/recovered/building.cpp"
    },
@@ -81180,7 +81189,7 @@
     "entry": "00451be0",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E308",
+    "symbol": "_$E309",
     "main_symbol": "_$E84",
     "main_source": "src/recovered/building.cpp"
    },
@@ -82179,7 +82188,9 @@
    "??_C@_0BC@LGBI@EVA_StructureSold?$AA@": "007cf9d4",
    "??_C@_0BF@HINA@EVA_TechBuildingLost?$AA@": "007cf958",
    "??_C@_0BF@PPPA@EVA_BuildingCaptured?$AA@": "007cf924",
-   "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@": "007cf93c"
+   "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@": "007cf93c",
+   "_?$S307@?1??Find_Unit_Repair_Facility@@YIPAVBuildingClass@@PAVHouseClass@@PAVTechnoClass@@@Z@4EA": "0084ed48",
+   "_?$S308@?7??Draw_Radial_Indicator@BuildingClass@@UAEXK@Z@4EA": "0084ece8"
   },
   "partial_ok": true
  },

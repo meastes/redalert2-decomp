@@ -2377,7 +2377,7 @@ void Tactical::Draw_Tiles(Rect const & area, Rect const & cliprect)
 /// </summary>
 /// <param name="area">The pixel rectangle whose cells are scanned.</param>
 /// <param name="cliprect">The rectangle the pixels are clipped to.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a7e80 has no row); main: best 86.26, tried 4 times (frame, register, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a7e80 has no row); 180 bytes differ against main's function-map extent; main: best 86.26, tried 4 times (frame, register, order)
 void Tactical::Draw_Pixel_Effects(Rect const & area, Rect const & cliprect) // RA2: not in TibSun, at 0x6A7E80
 {
 	static unsigned LastTime;
@@ -2397,7 +2397,7 @@ void Tactical::Draw_Pixel_Effects(Rect const & area, Rect const & cliprect) // R
 	}
 	int pitch = LogicalSurface->Stride();
 
-	Point2D point = Pixel_To_Ground_Point(PixelToCoordMatrix, area.Top_Left() + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
+	Point2D point = Pixel_To_Lepton(area.Top_Left() + Point2D(TacPixelX, TacPixelY) - TacticalRect.Top_Left());
 	Cell origin(point.X / CELL_LEPTON_W, point.Y / CELL_LEPTON_H);
 	Cell base = origin;
 
@@ -2426,11 +2426,14 @@ void Tactical::Draw_Pixel_Effects(Rect const & area, Rect const & cliprect) // R
 					}
 					if (effect != NULL && effect->Expire(elapsed)) {
 						Rect render = cellptr->Cell_Render_Rect();
-						int x = render.X + render.Width / 2 + effect->OffsetX;
-						int y = render.Y + render.Height / 2 + effect->OffsetY;
-						if (x >= cliprect.X && x < cliprect.X + cliprect.Width && y >= cliprect.Y && y < cliprect.Y + cliprect.Height) {
+						Point2D point(render.Width / 2, render.Height / 2);
+						point.X += render.X;
+						point.Y += render.Y;
+						point.X += effect->OffsetX;
+						point.Y += effect->OffsetY;
+						if (point.X >= cliprect.X && point.X < cliprect.X + cliprect.Width && point.Y >= cliprect.Y && point.Y < cliprect.Y + cliprect.Height) {
 							effect->Update(elapsed);
-							*(unsigned short *)(buffer + pitch * y + x * 2) = DSurface::Build_Hicolor_Pixel(effect->Current[0], effect->Current[1], effect->Current[2]);
+							*(unsigned short *)(buffer + pitch * point.Y + point.X * 2) = DSurface::Build_Hicolor_Pixel(effect->Current[0], effect->Current[1], effect->Current[2]);
 						}
 					}
 				}

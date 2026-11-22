@@ -18,7 +18,8 @@ from pathlib import Path
 import rebuild as R
 
 KEEP = ('entry', 'method', 'body_bytes', 'body_sha256', 'padding_bytes', 'full_extent_bytes',
-        'full_extent_sha256', 'padding_sha256', 'boundary_confidence', 'switch_data_bytes', 'padding_provenance')
+        'full_extent_sha256', 'padding_sha256', 'boundary_confidence', 'switch_data_bytes', 'padding_provenance',
+        'bound')
 
 
 def sha(data):
@@ -122,6 +123,73 @@ def header_specialization_flags(regions):
             continue
         region.update(inline_asm='evidenced', inline_asm_citation=own + cited)
 
+# Image-derived bounds (review session ruling 2026-11-22, docs/DECISIONS.md "Image-derived bound"; lane O13): a
+# unit row flagged `bound: image-derived` takes its bound from the frozen rebuild/manifest/image_bounds.csv
+# (image_bounds.py, no draft or candidate as input). The frozen rows are written as an inventory pass (one
+# contiguous range per row with its original bytes, and a gap row for each padded row) under the shared
+# private inventory folder; that pass is the row's bound population `image-bounds`, whose inventory and gap
+# hashes the catalog records and the whole-file build verifies like any frozen pass. A flagged row that does
+# not equal a frozen `bound` row (entry, body, padding) refuses.
+IMAGE_BOUNDS_POPULATION = 'image-bounds'
+IMAGE_BOUNDS_DIR = 'private/original-target-20261020/inventory/image-bounds'
+
+
+def image_bound_rows(by_entry, populations):
+    import csv
+    flagged = [row for info in R.load_json(R.UNITS, {}).values() for row in info['rows']
+               if row.get('bound') == 'image-derived']
+    if not flagged:
+        return
+    ledger = R.MANIFEST / 'image_bounds.csv'
+    frozen = {r['entry']: r for r in csv.DictReader(open(ledger)) if r['status'] == 'bound'}
+    audit = _audit()
+    functions, gaps = [], []
+    for e in sorted(frozen, key=lambda x: int(x, 16)):
+        f = frozen[e]
+        va, body, pad = int(e, 16), int(f['body_bytes']), int(f['padding_bytes'])
+        code = audit.original(va, body)
+        if sha(code) != f['body_sha256']:
+            raise ValueError('image_bounds.csv body hash differs from the image at %s' % e)
+        functions.append(json.dumps(dict(entry='%08x' % va, body_bytes=body, status='image_derived_bound',
+                                         confidence='image_bounds.py (rebuild/manifest/image_bounds.csv)',
+                                         ranges=[dict(start='%08x' % va, end_inclusive='%08x' % (va + body - 1),
+                                                      length=body, bytes_hex=code.hex())]), sort_keys=True))
+        if pad:
+            gaps.append(json.dumps(dict(start='%08x' % (va + body), length=pad,
+                                        bytes_hex=audit.original(va + body, pad).hex()), sort_keys=True))
+    folder = R.ROOT / IMAGE_BOUNDS_DIR
+    folder.mkdir(parents=True, exist_ok=True)
+    inv = ('\n'.join(functions) + '\n').encode()
+    gap = ('\n'.join(gaps) + '\n').encode() if gaps else b''
+    (folder / 'functions.jsonl').write_bytes(inv)
+    (folder / 'unassigned-executable.jsonl').write_bytes(gap)
+    ledger_sha = sha(ledger.read_bytes())
+    populations[IMAGE_BOUNDS_POPULATION] = dict(id=IMAGE_BOUNDS_POPULATION, inventory_sha256=sha(inv),
+                                                gaps_sha256=sha(gap), historical_population_sha256=ledger_sha,
+                                                historical_acceptance_sha256=ledger_sha)
+    for row in flagged:
+        f = frozen.get(row['entry'].lower())
+        if f is None or (int(f['body_bytes']), int(f['padding_bytes'])) != (row['body'], row['padding']):
+            raise ValueError('bound: image-derived row %s is not a frozen bound row of image_bounds.csv' % row['entry'])
+        va = int(row['entry'], 16)
+        if va in by_entry:
+            continue
+        body = audit.original(va, row['body'])
+        pad = audit.original(va + row['body'], row['padding']) if row['padding'] else b''
+        by_entry[va] = dict(entry=va, method=row['entry'], body_bytes=row['body'], body_sha256=sha(body),
+                            padding_bytes=row['padding'], full_extent_bytes=row['body'] + row['padding'],
+                            full_extent_sha256=sha(body + pad), padding_sha256=sha(pad),
+                            boundary_confidence='Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; '
+                                                'start %s, end %s)' % (f['start_evidence'], f['end_evidence']),
+                            padding_provenance=None, population=IMAGE_BOUNDS_POPULATION, bound='image-derived')
+        # Switch tables the code indexes at the end of the body (the audit's own rule, verify_manifest).
+        from verify_manifest import switch_data_start
+        if sum(i.size for i in audit.decoder.disasm(body, va)) != len(body):
+            start = switch_data_start(audit.decoder, body, va)
+            if start is None:
+                raise ValueError('bound: image-derived row %s: body does not decode and holds no indexed table' % row['entry'])
+            by_entry[va]['switch_data_bytes'] = len(body) - start
+
 
 def write():
     catalog = R.main_catalog()
@@ -148,6 +216,7 @@ def write():
                                       frozen['note']),
                                    padding_provenance=None, population=frozen['population'])
     populations = {p['id']: p for p in catalog['populations']}
+    image_bound_rows(by_entry, populations)
     # A unit whose last check is not of its current text and rows (a merge brought new text, or rows were
     # added) is checked again first, as the census does (rebuild_census.parked_tail): otherwise the catalog
     # would leave it out as "no check of the current text" and write it back as pending, a flip each lane
@@ -162,6 +231,9 @@ def write():
         print('catalog: checked again first (no current check): %s' % ' '.join(stale))
     units = R.load_json(R.UNITS, {})
     config = json.loads(R.CONFIG.read_text())
+    if IMAGE_BOUNDS_POPULATION in populations:
+        config['populations'][IMAGE_BOUNDS_POPULATION] = dict(inventory=IMAGE_BOUNDS_DIR + '/functions.jsonl',
+                                                              gaps=IMAGE_BOUNDS_DIR + '/unassigned-executable.jsonl')
     regions, pops, tables, needed, refused = [], [], {}, set(), []
     omitted_total = [0]
     for unit, info in sorted(units.items(), key=lambda kv: kv[1]['range'][0]):
