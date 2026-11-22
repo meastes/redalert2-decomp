@@ -2595,7 +2595,7 @@ double TechnoClass::Area_Modify(Cell const & cell) const
  *   10/05/1995 JLB : Gives greater weight to designated enemy house targets.                  *
  *   02/16/1996 JLB : Added additional threat checks.                                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006c5570 has no row); main: best 91.81, tried 10 times (order, register, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006c5570 has no row); 2861 bytes differ against main's function-map extent; main: best 91.81, tried 10 times (order, register, frame)
 bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, TechnoClass const * object, int & value, int zone, Coord const & coord) const
 {
 	assert(object != NULL);
@@ -2603,11 +2603,22 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	BStart(BENCH_EVAL_OBJECT);
 
 	bool engineer = Is_Renovator();
+	if (!object) return(false);
+	int which = What_Weapon_Should_I_Use((TechnoClass *)object);
+	WeaponTypeClass const * weapon = Get_Class_Weapon_Data(which)->Weapon;
+	if (!(method & (THREAT_CAPTURE | THREAT_OCCUPIABLE | THREAT_TECH_BUILDINGS)) &&
+		Can_Fire((TechnoClass *)object, which) == FIRE_ILLEGAL) {
+		return(false);
+	}
+	if (object->EstimatedHealth <= 0 && TClass->VHPScan == 2) return(false);
+	if (weapon && weapon->WarheadPtr && (int)(weapon->WarheadPtr->Modifier[object->TClass->Armor] * 100.0) == 1) {
+		return(false);
+	}
 
 	/*
 	**	An object in limbo can never be a valid target.
 	*/
-	if (object == NULL || object->IsInLimbo || object->Strength == 0) {
+	if (object->IsInLimbo || object->Strength == 0) {
 		BEnd(BENCH_EVAL_OBJECT);
 		return(false);
 	}
@@ -2656,7 +2667,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	**	object is a friend.  Unless we're a medic, of course.  But then,
 	**	only consider it a target if it's injured.
 	*/
-	if ((RTTI != RTTI_INFANTRY || !((InfantryClass *)this)->IsBerzerk) && House->Is_Ally(object)) {
+	if ((RTTI != RTTI_INFANTRY || !((InfantryClass *)this)->IsBerzerk) && !TClass->AttackFriendlies && House->Is_Ally(object)) {
 		if (Combat_Damage() < 0 || engineer) {
 			if (object->HealthRatio == Rule->ConditionGreen) {
 				BEnd(BENCH_EVAL_OBJECT);
@@ -2691,7 +2702,14 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	/*
 	**	If the object is further away than allowed, bail.
 	*/
-	int dist = Distance_To(object);
+	int dist;
+	if (object->In_Air()) {
+		double x = object->Center_Coord().X - Center_Coord().X;
+		double y = object->Center_Coord().Y - Center_Coord().Y;
+		dist = (int)fastmath::sqrt(x * x + y * y);
+	} else {
+		dist = Distance_To(object);
+	}
 	if (range > 0 && dist > range) {
 		BEnd(BENCH_EVAL_OBJECT);
 		return(false);
@@ -2704,8 +2722,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 				return(false);
 			}
 		} else {
-			int primary = What_Weapon_Should_I_Use((AbstractClass *)object);
-			if (!In_Range((TechnoClass *)object, primary)) {
+			if (!In_Range((TechnoClass *)object, which)) {
 				BEnd(BENCH_EVAL_OBJECT);
 				return(false);
 			}
@@ -2736,19 +2753,23 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 		return(false);		// Mask failure.
 	}
 
-	if (Session.Type != GAME_NORMAL && object->House->Class->IsMultiplayPassive) {
-		BEnd(BENCH_EVAL_OBJECT);
-		return(false);
-	}
-
-	/*
-	**	Determine if the target is theoretically allowed to be a target. If
-	**	not, then bail.
-	*/
 	TechnoTypeClass const * tclass = object->TClass;
 	if (!tclass->IsLegalTarget) {
 		BEnd(BENCH_EVAL_OBJECT);
 		return(false);		// Legality failure.
+	}
+
+	// RA2: AI engineers and occupiers may still select eligible neutral buildings.
+	if ((Session.Type != GAME_NORMAL && object->House->Class->IsMultiplayPassive) ||
+		(tclass->IsInsignificant && (otype != RTTI_BUILDING || object->House->Class->IsMultiplayPassive))) {
+		if (House->Is_Human_Player() || otype != RTTI_BUILDING || RTTI != RTTI_INFANTRY) return(false);
+		InfantryClass * infantry = (InfantryClass *)this;
+		BuildingClass const * building = (BuildingClass const *)object;
+		bool capture = building->Class->NeedsEngineer && infantry->Class->IsEngineer && object->House != House;
+		bool occupy = infantry->Class->Occupier && building->CanBeOccupiedBy(infantry);
+		if (Session.Type == GAME_NORMAL || (infantry->Team && infantry->Team->Class->IsBaseDefense) || (!capture && !occupy)) {
+			return(false);
+		}
 	}
 
 	if (tclass->IsTrain && RTTI == RTTI_INFANTRY && ((InfantryClass *)this)->Class->IsVehicleThief) {
@@ -2763,16 +2784,11 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	/*
 	**	Special case so that SAM site doesn't fire on aircraft that are landed.
 	*/
-	if (PrimaryWeapon != NULL && !PrimaryWeapon->Bullet->IsAntiGround){ // RA2: no IsDisguised (not in RA2's layout)
-		if (((AircraftClass *)object)->Height == 0) {
-			BEnd(BENCH_EVAL_OBJECT);
-			return(false);
-		}
+	if (object->IsDisguisedAs(House) && !TClass->DetectDisguise) {
+		if (!object->DisguiseBlinkTimer.Value() || House->Is_Human_Player()) return(false);
+		if (Sim_Random_Pick(0, 99) > Rule->DisabledDisguiseDetectionPercent[House->Difficulty]) return(false);
 	}
 
-	/*
-	**	If only allowed to attack civilians, then eliminate all other types.
-	*/
 	if (method & THREAT_CIVILIANS) {
 		object->Owner_HouseClass(); /// The result is unused.
 		BEnd(BENCH_EVAL_OBJECT);
@@ -2793,14 +2809,10 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	**	if the building is not aggressive. That is, unless it is part of a team. A team
 	**	is allowed to pick any target it so chooses.
 	*/
-	if ((!Is_Foot() || !((FootClass *)this)->Team != NULL) &&
-			House->Is_Human_Player() && !object->Considered_Vehicle() &&
-			otype == RTTI_BUILDING && object->PrimaryWeapon == NULL) {
-
-		if (!engineer) {
-			BEnd(BENCH_EVAL_OBJECT);
-			return(false);
-		}
+	if ((!Is_Foot() || !((FootClass *)this)->Team) && House->Is_Human_Player() &&
+		!object->Considered_Vehicle() && otype == RTTI_BUILDING) {
+		WeaponDataStruct const * armed = object->GetTurretWeapon();
+		if ((!armed || !armed->Weapon || !tclass->Risk) && !engineer) return(false);
 	}
 
 	if (engineer) {
@@ -2828,30 +2840,14 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 		return(false);
 	}
 
-	bool webbysecondary = false;
-	WarheadTypeClass const * wh = NULL;
-	WeaponTypeClass const * secondary = SecondaryWeapon;
-	if (secondary != NULL) {
-		wh = secondary->WarheadPtr;
-	} // RA2: no IsWebby (not in RA2's layout)
-
-	if (!webbysecondary) {
-		WeaponTypeClass const * primary = PrimaryWeapon;
-		if (primary != NULL) {
-			wh = primary->WarheadPtr;
-		} else {
-			wh = NULL;
+	value = Target_Threat((TechnoClass *)object, coord);
+	if (TClass->VHPScan == 1) {
+		if (object->EstimatedHealth <= 0) {
+			value /= 2;
+		} else if (object->EstimatedHealth <= tclass->MaxStrength / 2) {
+			value *= 2;
 		}
-	}
-
-
-
-	/*
-	**	If this target value is better than the previously recorded best
-	**	target value then record this target for possible return as the
-	**	best.
-	*/
-	value = Target_Threat((TechnoClass *)object, coord); // RA2: no IsWebby, ProneStruggleTimer (not in RA2's layout)
+	} // RA2: no IsWebby, ProneStruggleTimer (not in RA2's layout)
 
 	/*
 	**	If the candidate object is owned by the designated enemy of this house, then
@@ -2879,6 +2875,15 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	**	If factories are to be considered a greater threat, then don't
 	**	consider any non-factory building.
 	*/
+	if (method & THREAT_OCCUPIABLE) {
+		if (otype != RTTI_BUILDING || ((BuildingTypeClass const *)tclass)->MaxNumberOccupants <= 0) return(false);
+		value += ((BuildingTypeClass const *)tclass)->MaxNumberOccupants * 1000;
+	}
+	if (method & THREAT_TECH_BUILDINGS) {
+		if (otype != RTTI_BUILDING || !((BuildingTypeClass const *)tclass)->NeedsEngineer) return(false);
+		value += 1000;
+	}
+
 	if ((method & THREAT_FACTORIES) && otype == RTTI_BUILDING) {
 		if (((BuildingTypeClass const *)tclass)->ToBuild == RTTI_NONE) {
 			value = 0;
@@ -2890,7 +2895,9 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	**	don't consider an unarmed building to be a threat.
 	*/
 	if (method & THREAT_BASE_DEFENSE) {
-		if (object->PrimaryWeapon == NULL) {
+		WeaponDataStruct const * armed = GetTurretWeapon();
+		if (!armed || !armed->Weapon || otype != RTTI_BUILDING ||
+			(((BuildingClass const *)object)->Class->CanBeOccupied && !((BuildingClass const *)object)->GetOccupantCount())) {
 			value = 0;
 		}
 	}
@@ -5383,56 +5390,53 @@ bool TechnoClass::Can_Attack_Now(void) const
 /// overrides all of that, but nothing at all may deploy against a tunnel mouth.
 /// </summary>
 /// <returns>bool; Can the object deploy now?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006cd340 has no row); 684 bytes differ against main's function-map extent
 bool TechnoClass::Can_Deploy_Now(void) const
 {
-	UnitClass const * unit = dynamic_cast<UnitClass const *>(this);
-	bool blocked = false;
-
-	if (unit != NULL) {
-		blocked = unit->UnitClass::IsUnderEMP() || unit->CurrentTube >= TUBE_FIRST;
-		if (unit->Class->Max_Passengers() > 0) { // RA2: no IsMobileEMP (not in RA2's layout)
-			if (unit->IsOnBridge) {
-				blocked = true;
-			}
-		}
-		if (unit->Class->Max_Passengers() > 0) {
-			Cell cell = PositionCell;
-			CellClass * cellptr = &Map[cell];
-			if (cellptr != NULL) {
-				CellClass * cellptr_s = &Map[Adjacent_Cell(cell, FACING_S)];
-				CellClass * cellptr_n = &Map[Adjacent_Cell(cell, FACING_N)];
-				CellClass * cellptr_e = &Map[Adjacent_Cell(cell, FACING_E)];
-				CellClass * cellptr_w = &Map[Adjacent_Cell(cell, FACING_W)];
-
-				if (cellptr->IsUnderBridge ||
-					cellptr_s != NULL && cellptr_s->IsUnderBridge ||
-					cellptr_w != NULL && cellptr_w->IsUnderBridge ||
-					cellptr_e != NULL && cellptr_e->IsUnderBridge ||
-					cellptr_n != NULL && cellptr_n->IsUnderBridge) {
-
-					blocked = true;
+	CellClass const * cell = &Map[Get_Cell()];
+	if (cell && cell->Is_Near_Tunnel_NW()) return(false);
+	switch (Fetch_RTTI()) {
+		case RTTI_UNIT:
+		{
+			UnitClass const * unit = (UnitClass const *)this;
+			UnitTypeClass const * type = unit->Class;
+			if (IsUnderEMP() || unit->CurrentTube >= TUBE_FIRST) return(false);
+			if (!type->DeploysInto && !type->Max_Passengers() && !type->IsSimpleDeployer) return(false);
+			if (type->DeploysInto && type->DeploysInto->IsConstructionYard && unit->ParasiteEatingMe) return(false);
+			if (type->Max_Passengers() > 0) {
+				if (IsOnBridge) return(false);
+				Cell center = Get_Cell();
+				CellClass * here = &Map[center];
+				if (here) {
+					CellClass * south = &Map[Adjacent_Cell(center, FACING_S)];
+					CellClass * north = &Map[Adjacent_Cell(center, FACING_N)];
+					CellClass * east = &Map[Adjacent_Cell(center, FACING_E)];
+					CellClass * west = &Map[Adjacent_Cell(center, FACING_W)];
+					if (here->IsUnderBridge || south && south->IsUnderBridge ||
+						west && west->IsUnderBridge || east && east->IsUnderBridge ||
+						north && north->IsUnderBridge) return(false);
 				}
+				if (House->IsHuman && here->Land_Type() == LAND_WATER) return(false);
+				if (Get_Cell_Ptr()->Cell_Building()) return(false);
 			}
+			return(true);
 		}
-	} else {
-		blocked = TechnoClass::IsUnderEMP();
-		if (TClass->Max_Passengers() == 0) {
-			blocked = true;
-		}
-	}
 
-	BuildingClass const * building = dynamic_cast<BuildingClass const *>(this);
-	if (building != NULL && building->Class->Can_Always_Undeploy()) {
-		blocked = false;
-	}
-
-	Cell cell = PositionCell;
-	CellClass * cellptr = &Map[cell];
-	if ((cellptr != NULL && cellptr->Is_Near_Tunnel_NW()) || blocked) {
+		case RTTI_BUILDING:
 		return(false);
+
+		case RTTI_INFANTRY:
+		{
+			InfantryClass const * infantry = (InfantryClass const *)this;
+			if (!infantry->Has_Undeploy_Delay() || (!infantry->Is_Deploying() && infantry->Doing != DO_UNDEPLOY)) {
+				return(infantry->Is_Deployer());
+			}
+			return(false);
+		}
+
+		default:
+			return(!IsUnderEMP() && Techno_Type_Class()->Max_Passengers() != 0);
 	}
-	return(true);
 }
 #endif
 
@@ -6650,7 +6654,7 @@ void TechnoClass::Draw_Action_Line(Coord from, Coord to, RGBClass color, unsigne
 /// <summary>
 /// Draws a link line between two spots in 32 pieces whose brightness runs along the line over time.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006d0990 has no row); main: best 86.96, tried 6 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006d0990 has no row); 1033 bytes differ against main's function-map extent; main: best 86.96, tried 6 times (frame, register, inline)
 void TechnoClass::Draw_Link_Line(Coord start, Coord end, RGBClass color) const // RA2: not in TibSun, at 0x6D0990
 {
 	RGBClass white(255, 255, 255);
@@ -6670,7 +6674,10 @@ void TechnoClass::Draw_Link_Line(Coord start, Coord end, RGBClass color) const /
 		Coord next;
 		next.X = (end.X * i + start.X * j) / 32;
 		next.Y = (end.Y * i + start.Y * j) / 32;
-		next.Z = (int)((end.Z * i + start.Z * j) / 32.0);
+		double t = (i - 16.0) * 0.0625;
+		int z = (end.Z * i + start.Z * j) / 32;
+		double arc = -(t * t);
+		next.Z = (int)(z + (arc + 1.0) * 512.0);
 		TacticalMap->Coord_To_Pixel(last, start_point);
 		TacticalMap->Coord_To_Pixel(next, end_point);
 		start_point.Y += TacticalRect.Y;

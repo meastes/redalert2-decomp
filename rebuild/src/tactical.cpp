@@ -1021,7 +1021,23 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); main: best 64.69, tried 13 times (register, layout, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); 3070 bytes differ against main's function-map extent; main: best 64.69, tried 13 times (register, layout, frame)
+#include "beacon.h"
+#include "capmgr.h"
+#include "ebolt.h"
+#include "foot.h"
+#include "linetrail.h"
+#include "planmgr.h"
+#include "radbeam.h"
+#include "stringtable.h"
+#include "super.h"
+#include "suprtype.h"
+
+void __cdecl Planning_Redraw(void);
+void __cdecl Planning_Draw_All(void);
+void __cdecl Planning_Draw_Remembered(void);
+bool __fastcall Building_Player_Detector_Covers_Target(FootClass * object); // RA2: 0x004386F0, the detector test called before drawing an enemy action line
+
 void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 {
 	/*
@@ -1255,29 +1271,57 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		SpotLightClass::Draw_All();
 		LaserDrawClass::Draw_All();
 
-		for (i = 0; i < CurrentObject.Count(); i++) {
-			ObjectClass * object = CurrentObject[i];
-			if (object->Class_Of() != NULL && object->Class_Of()->IsHasRadialIndicator) {
-				object->Draw_Radial_Indicator(1); // RA2: an argument (1, as 0x6AC420 passes)
-			}
-		}
-
+		EBolt::Update_All();
+		LineTrail::Process_All();
+		RadBeam::Update_All();
+		Draw_Radial_Indicators();
+		BeaconManager.Draw(LogicalSurface, TacticalRect);
 		Draw_Rubber_Band();
 		Draw_Waypoints(true);
 		Draw_Rally_Points(true);
 		Draw_Placement(true);
 
-		for (i = 0; i < CurrentObject.Count(); i++) {
-			ObjectClass * object = CurrentObject[i];
-			if (object->Is_Techno() && ((TechnoClass*)object)->IsSelected) {
-				if (TechnoClass::ActionLines == true && ((TechnoClass*)object)->House->Is_Player_Control()) {
-					((TechnoClass*)object)->Draw_Action_Line(false, 0); // RA2: two arguments (0, 0 at 0x6A45A0)
+		bool planning = Planning_Is_Active();
+		if (planning) {
+			Planning_Redraw();
+			Planning_Draw_All();
+		}
+		int count = Technos.Count();
+		for (i = 0; i < count; i++) {
+			TechnoClass * techno = Technos[i];
+			if (techno->House->Is_Player_Control()) {
+				if (!planning && techno->IsSelected) {
+					if (TechnoClass::ActionLines) techno->Draw_Action_Line(false, 0);
+					if (techno->CaptureManager && techno->CaptureManager->Unit) techno->CaptureManager->Draw_Link();
 				}
+			} else if (Building_Player_Detector_Covers_Target((FootClass *)techno) && techno->Is_Foot() && !techno->IsInLimbo) {
+				((FootClass *)techno)->Draw_Action_Line();
 			}
 		}
-
+		if (planning) Planning_Draw_Remembered();
+		Draw_Pixel_Effects(TacticalRect, TacticalRect);
 		LogicalSurface = savedlogical;
 		composite->Unlock();
+		int line = 0;
+		if (Scen->MissionTimer.Is_Active()) {
+			Draw_Timer(line++, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer / 15, Scen->MissionTimerTextCSF, NULL, NULL);
+		}
+		count = TimedSuperWeapons.Count();
+		for (i = 0; i < count; i++) {
+			SuperClass * super = TimedSuperWeapons[i];
+			if (!super->IsSuspended || Session.Type != GAME_NORMAL || super->Control != super->Class->RechargeTime) {
+				Draw_Timer(line++, ColorSchemes[super->House->Scheme], super->Control / 15, super->Class->UIName,
+					(unsigned __int64 *)&super->BlinkInfo.Data0, &super->BlinkInfo.State);
+			}
+		}
+		count = Houses.Count();
+		for (i = 0; i < count; i++) {
+			int time = Houses[i]->PowerBlackoutTimer;
+			if (time > 0) {
+				Draw_Timer(line++, ColorSchemes[Houses[i]->Scheme], time / 15,
+					StringTable::LoadString("MSG:BlackoutTimer", NULL, "D:\\Ra2\\Tactical.CPP", 444), NULL, NULL);
+			}
+		}
 		Draw_Screen_Text(ScreenText);
 
 		IsFirstRender = false;

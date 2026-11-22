@@ -6440,81 +6440,28 @@ DirType UnitClass::Turret_Facing(void) const
 /// <param name="xdrawpoint">The pixel position to center the unit's model upon.</param>
 /// <param name="xcliprect">The clipping rectangle to draw within.</param>
 /// <param name="brightness">The lighting level to draw the unit at.</param>
-#ifdef RA2_NON_MATCHING // not exact: emitted voxel draw member has no resolved original row
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006ff690 has no row); 2449 bytes differ against main's function-map extent
+#include "spawnmanager.h"
+
 void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightness) const
 {
-	VoxelDataStruct *voxl;
+	VoxelDataStruct * voxl;
 	Point2D drawpoint = xdrawpoint;
-	Point2D offset(0, 0);
 	Matrix3D main_matrix;
 
-	int frame = TotalFramesWalked / 2 % Class->Voxel.MotLib->Get_Frame_Count();
-
-	switch (frame) {
-		case 0:
-		case 7:
-		case 15:
-			break;
-
-		case 1:
-		case 6:
-		case 8:
-		case 14:
-			offset = Point2D(0, -1);
-			break;
-
-		default:
-			offset = Point2D(0, -2);
-			break;
+	UnitTypeClass * drawclass = Class;
+	if (!IsClearlyVisibleTo(PlayerPtr)) {
+		drawclass = (UnitTypeClass *)GetDisguise(true);
 	}
-
+	int frame = TotalFramesWalked % drawclass->Voxel.MotLib->Get_Frame_Count();
 	Rect cliprect = xcliprect;
-	int has_turret = false;
-	ShapeFlags_Type flags = SHAPE_NORMAL;
-
-	if (Class->IsTurretEquipped && Class->AuxVoxel.VoxLib != NULL || Class->AuxVoxel2.VoxLib != NULL &&  Class->AuxVoxel2.MotLib != NULL) {
-		has_turret = true;
-	}
-
 	int key = 0;
-	main_matrix = Locomotion->Shadow_Matrix(&key);
-
-	if (!IsSinking) {
-		Point2D shadow_drawpoint = xdrawpoint;
-		if (Class->IsHunterSeeker) {
-			Coord coord = PositionCoord;
-			coord.Z = Map.Get_Height_GL(coord);
-			TacticalMap->Coord_To_Pixel(coord, shadow_drawpoint);
-			shadow_drawpoint += Locomotion->Shadow_Point();
-		}
-
-		if (IsInTransport) {
-			shadow_drawpoint.Y -= 14;
-		}
-
-		int height = HeightAGL;
-		CellClass * cellptr = &Map[Get_Coord()];
-
-		if (IsInTransport) {
-			if (!IsOnBridge && height >= BRIDGE_LEPTON_HEIGHT) {
-				if (cellptr->IsUnderBridge && (cellptr->IsBridgeEastWest && cellptr->Adjacent_Cell(FACING_N).IsUnderBridge ||
-					!cellptr->IsBridgeEastWest && cellptr->Adjacent_Cell(FACING_W).IsUnderBridge)) {
-					shadow_drawpoint.Y -= 4 * LEVEL_PIXEL_H;
-				}
-			}
-		}
-
-		Draw_Voxel_Shadow(Class->Voxel, Class->ShadowIndex, key, &Class->ShadowVoxelIndex, xcliprect, shadow_drawpoint, Get_Isometric_View_Matrix() * main_matrix, true);
-	}
 
 	Surface * old_surface = LogicalSurface;
-	if (has_turret) {
-		LogicalSurface = EightBitSurface;
-		drawpoint = Point2D(80, 80);
-		flags = ShapeFlags_Type(SHAPE_ALPHA|SHAPE_ZGRAD);
-		cliprect = LogicalSurface->Get_Rect();
-		IsCompositingToEightBitSurface = true;
-	}
+	LogicalSurface = EightBitSurface;
+	drawpoint = Point2D(128, 128);
+	cliprect = LogicalSurface->Get_Rect();
+	IsCompositingToEightBitSurface = true;
 
 	if (UseVoxelCache) {
 		key = 0;
@@ -6525,83 +6472,180 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 	main_matrix = Locomotion->Draw_Matrix(&key);
 
 	if (key != -1) {
-		key = frame | (key << 5);
+		key = (key << 5) | (frame & 0x1f);
 	}
 
+	int shadowbits = (key >> 5) & 0x3ff;
 	Rect rect = cliprect;
-	if (!has_turret && SinkingYOffset > 0) {
-		rect = Intersect(rect, Rect(0, 0, TacticalRect.Width, SinkingYOffset - TacticalMap->TacPixelY));
-	}
-
 	UnitCompositeDirtyRect = RECT_NONE;
 
-	if (strcmp(Class->IniName, "APC") == 0 && Map[Get_Coord()].Land_Type() == LAND_WATER && !IsOnBridge && HeightAGL < LEVEL_LEPTON_H) {
-		Draw_Voxel(Class->AuxVoxel, frame, -1, NULL, rect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, flags);
+	if (Class->NoSpawnAlt && SpawnManager->CountDockedSpawns() == 0) {
+		key |= 0x10000;
+		Draw_Voxel(drawclass->AuxVoxel, frame, key, &drawclass->VoxelIndex, rect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
 	} else {
-		Draw_Voxel(Class->Voxel, frame, key, &Class->VoxelIndex, rect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, flags);
+		Draw_Voxel(drawclass->Voxel, frame, key, &drawclass->VoxelIndex, rect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
 	}
 
-	/*
-	**	If there is a turret, then it must be rendered as well. This may include
-	**	firing animation if required.
-	*/
-	if (Class->IsTurretEquipped && Class->AuxVoxel.VoxLib != NULL) {
-		main_matrix.Translate_X(Class->TurretOffset / 8);
-		main_matrix.Rotate_Z(SecondaryFacing.Current().As_Radian32() - PrimaryFacing.Current().As_Radian32());
-
-		/*
-		**	A recoiling turret moves "backward" one pixel.
-		*/
-
-		Matrix3D barrel_matrix = main_matrix; // RA2: no IsInRecoilState (TibSun's use does not compile against RA2's declaration)
-		Vector3 vec2 = main_matrix.Get_Translation();
-		barrel_matrix.Translate(-vec2);
-
-		Vector3 flh = Vector3(-Get_Class_Weapon_Data(0)->FireFLH.X / 8, 0, -Get_Class_Weapon_Data(0)->FireFLH.Z / 8);
-		barrel_matrix.Translate(-flh);
-		barrel_matrix.Rotate_Y(-BarrelPitch.Current().As_Radian32());
-		barrel_matrix.Translate(flh);
-		barrel_matrix.Translate(vec2);
-
-		bool draw_barrel;
-		if (SecondaryFacing.Current().As_Dir4() <= 0 || SecondaryFacing.Current().As_Dir4() >= 3) {
-			draw_barrel = false;
-			voxl = &Class->AuxVoxel2;
-			if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {
-				Draw_Voxel(Class->AuxVoxel2, 0, -1, &Class->VoxelIndex, cliprect, drawpoint + offset, Get_Isometric_View_Matrix() * barrel_matrix, brightness, flags);
-			}
-		} else {
-			draw_barrel = true;
+	int tkey = key;
+	if (key != -1) {
+		tkey = (tkey & ~0x1f) | SecondaryFacing.Current().As_Dir32();
+		if (Techno_Type_Class()->TurretOffset == 0) {
+			tkey &= ~0x3e0;
 		}
+	}
 
-		Draw_Voxel(Class->AuxVoxel, frame, -1, &Class->AuxVoxelIndex, cliprect, drawpoint + offset, Get_Isometric_View_Matrix() * main_matrix, brightness, flags);
-
-		if (draw_barrel) {
-			voxl = &Class->AuxVoxel2;
-			if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {
-				Draw_Voxel(Class->AuxVoxel2, 0, -1, &Class->VoxelIndex, cliprect, drawpoint + offset, Get_Isometric_View_Matrix() * barrel_matrix, brightness, flags);
-			}
-		}
-	} else {
-		voxl = &Class->AuxVoxel2;
+	if (!drawclass->IsTurretEquipped && (!((UnitClass *)this)->Has_Turret_Weapons() || !Has_Current_Turret())) {
+		voxl = &drawclass->AuxVoxel2;
 		if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {
 			main_matrix.Rotate_Y(-(BarrelPitch.Current().As_Radian32() - main_matrix.Get_Y_Rotation()));
-			main_matrix.Translate(Get_Class_Weapon_Data(0)->FireFLH.X / 8, 0, Get_Class_Weapon_Data(0)->FireFLH.Z / 8);
-			Draw_Voxel(Class->AuxVoxel2, frame, -1, &Class->VoxelIndex, cliprect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, SHAPE_NORMAL);
+			main_matrix.Translate(Get_Class_Weapon_Data(0)->FireFLH.X * PIXELS_PER_LEPTON, 0, Get_Class_Weapon_Data(0)->FireFLH.Z * PIXELS_PER_LEPTON);
+			Draw_Voxel(*voxl, frame, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, Get_Isometric_View_Matrix() * main_matrix, brightness, SHAPE_NORMAL);
+		}
+	} else {
+		int charger = 0;
+		bool has_barrel;
+		if (((UnitClass *)this)->Has_Turret_Weapons()) {
+			charger = Get_Current_Turret_Number();
+			tkey |= charger << 16;
+			has_barrel = drawclass->ChargerBarrels[charger].VoxLib != NULL && drawclass->ChargerBarrels[charger].MotLib != NULL;
+		} else {
+			has_barrel = drawclass->AuxVoxel2.VoxLib != NULL && drawclass->AuxVoxel2.MotLib != NULL;
+		}
+
+		bool turret_cached = Is_Cached(&drawclass->AuxVoxelIndex, tkey);
+		bool barrel_cached = has_barrel ? Is_Cached(&drawclass->AuxVoxel2Index, tkey) : false;
+
+		Matrix3D turret_matrix;
+		Matrix3D barrel_matrix;
+		if (turret_cached && (!has_barrel || barrel_cached)) {
+			turret_matrix = main_matrix;
+			barrel_matrix = main_matrix;
+		} else {
+			main_matrix.Translate_X(drawclass->TurretOffset * PIXELS_PER_LEPTON);
+			main_matrix.Rotate_Z(SecondaryFacing.Current().As_Radian32() - PrimaryFacing.Current().As_Radian32());
+
+			Matrix3D bmatrix = main_matrix;
+			Vector3 vec2 = main_matrix.Get_Translation();
+			bmatrix.Translate(-vec2);
+			bmatrix.Rotate_Y(-BarrelPitch.Current().As_Radian32());
+			bmatrix.Translate(vec2);
+
+			turret_matrix = Get_Isometric_View_Matrix() * main_matrix;
+			barrel_matrix = Get_Isometric_View_Matrix() * bmatrix;
+		}
+
+		if (((UnitClass *)this)->Has_Turret_Weapons()) {
+			bool draw_barrel;
+			if (SecondaryFacing.Current().As_Dir4() > 0 && SecondaryFacing.Current().As_Dir4() < 3) {
+				draw_barrel = true;
+			} else {
+				draw_barrel = false;
+				if (has_barrel) {
+					Draw_Voxel(drawclass->ChargerBarrels[charger], 0, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, barrel_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+				}
+			}
+
+			Draw_Voxel(drawclass->ChargerTurrets[charger], frame, tkey, &drawclass->AuxVoxelIndex, cliprect, drawpoint, turret_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+
+			if (draw_barrel && has_barrel) {
+				Draw_Voxel(drawclass->ChargerBarrels[charger], 0, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, barrel_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+			}
+		} else {
+			bool draw_barrel;
+			if (SecondaryFacing.Current().As_Dir4() > 0 && SecondaryFacing.Current().As_Dir4() < 3) {
+				draw_barrel = true;
+			} else {
+				draw_barrel = false;
+				voxl = &drawclass->AuxVoxel2;
+				if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {
+					Draw_Voxel(*voxl, 0, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, barrel_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+				}
+			}
+
+			Draw_Voxel(drawclass->AuxVoxel, frame, tkey, &drawclass->AuxVoxelIndex, cliprect, drawpoint, turret_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+
+			if (draw_barrel) {
+				voxl = &drawclass->AuxVoxel2;
+				if (voxl->VoxLib != NULL && voxl->MotLib != NULL) {
+					Draw_Voxel(*voxl, 0, tkey, &drawclass->AuxVoxel2Index, cliprect, drawpoint, barrel_matrix, brightness, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_ZGRAD));
+				}
+			}
 		}
 	}
 
-	if (has_turret) {
-		rect = xcliprect;
-		if (SinkingYOffset > 0) {
-			rect = Intersect(rect, Rect(0, 0, TacticalRect.Width, SinkingYOffset - TacticalMap->TacPixelY));
-		}
-		Unit_Blit_Voxel(*old_surface, xdrawpoint, rect, brightness);
-		LogicalSurface->Fill_Rect(UnitCompositeDirtyRect, TBLACK);
-		LogicalSurface = old_surface;
-		IsCompositingToEightBitSurface = false;
+	rect = xcliprect;
+	if (SinkingYOffset > 0) {
+		rect = Intersect(rect, Rect(0, 0, TacticalRect.Width, SinkingYOffset - TacticalMap->TacPixelY));
+	} else if (IsSinking) {
+		((UnitClass *)this)->SinkingYOffset = TacticalMap->TacPixelY + xdrawpoint.Y + UnitCompositeDirtyRect.Y + UnitCompositeDirtyRect.Height - 128;
 	}
 
+	brightness = Apparent_Brightness(brightness);
+	if (IsIronCurtained()) {
+		brightness = GetEffectTintIntensity(brightness);
+	}
+	Unit_Blit_Voxel(*old_surface, xdrawpoint, rect, brightness);
+
+	Rect dirty = UnitCompositeDirtyRect;
+	Surface * composite = LogicalSurface;
+	LogicalSurface = old_surface;
+	IsCompositingToEightBitSurface = false;
+
+	if (!IsSinking) {
+		Point2D shadow_drawpoint = xdrawpoint;
+		if (Class->BalloonHover || Class->Speed == SPEED_TRACK || Class->Speed == SPEED_WHEEL) {
+			key = shadowbits;
+		} else {
+			key = shadowbits << 5;
+			key |= (Locomotion->Shadow_Point().Y - 16) & 0x1f;
+		}
+		main_matrix = Locomotion->Shadow_Matrix(&key);
+
+		if (drawclass->IsHunterSeeker) {
+			Coord coord = PositionCoord;
+			coord.Z = Map.Get_Height_GL(coord);
+			TacticalMap->Coord_To_Pixel(coord, shadow_drawpoint);
+			shadow_drawpoint += Locomotion->Shadow_Point();
+		}
+
+		if (IsInTransport) {
+			shadow_drawpoint.Y -= 14;
+		}
+
+		int height = Get_Height_AGL();
+		CellClass * cellptr = &Map[Get_Coord()];
+
+		if (IsInTransport) {
+			if (!IsOnBridge && height >= BRIDGE_LEPTON_HEIGHT) {
+				if (cellptr->IsUnderBridge && (cellptr->IsBridgeEastWest && cellptr->Adjacent_Cell(FACING_N).IsUnderBridge ||
+					!cellptr->IsBridgeEastWest && cellptr->Adjacent_Cell(FACING_W).IsUnderBridge)) {
+					shadow_drawpoint.Y -= 60;
+				}
+			}
+		}
+
+		Surface * shadow_surface;
+		if (In_Air()) {
+			shadow_surface = NULL;
+		} else {
+			shadow_surface = composite;
+			if (Class->BalloonHover || Class->Speed == SPEED_TRACK || Class->Speed == SPEED_WHEEL) {
+				if (Get_Height_AGL() <= 0) {
+					key |= 0x80000000;
+				} else {
+					key = -1;
+				}
+			}
+		}
+
+		if (Get_Height_AGL() > 0) {
+			Draw_Voxel_Shadow(drawclass->Voxel, drawclass->ShadowIndex, key, &drawclass->ShadowVoxelIndex, xcliprect, shadow_drawpoint, Get_Isometric_View_Matrix() * main_matrix, true, shadow_surface, Locomotion->Shadow_Point().X, Locomotion->Shadow_Point().Y + 1);
+		} else {
+			Draw_Voxel_Shadow(drawclass->Voxel, drawclass->ShadowIndex, key, &drawclass->ShadowVoxelIndex, xcliprect, shadow_drawpoint, Get_Isometric_View_Matrix() * main_matrix, true, shadow_surface, Locomotion->Shadow_Point().X, Locomotion->Shadow_Point().Y);
+		}
+	}
+
+	composite->Fill_Rect(dirty, 0);
 }
 #endif
 

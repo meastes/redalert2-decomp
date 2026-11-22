@@ -2388,7 +2388,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
  *   01/19/1995 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Doesn't collapse sidebar when buildables removed.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row); main: best 62.52, tried 9 times (inline, order, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row); 1622 bytes differ against main's function-map extent; main: best 62.52, tried 9 times (inline, order, frame)
 bool SidebarClass::StripClass::Recalc(void)
 {
 	int ok;
@@ -2398,12 +2398,12 @@ bool SidebarClass::StripClass::Recalc(void)
 	}
 
 	bool scroll = false;
-	int max_visible = Map.Get_Row_Count(); // RA2: as above
+	int max_visible = Map.Get_Row_Count() * 2; // RA2: as above
 	BuildType * unshifted = new BuildType[max_visible];
 
 	for (int i = 0; i < max_visible; i++) {
-		if (i + TopIndex < BuildableCount) {
-			unshifted[i] = Buildables[i + TopIndex];
+		if (i + TopIndex * 2 < BuildableCount) {
+			unshifted[i] = Buildables[i + TopIndex * 2];
 		}
 	}
 
@@ -2417,7 +2417,7 @@ bool SidebarClass::StripClass::Recalc(void)
 		TechnoTypeClass const * tech = Fetch_Techno_Type(Buildables[index].BuildableType, Buildables[index].BuildableID);
 		if (tech != NULL) {
 			BuildingClass const * who = tech->Who_Can_Build_Me(true, false, false, PlayerPtr);
-			ok = who != NULL && who->House->Can_Build(tech, true, true);
+			ok = who != NULL && who->House->Can_Build(tech, false, true);
 		} else {
 			if ((unsigned)Buildables[index].BuildableID < (unsigned)PlayerPtr->SuperWeapon.Count()) {
 				ok = PlayerPtr->SuperWeapon[Buildables[index].BuildableID]->Is_Present();
@@ -2427,6 +2427,27 @@ bool SidebarClass::StripClass::Recalc(void)
 		}
 
 		if (!ok) {
+			if (Buildables[index].Factory) {
+				OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::ABANDON, Buildables[index].BuildableType, Buildables[index].BuildableID, tech->Naval));
+				if (Buildables[index].BuildableType == RTTI_BUILDING || Buildables[index].BuildableType == RTTI_BUILDINGTYPE) {
+					Map.PendingObjectPtr = NULL;
+					Map.PendingObject = NULL;
+					Map.PendingHouse = HOUSE_NONE;
+					Map.Set_Cursor_Shape(NULL);
+				}
+			}
+
+			if (tech) {
+				FactoryClass * factory = PlayerPtr->Fetch_Factory(tech->Fetch_RTTI(), tech->Naval, 0);
+				if (factory) {
+					for (int q = factory->QueuedObjects.Count() - 1; q >= 0; q--) {
+						if (factory->QueuedObjects[q] == tech) {
+							OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::ABANDON, Buildables[index].BuildableType, Buildables[index].BuildableID, tech->Naval));
+						}
+					}
+				}
+			}
+
 			for (int i = 0; i < max_visible; i++) {
 				if (unshifted[i] == Buildables[index]) {
 					unshifted[i] = BuildType(0, RTTI_NONE);
@@ -2442,12 +2463,20 @@ bool SidebarClass::StripClass::Recalc(void)
 			redraw = true;
 			scroll = true;
 			Buildables[BuildableCount-1].Factory = NULL;
+			Buildables[BuildableCount - 1].BuildableID = 0;
+			Buildables[BuildableCount - 1].BuildableType = RTTI_NONE;
+			Buildables[BuildableCount - 1].IsAlt = false;
+			Buildables[BuildableCount - 1].Unknown_10 = 0;
+			Buildables[BuildableCount - 1].Progress.Set_Rate(0);
+			Buildables[BuildableCount - 1].Progress.Set_Stage(0);
+			Buildables[BuildableCount - 1].FlashEndFrame = 0;
 			IsToRedraw = true;
 			BuildableCount--;
 			index--;
 		}
 	}
 
+	Map.Update_Column_Availability(ID);
 	if (scroll) {
 		bool got_old = false;
 		bool got_new = false;
@@ -2471,11 +2500,12 @@ bool SidebarClass::StripClass::Recalc(void)
 		}
 
 		if (got_old && got_new) {
-			TopIndex = newpos - oldpos;
-			TopIndex = MAX(0, MIN(TopIndex, BuildableCount - max_visible));
+			TopIndex -= (oldpos - newpos) / 2;
+			TopIndex = MAX(0, MIN(TopIndex, (BuildableCount - max_visible) / 2));
 		} else {
 			TopIndex = 0;
 		}
+		Map.IsForceCompleteRedraw = true;
 	}
 
 	delete[] unshifted;

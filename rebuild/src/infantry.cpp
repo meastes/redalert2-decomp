@@ -784,13 +784,47 @@ void InfantryClass::Debug_Dump(MonoClass * mono) const
  *   03/01/1995 JLB : Capture building options.                                                *
  *   05/31/1995 JLB : Capture is always successful now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 4261 bytes differ against main's function-map extent
+#include "revent.h"
+#include "vox.h"
+
 void InfantryClass::Per_Cell_Process(PCPType why)
 {
 	BStart(BENCH_PCP);
 	CellClass * cellptr = &Map[Get_Coord()];
 
 	if (why == PCP_END) {
+		if (Mission == MISSION_CAPTURE && (Class->Assaulter || Class->Occupier) &&
+			NavCom && NavCom->RTTI == RTTI_BUILDING) {
+			BuildingClass * building = (BuildingClass *)NavCom;
+			if (building == cellptr->Cell_Building()) {
+				if (!building->CanBeOccupiedBy(this)) {
+					Assign_Destination(NULL, true);
+					Scatter(building->Center_Coord(), true, true);
+					return;
+				}
+				if (building->Tag) building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
+				Enter_Occupiable(building);
+				return;
+			}
+		}
+		if (Mission == MISSION_EATEN) {
+			BuildingClass * building = cellptr->Cell_Building();
+			if (building && (building == NavCom || building == TarCom)) {
+				if (building->Tag) building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
+				if (Techno_Type_Class()->VoiceDie.Count() && House->Is_Player_Control()) {
+					VocClass::PlayAt(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
+				}
+				if (Techno_Type_Class()->DieSound.Count()) {
+					VocClass::PlayAt(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
+				}
+				building->House->Refund_Money(Refund_Amount());
+				if (Tag) Tag->Spring(TEVENT_DESTROYED_ANY, this);
+				Delete_Me();
+				return;
+			}
+		}
+
 
 		/*
 		**	If the infantry unit is entering a cell that contains the building it is trying to
@@ -838,14 +872,14 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 				if (Class->IsEngineer) {
 					// are we trying to repair a bridge?
 					if (tech->RTTI == RTTI_BUILDING && ((BuildingClass*)tech)->Class->IsBridgeRepairHut) {
-						if (House->Is_Player_Control()) Speak(VOX_BRIDGE_REPAIRED);
+						if (House->Is_Player_Control() && Submit_Radar_Event(RADAREVENT_BRIDGE_REPAIRED, Get_Cell())) Queue_Speech("EVA_BridgeRepaired", -1, -1);
 
 						bool train = false;
 						for (int y = -2; y < 3; y++) {
 							for (int x = -2; x < 3; x++) {
 								Cell cell = (Cell)Cell(PositionCell + Cell(x, y));
 								IsometricTileType ittype = Map[cell].ITType;
-								if (ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) {
+								if ((ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) || (Map[cell].Overlay >= 74 && Map[cell].Overlay <= 101)) {
 									train = true;
 								}
 							}
@@ -880,6 +914,11 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 							int damage = MIN((tech->TClass->MaxStrength) * ((1 - Rule->ConditionRed / 2) / 2), maxdamage);
 							tech->Take_Damage(damage, 0, Rule->C4Warhead, this, true);
 						} else if (iscapturable) {
+							if (tech->Mission == MISSION_DECONSTRUCTION) {
+								Assign_Destination(NULL, true);
+								Scatter(tech->Center_Coord(), true, true);
+								return;
+							}
 							if (tech->Tag) {
 								tech->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
 							}
@@ -894,7 +933,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					}
 				} else {
 					if (Class->IsAgent) {
-						if (House->Is_Player_Control()) Speak(VOX_BUILDING_INFILTRATED);
+
 						((BuildingClass *)tech)->Spied_By(House);
 					}
 				}
@@ -955,16 +994,17 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					Limbo();
 					Transmit_Message(RADIO_HELLO, techno);
 					techno->Cargo.Attach(this);
-					NavCom = NULL;
+					Abort_Motion();
 					BEnd(BENCH_PCP);
 					return;
 				}
 			} else {
 				if (Get_Cell() == techno->Get_Cell() && techno == NavCom) {
 					if (Transmit_Message(RADIO_CAN_LOAD, techno) == RADIO_ROGER) {
-						ArchiveTarget = NULL;
+						Assign_Archive_Target(NULL);
+						IsOnBridge = false;
 						Limbo();
-						techno->Cargo.Attach(this);
+						((FootClass *)techno)->Load_Passenger(this);
 						Hidden();
 					} else {
 						Assign_Destination(NULL);
@@ -981,7 +1021,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 		**	If the infantry unit is entering a cell that contains the building it is trying to
 		**	sabotage, then sabotage it.
 		*/
-		if (Mission == MISSION_SABOTAGE) {
+		if (Mission == MISSION_SABOTAGE && Class->IsBomber) {
 			BuildingClass * building = cellptr->Cell_Building();
 			if (building != NULL && building == NavCom) {
 				if (building->Tag) {
@@ -1034,7 +1074,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 			**	Special voice play.
 			*/
 			if (Class->VoiceComment.Count() > 1) {
-				Sound_Effect((VocType)Class->VoiceComment[1], PositionCoord);
+				VocClass::PlayAt(Class->VoiceComment[1], PositionCoord, 0);
 			}
 
 			/*
@@ -1060,12 +1100,9 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 		}
 		Commence();
 
-		if (IsPlanningToLook) {
-			IsPlanningToLook = false;
-			Look(false);
-		} else {
-			Look(true);
-		}
+		RemoveSight(false, false, false, NULL);
+		UpdateSight(false, false, false, NULL);
+		Map.RevealArea3(Coord(PositionCoord), 0, LastSightRange + 3, 0);
 
 		/*
 		**	If after all is said and done, the unit finishes its move on an impassable cell, then
@@ -1082,27 +1119,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 			return;
 		}
 
-		if (!Class->IsTiberiumProof && !Has_Ability(ABILITY_TIBERIUM_PROOF) && Strength > 0) {
-			TiberiumType tiberium = Map[Get_Coord()].Tiberium_Type_Here();
-			if (tiberium != TIBERIUM_NONE) {
-				int damage = Tiberiums[tiberium]->Power / 10;
-				if (damage <= 1) damage = 1;
-				Coord coord = Get_Coord();
-				if (Take_Damage(damage, 0, Rule->C4Warhead, NULL, true) == RESULT_DESTROYED) {
-					if (Scen->IsTiberiumDeathToVisceroid) {
-						UnitClass * visceroid = new UnitClass(Rule->SmallVisceroid, House_From_HousesType(HouseTypeClass::From_Name("Neutral")));
-						if (visceroid) {
-							Coord cell_coord = Map[coord].Cell_Coord();
-							if ((Map[cell_coord].Flag.Composite & 0x020) == 0) {
-								ScenarioInit++;
-								visceroid->Unlimbo(coord);
-								ScenarioInit--;
-							}
-						}
-					}
-				}
-			}
-		}
+
 	}
 
 	if (IsActive) {

@@ -5613,7 +5613,7 @@ void BuildingClass::Fire_Prism_Support(Coord destination) // RA2: not in TibSun,
  *   06/25/1995 JLB : Created.                                                                 *
  *   02/22/1996 JLB : SAM doesn't lower back into ground.                                      *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row); 2116 bytes differ against main's function-map extent
 int BuildingClass::Do_MISSION_ATTACK(void)
 {
 	AircraftClass *air;
@@ -5658,7 +5658,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					Assign_Target(NULL);
 					Status = SAM_READY;
 				} else {
-					FireErrorType error = Can_Fire(TarCom, 0);
+					FireErrorType error = Can_Fire(TarCom, 0, true);
 					if (error == FIRE_ILLEGAL || error == FIRE_CANT || error == FIRE_RANGE) {
 						Assign_Target(NULL);
 						Status = SAM_READY;
@@ -5686,6 +5686,8 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 
 	if (TarCom == NULL) {
 		Assign_Target(NULL);
+		if (IsNotWarpingIn()) Next_Planning_Node();
+		if (Get_Mission() == MISSION_WAIT) return(1);
 		Assign_Mission(MISSION_GUARD);
 		Commence();
 		return(1);
@@ -5694,23 +5696,24 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 	int primary = What_Weapon_Should_I_Use(TarCom);
 	IsReadyToCommence = true;
 
-	FireErrorType fire = Can_Fire(TarCom, primary);
+	FireErrorType fire = Can_Fire(TarCom, primary, true);
 
-	if (fire == FIRE_FACING && Is_Turret_Equipped()) {
+	if (fire == FIRE_FACING && Is_Turret_Equipped() && Class->IsTurretAnimAVoxel) {
 		DirType dir = Aim_Direction(TarCom);
-		DirType dir2(Class->IsTurretAnimAVoxel ? DIR_MIN : DIR_STEP_32);
-		if (dir2 < (PrimaryFacing.Current() - dir) && Class->IsTurretAnimAVoxel && (PrimaryFacing.Current() - dir) <= DIR_STEP_128) {
+		if (Class->ROT == 0 || PrimaryFacing.Current().Is_Complete_Turn(dir, DirType((Dir256)Class->ROT))) {
 			PrimaryFacing.Set(dir);
-			fire = Can_Fire(TarCom, primary);
+			fire = Can_Fire(TarCom, primary, true);
 		}
 	}
-
 	switch (fire) {
 		case FIRE_ILLEGAL:
 		case FIRE_CANT:
 		case FIRE_RANGE:
 		case FIRE_AMMO:
 			Assign_Target(NULL);
+			SupportingPrisms = 0;
+			if (IsNotWarpingIn()) Next_Planning_Node();
+			if (Get_Mission() == MISSION_WAIT) return(1);
 			Assign_Mission(MISSION_GUARD);
 			Commence();
 			break;
@@ -5740,6 +5743,36 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					Fire_At(TarCom, 0);
 					Fire_At(TarCom, 1);
 				}
+			} else if (Class == Rule->PrismType) {
+				BuildingClass * best = NULL;
+				int best_distance = INT_MAX;
+				Coord center = Render_Coord();
+				if (SupportingPrisms < Rule->PrismSupportMax) {
+					int count = House->Buildings.Count();
+					for (int i = 0; i < count; i++) {
+						BuildingClass * building = House->Buildings[i];
+						if (!building || !building->IsActive || building->Class != Rule->PrismType ||
+							building->Arm != 0 || building->DelayBeforeFiring != 0 ||
+							building->Get_Mission() == MISSION_ATTACK || building == this) continue;
+						Coord coord = building->Render_Coord();
+						double x = center.X - coord.X;
+						double y = coord.Y - center.Y;
+						double z = center.Z - coord.Z;
+						int distance = (int)fastmath::sqrt(x * x + y * y + z * z);
+						if (distance <= Weapon_Range(1) && (!best || distance < best_distance)) {
+							best = building;
+							best_distance = distance;
+						}
+					}
+				}
+				if (best) {
+					SupportingPrisms++;
+					best->Start_Delayed_Fire(2, Fire_Coord(0));
+				} else {
+					Start_Delayed_Fire(1, Coord(0, 0, 0));
+				}
+			} else if (Class->IsAnimDelayedFire) {
+				Start_Delayed_Fire(1, Coord(primary, 0, 0));
 			} else {
 				Fire_At(TarCom, primary);
 			}

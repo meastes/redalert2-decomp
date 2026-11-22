@@ -114,13 +114,14 @@ class FactoryClass : public AbstractClass, private StageClass
 
 		int Cost_Per_Tick(void);
 
-	private:
+	public: // RA2: StripClass::Recalc reads the pending objects directly.
 		/*
 		 * These are the object types waiting to be built once the current production has
 		 * finished, in the order they were ordered. Buildings are never queued, and the
 		 * queue holds no more than MaximumQueuedObjects entries.
 		 */
 		DynamicVectorClass<const TechnoTypeClass *> QueuedObjects;
+	private:
 
 		/*
 		**	This is the object that is being produced. It is held in a state of limbo while

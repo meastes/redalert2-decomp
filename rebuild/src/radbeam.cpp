@@ -257,10 +257,27 @@ void RadBeam::Start_Pass(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x635C30); main: best 96.92, tried 7 times (frame, register, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00635c30 has no row); 375 bytes differ against main's function-map extent; main: best 96.92, tried 7 times (frame, register, order)
 void RadBeam::Compute_Pulse_Step(void)
 {
-	Next = Current + StepDelta;
+	double span = (Length < 360.0 ? 360.0 : Length) * 2.0;
+	double index = StepIndex;
+	double degrees = index / Steps * span;
+	double wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
+	int step = (int)index;
+	Current = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
+	Current.Z = (int)(Current.Z + wave);
+
+	index = StepIndex + 1;
+	degrees = index / Steps * span;
+	wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
+	step = (int)index;
+	Next = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
+	Next.Z = (int)(Next.Z + wave);
+
+	Scale = abs((int)wave) * 0.5 / Amplitude + 0.5;
+	CurrentColor = RGBClass((unsigned char)(Color.Get_Red() * Scale),
+		(unsigned char)(Color.Get_Green() * Scale), (unsigned char)(Color.Get_Blue() * Scale));
 }
 #endif
 
@@ -328,9 +345,25 @@ void RadBeam::Update_Swing(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: not yet written (no independent bound for 0x636130); main: best 95.83, tried 3 times (bound)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00636130 has no row); 379 bytes differ against main's function-map extent; main: best 95.83, tried 3 times (bound)
 void RadBeam::Compute_Swing_Step(void)
 {
-	Next = Current + StepDelta;
+	double index = StepIndex;
+	double degrees = index / Steps * 180.0;
+	double wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
+	int step = (int)index;
+	Current = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
+	Current.Z = (int)(Current.Z + wave);
+
+	index = StepIndex + 1;
+	degrees = index / Steps * 180.0;
+	wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
+	step = (int)index;
+	Next = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
+	Next.Z = (int)(Next.Z + wave);
+
+	Scale = abs((int)wave) * 0.5 / Amplitude + 0.5;
+	CurrentColor = RGBClass((unsigned char)(Color.Get_Red() * Scale),
+		(unsigned char)(Color.Get_Green() * Scale), (unsigned char)(Color.Get_Blue() * Scale));
 }
 #endif

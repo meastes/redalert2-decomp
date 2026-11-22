@@ -132,6 +132,7 @@ class SuperClass : public AbstractClass
 		bool IsPresent;
 		bool IsOneTime;
 		bool IsReady;
+		friend class Tactical; // RA2: Render reads the suspended flag for the super weapon timer.
 		bool IsSuspended;
 
 		int OldStage;

@@ -2917,12 +2917,12 @@ MoveType AircraftClass::Can_Enter_Cell(CellClass const * cell, FacingType, int c
 		active = (occupier->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 	}
 	if ((occupier == 0 || !active || occupier->House->Is_Ally(House) // RA2: as above
-		 || (occupier->Cloak != 2 && ScenarioInit == 0 // RA2: as above
+			|| (occupier->Cloak != CLOAKED && ScenarioInit == 0 // RA2: as above
 			 && (occupier->Fetch_RTTI() != RTTI_BUILDING || !((BuildingClass *)occupier)->Class->IsInvisible))) // RA2: as above
 		&& !cell->Is_Clear_To_Move(SPEED_WINGED, 0, 0, -1, MZONE_NORMAL, -1, 1)) { // RA2: as above
 		return(MOVE_NO);
 	}
-	if (Session.Type == 0 && IsOwnedByPlayer && !IsALoaner) { // RA2: as above
+	if (Session.Type == GAME_NORMAL && IsOwnedByPlayer && !IsALoaner) { // RA2: as above
 		if (Map.Is_Shrouded(cell->Center_Coord())) { // RA2: as above
 			return(MOVE_NO); // RA2: as above
 		}
