@@ -87,11 +87,6 @@ class ShapeSet
 		*/
 		int Get_Count(void) const{return(Count);}
 
-		/*
-		**	Gets the raw data size for a particular shape.
-		*/
-		int Get_Size(int shape) const;
-
 	protected:
 		/*
 		**	QShape information flags.

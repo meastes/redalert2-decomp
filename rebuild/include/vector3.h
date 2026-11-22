@@ -305,7 +305,7 @@ inline Vector3 Normalize(const Vector3 & vec)
  *========================================================================*/
 inline float Vector3::Length(void) const
 {
-	return((float)fastmath::sqrt(Length2()));
+	return((float)fastmath::sqrt(X * X + Y * Y + Z * Z));
 }
 
 /**************************************************************************

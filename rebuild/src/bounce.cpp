@@ -15,6 +15,7 @@
 
 #include "_map.h"
 #include "_tactica.h"
+#include "ballistic.h"
 #include "building.h"
 #include "builtype.h"
 #include "ccrand.h"
@@ -148,7 +149,6 @@ double BounceClass::Get_Remaining_Motion(void) const
 /// <returns>Returns BOUNCE_IMPACT if the object struck a surface this frame,
 /// BOUNCE_SETTLED if it has come to rest, or BOUNCE_MOVING if it is still traveling.</returns>
 /// <remarks>Only call this routine once per bouncing object per game logic loop.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: no independently bounded accepted row; main: best 99.77, tried 13 times (frame, register, float)
 BounceResultType BounceClass::AI(void)
 {
 	BounceResultType bounce_result = BOUNCE_MOVING;
@@ -161,117 +161,7 @@ BounceResultType BounceClass::AI(void)
 	Vector3 & velocity = Velocity;
 	Vector3 old_position = position;
 	Vector3 old_velocity = velocity;
-	double elasticity = Elasticity;
-	double max_velocity = MaxVelocity;
-
-	/*
-	 * Apply gravity to the vertical velocity component.
-	 */
-	velocity.Z = Velocity.Z - Gravity;
-
-	/*
-	 * Clamp the velocity to the maximum allowed.
-	 */
-	if (max_velocity > 0.0) {
-		double speed = velocity.Length();
-		if (speed > max_velocity) {
-			velocity *= (float)(speed / speed);
-		}
-	}
-
-	/*
-	 * Advance the position by the velocity. Remember the integer cell positions
-	 * before and after the move.
-	 */
-	Point3D previous_coord(position.X, position.Y, position.Z);
-	position += velocity;
-	Coord current_coord(position.X, position.Y, position.Z);
-
-	int ground_height = Map.Get_Height_GL(current_coord);
-	int bridge_height = BRIDGE_LEPTON_HEIGHT + ground_height;
-	CellClass * cellptr = &Map[current_coord];
-
-	/*
-	 * Determine if the object passed through a bridge surface this frame.
-	 */
-	bool hit_bridge_top = false;
-	bool hit_bridge_bottom = false;
-	if (cellptr->IsUnderBridge || Map[(Coord const &)previous_coord].IsUnderBridge) {
-		if (current_coord.Z >= bridge_height) {
-			if (previous_coord.Z < bridge_height) {
-				hit_bridge_bottom = true;
-			}
-		} else if (previous_coord.Z >= bridge_height) {
-			hit_bridge_top = true;
-		}
-	}
-
-	/*
-	 * Determine if the object struck a building, wall or gate that should stop it.
-	 */
-	bool hit_obstacle = false;
-	if (!hit_bridge_top && !hit_bridge_bottom) {
-		if (ground_height <= position.Z && position.Z - 150.0f < ground_height) {
-			BuildingClass * building = cellptr->Cell_Building();
-			if (building == NULL && !cellptr->Has_Wall_Or_Gate(OVERLAY_NONE, FACING_NONE)) {
-				hit_obstacle = false;
-			} else {
-				hit_obstacle = true;
-				if (building != NULL) {
-					if (building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
-						hit_obstacle = false;
-					}
-					if (building->Considered_Vehicle()) {
-						hit_obstacle = false;
-					}
-				}
-			}
-
-		}
-	}
-
-	/*
-	 * Decide whether this frame reached a surface, then snap the vertical position
-	 * to the ground, bridge or obstacle. A bridge crossing or obstacle counts even
-	 * when the final position remains above the ground.
-	 */
-	float ground_z = (float)ground_height;
-	bool has_impact = true;
-	if (position.Z >= ground_z) {
-		if (!hit_bridge_top && !hit_bridge_bottom && !hit_obstacle) {
-			has_impact = false;
-		}
-	}
-	if (has_impact) {
-		if (hit_bridge_top) {
-			position.Z = (float)bridge_height;
-		} else if (hit_bridge_bottom) {
-			position.Z = (float)(bridge_height - 20);
-		} else {
-			if ((ground_height - 100) < position.Z) {
-				position.Z = ground_z;
-			}
-		}
-
-		/*
-		 * Reflect the velocity off the cell slope. The velocity is rotated into the
-		 * slope's local space, scaled by elasticity, flipped vertically, then rotated
-		 * back out.
-		 */
-		{
-			Matrix3D slope_matrix;
-			Matrix3D inverse_slope_matrix = Matrix3D::Orthogonal_Inverse(
-				slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(current_coord)));
-			Vector3 bounce_velocity(velocity.X, -velocity.Y, velocity.Z);
-			bounce_velocity = inverse_slope_matrix.Rotate_Vector(bounce_velocity);
-			bounce_velocity *= (float)elasticity;
-			bounce_velocity.Z = -bounce_velocity.Z;
-			bounce_velocity = slope_matrix.Rotate_Vector(bounce_velocity);
-			velocity.X = bounce_velocity.X;
-			velocity.Y = -bounce_velocity.Y;
-			velocity.Z = bounce_velocity.Z;
-		}
-
+	if (Ballistic_Move(position, velocity, Gravity, Elasticity, MaxVelocity)) {
 		/*
 		 * Invert the spin axis of the angular velocity (but not the W component).
 		 */
@@ -315,4 +205,3 @@ BounceResultType BounceClass::AI(void)
 	}
 	return(bounce_result);
 }
-#endif

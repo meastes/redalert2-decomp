@@ -707,7 +707,7 @@ double MapRegionClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2, d
 /// <param name="cptr">The cell to grow the region out from.</param>
 /// <returns>Returns with the region created. NULL is returned when the patch was
 /// dissolved rather than kept.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1024 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 555 bytes differ (adopted text; the count named in the loop; VectorClass<Cell>::Clear expanded at both returns where the image calls it)
 MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA2: RA2's form (0x56E100): green-LAT ground counts as water-like and the wipes call Clear_Region_Cells
 {
 	int i;
@@ -722,8 +722,9 @@ MapRegionClass * MapRegionClass::Create_Region_From_Cell(CellClass * cptr) // RA
 	int processed_count = 0;
 
 	while (cells.Count()) {
-		Cell cell = cells[cells.Count() - 1];
-		cells.Delete_Index(cells.Count() - 1);
+		int count = cells.Count(); // RA2: the count is read once; the image indexes with it and takes one off again for the delete
+		Cell cell = cells[count - 1];
+		cells.Delete_Index(count - 1);
 
 		CellData::Set_Spread(cell, region_id);
 		CellData::Set_Region(cell, region_id);

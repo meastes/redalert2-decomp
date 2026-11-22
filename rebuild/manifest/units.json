@@ -17089,7 +17089,7 @@
   "status": "catalogued",
   "range": [
    "00436a80",
-   "004370e0"
+   "00437740"
   ],
   "mischa85": "tibsun: functions compiled from src/bounce.cpp, matched, without gaps; ?AI@BounceClass@@QAE?AW4BounceResultType@@XZ not placed",
   "main_options": [
@@ -17245,6 +17245,51 @@
     "symbol": "?Get_Remaining_Motion@BounceClass@@QBENXZ",
     "main_symbol": "?Get_Remaining_Motion@BounceClass@@QBENXZ",
     "main_source": "src/recovered/bounce.cpp"
+   },
+   {
+    "entry": "004370e0",
+    "body": 1448,
+    "padding": 8,
+    "symbol": "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ",
+    "main_symbol": "",
+    "main_source": "",
+    "frozen_bound": {
+     "population": "population-54",
+     "kind": "ordinary function main never bounded",
+     "note": "BounceClass::AI (mischa85 names.csv; anim's call); seeded-pass5-aligned row 1448 bytes + its 8-byte gap row; bounded by bounce's exact rows Get_Remaining_Motion (ends 0x4370E0) and Vector3::Vector3(float, float, float) (0x437690); main has it non-exact, best 99.77 (lane F18, the session 0x673090 precedent)"
+    }
+   },
+   {
+    "entry": "00437690",
+    "body": 25,
+    "padding": 7,
+    "symbol": "??0Vector3@@QAE@MMM@Z",
+    "main_symbol": "?Set_00437690@Vector3@@QAEAAU1@MMM@Z",
+    "main_source": "src/recovered/classes/Vector3/Set.cpp"
+   },
+   {
+    "entry": "004376b0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "??XVector3@@QAEAAV0@M@Z",
+    "main_symbol": "?Scale_004376b0@Vector3@@QAEAAU1@M@Z",
+    "main_source": "src/recovered/classes/Vector3/Scale.cpp"
+   },
+   {
+    "entry": "004376e0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "??YVector3@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "?Add_004376e0@Vector3@@QAEAAU1@ABU1@@Z",
+    "main_source": "src/recovered/classes/Vector3/Add.cpp"
+   },
+   {
+    "entry": "00437710",
+    "body": 45,
+    "padding": 3,
+    "symbol": "?Length@Vector3@@QBEMXZ",
+    "main_symbol": "?Length@Vector3@@QBEMXZ",
+    "main_source": "src/recovered/bounce.cpp"
    }
   ],
   "references": {
@@ -17262,7 +17307,10 @@
    "_RAD_45": "0084ec58",
    "_RAD_60": "0084ec30",
    "_RAD_90": "0084ec08",
-   "_RECT_NONE": "0084ec10"
+   "_RECT_NONE": "0084ec10",
+   "__real@8@4000a000000000000000": "0079ca78",
+   "__real@8@bff2d1b71758e2196800": "0079caa0",
+   "__real@8@bff39d495182a9930800": "0079ca98"
   },
   "partial_ok": true
  },
@@ -110774,6 +110822,19 @@
     "symbol": "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ",
     "main_symbol": "?Smoke_Behavior_AI@ParticleClass@@QAEXXZ",
     "main_source": "src/recovered/particle.cpp"
+   },
+   {
+    "entry": "00609540",
+    "body": 1069,
+    "padding": 3,
+    "symbol": "?Spark_Behavior_AI@ParticleClass@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "frozen_bound": {
+     "population": "population-54",
+     "kind": "ordinary function main never bounded",
+     "note": "ParticleClass::Spark_Behavior_AI (mischa85 names.csv; Behavior_AI's one call at 0x609CC8); seeded-pass5-aligned row 1069 bytes + its 3-byte gap row; bounded by particle's exact rows Smoke_Behavior_AI (ends 0x609540) and Fire_Behavior_AI (0x609970); main has it non-exact, best 66.45 (lane F18, the session 0x673090 precedent)"
+    }
    },
    {
     "entry": "00609970",

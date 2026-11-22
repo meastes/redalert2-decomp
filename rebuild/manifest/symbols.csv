@@ -146,6 +146,8 @@ symbol,address,evidence
 ??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,0x0072B8E0,slot +0c of ??_7?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@6B@ at 007af284; main row ?get@Leaf_72b8e0@@QAEIXZ
 ??F?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@UAEAAV0@XZ,0x00726F00,slot +10 of ??_7?$VectorCursor@V?$rc_ptr@VConflict@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VConflict@WorldDominationTour@@@@@@@@6B@ at 007af050; main row ?get@Leaf_726f00@@QAEIXZ
 ??F?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEAAV0@XZ,0x00730440,slot +10 of ??_7?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@6B@ at 007af38c; main row ?get@Leaf_730440@@QAEIXZ
+??XVector3@@QAEAAV0@M@Z,0x004376B0,inferred: particle rows 00608bb0 differ only at its sites
+??YVector3@@QAEAAV0@ABV0@@Z,0x004376E0,inferred: particle rows 00608bb0 differ only at its sites
 ??_C@_1BA@MEGH@?$AAN?$AAo?$AA?5?$AAn?$AAa?$AAm?$AAe?$AA?$AA@,0x007CECB0,"the literal L""No name"" ObjectClass::Full_Name returns; its one copy (0x423D40, kept in anim) loads it from there"
 ??_E?$BlitPlain@E@@UAEPAXI@Z,0x007759B0,slot +04 of ??_7?$BlitPlain@E@@6B@ at 007afc90; main row ??_G?$BlitPlain@E@@UAEPAXI@Z
 ??_E?$BlitPlain@G@@UAEPAXI@Z,0x007759D0,slot +04 of ??_7?$BlitPlain@G@@6B@ at 007afc80; main row ??_G?$BlitPlain@G@@UAEPAXI@Z
@@ -1000,6 +1002,7 @@ symbol,address,evidence
 ?Advance_Waypoint_Path@FootClass@@UAEXXZ,0x004CCDF0,slot +30c of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot194@FootClass@@UAEXXZ
 ?Advance_Waypoint_Path@TechnoClass@@UAEXXZ,0x00453BB0,slot +30c of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453bb0@@QAEXXZ
 ?Alloc_Cells@MapClass@@UAEXXZ,0x00548370,slot +58 of ??_7RadarClass@@6B@ at 007a871c; main row ?unknown_slot22@MapClass@@UAEXXZ
+?AllyTeams@MultiplayerGameMode@@UAE_NXZ,0x005B8420,slot +74 of ??_7FreeForAll@@6B@ at 007a6910; main row ?unknown_slot28@MultiplayerGameMode@@UAE_NXZ
 ?Apparent_Brightness@TechnoClass@@UBEHH@Z,0x006D79D0,slot +3fc of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot254@TechnoClass@@UAEHH@Z
 ?Apparent_Speed@LocomotionClass@@UAGHXZ,0x0053D610,slot +88 of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Apparent_Speed@LocomotionClass@@UAGHXZ
 ?Apply_Rank_Command@@YIX_N@Z,0x006F7EC0,inferred: init rows 0051bc90 differ only at its sites
@@ -3033,7 +3036,7 @@ symbol,address,evidence
 ?g_AccountBirthMonth@@3VWstring@@A,0x00B269A8,inferred: wonline rows 0073be00 differ only at its sites
 ?g_AccountBirthYear@@3VWstring@@A,0x00B297C4,inferred: wonline rows 0073be60 differ only at its sites
 ?g_AccountDialogUpdating@@3_NA,0x00B2ACA8,main: account_dialog_updating_b2aca8 (wonline rows 007540a0); ra2-decomp DAT_00B77EA0 in the twin
-?g_AccountEmail@@3VWstring@@A,0x00B29CE4,inferred: wonline rows 0073bdd0 differ only at its sites
+?g_BirthdateEmail@@3VWstring@@A,0x00B29CE4,"mischa85 names.csv (inferred from its matched wonline.cpp); wonline rows 0073bdd0 differ only at its sites"
 ?g_AccountExtra@@3VWstring@@A,0x00B297BC,inferred: wonline rows 0073bf50 differ only at its sites
 ?g_AccountInputEvents@@3HA,0x00B2AC98,inferred: wonline rows 007498e0 007498e0 differ only at its sites
 ?g_AccountName@@3VWstring@@A,0x00B2A640,inferred: wonline rows 0073be90 differ only at its sites
@@ -3160,7 +3163,6 @@ symbol,address,evidence
 ?vt_entry_54@MultiplayerGameMode@@UAE_NXZ,0x005B73C0,slot +58 of ??_7FreeForAll@@6B@ at 007a6910; main row ?unknown_slot21@MultiplayerGameMode@@UAE_NXZ
 ?vt_entry_58@MultiplayerGameMode@@UAE_NXZ,0x005A2420,slot +58 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot22@MultiplayerGameMode@@UAE_NXZ
 ?vt_entry_64@MultiplayerGameMode@@UAEXIPAD@Z,0x005A2430,slot +64 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot25@MultiplayerGameMode@@UAEXHPAD@Z
-?AllyTeams@MultiplayerGameMode@@UAE_NXZ,0x005B8420,slot +74 of ??_7FreeForAll@@6B@ at 007a6910; main row ?unknown_slot28@MultiplayerGameMode@@UAE_NXZ
 ?vt_entry_78@MultiplayerGameMode@@UAEXXZ,0x005A2440,slot +78 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot30@MultiplayerGameMode@@UAEXXZ
 ?vt_entry_7C@MultiplayerGameMode@@UAEXXZ,0x005A2450,slot +7c of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot31@MultiplayerGameMode@@UAEXXZ
 ?vt_entry_80@MultiplayerGameMode@@UAEHXZ,0x005A2460,slot +80 of ??_7MultiplayerGameMode@@6B@ at 007a71b8; main row ?unknown_slot32@MultiplayerGameMode@@UAEHXZ

@@ -23,6 +23,7 @@
 #include "_tactica.h"
 #include "_zbuffer.h"
 #include "abuffer.h"
+#include "ballistic.h"
 #include "building.h"
 #include "cell.h"
 #include "convert.h"
@@ -51,23 +52,6 @@
 
 #include "draw.hh"
 #include "ftimer.h" // RA2: Draw_It reads Frame
-
-inline Vector3 Slope_Vector(Vector3 & vector, Coord const & coord, double length) // RA2: defined above Gas_Behavior_AI, its first user
-{
-	Matrix3D slope_matrix;
-	Matrix3D slope_matrix_inv = Matrix3D::Orthogonal_Inverse(
-		slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(coord)));
-	Vector3 vec(vector.X, -vector.Y, vector.Z);
-	vec = slope_matrix_inv.Rotate_Vector(vec);
-	vec *= length;
-	vec.Z = -vec.Z;
-	vec = slope_matrix.Rotate_Vector(vec);
-	vector.X = vec.X;
-	vector.Y = -vec.Y;
-	vector.Z = vec.Z;
-	return(vector);
-}
-
 
 namespace FPSCounter { extern unsigned CurrentFrameRate; } // RA2: declared as RA2's code uses it
 namespace Detail { unsigned GetMinFrameRate(void); } // RA2: declared as RA2's code uses it
@@ -239,7 +223,6 @@ ParticleClass::~ParticleClass(void)
 /// warhead also poisons whatever it settles over, and when the scenario allows it,
 /// anything killed that way rises again as a visceroid.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1259 bytes differ (adopted text)
 void ParticleClass::Gas_Behavior_AI(void)
 {
 	if ((Frame & 1) == 0) {
@@ -268,61 +251,7 @@ void ParticleClass::Gas_Behavior_AI(void)
 		Vector3 position(coord.X, coord.Y, coord.Z);
 		Vector3 & velocity = GasVelocity;
 		velocity = Vector3(0, 0, -2);
-		double gravity = Rule->Gravity; // RA2: the gravity is read into a local first
-		velocity.Z -= gravity; // RA2: as above
-
-		Coord old_coord(position.X, position.Y, position.Z);
-		position += velocity;
-		Coord coord2(position.X, position.Y, position.Z);
-
-		int height_gl = Map.Get_Height_GL(coord2);
-		int height_bridge = height_gl + BRIDGE_LEPTON_HEIGHT;
-
-		CellClass * cellptr = &Map[coord2];
-		bool start_under_bridge = false;
-		bool end_under_bridge = false;
-		if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
-			if (coord2.Z >= height_bridge) {
-				if (old_coord.Z < height_bridge) {
-					end_under_bridge = true;
-				}
-			} else {
-				if (old_coord.Z >= height_bridge) {
-					start_under_bridge = true;
-				}
-			}
-		}
-
-		bool blocked = false;
-		if (!start_under_bridge && !end_under_bridge) {
-			if (position.Z >= (double)height_gl && position.Z - 150.0f < (double)height_gl) {
-				BuildingClass * building = cellptr->Cell_Building();
-				if (building || cellptr->Has_Wall_Or_Gate()) {
-					blocked = true;
-					if (building) {
-						if (building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
-							blocked = false;
-						}
-						if (building->Considered_Vehicle()) {
-							blocked = false;
-						}
-					}
-				} else {
-					blocked = false;
-				}
-			}
-		}
-
-		if (position.Z < (float)height_gl || start_under_bridge || end_under_bridge || blocked) { // RA2: the position is compared as a float and decides the whole block
-			if (start_under_bridge) { // RA2: the position is moved onto the bridge, below it or onto the ground before the slope is applied
-				position.Z = height_bridge; // RA2: as above
-			} else if (end_under_bridge) { // RA2: as above
-				position.Z = height_bridge - 20; // RA2: as above
-			} else if ((float)(height_gl - 100) < position.Z) { // RA2: as above
-				position.Z = (float)height_gl; // RA2: as above
-			}
-			Slope_Vector(velocity, coord2, 1);
-		}
+		Ballistic_Move(position, velocity, Rule->Gravity, 1.0, 0.0); // RA2: the move shared with BounceClass::AI (ra2-decomp)
 
 		if (HeightAGL > 5 && (Frame % 2) == 0) {
 			GasDrift.Z = MAX(-5, GasDrift.Z - 1);
@@ -359,7 +288,6 @@ void ParticleClass::Gas_Behavior_AI(void)
 		StateAI = 0; // RA2: as above
 	}
 }
-#endif
 
 
 
@@ -445,75 +373,18 @@ void ParticleClass::Smoke_Behavior_AI(void)
 /// wall, at which point it glances off along the slope and is flagged for death.
 /// Its color is blended a step further along the type's color list each frame.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00609540 has no row); main: best 66.45, tried 6 times (inline, ruling, frame)
+#ifdef RA2_NON_MATCHING // not exact: 694 bytes differ (ra2-decomp's Ballistic_Move level: call list and frame size the image's, slot order and registers not); main: best 66.45, tried 6 times (inline, ruling, frame)
 void ParticleClass::Spark_Behavior_AI(void)
 {
 	Coord coord = PositionCoord;
 	MovementDirection.Z -= Rule->Gravity;
 	Vector3 velocity(MovementDirection.X, MovementDirection.Y, MovementDirection.Z);
 	Vector3 position(coord.X, coord.Y, coord.Z);
-	velocity.Z -= Rule->Gravity;
-
-	Coord old_coord(position.X, position.Y, position.Z);
-	position += velocity;
-	Coord coord2(position.X, position.Y, position.Z);
-
-	int height_gl = Map.Get_Height_GL(coord2);
-	int height_bridge = height_gl + BRIDGE_LEPTON_HEIGHT;
-
-	CellClass * cellptr = &Map[coord2];
-	bool start_under_bridge = false;
-	bool end_under_bridge = false;
-	if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
-		if (coord2.Z >= height_bridge) {
-			if (old_coord.Z < height_bridge) {
-				end_under_bridge = true;
-			}
-		} else {
-			if (old_coord.Z >= height_bridge) {
-				start_under_bridge = true;
-			}
-		}
-	}
-
-	bool blocked = false;
-	if (!start_under_bridge && !end_under_bridge) {
-		if (position.Z >= (double)height_gl && position.Z - 150.0f < (double)height_gl) {
-			BuildingClass * building = cellptr->Cell_Building();
-			if (building || cellptr->Has_Wall_Or_Gate()) {
-				blocked = true;
-				if (building) {
-					if (building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
-						blocked = false;
-					}
-					if (building->Considered_Vehicle()) {
-						blocked = false;
-					}
-				}
-			} else {
-				blocked = false;
-			}
-		}
-	}
-
-	bool sloped = true;
-	if (position.Z >= (float)height_gl && !start_under_bridge && !end_under_bridge && !blocked) {
-		sloped = false;
-	} else if (start_under_bridge) {
-		position.Z = height_bridge;
-	} else if (end_under_bridge) {
-		position.Z = height_bridge - 20;
-	} else if ((float)(height_gl - 100) < position.Z) {
-		position.Z = (float)height_gl;
-	}
-
-	if (sloped) {
-		Slope_Vector(velocity, coord2, 1);
+	if (Ballistic_Move(position, velocity, Rule->Gravity, 1.0, 0.0)) { // RA2: as in Gas_Behavior_AI
 		IsToDie = true;
 	}
 
-	Point3D new_position(position.X, position.Y, position.Z);
-	Set_Coord((Coord const &)new_position);
+	Set_Coord(Coord(position.X, position.Y, position.Z)); // RA2: an unnamed coordinate, built in the slot the move left free
 	ColorAccum += Class->ColorSpeed + Random_Double(0.0, 0.05);
 	if (ColorAccum > 1.0) {
 		if (ColorIndex < Class->ColorList.Count() - 2) {

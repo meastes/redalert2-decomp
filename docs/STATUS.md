@@ -3158,3 +3158,18 @@ Manifest history (body bytes added per commit, and per hour since the previous c
   leaf functions and per-address owner classes. Replace them with typed source
   during class sweeps when the replacement stays exact; the current directory
   and naming counts are in [RECOVERED_SOURCE_INDEX.md](RECOVERED_SOURCE_INDEX.md).
+- **Rebuild "declared, never defined" 60 -> 31 (lane O14, 2026-11-21): 21 false listings and 8 real
+  removals, reported apart** (review session's condition on the measure fix). *False listings (measure
+  correction, no source change, 21):* 0f85b91f4 read 16 unqualified friend declarations as class members
+  (DSAudio Audio_Available, Direct_Sound_Object, Direct_Sound_Primary_Buffer; Restore_Surface; _Graphic_Menu;
+  GM_Read_Image_Item; Int Gcd, Generate_Prime; Modem_Guest_Dialog_Proc; ModemHostCallback, Modem_Host_Dialog_Proc;
+  Phone_Dialog_Proc; Edit_Phone_Dialog_Proc; Com_Settings_Dialog_Proc; VocClass_From_Name, Voc_Name), 57 -> 41;
+  b26573803 read 4 friends after an access label (Dropship_Screen, Recalc_House_Factories, Message_Input,
+  Main_Loop) and one spaced template qualifier (PriorityQueueClass <T>::Remove_Matching), 41 -> 36. Tests for
+  the three forms: `rebuild/tests/test_declared_never_defined.py` (14 of its 15 fail on the tool before
+  0f85b91f4). *Real removals (declarations with no RA2 body and no caller taken out of their headers, every
+  includer unchanged, 8 list entries):* SmudgeTypeClass::Prep_For_Add, OverlayTypeClass::Prep_For_Add,
+  HouseTypeClass::One_Time (60 -> 57); StripClass::Init_Clear and Init_IO, ShapeSet::Get_Size(int),
+  WWMessageBox::_Process (its three overloads, with the six narrow Process forwarders that call them; the wide
+  Process stays), WindowsVersionInfo::As_String (36 -> 31). CreditClass::Update stays listed: removing it flips
+  wonline Encode_Game_Options by declaration count. Evidence: `rebuild/manifest/b_log_o14.csv`.

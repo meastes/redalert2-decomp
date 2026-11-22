@@ -42,26 +42,8 @@ class WWMessageBox
 	public:
 		WWMessageBox(wchar_t const * caption = L" ") {Caption = caption;}; // RA2: wide caption, a space by default
 
-		/*
-		 * Convenience forwarders; the Enter key answers with button 0.
-		 */
-		int Process(int msg, int b1txt) { return(_Process(msg, 0, b1txt, TXT_NONE, TXT_NONE, false)); }
-		int Process(int msg, int b1txt, int b2txt, bool preserve=false) { return(_Process(msg, 0, b1txt, b2txt, TXT_NONE, preserve)); }
-		int Process(int msg, int b1txt, int b2txt, int b3txt, bool preserve=false) { return(_Process(msg, 0, b1txt, b2txt, b3txt, preserve)); }
-		int Process(const char * msg, int b1txt) { return(_Process(msg, 0, b1txt, TXT_NONE, TXT_NONE, false)); }
-		int Process(char const * msg, int b1txt, int b2txt, bool preserve=false) { return(_Process(msg, 0, b1txt, b2txt, TXT_NONE, preserve)); }
-		int Process(char const * msg, int b1txt, int b2txt, int b3txt, bool preserve=false) { return(_Process(msg, 0, b1txt, b2txt, b3txt, preserve)); }
 		int Process(wchar_t const * msg, wchar_t const * b1txt, wchar_t const * b2txt, wchar_t const * b3txt, bool preserve = false); // RA2: wide text
 
-		/*
-		 * 'defresponse' is the button index the box returns when the player
-		 * answers with the Enter key (IDOK) instead of clicking a button.
-		 * These carry a distinct name because overloading them against the
-		 * wrappers above would be ambiguous.
-		 */
-		int _Process(const char *msg, int defresponse, const char *b1txt, const char *b2txt=NULL, const char *b3txt=NULL, bool preserve=false);
-		int _Process(int msg, int defresponse, int b1txt, int b2txt=TXT_NONE, int b3txt=TXT_NONE, bool preserve=false);
-		int _Process(char const *msg, int defresponse, int b1txt=TXT_OK, int b2txt=TXT_NONE, int b3txt=TXT_NONE, bool preserve=false);
 };
 
 bool Prompt_Dialog(wchar_t const * text); // RA2: 0x00600C80; shows the text and returns false when the player cancels

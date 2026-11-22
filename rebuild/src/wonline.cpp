@@ -234,7 +234,7 @@ bool Is_Tournament_Session(void)
 	return(Online_Session_State == 2 || Online_Session_State == 1);
 }
 
-Wstring g_AccountEmail;
+Wstring g_BirthdateEmail;
 Wstring g_AccountBirthMonth;
 Wstring g_AccountBirthDay;
 Wstring g_AccountBirthYear;
@@ -5553,7 +5553,7 @@ birthdate_retry: // RA2: the retry is written as a jump, as in the reference bod
 	ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 	if (WS_Wait_Dialog(dialog, Wait_Callback_Thunk, false, true, true) == 1) { // RA2: the birthdate was entered
 		email[0] = 0; // RA2: the answers of the birthdate dialog
-		strcpy(email, g_AccountEmail.get()); // RA2: as above
+		strcpy(email, g_BirthdateEmail.get()); // RA2: as above
 		month = g_BirthdateMonth + 1; // RA2: as above
 		day = g_BirthdateDay; // RA2: as above
 		year = g_BirthdateYear; // RA2: as above
@@ -6936,9 +6936,9 @@ LRESULT CALLBACK Birthdate_Dialog_Proc(HWND window,UINT message,WPARAM wparam,LP
 	case 0x111:
 		switch(wparam&0xffff) {
 		case 1: {
-			g_AccountEmail.clear();
+			g_BirthdateEmail.clear();
 			HWND edit=GetDlgItem(window,0x626);
-			if(edit) Get_Window_Text(edit,g_AccountEmail);
+			if (edit) Get_Window_Text(edit, g_BirthdateEmail);
 			g_AccountBirthMonth.clear();
 			edit=GetDlgItem(window,0x62e);
 			if(edit) {

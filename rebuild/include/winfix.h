@@ -77,7 +77,6 @@ class WindowsVersionInfo
 	public:
 		WindowsVersionInfo(void);
 		~WindowsVersionInfo(void) {}
-		const char *As_String(void);
 
 		int 	Major								( void ) const { return( MajorVersionNumber ); }
 		int 	Minor								( void ) const { return( MinorVersionNumber ); }

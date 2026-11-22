@@ -2,10 +2,10 @@
   "id": "rebuild-bounce",
   "population": {
     "id": "rebuild-bounce",
-    "inventory_sha256": "ddb5e1236a6211c893d1190bc3ea826204b5b869acb5006b064bfedee40ecc07",
-    "gaps_sha256": "c2436677aa5862297645e3eb9ead02a38847d4f2da1d82947da18a1e0fbd2c14",
-    "historical_population_sha256": "381071d8f34ffce49b4ef0d6363184503387265eb6d0874791d105c0b6b1826f",
-    "historical_acceptance_sha256": "1029b3b961359ff549221ff8f9aa6914087a0a2563013142f5c16e9fad793d01"
+    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
+    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
+    "historical_population_sha256": "5ea2f85010a90c193bd71b27f049dc2feb0de904aa9dfd34eb0fd74afa94a9ed",
+    "historical_acceptance_sha256": "a5693860e7e188de5d6bbece6c12723c1b37b2d2680ac2271e718faf6bd4c26c"
   },
   "references": {
     "_RECT_NONE": 8711184,
@@ -55,6 +55,30 @@
     "?Map@@3VMouseClass@@A": 8594656,
     "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
     "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z": 5537792,
+    "?Length@Vector3@@QBEMXZ": 4421392,
+    "??XVector3@@QAEAAV0@M@Z": 4421296,
+    "??0Coord@@QAE@HHH@Z": 4409376,
+    "??YVector3@@QAEAAV0@ABV0@@Z": 4421344,
+    "__real@4@40069600000000000000": 7981736,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Has_Wall_Or_Gate@CellClass@@QBE_NW4OverlayType@@W4FacingType@@@Z": 4675648,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Get_Cell_Ramp@Tactical@@QAEHABVCoord@@@Z": 6975760,
+    "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
+    "?Orthogonal_Inverse@Matrix3D@@SI?AV1@ABV1@@Z": 5837856,
+    "??0Vector3@@QAE@MMM@Z": 4421264,
+    "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z": 5835984,
+    "??AQuaternion@@QAEAAMH@Z": 6431280,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
+    "__real@8@bff2d1b71758e2196800": 7981728,
+    "__real@8@bff39d495182a9930800": 7981720,
+    "__real@4@3fff8000000000000000": 7976952,
+    "?Bounce_Direction@CellClass@@QBE?AW4FacingType@@ABVCoord@@@Z": 4692672,
+    "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z": 7442448,
+    "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z": 5837696,
+    "??D@YI?AVQuaternion@@ABV0@0@Z": 6431744,
+    "?Get_Remaining_Motion@BounceClass@@QBENXZ": 4419568,
+    "__real@8@4000a000000000000000": 7981688,
     "_$E2": 4418176,
     "_$E5": 4418208,
     "_$E8": 4418256,
@@ -73,7 +97,7 @@
     "?Init@BounceClass@@QAEXABVCoord@@NNNN@Z": 4418672,
     "?Get_Bounce_Coord@BounceClass@@QBE?AVCoord@@XZ": 4419456,
     "?Get_Matrix@BounceClass@@QBE?AVMatrix3D@@XZ": 4419520,
-    "?Get_Remaining_Motion@BounceClass@@QBENXZ": 4419568,
+    "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ": 4419808,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7type_info@@6B@": 8066532,
@@ -142,11 +166,12 @@
           "resolved": 8711196
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418176,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418208,
@@ -210,11 +235,12 @@
           "resolved": 8711208
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418208,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418256,
@@ -262,11 +288,12 @@
           "resolved": 8711280
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418256,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418288,
@@ -314,11 +341,12 @@
           "resolved": 8711264
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418288,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418320,
@@ -366,11 +394,12 @@
           "resolved": 8711256
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418320,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418352,
@@ -418,11 +447,12 @@
           "resolved": 8711216
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418352,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418384,
@@ -470,11 +500,12 @@
           "resolved": 8711176
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418384,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418416,
@@ -554,11 +585,12 @@
           "resolved": 8711288
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418416,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418480,
@@ -614,11 +646,12 @@
           "resolved": 8711224
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418480,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418528,
@@ -674,11 +707,12 @@
           "resolved": 8711248
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418528,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418576,
@@ -734,11 +768,12 @@
           "resolved": 8711272
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418576,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418624,
@@ -778,11 +813,12 @@
           "resolved": 8711202
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418624,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418640,
@@ -830,11 +866,12 @@
           "resolved": 8711240
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418640,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4418672,
@@ -1010,11 +1047,12 @@
           "resolved": 21
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4418672,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4419008,
@@ -1166,11 +1204,12 @@
           "resolved": 2011870
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4419008,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4419456,
@@ -1218,11 +1257,12 @@
           "resolved": 3441007
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4419456,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4419520,
@@ -1254,11 +1294,12 @@
           "resolved": 2014943
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4419520,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
     },
     {
       "entry": 4419568,
@@ -1394,11 +1435,642 @@
           "resolved": 3440711
         }
       ],
-      "source_sha256": "5b7e85a6a96c79d55c78e31cc2b69fa0e7aae719a399a6ccc9901e6d14c438cd",
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
       "source": "rebuild/src/bounce.cpp",
       "population": "rebuild-bounce",
       "source_order": 4419568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4034"
+    },
+    {
+      "entry": 4419808,
+      "method": "004370e0",
+      "body_bytes": 1448,
+      "body_sha256": "634507e8427fb2952ffc9717e2b02d4415b4fe4955d5b10dfebbcbfd3b5b235f",
+      "padding_bytes": 8,
+      "full_extent_bytes": 1456,
+      "full_extent_sha256": "53800040aee9d7e2811f39cea42e134da3a76c58aefd17179f6248bdc2d40c6e",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis (population-54); ordinary function main never bounded: BounceClass::AI (mischa85 names.csv; anim's call); seeded-pass5-aligned row 1448 bytes + its 8-byte gap row; bounded by bounce's exact rows Get_Remaining_Motion (ends 0x4370E0) and Vector3::Vector3(float, float, float) (0x437690); main has it non-exact, best 99.77 (lane F18, the session 0x673090 precedent)",
+      "padding_provenance": null,
+      "symbol": "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ",
+      "symbol_prefix": "?AI@BounceClass@@QAE?AW4BounceResultType@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 104,
+          "kind": 6,
+          "symbol": "__real@8@00000000000000000000",
+          "target": 7976464,
+          "addend": 0,
+          "resolved": 7976464
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "?Length@Vector3@@QBEMXZ",
+          "target": 4421392,
+          "addend": 0,
+          "resolved": 1462
+        },
+        {
+          "offset": 144,
+          "kind": 20,
+          "symbol": "??XVector3@@QAEAAV0@M@Z",
+          "target": 4421296,
+          "addend": 0,
+          "resolved": 1340
+        },
+        {
+          "offset": 157,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440527
+        },
+        {
+          "offset": 166,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440518
+        },
+        {
+          "offset": 175,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440509
+        },
+        {
+          "offset": 185,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@HHH@Z",
+          "target": 4409376,
+          "addend": 0,
+          "resolved": 4294956675
+        },
+        {
+          "offset": 193,
+          "kind": 20,
+          "symbol": "??YVector3@@QAEAAV0@ABV0@@Z",
+          "target": 4421344,
+          "addend": 0,
+          "resolved": 1339
+        },
+        {
+          "offset": 201,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440483
+        },
+        {
+          "offset": 210,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440474
+        },
+        {
+          "offset": 219,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3440465
+        },
+        {
+          "offset": 229,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@HHH@Z",
+          "target": 4409376,
+          "addend": 0,
+          "resolved": 4294956631
+        },
+        {
+          "offset": 239,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 244,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 1192104
+        },
+        {
+          "offset": 250,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8711272,
+          "addend": 0,
+          "resolved": 8711272
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 275,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 1117705
+        },
+        {
+          "offset": 308,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 313,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 1117667
+        },
+        {
+          "offset": 412,
+          "kind": 6,
+          "symbol": "__real@4@40069600000000000000",
+          "target": 7981736,
+          "addend": 0,
+          "resolved": 7981736
+        },
+        {
+          "offset": 430,
+          "kind": 20,
+          "symbol": "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ",
+          "target": 4659120,
+          "addend": 0,
+          "resolved": 238878
+        },
+        {
+          "offset": 449,
+          "kind": 20,
+          "symbol": "?Has_Wall_Or_Gate@CellClass@@QBE_NW4OverlayType@@W4FacingType@@@Z",
+          "target": 4675648,
+          "addend": 0,
+          "resolved": 255387
+        },
+        {
+          "offset": 656,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 666,
+          "kind": 20,
+          "symbol": "?Get_Cell_Ramp@Tactical@@QAEHABVCoord@@@Z",
+          "target": 6975760,
+          "addend": 0,
+          "resolved": 2555282
+        },
+        {
+          "offset": 680,
+          "kind": 20,
+          "symbol": "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z",
+          "target": 7441760,
+          "addend": 0,
+          "resolved": 3021268
+        },
+        {
+          "offset": 715,
+          "kind": 20,
+          "symbol": "?Orthogonal_Inverse@Matrix3D@@SI?AV1@ABV1@@Z",
+          "target": 5837856,
+          "addend": 0,
+          "resolved": 1417329
+        },
+        {
+          "offset": 756,
+          "kind": 20,
+          "symbol": "??0Vector3@@QAE@MMM@Z",
+          "target": 4421264,
+          "addend": 0,
+          "resolved": 696
+        },
+        {
+          "offset": 778,
+          "kind": 20,
+          "symbol": "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z",
+          "target": 5835984,
+          "addend": 0,
+          "resolved": 1415394
+        },
+        {
+          "offset": 815,
+          "kind": 20,
+          "symbol": "??XVector3@@QAEAAV0@M@Z",
+          "target": 4421296,
+          "addend": 0,
+          "resolved": 669
+        },
+        {
+          "offset": 847,
+          "kind": 20,
+          "symbol": "?Rotate_Vector@Matrix3D@@QAE?AVVector3@@ABV2@@Z",
+          "target": 5835984,
+          "addend": 0,
+          "resolved": 1415325
+        },
+        {
+          "offset": 903,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010565
+        },
+        {
+          "offset": 920,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010548
+        },
+        {
+          "offset": 935,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010533
+        },
+        {
+          "offset": 952,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010516
+        },
+        {
+          "offset": 967,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010501
+        },
+        {
+          "offset": 984,
+          "kind": 20,
+          "symbol": "??AQuaternion@@QAEAAMH@Z",
+          "target": 6431280,
+          "addend": 0,
+          "resolved": 2010484
+        },
+        {
+          "offset": 998,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439686
+        },
+        {
+          "offset": 1007,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439677
+        },
+        {
+          "offset": 1016,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439668
+        },
+        {
+          "offset": 1026,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294852938
+        },
+        {
+          "offset": 1035,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439649
+        },
+        {
+          "offset": 1045,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439639
+        },
+        {
+          "offset": 1055,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3439629
+        },
+        {
+          "offset": 1065,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4294852899
+        },
+        {
+          "offset": 1074,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1080,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 1116900
+        },
+        {
+          "offset": 1097,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1102,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 1116878
+        },
+        {
+          "offset": 1130,
+          "kind": 6,
+          "symbol": "__real@8@bff2d1b71758e2196800",
+          "target": 7981728,
+          "addend": 0,
+          "resolved": 7981728
+        },
+        {
+          "offset": 1161,
+          "kind": 6,
+          "symbol": "__real@8@bff39d495182a9930800",
+          "target": 7981720,
+          "addend": 0,
+          "resolved": 7981720
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "__real@4@3fff8000000000000000",
+          "target": 7976952,
+          "addend": 0,
+          "resolved": 7976952
+        },
+        {
+          "offset": 1258,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 1116717
+        },
+        {
+          "offset": 1270,
+          "kind": 20,
+          "symbol": "?Bounce_Direction@CellClass@@QBE?AW4FacingType@@ABVCoord@@@Z",
+          "target": 4692672,
+          "addend": 0,
+          "resolved": 271590
+        },
+        {
+          "offset": 1289,
+          "kind": 20,
+          "symbol": "?Get_Bounce_Matrix@@YI?AVMatrix3D@@W4FacingType@@@Z",
+          "target": 7442448,
+          "addend": 0,
+          "resolved": 3021347
+        },
+        {
+          "offset": 1322,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 1416562
+        },
+        {
+          "offset": 1393,
+          "kind": 20,
+          "symbol": "??D@YI?AVQuaternion@@ABV0@0@Z",
+          "target": 6431744,
+          "addend": 0,
+          "resolved": 2010539
+        },
+        {
+          "offset": 1406,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 2010094
+        },
+        {
+          "offset": 1413,
+          "kind": 20,
+          "symbol": "?Get_Remaining_Motion@BounceClass@@QBENXZ",
+          "target": 4419568,
+          "addend": 0,
+          "resolved": 4294965639
+        },
+        {
+          "offset": 1419,
+          "kind": 6,
+          "symbol": "__real@8@4000a000000000000000",
+          "target": 7981688,
+          "addend": 0,
+          "resolved": 7981688
+        }
+      ],
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
+      "source": "rebuild/src/bounce.cpp",
+      "population": "rebuild-bounce",
+      "source_order": 4419808,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4421264,
+      "method": "00437690",
+      "body_bytes": 25,
+      "body_sha256": "66f50239e7eca922033451ce5bfdf4e3e44cdc54514dbac3e5ad6a7f5d93a90d",
+      "padding_bytes": 7,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "86d602c279b3d518baa9c9a9c1b95b383526f63f7d48accb01dff0369658b3be",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0Vector3@@QAE@MMM@Z",
+      "symbol_prefix": "??0Vector3@@QAE@MMM@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
+      "source": "rebuild/src/bounce.cpp",
+      "population": "rebuild-bounce",
+      "source_order": 4421264,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3477"
+    },
+    {
+      "entry": 4421296,
+      "method": "004376b0",
+      "body_bytes": 33,
+      "body_sha256": "affa30ead238d9aeeaf6e56791d713067d858e7043e2a70594ed33b0965e9452",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5a3991b7ab11dfce1e561af68bc7427fbd37661290ec84473948de012dca5ee0",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??XVector3@@QAEAAV0@M@Z",
+      "symbol_prefix": "??XVector3@@QAEAAV0@M@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
+      "source": "rebuild/src/bounce.cpp",
+      "population": "rebuild-bounce",
+      "source_order": 4421296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3477"
+    },
+    {
+      "entry": 4421344,
+      "method": "004376e0",
+      "body_bytes": 33,
+      "body_sha256": "7641277a462918509ace6c8d124dc2c3e0425de65ed70f997ee6a9c2dc662b66",
+      "padding_bytes": 15,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "26907adc0ef8a1d66cd34e02f282b0f303f5a6300cd9813b8c450fa3dcd5c069",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??YVector3@@QAEAAV0@ABV0@@Z",
+      "symbol_prefix": "??YVector3@@QAEAAV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
+      "source": "rebuild/src/bounce.cpp",
+      "population": "rebuild-bounce",
+      "source_order": 4421344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3477"
+    },
+    {
+      "entry": 4421392,
+      "method": "00437710",
+      "body_bytes": 45,
+      "body_sha256": "c2a13db31faae43772006072f12db2419acfb19525917c480324b0a9c3689fd2",
+      "padding_bytes": 3,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "d253dadbe1a247e7b7ef478915beeaa978e9b66e2d5d675cfee510ce64d2d01e",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Length@Vector3@@QBEMXZ",
+      "symbol_prefix": "?Length@Vector3@@QBEMXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 535767
+        }
+      ],
+      "source_sha256": "dbc7e0fa47b9e77f3280e2b41d2cb136f15c8a5b7b7f8c0152962fe411b628c7",
+      "source": "rebuild/src/bounce.cpp",
+      "population": "rebuild-bounce",
+      "source_order": 4421392,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3477"
     }
   ]
 }

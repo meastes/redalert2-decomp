@@ -3678,3 +3678,40 @@ Found in the rebuild (lane F14, high): two inline_call rows worked from prepared
   and it does not move `Coord(Cell const &, int)` 0x61EA80 in Do_Reinforcements 0x639970. Out-of-line call
   statements inside the paradrop (4 units each) leave the constructor a call from ten on and not at nine: the
   original's paradrop body is 37 to 40 units larger than ours, one size class, not a cast or two.
+
+## A block two functions share may be another unit's inline; a spelled-out one-liner against a nested one; a named count against two Count() sites (found in the rebuild (lane F18, high))
+
+- Pull the references before fitting a level by measurement. The level lane F13 measured in particle
+  Gas_Behavior_AI 0x608BB0 is `Ballistic_Move(Vector3 & position, Vector3 & velocity, double gravity, double
+  elasticity, double max_velocity)`, ra2-decomp's `include/ballistic.h` (their commit f5e9025, 2026-11-21): the
+  move of BounceClass::AI, shared by bounce and particle. With it Gas_Behavior_AI is exact at the first compile
+  (`Ballistic_Move(position, velocity, Rule->Gravity, 1.0, 0.0)`), the image's five calls included, and the
+  archive's `Slope_Vector` has no user left in RA2.
+- The out-of-line copies after a unit's last function name the inlines it was first to refuse. After
+  BounceClass::AI 0x4370E0 the image has `Vector3(float, float, float)` 0x437690, `operator*=` 0x4376B0,
+  `operator+=` 0x4376E0 and `Length` 0x437710: bounce's object emits all four, and they are the calls particle
+  makes. A parked function that calls such copies shares an inline with the unit that owns them.
+- A nested one-liner and its spelled-out twin differ at a refused site. `Vector3::Length` as the archive has it
+  (`sqrt(Length2())`) is expanded at the clamp in BounceClass::AI with `Length2` refused inside it (a call the
+  image does not have); as ra2-decomp's vector3.h has it (`sqrt(X*X + Y*Y + Z*Z)`) the site is refused whole
+  and calls the 45-byte copy, the image's call. An outer level expanded with its inner level called, where the
+  image calls the outer, means the outer has no inner level. All 140 includers of vector3.h keep their rows.
+- An unnamed temporary takes a slot an expanded inline left free; a named local never does. Spark_Behavior_AI
+  0x609540 with the archive's `Point3D new_position(...)` has a frame of 0x130; with `Set_Coord(Coord(position.X,
+  position.Y, position.Z))` the Coord sits in the slot of the helper's `previous_coord` (frame 0x124, the
+  image's) and its base constructor is the image's call to `TPoint3D<int>(int, int, int)` 0x41B630 (the Coord
+  constructor expanded, the base refused). What is left there is slot order and registers only (694 bytes; the
+  image has `ground_height` above `velocity` and `bridge_height` in ebx), and no natural spelling of the root's
+  five statements moved it; the row is not sensitive to declaration counts either.
+- A named count is not two `Count()` sites. mapgen Create_Region_From_Cell 0x56E100: `int count = cells.Count();
+  Cell cell = cells[count - 1]; cells.Delete_Index(count - 1);` gives what lane F13's probe with the protected
+  member gave (`[ecx+edx*4-4]`, then `count - 1` computed again; `operator!=` a call; 1024 -> 555 bytes), so no
+  accessor or friend is behind that sign. Create_Zone_Region 0x575D20 in the same file, exact with `Count()`
+  written twice, has the shared index in the image: a shared index means two accessor sites, an index folded
+  into the address and computed again means one named value.
+- A lighter twin form can move a draft away from the image's call list while it lowers the byte count.
+  ra2-decomp's Recount_Cells (`Cell empty_cell; empty_cell.X = 0; empty_cell.Y = 0;`) with the named count
+  reads 538 against 555, but expands `operator!=` where the image calls it; the for-statement form of the count
+  does the same. Read the call list before the count.
+- `pgrep -f NAME` in a wait loop matches the loop's own shell (its command line holds NAME); write the pattern
+  as `[N]AME`.
