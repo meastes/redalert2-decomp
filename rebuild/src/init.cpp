@@ -1165,7 +1165,7 @@ static CampaignType Choose_Campaign(void)
 	SideSoundTime = 0; // RA2: as above
 	HoveredSideButton = 0; // RA2: as above
 
-	dialog = OwnerDraw::Begin_Dialog(0x94, Campaign_Choice_Dialog_Proc, 0); // RA2: the campaign dialog (IDD_CAMPAIGN in TibSun)
+	dialog = OwnerDraw::Begin_Dialog(IDD_CAMPAIGN, Campaign_Choice_Dialog_Proc, 0); // RA2: the campaign dialog (IDD_CAMPAIGN in TibSun)
 	if (dialog != NULL) {
 		SetWindowLong(dialog, DWL_USER, (LONG)&state); // RA2: as above
 		Center_Window_Within_Window(dialog, MainWindow); // RA2: as above
@@ -1784,7 +1784,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 						state = (ChooseCampaignStruct *)GetWindowLong(window, DWL_USER);
 
 						if (state != NULL) {
-							item = GetDlgItem(window, 0x455); // RA2: the campaign list
+							item = GetDlgItem(window, IDC_LIST); // RA2: the campaign list
 							if (item != NULL) {
 								state->ChosenCampaign = (CampaignType)SendMessage(item, LB_GETCURSEL, 0, 0); // RA2: the list holds the available campaigns in order
 								state->ChoiceMade = true;
@@ -1954,7 +1954,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			SovietSelectVoc = VocClass::From_Name("SovietCampaignSelect"); // RA2: as above
 			AlliedSelectVoc = VocClass::From_Name("AlliedCampaignSelect"); // RA2: as above
 			BootCampSelectVoc = VocClass::From_Name("BootCampSelect"); // RA2: as above
-			item = GetDlgItem(window, 0x455); // RA2: the campaign list
+			item = GetDlgItem(window, IDC_LIST); // RA2: the campaign list
 			if (CampaignListShown) { // RA2: as above
 				if (item != NULL) {
 					for (int index = 0; index < Campaigns.Count(); index++) {

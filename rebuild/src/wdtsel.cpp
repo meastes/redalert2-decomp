@@ -42,7 +42,7 @@ using namespace WorldDominationTour;
 
 inline TERRITORY_ITER Walk_Territories(TERRITORY_LIST & list) { return(TERRITORY_ITER(list, 0)); }
 
-static inline WideWstring Load_Selection_Text(char const * label, int source_line) // RA2: ra2-decomp's file-local helper (its wdtsel.cpp, used by its Select_Territory at the four tooltips; `static` there)
+static WideWstring Load_Selection_Text(char const * label, int source_line) // RA2: ra2-decomp's file-local helper (its wdtsel.cpp, used by its Select_Territory at the four tooltips)
 {
 	return(WideWstring(StringTable::LoadString(label, NULL, "D:\\Ra2\\WDTSel.cpp", source_line)));
 }

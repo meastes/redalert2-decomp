@@ -214,7 +214,7 @@ void LoadProgressManager::Load_Mixes(void)
 /// <summary>
 /// Whether the local player watches the game instead of playing it.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00535bf0 has no row); 3730 of 3978 bytes differ against the frozen image bound (image_bounds.csv) (emitted 3712 bytes; the draft made to compile: MP point, drawer and file-name declarations), 2026-11-22 (lane O32)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00535bf0 has no row); 1906 of 3978 bytes differ against the frozen image bound (image_bounds.csv) (was 3730; all 85 calls and the 0x1184 stack probe match)
 ConvertClass * __cdecl Get_Load_Screen_Drawer(void); // RA2: 0x006F2450
 ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void); // RA2: 0x006F2470
 ConvertClass * __cdecl Get_Splash_Bar_Drawer(void); // RA2: 0x006F2490
@@ -258,8 +258,9 @@ inline void Loading_Filename(char * filename, int side, char const * suffix)
 /// <summary>
 /// The area of the country's name, 200 by 20 at the bottom, centred on screens past 800 by 600.
 /// </summary>
-inline void Name_Area(Rect & area)
+inline Rect Name_Area(void)
 {
+	Rect area;
 	if (VideoModeWidth == ScreenWidths[0]) {
 		area.X = 385;
 		area.Y = 436;
@@ -273,6 +274,7 @@ inline void Name_Area(Rect & area)
 		area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
 		area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
 	}
+	return area;
 }
 
 /// <summary>
@@ -504,12 +506,12 @@ void LoadProgressManager::Draw(void)
 	}
 
 	{
-		Point2D point(0, 0);
 		int side = Session.Players[0]->Get_Country();
 		char const * suffix = VideoModeWidth == ScreenWidths[0] ? Suffix640 : Suffix800;
 		Loading_Filename(filename, side, suffix);
 		PictureShape = Load_Alloc_Data(filename, PictureShapeLoaded);
 		ConvertClass * drawer = Get_MP_Load_Drawer();
+		Point2D point = Copy_Point((Point2D const *)&PictureRect);
 		Draw_Shape(*ProgressSurface, *drawer, (ShapeSet const *)PictureShape, 0, point, screen, SHAPE_WIN_REL, NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0));
 
 		ColorScheme * scheme = Progress.Text_Scheme();
@@ -517,8 +519,8 @@ void LoadProgressManager::Draw(void)
 		int pixel = DSurface::Build_Hicolor_Pixel(pixel_color);
 
 		wchar_t const * country_name = Country_Name(side);
-		Rect area;
-		Name_Area(area);
+		Rect area = Name_Area();
+		point = Copy_Point((Point2D const *)&area);
 		Shade_Text_Area(country_name, ProgressSurface, point.X, point.Y, area.Width, 2, false);
 		Draw_Area_Text(country_name, ProgressSurface, area, pixel, 2);
 
@@ -531,12 +533,14 @@ void LoadProgressManager::Draw(void)
 
 			wchar_t const * brief = Briefing(side);
 			area = Get_Briefing_Area();
+			point = Copy_Point((Point2D const *)&area);
 			Shade_Text_Area(brief, ProgressSurface, point.X, point.Y, area.Width, 0, true);
 			Draw_Area_Text(brief, ProgressSurface, area, pixel, 0);
 		}
 
 		wchar_t const * loading = StringTable::LoadString("GUI:LoadingEx", NULL, "D:\\Ra2\\LdPrgMgr.cpp", 749);
 		area = Get_Loading_Text_Area();
+		point = Copy_Point((Point2D const *)&area);
 		Shade_Text_Area(loading, ProgressSurface, point.X, point.Y, area.Width, 0, false);
 		Draw_Area_Text(loading, ProgressSurface, area, pixel, 0);
 	}
@@ -611,13 +615,14 @@ void __fastcall Shade_Text_Area(wchar_t const * text, Surface * surface, int x, 
 /// </summary>
 void __fastcall Draw_Area_Text(wchar_t const * text, Surface * surface, Rect const & area, unsigned short color, int flags)
 {
+	BitFont * font = BitFont::Instance;
 	RECT rect;
 	rect.left = area.X;
 	rect.top = area.Y;
 	rect.right = area.X + area.Width;
 	rect.bottom = area.Y + area.Height;
 	RGBClass rgb = DSurface::Deconstruct_Hicolor_Pixel(color);
-	OwnerDraw::Draw_Text_In_Rect_Ex(surface, text, &rect, BitFont::Instance, rgb.Get_Red() | (rgb.Get_Green() << 8) | (rgb.Get_Blue() << 16), flags, 12, 0, 0, 0);
+	OwnerDraw::Draw_Text_In_Rect_Ex(surface, text, &rect, font, rgb.Get_Red() | (rgb.Get_Green() << 8) | (rgb.Get_Blue() << 16), flags, 12, 0, 0, 0);
 }
 
 

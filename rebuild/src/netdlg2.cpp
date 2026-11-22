@@ -342,7 +342,7 @@ void __fastcall Reject_Join(NodeNameType * node) // RA2: 0x005BC3E0; turns a joi
 
 bool __fastcall Update_Lobby_Count(int count, bool flag1, bool flag2) // RA2: 0x005BC430
 {
-	HWND dialog = WS_Find_Dialog(0xBC); // RA2: as above
+	HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST); // RA2: as above
 	return Lobby_Update_Dialog(dialog, count, flag1, flag2); // RA2: as above
 }
 
@@ -462,7 +462,7 @@ void Net2DisplayGameList(void)
 {
 	wchar_t text[80]; // RA2: as above
 
-	if (WS_Top_Window_ID() == 0xBB) { // RA2: as above
+	if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
 		HWND dialog = WS_Top_Window(); // RA2: as above
 		HWND list = GetDlgItem(dialog, IDC_GAMELIST); // RA2: as above
 		if (CurGame >= Session.Games.Count()) { // RA2: as above
@@ -545,7 +545,7 @@ void Net2SetAccept(char const * who, int status) // RA2: as above
 	if (who == NULL) {
 		who = Session.Handle;
 		if (status == 0) { // RA2: as above
-			HWND dialog = WS_Find_Dialog(0xBD); // RA2: the player's own side and color boxes follow the status
+			HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: the player's own side and color boxes follow the status
 			Enable_Player_Combos(dialog, true); // RA2: as above
 		}
 	}
@@ -777,8 +777,8 @@ bool Net_Join_Dialog(void) // RA2: as above
 	Session.NetOpen = true;
 	Net2OptionsLocked = false; // RA2: as above
 	OwnerDraw::Register_Window_Classes(); // RA2: as above
-	HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-	Show_Dialog(dialog, 0xBB); // RA2: as above
+	HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
+	Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
 	ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 	Net2DisplayUsersFull(false); // RA2: as above
 	CurGame = 0;
@@ -811,7 +811,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 			if (WS_Top_Window()) {
 				Send_Join_Queries(0, 0, 0, 0); // RA2: as above
 				Get_Join_Responses();
-				if (WS_Top_Window_ID() == 0xBC) { // RA2: as above
+				if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
 					Send_Lobby_Options(false, false); // RA2: as above
 				}
 				Net2ServiceGameList();
@@ -823,7 +823,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 		//.....................................................................
 		if (_netresponse == 0x5C0 || _netresponse == 2) { // RA2: as above
 			Session.Write_MultiPlayer_Settings();
-			if (WS_Top_Window_ID() == 0xBB) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
 				if (JoinState > JOIN_NOTHING) {
 					Unjoin_Game(CurGame);
 					Ipx.Service();
@@ -838,16 +838,16 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Ipx.Service();
 				return(false);
 			}
-			if (WS_Top_Window_ID() == 0xBC) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
 				Unjoin_Game(CurGame);
 				JoinState = JOIN_NOTHING;
 				WS_Destroy_Dialog(WS_Top_Window(), 0);
 				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, 0xBB); // RA2: as above
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
 				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 				Send_Join_Queries(0, 0, 1, 0);
-			} else if (WS_Top_Window_ID() == 0xBD) { // RA2: as above
+			} else if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
 				if (JoinState == JOIN_CONFIRMED) {
 					Unjoin_Game(CurGame);
 					JoinState = JOIN_NOTHING;
@@ -887,8 +887,8 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Clear_Vector(&Session.Players);
 				Clear_Slot_Lists(); // RA2: as above
 				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, 0xBB); // RA2: as above
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
 				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 			} else {
 				if (JoinState == JOIN_CONFIRMED) {
@@ -925,8 +925,8 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Clear_Vector(&Session.Players);
 				Clear_Slot_Lists(); // RA2: as above
 				Reset_Slots(); // RA2: as above
-				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, 0xBB); // RA2: as above
+				dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GAME_LIST, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
+				Show_Dialog(dialog, IDD_MPLAYER_GAME_LIST); // RA2: as above
 				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 			}
 		}
@@ -1061,8 +1061,8 @@ bool Net_Join_Dialog(void) // RA2: as above
 				//	Pop up the New Network Game dialog; if user selects OK, return
 				//	'true'; otherwise, return to the Join Dialog.
 				//..................................................................
-				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, 0xBC, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(host, 0xBC); // RA2: as above
+				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_HOST, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0); // RA2: as above
+				Show_Dialog(host, IDD_MPLAYER_HOST); // RA2: as above
 				SendMessageA(host, 0x4A9, 0, 1); // RA2: as above
 				ShowWindow(host, SW_SHOWNORMAL); // RA2: as above
 			} else {
@@ -1077,7 +1077,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 			}
 		}
 
-		if (_netresponse == 1 && WS_Top_Window_ID() == 0xBD) { // RA2: as above
+		if (_netresponse == 1 && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
 			while (WS_Destroy_Dialog(0, 0) == true) { // RA2: as above
 			}
 			if (JoinState == JOIN_GAME_START) { // RA2: as above
@@ -1487,7 +1487,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 					state = SendMessage(item, BM_GETCHECK, 0, 0);
 			}
 				if (LOWORD(wparam) == 0x75f) {
-					state = (state == 0);
+					state = (state == BST_UNCHECKED);
 			}
 				ObserverMode = state;
 				Update_Observer_Buttons(NULL);
@@ -2004,7 +2004,7 @@ static void Send_Join_Queries(int gamenow, int playernow, int chatnow, int init)
 
 	if (!gametimer || gamenow) { // RA2: as above
 		gametimer = 120; // RA2: as above
-		if (WS_Top_Window_ID() != 0xBC || gamenow) { // RA2: as above
+		if (WS_Top_Window_ID() != IDD_MPLAYER_HOST || gamenow) { // RA2: as above
 			memset(&packet, 0, sizeof(packet)); // RA2: as above
 			packet.Command = NET_QUERY_GAME;
 			strcpy(packet.Name, Session.Handle);
@@ -2120,11 +2120,11 @@ void Get_Join_Responses(void) // RA2: as above
 		// The commands of TibSun's Get_Join_Responses, in its order (RA2 adds the map preview,
 		// slot and observer packets).
 		if (Session.GPacket.Command == NET_PREVIEW_MODE) { // RA2: as above
-			if (WS_Top_Window_ID() == 0xBD) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
 				Receive_Random_Map_Preview();
 			}
 		} else if (Session.GPacket.Command == NET_REQ_PREVIEW) { // RA2: as above
-			if (WS_Top_Window_ID() == 0xBC) { // RA2: as above
+			if (WS_Top_Window_ID() == IDD_MPLAYER_HOST) { // RA2: as above
 				Enable_Start_Button(); // RA2: as above
 				display_users = true;
 				Send_Map_Preview(MultiplayerMapPreview); // RA2: as above
@@ -2214,7 +2214,7 @@ void Get_Join_Responses(void) // RA2: as above
 					}
 				}
 				Enable_Start_Button(); // RA2: as above
-				HWND dialog = WS_Find_Dialog(0xBD); // RA2: as above
+				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
 				Enable_Player_Combos(dialog, true); // RA2: as above
 				DebugString("New Player");
 				display_users = true;
@@ -2256,8 +2256,8 @@ void Get_Join_Responses(void) // RA2: as above
 				Clear_Slot_Lists(); // RA2: as above
 				Reset_Slots(); // RA2: as above
 				Seat_First_Player(Session.GPacket.PlayerInfo.Slot); // RA2: as above
-				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBD, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0); // RA2: as above
-				Show_Dialog(dialog, 0xBD); // RA2: as above
+				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_GUEST, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0); // RA2: as above
+				Show_Dialog(dialog, IDD_MPLAYER_GUEST); // RA2: as above
 				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 				display_users = true;
 				Send_Join_Queries(1, 1, 1, 0);
@@ -2321,7 +2321,7 @@ void Get_Join_Responses(void) // RA2: as above
 				if (item) {
 					ODMessageBox(item, 0, Net2Callback, false); // RA2: as above
 				}
-				if (WS_Top_Window_ID() == 0xBB) { // RA2: as above
+				if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
 					HWND window = WS_Top_Window();
 					if (window) { // RA2: as above
 						EnableWindow(window, TRUE); // RA2: as above
@@ -2362,9 +2362,9 @@ void Get_Join_Responses(void) // RA2: as above
 						if (tok) {
 							newcolor = atol(tok); // RA2: as above
 						}
-						HWND dialog = WS_Find_Dialog(0xBC); // RA2: as above
+						HWND dialog = WS_Find_Dialog(IDD_MPLAYER_HOST); // RA2: as above
 						if (!dialog) { // RA2: as above
-							dialog = WS_Find_Dialog(0xBD); // RA2: as above
+							dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
 						}
 						bool house_changed = Session.Slots[i]->Get_Country() != newhouse; // RA2: as above
 						if (house_changed) { // RA2: as above
@@ -2394,7 +2394,7 @@ void Get_Join_Responses(void) // RA2: as above
 						Clear_Slot_Lists(); // RA2: as above
 						Fill_Slots(); // RA2: as above
 						Clear_Vector(&Session.Players);
-						if (WS_Top_Window_ID() != 0xBB && WS_Top_Window_ID() == 0xBD) { // RA2: as above
+						if (WS_Top_Window_ID() != IDD_MPLAYER_GAME_LIST && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
 							_netresponse = 2;
 						}
 					}
@@ -2429,7 +2429,7 @@ void Get_Join_Responses(void) // RA2: as above
 			}
 			if (player_removed) {
 				Enable_Start_Button(); // RA2: as above
-				HWND dialog = WS_Find_Dialog(0xBD); // RA2: as above
+				HWND dialog = WS_Find_Dialog(IDD_MPLAYER_GUEST); // RA2: as above
 				Enable_Player_Combos(dialog, true); // RA2: as above
 				if (WS_Top_Window_ID() == 0x6B) { // RA2: as above
 					HWND window = WS_Top_Window();
@@ -2751,7 +2751,7 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 		case 0x528: // RA2: as above
 		case 0x6A1: // RA2: as above
 		case 0x6A2: // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 1) { // RA2: as above
+			if ((unsigned short)(wparam >> 16) == CBN_SELCHANGE) { // RA2: as above
 				int id = (unsigned short)wparam; // RA2: as above
 				int side_player = Side_Combo_Player(id); // RA2: as above
 				int color_player = Color_Combo_Player(id); // RA2: as above

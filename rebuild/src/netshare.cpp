@@ -3429,9 +3429,9 @@ NodeNameType * __fastcall Get_Kind_Entry(int kind) // RA2: 0x005C96B0, not in Ti
 
 void __fastcall Enable_Start_Button(void) // RA2: 0x005C9700, not in TibSun; the start button is enabled and every player but the host loses the accept status
 {
-	if (WS_Top_Window_ID() != 188) { // RA2: as above
+	if (WS_Top_Window_ID() != IDD_MPLAYER_HOST) { // RA2: as above
 		HWND dialog = GameoptWindow(); // RA2: as above
-		EnableWindow(GetDlgItem(dialog, 0x59F), TRUE); // RA2: as above
+		EnableWindow(GetDlgItem(dialog, IDC_ACCEPT), TRUE); // RA2: as above
 	}
 	int count = Session.Players.Count(); // RA2: as above
 	for (int i = 0; i < count; i++) { // RA2: as above
@@ -4696,7 +4696,7 @@ WideWstring __fastcall Limit_Name_Text(HWND control) // RA2: 0x005CCF50, not in 
 	}
 	if (text.length() > limit) { // RA2: as above
 		text.truncate(limit); // RA2: as above
-		SendMessageA(control, 0x4B2, 0, (LPARAM)text.text()); // RA2: as above
+		SendMessageA(control, OD_SETTEXTW, 0, (LPARAM)text.text()); // RA2: as above
 	}
 	{
 		WideWstring line_breaks(L"\n\r"); // RA2: as above
@@ -4801,7 +4801,7 @@ void __fastcall Update_Observer_Button(HWND dialog) // RA2: 0x005CD3F0, not in T
 	if (dialog != NULL) { // RA2: as above
 		HWND control = GetDlgItem(dialog, 1888); // RA2: as above
 		if (control != NULL) { // RA2: as above
-			SendMessageA(control, 0xF1, ObserverMode != 0, 0); // RA2: as above
+			SendMessageA(control, BM_SETCHECK, ObserverMode != 0, 0); // RA2: as above
 		}
 		Surface * image; // RA2: as above
 		if (ObserverMode) { // RA2: as above
@@ -4819,10 +4819,10 @@ void __fastcall Update_Observer_Button(HWND dialog) // RA2: 0x005CD3F0, not in T
 			} else {
 				text = StringTable::LoadString("GUI:Join", NULL, "D:\\Ra2\\netshare.cpp", 6074); // RA2: as above
 			}
-			SendMessageA(control, 0x4B2, 0, (LPARAM)text); // RA2: as above
+			SendMessageA(control, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 			InvalidateRect(control, NULL, FALSE); // RA2: as above
 		}
-		control = GetDlgItem(dialog, 1581); // RA2: as above
+		control = GetDlgItem(dialog, IDC_JOINLEAVE); // RA2: as above
 		if (control != NULL) { // RA2: as above
 			wchar_t const * text; // RA2: as above
 			if (ObserverMode) { // RA2: as above
@@ -4832,7 +4832,7 @@ void __fastcall Update_Observer_Button(HWND dialog) // RA2: 0x005CD3F0, not in T
 			} else {
 				text = StringTable::LoadString("GUI:Join", NULL, "D:\\Ra2\\netshare.cpp", 6089); // RA2: as above
 			}
-			SendMessageA(control, 0x4B2, 0, (LPARAM)text); // RA2: as above
+			SendMessageA(control, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 			InvalidateRect(control, NULL, FALSE); // RA2: as above
 		}
 	}
@@ -4851,7 +4851,7 @@ void __fastcall Update_Observer_Buttons(HWND dialog) // RA2: 0x005CD540, not in 
 	if (other != NULL) { // RA2: as above
 		Update_Observer_Button(other); // RA2: as above
 	}
-	other = WS_Find_Dialog(0xBB); // RA2: as above
+	other = WS_Find_Dialog(IDD_MPLAYER_GAME_LIST); // RA2: as above
 	if (other != NULL) { // RA2: as above
 		Update_Observer_Button(other); // RA2: as above
 	}

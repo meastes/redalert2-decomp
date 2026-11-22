@@ -133,7 +133,7 @@ TWIN_SRC = Path(__file__).resolve().parents[2] / 'private/reference/ra2-decomp/s
 
 def twin_helpers(read):
     """[{unit, name, twin_path, note}]: unit-local helpers evidenced by the twin (review session, 2026-11-20): listed
-    in manifest/twin_helpers.csv, kept only while the unit source defines the name `static inline` and the
+    in manifest/twin_helpers.csv, kept only while the unit source defines the name `static` (or `static inline`; the twin's spelling, owner 2026-11-22) and the
     ra2-decomp twin unit (twin_path, under private/reference/ra2-decomp) defines the same name file-locally;
     a listed helper either side lacks is not evidenced and counts as a copy again. Reported on its own census
     line, apart from the helper_copies budget (which may only fall)."""
@@ -141,7 +141,7 @@ def twin_helpers(read):
     rows = list(csv.DictReader(io.StringIO(read(TWIN_HELPERS) or '')))
     kept = []
     for r in rows:
-        pat = re.compile(r'^[ \t]*static\s+inline\s+[\w<>,\s\*&]+?\b%s\s*\(' % re.escape(r['name']), re.M)
+        pat = re.compile(r'^[ \t]*static\s+(?:inline\s+)?[\w<>,\s\*&]+?\b%s\s*\(' % re.escape(r['name']), re.M)
         ours = read('rebuild/src/%s.cpp' % r['unit']) or ''
         twin = TWIN_SRC / r['twin_path']
         if pat.search(C.code_only(ours)) and twin.exists() and twin_file_local(twin.read_text(errors='replace'), r['name']):
