@@ -127,6 +127,7 @@
 #include "_rules.h" // RA2: ConfigINI, RuleINI
 #include "houstype.h" // RA2: HouseTypeClass::Read_INI
 #include "winstub.h"
+#include "_xmouse.h"
 #include "worlddom.h"
 #include "ipxmgr.h" // RA2: Ipx.Set_Socket
 #include "obscure.h" // RA2: Obfuscate
@@ -249,8 +250,7 @@ static bool Init_CDROM_Access(void); // RA2: as above
  *                                                                                             *
  *    RA2 has Bootstrap, Init_Mouse and Init_CDROM_Access expanded inline in here.             *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1032 bytes differ (adopted text)
-int Init_Game(int, char *[]) // RA2: 0x005116A0, 4420 bytes; this compiles to 4416: in the SOUND.INI load failure path this shares the parser and file cleanup, while the executable destroys the parser there and shares only the expanded file cleanup (unplaced)
+int Init_Game(int, char *[]) // RA2: 0x005116A0
 {
 	DebugString("Init Game\n"); // RA2: as above
 	Scen = new ScenarioClass; // RA2: as above
@@ -422,7 +422,6 @@ int Init_Game(int, char *[]) // RA2: 0x005116A0, 4420 bytes; this compiles to 44
 	Init_Game_Modes(); // RA2: as above
 	return(0); // RA2: as above
 }
-#endif
 
 
 static bool Bootstrap(void) // RA2: as above
@@ -456,7 +455,7 @@ static bool Bootstrap(void) // RA2: as above
 	Draw_Loading_Screen(); // RA2: as above
 	Keyboard->Clear(); // RA2: as above
 
-	memmove((unsigned char *)&SchemePalette[0], (void *)MFCD::Retrieve("UNITSNO.PAL"), sizeof(SchemePalette)); // RA2: as above
+	memmove(&SchemePalette[0], MFCD::Retrieve("UNITSNO.PAL"), sizeof(SchemePalette)); // RA2: as above
 
 	for (index = 0; index < 256; index++) { // RA2: as above
 		SchemePalette[index] = RGBClass( // RA2: as above
@@ -465,7 +464,7 @@ static bool Bootstrap(void) // RA2: as above
 				(unsigned char)(SchemePalette[index].Get_Blue()<<2)); // RA2: as above
 	}
 
-	memmove((unsigned char *)&GamePalette[0], (void *)MFCD::Retrieve("TEMPERAT.PAL"), sizeof(GamePalette)); // RA2: as above
+	memmove(&GamePalette[0], MFCD::Retrieve("TEMPERAT.PAL"), sizeof(GamePalette)); // RA2: as above
 
 	for (index = 0; index < 256; index++) { // RA2: as above
 		GamePalette[index] = RGBClass( // RA2: as above
@@ -478,7 +477,7 @@ static bool Bootstrap(void) // RA2: as above
 	CCPalette = GamePalette; // RA2: as above
 	WhitePalette[0] = BlackPalette[0]; // RA2: as above
 
-	memmove((unsigned char *)&WaypointPalette[0], (void *)MFCD::Retrieve("WAYPOINT.PAL"), sizeof(WaypointPalette)); // RA2: as above
+	memmove(&WaypointPalette[0], MFCD::Retrieve("WAYPOINT.PAL"), sizeof(WaypointPalette)); // RA2: as above
 
 	for (index = 0; index < 256; index++) { // RA2: as above
 		WaypointPalette[index] = RGBClass( // RA2: as above
@@ -506,7 +505,7 @@ static bool Bootstrap(void) // RA2: as above
 
 	PaletteClass pal; // RA2: as above
 
-	memmove((unsigned char *)&pal[0], (void *)MFCD::Retrieve("ANIM.PAL"), sizeof(pal)); // RA2: as above
+	memmove(&pal[0], MFCD::Retrieve("ANIM.PAL"), sizeof(pal)); // RA2: as above
 	for (index = 0; index < 256; index++) { // RA2: as above
 		pal[index] = RGBClass( // RA2: as above
 				(unsigned char)(pal[index].Get_Red()<<2), // RA2: as above
@@ -516,7 +515,7 @@ static bool Bootstrap(void) // RA2: as above
 
 	AnimDrawer = new ConvertClass(pal, GamePalette, *VisibleSurface, 0x35, false); // RA2: as above
 
-	memmove((unsigned char *)&pal[0], (void *)MFCD::Retrieve("PALETTE.PAL"), sizeof(pal)); // RA2: as above
+	memmove(&pal[0], MFCD::Retrieve("PALETTE.PAL"), sizeof(pal)); // RA2: as above
 	for (index = 0; index < 256; index++) { // RA2: as above
 		pal[index] = RGBClass( // RA2: as above
 				(unsigned char)(pal[index].Get_Red()<<2), // RA2: as above
@@ -526,7 +525,7 @@ static bool Bootstrap(void) // RA2: as above
 
 	NormalDrawer = new ConvertClass(pal, GamePalette, *VisibleSurface, 0x35, false); // RA2: as above
 
-	memmove((unsigned char *)&pal[0], (void *)MFCD::Retrieve("UNITSNO.PAL"), sizeof(pal)); // RA2: as above
+	memmove(&pal[0], MFCD::Retrieve("UNITSNO.PAL"), sizeof(pal)); // RA2: as above
 	for (index = 0; index < 256; index++) { // RA2: as above
 		pal[index] = RGBClass( // RA2: as above
 				(unsigned char)(pal[index].Get_Red()<<2), // RA2: as above
@@ -536,7 +535,7 @@ static bool Bootstrap(void) // RA2: as above
 
 	VoxelDrawer = new ConvertClass(pal, GamePalette, *VisibleSurface, 0x35, false); // RA2: as above
 
-	memmove((unsigned char *)&pal[0], (void *)MFCD::Retrieve("CAMEO.PAL"), sizeof(pal)); // RA2: as above
+	memmove(&pal[0], MFCD::Retrieve("CAMEO.PAL"), sizeof(pal)); // RA2: as above
 	for (index = 0; index < 256; index++) { // RA2: as above
 		pal[index] = RGBClass( // RA2: as above
 				(unsigned char)(pal[index].Get_Red()<<2), // RA2: as above
@@ -545,7 +544,7 @@ static bool Bootstrap(void) // RA2: as above
 	}
 	CameoDrawer = new ConvertClass(pal, GamePalette, *VisibleSurface, 0x35, false); // RA2: as above
 
-	memmove((unsigned char *)&pal[0], (void *)MFCD::Retrieve("MOUSEPAL.PAL"), sizeof(pal)); // RA2: as above
+	memmove(&pal[0], MFCD::Retrieve("MOUSEPAL.PAL"), sizeof(pal)); // RA2: as above
 	for (index = 0; index < 256; index++) { // RA2: as above
 		pal[index] = RGBClass( // RA2: as above
 				(unsigned char)(pal[index].Get_Red()<<2), // RA2: as above
@@ -587,9 +586,9 @@ static void Init_Mouse(void) // RA2: as above
 {
 	MouseShapes = (void *)Load_Alloc_Data("MOUSE.SHP", MouseShapesAllocated); // RA2: MOUSE.SHP is loaded by name (0x00495270) into 0x00ABD488 and handed to the mouse
 	if (MouseShapes != NULL) { // RA2: as above
-		MouseCursor->Hide_Mouse(); // RA2: as above
+		Hide_Mouse(); // RA2: as above
 		Point2D pt = Point2D(0, 0); // RA2: as above
-		MouseCursor->Set_Cursor(pt, (ShapeSet const *)MouseShapes, 0); // RA2: as above
+		Set_Mouse_Cursor(pt, (ShapeSet const *)MouseShapes, 0); // RA2: as above
 	}
 	Map.Set_Default_Mouse(MOUSE_NORMAL, false); // RA2: as above
 	Call_Back(); // RA2: as above

@@ -455,7 +455,6 @@ void TeamClass::Debug_Dump(MonoClass * mono) const
  *   12/29/1994 JLB : Created.                                                                 *
  *   01/06/1995 JLB : Choreographed gesture.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 2027 bytes differ (adopted text)
 void TeamClass::AI(void)
 {
 	/*
@@ -669,7 +668,6 @@ void TeamClass::AI(void)
 		}
 	}
 }
-#endif
 
 
 
@@ -2239,11 +2237,11 @@ void TeamClass::Compute_CRC(CRCEngine & crc) const
 void TeamClass::TMission_GOTO_SHROUD(TeamMissionClass * mission, bool first_time)
 {
 	if (first_time) {
-		FootClass *unit = (FootClass *)Zone;
-		if (unit == NULL) {
-			unit = Member;
+		if (Zone != NULL) {
+			Assign_Mission_Target(Map.Find_Nearby_Shroud((FootClass *)Zone));
+		} else {
+			Assign_Mission_Target(Map.Find_Nearby_Shroud(Member));
 		}
-		Assign_Mission_Target(Map.Find_Nearby_Shroud(unit));
 	}
 	Coordinate_Move();
 }

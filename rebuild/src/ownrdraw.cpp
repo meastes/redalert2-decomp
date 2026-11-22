@@ -71,7 +71,7 @@
 void __fastcall Add_Audio_File_Window(HWND window); // RA2: 0x522B20
 void __fastcall Remove_Audio_File_Window(HWND window); // RA2: 0x522B80
 
-class WindowList; // RA2: as above
+namespace OwnerDraw { class WindowList; }
 
 /*
 **	RA2: a text node of a control record's list (TextNode) and the list as seen from the record
@@ -5620,19 +5620,18 @@ bool End_Tooltip() // RA2: as above
 typedef ArrayList<HWND> ModalWindowList; // RA2: as above
 
 
-LRESULT __fastcall IME_Get_Result(); // RA2: as above
+int __fastcall IME_Get_Result(void); // RA2: as above
 void IME_Cancel_Composition(); // RA2: as above
 BOOL __fastcall IME_Service_Message(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 void __fastcall WideToCharString(char * dest, wchar_t const * src, int count); // RA2: 0x6FA0F0
 }
-void __fastcall Rect_Shrink(Rect *rect, int x, int y); // RA2: as above
+void __fastcall Inflate_Rect(Rect & rect, int dx, int dy); // RA2: as above
 int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-class WindowList; // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: calls ?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ, ?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ, ?keyHash@?$Dictiona out of line, which no row of the original has
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 6113 bytes differ against the frozen image bound (image_bounds.csv)
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -5850,12 +5849,10 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		if (wparam) {
 			target = (HWND)wparam;
 		}
-
-		HWND found = 0; // RA2: as above
 		int scan = 0;
 		for (int index = 0; index < hwndarray.length(); index++) {
-			hwndarray.get(found, scan);
-			if (found == target) {
+			hwndarray.get(topwindow, scan);
+			if (topwindow == target) {
 				hwndarray.remove(scan);
 			} else {
 				scan++;
@@ -6021,9 +6018,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
             if (wcscmp(text.get(), (wchar_t const *)L"") == 0) { // RA2: as above
                 text = Get_Control_Tip_Text(parent, (int)window); // RA2: as above
                 if (wcscmp(text.get(), (wchar_t const *)L"") == 0) { // RA2: as above
-                    char const *label = Control_Tooltip_Label((unsigned int)parent, window); // RA2: as above
-                    WideWstring name(label ? StringTable::LoadString(label, 0, "D:\\Ra2\\ownrdraw.cpp", 0x76E) : (wchar_t const *)L""); // RA2: as above
-                    text = name; // RA2: as above
+					text = Control_Tooltip((unsigned int)parent, window); // RA2: as above
                 }
             }
             SendMessageA(status, 0x4B2, 0, (LPARAM)text.text()); // RA2: as above
@@ -6243,8 +6238,8 @@ cleanup:
                     char class_name[128];
                     GetClassNameA(window, class_name, sizeof(class_name)); // RA2: as above
                     if (strcmp(class_name, "ComboBox") == 0) {
-                        Rect_Shrink(&source, -1, -1); // RA2: as above
-                        Rect_Shrink(&destination, -1, -1); // RA2: as above
+						Inflate_Rect(source, -1, -1); // RA2: as above
+						Inflate_Rect(destination, -1, -1); // RA2: as above
                     }
                     VisibleSurface->Lock();
                     AlternateSurface->Lock();
