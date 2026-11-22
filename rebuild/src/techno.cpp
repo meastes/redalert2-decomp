@@ -1752,34 +1752,17 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 /// it. An ally, or a house that has spied on the object, is also shown its cargo pips.
 /// </summary>
 /// <param name="sensed_underground">Should the select graphic be drawn only when the object is selected?</param>
-#ifdef RA2_NON_MATCHING // not exact: no row yet (main has no accepted bound between Draw_Pre_Render and Limbo)
-void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const
+#ifdef RA2_NON_MATCHING // not exact: 8 of 1407 bytes differ (image-derived bound 006c3f00-006c447f; ra2-decomp's twin text): the two health tests read eax where the image reads al (the twin declares Is_Red_HP/Is_Yellow_HP bool: with that header form 6 bytes, object and building stay exact), and the last pip loop's Y sum loads offset.Y before xpoint.Y (lane O47, 2026-11-22)
+void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const // RA2: 0x006C3F00, ra2-decomp's twin text (Yuri's Revenge 0x006F64A0) without YR's CanBeOccupied pips and PixelSelectionBracketDelta, RA2's pip shapes 15-17
 {
-	UnitClass const * unit = (RTTI == RTTI_UNIT) ? dynamic_cast<UnitClass const *>(this) : NULL;
-
-	if (RTTI == RTTI_BUILDING) { // RA2: no core defenders
-
-		/*
-		 * Build the screen-space pip bar from the object's lepton dimensions.
-		 */
+	if (RTTI == RTTI_BUILDING) {
 		HeightAGL;
 
 		Point3D dim = TClass->Lepton_Dimensions();
-
-		Point3D half(dim.X / 2, dim.Y / 2, dim.Z / 2);
-
-		/*
-		 * The "dim - half" difference is computed for all three components and Z is
-		 * then replaced with the full height, so the Z store below is dead.
-		 */
-		Coord coord = dim - half;
-		coord.X = -coord.X;
+		Coord coord = dim - dim / 2;
 		coord.Z = dim.Z;
+		coord.X = -coord.X;
 
-		/*
-		 * The X sign flips around the Y flips are redundant -- the paired negations
-		 * are dead load/neg/neg/store sequences.
-		 */
 		Point2D p0 = TacticalMap->Coord_To_Pixel_Absolute(coord);
 		coord.X = -coord.X;
 		coord.Y = -coord.Y;
@@ -1794,7 +1777,7 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 
 		int barlen = (p0.Y - p1.Y) / 2;
 
-		int n = (int)(HealthRatio * (double)barlen);
+		int n = (int)(HealthRatio * barlen);
 		if (n <= 1) {
 			n = 1;
 		}
@@ -1803,70 +1786,53 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 		}
 
 		int condcolor = 1;
-		if (HealthRatio <= Rule->ConditionYellow) {
+		if (Is_Yellow_Health()) {
 			condcolor = 2;
-		}
-		if (HealthRatio <= Rule->ConditionRed) {
+		} else if (Is_Red_Health()) {
 			condcolor = 4;
 		}
 
-		int ybase = 2 - 2 * barlen;
+		Point2D bar(4 * barlen, 2 - 2 * barlen);
 
-		Point2D point;
 		int index;
 
-		int yoff = 0;
-		int xoff = 0;
 		for (index = 0; index < n; index++) {
-			point.X = xpoint.X + p0.X + 4 * barlen + 3;
-			point.Y = xpoint.Y + p0.Y + ybase + 2;
-			point.X -= xoff;
-			point.Y -= yoff;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, condcolor, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
-			xoff += 4;
-			yoff -= 2;
+			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, condcolor, xpoint + p0 + bar + Point2D(3, 2) - Point2D(4 * index, -2 * index), cliprect, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER));
 		}
 
-		yoff = -2 * n;
-		xoff = 4 * n;
 		for (index = n; index < barlen; index++) {
-			point.X = xpoint.X + p0.X + 4 * barlen + 3;
-			point.Y = xpoint.Y + p0.Y + ybase + 2;
-			point.X -= xoff;
-			point.Y -= yoff;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, 0, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
-			xoff += 4;
-			yoff -= 2;
+			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, 0, xpoint + p0 + bar + Point2D(3, 2) - Point2D(4 * index, -2 * index), cliprect, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER));
 		}
 
-		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1<<(PlayerPtr->Class->House)))) {
+		bool showpips = false;
+		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Class->House))) {
+			showpips = true;
+		}
+		if (showpips) {
 			Draw_Pips(xpoint + p2, xpoint, cliprect);
 		}
 
 	} else {
-
-		bool powerup = false;
-		if (ArmorBias > 1.0 || FirepowerBias > 1.0 || (Is_Foot() && ((FootClass *)this)->SpeedBias > 1.0)) {
-			powerup = true;
-		}
-
 		Point2D offset;
 		int health_bar_count;
 
 		if (RTTI == RTTI_INFANTRY) {
-			if (!sensed_underground || IsSelected) {
-				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::SelectShapes, powerup ? 6 : 2, xpoint, cliprect, ShapeFlags_Type(SHAPE_ALPHA|SHAPE_WIN_REL|SHAPE_CENTER));
+			if (IsSelected) {
+				Point2D adjust(11, -25);
+				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::SelectShapes, 1, xpoint + adjust, cliprect, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER));
 			}
 			offset = Point2D(-5, -24);
 			health_bar_count = 8;
 		} else {
-			if (!sensed_underground || IsSelected) {
-			} // RA2: no LimpetType (not in RA2's layout)
+			if (IsSelected) {
+				Point2D adjust(1, -26);
+				Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::SelectShapes, 0, xpoint + adjust, cliprect, ShapeFlags_Type(SHAPE_ALPHA | SHAPE_WIN_REL | SHAPE_CENTER));
+			}
 			offset = Point2D(-15, -25);
 			health_bar_count = 17;
 		}
 
-		int n = (int)(HealthRatio * (double)health_bar_count);
+		int n = (int)(HealthRatio * health_bar_count);
 		if (n <= 1) {
 			n = 1;
 		}
@@ -1874,24 +1840,20 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 			n = health_bar_count;
 		}
 
-		int shapenum = 9;
+		int shapenum = 15;
 		if (HealthRatio <= Rule->ConditionYellow) {
-			shapenum = 10;
+			shapenum = 16;
 		}
 		if (HealthRatio <= Rule->ConditionRed) {
-			shapenum = 11;
+			shapenum = 17;
 		}
 
-		Point2D point;
 		for (int index = 0; index < n; index++) {
-			point.X = xpoint.X + offset.X;
-			point.Y = offset.Y + xpoint.Y;
-			point.X += 2 * index;
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, shapenum, point, cliprect, ShapeFlags_Type(SHAPE_WIN_REL|SHAPE_CENTER));
+			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, shapenum, xpoint + offset + Point2D(2 * index, 0), cliprect, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER));
 		}
 
-		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1<<(PlayerPtr->Class->House)))) {
-			Draw_Pips(xpoint + Point2D(-10, +10), xpoint, cliprect);
+		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Class->House))) {
+			Draw_Pips(xpoint + Point2D(-10, 10), xpoint, cliprect);
 		}
 	}
 }
@@ -9255,8 +9217,7 @@ void TechnoClass::RemoveSight(bool incremental, bool dontmap, bool for_house, Ho
 /// </summary>
 /// <param name="coord">Where the jolt came from.</param>
 /// <param name="force">How violent the jolt was.</param>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
-void TechnoClass::Rock(Coord const & coord, float force)
+void TechnoClass::Rock(Coord const & coord, float force) // RA2: 0x006D5F40, ra2-decomp's twin text (Yuri's Revenge 0x0070B280) in this tree's names; RA2 has no third parameter and always halves the forward rock
 {
 	if (TClass->Voxel.VoxLib != NULL && !TClass->Voxel.VoxLib->Load_Failed()) {
 		Coord pos = PositionCoord;
@@ -9266,11 +9227,11 @@ void TechnoClass::Rock(Coord const & coord, float force)
 		vec1.Z = pos.Z - coord.Z;
 		Vector3 vec2 = vec1;
 
-		float theta = PrimaryFacing.Current().As_Radian();
+		double theta = PrimaryFacing.Current().As_Radian();
 		float sangle = fastmath::sin(theta);
-		float cangle = fastmath::cos(theta);
+		Vector3 facing(fastmath::cos(theta), sangle, 0.0f);
 
-		float dist1 = vec1.Length();
+		float dist1 = (float)fastmath::sqrt((double)vec1.X * vec1.X + (double)vec1.Y * vec1.Y + (double)vec1.Z * vec1.Z);
 
 		float scale = (0.04f - dist1 * 0.000025f) * force / TClass->Weight;
 
@@ -9280,22 +9241,30 @@ void TechnoClass::Rock(Coord const & coord, float force)
 			}
 
 			vec2.Z = 0.0;
-			vec1 = Normalize(vec2);
+			double len = fastmath::sqrt(vec2.X * vec2.X + vec2.Y * vec2.Y);
 
-			dist1 = vec1.X * cangle + vec1.Y * sangle;
-			vec2.X = -(vec1.Z * sangle);
-			vec2.Y = +(vec1.Z * cangle);
-			vec2.Z = ((vec1.X * sangle) - (vec1.Y * cangle));
-			float dist2 = vec2.Length();
-			if (fabs(cangle * dist1 - sangle * dist2 - vec1.X) > 0.0002 || fabs(cangle * dist2 + sangle * dist1 - vec1.Y) > 0.0002) {
+			Vector3 normal;
+			if (len != 0.0) {
+				normal = vec2 / len;
+			} else {
+				normal = vec2;
+			}
+
+			float forward = normal * facing;
+			Vector3 side = Vector3::Cross_Product(normal, facing);
+			float dist2 = (float)fastmath::sqrt((double)side.X * side.X + (double)side.Y * side.Y + (double)side.Z * side.Z);
+			float c2 = facing.X;
+			float s2 = sangle;
+			float c3 = facing.X;
+			float s3 = sangle;
+			if (fabs(c2 * forward - s2 * dist2 - normal.X) > 0.0002 || fabs(c3 * dist2 + s3 * forward - normal.Y) > 0.0002) {
 				dist2 = -dist2;
 			}
-			RockingForwardsPerFrame = dist1 * scale / 2.0f;
+			RockingForwardsPerFrame = forward * scale * 0.5f;
 			RockingSidewaysPerFrame = -(dist2 * scale);
 		}
 	}
 }
-#endif
 
 
 /// <summary>

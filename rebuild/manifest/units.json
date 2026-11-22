@@ -6793,7 +6793,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a6e70",
    "005a71c0"
@@ -64929,7 +64929,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a2610",
    "005a6e70"
@@ -82629,6 +82629,15 @@
     "main_source": "src/recovered/techno.cpp"
    },
    {
+    "entry": "006c3f00",
+    "body": 1407,
+    "padding": 1,
+    "symbol": "?Draw_Health_Bar@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@_N@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006c4480",
     "body": 392,
     "padding": 8,
@@ -83690,6 +83699,15 @@
     "main_source": "src/recovered/techno.cpp"
    },
    {
+    "entry": "006d5f40",
+    "body": 745,
+    "padding": 7,
+    "symbol": "?Rock@TechnoClass@@UAEXABVCoord@@M@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006d6230",
     "body": 892,
     "padding": 4,
@@ -84582,7 +84600,10 @@
    "_$S301": "00ac0128",
    "__real@8@3ffb8000000000000000": "007acff0",
    "__real@8@40038000000000000000": "007acff8",
-   "__real@8@40088000000000000000": "007acfe8"
+   "__real@8@40088000000000000000": "007acfe8",
+   "__real@4@3fefd1b7170000000000": "007ad008",
+   "__real@4@3ffaa3d70a0000000000": "007ad004",
+   "__real@4@3ffacccccd0000000000": "007ad000"
   },
   "partial_ok": true
  },
@@ -96647,6 +96668,15 @@
     "symbol": "?Diplomacy_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
     "main_symbol": "?Unknown_006340F0@@YGHPAUHWND__@@IIJ@Z",
     "main_source": "src/recovered/radar.cpp"
+   },
+   {
+    "entry": "00634670",
+    "body": 758,
+    "padding": 10,
+    "symbol": "?Update_Diplomacy_Row@RadarDiplomacy@@QAEXPAUHWND__@@HPAVHouseClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00634970",
@@ -109579,7 +109609,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005b6a40",
    "005b9930"
@@ -159236,7 +159266,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005aa530",
    "005aa830"
@@ -159454,7 +159484,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005ac140",
    "005ac540"
@@ -159668,7 +159698,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005ab3b0",
    "005abbd0"
@@ -160337,7 +160367,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "catalogued",
+  "status": "pending",
   "range": [
    "005a74b0",
    "005a7530"

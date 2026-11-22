@@ -4066,3 +4066,36 @@ Found in the rebuild (lane F27, high):
 - A relocation-masked instruction diff (unbound fields given a marker base, absolute addresses folded, jumps as
   labels) reads the register and layout residue of an unbound parked draft before any binding work; byte counts
   of such drafts mostly count relocation fields.
+
+## Diagnostic count sweeps (flipsweep), a plain function the caller will not take whatever its pool, and a twin's bool return that moves the frame (found in the rebuild (lane O47, high))
+
+- `rebuild/tools/flipsweep.py UNIT ENTRY --func TEXT --kind local|store|call|expr|stmt --at start|end|before:RE|after:RE
+  --max K` (idea from ra2-decomp's tools/flipsweep.py, commit 3f4505e, GPL; rewritten for rebuild.py) adds 0..K copies
+  of one diagnostic statement to a scratch copy (guards around the function opened) and prints the k at which the set
+  of differing lines changes. A flip is a target for natural source, never a fix; the probes never land.
+- ra2-decomp's note (1e9ffea) that a scheduling tie inside one block can follow the block's instruction count before
+  scheduling was confirmed here on Draw_Health_Bar 0x6C3F00: the twin's YR text carries `offset.Y +=
+  TClass->PixelSelectionBracketDelta;`, which RA2 lacks; without it the last pip loop's Y sum loads its operands in the
+  other order (4 bytes), and a folding `+= 0` there (diagnostic only) gives the image. No natural RA2 statement found.
+- Damage_Low_Bridge_EW/NS, Damage_Low_Bridge2_EW/NS (5 B each): the tie is a register choice between the two right-edge
+  sums of the first expanded Union. Measured with the probes: deleting any one Damage_Low_Bridge_Piece call statement
+  gives the image; moving that statement above the Union (same pool, same site total, fewer sites after the Union)
+  does not; deleting only the call node and keeping its argument temporaries does not; deleting only the argument
+  temporaries (or writing `Cell(cell.X - 1, cell.Y)`) tips the second Union into expansion (1302 -> 1424..1440 B); one
+  dead inline probe anywhere is neutral and two tip it; duplicating call statements keeps ours. So the function sits
+  one notch from the second Union's expansion in both directions, and the tie needs the pool and the site total to
+  fall together, which no evidenced text does (TibSun, ra2-decomp's matched YR twin 0x57BCF0 and mischa85 all have the
+  tree's statements; YR's differs only in `Kill_Illegal_Occupiers(kill)`). It is not the "nested budget / sites after
+  the call" split: moving the statement keeps the miss.
+- Default_Dialog_Proc 0x5FFB00: the image expands the plain function Show_Dialog at both WM_INITDIALOG sites; ours
+  never does, even with 12 extra dead locals in the caller (pool not the limit), while cutting any three statements
+  from Show_Dialog lets it in. So Show_Dialog's own size is over the plain-function cap by about three call statements.
+  The twin's forms (the EnumChildWindows one-line wrappers Assign_All_Control_Sounds / Assign_Button_Kinds /
+  Init_Control_Animations, no `using` line, no cast at Set_Control_Art, Get_Data at WM_PAINT, a constructed size
+  point) keep Show_Dialog exact but do not lower it enough. WinData is already flat in this tree, so ra2-decomp's
+  PrepareDialogChildControls lever (a nested struct member costs one node more) has nothing to remove here.
+- A twin's bool declaration of a predicate whose body returns `cond && cond` still compiles to `mov eax, 1` in the
+  callee but makes callers test `al`; in Draw_Health_Bar it also took 4 bytes off the frame. Is_Red_Health /
+  Is_Yellow_Health declared bool with the twin's one-line bodies keep object (111/111) and building (288/290)
+  unchanged and drop building's two `(char)` casts; patch kept in lane scratch, not landed (object.h needs the full
+  includer gates).

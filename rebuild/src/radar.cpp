@@ -2873,71 +2873,79 @@ BOOL CALLBACK Diplomacy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 /// The row shows the house's name in its color, its flag, the alliance and chat check boxes
 /// and the number of units and buildings the house has destroyed.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00634670 has no row)
-void RadarDiplomacy::Update_Diplomacy_Row(HWND window, int row, HouseClass * house) // RA2: at 0x00634670, excepted: 768 B like the exe, 6 bytes differ (the exe loads the chat control ID into eax and ecx, this into eax and edx)
+void RadarDiplomacy::Update_Diplomacy_Row(HWND window, int row, HouseClass * house) // RA2: 0x00634670, ra2-decomp's twin text (Yuri's Revenge 0x00658330) in this tree's names
 {
-	int kills_id = Diplomacy_Kill_Controls[row]; // RA2: the kill and name label of the row, looked up before the house is tested
-	int name_id = Diplomacy_Name_Controls[row]; // RA2: as above
-	wchar_t text[100]; // RA2: text of the labels; a row without a house shows it empty
-	text[0] = L'\0'; // RA2: as above
-	if (house != NULL && house->Class->IsMultiplay) { // RA2: only a multiplayer house fills the row
-		wcscpy(text, house->UIName); // RA2: the house name
-		ColorScheme * scheme; // RA2: as above
-		if (house == ObserverHouse) { // RA2: the observer is drawn light grey
-			scheme = Fetch_Scheme_By_Name("LightGrey", 1); // RA2: as above
-		} else if (house->IsDefeated) { // RA2: a defeated house is drawn grey
-			scheme = Fetch_Scheme_By_Name("Grey", 1); // RA2: as above
+	int kills_id = Diplomacy_Kill_Controls[row];
+	int name_id = Diplomacy_Name_Controls[row];
+	wchar_t buffer[100];
+	buffer[0] = 0;
+
+	if (house && house->Class->IsMultiplay) {
+		wcscpy(buffer, house->UIName);
+
+		ColorScheme * scheme;
+		if (house == ObserverHouse) {
+			scheme = Fetch_Scheme_By_Name("LightGrey", 1);
+		} else if (house->IsDefeated) {
+			scheme = Fetch_Scheme_By_Name("Grey", 1);
 		} else {
-			scheme = ColorSchemes[house->Scheme]; // RA2: as above
+			scheme = ColorSchemes[house->Scheme];
 		}
-		RGBClass rgb = scheme->HSV; // RA2: the text color is the scheme's, packed with red lowest
-		int color = (((rgb.Get_Blue() << 8) | rgb.Get_Green()) << 8) | rgb.Get_Red(); // RA2: as above
-		HWND name = GetDlgItem(window, name_id); // RA2: the name label shows the name in that color
-		SendMessage(name, OD_SETCOLOR, 0, color); // RA2: as above
-		SendMessage(name, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
+		RGBClass rgb = scheme->HSV;
+		COLORREF color = RGB(rgb.Get_Red(), rgb.Get_Green(), rgb.Get_Blue());
 
-		HWND flag = GetDlgItem(window, Player_Control_ID(row)); // RA2: the flag picture of the house's country
-		Surface * image = Country_Flag(house->Class->HeapID); // RA2: as above
-		if (house == ObserverHouse) { // RA2: the observer has its own flag
-			image = Country_Flag(-3); // RA2: as above
-		}
-		OwnerDraw::Set_Control_Image(flag, image); // RA2: as above
+		HWND name = GetDlgItem(window, name_id);
+		SendMessage(name, OD_SETCOLOR, 0, color);
+		SendMessage(name, OD_SETTEXTW, 0, (LPARAM)buffer);
 
-		HWND ally = Get_Item(window, Diplomacy_Ally_Controls[row]); // RA2: the alliance check box: disabled when launches are muted, hidden for a defeated house, else checked when the local player allies the house
-		if (MuteSWLaunches) { // RA2: as above
-			EnableWindow(ally, FALSE); // RA2: as above
+		HWND flag = GetDlgItem(window, Player_Control_ID(row));
+		Surface * surface = Country_Flag(house->Class->HeapID);
+		if (house == ObserverHouse) {
+			surface = Country_Flag(-3);
 		}
-		if (house->IsDefeated) { // RA2: as above
-			ShowWindow(ally, SW_HIDE); // RA2: as above
+		OwnerDraw::Set_Control_Image(flag, surface);
+
+		int alliance_id = Diplomacy_Ally_Controls[row]; // RA2: no test for a missing control here; the ID is read once, in the form the twin gives the chat control below
+		HWND alliance = GetDlgItem(window, alliance_id);
+		if (MuteSWLaunches) {
+			EnableWindow(alliance, FALSE);
+		}
+		if (house->IsDefeated) {
+			ShowWindow(alliance, SW_HIDE);
 		} else {
-			bool allied = PlayerPtr->Is_Ally(house); // RA2: as above
-			SendMessage(ally, BM_SETCHECK, allied, 0); // RA2: as above
+			bool ally = PlayerPtr->Is_Ally(house);
+			SendMessage(alliance, BM_SETCHECK, ally, 0);
 		}
-		Send_Control_Flag(ally, house->Is_Ally(PlayerPtr)); // RA2: as above
+		bool allied = house->Is_Ally(PlayerPtr);
+		Send_Control_Flag(alliance, allied);
 
-		if (house->IsGiverUpper) { // RA2: the chat check box: hidden for a house that gave up, else disabled and checked when launches are muted
-			HWND chat = GetDlgItem(window, Diplomacy_Chat_Controls[row]); // RA2: as above
-			ShowWindow(chat, SW_HIDE); // RA2: as above
-		} else if (MuteSWLaunches) { // RA2: as above
-			HWND chat = GetDlgItem(window, Diplomacy_Chat_Controls[row]); // RA2: as above
-			SendMessage(chat, BM_SETCHECK, 1, 0); // RA2: as above
-			EnableWindow(chat, FALSE); // RA2: as above
+		if (house->IsGiverUpper) {
+			int chat_id = Diplomacy_Chat_Controls[row];
+			HWND chat = GetDlgItem(window, chat_id);
+			ShowWindow(chat, SW_HIDE);
+		} else if (MuteSWLaunches) {
+			int chat_id = Diplomacy_Chat_Controls[row];
+			HWND chat = GetDlgItem(window, chat_id);
+			SendMessage(chat, BM_SETCHECK, 1, 0);
+			EnableWindow(chat, FALSE);
 		}
 
-		int kills = 0; // RA2: the kill label shows units plus buildings destroyed
-		for (int index = 0; index < 20; index++) { // RA2: as above
-			kills += house->UnitsKilled[index] + house->BuildingsKilled[index]; // RA2: as above
+		int total = 0;
+		for (int i = 0; i < 20; i++) {
+			total += house->UnitsKilled[i] + house->BuildingsKilled[i];
 		}
-		swprintf(text, L"%d", kills); // RA2: as above
-		HWND count = GetDlgItem(window, kills_id); // RA2: as above
-		SendMessage(count, OD_SETCOLOR, 0, color); // RA2: as above
-		SendMessage(count, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
+		swprintf(buffer, L"%d", total);
+
+		HWND kills = GetDlgItem(window, kills_id);
+		SendMessage(kills, OD_SETCOLOR, 0, color);
+		SendMessage(kills, OD_SETTEXTW, 0, (LPARAM)buffer);
 	} else {
-		Send_Dlg_Item_Message(window, name_id, OD_SETTEXTW, 0, (LPARAM)text); // RA2: a row without a house empties its name and kill labels
-		Send_Dlg_Item_Message(window, kills_id, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
+		HWND name = GetDlgItem(window, name_id);
+		SendMessage(name, OD_SETTEXTW, 0, (LPARAM)buffer);
+		HWND kills = GetDlgItem(window, kills_id);
+		SendMessage(kills, OD_SETTEXTW, 0, (LPARAM)buffer);
 	}
 }
-#endif
 
 
 /// <summary>
