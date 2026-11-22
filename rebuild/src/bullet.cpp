@@ -300,7 +300,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); 5161 bytes differ against main's function-map extent; main: best 87.78, tried 8 times (frame, inline, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); against the frozen image bound (image_bounds.csv) 5157 bytes differ, instruction score 56.57 (shape 86.62; 56.08 before lane O25; frame 0x138 against 0x198; the image calls TPoint3D<int>::TPoint3D, TPoint3D<int>::Length and TVelocity3D<double>::operator+= out of line), 2026-11-22; main: best 87.78, tried 8 times (frame, inline, order)
 #include "ion.h"
 #include "revent.h"
 void BulletClass::AI(void)
@@ -432,7 +432,7 @@ void BulletClass::AI(void)
 			Velocity.Set_Speed(speed);
 		}
 
-		velocity = Velocity;
+		TVelocity3D<double> velocity = Velocity;
 
 		/*
 		 * Fetch the point to home on. An object is aimed at through its target

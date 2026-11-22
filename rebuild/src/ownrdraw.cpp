@@ -5283,7 +5283,7 @@ BOOL __stdcall Replace_Edit(HWND window, LPARAM) // RA2: as above
 {
     unsigned int style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
 	SetWindowLongA(window, GWL_USERDATA, 0); // RA2: as above
-    if ((style & 0x10000000) && !(style & 0x08000000)) { // RA2: as above
+	if ((style & WS_VISIBLE) && !(style & WS_DISABLED)) { // RA2: as above
         char name[128]; // RA2: as above
         GetClassNameA(window, name, sizeof(name)); // RA2: as above
         if (strcmp(name, "Edit") == 0) { // RA2: as above
@@ -5294,9 +5294,9 @@ BOOL __stdcall Replace_Edit(HWND window, LPARAM) // RA2: as above
             Get_Display_Rect(parent, &parent_rect);
             int x = rect.left - parent_rect.left; // RA2: as above
             int y = rect.top - parent_rect.top; // RA2: as above
-            DWORD list_style = 0x40000110; // RA2: as above
-            if (style & 0x10000) { // RA2: as above
-                list_style = 0x40010110; // RA2: as above
+			DWORD list_style = (WS_CHILD | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT); // RA2: as above
+			if (style & WS_TABSTOP) { // RA2: as above
+				list_style = (WS_CHILD | WS_TABSTOP | LBS_OWNERDRAWFIXED | LBS_NOINTEGRALHEIGHT); // RA2: as above
             }
             HWND list = CreateWindowExA(0, "ListBox", 0, list_style, x, y, // RA2: as above
                                         rect.right - rect.left, rect.bottom - rect.top, parent, 0, ProgramInstance, 0); // RA2: as above
@@ -5414,13 +5414,13 @@ BOOL __stdcall Subclass_Control(HWND window, LPARAM lparam) // RA2: as above
         custom_proc = Tab_Proc; // RA2: as above
         kind = 0xa; // RA2: as above
     } else if (strcmp(class_name, "Button") == 0) { // RA2: as above
-        if ((style & (unsigned char)7) == (unsigned char)7) { // RA2: as above
+		if ((style & (unsigned char)BS_GROUPBOX) == (unsigned char)BS_GROUPBOX) { // RA2: as above
             custom_proc = Group_Box_Proc; // RA2: as above
-        } else if ((style & (unsigned char)0xb) == (unsigned char)0xb) { // RA2: as above
+		} else if ((style & (unsigned char)BS_OWNERDRAW) == (unsigned char)BS_OWNERDRAW) { // RA2: as above
             custom_proc = Owner_Button_Proc; // RA2: as above
-        } else if ((style & (unsigned char)3) == (unsigned char)3) { // RA2: as above
+		} else if ((style & (unsigned char)BS_AUTOCHECKBOX) == (unsigned char)BS_AUTOCHECKBOX) { // RA2: as above
             custom_proc = Checkbox_Proc; // RA2: as above
-        } else if ((style & (unsigned char)9) == (unsigned char)9) { // RA2: as above
+		} else if ((style & (unsigned char)BS_AUTORADIOBUTTON) == (unsigned char)BS_AUTORADIOBUTTON) { // RA2: as above
             custom_proc = Button_Proc; // RA2: as above
         }
         kind = 0; // RA2: as above
@@ -5430,7 +5430,7 @@ BOOL __stdcall Subclass_Control(HWND window, LPARAM lparam) // RA2: as above
     } else {
         custom_proc = Default_Proc; // RA2: as above
     }
-    WNDPROC original_proc = (WNDPROC)SetWindowLongA(window, -4, (LONG)Control_Proc); // RA2: as above
+	WNDPROC original_proc = (WNDPROC)SetWindowLongA(window, GWL_WNDPROC, (LONG)Control_Proc); // RA2: as above
     if (!Window_Table.contains(window)) { // RA2: as above
         Window_Table.add(window, custom_proc); // RA2: as above
     }
@@ -5459,7 +5459,7 @@ BOOL __stdcall Subclass_Control(HWND window, LPARAM lparam) // RA2: as above
         data->Set_Wide_Text(0); // RA2: as above
     }
     data->Reserved_2C = 0; // RA2: as above
-    SendMessageA(window, 0x497, 0, 0); // RA2: as above
+	SendMessageA(window, OD_SUBCLASSED, 0, 0); // RA2: as above
     return TRUE; // RA2: as above
 }
 
@@ -6874,7 +6874,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
     }
 	LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
 	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == 9) return 0; // RA2: as above
-    if(message==0x497) { // RA2: as above
+	if (message == OD_SUBCLASSED) { // RA2: as above
         RECT winrect,client,parentrect; // RA2: as above
         GetWindowRect(window,&winrect); // RA2: as above
         GetClientRect(window,&client); // RA2: as above
@@ -6885,21 +6885,21 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
             data->Position=1; // RA2: as above
             SetFocus(MainWindow);
         }
-        if(style&0x10000) { // RA2: as above
+		if (style & WS_TABSTOP) { // RA2: as above
             data->HadTabStop=1; // RA2: as above
-			SetWindowLongA(window, GWL_STYLE, style & ~0x10000); // RA2: as above
+			SetWindowLongA(window, GWL_STYLE, style & ~WS_TABSTOP); // RA2: as above
         }
         return 0; // RA2: as above
     }
 	if (message == WM_SETFOCUS) { // RA2: as above
-        SendMessageA(window,0xb1,(WPARAM)-1,-1); // RA2: as above
-        if(!data->IsEditFocus)PostMessageA(window,0x4b0,0,0); // RA2: as above
+		SendMessageA(window, EM_SETSEL, (WPARAM)-1, -1); // RA2: as above
+		if (!data->IsEditFocus) PostMessageA(window, OD_REFOCUS, 0, 0); // RA2: as above
         goto invalidate; // RA2: as above
     }
-    if(message==0x4b5 || message==0x4b3 || message==0xe) { // RA2: as above
+	if (message == 0x4b5 || message == 0x4b3 || message == WM_GETTEXTLENGTH) { // RA2: as above
         wide[0]=0; // RA2: as above
         Edit_Text(window,wide,0x800,0); // RA2: as above
-        if(message==0xe)return wcslen(wide); // RA2: as above
+		if (message == WM_GETTEXTLENGTH) return wcslen(wide); // RA2: as above
         if(message==0x4b3) { // RA2: as above
             wcsncpy((unsigned short *)lparam,wide,wparam); // RA2: as above
             ((unsigned short *)lparam)[wparam-1]=0; // RA2: as above
@@ -6909,22 +6909,22 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         ((char *)lparam)[wparam-1]=0; // RA2: as above
         return strlen((char *)lparam); // RA2: as above
     }
-    if(message==0x4b4 || message==0x4b2) { // RA2: as above
+	if (message == 0x4b4 || message == OD_SETTEXTW) { // RA2: as above
         narrow[0]=0; // RA2: as above
-        if(data->Text)WideCharToMultiByte(0,0,data->Text,-1,narrow,0x800,0,0); // RA2: as above
-        return CallWindowProcA(previous,window,0xc,0,(LPARAM)narrow); // RA2: as above
+		if (data->Text) WideCharToMultiByte(CP_ACP, 0, data->Text, -1, narrow, 0x800, 0, 0); // RA2: as above
+		return CallWindowProcA(previous, window, WM_SETTEXT, 0, (LPARAM)narrow); // RA2: as above
     }
 	if (message == WM_CHAR) { // RA2: as above
         if(wparam==0xd) { // RA2: as above
-            if(style&4) { // RA2: as above
-                unsigned int length=CallWindowProcA(previous,window,0xe,0,0)+3; // RA2: as above
+			if (style & ES_MULTILINE) { // RA2: as above
+				unsigned int length = CallWindowProcA(previous, window, WM_GETTEXTLENGTH, 0, 0) + 3; // RA2: as above
                 char *text=new char[length]; // RA2: as above
-                CallWindowProcA(previous,window,0xd,length,(LPARAM)text); // RA2: as above
+				CallWindowProcA(previous, window, WM_GETTEXT, length, (LPARAM)text); // RA2: as above
                 strcat(text,"\r\n"); // RA2: as above
-                CallWindowProcA(previous,window,0xc,0,(LPARAM)text); // RA2: as above
+				CallWindowProcA(previous, window, WM_SETTEXT, 0, (LPARAM)text); // RA2: as above
                 delete [] text; // RA2: as above
 				unsigned int id = GetWindowLongA(window, GWL_ID) & 0xffff; // RA2: as above
-                SendMessageA(GetParent(window),0x111,id|0x5010000,(LPARAM)window); // RA2: as above
+				SendMessageA(GetParent(window), WM_COMMAND, id | 0x5010000, (LPARAM)window); // RA2: as above
                 return 0; // RA2: as above
             }
         } else if(wparam==9) { // RA2: as above
@@ -6937,14 +6937,14 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         }
         goto call_previous; // RA2: as above
     }
-    if(message==0x4af) { // RA2: as above
+	if (message == OD_ACTIVATE) { // RA2: as above
         int pending=data->Position; // RA2: as above
         data->IsEditFocus=1; // RA2: as above
         if(pending) { // RA2: as above
             SetFocus(window);
             data->Position=0; // RA2: as above
         }
-		if (data->HadTabStop) SetWindowLongA(window, GWL_STYLE, style | 0x10000); // RA2: as above
+		if (data->HadTabStop) SetWindowLongA(window, GWL_STYLE, style | WS_TABSTOP); // RA2: as above
         return 0; // RA2: as above
     }
 	if (message == WM_PAINT || message == WM_ERASEBKGND) { // RA2: as above
@@ -6969,9 +6969,9 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
             data->Font,Text_Color,&data->EditScroll,data->Reserved_38,((unsigned int)text_style>>5)&1,0,0); // RA2: as above
         ValidateRect(window,0); // RA2: as above
     }
-    if(message==0x7b)return 1; // RA2: as above
+	if (message == WM_CONTEXTMENU) return 1; // RA2: as above
 	if (message == WM_MOUSEMOVE) return 1; // RA2: as above
-	if (message == WM_KEYDOWN || message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP || message == WM_SYSCHAR || message == 0x107 || message == WM_KILLFOCUS || message == WM_LBUTTONDOWN) { // RA2: as above
+	if (message == WM_KEYDOWN || message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP || message == WM_SYSCHAR || message == WM_SYSDEADCHAR || message == WM_KILLFOCUS || message == WM_LBUTTONDOWN) { // RA2: as above
 invalidate: // RA2: as above
         GetClassNameA(GetParent(window),class_name,32); // RA2: as above
         if(strcmp(class_name,"ComboBox")==0)InvalidateRect(GetParent(window),0,0); // RA2: as above
@@ -6999,7 +6999,7 @@ int __fastcall Edit_Text(HWND window, wchar_t *text, int size, int *caret) // RA
         start = (unsigned long)CallWindowProcA(proc, window, EM_GETSEL, (WPARAM)&selection_start, (LPARAM)&selection_end) >> 16; // RA2: as above
     }
     *text = 0;
-    MultiByteToWideChar(0, 0, buffer, -1, text, size); // RA2: as above
+	MultiByteToWideChar(CP_ACP, 0, buffer, -1, text, size); // RA2: as above
     if (caret) { // RA2: as above
         *caret = _mbsnbcnt((unsigned char *)buffer, start);
     }
@@ -10108,10 +10108,10 @@ HWND __fastcall Custom_Message_Box(unsigned short const *text, unsigned short co
     if (dialog) { // RA2: as above
         SetWindowLongA(dialog, DWL_USER, (LONG)cancelled); // RA2: as above
         HWND label = GetDlgItem(dialog, 0x5b0); // RA2: as above
-        SendMessageA(label, 0x4b2, 0, (LPARAM)text); // RA2: as above
+		SendMessageA(label, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
         if (button) { // RA2: as above
             HWND item = GetDlgItem(dialog, 0x5c0); // RA2: as above
-            SendMessageA(item, 0x4b2, 0, (LPARAM)button); // RA2: as above
+			SendMessageA(item, OD_SETTEXTW, 0, (LPARAM)button); // RA2: as above
             EnableWindow(item, TRUE); // RA2: as above
             ShowWindow(item, SW_SHOW); // RA2: as above
         }
@@ -10210,7 +10210,7 @@ namespace OwnerDraw { // RA2: as above
 void __fastcall Set_Custom_Message_Box_Text(HWND dialog, wchar_t const * text) // RA2: as above
 {
     HWND item = GetDlgItem(dialog, 0x5B0); // RA2: as above
-    SendMessageA(item, 0x4B2, 0, (LPARAM)text); // RA2: as above
+	SendMessageA(item, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
     UpdateWindow(dialog); // RA2: as above
 }
 
@@ -10473,7 +10473,7 @@ bool __fastcall Prompt_Dialog(unsigned short const *text) // RA2: as above
     HWND dialog = OwnerDraw::Begin_Dialog(0x10d, Choice_Dialog_Proc, 0); // RA2: as above
     if (dialog) { // RA2: as above
         HWND item = GetDlgItem(dialog, 0x5b0); // RA2: as above
-        SendMessageA(item, 0x4b2, 0, (LPARAM)text); // RA2: as above
+		SendMessageA(item, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
         SetWindowLongA(dialog, DWL_USER, (LONG)&result); // RA2: as above
         OwnerDraw::Display_Dialog(dialog); // RA2: as above
         while (result < 0) { // RA2: as above

@@ -2503,6 +2503,7 @@ symbol,address,evidence
 ?Process@RocketLocomotionClass@@UAGEXZ,0x0063DE90,slot +44 of ??_7RocketLocomotionClass@@6BILocomotion@@@ at 007a8ed8; main row ?Process@RocketLocomotionClass@@UAG_NXZ
 ?Process_Idle@MSEngine@@UAEXXZ,0x005B3830,slot +0c of ??_7Selection@WorldDominationTour@@6B@ at 007af368; main row ?Unknown_Slot2@MSEngine@@UAEXXZ
 ?Progress_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FAFF0,inferred: ownrdraw rows 005ed180 differ only at its sites
+?Projectile_Motion@@YIHAAVCoord@@AAV?$TVelocity3D@N@@ABV1@ABVDirType@@_N444@Z,0x00593870,BulletClass::AI 0x0045F710 calls 0x00593870 at 0x0045FD2D; main src/recovered/missile.cpp names Projectile_Motion at 0x00593870 (TibSun missile.h:17)
 ?Protocol_Event_Message@IPXInterfaceClass@@UAEHI@Z,0x0076AA60,slot +3c of ??_7IPXInterfaceClass@@6B@ at 007afa08; main row ?Protocol_Event_Message@IPXInterfaceClass@@UAEIH@Z
 ?Protocol_Event_Message@WinsockInterfaceClass@@UAEHI@Z,0x0076BA10,slot +38 of ??_7WinsockInterfaceClass@@6B@ at 007afa7c; main row ?Protocol_Event_Message@WinsockInterfaceClass@@UAEIH@Z
 ?Push@LocomotionClass@@UAGEUDirStruct@@@Z,0x0053D470,slot +6c of ??_7DriveLocomotionClass@@6BILocomotion@@@ at 007a04c8; main row ?Push@LocomotionClass@@UAG_NUUnknownFacingDir@@@Z
@@ -3036,7 +3037,6 @@ symbol,address,evidence
 ?g_AccountBirthMonth@@3VWstring@@A,0x00B269A8,inferred: wonline rows 0073be00 differ only at its sites
 ?g_AccountBirthYear@@3VWstring@@A,0x00B297C4,inferred: wonline rows 0073be60 differ only at its sites
 ?g_AccountDialogUpdating@@3_NA,0x00B2ACA8,main: account_dialog_updating_b2aca8 (wonline rows 007540a0); ra2-decomp DAT_00B77EA0 in the twin
-?g_BirthdateEmail@@3VWstring@@A,0x00B29CE4,"mischa85 names.csv (inferred from its matched wonline.cpp); wonline rows 0073bdd0 differ only at its sites"
 ?g_AccountExtra@@3VWstring@@A,0x00B297BC,inferred: wonline rows 0073bf50 differ only at its sites
 ?g_AccountInputEvents@@3HA,0x00B2AC98,inferred: wonline rows 007498e0 007498e0 differ only at its sites
 ?g_AccountName@@3VWstring@@A,0x00B2A640,inferred: wonline rows 0073be90 differ only at its sites
@@ -3046,6 +3046,7 @@ symbol,address,evidence
 ?g_ActiveLadder@@3PAV?$Dictionary@VWstring@@ULadder@WOL@@@@A,0x00B2AC24,inferred: wonline rows 0073e8d0 0073e8d0 0073fee0 0073fee0 differ only at its sites
 ?g_BattleClansLadderDict@@3V?$Dictionary@VWstring@@ULadder@@@@A,0x00B296F8,inferred: wonline rows 0073aa80 0073aa80 0073aa80 0073aa80 differ only at its sites
 ?g_BattleClansLadderDict@@3V?$Dictionary@VWstring@@ULadder@WOL@@@@A,0x00B296F8,inferred: wonline rows 0073aa80 0073aa80 0073aa80 0073aa80 differ only at its sites
+?g_BirthdateEmail@@3VWstring@@A,0x00B29CE4,mischa85 names.csv (inferred from its matched wonline.cpp); wonline rows 0073bdd0 differ only at its sites
 ?g_BuddyAddQueue@@3V?$ArrayList@VWstring@@@@A,0x00B2A7D8,inferred: wonline rows 0073b810 0073b810 0073b810 differ only at its sites
 ?g_BuddyChannels@@3V?$Dictionary@VWstring@@UChannel@@@@A,0x00B29478,inferred: wonline rows 0073baa0 0073baa0 0073baa0 0073baa0 differ only at its sites
 ?g_BuddyChannels@@3V?$Dictionary@VWstring@@UChannel@WOL@@@@A,0x00B29478,inferred: wonline rows 0073baa0 0073baa0 0073baa0 0073baa0 differ only at its sites

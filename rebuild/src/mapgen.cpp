@@ -1080,7 +1080,7 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0056ef20 has no row); main: best 70.68, tried 6 times (bound, frame, order)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,701 bytes differ (was 3,204), 1,272 instructions to 1,250, instruction match 81.21 (93.42 with stack offsets ignored), frame 0xA0 as the original; lane O24: height change through Increase_Height, the dry-map height filter (main) and From_ID (TibSun); left: the original keeps operator+ in the adjacent-region loop and Get_Region in the inlined Increase_Height out of line; main: best 70.68, tried 7 times (bound, frame, order, inlining)
 bool MapRegionClass::Split_Region(void)
 {
 	int i, j;
@@ -1229,13 +1229,7 @@ bool MapRegionClass::Split_Region(void)
 
 		for (j = 0; j < MapRegionClass::TotalCount; j++) {
 			if (adjacent[j]) {
-				MapRegionClass * other = NULL;
-				for (int k = 0; k < MapRegionClass::MapRegions.Count(); k++) {
-					if (MapRegionClass::MapRegions[k]->ID == j) {
-						other = MapRegionClass::MapRegions[k];
-						break;
-					}
-				}
+				MapRegionClass * other = From_ID(j);
 
 				if (!other->Discardable) {
 					if (other->CellCount > max_count && !other->ContainsWater) {
@@ -1279,6 +1273,14 @@ bool MapRegionClass::Split_Region(void)
 			}
 		}
 
+		if (RandomMapGen.SeedData.MapType == 3 || RandomMapGen.SeedData.MapType == 4) {
+			for (j = heights.Count() - 1; j >= 0; j--) {
+				if (heights[j] == 0) {
+					heights.Delete_Index(j);
+				}
+			}
+		}
+
 		delete[] adjacent;
 
 		if (region->CellCount > 100) {
@@ -1288,27 +1290,13 @@ bool MapRegionClass::Split_Region(void)
 
 			region->CellHeight = heights[index];
 			int height_diff = region->CellHeight - old_height;
-
-			Map.Reset_Iterator();
-			for (CellClass * cellptr = Map.Iterate(); cellptr; cellptr = Map.Iterate()) {
-				Cell c = cellptr->CellID;
-				if (MapRegionClass::CellData::Get_Region(c) == region->ID) {
-					cellptr->Height += height_diff;
-				}
-			}
+			region->Increase_Height(height_diff);
 		} else {
 			if (merge_target != NULL) {
 				int old_height = region->CellHeight;
 				region->CellHeight = merge_height;
 				int height_diff = region->CellHeight - old_height;
-
-				Map.Reset_Iterator();
-				for (CellClass * cellptr = Map.Iterate(); cellptr; cellptr = Map.Iterate()) {
-					Cell c = cellptr->CellID;
-					if (MapRegionClass::CellData::Get_Region(c) == region->ID) {
-						cellptr->Height += height_diff;
-					}
-				}
+				region->Increase_Height(height_diff);
 
 				for (int j = region->Cells.Count() - 1; j >= 0; j--) {
 					Cell c = region->Cells[j];

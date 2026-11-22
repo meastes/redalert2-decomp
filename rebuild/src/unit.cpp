@@ -6581,7 +6581,7 @@ void UnitClass::Unit_Draw_Voxel(Point2D xdrawpoint, Rect xcliprect, int brightne
 	}
 
 	brightness = Apparent_Brightness(brightness);
-	if (IsIronCurtained()) {
+	if (Unknown_Virtual_32C()) {
 		brightness = GetEffectTintIntensity(brightness);
 	}
 	Unit_Blit_Voxel(*old_surface, xdrawpoint, rect, brightness);

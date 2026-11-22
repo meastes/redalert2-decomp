@@ -1090,7 +1090,7 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); 4522 bytes differ against main's function-map extent
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); 3842 bytes differ against main's function-map extent (2026-11-22 lane O19: TibSun cells and cells_base kept apart as the original keeps both slots, ra2-decomp freshcalled; was 4522)
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
@@ -1098,6 +1098,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 	int w = PlayRect.Width;
 	int h = 2 * Map.PlayRect.Height + 8;
 	CellClass *cptr;
+	CellClass *cells = NULL;
 	CellClass *cells_base = NULL;
 
 	Cell cell(CELL_NONE);
@@ -1119,7 +1120,8 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 
 	if (!reset_cells) {
 		cellcount = 0;
-		cells_base = (CellClass *)new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
+		cells = (CellClass *)new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
+		cells_base = cells;
 		Reset_Iterator();
 		cptr = Iterate();
 		cell = cptr->Fetch_CellID();
@@ -1168,6 +1170,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		}
 	}
 
+	bool freshcalled = false;
 	if (!reset_cells) {
 		Reset_Iterator();
 		Cell icell = Iterate()->CellID;
@@ -1175,7 +1178,7 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		cell = (icell - cell) - cellpos;
 
 		for (i = 0; i < cellcount; i++) {
-			cptr = &cells_base[i];
+			cptr = &cells[i];
 			Cell scell = cptr->CellID;
 			Cell shifted = scell + cell;
 
@@ -1287,12 +1290,9 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 			cptr = Iterate();
 		}
 
-		bool freshcalled;
 		if (refresh_map) {
 			Fresh_Map();
 			freshcalled = true;
-		} else {
-			freshcalled = false;
 		}
 
 		for (i = 0; i < Objects.Count(); i++) {
@@ -1300,13 +1300,9 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		}
 
 		Map.Flag_To_Redraw(GS_REDRAW_ALL);
-
-		if (freshcalled) {
-			refresh_map = false;
-		}
 	}
 
-	if (refresh_map) {
+	if (!freshcalled && refresh_map) {
 		Fresh_Map();
 	}
 

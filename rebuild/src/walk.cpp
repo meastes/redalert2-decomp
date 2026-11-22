@@ -247,7 +247,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 								LinkedTo->TryTryAgain--;
 							} else {
 								if (LinkedTo->IsNewNavCom) {
-									Sound_Effect(Rule->ScoldSound);
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
 								}
 								LinkedTo->IsNewNavCom = false;
 
@@ -347,7 +347,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					} else {
 						int dist = LinkedTo->Center_Coord().Distance_To(DestinationCoord);
 						if (dist < Rule->CloseEnoughDistance &&
-							!LinkedTo->In_Radio_Contact() &&
+							!LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */ &&
 							abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H &&
 							Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
 
@@ -513,7 +513,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 			return;
 		}
 
-		if (LinkedTo->TechnoClass::IsUnderEMP()) {
+		if (LinkedTo->IsUnderEMP()) { // RA2: the virtual, as in Process
 			IsReallyMoving = false;
 			LinkedTo->IsNewNavCom = false;
 			return;

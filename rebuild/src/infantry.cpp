@@ -784,7 +784,7 @@ void InfantryClass::Debug_Dump(MonoClass * mono) const
  *   03/01/1995 JLB : Capture building options.                                                *
  *   05/31/1995 JLB : Capture is always successful now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 4261 bytes differ against main's function-map extent
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 3161 bytes differ against main's function-map extent (2026-11-22 lane O19: main's RA2 branches, the passive-house renovate test, C4 IsGoingToBlow, QueueMission, HasAnyLink; only the engineer block's register choice differs; was 4261)
 #include "revent.h"
 #include "vox.h"
 
@@ -812,10 +812,10 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 			BuildingClass * building = cellptr->Cell_Building();
 			if (building && (building == NavCom || building == TarCom)) {
 				if (building->Tag) building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
-				if (Techno_Type_Class()->VoiceDie.Count() && House->Is_Player_Control()) {
+				if (Techno_Type_Class()->VoiceDie.Count() > 0 && House->Is_Player_Control()) {
 					VocClass::PlayAt(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
 				}
-				if (Techno_Type_Class()->DieSound.Count()) {
+				if (Techno_Type_Class()->DieSound.Count() > 0) {
 					VocClass::PlayAt(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
 				}
 				building->House->Refund_Money(Refund_Amount());
@@ -833,7 +833,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 		if (Mission == MISSION_CAPTURE || Mission == MISSION_GUARD_AREA || Mission == MISSION_PATROL) {
 			if (NavCom != NULL && NavCom->Is_Techno() && ((TechnoClass*)NavCom)->Considered_Vehicle()) {
 				TechnoClass * tech = (TechnoClass *)NavCom;
-				if (tech != NULL) {
+				if (tech != NULL && tech->RTTI == RTTI_BUILDING) {
 					if (PositionCell == tech->PositionCell) {
 						if (tech->Tag) {
 							tech->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
@@ -879,7 +879,8 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 							for (int x = -2; x < 3; x++) {
 								Cell cell = (Cell)Cell(PositionCell + Cell(x, y));
 								IsometricTileType ittype = Map[cell].ITType;
-								if ((ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) || (Map[cell].Overlay >= 74 && Map[cell].Overlay <= 101)) {
+								OverlayType overlay = Map[Cell(Cell(x, y) + PositionCell)].Overlay;
+								if ((ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) || (overlay >= 74 && overlay <= 101)) {
 									train = true;
 								}
 							}
@@ -901,7 +902,12 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					**	it damages or captures depends on how badly damaged the
 					**	enemy building is.
 					*/
-					else if (House->Is_Ally(tech)) {
+					else if (House->Is_Ally(tech) || (tech->House->Class->IsMultiplayPassive && ((BuildingClass *)tech)->Class->CanBeOccupied)) {
+						if (tech->Strength == tech->TClass->MaxStrength) {
+							Assign_Destination(NULL, true);
+							Scatter(tech->Center_Coord(), true, true);
+							return;
+						}
 						tech->Renovate();
 					} else {
 						bool iscapturable = false;
@@ -914,7 +920,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 							int damage = MIN((tech->TClass->MaxStrength) * ((1 - Rule->ConditionRed / 2) / 2), maxdamage);
 							tech->Take_Damage(damage, 0, Rule->C4Warhead, this, true);
 						} else if (iscapturable) {
-							if (tech->Mission == MISSION_DECONSTRUCTION) {
+							if (tech->CurrentMission == MISSION_DECONSTRUCTION) {
 								Assign_Destination(NULL, true);
 								Scatter(tech->Center_Coord(), true, true);
 								return;
@@ -1008,7 +1014,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 						Hidden();
 					} else {
 						Assign_Destination(NULL);
-						Assign_Mission(MISSION_GUARD);
+						QueueMission(MISSION_GUARD, false);
 						Scatter(COORD_NONE, true, true);
 					}
 					BEnd(BENCH_PCP);
@@ -1027,13 +1033,19 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 				if (building->Tag) {
 					building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
 				}
-				if (building->Mission != MISSION_DECONSTRUCTION) {
+				if (building->Mission != MISSION_DECONSTRUCTION && !building->Unknown_Virtual_32C()) {
+					if (building->IsGoingToBlow) {
+						Assign_Destination(NULL, true);
+						Arm = Rearm_Delay(true);
+						Scatter(building->Center_Coord(), true, true);
+						return;
+					}
 					building->IsGoingToBlow = true;
 					building->Clicked_As_Target((Rule->C4Delay * TICKS_PER_MINUTE) / 2);
 					building->CountDown = Rule->C4Delay * TICKS_PER_MINUTE;
 					building->WhomToRepay = this;
 				}
-				NavCom = NULL;
+				Abort_Motion();
 				Do_Uncloak();
 				Arm = Rearm_Delay(true);
 				Scatter(building->Center_Coord(), true, true);	// RUN AWAY!
@@ -1045,7 +1057,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 
 					Stop_Driver();
 					Scatter(Adjacent_Cell(PositionCoord, (FacingType)PrimaryFacing.Current().As_Dir8()), true, true);
-					Assign_Mission(MISSION_MOVE);
+					QueueMission(MISSION_MOVE, false);
 
 					if (NavCom == NULL || Map[NavCom->Center_Coord()].Land_Type() == LAND_WATER) {
 						Mark(MARK_DOWN);		// Needed only so that Tanya will get destroyed by the explosion.
@@ -1095,7 +1107,7 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 		/*
 		**	When the infantry reaches the center of the cell, it may begin a new mission.
 		*/
-		if (MissionQueue == MISSION_NONE && NavCom == NULL && TarCom == NULL && !In_Radio_Contact()) {
+		if (MissionQueue == MISSION_NONE && NavCom == NULL && TarCom == NULL && !HasAnyLink()) {
 			Enter_Idle_Mode();
 		}
 		Commence();

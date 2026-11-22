@@ -1052,7 +1052,7 @@ int __fastcall Get_Slot_Control_Id(int slot); // RA2: 0x005C97A0, as above
 /// <param name="name">Name of the player the options came from.</param>
 /// <returns>bool; Did the scenario change?</returns>
 bool __fastcall Net2DecodeGameopt(char const * text, char const * sender); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row); 7569 bytes differ against the frozen image bound (image_bounds.csv)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row); against the frozen image bound (image_bounds.csv) 7781 bytes differ, instruction score 82.12 (shape 96.83; 65.10 before lane O22), 2026-11-22
 /*
  * If the host is forcing a color reassignment, then this flag will be true. It is set when
  * the host accepts the game options and cleared once the assignment has been processed, and
@@ -1083,7 +1083,8 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 					Set_Connection_State(sender, receiver, copy[2] - '0'); // RA2: as above
 				}
 			}
-			break; // RA2: as above
+			free(copy); // RA2: as above
+			return(false); // RA2: as above
 		}
 		case '2': // RA2: as above
 			Store_Player_Port(sender, (unsigned short)atol(copy + 2)); // RA2: as above
@@ -1454,9 +1455,9 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 		found = false; // RA2: as above
 		same_scenario = false; // RA2: as above
 		for (int i = 0; i < Session.Scenarios.Count(); i++) { // RA2: as above
-			char const * filename = Session.Scenarios[i]->Get_Filename();
-			if (_stricmp(Session.ScenarioFileName, filename) == 0) { // RA2: as above
-				CCFileClass file(filename); // RA2: as above
+			MultiMission *scenario = Session.Scenarios[i]; // RA2: as above
+			if (_stricmp(Session.ScenarioFileName, scenario->Get_Filename()) == 0) { // RA2: as above
+				CCFileClass file(scenario->Get_Filename()); // RA2: as above
 				if (file.Is_Available(false) && file.Size() == Session.ScenarioFileLength) { // RA2: as above
 					INIClass ini; // RA2: as above
 					ini.Load(file, false); // RA2: as above
@@ -1464,7 +1465,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 					ini.Get_String("Digest", "1", "No digest here mate. Nope.", buffer, sizeof(buffer)); // RA2: as above
 					if (Session.ScenarioDigest[0] == 0 // RA2: as above
 						|| strcmp(Session.ScenarioDigest, buffer) == 0) { // RA2: as above
-						wcscpy(Session.Options.ScenarioDescription, Session.Scenarios[i]->Description()); // RA2: as above
+						wcscpy(Session.Options.ScenarioDescription, scenario->Description()); // RA2: as above
 						found = true; // RA2: as above
 					}
 				}
@@ -1491,7 +1492,8 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 		mode->UnfixAlliances(); // RA2: as above
 	}
 	HWND dialog = GameoptWindow(); // RA2: as above
-	SendMessageA(GetDlgItem(dialog, 1772), OD_SETTEXTW, 0, (LPARAM)mode->UIName.text()); // RA2: as above
+	HWND item = GetDlgItem(dialog, 1772); // RA2: a looked-up value: the original reads the control before the text (main's Fill_Options_Dialog reads this control the same way)
+	SendMessageA(item, OD_SETTEXTW, 0, (LPARAM)mode->UIName.text()); // RA2: as above
 	SendMessageA(GetDlgItem(dialog, IDC_SCENARIONAME), OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: as above
 	Scen->Scenario = -1; // RA2: as above
 	Frame = 0; // RA2: as above
@@ -1534,7 +1536,12 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	}
 	{
 		unsigned int address = 0; // RA2: as above
-		for (char *name = strtok(NULL, ",:"); name != NULL; name = strtok(NULL, ",:")) { // RA2: as above
+		for (;;) { // RA2: as above
+			token = strtok(NULL, ",:"); // RA2: as above
+			if (token == NULL) { // RA2: as above
+				break; // RA2: as above
+			}
+			char * name = token; // RA2: TibSun's DecodePubGameopt keeps the handle so (char * handle = token;)
 			if (strcmp(name, "@") == 0) { // RA2: as above
 				break; // RA2: as above
 			}
@@ -1593,7 +1600,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 			if (_stricmp(name, Session.Handle) == 0) { // RA2: as above
 				IsColorChangePending = 0; // RA2: as above
 			}
-			if (g_pChat != NULL && Assign_House_And_Color(Wstring(name), country, color) != 0) { // RA2: as above
+			if (g_pChat != NULL && Assign_House_And_Color(Wstring(name), country, color)) { // RA2: as above
 				changed = true; // RA2: as above
 			} else if (g_pChat == 0 && Net2SetHouseAndColor(name, country, color) != 0) { // RA2: as above
 				changed = true; // RA2: as above
@@ -1719,10 +1726,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	_last_build_off_ally = Session.Options.BuildOffAlly; // RA2: as above
 	_last_mcv_redeploy = Session.Options.MCVRedeploy; // RA2: as above
 	_last_goodies = Session.Options.Goodies; // RA2: as above
-	if (!same_scenario) {
-		return(true);
-	}
-	return(false);
+	return(!same_scenario); // RA2: as above
 }
 #endif
 

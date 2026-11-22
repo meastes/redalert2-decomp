@@ -208,7 +208,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 							} else {
 
 								if (LinkedTo->IsNewNavCom) {
-									Sound_Effect(Rule->ScoldSound);
+									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
 								}
 								LinkedTo->IsNewNavCom = false;
 
@@ -327,7 +327,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 
 					int dist = LinkedTo->Distance(DestinationCoord);
 
-					if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->In_Radio_Contact()
+					if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */
 						&& abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H
 						&& Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
 
