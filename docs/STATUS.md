@@ -9,14 +9,19 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 <!-- generated:status -->
 
-| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-22T01:01Z) |
+| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-22T22:36Z) |
 | --- | ---: | ---: |
-| Reproduced .text | 93.54% | **88.924% function-level** (88.015% whole-unit) |
-| C/C++ built from source | 86.86% of .text | **86.041% function-level** (85.132% whole-unit) of .text |
-| Accepted | 17,910 regions | 17,497 functions in 437 units; function-level 17,597 functions |
-| Rebuild provenance (rebuild/README.md) | | adopted 16,617 fn / 2,795,343 B; reshaped from src/ 176 / 174,356 B; fresh 163 / 19,920 B; Windows workers 541 / 222,240 B |
-| Rebuild structure | | duplicates 0, externs 5 landed / 5 all, address-suffixed 0; parked 193 functions / 181,867 B (>=1 KB: 51 / 163,503 B); judgment 35 rows / 55,140 B; count-sensitive 3 rows / 16,625 B |
-| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | 8 rows / 2,555 B |
+| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the five lines below) | 93.54% (3,526,174 B) | 90.21% whole-unit (3,400,577 B); function-level from the next gated landing |
+| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | 3,274,492 B, 86.86% | 3,151,371 B, 83.60% whole-unit; gap to main 123.1 KB; function-level from the next gated landing |
+| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | 2,514 B | 2,555 B in 8 rows (whole-unit) |
+| Frozen padding of accepted rows | 143,042 B | 140,525 B whole-unit |
+| Linked library members (the same archive members in both builds) | 89,127 B | 89,127 B |
+| Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | 16,999 B | 16,999 B |
+| C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | 3,245,325 B, 86.09% | from the next gated landing |
+| Judgment calls (different definitions, not comparable row for row: main counts the manifest flags count_calibrated, split_declaration, declarations_only; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus the rows listed as dependents of a flagged header form; body bytes) | 10 rows / 29,167 B | 56 rows / 88,709 B (provenance notes only) |
+| Accepted | 17,910 regions | 17,556 functions in 438 units; function-level 17,640 functions |
+| Rebuild provenance (rebuild/README.md; body plus padding) | | adopted 16,665 fn / 2,840,031 B; reshaped from src/ 178 / 181,396 B; fresh 163 / 19,920 B; Windows workers 550 / 253,104 B |
+| Rebuild structure | | duplicates 0, externs 6 landed / 6 all, address-suffixed 0; parked 164 functions / 162,315 B (>=1 KB: 45 / 147,957 B); judgment 56 rows / 88,709 B; count-sensitive 3 rows / 6,136 B |
 | Rebuild evidenced inline assembly reached through a file-static helper of its unit | | 2 rows / 789 B |
 | Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | 0 rows / 0 B |
 

@@ -4043,3 +4043,26 @@ Found in the rebuild (lane F27, high):
   product) needs the three-argument Vector3::Cross_Product into declared vectors and the twin's sum order
   y * y + (x * x + z * z); the by-value cross products give the other order whatever the helper says, and
   the tree's x, z, y sum leaves two bytes (two double slots exchanged).
+
+## An argument held across a later argument's call was computed in an earlier statement; of two member stores before a call the first is the one deferred (found in the rebuild (lane F28, high))
+
+- Arguments are evaluated last first and each result is pushed at once: `f(fmt, g(a), g(a))` compiles to call,
+  push, call, push. Where the image has call, `mov ebp, eax`, call, `push eax`, `push ebp`, the value pushed
+  second was computed before the argument list began: a named value in an earlier statement. Wait_For_Players_To_Load
+  0x65C520 (676 B): the first name's conversion named (`char const * narrow = Wide_To_Narrow(name);`) takes the
+  parked draft from 201 to 77 bytes, and the drop loop's entry test turns from `cmp eax, 1` into the image's
+  `cmp eax, ebx` (the slot's register) with it. Its comma step is in the image's order too: `inc ebx`, `inc esi`
+  is `slot++, i++`.
+- Two member assignments to a local whose address the next call takes (`probe.X = a; probe.Y = b; f(probe, true)`):
+  when both values are loads, VC6 stores the second assignment's member before the argument pushes and defers the
+  first one's store until after them. So the member stored after the pushes was assigned first in the source.
+  MapClass::Subzone_Span 0x564290: the right-hand probes store X early and Y late, which is `probe.Y = y;
+  probe.X = end_x;`; the archive's `probe = Cell(x, y)` is a temporary plus a dword copy the image does not have.
+- A register variable that has a home slot is reloaded from it after each block that borrows its register
+  (Subzone_Span: seed in ebp, the scan position in edi; the reload sits at the join, or at a loop's latch when
+  the loop body borrows the register and the loop top reads the variable). One store after the loop that changes
+  the variable means one variable: a second store of the same register there is a second variable holding a copy
+  (the archive's `begin_x = x`).
+- A relocation-masked instruction diff (unbound fields given a marker base, absolute addresses folded, jumps as
+  labels) reads the register and layout residue of an unbound parked draft before any binding work; byte counts
+  of such drafts mostly count relocation fields.

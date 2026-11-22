@@ -50225,7 +50225,7 @@
   "status": "catalogued",
   "range": [
    "00431020",
-   "00432290"
+   "00432270"
   ],
   "mischa85": "source: functions compiled from src/bitfont.cpp, matched, without gaps; one copy the compiler emitted after the last function",
   "main_options": [
@@ -50491,19 +50491,10 @@
     "symbol": "??_GBitFont@@UAEPAXI@Z",
     "main_symbol": "??_GBitFontClass@@UAEPAXI@Z",
     "main_source": "src/recovered/bitfont.cpp"
-   },
-   {
-    "entry": "00432270",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E25",
-    "main_symbol": "?get@Leaf_432270@@QAEXXZ",
-    "main_source": "src/recovered/bittext.cpp"
    }
   ],
   "references": {
-   "_RECT_NONE": "0084e9c0",
-   "_RECT_NONE_2": "0084e9d8"
+   "_RECT_NONE": "0084e9c0"
   },
   "partial_ok": true
  },
@@ -107480,6 +107471,15 @@
     "bound": "image-derived"
    },
    {
+    "entry": "00722cb0",
+    "body": 1382,
+    "padding": 10,
+    "symbol": "?Draw_Laser@WaveClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00723220",
     "body": 169,
     "padding": 7,
@@ -110426,7 +110426,7 @@
   "status": "catalogued",
   "range": [
    "0060a880",
-   "0060d110"
+   "0060d0f0"
   ],
   "mischa85": "tibsun: functions compiled from src/partsys.cpp, without gaps; matched except ?Spark_AI@ParticleSystemClass@@AAEXXZ and ?Smoke_AI@ParticleSystemClass@@AAEXXZ and ?Railgun_AI@ParticleSystemClass@@AAEXXZ and ?Fire_AI@ParticleSystemClass@@AAEXXZ; two placed by the gap; ?Fire_AI@ParticleSystemClass@@AAEXXZ and ?Railgun_AI@ParticleSystemClass@@AAEXXZ and ?Smoke_AI@ParticleSystemClass@@AAEXXZ and ?Spark_AI@ParticleSystemClass@@AAEXXZ placed where matched code calls them; ?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ not placed; ?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ not placed; ?Web_AI@ParticleSystemClass@@AAEXXZ not placed",
   "main_options": [
@@ -110772,14 +110772,6 @@
     "symbol": "??0?$VectorClass@PAVParticleClass@@@@QAE@HPBQAVParticleClass@@@Z",
     "main_symbol": "?get@Storage_60d0a0@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/partsys.cpp"
-   },
-   {
-    "entry": "0060d0f0",
-    "body": 23,
-    "padding": 9,
-    "symbol": "_$E152",
-    "main_symbol": "?get@Leaf_60d0f0@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/0060d0f0.cpp"
    }
   ],
   "references": {
@@ -110812,8 +110804,7 @@
    "__FireStepY": "007eb8a4",
    "__FireStepX": "007eb884",
    "?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ": "0060d010",
-   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020",
-   "_RECT_NONE_2": "00a765a0"
+   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020"
   },
   "partial_ok": true
  },
@@ -121052,6 +121043,15 @@
     "main_source": "src/recovered/vanim.cpp"
    },
    {
+    "entry": "0070c800",
+    "body": 1308,
+    "padding": 4,
+    "symbol": "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0070cd20",
     "body": 275,
     "padding": 13,
@@ -124400,7 +124400,7 @@
   "status": "catalogued",
   "range": [
    "00520fa0",
-   "00522557"
+   "00522540"
   ],
   "mischa85": "tibsun: functions compiled from src/ionblast.cpp, without gaps; matched except ?AI@IonBlastClass@@QAEXXZ and ?One_Time@IonBlastClass@@SIXXZ and ?Draw_It@IonBlastClass@@QAEXXZ; three placed by the gap; ?AI@IonBlastClass@@QAEXXZ and ?Draw_It@IonBlastClass@@QAEXXZ and ?One_Time@IonBlastClass@@SIXXZ placed at their function starts",
   "main_options": [
@@ -124738,16 +124738,6 @@
     "symbol": "?Delete_Index@?$DynamicVectorClass@PAVIonBlastClass@@@@QAE_NH@Z",
     "main_symbol": "?Delete@?$DynamicVectorClass@PAVIonBlastClass@@@@QAE_NH@Z",
     "main_source": "src/recovered/ionblast.cpp"
-   },
-   {
-    "entry": "00522540",
-    "body": 23,
-    "padding": 0,
-    "symbol": "_$E178",
-    "main_symbol": "?get@Leaf_522540@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/00522540.cpp",
-    "gap_padding": 9,
-    "gap_population": "population-106"
    }
   ],
   "references": {
@@ -124776,8 +124766,7 @@
    "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ": "005222f0",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z": "00522320",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z": "00522360",
-   "_$S172": "00a51948",
-   "_RECT_NONE_2": "00a51fc0"
+   "_$S172": "00a51948"
   },
   "partial_ok": true
  },
@@ -140131,6 +140120,15 @@
     "main_source": "src/recovered/wonline.cpp"
    },
    {
+    "entry": "0075f530",
+    "body": 5780,
+    "padding": 12,
+    "symbol": "?OnChannelJoin@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00760c00",
     "body": 2402,
     "padding": 14,
@@ -140806,7 +140804,7 @@
     "entry": "00766dc0",
     "body": 150,
     "padding": 10,
-    "symbol": "?Shrink_00766dc0@WolChannelArray@@QAE_NXZ",
+    "symbol": "?shrinkVector@?$ArrayList@UChannel@WOL@@@@AAEDXZ",
     "main_symbol": "?Shrink_00766dc0@WolChannelArray@@QAE_NXZ",
     "main_source": "src/recovered/wonline.cpp"
    },
@@ -141333,7 +141331,10 @@
    "??_C@_0BG@KNCE@TXT_CONNECTING_SERVER?$AA@": "007fe4d0",
    "_?$S395@?4??Initialize_WDT_Sounds@@YIXXZ@4EA": "00b29734",
    "??_B?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@3@PBD@Z@51": "00b2b400",
-   "?_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4V?$BasicTimerClass@VSystemTimerClass@@@@A": "00b2b408"
+   "?_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4V?$BasicTimerClass@VSystemTimerClass@@@@A": "00b2b408",
+   "??_C@_0BA@GKEN@R?$CFd?0?$CFd?0?$CFx?0?$CFx?0?$CFx?$AA@": "007fdec4",
+   "?ladder_request_keys@?3??OnUserList@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@@Z@4PADA": "00b2b420",
+   "?IsColorChangePending@@3HA": "00a72d08"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -169632,6 +169633,58 @@
    "??_C@_07DCOD@Surface?$AA@": "007d39dc",
    "??_C@_03ML@Air?$AA@": "007cdfe4",
    "??_C@_03BJDM@Top?$AA@": "007d39d0"
+  }
+ },
+ "pcx": {
+  "core": [
+   "0060d0f0",
+   "0060d780"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/pcx.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr",
+   "/GR"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0060d0f0",
+   "0060d780"
+  ],
+  "mischa85": "none: unk_0060D010 gap in mischa85's map; the unit between partsys and phoneed by the image (its _$E2 0x60d0f0 and RECT_NONE 0x00a765a0 between partsys's and phoneed's blocks), the archive's pcx.cpp and ra2-decomp's pcx unit (YR 0x6302F0-0x630973)",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0060d0f0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "?get@Leaf_60d0f0@@QAEXXZ",
+    "main_source": "src/recovered/unidentified/seed_views/0060d0f0.cpp"
+   },
+   {
+    "entry": "0060d110",
+    "body": 1635,
+    "padding": 13,
+    "symbol": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   }
+  ],
+  "references": {
+   "_RECT_NONE": "00a765a0"
   }
  }
 }

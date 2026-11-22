@@ -206,11 +206,9 @@ void WaveClass::Set_Sonic_Pixel(int x, int xoff, int y, unsigned short * buffer)
 void WaveClass::Set_Laser_Pixel(unsigned short * buffer, int mult) const
 {
 	RGBClass rgb = DSurface::Deconstruct_Hicolor_Pixel(*buffer);
-	int red = rgb.Get_Red();
+	int red = rgb.Get_Red() + ((mult * 64) >> 8); // RA2: red brightens by a fixed 64/256 of the multiplier
 	int green = rgb.Get_Green();
-	int blue = rgb.Get_Blue();
-	red += ((mult * 64) >> 8); // RA2: red brightens by a fixed 64/256 of the multiplier
-	blue += ((mult * 96) >> 8); // RA2: and blue by 96/256
+	int blue = rgb.Get_Blue() + ((mult * 96) >> 8); // RA2: and blue by 96/256
 	*buffer = DSurface::Build_Hicolor_Pixel(MIN(255, red), MIN(255, green), MIN(255, blue));
 }
 
@@ -825,7 +823,6 @@ void WaveClass::Draw_Sonic(Point2D const & point, Rect const & cliprect)
 /// </summary>
 /// <param name="point">The screen point that the wave's origin lands upon.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00722cb0 has no row); main: best 61.27, tried 5 times (frame, register, inline)
 void WaveClass::Draw_Laser(Point2D const & point, Rect const & cliprect)
 {
 	if (Options.DetailLevel == 2) {
@@ -920,7 +917,6 @@ void WaveClass::Draw_Laser(Point2D const & point, Rect const & cliprect)
 		}
 	}
 }
-#endif
 
 
 

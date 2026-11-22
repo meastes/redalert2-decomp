@@ -84,6 +84,7 @@ Series break: before 2026-11-18T16:07Z `bytes_exact` counted only the lane's cat
 row on, `bytes_exact` counts every catalogued row and divides out to the share. The two percentages are
 comparable across the whole series; `bytes_exact` is comparable only from 16:07Z.
 Series break (lane ASM1, 2026-11-20): from the first row with the `inline_asm_*` columns, `source_share_of_text` leaves out the body bytes of evidenced inline assembly (its own category, as on main; conquer Main_Game and lcw LCW_Comp, 1,187 B, were in it before; the row's `note` says so); `reproduced_text` still counts them. `helper_asm_*` counts the rows reached through a file-static helper of their unit (DECISIONS, 2026-11-20).
+Series break (lane O41, 2026-11-22T22:31Z): from the first row with `c_body_bytes`, `source_share_of_text`, `function_level_source_share_of_text` and the clean source shares count C/C++ body bytes only, the measure of main's "Matched C/C++ body bytes"; before it they also held the accepted rows' frozen padding (140,377 B at 21:23Z, so 86.989% then read 83.265% body only). Padding is now its own column (`padding_bytes`, `function_level_padding_bytes`) beside `library_bytes` and `assembly_bytes`; `reproduced_text` is unchanged and is main's sum (body, evidenced inline asm, padding, linked library, assembled handwritten asm), so it was already like for like. `bytes_exact`, `function_level_bytes`, the provenance columns and `clean_*_bytes` stay body plus padding.
 
 ## Working the parked tail
 

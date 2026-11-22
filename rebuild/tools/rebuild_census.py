@@ -195,10 +195,14 @@ def function_level(regions):
     function-level: each function checked on its own, as ra2-decomp reports: the catalog's rows, plus every
     row of a unit in units.json that the unit's current check finds exact (held units included), every
     count-sensitive row (exact in its probed window) and every row tailmap records as exact_when_open
-    (exact with its guard open; manifest/tail_buckets.csv). Rows count once; bytes are body plus padding.
-    Returns dict(whole=(rows, bytes), function=(rows, bytes), parts={part: (rows, bytes)})."""
+    (exact with its guard open; manifest/tail_buckets.csv). Rows count once; bytes are body plus padding, and
+    the body bytes alone are returned beside them (lane O41, 2026-11-22: C/C++ is counted in body bytes with
+    padding on its own line, as on main).
+    Returns dict(whole=(rows, bytes), function=(rows, bytes), parts={part: (rows, bytes)}, whole_body=body
+    bytes, function_body=body bytes, whole_entries={entry: bytes}, function_entries={entry: bytes})."""
     import csv
     whole = {'%08x' % r['entry']: r['full_extent_bytes'] for r in regions}
+    body = {'%08x' % r['entry']: r['body_bytes'] for r in regions}
     units = R.load_json(R.UNITS, {})
     extent = {}
     checked, sensitive = set(), set()
@@ -207,6 +211,7 @@ def function_level(regions):
         status = {r['entry']: r['status'] for r in last['results']} if last else {}
         for r in info['rows']:
             extent[r['entry']] = r['body'] + (r.get('padding') or 0)
+            body.setdefault(r['entry'], r['body'])
             if status.get(r['entry']) == 'exact':
                 checked.add(r['entry'])
         sensitive |= set(info.get('count_sensitive') or {})
@@ -220,7 +225,11 @@ def function_level(regions):
         parts[part] = (len(new), sum(extent[e] for e in new))
         seen |= new
     function_bytes = sum(whole.values()) + sum(b for _, b in parts.values())
-    return dict(whole=(len(whole), sum(whole.values())), function=(len(seen), function_bytes), parts=parts)
+    entries = dict(whole)
+    entries.update((e, extent[e]) for e in seen - set(whole))
+    return dict(whole=(len(whole), sum(whole.values())), function=(len(seen), function_bytes), parts=parts,
+                whole_body=sum(body[e] for e in whole), function_body=sum(body[e] for e in seen),
+                whole_entries=whole, function_entries=entries)
 
 
 def count_sensitive():
@@ -280,6 +289,70 @@ def provisional_names():
     import csv
     path = R.MANIFEST / 'provisional_names.csv'
     return [(r['unit'], r['name']) for r in csv.DictReader(open(path))] if path.exists() else []
+
+
+HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
+
+
+def judgment_entries(units=None):
+    """(provenance entries, header-form dependent entries): every row flagged as a judgment call, accepted or not.
+    Provenance: a non-empty judgment note in manifest/provenance.csv (this already takes the `bound: frozen_bound`
+    and `bound: image-derived` rows, whose notes say so). Header forms: header_judgments.csv flags the member, not
+    a row (review session, 2026-11-19); a row listed in that member's `dependents` column rests on the flagged form,
+    so it counts as a judgment row too. Dependents are free text; an address in it (8 hex digits, or 0x and 6-8)
+    counts when it is the entry of a row of units.json, so a parked or unknown address counts nothing."""
+    import csv
+    units = R.load_json(R.UNITS, {}) if units is None else units
+    known = {r['entry'] for info in units.values() for r in info['rows']}
+    path = R.MANIFEST / 'provenance.csv'
+    provenance = {r['entry'] for r in csv.DictReader(open(path)) if (r.get('judgment') or '').strip()} \
+        if path.exists() else set()
+    path = R.MANIFEST / 'header_judgments.csv'
+    header = set()
+    for r in (csv.DictReader(open(path)) if path.exists() else []):
+        if (r.get('judgment') or '').strip():
+            header |= {m.group(1).lower().zfill(8) for m in HEX_ENTRY.finditer(r.get('dependents') or '')}
+    return provenance, (header & known) - provenance
+
+
+def clean_exact(whole, function, judgment, sensitive, asm_body, body):
+    """Exact with no judgment call (user-approved process change, 2026-11-22, lane O37): the headline figures
+    with every flagged row left out, so they cannot drift on flagged rows.
+    WHOLE, FUNCTION: {entry: body+padding} of the whole-unit (catalogued) and function-level exact sets
+    (function_level); JUDGMENT: entries flagged as judgment calls (judgment_entries, both kinds); SENSITIVE:
+    count-sensitive entries (exact only in a probed declaration-count window); ASM_BODY: {entry: body} of the
+    evidenced inline-asm rows (left out of the source share, as in source_share_of_text); BODY: {entry: body}.
+    Returns dict(whole=(rows, bytes, source bytes), function=(rows, bytes, source bytes),
+    judgment=(rows, body bytes), sensitive=(rows, body bytes)), the last two over the function-level set.
+    Source bytes are C/C++ body bytes (lane O41, 2026-11-22): the kept rows' body bytes without padding and
+    without evidenced inline asm, the measure of main's "Matched C/C++ body bytes"; bytes stay body plus padding."""
+    flagged = set(judgment) | set(sensitive)
+    out = {}
+    for name, level in (('whole', whole), ('function', function)):
+        kept = set(level) - flagged
+        size = sum(level[e] for e in kept)
+        out[name] = (len(kept), size, sum(body.get(e, 0) - asm_body.get(e, 0) for e in kept))
+    j = set(function) & set(judgment)
+    s = (set(function) & set(sensitive)) - j
+    out['judgment'] = (len(j), sum(body.get(e, 0) for e in j))
+    out['sensitive'] = (len(s), sum(body.get(e, 0) for e in s))
+    return out
+
+
+def clean_measures(regions, level=None):
+    """clean_exact on the tree: the catalog's rows and units.json (see clean_exact)."""
+    units = R.load_json(R.UNITS, {})
+    level = level or function_level(regions)
+    provenance, header = judgment_entries(units)
+    sensitive = {e for info in units.values() for e in (info.get('count_sensitive') or {})}
+    body = {r['entry']: r['body'] for info in units.values() for r in info['rows']}
+    body.update(('%08x' % r['entry'], r['body_bytes']) for r in regions)
+    asm_body = {'%08x' % r['entry']: r['body_bytes'] for r in regions if r.get('inline_asm') == 'evidenced'}
+    out = clean_exact(level['whole_entries'], level['function_entries'], provenance | header, sensitive, asm_body,
+                      body)
+    fl = set(level['function_entries'])
+    out['header'] = (len(header & fl), sum(body.get(e, 0) for e in header & fl))
+    return out
 
 
 def header_judgments():
@@ -511,6 +584,14 @@ def main(quiet=False):
     measures['header_form_parked_rows'], measures['header_form_parked_bytes'] = header_form_parked()
     level = function_level(cat['regions'])
     measures['function_level_rows'], measures['function_level_bytes'] = level['function']
+    measures['whole_body_bytes'], measures['function_level_body_bytes'] = level['whole_body'], level['function_body']
+    clean = clean_measures(cat['regions'], level)
+    measures['clean_whole_rows'], measures['clean_whole_bytes'], measures['clean_whole_source_bytes'] = clean['whole']
+    measures['clean_function_rows'], measures['clean_function_bytes'], measures['clean_function_source_bytes'] = \
+        clean['function']
+    measures['judgment_any_rows'], measures['judgment_any_bytes'] = clean['judgment']
+    measures['header_dependent_rows'], measures['header_dependent_bytes'] = clean['header']
+    measures['clean_sensitive_rows'], measures['clean_sensitive_bytes'] = clean['sensitive']
     # House format of new lines (lane F1): the diff BASE..working tree; adopted text and manifest/format_exempt.csv
     # are not counted. Gated when RA2_FMT_BASE names the base (the owner's landing, after fmtnew.py); without it the
     # merge-base with rebuild-trial is measured and reported only, so a lane's catalog is never refused for it.
@@ -568,6 +649,17 @@ def main(quiet=False):
           '%d bytes; function-level (each function checked on its own, as ra2-decomp reports) %d rows, %d bytes (%s)' % (
               level['whole'] + level['function'] + ('; '.join('+%d rows %d B %s' % (n, b, k)
                                                               for k, (n, b) in level['parts'].items()),)))
+    print('C/C++ body bytes of those (no padding; evidenced inline asm included, main\'s measure leaves it out): '
+          'whole-unit %d, function-level %d' % (level['whole_body'], level['function_body']))
+    print('Exact with no judgment call (reported, not gated; user 2026-11-22): whole-unit %d rows, %d bytes (C/C++ '
+          'body %d); function-level %d rows, %d bytes (C/C++ body %d); left out of the function-level set: judgment calls %d rows, %d body '
+          'bytes (provenance judgment notes, with %d rows %d B listed as dependents of a flagged header form), '
+          'count-sensitive %d rows, %d body bytes' % (
+              measures['clean_whole_rows'], measures['clean_whole_bytes'], measures['clean_whole_source_bytes'],
+              measures['clean_function_rows'], measures['clean_function_bytes'], measures['clean_function_source_bytes'],
+              measures['judgment_any_rows'], measures['judgment_any_bytes'],
+              measures['header_dependent_rows'], measures['header_dependent_bytes'],
+              measures['clean_sensitive_rows'], measures['clean_sensitive_bytes']))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
         measures['unplaced_symbols'], measures['unplaced_bytes']))
     print('Data placed by layout (data_bound_by: layout; declarations a hypothesis): %d symbols; pending data owned by '

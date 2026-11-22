@@ -1,0 +1,317 @@
+{
+  "id": "rebuild-pcx",
+  "population": {
+    "id": "rebuild-pcx",
+    "inventory_sha256": "51a4ba4059a90f36312f2e0cf652457c941566f7aeb00304eb9e7d54695ace1f",
+    "gaps_sha256": "b308050a46b7cf6e70bfe0e590d67bf26b9b9ffdf6333c695e3d171b36a26c95",
+    "historical_population_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad",
+    "historical_acceptance_sha256": "049468079aedb57815ea518b6e5704d2962cafd85acfbfd338a8f7ed769409ad"
+  },
+  "references": {
+    "_RECT_NONE": 10970528,
+    "??0Buffer@@QAE@PAXH@Z": 4424384,
+    "??2@YAPAXI@Z": 7872535,
+    "??_7XSurface@@6B@": 7974796,
+    "??_7BSurface@@6B@": 7974648,
+    "??1Buffer@@QAE@XZ": 4424720,
+    "?BlueLeft@DSurface@@2HA": 8728516,
+    "?BlueRight@DSurface@@2HA": 8728512,
+    "?GreenLeft@DSurface@@2HA": 8728524,
+    "?GreenRight@DSurface@@2HA": 8728520,
+    "?RedLeft@DSurface@@2HA": 8728508,
+    "?RedRight@DSurface@@2HA": 8728504,
+    "??3@YAXPAX@Z": 7871803,
+    "_$E2": 6344944,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z": 6344976,
+    "??_GBSurface@@UAEPAXI@Z": 4264912,
+    "??_R0?AVBSurface@@@8": 8184544,
+    "?Get_Pixel_Clip@XSurface@@UBEHABVPoint2D@@ABV?$TRect@H@@@Z": 7815808,
+    "?Put_Pixel_Clip@XSurface@@UAE_NABVPoint2D@@HABV?$TRect@H@@@Z": 7815936,
+    "__purecall": 4950368,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7815424,
+    "?Draw_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7815472,
+    "?Draw_Masked_Line@XSurface@@UAE_NABVPoint2D@@0I_N@Z": 7814832,
+    "?Draw_Masked_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH_N@Z": 7814816,
+    "?Draw_Dashed_Line@XSurface@@UAEHABVPoint2D@@0IQA_NH@Z": 7814192,
+    "?Draw_RGB_Multiplying_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1ABVRGBClass@@MHH@Z": 7814896,
+    "?Draw_Depth_Antialiased_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1AAVRGBClass@@HH_N333M@Z": 7814880,
+    "?Draw_Depth_Glow_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1HHH_N@Z": 7814864,
+    "?Draw_Depth_Shaded_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1IHH_N@Z": 7814848,
+    "?Draw_Line@XSurface@@UAE_NABVPoint2D@@0H@Z": 7813456,
+    "?Draw_Line@XSurface@@UAE_NABV?$TRect@H@@ABVPoint2D@@1H@Z": 7813504,
+    "?Get_Pixel@XSurface@@UBEHABVPoint2D@@@Z": 7815632,
+    "?Put_Pixel@XSurface@@UAE_NABVPoint2D@@H@Z": 7815712,
+    "?Fill_Rect_Trans@XSurface@@UAE_NABV?$TRect@H@@ABVRGBClass@@I@Z": 7816880,
+    "?Fill@XSurface@@UAE_NH@Z": 7818784,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@H@Z": 7816080,
+    "?Fill_Rect@XSurface@@UAE_NABV?$TRect@H@@0H@Z": 7816128,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@0ABVSurface@@00_N2@Z": 7819360,
+    "?Blit_From@XSurface@@UAE_NABV?$TRect@H@@ABVSurface@@0_N2@Z": 7819008,
+    "?Blit_From@XSurface@@UAE_NABVSurface@@_N1@Z": 7818848,
+    "??_GXSurface@@UAEPAXI@Z": 4264736,
+    "??_R0?AVSurface@@@8": 8184496,
+    "??_7type_info@@6B@": 8066532,
+    "??_R0?AVXSurface@@@8": 8184520,
+    "?Can_Lock@Surface@@UBE_NHH@Z": 4264560,
+    "?entry_64@Surface@@UBE_NVPoint2D@@@Z": 4264576,
+    "?Get_Rect@Surface@@UBE?AV?$TRect@H@@XZ": 4264592,
+    "?Get_Width@Surface@@UBEHXZ": 4264640,
+    "?Get_Height@Surface@@UBEHXZ": 4264656,
+    "?Lock@XSurface@@UBEPAXVPoint2D@@@Z": 4264672,
+    "?Unlock@XSurface@@UBE_NXZ": 4264688,
+    "?Is_Locked@XSurface@@UBE_NXZ": 4264704,
+    "?Is_Direct_Draw@XSurface@@UBE_NXZ": 4264720,
+    "??_GSurface@@UAEPAXI@Z": 4264784,
+    "??_7Surface@@6B@": 7974944,
+    "?Is_Direct_Draw@Surface@@UBE_NXZ": 4264768,
+    "?Lock@BSurface@@UBEPAXVPoint2D@@@Z": 4264816,
+    "?Bytes_Per_Pixel@BSurface@@UBEHXZ": 4264880,
+    "?Stride@BSurface@@UBEHXZ": 4264896
+  },
+  "regions": [
+    {
+      "entry": 6344944,
+      "method": "60d0f0",
+      "body_bytes": 23,
+      "body_sha256": "4e3b77911312a229a9c2c5d8fad2b8f0c96b7e63eff9038225c82312fc086679",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "3d77696668b7683a0258754ca6faa68a35608c5cc8c881c8305810656b5001e3",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10970528,
+          "addend": 0,
+          "resolved": 10970528
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10970528,
+          "addend": 4,
+          "resolved": 10970532
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10970528,
+          "addend": 8,
+          "resolved": 10970536
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 10970528,
+          "addend": 12,
+          "resolved": 10970540
+        }
+      ],
+      "source_sha256": "d4ffad1abcb8ec02d3924f7c0451d1b5283ac01604097c751cc57bf1ae44c94f",
+      "source": "rebuild/src/pcx.cpp",
+      "population": "rebuild-pcx",
+      "source_order": 6344944,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
+    {
+      "entry": 6344976,
+      "method": "0060d110",
+      "body_bytes": 1635,
+      "body_sha256": "a16fc77eccee0f27d137e239aae205edbee27d8ed54b4524f654b43dbcdabff6",
+      "padding_bytes": 13,
+      "full_extent_bytes": 1648,
+      "full_extent_sha256": "462cc22c4300311fa8cde67446582a98bf92afcc2728602d4caa062692bffe51",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@005add3b +14, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+      "symbol_prefix": "?Read_PCX_File@@YIPAVSurface@@AAVFileClass@@PAVPaletteClass@@PAXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 249,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293046451
+        },
+        {
+          "offset": 256,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1527299
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 309,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293046391
+        },
+        {
+          "offset": 321,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 330,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293046706
+        },
+        {
+          "offset": 347,
+          "kind": 20,
+          "symbol": "??1Buffer@@QAE@XZ",
+          "target": 4424720,
+          "addend": 0,
+          "resolved": 4293046689
+        },
+        {
+          "offset": 356,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1527199
+        },
+        {
+          "offset": 403,
+          "kind": 6,
+          "symbol": "??_7XSurface@@6B@",
+          "target": 7974796,
+          "addend": 0,
+          "resolved": 7974796
+        },
+        {
+          "offset": 408,
+          "kind": 20,
+          "symbol": "??0Buffer@@QAE@PAXH@Z",
+          "target": 4424384,
+          "addend": 0,
+          "resolved": 4293046292
+        },
+        {
+          "offset": 414,
+          "kind": 6,
+          "symbol": "??_7BSurface@@6B@",
+          "target": 7974648,
+          "addend": 0,
+          "resolved": 7974648
+        },
+        {
+          "offset": 524,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1527031
+        },
+        {
+          "offset": 786,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 798,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 808,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 816,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 824,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 832,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 890,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1525933
+        }
+      ],
+      "source_sha256": "d4ffad1abcb8ec02d3924f7c0451d1b5283ac01604097c751cc57bf1ae44c94f",
+      "source": "rebuild/src/pcx.cpp",
+      "population": "rebuild-pcx",
+      "source_order": 6344976,
+      "source_quality_family": "rebuild"
+    }
+  ]
+}

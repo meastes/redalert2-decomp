@@ -54,7 +54,6 @@
 /// <param name="type">The voxel animation type to create an instance of.</param>
 /// <param name="coord">The coordinate to create the animation at.</param>
 /// <param name="house">The house that owns the animation, or NULL if it belongs to nobody.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0070c800 has no row); main: best 99.19, tried 6 times (register, inline, order)
 VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & coord, HouseClass * house) :
 	BASECLASS(),
 	Class((VoxelAnimTypeClass *)type),
@@ -71,6 +70,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & co
 	ECCounter = Class->Duration;
 	VoxelAnims.Add(this);
 
+	Vector3 velocity;
 	if (!Class->IsMeteor) {
 		Unlimbo(coord);
 		Coord center = Center_Coord() + Coord(0, 0, 10);
@@ -79,16 +79,14 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & co
 		int r3 = Scen->RandomNumber;
 		int r4 = Scen->RandomNumber;
 		float y = (abs(r3) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel;
-		float z = (abs(r2) % int(Class->MaxZVel - Class->MinZVel + 1.0)) + Class->MinZVel;
-		float x = (abs(r4) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel;
 
-		Vector3 velocity(x, y, z);
-		double rotation = (abs(r1) % int(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0)) + Class->MinAngularVelocity;
-		BounceClass::Init(center, Class->Elasticity, 1.4f, 0.0, velocity, rotation);
+		velocity.Set((float)((abs(r4) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel),
+			y, (float)((abs(r2) % int(Class->MaxZVel - Class->MinZVel + 1.0)) + Class->MinZVel));
+		BounceClass::Init(center, Class->Elasticity, 1.4f, 0.0, velocity, (abs(r1) % int(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0)) + Class->MinAngularVelocity);
 
 	} else {
-		Vector3 velocity((abs(Scen->RandomNumber) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel,
-						 (abs(Scen->RandomNumber) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel, Class->MinZVel);
+		velocity.Set((abs(Scen->RandomNumber) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel,
+			(float)((abs(Scen->RandomNumber) % int(Class->MaxXYVel + Class->MaxXYVel)) - Class->MaxXYVel), Class->MinZVel);
 
 		if (velocity.X < -velocity.Y) {
 			velocity.X = -velocity.X;
@@ -96,11 +94,7 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & co
 		}
 
 		ECCounter -= abs(Scen->RandomNumber % 20);
-		int x = coord.X - ECCounter * velocity.X;
-		int y = coord.Y - ECCounter * velocity.Y;
-		int z = coord.Z - ECCounter * velocity.Z;
-		Coord ucoord(x, y, z);
-		Unlimbo(ucoord);
+		Unlimbo(Coord(coord.X - ECCounter * velocity.X, coord.Y - ECCounter * velocity.Y, coord.Z - ECCounter * velocity.Z));
 		int rnd = Scen->RandomNumber;
 		BounceClass::Init(Center_Coord(), Class->Elasticity, 1.4f, 0.0, velocity, (abs(rnd) % int(Class->MaxAngularVelocity - Class->MinAngularVelocity + 1.0)) + Class->MinAngularVelocity);
 	}
@@ -116,7 +110,6 @@ VoxelAnimClass::VoxelAnimClass(VoxelAnimTypeClass const * type, Coord const & co
 		AttachedParticleSys = new ParticleSystemClass(Class->AttachedSystem, coord, &Map[coord], this);
 	}
 }
-#endif
 
 
 /// <summary>

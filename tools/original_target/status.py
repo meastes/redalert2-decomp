@@ -613,9 +613,30 @@ def rebuild_pair(r, function_key, unit_key, suffix=''):
     return '{}{}'.format(r[unit_key], suffix)
 
 
-def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
-    """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added.
-    The rebuild's numbers are the last gated-landing row of rebuild/manifest/progress.csv."""
+def rebuild_categories(repository=REPOSITORY):
+    """Whole-unit category bytes of the rebuild catalog (rebuild/manifest/catalog: the rows the whole-file build
+    accepts), counted as main's coverage() counts main's: C/C++ body (no padding, no evidenced inline asm),
+    evidenced inline asm body, frozen padding. None when the rebuild has no catalog."""
+    path = Path(repository) / 'rebuild/manifest/catalog'
+    if not path.exists():
+        return None
+    catalog = catalog_io.load(path, references=False)
+    return dict(coverage(catalog), inline_asm_rows=sum(1 for r in catalog['regions'] if evidenced_inline_asm(r)))
+
+
+def kb(value):
+    return '{:,.1f} KB'.format(value / 1000.0)
+
+
+def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None):
+    """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added, on the same
+    category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
+    evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
+    rebuild's whole-unit categories come from its catalog; its function-level figures (each function checked on its
+    own, as ra2-decomp reports) and structure from the last gated-landing row of rebuild/manifest/progress.csv. Both
+    builds link the same library members and assemble the same procedures (manifests/original_target/library.json,
+    assembly.json). MAIN is coverage() of main's catalog; JUDGMENT main's (regions, body bytes); MAIN_CLEAN main's
+    C/C++ body bytes outside its judgment-flagged rows."""
     import csv
     path = Path(repository) / 'rebuild/manifest/progress.csv'
     if not path.exists():
@@ -624,39 +645,82 @@ def rebuild_lines(text, reproduced, body, regions, repository=REPOSITORY):
     if not rows:
         return []
     r = rows[-1]
-    return ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
-            '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
-            '| --- | ---: | ---: |',
-            # Rebuild headline (owner, 2026-11-21): function-level (each function checked on its own, as ra2-decomp
-            # reports) first, the whole-unit figures (catalogued, the whole-file build's gate) beside them; main's
-            # figures unchanged.
-            '| Reproduced .text | {:.2f}% | {} |'.format(100.0 * reproduced / text, rebuild_pair(
-                r, 'function_level_reproduced_text', 'reproduced_text')),
-            '| C/C++ built from source | {:.2f}% of .text | {} |'.format(100.0 * body / text, rebuild_pair(
-                r, 'function_level_source_share_of_text', 'source_share_of_text', ' of .text')),
-            '| Accepted | {:,} regions | {:,} functions in {:,} units{} |'.format(regions, int(r['functions_exact']),
-                int(r['units']), '; function-level {:,} functions'.format(int(r['function_level_functions']))
-                if r.get('function_level_functions') else ''),
-            '| Rebuild provenance (rebuild/README.md) | | adopted {:,} fn / {:,} B; reshaped from src/ {:,} / {:,} B; '
-            'fresh {:,} / {:,} B; Windows workers {:,} / {:,} B |'.format(
-                int(r['a_functions']), int(r['a_bytes']), int(r['b_functions']), int(r['b_bytes']),
-                int(r['c_functions']), int(r['c_bytes']), int(r['workers_functions']), int(r['workers_bytes'])),
-            '| Rebuild structure | | duplicates {}, externs {} landed / {} all, address-suffixed {}; parked {:,} functions '
-            '/ {:,} B (>=1 KB: {} / {:,} B); judgment {} rows / {:,} B; count-sensitive {} rows / {:,} B |'.format(
-                r['duplicates'], r['externs_landed'], r['externs_all'], r['address_suffixed'], int(r['parked_functions']),
-                int(r['parked_bytes']), r['parked_large_functions'], int(r['parked_large_bytes']), r['judgment_rows'],
-                int(r['judgment_bytes']), r['count_sensitive_rows'], int(r['count_sensitive_bytes'])),
-            ] + ([
-            # Evidenced inline assembly in the rebuild (its own category, no C/C++ credit), with the rows reached
-            # through a unit's file-static helper on their own line (review session and user, 2026-11-20).
-            '| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | {:,} rows / {:,} B |'.format(
-                int(r['inline_asm_rows']), int(r['inline_asm_bytes'])),
-            '| Rebuild evidenced inline assembly reached through a file-static helper of its unit | | {:,} rows / {:,} B |'
-            .format(int(r['helper_asm_rows']), int(r['helper_asm_bytes'])),
-            '| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | {:,} rows / {:,} B |'
-            .format(int(r.get('asm_unflagged_rows') or 0), int(r.get('asm_unflagged_bytes') or 0))]
-            if r.get('inline_asm_rows') else []) + [
-            '']
+    cat = categories if categories is not None else rebuild_categories(repository)
+    if cat is None:
+        return []
+    pct = lambda value: '{:.2f}%'.format(100.0 * value / text)
+    reproduced = main['body'] + main['evidenced_inline_asm'] + main['padding'] + lib_bytes + asm_bytes
+    whole_repro = cat['body'] + cat['evidenced_inline_asm'] + cat['padding'] + lib_bytes + asm_bytes
+    # Function-level body and padding exist from the first progress row with c_body_bytes (series break).
+    level = r.get('function_level_c_body_bytes')
+    if level:
+        fl_body, fl_pad = int(level), int(r['function_level_padding_bytes'])
+        fl_repro = fl_body + cat['evidenced_inline_asm'] + fl_pad + lib_bytes + asm_bytes
+        repro_cell = '**{} function-level** ({:,} B) ({} whole-unit, {:,} B)'.format(pct(fl_repro), fl_repro,
+                                                                                    pct(whole_repro), whole_repro)
+        body_cell = '**{:,} B, {} function-level** ({:,} B, {} whole-unit); gap to main {} ({} whole-unit)'.format(
+            fl_body, pct(fl_body), cat['body'], pct(cat['body']), kb(main['body'] - fl_body), kb(main['body'] - cat['body']))
+        pad_cell = '{:,} B function-level ({:,} B whole-unit)'.format(fl_pad, cat['padding'])
+    else:
+        repro_cell = '{} whole-unit ({:,} B); function-level from the next gated landing'.format(pct(whole_repro),
+                                                                                                 whole_repro)
+        body_cell = '{:,} B, {} whole-unit; gap to main {}; function-level from the next gated landing'.format(
+            cat['body'], pct(cat['body']), kb(main['body'] - cat['body']))
+        pad_cell = '{:,} B whole-unit'.format(cat['padding'])
+    if r.get('clean_function_level_source_share_of_text') and level:
+        fl_b, w_b = (('{:,} B, '.format(int(r['clean_function_level_c_body_bytes'])),
+                      '{:,} B, '.format(int(r['clean_c_body_bytes']))) if r.get('clean_c_body_bytes') else ('', ''))
+        clean_cell = ('**{}{} function-level** ({}{} whole-unit) of .text; left out: judgment calls {:,} rows / {:,} B (of '
+                      'which header-form dependents {:,} / {:,} B), count-sensitive {:,} rows / {:,} B').format(
+            fl_b, r['clean_function_level_source_share_of_text'], w_b, r['clean_source_share_of_text'],
+            int(r['judgment_any_rows']),
+            int(r['judgment_any_bytes']), int(r['header_dependent_rows']), int(r['header_dependent_bytes']),
+            int(r['count_sensitive_rows']), int(r['count_sensitive_bytes']))
+    else:
+        clean_cell = 'from the next gated landing'
+    lines = ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
+             '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
+             '| --- | ---: | ---: |',
+             '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library '
+             'members + assembled handwritten asm, the five lines below) | {} ({:,} B) | {} |'.format(
+                 pct(reproduced), reproduced, repro_cell),
+             '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | {:,} B, {} '
+             '| {} |'.format(main['body'], pct(main['body']), body_cell),
+             '| Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | {:,} B | {:,} B in {:,} rows '
+             '(whole-unit) |'.format(main['evidenced_inline_asm'], cat['evidenced_inline_asm'], cat['inline_asm_rows']),
+             '| Frozen padding of accepted rows | {:,} B | {} |'.format(main['padding'], pad_cell),
+             '| Linked library members (the same archive members in both builds) | {:,} B | {:,} B |'.format(
+                 lib_bytes, lib_bytes),
+             '| Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | {:,} B '
+             '| {:,} B |'.format(asm_bytes, asm_bytes),
+             '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | {:,} B, {} | {} |'.format(
+                 main_clean, pct(main_clean), clean_cell),
+             '| Judgment calls (different definitions, not comparable row for row: main counts the manifest flags {}; '
+             'the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus '
+             'the rows listed as dependents of a flagged header form; body bytes) | {:,} rows / {:,} B | {} |'.format(
+                 ', '.join(JUDGMENT_FLAGS), judgment[0], judgment[1],
+                 '{:,} rows / {:,} B'.format(int(r['judgment_any_rows']), int(r['judgment_any_bytes']))
+                 if r.get('judgment_any_rows') else '{:,} rows / {:,} B (provenance notes only)'.format(
+                     int(r['judgment_rows']), int(r['judgment_bytes']))),
+             '| Accepted | {:,} regions | {:,} functions in {:,} units{} |'.format(main['regions'],
+                 int(r['functions_exact']), int(r['units']), '; function-level {:,} functions'.format(
+                     int(r['function_level_functions'])) if r.get('function_level_functions') else ''),
+             '| Rebuild provenance (rebuild/README.md; body plus padding) | | adopted {:,} fn / {:,} B; reshaped from '
+             'src/ {:,} / {:,} B; fresh {:,} / {:,} B; Windows workers {:,} / {:,} B |'.format(
+                 int(r['a_functions']), int(r['a_bytes']), int(r['b_functions']), int(r['b_bytes']),
+                 int(r['c_functions']), int(r['c_bytes']), int(r['workers_functions']), int(r['workers_bytes'])),
+             '| Rebuild structure | | duplicates {}, externs {} landed / {} all, address-suffixed {}; parked {:,} functions '
+             '/ {:,} B (>=1 KB: {} / {:,} B); judgment {} rows / {:,} B; count-sensitive {} rows / {:,} B |'.format(
+                 r['duplicates'], r['externs_landed'], r['externs_all'], r['address_suffixed'], int(r['parked_functions']),
+                 int(r['parked_bytes']), r['parked_large_functions'], int(r['parked_large_bytes']), r['judgment_rows'],
+                 int(r['judgment_bytes']), r['count_sensitive_rows'], int(r['count_sensitive_bytes']))]
+    if r.get('inline_asm_rows'):
+        # Rows reached through a unit's file-static helper on their own line (review session and user, 2026-11-20).
+        lines += ['| Rebuild evidenced inline assembly reached through a file-static helper of its unit | | {:,} rows '
+                  '/ {:,} B |'.format(int(r['helper_asm_rows']), int(r['helper_asm_bytes'])),
+                  '| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | {:,} '
+                  'rows / {:,} B |'.format(int(r.get('asm_unflagged_rows') or 0), int(r.get('asm_unflagged_bytes') or 0))]
+    return lines + ['']
 
 
 def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.0), structure=None):
@@ -670,7 +734,9 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
     lib_bytes = lib['bytes'] if lib else 0
     asm_bytes = asm['bytes'] if asm else 0
     reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
-    lines = [BEGIN, ''] + rebuild_lines(text, reproduced, now['body'], now['regions']) + [
+    main_clean = sum(r['body_bytes'] for r in catalog['regions']
+                     if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
+    lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean) + [
              '| Measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '

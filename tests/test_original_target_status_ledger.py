@@ -140,3 +140,76 @@ class StructureLinesTests(unittest.TestCase):
     def test_no_structure_rows_without_a_census(self):
         catalog = dict(regions=[region(0x401000, 100, 4)])
         self.assertNotIn('| Structure:', status.render(catalog, TEXT, []))
+
+
+class RebuildCategoryLineTests(unittest.TestCase):
+    """Both trees on the same category lines (lane O41, 2026-11-22): Reproduced .text is the sum of C/C++ body,
+    evidenced inline asm, frozen padding, linked library and assembled asm in both; C/C++ is body bytes only; the
+    rebuild's whole-unit categories come from its catalog, its function-level ones and the 'exact with no
+    judgment call' row (lane O37) from the last row of rebuild/manifest/progress.csv."""
+    BASE = dict(time_utc='2026-11-22T20:00Z', units='2', functions_exact='10', bytes_exact='1000', a_functions='8',
+                a_bytes='800', b_functions='1', b_bytes='100', c_functions='1', c_bytes='100', workers_functions='0',
+                workers_bytes='0', source_share_of_text='5.000%', reproduced_text='6.000%', duplicates='0',
+                externs_landed='0', externs_all='0', address_suffixed='0', parked_functions='3', parked_bytes='300',
+                parked_large_functions='0', parked_large_bytes='0', judgment_rows='2', judgment_bytes='200',
+                count_sensitive_rows='1', count_sensitive_bytes='64', function_level_functions='12',
+                function_level_source_share_of_text='5.500%', function_level_reproduced_text='6.500%',
+                tree='rebuild-trial')
+    BODY = dict(c_body_bytes='80', padding_bytes='10', library_bytes='5', assembly_bytes='3',
+                function_level_c_body_bytes='90', function_level_padding_bytes='12')
+    CLEAN = dict(clean_functions='8', clean_source_share_of_text='4.000%', clean_function_level_functions='9',
+                 clean_function_level_source_share_of_text='4.250%', judgment_any_rows='3', judgment_any_bytes='1234',
+                 header_dependent_rows='1', header_dependent_bytes='34')
+    MAIN = dict(regions=5, body=100, padding=20, evidenced_inline_asm=2)
+    CAT = dict(regions=10, body=80, padding=10, evidenced_inline_asm=4, inline_asm_rows=1)
+
+    def lines(self, row):
+        import csv, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / 'rebuild/manifest/progress.csv'
+            path.parent.mkdir(parents=True)
+            with path.open('w', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=list(row)); w.writeheader(); w.writerow(row)
+            return status.rebuild_lines(1000, self.MAIN, 5, 3, (2, 30), 70, repository=d, categories=self.CAT)
+
+    def line(self, lines, start):
+        return [l for l in lines if l.startswith(start)][0]
+
+    def test_reproduced_is_the_sum_of_the_same_five_categories_in_both_trees(self):
+        lines = self.lines(dict(self.BASE, **self.BODY))
+        self.assertEqual(self.line(lines, '| Reproduced .text'),
+                         '| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked '
+                         'library members + assembled handwritten asm, the five lines below) | 13.00% (130 B) '
+                         '| **11.40% function-level** (114 B) (10.20% whole-unit, 102 B) |')
+
+    def test_cpp_line_is_body_bytes_with_the_gap_to_main(self):
+        lines = self.lines(dict(self.BASE, **self.BODY))
+        self.assertEqual(self.line(lines, '| C/C++ bodies matched'),
+                         '| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) '
+                         '| 100 B, 10.00% | **90 B, 9.00% function-level** (80 B, 8.00% whole-unit); gap to main '
+                         '0.0 KB (0.0 KB whole-unit) |')
+        self.assertEqual(self.line(lines, '| Frozen padding'), '| Frozen padding of accepted rows | 20 B | 12 B '
+                         'function-level (10 B whole-unit) |')
+
+    def test_clean_row_needs_the_body_only_columns(self):
+        lines = self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN)))
+        self.assertEqual(self.line(lines, '| C/C++ bodies, exact with no judgment call'),
+                         '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | 70 B, '
+                         '7.00% | **4.250% function-level** (4.000% whole-unit) of .text; left out: judgment calls '
+                         '3 rows / 1,234 B (of which header-form dependents 1 / 34 B), count-sensitive 1 rows / 64 B |')
+        # A row from before the series break (source shares with padding) shows no rebuild clean figure.
+        lines = self.lines(dict(self.BASE, **self.CLEAN))
+        self.assertTrue(self.line(lines, '| C/C++ bodies, exact with no judgment call').endswith(
+            '| from the next gated landing |'))
+        self.assertIn('function-level from the next gated landing', self.line(lines, '| C/C++ bodies matched'))
+
+    def test_clean_row_shows_body_bytes_when_the_row_has_them(self):
+        row = dict(self.BASE, **dict(self.BODY, **dict(self.CLEAN, clean_c_body_bytes='40',
+                                                         clean_function_level_c_body_bytes='42')))
+        self.assertIn('**42 B, 4.250% function-level** (40 B, 4.000% whole-unit) of .text; left out',
+                      self.line(self.lines(row), '| C/C++ bodies, exact with no judgment call'))
+
+    def test_judgment_line_names_both_definitions(self):
+        line = self.line(self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN))), '| Judgment calls')
+        self.assertIn('different definitions', line)
+        self.assertTrue(line.endswith('| 2 rows / 30 B | 3 rows / 1,234 B |'))

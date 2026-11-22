@@ -35,13 +35,23 @@ all_b = total_b + workers[1]                   # every catalogued row (as functi
 # source share and stay in the reproduced share. Series break at the first row with the asm columns: before
 # it the source share also held the evidenced rows' bytes (conquer Main_Game, lcw LCW_Comp, 1,187 B).
 asm_b = sum(r['body_bytes'] for r in cat['regions'] if r.get('inline_asm') == 'evidenced')
+# C/C++ is counted in body bytes, padding on its own line, as main's "Matched C/C++ body bytes" (lane O41,
+# 2026-11-22; series break marked on the first row with c_body_bytes): before it source_share_of_text and the
+# function-level and clean source shares held the accepted rows' frozen padding too (140,377 B at 21:23Z).
+# Reproduced is unchanged: body + padding + linked library + assembled handwritten asm, main's sum.
+body_b = sum(r['body_bytes'] for r in cat['regions'])
+pad_b = sum(r['padding_bytes'] for r in cat['regions'])
+assert body_b + pad_b == all_b
 line = dict(time_utc=now.strftime('%Y-%m-%dT%H:%MZ'), units=units, functions_exact=len(cat['regions']),
             bytes_exact=all_b, a_functions=split['a'][0], a_bytes=split['a'][1], b_functions=split['b'][0],
             b_bytes=split['b'][1], c_functions=split['c'][0], c_bytes=split['c'][1],
             workers_functions=workers[0], workers_bytes=workers[1],
             lane_hours='%.2f' % ((now - START).total_seconds() / 3600),
-            source_share_of_text='%.3f%%' % (100.0 * (all_b - asm_b) / TEXT),
-            reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY) / TEXT))
+            source_share_of_text='%.3f%%' % (100.0 * (body_b - asm_b) / TEXT),
+            reproduced_text='%.3f%%' % (100.0 * (all_b + LIBRARY + ASSEMBLY) / TEXT),
+            # The categories of Reproduced, each on its own (main's STATUS lines): C/C++ body, evidenced inline
+            # asm (inline_asm_bytes below), frozen padding, linked library members, assembled handwritten asm.
+            c_body_bytes=body_b - asm_b, padding_bytes=pad_b, library_bytes=LIBRARY, assembly_bytes=ASSEMBLY)
 # Structure beside the percent (user, 2026-11-17): the census gate's measures, the units still held
 # (pending), and the functions not exact in any unit with their bytes (1 KB and over apart: the trend).
 import rebuild_census
@@ -84,14 +94,33 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             # The rebuild's headline (owner, 2026-11-21): function-level from source (evidenced inline asm left out,
             # as in source_share_of_text) and reproduced (with the linked library and assembled bytes), beside the
             # whole-unit source_share_of_text / reproduced_text; the whole-file build stays the gate.
-            function_level_source_share_of_text='%.3f%%' % (100.0 * (m['function_level_bytes'] - asm_b) / TEXT),
+            function_level_source_share_of_text='%.3f%%' % (100.0 * (m['function_level_body_bytes'] - asm_b) / TEXT),
+            function_level_c_body_bytes=m['function_level_body_bytes'] - asm_b,
+            function_level_padding_bytes=m['function_level_bytes'] - m['function_level_body_bytes'],
             function_level_reproduced_text='%.3f%%' % (100.0 * (m['function_level_bytes'] + LIBRARY + ASSEMBLY) / TEXT),
+            # Exact with no judgment call (user-approved process change, 2026-11-22, lane O37): the two headline
+            # figures from source with every flagged row left out (judgment notes in provenance.csv, rows listed as
+            # dependents of a flagged header form in header_judgments.csv, and count-sensitive rows), bytes body
+            # plus padding, source shares C/C++ body only (lane O41); judgment_any_* are the flagged rows of the function-level set (body bytes), of which
+            # header_dependent_* come from header forms only (rebuild_census.clean_exact).
+            clean_functions=m['clean_whole_rows'], clean_bytes=m['clean_whole_bytes'],
+            clean_source_share_of_text='%.3f%%' % (100.0 * m['clean_whole_source_bytes'] / TEXT),
+            clean_c_body_bytes=m['clean_whole_source_bytes'],
+            clean_function_level_functions=m['clean_function_rows'], clean_function_level_bytes=m['clean_function_bytes'],
+            clean_function_level_source_share_of_text='%.3f%%' % (100.0 * m['clean_function_source_bytes'] / TEXT),
+            clean_function_level_c_body_bytes=m['clean_function_source_bytes'],
+            judgment_any_rows=m['judgment_any_rows'], judgment_any_bytes=m['judgment_any_bytes'],
+            header_dependent_rows=m['header_dependent_rows'], header_dependent_bytes=m['header_dependent_bytes'],
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []
 # Series breaks are marked on the row where they start (the 2026-11-18T16:07Z one is in the README).
 line['note'] = '' if any(r.get('inline_asm_rows') for r in rows) else (
     'series break: source_share_of_text leaves out evidenced inline asm (conquer, lcw: 1,187 B were in it before)')
+if not any(r.get('c_body_bytes') for r in rows):
+    line['note'] = ('series break: source_share_of_text, function_level_source_share_of_text and the clean source '
+                    'shares count C/C++ body bytes only (padding in padding_bytes, as on main); rows before this held '
+                    'the accepted rows\' padding too')
 rows.append({k: str(v) for k, v in line.items()})
 with open(path, 'w', newline='') as f:
     w = csv.DictWriter(f, fieldnames=list(line), restval=''); w.writeheader(); w.writerows(rows)
