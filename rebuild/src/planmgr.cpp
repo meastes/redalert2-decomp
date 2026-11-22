@@ -1468,7 +1468,7 @@ void PlanningNodeClass::Send_Delete_Event(void) // RA2: 0x00614AA0
 
 bool __fastcall Planning_Allows_Event_Type(int type) // RA2: 0x00614B50; whether an event type may be sent now: no mission events while planning mode is on
 {
-	if (PlanningNodeClass::PlanningModeActive && type == 4) { // RA2: as above
+	if (PlanningNodeClass::PlanningModeActive && type == EventClass::MEGAMISSION) { // RA2: as above
 		return false; // RA2: as above
 	}
 	return true; // RA2: as above
@@ -1485,12 +1485,12 @@ void __stdcall Planning_Send_Event(EventClass event) // RA2: 0x00614B70; sends a
 
 inline bool __fastcall Planning_Target_Fits(int mission, TargetClass target) // RA2: no function of its own; whether an attack or an area guard order aims at a cell or (for the area guard) at nothing
 {
-	if (mission == 1 || mission == 11) { // RA2: as above
+	if (mission == MISSION_ATTACK || mission == MISSION_GUARD_AREA) { // RA2: as above
 		do { // RA2: as above
 			if (RTTIType(target) == RTTI_CELL) { // RA2: as above
 				break; // RA2: as above
 			}
-			if (mission != 11 || target.Is_Valid()) { // RA2: as above
+			if (mission != MISSION_GUARD_AREA || target.Is_Valid()) { // RA2: as above
 				return false; // RA2: as above
 			}
 		} while (false); // RA2: as above
@@ -1729,12 +1729,12 @@ PlanningTokenClass * __fastcall Planning_New_Token(TechnoClass * techno) // RA2:
 
 bool __fastcall Planning_Stop_Type(char type) // RA2: 0x006158F0; the order types planning mode refuses: deploy, stop and scatter
 {
-	return type == 9 || type == 6 || type == 7; // RA2: as above
+	return type == EventClass::DEPLOY || type == EventClass::IDLE || type == EventClass::SCATTER; // RA2: as above
 }
 
 bool __fastcall Planning_Order_Stays_Put(TechnoClass * techno, int mission, TargetClass target) // RA2: 0x00615910; an area guard order that aims at nothing, or at the cell the techno stands on already
 {
-	if (mission == 11) { // RA2: as above
+	if (mission == MISSION_GUARD_AREA) { // RA2: as above
 		if (!target.Is_Valid()) { // RA2: as above
 			return true; // RA2: as above
 		}
@@ -1760,16 +1760,16 @@ bool __fastcall Planning_Order_Stays_Put(TechnoClass * techno, int mission, Targ
 
 bool __fastcall Planning_Terminal_Mission(int mission) // RA2: 0x006159C0 (no function of its own); the missions that end a path
 {
-	return mission == 7 || mission == 8 || mission == 9; // RA2: as above
+	return mission == MISSION_ENTER || mission == MISSION_CAPTURE || mission == MISSION_EATEN; // RA2: as above
 }
 
 bool __fastcall Planning_Cell_Mission(int mission, TargetClass target) // RA2: 0x006159E0; an attack or an area guard aimed at a cell, or for the area guard at nothing
 {
-	if (mission == 1 || mission == 11) { // RA2: as above
+	if (mission == MISSION_ATTACK || mission == MISSION_GUARD_AREA) { // RA2: as above
 		if (RTTIType(target) == RTTI_CELL) { // RA2: as above
 			return true; // RA2: as above
 		}
-		if (mission == 11 && !target.Is_Valid()) { // RA2: as above
+		if (mission == MISSION_GUARD_AREA && !target.Is_Valid()) { // RA2: as above
 			return true; // RA2: as above
 		}
 	}
@@ -1780,7 +1780,7 @@ bool __fastcall Planning_Mission_Allows(TechnoClass * techno) // RA2: 0x00615A10
 {
 	if (techno) { // RA2: as above
 		int mission = techno->Get_Mission(); // RA2: as above
-		if (mission == 5) { // RA2: as above
+		if (mission == MISSION_GUARD) { // RA2: as above
 			return true; // RA2: as above
 		}
 		return Planning_Target_Fits(mission, TargetClass(techno->TarCom)); // RA2: as above
@@ -2142,7 +2142,7 @@ void __fastcall Planning_Convert_Loop_Moves(TechnoClass * techno) // RA2: 0x0061
 					int total = node->PlanningMembers.Count(); // RA2: as above
 					for (int k = 0; k < total; k++) { // RA2: as above
 						EventClass * event = node->PlanningMembers[k]->Packet; // RA2: as above
-						if (event->Data.MegaMission.Mission == 2) { // RA2: as above
+						if (event->Data.MegaMission.Mission == MISSION_MOVE) { // RA2: as above
 							event->Data.MegaMission.Mission = 0x29; // RA2: as above
 						}
 					}

@@ -1372,7 +1372,7 @@ bool ObjectClass::Limbo(void)
 	AmbientSoundController.Stop(); // RA2: as above
 	CustomSoundController.End(); // RA2: as above
 	if (Class_Of() && Class_Of()->IsSentient) { // RA2: as above
-		if (Session.Type == 0 || Session.Type == 5 || // RA2: as above
+		if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH || // RA2: as above
 			Fetch_ID() != -2) // RA2: as above
 			Logic.Remove(this);
 	}

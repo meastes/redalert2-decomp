@@ -300,7 +300,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); 5995 bytes differ against main's function-map extent; main: best 87.78, tried 8 times (frame, inline, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); 5161 bytes differ against main's function-map extent; main: best 87.78, tried 8 times (frame, inline, order)
 #include "ion.h"
 #include "revent.h"
 void BulletClass::AI(void)
@@ -312,12 +312,10 @@ void BulletClass::AI(void)
 	 */
 	static const int _limit = 4 * TICKS_PER_SECOND;
 
-	Coord	coord;
-	int		distance;
 
 	BASECLASS::AI();
 
-	int is_aircraft = false;
+
 
 	if (!IsActive) return;
 
@@ -364,19 +362,24 @@ void BulletClass::AI(void)
 	**	Move the projectile forward according to its speed
 	**	and direction.
 	*/
-	coord = PositionCoord;
+	Coord coord = PositionCoord;
 
 	/*
 	 * Projectiles that leave a trail behind them drop one puff of it every
 	 * configured number of frames.
 	 */
 	if (Class->Trailer != NULL) {
-		if (!(Frame % (Class->ScaledSpawnDelay ? Class->ScaledSpawnDelay : Class->SpawnDelay))) {
+		if (Class->ScaledSpawnDelay) {
+			if (Frame % Class->ScaledSpawnDelay == 0) {
+				new AnimClass(Class->Trailer, coord, 1, 1);
+			}
+		} else if (Frame % Class->SpawnDelay == 0) {
 			new AnimClass(Class->Trailer, coord, 1, 1);
 		}
 	}
 
 	ImpactType impact = IMPACT_NONE;
+	TVelocity3D<double> velocity;
 
 	/*
 	 * There are two flight models. A projectile that has a rate of turn is
@@ -385,8 +388,8 @@ void BulletClass::AI(void)
 	 * was launched along and bounces off whatever it lands on.
 	 */
 	if (Class->ROT > 0) {
-		double speed = Velocity.Speed();
 		int max_speed = MaxSpeed;
+		double speed = Velocity.Speed();
 
 		/*
 		 * The projectile stays in its launch phase until it has worked up to
@@ -429,7 +432,7 @@ void BulletClass::AI(void)
 			Velocity.Set_Speed(speed);
 		}
 
-		TVelocity3D<double> velocity = Velocity;
+		velocity = Velocity;
 
 		/*
 		 * Fetch the point to home on. An object is aimed at through its target
@@ -456,7 +459,7 @@ void BulletClass::AI(void)
 		 * Allow a sharper turn over the last cell of the approach so that the
 		 * projectile can still catch a target that dodges at the last moment.
 		 */
-		if (Center_Coord().Distance_To(target_coord) < CELL_LEPTON) {
+		if ((Center_Coord() - target_coord).Length() < CELL_LEPTON) {
 			rot *= 1.5;
 		}
 
@@ -467,11 +470,12 @@ void BulletClass::AI(void)
 		 * than hugging the terrain on the way, since there is no ground between
 		 * the two of them that needs clearing.
 		 */
+		int is_aircraft = false;
 		if (TarCom != NULL && TarCom->RTTI == RTTI_AIRCRAFT) {
 			is_aircraft = true;
 		}
 
-		distance = Projectile_Motion(coord, velocity, target_coord, DirType((Dir256)(IsLaunching == false ? rot : 0)), (bool &)is_aircraft, Class->IsAirburst, Class->IsVeryHigh, Class->Level); // RA2: the eighth argument (BulletTypeClass +0x26D) is pushed at 0x0045FD0E
+		int distance = Projectile_Motion(coord, velocity, target_coord, DirType((Dir256)(IsLaunching == false ? rot : 0)), (bool &)is_aircraft, Class->IsAirburst, Class->IsVeryHigh, Class->Level); // RA2: the eighth argument (BulletTypeClass +0x26D) is pushed at 0x0045FD0E
 		CellClass * cellptr = &Map[coord];
 		TVelocity3D<double> new_velocity = velocity;
 		Velocity = new_velocity;
@@ -543,7 +547,7 @@ void BulletClass::AI(void)
 		 */
 		TVelocity3D<double> position = Velocity;
 		TVelocity3D<double> new_velocity = position;
-		TVelocity3D<double> velocity(position.X, position.Y, position.Z);
+		velocity = TVelocity3D<double>(position.X, position.Y, position.Z);
 
 		/*
 		 * A projectile that is barely moving at all has nothing left to do but

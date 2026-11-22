@@ -4914,7 +4914,7 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     if (Combo_Owner) { // RA2: as above
         Control_Table.getPointer((unsigned int const &)Combo_Owner, &master); // RA2: as above
     }
-    if (message != 0x146 && message != 0x154 && message != 0x115) { // RA2: as above
+	if (message != 0x146 && message != 0x154 && message != WM_VSCROLL) { // RA2: as above
         int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
         int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
         if (item_height <= 1) {
@@ -5652,7 +5652,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	 */
 	static char in_programmatic_reorder;
 
-	if (message == 0x20) { // RA2: as above
+	if (message == WM_SETCURSOR) { // RA2: as above
 		return(1);
 	}
     if (IME_Service_Message(window, message, wparam, lparam)) return IME_Get_Result(); // RA2: as above
@@ -5663,7 +5663,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	WNDPROC original_proc = 0; // RA2: as above
 	::Window_Proc_Table.getValue(window, original_proc); // RA2: as above
 
-	if (message == 0x105 && wparam == 0x9) { // RA2: as above
+	if (message == WM_SYSKEYUP && wparam == 0x9) { // RA2: as above
 		SendMessageA(MainWindow, 0x105, 0x9, lparam); // RA2: as above
 	}
 
@@ -5723,10 +5723,10 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		if (message >= 0x100 && message <= 0x108) { // RA2: as above
 			forward = 0; // RA2: as above
 		}
-		if (message == 0x105 || message == 0x104 || message == 0x112 || message == 0x106) { // RA2: as above
+		if (message == WM_SYSKEYUP || message == WM_SYSKEYDOWN || message == WM_SYSCOMMAND || message == WM_SYSCHAR) { // RA2: as above
 			forward = 1; // RA2: as above
 		}
-		if (message == 0x49b || message == 0x113 || message == 0x4ad) { // RA2: as above
+		if (message == 0x49b || message == WM_TIMER || message == 0x4ad) { // RA2: as above
 			forward = 0; // RA2: as above
 		}
 		if (!allow && !forward) {
@@ -5739,8 +5739,8 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	 * window. A handful of messages are allowed to re-enter.
 	 */
 	if (ctrlmessages.contains(key)) {
-		if (message != 0x111 && message != 0x104 && message != 0x105 // RA2: as above
-			&& message != 0x112 && message != 0x106) { // RA2: as above
+		if (message != WM_COMMAND && message != WM_SYSKEYDOWN && message != WM_SYSKEYUP // RA2: as above
+			&& message != WM_SYSCOMMAND && message != WM_SYSCHAR) { // RA2: as above
 			return(0);
 		}
 	}
@@ -5757,7 +5757,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	bool in_focus = GameInFocus;
 
 	bool is_paint = false;
-	if (message == 0xf) { // RA2: as above
+	if (message == WM_PAINT) { // RA2: as above
 		is_paint = true;
 		if (!in_focus) {
 			ValidateRect(window, 0);
@@ -5876,7 +5876,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		/*
 		 * Keep the modal window pinned on top when Windows tries to reorder it.
 		 */
-		if (message == 0x46) { // RA2: as above
+		if (message == WM_WINDOWPOSCHANGING) { // RA2: as above
 			if (in_programmatic_reorder != 1) {
 				HWND found = 0; // RA2: as above
 				for (int index = 0; index < hwndarray.length(); index++) {
@@ -5902,7 +5902,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		/*
 		 * Drop a destroyed window from the modal stack.
 		 */
-		if (message == 0x2) { // RA2: as above
+		if (message == WM_DESTROY) { // RA2: as above
 			HWND found = 0; // RA2: as above
 			int scan = 0;
 			for (int index = 0; index < hwndarray.length(); index++) {
@@ -5921,22 +5921,22 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	 * loses focus.
 	 */
 	if (window == (HWND)ODTooltip.window // RA2: as above
-		&& (message == 0x82 || message == 0x18 || message == 0x8) // RA2: as above
+		&& (message == WM_NCDESTROY || message == WM_SHOWWINDOW || message == WM_KILLFOCUS) // RA2: as above
 		&& ODTooltip.isActive) {
 		End_Tooltip(); // RA2: as above
 	}
 
-	if (message == 0x14) { // RA2: as above
+	if (message == WM_ERASEBKGND) { // RA2: as above
 		result = 1;
 		goto cleanup;
-	} else if (message == 0x7) { // RA2: as above
+	} else if (message == WM_SETFOCUS) { // RA2: as above
 		if (specific_proc == Owner_Button_Proc || specific_proc == List_Proc) { // RA2: as above
 			SetFocus((HWND)wparam);
 		}
         if (data && !data->Reserved_38) { IME_Cancel_Composition(); data->Reserved_38 = 1; } // RA2: as above
-    } else if (message == 8) { // RA2: as above
+	} else if (message == WM_KILLFOCUS) { // RA2: as above
         data->Reserved_38 = 0; // RA2: as above
-	} else if (message == 0x18) { // RA2: as above
+	} else if (message == WM_SHOWWINDOW) { // RA2: as above
 		if (wparam == 0 && data) { // RA2: as above
 			(*(int *)((char *)data + 0x1FC)) = 0; // RA2: as above
 		}
@@ -5955,7 +5955,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 			(*(int *)((char *)data + 0x24)) = lparam; // RA2: as above
 			goto cleanup;
 		}
-		if ((*(int *)((char *)data + 0x24)) && (message == 0x113 || (message >= 0x200 && message <= 0x209))) { // RA2: as above
+		if ((*(int *)((char *)data + 0x24)) && (message == WM_TIMER || (message >= 0x200 && message <= 0x209))) { // RA2: as above
 			RECT corner; // RA2: as above
 			GetWindowRect(window, &corner); // RA2: as above
 			WindowFromPoint(*(POINT *)&corner); // RA2: as above
@@ -6010,7 +6010,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
             }
         }
     }
-    if (message == 0x200) { // RA2: as above
+	if (message == WM_MOUSEMOVE) { // RA2: as above
         HWND parent = GetParent(window);
         HWND status = GetDlgItem(parent, 0x695); // RA2: as above
         if (status) { // RA2: as above
@@ -6199,7 +6199,7 @@ call_custom_proc:
 	}
 
 after_proc:
-	if (message == 0x82) { // RA2: as above
+	if (message == WM_NCDESTROY) { // RA2: as above
 		HWND destroyed = window;
 		WinData * destroydata;
 		unsigned int destroyed_key=(unsigned int)destroyed; // RA2: as above
@@ -6260,7 +6260,7 @@ cleanup:
         }
     }
     if (show_tooltip) Show_Tooltip(true); // RA2: as above
-    if (message == 0x110) { // RA2: as above
+	if (message == WM_INITDIALOG) { // RA2: as above
         result = 0;
     }
     return result; // RA2: as above
@@ -6879,7 +6879,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         SetFocus(MainWindow);
     }
     LONG style=GetWindowLongA(window,-16); // RA2: as above
-    if((message==0x101 || message==0x100) && wparam==9)return 0; // RA2: as above
+	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == 9) return 0; // RA2: as above
     if(message==0x497) { // RA2: as above
         RECT winrect,client,parentrect; // RA2: as above
         GetWindowRect(window,&winrect); // RA2: as above
@@ -6897,7 +6897,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         }
         return 0; // RA2: as above
     }
-    if(message==7) { // RA2: as above
+	if (message == WM_SETFOCUS) { // RA2: as above
         SendMessageA(window,0xb1,(WPARAM)-1,-1); // RA2: as above
         if(!data->IsEditFocus)PostMessageA(window,0x4b0,0,0); // RA2: as above
         goto invalidate; // RA2: as above
@@ -6920,7 +6920,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         if(data->Text)WideCharToMultiByte(0,0,data->Text,-1,narrow,0x800,0,0); // RA2: as above
         return CallWindowProcA(previous,window,0xc,0,(LPARAM)narrow); // RA2: as above
     }
-    if(message==0x102) { // RA2: as above
+	if (message == WM_CHAR) { // RA2: as above
         if(wparam==0xd) { // RA2: as above
             if(style&4) { // RA2: as above
                 unsigned int length=CallWindowProcA(previous,window,0xe,0,0)+3; // RA2: as above
@@ -6953,12 +6953,12 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         if(data->HadTabStop)SetWindowLongA(window,-16,style|0x10000); // RA2: as above
         return 0; // RA2: as above
     }
-    if(message==0xf || message==0x14) { // RA2: as above
+	if (message == WM_PAINT || message == WM_ERASEBKGND) { // RA2: as above
         RECT display,update; // RA2: as above
         Get_Display_Rect(window,&display); // RA2: as above
         GetClassNameA(GetParent(window),class_name,16); // RA2: as above
         bool combo=strcmp(class_name,"ComboBox")==0; // RA2: as above
-        if(message==0xf && GetUpdateRect(window,&update,0)) { // RA2: as above
+		if (message == WM_PAINT && GetUpdateRect(window, &update, 0)) { // RA2: as above
             update.left+=display.left; // RA2: as above
             update.right+=display.left; // RA2: as above
             update.top+=display.top; // RA2: as above
@@ -6976,8 +6976,8 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         ValidateRect(window,0); // RA2: as above
     }
     if(message==0x7b)return 1; // RA2: as above
-    if(message==0x200)return 1; // RA2: as above
-    if(message==0x100 || message==0x101 || message==0x104 || message==0x105 || message==0x106 || message==0x107 || message==8 || message==0x201) { // RA2: as above
+	if (message == WM_MOUSEMOVE) return 1; // RA2: as above
+	if (message == WM_KEYDOWN || message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP || message == WM_SYSCHAR || message == 0x107 || message == WM_KILLFOCUS || message == WM_LBUTTONDOWN) { // RA2: as above
 invalidate: // RA2: as above
         GetClassNameA(GetParent(window),class_name,32); // RA2: as above
         if(strcmp(class_name,"ComboBox")==0)InvalidateRect(GetParent(window),0,0); // RA2: as above
@@ -7073,7 +7073,7 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	BOOL inserted = FALSE; // RA2: the text was changed (zeroed at 0x5F22BD)
 	BOOL ime = FALSE; // RA2: the character came from the IME (zeroed at 0x5F22C1)
 	BOOL refresh = FALSE; // RA2: the control repaints itself (and its combo box)
-	if (message == 0x87) { // RA2: WM_GETDLGCODE answers DLGC_WANTALLKEYS (0x5F22B2)
+	if (message == WM_GETDLGCODE) { // RA2: WM_GETDLGCODE answers DLGC_WANTALLKEYS (0x5F22B2)
 		return 4; // RA2: as above
 	} // RA2: as above
 	Window_Proc_Table.getValue(window, previous); // RA2: as above
@@ -7081,8 +7081,8 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	Control_Table.getPointer(key, &record); // RA2: as above
 	EditRecord * data = (EditRecord *)record; // RA2: as above
 	HWND parent = GetParent(window); // RA2: as above
-	if ((message == 0x101 || message == 0x100) && wparam == 9) { // RA2: as above
-		if (message == 0x100) { // RA2: as above
+	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == 9) { // RA2: as above
+		if (message == WM_KEYDOWN) { // RA2: as above
 			BYTE shift = ((unsigned int)GetAsyncKeyState(0x10) >> 15) & 1; // RA2: as above
 			SendMessageA(parent, 0x4DB, shift, (LPARAM)window); // RA2: as above
 		} // RA2: as above
@@ -7130,7 +7130,7 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		} // RA2: as above
 		data->Caret = data->Buffer->length(); // RA2: as above
 	} // RA2: as above
-	if (message == 0x100) { // RA2: as above
+	if (message == WM_KEYDOWN) { // RA2: as above
 		if (wparam == 0xD) { // RA2: as above
 			SendMessageA(parent, 0x4DA, 0, (LPARAM)window); // RA2: as above
 			if (data->Style & 4) { // RA2: as above
@@ -7142,28 +7142,28 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		} // RA2: as above
 		refresh = TRUE; // RA2: the keys repaint the control (the exe shares this block with the 7, 8 and mouse cases)
 	} else { // RA2: as above
-		if (message == 7) { // RA2: as above
+		if (message == WM_SETFOCUS) { // RA2: as above
 			data->IsCaretHidden = 0; // RA2: as above
 			SetTimer(window, 0, 1000, 0); // RA2: as above
 			refresh = TRUE; // RA2: as above
 		} // RA2: as above
-		if (message == 8) { // RA2: as above
+		if (message == WM_KILLFOCUS) { // RA2: as above
 			KillTimer(window, 0); // RA2: as above
 			refresh = TRUE; // RA2: as above
 		} // RA2: as above
-		if (message == 0x113) { // RA2: as above
+		if (message == WM_TIMER) { // RA2: as above
 			data->IsCaretHidden ^= 1; // RA2: as above
 			InvalidateRect(window, 0, 0); // RA2: as above
 			return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
 		} // RA2: as above
-		if (message == 0xF || message == 0x14) { // RA2: as above
+		if (message == WM_PAINT || message == WM_ERASEBKGND) { // RA2: as above
 			RECT display; // RA2: as above
 			RECT update; // RA2: as above
 			char class_name[80]; // RA2: as above
 			Get_Display_Rect(window, &display); // RA2: as above
 			GetClassNameA(parent, class_name, 80); // RA2: as above
 			bool combo = strcmp(class_name, "ComboBox") == 0; // RA2: as above
-			if (message == 0xF && GetUpdateRect(window, &update, 0)) { // RA2: as above
+			if (message == WM_PAINT && GetUpdateRect(window, &update, 0)) { // RA2: as above
 				update.right += display.left; // RA2: as above
 				update.left += display.left; // RA2: as above
 				update.top += display.top; // RA2: as above
@@ -7183,10 +7183,10 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		if (message == 0x7B) { // RA2: as above
 			return 1; // RA2: as above
 		} // RA2: as above
-		if (message == 0x200) { // RA2: as above
+		if (message == WM_MOUSEMOVE) { // RA2: as above
 			return 1; // RA2: as above
 		} // RA2: as above
-		if (message == 0x101 || message == 0x104 || message == 0x105 || message == 0x106 || message == 0x107 || message == 0x201) { // RA2: as above
+		if (message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP || message == WM_SYSCHAR || message == 0x107 || message == WM_LBUTTONDOWN) { // RA2: as above
 			refresh = TRUE; // RA2: as above
 		} // RA2: as above
 	} // RA2: as above
@@ -7199,13 +7199,13 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		InvalidateRect(window, 0, 0); // RA2: as above
 	} // RA2: as above
 	unsigned short ch; // RA2: as above
-	if (message == 0x102) { // RA2: as above
+	if (message == WM_CHAR) { // RA2: as above
 		if (wparam <= 0x1F) { // RA2: as above
 			return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
 		} // RA2: as above
 		ch = wparam; // RA2: as above
 	} else { // RA2: as above
-		if (message == 0x100) { // RA2: as above
+		if (message == WM_KEYDOWN) { // RA2: as above
 			switch (wparam) { // RA2: as above
 			case 0x2E: // RA2: as above
 				if (data->Caret < (int)data->Buffer->length()) { // RA2: as above
@@ -7251,7 +7251,7 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 			ime = TRUE; // RA2: as above
 		} // RA2: as above
 	} // RA2: as above
-	if (message != 0x100) { // RA2: as above
+	if (message != WM_KEYDOWN) { // RA2: as above
 		if (ch == 0) { // RA2: as above
 			if (!ime) { // RA2: as above
 				return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
@@ -8271,7 +8271,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         break;
     case 0x201: // RA2: as above
     case 0x203: { // RA2: as above
-        if (message == 0x201) { // RA2: as above
+		if (message == WM_LBUTTONDOWN) { // RA2: as above
             message_result = 1;
             SetCapture(window);
             SetTimer(window, 0, 500, 0); // RA2: as above
@@ -8288,7 +8288,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         click.x = (unsigned short)lparam; // RA2: as above
         click.y = (unsigned short)(((unsigned long)lparam >> 16) & 0xffff); // RA2: as above
         int repeat = 1; // RA2: as above
-        if (message == 0x203) { // RA2: as above
+		if (message == WM_LBUTTONDBLCLK) { // RA2: as above
             repeat = 2; // RA2: as above
         }
         down_pressed = 0;
@@ -8321,7 +8321,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                             grip_bottom = grip_top + grip_height;
                             scroll_code = 5; // RA2: as above
                             position = range * (grip_top - 22) / travel;
-                        } else if (message == 0x201) { // RA2: as above
+						} else if (message == WM_LBUTTONDOWN) { // RA2: as above
                             dragging = 1;
                         }
                     }
@@ -8652,7 +8652,7 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     case 0x201: // RA2: as above
     case 0x203: { // RA2: as above
-        if (message == 0x201) { // RA2: as above
+		if (message == WM_LBUTTONDOWN) { // RA2: as above
             message_result = 1;
             SetCapture(window);
         } else {
@@ -8664,7 +8664,7 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
         int ypos = (unsigned short)((unsigned int)lparam >> 16); // RA2: as above
         if (ypos > client_rect.bottom - 18) {
             if (xpos >= grip_left && xpos < grip_right) {
-                if (message == 0x201) { // RA2: as above
+				if (message == WM_LBUTTONDOWN) { // RA2: as above
                     dragging = 1;
                 }
             } else {
@@ -10143,7 +10143,7 @@ int __stdcall Cancel_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
     if (result) { // RA2: as above
         return result; // RA2: as above
     }
-    if (message == 0x111 && wparam == 0x5c0) { // RA2: as above
+	if (message == WM_COMMAND && wparam == 0x5c0) { // RA2: as above
         bool *cancelled = (bool *)GetWindowLongA(window, DWL_USER); // RA2: as above
         if (cancelled) {
             Keyboard->Put((KeyNumType)0x1b); // RA2: as above
@@ -10504,7 +10504,7 @@ int __stdcall Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
         return result; // RA2: as above
     }
     int *choice = (int *)GetWindowLongA(window, DWL_USER); // RA2: as above
-    if (message == 0x111) { // RA2: as above
+	if (message == WM_COMMAND) { // RA2: as above
         int id = wparam & 0xffff; // RA2: as above
         if (id >= 0x5c0 && id <= 0x5c1) { // RA2: as above
             *choice = id;

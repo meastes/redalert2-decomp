@@ -1090,7 +1090,7 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4759 bytes differ against the main function-map extent (0x005484E0; no independent rebuild row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); 4522 bytes differ against main's function-map extent
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
@@ -1098,7 +1098,6 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 	int w = PlayRect.Width;
 	int h = 2 * Map.PlayRect.Height + 8;
 	CellClass *cptr;
-	CellClass *cells = NULL;
 	CellClass *cells_base = NULL;
 
 	Cell cell(CELL_NONE);
@@ -1121,17 +1120,15 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 	if (!reset_cells) {
 		cellcount = 0;
 		cells_base = (CellClass *)new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
-		cells = cells_base;
 		Reset_Iterator();
 		cptr = Iterate();
 		cell = cptr->Fetch_CellID();
 		while (cptr != NULL) {
-			*cells = *cptr;
-			cells->BridgeDeckCell = NULL;
-			cells->UnusedCell = NULL;
+			cells_base[cellcount] = *cptr;
+			cells_base[cellcount].BridgeDeckCell = NULL;
+			cells_base[cellcount].UnusedCell = NULL;
 			cptr = Iterate();
 			cellcount++;
-			cells++;
 		}
 	}
 
@@ -1177,9 +1174,8 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		Cell cellpos = Cell(rect.Y + rect.X, rect.Y - rect.X);
 		cell = (icell - cell) - cellpos;
 
-		cells = cells_base;
-		while (cellcount > 0) {
-			cptr = cells;
+		for (i = 0; i < cellcount; i++) {
+			cptr = &cells_base[i];
 			Cell scell = cptr->CellID;
 			Cell shifted = scell + cell;
 
@@ -1191,8 +1187,6 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 				c->Set_CellID(dcell);
 			}
 
-			cellcount--;
-			cells++;
 		}
 
 		Reset_Iterator();
@@ -3327,7 +3321,7 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
  * HISTORY:                                                                                    *
  *   09/22/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1163 bytes differ against the main function-map extent (0x0054EBD0; no independent rebuild row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); 1158 bytes differ against main's function-map extent
 int MapClass::Zone_Reset(void)
 {
 	int i;
@@ -3381,10 +3375,10 @@ int MapClass::Zone_Reset(void)
 	ZoneCount = (unsigned short)zone;
 
 	for (i = ZoneConnections.Count() - 1; i >= 0; i--) {
-		ZoneConnectionClass * connection = &ZoneConnections[i];
-		if (connection->IsPassable) {
-			int from_zone = Get_Cell_Zone_ID(connection->From);
-			int to_zone = Get_Cell_Zone_ID(connection->To);
+
+		if (ZoneConnections[i].IsPassable) {
+			int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
+			int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
 			if (to_zone != from_zone) {
 				if (to_zone < from_zone) {
 					swap(to_zone, from_zone);

@@ -3481,10 +3481,10 @@ void TechnoClass::AI(void)
 	}
 	Cloaking_AI(0);
 	if (SpawnManager) SpawnManager->AI();
-	if (Cloak == 0 && Map[Center_Coord()].Is_Cloaked(House->HeapID)) Try_To_Cloak();
-	if (Cloak == 2 && !Map[Center_Coord()].Is_Cloaked(House->HeapID)) Try_To_Cloak();
-	if (Session.Type == 0 && !House->Is_Player_Control() && TarCom && !House->Is_Ally(TarCom) && Combat_Damage(-1) < 0) Assign_Target(0);
-	if (TarCom && Session.Type != 0 && House->IsHuman && Combat_Damage(-1) < 0 && !House->Is_Ally(TarCom)) Assign_Target(0);
+	if (Cloak == UNCLOAKED && Map[Center_Coord()].Is_Cloaked(House->HeapID)) Try_To_Cloak();
+	if (Cloak == CLOAKED && !Map[Center_Coord()].Is_Cloaked(House->HeapID)) Try_To_Cloak();
+	if (Session.Type == GAME_NORMAL && !House->Is_Player_Control() && TarCom && !House->Is_Ally(TarCom) && Combat_Damage(-1) < 0) Assign_Target(0);
+	if (TarCom && Session.Type != GAME_NORMAL && House->IsHuman && Combat_Damage(-1) < 0 && !House->Is_Ally(TarCom)) Assign_Target(0);
 	if (TarCom && TarCom->Fetch_RTTI() == RTTI_AIRCRAFT) {
 		ObjectClass * aircraft = static_cast<ObjectClass *>(TarCom);
 		if (Fetch_RTTI() == RTTI_UNIT && Combat_Damage(-1) < 0 && (aircraft->HeightAGL > 0 || Map[aircraft->Get_Coord()].Cell_Building())) Assign_Target(0);
@@ -4061,7 +4061,7 @@ FireErrorType TechnoClass::Can_Fire(AbstractClass * target, int which, bool chec
 		if (weapon->UseSparkParticles && ParticleSystems[1]) return FIRE_REARM;
 		if (weapon->IsSonic && Wave) return FIRE_REARM;
 		if (Ammo == 0) return FIRE_AMMO;
-		if (weapon->DecloakToFire && Cloak != 0 && (Fetch_RTTI() != RTTI_AIRCRAFT || Cloak == 2)) return FIRE_CLOAKED;
+		if (weapon->DecloakToFire && Cloak != UNCLOAKED && (Fetch_RTTI() != RTTI_AIRCRAFT || Cloak == CLOAKED)) return FIRE_CLOAKED;
 		if (Techno_Type_Class()->IsHunterSeeker) return FIRE_RANGE;
 		if (weapon->WarheadPtr->Parasite && this && (AbstractFlags & ABSTRACT_FOOT)) {
 			foot = (target->AbstractFlags & ABSTRACT_FOOT) ? static_cast<FootClass *>(target) : 0;
@@ -9561,7 +9561,7 @@ void TechnoClass::Compute_CRC(CRCEngine & crc) const
 	crc(IsLocked);
 	crc(IsTethered); // RA2: as above
 	crc(IsAlternativeTether); // RA2: as above
-	if (Session.Type == 0 || Session.Type == 5) { // RA2: as above
+	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) { // RA2: as above
 		crc(IsOwnedByPlayer);
 		crc(IsDiscoveredByPlayer);
 		crc(IsDiscoveredByComputer);

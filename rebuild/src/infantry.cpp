@@ -2966,7 +2966,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 
 	WeaponTypeClass const * weapon = Get_Class_Weapon_Data(What_Weapon_Should_I_Use((AbstractClass *)object))->Weapon; // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
 	if (action == ACTION_ATTACK && weapon != NULL && weapon->SabotageCursor) { // RA2: a sabotage weapon has its own cursor
-		return((ActionType)64); // RA2: as above
+		return((ActionType)ACTION_DEMOLISH); // RA2: as above
 	}
 
 	if (House->Is_Player_Control() && action == ACTION_ATTACK && Class->Ivan) { // RA2: Ivan's bombs
@@ -2990,7 +2990,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 				return(ACTION_NOMOVE); // RA2: as above
 			}
 		} else if (action == ACTION_SELF) { // RA2: as above
-			if (!Planning_Allows_Event_Type(4)) { // RA2: as above
+			if (!Planning_Allows_Event_Type(EventClass::MEGAMISSION)) { // RA2: as above
 				return(ACTION_NO_DEPLOY); // RA2: as above
 			}
 			if (Class->UndeployDelay > -1) { // RA2: as above
@@ -3004,7 +3004,7 @@ capture: // RA2: structured forms do not match; the exe shares this return betwe
 	}
 
 	if (action == ACTION_SELF) {
-		if (Planning_Allows_Event_Type(4)) { // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
+		if (Planning_Allows_Event_Type(EventClass::MEGAMISSION)) { // RA2: the executable's object action (engineer, medic, thief, deploy, capture, cloning)
 			if (!House->Is_Player_Control()) {
 				action = ACTION_NONE;
 			} else if (GetDeployWeapon()->Weapon != NULL && GetDeployWeapon()->Weapon->AreaFire) { // RA2: as above

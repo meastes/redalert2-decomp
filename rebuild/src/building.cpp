@@ -3103,7 +3103,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row); 6157 bytes differ against main's function-map extent; main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row); 6093 bytes differ against main's function-map extent; main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
@@ -3119,6 +3119,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 	**	Find a good cell to unload the object to. The object, probably a vehicle
 	**	will drive/walk to the adjacent free cell.
 	*/
+	AircraftClass * air = base->Fetch_RTTI() == RTTI_AIRCRAFT ? (AircraftClass *)base : NULL;
 	Cell cell;
 
 	switch (base->Fetch_RTTI()) {
@@ -3128,8 +3129,53 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 			House->Update_Production_Mode(RTTI_AIRCRAFT);
 			House->BuildAircraft = AIRCRAFT_NONE;
 
-			AircraftClass * air = (AircraftClass *)base;
-			if (HasFreeLink(air) || (House->Ion_Sensitives_Should_Be_Offline() && !air->Class->IsAirportBound)) {
+			if (!HasFreeLink(base) && (!House->Ion_Sensitives_Should_Be_Offline() || air->Class->IsAirportBound)) {
+				if (!air->Class->IsAirportBound) {
+
+					/*
+					 * The aircraft has a pad to land on, so spawn it at the edge of the
+					 * visible map and let it fly in.
+					 */
+					int x = Map.LocalRect.X;
+					cell = Cell(x, -x) + Cell(1, Map.PlayRect.Width) + Cell(Map.LocalRect.Y, Map.LocalRect.Y);
+
+					Cell const & diff = Center_Coord().As_Cell() - cell;
+					Cell spawncell;
+					if (diff.X - diff.Y > Map.LocalRect.Width) {
+						cell = Cell(cell.X - 1 + Map.LocalRect.Width, cell.Y - Map.LocalRect.Width);
+						spawncell = cell;
+						int random = Random_Pick(0, Map.LocalRect.Height);
+						spawncell.X += random;
+						spawncell.Y += random;
+					} else {
+						cell = cell - Cell(1, 0);
+						spawncell = cell;
+						int random = Random_Pick(0, Map.LocalRect.Height);
+						spawncell.X += random;
+						spawncell.Y += random;
+					}
+
+					ScenarioInit++;
+					if (base->Unlimbo(Coord(spawncell, 0), DIR_N)) {
+						if (ArchiveTarget != NULL) {
+							base->Assign_Destination(ArchiveTarget);
+							base->Assign_Mission(MISSION_MOVE);
+						} else {
+							cell = base->Nearby_Location(this);
+							if (cell != CELL_NONE) {
+								base->Assign_Destination(&Map[cell]);
+								base->Assign_Mission(MISSION_MOVE);
+							} else {
+								base->Assign_Destination(NULL);
+								base->Assign_Mission(MISSION_MOVE);
+							}
+						}
+						ScenarioInit--;
+						return(2);
+					}
+					ScenarioInit--;
+				}
+			} else {
 
 				air->Set_Height(0);
 				ScenarioInit++;
@@ -3156,47 +3202,6 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 				}
 				ScenarioInit--;
 
-			} else if (!air->Class->IsAirportBound) {
-
-				/*
-				 * The aircraft has a pad to land on, so spawn it at the edge of the
-				 * visible map and let it fly in.
-				 */
-				int x = Map.LocalRect.X;
-				cell = Cell(x, -x) + Cell(1, Map.PlayRect.Width) + Cell(Map.LocalRect.Y, Map.LocalRect.Y);
-
-				Cell diff;
-				diff = Center_Coord().As_Cell() - cell;
-
-				if (diff.X - diff.Y > Map.LocalRect.Width) {
-					cell = Cell(cell.X - 1, cell.Y) + Cell(Map.LocalRect.Width, -Map.LocalRect.Width);
-				} else {
-					cell = Cell(cell.X - 1, cell.Y);
-				}
-
-				Cell spawncell = cell;
-				int random = Random_Pick(0, Map.LocalRect.Height);
-				spawncell = spawncell + Cell(random, random);
-
-				ScenarioInit++;
-				if (base->Unlimbo(Coord(spawncell, 0), DIR_N)) {
-					if (ArchiveTarget != NULL) {
-						base->Assign_Destination(ArchiveTarget);
-						base->Assign_Mission(MISSION_MOVE);
-					} else {
-						cell = base->Nearby_Location(this);
-						if (cell != CELL_NONE) {
-							base->Assign_Destination(&Map[cell]);
-							base->Assign_Mission(MISSION_MOVE);
-						} else {
-							base->Assign_Destination(NULL);
-							base->Assign_Mission(MISSION_MOVE);
-						}
-					}
-					ScenarioInit--;
-					return(2);
-				}
-				ScenarioInit--;
 			}
 			break;
 
@@ -5613,7 +5618,8 @@ void BuildingClass::Fire_Prism_Support(Coord destination) // RA2: not in TibSun,
  *   06/25/1995 JLB : Created.                                                                 *
  *   02/22/1996 JLB : SAM doesn't lower back into ground.                                      *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row); 2116 bytes differ against main's function-map extent
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00446920 has no row); 1621 bytes differ against main's function-map extent
+#include "cast.h"
 int BuildingClass::Do_MISSION_ATTACK(void)
 {
 	AircraftClass *air;
@@ -5630,7 +5636,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					return(1);
 				}
 				//if (TarCom == NULL || !Is_Target_Aircraft(TarCom) || As_Aircraft(TarCom)->Height == 0) {
-				air = dynamic_cast<AircraftClass *>(TarCom);
+				air = ::As_Aircraft(TarCom);
 				if (TarCom == NULL || !air || air->Height == 0) {
 					Assign_Target(NULL);
 					Status = SAM_READY;
@@ -5639,7 +5645,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					return(1);
 				} else {
 					if (!PrimaryFacing.Is_Rotating()) {
-						if ((PrimaryFacing.Current() - Aim_Direction(TarCom)) <= DIR_STEP_8) {
+						if (DirType(DIR_STEP_8) >= (PrimaryFacing.Current() - Aim_Direction(TarCom))) {
 							Status = SAM_FIRING;
 						} else {
 							PrimaryFacing.Set_Desired(Aim_Direction(TarCom));
@@ -5652,7 +5658,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 			**	The launcher is in the process of firing.
 			*/
 			case SAM_FIRING:
-				air = dynamic_cast<AircraftClass *>(TarCom);
+				air = ::As_Aircraft(TarCom);
 				//if (TarCom == NULL || !Is_Target_Aircraft(TarCom) || As_Aircraft(TarCom)->Height == 0) {
 				if (TarCom == NULL || !air || air->Height == 0) {
 					Assign_Target(NULL);
@@ -5686,6 +5692,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 
 	if (TarCom == NULL) {
 		Assign_Target(NULL);
+		SupportingPrisms = 0;
 		if (IsNotWarpingIn()) Next_Planning_Node();
 		if (Get_Mission() == MISSION_WAIT) return(1);
 		Assign_Mission(MISSION_GUARD);
@@ -5754,11 +5761,9 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 						if (!building || !building->IsActive || building->Class != Rule->PrismType ||
 							building->Arm != 0 || building->DelayBeforeFiring != 0 ||
 							building->Get_Mission() == MISSION_ATTACK || building == this) continue;
-						Coord coord = building->Render_Coord();
-						double x = center.X - coord.X;
-						double y = coord.Y - center.Y;
-						double z = center.Z - coord.Z;
-						int distance = (int)fastmath::sqrt(x * x + y * y + z * z);
+						Coord const & coord = building->Render_Coord();
+						TPoint3D<double> delta(center.X - coord.X, coord.Y - center.Y, center.Z - coord.Z);
+						int distance = (int)delta.Length();
 						if (distance <= Weapon_Range(1) && (!best || distance < best_distance)) {
 							best = building;
 							best_distance = distance;
