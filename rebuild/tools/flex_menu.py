@@ -66,7 +66,7 @@ def probe(unit, entries):
     """{entry: (guard lines that make it exact alone, {guard line: (loses, added not exact)})} from guardprobe."""
     import hashlib, subprocess
     info = R.load_json(R.UNITS, {})[unit]
-    key = hashlib.sha256((R.ROOT / info['source']).read_bytes()).hexdigest()[:16]
+    key = hashlib.sha256((R.ROOT / info['source']).read_bytes() + ' '.join(sorted(entries)).encode()).hexdigest()[:16]
     out = R.WORK / 'flex' / ('%s.%s.txt' % (unit, key))
     if not out.exists():
         if '--probe' not in sys.argv:

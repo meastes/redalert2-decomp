@@ -3103,7 +3103,8 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row); main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00440520 has no row); 6157 bytes differ against main's function-map extent; main: best 92.27, tried 12 times (frame, register, inline)
+#include "airctype.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
 	if (!base) return(0);
@@ -3122,29 +3123,30 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 	switch (base->Fetch_RTTI()) {
 
-		case RTTI_AIRCRAFT:
+		case RTTI_AIRCRAFT: {
 
 			House->Update_Production_Mode(RTTI_AIRCRAFT);
 			House->BuildAircraft = AIRCRAFT_NONE;
 
-			if (!In_Radio_Contact() || IonStormClass::Is_Ion_Storm_Active()) {
-				AircraftClass * air = (AircraftClass *)base;
+			AircraftClass * air = (AircraftClass *)base;
+			if (HasFreeLink(air) || (House->Ion_Sensitives_Should_Be_Offline() && !air->Class->IsAirportBound)) {
 
 				air->Set_Height(0);
 				ScenarioInit++;
 
-				if (IonStormClass::Is_Ion_Storm_Active()) {
+				if (House->Ion_Sensitives_Should_Be_Offline()) {
 					Cell nearby = air->Nearby_Location(this);
 					if (air->Unlimbo(Coord(nearby, 0), air->Pose_Dir())) {
 						ScenarioInit--;
 						return(2);
 					}
 				} else {
-					if (air->Unlimbo(Docking_Coord(NULL), air->Pose_Dir())) { // RA2: Docking_Coord and Exit_Coord take an argument
+					if (air->Unlimbo(Docking_Coord(air), air->Pose_Dir())) { // RA2: Docking_Coord and Exit_Coord take an argument
 						Transmit_Message(RADIO_HELLO, air);
-						Transmit_Message(RADIO_TETHER);
-
-						if (ArchiveTarget != NULL) {
+						Transmit_Message(RADIO_TETHER, air);
+						air->Set_Coord(Docking_Coord(air));
+						air->DockNowHeadingTo = this;
+						if (ArchiveTarget != NULL && !air->Class->IsAirportBound) {
 							air->Assign_Destination(ArchiveTarget);
 							air->Assign_Mission(MISSION_MOVE);
 						}
@@ -3154,7 +3156,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 				}
 				ScenarioInit--;
 
-			} else {
+			} else if (!air->Class->IsAirportBound) {
 
 				/*
 				 * The aircraft has a pad to land on, so spawn it at the edge of the
@@ -3198,6 +3200,8 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 			}
 			break;
 
+		}
+
 		case RTTI_INFANTRY:
 		case RTTI_UNIT:
 
@@ -3207,7 +3211,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 				 * If a unit is already exiting and this building doesn't allow more than
 				 * one exit at a time, then refuse the exit attempt for now.
 				 */
-				if (!Class->IsArmory && !Class->IsWeaponsFactory && In_Radio_Contact()) {
+				if (!Class->IsArmory && !Class->IsWeaponsFactory && !HasFreeLink()) {
 					return(1);
 				}
 			}
@@ -3227,12 +3231,41 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 
 				if (Class->IsWeaponsFactory) {
 
+					// RA2: A ship leaves by a clear water cell outside the shipyard.
+					if (Class->Naval) {
+						if (!HasAnyLink()) {
+							Assign_Mission(MISSION_UNLOAD);
+						}
+						Cell exitcell = Center_Coord().As_Cell();
+						if (ArchiveTarget) {
+							FacingType facing = ::Direction(Get_Cell(), ArchiveTarget->Center_Coord().As_Cell()).As_Facing();
+							while (Map[exitcell].Cell_Building() == this) {
+								exitcell = Adjacent_Cell(exitcell, facing);
+							}
+						}
+						if (!ArchiveTarget || Map[exitcell].Land_Type() != LAND_WATER || Map[exitcell].Cell_Techno() || !Map.In_Local_Radar(exitcell)) {
+							exitcell = Map.Nearby_Location(Center_Coord().As_Cell(), base->TClass->Speed, -1, MZONE_NORMAL, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false);
+						}
+						if (!base->Unlimbo(Map[exitcell].Center_Coord(), DIR_E)) {
+							return(0);
+						}
+						if (ArchiveTarget) {
+							base->Assign_Destination(ArchiveTarget);
+							base->Assign_Mission(MISSION_MOVE);
+						}
+						base->Mark(MARK_UP);
+						base->Set_Coord(Map[exitcell].Cell_Coord());
+						base->Mark(MARK_DOWN);
+						return(2);
+					}
+
+
 					base->ArchiveTarget = ArchiveTarget;
 
 					if (Mission == MISSION_UNLOAD) {
-						for (int index = 0; index < Buildings.Count(); index++) {
-							BuildingClass * bldg = Buildings[index];
-							if (bldg->House == House && bldg->Class == Class && bldg != this && bldg->Mission == MISSION_GUARD && !bldg->Factory) {
+						for (int index = 0; index < House->Buildings.Count(); index++) {
+							BuildingClass * bldg = House->Buildings[index];
+							if (bldg->Class == Class && bldg != this && bldg->Mission == MISSION_GUARD && !bldg->Factory) {
 								FactoryClass * temp = Factory;
 								bldg->Factory = Factory;
 								Factory = NULL;
@@ -3256,7 +3289,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						return(2);
 					}
 
-				} else if (Class->ToBuild != RTTI_INFANTRYTYPE && !Class->IsHospital && !Class->IsArmory) {
+				} else if (Class->ToBuild != RTTI_INFANTRYTYPE && !Class->IsHospital && !Class->IsArmory && !Class->Cloning) {
 
 					Cell exitcell = Find_Exit_Cell(base);
 					if (exitcell == CELL_NONE) {
@@ -3325,6 +3358,14 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						return(0);
 					}
 
+					// RA2: Each cloning vat produces another infantryman for its owner.
+					if (Class->ToBuild == RTTI_INFANTRYTYPE && !Class->Cloning) {
+						TechnoTypeClass const * type = base->TClass;
+						for (int index = 0; index < House->CloningVats.Count(); index++) {
+							BuildingClass * vat = House->CloningVats[index];
+							vat->Exit_Object((TechnoClass *)type->Create_One_Of(vat->House));
+						}
+					}
 					Coord exitcellcoord(exitcell);
 					Dir256 dir = ::Direction(Center_Coord(), exitcellcoord).As_Dir256();
 
@@ -3360,18 +3401,18 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 					ScenarioInit++;
 					if (base->Unlimbo(exitcoord, dir)) {
 
-						if (((FootClass *)base)->NavCom != NULL) {
-							base->ArchiveTarget = ((FootClass *)base)->NavCom;
+						FootClass * foot = (FootClass *)base;
+						if (foot->NavCom && !base->TClass->JumpJet && !base->TClass->Teleporter) {
+							base->Assign_Archive_Target(foot->NavCom);
+							base->Assign_Mission(MISSION_MOVE);
+							base->Assign_Destination(&Map[exitcell]);
 						}
-
-						base->Assign_Mission(MISSION_MOVE);
-						base->Assign_Destination(&Map[exitcell]);
 
 						/*
 						 * When the computer produces infantry, it has the infantry guard
 						 * an area around the spot it should head to.
 						 */
-						if (!House->Is_Human_Player()) {
+						if (!House->Is_Human_Player() || Class->IsHospital) {
 							base->Assign_Mission(MISSION_GUARD_AREA);
 
 							cell = House->Where_To_Go((FootClass *)base);
@@ -3477,8 +3518,13 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						default:
 							return(0);
 
-						case 1:
+						case 1: {
+							int failures = House->Base.Failed_To_Place_Node(node);
+							if (Session.Type != GAME_NORMAL && failures > Rule->MaximumBuildingPlacementFailures && node) {
+								House->Base.Nodes.Delete_Index(House->Base.Nodes.ID(node));
+							}
 							return(1);
+						}
 
 						case 0:
 							if (base->Unlimbo(placementcoord)) {
@@ -3496,6 +3542,13 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 								 * When a wall tower is placed, the next base defense node is
 								 * moved to the spot the tower actually appeared at.
 								 */
+								if (base->Fetch_RTTI() == RTTI_BUILDING) {
+									if (building->Class->IsFirestormWall) {
+										Map.Place_Firestorm_Wall(cellnum, House, building->Class);
+									} else if (building->Class->ToOverlay && building->Class->ToOverlay->IsWall) {
+										Map.Place_Wall(cellnum, House, building->Class);
+									}
+								}
 								if (building->Class == Rule->WallTower) {
 									int index = House->Base.Nodes.ID(node) + 1;
 									int count = House->Base.Nodes.Count();
@@ -5586,7 +5639,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 					return(1);
 				} else {
 					if (!PrimaryFacing.Is_Rotating()) {
-						if (DIR_STEP_8 >= (PrimaryFacing.Current() - Aim_Direction(TarCom))) {
+						if ((PrimaryFacing.Current() - Aim_Direction(TarCom)) <= DIR_STEP_8) {
 							Status = SAM_FIRING;
 						} else {
 							PrimaryFacing.Set_Desired(Aim_Direction(TarCom));
@@ -5646,7 +5699,7 @@ int BuildingClass::Do_MISSION_ATTACK(void)
 	if (fire == FIRE_FACING && Is_Turret_Equipped()) {
 		DirType dir = Aim_Direction(TarCom);
 		DirType dir2(Class->IsTurretAnimAVoxel ? DIR_MIN : DIR_STEP_32);
-		if (dir2 < (PrimaryFacing.Current() - dir) && Class->IsTurretAnimAVoxel && DIR_STEP_128 >= (PrimaryFacing.Current() - dir)) {
+		if (dir2 < (PrimaryFacing.Current() - dir) && Class->IsTurretAnimAVoxel && (PrimaryFacing.Current() - dir) <= DIR_STEP_128) {
 			PrimaryFacing.Set(dir);
 			fire = Can_Fire(TarCom, primary);
 		}

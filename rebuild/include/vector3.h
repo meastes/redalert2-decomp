@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Copyright 2026 ra2-decomp contributors (Vector3::Length's form, include/vector3.h at 719fcc7)
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -305,7 +306,7 @@ inline Vector3 Normalize(const Vector3 & vec)
  *========================================================================*/
 inline float Vector3::Length(void) const
 {
-	return((float)fastmath::sqrt(X * X + Y * Y + Z * Z));
+	return((float)fastmath::sqrt(X * X + Y * Y + Z * Z)); // RA2: ra2-decomp's form (include/vector3.h)
 }
 
 /**************************************************************************

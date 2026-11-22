@@ -470,14 +470,14 @@ void SidebarClass::Init_IO() // RA2: as above
 	ScrollDownButton.ID = 201; // RA2: as above
 	ScrollDownButton.DrawOnSidebar = true; // RA2: as above
 	ScrollDownButton.ShapeDrawer = SidebarDrawer; // RA2: as above
-	ScrollDownButton.Set_Flags(0x55); // RA2: as above
+	ScrollDownButton.Set_Flags(GadgetClass::LEFTPRESS | GadgetClass::LEFTRELEASE | GadgetClass::RIGHTPRESS | GadgetClass::RIGHTRELEASE); // RA2: as above
 	ScrollDownButton.Stop_Flashing(); // RA2: as above
 
 	ScrollUpButton.IsSticky = true; // RA2: as above
 	ScrollUpButton.ID = 200; // RA2: as above
 	ScrollUpButton.DrawOnSidebar = true; // RA2: as above
 	ScrollUpButton.ShapeDrawer = SidebarDrawer; // RA2: as above
-	ScrollUpButton.Set_Flags(0x55); // RA2: as above
+	ScrollUpButton.Set_Flags(GadgetClass::LEFTPRESS | GadgetClass::LEFTRELEASE | GadgetClass::RIGHTPRESS | GadgetClass::RIGHTRELEASE); // RA2: as above
 	ScrollUpButton.Stop_Flashing(); // RA2: as above
 
 	for (int column = 0; column < 4; column++) { // RA2: as above

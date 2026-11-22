@@ -1144,13 +1144,13 @@ void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, boo
 	}
 	point.X = SlideTopRect->X; // RA2: as above
 	point.Y = SlideTopRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	int index = 0; // RA2: as above
 	point.X = Button_Strip_Top->X; // RA2: as above
 	point.Y = Button_Strip_Top->Y; // RA2: as above
 	if (SlideButtonCount > 0) { // RA2: as above
 		do {
-			Draw_Shape(*surface, *Shell2Drawer, ArtSlideButtonBack, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+			Draw_Shape(*surface, *Shell2Drawer, ArtSlideButtonBack, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 			point.Y += Button_Strip_Top->Height; // RA2: as above
 			index++; // RA2: as above
 		} while (index < SlideButtonCount); // RA2: as above
@@ -1161,7 +1161,7 @@ void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, boo
 		point.Y = SlideButtonRect->Y; // RA2: as above
 		if (SlideButtonCount > 0) { // RA2: as above
 			do {
-				Draw_Shape(*surface, *ButtonAnimDrawer, Slide_Button_Shape, 10, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*surface, *ButtonAnimDrawer, Slide_Button_Shape, 10, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 				point.Y += SlideButtonRect->Height; // RA2: as above
 				index++; // RA2: as above
 			} while (index < SlideButtonCount); // RA2: as above
@@ -1169,13 +1169,13 @@ void __fastcall Draw_Interface_Frame(Surface * surface, Rect const & window, boo
 	}
 	point.X = Button_Strip_Bottom->X; // RA2: as above
 	point.Y = Button_Strip_Bottom->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideBottom, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideBottom, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	point.X = LowerScreenRect->X; // RA2: as above
 	point.Y = LowerScreenRect->Y; // RA2: as above
 	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	} else {
-		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *ShellDrawer, ArtLowerScreen, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	}
 }
 
@@ -1195,9 +1195,9 @@ void __fastcall Draw_Dialog_Backdrop(Surface * surface, Rect const & window, Con
 	point.X = DialogBackRect->X; // RA2: as above
 	point.Y = DialogBackRect->Y; // RA2: as above
 	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *drawer, shape640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *drawer, shape640, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	} else {
-		Draw_Shape(*surface, *drawer, shape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *drawer, shape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	}
 }
 
@@ -1218,7 +1218,7 @@ void __fastcall Draw_Slide_MP_Button(Surface * surface, Rect const & window) // 
 	Point2D point(0, 0); // RA2: as above
 	point.X = SlideMPButtonRect->X; // RA2: as above
 	point.Y = SlideMPButtonRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideMPButton, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideMPButton, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1229,7 +1229,7 @@ void __fastcall Draw_Slide_Top(Surface * surface, Rect const & window) // RA2: 0
 	Point2D point(0, 0); // RA2: as above
 	point.X = SlideTopRect->X; // RA2: as above
 	point.Y = SlideTopRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ShellDrawer, ArtSlideTop, 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1244,7 +1244,7 @@ void __fastcall Draw_Score_Top(Surface * surface, Rect const & window) // RA2: 0
 	if (VideoModeWidth >= 800) { // RA2: as above
 		point.X += 80; // RA2: as above
 	}
-	Draw_Shape(*surface, *ScoreDrawer, (ShapeSet *)ArtScoreTop, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ScoreDrawer, (ShapeSet *)ArtScoreTop, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1255,7 +1255,7 @@ void __fastcall Draw_Score_Back(Surface * surface, Rect const & window) // RA2: 
 	Point2D point(0, 0); // RA2: as above
 	point.X = DialogBackRect->X; // RA2: as above
 	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1268,7 +1268,7 @@ void __fastcall Draw_Score_Screen(Surface * surface, Rect const & window) // RA2
 	Point2D point(0, 0); // RA2: as above
 	point.X = DialogBackRect->X; // RA2: as above
 	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *ScoreDrawer, Art_Chat_Back, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1279,7 +1279,7 @@ void __fastcall Draw_MP_Score_Back(Surface * surface, Rect const & window) // RA
 	Point2D point(0, 0); // RA2: as above
 	point.X = DialogBackRect->X; // RA2: as above
 	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1292,7 +1292,7 @@ void __fastcall Draw_MP_Score_Screen(Surface * surface, Rect const & window) // 
 	Point2D point(0, 0); // RA2: as above
 	point.X = DialogBackRect->X; // RA2: as above
 	point.Y = DialogBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *MPScoreDrawer, Art_Score_Screen, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>
@@ -1598,55 +1598,55 @@ void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool ta
 	point.X = SidebarBackRect->X; // RA2: as above
 	point.Y = SidebarBackRect->Y; // RA2: as above
 	if (VideoModeWidth == 640) { // RA2: as above
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack640, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack640, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	} else if (VideoModeWidth == 800) { // RA2: as above
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack800, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack800, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	} else {
-		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack1024, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *UIBackgroundDrawer, ArtSidebarBack1024, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	}
 	point.X = TabBackRect->X; // RA2: as above
 	point.Y = TabBackRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabBackShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, TabBackShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	point.X = RadarFrameRect->X; // RA2: as above
 	point.Y = RadarFrameRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, RadarFrameShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, RadarFrameShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	point.X = RadarAnimRect->X; // RA2: as above
 	point.Y = RadarAnimRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, RadarAnimShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, RadarAnimShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	point.X = Side1Rect->X; // RA2: as above
 	point.Y = Side1Rect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide1, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide1, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	int index = 0; // RA2: as above
 	point.X = Free_Button_Strip->X; // RA2: as above
 	point.Y = Free_Button_Strip->Y; // RA2: as above
 	if (SidebarStripCount > 0) { // RA2: as above
 		do {
-			Draw_Shape(*surface, *SidebarArtDrawer, ArtSide2b, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+			Draw_Shape(*surface, *SidebarArtDrawer, ArtSide2b, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 			point.Y += Free_Button_Strip->Height; // RA2: as above
 			index++; // RA2: as above
 		} while (index < SidebarStripCount); // RA2: as above
 	}
 	point.X = Default_Button_Y->X; // RA2: as above
 	point.Y = Default_Button_Y->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide3, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtSide3, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	point.X = Default_Button_Strip->X; // RA2: as above
 	point.Y = Default_Button_Strip->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, ArtAddon, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, ArtAddon, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	Rect clip = window; // RA2: as above
 	clip.Width = Get_Title_Screen_Area().Width; // RA2: the tab bar is as wide as the area the tactical view uses
 	point.X = TabLeftRect->X; // RA2: as above
 	point.Y = TabLeftRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabLeftShape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, TabLeftShape, 0, point, clip, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	if (tabs) { // RA2: as above
 		point.X = ThumbOpenRect->X; // RA2: as above
 		point.Y = ThumbOpenRect->Y; // RA2: as above
-		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 		index = 0; // RA2: as above
 		point.X = ButtonSlotRect->X; // RA2: as above
 		point.Y = ButtonSlotRect->Y; // RA2: as above
 		if (TabTileCount > 0) { // RA2: as above
 			do {
-				Draw_Shape(*surface, *SidebarArtDrawer, TabTileShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*surface, *SidebarArtDrawer, TabTileShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 				point.X += ButtonSlotRect->Width; // RA2: as above
 				index++; // RA2: as above
 			} while (index < TabTileCount); // RA2: as above
@@ -1654,11 +1654,11 @@ void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool ta
 	} else {
 		point.X = ThumbClosedRect->X; // RA2: as above
 		point.Y = ThumbClosedRect->Y; // RA2: as above
-		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+		Draw_Shape(*surface, *SidebarArtDrawer, TabThumbShape, 2, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 	}
 	point.X = TabEndRect->X; // RA2: as above
 	point.Y = TabEndRect->Y; // RA2: as above
-	Draw_Shape(*surface, *SidebarArtDrawer, TabRightShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+	Draw_Shape(*surface, *SidebarArtDrawer, TabRightShape, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
 }
 
 /// <summary>

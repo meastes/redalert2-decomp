@@ -8858,7 +8858,7 @@ void TechnoClass::Draw_Pips(Point2D const & bottomleft, Point2D const & center, 
 		int pixel = DSurface::Build_Hicolor_Pixel(color.Get_Red(), color.Get_Green(), color.Get_Blue()); // RA2: as above
 		LogicalSurface->Fill_Rect(box, 0); // RA2: as above
 		LogicalSurface->Draw_Rect(box, pixel); // RA2: as above
-		Plain_Text_Print(text, LogicalSurface, (Rect const *)&rect, &where, pixel, 0, TextPrintType(73), -1, 1); // RA2: as above
+		Plain_Text_Print(text, LogicalSurface, (Rect const *)&rect, &where, pixel, 0, TextPrintType(TPF_EFNT | TPF_FULLSHADOW), -1, 1); // RA2: as above
 	}
 }
 
@@ -8914,7 +8914,7 @@ void TechnoClass::Draw_Text_Overlay(Point2D const & point1, Point2D const & poin
 			int pixel = DSurface::Build_Hicolor_Pixel(color.Get_Red(), color.Get_Green(), color.Get_Blue()); // RA2: as above
 			LogicalSurface->Fill_Rect(background, 0); // RA2: as above
 			LogicalSurface->Draw_Rect(background, pixel); // RA2: as above
-			Simple_Text_Print(text, *LogicalSurface, cliprect, point2, pixel, 0, TextPrintType(329), 1); // RA2: as above
+			Simple_Text_Print(text, *LogicalSurface, cliprect, point2, pixel, 0, TextPrintType(TPF_EFNT | TPF_FULLSHADOW | TPF_CENTER), 1); // RA2: as above
 		}
 	}
 
@@ -8932,7 +8932,7 @@ void TechnoClass::Draw_Text_Overlay(Point2D const & point1, Point2D const & poin
 		int pixel = DSurface::Build_Hicolor_Pixel(color.Get_Red(), color.Get_Green(), color.Get_Blue()); // RA2: as above
 		LogicalSurface->Fill_Rect(background, 0); // RA2: as above
 		LogicalSurface->Draw_Rect(background, pixel); // RA2: as above
-		Simple_Text_Print(pritext, *LogicalSurface, cliprect, point2, pixel, 0, TextPrintType(329), 1); // RA2: as above
+		Simple_Text_Print(pritext, *LogicalSurface, cliprect, point2, pixel, 0, TextPrintType(TPF_EFNT | TPF_FULLSHADOW | TPF_CENTER), 1); // RA2: as above
 	}
 }
 

@@ -1730,7 +1730,7 @@ void HouseClass::AI(void)
 					if (!low_power_notice) {
 						Queue_Speech("EVA_LowPower", -1, -1);
 						Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_LOW_POWER", NULL, "D:\\Ra2\\House.CPP", 2194),
-							Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+							Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
 						low_power_notice = 1;
 					}
 					SpeakPowerDelay = Options.Normalize_Delay(int(TICKS_PER_MINUTE * Rule->SpeakDelay));
@@ -2446,7 +2446,7 @@ void HouseClass::Make_Ally(HouseClass * house, bool announce) // RA2: the execut
 			if (Is_Human_Player() && Session.Type != GAME_NORMAL && !house->Class->IsMultiplayPassive) {
 				wchar_t buffer[80]; // RA2: the message is a wide string
 				swprintf(buffer, StringTable::LoadString("TXT_HAS_ALLIED", 0, "D:\\Ra2\\House.CPP", 3149), UIName, house->UIName); // RA2: both house names are the wide UI names
-				Session.Messages.Add_Message(NULL, 0, buffer, Class->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, buffer, Class->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
 
 				if (announce) { // RA2: EVA announces the alliance, or the request for one
 					if (house->Is_Ally(this)) { // RA2: as above
@@ -2538,7 +2538,7 @@ void HouseClass::Make_Enemy(HouseClass * house, bool announce) // RA2: 0x4E5A70,
 			if (Session.Type != GAME_NORMAL && !ScenarioInit && IsHuman) {
 				wchar_t buffer[80]; // RA2: the message is a wide string
 				swprintf(buffer, StringTable::LoadString("TXT_AT_WAR", 0, "D:\\Ra2\\House.CPP", 3272), UIName, house->UIName); // RA2: both house names are the wide UI names
-				Session.Messages.Add_Message(NULL, 0, buffer, Class->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, buffer, Class->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above
 				Map.Flag_To_Redraw();
 				if (announce && broken && (Is_Player_Control() || house->Is_Player_Control())) { // RA2: EVA announces the broken alliance when it concerns a player's house; part of the message block
 					Queue_Speech("EVA_AllianceBroken", -1, -1); // RA2: as above
@@ -3669,7 +3669,7 @@ void HouseClass::MPlayer_Defeated(void)
 		*/
 		if (ObserverHouse != PlayerPtr) { // RA2: an observer is told nothing
 			swprintf(txt, StringTable::LoadString("TXT_PLAYER_DEFEATED", NULL, "D:\\Ra2\\House.CPP", 4703), UIName);
-			Session.Messages.Add_Message(NULL, 0, txt, Session.Color_Index_To_Scheme(Game::PlayerColor), TextPrintType(0x4046), (int)(Rule->MessageDelay * 900), false);
+			Session.Messages.Add_Message(NULL, 0, txt, Session.Color_Index_To_Scheme(Game::PlayerColor), TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), (int)(Rule->MessageDelay * 900), false);
 			Queue_Speech("EVA_YouHaveLost", -1, -1);
 		}
 		Map.Flag_To_Redraw();
@@ -3681,7 +3681,7 @@ void HouseClass::MPlayer_Defeated(void)
 		if (!Class->IsMultiplayPassive) {
 			if (this != ObserverHouse) {
 				swprintf(txt, StringTable::LoadString("TXT_PLAYER_DEFEATED", NULL, "D:\\Ra2\\House.CPP", 4719), UIName);
-				Session.Messages.Add_Message(NULL, 0, txt, Scheme, TextPrintType(0x4046), (int)(Rule->MessageDelay * 900), false);
+				Session.Messages.Add_Message(NULL, 0, txt, Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), (int)(Rule->MessageDelay * 900), false);
 				Queue_Speech("EVA_PlayerDefeated", -1, -1);
 			}
 			Map.Flag_To_Redraw();
@@ -4950,7 +4950,7 @@ int HouseClass::AI_Unit(void)
 	UnitType lasttype = UNIT_NONE;
 	int lastval = 0x7FFFFFFF;
 	UnitType bestlist[ARRAY_SIZE(counter)];
-	for (UnitType type = UnitType(0); type < UnitTypes.Count(); type++) {
+	for (UnitType type = UnitType(UNIT_FIRST); type < UnitTypes.Count(); type++) {
 		if (counter[type] > 0 && Can_Build(UnitTypes[type], false, false) && UnitTypes[type]->Cost_Of(this) <= Available_Money()) {
 			if (bestval == -1 || bestval < counter[type]) {
 				bestval = counter[type];
@@ -5057,7 +5057,7 @@ int HouseClass::AI_Infantry(void)
 	InfantryType lasttype = INFANTRY_NONE;
 	int lastval = 0x7FFFFFFF;
 	InfantryType bestlist[ARRAY_SIZE(counter)];
-	for (InfantryType type = InfantryType(0); type < InfantryTypes.Count(); type++) {
+	for (InfantryType type = InfantryType(INFANTRY_FIRST); type < InfantryTypes.Count(); type++) {
 		if (counter[type] > 0 && Can_Build(InfantryTypes[type], false, false) && InfantryTypes[type]->Cost_Of(this) <= Available_Money()) {
 			if (bestval == -1 || bestval < counter[type]) {
 				bestval = counter[type];
@@ -5162,7 +5162,7 @@ int HouseClass::AI_Aircraft(void)
 	AircraftType lasttype = AIRCRAFT_NONE;
 	int lastval = 0x7FFFFFFF;
 	AircraftType bestlist[ARRAY_SIZE(counter)];
-	for (AircraftType type = AircraftType(0); type < AircraftTypes.Count(); type++) {
+	for (AircraftType type = AircraftType(AIRCRAFT_FIRST); type < AircraftTypes.Count(); type++) {
 		if (counter[type] > 0 && Can_Build(AircraftTypes[type], false, false) && AircraftTypes[type]->Cost_Of(this) <= Available_Money()) {
 			if (bestval == -1 || bestval < counter[type]) {
 				bestval = counter[type];

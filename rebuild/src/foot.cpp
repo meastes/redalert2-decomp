@@ -1786,74 +1786,74 @@ bool FootClass::Active_Click_With(ActionType action, ObjectClass * object, bool 
 {
 
 	switch (action) {
-		case 26:
+		case ACTION_GUARD_AREA:
 			if (Can_Player_Fire() && Can_Player_Move()) {
-				if (((Fetch_RTTI() == 15 && ((InfantryClass *)this)->Class->IsBomber) || Has_Ability(ABILITY_C4))
-                && object->Fetch_RTTI() == 6 && !House->Is_Ally((TechnoClass const *)object)) {
-					Player_Assign_Mission(MissionType(0x11), 0, object, 0);
+				if (((Fetch_RTTI() == RTTI_INFANTRY && ((InfantryClass *)this)->Class->IsBomber) || Has_Ability(ABILITY_C4))
+                && object->Fetch_RTTI() == RTTI_BUILDING && !House->Is_Ally((TechnoClass const *)object)) {
+					Player_Assign_Mission(MissionType(MISSION_SABOTAGE), 0, object, 0);
 				} else {
-					Player_Assign_Mission(MissionType(0xB), object, 0, 0);
+					Player_Assign_Mission(MissionType(MISSION_GUARD_AREA), object, 0, 0);
 				}
 				return true;
 			}
 			break;
 
-		case 4:
-		case 52:
-		case 56:
-			Player_Assign_Mission(MissionType(0x10), 0, 0, 0);
+		case ACTION_SELF:
+		case ACTION_AREA_ATTACK:
+		case ACTION_DETONATE_ALL:
+			Player_Assign_Mission(MissionType(MISSION_UNLOAD), 0, 0, 0);
 			return true;
 
-		case 55:
+		case ACTION_DETONATE:
 			OutList.Add(EventClass(AttachedBomb->OwnerHouse->HeapID, EventClass::DETONATE, TargetClass(this)));
 			return true;
 
-		case 5:
-		case 53:
-		case 63:
-		case 64:
+		case ACTION_ATTACK:
+		case ACTION_IVAN_BOMB:
+		case ACTION_ATTACK_MOVE_TAR:
+		case ACTION_DEMOLISH:
 			if (Can_Player_Fire()) {
-				Player_Assign_Mission(MissionType(1), object, 0, 0);
+				Player_Assign_Mission(MissionType(MISSION_ATTACK), object, 0, 0);
 				return true;
 			}
 			break;
 
-		case 3:
+		case ACTION_ENTER:
 			if (Can_Player_Move() && object && Dynamic_Cast<TechnoClass *>(object)) {
-				Player_Assign_Mission(MissionType(7), 0, object, 0);
+				Player_Assign_Mission(MissionType(MISSION_ENTER), 0, object, 0);
 				return true;
 			}
 			break;
 
-		case 9:
+		case ACTION_CAPTURE:
 			if (Can_Player_Move()) {
-				Player_Assign_Mission(MissionType(8), 0, object, 0);
+				Player_Assign_Mission(MissionType(MISSION_CAPTURE), 0, object, 0);
 				return true;
 			}
 			break;
 
-		case 11:
+		case ACTION_EATEN:
 			if (Can_Player_Move()) {
-				Player_Assign_Mission(MissionType(9), 0, object, 0);
+				Player_Assign_Mission(MissionType(MISSION_EATEN), 0, object, 0);
 				return true;
 			}
 			break;
 
-		case 16:
+		case ACTION_SABOTAGE:
 			if (Can_Player_Move()) {
-				Player_Assign_Mission(MissionType(0x11), 0, object, 0);
+				Player_Assign_Mission(MissionType(MISSION_SABOTAGE), 0, object, 0);
 				return true;
 			}
 			break;
 
-		case 2:
+		case ACTION_NOMOVE:
 			if (Map.Is_Shrouded(object->Center_Coord()) && !Techno_Type_Class()->IsMoveToShroud) {
 				return false;
 			}
         // Fall into next case.
 
-		case 1:
-		case 62:
+		case ACTION_MOVE:
+		case ACTION_ATTACK_MOVE_NAV:
 			if (Can_Player_Move()) {
 				AbstractClass * targ = object;
 
@@ -1862,17 +1862,17 @@ bool FootClass::Active_Click_With(ActionType action, ObjectClass * object, bool 
 					center.Z = Map.Get_Height_GL(center);
 				}
 
-				if (((Techno_Type_Class()->IsSubterranean && !Rule->IsShroudedSubteranneanMovesAllowed) || Fetch_RTTI() == 2) && Map.Is_Shrouded(center)) return true;
+				if (((Techno_Type_Class()->IsSubterranean && !Rule->IsShroudedSubteranneanMovesAllowed) || Fetch_RTTI() == RTTI_AIRCRAFT) && Map.Is_Shrouded(center)) return true;
 
 				MZoneType mzone = Techno_Type_Class()->MZone;
 				Cell cell = object->Destination_Coord(0).As_Cell();
 				bool in_radar = Map.In_Local_Radar(cell, true);
 				CellClass * cptr = &Map[Destination_Coord(0)];
 
-				if (mzone == 6) mzone = MZONE_NORMAL;
-				else if (mzone == 9) mzone = MZONE_INFANTRY;
+				if (mzone == MZONE_SUBTERANNEAN) mzone = MZONE_NORMAL;
+				else if (mzone == MZONE_FLYER) mzone = MZONE_INFANTRY;
 
-				bool moveanywhere = In_Air() || Techno_Type_Class()->IsSubterranean || (Fetch_RTTI() == 15 && ((InfantryClass *)this)->Class->JumpJet) || Fetch_RTTI() == 2;
+				bool moveanywhere = In_Air() || Techno_Type_Class()->IsSubterranean || (Fetch_RTTI() == RTTI_INFANTRY && ((InfantryClass *)this)->Class->JumpJet) || Fetch_RTTI() == RTTI_AIRCRAFT;
 
 				bool ontobridge = Is_Moving_Onto_Bridge(0);
 				Coord coord = Coord(cell.X * 256 + 128, cell.Y * 256 + 128, 0);
@@ -1880,13 +1880,13 @@ bool FootClass::Active_Click_With(ActionType action, ObjectClass * object, bool 
 				bool shrouded = Map.Is_Shrouded(coord);
 				bool forcemove = !is_waypoint && (Keyboard->Down(Options.KeyForceMove1) || Keyboard->Down(Options.KeyForceMove2));
 
-				if (moveanywhere && action == 2) {
+				if (moveanywhere && action == ACTION_NOMOVE) {
 					Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->Speed, -1, mzone, Map[cell].IsUnderBridge, Point2D(1, 1), 0, 1, Techno_Type_Class()->IsSubterranean && HeightAGL < 0, 1, Cell(0, 0), 0);
 					if (nearby != CELL_NONE) {
 						targ = &Map[nearby];
 					}
 				} else {
-					if (!in_radar || !moveanywhere && (shrouded || action == 2 || forcemove && Fetch_RTTI() == 15 || !Map.Is_Same_Cell_Zone(cptr->CellID, cell, mzone, ontobridge, Map[cell].IsUnderBridge, false))) {
+					if (!in_radar || !moveanywhere && (shrouded || action == ACTION_NOMOVE || forcemove && Fetch_RTTI() == RTTI_INFANTRY || !Map.Is_Same_Cell_Zone(cptr->CellID, cell, mzone, ontobridge, Map[cell].IsUnderBridge, false))) {
 						Cell nearby = Map.Nearby_Location(cell, Techno_Type_Class()->Speed, Map.Get_Cell_Zone(cptr->CellID, mzone, ontobridge), mzone, Map[cell].IsUnderBridge, Point2D(1, 1), 0, 1, 0, 1, Cell(0, 0), 0);
 						if (nearby != CELL_NONE) {
 							targ = &Map[nearby];
@@ -1899,17 +1899,17 @@ bool FootClass::Active_Click_With(ActionType action, ObjectClass * object, bool 
 					if (targ != object && object != 0) {
 						from = &Map[object->Center_Coord().As_Cell()];
 					}
-					Player_Assign_Mission(MissionType(2), 0, targ, from);
+					Player_Assign_Mission(MissionType(MISSION_MOVE), 0, targ, from);
 				}
 				return true;
 			}
 			break;
 
-		case 51:
-		case 54:
+		case ACTION_PATROL_WAYPOINT:
+		case ACTION_NO_IVAN_BOMB:
 			return false;
 
-		case 59: {
+		case ACTION_ATTACK_SUPPORT: {
 			WeaponDataStruct const * weapon = Get_Class_Weapon_Data(0);
 			bool heals = (weapon != 0 && weapon->Weapon != 0 && weapon->Weapon->Attack < 0);
 			Player_Assign_Mission(heals ? MISSION_GUARD_AREA : MISSION_GUARD, this, 0, 0);

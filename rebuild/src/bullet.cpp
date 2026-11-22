@@ -300,7 +300,9 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); main: best 87.78, tried 8 times (frame, inline, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); 5995 bytes differ against main's function-map extent; main: best 87.78, tried 8 times (frame, inline, order)
+#include "ion.h"
+#include "revent.h"
 void BulletClass::AI(void)
 {
 	/*
@@ -318,6 +320,16 @@ void BulletClass::AI(void)
 	int is_aircraft = false;
 
 	if (!IsActive) return;
+
+	// RA2: the nuke animation holds the bullet until it finishes.
+	if (SpawnNextAnim) {
+		if (NextAnim) return;
+		AnimPtrTracker.Delete(this);
+		SpawnNextAnim = false;
+		Bullet_Explodes(false);
+		Delete_Me();
+		return;
+	}
 
 	/*
 	**	Ballistic objects are handled here.
@@ -356,10 +368,10 @@ void BulletClass::AI(void)
 
 	/*
 	 * Projectiles that leave a trail behind them drop one puff of it every
-	 * third frame.
+	 * configured number of frames.
 	 */
 	if (Class->Trailer != NULL) {
-		if (!(Frame % 3)) {
+		if (!(Frame % (Class->ScaledSpawnDelay ? Class->ScaledSpawnDelay : Class->SpawnDelay))) {
 			new AnimClass(Class->Trailer, coord, 1, 1);
 		}
 	}
@@ -380,7 +392,11 @@ void BulletClass::AI(void)
 		 * The projectile stays in its launch phase until it has worked up to
 		 * cruising speed. A fast projectile is given no launch phase at all.
 		 */
-		if (MaxSpeed >= 40 || speed + 0.5 >= max_speed) {
+		if (!Class->CourseLockDuration) {
+			if (MaxSpeed >= 40 || speed + 0.5 >= max_speed) {
+				IsLaunching = false;
+			}
+		} else if (CourseLockCounter < Class->CourseLockDuration && ++CourseLockCounter >= Class->CourseLockDuration) {
 			IsLaunching = false;
 		}
 
@@ -391,7 +407,7 @@ void BulletClass::AI(void)
 		**	they only do so every other game frame (improves game speed and makes
 		**	missiles not so deadly).
 		*/
-		if (IsLaunching) {
+		if (IsLaunching && !Class->CourseLockDuration) {
 			acceleration = (Frame % 2 == 0) ? 1 : 0;
 		}
 
@@ -421,7 +437,7 @@ void BulletClass::AI(void)
 		 * rather than the ground it happens to be standing on.
 		 */
 		Coord target_coord = TarCom != NULL ? TarCom->As_Coord() : COORD_NONE;
-		ObjectClass * target = dynamic_cast<ObjectClass *>(TarCom);
+		ObjectClass * target = TarCom && (TarCom->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)TarCom : NULL;
 		if (target != NULL) {
 			target_coord = target->Target_Coord();
 		}
@@ -471,7 +487,7 @@ void BulletClass::AI(void)
 		if (distance <= half_speed || HeightAGL <= 0) {
 			forced = true;
 			impact = IMPACT_NORMAL;
-			if (HeightAGL > 0 && !Class->IsAirburst) {
+			if (HeightAGL > 0 && !Class->IsAirburst && target_coord != COORD_NONE) {
 				coord = target_coord;
 			}
 		}
@@ -485,6 +501,11 @@ void BulletClass::AI(void)
 		 * forever. Airburst and very high projectiles are exempt, since they
 		 * come down on their targets from above.
 		 */
+		if (target_coord == COORD_NONE && HeightAGL >= Rule->MissileSafetyAltitude) {
+			forced = true;
+			impact = IMPACT_NORMAL;
+		}
+
 		int delta = ::Distance(old_coord, target_coord) - ::Distance(coord, target_coord);
 
 		if (!IsLaunching) {
@@ -544,206 +565,149 @@ void BulletClass::AI(void)
 			gravity = Get_Floater_Gravity();
 		}
 
-		TechnoClass * payback = Payback;
-		double elasticity = Class->Elasticity;
-
-		/*
-		 * Pull the projectile down by gravity and then step it forward along
-		 * its arc.
-		 */
-		velocity.Z -= gravity;
-
-		Coord old_coord(position.X, position.Y, position.Z);
-		position += velocity;
-
-		Coord new_coord(position.X, position.Y, position.Z);
-		int height = Map.Get_Height_GL(new_coord);
-		int bridge_height = height + BRIDGE_LEPTON_HEIGHT;
-
-		CellClass * cellptr = &Map[new_coord];
-
-		/*
-		 * See if the arc carried the projectile through the deck of a bridge,
-		 * either dropping onto it from above or rising into it from below.
-		 */
-		bool fell_through_bridge = false;
-		bool rose_through_bridge = false;
-		if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
-			if (new_coord.Z >= bridge_height) {
-				if (old_coord.Z < bridge_height) {
-					rose_through_bridge = true;
-				}
-			} else if (old_coord.Z >= bridge_height) {
-				fell_through_bridge = true;
+		if (Class->Vertical) {
+			int speed = (int)Velocity.Speed();
+			if (speed < MaxSpeed) {
+				Velocity.Set_Speed(speed + Class->Acceleration);
 			}
-		}
+			Coord old_coord = coord;
+			coord += Coord((int)Velocity.X, (int)Velocity.Y, (int)Velocity.Z);
+			int bridge_height = Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT;
+			if (coord.Z > Class->DetonationAltitude || HeightAGL < 0 ||
+				((Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) &&
+					((coord.Z >= bridge_height) != (old_coord.Z >= bridge_height)))) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+			}
+		} else {
+			TechnoClass * payback = Payback;
+			double elasticity = Class->Elasticity;
 
-		/*
-		 * Otherwise see if the projectile ran into a wall or a building on the
-		 * way. The firer's own building, a dormant laser fence, a vehicle that
-		 * happens to be deployed, and anything belonging to an ally are all
-		 * passed through harmlessly.
-		 */
-		bool hit_obstacle = false;
-		if (!fell_through_bridge && !rose_through_bridge) {
-			if (position.Z >= height && position.Z - 150 < height) {
-				BuildingClass * building = cellptr->Cell_Building();
-				if (building != NULL || cellptr->Has_Wall_Or_Gate()) {
-					hit_obstacle = true;
-					if (building != NULL) {
-						if (building == payback || building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
-							hit_obstacle = false;
-						}
-						if (building->Considered_Vehicle()) {
-							hit_obstacle = false;
-						}
-						if (payback != NULL && payback->House->Is_Ally(building)) {
-							hit_obstacle = false;
+			/*
+			 * Pull the projectile down by gravity and then step it forward along
+			 * its arc.
+			 */
+			velocity.Z -= gravity;
+
+			Coord old_coord(position.X, position.Y, position.Z);
+			position += velocity;
+
+			Coord new_coord(position.X, position.Y, position.Z);
+			int height = Map.Get_Height_GL(new_coord);
+			int bridge_height = height + BRIDGE_LEPTON_HEIGHT;
+
+			CellClass * cellptr = &Map[new_coord];
+
+			/*
+			 * See if the arc carried the projectile through the deck of a bridge,
+			 * either dropping onto it from above or rising into it from below.
+			 */
+			bool fell_through_bridge = false;
+			bool rose_through_bridge = false;
+			if (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge) {
+				if (new_coord.Z >= bridge_height) {
+					if (old_coord.Z < bridge_height) {
+						rose_through_bridge = true;
+					}
+				} else if (old_coord.Z >= bridge_height) {
+					fell_through_bridge = true;
+				}
+			}
+
+			/*
+			 * Otherwise see if the projectile ran into a wall or a building on the
+			 * way. The firer's own building, a dormant laser fence, a vehicle that
+			 * happens to be deployed, and anything belonging to an ally are all
+			 * passed through harmlessly.
+			 */
+			bool hit_obstacle = false;
+			if (!fell_through_bridge && !rose_through_bridge) {
+				if (position.Z >= height && position.Z - 150 < height) {
+					BuildingClass * building = cellptr->Cell_Building();
+					if (building != NULL || cellptr->Has_Wall_Or_Gate()) {
+						hit_obstacle = true;
+						if (building != NULL) {
+							if (building == payback || building->Class->IsLaserFence && building->LaserFenceFrame >= 8) {
+								hit_obstacle = false;
+							}
+							if (building->Considered_Vehicle()) {
+								hit_obstacle = false;
+							}
+							if (payback != NULL && payback->House->Is_Ally(building)) {
+								hit_obstacle = false;
+							}
 						}
 					}
 				}
 			}
-		}
 
-		/*
-		 * The projectile bounces unless it is still clear of the ground and has
-		 * struck nothing along the way.
-		 */
-		bool do_bounce = true;
-		if (position.Z >= height) {
-			if (!fell_through_bridge && !rose_through_bridge && !hit_obstacle) {
-				do_bounce = false;
-			}
-		}
-
-		if (do_bounce) {
 			/*
-			 * Bring the projectile back to the surface it struck -- the deck it
-			 * dropped onto, the underside of the deck it rose into, or the
-			 * ground itself.
+			 * The projectile bounces unless it is still clear of the ground and has
+			 * struck nothing along the way.
 			 */
-			if (fell_through_bridge) {
-				position.Z = bridge_height;
-			} else if (rose_through_bridge) {
-				bridge_height -= 20;
-				position.Z = bridge_height;
-			} else {
-				bridge_height = height - 100;
-				if (bridge_height < position.Z) {
+			bool do_bounce = true;
+			if (position.Z >= height) {
+				if (!fell_through_bridge && !rose_through_bridge && !hit_obstacle) {
+					do_bounce = false;
+				}
+			}
+
+			if (do_bounce && (!payback || fell_through_bridge || rose_through_bridge)) {
+				if (fell_through_bridge) {
+					position.Z = bridge_height;
+				} else if (rose_through_bridge) {
+					position.Z = bridge_height - 20;
+				} else if (height - 100 < position.Z) {
 					position.Z = height;
 				}
-			}
-
-			/*
-			 * Bounce the projectile off that surface. Its velocity is rotated
-			 * into the frame of reference of the ground slope, damped by the
-			 * projectile's elasticity, reflected in Z, and then rotated back
-			 * out again.
-			 */
-			Matrix3D slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(new_coord));
-			Matrix3D slope_matrix_inv = Matrix3D::Orthogonal_Inverse(slope_matrix);
-			Vector3 vec(velocity.X, -velocity.Y, velocity.Z);
-			vec = slope_matrix_inv.Rotate_Vector(vec);
-			vec *= elasticity;
-			vec.Z = -vec.Z;
-			vec = slope_matrix.Rotate_Vector(vec);
-			velocity.X = vec.X;
-			velocity.Y = -vec.Y;
-			velocity.Z = vec.Z;
-
-			/*
-			 * See who is standing in the cell the projectile is bouncing out
-			 * of, taking care to look on top of a bridge rather than beneath it
-			 * when the projectile is riding above the deck. Neither the firer
-			 * nor an ally of the firer counts as a victim.
-			 */
-			bool on_bridge = Map[coord].IsUnderBridge && Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT <= position.Z;
-			TechnoClass * techno = Map[coord].Cell_Techno(Point2D(0, 0), on_bridge);
-			if (Payback != NULL && coord.As_Cell() == Payback->Center_Coord().As_Cell() || techno != NULL && Payback != NULL && Payback->House->Is_Ally(techno)) {
-				techno = NULL;
-			}
-
-			/*
-			 * Only a bouncy projectile survives the impact, and even then only
-			 * if it did not come down on top of somebody.
-			 */
-			if (!Class->IsBouncy || techno != NULL && (Payback == NULL || techno != Payback)) {
-				impact = IMPACT_NORMAL;
-				forced = true;
-				collided = true;
-			}
-
-			/// This test can never pass -- the check above already forces a
-			/// non-bouncy projectile to explode.
-
-			/*
-			 * A projectile aimed at a cell rather than at an object was to
-			 * detonate as soon as it landed in that cell.
-			 */
-			if (!Class->IsBouncy && !forced) {
-				if (Is_Target_Cell(TarCom)) {
-					if (TarCom->Center_Coord().As_Cell() == coord.As_Cell()) {
-						impact = IMPACT_NORMAL;
-						forced = true;
-						collided = true;
-					}
+				if (!payback) {
+					Matrix3D slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(new_coord));
+					Matrix3D slope_matrix_inv = Matrix3D::Orthogonal_Inverse(slope_matrix);
+					Vector3 vec(velocity.X, -velocity.Y, velocity.Z);
+					vec = slope_matrix_inv.Rotate_Vector(vec);
+					vec *= elasticity;
+					vec.Z = -vec.Z;
+					vec = slope_matrix.Rotate_Vector(vec);
+					velocity.X = vec.X;
+					velocity.Y = -vec.Y;
+					velocity.Z = vec.Z;
 				}
-			}
-
-			/*
-			 * A projectile is allowed only so many bounces before it is forced
-			 * to detonate wherever it happens to have landed.
-			 */
-			BounceCount++;
-			if (!forced && BounceCount >= 3) {
 				impact = IMPACT_NORMAL;
 				forced = true;
 			}
+			coord = Coord((int)position.X, (int)position.Y, (int)position.Z);
 		}
 
-		coord.X = (int)position.X;
-		coord.Y = (int)position.Y;
-		coord.Z = (int)position.Z;
-
-		/*
-		 * A projectile that is still flying detonates anyway if it passed close
-		 * enough to somebody to count as a hit. The firer and its allies are
-		 * ignored.
-		 */
-		if (!forced) {
-			TechnoClass * techno = Map[coord].Cell_Techno();
-			if (Payback == NULL || techno != Payback) {
-				if (techno != NULL && (Payback == NULL || !Payback->House->Is_Ally(techno))) {
-					if (coord.Distance_To(techno->PositionCoord) < CELL_LEPTON / 2) {
-						forced = true;
-						impact = IMPACT_NORMAL;
-						coord = techno->PositionCoord;
-					}
-				}
-			}
-		}
-
-		/*
-		 * A projectile that has flown off the edge of the world is left at its
-		 * last known position and vanishes.
-		 */
-		if (!Map.In_Radar(coord)) {
-			coord = PositionCoord;
-			forced = true;
-			impact = IMPACT_EDGE;
-		}
-
-		new_velocity.X = velocity.X;
-		new_velocity.Y = velocity.Y;
-		Velocity = TVelocity3D<double>(new_velocity.X, new_velocity.Y, velocity.Z);
-
-		/*
-		 * A projectile that is barely moving and lying close to the ground has
-		 * finished bouncing and settles where it is.
-		 */
-		if (Velocity.Speed() < 10 && HeightAGL < 10) {
-			forced = true;
+		Cell here = coord.As_Cell();
+		Cell there = TargetCoords.As_Cell();
+		BuildingClass * building = Map[here].Cell_Building();
+		if (!Class->Vertical && HeightAGL < LEVEL_LEPTON_H * 2 &&
+			(here == there || (building && building == Map[there].Cell_Building()))) {
 			impact = IMPACT_NORMAL;
+			forced = true;
+			collided = true;
+		} else {
+			TechnoClass * techno = Map[coord].Cell_Techno();
+			if (techno && techno != Payback && (!Payback || !Payback->House->Is_Ally(techno)) &&
+				coord.Distance_To(techno->PositionCoord) < CELL_LEPTON / 2) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+				if (!Class->IsInaccurate) {
+					coord = techno->PositionCoord;
+				}
+			} else if (!Map.In_Radar(coord)) {
+				impact = IMPACT_EDGE;
+				forced = true;
+				coord = PositionCoord;
+			} else {
+				if (!Class->Vertical) {
+					Velocity = velocity;
+				}
+				if (Velocity.Speed() < 10 && HeightAGL < 10) {
+					impact = IMPACT_NORMAL;
+					forced = true;
+				}
+			}
 		}
 	}
 
@@ -772,13 +736,7 @@ void BulletClass::AI(void)
 			 * A fueled projectile carries only so much range with it. Once the
 			 * fuel is spent, it detonates wherever it happens to be.
 			 */
-			if (Class->IsFueled) {
-				Range -= coord.Distance_To(PositionCoord);
-				if (Range <= 0) {
-					forced = true;
-				}
-			}
-			PositionCoord = coord;
+			Set_Coord(coord);
 
 			/*
 			 * A projectile that flies into an active firestorm wall is consumed
@@ -803,7 +761,7 @@ void BulletClass::AI(void)
 			if (!forced) {
 				Coord cur_coord = PositionCoord;
 				forced = Is_Forced_To_Explode(cur_coord);
-				PositionCoord = cur_coord;
+				Set_Coord(cur_coord);
 			}
 
 			/*
@@ -811,7 +769,13 @@ void BulletClass::AI(void)
 			**	maintenance (usually nothing). Otherwise, explode and then
 			**	delete the bullet.
 			*/
-			FuseResultType fuse = Is_Homing() ? Fuse.Fuse_Checkup(coord) : FUSE_WAIT;
+			if (forced && HeightAGL < 0) {
+				Set_Height_AGL(0);
+			}
+			FuseResultType fuse = (Is_Homing() || Class->IsFueled) ? Fuse.Fuse_Checkup(coord) : FUSE_WAIT;
+			if (Payback && Payback->TClass->JumpJet && fuse == FUSE_EXPLODE_FAR) {
+				fuse = FUSE_EXPLODE_CLOSE;
+			}
 			if (!forced && (Class->IsDropping || fuse == FUSE_WAIT)) {
 				/*
 				**	Certain projectiles lose strength when they travel.
@@ -830,7 +794,7 @@ void BulletClass::AI(void)
 				 * went off.
 				 */
 				if (TarCom != NULL) {
-					if ((fuse == FUSE_EXPLODE_CLOSE || collided) && !Class->IsAirburst) {
+					if ((fuse == FUSE_EXPLODE_CLOSE || collided) && !Class->IsAirburst && !Class->IsInaccurate) {
 						Coord midpoint = coord;
 						Coord target_coord = TarCom->As_Coord();
 						midpoint.Z = (midpoint.Z + target_coord.Z) / 2;
@@ -840,8 +804,21 @@ void BulletClass::AI(void)
 						}
 
 						if (fuse == FUSE_EXPLODE_CLOSE || target_distance <= MAX(CELL_LEPTON / 2, Velocity.Speed() * 2)) {
-							PositionCoord = TarCom->Center_Coord();
+							Set_Coord(TarCom->Center_Coord());
 						}
+					}
+				}
+				// RA2: Start the flash and radar event before deferring damage to NUKEBALL.
+				if (*Warhead == "NUKE") {
+					if (HeightAGL < 0) Set_Height_AGL(0);
+					IonStormClass::Start_Nuke_Flash();
+					Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, Get_Cell());
+					AnimType index = AnimTypeClass::From_Name("NUKEBALL");
+					if (index != ANIM_NONE && AnimTypes[index]) {
+						NextAnim = new AnimClass(AnimTypes[index], PositionCoord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(PositionCoord));
+						SpawnNextAnim = true;
+						AnimPtrTracker.Add(this);
+						break;
 					}
 				}
 				Bullet_Explodes(forced);
@@ -851,6 +828,7 @@ void BulletClass::AI(void)
 		}
 	}
 
+	LastMapCoords = coord.As_Cell();
 }
 #endif
 

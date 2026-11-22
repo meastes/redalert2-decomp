@@ -4695,7 +4695,7 @@ void __fastcall Fill_Sync_State(int index) // RA2: 0x0062CF40
 			}
 			obj_layer->Value = objp->PositionCoord.As_Int();
 			obj_layer->RTTI = objp->Fetch_RTTI();
-			if (objp->Fetch_RTTI() != 0x2B && objp->Fetch_RTTI() != 0x13) {
+			if (objp->Fetch_RTTI() != RTTI_WAVE && objp->Fetch_RTTI() != RTTI_LIGHT) {
 				obj_layer->Type = objp->Class_Of()->Fetch_Heap_ID();
 				obj_layer->Name[sizeof(obj_layer->Name) - 1] = 0;
 				strncpy(obj_layer->Name, objp->Class_Of()->Name(), sizeof(obj_layer->Name) - 1);
@@ -4724,7 +4724,7 @@ void __fastcall Fill_Sync_State(int index) // RA2: 0x0062CF40
 		}
 		obj_layer->Value = objp->PositionCoord.As_Int();
 		obj_layer->RTTI = objp->Fetch_RTTI();
-		if (objp->Fetch_RTTI() != 0x2B && objp->Fetch_RTTI() != 0x13) {
+		if (objp->Fetch_RTTI() != RTTI_WAVE && objp->Fetch_RTTI() != RTTI_LIGHT) {
 			obj_layer->Type = objp->Class_Of()->Fetch_Heap_ID();
 			obj_layer->Name[sizeof(obj_layer->Name) - 1] = 0;
 			strncpy(obj_layer->Name, objp->Class_Of()->Name(), sizeof(obj_layer->Name) - 1);

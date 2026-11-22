@@ -20,9 +20,7 @@
 #include "palette.h"
 #include "win.h"
 
-#ifdef RA2_NON_MATCHING // not exact: held, the text is exact (0 bytes differ once open); ra2-decomp's text in this unit, a constant no header defines (owner ruling)
-const Rect RECT_NONE_2(0, 0, 0, 0); // RA2: a second zero rectangle, initialized last
-#endif
+const Rect RECT_NONE_2(0, 0, 0, 0); // RA2: a second zero rectangle, initialized last; ra2-decomp's statement at this place in the unit (src/effects.cpp:43 at 719fcc7); name provisional
 
 
 void * Build_Fading_Table(PaletteClass const & palette, void * dest, int color, int frac);

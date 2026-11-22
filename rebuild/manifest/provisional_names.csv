@@ -114,3 +114,5 @@ enum 78,MOUSE_PLACE_BEACON,mouse,"MouseType cursor 78, named after the action Mo
 0x006f6d00,Select_All_Combatants,uicmnds,"descriptive: the routine CombatantSelectCommandClass::Execute calls (command ""CombatantSelect""); ra2-decomp FUN_00732280, main Unknown_006F6D00; lane F4"
 ,Is_Unselected_Combatant,uicmnds,descriptive inline test passed to Any_Techno_Passes; no standalone original address (expanded at its one site); lane F4
 ,Select_Techno,uicmnds,descriptive inline action passed to For_Each_Techno_If; no standalone original address (expanded at its one site); lane F4
+0x0040FEF0,RECT_NONE_2,abstract,"name provisional: ra2-decomp's name for the second zero Rect its text defines at this place in the unit (initializer row); no evidenced original name; owner ruling 2026-11-22"
+0x004B3140,RECT_NONE_2,effects,"name provisional: ra2-decomp's name for the second zero Rect its text defines at this place in the unit (initializer row); no evidenced original name; owner ruling 2026-11-22"

@@ -405,7 +405,7 @@ void RadarClass::Init_IO(void) // RA2
 		BriefingButton.ShapeDrawer = SidebarDrawer;
 		BriefingButton.IsOn = false;
 		BriefingButton.IsToggleType = 0;
-		BriefingButton.Set_Flags(5);
+		BriefingButton.Set_Flags(GadgetClass::LEFTPRESS | GadgetClass::LEFTRELEASE);
 		BriefingButton.Set_Position(BriefingButtonRect.X, BriefingButtonRect.Y);
 		BriefingButton.Set_Shape((ShapeSet const *)BriefingButtonShape, 0, 0);
 		BriefingButton.Flag_To_Redraw();
@@ -415,7 +415,7 @@ void RadarClass::Init_IO(void) // RA2
 		OptionsButton.ShapeDrawer = SidebarDrawer;
 		OptionsButton.IsOn = false;
 		OptionsButton.IsToggleType = 0;
-		OptionsButton.Set_Flags(5);
+		OptionsButton.Set_Flags(GadgetClass::LEFTPRESS | GadgetClass::LEFTRELEASE);
 		OptionsButton.Set_Position(OptionsButtonRect.X, OptionsButtonRect.Y);
 		OptionsButton.Set_Shape((ShapeSet const *)OptionsButtonShape, 0, 0);
 		OptionsButton.Flag_To_Redraw();
@@ -1003,8 +1003,8 @@ void RadarClass::Draw_Names(void)
 
 	y = RadOffX + 2;
 
-	Fancy_Text_Print(StringTable::LoadString("TXT_NAME_COLON", NULL, RA2_SOURCE, 1217), *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadHeight, y), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));
-	Fancy_Text_Print(StringTable::LoadString("TXT_KILLS_COLON", NULL, RA2_SOURCE, 1219), *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadOffY + RadHeight - 2, y), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x219));
+	Fancy_Text_Print(StringTable::LoadString("TXT_NAME_COLON", NULL, RA2_SOURCE, 1217), *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadHeight, y), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
+	Fancy_Text_Print(StringTable::LoadString("TXT_KILLS_COLON", NULL, RA2_SOURCE, 1219), *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadOffY + RadHeight - 2, y), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW | TPF_RIGHT));
 	y += 7;
 
 	SidebarSurface->Draw_Line(Point2D(RadHeight, y), Point2D(RadOffY + RadHeight - 1, y), SidebarDrawer->Convert_Pixel(14));
@@ -1022,10 +1022,10 @@ void RadarClass::Draw_Names(void)
 
 		if (ptr->IsDefeated) {
 			color = Fetch_Scheme_By_Name("Grey", 1);
-			style = 0x19;
+			style = TPF_EFNT | TPF_NOSHADOW;
 		} else {
 			color = ColorSchemes[c_idx];
-			style = 0x4019;
+			style = TPF_EFNT | TPF_NOSHADOW | TPF_USE_GRAD_PAL;
 		}
 
 		/*
@@ -1053,7 +1053,7 @@ void RadarClass::Draw_Names(void)
 			kills += ptr->BuildingsKilled[h];
 		}
 		swprintf(txt, L"%2d", kills);
-		Fancy_Text_Print(txt, *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadOffY + RadHeight - 2, y), color, 0, TextPrintType(style | 0x200));
+		Fancy_Text_Print(txt, *SidebarSurface, SidebarSurface->Get_Rect(), Point2D(RadOffY + RadHeight - 2, y), color, 0, TextPrintType(style | TPF_RIGHT));
 
 		y += 9;
 	}

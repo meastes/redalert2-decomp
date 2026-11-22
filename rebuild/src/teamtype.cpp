@@ -1032,7 +1032,7 @@ void TeamTypeClass::Process_Task_Force(void) // RA2: 0x6C0180 (ra2-decomp's YR t
 {
 	IsReachCheckNeeded = true;
 	HasNavalTransport = false;
-	TaskForceMZone = 9;
+	TaskForceMZone = MZONE_FLYER;
 	for (int index = 0; index < TaskForce->ClassCount; index++) {
 		TechnoTypeClass const * type = TaskForce->Members[index].Class;
 		if (type->Naval) {

@@ -585,7 +585,7 @@ MouseType Cursor_Type_71(void)
 /// </summary>
 MouseType Cursor_Area_Guard(void)
 {
-	return MouseType(22);
+	return MouseType(MOUSE_AREA_GUARD);
 }
 
 /// <summary>

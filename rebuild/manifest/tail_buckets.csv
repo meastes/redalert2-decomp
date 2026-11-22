@@ -1,12 +1,10 @@
 unit,entry,function,bytes,bucket,top_callee,direction,detail
-building,00445620,?Do_MISSION_GUARD@BuildingClass@@UAEHXZ,788,calls_differ,CounterClass::Value,,"orig-only 5, ours-only 4, unresolved 0"
+building,00445620,?Do_MISSION_GUARD@BuildingClass@@UAEHXZ,788,calls_differ,MissionClass::Current_Mission_Control,,"orig-only 4, ours-only 1, unresolved 0"
 taction,006adae0,??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z,7752,calls_differ,TActionClass::TAction_STOP_AI_TRIGGERS,,"orig-only 4, ours-only 1, unresolved 0"
-techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,calls_differ,SpawnManagerClass::SetTarget,,"orig-only 38, ours-only 6, unresolved 2"
 wdtsel,0072e050,?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ,991,calls_differ,?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z,,"orig-only 6, ours-only 12, unresolved 1"
 wdtsel,0072e650,?Select_Territory_At@Selection@WorldDominationTour@@QAE_NABVPoint2D@@@Z,193,calls_differ,?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z,,"orig-only 4, ours-only 1, unresolved 0"
 wdtsel,0072e780,?Do_Target_Anim@Selection@WorldDominationTour@@QAEXABV?$rc_ptr@VState@WorldDominationTour@@@@_N1@Z,1531,calls_differ,-,,"orig-only 4, ours-only 1, unresolved 3"
 wonline,00758750,?Buddy_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,2935,calls_differ,ArrayList::get,,"orig-only 4, ours-only 0, unresolved 2"
-abstract,0040fef0,_$E49,23,exact_when_open,,,exact with the guards open (the guard may protect another row)
 bitfont,00432270,_$E25,23,exact_when_open,,,exact with the guards open (the guard may protect another row)
 builtype,0045ed50,?Get_Rect@ShapeSet@@QBE?AV?$TRect@H@@H@Z,108,exact_when_open,,,exact with the guards open (the guard may protect another row)
 builtype,0045efe0,?Union@@YI?BV?$TRect@H@@ABV1@0@Z,240,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -33,7 +31,6 @@ dropship,004a9b90,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCr
 dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
 dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
 dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,exact_when_open,,,exact with the guards open (the guard may protect another row)
-effects,004b3140,_$E41,23,exact_when_open,,,exact with the guards open (the guard may protect another row)
 fly,004bfb60,??8?$TPoint2D@H@@QBE_NABV0@@Z,37,exact_when_open,,,exact with the guards open (the guard may protect another row)
 house,004f0e10,_$E234,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
 house,004f0e20,_$E233,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -134,6 +131,7 @@ strtable,006f8e30,?LoadFile@StringTable@@SIHPBD@Z,1134,inline_call,CCFileClass::
 super,0069d090,?Discharged@SuperClass@@QAE_N_NABVCell@@@Z,765,inline_call,0069ed90,orig_calls,0069ed90
 techno,006c1f10,??0TechnoClass@@QAE@ABVNoInitClass@@@Z,409,inline_call,DynamicVectorClass::Add,ours_calls,?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z
 techno,006c2c40,?Draw_Post_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,3341,inline_call,CDTimerClass::Value,orig_calls,?Value@?$CDTimerClass@VSystemTimerClass@@@@QBEHXZ
+techno,006ca890,?Fire_At@TechnoClass@@UAEPAVBulletClass@@PAVAbstractClass@@H@Z,6019,inline_call,TVelocity3D::Horizontal_Speed,orig_calls,?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ
 wave,007221d0,?Load@WaveClass@@UAGJPAUIStream@@@Z,349,inline_call,DynamicVectorClass::DynamicVectorClass,orig_calls,??0?$DynamicVectorClass@PAVCellClass@@@@QAE@IPBQAVCellClass@@@Z
 wdtconflict,00727e30,?Get_String@?$ValueGameOption@E@WorldDominationTour@@UBE?AVWideWstring@@ABV?$rc_ptr@VWDTTerritory@@@@ABV3@@Z,236,inline_call,??H@YI?AVWideWstring@@ABV0@0@Z,orig_calls,??H@YI?AVWideWstring@@ABV0@0@Z
 wdtsel,0072d560,??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z,1072,inline_call,007304c0,orig_calls,007304c0

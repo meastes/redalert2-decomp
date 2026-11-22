@@ -4857,9 +4857,9 @@ class MultiplayerSyncCommandClass : public CommandClass // RA2: the executable's
 		{ // RA2: as above
 			ExtraSyncInfo = !ExtraSyncInfo; // RA2: as above
 			if (ExtraSyncInfo) { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, Narrow_To_Wide("Extra sync info ON"), 3, TextPrintType(0x4046), 150, false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, Narrow_To_Wide("Extra sync info ON"), 3, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 150, false); // RA2: as above
 			} else { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, Narrow_To_Wide("Extra sync info OFF"), 3, TextPrintType(0x4046), 150, false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, Narrow_To_Wide("Extra sync info OFF"), 3, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 150, false); // RA2: as above
 			} // RA2: as above
 		} // RA2: as above
 }; // RA2: as above

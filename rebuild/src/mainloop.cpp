@@ -1252,7 +1252,7 @@ void Draw_Multiplayer_Debug(bool noframecheck) // RA2 0x005419E0: TibSun has no 
 
 	if (DebugTime != -1) { // RA2: as above
 		double seconds = DebugTime * 0.001; // RA2: as above
-		Fancy_Text_Print(L"%.2f", *CompositeSurface, Rect(0, 0, 500, 15), Point2D(100, 0), ColorSchemes[GadgetClass::Get_Color_Scheme()], 0x1F, TextPrintType(6), seconds, Scen->ScenarioName); // RA2: as above
+		Fancy_Text_Print(L"%.2f", *CompositeSurface, Rect(0, 0, 500, 15), Point2D(100, 0), ColorSchemes[GadgetClass::Get_Color_Scheme()], 0x1F, TextPrintType(TPF_6PT_GRAD), seconds, Scen->ScenarioName); // RA2: as above
 	}
 
 	if (Session.DrawMPDebugStats && Session.Type != GAME_NORMAL && Session.Type != GAME_MODEM && Session.Type != GAME_NULL_MODEM) { // RA2 0x005419E0: TibSun has no such function

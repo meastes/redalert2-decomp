@@ -1,19 +1,17 @@
 unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance
-abstract,,RECT_NONE_2,0,unplaced,0,a,"lane's find: the text is exact, some forms have no reference text (guard label)",,yes,,
-abstract,0040fef0,_$E49,23,exact_when_open,,a,variation_candidates.csv: main's coined unknown_static_rect header (a second 16-byte Rect static),b,yes,guard-open exact (not probed),unknown until probed
 bitfont,,RECT_NONE_2,0,unplaced,0,a,"lane's find: the text is exact, some forms have no reference text (guard label)",,yes,,
+bitfont,00432270,_$E25,23,exact_when_open,,a,"variation_candidates.csv: a second zero Rect defined at this place in the unit (coined placement: exact, but no reference text defines it in this unit)",b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
 building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1321,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,
 builtype,0045e290,BuildingTypeClass::Get_Draw_Rect,1189,stack_layout,5,a,variation_candidates.csv: main's unit-local Union<Rect> specialisation naming the two right edges (count-calibrated locals),,yes,,
 bullet,00462c50,BulletClass::Shrapnel,2757,inline_call,1787,a,"variation_candidates.csv: a split declaration `Cell cell; cell = Get_Cell();` in the second loop, found by a count probe (the Cell default constructor is the extra inline-candidate site ",,yes,,
 combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,
 coord,00491750,Coord_Scatter,289,inline_call,173,a,variation_candidates.csv: ra2-decomp's pass-through _Move_Coord (return(Move_Coord(...))) with its lock expression,,yes,,
-drive,004a1000,DriveLocomotionClass::While_Moving,5736,exact_when_open,,a,variation_candidates.csv: as ship's,b,yes,guard-open exact (not probed),unknown until probed
+drive,004a1000,DriveLocomotionClass::While_Moving,5736,exact_when_open,,a,variation_candidates.csv: as ship's,b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
 dropship,004a6b90,Dropship_Screen,10797,inline_body,,a,"variation_candidates.csv: unsigned VectorClass index (operator[] / body casts) plus caller repairs: reaches the function-wide signedness-conversion window; costs 15 exact rows (26,806 B)",,yes,,
-effects,,RECT_NONE_2,0,unplaced,0,a,"lane's find: the text is exact, some forms have no reference text (guard label)",,yes,,
-effects,004b3140,_$E41,23,exact_when_open,,a,variation_candidates.csv: main's coined unknown_static_rect header (a second 16-byte Rect static),b,yes,guard-open exact (not probed),unknown until probed
 foot,004cbb40,FootClass::Search_For_Tiberium_Weighted,1467,unbound,1391,a,variation_candidates.csv: main's inline Tiberium_Value wrapper around each tiberium read (a budget form),d,yes,,
 init,00519500,Allocate_Surfaces,1118,inline_body,1015,a,variation_candidates.csv: main's inline Memory_Flag(bool) helper,,yes,,
 ionblast,,RECT_NONE_2,0,unplaced,0,a,"lane's find: the text is exact, some forms have no reference text (guard label)",,yes,,
+ionblast,00522540,_$E178,23,exact_when_open,,a,"variation_candidates.csv: a second zero Rect defined at this place in the unit (coined placement: exact, but no reference text defines it in this unit)",b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
 map,0054f250,MapClass::Zone_Span,1386,stack_layout,17,a,variation_candidates.csv: main's threaded Add specialisation with a dummy eligible flag (RA2_MAP_ZONE_SPAN),,yes,,
 map,00555a60,MapClass::Repair_Bridge,2743,inline_call,2536,a,"variation_candidates.csv: main's coined second-kind helpers (Is_Low_Bridge2, Repair_Low_Bridge2_Span) and TPoint2D<short>::operator+ out of line",,yes,,
 map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,87,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,
@@ -21,7 +19,8 @@ ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,
 partsys,,RECT_NONE_2,0,unplaced,0,a,"lane's find: the text is exact, some forms have no reference text (guard label)",,yes,,
-saveload,006558b0,Put_All,4055,exact_when_open,,a,"variation_candidates.csv: main's empty-inline DebugString lines (6 to 20 of the archive's `Saving ...` / FAILED lines, a budget form)",b,yes,guard-open exact (not probed),unknown until probed
+partsys,0060d0f0,_$E152,23,exact_when_open,,a,"variation_candidates.csv: a second zero Rect defined at this place in the unit (coined placement: exact, but no reference text defines it in this unit)",b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
+saveload,006558b0,Put_All,4055,exact_when_open,,a,"variation_candidates.csv: main's empty-inline DebugString lines (6 to 20 of the archive's `Saving ...` / FAILED lines, a budget form)",b,yes,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
 ship,00676f60,ShipLocomotionClass::While_Moving,5720,unbound,,a,"variation_candidates.csv: main's `FootClass * train = LinkedTo`, `ObjectClass *& ref`, `Cell gate`, `ttype`, `cell`, Coord copies and `Cell here`",d,yes,,
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,783,a,"variation_candidates.csv: main's coined Open_File / Close_File wrappers (one of two fopen sites, three fclose sites)",,yes,,
 techno,006c2c40,TechnoClass::Draw_Post_Render,3341,inline_call,110,a,"variation_candidates.csv: main's coined unit-local readers Mouse_Hover_Flag and Techno_Is_Selected (techno.cpp, 'its site decides the temporaries')",,yes,,
@@ -34,101 +33,98 @@ wonline,0074a120,Player_Info_Tooltip,959,inline_call,857,a,"variation_candidates
 wonline,00750330,Negotiate_Scenario_Transfer,2520,register_order,32,a,variation_candidates.csv: Session.Players alias (main's text),,yes,,
 wonline,00760c00,CChatEventSink::OnUserList,2402,register_order,,a,variation_candidates.csv: Session.Players alias (main's text),,yes,,
 wonline,00762f70,CChatEventSink::OnFind,2867,inline_call,,a,variation_candidates.csv: main's Key_Hash specialisation switch (src/shared/wol_dictionary.hpp RA2_WOL_DICTIONARY_KEY_SPECIALIZATIONS: keyHash declared in the class and defined per key t,,yes,,
-bitfont,00432270,_$E25,23,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-builtype,0045ed50,ShapeSet::Get_Rect,108,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-builtype,0045efe0,Union,240,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fd50,??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fd90,?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fe40,?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fe70,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047feb0,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047fed0,?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047ff80,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,0047ffb0,??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,00480000,??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-combat,00480050,??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z,74,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-drive,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004a9af0,RGBClass::RGBClass,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004a9b30,?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004a9b60,?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004a9b90,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-fly,004bfb60,??8?$TPoint2D@H@@QBE_NABV0@@Z,37,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-house,004f0e10,_$E234,1,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-house,004f0e20,_$E233,1,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,53,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-init,0051ad10,CDFileClass::~CDFileClass,11,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-init,0051ad20,CCFileClass::~CCFileClass,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-init,0051ade0,CCINIClass::CCINIClass,140,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ionblast,00522540,_$E178,23,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-map,0056ace0,?Clear@?$DynamicVectorClass@W4PassabilityType@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-map,0056ad10,?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-map,0056ad30,?GetItem@?$VectorClass@W4PassabilityType@@@@UBE?AW4PassabilityType@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-mapgen,0058eed0,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-mapgen,0058f1e0,?search_compfunc@?$IndexClass@HPAVMapRegionClass@@@@CAHPBX0@Z,34,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-missile,005940d0,??GDirType@@QBE?AV0@ABV0@@Z,28,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-missile,005940f0,??KDirType@@QBE?AV0@H@Z,26,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-missile,00594110,DirType::Is_Complete_Turn,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-missile,00594140,DirType::Turn,100,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-missile,005941b0,?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z,342,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd590,?Clear@?$DynamicVectorClass@PBVMultiMission@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd5c0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd5e0,?GetItem@?$VectorClass@PBVMultiMission@@@@UBEPBVMultiMission@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd5f0,??8?$VectorClass@PBVMultiMission@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd630,?Resize@?$VectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd6e0,?Clear@?$VectorClass@PBVMultiMission@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd710,?ID@?$VectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd750,?ID@?$VectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd7d0,?Resize@?$DynamicVectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd880,?Add@?$DynamicVectorClass@PBVMultiMission@@@@QAE_NABQBVMultiMission@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-netshare,005cd8d0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,00601c30,?keyHash@?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@AAEIABQAUHWND__@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,00602040,?remove@?$Dictionary@UMessageKey@OwnerDraw@@_N@@QAEDABUMessageKey@OwnerDraw@@AA_N@Z,607,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,006022a0,?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,156,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,00602340,?keyHash@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEIABUMessageKey@OwnerDraw@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-partsys,0060d0f0,_$E152,23,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-tactical,006ac7a0,_$E298,1,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b090,??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z,25,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b0b0,??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ,14,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b0f0,??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z,32,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b6c0,??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z,92,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b720,?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z,249,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b820,?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b850,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b8a0,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z,36,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b8d0,??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtmap,0072b8e0,??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtsel,007302b0,WorldDominationTour::Map::Get_Territory,26,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtsel,007302e0,??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z,35,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtsel,00730310,??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ,11,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wdtsel,00730330,??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ,4,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wonline,00765e90,?add@?$ArrayList@UUser@WOL@@@@QAEDAAUUser@WOL@@H@Z,390,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wonline,00766400,?clear@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEXXZ,276,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wonline,00767bb0,?getPointer@?$Dictionary@VWstring@@I@@QAEDABVWstring@@PAPAI@Z,107,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wonline,00767cf0,?getPointer@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEDABVWstring@@PAPAUChannel@WOL@@@Z,110,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
-wonline,00768290,?growVector@?$ArrayList@H@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed
+builtype,0045ed50,ShapeSet::Get_Rect,108,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+builtype,0045efe0,Union,240,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fcf0,?Clear@?$DynamicVectorClass@PAUDamageGroup@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd20,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd40,?GetItem@?$VectorClass@PAUDamageGroup@@@@UBEPAUDamageGroup@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd50,??8?$VectorClass@PAUDamageGroup@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fd90,?Resize@?$VectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fe40,?Clear@?$VectorClass@PAUDamageGroup@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fe70,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047feb0,?ID@?$VectorClass@PAUDamageGroup@@@@UAEHPBQAUDamageGroup@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047fed0,?Resize@?$DynamicVectorClass@PAUDamageGroup@@@@UAE_NHPBQAUDamageGroup@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047ff80,?ID@?$DynamicVectorClass@PAUDamageGroup@@@@UAEHABQAUDamageGroup@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,0047ffb0,??_G?$VectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,00480000,??_G?$DynamicVectorClass@PAUDamageGroup@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+combat,00480050,??0?$VectorClass@PAUDamageGroup@@@@QAE@HPBQAUDamageGroup@@@Z,74,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+drive,004a4d20,??R?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ,28,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9af0,RGBClass::RGBClass,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b00,?Clear@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b30,?ID@?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEHPBQAUButtonFadeEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b60,?Clear@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004a9b90,?ID@?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEHPBQAUCrossDissolveEffect@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa080,??_G?$DynamicVectorClass@PAVTechnoTypeClass@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa120,??_G?$DynamicVectorClass@PAUButtonFadeEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+dropship,004aa1c0,??_G?$DynamicVectorClass@PAUCrossDissolveEffect@@@@UAEPAXI@Z,73,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+fly,004bfb60,??8?$TPoint2D@H@@QBE_NABV0@@Z,37,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f0e10,_$E234,1,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f0e20,_$E233,1,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEXXZ,53,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ad10,CDFileClass::~CDFileClass,11,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ad20,CCFileClass::~CCFileClass,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+init,0051ade0,CCINIClass::CCINIClass,140,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,exact_when_open,,b,exact with every guard of the unit open,,yes,"guard-open exact, opening its guard loses 2 rows",a count-holding declaration
+map,0056ace0,?Clear@?$DynamicVectorClass@W4PassabilityType@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056ad10,?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+map,0056ad30,?GetItem@?$VectorClass@W4PassabilityType@@@@UBE?AW4PassabilityType@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058eed0,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@ABV0@@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+mapgen,0058f1e0,?search_compfunc@?$IndexClass@HPAVMapRegionClass@@@@CAHPBX0@Z,34,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005940d0,??GDirType@@QBE?AV0@ABV0@@Z,28,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005940f0,??KDirType@@QBE?AV0@H@Z,26,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,00594110,DirType::Is_Complete_Turn,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,00594140,DirType::Turn,100,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+missile,005941b0,?Set_Pitch@?$TVelocity3D@N@@QAEXABVDirType@@@Z,342,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd590,?Clear@?$DynamicVectorClass@PBVMultiMission@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5c0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5e0,?GetItem@?$VectorClass@PBVMultiMission@@@@UBEPBVMultiMission@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd5f0,??8?$VectorClass@PBVMultiMission@@@@UBE_NABV0@@Z,62,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd630,?Resize@?$VectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,174,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd6e0,?Clear@?$VectorClass@PBVMultiMission@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd710,?ID@?$VectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,51,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd750,?ID@?$VectorClass@PBVMultiMission@@@@UAEHPBQBVMultiMission@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd7d0,?Resize@?$DynamicVectorClass@PBVMultiMission@@@@UAE_NHPBQBVMultiMission@@@Z,176,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd880,?Add@?$DynamicVectorClass@PBVMultiMission@@@@QAE_NABQBVMultiMission@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+netshare,005cd8d0,?ID@?$DynamicVectorClass@PBVMultiMission@@@@UAEHABQBVMultiMission@@@Z,38,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00601c30,?keyHash@?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@AAEIABQAUHWND__@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602040,?remove@?$Dictionary@UMessageKey@OwnerDraw@@_N@@QAEDABUMessageKey@OwnerDraw@@AA_N@Z,607,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,006022a0,?expand@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,156,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602340,?keyHash@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEIABUMessageKey@OwnerDraw@@@Z,29,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602890,?shrink@?$Dictionary@UMessageKey@OwnerDraw@@_N@@AAEXXZ,168,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+ownrdraw,00602940,?growVector@?$ArrayList@PAUHWND__@@@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAnimClass@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+tactical,006ac7a0,_$E298,1,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b060,?GetItem@?$VectorClass@VCentroid@WorldDominationTour@@@@UBE?AVCentroid@WorldDominationTour@@H@Z,40,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b090,??0?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAE@AAV?$VectorClass@V?$TRect@H@@@@H@Z,25,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b0b0,??B?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UBE_NXZ,14,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b0f0,??_G?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEPAXI@Z,32,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b6c0,??8?$VectorClass@VCentroid@WorldDominationTour@@@@UBE_NABV0@@Z,92,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b720,?Resize@?$VectorClass@VCentroid@WorldDominationTour@@@@UAE_NHPBVCentroid@WorldDominationTour@@@Z,249,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b820,?Clear@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEXXZ,39,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b850,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHABVCentroid@WorldDominationTour@@@Z,80,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8a0,?ID@?$VectorClass@VCentroid@WorldDominationTour@@@@UAEHPBVCentroid@WorldDominationTour@@@Z,36,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8d0,??E?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtmap,0072b8e0,??F?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@UAEAAV0@XZ,6,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,007302b0,WorldDominationTour::Map::Get_Territory,26,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,007302e0,??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z,35,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,00730310,??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ,11,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wdtsel,00730330,??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ,4,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00765e90,?add@?$ArrayList@UUser@WOL@@@@QAEDAAUUser@WOL@@H@Z,390,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00766400,?clear@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEXXZ,276,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00767bb0,?getPointer@?$Dictionary@VWstring@@I@@QAEDABVWstring@@PAPAI@Z,107,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00767cf0,?getPointer@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEDABVWstring@@PAPAUChannel@WOL@@@Z,110,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
+wonline,00768290,?growVector@?$ArrayList@H@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,exact only inside a parked parent (guard-open exact),a mask
 mapgen,00586b40,MapGeneratorClass::Create_Urban_Area,1913,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
 ownrdraw,005fb270,OwnerDraw::Trackbar_Proc,3489,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
 queue,0062a360,Print_CRCs,11223,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration
@@ -145,7 +141,7 @@ building,,BuildingClass::Charging_AI,0,unplaced,,e,no row of the original matche
 building,,BuildingClass::Discharge_Turret,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
 building,,BuildingClass::Get_Collateral_Damage,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
 building,00440520,BuildingClass::Exit_Object,6505,no_row,main best 92.27%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
-building,00445620,BuildingClass::Do_MISSION_GUARD,788,calls_differ,768,e,stays a flagged draft,,yes,,
+building,00445620,BuildingClass::Do_MISSION_GUARD,788,calls_differ,735,e,stays a flagged draft,,yes,,
 building,00446920,BuildingClass::Do_MISSION_ATTACK,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
 building,00448400,BuildingClass::Do_MISSION_MISSILE,0,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
 bullet,0045f710,BulletClass::AI,6438,no_row,main best 87.78%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
@@ -311,7 +307,7 @@ techno,,TechnoClass::Rock,0,unplaced,,e,no row of the original matches the draft
 techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,
 techno,006c1f10,TechnoClass::TechnoClass,409,inline_call,93,e,stays a flagged draft,,yes,,
 techno,006c5570,TechnoClass::Evaluate_Object,2998,no_row,main best 91.81%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
-techno,006ca890,TechnoClass::Fire_At,6019,calls_differ,5834,e,stays a flagged draft,,yes,,
+techno,006ca890,TechnoClass::Fire_At,6019,inline_call,4596,e,stays a flagged draft,,yes,,
 techno,006d0990,TechnoClass::Draw_Link_Line,1059,no_row,main best 86.96%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,
 techno,006d24e0,TechnoClass::Techno_Render_Voxel_Object,814,inline_body,611,e,stays a flagged draft,,yes,,
 techno,006d6ed0,TechnoClass::Railgun_Beam_Damage,1521,register_order,19,e,stays a flagged draft,,yes,,
@@ -360,14 +356,16 @@ wonline,00766dc0,WolChannelArray::Shrink_00766dc0,150,no_draft,,e,no draft yet,,
 wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,e,no draft yet,,no,,
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,
-(total),,flex a: 35 functions,75100,,,a,,,,,
-(total),,flex b: 95 functions,7197,,,b,,,,,
+(total),,flex a: 34 functions,75123,,,a,,,,,
+(total),,flex b: 92 functions,7128,,,b,,,,,
 (total),,flex c: 3 functions,16625,,,c,,,,,
 (total),,flex d: 6 functions,458,,,d,,,,,
 (total),,flex e: 222 functions,223855,,,e,,,,,
 (total),,no draft yet: 31 functions,1804,,,e,,,no,,
-(gap),,99 functions,17687,,,,,,,guard-open exact (not probed),unknown until probed
+(gap),,5 functions,9895,,,,,,,"guard-open exact, its own guard could come off, held as a hand-made variation",nothing (but its text is a hand-made variation: the user's word)
+(gap),,91 functions,7680,,,,,,,exact only inside a parked parent (guard-open exact),a mask
+(gap),,1 functions,48,,,,,,,"guard-open exact, opening its guard loses 2 rows",a count-holding declaration
 (gap),,3 functions,16656,,,,,,,exact form parked count-sensitive,a count-holding declaration
-(gap),,102 functions,34343,,,,,,,total: function-level minus whole-unit,
+(gap),,100 functions,34279,,,,,,,total: function-level minus whole-unit,
 (gap),,0 functions,0,,,,,,,exact but unbound / data not bound,an unverified reference
 (not counted),,8 functions,7645,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference

@@ -1090,7 +1090,7 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); main: best 94.60, tried 15 times (register, layout, frame)
+#ifdef RA2_NON_MATCHING // not exact: 4759 bytes differ against the main function-map extent (0x005484E0; no independent rebuild row)
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
@@ -1116,11 +1116,12 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		}
 	}
 
-	int cellcount = 0;
+	int cellcount;
 
 	if (!reset_cells) {
-		cells = (CellClass *) new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
-		cells_base = cells;
+		cellcount = 0;
+		cells_base = (CellClass *)new char[sizeof(CellClass) * w * h];//new CellClass[w * h];
+		cells = cells_base;
 		Reset_Iterator();
 		cptr = Iterate();
 		cell = cptr->Fetch_CellID();
@@ -3326,7 +3327,7 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
  * HISTORY:                                                                                    *
  *   09/22/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); main: best 85.14, tried 4 times (frame, layout, register)
+#ifdef RA2_NON_MATCHING // not exact: 1163 bytes differ against the main function-map extent (0x0054EBD0; no independent rebuild row)
 int MapClass::Zone_Reset(void)
 {
 	int i;
@@ -3493,7 +3494,7 @@ int MapClass::Zone_Reset(void)
 	delete [] zone_degree;
 	delete [] stack;
 
-	return(Zones[0][bestzone]);
+	return(bestzone);
 }
 #endif
 

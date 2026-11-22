@@ -956,9 +956,9 @@ void MPCooperative::vt_entry_88(bool player_wins) // RA2: 0x005A46C0
 		if (Campaign != NULL) { // RA2: as above
 			Campaign->Next_Map(); // RA2: as above
 			if (Campaign->Save_Campaign()) { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_SUCCESS", NULL, "D:\\Ra2\\MPCoop.cpp", 0x42E), scheme, TextPrintType(0x16), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_SUCCESS", NULL, "D:\\Ra2\\MPCoop.cpp", 0x42E), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
 			} else { // RA2: as above
-				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_FAILED", NULL, "D:\\Ra2\\MPCoop.cpp", 0x430), scheme, TextPrintType(0x16), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
+				Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_COOP_SAVE_FAILED", NULL, "D:\\Ra2\\MPCoop.cpp", 0x430), scheme, TextPrintType(TPF_6PT_GRAD | TPF_NOSHADOW), (int)(Rule->MessageDelay * 900.0), false); // RA2: as above
 			}
 		}
 	}
