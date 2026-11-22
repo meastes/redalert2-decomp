@@ -1261,31 +1261,31 @@ void Draw_Multiplayer_Debug(bool noframecheck) // RA2 0x005419E0: TibSun has no 
 		surface->Fill_Rect(Rect(0, 300, 639, 230), 0); // RA2: as above
 
 		swprintf(buffer, L"Frame : %d", Frame); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 302), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 302), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"FPS : %d", FPSCounter::CurrentFrameRate); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 312), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 312), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"MaxAhead : %d", Session.MaxAhead); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 322), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 322), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"Resp Time : %d ms", (int)(Ipx.Response_Time() * 1000) / TIMER_SECOND); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 332), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 332), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"Req fps : %d", Session.DesiredFrameRate); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 342), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 342), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"Process : %d", Session.Players[0]->Player.ProcessTime); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 352), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 352), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"Rout resp: %d", (unsigned)(Session.RouterResponse * 1000) / TIMER_SECOND); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 362), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 362), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"NFT : %d", NetFrameTimer); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 372), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 372), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		swprintf(buffer, L"LNFT : %d", LastNetFrameTimer); // RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 382), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(0x19)); // RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 382), Fetch_Scheme_By_Name("Grey"), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW)); // RA2: as above
 
 		Ipx.Multiplayer_Debug_Print();
 		MouseCursor->Show_Mouse(); // RA2 0x005419E0: TibSun has no such function

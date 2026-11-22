@@ -7,6 +7,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'tools/original_target'))
 from canonical import validate_inline_asm, inline_asm_blocks, module_inline_asm_blocks
+from canonical import header_specialization_asm, header_asm_specializations, header_asm_rows, header_asm_citations
 import status
 
 ARCHIVE_CONQUER = '''void Main_Game(int argc, char * argv[])
@@ -534,6 +535,197 @@ class HelperInlineAsmTests(unittest.TestCase):
         table = XSURFACE + '\nstatic void *(*filler)(void *, int, int) = surface_quick_fill;\n'
         with self.assertRaisesRegex(ValueError, 'outside a function body'):
             module_inline_asm_blocks(table, XSURFACE_ROWS, helpers=True)
+
+
+# A header's explicit asm specialization (rebuild tree; review session's conditions 2026-11-21, lane O16).
+ARCHIVE_BLITBLIT = """template<class T>
+class BlitTrans : public Blitter {
+	public:
+		virtual void BlitForward(void * dest, void const * source, int length, int z_min = 0) const
+		{
+			T * dcast = (T *)dest;
+			for (int index = 0; index < length; index++) { if (((T *)source)[index]) dcast[index] = ((T *)source)[index]; }
+		}
+};
+
+#if defined(_MSC_VER)
+#pragma optimize("", off)
+
+template <>
+inline void BlitTrans<unsigned char>::BlitForward(void * dest, void const * source, int len, int z_min) const
+{
+	__asm {
+		mov	esi,[source]
+		mov	edi,[dest]
+		mov	ecx,[len]
+	}
+again:
+	__asm {
+		dec	ecx
+		jz		fini
+		jmp	again
+	}
+fini:;
+}
+
+#if 0
+template <>
+inline void BlitPlainXlat<unsigned short>::BlitForward(void * dest, void const * source, int len, int z_min) const
+{
+	__asm {
+		mov	ecx,[len]
+	}
+}
+#endif
+#endif
+
+#pragma optimize("", on)
+"""
+# The adopted header: the archive's text below a longer preamble (lines differ, citations name the archive's).
+HEADER_BLITBLIT = '/*\n**\tAdopted from the TibSun archive.\n*/\n#pragma once\n\n' + ARCHIVE_BLITBLIT
+BLIT_TRANS = '?BlitForward@?$BlitTrans@E@@UBEXPAXPBXHH@Z'
+SPECIAL = 'BlitTrans<unsigned char>::BlitForward'
+
+
+def archive_line(text, needle, nth=0):
+    lines = [n for n, line in enumerate(text.split('\n'), 1) if needle in line]
+    return lines[nth]
+
+
+SPECIAL_FLAG = dict(inline_asm='evidenced',
+                    inline_asm_citation=['TibSun blitblit.h:%d' % archive_line(ARCHIVE_BLITBLIT, '__asm {', 0),
+                                         'TibSun blitblit.h:%d' % archive_line(ARCHIVE_BLITBLIT, '__asm {', 1)])
+UNIT_SOURCE = '#include "blitblit.h"\n\nvoid Unit_Function(void)\n{\n}\n\nvoid Other_Function(void)\n{\n}\n'
+UNIT_ROWS = [dict(entry=0x775900, symbol_prefix='?Unit_Function@@YAXXZ'),
+             dict(entry=0x775980, symbol_prefix=BLIT_TRANS, **SPECIAL_FLAG)]
+
+
+class HeaderSpecializationAsmTests(unittest.TestCase):
+    """__asm in a header's explicit specialization at the archive's place (rebuild tree; lane O16)."""
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.archive = Path(self.temp.name)
+        (self.archive/'blitblit.h').write_text(ARCHIVE_BLITBLIT)
+
+    def tearDown(self):
+        self.temp.cleanup()
+
+    def validate(self, header=HEADER_BLITBLIT, rows=UNIT_ROWS, source=UNIT_SOURCE, unit='xsurface.cpp', archive=None,
+                 headers=None):
+        """validate_catalog's order: the unit's own blocks, then the blocks of the header specialization the
+        row's symbol names."""
+        specializations = header_asm_specializations(headers or {'blitblit.h': header.encode()})
+        attributed = module_inline_asm_blocks(source, rows, helpers=True)
+        return {row['entry']: validate_inline_asm(source.encode(), row, archive or self.archive,
+                                                  blocks=attributed[row['entry']] + header_asm_rows(row, specializations),
+                                                  unit=unit) for row in rows}
+
+    def test_specialization_blocks_are_read_from_live_code_only(self):
+        found = header_specialization_asm(HEADER_BLITBLIT)
+        self.assertEqual(list(found), [SPECIAL])      # the #if 0 specialization and the primary template are not
+        self.assertEqual([line for _, _, line in found[SPECIAL]],
+                         [archive_line(HEADER_BLITBLIT, '__asm {', n) for n in (0, 1)])
+        guarded = HEADER_BLITBLIT.replace('#if defined(_MSC_VER)', '#ifdef RA2_NON_MATCHING')
+        self.assertEqual(header_specialization_asm(guarded), {})
+        self.assertEqual(header_asm_citations(SPECIAL, ARCHIVE_BLITBLIT, 'blitblit.h'), SPECIAL_FLAG['inline_asm_citation'])
+
+    def test_every_unit_that_emits_the_specialization_is_accepted(self):
+        self.assertEqual(self.validate(), {0x775900: 0, 0x775980: 2})
+        convert = [dict(entry=0x4861a0, symbol_prefix='?Other_Function@@YAXXZ'),
+                   dict(entry=0x4861c0, symbol_prefix=BLIT_TRANS, **SPECIAL_FLAG)]
+        self.assertEqual(self.validate(rows=convert, unit='convert.cpp'), {0x4861a0: 0, 0x4861c0: 2})
+        # A per-function source (one row) takes the header's blocks the same way.
+        self.assertEqual(validate_inline_asm(b'void f() {}\n', UNIT_ROWS[1], self.archive, blocks=header_asm_rows(
+            UNIT_ROWS[1], header_asm_specializations({'blitblit.h': HEADER_BLITBLIT.encode()}))), 2)
+
+    def test_row_emitting_the_specialization_without_the_flag_is_refused(self):
+        rows = [UNIT_ROWS[0], dict(entry=0x775980, symbol_prefix=BLIT_TRANS)]
+        with self.assertRaisesRegex(ValueError, 'without inline_asm: evidenced'):
+            self.validate(rows=rows)
+
+    def test_flag_on_any_other_row_is_refused(self):
+        for symbol in ('?BlitForward@?$BlitPlain@E@@UBEXPAXPBXHH@Z',       # another class template
+                       '?BlitForward@?$BlitTrans@G@@UBEXPAXPBXHH@Z',       # another specialization of it
+                       '?BlitBackward@?$BlitTrans@E@@UBEXPAXPBXHH@Z',      # another member
+                       '?Unit_Function@@YAXXZ'):
+            rows = [dict(entry=0x775900, symbol_prefix='?Other_Function@@YAXXZ'),
+                    dict(entry=0x775980, symbol_prefix=symbol, **SPECIAL_FLAG)]
+            with self.subTest(symbol=symbol), self.assertRaisesRegex(ValueError, 'flag on a source without an __asm block'):
+                self.validate(rows=rows)
+
+    def test_specialization_the_archive_lacks_is_refused(self):
+        (self.archive/'blitblit.h').write_text(ARCHIVE_BLITBLIT.replace('BlitTrans<unsigned char>', 'BlitTrans<unsigned short>'))
+        with self.assertRaisesRegex(ValueError, 'has no explicit specialization of that name'):
+            self.validate()
+
+    def test_primary_template_body_is_refused(self):
+        # The archive has the block only in the primary template: no evidence for the specialization.
+        primary = ARCHIVE_BLITBLIT.replace(
+            '\t\t\tT * dcast = (T *)dest;\n',
+            '\t\t\t__asm {\n\t\t\t\tmov\tesi,[source]\n\t\t\t\tmov\tedi,[dest]\n\t\t\t\tmov\tecx,[len]\n\t\t\t}\n')
+        primary = primary.replace('template <>\ninline void BlitTrans<unsigned char>::BlitForward',
+                                  'inline void Plain_Forward')
+        (self.archive/'blitblit.h').write_text(primary)
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=[
+            'TibSun blitblit.h:%d' % archive_line(primary, '__asm {', 0),
+            'TibSun blitblit.h:%d' % archive_line(primary, '__asm {', 1)])]
+        with self.assertRaisesRegex(ValueError, 'has no explicit specialization of that name'):
+            self.validate(rows=rows)
+        # A block in the header's primary template is attributed to no row: a flag there is refused.
+        header = HEADER_BLITBLIT.replace('template <>\ninline void BlitTrans<unsigned char>::BlitForward',
+                                         'template <class T>\ninline void BlitTrans<T>::BlitForward')
+        self.assertEqual(header_specialization_asm(header), {})
+        with self.assertRaisesRegex(ValueError, 'flag on a source without an __asm block'):
+            self.validate(header=header)
+
+    def test_block_text_differing_from_the_archive_is_refused(self):
+        for changed in (HEADER_BLITBLIT.replace('\t\tjz\t\tfini\n', '\t\tjz\t\tfini\n\t\tnop\n'),
+                        HEADER_BLITBLIT.replace('mov\tecx,[len]', 'mov\tecx,[z_min]')):
+            with self.assertRaisesRegex(ValueError, 'differs from the cited TibSun archive block'):
+                self.validate(header=changed)
+
+    def test_citations_must_be_the_archive_specializations_blocks_in_order(self):
+        cited = SPECIAL_FLAG['inline_asm_citation']
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=cited[:1])]
+        with self.assertRaisesRegex(ValueError, 'One inline_asm_citation per __asm block'):
+            self.validate(rows=rows)
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=cited[::-1])]
+        with self.assertRaisesRegex(ValueError, 'differs from the cited TibSun archive block'):
+            self.validate(rows=rows)
+        # The same instructions in another archive specialization are not this specialization's block.
+        twin = ARCHIVE_BLITBLIT.replace('#if 0\n', '#if 1\n').replace('\t\tmov\tecx,[len]\n\t}\n}\n#endif',
+                                                                 '\t\tmov\tesi,[source]\n\t\tmov\tedi,[dest]\n'
+                                                                 '\t\tmov\tecx,[len]\n\t}\n}\n#endif')
+        (self.archive/'blitblit.h').write_text(twin)
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=[
+            'TibSun blitblit.h:%d' % archive_line(twin, '__asm {', 2), cited[1]])]
+        with self.assertRaisesRegex(ValueError, "is not the archive specialization's block 1"):
+            self.validate(rows=rows)
+        # The header holding fewer blocks than the archive specialization is refused.
+        short = HEADER_BLITBLIT.replace('again:\n\t__asm {\n\t\tdec\tecx\n\t\tjz\t\tfini\n\t\tjmp\tagain\n\t}\n', '')
+        (self.archive/'blitblit.h').write_text(ARCHIVE_BLITBLIT)
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=cited[:1])]
+        with self.assertRaisesRegex(ValueError, 'the archive specialization has 2'):
+            self.validate(header=short, rows=rows)
+
+    def test_citation_outside_the_header_is_refused(self):
+        rows = [UNIT_ROWS[0], dict(UNIT_ROWS[1], inline_asm_citation=['TibSun xsurface.cpp:15', 'TibSun xsurface.cpp:21'])]
+        with self.assertRaisesRegex(ValueError, 'cited outside its header'):
+            self.validate(rows=rows)
+
+    def test_specialization_needs_the_archive(self):
+        with self.assertRaisesRegex(ValueError, 'header specialization cannot be verified'):
+            self.validate(archive=self.archive/'absent')
+
+    def test_specialization_no_row_symbol_can_name_or_defined_twice_is_refused(self):
+        foreign = HEADER_BLITBLIT.replace('BlitTrans<unsigned char>', 'BlitTrans<Palette>')
+        with self.assertRaisesRegex(ValueError, 'arguments no row symbol is read for'):
+            header_asm_specializations({'blitblit.h': foreign.encode()})
+        with self.assertRaisesRegex(ValueError, 'defined in two headers'):
+            header_asm_specializations({'blitblit.h': HEADER_BLITBLIT.encode(), 'rlerle.h': HEADER_BLITBLIT.encode()})
+        with self.assertRaisesRegex(ValueError, 'defined more than once'):
+            header_specialization_asm(HEADER_BLITBLIT.replace('#if 0\n', '#if 1\n').replace(
+                'BlitPlainXlat<unsigned short>', 'BlitTrans<unsigned char>'))
 
 
 if __name__ == '__main__':

@@ -644,7 +644,7 @@ boolean STDMETHODCALLTYPE ShipLocomotionClass::Process(void) // RA2: as above
 	if (Is_Moving_Now() && (Frame % 8) == 0) { // RA2: a wake every 8th frame (Drive: 10th)
 		if (!LinkedTo->Techno_Type_Class()->Underwater && !LinkedTo->IsOnBridge && LinkedTo->Get_Cell_Ptr()->Land_Type() == LAND_WATER) { // RA2: a submerged ship leaves no wake
 			if (Rule->Wake != NULL) { // RA2: as above
-				new AnimClass(Rule->Wake, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: the executable passes the extra arguments 0, 1, 0x600, 0
+				new AnimClass(Rule->Wake, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: the executable passes the extra arguments 0, 1, 0x600, 0
 			}
 		}
 	}

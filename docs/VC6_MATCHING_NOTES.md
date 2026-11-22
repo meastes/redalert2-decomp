@@ -3713,5 +3713,10 @@ Found in the rebuild (lane F14, high): two inline_call rows worked from prepared
   ra2-decomp's Recount_Cells (`Cell empty_cell; empty_cell.X = 0; empty_cell.Y = 0;`) with the named count
   reads 538 against 555, but expands `operator!=` where the image calls it; the for-statement form of the count
   does the same. Read the call list before the count.
+- A sweep of every draft parked only for lack of a bound is cheap (64 guards, one compile each, under three
+  minutes): open the guard alone, compare over the frozen pass's row. None was exact on 2026-11-22; the two
+  closest are map 0x55DEF0 and 0x55E410 (5 bytes each at the pass's size). Eight pass rows do not hold the
+  whole function (a 61-byte row before a 3,955-byte gap at mapgen 0x56EF20): those need another bound, the
+  frozen-bound precedent does not reach them.
 - `pgrep -f NAME` in a wait loop matches the loop's own shell (its command line holds NAME); write the pattern
   as `[N]AME`.

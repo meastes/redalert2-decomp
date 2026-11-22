@@ -1483,7 +1483,7 @@
     "entry": "004f0e10",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E67",
+    "symbol": "_$E234",
     "main_symbol": "_$E67",
     "main_source": "src/recovered/house.cpp"
    },
@@ -1491,7 +1491,7 @@
     "entry": "004f0e20",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E66",
+    "symbol": "_$E233",
     "main_symbol": "_$E66",
     "main_source": "src/recovered/house.cpp"
    },
@@ -15889,7 +15889,8 @@
    "_RAD_45": "008530e0",
    "_RAD_60": "008530b8",
    "_RAD_90": "00853090",
-   "_RECT_NONE": "00853098"
+   "_RECT_NONE": "00853098",
+   "_RECT_NONE_2": "00853108"
   }
  },
  "ipxconn": {
@@ -16344,7 +16345,7 @@
     "entry": "0040fef0",
     "body": 23,
     "padding": 9,
-    "symbol": "?get@Leaf_40fef0@@QAEXXZ",
+    "symbol": "_$E49",
     "main_symbol": "?get@Leaf_40fef0@@QAEXXZ",
     "main_source": "src/recovered/unidentified/seed_views/0040fef0.cpp"
    },
@@ -16649,7 +16650,8 @@
    "?As_Coord@AbstractClass@@UBE?AVCoord@@XZ": "004102e0",
    "?AI@AbstractClass@@UAEXXZ": "00410310",
    "_$E7": "0x0040fd00",
-   "_$E2": "0x0040fcf0"
+   "_$E2": "0x0040fcf0",
+   "_RECT_NONE_2": "00839c78"
   },
   "partial_ok": true
  },
@@ -50478,13 +50480,14 @@
     "entry": "00432270",
     "body": 23,
     "padding": 9,
-    "symbol": "?get@Leaf_432270@@QAEXXZ",
+    "symbol": "_$E25",
     "main_symbol": "?get@Leaf_432270@@QAEXXZ",
     "main_source": "src/recovered/bittext.cpp"
    }
   ],
   "references": {
-   "_RECT_NONE": "0084e9c0"
+   "_RECT_NONE": "0084e9c0",
+   "_RECT_NONE_2": "0084e9d8"
   },
   "partial_ok": true
  },
@@ -110601,7 +110604,7 @@
     "entry": "0060d0f0",
     "body": 23,
     "padding": 9,
-    "symbol": "?get@Leaf_60d0f0@@QAEXXZ",
+    "symbol": "_$E152",
     "main_symbol": "?get@Leaf_60d0f0@@QAEXXZ",
     "main_source": "src/recovered/unidentified/seed_views/0060d0f0.cpp"
    }
@@ -110636,7 +110639,8 @@
    "__FireStepY": "007eb8a4",
    "__FireStepX": "007eb884",
    "?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ": "0060d010",
-   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020"
+   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020",
+   "_RECT_NONE_2": "00a765a0"
   },
   "partial_ok": true
  },
@@ -124533,9 +124537,11 @@
     "entry": "00522540",
     "body": 23,
     "padding": 0,
-    "symbol": "?get@Leaf_522540@@QAEXXZ",
+    "symbol": "_$E178",
     "main_symbol": "?get@Leaf_522540@@QAEXXZ",
-    "main_source": "src/recovered/unidentified/seed_views/00522540.cpp"
+    "main_source": "src/recovered/unidentified/seed_views/00522540.cpp",
+    "gap_padding": 9,
+    "gap_population": "population-106"
    }
   ],
   "references": {
@@ -124564,7 +124570,8 @@
    "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ": "005222f0",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z": "00522320",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z": "00522360",
-   "_$S172": "00a51948"
+   "_$S172": "00a51948",
+   "_RECT_NONE_2": "00a51fc0"
   },
   "partial_ok": true
  },
@@ -152545,7 +152552,7 @@
     "entry": "006ac7a0",
     "body": 1,
     "padding": 15,
-    "symbol": "?unknown_empty_006ac7a0@seed_006ac7a0@@YAXXZ",
+    "symbol": "_$E298",
     "main_symbol": "?unknown_empty_006ac7a0@seed_006ac7a0@@YAXXZ",
     "main_source": "src/recovered/tactical.cpp"
    },

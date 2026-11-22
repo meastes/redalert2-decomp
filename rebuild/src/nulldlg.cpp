@@ -521,7 +521,7 @@ void Destroy_Null_Connection(int id, int error)
 	}
 
 	if (wcslen(txt)) {
-		Session.Messages.Add_Message(NULL, 0, txt, housep->Class->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+		Session.Messages.Add_Message(NULL, 0, txt, housep->Class->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
 		Map.Flag_To_Redraw();
 	}
 
@@ -539,7 +539,7 @@ void Destroy_Null_Connection(int id, int error)
 
 	if (Session.NumPlayers == 1) {
 		swprintf(txt, L"%s", StringTable::LoadString("TXT_JUST_YOU_AND_ME", NULL, "D:\\Ra2\\NullDlg.CPP", 0x1935));
-		Session.Messages.Add_Message(NULL, 0, txt, housep->Class->Scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
+		Session.Messages.Add_Message(NULL, 0, txt, housep->Class->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false);
 		Map.Flag_To_Redraw();
 	}
 }

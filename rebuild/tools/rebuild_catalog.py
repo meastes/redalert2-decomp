@@ -90,6 +90,39 @@ def helper_reached_flags(unit_regions, source_text):
             region.update(inline_asm='evidenced', inline_asm_citation=[cite[b[0]] for b in blocks])
 
 
+_SPECIALIZATIONS = []
+
+
+def header_specialization_flags(regions):
+    """Rows whose symbol demangles to an explicit specialization a rebuild header defines with `__asm`
+    (canonical.header_asm_specializations: blitblit.h BlitTrans<unsigned char>::BlitForward, emitted by
+    xsurface 0x775980; BlitTransXlat<unsigned short>::BlitForward, convert 0x4861C0) take `inline_asm:
+    evidenced` with the archive specialization's citations, in whichever unit emits them (review session's
+    conditions, 2026-11-21, lane O16; needs the user's go-ahead). The whole-file build's audit checks each
+    citation against the archive; a specialization the archive lacks gets no citation and the audit refuses."""
+    from canonical import header_asm_specializations, header_asm_rows, header_asm_citations, TIBSUN_ARCHIVE
+    if not _SPECIALIZATIONS:
+        include = R.REBUILD / 'include'
+        headers = {p.relative_to(include).as_posix(): p.read_bytes() for p in sorted(include.rglob('*'))
+                   if p.is_file() and p.suffix.lower() in ('.h', '.hpp', '.inl')}
+        _SPECIALIZATIONS.append(header_asm_specializations(headers))
+    specializations = _SPECIALIZATIONS[0]
+    for region in regions:
+        blocks = header_asm_rows(region, specializations)
+        if not blocks:
+            continue
+        header, name = blocks[0][4]
+        archive = R.ROOT / TIBSUN_ARCHIVE / Path(header).name
+        cited = header_asm_citations(name, archive.read_text(errors='replace'), header) if archive.exists() else []
+        if len(cited) != len(blocks):
+            continue                    # the audit refuses the row with the reason
+        own = region.get('inline_asm_citation') or []
+        own = [own] if isinstance(own, str) else own
+        if any(c in own for c in cited):
+            continue
+        region.update(inline_asm='evidenced', inline_asm_citation=own + cited)
+
+
 def write():
     catalog = R.main_catalog()
     by_entry = {r['entry']: r for r in catalog['regions']}
@@ -285,6 +318,7 @@ def write():
             regions.append(region)
         if has_asm:
             helper_reached_flags([r for r in regions if r['source'] == info['source']], source_text)
+        header_specialization_flags([r for r in regions if r['source'] == info['source']])
         # Every other name the object defines or references (kept-elsewhere copies, vtables and
         # their slots, literals) that resolves gets its binding; the audit decides what it accepts.
         from coff import Coff

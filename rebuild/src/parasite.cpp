@@ -237,7 +237,7 @@ void ParasiteClass::UpdateSquid(void) // RA2: 0x00606780
 				if (anim != -1) { // RA2: as above
 					AnimTypeClass * type = AnimTypes[anim]; // RA2: as above
 					if (type != NULL) { // RA2: as above
-						AnimClass * grapple = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+						AnimClass * grapple = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 						if (grapple != NULL) { // RA2: as above
 							GrappleAnim = grapple; // RA2: as above
 							AnimPtrTracker.Add(this); // RA2: as above
@@ -290,7 +290,7 @@ void ParasiteClass::UpdateSquid(void) // RA2: 0x00606780
 					int x = (int)(along * cosine - across * sine); // RA2: as above
 					int y = (int)(along * sine + across * cosine); // RA2: as above
 					Coord splash = coord + Coord(x, y, 0); // RA2: as above
-					new AnimClass(Rule->SplashList[Scen->RandomNumber(0, count - 1)], splash, 2, 1, ShapeFlags_Type(0x600), -10); // RA2: a random splash from the rules, delay 2, drawn 10 below
+					new AnimClass(Rule->SplashList[Scen->RandomNumber(0, count - 1)], splash, 2, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), -10); // RA2: a random splash from the rules, delay 2, drawn 10 below
 				}
 				if (warhead->Culling && (Victim->Health_Status() == 0 || (Victim->Health_Status() == 1 && Owner->Veterancy.Is_Elite()))) { // RA2: a culling warhead finishes a ship in the red, or in the yellow when the squid is elite (Health_Status 0 red, 1 yellow)
 					if (Owner->Techno_Type_Class()->IsTrainable) { // RA2: as above
@@ -355,7 +355,7 @@ static void __fastcall Make_Wakes(FootClass * victim, Coord coord) // RA2: 0x006
 		double along = Scen->RandomNumber(-180, 180); // RA2: as above
 		double across = Scen->RandomNumber(-64, 64); // RA2: as above
 		Coord wake = coord + Coord((int)(along * cosine - across * sine), (int)(along * sine + across * cosine), 0); // RA2: as above
-		new AnimClass(Rule->Wake, wake, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+		new AnimClass(Rule->Wake, wake, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	}
 }
 
@@ -391,7 +391,7 @@ void ParasiteClass::AI(void) // RA2: 0x00606F50
 		if (weapon->Anim.Count() != 0) { // RA2: as above
 			AnimTypeClass const * type = weapon->Anim[dir.As_Dir8()]; // RA2: as above
 			if (type != NULL) { // RA2: as above
-				new AnimClass(type, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+				new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 			}
 		}
 		dir = dir.Left_90(); // RA2: as above

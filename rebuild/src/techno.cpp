@@ -4604,303 +4604,325 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 5834 bytes differ (adopted text; projectile creation and early exits recovered)
+#ifdef RA2_NON_MATCHING // not exact: 4596 bytes differ (RA2 firing paths restored from main and the TibSun archive)
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
-	BulletClass * bullet;            // Projectile.
-	DirType dir;                     // The facing to impart upon the projectile.
-	Coord target_coord;              // Coordinate of the target.
-	Coord fire_coord;                // Coordinate of firing position.
-	ObjectClass * object;
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
-
-	/*
-	**	If this object doesn't have a weapon, then it is obvious that firing
-	**	cannot ever succeed. Return with failure flag.
-	*/
-	if (weapon == NULL) return(NULL);
-
-	BulletTypeClass const & btype = *weapon->Bullet;
-
-	/*
-	**	Perform a quick legality check to see if firing can occur.
-	*/
-	object = target && (target->AbstractFlags & ABSTRACT_OBJECT) ? static_cast<ObjectClass *>(target) : NULL; // RA2: reject an object in limbo
-	if (Debug_Map || target == NULL || (object != NULL && object->IsInLimbo)) {
-		return(NULL);
+	if (weapon == 0) {
+		return 0;
 	}
-
-
-	if (weapon->Suicide) { // RA2: expend the firer before checking its active emitters
+	ObjectClass * object = target == 0 ? 0 : ((target->AbstractFlags & ABSTRACT_OBJECT) ? static_cast<ObjectClass *>(target) : 0);
+	BulletTypeClass const * btype = weapon->Bullet;
+	if (Debug_Map || target == 0 || (object != 0 && object->IsInLimbo)) {
+		return 0;
+	}
+	if (weapon->Suicide) {
 		int damage = TClass->MaxStrength;
-		Take_Damage(damage, 0, Rule->C4Warhead, NULL, true, false);
-		return(NULL);
+		Take_Damage(damage, 0, Rule->C4Warhead, 0, true, false);
+		return 0;
 	}
-
-	if ((weapon->UseFireParticles && ParticleSystems[ATTACHED_PARTICLE_FIRE]) // RA2: no LimpetType, LimpetFactor, LimpetSpeedFactor (not in RA2's layout)
-		|| (weapon->IsRailgun && ParticleSystems[ATTACHED_PARTICLE_RAILGUN])
-		|| (weapon->UseSparkParticles && ParticleSystems[ATTACHED_PARTICLE_SPARK])
-		|| (weapon->IsSonic && Wave)) {
-
-		return(NULL);
+	if ((weapon->UseFireParticles && ParticleSystems[ATTACHED_PARTICLE_FIRE] != 0) || (weapon->IsRailgun && ParticleSystems[ATTACHED_PARTICLE_RAILGUN] != 0)
+		|| (weapon->UseSparkParticles && ParticleSystems[ATTACHED_PARTICLE_SPARK] != 0) || (weapon->IsSonic && Wave != 0)) {
+		return 0;
 	}
-
-	/*
-	**	Fetch the target coordinate for the target specified.
-	*/
-	if (object != NULL) {
+	// RA2: A spawn launcher assigns its target and reveals its position without creating a projectile.
+	if (weapon->Spawner) {
+		SpawnManager->SetTarget(target);
+		if (IsOwnedByPlayer || IsDiscoveredByPlayer) {
+			if (!Map.Is_Shrouded(Center_Coord()) && !Map.Is_Fogged(Center_Coord())) {
+				return 0;
+			}
+			if (RTTI == RTTI_AIRCRAFT && IsOwnedByPlayer) {
+				return 0;
+			}
+		}
+		if (object != 0) {
+			HouseClass * owner = object->Owner_HouseClass();
+			if (owner != 0 && owner->Is_Player_Control() && weapon->RevealOnFire) {
+				Map.RevealArea1(Center_Coord(), 3, owner, false, false, false, true, false);
+			}
+			Map.RevealArea3(Center_Coord(), 0, 4, 0);
+		}
+		return 0;
+	}
+	TVelocity3D<double> velocity;
+	Coord target_coord;
+	if (object != 0) {
 		target_coord = object->Target_Coord();
 	} else {
 		target_coord = target->As_Coord();
 	}
-
-	BarrelPitch.Set_Desired(Barrel_Pitch(target));
-
-	/*
-	**	Get the location where the projectile should appear.
-	*/
-	fire_coord = Turret_Coord(which);
-
-	/*
-	**	Create the projectile. Then process any special operations that
-	**	need to be performed according to the style of projectile
-	**	created.
-	*/
-	int firepower = weapon->Attack;
+	Coord fire_coord = Fire_Coord(which);
+	DirType dir;
+	if (btype->ROT == 0 && !btype->IsDropping) {
+		dir = fastmath::atan2((double)fire_coord.Y - (double)target_coord.Y, (double)target_coord.X - (double)fire_coord.X);
+	} else {
+		dir = Fire_Direction();
+		if (btype->IsDropping) {
+			fire_coord = Center_Coord();
+		}
+	}
+	int attack = weapon->Attack;
+	int firepower = attack;
 	if (weapon->IsSonic || weapon->UseFireParticles) {
 		firepower = 0;
 	}
 	if (firepower > 0) {
-		firepower = (int)(House->FirepowerBias * FirepowerBias * weapon->Attack);
+		firepower = (int)(House->FirepowerBias * FirepowerBias * attack);
 		if (Has_Ability(ABILITY_FIREPOWER)) {
-			firepower = (int)((Rule->VeteranCombat + 1.0) * firepower);
+			firepower = (int)(firepower * Rule->VeteranCombat);
 		}
 	}
-
-	Point2D delta = Point2D(target_coord) - Point2D(fire_coord); // RA2: projectile speed depends on horizontal distance
-	int distance = (int)fastmath::sqrt(double(delta.X * delta.X + delta.Y * delta.Y));
-	int max_speed = weapon->Get_Speed(distance);
-	bullet = btype.Create_Bullet(target, this, firepower, weapon->WarheadPtr, max_speed, weapon->IsBright); // RA2: as above
-
-	if (bullet != NULL) { // RA2: no ProjectileRange (not in RA2's layout)
-		bullet->Set_Weapon_Type(weapon); // RA2: remember the weapon on its projectile
+	Point2D delta = Point2D(target_coord.X, target_coord.Y) - Point2D(fire_coord.X, fire_coord.Y);
+	int distance = (int)fastmath::sqrt((double)(delta.X * delta.X + delta.Y * delta.Y));
+	int speed = weapon->Get_Speed(distance);
+	BulletClass * bullet = weapon->Bullet->Create_Bullet(target, this, firepower, weapon->WarheadPtr, speed, weapon->IsBright);
+	if (bullet != 0) {
+		bullet->Set_Weapon_Type(weapon);
 		bullet->Limbo();
-
-		/*
-		**	If this is firing from a moving platform, then the projectile is inaccurate.
-		*/
-		if (Is_Foot() && ((FootClass const *)this)->Locomotion->Is_Moving()) {
-			bullet->IsInaccurate = true;
+		if (Is_Foot()) {
+			if (static_cast<FootClass *>(this)->Locomotion->Is_Moving() && !TClass->JumpJet) {
+				bullet->IsInaccurate = true;
+			}
 		}
-
-		Coord turret_coord = Turret_Coord(which);
-		Coord displacement = Predict_Target_Coord() - turret_coord;
-
-		if (bullet->Class->IsInaccurate && bullet->Class->IsArcing) {
-			int spread = Scen->RandomNumber(Rule->BallisticScatter / 2, Rule->BallisticScatter);
-			DirType dir(Random_Double(0.0, M_PI * 2));
-			displacement = Move_Coord(displacement, dir, spread);
+		if (!bullet->IsInaccurate && !btype->IsInaccurate) {
+			TechnoClass * techno = TarCom == 0 ? 0 : ((TarCom->AbstractFlags & ABSTRACT_TECHNO) ? static_cast<TechnoClass *>(TarCom) : 0);
+			WeaponTypeClass * bullet_weapon = bullet->Get_Weapon_Type();
+			if (techno != 0 && bullet_weapon != 0) {
+				techno->EstimatedHealth -= Expected_Damage(techno, bullet_weapon);
+			}
 		}
-
-		/*
-		**	If the projectile is a homing type (such as a missile), then it will
-		**	launch in the direction the turret is facing, NOT necessarily the same
-		**	direction as the target.
-		*/
-		if (btype.ROT != 0 || btype.IsDropping) {
+		Coord displacement = Predict_Target_Coord() - fire_coord;
+		if (btype->IsInaccurate && btype->IsArcing) {
+			if (!btype->FlakScatter || btype->IsInvisible) {
+				int spread = Scen->RandomNumber(Rule->BallisticScatter / 2, Rule->BallisticScatter);
+				DirType facing(Random_Double(0.0, M_PI * 2));
+				displacement = Move_Coord(displacement, facing, spread);
+			} else {
+				float length = Vector3((float)displacement.X, (float)displacement.Y, (float)displacement.Z).Length();
+				int spread = Random_Pick(0, Rule->BallisticScatter);
+				spread *= (int)length;
+				spread /= Weapon_Range(which);
+				DirType facing(Random_Double(0.0, M_PI * 2));
+				displacement = Move_Coord(displacement, facing, spread);
+			}
+		}
+		if (btype->ROT == 0 && !btype->IsDropping) {
+			double angle = fastmath::atan2((double)-displacement.Y, (double)displacement.X);
+			dir = DirType(angle);
+		} else {
 			dir = Fire_Direction();
-			if (btype.IsDropping) {
+			if (btype->IsDropping) {
 				fire_coord = Center_Coord();
 			}
-		} else {
-			dir = fastmath::atan2((double)-displacement.Y, (double)displacement.X);
 		}
-
-		if (max_speed > displacement.Length() / 2) {
-			max_speed = displacement.Length() / 2;
+		if (speed > displacement.Length() / 2) {
+			speed = displacement.Length() / 2;
 		}
-
-		if (weapon->Bullet->ROT > 0) {
+		// RA2: Successive radial shots advance around the current turret facing.
+		int segments = TClass->RadialFireSegments;
+		BulletTypeClass const * projectile = weapon->Bullet;
+		if (projectile->ROT > 0 || projectile->Vertical) {
+			if (segments == 0) {
+				speed = 1;
+			}
 			bullet->MaxSpeed = weapon->MaxSpeed;
-			max_speed = 1;
 		}
-
-		TVelocity3D<double> velocity;
-		velocity.Set(0.0, 0.0, 0.0);
-		velocity.Set_Yaw(dir);
-		velocity.Set_Speed((double)max_speed);
-
-		DirType pitch((DirType(DIR_E)-DirType(DIR_STEP_256)).As_Int());
-		bool valid_arc = true;
+		velocity.Set(100.0, 0.0, 0.0);
+		velocity.Set_Speed((double)speed);
+		if (segments > 0) {
+			double angle = (2.0 * M_PI / segments) * RadialFireSegment - M_PI / 2.0;
+			velocity.Set_Yaw(DirType(PrimaryFacing.Current().As_Radian() + angle));
+			RadialFireSegment++;
+			if (RadialFireSegment >= segments) {
+				RadialFireSegment = 0;
+			}
+		} else {
+			velocity.Set_Yaw(dir);
+		}
+		int height = displacement.Z;
+		DirType pitch(DirType(DIR_E).As_Int() - 1); // RA2: one raw direction unit below level flight
+		bool valid = true;
 		if (bullet->Class->IsArcing) {
-			double gravity = Rule->Gravity;
+			double gravity = (double)Rule->Gravity;
 			if (bullet->Class->IsFloater) {
 				gravity = Get_Floater_Gravity();
 			}
-
 			int planar = Point2D(displacement).Length();
-			valid_arc = Calculate_Projectile_Pitch(Should_Use_High_Arc(which), max_speed, planar, displacement.Z, gravity, pitch);
+			valid = Calculate_Projectile_Pitch(Should_Use_High_Arc(which), speed, planar, height, gravity, pitch);
 		} else if (bullet->Class->IsVoxel) {
-			pitch = 0;
+			if (target->Center_Coord().Z < Center_Coord().Z) {
+				pitch = DirType(DIR_S);
+			} else {
+				pitch = DirType(DIR_E);
+			}
 		} else {
-			int abs_z = abs(displacement.Z);
+			int abs_z = abs(height);
 			if (abs_z > 200) {
 				double y = 20.0;
-				BuildingClass * building = TarCom->As_BuildingClass();
-				if (building != NULL) {
-					displacement.Z = 200 * building->Class->ZHeight - turret_coord.Z;
-					abs_z = abs((displacement.Z));
-					if ((double)abs_z < y) {
+				if (TarCom != NULL && TarCom->RTTI == RTTI_BUILDING) {
+					BuildingClass * building = static_cast<BuildingClass *>(TarCom);
+					Coord turret = Turret_Coord(which);
+					height = building->Class->ZHeight * 200 - turret.Z;
+					abs_z = abs(height);
+					if ((double)abs_z < 20.0) {
 						y = 0.0;
 					}
 				}
-
-				double planar = Point2D(displacement).Length();
+				double planar = (double)Point2D(displacement).Length();
 				if (planar < 0.05) {
 					planar = 0.05;
 				}
-				double angle = fastmath::atan2f((double)abs_z - y, planar);
-				if (displacement.Z < 0) {
+				double angle = fastmath::atan2f((float)((double)abs_z - y), (float)planar);
+				if (height < 0) {
 					angle = -angle;
 				}
-				pitch = angle;
+				pitch = DirType(angle);
 			}
 		}
-
 		velocity.Set_Pitch(pitch);
-
-		if (valid_arc) {
-			if (!bullet->Unlimbo(turret_coord, velocity)) {
+		if (valid) {
+			if (!bullet->Unlimbo(fire_coord, velocity)) {
 				bullet->Release();
-				bullet = NULL;
+				bullet = 0;
 			} else {
-
-				if (bullet->Class->IsInvisible && object != NULL && object->IsOnBridge) {
+				if (bullet->Class->IsInvisible && object != 0 && object->IsOnBridge) {
 					bullet->IsOnBridge = true;
 				}
-
-				if (Is_Turret_Equipped()) {
-				} // RA2: no IsInRecoilState (not in RA2's layout)
-
-				if (Get_Class_Weapon_Data(which)->BarrelLength > 0 && !weapon->IsLaser) {
-					if (weapon->Bullet == NULL || !weapon->Bullet->IsInvisible) {
-						bullet->AI();
-						if (bullet->IsActive) {
-							bullet->AI();
+				if (Is_Turret_Equipped() && TClass->TurretRecoil) {
+					TurretRecoil.Fire();
+					BarrelRecoil.Fire();
+				}
+				if (weapon->UseFireParticles && ParticleSystems[ATTACHED_PARTICLE_FIRE] == 0) {
+					ParticleSystems[ATTACHED_PARTICLE_FIRE] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, target, this, COORD_NONE);
+				}
+				if (weapon->UseSparkParticles && ParticleSystems[ATTACHED_PARTICLE_SPARK] == 0) {
+					ParticleSystems[ATTACHED_PARTICLE_SPARK] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, target, this, COORD_NONE);
+				}
+				if (weapon->IsRailgun && ParticleSystems[ATTACHED_PARTICLE_RAILGUN] == 0) {
+					Coord end = Railgun_Beam_Damage(fire_coord, target, weapon);
+					ParticleSystems[ATTACHED_PARTICLE_RAILGUN] = new ParticleSystemClass(weapon->AttachedParticleSystem, fire_coord, 0, this, end);
+				}
+				BurstIndex++;
+				int delay = Rearm_Delay(which);
+				ChargeTurretDelay = delay;
+				Arm = delay;
+				BurstIndex %= weapon->Burst;
+				AnimTypeClass const * anim_type = 0;
+				int anim_count = weapon->Anim.Count();
+				if (anim_count == 8) {
+					anim_type = weapon->Anim[(Fire_Direction().As_Dir8() + 1) % 8];
+				} else if (anim_count > 0) {
+					anim_type = weapon->Anim[0];
+				}
+				if (weapon->Sound.Count() > 0) {
+					int voc = weapon->Sound.Pick((unsigned short)SoundRandomSeed);
+					VocClass::PlayAt(voc, fire_coord, 0);
+				}
+				if (anim_type != 0) {
+					AnimClass * anim = new AnimClass(anim_type, fire_coord);
+					if (RTTI == RTTI_BUILDING) {
+						int dy = (fire_coord - Render_Coord()).Y;
+						int zadjust = dy / -4;
+						anim->ZAdjust = MIN(zadjust, 0);
+						BuildingClass * building = static_cast<BuildingClass *>(this);
+						if (building->GetOccupantCount() > 0) {
+							anim->ZAdjust = -200;
+							building->FiringOccupantIndex++;
+							building->FiringOccupantIndex %= building->GetOccupantCount();
 						}
 					}
-				}
-
-				if (weapon->UseFireParticles && ParticleSystems[ATTACHED_PARTICLE_FIRE] == NULL) {
-					ParticleSystems[ATTACHED_PARTICLE_FIRE] = new ParticleSystemClass(weapon->AttachedParticleSystem, Fire_Coord(which), target, this);
-				}
-				if (weapon->UseSparkParticles && ParticleSystems[ATTACHED_PARTICLE_SPARK] == NULL) {
-					ParticleSystems[ATTACHED_PARTICLE_SPARK] = new ParticleSystemClass(weapon->AttachedParticleSystem, Fire_Coord(which), target, this);
-				}
-				if (weapon->IsRailgun && ParticleSystems[ATTACHED_PARTICLE_RAILGUN] == NULL) {
-					Coord start = Fire_Coord(which);
-					Coord end = Railgun_Beam_Damage(start, target, (WeaponTypeClass *)weapon);
-					ParticleSystems[ATTACHED_PARTICLE_RAILGUN] = new ParticleSystemClass(weapon->AttachedParticleSystem, start, NULL, this, end);
-				}
-
-				BurstIndex++;
-				Arm = Rearm_Delay(which);
-				BurstIndex %= weapon->Burst;
-
-				/*
-				**	Perform any animation effect for this weapon.
-				*/
-				AnimTypeClass const * a = NULL;
-				if (weapon->Anim.Count() == 8) {
-					a = weapon->Anim[(Fire_Direction().As_Dir8() + FACING_45) % FACING_COUNT];
-				} else if (weapon->Anim.Count() > 0) {
-					a = weapon->Anim[0];
-				}
-
-				/*
-				**	Play any sound effect tied to this weapon type.
-				*/
-				if (weapon->Sound.Count() > 0) {
-					Sound_Effect((VocType)weapon->Sound.Pick(SoundRandomSeed), fire_coord);
-				}
-
-				/*
-				**	If there is a special firing animation, then create and attach it
-				**	now.
-				*/
-				if (a != NULL) {
-					Coord anim_coord = Fire_Coord(which);
-					AnimClass * anim = new AnimClass(a, anim_coord);
-					if (RTTI == RTTI_BUILDING) {
-						int zadjust = (anim_coord.Y - Render_Coord().Y) / -4;
-						anim->ZAdjust = MIN(zadjust, 0);
-					}
-					if (anim != NULL && RTTI != RTTI_BUILDING) {
+					if (anim != 0 && RTTI != RTTI_BUILDING) {
 						anim->Attach_To(this);
 					}
 				}
-
 				if (weapon->IsSonic) {
-					Wave = new WaveClass(Fire_Coord(which), target_coord, this, WAVE_SONIC, (TechnoClass *)target);
+					Wave = new WaveClass(fire_coord, target_coord, this, WAVE_SONIC, (TechnoClass *)target);
 				}
-
 				if (TClass->IsTargetLaser && House->Is_Player_Control()) {
-					TargetingLaserTimer = TICKS_PER_SECOND;
+					TargetingLaserTimer = 15;
 				}
-
-				/*
-				 * Laser zap animation.
-				 */
 				if (weapon->IsLaser) {
-					BuildingClass * building = dynamic_cast<BuildingClass *>(this);
-					Laser_Zap(target, which, PrimaryWeapon, COORD_NONE);
-					if (building != NULL) {
-						building->BuildingStage.Set_Stage(0);
-						building->BuildingStage.Set_Rate(0);
-					}
-					if (Ammo <= 1 && RTTI == RTTI_BUILDING) {
-						BuildingClass * discharge = dynamic_cast<BuildingClass *>(this);
-						if (discharge != NULL) {
-							discharge->Discharge_Turret();
+					if (RTTI == RTTI_BUILDING) {
+						WeaponTypeClass * primary = PrimaryWeapon;
+						LaserDrawClass * laser = Laser_Zap(target, which, primary, COORD_NONE);
+						BuildingClass * building = static_cast<BuildingClass *>(this);
+						if (laser != 0 && building->Class == Rule->PrismType) {
+							laser->Thickness = 3;
+							if (building->SupportingPrisms > 0) {
+								laser->IsSupported = true;
+								laser->Thickness = 5;
+							}
+						}
+					} else {
+						LaserDrawClass * laser = Laser_Zap(target, which, weapon, COORD_NONE);
+						if (laser != 0 && weapon->IsHouseColor) {
+							laser->Thickness = 2;
 						}
 					}
+				} else if (weapon->IsElectricBolt) {
+					Electric_Zap(target);
+				} else if (weapon->IsRadBeam) {
+					WarheadTypeClass const * warhead = weapon->WarheadPtr;
+					if (warhead == 0 || !warhead->Temporal) {
+						Rad_Zap(target, 0);
+					} else {
+						Rad_Zap(target, 1);
+					}
+				} else if (weapon->IsRadEruption) {
+					Rad_Eruption((int)weapon->WarheadPtr->SpreadFactor);
 				}
-
-				/*
-				**	Reduce ammunition for this object.
-				*/
 				Reduce_Ammunition();
-
-				/*
-				**	Firing will in all likelihood, require the unit to be redrawn. Flag it to be
-				**	redrawn here.
-				*/
 				Mark(MARK_CHANGE);
-
-				/*
-				**	If a projectile was fired from a unit that is hidden in the darkness,
-				**	reveal that unit and a little area around it.
-				**	For multiplayer games, only reveal the unit if the target is the
-				**	local player.
-				*/
-				if ((!IsOwnedByPlayer && !IsDiscoveredByPlayer) || ((Map.Is_Shrouded(Center_Coord()) || Map.Is_Fogged(Center_Coord())) && (RTTI != RTTI_AIRCRAFT || !IsOwnedByPlayer))) {
-					ObjectClass * obj = target->As_ObjectClass();
-					if (obj != NULL) {
-						HouseClass * tgt_owner = obj->Owner_HouseClass();
-
-						if (tgt_owner != NULL && tgt_owner->Is_Player_Control()) {
-							Map.Sight_From(Center_Coord(), 2, tgt_owner);
+				if (!(IsOwnedByPlayer || IsDiscoveredByPlayer)
+				|| ((Map.Is_Shrouded(Center_Coord()) || Map.Is_Fogged(Center_Coord())) && !(RTTI == RTTI_AIRCRAFT && IsOwnedByPlayer))) {
+					if ((target->AbstractFlags & ABSTRACT_OBJECT)) {
+						HouseClass * owner = static_cast<ObjectClass *>(target)->Owner_HouseClass();
+						if (owner != 0 && owner->Is_Player_Control() && weapon->RevealOnFire) {
+							Map.RevealArea1(Center_Coord(), 3, owner, false, false, false, true, false);
+							Map.RevealArea3(Center_Coord(), 0, 4, 0);
 						}
 					}
 				}
 			}
 		} else {
 			bullet->Release();
-			bullet = NULL;
+			bullet = 0;
 		}
 	}
-
-	return(bullet);
+	// RA2: A limbo launch preserves selection and team membership for the returning firer.
+	if (weapon->LimboLaunch) {
+		if (TClass->ReselectIfLimboed && IsSelected) {
+			HouseClass * house = Owner_HouseClass();
+			if (house->Is_Player_Control() && target->RTTI == RTTI_INFANTRY) {
+				ShouldBeReselectOnUnlimbo = true;
+			}
+		}
+		if (TClass->RejoinTeamIfLimboed && Is_Foot() && static_cast<FootClass *>(this)->Team != 0 && target->RTTI == RTTI_INFANTRY) {
+			OldTeam = static_cast<FootClass *>(this)->Team;
+		}
+		Limbo();
+		if (weapon->WarheadPtr->Parasite) {
+			if ((target->AbstractFlags & ABSTRACT_FOOT)) {
+				static_cast<FootClass *>(target)->LastBeParasitedStartFrame = Frame + 20;
+			}
+			bullet->Limbo();
+			bullet->Set_Bullet_Data(weapon->Bullet, target, this, firepower, weapon->WarheadPtr, weapon->MaxSpeed, weapon->IsBright);
+			bullet->Unlimbo(fire_coord, velocity);
+		}
+	}
+	if (TClass->DistributedFire && (Mission != MISSION_ATTACK || RTTI == RTTI_BUILDING)) {
+		AttackedTargets.Add(target);
+		Assign_Target(0);
+	}
+	if (weapon->FireOnce) {
+		if (Is_Foot() && static_cast<FootClass *>(this)->Team != 0) {
+			static_cast<FootClass *>(this)->Team->Assign_Mission_Target(0);
+			static_cast<FootClass *>(this)->Team->IsNextMission = true;
+		}
+		Assign_Target(0);
+	}
+	return bullet;
 }
 #endif
 

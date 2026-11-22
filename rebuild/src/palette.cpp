@@ -442,6 +442,17 @@ DynamicVectorClass<ColorScheme *> * SchemeListIterator::Next(void) // RA2: 0x006
 }
 
 
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00603750 has no row); 454 of 504 bytes differ against main's extent (register allocation: the library pointer in ebp, not edi; Scheme_Library and Set_Mode expand inline), main: best 70.35
+void __fastcall Set_Scheme_Table_Theater(TheaterType theater) // RA2: 0x00603750, switches the library to the theater (made on first use)
+{
+	SchemeLibrary * library = Scheme_Library();
+	if (library->Mode != theater) {
+		library->Set_Mode(theater);
+	}
+}
+#endif
+
+
 void SchemeLibrary_Free(void) // RA2: 0x00603950, empties the lists of player colors
 {
 	SchemeLibrary * library = Scheme_Library(); // RA2: as above

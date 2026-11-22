@@ -360,8 +360,8 @@ void BeaconManagerClass::Place_Beacon(int house, Coord coord, int id)
 	AllocatedCount++;
 	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH) {
 		if (house == PlayerPtr->HeapID) {
-			Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_BEACON_HELP1", NULL, "D:\\Ra2\\Beacon.CPP", 811), PlayerPtr->Scheme, TextPrintType(0x4046), 225, false);
-			Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_BEACON_HELP2", NULL, "D:\\Ra2\\Beacon.CPP", 812), PlayerPtr->Scheme, TextPrintType(0x4046), 225, false);
+			Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_BEACON_HELP1", NULL, "D:\\Ra2\\Beacon.CPP", 811), PlayerPtr->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 225, false);
+			Session.Messages.Add_Message(NULL, 0, StringTable::LoadString("TXT_BEACON_HELP2", NULL, "D:\\Ra2\\Beacon.CPP", 812), PlayerPtr->Scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 225, false);
 			Queue_Speech("EVA_BeaconPlaced", -1, -1);
 			VocClass::PlayGlobal(Rule->PlaceBeaconSound, 1.0f, 0x2000);
 			BeaconPacket packet;

@@ -184,7 +184,7 @@ void __fastcall Play_Ingame_Movie(char const * name, bool loop)
 void __fastcall Ingame_Movie_Subtitle(void * data)
 {
 	if (data != NULL) {
-		Session.Messages.Add_Message(NULL, 0, ((wchar_t **)data)[5], 0, (TextPrintType)0x4046, ((int *)data)[1], false);
+		Session.Messages.Add_Message(NULL, 0, ((wchar_t **)data)[5], 0, (TextPrintType)(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), ((int *)data)[1], false);
 	}
 }
 

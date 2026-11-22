@@ -56,6 +56,10 @@ WindowsVersionInfo WinVersion; // RA2: defined here: its initializer (0x40FCD0) 
 #include "swizzle.h"
 #include "vector.h"
 
+#ifdef RA2_NON_MATCHING // not exact: held, the text is exact (0 bytes differ once open); ra2-decomp's text in this unit, a constant no header defines (owner ruling)
+const Rect RECT_NONE_2(0, 0, 0, 0); // RA2: a second zero rectangle, initialized last
+#endif
+
 /// <summary>
 /// Default constructor for abstract objects.
 /// This routine puts the object into its neutral state: no unique ID assigned

@@ -2692,7 +2692,7 @@ bool TActionClass::TAction_IRON_CURTAIN(HouseClass * , ObjectClass * , TriggerCl
 	Cell target_cell; // RA2: as above
 	Cell waypoint = Scen->Get_Waypoint_Cell(EffectLocation);
 	Coord position = Map[waypoint].Center_Coord(); // RA2: as above
-	new AnimClass(Rule->IronCurtainInvokeAnim, position + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+	new AnimClass(Rule->IronCurtainInvokeAnim, position + Coord(0, 0, 5), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	int count = MapClass::RadiusCount[1];
 	for (int index = 0; index < count; ++index) { // RA2: as above
 		Cell const & offset = MapClass::RadiusOffset[index];

@@ -9,16 +9,16 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 <!-- generated:status -->
 
-| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-22T00:12Z) |
+| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-22T01:01Z) |
 | --- | ---: | ---: |
-| Reproduced .text | 93.54% | **88.834% function-level** (87.929% whole-unit) |
-| C/C++ built from source | 86.86% of .text | **85.954% function-level** (85.049% whole-unit) of .text |
-| Accepted | 17,910 regions | 17,491 functions in 437 units; function-level 17,585 functions |
-| Rebuild provenance (rebuild/README.md) | | adopted 16,611 fn / 2,792,095 B; reshaped from src/ 176 / 174,356 B; fresh 163 / 19,920 B; Windows workers 541 / 222,240 B |
-| Rebuild structure | | duplicates 0, externs 5 landed / 5 all, address-suffixed 0; parked 193 functions / 182,399 B (>=1 KB: 51 / 164,035 B); judgment 34 rows / 53,692 B; count-sensitive 3 rows / 16,625 B |
-| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | 6 rows / 2,440 B |
+| Reproduced .text | 93.54% | **88.924% function-level** (88.015% whole-unit) |
+| C/C++ built from source | 86.86% of .text | **86.041% function-level** (85.132% whole-unit) of .text |
+| Accepted | 17,910 regions | 17,497 functions in 437 units; function-level 17,597 functions |
+| Rebuild provenance (rebuild/README.md) | | adopted 16,617 fn / 2,795,343 B; reshaped from src/ 176 / 174,356 B; fresh 163 / 19,920 B; Windows workers 541 / 222,240 B |
+| Rebuild structure | | duplicates 0, externs 5 landed / 5 all, address-suffixed 0; parked 193 functions / 181,867 B (>=1 KB: 51 / 163,503 B); judgment 35 rows / 55,140 B; count-sensitive 3 rows / 16,625 B |
+| Rebuild evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | | 8 rows / 2,555 B |
 | Rebuild evidenced inline assembly reached through a file-static helper of its unit | | 2 rows / 789 B |
-| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | 2 rows / 115 B |
+| Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | 0 rows / 0 B |
 
 | Measure | Value |
 | --- | ---: |

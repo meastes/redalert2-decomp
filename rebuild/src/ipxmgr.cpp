@@ -1724,17 +1724,17 @@ void IPXManagerClass::Multiplayer_Debug_Print(void)
 	Surface * surface = CompositeSurface;	// RA2: drawn on the composite surface
 
 	swprintf(buffer, L"Rtry delta: %d", 1000 * RetryDelta / TIMER_SECOND);	// RA2: as above
-	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 402), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));	// RA2: as above
+	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 402), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 	swprintf(buffer, L"Rtry timeout: %d", 1000 * Timeout / TIMER_SECOND);	// RA2: as above
-	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 412), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));	// RA2: as above
+	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 412), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 	swprintf(buffer, L"Lat Fudge : %d", Session.LatencyFudge);	// RA2: as above
-	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 422), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));	// RA2: as above
+	Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 422), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 	if (SentFrameSyncTimer / TIMER_SECOND) {
 		swprintf(buffer, L"FSPS : %d", SentFrameSyncCount / (SentFrameSyncTimer / TIMER_SECOND));	// RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 432), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));	// RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 432), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 		if ((Frame & 0x7F) == 0x7F) {
 			SentFrameSyncTimer = 0;
 			SentFrameSyncCount = 0;
@@ -1743,7 +1743,7 @@ void IPXManagerClass::Multiplayer_Debug_Print(void)
 
 	if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {	// RA2: as above
 		swprintf(buffer, L"MC resp: %d", 1000 * Ipx.Multicast_Response_Time() / TIMER_SECOND);	// RA2: as above
-		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 442), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(0x19));	// RA2: as above
+		Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(0, 442), Fetch_Scheme_By_Name("Grey", 1), 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 	}
 
 	for (int i = 0; i < NumConnections; i++) {
@@ -1753,27 +1753,27 @@ void IPXManagerClass::Multiplayer_Debug_Print(void)
 			int x = (i + 1) * 100;	// RA2: as above
 
 			swprintf(name, L"%s", Connection[i]->Name);	// RA2: as above
-			Fancy_Text_Print(name, *surface, surface->Get_Rect(), Point2D(x, 302), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(name, *surface, surface->Get_Rect(), Point2D(x, 302), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int avg = Connection[i]->Queue->Avg_Response_Time();
 			swprintf(buffer, L"Average  : %d", 1000 * avg / TIMER_SECOND);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 311), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 311), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int max = Connection[i]->Queue->Max_Response_Time();
 			swprintf(buffer, L"Max      : %d", 1000 * max / TIMER_SECOND);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 319), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 319), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int resends = Connection[i]->Num_Resends();
 			swprintf(buffer, L"Resends  : %d", resends);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 327), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 327), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int numlost = MAX(0, Connection[i]->Num_Lost());
 			swprintf(buffer, L"Num lost : %d", numlost);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 335), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 335), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int pcnt_lost = Connection[i]->Percent_Lost();
 			swprintf(buffer, L"Pcnt lost: %d", pcnt_lost);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 343), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 343), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			int process_time = 0;
 			for (int j = 0; j < Session.Players.Count(); ++j) {
@@ -1783,20 +1783,20 @@ void IPXManagerClass::Multiplayer_Debug_Print(void)
 				}
 			}
 			swprintf(buffer, L"Process : %d", process_time);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 351), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 351), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			swprintf(buffer, L"Frame   : %d", -Session.PlayerLatency[i]);	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 359), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 359), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			swprintf(buffer, L"Queue s/r: %d/%d", Connection[i]->Queue->Num_Send(), Connection[i]->Queue->Num_Receive());	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 367), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 367), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			swprintf(buffer, L"Missed o/m: %d/%d", Connection[i]->Missed_Overall(), Connection[i]->Missed_Magic());	// RA2: as above
-			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 375), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+			Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 375), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 
 			if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter) {	// RA2: as above
 				swprintf(buffer, L"Rout resp: %d", 1000 * RouterResponseTimes[i] / TIMER_SECOND);	// RA2: the router round trip per connection
-				Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 383), ColorSchemes[scheme], 0, TextPrintType(0x19));	// RA2: as above
+				Fancy_Text_Print(buffer, *surface, surface->Get_Rect(), Point2D(x, 383), ColorSchemes[scheme], 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));	// RA2: as above
 			}
 		}
 	}

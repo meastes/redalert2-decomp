@@ -126,7 +126,7 @@ void __fastcall Show_Player_Message(wchar_t const * text, int delay)
 	if (PlayerPtr != NULL) {
 		color = PlayerPtr->Scheme;
 	}
-	Session.Messages.Add_Message(NULL, 0, text, color, TextPrintType(0x4046), delay, true);
+	Session.Messages.Add_Message(NULL, 0, text, color, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), delay, true);
 }
 
 /// <summary>
@@ -134,7 +134,7 @@ void __fastcall Show_Player_Message(wchar_t const * text, int delay)
 /// </summary>
 int Message_Style(void)
 {
-	return 0x4046;
+	return TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL;
 }
 
 /// <summary>
@@ -917,6 +917,61 @@ void __fastcall Select_Type(char const * name)
 	delete list;
 	AllowVoice = voice;
 }
+
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006f7360 has no row); against main's 682-byte extent 839 bytes differ, ours 896 (inline_call: we expand Is_Owned_Active, the original calls it out of line), main: best 37.13
+bool __fastcall Matches_Any_Name(TechnoClass * techno, DynamicVectorClass<char const *> const & names); // RA2: defined below
+DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void); // RA2: defined below
+
+/// <summary>
+/// Selects every object of the selected kinds: those on the screen, or on the whole map when the screen holds none
+/// that is not already selected, or when the last selection by type reached over the map.
+/// </summary>
+void __fastcall Command_Type_Select(void)
+{
+	wchar_t text[256];
+	if (MuteSWLaunches) {
+		return;
+	}
+	TacticalMap->Unselect_Foreign_Object();
+	if (TypeSelectMode != 2) {
+		SelectAcrossMap = false;
+	}
+	DynamicVectorClass<char const *> * names = Collect_Selected_Type_Names();
+	TechnoList * list;
+	if (SelectAcrossMap) {
+		list = Collect_Technos((TechnoTest)Is_Owned_Active, 0);
+	} else {
+		list = Collect_Visible_Technos((TechnoTest)Is_Owned_Active, 0);
+		int count = list->Count();
+		int index;
+		for (index = 0; index < count; index++) {
+			TechnoClass * techno = (*list)[index];
+			if (Matches_Any_Name(techno, *names) && !techno->IsSelected) {
+				break;
+			}
+		}
+		if (index >= count) {
+			SelectAcrossMap = true;
+		}
+		if (SelectAcrossMap) {
+			delete list;
+			list = Collect_Technos((TechnoTest)Is_Owned_Active, 0);
+		}
+	}
+	int count = list->Count();
+	for (int index = 0; index < count; index++) {
+		TechnoClass * techno = (*list)[index];
+		if (Matches_Any_Name(techno, *names)) {
+			techno->Select();
+		}
+	}
+	Get_Selection_Scope_Text(text);
+	Show_Player_Message(text, -1);
+	Set_Type_Select_Mode(2);
+	delete names;
+	delete list;
+}
+#endif
 
 /// <summary>
 /// Whether the object is of any of the kinds in the list.

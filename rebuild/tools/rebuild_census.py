@@ -342,7 +342,8 @@ def evidenced_inline_asm(regions):
 def asm_not_flagged(regions):
     """(rows, body bytes, entries) of catalogued rebuild rows main flags inline_asm: evidenced that the rebuild
     does not (review session, 2026-11-20): asm counted as C/C++ until header-template attribution flags them
-    (blitblit.h BlitTrans<unsigned char>::BlitForward 0x775980, BlitTransXlat<unsigned short>::BlitForward 0x4861C0)."""
+    (blitblit.h BlitTrans<unsigned char>::BlitForward 0x775980, BlitTransXlat<unsigned short>::BlitForward 0x4861C0;
+    rebuild_catalog.header_specialization_flags flags them, lane O16, pending the user's go-ahead)."""
     main = {r['entry']: r for r in R.main_catalog()['regions'] if r.get('inline_asm') == 'evidenced'}
     rows = [r for r in regions if r['entry'] in main and r.get('inline_asm') != 'evidenced']
     return len(rows), sum(r['body_bytes'] for r in rows), sorted(r['entry'] for r in rows)

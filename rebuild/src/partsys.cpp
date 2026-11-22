@@ -37,6 +37,10 @@
 #include "wave.h"
 #include "ftimer.h" // RA2: Fire_AI reads Frame
 
+#ifdef RA2_NON_MATCHING // not exact: held, the text is exact (0 bytes differ once open); the name RECT_NONE_2 is ra2-decomp's text in abstract and effects only, none in this unit's twin (owner ruling)
+const Rect RECT_NONE_2(0, 0, 0, 0); // RA2: a second zero rectangle, initialized last
+#endif
+
 
 
 

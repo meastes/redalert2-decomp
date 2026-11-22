@@ -513,7 +513,13 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
     helpers, rebuild tree only; review session and user, 2026-11-20) is cited to the archive
     block like any other (same instructions, nothing else), and besides: the archive must be
     present, the cited file must be the unit's own (TibSun <unit>), and the cited block must lie
-    in the body of the archive's own function of the helper's name in that file."""
+    in the body of the archive's own function of the helper's name in that file.
+
+    A block a row takes from a header's explicit specialization (header_asm_rows, rebuild tree only;
+    review session's conditions 2026-11-21, lane O16) is cited to the header's own archive file and
+    compared the same way; besides, the cited blocks must be the archive's same-named explicit
+    specialization's blocks, in order and all of them (a primary template or another specialization
+    is no evidence); the citation is kept in the row, not quoted in the header."""
     text = data.decode(errors='replace') if isinstance(data, bytes) else data
     if blocks is None:
         blocks = inline_asm_blocks(text)
@@ -527,10 +533,17 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
             all(isinstance(c, str) and INLINE_ASM_CITATION.fullmatch(c) for c in citations),
             'inline_asm_citation must be "TibSun <file>:<line>" with <file> one of ' + ', '.join(INLINE_ASM_FILES))
     require(len(citations) == len(blocks), 'One inline_asm_citation per __asm block, in source order')
-    for citation in citations:
-        require(citation in text, 'Inline-assembly citation %s not quoted in the source' % citation)
     for block, citation in zip(blocks, citations):
-        if _block_helper(block):
+        # A header specialization's citation lives in the catalog row: the adopted header keeps the
+        # archive's text and lines unchanged (code reading __LINE__ moves with any added comment).
+        require(_block_specialization(block) or citation in text,
+                'Inline-assembly citation %s not quoted in the source' % citation)
+    for block, citation in zip(blocks, citations):
+        if _block_specialization(block):
+            header, name = _block_specialization(block)
+            require(INLINE_ASM_CITATION.fullmatch(citation).group(1) == Path(header).name,
+                    'Asm specialization %s cited outside its header (%s): %s' % (name, header, citation))
+        elif _block_helper(block):
             require(unit is not None and INLINE_ASM_CITATION.fullmatch(citation).group(1).lower() == unit.lower(),
                     'Asm helper %s cited outside its own unit (%s): %s' % (_block_helper(block), unit, citation))
         elif len(block) > 2:
@@ -539,9 +552,12 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
     if archive is None or not Path(archive).is_dir():
         require(not any(_block_helper(b) for b in blocks),
                 'TibSun archive unavailable: inline assembly reached through a helper cannot be verified')
+        require(not any(_block_specialization(b) for b in blocks),
+                'TibSun archive unavailable: inline assembly of a header specialization cannot be verified')
         require(not require_archive, 'TibSun archive unavailable: evidenced inline assembly cannot be verified')
         return len(blocks)
     plain, invocations, expansion = [], set(), 0
+    specialized = {}
     for block, citation in zip(blocks, citations):
         name, line = INLINE_ASM_CITATION.fullmatch(citation).groups()
         path = Path(archive) / name
@@ -578,6 +594,19 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
         require(len(cited) > repeat, 'No __asm block starts on the cited TibSun line: %s' % citation)
         require(block[1] == cited[repeat][1],
                 'Inline-assembly block differs from the cited TibSun archive block %s' % citation)
+        if _block_specialization(block):
+            # The archive's own explicit specialization of the same name holds the cited block, and the
+            # header's specialization holds the archive specialization's blocks, in its order, nothing else.
+            header, special = _block_specialization(block)
+            archived = header_specialization_asm(source).get(special)
+            require(archived is not None,
+                    'Asm specialization %s: the archive %s has no explicit specialization of that name '
+                    '(a primary template body or another specialization is not evidence)' % (special, name))
+            position = specialized.setdefault(special, [0])
+            require(position[0] < len(archived) and archived[position[0]][0] == cited[repeat][0],
+                    'Asm specialization %s: the cited TibSun block %s is not the archive specialization\'s block %d'
+                    % (special, citation, position[0] + 1))
+            position[0] += 1
         if _block_helper(block):
             # The archive's own helper of the same name holds the cited block (TibSun <unit>).
             masked = _mask_comments_and_literals(source)
@@ -585,6 +614,14 @@ def validate_inline_asm(data, row, archive=None, require_archive=False, blocks=N
             require(len(owners) == 1 and owners[0][0] == _block_helper(block),
                     'Asm helper %s: the cited TibSun block %s is not in the archive\'s %s' % (
                         _block_helper(block), citation, _block_helper(block)))
+    for block in blocks:
+        if _block_specialization(block):
+            header, special = _block_specialization(block)
+            archived = header_specialization_asm(
+                (Path(archive) / Path(header).name).read_text(errors='replace')).get(special, [])
+            require(specialized.get(special, [0])[0] == len(archived),
+                    'Asm specialization %s: %d block(s) cited, the archive specialization has %d'
+                    % (special, specialized.get(special, [0])[0], len(archived)))
     return len(blocks)
 
 
@@ -596,6 +633,119 @@ def _block_macro(block):
 def _block_helper(block):
     """The file-static or inline helper a module block was reached through, or None."""
     return block[3] if len(block) > 3 else None
+
+
+def _block_specialization(block):
+    """(header, specialization name) of a block a row takes from a header's explicit specialization, or None."""
+    return block[4] if len(block) > 4 else None
+
+
+# Evidenced inline assembly in a header's explicit specialization (rebuild tree only; review session,
+# 2026-11-21, lane O16; awaiting the user's go-ahead): the adopted blitblit.h keeps the archive's
+# `template <> inline void BlitTrans<unsigned char>::BlitForward(...) { __asm ... }`, emitted by whichever
+# unit instantiates it (xsurface.cpp 0x775980, convert.cpp 0x4861C0). Every row whose symbol demangles to
+# such a specialization takes its blocks (header_asm_rows) and must carry `inline_asm: evidenced` with one
+# citation per block, each the archive specialization's own block in order (validate_inline_asm); no other
+# row may. A block in a primary template or in a specialization the archive lacks is never attributed.
+_TEMPLATE_ARGUMENT_CODES = {'C': 'signed char', 'D': 'char', 'E': 'unsigned char', 'F': 'short',
+                            'G': 'unsigned short', 'H': 'int', 'I': 'unsigned int', 'J': 'long',
+                            'K': 'unsigned long', 'M': 'float', 'N': 'double', '_N': 'bool'}
+_SPECIALIZATION_HEAD = re.compile(r'^\s*template\s*<\s*>\s*(?:inline\s+|__inline\s+|__forceinline\s+)?[^(]*?'
+                                  r'(?<![\w:])([A-Za-z_]\w*)\s*<([^<>()]*)>\s*::\s*(~?\s*[A-Za-z_]\w*)\s*\(')
+
+
+def _specialization_name(template, arguments, member):
+    arguments = ', '.join(' '.join(a.split()) for a in arguments.split(','))
+    return '%s<%s>::%s' % (template, arguments, re.sub(r'\s+', '', member))
+
+
+def _blank_dead_code(masked):
+    """`masked` with the lines inside `#if 0` and `#ifdef RA2_NON_MATCHING` blanked (their `#else` side
+    kept), the text the exact build compiles; lengths and newlines kept."""
+    out, stack = [], []            # per open conditional: True while its current side is dead
+    for line in masked.split('\n'):
+        directive = line.strip()
+        if re.match(r'#\s*if', directive):
+            dead_before = any(stack)
+            stack.append(bool(re.match(r'#\s*if\s*\(?\s*0\s*\)?\s*$|#\s*ifdef\s+RA2_NON_MATCHING\b', directive)))
+            out.append(re.sub(r'[^\n]', ' ', line) if dead_before else line)
+            continue
+        if re.match(r'#\s*(el|endif)', directive) and stack:
+            if directive.lstrip('# \t').startswith('endif'):
+                stack.pop()
+                out.append(line if not any(stack) else re.sub(r'[^\n]', ' ', line))
+            else:
+                stack[-1] = False
+                out.append(line if not any(stack) else re.sub(r'[^\n]', ' ', line))
+            continue
+        out.append(re.sub(r'[^\n]', ' ', line) if any(stack) else line)
+    return '\n'.join(out)
+
+
+def header_specialization_asm(text):
+    """{specialization name ('BlitTrans<unsigned char>::BlitForward'): [(offset, instructions, line)]} of the
+    `__asm` blocks in the explicit specializations (`template <>`) of a header's live code. Blocks elsewhere
+    (a primary template, a non-template function) are not listed."""
+    masked = _blank_dead_code(_mask_comments_and_literals(text))
+    directives = _directive_spans(masked)
+    found = {}
+    functions = _function_bodies(masked, directives)
+    for offset, instructions in inline_asm_blocks(masked):
+        if any(start <= offset < end for start, end in directives.items()):
+            continue
+        owners = [f for f in functions if f[1] < offset < f[2]]
+        head = _SPECIALIZATION_HEAD.match(owners[-1][3]) if owners else None
+        if head is None:
+            continue
+        name = _specialization_name(*head.groups())
+        found.setdefault(name, []).append((offset, instructions, text.count('\n', 0, offset) + 1))
+    for name in found:
+        holders = {f[1] for f in functions if (lambda h: h and _specialization_name(*h.groups()) == name)(
+            _SPECIALIZATION_HEAD.match(f[3]))}
+        require(len(holders) == 1, 'Header: the asm specialization %s is defined more than once' % name)
+    return found
+
+
+def _row_specialization_name(symbol):
+    """'BlitTrans<unsigned char>::BlitForward' for `?BlitForward@?$BlitTrans@E@@...`: a member of a class
+    template with builtin-type arguments only; None for any other symbol."""
+    m = re.match(r'\?(~?[A-Za-z_]\w*)@\?\$([A-Za-z_]\w*)@((?:_?[A-Z])+)@@', symbol)
+    if not m:
+        return None
+    codes = re.findall(r'_?[A-Z]', m.group(3))
+    if not all(c in _TEMPLATE_ARGUMENT_CODES for c in codes):
+        return None
+    return '%s<%s>::%s' % (m.group(2), ', '.join(_TEMPLATE_ARGUMENT_CODES[c] for c in codes), m.group(1))
+
+
+def header_asm_specializations(headers):
+    """{specialization name: (header, [(offset, instructions, None, None, (header, name))])} over the rebuild
+    headers ({include path: bytes}); a specialization whose arguments a row symbol cannot name, or one two
+    headers define, refuses."""
+    out = {}
+    readable = set(_TEMPLATE_ARGUMENT_CODES.values())
+    for header, data in sorted(headers.items()):
+        text = data.decode(errors='replace') if isinstance(data, bytes) else data
+        if not _ASM_TOKEN.search(text):
+            continue
+        for name, blocks in header_specialization_asm(text).items():
+            arguments = name.split('<', 1)[1].rsplit('>', 1)[0].split(', ')
+            require(all(a in readable for a in arguments),
+                    'Header %s: asm specialization %s has arguments no row symbol is read for' % (header, name))
+            require(name not in out, 'Header: asm specialization %s defined in two headers' % name)
+            out[name] = (header, [(o, i, None, None, (header, name)) for o, i, _ in blocks])
+    return out
+
+
+def header_asm_rows(row, specializations):
+    """The header-specialization blocks a row takes (its symbol demangles to one of `specializations`)."""
+    special = _row_specialization_name(row.get('symbol_prefix') or row.get('symbol') or '')
+    return list(specializations[special][1]) if special in specializations else []
+
+
+def header_asm_citations(name, archive_text, header):
+    """The citations ("TibSun blitblit.h:2324", ...) of the archive specialization NAME's blocks, in order."""
+    return ['TibSun %s:%d' % (Path(header).name, line) for _, _, line in header_specialization_asm(archive_text).get(name, [])]
 
 
 # Count-calibrated rows (user decision 2026-11-09, docs/HANDOFF.md): a row whose
@@ -972,6 +1122,7 @@ def validate_catalog(repository, catalog, modules=True):
                     'Inline assembly (__asm) in a shared header not in the TibSun archive: ' + name)
             continue
         require(not blocks, 'Inline assembly (__asm) in a shared header')
+    specializations = header_asm_specializations(headers) if tree.REBUILD else {}
     ids = [p['id'] for p in catalog['populations']]
     require(len(ids) == len(set(ids)), 'Duplicate populations')
     entries, paths, orders = set(), {}, set()
@@ -1018,13 +1169,18 @@ def validate_catalog(repository, catalog, modules=True):
             validate_includes(data, headers)
         data, digest, switched = sources[row['source']]
         require(digest == row['source_sha256'], 'Source hash drift')
+        # Rebuild tree: a row emitting a header's explicit asm specialization takes its blocks (lane O16).
+        special = header_asm_rows(row, specializations) if tree.REBUILD else []
         if len(module_rows.get(row['source'], ())) > 1:
             if row['source'] not in module_blocks:
                 # Rebuild tree: blocks in the unit's file-static/inline helpers reach their rows (2026-11-20).
                 module_blocks[row['source']] = module_inline_asm_blocks(
                     data.decode(errors='replace'), module_rows[row['source']], helpers=tree.REBUILD)
-            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE, blocks=module_blocks[row['source']][va],
-                                unit=Path(row['source']).name)
+            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE,
+                                blocks=module_blocks[row['source']][va] + special, unit=Path(row['source']).name)
+        elif special:
+            validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE,
+                                blocks=inline_asm_blocks(data.decode(errors='replace')) + special)
         else:
             validate_inline_asm(data, row, repository / TIBSUN_ARCHIVE)
         validate_count_calibrated(row)

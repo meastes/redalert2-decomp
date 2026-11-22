@@ -379,7 +379,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 							bullet->LoseTarget();
 						}
 					}
-					new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+					new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 					distance = LinkedTo->Center_Coord().Distance_YZX(LastCoords);
 					Timer = 0;
 					if (Rule->ChronoTrigger) {
@@ -427,7 +427,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 					Stop_Moving();
 					cell->Goodie_Check(LinkedTo);
 					LinkedTo->Assign_Destination(0, true);
-					new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+					new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 					LinkedTo->TeleportState = 0;
 					return(false);
 				}
@@ -448,7 +448,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 		return(false);
 	}
 	if (State == 2) {
-		new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+		new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 		LinkedTo->Mark(MARK_UP);
 		{
 			FootClass * linked = LinkedTo;
@@ -507,7 +507,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 			LinkedTo->Assign_Archive_Target(0);
 			LinkedTo->Assign_Destination(0, true);
 			Timer = LinkedTo->ChronoLockRemaining;
-			new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+			new AnimClass(Rule->WarpOut, LinkedTo->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 			State++;
 			return(false);
 		}

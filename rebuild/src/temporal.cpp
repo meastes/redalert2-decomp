@@ -127,7 +127,7 @@ void TemporalClass::AI(void)
 			SourceSW = NULL;
 			Unused_38 = NULL;
 		} else {
-			new AnimClass(Rule->WarpAway, Target->PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0);
+			new AnimClass(Rule->WarpAway, Target->PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 		}
 
 		if (Owner->Techno_Type_Class()->IsTrainable) {

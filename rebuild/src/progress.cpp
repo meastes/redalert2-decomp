@@ -285,7 +285,7 @@ void ProgressScreenClass::Flag_Size(int * width, int * height)
 /// </summary>
 void ProgressScreenClass::Text_Size(int * width, int * height)
 {
-	BitFont * font = Font_From_TPF(TextPrintType(0x46));
+	BitFont * font = Font_From_TPF(TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW));
 	wchar_t text[16];
 	for (int i = 0; i < 15; i++) {
 		text[i] = *Narrow_To_Wide("W");
@@ -451,7 +451,7 @@ void ProgressScreenClass::Draw_Name(Point2D pt, wchar_t const * name, ColorSchem
 		textwidth = width;
 	}
 	Rect clip(0, 0, pt.X + textwidth, pt.Y + textheight);
-	Fancy_Text_Print(name, *HiddenSurface, clip, pt, scheme, 0, TextPrintType(0x19));
+	Fancy_Text_Print(name, *HiddenSurface, clip, pt, scheme, 0, TextPrintType(TPF_EFNT | TPF_NOSHADOW));
 }
 
 

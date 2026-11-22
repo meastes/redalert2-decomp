@@ -333,7 +333,7 @@ void IonStormClass::Ion_Storm_Begin(int duration, int deferment, Cell cell, Hous
 		}
 		VocClass::PlayGlobal(Rule->StormSound, 1.0f, 0x2000, NULL); // RA2: as above
 		Session.Messages.Add_Message(NULL, 0, // RA2: as above
-			StringTable::LoadString("TXT_LIGHTNING_STORM", NULL, "D:\\Ra2\\Ion.cpp", 465), color, TextPrintType(0x4046), 150, false); // RA2: as above
+			StringTable::LoadString("TXT_LIGHTNING_STORM", NULL, "D:\\Ra2\\Ion.cpp", 465), color, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 150, false); // RA2: as above
 	}
 	Map.Flag_To_Redraw(GS_REDRAW_TACTICAL);
 }
@@ -424,7 +424,7 @@ void IonStormClass::Lightning_Bolt(Cell cell)
 	}
 	int pick = Scen->RandomNumber(); // RA2: as above
 	AnimTypeClass const * type = Rule->WeatherConClouds[(unsigned)pick % Rule->WeatherConClouds.Count()]; // RA2: as above
-	AnimClass * anim = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+	AnimClass * anim = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	CloudsManifesting.Add(anim); // RA2: as above
 	CloudsPresent.Add(anim); // RA2: as above
 } // RA2: Lightning_Bolt at 0x51FC90 has no Rule, IonStormWarhead, Height and 6 more
@@ -436,7 +436,7 @@ void IonStormClass::Lightning_Strike(Coord coord) // RA2: the bolt of a cloud la
 	Coord center = Coord(cellptr.Cell_Coord()); // RA2: as above
 	int pick = Scen->RandomNumber(); // RA2: as above
 	AnimTypeClass const * type = Rule->WeatherConBolts[(unsigned)pick % Rule->WeatherConBolts.Count()]; // RA2: as above
-	AnimClass * bolt = new AnimClass(type, center, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+	AnimClass * bolt = new AnimClass(type, center, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	BoltsPresent.Add(bolt); // RA2: as above
 
 	Cell cell = cellptr.Fetch_CellID(); // RA2: as above
@@ -452,7 +452,7 @@ void IonStormClass::Lightning_Strike(Coord coord) // RA2: the bolt of a cloud la
 	LandType land = cellptr.Land_Type(); // RA2: as above
 	int damage = Rule->LightningDamage; // RA2: as above
 	AnimTypeClass const * anim = Combat_Anim(damage, Rule->LightningWarhead, land, where); // RA2: as above
-	new AnimClass(anim, where, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(where)); // RA2: as above
+	new AnimClass(anim, where, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(where)); // RA2: as above
 
 	bool changed = false; // RA2: as above
 	ObjectClass * building = cellptr.Cell_Building(); // RA2: as above
@@ -476,7 +476,7 @@ void IonStormClass::Lightning_Strike(Coord coord) // RA2: the bolt of a cloud la
 	if (!sheltered && changed) { // RA2: as above
 		int count = Random_Pick(2, 4); // RA2: as above
 		for (int index = 0; index < count; index++) { // RA2: as above
-			new AnimClass(Rule->MetallicDebris[Random_Pick(0, Rule->MetallicDebris.Count() - 1)], where, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+			new AnimClass(Rule->MetallicDebris[Random_Pick(0, Rule->MetallicDebris.Count() - 1)], where, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		}
 	}
 }
@@ -582,7 +582,7 @@ void IonStormClass::AI(void)
 			}
 			Queue_Speech("EVA_LightningStormCreated", -1, -1); // RA2: as above
 			Session.Messages.Add_Message(NULL, 0, // RA2: as above
-				StringTable::LoadString("TXT_LIGHTNING_STORM_APPROACHING", NULL, "D:\\Ra2\\Ion.cpp", 904), color, TextPrintType(0x46), 150, // RA2: as above
+				StringTable::LoadString("TXT_LIGHTNING_STORM_APPROACHING", NULL, "D:\\Ra2\\Ion.cpp", 904), color, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW), 150, // RA2: as above
 				false); // RA2: as above
 		}
 	}
@@ -681,5 +681,5 @@ void IonStormClass::Ion_Storm_Active_Message(void) // RA2: tells the local playe
 	if (PlayerPtr != NULL) { // RA2: as above
 		color = PlayerPtr->Scheme; // RA2: as above
 	}
-	Session.Messages.Add_Message(NULL, 0, text, color, TextPrintType(0x4046), 150, false); // RA2: as above
+	Session.Messages.Add_Message(NULL, 0, text, color, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), 150, false); // RA2: as above
 }

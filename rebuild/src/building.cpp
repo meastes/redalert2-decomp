@@ -242,7 +242,7 @@ AnimClass * __fastcall Create_Attached_Anim(HouseClass * house, AbstractClass * 
 	AnimType index = AnimTypeClass::From_Name(anim); // RA2: as above
 	AnimTypeClass * type = AnimTypes[index]; // RA2: as above
 	Coord coord = target->Center_Coord(); // RA2: as above
-	AnimClass * animation = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+	AnimClass * animation = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	animation->Set_Attached_Bullet(bullet); // RA2: as above
 	animation->Set_Owner(house); // RA2: as above
 	animation->Make_Invisible(); // RA2: sets the byte at +0x17D (IsInvisible)
@@ -1742,7 +1742,7 @@ void BuildingClass::AI(void)
 	if (IsBeingWarpedOut() || IsWarpingIn()) { // RA2: a building in the chronosphere only sparkles
 		if (Class->MaxNumberOccupants == 0 || Rule->ChronoSparkle1 == NULL) { // RA2: as above
 			if (Frame % 24 == 0 && Rule->ChronoSparkle1 != NULL) { // RA2: as above
-				new AnimClass(Rule->ChronoSparkle1, PositionCoord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+				new AnimClass(Rule->ChronoSparkle1, PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 			}
 		} else {
 			for (int index = 0; index < Class->MaxNumberOccupants; index++) { // RA2: a sparkle per garrison slot
@@ -1750,7 +1750,7 @@ void BuildingClass::AI(void)
 					Coord location; // RA2: as above
 					Occupant_Offset_To_Coord(location, TacticalMap->Pixel_To_Lepton(Class->MuzzleFlash[index])); // RA2: the offset helper
 					location = Render_Coord() + location; // RA2: as above
-					AnimClass * effect = new AnimClass(Rule->ChronoSparkle1, location, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+					AnimClass * effect = new AnimClass(Rule->ChronoSparkle1, location, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 					effect->ZAdjust = -200; // RA2: as above
 				}
 			}
@@ -2381,7 +2381,7 @@ void BuildingClass::Do_Destruction(TechnoClass * last_contact, TechnoClass * sou
 			coord.Z = Get_Coord().Z;
 			Coord ccoord = cell;
 			pos = coord + Coord_Scatter(ccoord, CELL_LEPTON / 4);
-			new AnimClass(Class->Explosion.Pick(Scen->RandomNumber()), pos, Random_Pick(0, 3), 1, ShapeFlags_Type(0x600), 0);
+			new AnimClass(Class->Explosion.Pick(Scen->RandomNumber()), pos, Random_Pick(0, 3), 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 		}
 	}
 
@@ -2391,7 +2391,7 @@ void BuildingClass::Do_Destruction(TechnoClass * last_contact, TechnoClass * sou
 			Coord coord = Adjacent_Coord_With_Height(Get_Coord(), _facings[i]);
 			if (Map[coord].Overlay != OVERLAY_NONE) {
 				if (OverlayTypes[Map[coord].Overlay]->IsExplosive) {
-					new AnimClass(AnimTypes[AnimTypeClass::From_Name("FIRE3")], coord, Random_Pick(1, 3) + 3, 1, ShapeFlags_Type(0x600), 0);
+					new AnimClass(AnimTypes[AnimTypeClass::From_Name("FIRE3")], coord, Random_Pick(1, 3) + 3, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 				}
 			}
 		}
@@ -2420,7 +2420,7 @@ void BuildingClass::Do_Destruction(TechnoClass * last_contact, TechnoClass * sou
 	if (Class->DestroyAnim.Count() > 0) { // RA2: not in TibSun, as the smoke below
 		AnimTypeClass const * type = Class->DestroyAnim.Pick(Scen->RandomNumber());
 		if (type != NULL) {
-			AnimClass * anim = new AnimClass(type, Render_Coord(), 0, 1, ShapeFlags_Type(0x600), 0);
+			AnimClass * anim = new AnimClass(type, Render_Coord(), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0);
 			if (TClass->Palette != NULL) {
 				anim->AlternativeDrawer = (ConvertClass *)GetRemapColour();
 				if (Class->PaletteFile[0]) {
@@ -5024,109 +5024,65 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
  * HISTORY:                                                                                    *
  *   06/25/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 768 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 735 bytes differ (Attack transition, depot customers and idle delays restored)
 int BuildingClass::Do_MISSION_GUARD(void)
 {
-	bool isfacility;
-	bool hascontact;
-	bool istechno;
-	bool entermission;
-	bool inrange;
-	bool tomove;
-
-	/*
-	**	If this building has a weapon, then search for a target to attack. When
-	**	a target is found, switch into attack mode to deal with the threat.
-	*/
 	if (Is_Weapon_Equipped()) {
-
-		/*
-		**	Weapon equipped buildings are ALWAYS ready to launch into another mission if
-		**	they are sitting around in guard mode.
-		*/
 		IsReadyToCommence = true;
-
-	} else { // RA2: no SUPER_CHEM_MISSILE (not in RA2's layout)
-
-		if (Class->IsHasStupidGuardMode) {
-			return(100);
-		}
-
-		/*
-		**	This is the very simple state machine that basically does
-		**	nothing. This is the mode that non weapon equipped buildings
-		**	are normally in.
-		*/
-		enum {
-			INITIAL_ENTRY,
-			IDLE
-		};
-		switch (Status) {
-			case INITIAL_ENTRY:
-				Begin_Mode(BSTATE_IDLE);
-				Status = IDLE;
-				break;
-
-			case IDLE:
-
-				/*
-				**	Special case to break out of guard mode if this is a repair
-				**	facility and there is a customer waiting at the grease pit.
-				*/
-				isfacility = Class->IsCanUnitRepair || Class->IsCanUnitReload;
-				hascontact = Contact_With_Whom() != 0;
-
-				istechno = false;
-				if (hascontact) {
-					istechno = Contact_With_Whom()->Is_Techno();
-				}
-
-				entermission = false;
-				if (istechno) {
-					entermission = ((TechnoClass *)Contact_With_Whom())->Mission == MISSION_ENTER;
-				}
-
-				inrange = false;
-				if (entermission) {
-					inrange = Distance_To(Contact_With_Whom()) < CELL_LEPTON / 4;
-				}
-
-				tomove = false;
-				if (inrange) {
-					tomove = Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER;
-				}
-
-				if (isfacility && hascontact && istechno && entermission && inrange && tomove) {
-
-					Assign_Mission(MISSION_REPAIR);
-					return(1);
-				}
-
-				if (Class->IsWeaponsFactory) {
-					Clear_Weapons_Factory_Bib();
-				}
-
-				break;
-
-			default:
-				break;
-		}
-
-		if (Class->IsCanUnitReload && In_Radio_Contact()) {
-			if (Transmit_Message(RADIO_PREPARED) != RADIO_ROGER &&
-				Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
-				Assign_Mission(MISSION_REPAIR);
+		if (!Class->IsEMPulseCannon) {
+			bool may_attack = Class->SuperWeapon == SUPER_NONE;
+			if (!may_attack) {
+				BuildingTypeClass const * aux = SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding;
+				may_attack = aux != NULL && House->ABQuantity.Value(aux->HeapID) == 0;
+			}
+			if (may_attack && (!Class->CanBeOccupied || Occupants.Count() > 0) && TarCom != NULL) {
+				Assign_Mission(MISSION_ATTACK);
+				Commence();
+				return(1);
 			}
 		}
-
-		if (Class->IsCanUnitRepair) {
-			return(Current_Mission_Control().Normal_Delay() + Random_Pick(0, 2));
-		} else {
-			return(Current_Mission_Control().Normal_Delay() * 3 + Random_Pick(0, 2));
-		}
+		return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
+	}
+	if (Class->IsHasStupidGuardMode) {
+		return(100);
 	}
 
-	return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
+	enum { INITIAL_ENTRY, IDLE };
+	switch (Status) {
+		case INITIAL_ENTRY:
+			Begin_Mode(BSTATE_IDLE);
+			Status = IDLE;
+			break;
+
+		case IDLE:
+			if (Class->IsCanUnitRepair || Class->IsCanUnitReload) {
+				// RA2: A customer may be in any radio slot of a service depot.
+				for (int index = 0; index < RadioLinks.Length(); index++) {
+					TechnoClass * customer = Radio_Link(index);
+					if (customer != NULL && customer->Is_Techno() && customer->Get_Mission() == MISSION_ENTER) {
+						Coord distance = Center_Coord() - customer->Center_Coord();
+						if (distance.Length() < CELL_LEPTON / 4 && Transmit_Message(RADIO_NEED_TO_MOVE, customer) == RADIO_ROGER) {
+							Assign_Mission(MISSION_REPAIR);
+							return(1);
+						}
+					}
+				}
+			}
+			if (Class->IsWeaponsFactory) {
+				Clear_Weapons_Factory_Bib();
+			}
+			break;
+	}
+
+	if (Class->IsCanUnitReload && HasAnyLink() && Transmit_Message(RADIO_PREPARED) != RADIO_ROGER
+			&& Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
+		Assign_Mission(MISSION_REPAIR);
+	}
+	int delay = Current_Mission_Control().Normal_Delay();
+	if (!Class->IsCanUnitRepair) {
+		delay *= 3;
+	}
+	return(delay + Random_Pick(0, 2));
 }
 #endif
 
@@ -11517,7 +11473,7 @@ void BuildingClass::KillOccupants(TechnoClass * killer) // RA2: not in TibSun, a
 			Coord coord; // RA2: as above
 			Occupant_Offset_To_Coord(coord, TacticalMap->Pixel_To_Lepton(Class->MuzzleFlash[index])); // RA2: the offset helper
 			coord = coord + Render_Coord(); // RA2: as above
-			AnimClass * anim = new AnimClass(killer->Get_Class_Weapon_Data(0)->Weapon->AssaultAnim, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+			AnimClass * anim = new AnimClass(killer->Get_Class_Weapon_Data(0)->Weapon->AssaultAnim, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 			anim->ZAdjust = -200; // RA2: as above
 			killer->Record_The_Kill(Occupants[index]); // RA2: as above
 			Occupants[index]->Delete_Me(); // RA2: as above
