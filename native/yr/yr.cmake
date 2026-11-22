@@ -343,6 +343,13 @@ add_test(NAME yr-native-type-select COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-type-select")
 set_tests_properties(yr-native-type-select PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 240)
 
+# ctest yr-native-command-bar-thumb (lane N27): the command bar's close thumb closes it and its open thumb, inside
+# the part of the bar the host shows (Zoom gestures on: glue/yr_map_zoom.cpp Yr_Command_Bar_Right), opens it again
+add_test(NAME yr-native-command-bar-thumb COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_command_bar_thumb.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-command-bar-thumb")
+set_tests_properties(yr-native-command-bar-thumb PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
+
 # ctest yr-native-standins-triggers (lane N3): stand-ins the campaign triggers and keys reach (ForceCreate, the
 # lightning bolt and storm stop, the Gap Generator's range ring, HealthNav/VeterancyNav; yr/tests/yr_standins_triggers.py)
 add_test(NAME yr-native-standins-triggers COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_standins_triggers.py"

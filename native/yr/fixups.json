@@ -1849,6 +1849,12 @@
   },
   {
    "file": "src/txtlabel2.cpp",
+   "old": "\tDAT_00B0F9E4 = (width - DAT_00B0FC60->Width - DAT_00B0FC34->Width - DAT_00B0FC6C->Width) / DAT_00B0FC68->Width;\n\tint x = DAT_00B0FC34->X - DAT_00B0FC6C->Width;\n",
+   "new": "\tint bar_right = Yr_Command_Bar_Right(width, DAT_00B0FC34->X);   /* NATIVE (lane N27): glue/yr_map_zoom.cpp */\n\tDAT_00B0F9E4 = (bar_right - DAT_00B0FC60->Width - DAT_00B0FC6C->Width) / DAT_00B0FC68->Width;\n\tint x = bar_right - DAT_00B0FC6C->Width;\n",
+   "why": "Native addition (lane N27, the user's Duo report 2026-11-21: the command bar closed and could not be opened again; not original behaviour): FUN_0072FC60 lays the command bar's pieces out from its right end, the sidebar column's x (width less the column, the same number in the original). At render scale 2 (Zoom gestures on) the art is laid out for the larger screen but the host shows only the bar's left part, the window's map column, so the bar's right end, its end piece and the open thumb (ButtonB, DAT_00B0FC64: the only way back once the close thumb at the left end is pressed) were off the picture. The right end is the shown part's (glue/yr_map_zoom.cpp Yr_Command_Bar_Right); at render scale 1 it is the original's."
+  },
+  {
+   "file": "src/txtlabel2.cpp",
    "old": "void __fastcall FUN_0072FC60(int width, int height)\n{\n",
    "new": "void __fastcall FUN_0072FC60(int width, int height)\n{\n\tYr_Art_Laid_Out(width, height);   /* NATIVE (lane N20): glue/yr_map_zoom.cpp */\n",
    "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): FUN_0072FC60 records the size it lays the interface art out for, so Change_Display_Mode and the in-play dialogs make it again only when the size they need differs (Yr_Art_Relayout)."
@@ -1856,7 +1862,7 @@
   {
    "file": "src/txtlabel2.cpp",
    "old": "// FUNCTION: GAMEMD 0x0072AD90\n",
-   "new": "void Yr_Game_Mode_Size(int *w, int *h);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\nvoid Yr_Art_Laid_Out(int width, int height);\n// FUNCTION: GAMEMD 0x0072AD90\n",
+   "new": "void Yr_Game_Mode_Size(int *w, int *h);   // NATIVE (lane N20): glue/yr_map_zoom.cpp\nvoid Yr_Art_Laid_Out(int width, int height);\nint Yr_Command_Bar_Right(int width, int column_x);   // NATIVE (lane N27): glue/yr_map_zoom.cpp\n// FUNCTION: GAMEMD 0x0072AD90\n",
    "why": "Native addition (lane N20, Map zoom below 1x, Red Alert 2's lane C16 carried to Yuri's Revenge; not original behaviour): declarations for the rows below."
   },
   {

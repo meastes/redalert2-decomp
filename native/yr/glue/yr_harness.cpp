@@ -171,6 +171,8 @@ LayerType Layer_From_Name(char const * name);
 #include "_command.h"
 #include "builtype.h"
 #include "beacon.h"
+#include "shapebtn.h"
+#include "gscreen.h"
 #include "planning.h"
 #include "ovrlight.h"
 #include "cell.h"
@@ -201,6 +203,35 @@ extern "C" int yr_harness_node_point(int n, int * x, int * y)
 extern Rect VisibleRect;
 extern Rect * DAT_00B0FC58;	// the command bar's area (FUN_0072FC60)
 extern bool DAT_00B0FC0C;	// the command bar laid out
+
+// Test scaffolding (lane N27): the command bar's thumb. ButtonA (0xF0, the close thumb at the left end of the
+// bar's buttons, DAT_00B0FC60) is in the gadget list while the bar is open; ButtonB (0xF1, the open thumb at
+// the bar's right end beside the sidebar, DAT_00B0FC64) while it is closed (TabClass::AI 0x006D0680).
+struct CommandBarStatics {   // tab.cpp
+	static ShapeButtonClass Buttons[25];
+	static ShapeButtonClass ButtonA;
+	static ShapeButtonClass ButtonB;
+};
+extern Rect * DAT_00B0FC60;   // the close thumb's place (FUN_0072FC60)
+extern Rect * DAT_00B0FC64;   // the open thumb's place
+static bool In_Gadget_List(GadgetClass const * gadget)
+{
+	for (GadgetClass * g = GScreenClass::Buttons; g != NULL; g = (GadgetClass *)g->Get_Next()) {
+		if (g == gadget) return(true);
+	}
+	return(false);
+}
+extern "C" int yr_harness_thumb_point(int * x, int * y)
+{
+	ShapeButtonClass & button = Map.ThumbActive ? CommandBarStatics::ButtonA : CommandBarStatics::ButtonB;
+	if (!In_Gadget_List(&button)) {
+		fprintf(stderr, "input-script: the bar's %s thumb is not a button now\n", Map.ThumbActive ? "close" : "open");
+		return(0);
+	}
+	*x = button.X + button.Width / 2;
+	*y = button.Y + button.Height / 2;
+	return(1);
+}
 
 extern BeaconManagerClass BeaconManager;   // beacon.cpp
 void FUN_00731A30(void);   // uicmnds.cpp: the Beacon command (beacon placement mode on or off)
@@ -947,6 +978,17 @@ int Run_Order(int frame, char const * text)
 			bar.X, bar.Y, bar.Width, bar.Height, DAT_00B0FC0C ? "laid out" : "not laid out",
 			CompositeSurface ? CompositeSurface->Get_Width() : 0, CompositeSurface ? CompositeSurface->Get_Height() : 0);
 		fprintf(stderr, "harness-rects commandbar on screen %d%% drawn\n", Bar_Drawn(bar));
+		return(1);
+	}
+	if (!strcmp(word[0], "thumb")) {
+		Rect bar = DAT_00B0FC58 != NULL ? *DAT_00B0FC58 : Rect(0, 0, 0, 0);
+		ShapeButtonClass const & a = CommandBarStatics::ButtonA;
+		ShapeButtonClass const & b = CommandBarStatics::ButtonB;
+		fprintf(stderr, "harness-thumb %s close %d,%d %dx%d%s open %d,%d %dx%d%s bar %d,%d %dx%d drawn %d%%\n",
+			Map.ThumbActive ? "open" : "closed",
+			a.X, a.Y, a.Width, a.Height, In_Gadget_List(&a) ? " listed" : "",
+			b.X, b.Y, b.Width, b.Height, In_Gadget_List(&b) ? " listed" : "",
+			bar.X, bar.Y, bar.Width, bar.Height, Bar_Drawn(bar));
 		return(1);
 	}
 	if (!strcmp(word[0], "camo") && words >= 3) {

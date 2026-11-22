@@ -1695,6 +1695,22 @@ the loaded game at 2x); yr_save_roundtrip.py with Zoom gestures, Map zoom 1.5x, 
      init.cpp Get_Language_Version (Version_Dialog_Proc, the version dialog).
    Nothing reachable was found, so no stand-in was written for them; the count stays 89.
 
+## Lane N27 (2026-11-21): the command bar's thumbs with Zoom gestures on
+
+The user's Duo report: "the bottom bar blanked out. I think I tapped somewhere on the very left side." The
+original's command bar has a close thumb at the left end of its buttons (ButtonA, 0xF0, "Tip:ThumbOpen") that hides
+the buttons, leaving the bare bar, and an open thumb at its right end beside the sidebar (ButtonB, 0xF1,
+"Tip:ThumbClosed") that brings them back (TabClass::AI, gamemd.exe 0x006D0680; FUN_0072FC60 places both). Closing
+the bar is the original's; the port's fault was the way back: with Zoom gestures on (the render scale, lane N20) the
+interface art is laid out for the twice-as-large screen, so the bar's right end, its end piece and the open thumb lay
+at the larger screen's sidebar x (1208 for 800x600) while the host shows only the bar's left part, the window's map
+column (0-632). A native fixup in FUN_0072FC60 lays the bar out from the shown part's right end
+(glue/yr_map_zoom.cpp `Yr_Command_Bar_Right`; the original's x at render scale 1). Harness: input-script point
+`@thumb` (the thumb shown now) and order `thumb` (open or closed, both thumbs' places, which is a button). ctest
+`yr-native-command-bar-thumb` (yr/tests/yr_command_bar_thumb.py): closes and opens the bar with Zoom gestures on and
+interface 1.25x (the open thumb must lie in the shown part: 576 now, 1208 before) and with the defaults (576, the
+original's).
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;

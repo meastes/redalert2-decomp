@@ -350,6 +350,19 @@ void Yr_Art_Laid_Out(int width, int height)
     art_h = height;
 }
 
+// FUN_0072FC60 (native fixup at its command bar's layout; lane N27): the x of the command bar's right end,
+// from which the original lays out its end piece, its button tiles, the close thumb (ButtonA) and the open
+// thumb (ButtonB) leftwards; the original's is the sidebar column's x. Laid out for the screen scaled by
+// the render scale, the host shows only the bar's left part, the window's map column (Options' width less
+// the column), so the right end is that part's: else the open thumb lies off the picture and a bar closed
+// with the close thumb cannot be opened again (the user's Duo report, 2026-11-21).
+int Yr_Command_Bar_Right(int width, int column_x)
+{
+    if (!ra2_enh_zoom_gestures() || Options.ScreenWidth < 800 || Options.ScreenHeight < 600) return column_x;
+    if (width != (Options.ScreenWidth - 168) * 2 + 168) return column_x;
+    return column_x - (width - Options.ScreenWidth);
+}
+
 // Change_Display_Mode (native fixup after its backdrop layout): the interface art is laid out once, at
 // Init_Game, for Options' size; with a render scale it is made again for the game mode's size when that
 // differs (the command bar at the larger screen's bottom, the column at its right edge), and back.
