@@ -621,7 +621,35 @@ def rebuild_categories(repository=REPOSITORY):
     if not path.exists():
         return None
     catalog = catalog_io.load(path, references=False)
-    return dict(coverage(catalog), inline_asm_rows=sum(1 for r in catalog['regions'] if evidenced_inline_asm(r)))
+    return dict(coverage(catalog), inline_asm_rows=sum(1 for r in catalog['regions'] if evidenced_inline_asm(r)),
+                flagged_judgment=rebuild_flagged_judgment(catalog, repository))
+
+
+# A rebuild judgment note under main's definition (owner ruling, 2026-11-22, lane O46): the note names one of main's
+# JUDGMENT_FLAGS as its first word (`count_calibrated: ...`). The rebuild's notes are free text with no flag field,
+# so only a note that names the flag is counted; one that describes the same kind of choice in other words is not.
+FLAGGED_NOTE = re.compile(r'\s*(?:%s)\b' % '|'.join(JUDGMENT_FLAGS))
+HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
+
+
+def rebuild_flagged_judgment(catalog, repository=REPOSITORY):
+    """(rows, body bytes) of the rebuild catalog's rows under main's judgment definition (JUDGMENT_FLAGS): a row
+    whose provenance.csv judgment note names a flag (FLAGGED_NOTE), or that a header_judgments.csv form whose
+    judgment note names a flag lists among its dependents (an address there that is a catalog entry). Counted over
+    the catalog (whole-unit accepted rows), as main counts its accepted regions."""
+    import csv
+    manifest = Path(repository) / 'rebuild/manifest'
+    body = {'%08x' % r['entry']: r['body_bytes'] for r in catalog['regions']}
+    flagged = set()
+    path = manifest / 'provenance.csv'
+    for r in (csv.DictReader(path.open()) if path.exists() else []):
+        if FLAGGED_NOTE.match(r.get('judgment') or '') and r.get('entry') in body:
+            flagged.add(r['entry'])
+    path = manifest / 'header_judgments.csv'
+    for r in (csv.DictReader(path.open()) if path.exists() else []):
+        if FLAGGED_NOTE.match(r.get('judgment') or ''):
+            flagged |= {m.group(1).lower().zfill(8) for m in HEX_ENTRY.finditer(r.get('dependents') or '')} & set(body)
+    return len(flagged), sum(body[e] for e in flagged)
 
 
 def kb(value):
@@ -695,10 +723,15 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| {:,} B |'.format(asm_bytes, asm_bytes),
              '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | {:,} B, {} | {} |'.format(
                  main_clean, pct(main_clean), clean_cell),
-             '| Judgment calls (different definitions, not comparable row for row: main counts the manifest flags {}; '
-             'the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus '
-             'the rows listed as dependents of a flagged header form; body bytes) | {:,} rows / {:,} B | {} |'.format(
+             '| Judgment calls, one definition for both trees (main\'s: the manifest flags {}; in the rebuild, the '
+             'accepted rows whose provenance.csv judgment note, or a header_judgments.csv form they depend on, names '
+             'one of those flags; whole-unit, body bytes) | {:,} rows / {:,} B | {} |'.format(
                  ', '.join(JUDGMENT_FLAGS), judgment[0], judgment[1],
+                 '{:,} rows / {:,} B'.format(*cat['flagged_judgment']) if cat.get('flagged_judgment') else 'n/a'),
+             '| Judgment calls, each tree\'s own count (not comparable row for row: main counts the manifest flags '
+             'above; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, '
+             'plus the rows listed as dependents of a flagged header form; body bytes) | {:,} rows / {:,} B | {} |'.format(
+                 judgment[0], judgment[1],
                  '{:,} rows / {:,} B'.format(int(r['judgment_any_rows']), int(r['judgment_any_bytes']))
                  if r.get('judgment_any_rows') else '{:,} rows / {:,} B (provenance notes only)'.format(
                      int(r['judgment_rows']), int(r['judgment_bytes']))),

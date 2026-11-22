@@ -1179,82 +1179,191 @@ bool IPXManagerClass::Forward_Router_Packet(CommHeaderType *packet, void *buf, i
  * HISTORY:                                                                *
  *   01/25/1995 BR : Created.                                              *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00525f60 has no row); 101 bytes differ against main's function-map extent; main: best 97.99, tried 14 times (register, frame, order)
-int IPXManagerClass::Service(void)
+int IPXManagerClass::Service(void) // RA2: 0x00525F60, ra2-decomp's matched twin (src/ipxmgr.cpp, Yuri's Revenge 0x541820) with this tree's names; RA2 adds the global-queue trace
 {
 	int rc = 1;
 	int i;
 	CommHeaderType *packet;
 	int packetlen;
 	IPXAddressClass address;
-	unsigned char temp_receive_buffer[1024];
-	char temp_address[128];
 	unsigned short port;
-	// RA2: Routed games also receive lobby and multicast traffic on this transport.
+
+	unsigned char temp_receive_buffer[1024];
+	int temp_receive_buffer_len;
+	int temp_address_len;
+	char temp_address[128];
+	char name[22];
+
 	if (PacketTransport) {
+
 		do {
-			int temp_receive_buffer_len = sizeof(temp_receive_buffer);
-			int temp_address_len = sizeof(temp_address);
+			temp_receive_buffer_len = sizeof(temp_receive_buffer);
+			temp_address_len = sizeof(temp_address);
 			port = 0;
 			packetlen = PacketTransport->Read(temp_receive_buffer, temp_receive_buffer_len, temp_address, temp_address_len, port);
 			if (packetlen) {
 				CurDataBuf = (char *)temp_receive_buffer;
-				address = *(IPXAddressClass *)temp_address;
+				address = *((IPXAddressClass *)temp_address);
+
 				packet = (CommHeaderType *)CurDataBuf;
 				if (packet->MagicNumber == GlobalChannel->Magic_Num()) {
-					DebugString("Adding packet from %s ; %d to global queue\n", address.As_String(), port);
-					if (!Forward_Router_Packet(packet, (char *)temp_receive_buffer, packetlen, (IPXAddressClass *)temp_address, port)) {
-						if (!GlobalChannel->Receive_Packet(packet, packetlen, &address, port)) {
-							++ReceiveOverflows;
-							DebugString("GlobalChannel recive buffer overflow %d\n", ReceiveOverflows);
-							break;
-						}
-						if (Session.Type == GAME_INTERNET && Session.UseRouter) {
-							for (i = 0; i < Session.Players.Count(); ++i) {
-								if (Session.Players[i]->Address.Is_Same_Node(address) && Session.PlayerPorts[i] == port) goto next_packet;
+					DebugString("Adding packet from %s ; %d to global queue\n", address.As_String(), port); // RA2: RA2 only (the image's literal)
+
+					if (Forward_Router_Packet(packet, temp_receive_buffer, packetlen, (IPXAddressClass *)temp_address, port)) {
+						continue;
+					}
+
+					if (!GlobalChannel->Receive_Packet(packet, packetlen, &address, port)) {
+						packetlen = 0;
+						ReceiveOverflows++;
+						DebugString("GlobalChannel recive buffer overflow %d\n", ReceiveOverflows);
+						continue;
+					}
+
+					if (Session.Type == GAME_INTERNET && Session.UseRouter) {
+						bool known = false;
+						for (i = 0; i < Session.Players.Count(); i++) {
+							if (Session.Players[i]->Address.Is_Same_Node(address) && Session.PlayerPorts[i] == port) {
+								known = true;
+								break;
 							}
-							if (Session.Players.Count() != 0) {
-								DebugString("NAT Alert - port number fiddling detected!\n");
-								if ((unsigned)packetlen >= 16 && packet->Code != ConnectionClass::PACKET_ACK && (unsigned)packetlen >= 63) {
-									int * message = (int *)(CurDataBuf + 16);
-									if (*message == NET_IM_STILL_HERE || *message == NET_PORT_PROBE || *message == NET_PING) {
-										char name[22];
-										memset(name, 0, sizeof(name));
-										strncpy(name, (char *)(message + 1), 20);
-										for (i = 0; i < Session.Players.Count(); ++i) {
-											wchar_t * wide_name = Session.Players[i]->Name;
-											if (!_stricmp(Wide_To_Narrow(wide_name), name)) {
-												if (!Session.Players[i]->Address.Is_Same_Node(address) || Session.Players[i]->Address.Get_Port() != port) {
-													DebugString("Player %s is having his port translated to %d\n", name, port);
-													unsigned short old_port = Session.PlayerPorts[i];
-													Session.PlayerPorts[i] = port;
-													OwnerTalk.Set_Port(Session.Players[i]->Player.ID, port);
-													GlobalChannel->Discard_Packets_To(&address, old_port);
-													GlobalChannel->Discard_Packets_To(&address, Session.Players[i]->Address.Get_Port());
-													Session.Players[i]->Address = address;
-													Session.Players[i]->Address.Set_Port(port);
-													OwnerTalk.Set_Address(Session.Players[i]->Player.ID, &Session.Players[i]->Address);
-													Session.Slots[Session.Player_To_Slot(i)]->Address = address;
-													Session.Slots[Session.Player_To_Slot(i)]->Address.Set_Port(port);
-													for (int connection = 0; connection < NumConnections; ++connection) {
-														wchar_t * connection_name = Connection[connection]->Name;
-														if (!_stricmp(Wide_To_Narrow(connection_name), name)) {
-															Connection[connection]->Address = address;
-															Connection[connection]->Address.Set_Port(port);
-															DebugString("Set address for connection %d to %s\n", connection, Connection[connection]->Address.As_String());
-															break;
-														}
-													}
-													if (!Session.NetOpen && NumConnections != 0 && Houses.Count() > Session.Players[i]->Player.ID && Session.Am_I_Master(Houses[Session.Players[i]->Player.ID])) {
-														DebugString("Frame %d, Router apparently changed address from %s to %s\n", Frame, MulticastChannel->Address.As_String(), address.As_String());
-														MulticastChannel->Address = address;
-														MulticastChannel->Address.Set_Port(port);
-														Session.HostAddress = address;
-														Session.HostAddress.Set_Port(port);
-														Session.PacketRouterAddress = address;
-														Session.PacketRouterAddress.Set_Port(port);
-														Session.PacketRouterPort = port;
-													}
+						}
+						if (!known && Session.Players.Count()) {
+							DebugString("NAT Alert - port number fiddling detected!\n");
+							if ((unsigned)packetlen >= sizeof(GlobalHeaderType) && packet->Code != ConnectionClass::PACKET_ACK && (unsigned)packetlen >= 0x3FU) {
+								int * message = (int *)(CurDataBuf + sizeof(GlobalHeaderType)); // RA2: the global packet's command, its name 4 bytes on
+								if (*message == NET_IM_STILL_HERE || *message == NET_PORT_PROBE || *message == NET_PING) {
+									memset(name, 0, sizeof(name));
+									strncpy(name, (char *)(message + 1), 20);
+									for (i = 0; i < Session.Players.Count(); i++) {
+										wchar_t * player_name = Session.Players[i]->Name;
+										if (_stricmp(Wide_To_Narrow(player_name), name) == 0) {
+											if (Session.Players[i]->Address.Is_Same_Node(address) && Session.Players[i]->Address.Get_Port() == port) {
+												break;
+											}
+											DebugString("Player %s is having his port translated to %d\n", name, port);
+											unsigned short oldport = Session.PlayerPorts[i];
+											Session.PlayerPorts[i] = port;
+											OwnerTalk.Set_Port(Session.Players[i]->Player.ID, port);
+											GlobalChannel->Discard_Packets_To(&address, oldport);
+											GlobalChannel->Discard_Packets_To(&address, Session.Players[i]->Address.Get_Port());
+											Session.Players[i]->Address = address;
+											Session.Players[i]->Address.Set_Port(port);
+											OwnerTalk.Set_Address(Session.Players[i]->Player.ID, &Session.Players[i]->Address);
+											Session.Slots[Session.Player_To_Slot(i)]->Address = address;
+											Session.Slots[Session.Player_To_Slot(i)]->Address.Set_Port(port);
+
+											for (int j = 0; j < NumConnections; j++) {
+												wchar_t * conn_name = Connection[j]->Name;
+												if (_stricmp(Wide_To_Narrow(conn_name), name) == 0) {
+													Connection[j]->Address = address;
+													Connection[j]->Address.Set_Port(port);
+													DebugString("Set address for connection %d to %s\n", j, Connection[j]->Address.As_String());
+													break;
+												}
+											}
+
+											if (!Session.NetOpen && NumConnections) {
+												if (Houses.Count() > Session.Players[i]->Player.ID && Session.Am_I_Master(Houses[Session.Players[i]->Player.ID])) {
+													DebugString("Frame %d, Router apparently changed address from %s to %s\n", Frame, MulticastChannel->Address.As_String(), address.As_String());
+													MulticastChannel->Address = address;
+													MulticastChannel->Address.Set_Port(port);
+													Session.HostAddress = address;
+													Session.HostAddress.Set_Port(port);
+													Session.PacketRouterAddress = address;
+													Session.PacketRouterAddress.Set_Port(port);
+													Session.PacketRouterPort = port;
+												}
+											}
+											break;
+										}
+									}
+								}
+							}
+						}
+					}
+				} else if (packet->MagicNumber == LobbyChannel->Magic_Num()) {
+					if (Session.ViaPacketRouter) {
+						if (!LobbyChannel->Receive_Packet(packet, packetlen, &address, 0)) {
+							packetlen = 0;
+							ReceiveOverflows++;
+							DebugString("RouterChannel recive buffer overflow %d\n", ReceiveOverflows);
+						}
+					}
+				} else if (packet->MagicNumber == ProductID) {
+
+					if (Forward_Router_Packet(packet, temp_receive_buffer, packetlen, (IPXAddressClass *)temp_address, port)) {
+						continue;
+					}
+
+					bool found_address = false;
+					if (Session.ViaPacketRouter && packet->ForwardMask == 0xFF) {
+						found_address = true;
+						if (packet->Code == ConnectionClass::PACKET_ACK) {
+							MulticastChannel->Receive_Packet(packet, packetlen);
+						} else if (NumConnections > 0) {
+							switch (packet->Code) {
+								case ConnectionClass::PACKET_DATA_ACK:
+									DebugString("Adding DATA_ACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port);
+									break;
+								case ConnectionClass::PACKET_DATA_NOACK:
+									DebugString("Adding DATA_NOACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port);
+									break;
+								case ConnectionClass::PACKET_ACK:
+									DebugString("Adding ACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port);
+									break;
+								default:
+									DebugString("Adding ??? packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port);
+									break;
+							}
+							if (!Connection[0]->Receive_Packet(packet, packetlen)) {
+								packetlen = 0;
+								ReceiveOverflows++;
+								DebugString("Receive buffer overflow %d\n", ReceiveOverflows);
+							}
+						}
+					} else {
+						for (i = 0; i < NumConnections; i++) {
+							if ((Session.ViaPacketRouter && OwnerTalk.Mask_From_ID(Connection[i]->ID) == packet->ForwardMask) ||
+								(!Session.ViaPacketRouter && Connection[i]->Address == address)) {
+								found_address = true;
+								break;
+							}
+						}
+						if (found_address) {
+							if (!Connection[i]->Receive_Packet(packet, packetlen)) {
+								packetlen = 0;
+								ReceiveOverflows++;
+								DebugString("Reecive buffer overflow %d\n", ReceiveOverflows);
+							}
+						}
+					}
+
+					if (found_address && Session.Type == GAME_INTERNET && Session.ViaPacketRouter && address != MulticastChannel->Address) {
+						for (i = 1; i < Session.Players.Count(); i++) {
+							if (Session.Players[i]->Address.Is_Same_Node(MulticastChannel->Address) &&
+								Session.Am_I_Master(Houses[Session.Players[i]->Player.ID])) {
+								DebugString("Frame %d, Router apparently changed address from %s to %s\n", Frame, MulticastChannel->Address.As_String(), address.As_String());
+								Session.Players[i]->Address = address;
+								MulticastChannel->Address = address;
+								Session.HostAddress = address;
+								Session.PacketRouterAddress = address;
+								OwnerTalk.Set_Address(Session.Players[i]->Player.ID, &address);
+							}
+						}
+					}
+					if (!found_address) {
+						if (Session.Type == GAME_INTERNET && !ScenarioInit) {
+							if (Frame > 8 && !Session.ViaPacketRouter && (unsigned)packetlen > 15U) {
+								if (packet->Code == ConnectionClass::PACKET_DATA_NOACK) {
+									EventClass * event = (EventClass *)(((char *)packet) + sizeof(CommHeaderType));
+									if (event->Type == EventClass::FRAMESYNC) {
+										int id = event->ID;
+										for (int k = 1; k < Session.Players.Count(); k++) {
+											if (Session.Players[k]->Player.ID == id) {
+												Session.Players[k]->Address = address;
+												if (Connection_Index(id) != CONNECTION_NONE) {
+													Connection[Connection_Index(id)]->Address = address;
 												}
 												break;
 											}
@@ -1264,111 +1373,49 @@ int IPXManagerClass::Service(void)
 							}
 						}
 					}
-				} else if (packet->MagicNumber == LobbyChannel->Magic_Num()) {
-					if (Session.ViaPacketRouter && !LobbyChannel->Receive_Packet(packet, packetlen, &address, 0)) {
-						++ReceiveOverflows;
-						DebugString("RouterChannel recive buffer overflow %d\n", ReceiveOverflows);
-						break;
-					}
-				} else if (packet->MagicNumber == ProductID && !Forward_Router_Packet(packet, (char *)temp_receive_buffer, packetlen, (IPXAddressClass *)temp_address, port)) {
-					if (Session.ViaPacketRouter && packet->ForwardMask == 0xff) {
-						if (packet->Code == ConnectionClass::PACKET_ACK) MulticastChannel->Receive_Packet(packet, packetlen);
-						else if (NumConnections > 0) {
-							switch (packet->Code) {
-								case ConnectionClass::PACKET_DATA_ACK: DebugString("Adding DATA_ACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port); break;
-								case ConnectionClass::PACKET_DATA_NOACK: DebugString("Adding DATA_NOACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port); break;
-								case ConnectionClass::PACKET_ACK: DebugString("Adding ACK packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port); break;
-								default: DebugString("Adding ??? packet %d from %s ; %d to multicast queue\n", packet->PacketID, address.As_String(), port); break;
-							}
-							if (!Connection[0]->Receive_Packet(packet, packetlen)) {
-								packetlen = 0;
-								++ReceiveOverflows;
-								DebugString("Receive buffer overflow %d\n", ReceiveOverflows);
-							}
-						}
-
-					} else {
-						bool found = false;
-						for (i = 0; i < NumConnections; ++i) {
-							if ((Session.ViaPacketRouter && OwnerTalk.Mask_From_ID(Connection[i]->ID) == packet->ForwardMask) || (!Session.ViaPacketRouter && Connection[i]->Address == address)) {
-								found = true;
-								break;
-							}
-						}
-						if (found) {
-							if (!Connection[i]->Receive_Packet(packet, packetlen)) {
-								packetlen = 0;
-								++ReceiveOverflows;
-								DebugString("Reecive buffer overflow %d\n", ReceiveOverflows);
-							}
-						} else {
-							if (Session.Type == GAME_INTERNET && !ScenarioInit && Frame > 8 && !Session.ViaPacketRouter && (unsigned)packetlen > 15 && packet->Code == ConnectionClass::PACKET_DATA_NOACK) {
-								EventClass * event = (EventClass *)((char *)packet + sizeof(CommHeaderType));
-								if (event->Type == EventClass::FRAMESYNC) {
-									int id = event->ID;
-									for (int player = 1; player < Session.Players.Count(); ++player) {
-										if (Session.Players[player]->Player.ID == id) {
-											Session.Players[player]->Address = address;
-											if (Connection_Index(id) != CONNECTION_NONE) Connection[Connection_Index(id)]->Address = address;
-											break;
-										}
-									}
-								}
-							}
-							goto next_packet;
-						}
-
-					}
-					if (Session.Type == GAME_INTERNET && Session.ViaPacketRouter && address != MulticastChannel->Address) {
-						for (int player = 1; player < Session.Players.Count(); ++player) {
-							if (Session.Players[player]->Address.Is_Same_Node(MulticastChannel->Address) && Session.Am_I_Master(Houses[Session.Players[player]->Player.ID])) {
-								DebugString("Frame %d, Router apparently changed address from %s to %s\n", Frame, MulticastChannel->Address.As_String(), address.As_String());
-								Session.Players[player]->Address = address;
-								MulticastChannel->Address = address;
-								Session.HostAddress = address;
-								Session.PacketRouterAddress = address;
-								OwnerTalk.Set_Address(Session.Players[player]->Player.ID, &address);
-							}
-						}
-					}
 				}
 			}
-		next_packet:
-			;
 		} while (packetlen);
+
 	}
-	if (GlobalChannel && PacketTransport && !GlobalChannel->Service()) {
-		GlobalChannel->Discard_Undeliverable_Packets();
-		rc = 0;
-	}
-	if (Session.ViaPacketRouter) {
-		if (LobbyChannel) {
-			if (!LobbyChannel->Service()) {
-				LobbyChannel->Discard_Undeliverable_Packets();
-				rc = 0;
-			}
-			if (!Session.AboutToExitActive) OwnerTalk.Handle_Router_Messages();
+
+	if (GlobalChannel && PacketTransport) {
+		if (!GlobalChannel->Service()) {
+			GlobalChannel->Discard_Undeliverable_Packets();
+			rc = 0;
 		}
-		if (Session.ViaPacketRouter && MulticastChannel && !MulticastChannel->Service()) {
+	}
+	if (Session.ViaPacketRouter && LobbyChannel) {
+		if (!LobbyChannel->Service()) {
+			LobbyChannel->Discard_Undeliverable_Packets();
+			rc = 0;
+		}
+		if (!Session.AboutToExitActive) {
+			OwnerTalk.Handle_Router_Messages();
+		}
+	}
+	if (Session.ViaPacketRouter && MulticastChannel) {
+		if (!MulticastChannel->Service()) {
 			DebugString("Multicast channel has gone bad\n");
 			rc = 0;
 		}
 	}
-	if (PacketTransport && NumConnections > 0) {
-		i = 0;
-		do {
+	if (PacketTransport) {
+		for (i = 0; i < NumConnections; i++) {
 			if (!Connection[i]->Service()) {
 				rc = 0;
 				BadConnection = Connection[i]->ID;
 				DebugString("Error - Connection %d has gone bad\n", BadConnection);
 			}
-			++i;
-		} while (i < NumConnections);
+		}
 	}
-	if (rc) BadConnection = CONNECTION_NONE;
-	return rc;
+
+	if (rc) {
+		BadConnection = CONNECTION_NONE;
+	}
+
+	return(rc);
 }
-#endif
 void IPXManagerClass::Set_Connection_Address(int id, IPXAddressClass *address) // RA2: 0x005269F0
 {
 	int index = Connection_Index(id); // RA2: as above

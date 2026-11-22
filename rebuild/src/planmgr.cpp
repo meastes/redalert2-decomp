@@ -2387,34 +2387,33 @@ Point2D __fastcall Planning_Event_Pixel(EventClass const * event, AbstractClass 
 Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, AbstractClass * object); // RA2: 0x00619810
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno); // RA2: 0x00618BB0
 
-bool __stdcall Planning_Left_Press(int x, int y); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00617340 has no row); main: best 38.59, tried 7 times (register, layout, frame)
-bool __stdcall Planning_Left_Press(int x, int y) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot use; true when it took the input
+bool __stdcall Planning_Left_Press(Point2D xy); // RA2: the definition is not exact yet
+#ifdef RA2_NON_MATCHING // not exact: 847 bytes differ by position, ours 54 instructions longer; ra2-decomp's twin text (Yuri's Revenge 0x0063A5A0) in this tree's names, the parameter a Point2D as the twin has it. The twin's do-while Find_Node_At peels its first pass here where the executable has one loop. With Find_Node_At as a plain for loop (a form no reference has; variation_candidates.csv) 17 bytes in 8 instructions are left, calls, frame and registers the executable's. Those 17: in the three expanded Planning_Refuse copies the executable loads the pan value before pushing the controller argument (mov edx, 0x2000; push 0), as Planning_Refuse's own body does, where ours pushes first, and one return sets al before the register pops; an instruction scheduling difference no root statement form moved
+bool __stdcall Planning_Left_Press(Point2D xy) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot take; true when planning mode used the press (ra2-decomp's twin text, Yuri's Revenge 0x0063A5A0)
 {
-	if (!PlanningNodeClass::PlanningModeActive) { // RA2: as above
-		return false; // RA2: as above
-	}
-	PlanningNodeClass * previous = Planning_Get_Picked_Node(); // RA2: as above
-	PlanningNodeClass * node = Planning_Node_At(Point2D(x, y)); // RA2: as above
-	if (node != NULL && node != previous) { // RA2: as above
-		Map.Set_Default_Mouse(MOUSE_NORMAL, true); // RA2: as above
-		Planning_Set_Picked_Node(node); // RA2: as above
-	} else { // RA2: as above
-		PlanningNodeClass * picked = Planning_Pick_Node(Point2D(x, y)); // RA2: as above
-		if (picked != NULL) { // RA2: as above
-			if (Planning_Selection_Node_State(picked) != -1) { // RA2: as above
-				Planning_Refuse("MSG:PlanningModeInvalidNodeX"); // RA2: as above
-				return true; // RA2: as above
+	if (!Planning_Is_Active()) return false;
+
+	PlanningNodeClass * selected = Planning_Get_Picked_Node();
+	PlanningNodeClass * hit = Hover_Node_At(xy);
+	if (hit && hit != selected) {
+		Map.Set_Default_Mouse(MOUSE_NORMAL, true);
+		Planning_Set_Picked_Node(hit);
+	} else {
+		PlanningNodeClass * node = Find_Node_At(PlanningNodeClass::Unknown1, xy);
+		if (node) {
+			if (Planning_Selection_Node_State(node) != -1) {
+				Planning_Refuse("MSG:PlanningModeInvalidNodeX");
+				return true;
 			}
-		} else { // RA2: as above
-			int kind = Planning_Selection_Kind(); // RA2: as above
-			if (kind != -1) { // RA2: as above
-				Planning_Refuse_Selection(kind); // RA2: as above
-				return true; // RA2: as above
+		} else {
+			int kind = Planning_Selection_Kind();
+			if (kind != -1) {
+				Planning_Refuse_Selection(kind);
+				return true;
 			}
 		}
 	}
-	return previous != NULL || node != NULL; // RA2: as above
+	return selected || hit;
 }
 #endif
 

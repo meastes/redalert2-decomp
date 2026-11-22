@@ -69,7 +69,7 @@ class MultiplayerGameMode
 		virtual ~MultiplayerGameMode(void);
 		virtual bool vt_entry_04(void) { return(false); }
 		virtual bool vt_entry_08(void) { return(false); }
-		virtual bool vt_entry_0C(unsigned a) { return(true); }
+		virtual bool vt_entry_0C(WideWstring * error) { return(true); } // RA2: the mode may refuse to be selected and says why (ra2-decomp declares the same parameter)
 		virtual bool AssignTeams(void);
 		virtual bool CheckStartConditions(WideWstring * message);
 		virtual bool AssignTeamsAtStart(void);

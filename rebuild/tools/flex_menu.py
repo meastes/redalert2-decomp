@@ -22,7 +22,8 @@ gap_reason / allowance) and rows whose unit is "(gap)" with the totals per reaso
 sized with guardprobe.py (--probe runs it for the units concerned; the outputs are kept under
 build/r/flex/<unit>.txt and reused while the unit's source is unchanged). Allowance = what would have to be
 allowed for the function to be compiled into the build rather than only counted: nothing; a count-holding
-declaration; a mask; an unverified reference."""
+declaration; a mask; an unverified reference; the parent landing (a row exact only inside one parked parent,
+named in gap_reason; the parent's row carries `brings`, the rows and bytes its landing would add)."""
 import csv
 import collections
 import re
@@ -77,16 +78,34 @@ def probe(unit, entries):
         out.write_text(r.stdout + r.stderr)
     text = out.read_text()
     gl = {}
-    for m in re.finditer(r'^guard line (\d+) .*?: gains \d+ \(\d+ B\), loses (\d+), added not exact (\d+)', text, re.M):
-        gl[m.group(1)] = (int(m.group(2)), int(m.group(3)))
+    for m in re.finditer(r'^guard line (\d+) \((.*?)\): gains \d+ \(\d+ B\), loses (\d+), added not exact (\d+)'
+                         r'(?:\n    loses:[^\n]*)?(?:\n    added, not exact rows: ([^\n]*))?', text, re.M):
+        added = [(a.rsplit('@', 1)[0], a.rsplit('@', 1)[1]) for a in (m.group(5) or '').split() if '@' in a]
+        gl[m.group(1)] = (int(m.group(3)), int(m.group(4)), added, m.group(2))
     rows = {}
     for m in re.finditer(r'^  ([0-9a-f]{8})\s+\d+ .*?(guards \[([\d, ]*)\]|none alone.*)$', text, re.M):
         rows[m.group(1)] = ([g.strip() for g in (m.group(3) or '').split(',') if g.strip()], gl)
     return rows
 
 
+def holder_of(unit, added):
+    """(entry, name) of the parked parent among a guard's added, not-exact functions (guardprobe): the one at an
+    address inside the unit's range or among its rows (template or inline copies elsewhere are not parents),
+    else ('', '')."""
+    info = R.load_json(R.UNITS, {}).get(unit) or {}
+    own = {x['entry'] for x in info.get('rows', [])}
+    lo, hi = (info.get('range') or ['0', '0'])[:2]
+    # A template instance (a copy itself) is a parent only when no other function qualifies.
+    for sym, at in sorted(added, key=lambda a: '?$' in a[0]):
+        if re.fullmatch(r'[0-9a-f]{8}', at) and (at in own or int(lo, 16) <= int(at, 16) < int(hi, 16)):
+            return at, demangle(sym) or sym
+    return '', ''
+
+
 def gap_of(r, probes):
-    """(reason, allowance) for a function counted at function level but not built, else ('', '')."""
+    """(reason, allowance) for a function counted at function level but not built, else ('', ''). A row exact
+    only inside a parked parent names the parent (lane O46, 2026-11-22: the template copies each flex would
+    bring along) and sets r['holder'] to the parent's entry."""
     if r['bucket'] == 'count_sensitive':
         return 'exact form parked count-sensitive', 'a count-holding declaration'
     if r['bucket'] != 'exact_when_open':
@@ -97,13 +116,22 @@ def gap_of(r, probes):
     gs, gl = p
     if not gs:
         return 'guard-open exact only with several guards open together', 'a mask'
-    loses, added = gl.get(gs[0], (0, 0))
+    loses, added, functions, label = gl.get(gs[0], (0, 0, [], ''))
+    if added == 0 and loses == 0 and 'not exact' in label and 'text is exact' not in label:
+        # guardprobe counts rows only: the guard's own draft has no row (image-derived bound, no independent
+        # bound) and is not exact by its label, so the guard cannot come off (lane O46: missile 0x593870)
+        return 'exact only inside a parked parent (guard-open exact): the guard\'s draft, which has no row', \
+            'the parent landing'
     if added == 0 and loses == 0:
         if r['flex'] == 'a':
             return 'guard-open exact, its own guard could come off, held as a hand-made variation', \
                 'nothing (but its text is a hand-made variation: the user\'s word)'
         return 'guard-open exact, its own guard could come off as it stands', 'nothing'
     if added:
+        entry, name = holder_of(r['unit'], functions)
+        if entry:
+            r['holder'] = entry
+            return 'exact only inside a parked parent (guard-open exact): %s %s' % (name, entry), 'the parent landing'
         return 'exact only inside a parked parent (guard-open exact)', 'a mask'
     return 'guard-open exact, opening its guard loses %d rows' % loses, 'a count-holding declaration'
 
@@ -135,7 +163,17 @@ def main():
         return ''
 
     rows = []
+    # tail_buckets.csv is refreshed only by tailmap.py --write: leave out rows that have since left units.json or
+    # that the unit's current check finds exact (lane O46: 12 stale rows, 1,031 B, counted in the gap).
+    current = {}
+    for u, info in units.items():
+        last = R.last_check(u, info)
+        status = {x['entry']: x['status'] for x in last['results']} if last else {}
+        for x in info['rows']:
+            current[(u, x['entry'])] = status.get(x['entry'])
     for r in tail:
+        if (r['unit'], r['entry']) not in current or current[(r['unit'], r['entry'])] == 'exact':
+            continue
         rows.append(dict(unit=r['unit'], entry=r['entry'], function=demangle(r['function']) or r['function'],
                          bytes=int(r['bytes']), bucket=r['bucket'], label=guard_for(r['unit'], r['function']),
                          draft='no' if r['bucket'] in ('no_draft', 'text_if0') else 'yes'))
@@ -250,13 +288,23 @@ def main():
     for r in rows:
         r['gap_reason'], r['allowance'] = gap_of(r, probes)
         if r['gap_reason']:
-            g = gap.setdefault((r['gap_reason'], r['allowance']), [0, 0])
+            key = (r['gap_reason'].split(': ')[0] if r.get('holder') else r['gap_reason'], r['allowance'])
+            g = gap.setdefault(key, [0, 0])
             g[0] += 1; g[1] += extent.get(r['entry'], r['bytes'])
+    # What each parent's landing brings along: the gap rows it holds (lane O46, 2026-11-22).
+    brings = collections.defaultdict(lambda: [0, 0])
+    for r in rows:
+        if r.get('holder'):
+            brings[(r['unit'], r['holder'])][0] += 1
+            brings[(r['unit'], r['holder'])][1] += extent.get(r['entry'], r['bytes'])
+    for r in rows:
+        n, b = brings.get((r['unit'], r['entry']), (0, 0))
+        r['brings'] = '+%d rows / %d B (template or inline copies only it emits)' % (n, b) if n else ''
     unbound = [r for r in rows if r['bucket'] == 'unbound']
 
     rows.sort(key=lambda r: (r['flex'], r['unit'], r['entry'], r['function']))
     cols = ['unit', 'entry', 'function', 'bytes', 'bucket', 'best', 'flex', 'flex_note', 'also', 'draft',
-            'gap_reason', 'allowance']
+            'gap_reason', 'allowance', 'brings']
     tot = collections.OrderedDict((f, [0, 0]) for f in 'abcde')
     for r in rows:
         tot[r['flex']][0] += 1

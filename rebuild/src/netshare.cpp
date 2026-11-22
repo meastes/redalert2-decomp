@@ -2049,91 +2049,74 @@ int __fastcall Select_List_Item_By_Data(HWND dialog, int data); // RA2: 0x005C71
 void __fastcall Fill_Game_Mode_List(HWND list, int mode_index); // RA2: 0x005B71E0, fills the game mode list and selects the mode
 void __fastcall Dialog_On_OD_4EC(HWND dialog); // RA2: 0x005E8710, message 0x4EC
 namespace OwnerDraw { bool __fastcall WS_Save_Dialog_Values(HWND dialog); } // RA2: 0x005E5FC0, as netdlg2.cpp
-bool __fastcall Play_Dialog_Move_In(HWND dialog); // RA2: 0x005E5F80, the dialog slides in, as ownrdraw.cpp
+namespace OwnerDraw { bool __fastcall Play_Dialog_Move_In(HWND dialog); } // RA2: 0x005E61B0, the dialog slides in, defined in ownrdraw.cpp
 
-// RA2: the refill of the map list and the game mode check are kept inline in the dialog procedure
-static inline void Collect_Compatible_Maps(MultiplayerGameMode * mode, DynamicVectorClass<MultiMission const *> & maps) // RA2: the map dialog's list and mode handling, as above
+// RA2: the helpers of the map dialog, ra2-decomp's file-local helpers of the same names (src/netshare.cpp)
+static inline MultiplayerGameMode * Get_Selected_Game_Mode(HWND window)
 {
-	int count = Session.Scenarios.Count(); // RA2: the map dialog's list and mode handling, as above
-	for (int index = 0; index < count; index++) { // RA2: the map dialog's list and mode handling, as above
-		MultiMission * map = Session.Scenarios[index]; // RA2: the map dialog's list and mode handling, as above
-		if (mode->IsMapAllowed(map)) { // RA2: the map dialog's list and mode handling, as above
-			maps.Add(map); // RA2: the map dialog's list and mode handling, as above
+	int selected = SendDlgItemMessage(window, 1771, LB_GETCURSEL, 0, 0);
+	if (selected == -1) return(NULL);
+	return((MultiplayerGameMode *)SendDlgItemMessage(window, 1771, LB_GETITEMDATA, selected, 0));
+}
+
+static inline void Save_Scenario_Name(void)
+{
+	HWND list = ScenarioPick;
+	int sel = SendDlgItemMessage(ScenarioPick, IDC_AILEVEL_SLIDER, LB_GETCURSEL, 0, 0);
+	if (sel != -1) {
+		MultiMission * title = (MultiMission *)SendDlgItemMessage(list, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, sel, 0);
+		if (title != NULL) {
+			wcscpy(PickedScenarioDescription, title->Description());
+			return;
 		}
+	}
+	PickedScenarioDescription[0] = 0;
+}
+
+static inline int Select_Scenario_By_Name(HWND window, wchar_t const * name)
+{
+	if (name == NULL) {
+		return(-1);
+	}
+	int found = 0;
+	int count = SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETCOUNT, 0, 0);
+	for (int i = 0; i < count; i++) {
+		MultiMission * candidate = (MultiMission *)SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, i, 0);
+		if (wcscmp(candidate->Description(), name) == 0) {
+			found = i;
+		}
+	}
+	SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETCURSEL, found, 0);
+	SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETTOPINDEX, found, 0);
+	return(found);
+}
+
+static inline void Select_Scenario_Index(HWND window, int index)
+{
+	if (index < Session.Scenarios.Count()) {
+		Select_List_Item_By_Data(window, (int)Session.Scenarios[index]);
 	}
 }
 
-static inline void Populate_Compatible_Map_List(HWND window, MultiplayerGameMode * mode) // RA2: the map dialog's list and mode handling, as above
+static inline void Enable_Random_Scenario(HWND window, MultiplayerGameMode * mode)
 {
-	DynamicVectorClass<MultiMission const *> maps; // RA2: the map dialog's list and mode handling, as above
-	Collect_Compatible_Maps(mode, maps); // RA2: the map dialog's list and mode handling, as above
-	HWND list = GetDlgItem(window, IDC_AILEVEL_SLIDER); // RA2: the map dialog's list and mode handling, as above
-	mode->DrawTeamDropdown(list, &maps, NULL); // RA2: the map dialog's list and mode handling, as above
+	bool allowed = mode->IsAIAllowed();
+	HWND button = GetDlgItem(window, IDC_CREATE_RANDOM_MAP);
+	EnableWindow(button, allowed);
 }
 
-static inline void Refresh_Mode_Map_Controls(HWND window, MultiplayerGameMode * mode) // RA2: the map dialog's list and mode handling, as above
+static inline void Populate_Scenario_List(HWND window, MultiplayerGameMode * mode)
 {
-	{
-		DynamicVectorClass<MultiMission const *> maps; // RA2: the map dialog's list and mode handling, as above
-		int count = Session.Scenarios.Count(); // RA2: the map dialog's list and mode handling, as above
-		for (int index = 0; index < count; index++) { // RA2: the map dialog's list and mode handling, as above
-			MultiMission * map = Session.Scenarios[index]; // RA2: the map dialog's list and mode handling, as above
-			if (mode->IsMapAllowed(map)) { // RA2: the map dialog's list and mode handling, as above
-				maps.Add(map); // RA2: the map dialog's list and mode handling, as above
-			}
-		}
-		HWND list = GetDlgItem(window, IDC_AILEVEL_SLIDER); // RA2: the map dialog's list and mode handling, as above
-		mode->DrawTeamDropdown(list, &maps, NULL); // RA2: the map dialog's list and mode handling, as above
-	}
-	bool can_random = mode->IsAIAllowed(); // RA2: the map dialog's list and mode handling, as above
-	HWND random_button = GetDlgItem(window, IDC_CREATE_RANDOM_MAP); // RA2: the map dialog's list and mode handling, as above
-	EnableWindow(random_button, can_random); // RA2: the map dialog's list and mode handling, as above
-}
-
-static inline void Change_Lobby_Game_Mode(HWND window, unsigned wparam, wchar_t const * selected_name) // RA2: the map dialog's list and mode handling, as above
-{
-	if (!MapListBusy && (unsigned short)(wparam >> 16) == 1) { // RA2: the map dialog's list and mode handling, as above
-		int selected = SendDlgItemMessage(window, 1771, LB_GETCURSEL, 0, 0); // RA2: the map dialog's list and mode handling, as above
-		if (selected == -1) { // RA2: the map dialog's list and mode handling, as above
-			return; // RA2: the map dialog's list and mode handling, as above
-		}
-		MultiplayerGameMode * mode = (MultiplayerGameMode *)SendDlgItemMessage(window, 1771, LB_GETITEMDATA, selected, 0); // RA2: the map dialog's list and mode handling, as above
-		if (!mode) { // RA2: the map dialog's list and mode handling, as above
-			return; // RA2: the map dialog's list and mode handling, as above
-		}
-		WideWstring reason; // RA2: the map dialog's list and mode handling, as above
-		if (mode->CheckStartConditions(&reason)) { // RA2: the map dialog's list and mode handling, as above
-			mode->AssignTeams(); // RA2: the map dialog's list and mode handling, as above
-			Refresh_Mode_Map_Controls(window, mode); // RA2: the map dialog's list and mode handling, as above
-			if (selected_name) { // RA2: the map dialog's list and mode handling, as above
-				int found = 0; // RA2: the map dialog's list and mode handling, as above
-				int count = SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETCOUNT, 0, 0); // RA2: the map dialog's list and mode handling, as above
-				for (int i = 0; i < count; i++) { // RA2: the map dialog's list and mode handling, as above
-					wchar_t const * name = (wchar_t const *)SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, i, 0); // RA2: the map dialog's list and mode handling, as above
-					if (wcscmp(name, selected_name) == 0) { // RA2: the map dialog's list and mode handling, as above
-						found = i; // RA2: the map dialog's list and mode handling, as above
-					}
-				}
-				SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETCURSEL, found, 0); // RA2: the map dialog's list and mode handling, as above
-				SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETTOPINDEX, found, 0); // RA2: the map dialog's list and mode handling, as above
-			}
-			HWND dialog = ScenarioPick; // RA2: the map dialog's list and mode handling, as above
-			selected = SendDlgItemMessage(dialog, IDC_AILEVEL_SLIDER, LB_GETCURSEL, 0, 0); // RA2: the map dialog's list and mode handling, as above
-			wchar_t const * name; // RA2: the map dialog's list and mode handling, as above
-			if (selected != -1 && (name = (wchar_t const *)SendDlgItemMessage(dialog, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, selected, 0)) != NULL) { // RA2: the map dialog's list and mode handling, as above
-				wcscpy(PickedScenarioDescription, name); // RA2: the map dialog's list and mode handling, as above
-			} else {
-				PickedScenarioDescription[0] = '\0'; // RA2: the map dialog's list and mode handling, as above
-			}
-			ModeWarningShown = false; // RA2: the map dialog's list and mode handling, as above
-		} else {
-			if (!ModeWarningShown) { // RA2: the map dialog's list and mode handling, as above
-				ODMessageBox(reason.get(), 0, NULL, false); // RA2: the map dialog's list and mode handling, as above
-				ModeWarningShown = true; // RA2: the map dialog's list and mode handling, as above
-			}
-			SendDlgItemMessage(window, 1771, LB_SETCURSEL, 0, 0); // RA2: the map dialog's list and mode handling, as above
+	DynamicVectorClass<MultiMission const *> maps;
+	int count = Session.Scenarios.Count();
+	for (int i = 0; i < count; i++) {
+		MultiMission const * map = Session.Scenarios[i];
+		if (mode->IsMapAllowed(map)) {
+			maps.Add(map);
 		}
 	}
+	HWND list = GetDlgItem(window, IDC_AILEVEL_SLIDER);
+	mode->DrawTeamDropdown(list, &maps, NULL);
 }
 
 
@@ -2144,129 +2127,116 @@ static inline void Change_Lobby_Game_Mode(HWND window, unsigned wparam, wchar_t 
 /// </summary>
 /// <returns>Returns with TRUE if the message was dealt with here, FALSE to leave it to the
 /// dialog manager.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c69e0 has no row)
-int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+#ifdef RA2_NON_MATCHING // not exact: 1212 bytes differ by position, ours 96 bytes shorter (1,624 before, main-derived text); ra2-decomp's twin text (Yuri's Revenge 0x005E6920, matched there) with its file-local helpers, in this tree's names: the calls and their order are the executable's up to the mode list. There the executable calls the DynamicVectorClass constructor and expands the vector's Clear where ours expands the constructor and calls Clear, and at the dialog's start it expands Select_List_Item_By_Data where ours calls it: an inline budget difference. Scratch probes: five or six more empty inline call sites at the start of the dialog's start case give the executable's calls everywhere; no reference text has them
+int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005C69E0, ra2-decomp's twin text (Yuri's Revenge 0x005E6920) in this tree's names
 {
-	switch (message) { // RA2: as above
-		case WM_DRAWITEM: // RA2: the cases come in this order in the executable
-			Dialog_On_WM_DRAWITEM(lparam); // RA2: as above
-			return(TRUE); // RA2: as above
+	switch (message) {
+		case WM_DRAWITEM:
+			Dialog_On_WM_DRAWITEM(lparam);
+		// Fall through: both messages have been handled.
+		case WM_ERASEBKGND:
+			return(TRUE);
 
-		case WM_PAINT: // RA2: as above
+		case WM_PAINT:
 			Dialog_On_WM_PAINT(window); // RA2: the dialog is painted by the owner draw paint (0x005FEE70), not OwnerDraw::Draw_Dialog_Back
-			if (MultiplayerMapPreview) { // RA2: as above
-				MultiplayerMapPreview->Blit_Preview(window); // RA2: as above
-			}
+			if (MultiplayerMapPreview) MultiplayerMapPreview->Blit_Preview(window);
 			Slide_Pending_Dialog(window); // RA2: a dialog waiting to slide in does so now (0x005E5F20)
-			ValidateRect(window, NULL); // RA2: as above
-			return(FALSE); // RA2: as above
+			ValidateRect(window, NULL);
+			break;
 
-		case WM_ERASEBKGND: // RA2: as above
-			return(TRUE); // RA2: as above
+		case WM_NCDESTROY:
+			On_WM_NCDESTROY(window);
+			break;
 
-		case WM_NCDESTROY: // RA2: as above
-			On_WM_NCDESTROY(window); // RA2: as above
-			return(FALSE); // RA2: as above
-
-		case WM_COMMAND: // RA2: as above
-			switch (LOWORD(wparam)) { // RA2: as above
-				case 1733: // RA2: the accept button; TibSun's IDOK handling is the function Accept_Map_Selection
-					Accept_Map_Selection(window); // RA2: as above
-					return(FALSE); // RA2: as above
-
-				case IDC_CREATE_RANDOM_MAP: { // RA2: as above
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case IDC_CANCEL:
+					WS_Destroy_Dialog(window, 2);
+					break;
+				case IDC_CREATE_RANDOM_MAP: {
 					OwnerDraw::WS_Save_Dialog_Values(window); // RA2: the dialog's values are saved before it is hidden (0x005E5FC0)
-					ShowWindow(window, SW_HIDE); // RA2: as above
-					int scenario = CreateRandomMap(); // RA2: as above
-					if (scenario != -1) { // RA2: as above
-						int row = SendDlgItemMessage(window, 1771, LB_GETCURSEL, 0, 0); // RA2: the game mode list is control 1771
-						if (row != -1) { // RA2: as above
-							MultiplayerGameMode * mode = (MultiplayerGameMode *)SendDlgItemMessage(window, 1771, LB_GETITEMDATA, row, 0); // RA2: as above
-							if (mode) { // RA2: as above
-								Populate_Compatible_Map_List(window, mode); // RA2: as above
-							}
-						}
-						if (scenario < Session.Scenarios.Count()) { // RA2: as above
-							Select_List_Item_By_Data(window, (int)Session.Scenarios[scenario]); // RA2: the new map is selected by its item data
-						}
-						Set_Scenario_Info_From_Index(scenario); // RA2: as above
-						if (!MultiplayerMapPreview->Get_Preview_Surface()) { // RA2: as above
-							Update_Network_Dialog_Preview(window); // RA2: as above
-						}
-						Session.Options.ScenarioIndex = OriginalScenario; // RA2: as above
-						Set_Scenario_Info_From_Index(OriginalScenario); // RA2: as above
-						bool accepted = Accept_Map_Selection(window); // RA2: the new map is taken at once
-						Darken_Surface(NULL, true); // RA2: as above
-						if (accepted) { // RA2: as above
-							return(FALSE); // RA2: as above
-						}
-					}
-					Play_Dialog_Move_In(window); // RA2: the dialog slides back in (0x005E5FC0's neighbor)
-					ShowWindow(window, SW_SHOWNORMAL); // RA2: as above
-					return(FALSE); // RA2: as above
+					ShowWindow(window, SW_HIDE);
+					int scenario = CreateRandomMap();
+					if (scenario != -1) {
+						MultiplayerGameMode * mode = Get_Selected_Game_Mode(window);
+						if (mode) {
+							Populate_Scenario_List(window, mode);
 				}
-
-				case IDC_CANCEL: // RA2: as above
-					WS_Destroy_Dialog(window, 2); // RA2: as above
-					return(FALSE); // RA2: as above
-
-				case 1771: // RA2: the game mode list
-					Change_Lobby_Game_Mode(window, wparam, PickedScenarioDescription); // RA2: as above
-					return(FALSE); // RA2: as above
+						Select_Scenario_Index(window, scenario);
+						Set_Scenario_Info_From_Index(scenario);
+						if (!MultiplayerMapPreview->Get_Preview_Surface()) Update_Network_Dialog_Preview(window);
+						Session.Options.ScenarioIndex = OriginalScenario;
+						Set_Scenario_Info_From_Index(OriginalScenario);
+						bool accepted = Accept_Map_Selection(window);
+						Darken_Surface(NULL, true);
+						if (accepted) break;
 			}
-			return(FALSE); // RA2: as above
-
-		case OD_SUBCLASSED: { // RA2: as above
-			MapListBusy = true; // RA2: as above
-			MultiplayerGameMode * mode = MultiplayerGameMode::Get(Session.Options.MPModeIndex); // RA2: the dialog lists the game modes and the maps of the current one
-			if (!mode) { // RA2: as above
-				mode = First_Game_Mode(); // RA2: as above
-			}
-			Fill_Game_Mode_List(GetDlgItem(window, 1771), mode->MPModeIndex); // RA2: 0x005B71E0
-			if (mode) { // RA2: as above
-				Populate_Compatible_Map_List(window, mode); // RA2: as above
-			}
-			bool can_random = mode->IsAIAllowed(); // RA2: as above
-			HWND random_button = GetDlgItem(window, IDC_CREATE_RANDOM_MAP); // RA2: as above
-			EnableWindow(random_button, can_random); // RA2: as above
-			if (Session.Options.ScenarioIndex != -1 && Session.Options.ScenarioIndex < Session.Scenarios.Count()) { // RA2: as above
-				MultiMission * map = Session.Scenarios[Session.Options.ScenarioIndex]; // RA2: as above
-				if (map) { // RA2: as above
-					int found = 0; // RA2: as above
-					int count = SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETCOUNT, 0, 0); // RA2: as above
-					for (int i = 0; i < count; i++) { // RA2: as above
-						if ((MultiMission *)SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, i, 0) == map) { // RA2: as above
-							found = i; // RA2: as above
-						}
-					}
-					SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETCURSEL, found, 0); // RA2: as above
-					SendDlgItemMessage(window, IDC_AILEVEL_SLIDER, LB_SETTOPINDEX, found, 0); // RA2: as above
-				}
-			}
-			OriginalScenario = Session.Options.ScenarioIndex; // RA2: as above
-			LastPreviewedScenario = -1; // RA2: as above
-			MapListBusy = false; // RA2: as above
-			return(FALSE); // RA2: as above
+					OwnerDraw::Play_Dialog_Move_In(window);
+					ShowWindow(window, SW_SHOW);
+					break;
 		}
+				case 1733: // RA2: the accept button
+					Accept_Map_Selection(window);
+					break;
+				case 1771: // RA2: the game mode list
+					if (!MapListBusy && HIWORD(wparam) == LBN_SELCHANGE) {
+						MultiplayerGameMode * mode = Get_Selected_Game_Mode(window);
+						if (mode) {
+							WideWstring error;
+							if (mode->vt_entry_0C(&error)) {
+								mode->AssignTeams();
+								Populate_Scenario_List(window, mode);
+								Enable_Random_Scenario(window, mode);
+								Select_Scenario_By_Name(window, PickedScenarioDescription);
+								Save_Scenario_Name();
+								ModeWarningShown = false;
+							} else {
+								if (!ModeWarningShown) {
+									ODMessageBox(error.get(), 0, NULL, false);
+									ModeWarningShown = true;
+						}
+								SendDlgItemMessage(window, 1771, LB_SETCURSEL, 0, 0);
+					}
+				}
+			}
+					break;
+		}
+			break;
+
+		case 0x4EC:
+			Dialog_On_OD_4EC(window);
+			break;
 
 		case 0x4E9: { // RA2: the tool tip of a mode in the list
-			MapTipRequest * request = (MapTipRequest *)lparam; // RA2: as above
-			int control = GetDlgCtrlID(request->Window); // RA2: as above
-			request->Text = NULL; // RA2: as above
-			if (control == 1771 && request->Item != -1) { // RA2: as above
-				MultiplayerGameMode * mode = (MultiplayerGameMode *)SendDlgItemMessage(window, 1771, LB_GETITEMDATA, request->Item, 0); // RA2: as above
-				if (mode) { // RA2: as above
-					request->Text = mode->CSFTooltip.text(); // RA2: as above
-				}
-			}
-			return(TRUE); // RA2: as above
+			MapTipRequest * request = (MapTipRequest *)lparam;
+			int id = GetDlgCtrlID(request->Window);
+			request->Text = (wchar_t const *)NULL;
+			if (id == 1771 && request->Item != -1) {
+				MultiplayerGameMode * mode = (MultiplayerGameMode *)SendDlgItemMessage(window, id, LB_GETITEMDATA, request->Item, 0);
+				if (mode) request->Text = mode->CSFTooltip.text();
 		}
-
-		case 0x4EC: // RA2: as above
-			Dialog_On_OD_4EC(window); // RA2: as above
-			return(FALSE); // RA2: as above
+			return(TRUE);
 	}
-	return(FALSE); // RA2: as above
+
+	case OD_SUBCLASSED: {
+		MapListBusy = true;
+		MultiplayerGameMode * mode = Get_Current_Game_Mode();
+		HWND list = GetDlgItem(window, 1771);
+		Fill_Game_Mode_List(list, mode->MPModeIndex);
+		if (mode) {
+			Populate_Scenario_List(window, mode);
+		}
+		Enable_Random_Scenario(window, mode);
+		if (Session.Options.ScenarioIndex != -1) {
+			Select_Scenario_Index(window, Session.Options.ScenarioIndex);
+		}
+		OriginalScenario = Session.Options.ScenarioIndex;
+		LastPreviewedScenario = -1;
+		MapListBusy = false;
+		break;
+	}
+	}
+	return(FALSE);
 }
 #endif
 

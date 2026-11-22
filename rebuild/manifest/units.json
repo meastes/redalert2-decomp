@@ -89459,6 +89459,15 @@
     "main_source": "src/recovered/netshare.cpp"
    },
    {
+    "entry": "005c69e0",
+    "body": 1920,
+    "padding": 0,
+    "symbol": "?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005c7160",
     "body": 133,
     "padding": 11,
@@ -92786,6 +92795,15 @@
     "symbol": "??0ScenarioClass@@QAE@XZ",
     "main_symbol": "??0ScenarioClass@@QAE@XZ",
     "main_source": "src/recovered/scenario.cpp"
+   },
+   {
+    "entry": "0065b780",
+    "body": 171,
+    "padding": 5,
+    "symbol": "??0ScenarioClass@@QAE@ABVNoInitClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0065b830",
@@ -108788,6 +108806,15 @@
     "main_source": "src/recovered/ipxmgr.cpp"
    },
    {
+    "entry": "00525f60",
+    "body": 2691,
+    "padding": 13,
+    "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005269f0",
     "body": 56,
     "padding": 8,
@@ -109053,7 +109080,22 @@
    "?Lobby_Num_Receive@IPXManagerClass@@UAEHXZ": "00526aa0",
    "?Avg_Response_Time@IPXManagerClass@@UAEIH@Z": "00526c10",
    "?Store_Stats@IPXManagerClass@@UAEXXZ": "00526c90",
-   "?Mono_Debug_Print@IPXManagerClass@@UAEXHH@Z": "005277b0"
+   "?Mono_Debug_Print@IPXManagerClass@@UAEXHH@Z": "005277b0",
+   "??_C@_0BM@FHJ@Reecive?5buffer?5overflow?5?$CFd?6?$AA@": "007de0fc",
+   "??_C@_0BM@KMFP@Receive?5buffer?5overflow?5?$CFd?6?$AA@": "007de118",
+   "??_C@_0CA@FIDK@Multicast?5channel?5has?5gone?5bad?6?$AA@": "007de084",
+   "??_C@_0CE@KCEH@Error?5?9?5Connection?5?$CFd?5has?5gone?5b@": "007de060",
+   "??_C@_0CF@NJLG@Set?5address?5for?5connection?5?$CFd?5to@": "007de25c",
+   "??_C@_0CJ@GHHE@GlobalChannel?5recive?5buffer?5over@": "007de0d0",
+   "??_C@_0CJ@MGKD@RouterChannel?5recive?5buffer?5over@": "007de0a4",
+   "??_C@_0CM@DKLM@Adding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5to?5gl@": "007de2e0",
+   "??_C@_0CM@PDEC@NAT?5Alert?5?9?5port?5number?5fiddling@": "007de2b4",
+   "??_C@_0CP@PONL@Player?5?$CFs?5is?5having?5his?5port?5tra@": "007de284",
+   "??_C@_0DG@GNPP@Adding?5?$DP?$DP?$DP?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": "007de1e8",
+   "??_C@_0DG@PFJH@Adding?5ACK?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": "007de1b0",
+   "??_C@_0DL@BHNN@Adding?5DATA_ACK?5packet?5?$CFd?5from?5?$CF@": "007de134",
+   "??_C@_0DL@CJLA@Frame?5?$CFd?0?5Router?5apparently?5chan@": "007de220",
+   "??_C@_0DN@NBLK@Adding?5DATA_NOACK?5packet?5?$CFd?5from@": "007de170"
   },
   "partial_ok": true
  },
@@ -119685,6 +119727,15 @@
     "main_source": "src/recovered/gdlgsupp.cpp"
    },
    {
+    "entry": "004d2080",
+    "body": 449,
+    "padding": 15,
+    "symbol": "?Fill_Color_Combo@@YIXPAUHWND__@@H@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "004d2250",
     "body": 169,
     "padding": 7,
@@ -128586,6 +128637,15 @@
     "main_source": "src/recovered/planmgr.cpp"
    },
    {
+    "entry": "00617340",
+    "body": 818,
+    "padding": 14,
+    "symbol": "?Planning_Left_Press@@YG_NVPoint2D@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00617680",
     "body": 466,
     "padding": 14,
@@ -128917,7 +128977,7 @@
     "entry": "0061a8e0",
     "body": 58,
     "padding": 6,
-    "symbol": "?unknown_rect_contains_0061a8e0@Owner_0061a8e0@seed_0061a8e0@@QAEIPAH@Z",
+    "symbol": "?Is_Point_Within@?$TRect@H@@QBE_NABV?$TPoint2D@H@@@Z",
     "main_symbol": "?unknown_rect_contains_0061a8e0@Owner_0061a8e0@seed_0061a8e0@@QAEIPAH@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -129584,7 +129644,8 @@
    "_$S175": "00a76641",
    "_$S181": "00a76640",
    "_$S187": "00a76661",
-   "_$S193": "00a76660"
+   "_$S193": "00a76660",
+   "??_C@_0BN@GEHP@MSG?3PlanningModeInvalidNodeX?$AA@": "007ebeec"
   },
   "partial_ok": true,
   "count_sensitive": {
@@ -132905,6 +132966,15 @@
     "main_source": "src/recovered/radbeam.cpp"
    },
    {
+    "entry": "00635c30",
+    "body": 456,
+    "padding": 8,
+    "symbol": "?Compute_Pulse_Step@RadBeam@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00635e00",
     "body": 370,
     "padding": 14,
@@ -132927,6 +132997,15 @@
     "symbol": "?Update_Swing@RadBeam@@QAEXXZ",
     "main_symbol": "?unknown_636020@RadBeam@@QAEXXZ",
     "main_source": "src/recovered/radbeam.cpp"
+   },
+   {
+    "entry": "00636130",
+    "body": 429,
+    "padding": 3,
+    "symbol": "?Compute_Swing_Step@RadBeam@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006362e0",
@@ -133052,7 +133131,10 @@
    "?Resize@?$VectorClass@PAVRadBeam@@@@UAE_NHPBQAVRadBeam@@@Z": "00636380",
    "?Clear@?$VectorClass@PAVRadBeam@@@@UAEXXZ": "00636430",
    "?ID@?$VectorClass@PAVRadBeam@@@@UAEHABQAVRadBeam@@@Z": "00636460",
-   "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": "006364a0"
+   "?ID@?$VectorClass@PAVRadBeam@@@@UAEHPBQAVRadBeam@@@Z": "006364a0",
+   "_DegreesToRadians": "007ee398",
+   "__real@8@4006b400000000000000": "007a88a0",
+   "__real@8@4007b400000000000000": "007a8898"
   },
   "partial_ok": true
  },
@@ -139864,6 +139946,15 @@
     "main_source": "src/recovered/wonline.cpp"
    },
    {
+    "entry": "0075be10",
+    "body": 1343,
+    "padding": 1,
+    "symbol": "?Start_Match@@YI_NXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0075c350",
     "body": 287,
     "padding": 1,
@@ -141334,7 +141425,16 @@
    "?_timer@?1??OnPublicGameOptions@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@PBD@Z@4V?$BasicTimerClass@VSystemTimerClass@@@@A": "00b2b408",
    "??_C@_0BA@GKEN@R?$CFd?0?$CFd?0?$CFx?0?$CFx?0?$CFx?$AA@": "007fdec4",
    "?ladder_request_keys@?3??OnUserList@CChatEventSink@@UAGJJPAUChannel@WOL@@PAUUser@4@@Z@4PADA": "00b2b420",
-   "?IsColorChangePending@@3HA": "00a72d08"
+   "?IsColorChangePending@@3HA": "00a72d08",
+   "??_C@_07KJDK@?8s_game?$AA@": "008002d0",
+   "??_C@_0BE@CAPC@WOL?3MatchJoinedGame?$AA@": "0080027c",
+   "??_C@_0BG@FFOM@WOL?3MatchCreatingGame?$AA@": "0080030c",
+   "??_C@_0BH@IJPE@WOL?3MatchBadParameters?$AA@": "00800248",
+   "??_C@_0BI@IGMK@WOL?3MatchWaitingForJoin?$AA@": "008002f4",
+   "??_C@_0BK@KKII@WOL?3MatchErrorJoiningGame?$AA@": "00800260",
+   "??_C@_0BL@MMJA@WOL?3MatchErrorCreatingGame?$AA@": "008002d8",
+   "??_C@_0BN@HPDK@WOL?3MatchGameChannelNotFound?$AA@": "00800290",
+   "??_C@_0BO@IDGM@WOL?3MatchAttemptingToFindGame?$AA@": "008002b0"
   },
   "partial_ok": true,
   "parked_rows": [
@@ -158546,6 +158646,15 @@
     "symbol": "?Show_Dialog@@YIXPAUHWND__@@H@Z",
     "main_symbol": "?unknown_show_dialog_5ff7e0@@YIXPAXH@Z",
     "main_source": "src/recovered/ownrdraw.cpp"
+   },
+   {
+    "entry": "005ffb00",
+    "body": 1482,
+    "padding": 6,
+    "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006000d0",

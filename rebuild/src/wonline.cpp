@@ -12739,6 +12739,81 @@ void __fastcall Report_Match_Player_Ping(void) // RA2: 0x0075BC40, tells the pla
 	}
 }
 
+bool __fastcall Start_Match(void) // RA2: 0x0075BE10, the match server named the two players: the first hosts the game, the second looks for it and joins (ra2-decomp's twin, Yuri's Revenge 0x007A1BB0)
+{
+	WolOptionsLocked = 0;
+	Start_Network_Session();
+	char buffer[256];
+	strncpy(buffer, g_MatchStartText, sizeof(buffer));
+	strtok(buffer, ":");
+	char * first = strtok(NULL, ",");
+	strtok(NULL, ",");
+	strtok(NULL, ",");
+	strtok(NULL, ",");
+	strtok(NULL, ",");
+	strtok(NULL, ",");
+	char * second = strtok(NULL, ","); // RA2: the second player is the seventh field (the ninth in Yuri's Revenge)
+	if (first && second) {
+		if (stricmp(first, g_NickName.get()) == 0 || stricmp(second, g_NickName.get()) == 0) {
+			if (stricmp(first, g_NickName.get()) == 0) {
+				g_MatchOpponent = second;
+				Report_Match_Player_Ping();
+				Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("WOL:MatchCreatingGame", NULL, "D:\\Ra2\\wonline.cpp", 0x6813));
+				g_GameStartRequested = false;
+				Set_Match_State(6, 30, 0);
+				if (Host_Game()) {
+					Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("WOL:MatchWaitingForJoin", NULL, "D:\\Ra2\\wonline.cpp", 0x6817), second);
+					return(true);
+				}
+				Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchErrorCreatingGame", NULL, "D:\\Ra2\\wonline.cpp", 0x681E));
+				Set_Match_State(2, 30, 0);
+			} else {
+				g_MatchOpponent = first;
+				Report_Match_Player_Ping();
+				Wstring game_name = Wstring(first) + Wstring("'s_game");
+				Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("WOL:MatchAttemptingToFindGame", NULL, "D:\\Ra2\\wonline.cpp", 0x6825), first);
+				Set_Match_State(7, 30, 0);
+				int attempts = 1;
+				for (;;) {
+					if (!Request_Game_Channel_List(0, false) || !Wait_Channel_List()) {
+						Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchGameChannelNotFound", NULL, "D:\\Ra2\\wonline.cpp", 0x6829), first);
+						Set_Match_State(3, 20, 0);
+						return(false);
+					}
+					Channel channel;
+					memset(&channel, 0, sizeof(channel));
+					for (int i = 0; i < g_GameChannelList.length(); i++) {
+						g_GameChannelList.get(channel, i);
+						if (stricmp((char *)channel.name, game_name.get()) == 0) {
+							if (Join_Game_Channel(&channel, false)) {
+								Lobby_Chat_Printf(ColorSystem, StringTable::LoadString("WOL:MatchJoinedGame", NULL, "D:\\Ra2\\wonline.cpp", 0x6833), first);
+								Set_Match_State(9, 90, 0);
+								return(true);
+							}
+							Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchErrorJoiningGame", NULL, "D:\\Ra2\\wonline.cpp", 0x683B));
+							return(false);
+						}
+					}
+					WOL_Wait_Callback();
+					Sleep(100);
+					if (attempts++ >= 30) {
+						Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchGameChannelNotFound", NULL, "D:\\Ra2\\wonline.cpp", 0x6843), first);
+						Set_Match_State(2, 30, 0);
+						break;
+					}
+				}
+			}
+		} else {
+			Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchBadParameters", NULL, "D:\\Ra2\\wonline.cpp", 0x6809));
+			Set_Match_State(3, 20, 0);
+		}
+	} else {
+		Lobby_Chat_Printf(0x20C0FF, StringTable::LoadString("WOL:MatchBadParameters", NULL, "D:\\Ra2\\wonline.cpp", 0x67FF));
+		Set_Match_State(3, 20, 0);
+	}
+	return(false);
+}
+
 void Add_Chat_Dot(void); // RA2: 0x005C3040, defined in netshare.cpp
 bool __fastcall Lobby_Update_Dialog(HWND dialog, int count, bool flag1, bool flag2); // RA2: 0x005CBDB0, defined in netshare.cpp
 

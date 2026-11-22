@@ -620,7 +620,7 @@ void ScrollClass::Message_Handler(HWND hwnd, UINT & message, UINT & wParam, LONG
 			point.Y = pts.y - TacticalRect.Y;
 
 			if (Resolve_Point(point, cell, coord, object, fog, shadow)) {
-				if (!Planning_Left_Press(point.X, point.Y) && IsMouseDown == false) { // RA2: planning mode first
+				if (!Planning_Left_Press(point) && IsMouseDown == false) { // RA2: planning mode first
 					Map.Mouse_Left_Up(cell, shadow, object, What_Action(cell, object, true));
 					Map.Mouse_Left_Press(point);
 					SetCapture(MainWindow);

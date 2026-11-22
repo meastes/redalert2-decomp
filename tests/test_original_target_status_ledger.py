@@ -210,6 +210,38 @@ class RebuildCategoryLineTests(unittest.TestCase):
                       self.line(self.lines(row), '| C/C++ bodies, exact with no judgment call'))
 
     def test_judgment_line_names_both_definitions(self):
-        line = self.line(self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN))), '| Judgment calls')
-        self.assertIn('different definitions', line)
+        line = self.line(self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN))), '| Judgment calls, each')
+        self.assertIn('not comparable', line)
         self.assertTrue(line.endswith('| 2 rows / 30 B | 3 rows / 1,234 B |'))
+
+    def test_one_definition_judgment_line(self):
+        """Lane O46 (owner ruling 2026-11-22): one line with main's flag definition in both trees."""
+        row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
+        line = self.line(self.lines(row), '| Judgment calls, one definition')
+        self.assertTrue(line.endswith('| 2 rows / 30 B | n/a |'))
+        saved = self.CAT
+        try:
+            self.CAT = dict(saved, flagged_judgment=(1, 4617))
+            line = self.line(self.lines(row), '| Judgment calls, one definition')
+        finally:
+            self.CAT = saved
+        self.assertTrue(line.endswith('| 2 rows / 30 B | 1 rows / 4,617 B |'))
+
+    def test_rebuild_flagged_judgment_reads_named_flags_only(self):
+        import csv, tempfile
+        catalog = dict(regions=[dict(entry=0x401000, body_bytes=100), dict(entry=0x402000, body_bytes=40),
+                                dict(entry=0x403000, body_bytes=7), dict(entry=0x404000, body_bytes=9)])
+        with tempfile.TemporaryDirectory() as d:
+            manifest = Path(d) / 'rebuild/manifest'
+            manifest.mkdir(parents=True)
+            with (manifest / 'provenance.csv').open('w', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=['unit', 'entry', 'judgment']); w.writeheader()
+                w.writerow(dict(unit='a', entry='00401000', judgment='count_calibrated: a looked-up local'))
+                w.writerow(dict(unit='a', entry='00402000', judgment='twin statement at the same place'))
+                w.writerow(dict(unit='a', entry='00409000', judgment='count_calibrated: not in the catalog'))
+            with (manifest / 'header_judgments.csv').open('w', newline='') as f:
+                w = csv.DictWriter(f, fieldnames=['header', 'member', 'judgment', 'dependents']); w.writeheader()
+                w.writerow(dict(header='a.h', member='A', judgment='split_declaration: b.h keeps a second A',
+                                dependents='a 00403000; b 0x401000'))
+                w.writerow(dict(header='c.h', member='C', judgment='ra2-decomp form', dependents='c 00404000'))
+            self.assertEqual(status.rebuild_flagged_judgment(catalog, d), (2, 107))

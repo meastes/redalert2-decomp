@@ -268,7 +268,7 @@ ScenarioClass::ScenarioClass(void)
 /// This constructor is used by the load process, which is about to overwrite the object
 /// with the data it reads from the save game stream.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065b780 has no row); main: best 93.48, tried 7 times (inline, layout, order)
+#ifdef RA2_NON_MATCHING // not exact: 12 bytes longer (103 by position); the text is ra2-decomp's twin (Yuri's Revenge 0x00683560). One inline budget decision differs: the executable calls the DynamicVectorClass<int> constructor for AllowableUnitMaximums where ours expands it (both call it for AllowableUnitCounts). Scratch: one more inline call site, or one charged spend, in the body gives the executable's calls; five spellings of the label test and the conversion do not
 ScenarioClass::ScenarioClass(NoInitClass const & x) :
 	ElapsedTimer(x), // RA2: the elapsed timer is left alone (no system timer read for it)
 	MissionTimer(x),

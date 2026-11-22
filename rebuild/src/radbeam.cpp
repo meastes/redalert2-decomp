@@ -257,29 +257,37 @@ void RadBeam::Start_Pass(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00635c30 has no row); 375 bytes differ against main's function-map extent; main: best 96.92, tried 7 times (frame, register, order)
-void RadBeam::Compute_Pulse_Step(void)
+static double DegreesToRadians = M_PI / 180.0; // RA2: 0x007EE398, a variable of this file that only the two step routines read (ra2-decomp declares it, DAT_00839530)
+
+void RadBeam::Compute_Pulse_Step(void) // RA2: ra2-decomp's twin text in this tree's names
 {
 	double span = (Length < 360.0 ? 360.0 : Length) * 2.0;
-	double index = StepIndex;
-	double degrees = index / Steps * span;
-	double wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
-	int step = (int)index;
-	Current = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
-	Current.Z = (int)(Current.Z + wave);
-
-	index = StepIndex + 1;
-	degrees = index / Steps * span;
-	wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
-	step = (int)index;
-	Next = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
-	Next.Z = (int)(Next.Z + wave);
-
-	Scale = abs((int)wave) * 0.5 / Amplitude + 0.5;
-	CurrentColor = RGBClass((unsigned char)(Color.Get_Red() * Scale),
-		(unsigned char)(Color.Get_Green() * Scale), (unsigned char)(Color.Get_Blue() * Scale));
+	double i = StepIndex;
+	double fraction = i / Steps;
+	double angle = fraction * span;
+	double wave = fastmath::sin(angle * DegreesToRadians) * Wave;
+	Point3D offset = StepDelta * (int)i;
+	Current = Source + offset;
+	double first_z = Current.Z;
+	first_z += wave;
+	Current.Z = first_z;
+	double j = StepIndex + 1;
+	fraction = j / Steps;
+	angle = fraction * span;
+	wave = fastmath::sin(angle * DegreesToRadians) * Wave;
+	Next = Source + StepDelta * (int)j; // RA2: the swing step's statement (the twin's pulse step keeps the offset in its local here)
+	double next_z = Next.Z;
+	next_z += wave;
+	Next.Z = next_z;
+	int height = (int)wave;
+	Scale = abs(height) * 0.5 / Amplitude + 0.5;
+	double red = Color.Get_Red() * Scale;
+	double green = Color.Get_Green() * Scale;
+	double blue = Color.Get_Blue() * Scale;
+	CurrentColor.Set_Red(red);
+	CurrentColor.Set_Green(green);
+	CurrentColor.Set_Blue(blue);
 }
-#endif
 
 
 /// <summary>One frame of a type 2 beam: the line swings across; true once the period is over.</summary>
@@ -345,25 +353,31 @@ void RadBeam::Update_Swing(void)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00636130 has no row); 379 bytes differ against main's function-map extent; main: best 95.83, tried 3 times (bound)
-void RadBeam::Compute_Swing_Step(void)
+void RadBeam::Compute_Swing_Step(void) // RA2: ra2-decomp's twin text in this tree's names
 {
-	double index = StepIndex;
-	double degrees = index / Steps * 180.0;
-	double wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
-	int step = (int)index;
-	Current = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
-	Current.Z = (int)(Current.Z + wave);
-
-	index = StepIndex + 1;
-	degrees = index / Steps * 180.0;
-	wave = fastmath::sin(DEG_TO_RAD(degrees)) * Wave;
-	step = (int)index;
-	Next = Source + Coord(StepDelta.X * step, StepDelta.Y * step, StepDelta.Z * step);
-	Next.Z = (int)(Next.Z + wave);
-
-	Scale = abs((int)wave) * 0.5 / Amplitude + 0.5;
-	CurrentColor = RGBClass((unsigned char)(Color.Get_Red() * Scale),
-		(unsigned char)(Color.Get_Green() * Scale), (unsigned char)(Color.Get_Blue() * Scale));
+	double i = StepIndex;
+	double fraction = i / Steps;
+	double angle = fraction * 180.0;
+	double wave = fastmath::sin(angle * DegreesToRadians) * Wave;
+	Coord offset = StepDelta * (int)i;
+	Current = Source + offset;
+	double first_z = Current.Z;
+	first_z += wave;
+	Current.Z = first_z;
+	double j = StepIndex + 1;
+	fraction = j / Steps;
+	angle = fraction * 180.0;
+	wave = fastmath::sin(angle * DegreesToRadians) * Wave;
+	Next = Source + StepDelta * (int)j;
+	double next_z = Next.Z;
+	next_z += wave;
+	Next.Z = next_z;
+	int height = (int)wave;
+	Scale = abs(height) * 0.5 / Amplitude + 0.5;
+	double red = Color.Get_Red() * Scale;
+	double green = Color.Get_Green() * Scale;
+	double blue = Color.Get_Blue() * Scale;
+	CurrentColor.Set_Red(red);
+	CurrentColor.Set_Green(green);
+	CurrentColor.Set_Blue(blue);
 }
-#endif

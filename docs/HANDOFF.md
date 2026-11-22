@@ -469,6 +469,8 @@ experiments that yield a rule, then the rule applied), as in the VC6 notes.
 
 - Python with capstone/pefile: `private/matching-pilot/20261020T123117Z/env/bin/python`
   (`RA2_PYTHON` for `build.command`/`test.command`).
+- status.py in a fresh worktree: copy build/status-history-cache.json and build/treemap.json from the main
+  checkout first (30+ min to 14 s; without the treemap three function-stats rows drop).
 - Working copy `/Users/ivalice/Code/redalert2-native`. On the Mac `cp`/`mv`/`rm`
   are interactive aliases: use `/bin/cp -f` etc.; zsh noclobber is on (`>|`).
 - Windows PC: host, key and mount are in the owner's private notes and

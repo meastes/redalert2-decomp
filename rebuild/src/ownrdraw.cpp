@@ -9825,11 +9825,10 @@ void __fastcall Display_Dialog(HWND window) // RA2: as above
 }
 
 
-namespace OwnerDraw { // RA2: as above
-
-
-inline void __cdecl Prepare_Dialog(HWND dialog, int kind) // RA2: as above
+void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: 0x005FF7E0, ra2-decomp's UI::RegisterWindow (Yuri's Revenge 0x00622820): the controls are subclassed, then the dialog is set up for its kind
 {
+	using namespace OwnerDraw;
+	Subclass_Dialog(dialog, 0);
     Resize_Dialogs(dialog); // RA2: as above
     Set_Dialog_Kind(dialog, kind); // RA2: as above
     if (!Session.Is_In_Game()) { // RA2: as above
@@ -9853,23 +9852,6 @@ inline void __cdecl Prepare_Dialog(HWND dialog, int kind) // RA2: as above
     Center_Window_Within_Window(dialog); // RA2: as above
 }
 
-}
-
-void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: as above
-{
-    using namespace OwnerDraw;
-    Register_Window_Classes(); // RA2: as above
-    Current_Dialog = dialog; // RA2: as above
-    EnumChildWindows(dialog, (WNDENUMPROC)Set_Paint_Disabled_Children, 1); // RA2: as above
-    Set_Paint_Disabled_Children(dialog, 1); // RA2: as above
-    EnumChildWindows(dialog, Replace_Edit, 1); // RA2: as above
-    EnumChildWindows(dialog, Subclass_Control, 0); // RA2: as above
-    Subclass_Control(dialog, 0); // RA2: as above
-    EnumChildWindows(dialog, (WNDENUMPROC)Set_Paint_Disabled_Children, 0); // RA2: as above
-    Set_Paint_Disabled_Children(dialog, 0); // RA2: as above
-    Prepare_Dialog(dialog, kind); // RA2: as above
-}
-
 
 /*
 **	RA2: the default handling of an owner-drawn dialog (TibSun's, with RA2's tooltip label, dimmed
@@ -9877,72 +9859,43 @@ void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: as above
 */
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ffb00 has no row); 1414 of 1482 bytes differ against the frozen image bound (image_bounds.csv) (emitted 1472 bytes), 2026-11-22 (lane O32); calls OwnerDraw::Control_Record, OwnerDraw::Prepare_Dialog, OwnerDraw::TextRequest::TextRequest out of line, which no row of the original has
-int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
+#ifdef RA2_NON_MATCHING // not exact: 1419 bytes differ by position, ours 377 instructions against 472 (1,414 before with a hand-split start case); ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names. The executable expands Show_Dialog at both of its sites here (Subclass_Dialog expanded in the first and called in the second, Set_Dialog_Kind called in the first and expanded in the second) and keeps Show_Dialog's own body at 0x005FF7E0; ours calls Show_Dialog twice. Scratch: with Show_Dialog declared inline both sites expand and 457 instructions come out, but its own body is then not emitted; the tip texts and the two record lookups also divide the inline budget another way
+int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005FFB00, ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names
 {
 	switch (message) {
-		case WM_DRAWITEM:
-			::Dialog_On_WM_DRAWITEM(lparam); // RA2: the movie-aware draw (0x5FE380)
-			return(1);
-
 		case WM_DESTROY:
-			Remove_Audio_File_Window(window); // RA2: as above
+			Remove_Modeless_Dialog(window);
 			--_dialog_count;
 			SetFocus(MainWindow);
 			return(0);
 
+		case WM_DRAWITEM:
+			::Dialog_On_WM_DRAWITEM(lparam); // RA2: the movie-aware draw (0x5FE380)
+			return(1);
+
 		case WM_PAINT: {
-			WinData * record = Get_Record(window); // RA2: a disabled dialog only validates
-			if (record != NULL) { // RA2: as above
-				if (record->IsDisabled) { // RA2: as above
-					ValidateRect(window, 0);
+			WinData * data = Get_Record(window);
+			if (data != NULL) {
+				if (data->IsDisabled) { // RA2: a disabled dialog only validates
+					ValidateRect(window, NULL);
 					return(1);
 				}
-				Dialog_On_WM_PAINT(window); // RA2: as above
+				Dialog_On_WM_PAINT(window);
 				Slide_Pending_Dialog(window); // RA2: a pending slide-in finishes
-				ValidateRect(window, 0);
-				return(0);
+				ValidateRect(window, NULL);
 			}
-			break;
+			return(0);
 		}
 
 		case WM_ERASEBKGND:
 			return(1);
 
-		case WM_NCHITTEST: { // RA2: as above
-			HWND label = GetDlgItem(window, 0x695); // RA2: the dialog's tooltip label shows the text under the mouse
-			if (label != NULL) { // RA2: as above
-				int x = LOWORD(lparam); // RA2: as above
-				int y = HIWORD(lparam); // RA2: as above
-				RECT rect;
-				GetWindowRect(window, &rect); // RA2: as above
-				WideWstring text; // RA2: as above
-				POINT point;
-				point.x = x - rect.left; // RA2: as above
-				point.y = y - rect.top; // RA2: as above
-				HWND child = ChildWindowFromPointEx(window, point, CWP_SKIPINVISIBLE); // RA2: as above
-				if (child != NULL) { // RA2: as above
-					text = Get_Item_Tip_Text_At(window, child, x, y); // RA2: as above
-					if (wcscmp(text.get(), L"") == 0) { // RA2: as above
-						text = Get_Control_Tip_Text(window, (int)child); // RA2: as above
-						if (wcscmp(text.get(), L"") == 0) { // RA2: as above
-							text = Control_Tooltip((unsigned int)window, child); // RA2: as above
-						}
-					}
-				}
-				SendMessageA(label, OD_SETTEXTW, 0, (LPARAM)text.text()); // RA2: as above
-				return(0);
-			}
-			return(0);
-		}
-
 		case WM_INITDIALOG:
 			++_dialog_count;
-			if (lparam != 0) { // RA2: lparam is the dialog kind
-				Show_Dialog(window, lparam); // RA2: as above
+			if (lparam != 0) {
+				Show_Dialog(window, *(unsigned short *)lparam);
 			} else {
-				Subclass_Dialog(window, 0);
-				Prepare_Dialog(window, 0); // RA2: as above
+				Show_Dialog(window, 0);
 			}
 			SetFocus(window);
 			return(0);
@@ -9956,15 +9909,38 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 		case WM_CTLCOLORSTATIC:
 			return((int)GetStockObject(BLACK_BRUSH));
 
+		case WM_NCHITTEST: {
+			HWND tip = GetDlgItem(window, 0x695); // RA2: the dialog's tooltip label shows the text under the mouse
+			if (tip != NULL) {
+				int x = LOWORD(lparam);
+				int y = HIWORD(lparam);
+				RECT rect;
+				GetWindowRect(window, &rect);
+				POINT pt;
+				pt.x = x - rect.left;
+				pt.y = y - rect.top;
+				WideWstring text;
+				HWND child = ChildWindowFromPointEx(window, pt, CWP_SKIPINVISIBLE);
+				if (child != NULL) {
+					text = Get_Item_Tip_Text_At(window, child, x, y);
+					if (wcscmp(text.get(), L"") == 0) {
+						text = Get_Control_Tip_Text(window, (int)child);
+						if (wcscmp(text.get(), L"") == 0) {
+							text = Control_Tooltip((unsigned int)window, child);
+						}
+					}
+				}
+				SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text.text());
+			}
+			return(0);
+		}
+
 		case OD_SUBCLASSED:
 			SendMessage(window, OD_SETTOP, (WPARAM)window, 1);
 			return(0);
 
 		case WM_USER + 236: // RA2: the slide-in finished: the tested controls reset
-			Dialog_On_OD_4EC(window); // RA2: as above
-			return(0);
-
-		default:
+			Dialog_On_OD_4EC(window);
 			return(0);
 	}
 	return(0);

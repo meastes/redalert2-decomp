@@ -533,35 +533,34 @@ bool __fastcall Color_Entry_Taken(int entry) // RA2: 0x004D2060, not in TibSun
 
 /// <summary>Fills a color combo box with "random" and the colors that are free or the player's own, and selects the player's.</summary>
 void __fastcall Fill_Color_Combo(HWND dialog, int id); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004d2080 has no row); main: best 86.09, tried 3 times (register, order, layout)
-void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in TibSun
+#ifdef RA2_NON_MATCHING // not exact: 34 bytes differ in 17 instructions (161 by position), same length; ra2-decomp's twin text (Yuri's Revenge 0x004E45A0, matched there) in this tree's names. Only two callee-saved registers are exchanged in the loop: the executable keeps the pointer into the color entries in ebx and the player and the new item in ebp, ours the other way round; not moved by an entry pointer local, the declaration order, a second item local or the comparison's operand order
+void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in TibSun (ra2-decomp's twin text, Yuri's Revenge 0x004E45A0)
 {
-	HWND combo = GetDlgItem(dialog, id); // RA2: the first item is "random" with color -1; the free colors and the player's own follow, the player's own is selected
-	bool hidden = ShowWindow(combo, SW_HIDE) == 0; // RA2: as above
-	SendMessageA(combo, CB_RESETCONTENT, 0, 0); // RA2: as above
-	SendMessageA(combo, 0x4DD, 0, 1); // RA2: as above
-	SendMessageA(combo, 0x4DE, 0, 9); // RA2: as above
-	int item = SendMessageA(combo, 0x4C2, 0, (LPARAM)StringTable::LoadString("GUI:RandomAsSymbols", NULL, "D:\\Ra2\\GDlgSupp.cpp", 502)); // RA2: as above
-	SendMessageA(combo, CB_SETITEMDATA, item, -2); // RA2: as above
-	SendMessageA(combo, 0x498, item, -1); // RA2: as above
-	int player = Color_Combo_Player(id); // RA2: as above
-	int selected = 0; // RA2: as above
-	for (int index = 0; index < 8; index++) { // RA2: as above
-		ColorEntry * entry = &ColorEntries[index]; // RA2: as above
-		bool mine = entry->Player == player; // RA2: the comparison is kept in a byte
-		if (mine || entry->Player == -1) { // RA2: as above
-			item = SendMessageA(combo, 0x4C2, 0, (LPARAM)entry->Name); // RA2: as above
-			SendMessageA(combo, 0x498, item, entry->Color); // RA2: as above
-			SendMessageA(combo, CB_SETITEMDATA, item, index); // RA2: as above
-			if (mine) { // RA2: as above
-				selected = item; // RA2: as above
+	HWND item = GetDlgItem(dialog, id); // RA2: the first item is "random" with color -1; the free colors and the player's own follow, the player's own is selected
+	bool was_hidden = !ShowWindow(item, SW_HIDE);
+	SendMessage(item, CB_RESETCONTENT, 0, 0);
+	SendMessage(item, 0x4DD, 0, 1);
+	SendMessage(item, 0x4DE, 0, 9);
+	int index = SendMessage(item, 0x4C2, 0, (LPARAM)StringTable::LoadString("GUI:RandomAsSymbols", NULL, "D:\\Ra2\\GDlgSupp.cpp", 502));
+	SendMessage(item, CB_SETITEMDATA, index, -2);
+	SendMessage(item, 0x498, index, -1);
+	int owner = Color_Combo_Player(id);
+	int selected = 0;
+	for (int i = 0; i < 8; i++) {
+		bool mine = ColorEntries[i].Player == owner;
+		if (mine || ColorEntries[i].Player == -1) {
+			index = SendMessage(item, 0x4C2, 0, (LPARAM)ColorEntries[i].Name);
+			SendMessage(item, 0x498, index, ColorEntries[i].Color);
+			SendMessage(item, CB_SETITEMDATA, index, i);
+			if (mine) {
+				selected = index;
 			}
 		}
 	}
-	SendMessageA(combo, CB_SETCURSEL, selected, 0); // RA2: as above
-	SendMessageA(combo, 0x4F1, 0, 0); // RA2: as above
-	if (!hidden) { // RA2: as above
-		ShowWindow(combo, SW_SHOW); // RA2: as above
+	SendMessage(item, CB_SETCURSEL, selected, 0);
+	SendMessage(item, 0x4F1, 0, 0);
+	if (!was_hidden) {
+		ShowWindow(item, SW_SHOW);
 	}
 }
 #endif

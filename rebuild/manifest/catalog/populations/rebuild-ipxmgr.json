@@ -71,8 +71,38 @@
     "?Set_Node@IPXAddressClass@@QAEXQAE@Z": 5387584,
     "?Set_Port@IPXAddressClass@@QAEXG@Z": 5388640,
     "??_C@_0CF@DLAK@Forwarding?5packet?5from?5router?5to@": 8249280,
-    "?Avg_Response_Time@CommBufferClass@@QAEIXZ": 4721248,
+    "??_C@_0CM@DKLM@Adding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5to?5gl@": 8250080,
+    "?Forward_Router_Packet@IPXManagerClass@@QAE_NPAUCommHeaderType@@PAXHPAVIPXAddressClass@@G@Z": 5397952,
+    "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z": 5387920,
+    "??_C@_0CM@PDEC@NAT?5Alert?5?9?5port?5number?5fiddling@": 8250036,
+    "_strncpy": 7873488,
+    "?Wide_To_Narrow@@YIPADPBG@Z": 7315744,
+    "_stricmp": 7872288,
+    "??_C@_0CP@PONL@Player?5?$CFs?5is?5having?5his?5port?5tra@": 8249988,
+    "?Set_Port@OwnerTalkClass@@QAEXHG@Z": 6552416,
+    "?Set_Address@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z": 6551968,
+    "?Player_To_Slot@SessionClass@@QAEHH@Z": 6762384,
+    "??_C@_0CF@NJLG@Set?5address?5for?5connection?5?$CFd?5to@": 8249948,
     "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A": 10691224,
+    "?Am_I_Master@SessionClass@@QAE_NPAVHouseClass@@@Z": 6746448,
+    "?Frame@@3HA": 10751276,
+    "??_C@_0DL@CJLA@Frame?5?$CFd?0?5Router?5apparently?5chan@": 8249888,
+    "??_C@_0DG@GNPP@Adding?5?$DP?$DP?$DP?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": 8249832,
+    "??_C@_0DG@PFJH@Adding?5ACK?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@": 8249776,
+    "??_C@_0DN@NBLK@Adding?5DATA_NOACK?5packet?5?$CFd?5from@": 8249712,
+    "??_C@_0DL@BHNN@Adding?5DATA_ACK?5packet?5?$CFd?5from?5?$CF@": 8249652,
+    "??_C@_0BM@KMFP@Receive?5buffer?5overflow?5?$CFd?6?$AA@": 8249624,
+    "?Mask_From_ID@OwnerTalkClass@@QAEEH@Z": 6550720,
+    "??8IPXAddressClass@@QAE_NAAV0@@Z": 5387728,
+    "?ScenarioInit@@3HA": 10749812,
+    "??_C@_0BM@FHJ@Reecive?5buffer?5overflow?5?$CFd?6?$AA@": 8249596,
+    "??9IPXAddressClass@@QAE_NAAV0@@Z": 5387968,
+    "??_C@_0CJ@GHHE@GlobalChannel?5recive?5buffer?5over@": 8249552,
+    "??_C@_0CJ@MGKD@RouterChannel?5recive?5buffer?5over@": 8249508,
+    "?Handle_Router_Messages@OwnerTalkClass@@QAEXXZ": 6551616,
+    "??_C@_0CA@FIDK@Multicast?5channel?5has?5gone?5bad?6?$AA@": 8249476,
+    "??_C@_0CE@KCEH@Error?5?9?5Connection?5?$CFd?5has?5gone?5b@": 8249440,
+    "?Avg_Response_Time@CommBufferClass@@QAEIXZ": 4721248,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?WideToCharString@OwnerDraw@@YIXPADPBGH@Z": 7315696,
     "?Max_Response_Time@CommBufferClass@@QAEIXZ": 4721264,
@@ -88,7 +118,6 @@
     "??RSystemTimerClass@@QBEHXZ": 6923312,
     "?SentFrameSyncCount@@3HA": 11231972,
     "??_C@_1BE@DICJ@?$AAF?$AAS?$AAP?$AAS?$AA?5?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@": 8250444,
-    "?Frame@@3HA": 10751276,
     "?Ipx@@3VIPXManagerClass@@A": 10750328,
     "??_C@_1BI@LPOL@?$AAM?$AAC?$AA?5?$AAr?$AAe?$AAs?$AAp?$AA?3?$AA?5?$AA?$CF?$AAd?$AA?$AA@": 8250420,
     "?RouterResponseTimes@@3PAIA": 10972296,
@@ -125,7 +154,6 @@
     "_$E38": 5394448,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0IPXManagerClass@@QAE@HHHHGG@Z": 5394480,
-    "?Service@IPXManagerClass@@UAEHXZ": 5398368,
     "??_GIPXManagerClass@@UAEPAXI@Z": 5404752,
     "??_R0?AVConnManClass@@@8": 8249104,
     "??_7type_info@@6B@": 8066532,
@@ -159,7 +187,7 @@
     "?Get_Lobby_Message@IPXManagerClass@@QAEHPAXPAHPAVIPXAddressClass@@PAG@Z": 5397440,
     "?Send_Private_Message@IPXManagerClass@@UAEHPAXHHH@Z": 5397504,
     "?Get_Private_Message@IPXManagerClass@@UAEHPAXPAH1@Z": 5397808,
-    "?Forward_Router_Packet@IPXManagerClass@@QAE_NPAUCommHeaderType@@PAXHPAVIPXAddressClass@@G@Z": 5397952,
+    "?Service@IPXManagerClass@@UAEHXZ": 5398368,
     "?Set_Connection_Address@IPXManagerClass@@QAEXHPAVIPXAddressClass@@@Z": 5401072,
     "?Get_Bad_Connection@IPXManagerClass@@QAEHXZ": 5401136,
     "?Global_Num_Send@IPXManagerClass@@UAEHXZ": 5401152,
@@ -253,7 +281,7 @@
           "resolved": 10822824
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5393984,
@@ -305,7 +333,7 @@
           "resolved": 10822896
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394032,
@@ -357,7 +385,7 @@
           "resolved": 10822880
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394064,
@@ -409,7 +437,7 @@
           "resolved": 10822872
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394096,
@@ -461,7 +489,7 @@
           "resolved": 10822832
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394128,
@@ -513,7 +541,7 @@
           "resolved": 10822792
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394160,
@@ -597,7 +625,7 @@
           "resolved": 10822904
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394192,
@@ -657,7 +685,7 @@
           "resolved": 10822840
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394256,
@@ -717,7 +745,7 @@
           "resolved": 10822864
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394304,
@@ -777,7 +805,7 @@
           "resolved": 10822888
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394352,
@@ -821,7 +849,7 @@
           "resolved": 10822818
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394400,
@@ -873,7 +901,7 @@
           "resolved": 10822856
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394416,
@@ -933,7 +961,7 @@
           "resolved": 10822812
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394448,
@@ -1033,7 +1061,7 @@
           "resolved": 8625232
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394480,
@@ -1093,7 +1121,7 @@
           "resolved": 8013644
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394736,
@@ -1233,7 +1261,7 @@
           "resolved": 4294961421
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5394880,
@@ -1260,7 +1288,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395344,
@@ -1328,7 +1356,7 @@
           "resolved": 4293793053
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395360,
@@ -1355,7 +1383,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395536,
@@ -1382,7 +1410,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395584,
@@ -1409,7 +1437,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395616,
@@ -1436,7 +1464,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395648,
@@ -1480,7 +1508,7 @@
           "resolved": 4294960669
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395712,
@@ -1548,7 +1576,7 @@
           "resolved": 4294960492
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5395888,
@@ -1575,7 +1603,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396032,
@@ -1602,7 +1630,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396176,
@@ -1629,7 +1657,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396192,
@@ -1656,7 +1684,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396224,
@@ -1683,7 +1711,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396288,
@@ -1710,7 +1738,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396352,
@@ -1737,7 +1765,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396400,
@@ -1773,7 +1801,7 @@
           "resolved": 2481760
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396480,
@@ -1825,7 +1853,7 @@
           "resolved": 4293791826
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396528,
@@ -1901,7 +1929,7 @@
           "resolved": 4293791595
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396656,
@@ -2025,7 +2053,7 @@
           "resolved": 4293791324
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5396896,
@@ -2052,7 +2080,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397168,
@@ -2079,7 +2107,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397232,
@@ -2106,7 +2134,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397296,
@@ -2150,7 +2178,7 @@
           "resolved": 4293791045
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397328,
@@ -2177,7 +2205,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397440,
@@ -2221,7 +2249,7 @@
           "resolved": 10746792
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397504,
@@ -2248,7 +2276,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397808,
@@ -2484,11 +2512,1170 @@
           "resolved": 8625232
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5397952,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5398368,
+      "method": "00525f60",
+      "body_bytes": 2691,
+      "body_sha256": "17efc4934b290f84c60fb3a5999ff50b2e667b11d914e194406797efeb93984c",
+      "padding_bytes": 13,
+      "full_extent_bytes": 2704,
+      "full_extent_sha256": "60a50297ba63d65c301679d88edafacef14f0a1f1f2fef5f23540a948e62c907",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@00466692 +27, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Service@IPXManagerClass@@UAEHXZ",
+      "symbol_prefix": "?Service@IPXManagerClass@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "??0IPXAddressClass@@QAE@XZ",
+          "target": 5387280,
+          "addend": 0,
+          "resolved": 4294956179
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 48,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 195,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294957081
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "??_C@_0CM@DKLM@Adding?5packet?5from?5?$CFs?5?$DL?5?$CFd?5to?5gl@",
+          "target": 8250080,
+          "addend": 0,
+          "resolved": 8250080
+        },
+        {
+          "offset": 206,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293789886
+        },
+        {
+          "offset": 243,
+          "kind": 20,
+          "symbol": "?Forward_Router_Packet@IPXManagerClass@@QAE_NPAUCommHeaderType@@PAXHPAVIPXAddressClass@@G@Z",
+          "target": 5397952,
+          "addend": 0,
+          "resolved": 4294966633
+        },
+        {
+          "offset": 292,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 304,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 12344,
+          "resolved": 10748624
+        },
+        {
+          "offset": 317,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 328,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 12322,
+          "resolved": 10748602
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+          "target": 5387920,
+          "addend": 0,
+          "resolved": 4294956494
+        },
+        {
+          "offset": 374,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 395,
+          "kind": 6,
+          "symbol": "??_C@_0CM@PDEC@NAT?5Alert?5?9?5port?5number?5fiddling@",
+          "target": 8250036,
+          "addend": 0,
+          "resolved": 8250036
+        },
+        {
+          "offset": 400,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293789692
+        },
+        {
+          "offset": 508,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 2474608
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 531,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 544,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 1916828
+        },
+        {
+          "offset": 550,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 2473366
+        },
+        {
+          "offset": 562,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 594,
+          "kind": 20,
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+          "target": 5387920,
+          "addend": 0,
+          "resolved": 4294956250
+        },
+        {
+          "offset": 608,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 637,
+          "kind": 6,
+          "symbol": "??_C@_0CP@PONL@Player?5?$CFs?5is?5having?5his?5port?5tra@",
+          "target": 8249988,
+          "addend": 0,
+          "resolved": 8249988
+        },
+        {
+          "offset": 642,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293789450
+        },
+        {
+          "offset": 654,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 12322,
+          "resolved": 10748602
+        },
+        {
+          "offset": 665,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 12322,
+          "resolved": 10748602
+        },
+        {
+          "offset": 671,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 682,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 688,
+          "kind": 20,
+          "symbol": "?Set_Port@OwnerTalkClass@@QAEXHG@Z",
+          "target": 6552416,
+          "addend": 0,
+          "resolved": 1153356
+        },
+        {
+          "offset": 708,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 734,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 766,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 782,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956782
+        },
+        {
+          "offset": 788,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 804,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 809,
+          "kind": 20,
+          "symbol": "?Set_Address@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z",
+          "target": 6551968,
+          "addend": 0,
+          "resolved": 1152787
+        },
+        {
+          "offset": 815,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 820,
+          "kind": 20,
+          "symbol": "?Player_To_Slot@SessionClass@@QAEHH@Z",
+          "target": 6762384,
+          "addend": 0,
+          "resolved": 1363192
+        },
+        {
+          "offset": 827,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10240,
+          "resolved": 10746520
+        },
+        {
+          "offset": 861,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 866,
+          "kind": 20,
+          "symbol": "?Player_To_Slot@SessionClass@@QAEHH@Z",
+          "target": 6762384,
+          "addend": 0,
+          "resolved": 1363146
+        },
+        {
+          "offset": 873,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10240,
+          "resolved": 10746520
+        },
+        {
+          "offset": 881,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956683
+        },
+        {
+          "offset": 908,
+          "kind": 20,
+          "symbol": "?Wide_To_Narrow@@YIPADPBG@Z",
+          "target": 7315744,
+          "addend": 0,
+          "resolved": 1916464
+        },
+        {
+          "offset": 914,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 2473002
+        },
+        {
+          "offset": 978,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956586
+        },
+        {
+          "offset": 992,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294956284
+        },
+        {
+          "offset": 999,
+          "kind": 6,
+          "symbol": "??_C@_0CF@NJLG@Set?5address?5for?5connection?5?$CFd?5to@",
+          "target": 8249948,
+          "addend": 0,
+          "resolved": 8249948
+        },
+        {
+          "offset": 1004,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293789088
+        },
+        {
+          "offset": 1016,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 9086,
+          "resolved": 10745366
+        },
+        {
+          "offset": 1040,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1046,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 16,
+          "resolved": 10691240
+        },
+        {
+          "offset": 1064,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 1077,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 1083,
+          "kind": 20,
+          "symbol": "?Am_I_Master@SessionClass@@QAE_NPAVHouseClass@@@Z",
+          "target": 6746448,
+          "addend": 0,
+          "resolved": 1346993
+        },
+        {
+          "offset": 1102,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294956174
+        },
+        {
+          "offset": 1116,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294956160
+        },
+        {
+          "offset": 1122,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1129,
+          "kind": 6,
+          "symbol": "??_C@_0DL@CJLA@Frame?5?$CFd?0?5Router?5apparently?5chan@",
+          "target": 8249888,
+          "addend": 0,
+          "resolved": 8249888
+        },
+        {
+          "offset": 1134,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293788958
+        },
+        {
+          "offset": 1179,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956385
+        },
+        {
+          "offset": 1197,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2196,
+          "resolved": 10738476
+        },
+        {
+          "offset": 1207,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2204,
+          "resolved": 10738484
+        },
+        {
+          "offset": 1213,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2196,
+          "resolved": 10738476
+        },
+        {
+          "offset": 1218,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2200,
+          "resolved": 10738480
+        },
+        {
+          "offset": 1223,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956341
+        },
+        {
+          "offset": 1240,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10516,
+          "resolved": 10746796
+        },
+        {
+          "offset": 1250,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10520,
+          "resolved": 10746800
+        },
+        {
+          "offset": 1256,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10516,
+          "resolved": 10746796
+        },
+        {
+          "offset": 1262,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10524,
+          "resolved": 10746804
+        },
+        {
+          "offset": 1267,
+          "kind": 20,
+          "symbol": "?Set_Port@IPXAddressClass@@QAEXG@Z",
+          "target": 5388640,
+          "addend": 0,
+          "resolved": 4294956297
+        },
+        {
+          "offset": 1279,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10540,
+          "resolved": 10746820
+        },
+        {
+          "offset": 1298,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1384,
+          "kind": 20,
+          "symbol": "?Forward_Router_Packet@IPXManagerClass@@QAE_NPAUCommHeaderType@@PAXHPAVIPXAddressClass@@G@Z",
+          "target": 5397952,
+          "addend": 0,
+          "resolved": 4294965492
+        },
+        {
+          "offset": 1397,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1498,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955778
+        },
+        {
+          "offset": 1512,
+          "kind": 6,
+          "symbol": "??_C@_0DG@GNPP@Adding?5?$DP?$DP?$DP?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@",
+          "target": 8249832,
+          "addend": 0,
+          "resolved": 8249832
+        },
+        {
+          "offset": 1535,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955741
+        },
+        {
+          "offset": 1549,
+          "kind": 6,
+          "symbol": "??_C@_0DG@PFJH@Adding?5ACK?5packet?5?$CFd?5from?5?$CFs?5?$DL?5?$CF@",
+          "target": 8249776,
+          "addend": 0,
+          "resolved": 8249776
+        },
+        {
+          "offset": 1573,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955703
+        },
+        {
+          "offset": 1587,
+          "kind": 6,
+          "symbol": "??_C@_0DN@NBLK@Adding?5DATA_NOACK?5packet?5?$CFd?5from@",
+          "target": 8249712,
+          "addend": 0,
+          "resolved": 8249712
+        },
+        {
+          "offset": 1611,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955665
+        },
+        {
+          "offset": 1625,
+          "kind": 6,
+          "symbol": "??_C@_0DL@BHNN@Adding?5DATA_ACK?5packet?5?$CFd?5from?5?$CF@",
+          "target": 8249652,
+          "addend": 0,
+          "resolved": 8249652
+        },
+        {
+          "offset": 1630,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293788462
+        },
+        {
+          "offset": 1681,
+          "kind": 6,
+          "symbol": "??_C@_0BM@KMFP@Receive?5buffer?5overflow?5?$CFd?6?$AA@",
+          "target": 8249624,
+          "addend": 0,
+          "resolved": 8249624
+        },
+        {
+          "offset": 1703,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1718,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 1723,
+          "kind": 20,
+          "symbol": "?Mask_From_ID@OwnerTalkClass@@QAEEH@Z",
+          "target": 6550720,
+          "addend": 0,
+          "resolved": 1150625
+        },
+        {
+          "offset": 1743,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1762,
+          "kind": 20,
+          "symbol": "??8IPXAddressClass@@QAE_NAAV0@@Z",
+          "target": 5387728,
+          "addend": 0,
+          "resolved": 4294954890
+        },
+        {
+          "offset": 1794,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 1806,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 1820,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1832,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 1878,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 1905,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 1977,
+          "kind": 6,
+          "symbol": "??_C@_0BM@FHJ@Reecive?5buffer?5overflow?5?$CFd?6?$AA@",
+          "target": 8249596,
+          "addend": 0,
+          "resolved": 8249596
+        },
+        {
+          "offset": 1982,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293788110
+        },
+        {
+          "offset": 1991,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2003,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 2027,
+          "kind": 20,
+          "symbol": "??9IPXAddressClass@@QAE_NAAV0@@Z",
+          "target": 5387968,
+          "addend": 0,
+          "resolved": 4294954865
+        },
+        {
+          "offset": 2040,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2062,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2077,
+          "kind": 20,
+          "symbol": "?Is_Same_Node@IPXAddressClass@@QAE_NAAV1@@Z",
+          "target": 5387920,
+          "addend": 0,
+          "resolved": 4294954767
+        },
+        {
+          "offset": 2090,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2098,
+          "kind": 6,
+          "symbol": "?Houses@@3V?$DynamicVectorClass@PAVHouseClass@@@@A",
+          "target": 10691224,
+          "addend": 4,
+          "resolved": 10691228
+        },
+        {
+          "offset": 2110,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2115,
+          "kind": 20,
+          "symbol": "?Am_I_Master@SessionClass@@QAE_NPAVHouseClass@@@Z",
+          "target": 6746448,
+          "addend": 0,
+          "resolved": 1345961
+        },
+        {
+          "offset": 2134,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955142
+        },
+        {
+          "offset": 2148,
+          "kind": 20,
+          "symbol": "?As_String@IPXAddressClass@@QAEPBDPAV1@@Z",
+          "target": 5388352,
+          "addend": 0,
+          "resolved": 4294955128
+        },
+        {
+          "offset": 2154,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2161,
+          "kind": 6,
+          "symbol": "??_C@_0DL@CJLA@Frame?5?$CFd?0?5Router?5apparently?5chan@",
+          "target": 8249888,
+          "addend": 0,
+          "resolved": 8249888
+        },
+        {
+          "offset": 2166,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293787926
+        },
+        {
+          "offset": 2171,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2243,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2196,
+          "resolved": 10738476
+        },
+        {
+          "offset": 2248,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10516,
+          "resolved": 10746796
+        },
+        {
+          "offset": 2253,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10216,
+          "resolved": 10746496
+        },
+        {
+          "offset": 2259,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2200,
+          "resolved": 10738480
+        },
+        {
+          "offset": 2265,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2204,
+          "resolved": 10738484
+        },
+        {
+          "offset": 2271,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10520,
+          "resolved": 10746800
+        },
+        {
+          "offset": 2277,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10524,
+          "resolved": 10746804
+        },
+        {
+          "offset": 2294,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 2299,
+          "kind": 20,
+          "symbol": "?Set_Address@OwnerTalkClass@@QAEXHPAVIPXAddressClass@@@Z",
+          "target": 6551968,
+          "addend": 0,
+          "resolved": 1151297
+        },
+        {
+          "offset": 2304,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10228,
+          "resolved": 10746508
+        },
+        {
+          "offset": 2424,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@GHHE@GlobalChannel?5recive?5buffer?5over@",
+          "target": 8249552,
+          "addend": 0,
+          "resolved": 8249552
+        },
+        {
+          "offset": 2447,
+          "kind": 6,
+          "symbol": "??_C@_0CJ@MGKD@RouterChannel?5recive?5buffer?5over@",
+          "target": 8249508,
+          "addend": 0,
+          "resolved": 8249508
+        },
+        {
+          "offset": 2452,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293787640
+        },
+        {
+          "offset": 2470,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 2498,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 2535,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 12352,
+          "resolved": 10748632
+        },
+        {
+          "offset": 2544,
+          "kind": 6,
+          "symbol": "?OwnerTalk@@3VOwnerTalkClass@@A",
+          "target": 11234584,
+          "addend": 0,
+          "resolved": 11234584
+        },
+        {
+          "offset": 2549,
+          "kind": 20,
+          "symbol": "?Handle_Router_Messages@OwnerTalkClass@@QAEXXZ",
+          "target": 6551616,
+          "addend": 0,
+          "resolved": 1150695
+        },
+        {
+          "offset": 2554,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 10512,
+          "resolved": 10746792
+        },
+        {
+          "offset": 2579,
+          "kind": 6,
+          "symbol": "??_C@_0CA@FIDK@Multicast?5channel?5has?5gone?5bad?6?$AA@",
+          "target": 8249476,
+          "addend": 0,
+          "resolved": 8249476
+        },
+        {
+          "offset": 2584,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293787508
+        },
+        {
+          "offset": 2597,
+          "kind": 6,
+          "symbol": "?PacketTransport@@3PAVWinsockInterfaceClass@@A",
+          "target": 8625232,
+          "addend": 0,
+          "resolved": 8625232
+        },
+        {
+          "offset": 2633,
+          "kind": 6,
+          "symbol": "??_C@_0CE@KCEH@Error?5?9?5Connection?5?$CFd?5has?5gone?5b@",
+          "target": 8249440,
+          "addend": 0,
+          "resolved": 8249440
+        },
+        {
+          "offset": 2644,
+          "kind": 20,
+          "symbol": "?DebugString@@YAXPBDZZ",
+          "target": 4221168,
+          "addend": 0,
+          "resolved": 4293787448
+        }
+      ],
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
+      "source": "rebuild/src/ipxmgr.cpp",
+      "population": "rebuild-ipxmgr",
+      "source_order": 5398368,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 5401072,
@@ -2511,7 +3698,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401072,
@@ -2538,7 +3725,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401136,
@@ -2565,7 +3752,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401152,
@@ -2592,7 +3779,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401184,
@@ -2619,7 +3806,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401216,
@@ -2646,7 +3833,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401248,
@@ -2673,7 +3860,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401280,
@@ -2700,7 +3887,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401392,
@@ -2727,7 +3914,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401504,
@@ -2771,7 +3958,7 @@
           "resolved": 4294286945
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401536,
@@ -2807,7 +3994,7 @@
           "resolved": 4294286912
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401616,
@@ -2843,7 +4030,7 @@
           "resolved": 4294286881
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401648,
@@ -2879,7 +4066,7 @@
           "resolved": 4294286849
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401680,
@@ -2915,7 +4102,7 @@
           "resolved": 4294286817
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401712,
@@ -2991,7 +4178,7 @@
           "resolved": 4294286634
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5401744,
@@ -3803,7 +4990,7 @@
           "resolved": 4294378823
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5402000,
@@ -3863,7 +5050,7 @@
           "resolved": 4294284271
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404208,
@@ -3899,7 +5086,7 @@
           "resolved": 4294283308
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404320,
@@ -3935,7 +5122,7 @@
           "resolved": 4294955727
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404464,
@@ -3979,7 +5166,7 @@
           "resolved": 4294284039
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404496,
@@ -4006,7 +5193,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404592,
@@ -4033,7 +5220,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404608,
@@ -4060,7 +5247,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404656,
@@ -4087,7 +5274,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404672,
@@ -4114,7 +5301,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404688,
@@ -4141,7 +5328,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404720,
@@ -4185,7 +5372,7 @@
           "resolved": 2467030
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404752,
@@ -4229,7 +5416,7 @@
           "resolved": 2466996
         }
       ],
-      "source_sha256": "351af1ad1513aebf8cd5be7a7815408589ac7c919ab04f40ad6e81418381d1c5",
+      "source_sha256": "b632652691c90c611a8e5b7847d473d85d9e1d5fee6acaeaf580e247e43ff852",
       "source": "rebuild/src/ipxmgr.cpp",
       "population": "rebuild-ipxmgr",
       "source_order": 5404784,
