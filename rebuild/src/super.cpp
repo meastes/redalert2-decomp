@@ -298,7 +298,6 @@ bool SuperClass::Recharge(bool player)
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 163 bytes differ (adopted text)
 bool SuperClass::Discharged(bool player, Cell const & cell)
 {
 	if (Class->UseChargeDrain) {
@@ -306,6 +305,7 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
 			if (ChargeDrainState == FIRESTORM_ON) {
 				ChargeDrainState = READY;
 				Control = Class->RechargeTime - Control.Value() / Rule->ChargeToDrainRatio;
+				Deactivate_Firestorm(0, player);
 				return(false);
 			}
 			if (ChargeDrainState == READY) {
@@ -313,8 +313,12 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
 				Control = (Class->RechargeTime - Control.Value()) * Rule->ChargeToDrainRatio;
 				Place(cell, player);
 			}
-		} else if (!House->FirestormDefenseActivated) { // RA2: as above
-			Place(cell, player);
+		} else {
+			if (House->FirestormDefenseActivated) {
+				Deactivate_Firestorm(0, player);
+			} else {
+				Place(cell, player);
+			}
 		}
 		return(false);
 	}
@@ -344,7 +348,6 @@ bool SuperClass::Discharged(bool player, Cell const & cell)
 	}
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -888,19 +891,24 @@ void SuperClass::Place(Cell const & cell, bool player) // RA2: does each weapon 
 
 
 /// <summary>
-/// An empty function of two arguments. Nothing in the executable calls it.
-/// </summary>
-void __stdcall Unused_Super_Hook(int, int)
-{
-}
-
-/// <summary>
 /// Shuts the firestorm defense back down.
 /// This routine is called when the firestorm wall is toggled off or its charge runs
 /// out. Any other kind of super weapon ignores the request.
 /// </summary>
 /// <param name="player">Is this for a player owned super weapon? If so, then the sidebar
 /// will want redrawing.</param>
+void SuperClass::Deactivate_Firestorm(int, bool player) const // RA2: the body is empty (0x0069E980)
+{
+}
+
+
+/// <summary>
+/// Is the super weapon building up toward its next use?
+/// This routine is used by the sidebar to decide whether the charge-up clock should be
+/// drawn over the cameo. A charge-drain weapon is always considered to be charging,
+/// since it never simply sits at the ready.
+/// </summary>
+/// <returns>bool; Is the super weapon charging?</returns>
 bool SuperClass::Is_Charging() const // RA2: (0x0069E990)
 {
 	if (Class->UseChargeDrain) {

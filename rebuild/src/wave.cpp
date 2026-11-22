@@ -442,14 +442,13 @@ void WaveClass::Detach(AbstractClass const * target, bool all)
 /// game has been loaded.
 /// </summary>
 /// <returns>Returns with S_OK, or the failure code of the first read that failed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 305 bytes differ (adopted text)
 HRESULT STDMETHODCALLTYPE WaveClass::Load(IStream * stream)
 {
 	HRESULT result = BASECLASS::Load(stream);
 	if (SUCCEEDED(result)) {
 		new (this) WaveClass(NoInitClass());
 
-		WaveShape.Vertices = &ActiveWaveStartMiddle;
+		WaveShape.Vertices = &ActiveWave.StartMiddle;
 
 		Swizzle_Pointer(&Target);
 		Swizzle_Pointer(&Source);
@@ -477,7 +476,6 @@ HRESULT STDMETHODCALLTYPE WaveClass::Load(IStream * stream)
 	}
 	return(result);
 }
-#endif
 
 
 /// <summary>
@@ -1144,7 +1142,7 @@ void WaveClass::Build_Wave_Shape(Coord const & source_coord, Coord const & targe
 	EndCoord = end_coord;
 
 	WaveShape.Count = 6;
-	WaveShape.Vertices = &ActiveWaveStartMiddle;
+	WaveShape.Vertices = &ActiveWave.StartMiddle;
 
 	// Calculate wave points
 	TacticalMap->Coord_To_Pixel(start_coord, WaveStartMiddle);

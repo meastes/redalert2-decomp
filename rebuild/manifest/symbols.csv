@@ -9,6 +9,7 @@ symbol,address,evidence
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAUtConnInfoStruct@@@@QAE@HPBQAUtConnInfoStruct@@@Z,0x007680C0,inferred: wonline rows 0074fcb0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
+??0?$VectorClass@PAVMSSfxEntry@@@@QAE@HPBQAVMSSfxEntry@@@Z,0x007304C0,inferred: wdtsel rows 0072d560 differ only at its sites
 ??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@HPBQBVParticleSystemTypeClass@@@Z,0x00454AD0,inferred: building rows 0043e270 differ only at its sites
 ??0?$VectorClass@USubzoneConnectionStruct@@@@QAE@HPBUSubzoneConnectionStruct@@@Z,0x0056CA50,"inferred: VectorClass<SubzoneTrackingStruct>::Resize (0x0056B4A0, bound copy) calls it at offsets 90 and 178 (lane R5)"
 ??0BaseNodeClass@@QAE@W4StructType@@ABVCell@@@Z,0x004F6BE0,"main: ??0BaseNodeClass@@QAE@HABVCell@@@Z (the same constructor, its first parameter typed int there)"

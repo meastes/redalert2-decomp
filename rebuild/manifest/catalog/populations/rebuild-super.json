@@ -60,6 +60,11 @@
     "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
     "?Forced_Charge@SuperClass@@QAEX_N@Z": 6936208,
+    "?Is_Human_Player@HouseClass@@QBE_NXZ": 5198576,
+    "?Place@SuperClass@@QAEXABVCell@@_N@Z": 6936656,
+    "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ": 5372976,
+    "?Ion_Storm_Active_Message@IonStormClass@@SIXXZ": 5377008,
+    "?Delete_Index@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z": 6942096,
     "?CurrentSuperWeaponType@@3W4SuperWeaponType@@A": 8599188,
     "?End@AudioController@@QAEXXZ": 4218848,
     "??_C@_0BI@IALN@EVA_NuclearMissileReady?$AA@": 8349092,
@@ -184,13 +189,13 @@
     "?Remove@SuperClass@@QAE_NXZ": 6934336,
     "?Set_Ready@SuperClass@@QAEX_N@Z": 6934448,
     "?Recharge@SuperClass@@QAE_N_N@Z": 6934464,
+    "?Discharged@SuperClass@@QAE_N_NABVCell@@@Z": 6934672,
     "?AI@SuperClass@@QAE_N_N@Z": 6935440,
     "?Impatient_Click@SuperClass@@QBEXXZ": 6936192,
     "?Is_Powered@SuperClass@@QBE_NXZ": 6936416,
     "?State_String@SuperClass@@QBEPBGXZ": 6936432,
     "?Can_Place@SuperClass@@QAE_NXZ": 6936608,
-    "?Place@SuperClass@@QAEXABVCell@@_N@Z": 6936656,
-    "?Unused_Super_Hook@@YGXHH@Z": 6941056,
+    "?Deactivate_Firestorm@SuperClass@@QBEXH_N@Z": 6941056,
     "?Is_Charging@SuperClass@@QBE_NXZ": 6941072,
     "?GetClassID@SuperClass@@UAGJPAU_GUID@@@Z": 6941104,
     "?Load@SuperClass@@UAGJPAUIStream@@@Z": 6941168,
@@ -271,7 +276,7 @@
           "resolved": 11261796
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931376,
@@ -339,7 +344,7 @@
           "resolved": 11261808
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931408,
@@ -391,7 +396,7 @@
           "resolved": 11261920
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931456,
@@ -443,7 +448,7 @@
           "resolved": 11261904
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931488,
@@ -495,7 +500,7 @@
           "resolved": 11261896
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931520,
@@ -547,7 +552,7 @@
           "resolved": 11261816
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931552,
@@ -599,7 +604,7 @@
           "resolved": 11261776
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931584,
@@ -683,7 +688,7 @@
           "resolved": 11261928
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931616,
@@ -743,7 +748,7 @@
           "resolved": 11261824
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931680,
@@ -803,7 +808,7 @@
           "resolved": 11261848
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931728,
@@ -863,7 +868,7 @@
           "resolved": 11261912
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931776,
@@ -907,7 +912,7 @@
           "resolved": 11261802
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931824,
@@ -959,7 +964,7 @@
           "resolved": 11261840
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931840,
@@ -1059,7 +1064,7 @@
           "resolved": 11261888
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6931872,
@@ -1223,7 +1228,7 @@
           "resolved": 10706220
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6932064,
@@ -1531,7 +1536,7 @@
           "resolved": 11275532
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6932272,
@@ -1855,7 +1860,7 @@
           "resolved": 4292293928
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6932656,
@@ -1979,7 +1984,7 @@
           "resolved": 11275272
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6933104,
@@ -2167,7 +2172,7 @@
           "resolved": 11275260
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6933296,
@@ -2211,7 +2216,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6933600,
@@ -2407,7 +2412,7 @@
           "resolved": 1896
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6933744,
@@ -2483,7 +2488,7 @@
           "resolved": 10706376
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6934336,
@@ -2510,7 +2515,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6934448,
@@ -2619,10 +2624,238 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6934464,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6934672,
+      "method": "0069d090",
+      "body_bytes": 765,
+      "body_sha256": "b333180febb3961628c842cde6abbed5cc44eb04b98d690c12c55d56c01bb519",
+      "padding_bytes": 3,
+      "full_extent_bytes": 768,
+      "full_extent_sha256": "59fafa9060daee93f4aad4ae77de285d9941f66543e22f86736b420b4bdd8870",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Discharged@SuperClass@@QAE_N_NABVCell@@@Z",
+      "symbol_prefix": "?Discharged@SuperClass@@QAE_N_NABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 30,
+          "kind": 20,
+          "symbol": "?Is_Human_Player@HouseClass@@QBE_NXZ",
+          "target": 5198576,
+          "addend": 0,
+          "resolved": 4293231166
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 95,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 118,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 925702
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 211,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 230,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 925590
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "?Place@SuperClass@@QAEXABVCell@@_N@Z",
+          "target": 6936656,
+          "addend": 0,
+          "resolved": 1703
+        },
+        {
+          "offset": 338,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ",
+          "target": 5372976,
+          "addend": 0,
+          "resolved": 4293405258
+        },
+        {
+          "offset": 357,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Active_Message@IonStormClass@@SIXXZ",
+          "target": 5377008,
+          "addend": 0,
+          "resolved": 4293409271
+        },
+        {
+          "offset": 386,
+          "kind": 20,
+          "symbol": "?Place@SuperClass@@QAEXABVCell@@_N@Z",
+          "target": 6936656,
+          "addend": 0,
+          "resolved": 1594
+        },
+        {
+          "offset": 431,
+          "kind": 6,
+          "symbol": "?TimedSuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+          "target": 10706360,
+          "addend": 0,
+          "resolved": 10706360
+        },
+        {
+          "offset": 441,
+          "kind": 6,
+          "symbol": "?TimedSuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+          "target": 10706360,
+          "addend": 0,
+          "resolved": 10706360
+        },
+        {
+          "offset": 458,
+          "kind": 6,
+          "symbol": "?TimedSuperWeapons@@3V?$DynamicVectorClass@PAVSuperClass@@@@A",
+          "target": 10706360,
+          "addend": 0,
+          "resolved": 10706360
+        },
+        {
+          "offset": 463,
+          "kind": 20,
+          "symbol": "?Delete_Index@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
+          "target": 6942096,
+          "addend": 0,
+          "resolved": 6957
+        },
+        {
+          "offset": 489,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 620,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 630,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 652,
+          "kind": 20,
+          "symbol": "?Delete_Index@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NH@Z",
+          "target": 4541216,
+          "addend": 0,
+          "resolved": 4292573184
+        },
+        {
+          "offset": 671,
+          "kind": 6,
+          "symbol": "?AnimPtrTracker@@3V?$DynamicVectorClass@PAVAbstractClass@@@@A",
+          "target": 11275256,
+          "addend": 0,
+          "resolved": 11275256
+        },
+        {
+          "offset": 676,
+          "kind": 20,
+          "symbol": "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z",
+          "target": 6942016,
+          "addend": 0,
+          "resolved": 6664
+        },
+        {
+          "offset": 709,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 720,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        }
+      ],
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
+      "source": "rebuild/src/super.cpp",
+      "population": "rebuild-super",
+      "source_order": 6934672,
       "source_quality_family": "rebuild"
     },
     {
@@ -2840,7 +3073,7 @@
           "resolved": 6935806
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6935440,
@@ -2940,7 +3173,7 @@
           "resolved": 924335
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6935904,
@@ -2967,7 +3200,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936192,
@@ -3125,7 +3358,7 @@
           "resolved": 6936342
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936208,
@@ -3152,7 +3385,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936416,
@@ -3300,7 +3533,7 @@
           "resolved": 378542
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936432,
@@ -3327,7 +3560,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936608,
@@ -4932,7 +5165,7 @@
           "resolved": 6939709
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6936656,
@@ -4948,8 +5181,8 @@
       "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Unused_Super_Hook@@YGXHH@Z",
-      "symbol_prefix": "?Unused_Super_Hook@@YGXHH@Z",
+      "symbol": "?Deactivate_Firestorm@SuperClass@@QBEXH_N@Z",
+      "symbol_prefix": "?Deactivate_Firestorm@SuperClass@@QBEXH_N@Z",
       "options": [
         "/O2",
         "/Ob2",
@@ -4959,7 +5192,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941056,
@@ -4987,7 +5220,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941072,
@@ -5047,7 +5280,7 @@
           "resolved": 8002300
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941104,
@@ -5243,7 +5476,7 @@
           "resolved": 4202
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941168,
@@ -5279,7 +5512,7 @@
           "resolved": 4292285916
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941392,
@@ -5306,7 +5539,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941424,
@@ -5414,7 +5647,7 @@
           "resolved": 4292825993
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941472,
@@ -5522,7 +5755,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941616,
@@ -5549,7 +5782,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941856,
@@ -5576,7 +5809,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941872,
@@ -5603,7 +5836,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941888,
@@ -5647,7 +5880,7 @@
           "resolved": 929878
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941904,
@@ -5674,7 +5907,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941936,
@@ -5702,7 +5935,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6941984,
@@ -5739,7 +5972,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6942000,
@@ -5767,10 +6000,38 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e1c7afbbad6ff3995ede348f289222b1704707c415f760bed8407411bfab033f",
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
       "source": "rebuild/src/super.cpp",
       "population": "rebuild-super",
       "source_order": 6942016,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2685"
+    },
+    {
+      "entry": 6942096,
+      "method": "0069ed90",
+      "body_bytes": 49,
+      "body_sha256": "e5dcf659a32b8282fe49c79a5bb461bedcd94ef7e4528d5ebcb9ba3d225d3005",
+      "padding_bytes": 15,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "f22477776f7356c2bfdd03ed5a5aebc8dc8d6e74d002e296ff415d39fcc13d2f",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Delete_Index@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
+      "symbol_prefix": "?Delete_Index@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "22bdce70102d8ce83a3b98000993f6f36ed93227f4994f1b3a156a789e42f0ea",
+      "source": "rebuild/src/super.cpp",
+      "population": "rebuild-super",
+      "source_order": 6942096,
       "source_quality_family": "rebuild",
       "bound_population": "population-2685"
     }

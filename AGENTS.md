@@ -82,6 +82,11 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   gates. `src/` stays the complete exact-match record the ports build from. Whether the
   rebuild replaces `src/` remains the user's decision at parity of main's matched bytes.
   Rebuild-only commits publish at most hourly.
+  User decision (2026-11-22, confirmed in the owner session): from 2026-11-29, `rebuild/` is the
+  exact-match tree of record: acceptance, STATUS and the public snapshot follow it. `src/` is retired
+  at the tag `src-final`, read-only, kept as reference text; the native ports keep building from it
+  until a separate ports repository consumes the rebuild at a pinned commit. Creating or publishing
+  that repository is the user's decision.
   From every commit: one source file per original unit, one header and one definition
   per class, no per-unit views or `RA2_` switches, members as members, address-suffixed names
   minimal and never growing silently, no tool data inside sources. Acceptance is main's exact

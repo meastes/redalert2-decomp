@@ -141,7 +141,7 @@ Map::~Map(void) // RA2: Destroys the map: the click map, both drawers and the pa
 /// <param name="ini">The tour's map INI.</param>
 /// <param name="engine">The presentation engine the anims are added to.</param>
 /// <param name="differs">Passed on by the selection screen (whether the campaign progress differs); not used here.</param>
-void Map::Load(INIClass & ini, MSEngine * engine, int differs) // RA2: reads the map's layout and animation set from WDTMap.ini
+void Map::Load(INIClass & ini, MSEngine * engine, bool differs) // RA2: reads the map's layout and animation set from WDTMap.ini
 {
 	Wstring map_section; // RA2: as above
 	ini.Get_String("MAPS", Wstring_FromInt(MapNumber), "", map_section); // RA2: as above

@@ -2614,6 +2614,36 @@ range do not count, and any reference inside the stretch resets the count. The w
   Swizzle_Pointer calls ahead of the loops turn the constructor into a call as in the original (lane R25, scratch only).
   So the original's caller was wordier before that site; look for its missing statements or calls in the reference
   texts, never for padding.
+- Found in the rebuild (lane F21, high): the missing sites of such a row can be a member grouping in the class, not a
+  statement of the caller. WaveClass::Load 0x7221D0 (305 bytes off through six lanes) is exact with the twin's
+  wave.h: ra2-decomp declares the six active wave points as one nested block (`struct ActiveWaveStruct { Point2D
+  StartMiddle; .. } ActiveWave;`) where the archive has six Point2D members. Six empty Point2D constructors are free
+  sites; the block's compiler-made default constructor is one site of its own ahead of AffectedCells in the expanded
+  WaveClass(NoInitClass), and DynamicVectorClass<CellClass *>'s constructor 0x7246D0 is then called as in the image.
+  When comparing a twin's header, compare the member declarations structurally (nesting, grouping), not only for
+  added or missing members: lane R42 had recorded this header as "differs only by YR members".
+- Found in the rebuild (lane F21, high): a never-referenced empty function in a unit is a lead for its parked rows. RA2
+  emptied SuperClass::Deactivate_Firestorm(int, bool) but kept the definition (0x69E980, `ret 8`, at the archive's
+  place between Place and Is_Charging) and its two calls in Discharged 0x69D090, which /Ob2 expands to nothing: no
+  call in the image, but two sites' worth of root size. A draft that drops such calls "because the image does not make
+  them" comes out a few call statements short of the budget and loses a late nested expansion (163 bytes there; exact
+  with the archive's calls restored). Check the stack-argument count of an unreferenced `ret N` stub against the
+  archive function defined at the same place in the unit before naming it a hook.
+- Found in the rebuild (lane F21, high): a bool function returning `a || b` builds the result as 0/1 in eax (`xor eax,
+  eax` / `mov eax, 1`), the same body an int function with `return(1)`/`return(0)` gives; callers then test `al`.
+  IonStormClass::Is_Ion_Storm_Pending 0x51FC30: the int body with a second bool prototype for callers was never needed.
+- Found in the rebuild (lane F21, high): `x == false` costs a root one IL unit more than `!x` with the same code, and
+  one unit can decide the last site: TechnoClass(NoInitClass) 0x6C1F10 expands Technos.Add as the image does with
+  `if (found == false)` and calls it with the references' `if (!found)` (93 bytes). Such a form is a hand-made
+  variation when no reference has it (variation_candidates.csv), but it sizes the deficit: when one out-of-line call
+  statement of padding flips a site, look for a one-token difference before a missing statement.
+- Found in the rebuild (lane F21, high): an explicit specialization of a template member is an ordinary function for
+  the inliner, so it falls under the auto-inline size cap that template members escape. map.cpp's `template<> bool
+  VectorClass<PassabilityType>::Resize` (written so 0x56BCD0 has a body while its only emitter, Zone_Reset, is parked)
+  makes the instantiated DynamicVectorClass<PassabilityType>::Resize 0x56BE10 a 64-byte call where the image expands
+  the base Resize (176 B); without the specialization both come out exact from vector.h once Zone_Reset's guard is
+  open. It is the techtype 0x6DF8C0 case in "Later inline sites of a long reader, and specializations left behind": the
+  specialization leaves when the emitter opens.
 - Tell the budget from depth or helper shape with a pad probe (`rebuild/tools/inline_probe.py --pad`): when a few
   expansions of padding at the top of the caller flip the site (Tactical::Draw_Fence_Placement 0x6A5D70: one
   Adjacent_Cell), it is the budget; when 0..12 never flip it (HoverLocomotionClass::Process 0x4FBFC0, reinf
@@ -3720,3 +3750,67 @@ Found in the rebuild (lane F14, high): two inline_call rows worked from prepared
   frozen-bound precedent does not reach them.
 - `pgrep -f NAME` in a wait loop matches the loop's own shell (its command line holds NAME); write the pattern
   as `[N]AME`.
+
+## A frame miss with every call agreeing is a callee's block scope; a by-value helper parameter is a second copy; site counts from empty probes (found in the rebuild (lane F20, high))
+
+Found in the rebuild (lane F20, high):
+
+- Map a "calls agree, frame differs" row slot by slot before changing text. Compile the scratch unit with
+  `/FAs /Fa<path>`: every frame reference in the listing reads `_name$[esp+K]`, K being the frame size plus the
+  push depth, so the listing gives each object's name and the depth at every instruction. Pair the listing with
+  the image instruction for instruction (the mnemonics are equal when the calls agree) and subtract the depth
+  from the image's `[esp + n]`: the result is a table of our objects with our slot and the image's slot, the
+  reference count and the source lines of each (lane tool: build/r/f20/fm.py, 100 lines).
+- planmgr Planning_Draw_Techno 0x6182F0 (frame 0x178 against 0x174): the table showed has_nodes and the
+  attack-move flag at 0x12 and 0x13 in the image because the 16-byte slot above them holds 47 references
+  (2.94 a byte, under the flag's 3) where ours held 49 (3.06, so the flag sorted above the slot and took a
+  dword). Frames over 128 bytes sort slots by references per byte, and two byte objects share a dword only when
+  they are neighbours in that order: a one-dword frame difference can be two references in a 16-byte slot.
+- Which objects share a slot is liveness, and for the locals of an expanded callee the scope they had in the
+  callee decides it. A callee written `if (c) { T a; ... }` gives its locals the block's life; written
+  `if (!c) return; T a; ...` they are locals of the whole callee and, expanded, live across the caller's
+  enclosing block: they then conflict with the caller's long-lived values and take slots of their own, while a
+  return-slot temporary of the same expansion (statement life) still shares. Both forms are the same bytes for
+  the callee's own row, so the callee's row cannot choose between them; only a function that expands it can.
+  Planning_Draw_Midpoint 0x61A2F0 with the early return gives Planning_Draw_Techno the image's slot for every
+  object below its tail. (Scout739 noted the same move in the main tree; the slot table is what finds the
+  callee.) Owner ruling, 2026-11-22: ra2-decomp's twin of the helper writes the block, so the early return is a
+  form against the twin and the row is held on variation_candidates.csv, whatever the caller's frame says.
+- The early return is 2 units smaller than the block (118 against 120, il_lab), and two expansions of it freed
+  enough for PlanningNodeClass::Get_Event_For to expand at the tail (frame 0x104). The answer was not a wordier
+  helper but the tail's own form: the image has a second 0x70-byte EventClass copy there, which main's text
+  (`EventClass event = node->Get_Event_For(techno); if (event.Get_Event_Frame() != -1)`) only reproduces while
+  Get_Event_For is refused. The sibling renderer's line from ra2-decomp's twin,
+  `int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno));` with the helper taking the order by value,
+  makes the copy the helper's parameter and is exact over the early return (the tail lines themselves would
+  land flagged; the early return under them is what holds the row). An object the image keeps that the text
+  gets only through a refused call is evidence for a by-value parameter at that place; look at what the sibling
+  function's twin writes there before sizing anything. A split statement in the helper (`Rect view; view =
+  ...;`, 8 to 10 units) also gave the image's bytes and was refused first: against the twin's text of the
+  helper and chosen for the budget (the Reposition_Sidebar precedent); a sibling's split form in our own tree
+  is not evidence. Three exact routes are on the variation row; none is the twin's helper text.
+- A constructor's member initialisers are inline sites decided before the body, and a nested site in one of
+  them gets the budget divided by every candidate site from there to the end of the body. wdtsel
+  Selection::Selection 0x72D560 keeps `VectorClass<MSSfxEntry *>(int, T const *)` 0x7304C0 out of line inside
+  the expanded DynamicVectorClass constructor of its last member: empty inline probe calls before the last
+  statement flip it at three or four (one, two and six or more do not), so the image's body has three or four
+  more inline candidate sites than the adopted text. ra2-decomp's file-static
+  `Load_Selection_Text(label, line)` (its wdtsel.cpp:232, used by its matched Select_Territory) at the two
+  string sites supplies them: with it, and Map::Load's third parameter as `bool`, the constructor is the image
+  but for the binding of 0x7304C0. Select_Territory 0x72ED80 stays exact with the helper at its four tooltip
+  sites, as the twin has it. Landed flagged (owner ruling, 2026-11-22): the helper is a twin unit-local helper
+  at Select_Territory (DECISIONS row 85, twin_helpers.csv); its two uses in the constructor have no twin text
+  and carry the judgment flag. When a count of missing sites comes out of empty probes, look for a file-static
+  helper in the twin's unit before any accessor: main reached this row through two coined accessors and its
+  own vector type.
+- An unmasked `push eax` of a `bool` result into a parameter is a `bool` parameter; `and eax, 0xff` before the
+  push means ours declares it `int`. Where the callee never reads the parameter its own row cannot tell (Map::Load
+  0x729510): the caller's push is the only evidence.
+- wonline Buddy_Dialog_Proc 0x758750 (1,728 bytes, two sites: `remove(Wstring &, int)` called where the image
+  expands it into `get` and `remove(int)`, four levels down through Refresh_Buddy_Status,
+  Service_Buddy_Find_Queue and removeHead): out-of-line probe calls at the top of the root (8 units of root
+  budget each) do not find a window. One, two: no change; four: seven other sites move; eight: one of the two
+  sites expands and nothing else moves; sixteen and more: the ladder block and four more sites move. The two
+  sites sit at different shares of one budget, so a single root spend cannot answer both; the next thing to
+  measure is each expanded Refresh_Buddy_Status copy on its own (N_i at the timer case and at the refresh
+  button).

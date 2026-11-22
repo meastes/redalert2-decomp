@@ -42,6 +42,11 @@ using namespace WorldDominationTour;
 
 inline TERRITORY_ITER Walk_Territories(TERRITORY_LIST & list) { return(TERRITORY_ITER(list, 0)); }
 
+static inline WideWstring Load_Selection_Text(char const * label, int source_line) // RA2: ra2-decomp's file-local helper (its wdtsel.cpp, used by its Select_Territory at the four tooltips; `static` there)
+{
+	return(WideWstring(StringTable::LoadString(label, NULL, "D:\\Ra2\\WDTSel.cpp", source_line)));
+}
+
 
 /// <summary>
 /// Creates the world domination territory selection screen.
@@ -51,7 +56,6 @@ inline TERRITORY_ITER Walk_Territories(TERRITORY_LIST & list) { return(TERRITORY
 /// </summary>
 /// <param name="campaign">The campaign whose current state the screen presents.</param>
 /// <param name="faction">The faction whose progress the screen shows.</param>
-#ifdef RA2_NON_MATCHING // not exact: 959 bytes differ (adopted text)
 Selection::Selection(rc_ptr<Campaign> const & campaign, int faction) :
 	TourCampaign(campaign),
 	VoicePlayer(campaign->Get_Player_Faction()),
@@ -92,19 +96,18 @@ Selection::Selection(rc_ptr<Campaign> const & campaign, int faction) :
 
 	WorldMap->Load(ini, this, campaign->Is_Different(faction));
 
-	WideWstring play_text(StringTable::LoadString("GUI:PlayWDT", NULL, "D:\\Ra2\\WDTSel.cpp", 157));
+	WideWstring play_text(Load_Selection_Text("GUI:PlayWDT", 157)); // RA2: the unit's loader (no twin text of this constructor: a judgment call)
 	MSBitPrintAnim * play = new MSBitPrintAnim(play_text, WorldMap->PlayRect, true);
 	play->Set_Flag(true);
 	Add_Animation(play);
 
-	WideWstring back_text(StringTable::LoadString("TXT_BACK", NULL, "D:\\Ra2\\WDTSel.cpp", 164));
+	WideWstring back_text(Load_Selection_Text("TXT_BACK", 164)); // RA2: as above
 	MSBitPrintAnim * back = new MSBitPrintAnim(back_text, WorldMap->BackRect, true);
 	back->Set_Flag(true);
 	Add_Animation(back);
 
 	Start();
 }
-#endif
 
 
 
@@ -464,19 +467,19 @@ bool Selection::Select_Territory(rc_ptr<Territory> const & territory)
 
 	switch (territory_state) {
 		case 1:
-			Set_Tooltip(StringTable::LoadString("WDT:TerritorySelDispToolTip", NULL, "D:\\Ra2\\WDTSel.cpp", 0x2b5));
+			Set_Tooltip(Load_Selection_Text("WDT:TerritorySelDispToolTip", 0x2b5));
 			break;
 
 		case 2:
-			Set_Tooltip(StringTable::LoadString("WDT:AlliedHeldTooltip", NULL, "D:\\Ra2\\WDTSel.cpp", 0x2ad));
+			Set_Tooltip(Load_Selection_Text("WDT:AlliedHeldTooltip", 0x2ad));
 			break;
 
 		case 3:
-			Set_Tooltip(StringTable::LoadString("WDT:SovietHeldTooltip", NULL, "D:\\Ra2\\WDTSel.cpp", 0x2b1));
+			Set_Tooltip(Load_Selection_Text("WDT:SovietHeldTooltip", 0x2b1));
 			break;
 
 		default:
-			Set_Tooltip(StringTable::LoadString("WDT:TerritorySelectToolTip", NULL, "D:\\Ra2\\WDTSel.cpp", 0x2b9));
+			Set_Tooltip(Load_Selection_Text("WDT:TerritorySelectToolTip", 0x2b9));
 			break;
 	}
 

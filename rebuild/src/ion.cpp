@@ -369,12 +369,9 @@ void IonStormClass::Ion_Storm_Stop(void) // RA2: the storm is over (0x51FBD0)
 }
 
 
-int IonStormClass::Is_Ion_Storm_Pending(void) // RA2: active or deferred, returns int (0x51FC30)
+bool IonStormClass::Is_Ion_Storm_Pending(void) // RA2: active or deferred (0x51FC30)
 {
-	if (IsActive || Deferment > 0) { // RA2: as above
-		return(1); // RA2: as above
-	}
-	return(0); // RA2: as above
+	return(IsActive || Deferment > 0); // RA2: as above
 }
 
 

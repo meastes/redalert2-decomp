@@ -1222,7 +1222,6 @@ bool Request_Game_Channel_List(unsigned char autoping, bool wait)
 	return(Queue_Channel_List_Request(0x21, autoping, wait));
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0073e100 has no row); 26 of 1994 bytes differ against the frozen image bound (image_bounds.csv) (23 against main's function-map extent; Handle_Preview_Download unbound), 2026-11-22 (lane O32)
 bool WOL_Wait_Callback(void)
 {
 	Title_Screen_Restore(false);
@@ -1321,10 +1320,11 @@ bool WOL_Wait_Callback(void)
 				strcpy((char *)new_user->name, rawName);
 				if (last_user == NULL) {
 					list = new_user;
+					last_user = new_user;
 				} else {
 					last_user->next = new_user;
+					last_user = new_user;
 				}
-				last_user = new_user;
 			} else {
 				break;
 			}
@@ -1398,7 +1398,6 @@ bool WOL_Wait_Callback(void)
 	Handle_Preview_Download();
 	return(false);
 }
-#endif
 
 void Reset_WOL_Globals(void)
 {
@@ -2096,7 +2095,7 @@ NodeNameType * __fastcall Find_Lobby_Name(wchar_t const * name); // RA2: 0x005C8
 
 char g_WDTHost[128];
 int g_WDTPort;
-bool g_ReceivingHostPreview; // RA2: 0x00B2AC46, set while Receive_Host_Map_Preview takes the map preview from the host
+bool g_ReceivingHostPreview; // RA2: 0x00B2AC46, set while Handle_Preview_Download takes the map preview from the host
 
 
 static inline void Show_Name(HWND window, Wstring const & name) // ra2-decomp's helper
@@ -9245,7 +9244,7 @@ done:
 }
 #endif
 
-bool Receive_Host_Map_Preview(void) // RA2: 0x00750D10, not in TibSun: a guest of a game channel takes the map preview from the host when the host's NET_PREVIEW_MODE packet is waiting in the global channel; true when the preview was received
+bool Handle_Preview_Download(void) // RA2: 0x00750D10 (the archive's name, TibSun wonline.cpp:9830; ra2-decomp's YR twin 0x00796710): a guest of a game channel takes the map preview from the host when the host's NET_PREVIEW_MODE packet is waiting in the global channel; true when the preview was received
 {
 	IPXAddressClass address; // RA2: as above
 	if (g_CurrentChannel.type && g_UserList.length() >= 2) { // RA2: in a channel with at least one other user

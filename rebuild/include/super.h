@@ -82,6 +82,7 @@ class SuperClass : public AbstractClass
 		bool Enable(bool onetime = false, bool player=false, bool quiet=false);
 		void Forced_Charge(bool player=false);
 		void Place(Cell const & cell, bool player);
+		void Deactivate_Firestorm(int, bool player) const; // RA2: 0x0069E980; the body is empty
 		bool AI(bool player=false);
 		bool Remove(void);
 		void Set_Ready(bool ready); // RA2: 0x0069CFB0; sets the ready flag, nothing else (YR: SetReadiness)

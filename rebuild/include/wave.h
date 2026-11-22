@@ -128,12 +128,14 @@ class WaveClass : public ObjectClass
 
 		PolygonShapeStruct WaveShape; /// the shape (geometry) of the wave
 
-		Point2D ActiveWaveStartMiddle; 	/// active wave pixel start
-		Point2D ActiveWaveEndMiddle; 	/// active wave pixel end
-		Point2D ActiveWaveEndLeft; 		/// active wave pixel end left
-		Point2D ActiveWaveEndRight; 	/// active wave pixel end right
-		Point2D ActiveWaveStartLeft; 	/// active wave pixel start left
-		Point2D ActiveWaveStartRight; 	/// active wave pixel start right
+		struct ActiveWaveStruct {
+				Point2D StartMiddle; 	/// active wave pixel start
+				Point2D EndMiddle; 		/// active wave pixel end
+				Point2D EndLeft; 		/// active wave pixel end left
+				Point2D EndRight; 		/// active wave pixel end right
+				Point2D StartLeft; 		/// active wave pixel start left
+				Point2D StartRight; 	/// active wave pixel start right
+		} ActiveWave;
 
 		/*
 		 * This is the wave's polygon rasterized into one span per scanline, rebuilt from

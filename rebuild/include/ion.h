@@ -29,7 +29,7 @@ class IonStormClass
 		static void Ion_Storm_Begin(int duration, int deferment, Cell cell, HouseClass * owner); // RA2: 0x0051F930, a storm aimed at a cell for a house
 		static void Ion_Storm_End(void); // RA2: 0x0051FBB0; only asks the storm to end, the AI lets the last clouds play out first
 		static void Ion_Storm_Stop(void); // RA2: 0x0051FBD0; the storm is over: the cell and the owner are given up and the light returns
-		static int Is_Ion_Storm_Pending(void); // RA2: 0x0051FC30; a storm is running or still waiting out its deferment
+		static bool Is_Ion_Storm_Pending(void); // RA2: 0x0051FC30; a storm is running or still waiting out its deferment
 		static bool Is_Ion_Storm_Active(void); // RA2: 0x0051FC50
 		static void Lightning_Bolt(Cell cell); // RA2: 0x0051FC90; a cloud forms over a cell, to strike once it is half played
 		static void Lightning_Strike(Coord coord); // RA2: 0x0051FE50; the bolt of a cloud lands: animation, thunder, damage and debris

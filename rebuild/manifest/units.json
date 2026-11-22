@@ -60112,7 +60112,7 @@
     "entry": "0051fc30",
     "body": 27,
     "padding": 5,
-    "symbol": "?Is_Ion_Storm_Pending@IonStormClass@@SIHXZ",
+    "symbol": "?Is_Ion_Storm_Pending@IonStormClass@@SI_NXZ",
     "main_symbol": "?Is_Storm_Pending_0051FC30@@YIHXZ",
     "main_source": "src/recovered/ion.cpp"
    },
@@ -108945,7 +108945,7 @@
   "status": "catalogued",
   "range": [
    "0069c3b0",
-   "0069ed90"
+   "0069edd0"
   ],
   "mischa85": "tibsun: functions compiled from src/super.cpp, without gaps; matched except ?Discharged@SuperClass@@QAE_N_NABVCell@@@Z and ?Place@SuperClass@@QAEXABVCell@@_N@Z; three placed by the gap; five copies the compiler emitted after the last function",
   "main_options": [
@@ -109232,7 +109232,7 @@
     "entry": "0069e980",
     "body": 3,
     "padding": 13,
-    "symbol": "?Unused_Super_Hook@@YGXHH@Z",
+    "symbol": "?Deactivate_Firestorm@SuperClass@@QBEXH_N@Z",
     "main_symbol": "?unknown_empty_0069e980@@YGXHH@Z",
     "main_source": "src/recovered/super.cpp"
    },
@@ -109354,6 +109354,14 @@
     "padding": 15,
     "symbol": "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z",
     "main_symbol": "?Delete@?$DynamicVectorClass@PAVAbstractClass@@@@QAE_NABQAVAbstractClass@@@Z",
+    "main_source": "src/recovered/super.cpp"
+   },
+   {
+    "entry": "0069ed90",
+    "body": 49,
+    "padding": 15,
+    "symbol": "?Delete_Index@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
+    "main_symbol": "?Delete@?$DynamicVectorClass@PAVSuperClass@@@@QAE_NH@Z",
     "main_source": "src/recovered/super.cpp"
    }
   ],
@@ -121255,7 +121263,7 @@
     "entry": "00729510",
     "body": 3440,
     "padding": 0,
-    "symbol": "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z",
+    "symbol": "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@_N@Z",
     "main_symbol": "?Load@Map@WorldDominationTour@@QAEXAAVINIClass@@PAVMSEngine@@H@Z",
     "main_source": "src/recovered/wdtmap.cpp"
    },
@@ -137275,7 +137283,7 @@
    "0073bff0": "_$E378",
    "0074fcb0": "?Find_Local_Address@@YI_NPAVIPXAddressClass@@@Z",
    "00750330": "?Negotiate_Scenario_Transfer@@YIH_N@Z",
-   "00750d10": "?Receive_Host_Map_Preview@@YI_NXZ",
+   "00750d10": "?Handle_Preview_Download@@YI_NXZ",
    "00750f60": "?Poke_The_Host@@YIXXZ",
    "00751120": "?Init_WDT@@YIXXZ",
    "00751130": "?Select_WDT_Location@@YIHXZ",
@@ -138523,6 +138531,15 @@
     "main_source": "src/recovered/wonline.cpp"
    },
    {
+    "entry": "0073e100",
+    "body": 1994,
+    "padding": 6,
+    "symbol": "?WOL_Wait_Callback@@YI_NXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0073e8d0",
     "body": 1455,
     "padding": 1,
@@ -139158,7 +139175,7 @@
     "entry": "00750d10",
     "body": 589,
     "padding": 3,
-    "symbol": "?Receive_Host_Map_Preview@@YI_NXZ",
+    "symbol": "?Handle_Preview_Download@@YI_NXZ",
     "main_symbol": "?Receive_Host_Map_Preview_00750d10@@YI_NXZ",
     "main_source": "src/recovered/wonline.cpp"
    },

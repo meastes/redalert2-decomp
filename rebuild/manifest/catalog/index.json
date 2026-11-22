@@ -1176,7 +1176,7 @@
       },
       {
         "path": "rebuild/include/ion.h",
-        "sha256": "09662dbcb5e1c9e3ea29f0f3b09e46f9e88aa6215fdba89cf9523a53ce3911f7"
+        "sha256": "6179d8e6a2e15296910a5799842c64eb9d5785e80dca6a1e777db8d4f38a6157"
       },
       {
         "path": "rebuild/include/ionblast.h",
@@ -2124,7 +2124,7 @@
       },
       {
         "path": "rebuild/include/super.h",
-        "sha256": "026af56225455fb650b831a116b5cfeedd517a080b40cba6f9933dcd5037c095"
+        "sha256": "9702a6865b130b9f99415dd237a2fdae227dca34d857cfb159db8730cc1ebf3e"
       },
       {
         "path": "rebuild/include/super.hh",
@@ -2528,7 +2528,7 @@
       },
       {
         "path": "rebuild/include/wave.h",
-        "sha256": "94cc287566817c8348247002f405490d14bcf41a9346f76884db248c49cff0c8"
+        "sha256": "bef358dbf8c292e751baf4280ae05ab66894285c2728e713cd365a50d4995e1d"
       },
       {
         "path": "rebuild/include/wave.hh",
@@ -2544,7 +2544,7 @@
       },
       {
         "path": "rebuild/include/wdtnet.h",
-        "sha256": "c90a60dbf376ae813f6f7882372dbb5d538d69a7d8361cfec070120de258780f"
+        "sha256": "99153ceade5e9bfd14a22221c973072c0f02bb6b990a9ce0bd801d99aa6962a2"
       },
       {
         "path": "rebuild/include/weapon.h",
@@ -4129,7 +4129,7 @@
     ["rebuild-straw", 7],
     ["rebuild-subtitle", 9],
     ["rebuild-subtitle2", 27],
-    ["rebuild-super", 48],
+    ["rebuild-super", 50],
     ["rebuild-suprtype", 30],
     ["rebuild-swizzle", 29],
     ["rebuild-tab", 57],
@@ -4185,7 +4185,7 @@
     ["rebuild-vqoption", 5],
     ["rebuild-walk", 49],
     ["rebuild-warhead", 27],
-    ["rebuild-wave", 45],
+    ["rebuild-wave", 46],
     ["rebuild-waypoint", 63],
     ["rebuild-wdtcampaign", 49],
     ["rebuild-wdtconflict", 58],
@@ -4194,7 +4194,7 @@
     ["rebuild-wdtmap", 66],
     ["rebuild-wdtnet", 41],
     ["rebuild-wdtprops", 22],
-    ["rebuild-wdtsel", 51],
+    ["rebuild-wdtsel", 52],
     ["rebuild-wdtstate", 21],
     ["rebuild-wdtterr", 24],
     ["rebuild-wdtvoice", 51],
@@ -4205,7 +4205,7 @@
     ["rebuild-winstub", 38],
     ["rebuild-wolpersonainformation", 37],
     ["rebuild-wolstart", 15],
-    ["rebuild-wonline", 410],
+    ["rebuild-wonline", 411],
     ["rebuild-worlddom", 56],
     ["rebuild-writepcx", 3],
     ["rebuild-wspipx", 25],
@@ -5083,7 +5083,7 @@
     "rebuild-init": "6fbca6d2df60f85b9d5f793dd3020d93fcc786c050c83e655face541c72b5909",
     "rebuild-interpal": "32b0e31641b86087fe9ccd7f704214463ffb4138c6dee0f10f6885c97ce26bff",
     "rebuild-intro": "1d822f350bcb9e26415ed7b831a4760e2ffaeab2fd37970a8c39578d7f292073",
-    "rebuild-ion": "0249cf7c6430c01e547507fc499695ea13ef227d6f0b4f4bf3769e91d1345d15",
+    "rebuild-ion": "138824ba8906f479ae45bf18756f78fbd3f8c9d31a30c67041bb2ff2866455ff",
     "rebuild-ionblast": "5f851835fa8eb58367dc5ee6ddd36004c88ad50b18dbe21d16f3744775b1dc4e",
     "rebuild-ipxaddr": "1755bbae0e7d5ef837eade6eda2cbe6f70ea7a1bf3a5968cb378543bf42655b1",
     "rebuild-ipxconn": "bb277706f03d97756db737e00b72b4baaa78c09e212d9ecc7b9065af81d51b73",
@@ -5247,7 +5247,7 @@
     "rebuild-strtable": "78609f7a7ee506020fb8dd3b48d7b6e4a1852edf86e791e605fbaeba3ef8f89a",
     "rebuild-subtitle": "901ed09fd694e50ae68dce77d678ed1b11c76dc065b742d32071f188ed79545d",
     "rebuild-subtitle2": "7783e6fd3ce5baca54972400683603efdbf81dee47fb2e15803e055aa5fe70ce",
-    "rebuild-super": "e5715717bd4a71580315ff15fd1753884ab42167c86b4e71901e980d4976de01",
+    "rebuild-super": "a08b30dc035c7c3a321023db59bd1ac157e6afb3a6a462dabea4b7adc5ede536",
     "rebuild-suprtype": "1223f38fe74c815e3b9dabb3ad9b82b1598f3f366fb28bdb7d5ca8e5654a7c39",
     "rebuild-swizzle": "cd59f43911e8fad345baa406d7575c34dd445ff110543f87e5ca3514f8c566fc",
     "rebuild-tab": "5997f0fd913b00b3db3e224f5dd3bf436aad1ef381ee8d304afa30742fad4cbf",
@@ -5312,16 +5312,16 @@
     "rebuild-vqoption": "4374013e7ae8c25dcfa841db2aa2bfa59268513bda90a0a781850dbd3a8f3159",
     "rebuild-walk": "1a75bcc5fdd6320366f6a36c2dabaa702cbf985b6f1a02331b71727a55ff25d9",
     "rebuild-warhead": "51404f0c842f38fc8249638aed286e13544c2580fabd226fb001e518679fb6a0",
-    "rebuild-wave": "9d9347878d69dc314483966a9e1d7531854d0fd927b0e45f3953c7cde900e09b",
+    "rebuild-wave": "d6c0ae9db5cb0e7005cea743dbd30489de0ea1b9a943ab359a3452a35aa5281b",
     "rebuild-waypoint": "b327b7edc386984eab1acaf837d7bf37ea7e27045513813dece46fdd1aa33f7b",
     "rebuild-wdtcampaign": "2c610a4e2263998bad91b4eaa88af7a13e755da04a298267a0bfe2f85cb06e1f",
     "rebuild-wdtconflict": "351031ef28a562f2c665c87d57646071f0917580be00d75ea456d5163cf73384",
     "rebuild-wdtgameoptions": "c201527f95a195fd2b008dddf4487587073fdc7f1504999b6fca4273df2c1ebf",
     "rebuild-wdthistory": "ff020884bfb693e23708a810a7e0bbcb98deccf706bf3c2003cc1c738c07d2d3",
-    "rebuild-wdtmap": "17328bd117c35d262bacb68a40bc3dccb145899e4166ec34fc8b63e434ab3135",
+    "rebuild-wdtmap": "8659e51ca38e84871a2975540a5031e9ea341b6fe8e4da87b215f501723f8d09",
     "rebuild-wdtnet": "cfee81330b80296c0311a24b863835e18b89334617f2d2de90e2e413b0229e99",
     "rebuild-wdtprops": "54ed0aad8e5d908da468e802e8c22e46c97a2327f69d8c148166eeb6f668feaf",
-    "rebuild-wdtsel": "6b2abee660e51366c76380c27ba0b94509eac7132a73e727e3e755812023ceb9",
+    "rebuild-wdtsel": "a2d5959a9c6f20fa70cb4357b2d4cddebe849b53cc637223bc409a8d7554d9f1",
     "rebuild-wdtstate": "ab73a156dd361a5e5a8e9ac882f67d7cd3ece9abe93803c824e5dc644bad8146",
     "rebuild-wdtterr": "0ee3543436b97395d68649c163c6fa3655e7c44f18c6a71312a105dcd9190f8e",
     "rebuild-wdtvoice": "cb2358e5971f8f3f41ee9e334950a8d3f825312097a28b95e2e4a48dda8f177e",
@@ -5332,7 +5332,7 @@
     "rebuild-winstub": "b5167f05f7e62ffb216952abba89d1b7e3ca310c0d190eced936160b28a0e164",
     "rebuild-wolpersonainformation": "732ee2dd524c68e6d310aea4062a795b06557eac5d8b3692e849b82ff9e2ded1",
     "rebuild-wolstart": "cac7159c8dd1d72f42c765f912ebcb08ddf7a0a5fd27e8fba39354b69ef41c2c",
-    "rebuild-wonline": "c9f4de4e4ad9df8117a5bedd98968caf8858f8c6fc80db64025b3a022efbedf6",
+    "rebuild-wonline": "2a6465d447d82853309332d862fb4c4fb3389f1da44eae489c18b237a4dbc2d8",
     "rebuild-worlddom": "40dcb390ed6f4d3eefd22a84470eeaacd4bd5021271a68c4c6ac0711e5fa0508",
     "rebuild-writepcx": "bb502f4a93e2bc386cb02d8aa64d0831044fe5d9f1847cd64b81f2cf0809209f",
     "rebuild-wspipx": "aba10eb69e7ae7f3247dfb97de8eb305ecfd89ae6a3efe76f132eac38f0ad683",

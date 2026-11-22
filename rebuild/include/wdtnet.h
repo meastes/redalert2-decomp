@@ -621,7 +621,7 @@ namespace WorldDominationTour
 			Map(int map, int faction, int player_faction); // RA2: 0x00729330
 			virtual ~Map(void); // RA2: 0x0072AF30 (scalar deleting), 0x007293F0
 			static rc_ptr<Map> __fastcall Create(int map, int faction, int player_faction); // RA2: 0x007292E0
-			void Load(INIClass & ini, MSEngine * engine, int differs); // RA2: 0x00729510
+			void Load(INIClass & ini, MSEngine * engine, bool differs); // RA2: 0x00729510; bool: the selection screen pushes Campaign::Is_Different's result unmasked
 			MSAnim * Load_Anim(INIClass & ini, Wstring const & section, Wstring const & entry, ConvertClass * drawer); // RA2: 0x0072A280; "file,x,y[,rate[,palette]]"
 			ConvertClass * Get_Drawer(Wstring const & name); // RA2: 0x0072A510; the drawer of a palette file, loaded on first use
 			void Start_Intro(MSEngine * engine, Voices * voices); // RA2: 0x0072A620
