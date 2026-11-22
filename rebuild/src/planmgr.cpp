@@ -1127,8 +1127,11 @@ PlanningNodeClass * PlanningTokenClass::Node_At(int index) // RA2: 0x00613C00
 	if (count == 0) return 0; // RA2: as above
 	if (index >= count) { // RA2: as above
 		int start = StepsToClosedLoop; // RA2: as above
-		if (!Loop_Start_Valid()) return 0; // RA2: as above
-		index = (index - start) % ClosedLoopNodeCount + start; // RA2: as above
+		if (Loop_Start_Valid()) { // RA2: as above
+			index = (index - start) % ClosedLoopNodeCount + start; // RA2: as above
+		} else { // RA2: as above
+			return 0; // RA2: as above
+		}
 	}
 	if (index < 0 || index >= count) return 0; // RA2: as above
 	return PlanningNodes[index]; // RA2: as above
@@ -1268,6 +1271,7 @@ void __cdecl Planning_Reset_State(void) // RA2: 0x00613E50; deletes every token 
 	memset(PlanningHelpCounts, 0, sizeof(PlanningHelpCounts)); // RA2: as above
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; Planning_Convert_Loop_Moves 0x616A50 defined, ra2-decomp's twin)
 void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: drops the steps whose target is gone and shows a pending refusal
 {
 	Planning_Hover(); // RA2: as above
@@ -1309,6 +1313,7 @@ void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: 
 	Reset_Planning_Command_Flags(); // RA2: as above
 	PlanningRefusalShown = false; // RA2: as above
 }
+#endif
 
 void __fastcall Planning_Free_Nodes(void) // RA2: 0x006142F0; runs the planned events still held and frees them
 {
@@ -2126,33 +2131,25 @@ void __fastcall Planning_Remove_Node(PlanningNodeClass * node) // RA2: 0x0061696
 	}
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00616a50 has no row); main: best 77.83, tried 5 times (register, inline, layout)
 void __fastcall Planning_Convert_Loop_Moves(TechnoClass * techno) // RA2: 0x00616A50; in the path of the techno turns the move orders after the loop start into the other move mission (event mission 2 into 0x29)
 {
 	PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
 	int count = token->Node_Count(); // RA2: as above
-	int start = token->StepsToClosedLoop; // RA2: as above
+	int start = token->Get_Loop_Start(); // RA2: as above
 	PlanningNodeClass * first = token->Node_At(0); // RA2: as above
-	int members = first->PlanningMembers.Count(); // RA2: as above
-	for (int i = 0; i < members; i++) { // RA2: as above
-		if (first->PlanningMembers[i]->Owner->CanAttackOnTheMove()) { // RA2: as above
-			if (start < count) { // RA2: as above
-				for (int index = start; index < count; index++) { // RA2: as above
-					PlanningNodeClass * node = token->Node_At(index); // RA2: as above
-					int total = node->PlanningMembers.Count(); // RA2: as above
-					for (int k = 0; k < total; k++) { // RA2: as above
-						EventClass * event = node->PlanningMembers[k]->Packet; // RA2: as above
-						if (event->Data.MegaMission.Mission == MISSION_MOVE) { // RA2: as above
-							event->Data.MegaMission.Mission = 0x29; // RA2: as above
-						}
-					}
-				}
-			}
-			return; // RA2: as above
+	int members = first->Get_Count(); // RA2: as above
+	bool attack_move = false; // RA2: as above
+	for (int i = 0; i < members; ++i) { // RA2: as above
+		TechnoClass * owner = first->Member_Owner(i); // RA2: as above
+		if (owner->CanAttackOnTheMove()) { // RA2: as above
+			attack_move = true; // RA2: as above
+			break; // RA2: as above
 		}
 	}
+	if (attack_move) { // RA2: as above
+		for (int j = start; j < count; ++j) token->Node_At(j)->Promote_Events(); // RA2: as above
+	}
 }
-#endif
 
 static inline int Planning_Object_Kind(TechnoClass * techno) // RA2: no function of its own; 0 for an aircraft, 1 for a building, 2 for the rest
 {

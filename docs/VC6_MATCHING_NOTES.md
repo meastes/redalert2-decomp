@@ -3999,3 +3999,47 @@ Found in the rebuild (lane F26, high):
 - Seen while probing, cause not looked into: a scratch copy of the inline placed late in building.cpp refused
   `return(DirType(x));` ("cast to function type is illegal") and took `return DirType(x);`; the parenthesised
   form compiles at the header's own place.
+
+## A destructor called at an early return and expanded at the last one is the site count, not the spend; the missing site can be a cast helper (found in the rebuild (lane F27, high))
+
+Found in the rebuild (lane F27, high):
+
+- TechnoClass::Railgun_Beam_Damage 0x6D6ED0 (1,521 B) holds a DynamicVectorClass local. The image calls
+  VectorClass<ObjectClass *>::Clear 0x40CCB0 at the early return inside the loop and expands the same Clear
+  at the last return. Both destructors are free and identical, so the spend up to each cannot explain it
+  alone: a nested body is decided with (root budget left) / N, N the inline sites from that one to the end
+  of the root, itself included. At the last return N is 1; at the early return N counts every site of the
+  function's tail. "Called early, expanded late" therefore reads as a budget that is just under
+  N x size(Clear) at the early return.
+- Two probes tell the two readings apart in one compile each (scratch only, never landing forms): an empty
+  inline function called once after the loop (one more site, no spend) and a few constant stores added
+  inside a charged helper ahead of the return (spend, no site). Here both flipped the call: one site after
+  the early return, or 1 to 4 IL units before it (stores of 4 and 6 units inside the length helper). Lane
+  F24's reading "one or two charged As_Cell sites short" was the same window from its far end; the near
+  end is four units, so a row like this is close to any small header difference.
+- The missing site was the fallback target's cast. The archive writes `dynamic_cast<ObjectClass *>(abstract)`
+  there; RA2 has the object flag test, which ra2-decomp's twin text writes out
+  (`abstract != NULL && (abstract->AbstractFlags & 2) ? static_cast<ObjectClass *>(abstract) : NULL`) and
+  which is, word for word, the body ra2-decomp's object.h gives the archive's As_Object(AbstractClass *).
+  `ObjectClass *obj = As_Object(abstract);` is one inline site, expands to the same bytes, and makes the
+  function exact. Recipe (lane F6's, for casts): when a trailing-site probe gives one site, look for a
+  spelled-out null-and-flag test after the disputed nest and for the reference header's inline whose whole
+  body is that expression (cast.h As_Techno / As_Foot, object.h As_Object).
+- Before reading a spend off a helper's spelling, check that the helper is charged at all: a callee of 40
+  units or less is free and its size never reaches the root (the twin's Is_Techno spelling changes nothing
+  here, lane F24's probe); only charged callees and the site count move this kind of row.
+- A charged spend that leaves no code: `inline void Pad(int x) {if (x) {a[0]=0; a[1]=0; a[2]=0; a[3]=0; a[4]=0;}}`
+  called as `Pad(0);` is charged its whole IL size (it is over 40 units) and folds to nothing, so a probed
+  function can come out exact and the rest of its diff can be read. MapRegionClass::Create_Region_From_Cell
+  0x56E100: two or three such spends leave the last return's Clear expanded, four bring a Cell constructor
+  out of line; the image's spend lies in a window about 40 units wide between them. At a last return the
+  divisor is 1: a destructor called there is always spend, never sites.
+- "The first of eleven like statements calls, the rest expand" (MapGeneratorClass::Read_RMG_INI 0x579960,
+  `list = ini->Get_IntList(section, name, list);`) is the same division read from the other end: each
+  statement's nested operator= gets root / (sites left), which grows as the sites run out. Four to seven
+  more call statements in the root (8 budget units each, the root being over the 1000 floor) reproduce every
+  decision of the image; three or eight do not. A row like that is a root-length row.
+- The floating-point order of the same function (the square root's argument reserved after the third
+  product) needs the three-argument Vector3::Cross_Product into declared vectors and the twin's sum order
+  y * y + (x * x + z * z); the by-value cross products give the other order whatever the helper says, and
+  the tree's x, z, y sum leaves two bytes (two double slots exchanged).

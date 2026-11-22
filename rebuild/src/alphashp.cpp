@@ -26,9 +26,7 @@
 #include "tactical.h"
 #include "tracker.h"
 #include "vector.h"
-#ifdef RA2_NON_MATCHING // used only by the parked Draw_In_Area draft
 #include "abuffer.h"
-#endif
 
 DynamicVectorClass<AlphaShapeClass *> AlphaShapes;
 
@@ -236,43 +234,41 @@ void AlphaShapeClass::Update_All(void)
 /// </summary>
 /// <param name="point">The pixel position of the tile being drawn.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0041f1c0 has no row); mischa85 text, 847 of 1048 bytes differ against main's extent (_tilemask unbound), main: best 4
 void AlphaShapeClass::Draw_In_Area(Point2D const & point, Rect const & cliprect)
 {
-	/// The table is spelled with literal 0x20 (space) and 0xDB (solid block) characters,
-	/// written as escapes here so that it survives text encoding conversions.
-	#define __ "\x20"
-	#define XX "\xDB"
-
-	static const unsigned char _tilemask[] = {
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __
-		__ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __
-		__ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __
-		XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX
-		__ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __
-		__ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __
-		__ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-		__ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ XX XX XX XX __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-	};
-
-	#undef __
-	#undef XX
+#define ALPHA_BLOCK4 "\xDB\xDB\xDB\xDB"
+	static const unsigned char _tilemask[] =
+		"                                                            "
+		"                            " ALPHA_BLOCK4 "                            "
+		"                          " ALPHA_BLOCK4 ALPHA_BLOCK4 "                          "
+		"                        " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                        "
+		"                      " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                      "
+		"                    " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                    "
+		"                  " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                  "
+		"                " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                "
+		"              " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "              "
+		"            " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "            "
+		"          " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "          "
+		"        " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "        "
+		"      " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "      "
+		"    " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "    "
+		"  " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "  "
+		ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4
+		"  " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "  "
+		"    " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "    "
+		"      " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "      "
+		"        " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "        "
+		"          " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "          "
+		"            " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "            "
+		"              " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "              "
+		"                " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                "
+		"                  " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                  "
+		"                    " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                    "
+		"                      " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                      "
+		"                        " ALPHA_BLOCK4 ALPHA_BLOCK4 ALPHA_BLOCK4 "                        "
+		"                          " ALPHA_BLOCK4 ALPHA_BLOCK4 "                          "
+		"                            " ALPHA_BLOCK4 "                            ";
+#undef ALPHA_BLOCK4
 
 	for (int i = 0; i < AlphaShapes.Count(); i++) {
 		if (!AlphaShapes[i]->IsToDelete) {
@@ -285,47 +281,67 @@ void AlphaShapeClass::Draw_In_Area(Point2D const & point, Rect const & cliprect)
 			Rect r4 = Intersect(r2, r3);
 
 			if (r4.Is_Valid()) {
-				int dx = r4.X - r3.X;
-				int dy = r4.Y - r3.Y;
+				Point2D offset = r4.Top_Left() - r3.Top_Left();
 
+				Point2D origin = r1.Top_Left();
 				ShapeSet const * shape = AlphaShapes[i]->ImageData;
 				Rect shape_rect = shape->Get_Rect(0);
 
-				int top = MAX(r4.Y, shape_rect.Y + r1.Y);
-				int src_y = top - shape_rect.Y - r1.Y;
-				int bottom = MIN(r4.Y + r4.Height, shape_rect.Y + shape_rect.Height + r1.Y);
-				int left = MAX(r4.X, shape_rect.X + r1.X);
-				int src_x = left - shape_rect.X - r1.X;
-				int right = MIN(r4.X + r4.Width, shape_rect.X + shape_rect.Width + r1.X);
+				int top = MAX(r4.Y, shape_rect.Y + origin.Y);
+				int src_y = top - origin.Y - shape_rect.Y;
+				int bottom = MIN(
+					r4.Y + r4.Height,
+					origin.Y + shape_rect.Height + shape_rect.Y);
+				int left = MAX(r4.X, shape_rect.X + origin.X);
+				int src_x = left - origin.X - shape_rect.X;
+				int right = MIN(
+					r4.X + r4.Width,
+					origin.X + shape_rect.Width + shape_rect.X);
 
-				int shape_skip = shape_rect.Width - right + shape_rect.X + src_x + r1.X;
-				int alpha_skip = AlphaBuffer->Get_Buffer_Width() - right + left;
+				int shape_skip =
+					origin.X - right + shape_rect.Width
+					+ src_x + shape_rect.X;
+				int alpha_skip =
+					AlphaBuffer->Get_Buffer_Width() - right + left;
 				int mask_skip = ISO_TILE_PIXEL_W - r4.Width;
 
-				const unsigned char * maskptr = &_tilemask[ISO_TILE_PIXEL_W * dy + dx];
-				unsigned char * shapedata = (unsigned char *)shape->Get_Data(0);
+				const unsigned char * maskptr =
+					&_tilemask[ISO_TILE_PIXEL_W * offset.Y + offset.X];
+				unsigned char * shapeptr =
+					(unsigned char *)shape->Get_Data(0);
 
-				unsigned short * alphaptr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(left, top - TacticalRect.Y));
-				unsigned char * shapeptr = (unsigned char *)&shapedata[src_x + src_y * shape_rect.Width];
-				if (&alphaptr[right - left + (bottom - top) * AlphaBuffer->Get_Buffer_Width() + 2] >= (unsigned short *)AlphaBuffer->Get_Buffer_End()) {
+				unsigned short * alphaptr =
+					(unsigned short *)AlphaBuffer->Get_Buffer_Offset(
+						Point2D(left, top - TacticalRect.Y));
+
+				shapeptr += src_x + src_y * shape_rect.Width;
+				unsigned char pixel;
+
+				if (&alphaptr[
+						right - left
+						+ (bottom - top) * AlphaBuffer->Get_Buffer_Width()
+						+ 2]
+					>= (unsigned short *)AlphaBuffer->Get_Buffer_End()) {
 					for (int i = top; i < bottom; i++) {
 						for (int j = left; j < right; j++) {
-							unsigned char pixel = *shapeptr++;
+							pixel = *shapeptr++;
 							if (*maskptr++ != '\x20') {
 								*alphaptr = BrightnessTable[pixel][*alphaptr];
 							}
 							alphaptr++;
-							alphaptr = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned)alphaptr);
+							alphaptr = (unsigned short *)
+										   AlphaBuffer->Wrap_Overflow((unsigned)alphaptr);
 						}
 						shapeptr += shape_skip;
 						maskptr += mask_skip;
 						alphaptr += alpha_skip;
-						alphaptr = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned)alphaptr);
+						alphaptr = (unsigned short *)
+									   AlphaBuffer->Wrap_Overflow((unsigned)alphaptr);
 					}
 				} else {
 					for (int i = top; i < bottom; i++) {
 						for (int j = left; j < right; j++) {
-							unsigned char pixel = *shapeptr++;
+							pixel = *shapeptr++;
 							if (*maskptr++ != '\x20') {
 								*alphaptr = BrightnessTable[pixel][*alphaptr];
 							}
@@ -340,7 +356,6 @@ void AlphaShapeClass::Draw_In_Area(Point2D const & point, Rect const & cliprect)
 		}
 	}
 }
-#endif
 
 
 /// <summary>

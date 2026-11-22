@@ -2964,77 +2964,69 @@ void MapRegionClass::Place_Start_Points(int first_waypoint) // RA2: not in TibSu
 /// </summary>
 /// <returns>bool; Was a start location found for every player? RA2 always says so.</returns>
 bool Generate_Starting_Points(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00576420 has no row); main: best 64.79, tried 5 times (frame, register, inline)
+// FUNCTION: GAMEMD 0x00594B50
 bool Generate_Starting_Points(void)
 {
-	MZoneType mzones[5] = {MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_NORMAL, MZONE_NORMAL}; // RA2: RA2's form (zone regions, shared out by size)
-	int region_size_threshold = MAX(400.0, (double)RandomMapGen.LocalHeight * RandomMapGen.LocalWidth * 0.03); // RA2: as above
-	int index = Map.Zone_Reset(); // RA2: as above
-	MZoneType mzone = mzones[RandomMapGen.SeedData.MapType]; // RA2: as above
-	int zone = Map.Zones[mzone][index]; // RA2: as above
-	MapRegionClass::Create_Zone_Regions(mzone, zone); // RA2: as above
+	MZoneType map_zones[5] = { MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_AMPHIBIOUS, MZONE_NORMAL, MZONE_NORMAL };
+	int region_size_threshold = MAX(400.0, (double)RandomMapGen.LocalWidth * RandomMapGen.LocalHeight * 0.03);
+	int cell_index = Map.Zone_Reset();
+	MZoneType mzone = map_zones[RandomMapGen.SeedData.MapType];
+	int zone = Map.Zones[mzone][cell_index];
+	MapRegionClass::Create_Zone_Regions(mzone, zone);
 
-	int region_count = MapRegionClass::MapRegions.Count(); // RA2: as above
-	int i; // RA2: as above
-	for (i = MapRegionClass::MapRegions.Count() - 1; i >= 0; i--) { // RA2: as above
-		if (MapRegionClass::MapRegions[i]->CellCount < region_size_threshold) { // RA2: as above
-			delete MapRegionClass::MapRegions[i]; // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-
-	DynamicVectorClass<MapRegionClass *> regions; // RA2: as above
-	IndexClass<int, MapRegionClass *> sorter; // RA2: as above
-	regions.Clear(); // RA2: as above
-
-	/*
-	** RA2: the biggest regions sort first, and regions of a size by their id.
-	*/
-	for (i = 0; i < MapRegionClass::MapRegions.Count(); i++) { // RA2: as above
-		MapRegionClass * region = MapRegionClass::MapRegions[i]; // RA2: as above
-		sorter.Add_Index((500000 - region->CellCount) * region_count + region->ID, MapRegionClass::MapRegions[i]); // RA2: as above
-	} // RA2: as above
-	for (i = 0; i < sorter.Count(); i++) { // RA2: as above
-		regions.Add(sorter.Fetch_By_Position(i)); // RA2: as above
-	} // RA2: as above
-
-	int total_cells = 0; // RA2: as above
-	for (i = 0; i < regions.Count(); i++) { // RA2: as above
-		total_cells += regions[i]->CellCount; // RA2: as above
-	} // RA2: as above
-
-	int players = RandomMapGen.SeedData.NumPlayers; // RA2: as above
-	int cells_so_far = 0; // RA2: as above
-	int players_so_far = 0; // RA2: as above
-	for (i = 0; i < regions.Count(); i++) { // RA2: as above
-		MapRegionClass * region = regions[i]; // RA2: as above
-		cells_so_far += region->CellCount; // RA2: as above
-		int count; // RA2: as above
-		if (i == regions.Count() - 1) { // RA2: as above
-			count = players - players_so_far; // RA2: as above
-		} else { // RA2: as above
-			count = (double)cells_so_far / total_cells * players + 0.5 - players_so_far; // RA2: as above
-		} // RA2: as above
-		region->StartCount = count; // RA2: as above
-		players_so_far += count; // RA2: as above
-	} // RA2: as above
-
-	int waypoint = 0; // RA2: as above
-	for (i = 0; i < regions.Count(); i++) { // RA2: as above
-		regions[i]->Place_Start_Points(waypoint); // RA2: as above
-		waypoint += regions[i]->StartCount; // RA2: as above
-	} // RA2: as above
-
-	if (RandomMapGen.SeedData.MapType == 0) { // RA2: as above
-		for (i = 0; i < regions.Count(); i++) { // RA2: as above
-			if (regions[i]->StartCount == 0 && (unsigned int)RMGRandom() * (1.0 / 4294967295.0) < 0.5) { // RA2: as above
-				regions[i]->Place_Neutral_Tech_Building(); // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-
-	return(true);
+	int total = MapRegionClass::MapRegions.Count();
+	int i;
+	for (i = MapRegionClass::MapRegions.Count() - 1; i >= 0; i--) {
+		if (MapRegionClass::MapRegions[i]->CellCount < region_size_threshold) {
+			delete MapRegionClass::MapRegions[i];
+		}
+	}
+	DynamicVectorClass<MapRegionClass *> regions;
+	IndexClass<int, MapRegionClass *> ordered;
+	regions.Clear();
+	for (i = 0; i < MapRegionClass::MapRegions.Count(); i++) {
+		int score = 500000 - MapRegionClass::MapRegions[i]->CellCount;
+		score *= total;
+		score += MapRegionClass::MapRegions[i]->ID;
+		ordered.Add_Index(score, MapRegionClass::MapRegions[i]);
+	}
+	for (i = 0; i < ordered.Count(); i++) {
+		regions.Add(ordered.Fetch_By_Position(i));
+	}
+	int cells = 0;
+	for (i = 0; i < regions.Count(); i++) {
+		cells += regions[i]->CellCount;
+	}
+	int running = 0;
+	int assigned = 0;
+	int players = RandomMapGen.SeedData.NumPlayers;
+	for (i = 0; i < regions.Count(); i++) {
+		MapRegionClass * region = regions[i];
+		running += region->CellCount;
+		int count;
+		if (i == regions.Count() - 1) {
+			count = players - assigned;
+		} else {
+			count = (double)running / cells * players + 0.5 - assigned;
+		}
+		region->StartCount = count;
+		assigned += count;
+	}
+	int waypoint = 0;
+	for (i = 0; i < regions.Count(); i++) {
+		regions[i]->Place_Start_Points(waypoint);
+		waypoint += regions[i]->StartCount;
+	}
+	if (RandomMapGen.SeedData.MapType == 0) {
+		for (i = 0; i < regions.Count(); i++) {
+			if (regions[i]->StartCount == 0 && Random_Fraction() < 0.5) {
+				regions[i]->Place_Neutral_Tech_Building();
+			}
+		}
+	}
+	return true;
 }
-#endif
+
 
 
 /// <summary>

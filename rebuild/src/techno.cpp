@@ -228,7 +228,7 @@
 static inline Rect Text_Rect(wchar_t const * text, Point2D loc, unsigned short flags, int marginx, int marginy) {Rect rect; return(*Drawing_GetTextDimensions(&rect, text, loc, flags, marginx, marginy));} // RA2: the box a text needs (Draw_Text_Overlay)
 static inline bool Mouse_Hover_Flag(TechnoClass const * techno) {return(techno->IsMouseHovering);} // RA2: read accessor of the tail test in Draw_Post_Render (its site decides the temporaries)
 static inline bool Techno_Is_Selected(TechnoClass const * techno) {return(techno->IsSelected);} // RA2: as above
-static inline float Vector_Length(Vector3 const & v) {double y = v.Y; double z = v.Z; double x = v.X; return((float)fastmath::sqrt(x * x + z * z + y * y));} // RA2: the length of a vector, summed in doubles, x, z, y (Railgun_Beam_Damage)
+inline float Vector3_Length(Vector3 const & vector) {double y = vector.Y; double z = vector.Z; double x = vector.X; return fastmath::sqrt(y * y + (x * x + z * z));} // RA2: the length of a vector, summed in doubles (ra2-decomp's include/vectornorm.h; Railgun_Beam_Damage)
 
 namespace FileSystem { extern ConvertClass * PALETTE_PAL; }
 namespace Unsorted { extern bool ArmageddonMode; }
@@ -5408,55 +5408,51 @@ bool TechnoClass::Can_Attack_Now(void) const
 /// overrides all of that, but nothing at all may deploy against a tunnel mouth.
 /// </summary>
 /// <returns>bool; Can the object deploy now?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006cd340 has no row); 684 bytes differ against main's function-map extent
 bool TechnoClass::Can_Deploy_Now(void) const
 {
-	CellClass const * cell = &Map[Get_Cell()];
-	if (cell && cell->Is_Near_Tunnel_NW()) return(false);
+	Cell cell = Get_Cell();
+	CellClass * cellptr = &Map[cell];
+	if (cellptr != NULL && cellptr->Is_Near_Tunnel_NW()) return(false);
+
 	switch (Fetch_RTTI()) {
-		case RTTI_UNIT:
-		{
-			UnitClass const * unit = (UnitClass const *)this;
-			UnitTypeClass const * type = unit->Class;
-			if (IsUnderEMP() || unit->CurrentTube >= TUBE_FIRST) return(false);
-			if (!type->DeploysInto && !type->Max_Passengers() && !type->IsSimpleDeployer) return(false);
-			if (type->DeploysInto && type->DeploysInto->IsConstructionYard && unit->ParasiteEatingMe) return(false);
-			if (type->Max_Passengers() > 0) {
-				if (IsOnBridge) return(false);
-				Cell center = Get_Cell();
-				CellClass * here = &Map[center];
-				if (here) {
-					CellClass * south = &Map[Adjacent_Cell(center, FACING_S)];
-					CellClass * north = &Map[Adjacent_Cell(center, FACING_N)];
-					CellClass * east = &Map[Adjacent_Cell(center, FACING_E)];
-					CellClass * west = &Map[Adjacent_Cell(center, FACING_W)];
-					if (here->IsUnderBridge || south && south->IsUnderBridge ||
-						west && west->IsUnderBridge || east && east->IsUnderBridge ||
-						north && north->IsUnderBridge) return(false);
-				}
-				if (House->IsHuman && here->Land_Type() == LAND_WATER) return(false);
-				if (Get_Cell_Ptr()->Cell_Building()) return(false);
-			}
-			return(true);
-		}
-
 		case RTTI_BUILDING:
-		return(false);
-
-		case RTTI_INFANTRY:
-		{
-			InfantryClass const * infantry = (InfantryClass const *)this;
-			if (!infantry->Has_Undeploy_Delay() || (!infantry->Is_Deploying() && infantry->Doing != DO_UNDEPLOY)) {
-				return(infantry->Is_Deployer());
+			return(((BuildingClass const *)this)->Class->Can_Always_Undeploy());
+		case RTTI_UNIT: {
+			UnitClass const * unit = (UnitClass const *)this;
+			if (IsUnderEMP() || unit->CurrentTube >= TUBE_FIRST) return(false);
+			if (unit->Class->DeploysInto == NULL && unit->Class->Max_Passengers() == 0 && !unit->Class->IsSimpleDeployer) return(false);
+			if (unit->Class->DeploysInto != NULL && unit->Class->DeploysInto->IsConstructionYard && unit->ParasiteEatingMe != NULL) return(false); // RA2: one test where YR has a parasite and a mind-control test
+			if (unit->Class->Max_Passengers() > 0) {
+				if (IsOnBridge) return(false);
+				Cell here = Get_Cell();
+				CellClass * hereptr = &Map[here];
+				if (hereptr != NULL) {
+					CellClass * south = &Map[Adjacent_Cell(here, FACING_S)];
+					CellClass * north = &Map[Adjacent_Cell(here, FACING_N)];
+					CellClass * east = &Map[Adjacent_Cell(here, FACING_E)];
+					CellClass * west = &Map[Adjacent_Cell(here, FACING_W)];
+					if (hereptr->IsUnderBridge ||
+						south != NULL && south->IsUnderBridge ||
+						west != NULL && west->IsUnderBridge ||
+						east != NULL && east->IsUnderBridge ||
+						north != NULL && north->IsUnderBridge) return(false);
+				}
+				if (House->IsHuman && hereptr->Land_Type() == LAND_WATER) return(false);
+				return(Get_Cell_Ptr()->Cell_Building() == NULL ? true : false); // RA2: no bunker exception (YR adds one); the archive's ? true : false idiom, the image's sete (judgment flag)
 			}
-			return(false);
+			break;
 		}
-
+		case RTTI_INFANTRY: {
+			InfantryClass const * infantry = (InfantryClass const *)this;
+			if (infantry->Has_Undeploy_Delay() && (infantry->Is_Deploying() || infantry->Doing == DO_UNDEPLOY)) return(false);
+			return(infantry->Is_Deployer());
+		}
 		default:
-			return(!IsUnderEMP() && Techno_Type_Class()->Max_Passengers() != 0);
+			if (IsUnderEMP() || Techno_Type_Class()->Max_Passengers() == 0) return(false);
+			break;
 	}
+	return(true);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -9729,7 +9725,6 @@ bool TechnoClass::Is_On_Elevation(void) const
 /// <param name="weapon">The weapon supplying the ambient damage and the warhead.</param>
 /// <returns>Returns with the point the beam came to rest at -- the blocking ground, or the
 /// target's own center if nothing got in the way.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 19 bytes differ (adopted text; the original reserves the sqrt argument after the third product)
 Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, WeaponTypeClass *weapon)
 {
 	Coord center = abstract->Center_Coord();
@@ -9752,25 +9747,16 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 			final_cell = final_impact.As_Cell();
 			CellClass *cptr = &Map[final_cell];
 
-			ObjectClass * optr; // RA2: declared first, the occupier list is picked by an if/else
-			if (cptr->IsUnderBridge && final_impact.Z >= LEVEL_LEPTON_H * (cptr->Height + BRIDGE_CELL_HEIGHT)) { // RA2: as above
-				optr = cptr->Cell_Bridge_Occupier(); // RA2: as above
-			} else {
-				optr = cptr->Cell_Occupier(); // RA2: as above
-			}
+			ObjectClass * optr = cptr->Cell_Occupier(cptr->IsUnderBridge && final_impact.Z >= LEVEL_LEPTON_H * (cptr->Height + BRIDGE_CELL_HEIGHT));
 
 			while (optr != NULL) {
 				if (optr != this) {
 					if (optr == abstract) {
 						target_found = true;
 					}
-					bool techno; // RA2: the flag test is kept in a local, left unset for a null object
-					if (optr != NULL) { // RA2: as above
-						techno = (optr->AbstractFlags & 1); // RA2: as above
-					}
-					if (optr != NULL && techno) { // RA2: as above
+					if (optr->Is_Techno()) {
 						float distance = 0.0f;
-						if (optr->RTTI != RTTI_BUILDING) {
+						if (optr->Fetch_RTTI() != RTTI_BUILDING) {
 							/*
 							 * Measure the perpendicular distance from the object to the beam
 							 * line: cross the offset to the object with the beam direction,
@@ -9781,9 +9767,11 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 							Coord obj_coord = optr->PositionCoord;
 							Vector3 obj(obj_coord.X, obj_coord.Y, obj_coord.Z);
 							Vector3 off = obj - start;
-							Vector3 cross = Vector3::Cross_Product(off, delta);
-							Vector3 perp = Vector3::Cross_Product(cross, delta);
-							distance = (float)fabs((perp * off) / Vector_Length(perp)); // RA2: the length comes from a helper summing in doubles
+							Vector3 cross;
+							Vector3::Cross_Product(off, delta, &cross); // RA2: the cross products through the result pointer (ra2-decomp)
+							Vector3 perp;
+							Vector3::Cross_Product(cross, delta, &perp);
+							distance = fabs((perp * off) / Vector3_Length(perp)); // RA2: the length comes from a helper summing in doubles
 						}
 
 						if (distance < Rule->RailgunDamageRadius || optr == abstract) {
@@ -9793,7 +9781,7 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 						}
 					}
 				}
-				optr = optr->Next; // RA2: the list is walked through the object pointer
+				optr = optr->Next;
 			}
 
 			/// We hit a cell higher than the impact point, halt gathering targets.
@@ -9811,21 +9799,23 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 
 	CellClass *cptr = (CellClass *)abstract;
 
-	if (!target_found && abstract != NULL && (abstract->AbstractFlags & 2)) { // RA2: as above
-		ObjectClass * obj = (ObjectClass *)abstract; // RA2: the abstract flag test replaces the dynamic cast
+	if (!target_found) {
+		ObjectClass * obj = As_Object(abstract); // RA2: the archive's dynamic cast through As_Object, the object flag test (ra2-decomp writes the helper's expression out here)
 
-		if (targets.Count() == 0 || targets.ID(obj) == -1) { // RA2: as above
-			targets.Add(obj); // RA2: as above
+		if (obj != NULL) {
+			if (targets.Count() == 0 || targets.ID(obj) == -1) {
+				targets.Add(obj);
+			}
 		}
 	}
 
 	for (int j = 0; j < targets.Count(); j++) {
 		int damage = weapon->AmbientDamage;
-		targets[j]->Take_Damage(damage, 0, weapon->WarheadPtr, this, false, false); // RA2: all six arguments
+		targets[j]->Take_Damage(damage, 0, weapon->WarheadPtr, this);
 	}
 
 	/// If the impact was a cell and contains a collapseable cliff, try to collapse it.
-	if (abstract->Fetch_RTTI() == RTTI_CELL && cptr->Is_Tile_Destroyable_Cliff()) { // RA2: the virtual RTTI
+	if (cptr->Fetch_RTTI() == RTTI_CELL && cptr->Is_Tile_Destroyable_Cliff()) {
 		if (Percent_Chance(Rule->CollapseChance)) {
 			Map.Collapse_Cliff(cptr);
 		}
@@ -9833,7 +9823,6 @@ Coord TechnoClass::Railgun_Beam_Damage(Coord & coord, AbstractClass *abstract, W
 
 	return(center);
 }
-#endif
 
 
 

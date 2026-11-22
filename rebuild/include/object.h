@@ -439,7 +439,7 @@ inline ObjectClass const * AbstractClass::As_ObjectClass(void) const
 
 inline ObjectClass * As_Object(AbstractClass * target)
 {
-	return(dynamic_cast<ObjectClass *>(target));
+	return(target != NULL && (target->AbstractFlags & 2) ? (ObjectClass *)target : NULL); // RA2: the object flag replaces the dynamic cast (ra2-decomp's object.h)
 }
 
 Coord Vector_Center(DynamicVectorClass<ObjectClass *> const & list);

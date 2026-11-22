@@ -9,9 +9,11 @@ symbol,address,evidence
 ??0?$VectorClass@PAUSpawnControl@@@@QAE@HPBQAUSpawnControl@@@Z,0x0068B0E0,inferred: spawnmanager rows 00689710 00689910 0068a7d0 0068a7d0 differ only at its sites
 ??0?$VectorClass@PAUtConnInfoStruct@@@@QAE@HPBQAUtConnInfoStruct@@@Z,0x007680C0,inferred: wonline rows 0074fcb0 differ only at its sites
 ??0?$VectorClass@PAVKamikazeControl@@@@QAE@HPBQAVKamikazeControl@@@Z,0x00531EE0,inferred: kamikaze rows 00531550 differ only at its sites
+??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z,0x00730470,kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730470 (74 B + 6; main row ?get@Storage_730470@@QAEPAXIPAI@Z); the image's Do_Target_Anim calls it at +0x7C and +0x9D
 ??0?$VectorClass@PAVMSSfxEntry@@@@QAE@HPBQAVMSSfxEntry@@@Z,0x007304C0,inferred: wdtsel rows 0072d560 differ only at its sites
 ??0?$VectorClass@PBVParticleSystemTypeClass@@@@QAE@HPBQBVParticleSystemTypeClass@@@Z,0x00454AD0,inferred: building rows 0043e270 differ only at its sites
 ??0?$VectorClass@USubzoneConnectionStruct@@@@QAE@HPBUSubzoneConnectionStruct@@@Z,0x0056CA50,"inferred: VectorClass<SubzoneTrackingStruct>::Resize (0x0056B4A0, bound copy) calls it at offsets 90 and 178 (lane R5)"
+??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z,0x00730340,kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730340 (25 B + 7; main row ??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@I@Z); the image's Do_Target_Anim calls it at +0x493
 ??0BaseNodeClass@@QAE@W4StructType@@ABVCell@@@Z,0x004F6BE0,"main: ??0BaseNodeClass@@QAE@HABVCell@@@Z (the same constructor, its first parameter typed int there)"
 ??0BuildType@StripClass@SidebarClass@@QAE@XZ,0x00682480,inferred: sidebar rows 0067b700 differ only at its sites
 ??0CRCEngine@@QAE@H@Z,0x00510B20,inferred: ini rows 0050d0f0 0050d400 0050d400 0050e5f0 differ only at its sites
@@ -1009,6 +1011,7 @@ symbol,address,evidence
 ?Apply_Rank_Command@@YIX_N@Z,0x006F7EC0,inferred: init rows 0051bc90 differ only at its sites
 ?Apply_State_Command@@YIX_N@Z,0x006F7B80,inferred: init rows 0051bbf0 differ only at its sites
 ?Approach_Target@FootClass@@UAEXXZ,0x004C4C30,slot +4c4 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot304@FootClass@@UAEXXZ
+?Area_Modify@TechnoClass@@QBENABVCell@@@Z,0x006C5270,"image call target at 006c60ce (Evaluate_Object; image-derived bound 006c5270); ra2-decomp identifies the twin (YR 0x006F79A0); owner ruling 2026-11-22, lane O38"
 ?As_Coord@AbstractClass@@UBE?AVCoord@@XZ,0x004102E0,slot +5c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot22@AbstractClass@@UBE?AUCoordStruct@@XZ
 ?Asm_Interpolate@@YAXPAE0HHH@Z,0x00799241,inferred: interpal rows 0051eb00 differ only at its sites
 ?Asm_Interpolate_Line_Double@@YAXPAE0HHH@Z,0x007992E6,inferred: interpal rows 0051eb00 differ only at its sites
@@ -2934,6 +2937,7 @@ symbol,address,evidence
 ?Submit@LogicClass@@UAE_NPBVObjectClass@@_N@Z,0x0053E330,slot +20 of ??_7LogicClass@@6B@ at 0079a8e8; main row ?Submit@LogicClass@@UAE_NPAVObjectClass@@_N@Z
 ?Subzone_Span@MapClass@@QAEHPAUCellSubzoneStruct@@HHABV?$TRect@H@@ABVCell@@@Z,0x00564290,inferred: map rows 00563d80 differ only at its sites
 ?Swap@CD@@UAE_NW4DiskID@@@Z,0x0046E750,slot +08 of ??_7CD@@6B@ at 0079d868; main row ?Swap_Disk@CD@@UAE_NH@Z
+?SyncBarOutlineColor@@3VRGBClass@@A,0x00AB6831,"image: Draw_Sync_Bars 0x626CB0 (image-derived bound) reads its red byte at 0xAB6831 and its green and blue as one word at 0xAB6832 for the outline colour, the only difference of the row with the name unbound; ra2-decomp's twin reads DAT_00A8EAE4 the same way (lane O39)"
 ?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z,0x0070EF40,inferred: vanimtype rows 0070e470 differ only at its sites
 ?TGet_Class@@YIPBVAircraftTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x006540B0,inferred: rules rows 00647f40 00647f40 differ only at its sites
 ?TGet_Class@@YIPBVBuildingTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x00654060,inferred: rules rows 00647f40 differ only at its sites
@@ -3194,7 +3198,3 @@ _IID_IRegistrar,0x007AF6C0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes o
 _LIBID_ATLLib,0x007AF6E0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes occur once in the image, right after wolapi_i.c's ids in wonline's .rdata"
 __GUID_92fea800_a184_11d1_b70a_00a024ddafd1,0x007CFC30,"main: accepted rows of 7 populations refer to the __uuidof(IPiggyback) copy there (writable data, the select-any GUID); IID_IPiggyback is the .rdata copy at 0x007A2050"
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
-?Area_Modify@TechnoClass@@QBENABVCell@@@Z,0x006C5270,"image call target at 006c60ce (Evaluate_Object; image-derived bound 006c5270); ra2-decomp identifies the twin (YR 0x006F79A0); owner ruling 2026-11-22, lane O38"
-??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z,0x00730470,"kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730470 (74 B + 6; main row ?get@Storage_730470@@QAEPAXIPAI@Z); the image's Do_Target_Anim calls it at +0x7C and +0x9D"
-??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z,0x00730340,"kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730340 (25 B + 7; main row ??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@I@Z); the image's Do_Target_Anim calls it at +0x493"
-?SyncBarOutlineColor@@3VRGBClass@@A,0x00AB6831,"image: Draw_Sync_Bars 0x626CB0 (image-derived bound) reads its red byte at 0xAB6831 and its green and blue as one word at 0xAB6832 for the outline colour, the only difference of the row with the name unbound; ra2-decomp's twin reads DAT_00A8EAE4 the same way (lane O39)"

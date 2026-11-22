@@ -77755,6 +77755,15 @@
     "main_source": "src/recovered/mapgen.cpp"
    },
    {
+    "entry": "00576420",
+    "body": 993,
+    "padding": 15,
+    "symbol": "?Generate_Starting_Points@@YI_NXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00576810",
     "body": 1204,
     "padding": 12,
@@ -79681,7 +79690,8 @@
    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHABV?$TRect@H@@@Z": "0058e6c0",
    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHPBV?$TRect@H@@@Z": "0058e720",
    "?GetItem@?$VectorClass@V?$TRect@H@@@@UBE?AV?$TRect@H@@H@Z": "0058dde0",
-   "__real@8@4001a000000000000000": "007a5d40"
+   "__real@8@4001a000000000000000": "007a5d40",
+   "__real@8@3ff9f5c28f5c28f5c000": "007a5e10"
   },
   "partial_ok": true,
   "data_bound_by": {
@@ -83011,6 +83021,15 @@
     "symbol": "?Can_Attack_Now@TechnoClass@@UBE_NXZ",
     "main_symbol": "?unknown_slot185@TechnoClass@@UAE_NXZ",
     "main_source": "src/recovered/techno.cpp"
+   },
+   {
+    "entry": "006cd340",
+    "body": 747,
+    "padding": 5,
+    "symbol": "?Can_Deploy_Now@TechnoClass@@UBE_NXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006cd630",
@@ -116073,6 +116092,15 @@
     "main_source": "src/recovered/alphashp.cpp"
    },
    {
+    "entry": "0041f1c0",
+    "body": 1048,
+    "padding": 8,
+    "symbol": "?Draw_In_Area@AlphaShapeClass@@SIXABVPoint2D@@ABV?$TRect@H@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0041f950",
     "body": 112,
     "padding": 0,
@@ -116200,7 +116228,8 @@
    "_RAD_45": "0083c660",
    "_RAD_60": "0083c620",
    "_RAD_90": "0083c5f8",
-   "_RECT_NONE": "0083c600"
+   "_RECT_NONE": "0083c600",
+   "_?_tilemask@?1??Draw_In_Area@AlphaShapeClass@@SIXABVPoint2D@@ABV?$TRect@H@@@Z@4QBEB": "0079b850"
   }
  },
  "quat": {
@@ -118014,7 +118043,7 @@
   "status": "catalogued",
   "range": [
    "00541f60",
-   "00543cf0"
+   "00543fe0"
   ],
   "mischa85": "tibsun: functions compiled from src/mainopt.cpp, without gaps; matched except ?Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
   "main_options": [
@@ -118202,6 +118231,15 @@
     "symbol": "?Test_Display_Mode_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
     "main_symbol": "?Confirm_Mode_Proc@@YGHPAUHWND__@@IIJ@Z",
     "main_source": "src/recovered/mainopt.cpp"
+   },
+   {
+    "entry": "00543cf0",
+    "body": 737,
+    "padding": 15,
+    "symbol": "?Display_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    }
   ],
   "references": {
@@ -118235,7 +118273,12 @@
    "_DetailLabels": "007dfd80",
    "_DifficultyLabels": "007dfd8c",
    "_ScrollLabels": "007dfd98",
-   "_InitialResolution": "007dfdb4"
+   "_InitialResolution": "007dfdb4",
+   "??_C@_0N@IJDA@?$CFd?5x?5?$CFd?5x?516?$AA@": "007dfdf4",
+   "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": "007dfdbc",
+   "_?_initialized@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4_NA": "007dfdc4",
+   "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA": "00a6ed14",
+   "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": "007dfdc0"
   },
   "partial_ok": true
  },
@@ -128417,6 +128460,15 @@
     "main_source": "src/recovered/planmgr.cpp"
    },
    {
+    "entry": "00616a50",
+    "body": 239,
+    "padding": 1,
+    "symbol": "?Planning_Convert_Loop_Moves@@YIXPAVTechnoClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00616b40",
     "body": 131,
     "padding": 13,
@@ -129545,7 +129597,14 @@
    "_$S187": "00a76661",
    "_$S193": "00a76660"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "00614010": {
+    "header": "none: planmgr.cpp's own definition of Planning_Convert_Loop_Moves 0x616A50 (ra2-decomp's twin text, src/planmgr.cpp:2192 FUN_00639CB0, with the twin's Node_At form), which lands exact (lane F27, 2026-11-22; owner ruling: land Convert_Loop_Moves, park Planning_Update under DECISIONS 91)",
+    "note": "lane O40 probe 2026-11-22: (a) the displacing change is evidenced content (the twin's text); (b)(i) Planning_Update uses nothing Convert_Loop_Moves adds (any definition of it flips Planning_Update the same way, lane F27); (ii) windows above; (c) the unchanged text was exact while the neighbour was undefined. The difference is one load-order tie (4 bytes: mov eax,[esp+0x10] and mov ecx,[esp+0x1c] exchanged)",
+    "windows": "probe declarations after Planning_Update's declaration in planning.h, Convert_Loop_Moves defined: +8 +12 exact; +1 +2 +3 +4 +6 +16 off"
+   }
+  }
  },
  "taction": {
   "core": [

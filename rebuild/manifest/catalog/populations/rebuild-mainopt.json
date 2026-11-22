@@ -187,6 +187,16 @@
     "??_C@_0CA@MBMA@Resetting?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@": 8257644,
     "??_C@_0BO@IHHO@Keeping?5display?5mode?5?$EA?5?$CFdx?$CFd?6?$AA@": 8257612,
     "??_C@_0BG@CDBK@GUI?3ConfirmModeChange?$AA@": 8257708,
+    "?EnumDisplayModes@@YIPAHKKKKK@Z": 4809376,
+    "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA": 10939668,
+    "??_C@_0N@IJDA@?$CFd?5x?5?$CFd?5x?516?$AA@": 8257012,
+    "_?_initialized@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4_NA": 8256964,
+    "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": 8256956,
+    "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA": 8256960,
+    "?AllowStretchBlits@DSurface@@2_NA": 8728534,
+    "__imp__EnableWindow@8": 7971984,
+    "??3@YAXPAX@Z": 7871803,
+    "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z": 7565440,
     "_InitialResolution": 8256948,
     "_ScrollLabels": 8256920,
     "??_C@_0M@FOAI@TXT_FASTEST?$AA@": 8225864,
@@ -222,10 +232,10 @@
     "?Mode_Prompt_Dialog@@YI_NXZ": 5513744,
     "?Main_Options_Dialog@@YIXXZ": 5514336,
     "?Test_Display_Mode_Dialog@@YI_NHH@Z": 5519984,
+    "?Display_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": 5520624,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7type_info@@6B@": 8066532,
-    "??3@YAXPAX@Z": 7871803,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
@@ -291,7 +301,7 @@
           "resolved": 10939388
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513056,
@@ -359,7 +369,7 @@
           "resolved": 10939400
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513088,
@@ -411,7 +421,7 @@
           "resolved": 10939648
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513136,
@@ -463,7 +473,7 @@
           "resolved": 10939632
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513168,
@@ -515,7 +525,7 @@
           "resolved": 10939624
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513200,
@@ -567,7 +577,7 @@
           "resolved": 10939408
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513232,
@@ -619,7 +629,7 @@
           "resolved": 10939368
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513264,
@@ -703,7 +713,7 @@
           "resolved": 10939656
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513296,
@@ -763,7 +773,7 @@
           "resolved": 10939416
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513360,
@@ -823,7 +833,7 @@
           "resolved": 10939440
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513408,
@@ -883,7 +893,7 @@
           "resolved": 10939640
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513456,
@@ -927,7 +937,7 @@
           "resolved": 10939394
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513504,
@@ -979,7 +989,7 @@
           "resolved": 10939432
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513520,
@@ -1023,7 +1033,7 @@
           "resolved": 616166
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513552,
@@ -1107,7 +1117,7 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513568,
@@ -1191,7 +1201,7 @@
           "resolved": 775283
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513744,
@@ -1451,7 +1461,7 @@
           "resolved": 615961
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5513856,
@@ -1671,7 +1681,7 @@
           "resolved": 10750296
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5514336,
@@ -2659,7 +2669,7 @@
           "resolved": 1005060
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5516640,
@@ -3911,7 +3921,7 @@
           "resolved": 4293668503
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5518560,
@@ -4227,7 +4237,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5519984,
@@ -4311,11 +4321,362 @@
           "resolved": 7972000
         }
       ],
-      "source_sha256": "354101b75ff80e0253cb28464abd90d0d718e6c03913559fa8cb36bdb6e67ff9",
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
       "source": "rebuild/src/mainopt.cpp",
       "population": "rebuild-mainopt",
       "source_order": 5520448,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5520624,
+      "method": "00543cf0",
+      "body_bytes": 737,
+      "body_sha256": "9c9dc8bc6860a457b1f2c58ac877069e299738852d71404ae24557d41c12da24",
+      "padding_bytes": 15,
+      "full_extent_bytes": 752,
+      "full_extent_sha256": "c19df7b80b8c500c53f585e1778f01b0dbb740acbacf9d66ba6e555c293ae5ec",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start end of bound exact row 00543c40, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Display_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "symbol_prefix": "?Display_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 29,
+          "kind": 20,
+          "symbol": "?Default_Dialog_Proc@OwnerDraw@@YIHPAUHWND__@@IIJ@Z",
+          "target": 6290176,
+          "addend": 0,
+          "resolved": 769519
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "__imp__GetWindowLongA@8",
+          "target": 7971980,
+          "addend": 0,
+          "resolved": 7971980
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 92,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 41,
+          "resolved": 10750785
+        },
+        {
+          "offset": 135,
+          "kind": 20,
+          "symbol": "?EnumDisplayModes@@YIPAHKKKKK@Z",
+          "target": 4809376,
+          "addend": 0,
+          "resolved": 4294255909
+        },
+        {
+          "offset": 141,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 150,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 41,
+          "resolved": 10750785
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "?TempOptions@@3VOptionsClass@@A",
+          "target": 10939448,
+          "addend": 32,
+          "resolved": 10939480
+        },
+        {
+          "offset": 232,
+          "kind": 6,
+          "symbol": "?TempOptions@@3VOptionsClass@@A",
+          "target": 10939448,
+          "addend": 36,
+          "resolved": 10939484
+        },
+        {
+          "offset": 253,
+          "kind": 6,
+          "symbol": "??_C@_0N@IJDA@?$CFd?5x?5?$CFd?5x?516?$AA@",
+          "target": 8257012,
+          "addend": 0,
+          "resolved": 8257012
+        },
+        {
+          "offset": 259,
+          "kind": 20,
+          "symbol": "_sprintf",
+          "target": 7872756,
+          "addend": 0,
+          "resolved": 2351869
+        },
+        {
+          "offset": 334,
+          "kind": 6,
+          "symbol": "_?_initialized@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4_NA",
+          "target": 8256964,
+          "addend": 0,
+          "resolved": 8256964
+        },
+        {
+          "offset": 339,
+          "kind": 6,
+          "symbol": "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256956,
+          "addend": 0,
+          "resolved": 8256956
+        },
+        {
+          "offset": 344,
+          "kind": 6,
+          "symbol": "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256960,
+          "addend": 0,
+          "resolved": 8256960
+        },
+        {
+          "offset": 355,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 371,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 40,
+          "resolved": 10750784
+        },
+        {
+          "offset": 379,
+          "kind": 6,
+          "symbol": "?AllowStretchBlits@DSurface@@2_NA",
+          "target": 8728534,
+          "addend": 0,
+          "resolved": 8728534
+        },
+        {
+          "offset": 413,
+          "kind": 6,
+          "symbol": "?AllowStretchBlits@DSurface@@2_NA",
+          "target": 8728534,
+          "addend": 0,
+          "resolved": 8728534
+        },
+        {
+          "offset": 421,
+          "kind": 6,
+          "symbol": "__imp__EnableWindow@8",
+          "target": 7971984,
+          "addend": 0,
+          "resolved": 7971984
+        },
+        {
+          "offset": 475,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 491,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 498,
+          "kind": 6,
+          "symbol": "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256956,
+          "addend": 0,
+          "resolved": 8256956
+        },
+        {
+          "offset": 513,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        },
+        {
+          "offset": 519,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2350656
+        },
+        {
+          "offset": 528,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        },
+        {
+          "offset": 567,
+          "kind": 6,
+          "symbol": "_?_previous_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256960,
+          "addend": 0,
+          "resolved": 8256960
+        },
+        {
+          "offset": 572,
+          "kind": 6,
+          "symbol": "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256956,
+          "addend": 0,
+          "resolved": 8256956
+        },
+        {
+          "offset": 578,
+          "kind": 6,
+          "symbol": "__imp__SendMessageA@16",
+          "target": 7972000,
+          "addend": 0,
+          "resolved": 7972000
+        },
+        {
+          "offset": 584,
+          "kind": 6,
+          "symbol": "__imp__GetDlgItem@8",
+          "target": 7971996,
+          "addend": 0,
+          "resolved": 7971996
+        },
+        {
+          "offset": 594,
+          "kind": 6,
+          "symbol": "?MainWindow@@3PAUHWND__@@A",
+          "target": 11690968,
+          "addend": 0,
+          "resolved": 11690968
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "?Center_Window_Within_Window@@YIXPAUHWND__@@0@Z",
+          "target": 7565440,
+          "addend": 0,
+          "resolved": 2044211
+        },
+        {
+          "offset": 619,
+          "kind": 6,
+          "symbol": "_?_current_mode@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4HA",
+          "target": 8256956,
+          "addend": 0,
+          "resolved": 8256956
+        },
+        {
+          "offset": 636,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        },
+        {
+          "offset": 645,
+          "kind": 6,
+          "symbol": "?TempOptions@@3VOptionsClass@@A",
+          "target": 10939448,
+          "addend": 32,
+          "resolved": 10939480
+        },
+        {
+          "offset": 654,
+          "kind": 6,
+          "symbol": "?TempOptions@@3VOptionsClass@@A",
+          "target": 10939448,
+          "addend": 36,
+          "resolved": 10939484
+        },
+        {
+          "offset": 694,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 40,
+          "resolved": 10750784
+        },
+        {
+          "offset": 700,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        },
+        {
+          "offset": 706,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 2350469
+        },
+        {
+          "offset": 712,
+          "kind": 6,
+          "symbol": "_?_modes@?1??Display_Options_Dialog_Body@@YIHPAUHWND__@@II@Z@4PAHA",
+          "target": 10939668,
+          "addend": 0,
+          "resolved": 10939668
+        }
+      ],
+      "source_sha256": "f362ddf73419295997bc538ffb08e0c461b037a0432b3d846cbff58a033de124",
+      "source": "rebuild/src/mainopt.cpp",
+      "population": "rebuild-mainopt",
+      "source_order": 5520624,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     }
   ]
 }
