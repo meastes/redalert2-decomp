@@ -1021,7 +1021,7 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); 3070 bytes differ against main's function-map extent; main: best 64.69, tried 13 times (register, layout, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); 2722 bytes differ against main's function-map extent; main: best 64.69, tried 13 times (register, layout, frame)
 #include "beacon.h"
 #include "capmgr.h"
 #include "ebolt.h"
@@ -1045,12 +1045,6 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 	 * longer be blitted and a full redraw is forced. It persists across the passes of a frame.
 	 */
 	static bool scrolled_off_screen = false;
-
-	/*
-	 * The composite surface to draw the foreground objects onto. This tracks the front buffer
-	 * across the surface swap performed during the pan pass.
-	 */
-	Surface * composite = &surface;
 
 	SelectableCount = 0;
 	bool has_selectable_buildings = Contains_Selectable_Buildings(TacticalRect);
@@ -1085,16 +1079,21 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 	}
 
 	/*
+	 * The composite surface to draw the foreground objects onto. This tracks the front buffer
+	 * across the surface swap performed during the pan pass.
+	 */
+	Surface * composite = &surface;
+
+	/*
 	 * Decide whether the cached layers actually need to be rebuilt this pass. A pending redraw,
 	 * selectable buildings, dirty areas or a pixel pan all force a rebuild; but once the first
 	 * frame has been rendered, a pan is only honoured if the world coordinate also changed. The
 	 * foreground pass never rebuilds the cached layers.
 	 */
 	bool render;
-	/*
-	 * Either the whole view, or just the strips the pan exposed.
-	 */
-	if (fullredraw) {
+	if (drawpass == DRAW_PASS_FOREGROUND) {
+		render = false;
+	} else if (fullredraw) {
 		render = true;
 	} else if (IsFirstRender) {
 		if (has_selectable_buildings) {
@@ -1112,7 +1111,7 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		render = IsToRedraw || DirtyAreas.Count() != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
 	}
 
-	if (drawpass != DRAW_PASS_FOREGROUND && render) {
+	if (render) {
 
 		/*
 		 * The magnitude of the pan, and the source/destination rectangles for shifting the
@@ -1120,14 +1119,16 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		 */
 		unsigned panwidth = abs(xoffset);
 		unsigned panheight = abs(yoffset);
+		int width = TacticalDimensions.Width - panwidth;
+		int height = TacticalDimensions.Height - panheight;
 		int ystart = (yoffset >= 0) ? 0 : -yoffset;
 		int xstart = (xoffset >= 0) ? 0 : -xoffset;
 
 		Rect sourcerect(TacticalDimensions.X + xstart, TacticalDimensions.Y + ystart,
-					TacticalDimensions.Width - panwidth, TacticalDimensions.Height - panheight);
+			width, height);
 		Rect destrect(TacticalDimensions.X + ((xoffset <= 0) ? 0 : xoffset),
 					TacticalDimensions.Y + ((yoffset <= 0) ? 0 : yoffset),
-					TacticalDimensions.Width - panwidth, TacticalDimensions.Height - panheight);
+			width, height);
 
 		if (xoffset != 0 || yoffset != 0) {
 			if (drawpass == DRAW_PASS_PAN || drawpass == DRAW_PASS_FULL) {
@@ -1190,10 +1191,12 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 
 			Rect topstrip;
 			Rect bottomstrip;
-			if (scrolled_left || scrolled_right) {
-				int stripx = scrolled_left ? TacticalRect.X + panwidth : TacticalRect.X;
-				topstrip = Rect(stripx, TacticalRect.Y, TacticalRect.Width - panwidth, panheight);
-				bottomstrip = Rect(stripx, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width - panwidth, panheight);
+			if (scrolled_left) {
+				topstrip = Rect(TacticalRect.X + panwidth, TacticalRect.Y, TacticalRect.Width - panwidth, panheight);
+				bottomstrip = Rect(TacticalRect.X + panwidth, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width - panwidth, panheight);
+			} else if (scrolled_right) {
+				topstrip = Rect(TacticalRect.X, TacticalRect.Y, TacticalRect.Width - panwidth, panheight);
+				bottomstrip = Rect(TacticalRect.X, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width - panwidth, panheight);
 			} else {
 				topstrip = Rect(TacticalRect.X, TacticalRect.Y, TacticalRect.Width, panheight);
 				bottomstrip = Rect(TacticalRect.X, TacticalRect.Y + TacticalRect.Height - panheight, TacticalRect.Width, panheight);
@@ -1304,22 +1307,25 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		composite->Unlock();
 		int line = 0;
 		if (Scen->MissionTimer.Is_Active()) {
-			Draw_Timer(line++, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer / 15, Scen->MissionTimerTextCSF, NULL, NULL);
+			Draw_Timer(0, ColorSchemes[PlayerPtr->Scheme], Scen->MissionTimer / 15, Scen->MissionTimerTextCSF, NULL, NULL);
+			line = 1;
 		}
 		count = TimedSuperWeapons.Count();
 		for (i = 0; i < count; i++) {
 			SuperClass * super = TimedSuperWeapons[i];
 			if (!super->IsSuspended || Session.Type != GAME_NORMAL || super->Control != super->Class->RechargeTime) {
-				Draw_Timer(line++, ColorSchemes[super->House->Scheme], super->Control / 15, super->Class->UIName,
+				Draw_Timer(line, ColorSchemes[super->House->Scheme], super->Control / 15, super->Class->UIName,
 					(unsigned __int64 *)&super->BlinkInfo.Data0, &super->BlinkInfo.State);
+				line++;
 			}
 		}
 		count = Houses.Count();
 		for (i = 0; i < count; i++) {
 			int time = Houses[i]->PowerBlackoutTimer;
 			if (time > 0) {
-				Draw_Timer(line++, ColorSchemes[Houses[i]->Scheme], time / 15,
+				Draw_Timer(line, ColorSchemes[Houses[i]->Scheme], time / 15,
 					StringTable::LoadString("MSG:BlackoutTimer", NULL, "D:\\Ra2\\Tactical.CPP", 444), NULL, NULL);
+				line++;
 			}
 		}
 		Draw_Screen_Text(ScreenText);

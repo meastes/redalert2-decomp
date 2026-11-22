@@ -101,7 +101,7 @@ bool PhoneEdit::Dialog(void)
 			Session.Write_MultiPlayer_Settings();
 		}
 	}
-	if (RC != 1) {
+	if (RC != IDOK) {
 		return(false);
 	}
 	return(true);
@@ -580,7 +580,7 @@ bool PhoneEntryEdit::Dialog(PhoneEntryClass *phone)
 		OwnerDraw::End_Dialog(_Dialog);
 	}
 
-	if (RC != 1) { // RA2: the executable does not expand this function into Add and Edit (it calls it), which the single conditional return would allow
+	if (RC != IDOK) { // RA2: the executable does not expand this function into Add and Edit (it calls it), which the single conditional return would allow
 		return(false); // RA2: as above
 	}
 	return(true); // RA2: as above

@@ -542,9 +542,9 @@ bool Skirmish_Mode_Dialog(void)
 	HWND dialog = OwnerDraw::Begin_Dialog(0x102, Skirmish_Dialog_Proc, 0);
 	if (dialog != NULL) {
 		SkirmishDialog = dialog;
-		SetWindowLong(dialog, 8, (LONG)&result);
+		SetWindowLong(dialog, DWL_USER, (LONG)&result);
 		OwnerDraw::Display_Dialog(dialog);
-		while (result != 0x617 && result != 0x5C0 && OwnerDraw::Dialog_Message_Handler() != true) {
+		while (result != 0x617 && result != IDC_CANCEL && OwnerDraw::Dialog_Message_Handler() != true) {
 			Title_Screen_Restore(false);
 		}
 		OwnerDraw::End_Dialog(dialog);
@@ -555,7 +555,7 @@ bool Skirmish_Mode_Dialog(void)
 		MultiplayerMapPreview = NULL;
 	}
 	Session.Write_MultiPlayer_Settings();
-	if (result == 0x5C0) {
+	if (result == IDC_CANCEL) {
 		Darken_Surface(NULL, true);
 	}
 	if (result == 0x617) {

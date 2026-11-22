@@ -943,7 +943,7 @@ BOOL CALLBACK Single_Player_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 					*choice = MENU_SINGLE_AGAIN; // RA2: as above
 					return(FALSE); // RA2: as above
 
-				case 0x579: // RA2: as above
+				case IDC_SKIRMISH: // RA2: as above
 					*choice = MENU_SKIRMISH; // RA2: as above
 					return(FALSE); // RA2: as above
 
@@ -3181,11 +3181,11 @@ BOOL CALLBACK Main_Menu_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 
 		case WM_COMMAND: // RA2: as above
 			switch (LOWORD(wparam)) {
-				case 0x578: // RA2: as above
+				case IDC_NETWORK: // RA2: as above
 					*res = MENU_NETWORK; // RA2: as above
 					return(FALSE);
 
-				case 0x55C: // RA2: as above
+				case IDC_OPTIONS: // RA2: as above
 					*res = MENU_OPTIONS; // RA2: as above
 					return(FALSE);
 

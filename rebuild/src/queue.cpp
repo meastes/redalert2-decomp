@@ -2128,49 +2128,47 @@ static RetcodeType Process_Serial_Packet(char *multi_packet_buf,
 /// player drags on, so the humans can see who the game is actually stalled on.
 /// </summary>
 /// <param name="window">The reconnect dialog that owns the bar controls.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00626cb0 has no row); main: best 75.78, tried 4 times (register, inline, order)
 void Draw_Sync_Bars(HWND window)
 {
 	for (int i = 0; i < Session.Players.Count(); i++) {
 		RECT bar_winrect;
 		Get_Display_Rect(GetDlgItem(window, SyncBarControlIDs[i]), &bar_winrect);
-
-		int x = bar_winrect.left; // RA2: the bar is outlined, its inside is filled
-		int y = bar_winrect.top; // RA2: as above
-		int width = bar_winrect.right - bar_winrect.left; // RA2: as above
-		int height = bar_winrect.bottom - bar_winrect.top; // RA2: as above
-		Rect outline(x, y, width, height); // RA2: as above
-
+		Rect bar_rect(bar_winrect.left, bar_winrect.top,
+			bar_winrect.right - bar_winrect.left, bar_winrect.bottom - bar_winrect.top);
+		Rect border = bar_rect;
 		int playerid = Connection_Index(Session.Players[i]->Player.ID);
-
-		unsigned progress = 0;
-		if (i != 0) { // RA2: the first player (me) has no wait
-			progress = ReconnectElapsed - SyncBarFrameSync[playerid].timing; // RA2: the elapsed time is the dialog's
+		unsigned progress;
+		if (i == 0) {
+			progress = 0;
+		} else {
+			progress = ReconnectElapsed - SyncBarFrameSync[playerid].timing;
 		}
-
 		unsigned short color = DSurface::Build_Hicolor_Pixel(0, 200, 0);
 		if (progress > 240) {
 			color = DSurface::Build_Hicolor_Pixel(200, 200, 0);
 			if (progress > 480) {
 				color = DSurface::Build_Hicolor_Pixel(200, 0, 0);
-				unsigned int age = (timeGetTime() * 60 - SyncBarFrameSync[playerid].heard * 60) / 1000; // RA2: a player heard from lately shows blue
-				if (age < 420) { // RA2: as above
-					progress = age; // RA2: as above
-					color = DSurface::Build_Hicolor_Pixel(0, 0, 200); // RA2: as above
+				unsigned elapsed = (timeGetTime() * 60 - SyncBarFrameSync[playerid].heard * 60) / 1000;
+				if (elapsed < 420) {
+					progress = elapsed;
+					color = DSurface::Build_Hicolor_Pixel(0, 0, 200);
 				}
 			}
 		}
-
-		int w = MAX(100 - (int)(100 * progress / 1200), 0) * width;
-		int bar_width = MAX(6, w / 100); // RA2: as above
-
-		int outline_color = DSurface::Build_Hicolor_Pixel(SyncBarOutlineColor.Get_Red(), SyncBarOutlineColor.Get_Green(), SyncBarOutlineColor.Get_Blue()); // RA2: as above
-		AlternateSurface->Draw_Rect(AlternateSurface->Get_Rect(), outline, outline_color); // RA2: as above
-		Rect inside(x + 2, y + 2, bar_width - 4, height - 4); // RA2: the bar is filled inside its outline
+		int percent = MAX(100 - (int)(100 * progress / 1200), 0);
+		int w = percent * bar_rect.Width;
+		bar_rect.Width = MAX(6, w / 100);
+		int border_color = DSurface::Build_Hicolor_Pixel(SyncBarOutlineColor);
+		AlternateSurface->Draw_Rect(AlternateSurface->Get_Rect(), border, border_color);
+		Rect inside = bar_rect;
+		inside.X += 2;
+		inside.Y += 2;
+		inside.Width -= 4;
+		inside.Height -= 4;
 		AlternateSurface->Fill_Rect(AlternateSurface->Get_Rect(), inside, color);
 	}
 }
-#endif
+
 
 
 /// <summary>

@@ -180,7 +180,7 @@ void LoadOptionsClass::Load_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 {
 	LoadOptionsClass * _this = (LoadOptionsClass *)GetWindowLong(window, DWL_USER);
 	switch ((int)wparam) {
-		case 0x525: // RA2: Load_Dialog_On_WM_COMMAND at 0x53B200 matches only so
+		case IDC_MISSION_LOAD_LIST: // RA2: Load_Dialog_On_WM_COMMAND at 0x53B200 matches only so
 			if (id == LBN_DBLCLK && ListBox_GetCount((HWND)lparam) > 0) {
 				_this->State = (LoadDialogState)0x40F; // RA2: as above
 			}
@@ -212,7 +212,7 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 {
 	LoadOptionsClass * _this = (LoadOptionsClass *)GetWindowLong(window, DWL_USER);
 	switch ((int)wparam) {
-		case 0x527: // RA2: Save_Dialog_On_WM_COMMAND at 0x53B280 matches only so
+		case IDC_MISSION_SAVE_LIST: // RA2: Save_Dialog_On_WM_COMMAND at 0x53B280 matches only so
 			if (id == LBN_SELCHANGE && ListBox_GetCount((HWND)lparam) > 0) {
 				HWND list = (HWND)lparam; // RA2: as above
 				int row = ListBox_GetCurSel(list); // RA2: as above

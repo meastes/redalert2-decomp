@@ -233,13 +233,13 @@ static bool Find_Active_Game_Dialog(HWND & active) // RA2: as above
 {
 	active = WS_Top_Window(); // RA2: as above
 	int dialog_id = WS_Top_Window_ID(); // RA2: as above
-	if (dialog_id == 0xBC || dialog_id == 0xBD) { // RA2: as above
+	if (dialog_id == IDD_MPLAYER_HOST || dialog_id == IDD_MPLAYER_GUEST) { // RA2: as above
 		return true; // RA2: as above
 	}
 	active = WS_Next_Lower_Dialog(active); // RA2: as above
 	while (active) { // RA2: as above
 		int kind = Dialog_ID_Of_Window(active); // RA2: as above
-		if (kind == 0xBC || kind == 0xBD) { // RA2: as above
+		if (kind == IDD_MPLAYER_HOST || kind == IDD_MPLAYER_GUEST) { // RA2: as above
 			return true; // RA2: as above
 		}
 		active = WS_Next_Lower_Dialog(active); // RA2: as above
@@ -821,7 +821,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 		//.....................................................................
 		//	-1 = user selected Cancel
 		//.....................................................................
-		if (_netresponse == 0x5C0 || _netresponse == 2) { // RA2: as above
+		if (_netresponse == IDC_CANCEL || _netresponse == IDCANCEL) { // RA2: as above
 			Session.Write_MultiPlayer_Settings();
 			if (WS_Top_Window_ID() == IDD_MPLAYER_GAME_LIST) { // RA2: as above
 				if (JoinState > JOIN_NOTHING) {
@@ -943,7 +943,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				HWND top = WS_Top_Window(); // RA2: as above
 				if (top) { // RA2: as above
 					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, 0x541); // RA2: as above
+					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
 					if (button) { // RA2: as above
 						EnableWindow(button, TRUE); // RA2: as above
 					}
@@ -966,7 +966,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				HWND top = WS_Top_Window(); // RA2: as above
 				if (top) { // RA2: as above
 					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, 0x541); // RA2: as above
+					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
 					if (button) { // RA2: as above
 						EnableWindow(button, TRUE); // RA2: as above
 					}
@@ -1063,13 +1063,13 @@ bool Net_Join_Dialog(void) // RA2: as above
 				//..................................................................
 				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, IDD_MPLAYER_HOST, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(host, IDD_MPLAYER_HOST); // RA2: as above
-				SendMessageA(host, 0x4A9, 0, 1); // RA2: as above
+				SendMessageA(host, OD_SETTOP, 0, 1); // RA2: as above
 				ShowWindow(host, SW_SHOWNORMAL); // RA2: as above
 			} else {
 				HWND top = WS_Top_Window(); // RA2: as above
 				if (top) { // RA2: as above
 					EnableWindow(top, TRUE); // RA2: as above
-					HWND button = GetDlgItem(top, 0x541); // RA2: as above
+					HWND button = GetDlgItem(top, IDC_YOURNAME); // RA2: as above
 					if (button) { // RA2: as above
 						EnableWindow(button, TRUE); // RA2: as above
 					}
@@ -1082,7 +1082,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 			}
 			if (JoinState == JOIN_GAME_START) { // RA2: as above
 				if (!Net2ReadyToGo(0)) {
-					_netresponse = 2;
+					_netresponse = IDCANCEL;
 					Net2OptionsLocked = false; // RA2: as above
 					continue;
 				}
@@ -1107,7 +1107,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 			return(true);
 		}
 
-		if (_netresponse == 0x588) { // RA2: as above
+		if (_netresponse == IDC_GO) { // RA2: as above
 			Net2OptionsLocked = false; // RA2: as above
 			Session.Write_MultiPlayer_Settings();
 		}
@@ -1118,13 +1118,13 @@ bool Net_Join_Dialog(void) // RA2: as above
 				observers++; // RA2: as above
 			}
 		}
-		if (_netresponse == 0x588) { // RA2: as above
+		if (_netresponse == IDC_GO) { // RA2: as above
 			if (count - observers <= 1) { // RA2: as above
 				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_ONLY_ONE", NULL, "D:\\Ra2\\netdlg2.cpp", 1760)); // RA2: as above
 				_netresponse = 0;
-				EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE); // RA2: as above
+				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
 			}
-			if (_netresponse == 0x588) { // RA2: as above
+			if (_netresponse == IDC_GO) { // RA2: as above
 				bool nomap = false; // RA2: as above
 				for (int i = 1; i < count; i++) { // RA2: as above
 					NodeNameType *player = Session.Players[i]; // RA2: as above
@@ -1135,37 +1135,37 @@ bool Net_Join_Dialog(void) // RA2: as above
 				}
 				if (nomap) { // RA2: as above
 					_netresponse = 0;
-					EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE); // RA2: as above
+					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
 				}
 			}
 		}
 		MultiplayerGameMode *mode = Session.MPGameMode; // RA2: as above
-		if (_netresponse == 0x588) { // RA2: as above
+		if (_netresponse == IDC_GO) { // RA2: as above
 			int map_players = RandomMapWaypointCount(Session.Options.ScenarioIndex); // RA2: as above
 			if (map_players < Session.Options.AIPlayers - observers + count) { // RA2: as above
 				Lobby_Chat_Printf(-1, StringTable::LoadString("TXT_SCENARIO_TOO_SMALL", NULL, "D:\\Ra2\\netdlg2.cpp", 1791), map_players); // RA2: as above
-				EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE); // RA2: as above
+				EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
 				_netresponse = 0;
 			}
 			{
 				WideWstring message; // RA2: as above
 				if (!mode->CheckStartConditions(&message)) { // RA2: as above
 					Lobby_Chat_Printf(-1, message.get()); // RA2: as above
-					EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE); // RA2: as above
+					EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
 					_netresponse = 0;
 				}
 			}
-			if (_netresponse == 0x588) { // RA2: as above
+			if (_netresponse == IDC_GO) { // RA2: as above
 				for (int i = 0; i < count; i++) { // RA2: as above
 					if (Session.Players[i]->Player.Status == 0) {
 						Dispatch_Game_Mode(); // RA2: as above
 						Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartHost", NULL, "D:\\Ra2\\netdlg2.cpp", 1817)); // RA2: as above
 						_netresponse = 0;
-						EnableWindow(GetDlgItem(WS_Top_Window(), 0x588), TRUE); // RA2: as above
+						EnableWindow(GetDlgItem(WS_Top_Window(), IDC_GO), TRUE); // RA2: as above
 						break;
 					}
 				}
-				if (_netresponse == 0x588) { // RA2: as above
+				if (_netresponse == IDC_GO) { // RA2: as above
 					Net2OptionsLocked = true; // RA2: as above
 					int i;
 					for (i = 0; i < Session.Players.Count(); i++) {
@@ -1458,8 +1458,8 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				return(0);
 			}
 
-			case 0x5c0:
-				_netresponse = 0x5c0;
+			case IDC_CANCEL:
+				_netresponse = IDC_CANCEL;
 				Save_Observer_Mode();
 			return(0);
 
@@ -2325,13 +2325,13 @@ void Get_Join_Responses(void) // RA2: as above
 					HWND window = WS_Top_Window();
 					if (window) { // RA2: as above
 						EnableWindow(window, TRUE); // RA2: as above
-						HWND button = GetDlgItem(window, 0x541); // RA2: as above
+						HWND button = GetDlgItem(window, IDC_YOURNAME); // RA2: as above
 						if (button) { // RA2: as above
 							EnableWindow(button, TRUE); // RA2: as above
 						}
 					}
 				} else {
-					_netresponse = 2;
+					_netresponse = IDCANCEL;
 				}
 				Send_Join_Queries(0, 0, 1, 0);
 			}
@@ -2395,7 +2395,7 @@ void Get_Join_Responses(void) // RA2: as above
 						Fill_Slots(); // RA2: as above
 						Clear_Vector(&Session.Players);
 						if (WS_Top_Window_ID() != IDD_MPLAYER_GAME_LIST && WS_Top_Window_ID() == IDD_MPLAYER_GUEST) { // RA2: as above
-							_netresponse = 2;
+							_netresponse = IDCANCEL;
 						}
 					}
 					if (JoinState > JOIN_NOTHING && i == CurGame) { // RA2: as above
@@ -2731,7 +2731,7 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 		switch ((unsigned short)wparam) { // RA2: as above
 			case IDCANCEL: // RA2: as above
 			if (!Net2OptionsLocked) { // RA2: as above
-				_netresponse = 2;
+				_netresponse = IDCANCEL;
 				return(0);
 			}
 			break;

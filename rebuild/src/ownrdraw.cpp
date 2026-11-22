@@ -6311,7 +6311,7 @@ namespace OwnerDraw { // RA2: as above
 **	RA2: the window procedure of the owner-drawn (BS_OWNERDRAW) buttons: plain buttons from the b?e_ art,
 **	or the campaign, network and cancel button shapes by the record's button kind, which can flash.
 */
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0320 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0320 has no row); 980 bytes differ against main's function-map extent
 LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static char last_look = 'u'; // RA2: as above
@@ -6335,9 +6335,16 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 	}
 	int state = data->ItemState; // RA2: as above
 	LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
-	unsigned long color = Text_Color; // RA2: as above
 
 	switch (message) {
+		case WM_LBUTTONDOWN:
+		case WM_LBUTTONDBLCLK:
+			if (data->IsDisabled) { // RA2: as above
+				return(0);
+			}
+			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, 0); // RA2: as above
+			break;
+
 		case WM_ACTIVATE:
 		case WM_KILLFOCUS:
 		case WM_MOUSEACTIVATE:
@@ -6349,7 +6356,7 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 				return(0);
 			}
 			Rect rect = origin;
-			color = Text_Color; // RA2: as above
+			unsigned long color = Text_Color; // RA2: as above
 			if (!data->Back) { // RA2: as above
 				BSurface * captured = new BSurface(client.right + 1, client.bottom + 1, 2); // RA2: as above
 				data->Back = captured; // RA2: as above
@@ -6365,7 +6372,55 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 				source.Height = client.bottom + 1; // RA2: as above
 				captured->Blit_From(destination, *AlternateSurface, source, false, true); // RA2: as above
 			}
-			if (data->ButtonKind == 0) { // RA2: as above
+			if (data->ButtonKind != 0) { // RA2: as above
+				ConvertClass * drawer = 0; // RA2: as above
+				ShapeSet * shape = 0; // RA2: as above
+				int frame = 0;
+				if (data->ButtonKind == 1) { // RA2: as above
+					drawer = (ConvertClass *)Get_Alternate_Drawer(); // RA2: as above
+					shape = Slide_Button_Shape; // RA2: as above
+					frame = 2; // RA2: as above
+					if (state & 1) {
+						frame = 4; // RA2: as above
+					} else if (data->IsFlashLit) { // RA2: as above
+						frame = 3; // RA2: as above
+					}
+				} else if (data->ButtonKind == 2) { // RA2: as above
+					drawer = (ConvertClass *)Get_Network_Drawer(); // RA2: as above
+					shape = Button_Strip_Shape; // RA2: as above
+					if (state & 1) {
+						frame = 1; // RA2: as above
+					} else if (data->IsFlashLit) {
+						frame = 2; // RA2: as above
+					}
+				} else if (data->ButtonKind == 3) { // RA2: as above
+					drawer = (ConvertClass *)Get_Cancel_Drawer(); // RA2: as above
+					shape = Cancel_Button_Shape; // RA2: as above
+					if (state & 1) {
+						frame = 1; // RA2: as above
+					} else if (data->IsFlashLit) {
+						frame = 2; // RA2: as above
+					}
+				}
+				if (style & WS_DISABLED) {
+					int pixel;
+					if (Session.Is_In_Game()) {
+						if (Scen->IsGDI) {
+							pixel = DSurface::Build_Hicolor_Pixel(Allied_Disabled_Color);
+						} else {
+							pixel = DSurface::Build_Hicolor_Pixel(Soviet_Disabled_Color);
+						}
+					} else {
+						pixel = DSurface::Build_Hicolor_Pixel(Menu_Disabled_Color);
+					}
+					color = Pixel_To_Color((unsigned short)pixel); // RA2: as above
+				}
+				Point2D point = Point_Copy((Point2D const *)&rect); // RA2: as above
+				Rect window_rect = AlternateSurface->Get_Rect(); // RA2: as above
+				if (drawer && shape) { // RA2: as above
+					Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				}
+			} else {
 				if (data->Image) { // RA2: as above
 					Surface * image = data->Image; // RA2: as above
 					if ((state & 1) && data->AlternateImage) image = data->AlternateImage; // RA2: as above
@@ -6373,9 +6428,8 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 					source.Y = source.X = 0; // RA2: as above
 					AlternateSurface->Blit_From(rect, *image, source, false, true); // RA2: as above
 				} else {
-					bool pressed = (state & 1) != 0; // RA2: as above
 					char updown = 'u';
-					if (pressed) updown = 'd'; // RA2: as above
+					if (state & 1) updown = 'd'; // RA2: as above
 					if (style & WS_DISABLED) {
 						updown = 'u';
 					} else if (updown == 'd' && last_look == 'u') { // RA2: as above
@@ -6385,13 +6439,13 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 					int widths[2] = {7, 7};
 					int margins[2] = {10, 10};
 					int heights[2] = {24, 30};
-					unsigned index = 0; // RA2: as above
+					int index = 0; // RA2: as above
 					for (unsigned i = 0; i < 2; i++) { // RA2: as above
 						if (heights[i] > rect.Height && i != 0) break; // RA2: as above
 						index = i;
 					}
-					int width = widths[index]; // RA2: as above
 					int height = heights[index];
+					int width = widths[index]; // RA2: as above
 					int margin = margins[index];
 					if (data->Back) { // RA2: as above
 						Rect source, destination; // RA2: as above
@@ -6407,7 +6461,7 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 						InvalidateRect(window, 0, 0); // RA2: as above
 					}
 					origin.Y += (rect.Height - height) / 2;
-					if (pressed) origin.Y += 2; // RA2: as above
+					if (state & 1) origin.Y += 2; // RA2: as above
 					char name[40]; // RA2: as above
 					sprintf(name, "b%c%c_li%d.pcx", updown, 'e', height); // RA2: as above
 					Surface * image = SurfaceCache.GetSurface(name, 0); // RA2: as above
@@ -6440,52 +6494,6 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 					source.X = 0; // RA2: as above
 					AlternateSurface->Blit_From(destination, *image, source, false, true); // RA2: as above
 				}
-			} else {
-				ConvertClass * drawer = 0; // RA2: as above
-				ShapeSet * shape = 0; // RA2: as above
-				int frame = 0;
-				if (data->ButtonKind == 1) { // RA2: as above
-					drawer = (ConvertClass *)Get_Alternate_Drawer(); // RA2: as above
-					shape = Slide_Button_Shape; // RA2: as above
-					frame = 2; // RA2: as above
-					if (state & 1) {
-						frame = 4; // RA2: as above
-					} else if (data->IsFlashLit) { // RA2: as above
-						frame = 3; // RA2: as above
-					}
-				} else if (data->ButtonKind == 2) { // RA2: as above
-					drawer = (ConvertClass *)Get_Network_Drawer(); // RA2: as above
-					shape = Button_Strip_Shape; // RA2: as above
-					if (state & 1) {
-						frame = 1; // RA2: as above
-					} else {
-						frame = data->IsFlashLit ? 2 : 0; // RA2: as above
-					}
-				} else if (data->ButtonKind == 3) { // RA2: as above
-					drawer = (ConvertClass *)Get_Cancel_Drawer(); // RA2: as above
-					shape = Cancel_Button_Shape; // RA2: as above
-					if (state & 1) {
-						frame = 1; // RA2: as above
-					} else {
-						frame = data->IsFlashLit ? 2 : 0; // RA2: as above
-					}
-				}
-				if (style & WS_DISABLED) {
-					RGBClass const * disabled; // RA2: as above
-					if (!Session.Is_In_Game()) { // RA2: as above
-						disabled = &Menu_Disabled_Color; // RA2: as above
-					} else if (!Scen->IsGDI) { // RA2: as above
-						disabled = &Soviet_Disabled_Color; // RA2: as above
-					} else {
-						disabled = &Allied_Disabled_Color; // RA2: as above
-					}
-					color = Pixel_To_Color((unsigned short)DSurface::Build_Hicolor_Pixel(*disabled)); // RA2: as above
-				}
-				Point2D point = Point_Copy((Point2D const *)&rect); // RA2: as above
-				Rect window_rect = AlternateSurface->Get_Rect(); // RA2: as above
-				if (drawer && shape) { // RA2: as above
-					Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-				}
 			}
 			if (!data->Image && data->Text) { // RA2: as above
 				RECT unused_client; // RA2: as above
@@ -6494,7 +6502,7 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 				text_rect.left = origin.X; // RA2: as above
 				text_rect.top = origin.Y + 1; // RA2: as above
 				text_rect.right = origin.Width + origin.X - 2; // RA2: as above
-				text_rect.bottom = origin.Height + origin.Y - 2; // RA2: as above
+				text_rect.bottom = origin.Height + origin.Y; // RA2: as above
 				if (state & 1) {
 					text_rect.left += 2; // RA2: as above
 					text_rect.top += 4; // RA2: as above
@@ -6513,28 +6521,20 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 			InvalidateRect(window, 0, TRUE); // RA2: as above
 			break;
 
-		case WM_LBUTTONDOWN:
-		case WM_LBUTTONDBLCLK:
-			if (data->IsDisabled) { // RA2: as above
-				return(0);
-			}
-			VocClass::PlayGlobal(Rule->GUIMainButtonSound, 1.0f, 0x2000, 0); // RA2: as above
-			break;
-
-		case WM_USER + 220: // RA2: lparam 1 starts the flashing, anything else stops it
-			data = Get_Record(window); // RA2: as above
-			if (lparam == 1) { // RA2: as above
-				if (!data->IsFlashing) { // RA2: as above
-					data->IsFlashing = true; // RA2: as above
-					SetTimer(window, 0, 1000, 0); // RA2: as above
-				}
-			} else if (data->IsFlashing) { // RA2: as above
+		case WM_USER + 220: { // RA2: lparam 1 starts the flashing, anything else stops it
+			Control_Table.getPointer((unsigned int const &)window, &data); // RA2: as above
+			BOOL flash = (lparam == 1);
+			if (flash && !data->IsFlashing) {
+				data->IsFlashing = true; // RA2: as above
+				SetTimer(window, 0, 1000, 0); // RA2: as above
+			} else if (!flash && data->IsFlashing) {
 				data->IsFlashing = false; // RA2: as above
 				data->IsFlashLit = false; // RA2: as above
 				KillTimer(window, 0);
 				InvalidateRect(window, 0, TRUE); // RA2: as above
 			}
 			break;
+		}
 	}
 	return(CallWindowProcA(previous, window, message, wparam, lparam)); // RA2: as above
 }
@@ -6991,213 +6991,215 @@ namespace OwnerDraw { // RA2: as above
 **	RA2: the window procedure of the "NewEdit" control, an edit control that keeps its text in the record as wide
 **	characters and draws itself. The cursor keys (the jump table at 0x5F2B04) move the caret in it.
 */
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f22a0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f22a0 has no row); 1510 of 2215 bytes differ against the image bound (image_bounds.csv; ours 2211 B: three register choices, the rest the 4-byte shift), 2026-11-22 (lane O39, ra2-decomp's twin NewEditHandler with this tree's names and RA2's one-pixel frame)
 LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x5F22A0, the NewEdit window procedure
-{ // RA2: as above
-	WinData * record = 0; // RA2: the record is looked up in Control_Table, the original procedure in Window_Proc_Table
-	WNDPROC previous = 0; // RA2: as above
-	BOOL inserted = FALSE; // RA2: the text was changed (zeroed at 0x5F22BD)
-	BOOL ime = FALSE; // RA2: the character came from the IME (zeroed at 0x5F22C1)
-	BOOL refresh = FALSE; // RA2: the control repaints itself (and its combo box)
-	if (message == WM_GETDLGCODE) { // RA2: WM_GETDLGCODE answers DLGC_WANTALLKEYS (0x5F22B2)
-		return 4; // RA2: as above
-	} // RA2: as above
-	Window_Proc_Table.getValue(window, previous); // RA2: as above
-	unsigned int const & key = (unsigned int const &)window; // RA2: as above
-	Control_Table.getPointer(key, &record); // RA2: as above
-	EditRecord * data = (EditRecord *)record; // RA2: as above
-	HWND parent = GetParent(window); // RA2: as above
-	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == 9) { // RA2: as above
-		if (message == WM_KEYDOWN) { // RA2: as above
-			BYTE shift = ((unsigned int)GetAsyncKeyState(0x10) >> 15) & 1; // RA2: as above
-			SendMessageA(parent, 0x4DB, shift, (LPARAM)window); // RA2: as above
-		} // RA2: as above
-		return 0; // RA2: as above
-	} // RA2: as above
-	if (message == 0x497) { // RA2: as above
-		RECT bounds; // RA2: as above
-		RECT client; // RA2: as above
-		RECT parent_bounds; // RA2: as above
-		GetWindowRect(window, &bounds); // RA2: as above
-		GetClientRect(window, &client); // RA2: as above
-		GetWindowRect(parent, &parent_bounds); // RA2: as above
-		SetWindowPos(window, 0, bounds.left - parent_bounds.left + 1, bounds.top - parent_bounds.top + 1, client.right - 2, client.bottom - 2, 0x40); // RA2: as above
-		return 0; // RA2: as above
-	} // RA2: as above
-	if (message == 0xC5) { // RA2: as above
-		data->MaxLength = wparam; // RA2: as above
-		if (wparam) { // RA2: as above
-			data->Buffer->truncate(wparam); // RA2: as above
-		} // RA2: as above
-		return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-	} // RA2: as above
-	if (message == 0x4B5 || message == 0x4B3 || message == 0xE) { // RA2: as above
-		if (message == 0xE) { // RA2: as above
-			return data->Buffer->length(); // RA2: as above
-		} // RA2: as above
-		if (message == 0x4B3) { // RA2: as above
-			wcsncpy((wchar_t *)lparam, data->Buffer->get(), wparam); // RA2: as above
-			((wchar_t *)lparam)[wparam - 1] = 0; // RA2: as above
-			return wcslen((wchar_t *)lparam); // RA2: as above
-		} // RA2: as above
-		WideToCharString((char *)lparam, data->Buffer->get(), wparam); // RA2: as above
-		((char *)lparam)[wparam - 1] = 0; // RA2: as above
-		return strlen((char *)lparam); // RA2: as above
-	} // RA2: as above
-	if (message == 0x4B4 || message == 0x4B2) { // RA2: as above
-		data->Buffer->clear(); // RA2: as above
-		data->Caret = 0; // RA2: as above
-		data->Scroll = 0; // RA2: as above
-		if (data->Text) { // RA2: as above
-			data->Buffer->set(data->Text); // RA2: as above
-		} // RA2: as above
-		if (data->MaxLength) { // RA2: as above
-			data->Buffer->truncate((unsigned int)data->MaxLength); // RA2: as above
-		} // RA2: as above
-		data->Caret = data->Buffer->length(); // RA2: as above
-	} // RA2: as above
-	if (message == WM_KEYDOWN) { // RA2: as above
-		if (wparam == 0xD) { // RA2: as above
-			SendMessageA(parent, 0x4DA, 0, (LPARAM)window); // RA2: as above
-			if (data->Style & 4) { // RA2: as above
-				*data->Buffer += L"\r\n"; // RA2: as above
-				unsigned int id = GetWindowLongA(window, -12); // RA2: as above
-				SendMessageA(parent, 0x111, (id & 0xFFFF) | 0x5010000, (LPARAM)window); // RA2: as above
-			} // RA2: as above
-			return 0; // RA2: as above
-		} // RA2: as above
-		refresh = TRUE; // RA2: the keys repaint the control (the exe shares this block with the 7, 8 and mouse cases)
-	} else { // RA2: as above
-		if (message == WM_SETFOCUS) { // RA2: as above
-			data->IsCaretHidden = 0; // RA2: as above
-			SetTimer(window, 0, 1000, 0); // RA2: as above
-			refresh = TRUE; // RA2: as above
-		} // RA2: as above
-		if (message == WM_KILLFOCUS) { // RA2: as above
-			KillTimer(window, 0); // RA2: as above
-			refresh = TRUE; // RA2: as above
-		} // RA2: as above
-		if (message == WM_TIMER) { // RA2: as above
-			data->IsCaretHidden ^= 1; // RA2: as above
-			InvalidateRect(window, 0, 0); // RA2: as above
-			return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-		} // RA2: as above
-		if (message == WM_PAINT || message == WM_ERASEBKGND) { // RA2: as above
-			RECT display; // RA2: as above
-			RECT update; // RA2: as above
-			char class_name[80]; // RA2: as above
-			Get_Display_Rect(window, &display); // RA2: as above
-			GetClassNameA(parent, class_name, 80); // RA2: as above
-			bool combo = strcmp(class_name, "ComboBox") == 0; // RA2: as above
-			if (message == WM_PAINT && GetUpdateRect(window, &update, 0)) { // RA2: as above
-				update.right += display.left; // RA2: as above
-				update.left += display.left; // RA2: as above
-				update.top += display.top; // RA2: as above
-				update.bottom += display.top; // RA2: as above
-			} // RA2: as above
-			Rect background(display.left, display.top, display.right - display.left + 1, display.bottom - display.top + 1); // RA2: as above
-			Draw_Dimmed_Back(background, window, data->TextStyle); // RA2: as above
-			if (!combo) { // RA2: as above
-				Draw_Frame(AlternateSurface, background, 1, -1); // RA2: as above
-			} // RA2: as above
-			display.left += 2; // RA2: as above
-			Rect text(display.left, display.top, display.right - display.left + 1, display.bottom - display.top + 1); // RA2: as above
-			Caret_Hidden = data->IsCaretHidden; // RA2: as above
-			Draw_Edit_Text(AlternateSurface, text, data->Buffer->get(), data->Caret, data->Font, Text_Color, &data->Scroll, data->ImeState, (data->Style >> 5) & 1, 0, 0); // RA2: as above
-			ValidateRect(window, 0); // RA2: as above
-		} // RA2: as above
-		if (message == 0x7B) { // RA2: as above
-			return 1; // RA2: as above
-		} // RA2: as above
-		if (message == WM_MOUSEMOVE) { // RA2: as above
-			return 1; // RA2: as above
-		} // RA2: as above
-		if (message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP || message == WM_SYSCHAR || message == 0x107 || message == WM_LBUTTONDOWN) { // RA2: as above
-			refresh = TRUE; // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-	if (refresh) { // RA2: as above
-		char class_name[32]; // RA2: as above
-		GetClassNameA(parent, class_name, 32); // RA2: as above
-		if (strcmp(class_name, "ComboBox") == 0) { // RA2: as above
-			InvalidateRect(parent, 0, 0); // RA2: as above
-		} // RA2: as above
-		InvalidateRect(window, 0, 0); // RA2: as above
-	} // RA2: as above
-	unsigned short ch; // RA2: as above
-	if (message == WM_CHAR) { // RA2: as above
-		if (wparam <= 0x1F) { // RA2: as above
-			return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-		} // RA2: as above
-		ch = wparam; // RA2: as above
-	} else { // RA2: as above
-		if (message == WM_KEYDOWN) { // RA2: as above
-			switch (wparam) { // RA2: as above
-			case 0x2E: // RA2: as above
-				if (data->Caret < (int)data->Buffer->length()) { // RA2: as above
-					data->Buffer->remove(data->Caret, 1); // RA2: as above
-					inserted = TRUE; // RA2: as above
-				} // RA2: as above
-				break; // RA2: as above
-			case 8: // RA2: as above
-				if (data->Caret > 0) { // RA2: as above
-					data->Caret--; // RA2: as above
-					data->Buffer->remove(data->Caret, 1); // RA2: as above
-					inserted = TRUE; // RA2: as above
-				} // RA2: as above
-				break; // RA2: as above
-			case 0x25: // RA2: as above
-				if (data->Caret > 0) { // RA2: as above
-					data->Caret--; // RA2: as above
-				} // RA2: as above
-				return 0; // RA2: as above
-			case 0x27: // RA2: as above
-				if (data->Caret < (int)data->Buffer->length()) { // RA2: as above
-					data->Caret++; // RA2: as above
-				} // RA2: as above
-				return 0; // RA2: as above
-			case 0x23: // RA2: as above
-				data->Caret = data->Buffer->length(); // RA2: as above
-				return 0; // RA2: as above
-			case 0x24: // RA2: as above
-				data->Caret = 0; // RA2: as above
-				return 0; // RA2: as above
-			default: // RA2: as above
-				return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-			} // RA2: as above
-		} else { // RA2: as above
-			if (message == 0x286) { // RA2: as above
-				ch = IME_Char_To_Wide(wparam, lparam); // RA2: as above
-			} else { // RA2: as above
-				if (message != 0x4D9) { // RA2: as above
-					return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-				} // RA2: as above
-				ch = wparam; // RA2: as above
-			} // RA2: as above
-			ime = TRUE; // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-	if (message != WM_KEYDOWN) { // RA2: as above
-		if (ch == 0) { // RA2: as above
-			if (!ime) { // RA2: as above
-				return CallWindowProcA(previous, window, message, wparam, lparam); // RA2: as above
-			} // RA2: as above
-		} else { // RA2: as above
-			if ((!data->Excluded || !wcschr(data->Excluded, ch)) && (!data->MaxLength || (int)data->Buffer->length() < data->MaxLength) && ch > 0x1F && (!data->IsAsciiOnly || ch < 0x100)) { // RA2: as above
-				data->Buffer->insert(ch, data->Caret++); // RA2: as above
-				inserted = TRUE; // RA2: as above
-			} // RA2: as above
-		} // RA2: as above
-	} // RA2: as above
-	if (inserted) { // RA2: as above
-		unsigned int id = GetWindowLongA(window, -12); // RA2: as above
-		SendMessageA(parent, 0x111, (id & 0xFFFF) | 0x3000000, (LPARAM)window); // RA2: as above
-		SendMessageA(parent, 0x111, (id & 0xFFFF) | 0x4000000, (LPARAM)window); // RA2: as above
-		return 0; // RA2: as above
-	} // RA2: as above
-	return 0; // RA2: as above
-} // RA2: as above
+{
+	WNDPROC proc = NULL;
+	int changed = 0;
+	int handled = 0;
+	if (message == WM_GETDLGCODE) {
+		return DLGC_WANTALLKEYS;
+	}
+	Window_Proc_Table.getValue(window, proc);
+	WinData * record = NULL;
+	Control_Table.getPointer((unsigned int const &)window, &record);
+	EditRecord * data = (EditRecord *)record; // RA2: the record seen as an edit control's
+	HWND parent = GetParent(window);
+
+	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == VK_TAB) {
+		if (message == WM_KEYDOWN) {
+			bool shift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+			SendMessage(parent, WM_USER + 219, shift, (LPARAM)window);
+		}
+		return 0;
+	}
+	if (message == OD_SUBCLASSED) {
+		RECT window_rect;
+		GetWindowRect(window, &window_rect);
+		RECT client_rect;
+		GetClientRect(window, &client_rect);
+		RECT parent_rect;
+		GetWindowRect(parent, &parent_rect);
+		SetWindowPos(window, NULL, window_rect.left - parent_rect.left + 1,
+		window_rect.top - parent_rect.top + 1, client_rect.right - 2,
+		client_rect.bottom - 2, SWP_SHOWWINDOW);
+		return 0;
+	} else if (message == EM_LIMITTEXT) {
+		data->MaxLength = wparam;
+		if (wparam) {
+			data->Buffer->truncate(wparam);
+		}
+	} else if (message == WM_USER + 181 || message == WM_USER + 179 || message == WM_GETTEXTLENGTH) {
+		if (message == WM_GETTEXTLENGTH) {
+			return data->Buffer->length();
+		}
+		WideWstring * query_text = data->Buffer;
+		if (message == WM_USER + 179) {
+			wcsncpy((wchar_t *)lparam, query_text->get(), wparam);
+			((wchar_t *)lparam)[wparam - 1] = 0;
+			return wcslen((wchar_t *)lparam);
+		}
+		WideToCharString((char *)lparam, query_text->get(), wparam);
+		((char *)lparam)[wparam - 1] = 0;
+		return strlen((char *)lparam);
+	} else {
+		if (message == WM_USER + 180 || message == WM_USER + 178) {
+			data->Buffer->clear();
+			data->Caret = 0;
+			data->Scroll = 0;
+			if (data->Text != NULL) {
+				data->Buffer->set(data->Text);
+			}
+			if (data->MaxLength) {
+				data->Buffer->truncate((unsigned int)data->MaxLength);
+			}
+			data->Caret = data->Buffer->length();
+		}
+		if (message == WM_KEYDOWN) {
+			if (wparam == VK_RETURN) {
+				SendMessage(parent, WM_USER + 218, 0, (LPARAM)window);
+				if (data->Style & ES_MULTILINE) {
+					*data->Buffer += L"\r\n";
+					WPARAM command = (unsigned short)GetWindowLong(window, GWL_ID) | 0x5010000;
+					SendMessage(parent, WM_COMMAND, command, (LPARAM)window);
+				}
+				return 0;
+			}
+		} else if (message == WM_SETFOCUS) {
+			data->IsCaretHidden = 0;
+			SetTimer(window, 0, 1000, NULL);
+		} else if (message == WM_KILLFOCUS) {
+			KillTimer(window, 0);
+		} else if (message == WM_TIMER) {
+			data->IsCaretHidden ^= 1;
+			InvalidateRect(window, NULL, FALSE);
+		} else {
+			if (message == WM_PAINT || message == WM_ERASEBKGND) {
+				RECT display_rect;
+				Get_Display_Rect(window, &display_rect);
+				char paint_class[80];
+				GetClassName(parent, paint_class, sizeof(paint_class));
+				bool is_combo = strcmp(paint_class, "ComboBox") == 0;
+				RECT update_rect;
+				if (message == WM_PAINT && GetUpdateRect(window, &update_rect, FALSE)) {
+					update_rect.left += display_rect.left;
+					update_rect.right += display_rect.left;
+					update_rect.top += display_rect.top;
+					update_rect.bottom += display_rect.top;
+				}
+				Rect draw_rect;
+				draw_rect.X = display_rect.left;
+				draw_rect.Y = display_rect.top;
+				draw_rect.Width = display_rect.right - display_rect.left + 1;
+				draw_rect.Height = display_rect.bottom - display_rect.top + 1;
+				Draw_Dimmed_Back(draw_rect, window, data->TextStyle);
+				if (!is_combo) {
+					Draw_Frame(AlternateSurface, draw_rect, 1, -1); // RA2: a one-pixel frame (the twin, YR, draws two)
+				}
+				display_rect.left += 2;
+				Rect text_rect;
+				text_rect.X = display_rect.left;
+				text_rect.Y = display_rect.top;
+				text_rect.Width = display_rect.right - display_rect.left + 1;
+				text_rect.Height = display_rect.bottom - display_rect.top + 1;
+				Caret_Hidden = data->IsCaretHidden;
+				Draw_Edit_Text(AlternateSurface, text_rect, data->Buffer->get(),
+					data->Caret, data->Font, Text_Color,
+					&data->Scroll, data->ImeState,
+					(data->Style & ES_PASSWORD) != 0, 0, 0);
+				ValidateRect(window, NULL);
+			}
+			if (message == WM_CONTEXTMENU) {
+				return 1;
+			}
+			if (message == WM_MOUSEMOVE) {
+				return 1;
+			}
+		}
+		if (message == WM_KEYDOWN || message == WM_SETFOCUS || message == WM_KILLFOCUS ||
+		message == WM_KEYUP || message == WM_SYSKEYDOWN || message == WM_SYSKEYUP ||
+		message == WM_SYSCHAR || message == WM_SYSDEADCHAR || message == WM_LBUTTONDOWN) {
+			char class_name[32];
+			GetClassName(parent, class_name, sizeof(class_name));
+			if (strcmp(class_name, "ComboBox") == 0) {
+				InvalidateRect(parent, NULL, FALSE);
+			}
+			InvalidateRect(window, NULL, FALSE);
+		}
+		wchar_t ch = 0;
+		if (message == WM_CHAR) {
+			if (wparam > 31) {
+				ch = (wchar_t)wparam;
+			}
+		} else if (message == WM_KEYDOWN) {
+			switch (wparam) {
+			case VK_DELETE:
+				if (data->Caret < (int)data->Buffer->length()) {
+					data->Buffer->remove(data->Caret, 1);
+					changed = 1;
+				}
+				handled = 1;
+				break;
+			case VK_BACK:
+				if (data->Caret > 0) {
+					data->Caret--;
+					data->Buffer->remove(data->Caret, 1);
+					changed = 1;
+				}
+				handled = 1;
+				break;
+			case VK_LEFT:
+				if (data->Caret > 0) {
+					--data->Caret;
+					return 0;
+				}
+				handled = 1;
+				break;
+			case VK_RIGHT:
+				if (data->Caret < (int)data->Buffer->length()) {
+					++data->Caret;
+					return 0;
+				}
+				handled = 1;
+				break;
+			case VK_END:
+				data->Caret = data->Buffer->length();
+				return 0;
+			case VK_HOME:
+				data->Caret = 0;
+				return 0;
+			default:
+				break;
+			}
+		} else if (message == WM_IME_CHAR) {
+			ch = IME_Char_To_Wide(wparam, lparam);
+			handled = 1;
+		} else if (message == WM_USER + 217) {
+			ch = (wchar_t)wparam;
+			handled = 1;
+		}
+		if (ch) {
+			if ((!data->Excluded || !wcschr(data->Excluded, ch)) &&
+				(!data->MaxLength || (int)data->Buffer->length() < data->MaxLength) &&
+				ch > 31 && (!data->IsAsciiOnly || ch < 256)) {
+				data->Buffer->insert(ch, data->Caret++);
+				changed = 1;
+			}
+			handled = 1;
+		}
+		if (changed) {
+			int id = (unsigned short)GetWindowLong(window, GWL_ID);
+			SendMessage(parent, WM_COMMAND, id | (EN_CHANGE << 16), (LPARAM)window);
+			SendMessage(parent, WM_COMMAND, id | (EN_UPDATE << 16), (LPARAM)window);
+		}
+		if (handled) {
+			return 0;
+		}
+	}
+	return CallWindowProc(proc, window, message, wparam, lparam);
+}
 #endif
+
 
 } // RA2: as above
 

@@ -2,11 +2,10 @@ function,kind,header,line,users,instead
 Assert_Failure,free,include/assert.h,30,include/assert.h (header),
 DPMI_Lock,free,include/vqalib/vqamem.h,44,include/vqalib/vqamem.h (header),
 DPMI_Unlock,free,include/vqalib/vqamem.h,45,include/vqalib/vqamem.h (header),
-Handle_Preview_Download,free,include/wonline.h,85,src/wonline.cpp (parked),
 Load_Data,free,include/iff.h,101,"name shared by 2 scopes, calls not resolved",
 Pick_Ice_Tile_Set,free,include/isotype.h,694,src/map.cpp (parked),
-Sound_Effect,free,include/voc.h,29,src/building.cpp (parked); src/map.cpp (parked); src/mech.cpp (parked); src/unit.cpp (parked); src/walk.cpp (parked),"VocClass::PlayGlobal 0x713DB0 (no coordinate), VocClass::PlayAt (a coordinate)"
-Speak,free,include/vox.h,23,src/building.cpp (parked),Queue_Speech
+Sound_Effect,free,include/voc.h,29,src/building.cpp (parked); src/map.cpp (parked); src/unit.cpp (parked),"VocClass::PlayGlobal 0x713DB0 (no coordinate), VocClass::PlayAt (a coordinate)"
+Speak,free,include/vox.h,23,,Queue_Speech
 VQA_InitMono,free,include/vqalib/vqaplayp.h,785,src/vqalib_task.cpp (exact),
 VQA_UpdateMono,free,include/vqalib/vqaplayp.h,786,src/vqalib_task.cpp (exact),
 lineCallbackFunc,free,src/wincomm.cpp,328,,

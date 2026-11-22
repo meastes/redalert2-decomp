@@ -248,7 +248,7 @@ class Tactical : public AbstractClass
 
 		void Draw_Rally_Points(bool inshroud);
 		void Draw_Waypoints(bool inshroud);
-		static void Draw_Radial_Indicators(void);
+		void Draw_Radial_Indicators(void);
 
 		/*
 		 * Debug overlays.

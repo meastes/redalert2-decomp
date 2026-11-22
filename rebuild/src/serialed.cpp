@@ -71,11 +71,11 @@ bool SerialEdit::Dialog(SerialSettingsType *settings)
 
 		OwnerDraw::End_Dialog(_Dialog);
 
-		if (RC == 1) {
+		if (RC == IDOK) {
 			memcpy(settings, &TempSettings, sizeof(SerialSettingsType));
 		}
 	}
-	if (RC != 1) {
+	if (RC != IDOK) {
 		return(false);
 	}
 	return(true);

@@ -41,8 +41,8 @@ namespace fastmath
 {
 	double __cdecl sqrt(double x);
 
+	double __cdecl cos(double x); // RA2: cos before sin (ra2-decomp's order; the archive declares sin first): a product of the two calls evaluates the later-declared one first
 	double __cdecl sin(double x);
-	double __cdecl cos(double x);
 
 	double __cdecl tan(double x);
 

@@ -670,7 +670,7 @@ int RawFileClass::Size(void)
 		/*
 		**	If there was in internal error, then call the error function.
 		*/
-		if (size == 0xFFFFFFFF) {
+		if (size == INVALID_FILE_SIZE) {
 			Error(GetLastError(), false, Filename);
 		}
 

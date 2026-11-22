@@ -124,11 +124,11 @@ BOOL CALLBACK Mode_Prompt_Dialog_Proc(HWND window, UINT message, WPARAM wparam, 
 			case WM_COMMAND:
 				switch (LOWORD(wparam)) {
 					case IDC_TRY_MODE_OK:
-						*result = 1;
+						*result = IDOK;
 						break;
 
 					case IDC_TRY_MODE_CANCEL:
-						*result = 2;
+						*result = IDCANCEL;
 						break;
 				}
 				break;
@@ -154,7 +154,7 @@ bool Mode_Prompt_Dialog(void)
 		while (rc < 0 && !OwnerDraw::Dialog_Message_Handler()) Title_Screen_Restore();
 		OwnerDraw::End_Dialog(dialog);
 	}
-	return(rc == 1);
+	return(rc == IDOK);
 }
 
 
@@ -652,7 +652,7 @@ BOOL CALLBACK IPX_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 
 				case IDCANCEL:
-					*result = 2;
+					*result = IDCANCEL;
 					break;
 
 				case IDC_IPX_NETCARD: {
@@ -885,7 +885,7 @@ bool Test_Display_Mode_Dialog(int width, int height)
 		}
 
 		OwnerDraw::End_Dialog(dialog);
-		if (rc != 1) {
+		if (rc != IDOK) {
 			DebugString("Resetting display mode @ %dx%d\n", Options.ScreenWidth, Options.ScreenHeight);
 			Change_Display_Mode(Options.ScreenWidth, Options.ScreenHeight);
 			LogicalSurface = HiddenSurface;
@@ -921,11 +921,11 @@ BOOL CALLBACK Test_Display_Mode_Dialog_Proc(HWND window, UINT message, WPARAM wp
 			case WM_COMMAND:
 				switch (LOWORD(wparam)) {
 					case IDC_TRY_MODE_OK:
-						*result = 1;
+						*result = IDOK;
 						break;
 
 					case IDC_TRY_MODE_CANCEL:
-						*result = 2;
+						*result = IDCANCEL;
 						break;
 				}
 				break;

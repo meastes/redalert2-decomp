@@ -3959,3 +3959,43 @@ Found in the rebuild (lane F25, high):
 - When a parked row's residue is `mov r, dword ptr [g]` + `and r, 0xffff` against a 16-bit load of the same
   address (or the reverse), look at the declaration of g before the expression: array or scalar, defined here or
   extern, initialised or not.
+## A product of two calls follows the callees' declaration order; an inline's return form reschedules the caller's other blocks; test a header form on every exact includer before choosing it (found in the rebuild (lane F26, high))
+
+Found in the rebuild (lane F26, high):
+
+- When `f(a) * g(b)` has two calls as operands, VC6 SP3 does not follow the written order: it evaluates the
+  callee that was declared later first, stores it, and multiplies the other into it. building
+  BuildingClass::Do_MISSION_MISSILE 0x448400: the take-off velocity `TVelocity3D<double>(DirType(DIR_N),
+  DirType(DIR_N), 10)` expands `fastmath::sin(yaw) * fastmath::cos(pitch) * magnitude`; with `sin` declared before
+  `cos` (the archive's fastmath.h) the object calls cos first, and the Dir256 constructor, which writes the same
+  product as `cos(..) * sin(..)`, compiles to the same bytes. With `cos` declared before `sin` (ra2-decomp's
+  fastmath.h) both call sin first, as the image does. So a diff that is only "two calls of a commutative
+  expression swapped" is settled by the order of the two declarations in their header, not by the expression;
+  compare the declaration order with the twin's header before rewriting any statement. All 286 includers of
+  fastmath.h were unchanged by the swap, so it costs nothing elsewhere.
+- The same class of diff inside an expanded inline (a commuted `fld st(0)` / `fmul [mem]` pair on the first of
+  three `X *= ratio` statements) followed the inline's own named values: `T current = Speed(); T scale = speed /
+  current;` (ra2-decomp's Set_Speed) against the archive's one `T speed_ratio = speed / Speed();`. Two named
+  doubles where the archive has one is a different operand order for the first use only.
+- An inline's return form can reschedule a block of the caller that does not contain it. In the same function one
+  `push` of the second Create_Bullet's arguments sat on the wrong side of a load (10 bytes); neither argument
+  spelling nor the callee's kind (member against the references' free function) moved it. The block also holds
+  the expanded `::Direction(Coord, Coord)` a few statements earlier, and that inline's last statement decided it:
+
+  | Direction(Coord, Coord) returns | Do_MISSION_MISSILE | HouseClass::Which_Zone 0x4EAD40 |
+  | --- | --- | --- |
+  | `return(fastmath::atan2(..));` (archive) | 10 bytes | exact |
+  | `double angle = ..; return(DirType(angle));` (ra2-decomp inline.h) | exact | 16 bytes |
+  | `double angle = ..; return(angle);` | 6 bytes | 16 bytes |
+  | `return(DirType(fastmath::atan2(..)));` (ra2-decomp disklaser.cpp's copy of the body) | exact | exact |
+
+  The conversion written out is what the missile function needs and the named double is what Which_Zone refuses
+  (an `fild` of its expanded Distance moves, again in a block before the Direction call). Two lessons: a
+  scheduling tie next to an expanded inline is a question about that inline's text, and a header form that fixes
+  one function is not known until every exact includer has been checked with it: the twin's own header form
+  would have traded a 362-byte exact row for the new one. Probing with one-instruction stores at the head of the
+  block did not show a clean count here (each added store moved several instructions), so the table above, not a
+  store count, is the measurement.
+- Seen while probing, cause not looked into: a scratch copy of the inline placed late in building.cpp refused
+  `return(DirType(x));` ("cast to function type is illegal") and took `return DirType(x);`; the parenthesised
+  form compiles at the header's own place.

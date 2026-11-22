@@ -15,6 +15,7 @@
     "?Hicolor_Clear_Table@@YIXXZ": 7387088,
     "?Hicolor_Translate@@YIXPAXH@Z": 7387120,
     "?UnVQ2_4x4_Table@@YAXPAE00KKK@Z": 7387168,
+    "?UnVQ2_4x2_Table@@YAXPAE00KKK@Z": 7388096,
     "?UnVQ1_4x4_Table@@YAXPAE00KKK@Z": 7389024
   },
   "regions": [
@@ -129,7 +130,7 @@
           "resolved": 7386865
         }
       ],
-      "source_sha256": "74a478118db329fec115d85988cb3646fae93d53741060f3a1c6e8b76c1a9501",
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
       "source": "rebuild/src/unvqtblc.cpp",
       "population": "rebuild-unvqtblc",
       "source_order": 7386768,
@@ -181,7 +182,7 @@
           "resolved": 11339284
         }
       ],
-      "source_sha256": "74a478118db329fec115d85988cb3646fae93d53741060f3a1c6e8b76c1a9501",
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
       "source": "rebuild/src/unvqtblc.cpp",
       "population": "rebuild-unvqtblc",
       "source_order": 7387088,
@@ -217,7 +218,7 @@
           "resolved": 11339284
         }
       ],
-      "source_sha256": "74a478118db329fec115d85988cb3646fae93d53741060f3a1c6e8b76c1a9501",
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
       "source": "rebuild/src/unvqtblc.cpp",
       "population": "rebuild-unvqtblc",
       "source_order": 7387120,
@@ -261,11 +262,58 @@
           "resolved": 11339284
         }
       ],
-      "source_sha256": "74a478118db329fec115d85988cb3646fae93d53741060f3a1c6e8b76c1a9501",
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
       "source": "rebuild/src/unvqtblc.cpp",
       "population": "rebuild-unvqtblc",
       "source_order": 7387168,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7388096,
+      "method": "0070bbc0",
+      "body_bytes": 922,
+      "body_sha256": "c36fb32b0906744012a34f497b338bd93922ffb75f9ea3fb7232b39d7025e320",
+      "padding_bytes": 6,
+      "full_extent_bytes": 928,
+      "full_extent_sha256": "c97d7b62bb1dd08fdd802fe4efb2b99c433b97d59f15dc57745748b5d356c5bc",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start codeptr@0071cd4e, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?UnVQ2_4x2_Table@@YAXPAE00KKK@Z",
+      "symbol_prefix": "?UnVQ2_4x2_Table@@YAXPAE00KKK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 315,
+          "kind": 6,
+          "symbol": "_HicolorTable",
+          "target": 11339284,
+          "addend": 0,
+          "resolved": 11339284
+        },
+        {
+          "offset": 802,
+          "kind": 6,
+          "symbol": "_HicolorTable",
+          "target": 11339284,
+          "addend": 0,
+          "resolved": 11339284
+        }
+      ],
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
+      "source": "rebuild/src/unvqtblc.cpp",
+      "population": "rebuild-unvqtblc",
+      "source_order": 7388096,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 7389024,
@@ -288,7 +336,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "74a478118db329fec115d85988cb3646fae93d53741060f3a1c6e8b76c1a9501",
+      "source_sha256": "bffcde2f4b2db53a82380d20d23937dd7a55afc60fd850122e4b3bf14fd3e250",
       "source": "rebuild/src/unvqtblc.cpp",
       "population": "rebuild-unvqtblc",
       "source_order": 7389024,

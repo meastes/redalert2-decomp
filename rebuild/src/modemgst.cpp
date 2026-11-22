@@ -97,7 +97,7 @@ bool ModemGuest::Dialog(void)
 			Session.Write_MultiPlayer_Settings();
 		}
 
-		if (RC == 1) {
+		if (RC == IDOK) {
 			started = true;
 		} else if (RC == IDCANCEL) {
 			started = false;

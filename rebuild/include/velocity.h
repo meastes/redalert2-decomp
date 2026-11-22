@@ -144,10 +144,11 @@ class TVelocity3D : public TVelocity2D<T>
 		void Set_Speed(T speed)
 		{
 			Nonzero_Check();
-			T speed_ratio = speed / Speed();
-			X *= speed_ratio;
-			Y *= speed_ratio;
-			Z *= speed_ratio;
+			T current = Speed(); // RA2: the current speed and the scale as two named values (ra2-decomp's form; the archive has one speed_ratio)
+			T scale = speed / current;
+			X *= scale;
+			Y *= scale;
+			Z *= scale;
 		}
 
 		DirType Get_Pitch(void) const

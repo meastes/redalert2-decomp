@@ -200,8 +200,18 @@ and preserve unexpected changes rather than overwriting them.
 Every status (each landing and lane hand-back) uses this order, in plain words, with a
 function's name rather than its address where it has one:
 1. What happened since the last status.
-2. Measures table: Reproduced .text %, in-scope C/C++ %, judgment-call bytes and rows, usage
-   per account with Weekly · Fable %.
+2. Measures table (user, 2026-11-22), rebuild first, main as the fixed reference column until
+   `src/` retires: Reproduced .text % (like for like); C/C++ bodies matched, padding separate
+   (bytes, %, gap to main in KB: the parity line); exact with no judgment call (bytes, %);
+   judgment calls (rows, bytes, one named definition for both trees); tail (parked functions and
+   bytes, count and bytes of those >= 1 KB; variations held for the user's list, rows and bytes);
+   since the last status (+rows/+bytes split by Fable lanes, Opus lanes, Windows workers;
+   lane-hours; KB per Fable lane-hour); structure (duplicates, externs, address-suffixed, one
+   line, any rise flagged); usage (all models % and Fable % with reading time, projected day of
+   the Fable stop; Codex credits against the 5,000 floor); disk free and swap only when past a
+   guard; the Public snapshot line. Main's in-scope C/C++ % and provenance a/b/c appear in
+   checkpoints only. Any figure compared across the two trees names its measure once in STATUS;
+   a measure change is a marked series break in progress.csv, never a silent one.
 3. Decision log: one line per ruling, with cost or gain and reviewed or not.
 4. Lanes running, one line each; Windows deliveries pending.
 5. Anything that needs the user, last and numbered.

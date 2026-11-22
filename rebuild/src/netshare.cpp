@@ -640,7 +640,7 @@ void __fastcall Set_Item_Text(HWND dialog, MultiplayerGameMode * mode) // RA2: 0
 void __fastcall Set_Scenario_Item_Text(HWND dialog, int index) // RA2: 0x005C3480, TibSun has no such routine
 {
 	MultiMission * map = Session.Scenarios[index]; // RA2: as above
-	HWND item = GetDlgItem(dialog, 0x5a8); // RA2: as above
+	HWND item = GetDlgItem(dialog, IDC_SCENARIONAME); // RA2: as above
 	SendMessage(item, OD_SETTEXTW, 0, (LPARAM)map); // RA2: as above
 }
 
@@ -650,7 +650,7 @@ void __fastcall Set_Scenario_Item_Text(HWND dialog, int index) // RA2: 0x005C348
 /// <param name="dialog">The lobby dialog.</param>
 void __fastcall Set_Skirmish_Dialog_Text(HWND dialog) // RA2: 0x005C34B0, TibSun has no such routine
 {
-	HWND item = GetDlgItem(dialog, 0x5a8); // RA2: as above
+	HWND item = GetDlgItem(dialog, IDC_SCENARIONAME); // RA2: as above
 	SendMessage(item, OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: as above
 }
 

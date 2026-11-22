@@ -6294,7 +6294,6 @@ int BuildingClass::Do_MISSION_REPAIR(void) // RA2: ra2-decomp's twin text (src/b
  * HISTORY:                                                                                    *
  *   07/04/1995 JLB : Commented.                                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ against the image-derived bound 00448400 (3036 B, same size): ra2-decomp's text (RA2 has the PSIWARN anim, Set_Weapon_Type, the take-off anim, the recoil and PlayAt); left: the take-off velocity's first sin/cos pair evaluates in the other order, one push scheduled before the warhead load, and Set_Speed's first product commuted
 int BuildingClass::Do_MISSION_MISSILE(void)
 {
 	if (Class->IsNukeSilo) {
@@ -6490,7 +6489,6 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 
 	return(Current_Mission_Control().Normal_Delay());
 }
-#endif
 
 
 /***********************************************************************************************
