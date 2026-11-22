@@ -57,7 +57,7 @@ char const * const AITriggerTypeClass::INI_NAME_ENABLE = "AITriggerTypesEnable";
 AITriggerTypeClass::AITriggerTypeClass(const char *name) :
 	BASECLASS(name),
 	Type(AIT_NONE),
-	House(-1),
+	House(HOUSE_NONE),
 	CurWeight(1),
 	MinWeight(1),
 	MaxWeight(1),
@@ -883,28 +883,28 @@ bool AITriggerTypeClass::Read_INI(CCINIClass const & ini)
 
 		if (type == -1) {
 			type = (int)InfantryTypeClass::From_Name(objname);
-			if (type != -1) {
+			if (type != INFANTRY_NONE) {
 				conobj = InfantryTypes[type];
 			}
 		}
 
 		if (type == -1) {
 			type = (int)UnitTypeClass::From_Name(objname);
-			if (type != -1) {
+			if (type != UNIT_NONE) {
 				conobj = UnitTypes[type];
 			}
 		}
 
 		if (type == -1) {
 			type = (int)AircraftTypeClass::From_Name(objname);
-			if (type != -1) {
+			if (type != AIRCRAFT_NONE) {
 				conobj = AircraftTypes[type];
 			}
 		}
 
 		if (type == -1) {
 			type = (int)BuildingTypeClass::From_Name(objname);
-			if (type != -1) {
+			if (type != STRUCT_NONE) {
 				conobj = BuildingTypes[type];
 			}
 		}

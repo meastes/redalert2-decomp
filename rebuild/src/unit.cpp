@@ -6869,7 +6869,7 @@ void UnitClass::Visceroid_AI()
     }
     if (NavCom || TarCom) return;
     int direction;
-    if (VisceroidFacing == -1 || Random_Pick(0, 2) == 0) {
+	if (VisceroidFacing == FACING_NONE || Random_Pick(0, 2) == 0) {
         direction = Random_Pick(0, 7);
         VisceroidFacing = (FacingType)direction;
     } else {

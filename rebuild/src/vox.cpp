@@ -515,7 +515,7 @@ void __fastcall VoxClass::Process(CCINIClass &ini) // RA2: 0x007163F0; makes (or
 			if (ini.Get_String("DialogList", ini.Get_Entry("DialogList", index), "", name, sizeof(name))) { // RA2: as above
 				VoxClass *vox; // RA2: as above
 				int vox_index = Vox_From_Name(name); // RA2: as above
-				if (vox_index == -1) { // RA2: as above
+				if (vox_index == VOX_NONE) { // RA2: as above
 					vox = new VoxClass(name); // RA2: as above
 				} else {
 					vox = Voxs[vox_index]; // RA2: as above
@@ -542,7 +542,7 @@ static inline int Index_Of_Name(char const * name) // RA2: as above
 			return index; // RA2: as above
 		}
 	}
-	return -1; // RA2: as above
+	return VOX_NONE; // RA2: as above
 }
 
 VoxType __fastcall Vox_From_Name(char const * name) // RA2: 0x00716640; the index of the VoxClass of a name, -1 for none or a null name

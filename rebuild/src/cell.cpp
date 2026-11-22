@@ -2174,7 +2174,7 @@ void CellClass::Draw_Overlay(Point2D const & xpoint, Rect const & cliprect)
 /// returned if the cell has no overlay.</returns>
 Rect CellClass::Overlay_Render_Rect() const
 {
-	if (Overlay == -1) {
+	if (Overlay == OVERLAY_NONE) {
 		return Rect(0, 0, 0, 0);
 	}
 	int frame = OverlayData;

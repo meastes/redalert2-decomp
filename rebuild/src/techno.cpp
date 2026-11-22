@@ -3514,7 +3514,7 @@ void TechnoClass::AI(void)
 	if (type->IsDamageSparks && HealthRatio < Rule->ConditionYellow && HeightAGL > -10) {
 		DynamicVectorClass<ParticleSystemTypeClass const *> sparks;
 		for (int i = 0; i < type->DamageParticleSystems.Count(); ++i) {
-			if (type->DamageParticleSystems[i]->BehavesLike == 3) sparks.Add(type->DamageParticleSystems[i]);
+			if (type->DamageParticleSystems[i]->BehavesLike == PSYS_BEHAVIOR_SPARK) sparks.Add(type->DamageParticleSystems[i]);
 		}
 		if (!ParticleSystems[1] && sparks.Count() > 0) {
 			double probability = HealthRatio < Rule->ConditionRed ? Rule->ConditionRedSparkingProbability : Rule->ConditionYellowSparkingProbability;
@@ -5947,7 +5947,7 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 		} else if (result == 2 || result == 3) {
 			DynamicVectorClass<ParticleSystemTypeClass const *> smoke_types;
 			for (int index = Techno_Type_Class()->DamageParticleSystems.Count() - 1; index >= 0; --index) {
-				if (Techno_Type_Class()->DamageParticleSystems[index]->BehavesLike == 0) smoke_types.Add(Techno_Type_Class()->DamageParticleSystems[index]);
+				if (Techno_Type_Class()->DamageParticleSystems[index]->BehavesLike == PSYS_BEHAVIOR_SMOKE) smoke_types.Add(Techno_Type_Class()->DamageParticleSystems[index]);
 			}
 			if (!ParticleSystems[3] && smoke_types.Count() > 0 && HeightAGL > -10) {
 				Coord offset = Techno_Type_Class()->Damage_Smoke_Offset();

@@ -1172,10 +1172,10 @@ static CampaignType Choose_Campaign(void)
 		OwnerDraw::Display_Dialog(dialog);
 
 		while (!state.ChoiceMade && OwnerDraw::Dialog_Message_Handler() != true) { // RA2: as above
-			if (PendingSideVoc != -1 && SideSoundTime < AudioGetTime()) { // RA2: the hovered side's sound plays once the mouse has rested on the button
+			if (PendingSideVoc != VOC_NONE && SideSoundTime < AudioGetTime()) { // RA2: the hovered side's sound plays once the mouse has rested on the button
 				SideSound.Stop(); // RA2: as above
 				VocClass::PlayGlobal(PendingSideVoc, 1.0f, 0x2000, &SideSound); // RA2: as above
-				PendingSideVoc = -1; // RA2: as above
+				PendingSideVoc = VOC_NONE; // RA2: as above
 			}
 			if (SurfacesRestored) { // RA2: as above
 				SurfacesRestored = false; // RA2: as above

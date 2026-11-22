@@ -742,7 +742,7 @@ static inline int Read_Sound(CCINIClass const & ini, char const * section, char 
 	char sound[128];
 	if (ini.Get_String(section, key, "", sound, sizeof(sound)) != 0) {
 		int index = VocClass::From_Name(sound);
-		if (index != -1)
+		if (index != VOC_NONE)
 			return index;
 	}
 	return fallback;

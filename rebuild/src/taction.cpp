@@ -1173,7 +1173,7 @@ bool TActionClass::TAction_TEXT_TRIGGER(HouseClass * , ObjectClass * , TriggerCl
 	int color_scheme = scenario->IsGDI ? 2 : 1; // RA2: setne/inc at 0x6B045F
 	int scheme = Session.Color_Index_To_Scheme(color_scheme); // RA2: as above
 	if (label != NULL) { // RA2: as above
-		Session.Messages.Add_Message(NULL, 0, StringTable::LoadString(label, NULL, "D:\\Ra2\\TAction.CPP", 1582), scheme, TextPrintType(0x4046), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above, inlined in operator() at 0x006AE33x
+		Session.Messages.Add_Message(NULL, 0, StringTable::LoadString(label, NULL, "D:\\Ra2\\TAction.CPP", 1582), scheme, TextPrintType(TPF_6PT_GRAD | TPF_FULLSHADOW | TPF_USE_GRAD_PAL), int(Rule->MessageDelay * TICKS_PER_MINUTE), false); // RA2: as above, inlined in operator() at 0x006AE33x
 	}
 	return(true);
 }

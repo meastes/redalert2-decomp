@@ -159,7 +159,7 @@ LRESULT CALLBACK Windows_Procedure(HWND hwnd, UINT message, UINT wParam, LONG lP
 			return(0);
 
 		case WM_PAINT:
-			if (SpecialDialog == 0) {	// RA2
+			if (SpecialDialog == SDLG_NONE) {	// RA2
 				if (GameInFocus == true || WindowedMode == true) {
 					if (MouseCursor != NULL && VisibleSurface != NULL && HiddenSurface != NULL && CompositeSurface != NULL) {
 						if (ScenarioActive == true) {

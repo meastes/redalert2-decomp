@@ -857,7 +857,7 @@ void AnimClass::AI(void)
 		if (Class->IsVeins) Vein_Attack_AI();
 		if (Class->IsAnimatedTiberium) {
 			int overlay = Map[Center_Coord() - Coord(384, 384, 0)].Overlay;
-			if (overlay == -1 || OverlayTypes[(int)overlay]->CellAnim != Class) IsToDelete = true;
+			if (overlay == OVERLAY_NONE || OverlayTypes[(int)overlay]->CellAnim != Class) IsToDelete = true;
 		}
 		if (Class->Stages == -1) {
 			Class->Stages = ((ShapeSet const *)Class->Get_Image_Data())->Get_Count();

@@ -1270,7 +1270,7 @@ int HouseClass::Can_Build(ObjectTypeClass const * type, bool forced, bool includ
 		}
 		if (!AllowDisableableSupers && type->Fetch_RTTI() == RTTI_BUILDINGTYPE) { // RA2: a building's super weapon can be disabled from the shell
 			BuildingTypeClass const * btype = (BuildingTypeClass const *)type; // RA2: as above
-			if (btype->SuperWeapon != -1 && SuperWeapon[btype->SuperWeapon]->Class->DisableableFromShell) { // RA2: as above
+			if (btype->SuperWeapon != SUPER_NONE && SuperWeapon[btype->SuperWeapon]->Class->DisableableFromShell) { // RA2: as above
 				return(0); // RA2: as above
 			}
 		}
@@ -4478,7 +4478,7 @@ UrgencyType HouseClass::Check_Fire_Sale(void)
 		for (int index = 0; index < count; index++) { // RA2: as above
 			BuildingClass *building = (BuildingClass *)Buildings[index]; // RA2: as above
 			if (building != 0 && building->IsActive && !building->IsInLimbo && // RA2: as above
-				(((BuildingTypeClass *)building->Class))->ToBuild != 0) { // RA2: as above
+				(((BuildingTypeClass *)building->Class))->ToBuild != RTTI_NONE) { // RA2: as above
 				return(URGENCY_NONE);
 			}
 		}
@@ -6009,7 +6009,7 @@ void HouseClass::Read_All(CCINIClass const & ini)
 		char name[20]; // RA2: as above
 		ini.Get_String("Houses", ini.Get_Entry("Houses", index), "", name, sizeof(name)); // RA2: as above
 		int type = ini.Get_HousesType(name, "Country", HOUSE_NONE); // RA2: as above
-		if (type == -1) { // RA2: as above
+		if (type == HOUSE_NONE) { // RA2: as above
 			type = 0; // RA2: as above
 		}
 		HouseClass *house = new HouseClass(HouseTypes[type]); // RA2: as above
@@ -7664,7 +7664,7 @@ void HouseClass::Plan_Naval_Yard_Path(int node) // RA2: RA2's form
 	int width = 1; // RA2: as above
 	int height = 1; // RA2: as above
 	for (int index = 0; index < Rule->BuildNavalYard.Count(); index++) { // RA2: as above
-		if (Rule->BuildNavalYard[index]->AIBasePlanningSide == Class->Side || Rule->BuildNavalYard[index]->AIBasePlanningSide == -1) { // RA2: as above
+		if (Rule->BuildNavalYard[index]->AIBasePlanningSide == Class->Side || Rule->BuildNavalYard[index]->AIBasePlanningSide == SIDE_NONE) { // RA2: as above
 			width = Rule->BuildNavalYard[index]->Width() + 1; // RA2: as above
 			height = Rule->BuildNavalYard[index]->Height(false) + 1; // RA2: as above
 			break; // RA2: as above
@@ -7736,7 +7736,7 @@ void HouseClass::Plan_Naval_Yard_Path(int node) // RA2: RA2's form
 	int at = node - 1; // RA2: as above
 	int type = -1; // RA2: as above
 	for (int di = 0; di < Rule->BuildDummy.Count(); di++) { // RA2: as above
-		if (Rule->BuildDummy[di]->AIBasePlanningSide == Class->Side || Rule->BuildDummy[di]->AIBasePlanningSide == -1) { // RA2: as above
+		if (Rule->BuildDummy[di]->AIBasePlanningSide == Class->Side || Rule->BuildDummy[di]->AIBasePlanningSide == SIDE_NONE) { // RA2: as above
 			type = Rule->BuildDummy[di]->HeapID; // RA2: as above
 			break; // RA2: as above
 		}
@@ -7788,8 +7788,8 @@ BuildingTypeClass const * HouseClass::Get_First_Ownable(DynamicVectorClass<Build
 		if ((building->Ownable & owner_bit) != 0 // RA2: as above
 			&& (building->RequiredHouses == -1 || (building->RequiredHouses & (1 << Class->House)) != 0) // RA2: as above
 			&& (building->ForbiddenHouses == -1 || (building->ForbiddenHouses & (1 << Class->House)) == 0) // RA2: as above
-			&& (building->AIBasePlanningSide == -1 || building->AIBasePlanningSide == Class->Side)) { // RA2: as above
-			if (AllowDisableableSupers || building->SuperWeapon == -1 || !SuperWeapon[building->SuperWeapon]->Class->DisableableFromShell) { // RA2: as above
+			&& (building->AIBasePlanningSide == SIDE_NONE || building->AIBasePlanningSide == Class->Side)) { // RA2: as above
+			if (AllowDisableableSupers || building->SuperWeapon == SUPER_NONE || !SuperWeapon[building->SuperWeapon]->Class->DisableableFromShell) { // RA2: as above
 				return(building); // RA2: as above
 			}
 		}
@@ -7921,11 +7921,11 @@ void HouseClass::Make_Base_Nodes(void) // RA2: the body follows the executable
 	int index; // RA2: as above
 	for (index = 0; index < BuildingTypes.Count(); index++) { // RA2: as above
 		BuildingTypeClass const * type = BuildingTypes[index]; // RA2: as above
-		if ((type->Ownable & owner) && (type->AIBasePlanningSide == Class->Side || type->AIBasePlanningSide == -1) // RA2: as above
+		if ((type->Ownable & owner) && (type->AIBasePlanningSide == Class->Side || type->AIBasePlanningSide == SIDE_NONE) // RA2: as above
 			&& type->CanAIBuildThis && type->Level <= Control.TechLevel // RA2: as above
 			&& (type->RequiredHouses == -1 || (type->RequiredHouses & (1 << Class->House))) // RA2: as above
 			&& (type->ForbiddenHouses == -1 || !(type->ForbiddenHouses & (1 << Class->House))) // RA2: as above
-			&& (AllowDisableableSupers || type->SuperWeapon == -1 || !SuperWeapon[type->SuperWeapon]->Class->DisableableFromShell)) { // RA2: as above
+			&& (AllowDisableableSupers || type->SuperWeapon == SUPER_NONE || !SuperWeapon[type->SuperWeapon]->Class->DisableableFromShell)) { // RA2: as above
 			eligible.Add(type); // RA2: as above
 			included.Add(false); // RA2: as above
 		}
@@ -9274,9 +9274,9 @@ void HouseClass::AI_Super_Weapons(void)
 				switch (super->Class->Type) {
 					case SUPER_MULTI_MISSILE: { // RA2: as above
 						SuperClass * pending = super; // RA2: as above
-						if (Enemy != -1) { // RA2: as above
+						if (Enemy != HOUSE_NONE) { // RA2: as above
 							target_0 = CELL_NONE; // RA2: as above
-							if (PreferredTarget == 1) { // RA2: as above
+							if (PreferredTarget == QUARRY_ANYTHING) { // RA2: as above
 								target_0 = Best_Super_Weapon_Target(); // RA2: as above
 							} else {
 								target_0 = Threat_Target_Cell(PreferredTarget); // RA2: as above
@@ -9289,9 +9289,9 @@ void HouseClass::AI_Super_Weapons(void)
 					}
 					case SUPER_LIGHTNING_STORM: { // RA2: as above
 						SuperClass * pending = super; // RA2: as above
-						if (!IonStormClass::Is_Ion_Storm_Active() && Enemy != -1) { // RA2: as above
+						if (!IonStormClass::Is_Ion_Storm_Active() && Enemy != HOUSE_NONE) { // RA2: as above
 							target_2 = CELL_NONE; // RA2: as above
-							if (PreferredTarget == 1) { // RA2: as above
+							if (PreferredTarget == QUARRY_ANYTHING) { // RA2: as above
 								target_2 = Best_Super_Weapon_Target(); // RA2: as above
 							} else {
 								target_2 = Threat_Target_Cell(PreferredTarget); // RA2: as above
@@ -9324,9 +9324,9 @@ void HouseClass::AI_Super_Weapons(void)
 /// </summary>
 void HouseClass::AI_Multi_Missile(SuperClass * super)
 {
-	if (Enemy != -1) { // RA2: RA2's form
+	if (Enemy != HOUSE_NONE) { // RA2: RA2's form
 		Cell cell = CELL_NONE; // RA2: as above
-		if (PreferredTarget == 1) { // RA2: as above
+		if (PreferredTarget == QUARRY_ANYTHING) { // RA2: as above
 			cell = Best_Super_Weapon_Target(); // RA2: as above
 		} else {
 			cell = Threat_Target_Cell(PreferredTarget); // RA2: as above
@@ -9347,7 +9347,7 @@ void HouseClass::AI_Multi_Missile(SuperClass * super)
 /// </summary>
 void HouseClass::AI_Hunter_Seeker(SuperClass * super)
 {
-	if (Enemy != -1) { // RA2: RA2's form
+	if (Enemy != HOUSE_NONE) { // RA2: RA2's form
 		Place_Special_Blast((SuperWeaponType)SuperWeapon.ID(super), CELL_NONE); // RA2: as above
 	}
 }
@@ -9363,9 +9363,9 @@ void HouseClass::AI_Hunter_Seeker(SuperClass * super)
 /// </summary>
 void HouseClass::AI_Chem_Missile(SuperClass * super)
 {
-	if (Enemy != -1) { // RA2: RA2's form
+	if (Enemy != HOUSE_NONE) { // RA2: RA2's form
 		Cell cell = CELL_NONE; // RA2: as above
-		if (PreferredTarget == 1) { // RA2: as above
+		if (PreferredTarget == QUARRY_ANYTHING) { // RA2: as above
 			cell = Best_Super_Weapon_Target(); // RA2: as above
 		} else {
 			cell = Threat_Target_Cell(PreferredTarget); // RA2: as above
@@ -9392,9 +9392,9 @@ void HouseClass::AI_Super_Unused(SuperClass * super) // RA2: RA2's form
 /// </summary>
 void HouseClass::AI_Drop_Pods(SuperClass * super)
 {
-	HouseClass * house = (Enemy != -1) ? Houses[Enemy] : this; // RA2: RA2's form
+	HouseClass * house = (Enemy != HOUSE_NONE) ? Houses[Enemy] : this; // RA2: RA2's form
 	Cell cell = CELL_NONE; // RA2: as above
-	if (PreferredTarget != 1) { // RA2: as above
+	if (PreferredTarget != QUARRY_ANYTHING) { // RA2: as above
 		cell = Threat_Target_Cell(PreferredTarget); // RA2: as above
 	} else {
 		cell = house->Center.As_Cell(); // RA2: as above
@@ -9420,9 +9420,9 @@ void HouseClass::AI_Drop_Pods(SuperClass * super)
 /// </summary>
 void HouseClass::AI_Ion_Cannon(SuperClass * super)
 {
-	if (!IonStormClass::Is_Ion_Storm_Active() && Enemy != -1) { // RA2: RA2's form
+	if (!IonStormClass::Is_Ion_Storm_Active() && Enemy != HOUSE_NONE) { // RA2: RA2's form
 		Cell cell = CELL_NONE; // RA2: as above
-		if (PreferredTarget == 1) { // RA2: as above
+		if (PreferredTarget == QUARRY_ANYTHING) { // RA2: as above
 			cell = Best_Super_Weapon_Target(); // RA2: as above
 		} else {
 			cell = Threat_Target_Cell(PreferredTarget); // RA2: as above
@@ -9444,7 +9444,7 @@ void HouseClass::AI_Ion_Cannon(SuperClass * super)
 
 void HouseClass::AI_Strike_Best_Building(SuperClass * super) // RA2: RA2's form
 {
-	if (Enemy != -1) { // RA2: as above
+	if (Enemy != HOUSE_NONE) { // RA2: as above
 		BuildingClass * best = NULL; // RA2: as above
 		int value = -1; // RA2: as above
 		HouseClass * house = Houses[Enemy]; // RA2: as above
@@ -10215,7 +10215,7 @@ bool HouseClass::Add_Wall_Nodes(int node) // RA2: RA2's form
 {
 	int wall = -1; // RA2: as above
 	for (int wi = 0; wi < Rule->ConcreteWalls.Count(); wi++) { // RA2: as above
-		if (Rule->ConcreteWalls[wi]->AIBasePlanningSide == Class->Side || Rule->ConcreteWalls[wi]->AIBasePlanningSide == -1) { // RA2: as above
+		if (Rule->ConcreteWalls[wi]->AIBasePlanningSide == Class->Side || Rule->ConcreteWalls[wi]->AIBasePlanningSide == SIDE_NONE) { // RA2: as above
 			wall = Rule->ConcreteWalls[wi]->HeapID; // RA2: as above
 			break;
 		}
@@ -10349,7 +10349,7 @@ Cell HouseClass::Best_Super_Weapon_Target(void) // RA2: RA2's form
 			value = 1;
 			if (techno->In_Which_Layer() == LAYER_GROUND && techno->IsActive && !techno->IsInLimbo) {
 				valid = true;
-			} else if (Difficulty == 0) { // RA2: as above
+			} else if (Difficulty == DIFF_EASY) { // RA2: as above
 				for (int fac = 0; fac < Factories.Count(); fac++) { // RA2: as above
 					FactoryClass * factory = Factories[fac]; // RA2: as above
 					if (factory->Get_Object() == techno && factory->Fetch_Rate() && !factory->IsSuspended) { // RA2: as above

@@ -212,7 +212,7 @@ RadarClass::RadarClass(void) :
 	SuspendedRadarMode(0),
 	IsScenarioHeld(false),
 	IsMoviePlaying(false),
-	TransmissionVoice(-1),
+	TransmissionVoice(VOX_NONE),
 	DoesRadarExist(false),
 	IsToRedraw(0),
 	FullRedraw(0),

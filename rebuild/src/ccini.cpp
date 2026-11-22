@@ -2168,25 +2168,25 @@ TechnoTypeClass * CCINIClass::Get_TechnoType(char const * section, char const * 
 
 	if (type == -1) {
 		type = (int)InfantryTypeClass::From_Name(buffer);
-		if (type != -1) {
+		if (type != INFANTRY_NONE) {
 			target = InfantryTypes[type];
 		}
 	}
 	if (type == -1) {
 		type = (int)UnitTypeClass::From_Name(buffer);
-		if (type != -1) {
+		if (type != UNIT_NONE) {
 			target = UnitTypes[type];
 		}
 	}
 	if (type == -1) {
 		type = (int)AircraftTypeClass::From_Name(buffer);
-		if (type != -1) {
+		if (type != AIRCRAFT_NONE) {
 			target = AircraftTypes[type];
 		}
 	}
 	if (type == -1) {
 		type = (int)BuildingTypeClass::From_Name(buffer);
-		if (type != -1) {
+		if (type != STRUCT_NONE) {
 			target = BuildingTypes[type];
 		}
 	}

@@ -11062,7 +11062,7 @@ void BuildingClass::Spied_By(HouseClass * house)
 			Queue_Speech("EVA_BuildingInfiltrated", -1, -1); // RA2: as above
 			Queue_Speech("EVA_EnemyBasePoweredDown", -1, -1); // RA2: as above
 		}
-	} else if (type->SuperWeapon != -1) { // RA2: a spied superweapon building loses its charge
+	} else if (type->SuperWeapon != SUPER_NONE) { // RA2: a spied superweapon building loses its charge
 		House->SuperWeapon[type->SuperWeapon]->Reset(); // RA2: as above
 		if (House->Is_Player_Control() || (house->Is_Player_Control() && visible)) { // RA2: as above
 			Queue_Speech("EVA_BuildingInfiltrated", -1, -1); // RA2: as above

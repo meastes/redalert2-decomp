@@ -5,6 +5,16 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Switch checkpoint, account 2 -> account 1 (owner, 2026-11-22 ~11:00Z)
+
+- State: rebuild 17,506 functions; function-level 86.52% from source / 89.40% reproduced; whole-unit 85.62% / 88.50%. Last account-2 reading 00:44Z: 87% all models, 95% Fable.
+- Landed this weekend (highlights): Fable high hours F11-F18 (Start_Driver via Red Alert's ABSTRACT.H Direction member; bridge rows; Planning_Draw_*; blight/foot AI; Gas_Behavior_AI and BounceClass::AI via ra2-decomp's Ballistic_Move); Astra (codex1) TActionClass::operator() 7.7 KB, Init_Game 4.4 KB + 3, TeamClass::AI 3.5 KB, Do_MISSION_ATTACK 2.3 KB on the first image-derived bound; header-specialization asm (user-approved); image_bounds.py (123 frozen bounds); flex_menu.csv (end-of-week menu); STATUS headline function-level.
+- Rates measured: Fable high ~3.5 Fable points per lane-hour, ~2-6 KB per hour from dossiers; Astra ~300 credits/h, Sol ~140/h; Astra deep single-function sessions (45 min, main's exact text for looked-up locals, reference accessor levels, twin helpers) were the best yield of the weekend.
+- Nothing runs on the Mac at the switch. Windows: codex1 (gpt-6.2-astra high) on deep sessions over the largest parked functions not on the variation list; codex2 (GPT-6.1-Sol) readability. Credits ~22.7k at 03:58Z, floor 5,000, plan reset ~Tue 01:46Z.
+- Waiting to land (run 41): codex1 r2667+ (Control_Proc guarded 6113 -> 4898, WDT_Write_Map_Ini 1 B off), codex2 r7042+ (names).
+- Held for the user at the end of the week (variation list): Init_Voxel_Matrices 3,290 B and Reposition_Sidebar 1,314 B (exact only with coined forms), plus the rest of variation_candidates.csv; flex totals in flex_menu.csv.
+- First on account 1: start the week plan (two Opus lanes: dossiers for Fable, landings/worker deliveries; Fable ~4 high hours a day from dossiers; codex1 Astra deep sessions; review reads the meter).
+
 ## Week plan from the 2026-11-22 14:00Z account switch (user-confirmed 2026-11-21)
 
 - Fable: about 4 high lane-hours a day on the active account, about 8 once the user presses his account-1 Fable reset (only he presses it; ask when the Fable line passes ~85% with days left). Each hour starts from a finished dossier (private/dossiers/fable). Ladder: medium for small/first passes, max only after high fails with 4 KB or more at stake.

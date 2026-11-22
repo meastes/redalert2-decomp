@@ -621,7 +621,7 @@ AStarClass::AStarClass(void) :
 	RegularBridgeMovementCosts(NULL),
 	RegularMovementCosts(NULL),
 	UniqueID(-1),
-	ObjectSpeed(-1),
+	ObjectSpeed(SPEED_NONE),
 	IsHSEnabled(true),
 	Avoidance(AVOIDANCE_NONE),
 	HierNodeIndex(-1),
