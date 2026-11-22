@@ -139,17 +139,40 @@
     "?Create_Drawer@@YIPAVConvertClass@@ABVWstring@@@Z": 5948768,
     "??_C@_06JGPH@Target?$AA@": 8336628,
     "??_C@_0BE@KBGF@TargetDividingFrame?$AA@": 8373244,
-    "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513696,
-    "?Find_Territory@WorldDominationTour@@YI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@AAV?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@H@Z": 7541168,
-    "?Select_Territory@Selection@WorldDominationTour@@QAE_NABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7531904,
-    "?Set_Highlight@Territory@WorldDominationTour@@QAEX_NPAVMSEngine@@@Z": 7541024,
-    "?Set_Stop_Frame@MSShapeAnim@@QAEXI@Z": 5949488,
-    "?Set_Start_Frame@MSShapeAnim@@QAEXI@Z": 5949456,
-    "?Set_Frame@MSShapeAnim@@QAEXI@Z": 5949280,
     "??C?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@QBEPAVCampaignProperties@WorldDominationTour@@XZ": 7537360,
     "?Set_Text@Selection@WorldDominationTour@@QAEXABVWideWstring@@H@Z": 7535824,
     "??_C@_0BL@MEDD@WDT?3TerritorySelectToolTip?$AA@": 8373332,
     "?Set_Tooltip@Selection@WorldDominationTour@@QAEXABVWideWstring@@@Z": 7536032,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
+    "?WOL_Wait_Callback@@YI_NXZ": 7594240,
+    "?Wait_For_Focus@MSEngine@@QAEXXZ": 5977712,
+    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
+    "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
+    "?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z": 7529520,
+    "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513808,
+    "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513968,
+    "??_C@_08FEAE@Canceled?$AA@": 8373320,
+    "??8Wstring@@QBE_NABV0@@Z": 7789168,
+    "?Play@MSSfxEntry@@QAEXXZ": 5969616,
+    "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ": 7537456,
+    "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513888,
+    "??_C@_08DLBG@MapLeave?$AA@": 8373308,
+    "?Play_SFX@Selection@WorldDominationTour@@QAEXABVWstring@@@Z": 7536272,
+    "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ": 7518960,
+    "?Select_Territory@Selection@WorldDominationTour@@QAE_NABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z": 7531904,
+    "?On_Cancel_Enter@Selection@WorldDominationTour@@QAEXXZ": 7533616,
+    "??_C@_08EJJK@MapEnter?$AA@": 8373296,
+    "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z": 7513696,
+    "?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z": 7537328,
+    "??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ": 7537424,
+    "?Wait_Delay@MSEngine@@QAEXH@Z": 5977424,
+    "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z": 7537376,
+    "?Find_Territory@WorldDominationTour@@YI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@AAV?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@H@Z": 7541168,
+    "?Set_Highlight@Territory@WorldDominationTour@@QAEX_NPAVMSEngine@@@Z": 7541024,
+    "?Set_Stop_Frame@MSShapeAnim@@QAEXI@Z": 5949488,
+    "?Set_Start_Frame@MSShapeAnim@@QAEXI@Z": 5949456,
+    "?Set_Frame@MSShapeAnim@@QAEXI@Z": 5949280,
     "?Say_List@Voices@WorldDominationTour@@QAEXH_NH@Z": 7546624,
     "??0WideWstring@@QAE@XZ": 7797168,
     "?Owner_Of@State@WorldDominationTour@@QBEHI@Z": 7538832,
@@ -168,20 +191,11 @@
     "?length@WideWstring@@QBEIXZ": 7799968,
     "??YWideWstring@@QAEAAV0@ABV0@@Z": 7798352,
     "??_7?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@6B@": 8057744,
-    "??_C@_08EJJK@MapEnter?$AA@": 8373296,
-    "??8Wstring@@QBE_NABV0@@Z": 7789168,
-    "?Play@MSSfxEntry@@QAEXXZ": 5969616,
-    "??_C@_08DLBG@MapLeave?$AA@": 8373308,
-    "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z": 7513888,
     "??_C@_0M@JGFA@MouseCancel?$AA@": 8373404,
     "??_C@_0BF@LJGG@WOL?3WDTTerritoryBack?$AA@": 8373380,
     "?Get_Last_Day@Campaign@WorldDominationTour@@QBEHH@Z": 7496608,
     "?Present_History@Selection@WorldDominationTour@@QAE_NHH@Z": 7535456,
     "?Get_Outcome@Selection@WorldDominationTour@@QAEHHAA_N@Z": 7534304,
-    "?Wait_For_Focus@MSEngine@@QAEXXZ": 5977712,
-    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
-    "?Check@WWKeyboardClass@@QBEGXZ": 5448400,
-    "?Get@WWKeyboardClass@@QAEGXZ": 5448480,
     "?Get_State@History@WorldDominationTour@@QBE?AV?$rc_ptr@VState@WorldDominationTour@@@@H@Z": 7507712,
     "?Do_Target_Anim@Selection@WorldDominationTour@@QAEXABV?$rc_ptr@VState@WorldDominationTour@@@@_N1@Z": 7530368,
     "?Save_Progress@Campaign@WorldDominationTour@@QAEXH@Z": 7496624,
@@ -194,13 +208,11 @@
     "??_C@_0BI@GJDA@WDT?3ReviewingHistoryDay?$AA@": 8373768,
     "??HWideWstring@@QBE?AV0@ABV0@@Z": 7798688,
     "?Wait_For_Anim@MSEngine@@QAEXPAVMSAnim@@I@Z": 5975856,
-    "?Wait_Delay@MSEngine@@QAEXH@Z": 5977424,
     "??_C@_11A@?$AA?$AA@": 8625484,
     "?Present_Ticks@Selection@WorldDominationTour@@QAE_NHH@Z": 7534496,
     "?Is_Speaking@Voices@WorldDominationTour@@QAE_NXZ": 7547456,
     "?Add_Update_Rect@MSEngine@@QAEXABV?$TRect@H@@@Z": 5976336,
     "??0WideWstring@@QAE@ABV0@@Z": 7797264,
-    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
     "??0Selection@WorldDominationTour@@QAE@ABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7525728,
     "?Presentation@Selection@WorldDominationTour@@QAEXH@Z": 7535104,
     "??1Selection@WorldDominationTour@@UAE@XZ": 7526800,
@@ -293,10 +305,8 @@
     "?Remove_Target_Anims2@Selection@WorldDominationTour@@QAEXXZ": 7533056,
     "?On_Map_Enter@Selection@WorldDominationTour@@QAEXXZ": 7533184,
     "?On_Map_Leave@Selection@WorldDominationTour@@QAEXXZ": 7533376,
-    "?On_Cancel_Enter@Selection@WorldDominationTour@@QAEXXZ": 7533616,
     "?On_Cancel_Leave@Selection@WorldDominationTour@@QAEXXZ": 7533888,
     "?Check_For_Breakout@Selection@WorldDominationTour@@QAEXXZ": 7535744,
-    "?Play_SFX@Selection@WorldDominationTour@@QAEXABVWstring@@@Z": 7536272,
     "?Set_Long_Description@Selection@WorldDominationTour@@QAEXXZ": 7536432,
     "?Show@Selection@WorldDominationTour@@SIXABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7536512,
     "?Choose_Conflict@Selection@WorldDominationTour@@SI_NABV?$rc_ptr@VCampaign@WorldDominationTour@@@@H@Z": 7536576,
@@ -382,7 +392,7 @@
           "resolved": 11688284
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525232,
@@ -450,7 +460,7 @@
           "resolved": 11688296
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525264,
@@ -502,7 +512,7 @@
           "resolved": 11688368
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525312,
@@ -554,7 +564,7 @@
           "resolved": 11688352
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525344,
@@ -606,7 +616,7 @@
           "resolved": 11688344
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525376,
@@ -658,7 +668,7 @@
           "resolved": 11688304
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525408,
@@ -710,7 +720,7 @@
           "resolved": 11688264
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525440,
@@ -794,7 +804,7 @@
           "resolved": 11688376
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525472,
@@ -854,7 +864,7 @@
           "resolved": 11688312
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525536,
@@ -914,7 +924,7 @@
           "resolved": 11688336
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525584,
@@ -974,7 +984,7 @@
           "resolved": 11688360
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525632,
@@ -1018,7 +1028,7 @@
           "resolved": 11688290
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525680,
@@ -1070,7 +1080,7 @@
           "resolved": 11688328
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525696,
@@ -1762,7 +1772,7 @@
           "resolved": 4291828175
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7525728,
@@ -2134,7 +2144,7 @@
           "resolved": 4293415010
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7526800,
@@ -2298,7 +2308,7 @@
           "resolved": 261349
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7527456,
@@ -2470,7 +2480,7 @@
           "resolved": 260938
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7527696,
@@ -2754,10 +2764,550 @@
           "resolved": 260521
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7528096,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7528528,
+      "method": "0072e050",
+      "body_bytes": 991,
+      "body_sha256": "00833883562ab952b3ad7d9b697c6912ef8c766aec4314324e94efbbebc24646",
+      "padding_bytes": 1,
+      "full_extent_bytes": 992,
+      "full_extent_sha256": "68545367a184e3aec318add97886038ffc9c36dd8e773237ea2ea2b8cb80bdf2",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ",
+      "symbol_prefix": "?Pick_Territory@Selection@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 26,
+          "kind": 20,
+          "symbol": "??C?$rc_ptr@VCampaignProperties@WorldDominationTour@@@@QBEPAVCampaignProperties@WorldDominationTour@@XZ",
+          "target": 7537360,
+          "addend": 0,
+          "resolved": 8802
+        },
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "?Set_Text@Selection@WorldDominationTour@@QAEXABVWideWstring@@H@Z",
+          "target": 7535824,
+          "addend": 0,
+          "resolved": 7255
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "??_C@_0BC@PBP@D?3?2Ra2?2WDTSel?4cpp?$AA@",
+          "target": 8373020,
+          "addend": 0,
+          "resolved": 8373020
+        },
+        {
+          "offset": 54,
+          "kind": 6,
+          "symbol": "??_C@_0BL@MEDD@WDT?3TerritorySelectToolTip?$AA@",
+          "target": 8373332,
+          "addend": 0,
+          "resolved": 8373332
+        },
+        {
+          "offset": 59,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 4294753841
+        },
+        {
+          "offset": 69,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@PBG@Z",
+          "target": 7797184,
+          "addend": 0,
+          "resolved": 268583
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "?Set_Tooltip@Selection@WorldDominationTour@@QAEXABVWideWstring@@@Z",
+          "target": 7536032,
+          "addend": 0,
+          "resolved": 7419
+        },
+        {
+          "offset": 90,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 268706
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 107,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 4292888881
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "?WOL_Wait_Callback@@YI_NXZ",
+          "target": 7594240,
+          "addend": 0,
+          "resolved": 65596
+        },
+        {
+          "offset": 119,
+          "kind": 20,
+          "symbol": "?Wait_For_Focus@MSEngine@@QAEXXZ",
+          "target": 5977712,
+          "addend": 0,
+          "resolved": 4293416357
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 136,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 149,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 162,
+          "kind": 20,
+          "symbol": "?Check@WWKeyboardClass@@QBEGXZ",
+          "target": 5448400,
+          "addend": 0,
+          "resolved": 4292887002
+        },
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 182,
+          "kind": 20,
+          "symbol": "?Get@WWKeyboardClass@@QAEGXZ",
+          "target": 5448480,
+          "addend": 0,
+          "resolved": 4292887062
+        },
+        {
+          "offset": 209,
+          "kind": 20,
+          "symbol": "?Handle_Click@Selection@WorldDominationTour@@QAEXABVPoint2D@@AA_N@Z",
+          "target": 7529520,
+          "addend": 0,
+          "resolved": 779
+        },
+        {
+          "offset": 239,
+          "kind": 20,
+          "symbol": "?Set_Back_Hot@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+          "target": 7513808,
+          "addend": 0,
+          "resolved": 4294952333
+        },
+        {
+          "offset": 255,
+          "kind": 20,
+          "symbol": "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+          "target": 7513968,
+          "addend": 0,
+          "resolved": 4294952477
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "??_C@_08FEAE@Canceled?$AA@",
+          "target": 8373320,
+          "addend": 0,
+          "resolved": 8373320
+        },
+        {
+          "offset": 277,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 260023
+        },
+        {
+          "offset": 288,
+          "kind": 20,
+          "symbol": "??9Wstring@@QBE_NPBD@Z",
+          "target": 7789280,
+          "addend": 0,
+          "resolved": 260460
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@6B@",
+          "target": 8057724,
+          "addend": 0,
+          "resolved": 8057724
+        },
+        {
+          "offset": 333,
+          "kind": 6,
+          "symbol": "??_7?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@6B@",
+          "target": 8057724,
+          "addend": 4,
+          "resolved": 8057728
+        },
+        {
+          "offset": 361,
+          "kind": 20,
+          "symbol": "??8Wstring@@QBE_NABV0@@Z",
+          "target": 7789168,
+          "addend": 0,
+          "resolved": 260275
+        },
+        {
+          "offset": 425,
+          "kind": 20,
+          "symbol": "?Play@MSSfxEntry@@QAEXXZ",
+          "target": 5969616,
+          "addend": 0,
+          "resolved": 4293407955
+        },
+        {
+          "offset": 438,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 260054
+        },
+        {
+          "offset": 506,
+          "kind": 20,
+          "symbol": "?Is_Over_Back@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+          "target": 7513968,
+          "addend": 0,
+          "resolved": 4294952226
+        },
+        {
+          "offset": 546,
+          "kind": 20,
+          "symbol": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+          "target": 7537456,
+          "addend": 0,
+          "resolved": 8378
+        },
+        {
+          "offset": 567,
+          "kind": 20,
+          "symbol": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+          "target": 7537456,
+          "addend": 0,
+          "resolved": 8357
+        },
+        {
+          "offset": 574,
+          "kind": 20,
+          "symbol": "?Set_Back_Down@Map@WorldDominationTour@@QAEXPAVMSEngine@@_N@Z",
+          "target": 7513888,
+          "addend": 0,
+          "resolved": 4294952078
+        },
+        {
+          "offset": 584,
+          "kind": 6,
+          "symbol": "??_C@_0BC@PBP@D?3?2Ra2?2WDTSel?4cpp?$AA@",
+          "target": 8373020,
+          "addend": 0,
+          "resolved": 8373020
+        },
+        {
+          "offset": 591,
+          "kind": 6,
+          "symbol": "??_C@_0BL@MEDD@WDT?3TerritorySelectToolTip?$AA@",
+          "target": 8373332,
+          "addend": 0,
+          "resolved": 8373332
+        },
+        {
+          "offset": 596,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 4294753304
+        },
+        {
+          "offset": 606,
+          "kind": 20,
+          "symbol": "??0WideWstring@@QAE@PBG@Z",
+          "target": 7797184,
+          "addend": 0,
+          "resolved": 268046
+        },
+        {
+          "offset": 618,
+          "kind": 20,
+          "symbol": "?Set_Tooltip@Selection@WorldDominationTour@@QAEXABVWideWstring@@@Z",
+          "target": 7536032,
+          "addend": 0,
+          "resolved": 6882
+        },
+        {
+          "offset": 627,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 268169
+        },
+        {
+          "offset": 634,
+          "kind": 6,
+          "symbol": "??_C@_08DLBG@MapLeave?$AA@",
+          "target": 8373308,
+          "addend": 0,
+          "resolved": 8373308
+        },
+        {
+          "offset": 643,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 259657
+        },
+        {
+          "offset": 655,
+          "kind": 20,
+          "symbol": "?Play_SFX@Selection@WorldDominationTour@@QAEXABVWstring@@@Z",
+          "target": 7536272,
+          "addend": 0,
+          "resolved": 7085
+        },
+        {
+          "offset": 664,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 259828
+        },
+        {
+          "offset": 683,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@XZ",
+          "target": 7518960,
+          "addend": 0,
+          "resolved": 4294957041
+        },
+        {
+          "offset": 695,
+          "kind": 20,
+          "symbol": "?Select_Territory@Selection@WorldDominationTour@@QAE_NABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+          "target": 7531904,
+          "addend": 0,
+          "resolved": 2677
+        },
+        {
+          "offset": 707,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 712,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293964276
+        },
+        {
+          "offset": 740,
+          "kind": 20,
+          "symbol": "?On_Cancel_Enter@Selection@WorldDominationTour@@QAEXXZ",
+          "target": 7533616,
+          "addend": 0,
+          "resolved": 4344
+        },
+        {
+          "offset": 756,
+          "kind": 6,
+          "symbol": "??_C@_08EJJK@MapEnter?$AA@",
+          "target": 8373296,
+          "addend": 0,
+          "resolved": 8373296
+        },
+        {
+          "offset": 765,
+          "kind": 20,
+          "symbol": "??0Wstring@@QAE@PBD@Z",
+          "target": 7788832,
+          "addend": 0,
+          "resolved": 259535
+        },
+        {
+          "offset": 777,
+          "kind": 20,
+          "symbol": "?Play_SFX@Selection@WorldDominationTour@@QAEXABVWstring@@@Z",
+          "target": 7536272,
+          "addend": 0,
+          "resolved": 6963
+        },
+        {
+          "offset": 786,
+          "kind": 20,
+          "symbol": "??1Wstring@@QAE@XZ",
+          "target": 7789024,
+          "addend": 0,
+          "resolved": 259706
+        },
+        {
+          "offset": 798,
+          "kind": 20,
+          "symbol": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+          "target": 7537456,
+          "addend": 0,
+          "resolved": 8126
+        },
+        {
+          "offset": 805,
+          "kind": 20,
+          "symbol": "?Territory_At@Map@WorldDominationTour@@QBEHABVPoint2D@@@Z",
+          "target": 7513696,
+          "addend": 0,
+          "resolved": 4294951655
+        },
+        {
+          "offset": 832,
+          "kind": 20,
+          "symbol": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+          "target": 7537456,
+          "addend": 0,
+          "resolved": 8092
+        },
+        {
+          "offset": 839,
+          "kind": 20,
+          "symbol": "?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z",
+          "target": 7537328,
+          "addend": 0,
+          "resolved": 7957
+        },
+        {
+          "offset": 847,
+          "kind": 20,
+          "symbol": "?Select_Territory@Selection@WorldDominationTour@@QAE_NABV?$rc_ptr@VTerritory@WorldDominationTour@@@@@Z",
+          "target": 7531904,
+          "addend": 0,
+          "resolved": 2525
+        },
+        {
+          "offset": 856,
+          "kind": 20,
+          "symbol": "??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ",
+          "target": 7537424,
+          "addend": 0,
+          "resolved": 8036
+        },
+        {
+          "offset": 871,
+          "kind": 20,
+          "symbol": "?Wait_Delay@MSEngine@@QAEXH@Z",
+          "target": 5977424,
+          "addend": 0,
+          "resolved": 4293415317
+        },
+        {
+          "offset": 924,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293964016
+        },
+        {
+          "offset": 932,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 953,
+          "kind": 20,
+          "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z",
+          "target": 7537376,
+          "addend": 0,
+          "resolved": 7891
+        },
+        {
+          "offset": 970,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 975,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293964013
+        }
+      ],
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7528528,
       "source_quality_family": "rebuild"
     },
     {
@@ -2822,7 +3372,7 @@
           "resolved": 4293963164
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7530272,
@@ -3394,7 +3944,7 @@
           "resolved": 264424
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7531904,
@@ -3454,7 +4004,7 @@
           "resolved": 4293410028
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7532928,
@@ -3514,7 +4064,7 @@
           "resolved": 4293409900
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533056,
@@ -3606,7 +4156,7 @@
           "resolved": 255664
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533184,
@@ -3738,7 +4288,7 @@
           "resolved": 4293959912
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533376,
@@ -3886,7 +4436,7 @@
           "resolved": 263456
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533616,
@@ -3970,7 +4520,7 @@
           "resolved": 263360
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533888,
@@ -4182,7 +4732,7 @@
           "resolved": 4294929626
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7533984,
@@ -4274,7 +4824,7 @@
           "resolved": 4293959037
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7534304,
@@ -4662,7 +5212,7 @@
           "resolved": 262244
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7534496,
@@ -4866,7 +5416,7 @@
           "resolved": 4293958087
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7535104,
@@ -4974,7 +5524,7 @@
           "resolved": 4293957801
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7535456,
@@ -5058,7 +5608,7 @@
           "resolved": 4292879893
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7535744,
@@ -5174,7 +5724,7 @@
           "resolved": 261311
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7535824,
@@ -5290,7 +5840,7 @@
           "resolved": 261079
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536032,
@@ -5358,7 +5908,7 @@
           "resolved": 4293400490
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536272,
@@ -5442,7 +5992,7 @@
           "resolved": 260819
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536432,
@@ -5510,7 +6060,7 @@
           "resolved": 4294957531
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536512,
@@ -5802,7 +6352,7 @@
           "resolved": 4294957116
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536576,
@@ -5982,7 +6532,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7536992,
@@ -6074,7 +6624,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537200,
@@ -6118,12 +6668,48 @@
           "resolved": 334486
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537296,
       "source_quality_family": "rebuild",
       "bound_population": "population-4352"
+    },
+    {
+      "entry": 7537328,
+      "method": "007302b0",
+      "body_bytes": 26,
+      "body_sha256": "cb3a3064b38332ff8d30d0023917650453da72495bf4faa0478b792d23dd8de0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "57d2031f8991c142683308a45e42be8626f6ce2b5f10badc679c38e5d0dba042",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z",
+      "symbol_prefix": "?Get_Territory@Map@WorldDominationTour@@QAE?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "?Find_Territory@WorldDominationTour@@YI?AV?$rc_ptr@VTerritory@WorldDominationTour@@@@AAV?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@H@Z",
+          "target": 7541168,
+          "addend": 0,
+          "resolved": 3820
+        }
+      ],
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537328,
+      "source_quality_family": "rebuild"
     },
     {
       "entry": 7537360,
@@ -6146,12 +6732,110 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537360,
       "source_quality_family": "rebuild",
       "bound_population": "population-4352"
+    },
+    {
+      "entry": 7537376,
+      "method": "7302e0",
+      "body_bytes": 35,
+      "body_sha256": "a36126df81475a2f5643528ffb8f02582e9211967cd464e4593bbbe641a2d780",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "ebfdcf736ec55ccaad7263426070618c6b7bdd11da1907ad222403ce24526ecc",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z",
+      "symbol_prefix": "??0?$rc_ptr@VTerritory@WorldDominationTour@@@@QAE@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??0rc_ptr_base@@QAE@XZ",
+          "target": 6526176,
+          "addend": 0,
+          "resolved": 4293956088
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 25,
+          "kind": 20,
+          "symbol": "?Assign@rc_ptr_base@@QAEXPAX@Z",
+          "target": 6526256,
+          "addend": 0,
+          "resolved": 4293956147
+        }
+      ],
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-02"
+    },
+    {
+      "entry": 7537424,
+      "method": "00730310",
+      "body_bytes": 11,
+      "body_sha256": "e68cbcbff92c65cd7ea942cfb5226a0ecea586d9caf9d7288934d3015c59e133",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "f61a95e9b85e20c325efa59b746eaa837e38f499820195c7c1d151c2db7dcb80",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ",
+      "symbol_prefix": "??1?$rc_ptr@VTerritory@WorldDominationTour@@@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7?$rc_ptr@VTerritory@WorldDominationTour@@@@6B@",
+          "target": 8057468,
+          "addend": 0,
+          "resolved": 8057468
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1rc_ptr_base@@UAE@XZ",
+          "target": 6526224,
+          "addend": 0,
+          "resolved": 4293956085
+        }
+      ],
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537424,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2913"
     },
     {
       "entry": 7537440,
@@ -6174,10 +6858,38 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4352"
+    },
+    {
+      "entry": 7537456,
+      "method": "00730330",
+      "body_bytes": 4,
+      "body_sha256": "f7e0208f5e988ae39c7a45dfddbd12921d02f9c3deb5695d4c534c8ab0ccdb0f",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "edffa6a9ad2a86d361d0a1c1371cd7428d9deb7c52ce700d1eff366e73ec882d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+      "symbol_prefix": "??C?$rc_ptr@VMap@WorldDominationTour@@@@QBEPAVMap@WorldDominationTour@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
+      "source": "rebuild/src/wdtsel.cpp",
+      "population": "rebuild-wdtsel",
+      "source_order": 7537456,
       "source_quality_family": "rebuild",
       "bound_population": "population-4352"
     },
@@ -6202,7 +6914,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537504,
@@ -6239,7 +6951,7 @@
           "resolved": 8057744
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537520,
@@ -6266,7 +6978,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537552,
@@ -6311,7 +7023,7 @@
           "resolved": 334196
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537584,
@@ -6355,7 +7067,7 @@
           "resolved": 334164
         }
       ],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537616,
@@ -6383,7 +7095,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537680,
@@ -6411,7 +7123,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537696,
@@ -6439,7 +7151,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537712,
@@ -6467,7 +7179,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "d025e914ad7a93d253666ffcbdd25cbe3d549bf30d346becfa02ab86a3c5cec0",
+      "source_sha256": "3069d5d037778964d39fa8676d6e4ab753b8529b036e5242392e436358c22e0f",
       "source": "rebuild/src/wdtsel.cpp",
       "population": "rebuild-wdtsel",
       "source_order": 7537728,

@@ -1012,3 +1012,6 @@ inline TechnoClass const * AbstractClass::As_TechnoClass(void) const
 {
 	return(dynamic_cast<TechnoClass const *>(this));
 }
+
+
+ActionType __fastcall Attack_Move_Action(ActionType action, int, int); // RA2: 0x6D8F60 (techno.cpp); the force key turns a move or an attack into an attack-move

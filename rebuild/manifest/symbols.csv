@@ -1840,6 +1840,7 @@ symbol,address,evidence
 ?Get_Z_Gradient@TechnoClass@@UBE?AW4ZGradientType@@XZ,0x00453B70,slot +2c8 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_453b70@@QAEIXZ
 ?Greatest_Threat@FootClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x004C8420,slot +370 of ??_7AircraftClass@@6BIPersistStream@@@ at 0079b128; main row ?unknown_slot219@FootClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
 ?Greatest_Threat@TechnoClass@@UBEPAVAbstractClass@@W4ThreatType@@ABVCoord@@_N@Z,0x006C6530,slot +370 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?unknown_slot219@TechnoClass@@UAEPAVAbstractClass@@HPBUCoordStruct@@_N@Z
+?Green_Mask@OwnerDraw@@3GA,0x00A763DE,inferred: ownrdraw rows 005ed180 005ed180 005ed180 005fc820 differ only at its sites
 ?Group_Box_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC020,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?Grow_Water_Region@MapGeneratorClass@@QAE_NHMABV?$TRect@H@@ABVCell@@_N@Z,0x005820B0,inferred: mapgen row 0057ff20 (Place_Waterfall) differs only at its site
 ?Has_Finished@MSAnim@@UBE_NXZ,0x005AFC80,slot +1c of ??_7MSFrameAnim@@6B@ at 007af1bc; main row ?Has_Finished@MSAnim@@UAE_NXZ
@@ -2563,6 +2564,7 @@ symbol,address,evidence
 ?Receive_Message@RadioClass@@UAE?AW4RadioMessageType@@PAV1@W42@AAH@Z,0x00636900,slot +180 of ??_7RadioClass@@6BIPersistStream@@@ at 007a88e4; main row ?Receive_Message@RadioClass@@UAEHPAV1@HAAPAVAbstractClass@@@Z
 ?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z,0x005D2C50,slot +e0 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Record_The_Kill@ObjectClass@@UAEXPAVTechnoClass@@@Z
 ?Record_The_Kill@TechnoClass@@UAEXPAV1@@Z,0x006CED90,slot +e0 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Record_The_Kill@TechnoClass@@UAEXPAV1@@Z
+?Red_Mask@OwnerDraw@@3GA,0x00A763DC,inferred: ownrdraw rows 005ed180 005ed180 005ed180 005fc820 differ only at its sites
 ?Reduce_Ammunition@TechnoClass@@UAEXXZ,0x006D7E00,slot +340 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Reduce_Ammunition@TechnoClass@@UAEXXZ
 ?RefreshMegaMission@FootClass@@UAE_NXZ,0x004CDD70,slot +460 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot279@FootClass@@UAE_NXZ
 ?RefreshMegaMission@TechnoClass@@UAE_NXZ,0x006D8FC0,slot +460 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8fc0@@QAE_NXZ
@@ -2930,6 +2932,7 @@ symbol,address,evidence
 ?Stun@TechnoClass@@UAEXXZ,0x006C9A90,slot +34c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?unknown_slot210@TechnoClass@@UAEXXZ
 ?Submit@LayerClass@@UAE_NPBVObjectClass@@_N@Z,0x005348A0,slot +20 of ??_7LayerClass@@6B@ at 0079e864; main row ?Submit@LayerClass@@UAE_NPAVObjectClass@@_N@Z
 ?Submit@LogicClass@@UAE_NPBVObjectClass@@_N@Z,0x0053E330,slot +20 of ??_7LogicClass@@6B@ at 0079a8e8; main row ?Submit@LogicClass@@UAE_NPAVObjectClass@@_N@Z
+?Subzone_Span@MapClass@@QAEHPAUCellSubzoneStruct@@HHABV?$TRect@H@@ABVCell@@@Z,0x00564290,inferred: map rows 00563d80 differ only at its sites
 ?Swap@CD@@UAE_NW4DiskID@@@Z,0x0046E750,slot +08 of ??_7CD@@6B@ at 0079d868; main row ?Swap_Disk@CD@@UAE_NH@Z
 ?TFind_Or_Make@@YIPAVVoxelAnimTypeClass@@PBDABV?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@@Z,0x0070EF40,inferred: vanimtype rows 0070e470 differ only at its sites
 ?TGet_Class@@YIPBVAircraftTypeClass@@ABVCCINIClass@@PBD1PBV1@@Z,0x006540B0,inferred: rules rows 00647f40 00647f40 differ only at its sites
@@ -3191,3 +3194,6 @@ _IID_IRegistrar,0x007AF6C0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes o
 _LIBID_ATLLib,0x007AF6E0,"ATL 3.0 select-any GUID (atliface.h): its 16 bytes occur once in the image, right after wolapi_i.c's ids in wonline's .rdata"
 __GUID_92fea800_a184_11d1_b70a_00a024ddafd1,0x007CFC30,"main: accepted rows of 7 populations refer to the __uuidof(IPiggyback) copy there (writable data, the select-any GUID); IID_IPiggyback is the .rdata copy at 0x007A2050"
 __purecall,0x004B8960,slot +10 of ??_7TechnoClass@@6BIPersistStream@@@ at 007acb7c; main row ?get@Leaf_4b8960@@QAEHXZ
+?Area_Modify@TechnoClass@@QBENABVCell@@@Z,0x006C5270,"image call target at 006c60ce (Evaluate_Object; image-derived bound 006c5270); ra2-decomp identifies the twin (YR 0x006F79A0); owner ruling 2026-11-22, lane O38"
+??0?$VectorClass@PAVMSAnim@@@@QAE@HPBQAVMSAnim@@@Z,0x00730470,"kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730470 (74 B + 6; main row ?get@Storage_730470@@QAEPAXIPAI@Z); the image's Do_Target_Anim calls it at +0x7C and +0x9D"
+??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@H@Z,0x00730340,"kept copy: wdtsel's object with Do_Target_Anim compiled emits it byte-identical to 00730340 (25 B + 7; main row ??0?$VectorCursor@PAVMSSfxEntry@@V?$DynamicVectorClass@PAVMSSfxEntry@@@@@@QAE@AAV?$DynamicVectorClass@PAVMSSfxEntry@@@@I@Z); the image's Do_Target_Anim calls it at +0x493"

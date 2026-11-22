@@ -9243,6 +9243,15 @@
     "main_source": "src/recovered/classes/EgoClass/Copy_Background.cpp"
    },
    {
+    "entry": "004b37c0",
+    "body": 2924,
+    "padding": 4,
+    "symbol": "?Show_Credits@@YIXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "004b4330",
     "body": 42,
     "padding": 6,
@@ -9352,7 +9361,14 @@
    "?Clear@?$VectorClass@PAVEgoClass@@@@UAEXXZ": "004b4480",
    "?ID@?$VectorClass@PAVEgoClass@@@@UAEHABQAVEgoClass@@@Z": "004b44b0",
    "?ID@?$VectorClass@PAVEgoClass@@@@UAEHPBQAVEgoClass@@@Z": "004b44f0",
-   "?CreditsText@@3PAGA": "0085311c"
+   "?CreditsText@@3PAGA": "0085311c",
+   "??_C@_07JBC@CREDITS?$AA@": "007d64a4",
+   "??_C@_09EEKE@LightGold?$AA@": "007d64f8",
+   "??_C@_0BA@PGBN@D?3?2Ra2?2Egos?4CPP?$AA@": "007d64ac",
+   "??_C@_0M@ONIL@CREDITS?4TXT?$AA@": "007d6504",
+   "??_C@_1BI@NKIG@?$AA?$HL?$AAB?$AAa?$AAd?$AA?5?$AAL?$AAa?$AAb?$AAe?$AAl?$AA?$HN?$AA?$AA@": "007d64bc",
+   "??_C@_1CA@OMJE@?$AA?$HL?$AAM?$AAi?$AAs?$AAs?$AAi?$AAn?$AAg?$AA?5?$AAL?$AAa?$AAb?$AAe?$AAl?$AA?$HN?$AA?$AA@": "007d64d4",
+   "_?speed@?1??Show_Credits@@YIXXZ@4HA": "007d6430"
   },
   "partial_ok": true
  },
@@ -78112,6 +78128,15 @@
     "main_source": "src/recovered/mapgen.cpp"
    },
    {
+    "entry": "0057d3a0",
+    "body": 2415,
+    "padding": 1,
+    "symbol": "?Spread_Land@MapGeneratorClass@@QAEHHABV?$TRect@H@@ABVPoint2D@@_NABVCell@@N2@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0057dd10",
     "body": 72,
     "padding": 8,
@@ -78262,6 +78287,15 @@
     "symbol": "?Build_Region_Border_Cell_List@MapGeneratorClass@@QAEPAV?$DynamicVectorClass@VCell@@@@H@Z",
     "main_symbol": "?Build_Region_Border_Cell_List@MapGeneratorClass@@QAEPAV?$DynamicVectorClass@VCell@@@@H@Z",
     "main_source": "src/recovered/mapgen.cpp"
+   },
+   {
+    "entry": "005820b0",
+    "body": 2230,
+    "padding": 10,
+    "symbol": "?Grow_Water_Region@MapGeneratorClass@@QAE_NHMABV?$TRect@H@@ABVCell@@_N@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00582970",
@@ -78771,7 +78805,7 @@
     "entry": "0058b400",
     "body": 17,
     "padding": 15,
-    "symbol": "_$E286",
+    "symbol": "_$E288",
     "main_symbol": "_$E119",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78779,7 +78813,7 @@
     "entry": "0058b420",
     "body": 9537,
     "padding": 15,
-    "symbol": "_$E283",
+    "symbol": "_$E285",
     "main_symbol": "_$E116",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -78787,7 +78821,7 @@
     "entry": "0058d970",
     "body": 39,
     "padding": 9,
-    "symbol": "_$E284",
+    "symbol": "_$E286",
     "main_symbol": "_$E117",
     "main_source": "src/recovered/mapgen.cpp"
    },
@@ -79646,7 +79680,8 @@
    "?Clear@?$VectorClass@V?$TRect@H@@@@UAEXXZ": "0058e690",
    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHABV?$TRect@H@@@Z": "0058e6c0",
    "?ID@?$VectorClass@V?$TRect@H@@@@UAEHPBV?$TRect@H@@@Z": "0058e720",
-   "?GetItem@?$VectorClass@V?$TRect@H@@@@UBE?AV?$TRect@H@@H@Z": "0058dde0"
+   "?GetItem@?$VectorClass@V?$TRect@H@@@@UBE?AV?$TRect@H@@H@Z": "0058dde0",
+   "__real@8@4001a000000000000000": "007a5d40"
   },
   "partial_ok": true,
   "data_bound_by": {
@@ -82199,7 +82234,8 @@
    "??_C@_0BF@PPPA@EVA_BuildingCaptured?$AA@": "007cf924",
    "??_C@_0BJ@MGEB@EVA_TechBuildingCaptured?$AA@": "007cf93c",
    "_?$S307@?1??Find_Unit_Repair_Facility@@YIPAVBuildingClass@@PAVHouseClass@@PAVTechnoClass@@@Z@4EA": "0084ed48",
-   "_?$S308@?7??Draw_Radial_Indicator@BuildingClass@@UAEXK@Z@4EA": "0084ece8"
+   "_?$S308@?7??Draw_Radial_Indicator@BuildingClass@@UAEXK@Z@4EA": "0084ece8",
+   "??_C@_08POLJ@PULSBALL?$AA@": "007cfa14"
   },
   "partial_ok": true
  },
@@ -82677,6 +82713,15 @@
     "symbol": "?In_Range@TechnoClass@@UBE_NABVCoord@@H@Z",
     "main_symbol": "?In_Range@TechnoClass@@UAE_NABUCoordStruct@@H@Z",
     "main_source": "src/recovered/techno.cpp"
+   },
+   {
+    "entry": "006c5570",
+    "body": 2998,
+    "padding": 10,
+    "symbol": "?Evaluate_Object@TechnoClass@@QBE_NW4ThreatType@@HHPBV1@AAHHABVCoord@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006c6130",
@@ -83159,6 +83204,15 @@
     "symbol": "?Draw_Action_Line@TechnoClass@@QBEXVCoord@@0VRGBClass@@EE@Z",
     "main_symbol": "?unknown_6d0510@TechnoClass@@QAEXUCoordStruct@@0VRGBClass@@HH@Z",
     "main_source": "src/recovered/techno.cpp"
+   },
+   {
+    "entry": "006d0990",
+    "body": 1059,
+    "padding": 13,
+    "symbol": "?Draw_Link_Line@TechnoClass@@QBEXVCoord@@0VRGBClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006d0dc0",
@@ -84506,7 +84560,10 @@
    "?Draw_Pre_Render@TechnoClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z": "006c3b30",
    "?CreateGap@TechnoClass@@UAEXXZ": "006c83f0",
    "?DestroyGap@TechnoClass@@UAEXXZ": "006c86f0",
-   "_$S301": "00ac0128"
+   "_$S301": "00ac0128",
+   "__real@8@3ffb8000000000000000": "007acff0",
+   "__real@8@40038000000000000000": "007acff8",
+   "__real@8@40088000000000000000": "007acfe8"
   },
   "partial_ok": true
  },
@@ -90415,6 +90472,15 @@
     "symbol": "?Assign_Target@InfantryClass@@UAEXPAVAbstractClass@@@Z",
     "main_symbol": "?unknown_slot220@InfantryClass@@UAEXPAVAbstractClass@@@Z",
     "main_source": "src/recovered/infantry.cpp"
+   },
+   {
+    "entry": "005025c0",
+    "body": 1876,
+    "padding": 12,
+    "symbol": "?Tunnel_AI@InfantryClass@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00502d20",
@@ -96982,6 +97048,15 @@
     "main_source": "src/recovered/display.cpp"
    },
    {
+    "entry": "004994d0",
+    "body": 832,
+    "padding": 0,
+    "symbol": "?Set_Cursor_Pos@DisplayClass@@QAE?AVCell@@ABV2@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00499810",
     "body": 169,
     "padding": 7,
@@ -97132,6 +97207,15 @@
     "symbol": "?Mouse_Right_Release@DisplayClass@@MAEXABVPoint2D@@@Z",
     "main_symbol": "?Mouse_Right_Release@DisplayClass@@UAEXABUPoint2D@@@Z",
     "main_source": "src/recovered/display.cpp"
+   },
+   {
+    "entry": "0049b0f0",
+    "body": 2608,
+    "padding": 0,
+    "symbol": "?Mouse_Left_Up@DisplayClass@@MAEXABVCell@@_NPAVObjectClass@@W4ActionType@@1@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0049bb20",
@@ -99766,6 +99850,15 @@
     "symbol": "?Preview_Tile_Color@IsometricTileTypeClass@@QAEGHH_N@Z",
     "main_symbol": "?Preview_Tile_Color@IsometricTileTypeClass@@QBEGHH_N@Z",
     "main_source": "src/recovered/isotype.cpp"
+   },
+   {
+    "entry": "0052e390",
+    "body": 52,
+    "padding": 12,
+    "symbol": "?Preview_Tile@IsometricTileTypeClass@@QAEPAGHH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0052e3d0",
@@ -107348,6 +107441,15 @@
     "symbol": "?Draw_It@WaveClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z",
     "main_symbol": "?Draw_It@WaveClass@@UAEXABUPoint2D@@ABVRect@@@Z",
     "main_source": "src/recovered/wave.cpp"
+   },
+   {
+    "entry": "007225b0",
+    "body": 1777,
+    "padding": 15,
+    "symbol": "?Draw_Sonic@WaveClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00723220",
@@ -131427,14 +131529,7 @@
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "0062a360": {
-    "windows": "plain probe declarations at the end of rect.h. New headers: +6 +10 exact; +0 +1 +2 +3 +4 +5 +8 +12 +16 +24 +32 +48 off. Old headers (main cd567aa24): +0 +3 +4 +16 exact; +1 +2 +5 +6 +10 +12 +24 +32 +48 off. Lane F11 headers (2026-11-21: ObjectClass::Direction(Coord const &) in object.h, DirType::operator>= a member in face.h; the function names neither), struct declarations at the end of rect.h: +2 +3 +6 +9 +10 +14 exact; +0 +1 +4 +5 +7 +8 +11 +12 +16 off (8 bytes at +0)",
-    "header": "ccini.h, object.h, sidebar.h, _house.h, ownrdraw.h, rect.h (lane O10, 2026-11-21, owner ruling: all six held changes land as a set with ldprgmgr): CCINIClass Put_ActionType, Put_SuperWeaponType, Put_VoxType, Put_Vector, Put_Offset removed (never defined, no users; codex2 r5344/r5352); ObjectClass::Docking_Coord out of line in object.cpp (ra2-decomp; codex1 r2448/r2487); SelectClass::Is_Hovered declared after Set_Owner (ra2-decomp; r2464); ScoutStruct copy constructor (ra2-decomp _house.h; r2413/r2485); ColumnData copy constructor declared in the class, defined in ownrdraw.cpp (ra2-decomp; r2474/r2475/r2485); Inflate_Rect declared in rect.h and Blend_Rect in ownrdraw.h, the unit-local copies in ownrdraw, progress, mpscore and sidebar removed (codex1 r2486); the stale Encode_Game_Options prototype above its definition removed",
-    "note": "lane O10 probe 2026-11-21 on the final tree (DoType precedent): (a) every displacing change is evidenced content or plain hygiene; (b)(i) the function names none of what the changes add or remove (no Docking_Coord, Is_Hovered, ScoutStruct, ColumnData, Put_, Inflate_Rect, Blend_Rect); (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header (main cd567aa24)"
-   }
-  }
+  "partial_ok": true
  },
  "unit": {
   "core": [
@@ -134153,7 +134248,8 @@
    "?Mouse_Leave@SelectClass@StripClass@SidebarClass@@UAEXXZ": "00681650",
    "?ButtonHelpBuffer@@3PAGA": "00ab9274",
    "_$S189": "00ab9270",
-   "_$S195": "00ab9271"
+   "_$S195": "00ab9271",
+   "??0StageClass@@QAE@XZ": "00682520"
   },
   "partial_ok": true
  },
@@ -136096,6 +136192,15 @@
     "symbol": "?Reset_All_Subzones@MapClass@@QAEXXZ",
     "main_symbol": "?Reset_All_Subzones@MapClass@@QAEXXZ",
     "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "00563d80",
+    "body": 1287,
+    "padding": 9,
+    "symbol": "?Reset_Subzone@MapClass@@QAEXH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00564b20",
@@ -144995,6 +145100,15 @@
     "main_source": "src/recovered/vqalib_task.cpp"
    },
    {
+    "entry": "0077c7d0",
+    "body": 167,
+    "padding": 9,
+    "symbol": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0077c880",
     "body": 22,
     "padding": 10,
@@ -145634,7 +145748,7 @@
    "0068bc50",
    "0068d8a0"
   ],
-  "mischa85": "tibsun: functions compiled from src/srfcache.cpp, without gaps; matched except ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z; one placed by the gap; ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z placed at their function starts; ?DrawNullsub@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1@Z not placed; ?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z not placed; ?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z not placed; ?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAX_NHH@Z not placed",
+  "mischa85": "tibsun: functions compiled from src/srfcache.cpp, without gaps; matched except ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z; one placed by the gap; ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z and ?CachePCX@SurfaceCacheClass@@QAE_NPBDHH@Z placed at their function starts; ?DrawNullsub@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1@Z not placed; ?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z not placed; ?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z not placed; ?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAXHHH@Z not placed",
   "main_options": [
    [
     "/O2",
@@ -145740,6 +145854,15 @@
     "main_source": "src/recovered/srfcache.cpp"
    },
    {
+    "entry": "0068cce0",
+    "body": 408,
+    "padding": 8,
+    "symbol": "?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0068ce80",
     "body": 250,
     "padding": 6,
@@ -145754,6 +145877,15 @@
     "symbol": "?DrawNullsub@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1@Z",
     "main_symbol": "?unknown_return_false_0068cf80@seed_0068cf80@@YGEHHH@Z",
     "main_source": "src/recovered/srfcache.cpp"
+   },
+   {
+    "entry": "0068cf90",
+    "body": 1441,
+    "padding": 15,
+    "symbol": "?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAXHHH@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0068d540",
@@ -158008,6 +158140,15 @@
     "main_source": "src/recovered/ownrdraw.cpp"
    },
    {
+    "entry": "005f0f40",
+    "body": 2495,
+    "padding": 1,
+    "symbol": "?Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005f1900",
     "body": 2075,
     "padding": 5,
@@ -158867,9 +159008,22 @@
    "?Window_Proc_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73688",
    "?Window_Table@@3V?$Dictionary@PAUHWND__@@P6GJPAU1@IIJ@Z@@A": "00a73400",
    "_?$S179@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4EA": "00a73438",
-   "_?solid_brush@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAXA": "00a733e0"
+   "_?solid_brush@?1??Combo_Drop_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAXA": "00a733e0",
+   "??_C@_05LDDM@Title?$AA@": "007eae34",
+   "??_C@_0N@BMPA@tab_tm?$CFc?4pcx?$AA@": "007eae24",
+   "??_C@_0N@DCGF@tab_tl?$CFc?4pcx?$AA@": "007eae14",
+   "??_C@_0N@EIOP@tab_tr?$CFc?4pcx?$AA@": "007eae04",
+   "_?string1@?1??Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PADA": "00a736d4",
+   "_?string2@?1??Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAGA": "00a76160"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_sensitive": {
+   "005fb270": {
+    "windows": "forward struct declarations at the place of ODColorBits (before Tab_Proc), union absent, Tab_Proc guarded: +1 +2 +8 +12 +16 exact; +3 +4 +6 off. With the union (file scope or block scope): off",
+    "header": "none: ownrdraw.cpp's file-scope union ODColorBits (ra2-decomp's src/ownrdraw.cpp, used by OwnerDraw::SysTabHandler, matched there 2026-11-22 in 2bf8d31), which Tab_Proc 0x5F0F40 needs (lane O39, 2026-11-22; owner ruling: land Tab_Proc, park Trackbar_Proc under DECISIONS 91)",
+    "note": "lane O39 probe 2026-11-22: (a) the displacing change is evidenced content (the twin's union); (b)(i) Trackbar_Proc uses nothing the union adds; (ii) windows above; (c) the unchanged text was exact before (c2land run 41). Trackbar_Proc has no function statics"
+   }
+  }
  },
  "mpobserver": {
   "core": [

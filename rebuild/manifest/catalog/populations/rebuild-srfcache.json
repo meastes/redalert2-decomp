@@ -43,6 +43,11 @@
     "_$E24": 6867744,
     "_?_x@?1??GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z@4USurfaceCacheEntry@@A": 11260136,
     "_atexit": 7874954,
+    "?Red_Mask@OwnerDraw@@3GA": 10970076,
+    "?color_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA": 11712052,
+    "?Green_Mask@OwnerDraw@@3GA": 10970078,
+    "?Blue_Mask@OwnerDraw@@3GA": 10970080,
+    "?pixel_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA": 11712056,
     "_$E2": 6863952,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "?SurfaceCacheConvertPixel@@YIHHHH@Z": 6863984,
@@ -132,7 +137,9 @@
     "?GetSurface@SurfaceCacheClass@@QAEPAVSurface@@PBDPAX@Z": 6867520,
     "?Remove@SurfaceCacheClass@@QAEXPBD@Z": 6867760,
     "?DrawNullsub@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1@Z": 6868864,
-    "?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z": 6868608
+    "?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z": 6868192,
+    "?DrawTrans@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1F@Z": 6868608,
+    "?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAXHHH@Z": 6868880
   },
   "regions": [
     {
@@ -189,7 +196,7 @@
           "resolved": 11260124
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6863952,
@@ -265,7 +272,7 @@
           "resolved": 8728504
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6863984,
@@ -293,7 +300,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864096,
@@ -337,7 +344,7 @@
           "resolved": 6864352
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864208,
@@ -397,7 +404,7 @@
           "resolved": 928134
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864352,
@@ -513,7 +520,7 @@
           "resolved": 1006859
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6864432,
@@ -773,7 +780,7 @@
           "resolved": 4292487497
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6866432,
@@ -809,7 +816,7 @@
           "resolved": 4294966226
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867488,
@@ -941,7 +948,7 @@
           "resolved": 921298
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867520,
@@ -968,7 +975,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867744,
@@ -1076,11 +1083,41 @@
           "resolved": 920853
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6867760,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6868192,
+      "method": "0068cce0",
+      "body_bytes": 408,
+      "body_sha256": "201a39663a51bba1f143455c5b5afba0381e7cd22fa6ed86067c5e9712aabc0e",
+      "padding_bytes": 8,
+      "full_extent_bytes": 416,
+      "full_extent_sha256": "988fe267b70532a2f7fabec1887c70aa20a36903af1fbce8545ff7aabfb06528",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@005f0c2a +8, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z",
+      "symbol_prefix": "?Draw@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@1HH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
+      "source": "rebuild/src/srfcache.cpp",
+      "population": "rebuild-srfcache",
+      "source_order": 6868192,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 6868608,
@@ -1103,7 +1140,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6868608,
@@ -1130,12 +1167,211 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6868864,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 6868880,
+      "method": "0068cf90",
+      "body_bytes": 1441,
+      "body_sha256": "ac080a4e06b20698db97fe9f6c8a0aa3e69fd0380ba1698d859668e5db5f7ed9",
+      "padding_bytes": 15,
+      "full_extent_bytes": 1456,
+      "full_extent_sha256": "a98c1ec655568a12f27ae5ca8f6c94a6e952da5d9d29490f7f8acf65f5a34318",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@005fedd5 +1, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAXHHH@Z",
+      "symbol_prefix": "?DrawMasked@SurfaceCacheClass@@QAE_NABV?$TRect@H@@AAVSurface@@11PAXHHH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 510,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 532,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 540,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 577,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 590,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 858,
+          "kind": 6,
+          "symbol": "?Red_Mask@OwnerDraw@@3GA",
+          "target": 10970076,
+          "addend": 0,
+          "resolved": 10970076
+        },
+        {
+          "offset": 888,
+          "kind": 6,
+          "symbol": "?color_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712052,
+          "addend": 0,
+          "resolved": 11712052
+        },
+        {
+          "offset": 899,
+          "kind": 6,
+          "symbol": "?color_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712052,
+          "addend": 0,
+          "resolved": 11712052
+        },
+        {
+          "offset": 920,
+          "kind": 6,
+          "symbol": "?Green_Mask@OwnerDraw@@3GA",
+          "target": 10970078,
+          "addend": 0,
+          "resolved": 10970078
+        },
+        {
+          "offset": 945,
+          "kind": 6,
+          "symbol": "?Blue_Mask@OwnerDraw@@3GA",
+          "target": 10970080,
+          "addend": 0,
+          "resolved": 10970080
+        },
+        {
+          "offset": 951,
+          "kind": 6,
+          "symbol": "?pixel_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712056,
+          "addend": 0,
+          "resolved": 11712056
+        },
+        {
+          "offset": 961,
+          "kind": 6,
+          "symbol": "?Red_Mask@OwnerDraw@@3GA",
+          "target": 10970076,
+          "addend": 0,
+          "resolved": 10970076
+        },
+        {
+          "offset": 973,
+          "kind": 6,
+          "symbol": "?Green_Mask@OwnerDraw@@3GA",
+          "target": 10970078,
+          "addend": 0,
+          "resolved": 10970078
+        },
+        {
+          "offset": 1137,
+          "kind": 6,
+          "symbol": "?Green_Mask@OwnerDraw@@3GA",
+          "target": 10970078,
+          "addend": 0,
+          "resolved": 10970078
+        },
+        {
+          "offset": 1165,
+          "kind": 6,
+          "symbol": "?Blue_Mask@OwnerDraw@@3GA",
+          "target": 10970080,
+          "addend": 0,
+          "resolved": 10970080
+        },
+        {
+          "offset": 1186,
+          "kind": 6,
+          "symbol": "?Red_Mask@OwnerDraw@@3GA",
+          "target": 10970076,
+          "addend": 0,
+          "resolved": 10970076
+        },
+        {
+          "offset": 1237,
+          "kind": 6,
+          "symbol": "?color_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712052,
+          "addend": 0,
+          "resolved": 11712052
+        },
+        {
+          "offset": 1248,
+          "kind": 6,
+          "symbol": "?pixel_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712056,
+          "addend": 0,
+          "resolved": 11712056
+        },
+        {
+          "offset": 1270,
+          "kind": 6,
+          "symbol": "?color_alpha@?1??Blend_Color@OwnerDraw@@YAGGGE@Z@4IA",
+          "target": 11712052,
+          "addend": 0,
+          "resolved": 11712052
+        },
+        {
+          "offset": 1283,
+          "kind": 6,
+          "symbol": "?Green_Mask@OwnerDraw@@3GA",
+          "target": 10970078,
+          "addend": 0,
+          "resolved": 10970078
+        }
+      ],
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
+      "source": "rebuild/src/srfcache.cpp",
+      "population": "rebuild-srfcache",
+      "source_order": 6868880,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 6870336,
@@ -1239,7 +1475,7 @@
           "resolved": 1000800
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6870336,
@@ -1283,7 +1519,7 @@
           "resolved": 1000614
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6871024,
@@ -1327,7 +1563,7 @@
           "resolved": 1000450
         }
       ],
-      "source_sha256": "b7a85c8a1e06b22f2a4d0d75c749afb91867de1bef8d4387bb066e3f6b7b6f3a",
+      "source_sha256": "6ca04e4cac910dfac2d6550f0f33f480a70fb7ebec9be8c2e0a9f48c91840112",
       "source": "rebuild/src/srfcache.cpp",
       "population": "rebuild-srfcache",
       "source_order": 6871200,

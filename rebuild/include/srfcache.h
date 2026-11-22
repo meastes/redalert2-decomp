@@ -50,7 +50,7 @@ class SurfaceCacheClass : public Dictionary<Wstring, SurfaceCacheEntry>
 		bool Draw(Rect const & rect, Surface & tosurface, Surface & fromsurface, int x = 0, int y = 0);
 		bool DrawTrans(Rect const & rect, Surface & tosurface, Surface & fromsurface, short trans);
 		bool DrawNullsub(Rect const & rect, Surface & tosurface, Surface & fromsurface);
-		bool DrawMasked(Rect const & rect, Surface & tosurface, Surface & fromsurface, Surface & masksurface, void * palette, bool center, int x_offset, int y_offset);
+		bool DrawMasked(Rect const & rect, Surface & tosurface, Surface & fromsurface, Surface & masksurface, void * palette, int center, int x_offset, int y_offset);
 };
 
 int SurfaceCacheConvertPixel(int red, int green, int blue);

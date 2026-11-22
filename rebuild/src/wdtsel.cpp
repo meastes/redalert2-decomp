@@ -213,7 +213,6 @@ void Selection::Init_Target(INIClass & ini, Wstring const & section)
 /// <param name="ini">The map database to fetch the region artwork from.</param>
 /// <param name="section">The section that describes this region.</param>
 /// <param name="vq_anim">Should the backdrop play as a movie rather than a still image?</param>
-#ifdef RA2_NON_MATCHING // not exact: 912 bytes differ (adopted text)
 rc_ptr<Territory> Selection::Pick_Territory(void)
 {
 	Set_Long_Description();
@@ -227,13 +226,13 @@ rc_ptr<Territory> Selection::Pick_Territory(void)
 		Wait_For_Focus();
 		Point2D point(MouseCursor->Get_Mouse_X(), MouseCursor->Get_Mouse_Y());
 
-		if (Keyboard->Check()) {
+		if (Keyboard->Check() != KN_NONE) {
 			int key = Keyboard->Get();
 			if (key == KN_LMOUSE) {
 				Handle_Click(point, selected);
 			} else if (key == (KN_LMOUSE | WWKEY_RLS_BIT)) {
 				WorldMap->Set_Back_Hot(this, false);
-				if (Region_At(point) == 2) {
+				if ((char)WorldMap->Is_Over_Back(point)) {
 					Play_SFX("Canceled");
 					canceled = true;
 				}
@@ -245,7 +244,7 @@ rc_ptr<Territory> Selection::Pick_Territory(void)
 		 */
 		} else if (point != LastPoint) {
 			LastPoint = point;
-			int zone = Region_At(point);
+			int zone = (char)WorldMap->Is_Over_Back(point) ? 2 : 1;
 
 			if (LastHoverZone != zone) {
 				switch (LastHoverZone) {
@@ -282,7 +281,6 @@ rc_ptr<Territory> Selection::Pick_Territory(void)
 
 	return(selected ? MousedTerritory : rc_ptr<Territory>());
 }
-#endif
 
 
 
@@ -568,7 +566,7 @@ void Selection::On_Map_Leave(void)
 {
 	Play_SFX("MapLeave");
 	HoveredTerritoryID = -1;
-	rc_ptr<Territory> none;
+	rc_ptr<Territory> const & none = rc_ptr<Territory>();
 	Select_Territory(none);
 }
 
@@ -842,11 +840,13 @@ void Selection::Play_SFX(Wstring const & name)
 {
 	if (name != 0) {
 		SFX_ITER it(SfxEntries, 0);
-		while (it && name == (*it)->Get_Name()) {
-			++it;
+		for (; it; it++) {
+			if (!(name == it->Get_Name())) {
+				break;
+			}
 		}
 		if (it) {
-			(*it)->Play();
+			it->Play();
 		}
 	}
 }

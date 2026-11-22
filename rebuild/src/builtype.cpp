@@ -2402,7 +2402,6 @@ Cell const * BuildingTypeClass::Exit_List(void) const
 /// construction animation and the bib.
 /// </summary>
 /// <returns>Returns with the draw rectangle, or RECT_NONE if the building has no art.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 5 bytes differ (adopted text)
 Rect BuildingTypeClass::Get_Draw_Rect(void)
 {
 	int i;
@@ -2445,13 +2444,15 @@ Rect BuildingTypeClass::Get_Draw_Rect(void)
 
 	int x = rect.X - width / 2;
 	int y = rect.Y - height / 2;
-	int rect_width = rect.Width; // RA2: 0x45E290 copies the width and height through locals
-	int rect_height = rect.Height; // RA2: as above
-	DrawRect = Rect(x, y, rect_width, rect_height); // RA2: as above
+	Rect drawrect;
+	drawrect.X = x;
+	drawrect.Y = y;
+	drawrect.Width = rect.Width;
+	drawrect.Height = rect.Height;
+	DrawRect = drawrect;
 
 	return(DrawRect);
 }
-#endif
 
 
 /// <summary>

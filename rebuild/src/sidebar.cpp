@@ -2388,7 +2388,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
  *   01/19/1995 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Doesn't collapse sidebar when buildables removed.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006802d0 has no row); 1622 bytes differ against main's function-map extent; main: best 62.52, tried 9 times (inline, order, frame)
+#ifdef RA2_NON_MATCHING // not exact: 1623 bytes differ against the image-derived bound 006802d0 (1732 B; ours 1536 B); the StageClass constructor now called as in the image (SmartPtr, ra2-decomp); the image expands Update_Column_Availability here: written with First_Used_Column() it expands (1421 bytes off, calls but one as the image) but 0x67CA50's own exact row then loses its zero register, so it stays called; main: best 62.52, tried 9 times (inline, order, frame)
 bool SidebarClass::StripClass::Recalc(void)
 {
 	int ok;
@@ -2399,7 +2399,7 @@ bool SidebarClass::StripClass::Recalc(void)
 
 	bool scroll = false;
 	int max_visible = Map.Get_Row_Count() * 2; // RA2: as above
-	BuildType * unshifted = new BuildType[max_visible];
+	SmartPtr<BuildType> unshifted(new BuildType[max_visible]); // RA2: ra2-decomp's form
 
 	for (int i = 0; i < max_visible; i++) {
 		if (i + TopIndex * 2 < BuildableCount) {
@@ -2478,12 +2478,13 @@ bool SidebarClass::StripClass::Recalc(void)
 
 	Map.Update_Column_Availability(ID);
 	if (scroll) {
+		BuildType const * previous = unshifted; // RA2: as above
 		bool got_old = false;
 		bool got_new = false;
 
 		int oldpos;
 		for (oldpos = 0; oldpos < max_visible; oldpos++) {
-			if (unshifted[oldpos] != BuildType(0, RTTI_NONE)) {
+			if (previous[oldpos] != BuildType(0, RTTI_NONE)) {
 				got_old = true;
 				break;
 			}
@@ -2492,7 +2493,7 @@ bool SidebarClass::StripClass::Recalc(void)
 		int newpos;
 		if (got_old && BuildableCount != 0) {
 			for (newpos = 0; newpos < BuildableCount; newpos++) {
-				if (Buildables[newpos] == unshifted[oldpos]) {
+				if (Buildables[newpos] == previous[oldpos]) {
 					got_new = true;
 					break;
 				}

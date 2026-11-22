@@ -333,7 +333,7 @@
           "resolved": 42
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7845792,
@@ -385,7 +385,7 @@
           "resolved": 4294947498
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7847536,
@@ -541,7 +541,7 @@
           "resolved": 4294943228
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7847696,
@@ -625,7 +625,7 @@
           "resolved": 1788
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7848672,
@@ -669,7 +669,7 @@
           "resolved": 7832624
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7849024,
@@ -696,7 +696,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7849088,
@@ -732,7 +732,7 @@
           "resolved": 40
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7849536,
@@ -768,7 +768,7 @@
           "resolved": 4294966082
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7849664,
@@ -795,11 +795,41 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7849920,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7849936,
+      "method": "0077c7d0",
+      "body_bytes": 167,
+      "body_sha256": "472e048f4595f76ec72003aa5ddef8638c944f638e2dbfefcdb067e4ee68a3c7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "b3bfcc6bfc9adbff23e5e5ca84514b2f690a5ddc581f50e7ebcd8ddd2dc6fd55",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@0071d219 +1, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+      "symbol_prefix": "?VQA_Reset@@YIXPAU_VQAHandle@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
+      "source": "rebuild/src/vqalib_task.cpp",
+      "population": "rebuild-vqalib-task",
+      "source_order": 7849936,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 7850112,
@@ -822,7 +852,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850112,
@@ -849,7 +879,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850144,
@@ -885,7 +915,7 @@
           "resolved": 8393976
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850192,
@@ -912,7 +942,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850208,
@@ -939,7 +969,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850272,
@@ -975,7 +1005,7 @@
           "resolved": 8393980
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850320,
@@ -1011,7 +1041,7 @@
           "resolved": 4294946932
         }
       ],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850336,
@@ -1038,7 +1068,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850544,
@@ -1065,7 +1095,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850576,
@@ -1092,7 +1122,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c2f7d5188a9e083dab101da65535a70e2340c2f6b86b25ca4d6efd0813134c36",
+      "source_sha256": "f2fd63d23a80f8305df0e122c5676c4ab175143c28d30f85c155fda3bc3bca76",
       "source": "rebuild/src/vqalib_task.cpp",
       "population": "rebuild-vqalib-task",
       "source_order": 7850608,

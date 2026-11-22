@@ -41,86 +41,81 @@
 /// <param name="aircraft">Is the projectile chasing an aircraft?</param>
 /// <param name="airburst">Should the projectile detonate in the air rather than stoop?</param>
 /// <param name="veryhigh">Should the projectile cruise at extra altitude?</param>
+/// <param name="level">Should the projectile hold its height (no climb or dive steering)?</param>
 /// <returns>Returns with the distance still to be covered, with the vertical component
-/// discounted. A projectile with nothing to home on returns a nominal short distance.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00593870 has no row); main: best 99.22, tried 4 times (order, float, register)
-int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh)
+/// discounted. A projectile with nothing to home on levels out, advances and returns its speed.</returns>
+#ifdef RA2_NON_MATCHING // not exact: 1332 bytes differ against the image-derived bound 00593870 (2101 B; ours 2128 B); ra2-decomp's text, calls as the image except the level branch's Turn, which the image calls (its inline budget runs out there); main: best 99.22, tried 4 times (order, float, register)
+int Projectile_Motion(Coord & coord, TVelocity3D<double> & velocity, Coord const & target_coord, DirType const & rot, bool aircraft, bool airburst, bool veryhigh, bool level)
 {
 	if (target_coord == COORD_NONE) {
-		/*
-		 * Nothing to home on -- just level out (0x4200 is the level-out pitch).
-		 */
 		DirType pitch = velocity.Get_Pitch();
-		pitch.Turn(DirType(Dir256(DIR_E + DIR_STEP_128)), rot);
+		pitch.Turn(DirType(DIR_NE), rot);
 		velocity.Set_Pitch(pitch);
-		return(1);
-	}
+		TVelocity3D<double> frame_velocity(velocity);
+		coord = coord + Point3D(frame_velocity.X, frame_velocity.Y, frame_velocity.Z);
+		return(velocity.Speed());
+	} else {
+		TVelocity3D<double> frame_velocity(velocity);
+		coord = coord + Point3D(frame_velocity.X, frame_velocity.Y, frame_velocity.Z);
+		int target_distance = coord.Distance_To(target_coord);
+		int horizontal_distance = Point2D(coord).Distance_To(Point2D(target_coord));
 
-	TVelocity3D<double> frame_velocity(velocity);
-	coord = coord + Point3D(frame_velocity.X, frame_velocity.Y, frame_velocity.Z);
-	int target_distance = coord.Distance_To(target_coord);
-	int horizontal_distance = Point2D(coord).Distance_To(Point2D(target_coord));
+		Coord delta = target_coord - coord;
 
-	Coord delta = target_coord - coord;
+		TVelocity3D<double> target_direction;
+		target_direction = TVelocity3D<double>(delta.X, delta.Y, delta.Z);
 
-	/*
-	 * Declared and then assigned, not copy-initialized: the temporary is built
-	 * and block-copied into the local.
-	 */
-	TVelocity3D<double> target_direction;
-	target_direction = TVelocity3D<double>(delta.X, delta.Y, delta.Z);
+		DirType desired_yaw = velocity.Get_Yaw();
+		desired_yaw.Turn(target_direction.Get_Yaw(), rot);
+		velocity.Set_Yaw(desired_yaw);
 
-	DirType desired_yaw = velocity.Get_Yaw();
-	desired_yaw.Turn(target_direction.Get_Yaw(), rot);
-	velocity.Set_Yaw(desired_yaw);
+		DirType desired_pitch = velocity.Get_Pitch();
 
-	DirType desired_pitch = velocity.Get_Pitch();
+		if (!aircraft && (airburst || horizontal_distance > ((veryhigh ? 6 : 3) * CELL_LEPTON)) && rot.As_Dir256() > 1) {
+			TVelocity3D<double> lookahead_velocity(velocity);
+			Coord lookahead_coord = coord + Point3D(lookahead_velocity.X, lookahead_velocity.Y, lookahead_velocity.Z) * 6;
 
-	if (!aircraft && (airburst || horizontal_distance > ((veryhigh ? 6 : 3) * CELL_LEPTON)) && rot.As_Dir256() > 1) {
-		TVelocity3D<double> lookahead_velocity(velocity);
-		Coord lookahead_coord = coord + Point3D(lookahead_velocity.X, lookahead_velocity.Y, lookahead_velocity.Z) * 6;
+			int terrain_height = Map.Get_Height_GL(lookahead_coord);
+			if (Map[lookahead_coord].IsUnderBridge) {
+				terrain_height += BRIDGE_LEPTON_HEIGHT;
+			}
 
-		int terrain_height = Map.Get_Height_GL(lookahead_coord);
-		if (Map[lookahead_coord].IsUnderBridge) {
-			terrain_height += BRIDGE_LEPTON_HEIGHT;
+			int cell_distance = target_distance / CELL_LEPTON;
+			if (airburst || veryhigh) {
+				cell_distance = 10;
+			} else if (cell_distance >= 5) {
+				cell_distance = 5;
+			}
+
+			if (!level) {
+				int height_delta = coord.Z - LEVEL_LEPTON_H * cell_distance - terrain_height;
+				if (height_delta < -20) {
+					coord.Z += 18;
+				} else if (height_delta > 20) {
+					coord.Z -= 18;
+				}
+
+				if (height_delta < -(LEVEL_LEPTON_H / 2)) {
+					desired_pitch.Turn(DirType(DIR_NE), rot / 2);
+				} else if (height_delta > LEVEL_LEPTON_H / 2) {
+					desired_pitch.Turn(DirType(Dir256(DIR_E + DIR_STEP_32)), rot / 2);
+				} else {
+					desired_pitch.Turn(DirType(DIR_E), rot / 2);
+				}
+			}
+		} else if (!level) {
+			desired_pitch.Turn(target_direction.Get_Pitch(), (rot + DirType(256)) / 2);
 		}
 
-		int cell_distance = target_distance / CELL_LEPTON;
-		if (airburst || veryhigh) {
-			cell_distance = 10;
-		} else if (cell_distance >= 5) {
-			cell_distance = 5;
-		}
+		velocity.Set_Pitch(desired_pitch);
 
-		int height_delta = coord.Z - LEVEL_LEPTON_H * cell_distance - terrain_height;
-		if (height_delta < -20) {
-			coord.Z += 18;
-		} else if (height_delta > 20) {
-			coord.Z -= 18;
-		}
-
-		if (height_delta < -(LEVEL_LEPTON_H / 2)) {
-			desired_pitch.Turn(DirType(DIR_NE), rot / 2);
-		} else if (height_delta > LEVEL_LEPTON_H / 2) {
-			desired_pitch.Turn(DirType(Dir256(DIR_E + DIR_STEP_32)), rot / 2);
+		if (airburst) {
+			delta.Z = 0;
 		} else {
-			DirType level_pitch(DIR_E);
-			DirType turn_rate = rot / 2;
-			desired_pitch.Turn(level_pitch, turn_rate);
+			delta.Z /= 4;
 		}
-	} else {
-		DirType turn_rate = (rot + 256);
-		desired_pitch.Turn(target_direction.Get_Pitch(), turn_rate / 2);
+
+		return(delta.Length());
 	}
-
-	velocity.Set_Pitch(desired_pitch);
-
-	if (airburst) {
-		delta.Z = 0;
-	} else {
-		delta.Z /= 4;
-	}
-
-	return(delta.Length());
 }
 #endif

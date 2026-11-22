@@ -1361,7 +1361,7 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005025c0 has no row); main: best 61.13, tried 7 times (ruling, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: 1979 bytes differ against the image-derived bound 005025c0 (1876 B; ours 2048 B); the blocked exit now copies the occupiers into a DynamicVectorClass and waits (calls as the image there); left: Distance's TPoint3D operator- and both DirType::Direction calls are out of line in the image (ours expands them); main: best 61.13, tried 7 times (ruling, frame, inline)
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
@@ -1424,13 +1424,24 @@ void InfantryClass::Tunnel_AI(void)
 		CellClass * cellptr = &Map[Get_Coord()];
 		ObjectClass * occupier = cellptr->Cell_Occupier();
 		if (Can_Enter_Cell(cellptr, FACING_NONE, 0) != MOVE_OK) {
+
+			/*
+			**	RA2: the exit cell is blocked: every idle vehicle or infantryman there is shooed
+			**	away (from a copy of the occupier list, since scattering relinks it) and the
+			**	infantry waits underground.
+			*/
+			DynamicVectorClass<ObjectClass *> occupiers;
 			while (occupier != NULL) {
-				if (occupier->RTTI == RTTI_UNIT || occupier->RTTI == RTTI_INFANTRY) {
-					if (!((FootClass *)occupier)->Locomotion->Is_Moving()) {
-						occupier->Scatter(Coord(0, 0, 0), true, true);
+				occupiers.Add(occupier);
+				occupier = occupier->Next;
+			}
+			for (int index = 0; index < occupiers.Count(); index++) {
+				ObjectClass * object = occupiers[index];
+				if (object->RTTI == RTTI_UNIT || object->RTTI == RTTI_INFANTRY) {
+					if (!((FootClass *)object)->Locomotion->Is_Moving()) {
+						object->Scatter(Coord(0, 0, 0), true, true);
 					}
 				}
-				occupier = occupier->Next;
 			}
 			Set_Speed(0);
 		} else {

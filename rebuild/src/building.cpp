@@ -5088,65 +5088,71 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
  * HISTORY:                                                                                    *
  *   06/25/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 735 bytes differ (Attack transition, depot customers and idle delays restored)
+#ifdef RA2_NON_MATCHING // not exact: 789 bytes differ (ra2-decomp's Yuri's Revenge text less its gattling and bunker parts; every call the image's but TPoint3D<int>::Length, expanded here and called there, which also aligns the frame; 280 against 252 instructions), 2026-11-22 (lane F25)
 int BuildingClass::Do_MISSION_GUARD(void)
 {
 	if (Is_Weapon_Equipped()) {
 		IsReadyToCommence = true;
 		if (!Class->IsEMPulseCannon) {
-			bool may_attack = Class->SuperWeapon == SUPER_NONE;
-			if (!may_attack) {
-				BuildingTypeClass const * aux = SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding;
-				may_attack = aux != NULL && House->ABQuantity.Value(aux->HeapID) == 0;
+			bool idle = false;
+			if (Class->SuperWeapon != -1 && SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding && House->ABQuantity.Value(SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding->HeapID) == 0) {
+				idle = true;
+			} else if (Class->SuperWeapon == -1) {
+				idle = true;
 			}
-			if (may_attack && (!Class->CanBeOccupied || Occupants.Count() > 0) && TarCom != NULL) {
-				Assign_Mission(MISSION_ATTACK);
-				Commence();
-				return(1);
-			}
-		}
-		return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
-	}
-	if (Class->IsHasStupidGuardMode) {
-		return(100);
-	}
-
-	enum { INITIAL_ENTRY, IDLE };
-	switch (Status) {
-		case INITIAL_ENTRY:
-			Begin_Mode(BSTATE_IDLE);
-			Status = IDLE;
-			break;
-
-		case IDLE:
-			if (Class->IsCanUnitRepair || Class->IsCanUnitReload) {
-				// RA2: A customer may be in any radio slot of a service depot.
-				for (int index = 0; index < RadioLinks.Length(); index++) {
-					TechnoClass * customer = Radio_Link(index);
-					if (customer != NULL && customer->Is_Techno() && customer->Get_Mission() == MISSION_ENTER) {
-						Coord distance = Center_Coord() - customer->Center_Coord();
-						if (distance.Length() < CELL_LEPTON / 4 && Transmit_Message(RADIO_NEED_TO_MOVE, customer) == RADIO_ROGER) {
-							Assign_Mission(MISSION_REPAIR);
-							return(1);
-						}
+			if (idle) {
+				if (!Class->CanBeOccupied || GetOccupantCount() > 0) {
+					if (TarCom != NULL) {
+						QueueMission(MISSION_ATTACK, false);
+						Commence();
+						return(1);
 					}
 				}
 			}
-			if (Class->IsWeaponsFactory) {
-				Clear_Weapons_Factory_Bib();
-			}
-			break;
-	}
+		}
+	} else {
+		if (Class->IsHasStupidGuardMode) {
+			return(100);
+		}
 
-	if (Class->IsCanUnitReload && HasAnyLink() && Transmit_Message(RADIO_PREPARED) != RADIO_ROGER
-			&& Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
-		Assign_Mission(MISSION_REPAIR);
+		switch (Status) {
+			case 0:
+				Begin_Mode(BSTATE_IDLE);
+				Status = 1;
+				break;
+
+			case 1:
+				if (Class->IsCanUnitRepair || Class->IsCanUnitReload) { // RA2: no bunkers
+					for (int index = 0; index < RadioLinks.Length(); index++) {
+						TechnoClass * contact = Radio_Link(index); // RA2: a customer may be in any radio slot of a service depot
+						if (contact != NULL && contact->Is_Techno() && contact->Mission == MISSION_ENTER && Distance_To(contact) < CELL_LEPTON / 4) {
+							if (Transmit_Message(RADIO_NEED_TO_MOVE, contact) == RADIO_ROGER) {
+								QueueMission(MISSION_REPAIR, false);
+								return(1);
+							}
+						}
+					}
+				}
+				if (Class->IsWeaponsFactory) {
+					Clear_Weapons_Factory_Bib();
+				}
+				break;
+
+			default:
+				break;
+		}
+
+		if (Class->IsCanUnitReload && HasAnyLink()) {
+			if (Transmit_Message(RADIO_PREPARED) != RADIO_ROGER && Transmit_Message(RADIO_NEED_TO_MOVE) == RADIO_ROGER) {
+				QueueMission(MISSION_REPAIR, false);
+			}
+		}
+		if (Class->IsCanUnitRepair) {
+			return(Current_Mission_Control().Normal_Delay() + Random_Pick(0, 2));
+		}
+		return(Current_Mission_Control().Normal_Delay() * 3 + Random_Pick(0, 2));
 	}
-	int delay = Current_Mission_Control().Normal_Delay();
-	if (!Class->IsCanUnitRepair) {
-		delay *= 3;
-	}
-	return(delay + Random_Pick(0, 2));
+	return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
 }
 #endif
 
@@ -6288,7 +6294,7 @@ int BuildingClass::Do_MISSION_REPAIR(void) // RA2: ra2-decomp's twin text (src/b
  * HISTORY:                                                                                    *
  *   07/04/1995 JLB : Commented.                                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00448400 has no row)
+#ifdef RA2_NON_MATCHING // not exact: 18 bytes differ against the image-derived bound 00448400 (3036 B, same size): ra2-decomp's text (RA2 has the PSIWARN anim, Set_Weapon_Type, the take-off anim, the recoil and PlayAt); left: the take-off velocity's first sin/cos pair evaluates in the other order, one push scheduled before the warhead load, and Set_Speed's first product commuted
 int BuildingClass::Do_MISSION_MISSILE(void)
 {
 	if (Class->IsNukeSilo) {
@@ -6310,7 +6316,8 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 				IsReadyToCommence = false;
 				Begin_Mode(BSTATE_ACTIVE);	// open the door
 				Status = DOOR_OPENING;
-				return(1);
+				PsiWarnAnim = Create_Attached_Anim(House, &Map[House->NukeDest], NULL, "PSIWARN"); // RA2: the psychic warning over the target (ra2-decomp's HouseClass::PsiWarn)
+				// RA2: falls through
 
 			/*
 			**	This polls for the case when the door is actually open and
@@ -6320,9 +6327,8 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 				if (IsReadyToCommence) {
 					Begin_Mode(BSTATE_AUX1);	// hold the door open
 					Status = LAUNCH_UP;
-					return(14);
 				}
-				return(1);
+				// RA2: falls through
 
 			/*
 			**	Once the smoke has been going for a little while this
@@ -6330,30 +6336,32 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 			*/
 			case LAUNCH_UP:
 				{
-					//Cell center = Center_Coord().As_Cell();
 					Cell center = Center_Coord();
-					//Cell cell = Cell( Cell_X(center), 1);
 					AbstractClass * targ = &Map[House->NukeDest];
 					WeaponTypeClass const * weap = SuperWeaponTypes[LastSuperWeaponIndex]->Weapon;
 					BulletTypeClass const * bullet_type = weap->Bullet;
 					WarheadTypeClass const * warhead = weap->WarheadPtr;
-					MPHType max_speed = weap->MaxSpeed;
-					BulletClass * bullet = bullet_type->Create_Bullet(targ, this, 200, warhead, max_speed, true); // RA2: a BulletTypeClass member, no range
+					int strength = weap->Attack; // RA2: the weapon's damage, at full speed (ra2-decomp)
+					BulletClass * bullet = bullet_type->Create_Bullet(targ, this, strength, warhead, 255, true); // RA2: a BulletTypeClass member, no range
 					if (bullet) {
+						bullet->Set_Weapon_Type((WeaponTypeClass *)weap); // RA2
+						if (PsiWarnAnim != NULL) { // RA2: the warning follows the missile from now on
+							PsiWarnAnim->Set_Attached_Bullet(bullet);
+							PsiWarnAnim = NULL;
+						}
 						bullet->Limbo();
-						Coord launch = Move_Coord(Center_Coord(), DIR_N, 5 * CELL_LEPTON / 8);
+						Coord launch = Fire_Coord(0); // RA2: from the silo's fire coordinate
 						/*
 						 * The nuke takes off straight up (pitch DIR_N).
 						 */
-						if (!bullet->Unlimbo(launch, TVelocity3D<double>(DirType(DIR_N), DirType(DIR_N), 100))) {
+						if (!bullet->Unlimbo(launch, TVelocity3D<double>(DirType(DIR_N), DirType(DIR_N), 10))) {
 							delete bullet;
 							bullet = NULL;
 						} else {
-							if (!House->Is_Player_Control()) {
-								Speak(VOX_MISSILE_LAUNCH_DETECTED);
-							}
-							Status = LAUNCH_DOWN;
+							AnimClass * anim = new AnimClass(Rule->NukeTakeOff, launch); // RA2: the take-off flash
+							anim->ZAdjust = -100;
 						}
+						Status = LAUNCH_DOWN;
 					}
 				}
 				return(1);
@@ -6374,11 +6382,15 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 			*/
 			case DONE_LAUNCH:
 				Begin_Mode(BSTATE_IDLE);	// keep the door closed.
-				Assign_Mission(MISSION_GUARD);
+				QueueMission(MISSION_GUARD, false);
 				return(4 * TICKS_PER_SECOND);
 		}
 	}
 
+	if (LastSuperWeaponIndex != -1) { // RA2: a missile without a silo state fires at once (ra2-decomp)
+		Fire_At(&Map[House->NukeDest], 0);
+		QueueMission(MISSION_GUARD, false);
+	}
 
 	if (Class->IsEMPulseCannon) { // RA2: no SUPER_CHEM_MISSILE (not in RA2's layout)
 		enum {
@@ -6410,7 +6422,14 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 				Status = FIRE;
 				return(32);
 
+			case DONE:
+				BarrelPitch.Set_Desired(DIR_E);
+				Begin_Mode(BSTATE_IDLE);	// keep the door closed.
+				QueueMission(MISSION_GUARD, false);
+				return(4 * TICKS_PER_SECOND);
+
 			case FIRE: {
+				Coord ucoord;
 					WeaponTypeClass const * weap = PrimaryWeapon;
 					CellClass * targ = &Map[House->EMPDest];
 					CellClass * targ2 = &Map[House->EMPDest];
@@ -6430,7 +6449,7 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 						velocity.Set_Yaw(yaw);
 						velocity.Set_Speed(speed);
 
-						Coord ucoord = Turret_Coord();
+					ucoord = Turret_Coord();
 						Coord disp = targ2->Center_Coord() - ucoord;
 						int distance2 = disp.X * disp.X + disp.Y * disp.Y;
 
@@ -6447,35 +6466,25 @@ int BuildingClass::Do_MISSION_MISSILE(void)
 						velocity.Set_Pitch(pitch);
 
 						if (valid && bullet->Unlimbo(ucoord, velocity)) {
-							if (Get_Class_Weapon_Data(0)->BarrelLength > 0) {
-								bullet->AI();
-								if (bullet->IsActive) {
-									bullet->AI();
-								}
+						if (Is_Turret_Equipped() && Techno_Type_Class()->TurretRecoil) { // RA2: the recoil replaces IsInRecoilState
+							TurretRecoil.Fire();
+							BarrelRecoil.Fire();
 							}
-
-							if (Is_Turret_Equipped()) {
-							} // RA2: no IsInRecoilState (not in RA2's layout)
-							Sound_Effect((VocType)weap->Sound.Pick(NonCriticalRandomNumber), Fire_Coord(0));
+						VocClass::PlayAt(weap->Sound.Pick(NonCriticalRandomNumber), Fire_Coord(0)); // RA2
 							Status = DONE;
 							return(1);
 						} else {
 							bullet->Release();
 							Begin_Mode(BSTATE_IDLE);	// keep the door closed.
-							Assign_Mission(MISSION_GUARD);
+						QueueMission(MISSION_GUARD, false);
 							return(4 * TICKS_PER_SECOND);
 						}
 					}
 				}
 				Begin_Mode(BSTATE_IDLE);	// keep the door closed.
-				Assign_Mission(MISSION_GUARD);
+				QueueMission(MISSION_GUARD, false);
 				return(4 * TICKS_PER_SECOND);
 
-			case DONE:
-				BarrelPitch.Set_Desired(DIR_E);
-				Begin_Mode(BSTATE_IDLE);	// keep the door closed.
-				Assign_Mission(MISSION_GUARD);
-				return(4 * TICKS_PER_SECOND);
 		}
 	}
 

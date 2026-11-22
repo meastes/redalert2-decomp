@@ -2650,6 +2650,40 @@ range do not count, and any reference inside the stretch resets the count. The w
   Do_Reinforcements 0x639970), the original reaches the callee through a different helper level or form (lanes R15, R17).
 - In a chain of `||` tests that each build an offset, the last operand before the Center_Coord call is the one
   expanded: a sixth test in AircraftClass::Fire_At 0x415790 moves the expansion to it (lane R12).
+- Found in the rebuild (lane F22, high): two texts with the same final instructions can share frame slots
+  differently: a store repeated in both arms of an `if`/`else` is merged into one again, yet the layout changes
+  (not isolated in a lab; the likely cause is the variable's reference count at layout time). WOL_Wait_Callback
+  0x73E100 was 23 bytes of slot numbers only (601 = 601 instructions, every call agreeing) with its two lookup blocks
+  written alike. ra2-decomp's twin writes the second block's link `if (last_user == NULL) { list = new_user; last_user
+  = new_user; } else { last_user->next = new_user; last_user = new_user; }` and the first with the archive's single
+  trailing assignment; the code is the same 601 instructions either way, and with the twin's form the image's
+  sharing follows (both Wstring names in one slot, the ping handle with the first list).
+  When a slot-only miss has two sibling blocks, read the twin for a statement repeated in both arms of one of them.
+- Found in the rebuild (lane F22, high): which of two `memory + register` sums of a compare is loaded first in an
+  expanded helper is a tie the caller's locals decide, not the helper's text. Union's `result.X+result.Width <
+  rect2.X+rect2.Width` (trect.h, the same text in TibSun, ra2-decomp, mischa85 and Red Alert) loads rect2's sum first
+  out of line (0x45EFE0) and wherever one sum is register plus register; where both are memory plus register the
+  order moved with the caller's tail in BuildingTypeClass::Get_Draw_Rect 0x45E290 (ra2-decomp's named `Rect
+  drawrect` filled member by member: the image; two int locals passed to a Rect temporary: the other order, 5 bytes;
+  the archive's `Rect(x, y, rect.Width, rect.Height)`: 17). File-scope declaration counts (lane F9) and named ints
+  added inside one arm (Damage_Low_Bridge_EW 0x55DEF0 probes, still 5 bytes) do not move it. A YR twin that is matched
+  with the same text can show the other order at the same site (YR 0x57BCF0), so check the twin's image before
+  taking its text as evidence for the order.
+- Found in the rebuild (lane F22, high): two expansions of one member in one function can order the same subtraction
+  chain differently, and no spelling of the member reaches the odd one. SidebarClass::Activate 0x67E210 expands the
+  row count in both arms; the if arm, where a second chain shares Height and StripTop in registers, subtracts
+  StripTop before the side's extra as Get_Row_Count 0x6820A0 does out of line; the else arm's lone chain subtracts
+  the extra first. Seventeen member and open-coded spellings of the twin's shape and five spellings of the two row
+  members leave our else arm in the out-of-line order (58 bytes, three instructions). Find which arm a chain
+  difference is in from the calls around it before reading the dossier's hunk as the first site in source order.
+- Found in the rebuild (lane F22, high): a helper whose out-of-line body is exact two ways is decided by its callers'
+  sites. MapClass::Spring_Low_Bridge2_Destroyed_EW 0x55FB90 is the image with `while (Is_Low_Bridge2(tmp))` and with
+  the range test written in place (`overlay = Map[tmp].Overlay; } while (overlay >= 0xCD && overlay <= 0xE8)`,
+  ra2-decomp's shape for the first kind): the image expands the predicate inside it either way. But the predicate
+  form is small enough to be expanded into Damage_Low_Bridge2_EW 0x55F020 (the predicate then left as a call, 34
+  calls for 27, 1,214 bytes off), while the in-place form stays a call there as in the image (5 bytes left). When a
+  draft shows a callee's inner calls where the image has one call to the callee, respell the callee's inner helper
+  uses in place before spending the caller's budget.
 
 ## Literals, function statics and data order (found in the rebuild, lanes R10, R22, R25)
 
@@ -3814,3 +3848,114 @@ Found in the rebuild (lane F20, high):
   sites sit at different shares of one budget, so a single root spend cannot answer both; the next thing to
   measure is each expanded Refresh_Buddy_Status copy on its own (N_i at the timer case and at the refresh
   button).
+
+## A twin text newer than the dossier is the first thing to try; missing nested calls are the root's other inline sites (found in the rebuild (lane F24, high))
+
+Found in the rebuild (lane F24, high):
+
+- Before working a parked row from its dossier, look at the reference checkouts' history for the function
+  (`git log -L<start>,<end>:src/<unit>.cpp` in private/reference/ra2-decomp, or its "Record the Nth set" commits):
+  ra2-decomp lands matched Yuri's Revenge twins daily, and a dossier or twin table written before such a commit
+  still ranks hand-made leads. map MapClass::Reset_Subzone 0x563D80 (1,287 bytes) and techno
+  TechnoClass::Draw_Link_Line 0x6D0990 (1,059 bytes) were exact on the first compile of twin texts two days old.
+- Reset_Subzone shows what "the image calls a nested constructor, an operator= and a Clear that ours expands"
+  means when the statement itself is right. `track->Add(SubzoneTrackingStruct())` is the same in the archive's
+  text and in the twin's; under the archive's text VC6 expands the struct's constructor down to
+  VectorClass's, the struct's operator= and the temporary's Clear, and under the twin's it keeps
+  DynamicVectorClass<SubzoneConnectionStruct>(unsigned, T const *), SubzoneTrackingStruct::operator= and
+  VectorClass::Clear as calls, as the image does. The twin differs only elsewhere in the root: `set->Clear()` for
+  the open-coded bucket loop, `Rect bounds(0, 0, w, w)`, `Cell(X, Y)` at two uses, `Cell_Region(Cell(X, Y))`, a
+  bucket reference, `SubzoneConnectionStruct conn(id)`. A lead that says "write the assignment through the outer
+  type" is then the wrong edit: count the root's accessor and constructor sites against the twin first.
+- A row on the variation list can still have an ordinary route once its twin is matched: map MapClass::Zone_Span
+  0x54F250 (1,386 bytes; main reached it only through a threaded Add specialisation with a dummy flag) is exact with
+  the twin's text, which fills one `ObjectType connection` local by hand and calls the two-argument
+  `Add_Object(bucket_index, object)`. Check the twin's history before treating a variation row as closed.
+- Vector3::Cross_Product's two forms differ in budget, not only in code: in techno Railgun_Beam_Damage 0x6D6ED0 the
+  three-argument form (`Vector3 cross; Vector3::Cross_Product(off, delta, &cross);`) gives the image's
+  floating-point order where the by-value form leaves 19 bytes, and it also frees enough of the root's budget that
+  the local vector's destructor at the return is expanded where the image calls it (0x40CCB0). Two things were
+  being traded against each other in one statement; the row needs the three-argument form plus the charged sites
+  the original has elsewhere.
+- Sizing a missing-site count with discarded accessor statements: in Railgun_Beam_Damage, with the twin's whole text,
+  one or two extra `coord.As_Cell();` statements ahead of the loop (scratch probes, never a landing form) make the
+  function exact, and three or more break it again: the window is two sites wide, so the original has one or two
+  more charged sites than the twin's Yuri's Revenge text. A member-returning accessor does not count (an if/else
+  over Cell_Bridge_Occupier() and Cell_Occupier() in place of Cell_Occupier(bool) changes nothing), and an extra
+  level inside an already expanded helper did not count here either (Percent_Chance written through Random_Pick,
+  at either site or both). Probe with a callee that computes something, and expect the window to be narrow.
+## Two sites that answer a root spend in the wrong order; a spent root that still expands a distance; bind a parked draft's template copies first (found in the rebuild (lane F23, high))
+
+- When two sites of the same nested callee differ from the image, probe the root before choosing forms, and read
+  the order in which they flip. wdtsel Do_Target_Anim 0x72E780: the image expands `~CDFileClass` inside the first
+  `CCFileClass file` destructor (+0x285) and calls it (0x51AD10) at the second (+0x38F); ours calls it at both.
+  Out-of-line call statements at the top (8 units of root budget each): one, two: no change; four: the second
+  site expands and the first stays a call; eight: both expand. The later site has fewer candidate sites after
+  it, so it gets the larger share and flips first: no root spend gives "first expanded, second called". That
+  pattern needs more charge between the two sites or more candidate sites after the second, so look at the
+  callees expanded between them and at the statements after the second, not at the function's total. Opening
+  the first statement's inline (`Remove_Target_Anims()` written out as the archive has it) overshoots at once:
+  the teardown's cursor constructor and `operator->` expand where the image calls them, so that level is right.
+  Measured afterwards: the pattern is two fewer candidate sites between the destructors and a slightly wordier
+  root. With the second file's name read without its inline accessor at both places (main's direct member read;
+  the member is private here, probed with access opened) one to six pad statements give the image's pair and
+  none does not; the archive's `if (anim != NULL) { delete anim; }` in place of the pads leaves 2 bytes, the X
+  operands of the target sum. One accessor site less (a named reference) is not enough, and passing `target.X`
+  directly together with the member `Target` makes the root less wordy and loses the pair again. A redundant
+  test the archive writes before a `delete` changes no code and still counts in the root's size.
+- A root that refuses small charged members can still show a fully expanded distance later. BulletClass::AI
+  0x45F710: from the ballistic branch on the image expands Coord's constructor but calls TPoint3D's inside it
+  (+0xCE2), calls `TVelocity3D::operator+=` (0x4642A0), the next `Coord(int, int, int)` whole (0x434820) and
+  Vector3's constructor and `operator*=`; the two distances after that (+0x1212, +0x163A) are expanded
+  completely, differences stored member by member with no `operator-` or constructor call. By the decision rule
+  a spent root refuses `operator-` inside `Distance_To`, so those two are not the archive's `Distance_To`
+  chain: they are written out in the body or go through a helper whose pieces are all free (HouseClass::
+  Where_To_Place_Building's cloak-generator distance has the same shape). Size such a site by what the root
+  refused just before it before restoring the archive's accessor there.
+- The archive's accessor level at an early site can be right and still score worse until the spend before it
+  is right. The same function's rate-of-turn test with `Center_Coord().Distance_To(target_coord)` (archive
+  bullet.cpp:457) turns the site from all-expanded into Length called and the constructor expanded; the image
+  has the constructor called and Length expanded, which the same text gives once nine `TPoint3D<int>(0, 0, 0);`
+  pads stand at the top (one, two, four and six: no change). So the text before the test is seven to nine
+  constructor expansions cheaper than the image's; the accessor goes back in together with whatever supplies
+  that, not alone.
+- Before reading a parked draft's byte count, bind the template copies only it calls. With its guard open the
+  unit's object emits them; where a copy is byte-identical to the bound row at the address the image calls
+  (wdtsel: `VectorClass<MSAnim *>(int, T const *)` 0x730470 and `VectorCursor<MSSfxEntry *>(V &, int)` 0x730340,
+  both rows on main, the first under a seed name), the name goes to symbols.csv with that evidence and the
+  draft's remaining difference is code alone (six hunks became three).
+- HouseClass::Where_To_Place_Building 0x4F03C0: with main's body in the tree's names the frame size and every
+  call agree and the miss is one place in a tie: the sixteen Cell temporaries of the two static tables and the
+  `base_cell + offset + scan_offsets[facing]` temporary take the same slots in another order, most of them one
+  place off (image 0x80, 0x5C, 0xB4, 0xB0, 0x7C ..; ours 0x80, 0x58, 0xB4, 0xB0, 0x5C ..). Copy-initialised
+  Cells and Coords change the frame size and score worse. A shifted tie order with the same slot set points at
+  one temporary's reference count or creation place (the Scout680 rule), which a /FAs variable map shows
+  directly; spellings of the statements do not reach it.
+
+## A 16-bit global is loaded as a dword only where the compiler knows its place: extern scalars stay 16-bit, extern array elements widen (found in the rebuild (lane F25, high))
+
+Found in the rebuild (lane F25, high):
+
+- Under /G5 VC6 reads an `unsigned short` global with a 32-bit load (`mov eax, dword ptr [g]`, then
+  `and r, 0xffff` or a 32-bit `and`) when it may read four bytes there, and with a 16-bit load (`mov ax, word
+  ptr [g]`, zero-extended as `xor r, r` / `mov r16, ax`) when it may not. What decides is the declaration the
+  unit sees, not the use: (a) an `extern unsigned short g;` scalar is never widened; (b) element 0 of an
+  `extern unsigned short g[];` array is widened (element 1, two bytes in, is not); (c) a scalar the unit itself
+  defines with an initialiser is widened when it lies at a multiple of four in the unit's data and not when it
+  lies two bytes in; (d) defined without an initialiser the first two masks lost seven ownrdraw rows (measured as rows, not
+  load by load).
+- So the load width of one global across the image tells how it is declared. Survey every reference to the
+  address (raw search for the four address bytes, the 0x66 prefix before the opcode): OwnerDraw's three colour
+  masks at 0xA763DC / DE / E0 are read as dwords at DC and E0 only inside ownrdraw's own functions (20 sites),
+  never at DE, and never in egos (Show_Credits) or srfcache, which only expand the inline Blend_Color. That is
+  three scalars defined together with initialisers in ownrdraw.cpp and declared `extern` in the header; the
+  tree's two-entry array for the first two (main's form, mischa85's copy of it) reproduced ownrdraw's rows but
+  widened the DC load in every other unit that expands Blend_Color.
+- egos Show_Credits 0x4B37C0 (2,924 B; main's best 99.54 in ten tries, "frame, register, order"): the 22
+  differing instructions were all this one load in the two expanded Blend_Color copies (and the scheduling that
+  follows from it). With the three scalars the function is exact as it stood; ownrdraw keeps 229 rows, srfcache
+  16, and the other 39 includers of ownrdraw.h do not move. The `(unsigned int)` cast main carried on the red
+  mask in Shade_Edges' two halving expressions does nothing and is gone.
+- When a parked row's residue is `mov r, dword ptr [g]` + `and r, 0xffff` against a 16-bit load of the same
+  address (or the reverse), look at the declaration of g before the expression: array or scalar, defined here or
+  extern, initialised or not.

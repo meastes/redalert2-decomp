@@ -3526,7 +3526,6 @@ int SubzoneHash(unsigned int const & key)
  *   09/25/1995 JLB : Created.                                                                 *
  *   10/05/1996 JLB : Examines crushable walls.                                                *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ (TibSun end_zone kept; reusing begin_zone for the end zone gives 4)
 int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 {
 	CellZoneStruct * begin = data;
@@ -3534,6 +3533,7 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 	int passability = data->Passability;
 	bool nopass = passability == PASSABLE_NO;
 	int cell_height = data->Height;
+	ZONE_PAIR_HASH_SET::ObjectType connection;
 
 	/*
 	**	Find the full extent of the current span by first scanning leftward
@@ -3550,7 +3550,9 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 
 	int begin_zone = begin->ZoneID;
 	if (begin_zone != 0 && (abs(begin->Height - cell_height) < 2 || nopass) && begin_zone != LastAdjacentZone && begin_zone != (unsigned short)zone) {
-		ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(begin_zone, (unsigned short)zone));
+		connection.Key = (unsigned short)zone | ((unsigned int)begin_zone << 16);
+		connection.Value = connection.Key;
+		ZoneAdjacency->Add_Object(((unsigned short)zone & 0xF) | ((begin_zone & 0xF) << 4), connection);
 		LastAdjacentZone = begin_zone;
 	}
 
@@ -3568,10 +3570,12 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 		end++;
 	}
 
-	int end_zone = end->ZoneID;
-	if (end_zone != 0 && (abs(end->Height - cell_height) < 2 || nopass) && end_zone != LastAdjacentZone && end_zone != (unsigned short)zone) {
-		ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(end_zone, (unsigned short)zone));
-		LastAdjacentZone = end_zone;
+	begin_zone = end->ZoneID;
+	if (begin_zone != 0 && (abs(end->Height - cell_height) < 2 || nopass) && begin_zone != LastAdjacentZone && begin_zone != (unsigned short)zone) {
+		connection.Key = (unsigned short)zone | ((unsigned int)begin_zone << 16);
+		connection.Value = connection.Key;
+		ZoneAdjacency->Add_Object(((unsigned short)zone & 0xF) | ((begin_zone & 0xF) << 4), connection);
+		LastAdjacentZone = begin_zone;
 	}
 
 	int filled = end - begin - 1;
@@ -3610,7 +3614,9 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 			}
 		} else {
 			if (zzone != (unsigned short)zone && zzone != LastAdjacentZone && (abs(fbegin->Height - adjacent->Height) < 2 || nopass)) {
-				ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(zzone, (unsigned short)zone));
+				connection.Key = (unsigned short)zone | ((unsigned int)zzone << 16);
+				connection.Value = connection.Key;
+				ZoneAdjacency->Add_Object(((unsigned short)zone & 0xF) | ((zzone & 0xF) << 4), connection);
 				LastAdjacentZone = zzone;
 			}
 			fbegin++;
@@ -3641,7 +3647,9 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 			}
 		} else {
 			if (id != (unsigned short)zone && id != LastAdjacentZone && (abs(fbegin2->Height - adjacent->Height) < 2 || nopass)) {
-				ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(id, (unsigned short)zone));
+				connection.Key = (unsigned short)zone | ((unsigned int)id << 16);
+				connection.Value = connection.Key;
+				ZoneAdjacency->Add_Object(((unsigned short)zone & 0xF) | ((id & 0xF) << 4), connection);
 				LastAdjacentZone = id;
 			}
 			fbegin2++;
@@ -3650,7 +3658,6 @@ int MapClass::Zone_Span(CellZoneStruct * data, int zone, int & skip)
 
 	return(filled);
 }
-#endif
 
 
 /// <summary>
@@ -9643,7 +9650,7 @@ bool MapClass::Damage_Low_Bridge2(Cell const & cell) // RA2: 0x55EDB0, as Damage
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f020 has no row); main: best 98.73, tried 4 times (inline, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f020 has no row); main: best 98.73, tried 4 times (inline, frame); 5 of 1308 bytes differ against the frozen image bound (image_bounds.csv): the load order of the two right edges in the expanded Union, 2026-11-22 (lane F22)
 bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Damage_Low_Bridge_EW for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
@@ -9715,7 +9722,7 @@ bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Dam
 #endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f540 has no row); main: best 98.73, tried 4 times (inline, frame)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f540 has no row); main: best 98.73, tried 4 times (inline, frame); 5 of 1308 bytes differ against the frozen image bound (image_bounds.csv): the load order of the two right edges in the expanded Union, 2026-11-22 (lane F22)
 bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Damage_Low_Bridge_NS for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
@@ -9747,9 +9754,9 @@ bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Dam
 			Damage_Low_Bridge2_Piece_NS(cell - Cell(0, 1)); // RA2: as above
 			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, 1)); // RA2: as above
 		} else if (otype < 0xDF) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0x142; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0x142; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0x142; // RA2: as above
+			cellptr2->Overlay = (OverlayType)0xE8; // RA2: as above
+			cellptr3->Overlay = (OverlayType)0xE8; // RA2: as above
+			cellptr1->Overlay = (OverlayType)0xE8; // RA2: as above
 			Map.Radar_Background(cellptr2->CellID); // RA2: as above
 			Map.Radar_Background(cellptr3->CellID); // RA2: as above
 			Map.Radar_Background(cellptr1->CellID); // RA2: as above
@@ -9790,16 +9797,19 @@ bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Dam
 void MapClass::Spring_Low_Bridge2_Destroyed_NS(Cell cell) // RA2: 0x55FA60, as Spring_Low_Bridge_Destroyed_NS for the second low bridge kind
 {
 	Cell tmp = cell; // RA2: as above
+	OverlayType overlay; // RA2: the range is tested in place, as ra2-decomp's twin writes the first kind (its Spring_Low_Bridge_Destroyed_NS/_EW)
 	do { // RA2: as above
 		tmp = Adjacent_Cell(tmp, FACING_N); // RA2: as above
-	} while (Is_Low_Bridge2(tmp)); // RA2: as above
+		overlay = Map[tmp].Overlay; // RA2: as above
+	} while (overlay >= 0xCD && overlay <= 0xE8); // RA2: as above
 
 	Cell start = Adjacent_Cell(tmp, FACING_S); // RA2: as above
 
 	tmp = cell; // RA2: as above
 	do { // RA2: as above
 		tmp = Adjacent_Cell(tmp, FACING_S); // RA2: as above
-	} while (Is_Low_Bridge2(tmp)); // RA2: as above
+		overlay = Map[tmp].Overlay; // RA2: as above
+	} while (overlay >= 0xCD && overlay <= 0xE8); // RA2: as above
 
 	Cell end = Adjacent_Cell(tmp, FACING_N); // RA2: as above
 
@@ -9810,16 +9820,19 @@ void MapClass::Spring_Low_Bridge2_Destroyed_NS(Cell cell) // RA2: 0x55FA60, as S
 void MapClass::Spring_Low_Bridge2_Destroyed_EW(Cell cell) // RA2: 0x55FB90, as Spring_Low_Bridge_Destroyed_EW for the second low bridge kind
 {
 	Cell tmp = cell; // RA2: as above
+	OverlayType overlay; // RA2: the range is tested in place, as ra2-decomp's twin writes the first kind (its Spring_Low_Bridge_Destroyed_NS/_EW)
 	do { // RA2: as above
 		tmp = Adjacent_Cell(tmp, FACING_W); // RA2: as above
-	} while (Is_Low_Bridge2(tmp)); // RA2: as above
+		overlay = Map[tmp].Overlay; // RA2: as above
+	} while (overlay >= 0xCD && overlay <= 0xE8); // RA2: as above
 
 	Cell start = Adjacent_Cell(tmp, FACING_E); // RA2: as above
 
 	tmp = cell; // RA2: as above
 	do { // RA2: as above
 		tmp = Adjacent_Cell(tmp, FACING_E); // RA2: as above
-	} while (Is_Low_Bridge2(tmp)); // RA2: as above
+		overlay = Map[tmp].Overlay; // RA2: as above
+	} while (overlay >= 0xCD && overlay <= 0xE8); // RA2: as above
 
 	Cell end = Adjacent_Cell(tmp, FACING_W); // RA2: as above
 
@@ -14108,26 +14121,23 @@ void MapClass::Ice_Solidification_AI(void)
 /// routine when the map has changed too much to be patched cell by cell.
 /// </summary>
 /// <param name="subzone">The subzone level to rebuild.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00563d80 has no row); main: best 76.89, tried 6 times (register, frame, order)
 void MapClass::Reset_Subzone(int subzone)
 {
 	/*
 	 * Clear out every bucket of the connection hash set for this subzone level.
 	 */
+	CellSubzoneStruct * subend = &CellSubzones[CellZoneCount];
 	SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[subzone];
 	DynamicVectorClass<SubzoneTrackingStruct> * track = &SubzoneTracking[subzone];
-	CellSubzoneStruct * subend = &CellSubzones[CellZoneCount];
-	for (int bucket = 0; bucket < set->NumBuckets; bucket++) {
-		set->Buckets[bucket].Clear();
-	}
+	set->Clear();
 
 	/*
 	 * Reset the per-cell subzone identifiers for this level and refresh the
 	 * cached zone id and height from the master zone array.
 	 */
 	CellSubzoneStruct * subptr = CellSubzones;
+	CellZoneStruct * zoneptr = CellZones;
 	if (subptr < subend) {
-		CellZoneStruct * zoneptr = CellZones;
 		do {
 			subptr->SubzoneID[subzone] = 0;
 			subptr->ZoneID = zoneptr->ZoneID;
@@ -14151,17 +14161,12 @@ void MapClass::Reset_Subzone(int subzone)
 	 * passable cell is found, flood fill a new subzone from it and record the
 	 * resulting subzone in the tracking list.
 	 */
-	Rect bounds;
-	bounds.Width = 1 << (subzone + 1);
 	subptr = CellSubzones;
-	CellZoneStruct * zoneptr = CellZones;
-	bounds.Height = bounds.Width;
-	int regionmask = bounds.Width - 1;
+	zoneptr = CellZones;
+	int regionmask = (1 << (subzone + 1)) - 1;
 	int rowwidth = Map.PlayRect.Width + Map.PlayRect.Height + 1;
+	Rect bounds(0, 0, 1 << (subzone + 1), 1 << (subzone + 1));
 	int X = 0;
-	bounds.X = 0;
-	bounds.Y = 0;
-	int rowx = 0;
 	int Y = 0;
 	while (subptr < subend) {
 		int passability = zoneptr->Passability;
@@ -14176,13 +14181,9 @@ void MapClass::Reset_Subzone(int subzone)
 			subptr++;
 			zoneptr++;
 			X++;
-			rowx = X;
 		} else {
-			Cell cell;
-			cell.Y = Y;
 			LastAdjacentZone = 0;
-			cell.X = X;
-			int count = Subzone_Span(subptr, subzone, entry_count, bounds, cell);
+			int count = Subzone_Span(subptr, subzone, entry_count, bounds, Cell(X, Y));
 
 			track->Add(SubzoneTrackingStruct());
 
@@ -14190,19 +14191,17 @@ void MapClass::Reset_Subzone(int subzone)
 			added->ParentSubzoneID = (unsigned short)parent;
 			added->Passability = (PassabilityType)passability;
 			added->Connections.Set_Growth_Step(16);
-			added->ThreatRegion = (short)X / REGION_WIDTH + MAP_REGION_WIDTH * ((short)Y / REGION_HEIGHT) + (MAP_REGION_WIDTH + 1);
+			added->ThreatRegion = Cell_Region(Cell(X, Y));
 
-			zoneptr = &zoneptr[count];
 			entry_count++;
-			X = count + rowx;
 			subptr = &subptr[count];
-			rowx = X;
+			zoneptr = &zoneptr[count];
+			X += count;
 		}
 
 		if (X == rowwidth) {
-			X = 0;
 			Y++;
-			rowx = 0;
+			X = 0;
 			bounds.X = 0;
 			bounds.Y = Y - (regionmask & Y);
 		} else if ((X & regionmask) == 0) {
@@ -14222,21 +14221,20 @@ void MapClass::Reset_Subzone(int subzone)
 	 * of each recorded connection into the subzone tracking list.
 	 */
 	for (int bucket_index = 0; bucket_index < 256; bucket_index++) {
-		if (set->Buckets[bucket_index].Count() > 0) {
-			SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &set->Buckets[bucket_index][0];
-			for (int index = set->Buckets[bucket_index].Count(); index > 0; index--) {
+		SUBZONE_CONNECTION_HASH_SET::BucketType & bucket = set->Buckets[bucket_index];
+		if (bucket.Count() > 0) {
+			SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &bucket[0];
+			for (int index = bucket.Count(); index > 0; index--) {
 				unsigned packed = object->Value.SubzoneID;
 				WORD low = LOWORD(packed);
 				WORD high = HIWORD(packed);
 				bool costly = object->Value.IsCrossBlock;
 
-				SubzoneConnectionStruct conn;
-				conn.SubzoneID = high;
+				SubzoneConnectionStruct conn(high);
 				conn.IsCrossBlock = costly;
 				(*track)[low].Connections.Add(conn);
 
-				SubzoneConnectionStruct conn2;
-				conn2.SubzoneID = low;
+				SubzoneConnectionStruct conn2(low);
 				conn2.IsCrossBlock = costly;
 				(*track)[high].Connections.Add(conn2);
 
@@ -14245,7 +14243,6 @@ void MapClass::Reset_Subzone(int subzone)
 		}
 	}
 }
-#endif
 
 
 /// <summary>

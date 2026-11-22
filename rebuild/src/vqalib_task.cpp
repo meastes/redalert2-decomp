@@ -992,22 +992,29 @@ int VQA_GetLoopCount(VQAHandleP *vqap)
 	return(vqap->LoopInfo.Header.Count);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0077c7d0 has no row); 150 of 167 bytes differ against the frozen image bound (image_bounds.csv), 2026-11-22 (lane O32)
 void VQA_Reset(VQAHandle *vqa)
 {
-	VQAHandleP *vqap = (VQAHandleP *)vqa;
+	VQAHandleP * vqap;
+	VQAHeader * header;
+	vqap = (VQAHandleP *)vqa;
+	header = &vqap->Header;
 
+	int stop;
+	int frames = header->Frames;
 	vqap->LoadedFrames = 0;
 	vqap->DrawnFrames = 0;
-	vqap->StopFrame = vqap->Header.Frames - 1;
-	vqap->LoopEndFrameMode2 = vqap->Header.Frames - 1;
-	vqap->LoopEndFrame2 = vqap->Header.Frames - 1;
-	vqap->Audio.Flags &= ~(VQAAUDF_ISREPEATING | VQAAUDF_ISENDOFFILE | VQAAUDF_ISDONE | VQAAUDF_ISSTARVED);
 	vqap->StartTime = 0;
 	vqap->EndTime = 0;
 	vqap->Flags = 0;
 	vqap->LoopIterations = 0;
+	stop = frames - 1;
 	vqap->LoopID = -1;
+	vqap->StopFrame = stop;
+	vqap->LoopEndFrameMode2 = stop;
+	vqap->LoopEndFrame2 = stop;
+
+	unsigned long audio_flags = vqap->Audio.Flags & ~(VQAAUDF_ISREPEATING | VQAAUDF_ISENDOFFILE | VQAAUDF_ISDONE | VQAAUDF_ISSTARVED);
+	vqap->Audio.Flags = audio_flags;
 	vqap->LoopStartFrame0 = -1;
 	vqap->LoopEndFrameJump = -1;
 	vqap->LoopIterationsJump = -1;
@@ -1022,7 +1029,6 @@ void VQA_Reset(VQAHandle *vqa)
 	vqap->RepeatedBuffers = 0;
 	VQA_ResetCache(vqap);
 }
-#endif
 
 void VQA_ResetCache(VQAHandleP *vqap)
 {

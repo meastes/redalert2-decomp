@@ -459,42 +459,42 @@ bool SurfaceCacheClass::DrawNullsub(Rect const & rect, Surface & tosurface, Surf
 /// <param name="x">Horizontal scroll offset into the source.</param>
 /// <param name="y">Vertical scroll offset into the source.</param>
 /// <returns>True on success, false if a surface lock failed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0068cce0 has no row); 394 of 408 bytes differ against the frozen image bound (image_bounds.csv) (emitted 416 bytes), 2026-11-22 (lane O32)
 bool SurfaceCacheClass::Draw(Rect const & rect, Surface & tosurface, Surface & fromsurface, int x, int y)
 {
-	unsigned short *tbuf = (unsigned short *)tosurface.Lock();
-	if (tbuf == NULL) {
+	unsigned short * dest = (unsigned short *)tosurface.Lock();
+	if (dest == NULL) {
 		return(false);
 	}
-
-	unsigned short *fbuf = (unsigned short *)fromsurface.Lock();
-	if (fbuf == NULL) {
+	unsigned short const * src = (unsigned short const *)fromsurface.Lock();
+	if (src == NULL) {
 		tosurface.Unlock();
 		return(false);
 	}
+
+	int dest_pitch = tosurface.Stride() / 2;
+	int src_pitch = fromsurface.Stride() / 2;
+	Rect image = fromsurface.Get_Rect();
+	Rect trect = tosurface.Get_Rect();
 
 	/*
 	 * When the source is larger than the rectangle, start sampling at its
 	 * centering margin so the middle of the image shows through.
 	 */
-	int twidth = tosurface.Stride() / 2;
-	int fwidth = fromsurface.Stride() / 2;
-	Rect frect = fromsurface.Get_Rect();
-	Rect trect = tosurface.Get_Rect();
-	int ox = (frect.Width - rect.Width) / 2 <= 0 ? 0 : (frect.Width - rect.Width) / 2;
-	int oy = (frect.Height - rect.Height) / 2 <= 0 ? 0 : (frect.Height - rect.Height) / 2;
-	for (int ny = 0; ny < rect.Height; ny++) {
-		unsigned short *t = tbuf + rect.X + twidth * (rect.Y + ny);
-		for (int nx = 0; nx < rect.Width; nx++) {
-			*t = fbuf[fwidth * ((oy + y + ny) % frect.Height) + (ox + x + nx) % frect.Width];
-			t++;
+	int row = rect.Height;
+	int x_margin = MAX((image.Width - rect.Width) / 2, 0);
+	int y_margin = MAX((image.Height - row) / 2, 0);
+	for (row = 0; row < rect.Height; ++row) {
+		int offset = (rect.Y + row) * dest_pitch + rect.X;
+		for (int column = 0; column < rect.Width; ++column) {
+			int src_row = (y_margin + y + row) % image.Height;
+			int src_column = (x_margin + x + column) % image.Width;
+			dest[offset + column] = src[src_row * src_pitch + src_column];
 		}
 	}
 	fromsurface.Unlock();
 	tosurface.Unlock();
 	return(true);
 }
-#endif
 
 
 
@@ -556,72 +556,47 @@ bool SurfaceCacheClass::DrawTrans(Rect const & rect, Surface & tosurface, Surfac
 /// <param name="x_offset">Horizontal scroll/clip offset.</param>
 /// <param name="y_offset">Vertical scroll/clip offset.</param>
 /// <returns>True on success, false if a surface lock failed.</returns>
-#if 0
-bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surface & fromsurface, Surface & masksurface, void * palette, bool center, int x_offset, int y_offset)
+bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surface & fromsurface, Surface & masksurface, void * palette, int center, int x_offset, int y_offset)
 {
 	unsigned short pal16[256];
 
 	Rect image_rect = fromsurface.Get_Rect();
-	int src_y = 0;
 	int src_x = 0;
-	int image_w = image_rect.Width;
 	int top_clip = 0;
-	int image_width = image_w;
 	int right_clip = 0;
-	int image_h = image_rect.Height;
-	int image_height = image_h;
-	int src_y2 = 0;
-	int rect_width = rect.Width;
+	int src_y = 0;
 	int dst_x_center = 0;
 	int dst_y_center = 0;
 
-	/*
-	 * Work out the horizontal fit: an image wider than the rectangle is
-	 * clipped (split between both sides when centering), a narrower one is
-	 * optionally centered in the destination.
-	 */
-	if (image_w > rect_width) {
+	if (image_rect.Width > rect.Width) {
 		if (center) {
-			int diff = image_w - rect_width;
-			src_x = (diff + 1) / 2;
-			right_clip = diff / 2;
+			src_x = (image_rect.Width - rect.Width + 1) / 2;
+			right_clip = (image_rect.Width - rect.Width) / 2;
 		} else {
-			right_clip = image_w - rect_width;
+			right_clip = image_rect.Width - rect.Width;
 		}
 	} else if (center) {
-		dst_x_center = (rect_width - image_w) / 2;
+		dst_x_center = (rect.Width - image_rect.Width) / 2;
 	}
 
-	/*
-	 * The same for the vertical fit.
-	 */
-	int rect_height = rect.Height;
-	if (image_h > rect_height) {
+	if (image_rect.Height > rect.Height) {
 		if (center) {
-			top_clip = (image_h - rect_height + 1) / 2;
-			src_y = (image_h - rect_height) / 2;
-			src_y2 = src_y;
+			top_clip = (image_rect.Height - rect.Height + 1) / 2;
+			src_y = (image_rect.Height - rect.Height) / 2;
 		} else {
-			src_y = image_h - rect_height;
-			src_y2 = image_h - rect_height;
+			src_y = image_rect.Height - rect.Height;
 		}
 	} else if (center) {
-		dst_y_center = (rect_height - image_h) / 2;
+		dst_y_center = (rect.Height - image_rect.Height) / 2;
 	}
 
-	/*
-	 * Scroll offsets shift the visible window further into the source.
-	 */
 	if (x_offset > src_x) {
-		int newclip = src_x - x_offset + right_clip;
+		right_clip += src_x - x_offset;
 		src_x = x_offset;
-		right_clip = newclip;
 	}
 	if (y_offset > top_clip) {
-		int delta = top_clip - y_offset;
+		src_y += top_clip - y_offset;
 		top_clip = y_offset;
-		src_y += delta;
-		src_y2 = src_y;
 	}
 
 	unsigned short * dest = (unsigned short *)tosurface.Lock();
@@ -629,36 +604,25 @@ bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surfa
 		return(false);
 	}
 
-	unsigned char * source = NULL;
+	unsigned short * source = NULL;
 	unsigned char * palsource = NULL;
-	if (palette != NULL) {
-		palsource = (unsigned char *)fromsurface.Lock();
-		if (palsource == NULL) {
-			tosurface.Unlock();
-			return(false);
-		}
+	if (palette == NULL) {
+		source = (unsigned short *)fromsurface.Lock();
 	} else {
-		source = (unsigned char *)fromsurface.Lock();
-		if (source == NULL) {
-			tosurface.Unlock();
-			return(false);
-		}
+		palsource = (unsigned char *)fromsurface.Lock();
+	}
+	if (source == NULL && palsource == NULL) {
+		tosurface.Unlock();
+		return(false);
 	}
 
 	unsigned char * mask = (unsigned char *)masksurface.Lock();
 
-	/*
-	 * For a paletted source, convert the supplied palette into a table of
-	 * ready-made 16-bit pixels and restart from the unscrolled clip values.
-	 */
 	if (palette != NULL) {
 		unsigned char * pal = (unsigned char *)palette;
 		for (int i = 0; i < 256; i++) {
-			pal16[i] = DSurface::Build_Hicolor_Pixel(pal[0], pal[1], pal[2]);
-			pal += 3;
+			pal16[i] = DSurface::Build_Hicolor_Pixel(pal[i * 3], pal[i * 3 + 1], pal[i * 3 + 2]);
 		}
-		src_y = src_y2;
-		image_h = image_height;
 	}
 
 	int dst_stride = tosurface.Stride() / 2;
@@ -667,53 +631,26 @@ bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surfa
 		src_stride >>= 1;
 	}
 
-	/*
-	 * Blend the visible rows. Each source pixel is alpha-blended onto the
-	 * destination with the mask byte as its alpha; zero mask bytes are
-	 * skipped entirely. The paletted arm reads the source pixel through its
-	 * fixed distance from the mask pointer and converts it via the table.
-	 */
-	int cur_y = top_clip;
-	int row_count = image_h - src_y;
-	if (top_clip < row_count) {
-		unsigned char * mask_row = mask + src_x + top_clip * src_stride;
-		unsigned short * source_row = (unsigned short *)(source + 2 * (src_x + top_clip * src_stride));
-		do {
-			int dst_index = dst_stride * (rect.Y - top_clip + cur_y + dst_y_center) + rect.X + dst_x_center;
-			if (palette == NULL) {
-				if (src_x < image_width - right_clip) {
-					unsigned char * mptr = mask_row;
-					unsigned short * sptr = source_row;
-					unsigned short * dptr = dest + dst_index;
-					int count = image_width - right_clip - src_x;
-					do {
-						if (*mptr != 0) {
-							*dptr = OwnerDraw::Blend_Color(*dptr, *sptr, *mptr);
-						}
-						dptr++;
-						mptr++;
-						sptr++;
-						count--;
-					} while (count != 0);
+	for (int y = top_clip; y < image_rect.Height - src_y; y++) {
+		int dst_index = dst_stride * (rect.Y - top_clip + y + dst_y_center) + rect.X + dst_x_center;
+		int src_index = y * src_stride + src_x;
+		if (palette == NULL) {
+			for (int x = src_x; x < image_rect.Width - right_clip; x++) {
+				if (mask[src_index] != 0) {
+					dest[dst_index] = OwnerDraw::Blend_Color(dest[dst_index], source[src_index], mask[src_index]);
 				}
-			} else if (src_x < image_width - right_clip) {
-				unsigned char * mptr = mask_row;
-				int source_delta = (int)palsource - (int)mask;
-				unsigned short * dptr = dest + dst_index;
-				int count = image_width - right_clip - src_x;
-				do {
-					if (*mptr != 0) {
-						*dptr = OwnerDraw::Blend_Color(*dptr, pal16[(unsigned char)mptr[source_delta]], *mptr);
-					}
-					dptr++;
-					mptr++;
-					count--;
-				} while (count != 0);
+				dst_index++;
+				src_index++;
 			}
-			mask_row += src_stride;
-			source_row += src_stride;
-			cur_y++;
-		} while (cur_y < row_count);
+		} else {
+			for (int x = src_x; x < image_rect.Width - right_clip; x++) {
+				if (mask[src_index] != 0) {
+					dest[dst_index] = OwnerDraw::Blend_Color(dest[dst_index], pal16[palsource[src_index]], mask[src_index]);
+				}
+				dst_index++;
+				src_index++;
+			}
+		}
 	}
 
 	tosurface.Unlock();
@@ -721,6 +658,5 @@ bool SurfaceCacheClass::DrawMasked(Rect const & rect, Surface & tosurface, Surfa
 	masksurface.Unlock();
 	return(true);
 }
-#endif
 
 

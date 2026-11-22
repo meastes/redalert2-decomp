@@ -299,7 +299,8 @@ bool __fastcall Control_Test(HWND window); // RA2: as above
 }
 
 namespace OwnerDraw { extern unsigned short Blue_Mask; } // RA2: as above
-namespace OwnerDraw { extern unsigned short Red_Green_Masks[2]; } // RA2: as above
+namespace OwnerDraw { extern unsigned short Red_Mask; } // RA2: as above
+namespace OwnerDraw { extern unsigned short Green_Mask; } // RA2: as above
 bool Is_In_Main_Loop(); // RA2: as above
 bool __fastcall Main_Loop(); // RA2: as above
 void __stdcall Set_Paint_Disabled_Children(struct HWND__ *window, int unknown2); // RA2: as above
@@ -6555,14 +6556,23 @@ namespace OwnerDraw { // RA2: as above
 /*
 **	RA2: TibSun's TextBoxCtrlProc, the tab control procedure, with wide titles.
 */
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0f40 has no row)
+union ODColorBits {
+	struct {
+		unsigned int red : 8;
+		unsigned int green : 8;
+		unsigned int blue : 8;
+		unsigned int a : 8;
+	};
+	int v;
+};
+
 LRESULT __stdcall Tab_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static char string1[64];
 	static wchar_t string2[64]; // RA2: the title as wide text
 
-	WNDPROC proc = NULL; // RA2: all three set first
 	LRESULT result = 0;
+	WNDPROC proc = NULL;
 	WinData * data = NULL;
 	Control_Table.getPointer((unsigned int const &)window, &data); // RA2: the control table
 	Window_Proc_Table.getValue(window, proc); // RA2: the window procedure table
@@ -6579,13 +6589,9 @@ LRESULT __stdcall Tab_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpar
 		RECT rect;
 		Get_Display_Rect(window, &rect);
 
-		Surface * surf = SurfaceCache.GetSurface("tab_tlu.pcx", 0); // RA2: as above
+		Surface * surf = SurfaceCache.GetSurface("tab_tlu.pcx");
 		SendMessage(window, TCM_SETITEMSIZE, 0, MAKELPARAM(89, surf->Get_Height() - 1));
 
-		if (proc) {
-			return(CallWindowProc(proc, window, message, wparam, lparam));
-		}
-		return(result);
 	}
 
 	if (message == WM_PAINT) {
@@ -6598,251 +6604,177 @@ LRESULT __stdcall Tab_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lpar
 		TabCtrl_GetItemRect(window, 0, &tabrect);
 		TabCtrl_GetItemRect(window, 0, &tabrect);
 
-		int y = winrect.top + tabrect.bottom - tabrect.top + 3;
-
+		winrect.top += (tabrect.bottom - tabrect.top) + 3;
 		Rect dimrect;
-		dimrect.X = winrect.left;
-		dimrect.Y = y;
-		dimrect.Width = winrect.right - winrect.left;
-		dimrect.Height = winrect.bottom - y;
-
-		winrect.top = y;
-
-		Draw_Dimmed_Back(dimrect, window, 0); // RA2: with an alpha
-		ValidateRect(window, NULL);
-
-		/*
-		 * Refilled with the full display rect, although nothing reads it before
-		 * the tab loop overwrites it again.
-		 */
 		dimrect.X = winrect.left;
 		dimrect.Y = winrect.top;
 		dimrect.Width = winrect.right - winrect.left;
 		dimrect.Height = winrect.bottom - winrect.top;
 
-		Rect rect;
-		Rect src;
+		Draw_Dimmed_Back(dimrect, window, 0); // RA2: with an alpha
+		ValidateRect(window, NULL);
 
-		Surface * image = SurfaceCache.GetSurface("tab_fml.pcx", 0); // RA2: as above
+		dimrect.X = winrect.left;
+		dimrect.Y = winrect.top;
+		dimrect.Width = winrect.right - winrect.left;
+		dimrect.Height = winrect.bottom - winrect.top;
+
+		Surface * image = SurfaceCache.GetSurface("tab_fml.pcx");
 		if (image) {
 			image->Get_Height();
-			rect.Width = image->Get_Width();
-			rect.X = winrect.left;
-			rect.Y = winrect.top;
-			rect.Height = winrect.bottom - winrect.top;
-			SurfaceCache.Draw(rect, *AlternateSurface, *image, 0, 0);
+			int width = image->Get_Width();
+			SurfaceCache.Draw(Rect(Point2D(winrect.left, winrect.top), width, winrect.bottom - winrect.top), *AlternateSurface, *image, 0, 0);
 		}
 
-		image = SurfaceCache.GetSurface("tab_fmr.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_fmr.pcx");
 		if (image) {
 			image->Get_Height();
-			rect.Width = image->Get_Width();
-			rect.X = winrect.right - rect.Width;
-			rect.Y = winrect.top;
-			rect.Height = winrect.bottom - winrect.top;
-			SurfaceCache.Draw(rect, *AlternateSurface, *image, 0, 0);
+			int width = image->Get_Width();
+			SurfaceCache.Draw(Rect(winrect.right - width, winrect.top, width, winrect.bottom - winrect.top), *AlternateSurface, *image, 0, 0);
 		}
 
-		image = SurfaceCache.GetSurface("tab_ftm.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_ftm.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			image->Get_Width();
-			rect.X = winrect.left;
-			rect.Y = winrect.top;
-			rect.Width = winrect.right - winrect.left;
-			rect.Height = height;
-			SurfaceCache.Draw(rect, *AlternateSurface, *image, 0, 0);
+			SurfaceCache.Draw(Rect(Point2D(winrect.left, winrect.top), winrect.right - winrect.left, height), *AlternateSurface, *image, 0, 0);
 		}
 
-		image = SurfaceCache.GetSurface("tab_fbm.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_fbm.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			image->Get_Width();
-			rect.X = winrect.left;
-			rect.Y = winrect.bottom - height;
-			rect.Width = winrect.right - winrect.left;
-			rect.Height = height;
-			SurfaceCache.Draw(rect, *AlternateSurface, *image, 0, 0);
+			SurfaceCache.Draw(Rect(winrect.left, winrect.bottom - height, winrect.right - winrect.left, height), *AlternateSurface, *image, 0, 0);
 		}
 
-		image = SurfaceCache.GetSurface("tab_ftl.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_ftl.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			int width = image->Get_Width();
-			rect.Y = winrect.top;
-			rect.X = winrect.left;
-			src.X = 0;
-			src.Y = 0;
-			src.Width = width;
-			src.Height = height;
-			rect.Width = width;
-			rect.Height = height;
-			AlternateSurface->Blit_From(rect, *image, src, false, true); // RA2: as above
+			AlternateSurface->Blit_From(Rect(Point2D(winrect.left, winrect.top), width, height), *image, Rect(0, 0, width, height));
 		}
 
-		image = SurfaceCache.GetSurface("tab_ftr.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_ftr.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			int width = image->Get_Width();
-			rect.Y = winrect.top;
-			rect.X = winrect.right - width;
-			src.X = 0;
-			src.Y = 0;
-			src.Width = width;
-			src.Height = height;
-			rect.Width = width;
-			rect.Height = height;
-			AlternateSurface->Blit_From(rect, *image, src, false, true); // RA2: as above
+			AlternateSurface->Blit_From(Rect(winrect.right - width, winrect.top, width, height), *image, Rect(0, 0, width, height));
 		}
 
-		image = SurfaceCache.GetSurface("tab_fbl.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_fbl.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			int width = image->Get_Width();
-			rect.X = winrect.left;
-			rect.Y = winrect.bottom - height;
-			src.X = 0;
-			src.Y = 0;
-			src.Width = width;
-			src.Height = height;
-			rect.Width = width;
-			rect.Height = height;
-			AlternateSurface->Blit_From(rect, *image, src, false, true); // RA2: as above
+			AlternateSurface->Blit_From(Rect(winrect.left, winrect.bottom - height, width, height), *image, Rect(0, 0, width, height));
 		}
 
-		image = SurfaceCache.GetSurface("tab_fbr.pcx", 0); // RA2: as above
+		image = SurfaceCache.GetSurface("tab_fbr.pcx");
 		if (image) {
 			int height = image->Get_Height();
 			int width = image->Get_Width();
-			rect.Y = winrect.bottom - height;
-			rect.X = winrect.right - width;
-			src.X = 0;
-			src.Y = 0;
-			src.Width = width;
-			src.Height = height;
-			rect.Width = width;
-			rect.Height = height;
-			AlternateSurface->Blit_From(rect, *image, src, false, true); // RA2: as above
+			AlternateSurface->Blit_From(Rect(Point2D(winrect.right - width, winrect.bottom - height), width, height), *image, Rect(0, 0, width, height));
 		}
 
 		int current = TabCtrl_GetCurSel(window);
 		Get_Display_Rect(window, &winrect);
-		int tab = current + 1;
-		int itab = tab;
+		int itab = current + 1;
 
+		RECT itemrect;
 		while (true) {
-			RECT itemrect;
+			int tab = itab;
 
-			while (!TabCtrl_GetItemRect(window, tab, &itemrect)) {
+			if (TabCtrl_GetItemRect(window, tab, &itemrect)) {
+				TC_ITEM item;
+				memset(&item, 0, sizeof(item));
+				item.pszText = string1;
+				item.cchTextMax = sizeof(string1);
+				strcpy(string1, "Title");
+				item.mask = TCIF_TEXT;
+				TabCtrl_GetItem(window, tab, &item);
+
+				char state = 'd';
+				if (tab == current) {
+					state = 'u';
+				}
+
+				dimrect.X = winrect.left + (itemrect.left - MIN(itemrect.left, 6));
+				dimrect.Y = itemrect.top + winrect.top;
+				dimrect.Width = itemrect.right + (MIN(itemrect.left, 6) - itemrect.left);
+				dimrect.Height = itemrect.bottom - itemrect.top;
+
+				char fname[80];
+				Surface * tab_lu = SurfaceCache.GetSurface("tab_tlu.pcx");
+				sprintf(fname, "tab_tm%c.pcx", state);
+				image = SurfaceCache.GetSurface(fname);
+				if (image) {
+					int height = image->Get_Height();
+					image->Get_Width();
+					int width = dimrect.Width - 2 * tab_lu->Get_Width();
+					int draw_y = dimrect.Y;
+					int draw_x = dimrect.X + tab_lu->Get_Width();
+					SurfaceCache.Draw(Rect(draw_x, draw_y, width, height), *AlternateSurface, *image, 0, 0);
+				}
+
+				sprintf(fname, "tab_tl%c.pcx", state);
+				image = SurfaceCache.GetSurface(fname);
+				if (image) {
+					int height = image->Get_Height();
+					int width = image->Get_Width();
+					ODColorBits transparent;
+					transparent.v = RGB(255, 0, 255);
+					SurfaceCache.DrawTrans(Rect(Point2D(dimrect.X, dimrect.Y), width, height), *AlternateSurface, *image, DSurface::Build_Hicolor_Pixel(transparent.red, transparent.green, transparent.blue));
+				}
+
+				sprintf(fname, "tab_tr%c.pcx", state);
+				image = SurfaceCache.GetSurface(fname);
+				if (image) {
+					int height = image->Get_Height();
+					int width = image->Get_Width();
+					Rect trrect;
+					trrect.X = dimrect.X + dimrect.Width - width;
+					trrect.Y = dimrect.Y;
+					trrect.Width = width;
+					trrect.Height = height;
+					ODColorBits transparent;
+					transparent.v = RGB(255, 0, 255);
+					SurfaceCache.DrawTrans(trrect, *AlternateSurface, *image, DSurface::Build_Hicolor_Pixel(transparent.red, transparent.green, transparent.blue));
+				}
+
+				if (item.pszText) {
+					strcpy(string1, item.pszText);
+				}
+
+				RECT text_rect; // RA2: a RECT
+				text_rect.left = dimrect.X;
+				text_rect.right = dimrect.X + dimrect.Width;
+				text_rect.top = dimrect.Y + 6;
+				text_rect.bottom = dimrect.Y + dimrect.Height;
+
+				COLORREF color = Olive_Color; // RA2: the dim text colour
+				if (itab == current) {
+					color = Text_Color;
+				}
+				swprintf(string2, L"%hs", string1);
+				Draw_Text_In_Rect_Ex(AlternateSurface, string2, &text_rect, data->Font, color, 5, 0xc, 0, 0, 0);
+
+				ValidateRect(window, &itemrect);
+				if (itab == current) {
+					break;
+				}
+
+				itab++;
+			} else {
 				itab = 0;
-				tab = 0;
 			}
-
-			TC_ITEM item;
-			memset(&item, 0, sizeof(item));
-			item.pszText = string1;
-			item.cchTextMax = sizeof(string1);
-			strcpy(item.pszText, "Title");
-			item.mask = TCIF_TEXT;
-			TabCtrl_GetItem(window, tab, &item);
-
-			char state = 'd';
-			if (tab == current) {
-				state = 'u';
-			}
-
-			LONG left = itemrect.left;
-			if (itemrect.left >= 6) {
-				left = 6;
-			}
-
-			Rect tab_rect;
-			tab_rect.X = winrect.left + itemrect.left - left;
-			tab_rect.Y = itemrect.top + winrect.top;
-
-			LONG right = itemrect.left;
-			if (itemrect.left >= 6) {
-				right = 6;
-			}
-			tab_rect.Width = itemrect.right + right - itemrect.left;
-			tab_rect.Height = itemrect.bottom - itemrect.top;
-
-			char fname[64];
-			Surface * tab_lu = SurfaceCache.GetSurface("tab_tlu.pcx", 0); // RA2: as above
-			sprintf(fname, "tab_tm%c.pcx", state);
-			image = SurfaceCache.GetSurface(fname, 0); // RA2: as above
-			if (image) {
-				int height = image->Get_Height();
-				image->Get_Width();
-				int width = tab_rect.Width - 2 * tab_lu->Get_Width();
-
-				rect.X = tab_rect.X + tab_lu->Get_Width();
-				rect.Y = tab_rect.Y;
-				rect.Width = width;
-				rect.Height = height;
-				SurfaceCache.Draw(rect, *AlternateSurface, *image, 0, 0);
-			}
-
-			sprintf(fname, "tab_tl%c.pcx", state);
-			image = SurfaceCache.GetSurface(fname, 0); // RA2: as above
-			if (image) {
-				int height = image->Get_Height();
-				int width = image->Get_Width();
-				rect.X = tab_rect.X;
-				rect.Y = tab_rect.Y;
-				rect.Width = width;
-				rect.Height = height;
-				SurfaceCache.DrawTrans(rect, *AlternateSurface, *image, (255 >> DSurface::RedLeft << DSurface::RedRight) | (255u >> DSurface::BlueLeft << DSurface::BlueRight));
-			}
-
-			sprintf(fname, "tab_tr%c.pcx", state);
-			image = SurfaceCache.GetSurface(fname, 0); // RA2: as above
-			if (image) {
-				int height = image->Get_Height();
-				Rect trrect;
-				trrect.Width = image->Get_Width();
-				trrect.X = tab_rect.X + tab_rect.Width - trrect.Width;
-				trrect.Y = tab_rect.Y;
-				trrect.Height = height;
-				SurfaceCache.DrawTrans(trrect, *AlternateSurface, *image, (255 >> DSurface::RedLeft << DSurface::RedRight) | (255u >> DSurface::BlueLeft << DSurface::BlueRight));
-			}
-
-			if (item.pszText) {
-				strcpy(string1, item.pszText);
-			}
-
-			RECT text_rect; // RA2: a RECT
-			text_rect.left = tab_rect.X; // RA2: as above
-			text_rect.right = tab_rect.X + tab_rect.Width; // RA2: as above
-			text_rect.top = tab_rect.Y + 6; // RA2: as above
-			text_rect.bottom = tab_rect.Y + tab_rect.Height; // RA2: as above
-
-			COLORREF color = Olive_Color; // RA2: the dim text colour
-			if (itab == current) {
-				color = Text_Color; // RA2: as above
-			}
-			swprintf(string2, L"%hs", string1); // RA2: wide text in the record's font
-			Draw_Text_In_Rect_Ex(AlternateSurface, string2, &text_rect, data->Font, color, 5, 0xc, 0, 0, 0); // RA2: as above
-
-			ValidateRect(window, &itemrect);
-			if (itab == current) {
-				break;
-			}
-
-			itab++;
-			tab = itab;
 		}
 
 		ValidateRect(window, NULL);
-		return(result);
-	}
-
-	if (proc) {
-		return(CallWindowProc(proc, window, message, wparam, lparam));
+	} else if (proc) {
+		result = CallWindowProc(proc, window, message, wparam, lparam);
 	}
 	return(result);
 }
-#endif
+
 
 }
 
@@ -8415,6 +8347,7 @@ struct TrackBarState { // RA2: as above
     int click_suppress; // RA2: as above
 };
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the file-scope union ODColorBits of Tab_Proc, ra2-decomp's)
 LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     bool play_click = true;
@@ -8747,6 +8680,7 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     return 0; // RA2: as above
 }
+#endif
 
 }
 
@@ -8892,17 +8826,18 @@ void __fastcall Hotkey_Text(unsigned short hotkey, wchar_t * text) // RA2: as ab
 
 namespace OwnerDraw { // RA2: as above
 
-unsigned short Red_Green_Masks[2]; // RA2: as above
+unsigned short Red_Mask = 0; // RA2: as above
+unsigned short Green_Mask = 0; // RA2: as above
 unsigned short Blue_Mask = 0; // RA2: as above
 
 void Init_Color_Masks() // RA2: as above
 {
-    Red_Green_Masks[0] = 0xff; // RA2: as above
-    Red_Green_Masks[0] >>= DSurface::Get_Red_Left(); // RA2: as above
-    Red_Green_Masks[0] <<= DSurface::Get_Red_Right(); // RA2: as above
-    Red_Green_Masks[1] = 0xff; // RA2: as above
-    Red_Green_Masks[1] >>= DSurface::Get_Green_Left(); // RA2: as above
-    Red_Green_Masks[1] <<= DSurface::Get_Green_Right(); // RA2: as above
+	Red_Mask = 0xff; // RA2: as above
+	Red_Mask >>= DSurface::Get_Red_Left(); // RA2: as above
+	Red_Mask <<= DSurface::Get_Red_Right(); // RA2: as above
+	Green_Mask = 0xff; // RA2: as above
+	Green_Mask >>= DSurface::Get_Green_Left(); // RA2: as above
+	Green_Mask <<= DSurface::Get_Green_Right(); // RA2: as above
     Blue_Mask = 0xff; // RA2: as above
     Blue_Mask >>= DSurface::Get_Blue_Left(); // RA2: as above
     Blue_Mask <<= DSurface::Get_Blue_Right(); // RA2: as above
@@ -9521,8 +9456,8 @@ void __fastcall Shade_Edges(Rect const &area, Surface &surface, int left_width, 
             for (int x = area.X; x < area.X + left_width; ++x) { // RA2: as above
                 unsigned short pixel = pixels[index]; // RA2: as above
 
-                pixels[index] = ((pixel >> 1) & ((Red_Green_Masks[0] >> 1) & (unsigned int)Red_Green_Masks[0])) | // RA2: as above
-                                ((pixel >> 1) & ((Red_Green_Masks[1] >> 1) & Red_Green_Masks[1])) | // RA2: as above
+				pixels[index] = ((pixel >> 1) & ((Red_Mask >> 1) & Red_Mask)) | // RA2: as above
+					((pixel >> 1) & ((Green_Mask >> 1) & Green_Mask)) | // RA2: as above
                                 ((pixel >> 1) & (Blue_Mask >> 1)); // RA2: as above
 
                 index++;
@@ -9535,8 +9470,8 @@ void __fastcall Shade_Edges(Rect const &area, Surface &surface, int left_width, 
             for (int x = area.X + left_width; x < area.Width + area.X; ++x) { // RA2: as above
                 unsigned short pixel = pixels[index]; // RA2: as above
 
-                pixels[index] = ((pixel >> 1) & ((Red_Green_Masks[0] >> 1) & (unsigned int)Red_Green_Masks[0])) | // RA2: as above
-                                ((pixel >> 1) & ((Red_Green_Masks[1] >> 1) & Red_Green_Masks[1])) | // RA2: as above
+				pixels[index] = ((pixel >> 1) & ((Red_Mask >> 1) & Red_Mask)) | // RA2: as above
+					((pixel >> 1) & ((Green_Mask >> 1) & Green_Mask)) | // RA2: as above
                                 ((pixel >> 1) & (Blue_Mask >> 1)); // RA2: as above
 
                 index++;

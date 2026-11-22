@@ -2478,11 +2478,11 @@ void TechnoClass::Draw_It(int x, int y, int /*WindowNumberType*/ window) const
  * HISTORY:                                                                                    *
  *   08/23/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 31 bytes differ against the image-derived bound 006c5270 (761 B; ours 761 B), all in the last newcell block (cell + Cell(radius, y): the image loads the cell pointer first and adds y + cell.Y); ra2-decomp's weapon test adopted; the same register allocation is ra2-decomp's own dead end (data/attempts.csv, 0x006F79A0, 96.8% after about 60 forms)
 double TechnoClass::Area_Modify(Cell const & cell) const
 {
-//	assert(PrimaryWeapon != NULL);
-	if (PrimaryWeapon == NULL || !PrimaryWeapon->IsSupressed) return(1);
+	WeaponDataStruct const * weapon_data = GetTurretWeapon(); // RA2: ra2-decomp's form (src/techno.cpp, Area_Modify)
+	if (weapon_data == NULL || weapon_data->Weapon == NULL || !weapon_data->Weapon->IsSupressed) return(1);
 
 	int crange = Rule->SupressRadius / CELL_LEPTON;
 	double odds = 1;
@@ -2587,7 +2587,27 @@ double TechnoClass::Area_Modify(Cell const & cell) const
  *   10/05/1995 JLB : Gives greater weight to designated enemy house targets.                  *
  *   02/16/1996 JLB : Added additional threat checks.                                          *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006c5570 has no row); 2861 bytes differ against main's function-map extent; main: best 91.81, tried 10 times (order, register, frame)
+/*
+**	RA2: may an AI infantryman still pick this passive or insignificant building? Only to capture it
+**	(an engineer) or to occupy it, never in a campaign or while defending the base. From ra2-decomp
+**	(src/techno.cpp, Can_Capture_Passive_Target), inline twice in Evaluate_Object.
+*/
+static inline bool Can_Capture_Passive_Target(TechnoClass const * attacker, TechnoClass const * object)
+{
+	if (attacker->House->Is_Human_Player() || object->RTTI != RTTI_BUILDING || attacker->RTTI != RTTI_INFANTRY) return(false);
+
+	bool defending_base = false;
+	if (((FootClass *)attacker)->Team != NULL && ((FootClass *)attacker)->Team->Class->IsBaseDefense) {
+		defending_base = true;
+	}
+
+	bool needs_engineer = ((BuildingClass *)object)->Class->NeedsEngineer && ((InfantryClass *)attacker)->Class->IsEngineer && object->House != attacker->House;
+	bool can_occupy = ((InfantryClass *)attacker)->Class->Occupier && ((BuildingClass *)object)->CanBeOccupiedBy((InfantryClass *)attacker);
+
+	if (Session.Type == GAME_NORMAL || defending_base || (!needs_engineer && !can_occupy)) return(false);
+	return(true);
+}
+
 bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, TechnoClass const * object, int & value, int zone, Coord const & coord) const
 {
 	assert(object != NULL);
@@ -2595,11 +2615,10 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	BStart(BENCH_EVAL_OBJECT);
 
 	bool engineer = Is_Renovator();
-	if (!object) return(false);
 	int which = What_Weapon_Should_I_Use((TechnoClass *)object);
 	WeaponTypeClass const * weapon = Get_Class_Weapon_Data(which)->Weapon;
 	if (!(method & (THREAT_CAPTURE | THREAT_OCCUPIABLE | THREAT_TECH_BUILDINGS)) &&
-		Can_Fire((TechnoClass *)object, which) == FIRE_ILLEGAL) {
+		GetFireErrorWithoutRange((TechnoClass *)object, which) == FIRE_ILLEGAL) { // RA2: ra2-decomp's call
 		return(false);
 	}
 	if (object->EstimatedHealth <= 0 && TClass->VHPScan == 2) return(false);
@@ -2610,7 +2629,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	/*
 	**	An object in limbo can never be a valid target.
 	*/
-	if (object->IsInLimbo || object->Strength == 0) {
+	if (object == NULL || object->IsInLimbo || object->Strength == 0) { // RA2: the null test here (ra2-decomp)
 		BEnd(BENCH_EVAL_OBJECT);
 		return(false);
 	}
@@ -2699,12 +2718,14 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 		double x = object->Center_Coord().X - Center_Coord().X;
 		double y = object->Center_Coord().Y - Center_Coord().Y;
 		dist = (int)fastmath::sqrt(x * x + y * y);
+		if (range > 0 && dist > range) return(false);
 	} else {
-		dist = Distance_To(object);
-	}
-	if (range > 0 && dist > range) {
-		BEnd(BENCH_EVAL_OBJECT);
-		return(false);
+		Coord separation = Center_Coord() - object->Center_Coord(); // RA2: ra2-decomp's form (src/techno.cpp, Evaluate_Object)
+		double y = separation.Y;
+		double z = separation.Z;
+		double x = separation.X;
+		dist = (int)fastmath::sqrt(x * x + z * z + y * y);
+		if (range > 0 && dist > range) return(false);
 	}
 
 	if (range == 0) {
@@ -2751,17 +2772,12 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 		return(false);		// Legality failure.
 	}
 
-	// RA2: AI engineers and occupiers may still select eligible neutral buildings.
-	if ((Session.Type != GAME_NORMAL && object->House->Class->IsMultiplayPassive) ||
-		(tclass->IsInsignificant && (otype != RTTI_BUILDING || object->House->Class->IsMultiplayPassive))) {
-		if (House->Is_Human_Player() || otype != RTTI_BUILDING || RTTI != RTTI_INFANTRY) return(false);
-		InfantryClass * infantry = (InfantryClass *)this;
-		BuildingClass const * building = (BuildingClass const *)object;
-		bool capture = building->Class->NeedsEngineer && infantry->Class->IsEngineer && object->House != House;
-		bool occupy = infantry->Class->Occupier && building->CanBeOccupiedBy(infantry);
-		if (Session.Type == GAME_NORMAL || (infantry->Team && infantry->Team->Class->IsBaseDefense) || (!capture && !occupy)) {
-			return(false);
-		}
+	// RA2: AI engineers and occupiers may still select eligible neutral buildings (ra2-decomp's two tests).
+	if (Session.Type != GAME_NORMAL && object->House->Class->IsMultiplayPassive) {
+		if (!Can_Capture_Passive_Target(this, object)) return(false);
+	}
+	if (tclass->IsInsignificant && (object->RTTI != RTTI_BUILDING || object->House->Class->IsMultiplayPassive)) {
+		if (!Can_Capture_Passive_Target(this, object)) return(false);
 	}
 
 	if (tclass->IsTrain && RTTI == RTTI_INFANTRY && ((InfantryClass *)this)->Class->IsVehicleThief) {
@@ -2777,8 +2793,9 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	**	Special case so that SAM site doesn't fire on aircraft that are landed.
 	*/
 	if (object->IsDisguisedAs(House) && !TClass->DetectDisguise) {
-		if (!object->DisguiseBlinkTimer.Value() || House->Is_Human_Player()) return(false);
-		if (Sim_Random_Pick(0, 99) > Rule->DisabledDisguiseDetectionPercent[House->Difficulty]) return(false);
+		if (!object->DisguiseBlinkTimer.Value() || House->Is_Human_Player() || Random_Pick(0, 99) > Rule->DisabledDisguiseDetectionPercent[House->Difficulty]) { // RA2: ra2-decomp's test (the scenario's generator)
+			return(false);
+		}
 	}
 
 	if (method & THREAT_CIVILIANS) {
@@ -2804,7 +2821,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	if ((!Is_Foot() || !((FootClass *)this)->Team) && House->Is_Human_Player() &&
 		!object->Considered_Vehicle() && otype == RTTI_BUILDING) {
 		WeaponDataStruct const * armed = object->GetTurretWeapon();
-		if ((!armed || !armed->Weapon || !tclass->Risk) && !engineer) return(false);
+		if ((!armed || !armed->Weapon || !object->TClass->Risk) && !engineer) return(false); // RA2: the type asked again (ra2-decomp's Risk())
 	}
 
 	if (engineer) {
@@ -2836,7 +2853,7 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	if (TClass->VHPScan == 1) {
 		if (object->EstimatedHealth <= 0) {
 			value /= 2;
-		} else if (object->EstimatedHealth <= tclass->MaxStrength / 2) {
+		} else if (object->EstimatedHealth <= object->TClass->MaxStrength / 2) { // RA2: the type asked again (ra2-decomp)
 			value *= 2;
 		}
 	} // RA2: no IsWebby, ProneStruggleTimer (not in RA2's layout)
@@ -2888,9 +2905,13 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	*/
 	if (method & THREAT_BASE_DEFENSE) {
 		WeaponDataStruct const * armed = GetTurretWeapon();
-		if (!armed || !armed->Weapon || otype != RTTI_BUILDING ||
-			(((BuildingClass const *)object)->Class->CanBeOccupied && !((BuildingClass const *)object)->GetOccupantCount())) {
+		if (!armed || !armed->Weapon || otype != RTTI_BUILDING) {
 			value = 0;
+		} else {
+			BuildingClass const * building = As_Building(object); // RA2: an empty garrison is no defense
+			if (building->Class->CanBeOccupied && !building->GetOccupantCount()) {
+				value = 0;
+			}
 		}
 	}
 
@@ -2916,7 +2937,6 @@ bool TechnoClass::Evaluate_Object(ThreatType method, int mask, int range, Techno
 	BEnd(BENCH_EVAL_OBJECT);
 	return(false);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -6652,46 +6672,55 @@ void TechnoClass::Draw_Action_Line(Coord from, Coord to, RGBClass color, unsigne
 /// <summary>
 /// Draws a link line between two spots in 32 pieces whose brightness runs along the line over time.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006d0990 has no row); 1033 bytes differ against main's function-map extent; main: best 86.96, tried 6 times (frame, register, inline)
-void TechnoClass::Draw_Link_Line(Coord start, Coord end, RGBClass color) const // RA2: not in TibSun, at 0x6D0990
+void TechnoClass::Draw_Link_Line(Coord src, Coord dst, RGBClass color) const // RA2: not in TibSun, at 0x6D0990
 {
+	RGBClass segment_color;
 	RGBClass white(255, 255, 255);
-	Point2D start_point;
-	Point2D end_point;
-	TacticalMap->Coord_To_Pixel(start, start_point);
-	TacticalMap->Coord_To_Pixel(end, end_point);
-	start_point.Y += TacticalRect.Y;
-	end_point.Y += TacticalRect.Y;
-	int pixel = DSurface::Build_Hicolor_Pixel(color);
-	CompositeSurface->Fill_Rect(Intersect(Line_End_Rect(start_point), TacticalRect), pixel);
-	CompositeSurface->Fill_Rect(Intersect(Line_End_Rect(end_point), TacticalRect), pixel);
+	Point2D from;
+	Point2D to;
+	TacticalMap->Coord_To_Pixel(src, from);
+	TacticalMap->Coord_To_Pixel(dst, to);
+	from.Y += TacticalRect.Y;
+	to.Y += TacticalRect.Y;
+	int pixel = DSurface::Build_Hicolor_Pixel(color.Get_Red(), color.Get_Green(), color.Get_Blue());
+	CompositeSurface->Fill_Rect(Intersect(TacticalRect, Moved_Rect(Rect(-2, -2, 3, 3), from)), pixel);
+	CompositeSurface->Fill_Rect(Intersect(TacticalRect, Moved_Rect(Rect(-2, -2, 3, 3), to)), pixel);
 	Rect clip = TacticalRect;
-	int phase = (timeGetTime() >> 4) << 3;
-	Coord last = start;
-	for (int i = 1, j = 31, k = 8; k <= 256; i++, j--, k += 8) {
-		Coord next;
-		next.X = (end.X * i + start.X * j) / 32;
-		next.Y = (end.Y * i + start.Y * j) / 32;
-		double t = (i - 16.0) * 0.0625;
-		int z = (end.Z * i + start.Z * j) / 32;
-		double arc = -(t * t);
-		next.Z = (int)(z + (arc + 1.0) * 512.0);
-		TacticalMap->Coord_To_Pixel(last, start_point);
-		TacticalMap->Coord_To_Pixel(next, end_point);
-		start_point.Y += TacticalRect.Y;
-		end_point.Y += TacticalRect.Y;
-		if (Clip_Line_To_Rect(start_point, end_point, clip)) {
-			RGBClass shade = color;
-			unsigned ratio = (k - phase) & 0x1F8;
-			if (ratio < 0xF9 && ratio != 0) {
-				shade.Adjust(ratio, white);
+	unsigned time = timeGetTime() >> 4;
+	int i = 1;
+	int inverse = 31;
+	Coord previous = src;
+	Coord next;
+	while (i <= 32) {
+		int weighted_x = src.X * inverse + dst.X * i;
+		next.X = weighted_x / 32;
+		int weighted_y = src.Y * inverse + dst.Y * i;
+		next.Y = weighted_y / 32;
+		int weighted_z = src.Z * inverse + dst.Z * i;
+		next.Z = weighted_z / 32;
+		double t = i;
+		t -= 16.0;
+		t /= 16.0;
+		double height = -t * t;
+		height += 1.0;
+		next.Z += height * 512.0;
+		TacticalMap->Coord_To_Pixel(previous, from);
+		TacticalMap->Coord_To_Pixel(next, to);
+		from.Y += TacticalRect.Y;
+		to.Y += TacticalRect.Y;
+		if (Clip_Line_To_Rect(from, to, clip)) {
+			segment_color = color;
+			unsigned phase = ((i - time) * 8) & 0x1F8;
+			if (phase <= 248 && phase != 0) {
+				segment_color.Adjust(phase, white);
 			}
-			CompositeSurface->Draw_Line(start_point, end_point, DSurface::Build_Hicolor_Pixel(shade));
+			CompositeSurface->Draw_Line(from, to, DSurface::Build_Hicolor_Pixel(segment_color));
 		}
-		last = next;
+		i++;
+		inverse--;
+		previous = next;
 	}
 }
-#endif
 
 
 /// <summary>

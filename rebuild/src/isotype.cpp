@@ -2802,13 +2802,17 @@ unsigned short IsometricTileTypeClass::Preview_Tile_Color(int tile, int level, b
 /// <param name="tile">The sub-tile index within this tile set.</param>
 /// <param name="level">The lighting level to fetch the preview colors for.</param>
 /// <returns>Returns with a pointer to the low and high preview colors for that level.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052e390 has no row); main: best 81.25, tried 5 times (register, order, bound)
 unsigned short *IsometricTileTypeClass::Preview_Tile(int tile, int level)
 {
-	Load_Tile_Image();
-	return(&PreviewTiles[tile][level * 2]);
+	unsigned short * preview;
+	if (ImageData != NULL) {
+		preview = PreviewTiles[tile];
+	} else {
+		Load_Tile_Image();
+		preview = PreviewTiles[tile];
+	}
+	return &preview[level * 2];
 }
-#endif
 
 
 /// <summary>

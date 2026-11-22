@@ -898,7 +898,7 @@ int MapRegionClass::CellData::Get_Region(Cell const &cell)
 	if (RMGCellData == NULL) {
 		return(-1);
 	}
-	return(MapRegionClass::Get_Cell_Data(cell.X + cell.Y * (int)MapCellStride).RegionID);
+	return(MapRegionClass::Get_Cell_Data(cell).RegionID);
 }
 
 
@@ -5723,6 +5723,17 @@ void MapGeneratorClass::Scatter_Green_Tiles(void) // RA2: not in TibSun, at 0x57
 
 
 /// <summary>
+/// RA2: the straight line distance between two cells (ra2-decomp's file-scope helper).
+/// </summary>
+static double Map_Cell_Distance(Cell const & from, Cell const & to)
+{
+	int dx = from.X - to.X;
+	int dy = from.Y - to.Y;
+	return fastmath::sqrt((double)(dy * dy + dx * dx));
+}
+
+
+/// <summary>
 /// RA2: the spreader's score for stepping to a cell. Inside a shaped area it is the step's length weighted by how
 /// far the cell lies from the area's centre along each diagonal; otherwise the plain distance.
 /// </summary>
@@ -5743,9 +5754,7 @@ double MapGeneratorClass::Direction_Weighted_Cell_Distance(Cell const & from, Ce
 		double steps = MAX(abs(x), abs(y));
 		return (weight_x * ratio_u + ratio_v * weight_y) * steps;
 	}
-	int dx = from.X - to.X;
-	int dy = from.Y - to.Y;
-	return fastmath::sqrt((double)(dy * dy + dx * dx));
+	return Map_Cell_Distance(from, to);
 }
 
 
@@ -5771,173 +5780,114 @@ bool MapGeneratorClass::Cell_In_Generation_Shape(Cell const & cell, Rect const &
 
 /// <summary>
 /// RA2: grows a patch of land (clear tiles in the water) of about count cells as a priority-queue flood fill from
-/// the seed point, or from a random clear unclaimed cell when the seed is (0,0). Candidate cells are scored by their
+/// the seed point, or from a random unclaimed water cell when the seed is (0,0). Candidate cells are scored by their
 /// distance from a point that wanders off by a normal sample of the wander scale every step -- or, when weighted,
 /// by Direction_Weighted_Cell_Distance -- so the patch comes out ragged. The cells taken become the working region;
 /// the region's shores are then built. If the shores cannot be built, the region is flooded again.
 /// </summary>
 /// <returns>The number of cells taken, or 0 when no seed was found or the region was flooded again.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0057d3a0 has no row); main: best 74.41, tried 3 times
 int MapGeneratorClass::Spread_Land(int count, Rect const & bounds, Point2D const & seed, bool shaped, Cell const & center, double wander, bool weighted)
 {
-	if (count <= 400) {
-		count = 400;
-	}
-	int heap_size = MAX((8 * count) + 2, 100);
-	CellNode * nodes = new CellNode[heap_size];
-	PriorityQueueClass<CellNode> * queue = new PriorityQueueClass<CellNode>(heap_size);
-
-	/*
-	 * Without a seed, pick a clear cell that no region has claimed yet.
-	 */
+	count = MAX(count, 400);
+	int capacity = MAX(count * 8 + 2, 100);
+	CellNode * nodes = new CellNode[capacity];
+	PriorityQueueClass<CellNode> * heap = new PriorityQueueClass<CellNode>(capacity);
 	Cell start;
 	if (seed.X == 0 && seed.Y == 0) {
 		int tries = 0;
 		do {
-			do {
-				unsigned int x;
-				do {
-					x = (unsigned int)RMG_RANDOM_DOUBLE2(Map.PlayRect.Width);
-				} while (x > (unsigned int)Map.PlayRect.Width - 1);
-				unsigned int y;
-				do {
-					y = (unsigned int)RMG_RANDOM_DOUBLE2(Map.PlayRect.Height);
-				} while (y > (unsigned int)Map.PlayRect.Height - 1);
-				start = Cell(x + 1 + y, Map.PlayRect.Width - x + y);
-				if (++tries >= 200) {
-					return(0);
-				}
-			} while (RMGCellData == NULL || MapRegionClass::Get_Cell_Data(start).RegionID != 0);
-		} while (!Map[start].Is_Tile_Clear());
-		if (tries >= 200) {
-			return(0);
-		}
+			unsigned int x = Pick_Random_UInt(0, Map.PlayRect.Width - 1);
+			unsigned int y = Pick_Random_UInt(0, Map.PlayRect.Height - 1);
+			Cell first_offset = Cell(1, Map.PlayRect.Width) + Cell(x, -x);
+			start = first_offset + Cell(y, y);
+		} while (++tries < 200 && !(MapRegionClass::CellData::Get_Region(start) == 0 && Map[start].Is_Tile_With_Water()));
+		if (tries >= 200) return 0;
 	} else {
 		start = Cell(seed.X, seed.Y);
 	}
 
-	/*
-	 * A shaped area weights the steps along its longer side less.
-	 */
 	float weight_x = 0.0f;
 	float weight_y = 0.0f;
 	if (!(bounds == RECT_NONE)) {
-		if (bounds.Height < bounds.Width) {
+		int width = bounds.Width;
+		int height = bounds.Height;
+		if (width > height) {
 			weight_x = 1.0f;
-			weight_y = (float)bounds.Width / (float)bounds.Height * 1.2;
+			weight_y = (double)width / height * 1.2;
 		} else {
+			weight_x = (double)height / width * 1.2;
 			weight_y = 1.0f;
-			weight_x = (float)bounds.Height / (float)bounds.Width * 1.2;
 		}
 	}
 
-	double wander_x = start.X;
-	double wander_y = start.Y;
-	int spread_count = 0;
-
-	queue->Clear();
-	int marker_index = 0;
-	nodes[marker_index].Element = start;
-	nodes[marker_index].Score = 0;
-	marker_index++;
-	MapRegionClass::Get_Cell_Data(start).SpreadID = WorkingRegionID;
-	queue->Insert(nodes[0]);
-	CellNode * node = queue->Extract_Min();
-
-	double inverse_x = 1.0 / ((double)bounds.Width * 0.5 * (double)bounds.Width * 0.5);
-	double inverse_y = 1.0 / ((double)bounds.Height * 0.5 * (double)bounds.Height * 0.5);
-
-	while (spread_count < count && node != NULL) {
-		if (RMGCellData != NULL) {
-			MapRegionClass::Get_Cell_Data(node->Element).RegionID = WorkingRegionID;
-		}
+	double current_x = start.X;
+	double current_y = start.Y;
+	int seeded_count = 0;
+	heap->Clear();
+	int used = 1;
+	nodes[0].Element = start;
+	nodes[0].Score = 0.0f;
+	MapRegionClass::CellData::Set_Spread(start, WorkingRegionID);
+	heap->Insert(nodes[0]);
+	CellNode * node = heap->Extract_Min();
+	double scale_x = 1.0 / ((bounds.Width * 0.5) * (bounds.Width * 0.5));
+	double scale_y = 1.0 / ((bounds.Height * 0.5) * (bounds.Height * 0.5));
+	while (seeded_count < count) {
+		if (node == NULL) break;
+		MapRegionClass::CellData::Set_Region(node->Element, WorkingRegionID);
 		Map[node->Element].ITType = ISOTILE_CLEAR;
-
-		CellNode * newnode = &nodes[marker_index];
-		for (int facing = FACING_N; facing < FACING_COUNT; facing += 2) {
-			Cell adjacent = Adjacent_Cell(node->Element, (FacingType)facing);
+		int facing = FACING_FIRST;
+		for (; facing < FACING_COUNT; facing += FACING_90) {
+			Cell adjacent = node->Element + AdjacentCell[facing & 7];
 			if (My_In_Radar(adjacent)) {
 				MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(adjacent);
-				if (data.RegionID == 0 && data.SpreadID != WorkingRegionID && Map[adjacent].Is_Tile_Clear() && marker_index < heap_size &&
-					Cell_In_Generation_Shape(adjacent, bounds, shaped, inverse_x, inverse_y)) {
-
-					newnode->Element = adjacent;
-					Cell wander_cell((int)wander_x, (int)wander_y);
-					if (!weighted) {
-						int dx = adjacent.X - wander_cell.X;
-						int dy = adjacent.Y - wander_cell.Y;
-						newnode->Score = fastmath::sqrt((double)(dx * dx + dy * dy)) + RMG_RANDOM_DOUBLE(5.0);
+				if (data.RegionID == 0 && data.SpreadID != WorkingRegionID &&
+					Map[adjacent].Is_Tile_With_Water() && used < capacity &&
+					Cell_In_Generation_Shape(adjacent, bounds, shaped, scale_x, scale_y)) {
+					nodes[used].Element = adjacent;
+					Cell moving_seed = Cell((int)(current_x + 0.5), (int)(current_y + 0.5));
+					if (weighted) {
+						nodes[used].Score = Direction_Weighted_Cell_Distance(moving_seed, adjacent, bounds, center, weight_x, weight_y);
 					} else {
-						newnode->Score = Direction_Weighted_Cell_Distance(wander_cell, adjacent, bounds, center, weight_x, weight_y);
+						double distance = Map_Cell_Distance(adjacent, moving_seed);
+						nodes[used].Score = distance + RMG_RANDOM_DOUBLE(5);
 					}
-					marker_index++;
 					data.SpreadID = WorkingRegionID;
-					queue->Insert(*newnode++);
+					heap->Insert(nodes[used++]);
 				}
 			}
 		}
-
-		wander_x += RMGGaussian() * wander;
-		wander_y += RMGGaussian() * wander;
-		spread_count++;
-		node = queue->Extract_Min();
+		current_x += RMGGaussian() * wander;
+		current_y += RMGGaussian() * wander;
+		++seeded_count;
+		node = heap->Extract_Min();
 	}
 
-	/*
-	 * The cells still waiting in the queue join the region too.
-	 */
-	CellNode * remaining = queue->Extract_Min();
+	CellNode * remaining = heap->Extract_Min();
 	while (remaining != NULL) {
-		CellClass & cell = Map[remaining->Element];
+		CellClass * current = &Map[remaining->Element];
 		MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(remaining->Element);
-		if (data.RegionID == 0 && cell.Is_Tile_Clear()) {
-			cell.ITType = ISOTILE_CLEAR;
+		if (data.RegionID == 0 && current->Is_Tile_With_Water()) {
+			current->ITType = ISOTILE_CLEAR;
 			data.RegionID = WorkingRegionID;
 		}
-		remaining = queue->Extract_Min();
-		spread_count++;
+		remaining = heap->Extract_Min();
+		++seeded_count;
 	}
-
-	delete [] nodes;
-	delete queue;
-
-	bool built = Map.Build_All_Shores(WorkingRegionID, 1) != 0;
-
-	Map.Reset_Iterator();
-	CellClass * cptr = Map.Iterate();
-	while (cptr != NULL) {
-		if (cptr->ITType >= IsometricTileTypeClass::ShorePieces && cptr->ITType < IsometricTileTypeClass::ShorePieces + 42) {
-			cptr->ITType = ISOTILE_CLEAR;
-			cptr->SubTile = 0;
-		}
-		cptr = Map.Iterate();
-	}
-
-	if (built) {
+	delete[] nodes;
+	delete heap;
+	bool success = Map.Build_All_Shores(WorkingRegionID, true);
+	Clear_Shore_Tiles();
+	int result;
+	if (!success) {
+		Clear_Region_Cells(WorkingRegionID, 0, -1, IsometricTileTypeClass::WaterSet);
+		result = 0;
+	} else {
+		result = seeded_count;
 		WorkingRegionID++;
-		return(spread_count);
 	}
-
-	/*
-	 * The shores would not fit: flood the region again.
-	 */
-	int id = WorkingRegionID;
-	Map.Reset_Iterator();
-	cptr = Map.Iterate();
-	while (cptr != NULL) {
-		MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(cptr->CellID);
-		if (data.RegionID == id) {
-			data.RegionID = 0;
-			data.CanExpand = false;
-			cptr->ITType = IsometricTileTypeClass::WaterSet;
-			cptr->SubTile = 0;
-			cptr->Height = CellHeight;
-		}
-		cptr = Map.Iterate();
-	}
-	return(0);
+	return result;
 }
-#endif
 
 
 void MapGeneratorClass::Clear_Shore_Tiles(void) // RA2: not in TibSun, at 0x57DD10
@@ -7222,6 +7172,8 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int i
 }
 
 
+static inline void Delete_Forest_Search(CellNode * nodes, PriorityQueueClass<CellNode> * queue);
+
 /// <summary>
 /// Grows the region identified by region_id outward across the map as a
 /// priority-queue flood fill, scoring candidate cells by their angle relative
@@ -7234,18 +7186,14 @@ DynamicVectorClass<Cell> *MapGeneratorClass::Build_Region_Border_Cell_List(int i
 /// <param name="origin">Reference origin used when computing the spread angle.</param>
 /// <param name="claim_frontier">When true, drain the remaining frontier into the region.</param>
 /// <returns>True if the region grew without colliding with another region.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (its callers Seed_River and Place_Waterfall are not exact, so no row bounds it); main: best 90.35, tried 11 times (inline, layout, order)
 bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rect const & bounds, Cell const & origin, bool claim_frontier)
 {
-	CellNode * nodes = new CellNode[MAX(2 * LocalHeight * LocalWidth, 100)];
-	PriorityQueueClass<CellNode> * queue = new PriorityQueueClass<CellNode>(MAX(2 * LocalHeight * LocalWidth, 100));
+	CellNode * nodes = new CellNode[max(2 * LocalHeight * LocalWidth, 100)];
+	PriorityQueueClass<CellNode> * queue = new PriorityQueueClass<CellNode>(max(2 * LocalHeight * LocalWidth, 100));
 
 	int marker_index = 0;
 	bool result_flag = true;
 
-	/*
-	 * Seed the starting angle from which side of the map the region touches.
-	 */
 	double angle = 0.0;
 	if (bounds.X != 0) {
 		angle = 0.0;
@@ -7260,135 +7208,80 @@ bool MapGeneratorClass::Grow_Water_Region(int region_id, float spread_scale, Rec
 
 	Clear_Cell_Data_Spreads();
 
-	/*
-	 * Insert the region's border cells as the initial frontier.
-	 */
 	DynamicVectorClass<Cell> * seed_cells = Build_Region_Border_Cell_List(region_id);
 	int seed_count = seed_cells->Count();
 
-	int spread_count = 0;
-	if (seed_count > 0) {
-		CellNode * newnode = nodes;
-		do {
-			Cell seed = (*seed_cells)[spread_count];
-			if (seed.X >= bounds.X && seed.X < bounds.X + bounds.Width &&
-				seed.Y >= bounds.Y && seed.Y < bounds.Y + bounds.Height) {
+	for (int seed_index = 0; seed_index < seed_count; seed_index++) {
+		Cell seed = (*seed_cells)[seed_index];
+		if (bounds.Is_Point_Within(Point2D(seed.X, seed.Y))) {
 
-				newnode->Element = seed;
-				newnode->Score = Get_Angle_Score(origin, seed, angle);
-				marker_index++;
-				queue->Insert(*newnode++);
-			}
-		} while (++spread_count < seed_count);
+			nodes[marker_index].Element = seed;
+			nodes[marker_index].Score = Get_Angle_Score(origin, seed, angle);
+			queue->Insert(nodes[marker_index++]);
+		}
 	}
 
 	delete seed_cells;
 
-	/*
-	 * Compute how far to spread.
-	 */
 	double scale = log((double)seed_count);
-	if (1.0 > scale) {
-		scale = 1.0;
-	}
+	scale = max(1.0, scale);
 
-	spread_count = (int)(1.0f / ((float)(1.0 / scale) * spread_scale) * 0.5f);
+	int spread_count = (int)(1.0f / ((float)(1.0 / scale) * spread_scale) * 0.5f);
 	spread_count += Pick_Random_UInt(0, spread_count / 2);
 
 	CellNode * node = queue->Extract_Min();
 
 	int spread_step = 0;
-	if (spread_count > 0) {
-		while (true) {
-			if (!result_flag || node == NULL) {
-				break;
+	while (spread_step < spread_count && result_flag && node != NULL) {
+
+		MapRegionClass::CellData & ndata = MapRegionClass::Get_Cell_Data(node->Element);
+		if (!ndata.RegionID) {
+			if (Map[node->Element].Is_Tile_Clear()) {
+				ndata.CanExpand = true;
+				ndata.RegionID = region_id;
 			}
+		}
 
-			MapRegionClass::CellData & ndata = MapRegionClass::Get_Cell_Data(node->Element);
-			if (!ndata.RegionID) {
-				if (Map[node->Element].Is_Tile_Clear()) {
-					ndata.CanExpand = true;
-					ndata.RegionID = region_id;
-				}
-			}
-
-			CellNode * newnode = &nodes[marker_index];
-			for (FacingType dir = FACING_FIRST; dir < FACING_COUNT; dir = FacingType(dir + FACING_90)) {
-				Cell newcell = Adjacent_Cell(node->Element, dir);
-				if (My_In_Radar(newcell)) {
-					int other_region;
-					if (RMGCellData != NULL) {
-						MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(newcell);
-						if (!data.RegionID && data.SpreadID != region_id &&
-							newcell.X >= bounds.X && newcell.X < bounds.X + bounds.Width &&
-							newcell.Y >= bounds.Y && newcell.Y < bounds.Y + bounds.Height &&
-							Map[newcell].Is_Tile_Clear()) {
-
-							newnode->Element = newcell;
-							newnode->Score = Get_Angle_Score(origin, newcell, angle);
-							Set_Cell_Data_Spread(newcell, region_id);
-							marker_index++;
-							queue->Insert(*newnode++);
-							continue;
-						}
-						other_region = MapRegionClass::Get_Cell_Data(newcell).RegionID;
-						if (!other_region) {
-							continue;
-						}
-					} else {
-						other_region = -1;
-					}
-
-					if (other_region != region_id) {
+		for (FacingType dir = FACING_FIRST; dir < FACING_COUNT; dir = FacingType(dir + FACING_90)) {
+			Cell newcell = Adjacent_Cell(node->Element, dir);
+			if (My_In_Radar(newcell)) {
+				if (MapRegionClass::CellData::Get_Region(newcell) == 0 &&
+					MapRegionClass::Get_Cell_Data(newcell).SpreadID != region_id &&
+					bounds.Is_Point_Within(Point2D(newcell.X, newcell.Y)) &&
+					Map[newcell].Is_Tile_Clear()) {
+					nodes[marker_index].Element = newcell;
+					nodes[marker_index].Score = Get_Angle_Score(origin, newcell, angle);
+					Set_Cell_Data_Spread(newcell, region_id);
+					queue->Insert(nodes[marker_index++]);
+				} else {
+					if (MapRegionClass::CellData::Get_Region(newcell) != 0 && MapRegionClass::CellData::Get_Region(newcell) != region_id) {
 						result_flag = false;
 					}
 				}
 			}
-
-			spread_step++;
-			angle += Sample_Normal(0, M_PI_4);
-			node = queue->Extract_Min();
-			if (spread_step >= spread_count) {
-				break;
-			}
 		}
+
+		spread_step++;
+		angle += Sample_Normal(0, M_PI_4);
+		node = queue->Extract_Min();
 	}
 
-	/*
-	 * Optionally drain the remaining frontier and assign it to the region.
-	 */
 	if (claim_frontier) {
-		CellNode * remaining = queue->Extract_Min();
-		while (remaining != NULL) {
-			if (!result_flag) {
-				break;
+		for (CellNode * remaining = queue->Extract_Min(); remaining != NULL && result_flag; remaining = queue->Extract_Min()) {
+
+			if (MapRegionClass::CellData::Get_Region(remaining->Element) == 0) {
+				MapRegionClass::Get_Cell_Data(remaining->Element).RegionID = region_id;
+			} else if (MapRegionClass::CellData::Get_Region(remaining->Element) != region_id) {
+				result_flag = false;
 			}
 
-			int other_region;
-			if (RMGCellData != NULL) {
-				MapRegionClass::CellData & data = MapRegionClass::Get_Cell_Data(remaining->Element);
-				other_region = data.RegionID;
-				if (!other_region) {
-					data.RegionID = region_id;
-				} else if (other_region != region_id) {
-					result_flag = false;
-				}
-			} else {
-				if (-1 != region_id) {
-					result_flag = false;
-				}
-			}
-
-			remaining = queue->Extract_Min();
 		}
 	}
 
-	delete[] nodes;
-	delete queue;
+	Delete_Forest_Search(nodes, queue);
 
 	return(result_flag);
 }
-#endif
 
 
 /// <summary>
@@ -7414,15 +7307,18 @@ double MapGeneratorClass::Get_Angle_Score(const Cell & cell1, const Cell & cell2
 		angle += M_PI;
 	}
 
-	double angle_diff = fabs(angle - ref_angle);
-	while (angle_diff >= M_PI * 2) {
-		angle_diff -= M_PI * 2;
+	const double full_turn = M_PI * 2;
+	double difference = angle - ref_angle;
+	double angle_diff = fabs(difference);
+	while (angle_diff >= full_turn) {
+		angle_diff -= full_turn;
 	}
 	if (angle_diff > M_PI) {
-		angle_diff = M_PI * 2 - angle_diff;
+		angle_diff = full_turn - angle_diff;
 	}
 
-	return(RMG_RANDOM_DOUBLE2(_random_weight) + _angle_weight * angle_diff);
+	double score = Random_Fraction();
+	return(score * _random_weight + _angle_weight * angle_diff);
 }
 
 

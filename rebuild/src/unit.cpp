@@ -405,7 +405,7 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006faa30 has no row); main: best 58.99, tried 8 times (frame, inline, bound)
+#ifdef RA2_NON_MATCHING // not exact: 1874 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1920 B); the occupied exit now copies the occupiers into a DynamicVectorClass and waits (calls as the image there); left: Distance's Length and both DirType::Direction calls are out of line in the image (ours expands them); main: best 58.99, tried 8 times (frame, inline, bound)
 void UnitClass::Tunnel_AI(void)
 {
 	Coord coord;
@@ -467,47 +467,49 @@ void UnitClass::Tunnel_AI(void)
 	if (finished) {
 		CellClass * cellptr = &Map[Get_Coord()];
 		ObjectClass * occupier = cellptr->Cell_Occupier();
-		bool was_down = true;
-		bool was_marked = true;
+		if (occupier != NULL) {
 
-		while (occupier) {
-			if (occupier == this) {
-				was_marked = false;
-			} else {
-				if (occupier->RTTI == RTTI_UNIT || occupier->RTTI == RTTI_INFANTRY) {
-					if (!((FootClass *)occupier)->Locomotion->Is_Moving()) {
-						Coord scatter_coord(0, 0, 0);
-						occupier->Scatter(scatter_coord, true, true);
+			/*
+			**	RA2: the exit cell is occupied: every idle vehicle or infantryman there is shooed
+			**	away (from a copy of the occupier list, since scattering relinks it) and the unit
+			**	waits underground.
+			*/
+			DynamicVectorClass<ObjectClass *> occupiers;
+			while (occupier != NULL) {
+				occupiers.Add(occupier);
+				occupier = occupier->Next;
+			}
+			for (int index = 0; index < occupiers.Count(); index++) {
+				ObjectClass * object = occupiers[index];
+				if (object->RTTI == RTTI_UNIT || object->RTTI == RTTI_INFANTRY) {
+					if (!((FootClass *)object)->Locomotion->Is_Moving()) {
+						object->Scatter(Coord(0, 0, 0), true, true);
 					}
-					was_down = false;
 				}
 			}
-			occupier = occupier->Next;
+			Set_Speed(0);
+			return;
 		}
 
-		if (was_down) {
-			TubeClass * tube = Tubes[CurrentTube];
-			Cell exit_cell = tube->Exit;
-			Coord exit_coord(exit_cell, LastTubeCoord.Z);
-			PositionCoord = exit_coord;
-			CurrentTube = TUBE_NONE;
+		TubeClass * tube = Tubes[CurrentTube];
+		Cell exit_cell = tube->Exit;
+		Coord exit_coord(exit_cell, LastTubeCoord.Z);
+		PositionCoord = exit_coord;
+		CurrentTube = TUBE_NONE;
 
-			if (was_marked) Mark(MARK_DOWN);
+		Mark(MARK_DOWN);
 
-			if (NavCom == cellptr) {
-				Scatter(Coord(0, 0, 0), true, true);
-			}
+		if (NavCom == cellptr) {
+			Scatter(Coord(0, 0, 0), true, true);
+		}
 
-			IsPlanningToLook = true;
-			Per_Cell_Process(PCP_END);
-			Set_Speed(1);
+		IsPlanningToLook = true;
+		Per_Cell_Process(PCP_END);
+		Set_Speed(1);
 
-			TubeClass * tube_here = Map[Get_Coord()].Get_Tunnel();
-			if (tube_here != NULL) {
-				PrimaryFacing.Set(DirType(DirType(tube_here->EnterDir).As_Int() - DirType(FACING_135).As_Int() - 1).Snap_To_8());
-			}
-		} else {
-			Set_Speed(0);
+		TubeClass * tube_here = Map[Get_Coord()].Get_Tunnel();
+		if (tube_here != NULL) {
+			PrimaryFacing.Set(DirType(DirType(tube_here->EnterDir).As_Int() - DirType(FACING_135).As_Int() - 1).Snap_To_8());
 		}
 	}
 }
