@@ -121,21 +121,21 @@ void __fastcall Message_Box_On_WM_COMMAND(HWND window, int id, int control, int 
 	int * retval = (int *)GetWindowLong(window, DWL_USER);
 
 	switch (id) {
-		case 1:
-		case 2:
-			if (notify_code == 0) {
+		case IDOK:
+		case IDCANCEL:
+			if (notify_code == BN_CLICKED) {
 				*retval = 1;
 			}
 			break;
 
 		case 0x5AE:
-			if (notify_code == 0) {
+			if (notify_code == BN_CLICKED) {
 				*retval = 0;
 			}
 			break;
 
 		case 0x5AF:
-			if (notify_code == 0) {
+			if (notify_code == BN_CLICKED) {
 				*retval = 2;
 			}
 			break;

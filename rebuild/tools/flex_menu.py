@@ -53,9 +53,9 @@ def guards(text):
 
 
 def score(label):
-    m = re.search(r'(\d+) of (\d+) bytes differ', label) or re.search(r'(\d+) bytes differ', label)
+    m = re.search(r'(\d[\d,]*) of (\d[\d,]*) bytes differ', label) or re.search(r'(\d[\d,]*) bytes differ', label)
     if m:
-        return m.group(1)
+        return m.group(1).replace(',', '')
     m = re.search(r'best ([\d.]+)', label)
     if m:
         return 'main best %s%%' % m.group(1)
@@ -147,23 +147,53 @@ def main():
             rows.append(dict(unit=u, entry=e, function=demangle(sym) or sym, bytes=int(x.get('body', 0) or 0),
                              bucket='count_sensitive', label=guard_for(u, sym) or 'count-sensitive', draft='yes'))
     known = {(r['unit'], r['entry']) for r in rows}
+    # Names a guard's draft may carry, per unit: the queue's functions with no draft and the image-derived
+    # bounds' catalog symbols (short name -> entry), so a draft whose label gives no address is still placed.
+    named = collections.defaultdict(dict)
+    queue = list(csv.DictReader(open(MAN / 'no_draft_queue.csv', encoding='utf-8', errors='replace')))
+    for r in queue:
+        q = demangle(r['symbol']) or r['symbol']
+        named[r['unit']].setdefault(q.split('::')[-1], r['entry'])
+    bounds = R.MANIFEST / 'image_bounds.csv'
+    image = {r['entry']: r for r in csv.DictReader(open(bounds))} if bounds.exists() else {}
     # guarded drafts with no row of their own (no independent bound / unplaced)
     for u in sorted(blocks):
         for i, (label, body) in enumerate(blocks[u]):
             if (u, i) in used or 'count-sensitive' in label:
                 continue
-            m = re.search(r'\(([0-9a-f]{8}) has no row\)', label)
-            fm = DEF.search(body)
-            fname = fm.group(1) if fm else ''
-            if not fname:
-                continue        # a guarded declaration or data block, not a function draft
+            m = re.search(r'\(([0-9a-f]{8}) has no row\)', label) or \
+                re.search(r'image-derived bound ([0-9a-f]{8})-', label)
+            # The guard's function definitions (declarations and inline/static helpers set apart): the draft
+            # is named after the one the label or the queue places, else the first that is not a helper
+            # (lane O33's find: Unit_Draw_Voxel showed as its helper Is_Barrel_Ahead).
+            defs = []
+            for fm in DEF.finditer(body):
+                line = body[fm.start():body.find('\n', fm.end()) if '\n' in body[fm.end():] else len(body)]
+                if re.sub(r'//.*', '', line).rstrip().endswith(';'):
+                    continue
+                defs.append((fm.group(1), bool(re.match(r'(static\s+)?inline\b|static\b', line))))
+            if not defs:
+                fm = DEF.search(body)
+                if not fm:
+                    continue    # a guarded declaration or data block, not a function draft
+                defs = [(fm.group(1), False)]   # a guarded object defined by a constructor call (RECT_NONE_2)
             e = m.group(1) if m else ''
+            fname = ''
+            for name, helper in defs:
+                at = named[u].get(name.split('::')[-1])
+                if at and (not e or at == e):
+                    e, fname = at, name
+                    break
+            if not fname:
+                fname = next((n for n, helper in defs if not helper), defs[0][0])
             if not e:
                 a = re.search(r'RA2: 0x([0-9A-Fa-f]{6,8})', body[:400])
                 e = a.group(1).lower().zfill(8) if a else ''
             if e and (u, e) in known:
                 continue
             size = sizes.get(e, ('', ''))[0] if e else ''
+            if not size and e in image:
+                size = image[e]['body_bytes']
             if 'unplaced' in label or not e:
                 bucket = 'unplaced'
             else:
@@ -172,7 +202,7 @@ def main():
                              draft='yes'))
             known.add((u, e or fname))
     # no draft in the unit yet (no_draft_queue.csv)
-    for r in csv.DictReader(open(MAN / 'no_draft_queue.csv', encoding='utf-8', errors='replace')):
+    for r in queue:
         if (r['unit'], r['entry']) in known:
             continue
         rows.append(dict(unit=r['unit'], entry=r['entry'], function=demangle(r['symbol']) or r['symbol'],

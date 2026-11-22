@@ -361,11 +361,11 @@ int __stdcall Campaign_Score_Dialog_Proc(HWND window, UINT message, WPARAM wpara
 			HWND item = GetDlgItem(window, CAMPSCORE_TITLE); // RA2: as above
 			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: the description of the map
 			swprintf(text, L"%s: ", StringTable::LoadString("GUI:Difficulty", NULL, "D:\\Ra2\\CampScor.cpp", 285)); // RA2: as above
-			if (CampaignDifficulty == 0) { // RA2: as above
+			if (CampaignDifficulty == DIFF_EASY) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 287), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 287)); // RA2: as above
-			} else if (CampaignDifficulty == 1) { // RA2: as above
+			} else if (CampaignDifficulty == DIFF_NORMAL) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 289), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 289)); // RA2: as above
-			} else if (CampaignDifficulty == 2) { // RA2: as above
+			} else if (CampaignDifficulty == DIFF_HARD) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 291), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 291)); // RA2: as above
 			}
 			item = GetDlgItem(window, CAMPSCORE_DIFFICULTY); // RA2: as above
@@ -749,11 +749,11 @@ int __stdcall Campaign_End_Score_Dialog_Proc(HWND window, UINT message, WPARAM w
 			swprintf(text, StringTable::LoadString("GUI:CampaignLabel", NULL, "D:\\Ra2\\CampScor.cpp", 722), EndScoreCampaign); // RA2: as above
 			item = GetDlgItem(window, CAMPSCORE_END_CAMPAIGN); // RA2: as above
 			SendMessage(item, CAMPSCORE_SET_TEXT, 0, (LPARAM)text); // RA2: as above
-			if (EndScoreDifficulty == 0) { // RA2: as above
+			if (EndScoreDifficulty == DIFF_EASY) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 726), StringTable::LoadString("TXT_DIFFICULTY_EASY", NULL, "D:\\Ra2\\CampScor.cpp", 726)); // RA2: as above
-			} else if (EndScoreDifficulty == 1) { // RA2: as above
+			} else if (EndScoreDifficulty == DIFF_NORMAL) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 728), StringTable::LoadString("TXT_DIFFICULTY_MEDIUM", NULL, "D:\\Ra2\\CampScor.cpp", 728)); // RA2: as above
-			} else if (EndScoreDifficulty == 2) { // RA2: as above
+			} else if (EndScoreDifficulty == DIFF_HARD) { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:DifficultyString", NULL, "D:\\Ra2\\CampScor.cpp", 730), StringTable::LoadString("TXT_DIFFICULTY_BRUTAL", NULL, "D:\\Ra2\\CampScor.cpp", 730)); // RA2: as above
 			} else { // RA2: as above
 				swprintf(text, StringTable::LoadString("GUI:Blank", NULL, "D:\\Ra2\\CampScor.cpp", 732)); // RA2: as above
@@ -823,7 +823,7 @@ int __stdcall Campaign_End_Score_Dialog_Proc(HWND window, UINT message, WPARAM w
 			}
 			break;
 
-		case WM_USER + 0x97: // RA2: 0x497, sent to the dialog once it is up
+		case OD_SUBCLASSED: // RA2: 0x497, sent to the dialog once it is up
 		{
 			HWND item = GetDlgItem(window, CAMPSCORE_END_ANIM); // RA2: as above
 			PostMessage(item, WM_USER + 0xD7, 0, (LPARAM)window); // RA2: as above

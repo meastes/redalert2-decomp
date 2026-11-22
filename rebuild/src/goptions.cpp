@@ -390,7 +390,7 @@ BOOL CALLBACK Abort_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	switch (message) {
 		case WM_COMMAND: { // RA2: as above
 			int * retval = (int *)GetWindowLong(window, DWL_USER); // RA2: as above
-			if (HIWORD(wparam) == 0) { // RA2: as above
+			if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
 				switch (LOWORD(wparam)) { // RA2: as above
 					case IDC_GOPTIONS_LEAVE: // RA2: as above
 						*retval = LeaveResult;

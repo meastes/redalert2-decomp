@@ -1222,7 +1222,7 @@ bool Request_Game_Channel_List(unsigned char autoping, bool wait)
 	return(Queue_Channel_List_Request(0x21, autoping, wait));
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (main has no row for 0x0073E100); 23 bytes differ against main's function-map extent
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0073e100 has no row); 26 of 1994 bytes differ against the frozen image bound (image_bounds.csv) (23 against main's function-map extent; Handle_Preview_Download unbound), 2026-11-22 (lane O32)
 bool WOL_Wait_Callback(void)
 {
 	Title_Screen_Restore(false);

@@ -136,13 +136,13 @@ BOOL CALLBACK Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		case WM_COMMAND: {
 			switch (LOWORD(wparam)) {
 			case IDC_PHONE_EDIT:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->Edit();
 				}
 				break;
 
 			case IDC_SERIAL_ADD:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->Add();
 				}
 				break;
@@ -164,7 +164,7 @@ BOOL CALLBACK Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 				break;
 
 			case IDOK:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					if (_this->Dial() == true) {
 						_this->RC = IDOK;
 					}
@@ -172,13 +172,13 @@ BOOL CALLBACK Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 				break;
 
 			case IDCANCEL:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->RC = IDCANCEL;
 				}
 				break;
 
 			case IDC_PHONE_DELETE:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->Delete(); // RA2: the executable calls the member here, where TibSun's procedure carried the code
 				}
 				break;
@@ -615,14 +615,14 @@ BOOL CALLBACK Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 		case WM_COMMAND:
 			switch (LOWORD(wparam)) {
 			case IDC_PHONE_DEFAULT:
-				if (HIWORD(wparam) != 0) {
+				if (HIWORD(wparam) != BN_CLICKED) {
 					Button_SetCheck((HWND)lparam, TRUE);
 					SendDlgItemMessage(window, IDC_PHONE_CUSTOM, BM_SETCHECK, 0, 0);
 				}
 				break;
 
 			case IDC_PHONE_CUSTOM:
-				if (HIWORD(wparam) != 0) {
+				if (HIWORD(wparam) != BN_CLICKED) {
 					Button_SetCheck((HWND)lparam, TRUE);
 					SendDlgItemMessage(window, IDC_PHONE_DEFAULT, BM_SETCHECK, 0, 0);
 					UpdateWindow(window);
@@ -642,14 +642,14 @@ BOOL CALLBACK Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 				break;
 
 			case IDOK:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->Save();
 					_this->RC = IDOK;
 				}
 				break;
 
 			case IDCANCEL:
-				if (HIWORD(wparam) == 0) {
+				if (HIWORD(wparam) == BN_CLICKED) {
 					_this->RC = IDCANCEL;
 				}
 				break;
@@ -704,7 +704,7 @@ void PhoneEntryEdit::Save(void)
 
 	handle = GetDlgItem(_Dialog, IDC_PHONE_CUSTOM);
 	if (handle) {
-		custom = Button_GetCheck(handle) == 1;
+		custom = Button_GetCheck(handle) == BST_CHECKED;
 	} else {
 		custom = false;
 	}

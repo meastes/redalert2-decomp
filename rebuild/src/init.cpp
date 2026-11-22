@@ -844,7 +844,7 @@ BOOL CALLBACK Rules_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 			switch (LOWORD(wparam)) { // RA2: as above
 				case IDCANCEL: // RA2: as above
 				case 0x4A4: // RA2: the OK button
-					if (HIWORD(wparam) == 0) { // RA2: as above
+					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
 						HWND list = GetDlgItem(window, 0x4A3); // RA2: as above
 						EndDialog(window, SendMessage(list, LB_GETCURSEL, 0, 0)); // RA2: as above
 						DestroyWindow(window); // RA2: as above
@@ -953,7 +953,7 @@ BOOL CALLBACK Single_Player_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 			}
 			break; // RA2: as above
 
-		case WM_USER + 151: // RA2: as above
+		case OD_SUBCLASSED: // RA2: as above
 		{
 			HWND control = GetDlgItem(window, 0x689); // RA2: as above
 			if (control) { // RA2: as above
@@ -1038,7 +1038,7 @@ BOOL CALLBACK Movie_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 	int * choice = (int *)GetWindowLong(window, DWL_USER); // RA2: as above
 
 	switch (message) { // RA2: as above
-		case WM_USER + 151: // RA2: as above
+		case OD_SUBCLASSED: // RA2: as above
 			if (list != NULL) { // RA2: as above
 				Options.Fill_Movie_List(list); // RA2: as above
 				if (SendMessage(list, LB_SETCURSEL, MovieListChoice, 0) == LB_ERR) { // RA2: as above
@@ -1061,7 +1061,7 @@ BOOL CALLBACK Movie_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 					break; // RA2: as above
 
 				case 0x744: // RA2: as above
-					if (HIWORD(wparam) == 0) { // RA2: as above
+					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
 						chosen = true; // RA2: as above
 					} // RA2: as above
 					break; // RA2: as above
@@ -1772,7 +1772,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			if ((HWND)lparam == GetDlgItem(window, 0x50F)) { // RA2: as above
 				char const * label = Difficulty_Labels[wparam >> 16]; // RA2: as above
 				item = GetDlgItem(window, 0x670); // RA2: as above
-				SendMessage(item, WM_USER + 178, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\Init.CPP", 1193)); // RA2: as above
+				SendMessage(item, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\Init.CPP", 1193)); // RA2: as above
 				return(FALSE); // RA2: as above
 			} // RA2: as above
 			break; // RA2: as above
@@ -1949,7 +1949,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			break; // RA2: as above
 		}
 
-		case WM_USER + 151: // RA2: the dialog is ready
+		case OD_SUBCLASSED: // RA2: the dialog is ready
 		{
 			SovietSelectVoc = VocClass::From_Name("SovietCampaignSelect"); // RA2: as above
 			AlliedSelectVoc = VocClass::From_Name("AlliedCampaignSelect"); // RA2: as above
@@ -3028,7 +3028,7 @@ BOOL CALLBACK Version_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPAR
 	}
 	int * choice = (int *)GetWindowLong(window, DWL_USER); // RA2: as above
 	switch (message) {
-		case WM_USER + 151: // RA2: as above
+		case OD_SUBCLASSED: // RA2: as above
 		{
 			HWND item = GetDlgItem(window, IDC_VERSION_INFO); // RA2: as above
 			SendMessage(item, WM_USER + 205, 0, (LPARAM)StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Init.CPP", 5428)); // RA2: as above
@@ -3170,12 +3170,12 @@ BOOL CALLBACK Main_Menu_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 	int * res = (int *)GetWindowLong(window, DWL_USER); // RA2: 0x005171D0: RA2's buttons are 0x578 (IDC_NETWORK), 0x55C, IDC_EXIT_GAME, 0x683, 0x686 and 0x684; control 0x71D shows the version
 
 	switch (message) {
-		case WM_USER + 151: // RA2: as above
+		case OD_SUBCLASSED: // RA2: as above
 		{
 			HWND control = GetDlgItem(window, 0x71D); // RA2: as above
 			wchar_t text[128]; // RA2: as above
 			swprintf(text, L"%s %s", StringTable::LoadString("GUI:Version", NULL, "D:\\Ra2\\Init.CPP", 5723), Narrow_To_Wide(VerNum.Version_Name())); // RA2: as above
-			SendMessage(control, WM_USER + 178, 0, (LPARAM)text); // RA2: as above
+			SendMessage(control, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 			return(FALSE);
 		}
 

@@ -1867,7 +1867,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const & xpoint, Rect const & clipr
 /// <param name="drawpoint">The pixel position to draw the shape at.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="shapenum">The shroud shape to draw.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independently bounded accepted row
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00474260 has no row); 721 of 675 bytes differ against the frozen image bound (image_bounds.csv) (emitted 736 bytes), 2026-11-22 (lane O32)
 void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const & cliprect, int shapenum)
 {
 	static bool shapes_loaded = false;

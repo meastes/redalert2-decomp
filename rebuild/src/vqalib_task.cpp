@@ -992,7 +992,7 @@ int VQA_GetLoopCount(VQAHandleP *vqap)
 	return(vqap->LoopInfo.Header.Count);
 }
 
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0077c7d0 has no row); 150 of 167 bytes differ against the frozen image bound (image_bounds.csv), 2026-11-22 (lane O32)
 void VQA_Reset(VQAHandle *vqa)
 {
 	VQAHandleP *vqap = (VQAHandleP *)vqa;

@@ -134,6 +134,7 @@
 #include "geometry.h"
 
 #include "techno.h"
+#include "cast.h"
 #include "bomb.h" // RA2: Draw_Post_Render reads the attached bomb
 #include "capmgr.h" // RA2: Init makes the managers
 #include "parasite.h" // RA2: as above
@@ -2102,15 +2103,6 @@ static inline int Distance_3D(Coord const & a, Coord const & b)
 	double z = delta.Z;
 	double x = delta.X;
 	return((int)fastmath::sqrt(x * x + z * z + y * y));
-}
-
-static inline BuildingClass * As_Building(AbstractClass * target)
-{
-	if (target == NULL) return NULL;
-	if (target->Fetch_RTTI() == RTTI_BUILDING) {
-		return((BuildingClass *)target);
-	}
-	return(NULL);
 }
 
 static inline int Length_3D(Point3D const & delta)
@@ -4611,7 +4603,7 @@ static inline Rect Target_Laser_Rect(Point2D const & point)
  *   07/03/1995 JLB : Moving platforms fire inaccurate projectiles.                            *
  *   02/22/1996 JLB : Handles camera "weapon" case.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 4596 bytes differ (RA2 firing paths restored from main and the TibSun archive)
+#ifdef RA2_NON_MATCHING // not exact: 4371 bytes differ (6019-byte body; previously 4596; native turret and mission reads, frame 0xa4; Horizontal_Speed still expands)
 BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 {
 	WeaponTypeClass * weapon = Get_Class_Weapon_Data(which)->Weapon;
@@ -4693,7 +4685,7 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 			}
 		}
 		if (!bullet->IsInaccurate && !btype->IsInaccurate) {
-			TechnoClass * techno = TarCom == 0 ? 0 : ((TarCom->AbstractFlags & ABSTRACT_TECHNO) ? static_cast<TechnoClass *>(TarCom) : 0);
+			TechnoClass * techno = ::As_Techno(TarCom);
 			WeaponTypeClass * bullet_weapon = bullet->Get_Weapon_Type();
 			if (techno != 0 && bullet_weapon != 0) {
 				techno->EstimatedHealth -= Expected_Damage(techno, bullet_weapon);
@@ -4767,8 +4759,10 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 			int abs_z = abs(height);
 			if (abs_z > 200) {
 				double y = 20.0;
-				if (TarCom != NULL && TarCom->RTTI == RTTI_BUILDING) {
-					BuildingClass * building = static_cast<BuildingClass *>(TarCom);
+				AbstractClass * tarcom = TarCom;
+				RTTIType kind = tarcom != NULL ? tarcom->RTTI : RTTI_NONE;
+				if (kind == RTTI_BUILDING) {
+					BuildingClass * building = static_cast<BuildingClass *>(tarcom);
 					Coord turret = Turret_Coord(which);
 					height = building->Class->ZHeight * 200 - turret.Z;
 					abs_z = abs(height);
@@ -4851,8 +4845,8 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 				}
 				if (weapon->IsLaser) {
 					if (RTTI == RTTI_BUILDING) {
-						WeaponTypeClass * primary = PrimaryWeapon;
-						LaserDrawClass * laser = Laser_Zap(target, which, primary, COORD_NONE);
+						WeaponTypeClass * turret_weapon = GetTurretWeapon()->Weapon;
+						LaserDrawClass * laser = Laser_Zap(target, which, turret_weapon, COORD_NONE);
 						BuildingClass * building = static_cast<BuildingClass *>(this);
 						if (laser != 0 && building->Class == Rule->PrismType) {
 							laser->Thickness = 3;
@@ -4905,8 +4899,11 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 				ShouldBeReselectOnUnlimbo = true;
 			}
 		}
-		if (TClass->RejoinTeamIfLimboed && Is_Foot() && static_cast<FootClass *>(this)->Team != 0 && target->RTTI == RTTI_INFANTRY) {
-			OldTeam = static_cast<FootClass *>(this)->Team;
+		if (TClass->RejoinTeamIfLimboed) {
+			FootClass * foot = ::As_Foot(this);
+			if (foot != NULL && foot->Team != NULL && target->RTTI == RTTI_INFANTRY) {
+				OldTeam = ::As_Foot(this)->Team;
+			}
 		}
 		Limbo();
 		if (weapon->WarheadPtr->Parasite) {
@@ -4918,14 +4915,15 @@ BulletClass * TechnoClass::Fire_At(AbstractClass * target, int which)
 			bullet->Unlimbo(fire_coord, velocity);
 		}
 	}
-	if (TClass->DistributedFire && (Mission != MISSION_ATTACK || RTTI == RTTI_BUILDING)) {
+	if (TClass->DistributedFire && (CurrentMission != MISSION_ATTACK || RTTI == RTTI_BUILDING)) {
 		AttackedTargets.Add(target);
 		Assign_Target(0);
 	}
 	if (weapon->FireOnce) {
-		if (Is_Foot() && static_cast<FootClass *>(this)->Team != 0) {
-			static_cast<FootClass *>(this)->Team->Assign_Mission_Target(0);
-			static_cast<FootClass *>(this)->Team->IsNextMission = true;
+		FootClass * foot = ::As_Foot(this);
+		if (foot != NULL && foot->Team != NULL) {
+			foot->Team->Assign_Mission_Target(0);
+			foot->Team->IsNextMission = true;
 		}
 		Assign_Target(0);
 	}

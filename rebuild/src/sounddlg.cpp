@@ -238,7 +238,7 @@ BOOL CALLBACK SoundControlsClass::Sound_Option_Dialog_Func(HWND window, UINT mes
 					**	Stop all themes from playing.
 					*/
 					case IDC_SOUND_STOP:
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							Theme.Stop(true); // RA2
 							Theme.Queue_Song(THEME_QUIET);
 							Options.IsInGameMusic = false; // RA2
@@ -246,7 +246,7 @@ BOOL CALLBACK SoundControlsClass::Sound_Option_Dialog_Func(HWND window, UINT mes
 						break;
 
 					case 1670: // RA2: the OK button
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							HWND button = GetDlgItem(window, IDC_MUSIC_VOLUME);
 							if (button) {
 								Options.Set_Score_Volume(Slider_GetPos(button) * 0.1, false); // RA2
@@ -272,7 +272,7 @@ BOOL CALLBACK SoundControlsClass::Sound_Option_Dialog_Func(HWND window, UINT mes
 					**	Start the currently selected theme to play.
 					*/
 					case IDC_SOUND_PLAY:
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							HWND list = GetDlgItem(window, IDC_SOUND_TRACKLIST);
 							if (list) {
 								int row = ListBox_GetCurSel(list);

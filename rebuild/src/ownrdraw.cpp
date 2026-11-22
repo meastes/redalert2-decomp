@@ -9940,7 +9940,7 @@ void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: as above
 */
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: calls OwnerDraw::Control_Record, OwnerDraw::Prepare_Dialog, OwnerDraw::TextRequest::TextRequest out of line, which no row of the original has
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ffb00 has no row); 1414 of 1482 bytes differ against the frozen image bound (image_bounds.csv) (emitted 1472 bytes), 2026-11-22 (lane O32); calls OwnerDraw::Control_Record, OwnerDraw::Prepare_Dialog, OwnerDraw::TextRequest::TextRequest out of line, which no row of the original has
 int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message) {

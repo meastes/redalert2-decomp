@@ -6062,9 +6062,9 @@ void HouseClass::Read_INI(CCINIClass const & ini) // RA2: the body follows the e
 	Control.InitialCredits = ini.Get_Int(section, "Credits", 0) * 100; // RA2: as above
 	IsPlayerControl = ini.Get_Bool(section, "PlayerControl", false); // RA2: read before the credits are set
 	if (IsPlayerControl && Session.Type == GAME_NORMAL) { // RA2: a campaign human's starting credits follow the difficulty
-		if (Options.Difficulty == 0) { // RA2: as above
+		if (Options.Difficulty == DIFF_EASY) { // RA2: as above
 			Credits = Rule->CampaignMoneyDeltaEasy + Control.InitialCredits; // RA2: as above
-		} else if (Options.Difficulty == 2) { // RA2: as above
+		} else if (Options.Difficulty == DIFF_HARD) { // RA2: as above
 			Credits = Rule->CampaignMoneyDeltaHard + Control.InitialCredits; // RA2: as above
 		} else {
 			Credits = Control.InitialCredits; // RA2: as above

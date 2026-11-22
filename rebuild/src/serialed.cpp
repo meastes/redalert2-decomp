@@ -107,38 +107,38 @@ BOOL SerialEdit::Handle_Message(HWND window, UINT message, WPARAM wparam, LPARAM
 			{
 				switch (LOWORD(wparam)) {
 					case IDC_SERIAL_PULSE:
-						if (HIWORD(wparam) != 0) {
+						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
 							SendDlgItemMessage(window, IDC_SERIAL_TONE, BM_SETCHECK, 0, 0);
 						}
 						break;
 
 					case IDC_SERIAL_DATA_COMPRESSION:
-						if (HIWORD(wparam) != 0) {
+						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
 						}
 						break;
 
 					case IDOK:
-						if (HIWORD(wparam) == 0 && _this->Save() == true) {
+						if (HIWORD(wparam) == BN_CLICKED && _this->Save() == true) {
 							_this->RC = IDOK;
 						}
 						break;
 
 					case IDCANCEL:
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							_this->RC = IDCANCEL;
 						}
 						break;
 
 					case IDC_SERIAL_ERROR_CORRECTION:
-						if (HIWORD(wparam) != 0) {
+						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
 						}
 						break;
 
 					case IDC_SERIAL_PORT:
-						if (HIWORD(wparam) == 1) {
+						if (HIWORD(wparam) == CBN_SELCHANGE) {
 							i = ComboBox_GetCurSel((HWND)lparam);
 							if (ComboBox_GetItemData((HWND)lparam, i) == 4) {
 								ComboBox_GetLBText((HWND)lparam, i, _this->TempBuf);
@@ -150,7 +150,7 @@ BOOL SerialEdit::Handle_Message(HWND window, UINT message, WPARAM wparam, LPARAM
 						break;
 
 					case IDC_SERIAL_CALLWAITING:
-						if (HIWORD(wparam) == 1) {
+						if (HIWORD(wparam) == CBN_SELCHANGE) {
 							i = ComboBox_GetCurSel((HWND)lparam);
 							if (ComboBox_GetItemData((HWND)lparam, i) == 3) {
 								ComboBox_GetLBText((HWND)lparam, i, _this->TempBuf);
@@ -196,19 +196,19 @@ BOOL SerialEdit::Handle_Message(HWND window, UINT message, WPARAM wparam, LPARAM
 						break;
 
 					case IDC_SERIAL_ADD:
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							_this->Add_Init_String();
 						}
 						break;
 
 					case IDC_SERIAL_INIT_DELETE:
-						if (HIWORD(wparam) == 0) {
+						if (HIWORD(wparam) == BN_CLICKED) {
 							_this->Delete_Init_String();
 						}
 						break;
 
 					case IDC_SERIAL_TONE:
-						if (HIWORD(wparam) != 0) {
+						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
 							SendDlgItemMessage(window, IDC_SERIAL_PULSE, BM_SETCHECK, 0, 0);
 						}
@@ -336,7 +336,7 @@ bool SerialEdit::Save(void)
 
 	handle = GetDlgItem(_Dialog, IDC_SERIAL_ERROR_CORRECTION);
 	if (handle) {
-		if (Button_GetCheck(handle) == 1) {
+		if (Button_GetCheck(handle) == BST_CHECKED) {
 			TempSettings.ErrorCorrection = 1;
 		} else {
 			TempSettings.ErrorCorrection = 0;
@@ -344,7 +344,7 @@ bool SerialEdit::Save(void)
 	}
 	handle = GetDlgItem(_Dialog, IDC_SERIAL_DATA_COMPRESSION);
 	if (handle) {
-		if (Button_GetCheck(handle) == 1) {
+		if (Button_GetCheck(handle) == BST_CHECKED) {
 			TempSettings.Compression = 1;
 		} else {
 			TempSettings.Compression = 0;

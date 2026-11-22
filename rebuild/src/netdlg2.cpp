@@ -1348,7 +1348,7 @@ bool Net2ReadyToGo(int load_game)
 LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BE6B0; the join dialog of the LAN lobby, ra2-decomp's twin text
 {
 	switch (message) {
-		case 0x497: { // RA2: the dialog's set-up message
+		case OD_SUBCLASSED: { // RA2: the dialog's set-up message
 		CurGame = 0;
 			Net2JoinListEnabled = true;
 			Update_Observer_Buttons(window);

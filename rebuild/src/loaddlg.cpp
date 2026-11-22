@@ -181,13 +181,13 @@ void LoadOptionsClass::Load_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 	LoadOptionsClass * _this = (LoadOptionsClass *)GetWindowLong(window, DWL_USER);
 	switch ((int)wparam) {
 		case 0x525: // RA2: Load_Dialog_On_WM_COMMAND at 0x53B200 matches only so
-			if (id == 2 && ListBox_GetCount((HWND)lparam) > 0) {
+			if (id == LBN_DBLCLK && ListBox_GetCount((HWND)lparam) > 0) {
 				_this->State = (LoadDialogState)0x40F; // RA2: as above
 			}
 			break;
 
 		case 0x40F: // RA2: as above
-			if (id == 0) {
+			if (id == BN_CLICKED) {
 				_this->State = (LoadDialogState)wparam;
 			}
 			break;
@@ -213,7 +213,7 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 	LoadOptionsClass * _this = (LoadOptionsClass *)GetWindowLong(window, DWL_USER);
 	switch ((int)wparam) {
 		case 0x527: // RA2: Save_Dialog_On_WM_COMMAND at 0x53B280 matches only so
-			if (id == 1 && ListBox_GetCount((HWND)lparam) > 0) {
+			if (id == LBN_SELCHANGE && ListBox_GetCount((HWND)lparam) > 0) {
 				HWND list = (HWND)lparam; // RA2: as above
 				int row = ListBox_GetCurSel(list); // RA2: as above
 				if (row != LB_ERR) {
@@ -235,13 +235,13 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 			break;
 
 		case 0x686: // RA2: as above
-			if (id == 0) {
+			if (id == BN_CLICKED) {
 				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
 			}
 			break;
 
 		case 0x6C7: // RA2: as above
-			if (id == 0) { // RA2: as above
+			if (id == BN_CLICKED) { // RA2: as above
 				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
 			}
 			break;
@@ -261,13 +261,13 @@ void LoadOptionsClass::Delete_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, L
 	LoadOptionsClass * _this = (LoadOptionsClass *)GetWindowLong(window, DWL_USER);
 	switch ((int)wparam) {
 		case 0x686: // RA2: Delete_Dialog_On_WM_COMMAND at 0x53B390 matches only so
-			if (id == 0) {
+			if (id == BN_CLICKED) {
 				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
 			}
 			break;
 
 		case 0x6C8: // RA2: as above
-			if (id == 0) { // RA2: as above
+			if (id == BN_CLICKED) { // RA2: as above
 				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
 			}
 			break;

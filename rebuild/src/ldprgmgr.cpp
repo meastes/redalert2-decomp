@@ -214,7 +214,14 @@ void LoadProgressManager::Load_Mixes(void)
 /// <summary>
 /// Whether the local player watches the game instead of playing it.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00535bf0 has no row); 3730 of 3978 bytes differ against the frozen image bound (image_bounds.csv) (emitted 3712 bytes; the draft made to compile: MP point, drawer and file-name declarations), 2026-11-22 (lane O32)
+ConvertClass * __cdecl Get_Load_Screen_Drawer(void); // RA2: 0x006F2450
+ConvertClass * __cdecl Get_Load_Screen_Side_Drawer(void); // RA2: 0x006F2470
+ConvertClass * __cdecl Get_Splash_Bar_Drawer(void); // RA2: 0x006F2490
+ConvertClass * __cdecl Get_MP_Load_Drawer(void); // RA2: 0x006F25B0
+char const * __fastcall Get_Title_Bar_File(int width, int, int); // RA2: 0x006F2400
+char const * __fastcall Get_Splash_Bar_File(int width, int, int); // RA2: 0x006F2420
+
 inline bool Is_Observer(void)
 {
 	return (Session.Type == GAME_IPX || Session.Type == GAME_INTERNET) && Session.Players[0]->Slot.SpectatorFlag == -1;
@@ -497,6 +504,7 @@ void LoadProgressManager::Draw(void)
 	}
 
 	{
+		Point2D point(0, 0);
 		int side = Session.Players[0]->Get_Country();
 		char const * suffix = VideoModeWidth == ScreenWidths[0] ? Suffix640 : Suffix800;
 		Loading_Filename(filename, side, suffix);

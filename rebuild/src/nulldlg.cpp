@@ -234,7 +234,7 @@ BOOL CALLBACK Select_Serial_Dialog_Proc(HWND window, UINT message, WPARAM wparam
 				}
 				break;
 
-			case 0x497:
+			case OD_SUBCLASSED:
 				Select_Serial_On_INITDIALOG(window);
 				break;
 		}

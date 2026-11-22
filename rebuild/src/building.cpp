@@ -3103,8 +3103,9 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 5824 bytes differ against it (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); open: frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4888 bytes differ against it; common ScenarioInit success return restored, all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); previous frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
+#include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
 {
 	if (!base) return(0);
@@ -3122,6 +3123,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 	AircraftClass * air = NULL;
 	if (base->Fetch_RTTI() == RTTI_AIRCRAFT) air = (AircraftClass *)base;
 	Cell cell;
+	Cell exitcell;
 
 	switch (base->Fetch_RTTI()) {
 
@@ -3140,36 +3142,34 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 					Cell edge = Cell(Map.LocalRect.X, -Map.LocalRect.X) + Cell(1, Map.PlayRect.Width) + Cell(Map.LocalRect.Y, Map.LocalRect.Y);
 
 					Cell const & diff = Center_Coord().As_Cell() - edge;
-					Cell spawncell;
 					if (diff.X - diff.Y > Map.LocalRect.Width) {
 						edge = edge - Cell(1, 0) + Cell(Map.LocalRect.Width, -Map.LocalRect.Width);
-						spawncell = edge;
+						exitcell = edge;
 						int random = Random_Pick(0, Map.LocalRect.Height);
-						spawncell.X += random;
-						spawncell.Y += random;
+						exitcell.X += random;
+						exitcell.Y += random;
 					} else {
 						edge = edge - Cell(1, 0);
-						spawncell = edge;
+						exitcell = edge;
 						int random = Random_Pick(0, Map.LocalRect.Height);
-						spawncell.X += random;
-						spawncell.Y += random;
+						exitcell.X += random;
+						exitcell.Y += random;
 					}
 
 					ScenarioInit++;
-					if (air->Unlimbo(Coord(spawncell, 0), DIR_N)) {
-						if (ArchiveTarget != NULL) {
-							air->Assign_Destination(ArchiveTarget);
-							air->Set_Mission(MISSION_MOVE);
+					if (air->Unlimbo(Coord(exitcell, 0), DIR_N)) {
+						AbstractClass * target = ArchiveTarget;
+						if (target != NULL) {
+							air->Assign_Destination(target);
 						} else {
 							cell = air->Nearby_Location(this);
 							if (cell != CELL_NONE) {
 								air->Assign_Destination(&Map[cell]);
-								air->Set_Mission(MISSION_MOVE);
 							} else {
 								air->Assign_Destination(NULL);
-								air->Set_Mission(MISSION_MOVE);
 							}
 						}
+						air->Set_Mission(MISSION_MOVE);
 						ScenarioInit--;
 						return(2);
 					}
@@ -3241,18 +3241,19 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						if (!HasAnyLink()) {
 							QueueMission(MISSION_UNLOAD, false);
 						}
-						Cell exitcell = Center_Coord().As_Cell();
+						Cell navalcell = Target_Cell(this);
 						if (ArchiveTarget) {
-							DirType dir = ::Direction(Get_Cell(), ArchiveTarget->Center_Coord().As_Cell());
+							Cell target = Target_Cell(ArchiveTarget);
+							DirType dir = ::Direction(Get_Cell(), target);
 							FacingType facing = dir.As_Facing();
-							while (Map[exitcell].Cell_Building() == this) {
-								exitcell = Adjacent_Cell(exitcell, facing);
+							while (Map[navalcell].Cell_Building() == this) {
+								navalcell = Adjacent_Cell(navalcell, facing);
 							}
 						}
-						if (!ArchiveTarget || Map[exitcell].Land_Type() != LAND_WATER || Map[exitcell].Cell_Techno() || !Map.In_Local_Radar(exitcell)) {
-							exitcell = Map.Nearby_Location(Center_Coord().As_Cell(), base->TClass->Speed, -1, MZONE_NORMAL, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false);
+						if (!ArchiveTarget || Map[navalcell].Land_Type() != LAND_WATER || Map[navalcell].Cell_Techno() || !Map.In_Local_Radar(navalcell)) {
+							navalcell = Map.Nearby_Location(Target_Cell(this), base->TClass->Speed, -1, MZONE_NORMAL, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false);
 						}
-						if (!base->Unlimbo(Map[exitcell].Center_Coord(), DIR_E)) {
+						if (!base->Unlimbo(Map[navalcell].Center_Coord(), DIR_E)) {
 							return(0);
 						}
 						if (ArchiveTarget) {
@@ -3260,7 +3261,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 							base->QueueMission(MISSION_MOVE, false);
 						}
 						base->Mark(MARK_UP);
-						base->Set_Coord(Map[exitcell].Cell_Coord());
+						base->Set_Coord(Map[navalcell].Cell_Coord());
 						base->Mark(MARK_DOWN);
 						return(2);
 					}
@@ -3296,71 +3297,12 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						return(2);
 					}
 
-				} else if (Class->ToBuild != RTTI_INFANTRYTYPE && !Class->IsHospital && !Class->IsArmory && !Class->Cloning) {
-
-					Cell exitcell = Find_Exit_Cell(base);
-					if (exitcell == CELL_NONE) {
-						return(0);
-					}
-
-					Dir256 dir = ::Direction(Center_Coord(), Coord(exitcell)).As_Dir256();
-
-					Cell to = exitcell;
-					cell = Get_Cell();
-					int x = cell.X;
-					if (to.X >= x + Class->Width()) {
-						to.X -= 1;
-					} else if (to.X < cell.X) {
-						to.X += 1;
-					}
-					int y = cell.Y;
-					if (to.Y >= y + Class->Height()) {
-						to.Y -= 1;
-					} else if (to.Y < cell.Y) {
-						to.Y += 1;
-					}
-
-					/*
-					 * The barracks types have a special exit door location that the
-					 * exiting object should be placed at.
-					 */
-					Coord exitcoord = Coord(to, 0);
-					if (Class->IsGDIBarracks) {
-						if (exitcell.X == x + 1 && exitcell.Y == y + 2) {
-							exitcoord = exitcoord + Class->ExitCoordinate;
-						}
-					}
-					if (Class->IsNODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
-						exitcoord = exitcoord + Class->ExitCoordinate;
-					}
-
-					ScenarioInit++;
-					if (base->Unlimbo(exitcoord, dir)) {
-
-						base->QueueMission(MISSION_MOVE, false);
-						base->Assign_Destination(&Map[exitcell]);
-
-						/*
-						 * When the computer produces a unit, it has the unit guard an
-						 * area around the spot it should head to.
-						 */
-						if (!House->Is_Human_Player()) {
-							base->QueueMission(MISSION_GUARD_AREA, false);
-
-							cell = House->Where_To_Go((FootClass *)base);
-							base->Assign_Archive_Target((cell != CELL_NONE && Class->ToBuild != RTTI_NONE) ? &Map[cell] : NULL);
-						}
-
-						ScenarioInit--;
-						return(2);
-					}
-
-				} else {
+				} else if (Class->ToBuild == RTTI_INFANTRYTYPE || Class->IsHospital || Class->IsArmory || Class->Cloning) {
 
 					base->ArchiveTarget = ArchiveTarget;
 					Coord exitcoord;
 
-					Cell exitcell = Find_Exit_Cell(base);
+					exitcell = Find_Exit_Cell(base);
 					if (exitcell == CELL_NONE) {
 						return(0);
 					}
@@ -3370,14 +3312,15 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						TechnoTypeClass const * type = base->TClass;
 						for (int index = 0; index < House->CloningVats.Count(); index++) {
 							BuildingClass * vat = House->CloningVats[index];
-							vat->Exit_Object((TechnoClass *)type->Create_One_Of(vat->House));
+							TechnoClass * object = (TechnoClass *)type->Create_One_Of(vat->House);
+							vat->Exit_Object(object);
 						}
 					}
 					Coord exitcellcoord(exitcell);
 					Dir256 dir = ::Direction(Center_Coord(), exitcellcoord).As_Dir256();
 
 					Cell to = exitcell;
-					cell = Get_Cell();
+					Cell cell = Get_Cell();
 					int x = cell.X;
 					if (to.X >= x + Class->Width()) {
 						to.X -= 1;
@@ -3424,10 +3367,10 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						if (!House->Is_Human_Player() || Class->IsHospital) {
 							base->QueueMission(MISSION_GUARD_AREA, false);
 
-							cell = House->Where_To_Go((FootClass *)base);
-							if (cell != CELL_NONE && Class->ToBuild != RTTI_NONE) {
-								base->Assign_Archive_Target(&Map[cell]);
-								((FootClass *)base)->Queue_Navigation_List(&Map[cell]);
+							Cell dest = House->Where_To_Go((FootClass *)base);
+							if (dest != CELL_NONE && Class->ToBuild != RTTI_NONE) {
+								base->Assign_Archive_Target(&Map[dest]);
+								((FootClass *)base)->Queue_Navigation_List(&Map[dest]);
 							} else {
 								base->Assign_Archive_Target(NULL);
 							}
@@ -3443,6 +3386,65 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						ScenarioInit--;
 						return(2);
 					}
+				} else {
+
+					exitcell = Find_Exit_Cell(base);
+					if (exitcell == CELL_NONE) {
+						return(0);
+					}
+
+					Dir256 dir = ::Direction(Center_Coord(), Coord(exitcell)).As_Dir256();
+
+					Cell to = exitcell;
+					Cell cell = Get_Cell();
+					int x = cell.X;
+					if (to.X >= x + Class->Width()) {
+						to.X -= 1;
+					} else if (to.X < cell.X) {
+						to.X += 1;
+					}
+					int y = cell.Y;
+					if (to.Y >= y + Class->Height()) {
+						to.Y -= 1;
+					} else if (to.Y < cell.Y) {
+						to.Y += 1;
+					}
+
+					/*
+					 * The barracks types have a special exit door location that the
+					 * exiting object should be placed at.
+					 */
+					Coord exitcoord = Coord(to, 0);
+					if (Class->IsGDIBarracks) {
+						if (exitcell.X == x + 1 && exitcell.Y == y + 2) {
+							exitcoord = exitcoord + Class->ExitCoordinate;
+						}
+					}
+					if (Class->IsNODBarracks && exitcell.X == x + 2 && exitcell.Y == y + 2) {
+						exitcoord = exitcoord + Class->ExitCoordinate;
+					}
+
+					ScenarioInit++;
+					if (base->Unlimbo(exitcoord, dir)) {
+
+						base->QueueMission(MISSION_MOVE, false);
+						base->Assign_Destination(&Map[exitcell]);
+
+						/*
+						 * When the computer produces a unit, it has the unit guard an
+						 * area around the spot it should head to.
+						 */
+						if (!House->Is_Human_Player()) {
+							base->QueueMission(MISSION_GUARD_AREA, false);
+
+							Cell dest = House->Where_To_Go((FootClass *)base);
+							base->Assign_Archive_Target((dest != CELL_NONE && Class->ToBuild != RTTI_NONE) ? &Map[dest] : NULL);
+						}
+
+						ScenarioInit--;
+						return(2);
+					}
+
 				}
 
 			} else {

@@ -179,18 +179,18 @@ void Apply_Game_Settings(HWND window)
 
 	control = GetDlgItem(window, IDC_TARGET_LINES);
 	if (control) {
-		Options.ActionLines = SendMessage(control, BM_GETCHECK, 0, 0) == 1;
+		Options.ActionLines = SendMessage(control, BM_GETCHECK, 0, 0) == BST_CHECKED;
 		TechnoClass::Set_Action_Lines(Options.ActionLines);
 	}
 
 	control = GetDlgItem(window, IDC_SHOW_HIDDEN);
 	if (control) {
-		Options.IsShowHidden = SendMessage(control, BM_GETCHECK, 0, 0) == 1;
+		Options.IsShowHidden = SendMessage(control, BM_GETCHECK, 0, 0) == BST_CHECKED;
 	}
 
 	control = GetDlgItem(window, IDC_TOOLTIPS);
 	if (control) {
-		Options.ToolTips = SendMessage(control, BM_GETCHECK, 0, 0) == 1;
+		Options.ToolTips = SendMessage(control, BM_GETCHECK, 0, 0) == BST_CHECKED;
 	}
 
 	control = GetDlgItem(window, IDC_SCROLL_SPEED_SLIDER);
@@ -631,7 +631,7 @@ BOOL CALLBACK IPX_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 						WWMessageBox(L" ").Process(StringTable::LoadString("TXT_PORT_NUMBER_ERROR", NULL, "D:\\Ra2\\MainOpt.cpp", 1050), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\MainOpt.cpp", 1050), NULL, NULL, false);
 						return(0);
 					}
-					if (SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_GETCHECK, 0, 0) == 1) {
+					if (SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_GETCHECK, 0, 0) == BST_CHECKED) {
 						if (!Session.SendDelay) {
 							WWMessageBox(L" ").Process(StringTable::LoadString("TXT_FIREWALL_SETTINGS_WARNING1", NULL, "D:\\Ra2\\MainOpt.cpp", 1059), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\MainOpt.cpp", 1059), NULL, NULL, false);
 						}

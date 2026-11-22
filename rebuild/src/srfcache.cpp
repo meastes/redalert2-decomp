@@ -459,7 +459,7 @@ bool SurfaceCacheClass::DrawNullsub(Rect const & rect, Surface & tosurface, Surf
 /// <param name="x">Horizontal scroll offset into the source.</param>
 /// <param name="y">Vertical scroll offset into the source.</param>
 /// <returns>True on success, false if a surface lock failed.</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0068cce0 has no row); 394 of 408 bytes differ against the frozen image bound (image_bounds.csv) (emitted 416 bytes), 2026-11-22 (lane O32)
 bool SurfaceCacheClass::Draw(Rect const & rect, Surface & tosurface, Surface & fromsurface, int x, int y)
 {
 	unsigned short *tbuf = (unsigned short *)tosurface.Lock();

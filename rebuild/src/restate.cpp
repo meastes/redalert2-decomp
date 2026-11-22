@@ -86,7 +86,7 @@ int CALLBACK Restate_Mission_Dialog_Proc(HWND window, UINT message, WPARAM wpara
 	}
 	switch (message) {
 		case WM_COMMAND:
-			if (GetDlgCtrlID((HWND)lparam) == 0x423 && HIWORD(wparam) == 0) {
+			if (GetDlgCtrlID((HWND)lparam) == 0x423 && HIWORD(wparam) == BN_CLICKED) {
 				*(int *)GetWindowLong(window, DWL_USER) = 0x423;
 			}
 			break;

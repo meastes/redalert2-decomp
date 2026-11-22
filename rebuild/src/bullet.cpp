@@ -300,7 +300,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); against the frozen image bound (image_bounds.csv) 5157 bytes differ, instruction score 56.57 (shape 86.62; 56.08 before lane O25; frame 0x138 against 0x198; the image calls TPoint3D<int>::TPoint3D, TPoint3D<int>::Length and TVelocity3D<double>::operator+= out of line), 2026-11-22; main: best 87.78, tried 8 times (frame, inline, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); against the frozen image bound (image_bounds.csv, 6438+10) 4747 bytes differ; previous 5157. Instruction score 58.70, shape 88.75. Frame 0x170 vs 0x198. Point and velocity helpers still expand at original call sites.
 #include "ion.h"
 #include "revent.h"
 void BulletClass::AI(void)
@@ -576,12 +576,16 @@ void BulletClass::AI(void)
 			}
 			Coord old_coord = coord;
 			coord += Coord((int)Velocity.X, (int)Velocity.Y, (int)Velocity.Z);
-			int bridge_height = Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT;
-			if (coord.Z > Class->DetonationAltitude || HeightAGL < 0 ||
-				((Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) &&
-					((coord.Z >= bridge_height) != (old_coord.Z >= bridge_height)))) {
+			if (coord.Z > Class->DetonationAltitude || HeightAGL < 0) {
 				impact = IMPACT_NORMAL;
 				forced = true;
+			} else {
+				int bridge_height = Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT;
+				if ((Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) &&
+					((coord.Z >= bridge_height) != (old_coord.Z >= bridge_height))) {
+					impact = IMPACT_NORMAL;
+					forced = true;
+				}
 			}
 		} else {
 			TechnoClass * payback = Payback;
@@ -665,8 +669,10 @@ void BulletClass::AI(void)
 					position.Z = height;
 				}
 				if (!payback) {
-					Matrix3D slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(new_coord));
-					Matrix3D slope_matrix_inv = Matrix3D::Orthogonal_Inverse(slope_matrix);
+					Matrix3D slope_matrix;
+					Matrix3D slope_matrix_inv;
+					slope_matrix_inv = Matrix3D::Orthogonal_Inverse(
+						slope_matrix = Get_Slope_Matrix(TacticalMap->Get_Cell_Ramp(new_coord)));
 					Vector3 vec(velocity.X, -velocity.Y, velocity.Z);
 					vec = slope_matrix_inv.Rotate_Vector(vec);
 					vec *= elasticity;
@@ -679,37 +685,53 @@ void BulletClass::AI(void)
 				impact = IMPACT_NORMAL;
 				forced = true;
 			}
-			coord = Coord((int)position.X, (int)position.Y, (int)position.Z);
+			coord.X = (int)position.X;
+			coord.Y = (int)position.Y;
+			coord.Z = (int)position.Z;
 		}
 
 		Cell here = coord.As_Cell();
 		Cell there = TargetCoords.As_Cell();
-		BuildingClass * building = Map[here].Cell_Building();
-		if (!Class->Vertical && HeightAGL < LEVEL_LEPTON_H * 2 &&
-			(here == there || (building && building == Map[there].Cell_Building()))) {
+		if (here == there && !Class->Vertical && HeightAGL < LEVEL_LEPTON_H * 2) {
 			impact = IMPACT_NORMAL;
 			forced = true;
 			collided = true;
 		} else {
-			TechnoClass * techno = Map[coord].Cell_Techno();
-			if (techno && techno != Payback && (!Payback || !Payback->House->Is_Ally(techno)) &&
-				coord.Distance_To(techno->PositionCoord) < CELL_LEPTON / 2) {
+			CellClass & cell = Map[here];
+			CellClass & target_cell = Map[there];
+			BuildingClass * building = cell.Cell_Building();
+			BuildingClass * target_building = target_cell.Cell_Building();
+			if (building != NULL && !Class->Vertical && building == target_building && HeightAGL < LEVEL_LEPTON_H * 2) {
 				impact = IMPACT_NORMAL;
 				forced = true;
-				if (!Class->IsInaccurate) {
-					coord = techno->PositionCoord;
-				}
-			} else if (!Map.In_Radar(coord)) {
-				impact = IMPACT_EDGE;
-				forced = true;
-				coord = PositionCoord;
+				collided = true;
 			} else {
-				if (!Class->Vertical) {
-					Velocity = velocity;
-				}
-				if (Velocity.Speed() < 10 && HeightAGL < 10) {
+				TechnoClass * techno = Map[coord].Cell_Techno();
+				bool techno_valid = techno != NULL;
+				bool payback_valid = Payback != NULL;
+				bool is_owner = payback_valid && techno == Payback;
+				bool ally = techno_valid && payback_valid && Payback->House->Is_Ally(techno);
+				bool close = techno_valid && coord.Distance_YZX(techno->PositionCoord) < CELL_LEPTON / 2;
+				if (!is_owner && !ally && close) {
 					impact = IMPACT_NORMAL;
 					forced = true;
+					if (!Class->IsInaccurate) {
+						coord = techno->PositionCoord;
+					}
+				} else if (!Map.In_Radar(coord)) {
+					impact = IMPACT_EDGE;
+					forced = true;
+					coord = PositionCoord;
+				} else {
+					new_velocity.X = velocity.X;
+					new_velocity.Y = velocity.Y;
+					if (!Class->Vertical) {
+						Velocity = TVelocity3D<double>(new_velocity.X, new_velocity.Y, velocity.Z);
+					}
+					if (Velocity.Speed() < 10 && HeightAGL < 10) {
+						impact = IMPACT_NORMAL;
+						forced = true;
+					}
 				}
 			}
 		}
@@ -753,7 +775,7 @@ void BulletClass::AI(void)
 					if (Class_Of() != NULL && !Class_Of()->IsIgnoresFirestorm) {
 						building->Crossing_Firestorm(this, false);
 						Delete_Me();
-						return;
+						break;
 					}
 				}
 			}
@@ -802,7 +824,7 @@ void BulletClass::AI(void)
 						Coord midpoint = coord;
 						Coord target_coord = TarCom->As_Coord();
 						midpoint.Z = (midpoint.Z + target_coord.Z) / 2;
-						int target_distance = midpoint.Distance_To(target_coord);
+						int target_distance = midpoint.Distance_YZX(target_coord);
 						if (collided) {
 							target_distance /= 3;
 						}
@@ -818,8 +840,9 @@ void BulletClass::AI(void)
 					IonStormClass::Start_Nuke_Flash();
 					Submit_Radar_Event(RADAREVENT_SUPERWEAPON_ACTIVATED, Get_Cell());
 					AnimType index = AnimTypeClass::From_Name("NUKEBALL");
-					if (index != ANIM_NONE && AnimTypes[index]) {
-						NextAnim = new AnimClass(AnimTypes[index], PositionCoord, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(PositionCoord));
+					AnimTypeClass * type;
+					if (index != ANIM_NONE && (type = AnimTypes[index]) != NULL) {
+						NextAnim = new AnimClass(type, PositionCoord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(PositionCoord));
 						SpawnNextAnim = true;
 						AnimPtrTracker.Add(this);
 						break;

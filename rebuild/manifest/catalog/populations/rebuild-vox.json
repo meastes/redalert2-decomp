@@ -4490,6 +4490,36 @@
       "bound_population": "population-2224"
     },
     {
+      "entry": 7432064,
+      "method": "00716780",
+      "body_bytes": 3,
+      "body_sha256": "e18aacce29affcdddaa5f641ac1ec12552e0fe9d066e6408941b1792818b8619",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1191f37eec740e495eda01ae2ac0969bf44c3c661ce4ae90583b5fdc05c0f707",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start end of bound exact row 00716770, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Speech_Always_True@@YI_NXZ",
+      "symbol_prefix": "?Speech_Always_True@@YI_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "2cec412fbf49ffe55dbb38d7e8e577a59fc932209fa10e3e72305a3a5a68ad75",
+      "source": "rebuild/src/vox.cpp",
+      "population": "rebuild-vox",
+      "source_order": 7432064,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
+    },
+    {
       "entry": 7432080,
       "method": "00716790",
       "body_bytes": 57,
