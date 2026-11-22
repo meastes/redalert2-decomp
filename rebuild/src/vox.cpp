@@ -115,25 +115,25 @@ void Flush_Speech(void) // RA2: 0x007157B0; drops every waiting speech, marking 
 		return; // RA2: as above
 	}
 	if (SpeechPending != 0) { // RA2: as above
-		SpeechPending->Vox->State = 2; // RA2: as above
+		SpeechPending->Vox->State = VOXSTATE_IDLE; // RA2: as above
 		delete SpeechPending; // RA2: as above
 		SpeechPending = 0; // RA2: as above
 	}
 	VoxSpeech *speech; // RA2: as above
 	while ((speech = (VoxSpeech *)ListFirstItem(&SpeechUrgentList)) != 0) { // RA2: as above
 		ListNodeRemove(speech); // RA2: as above
-		speech->Vox->State = 2; // RA2: as above
+		speech->Vox->State = VOXSTATE_IDLE; // RA2: as above
 		delete speech; // RA2: as above
 	}
 	while ((speech = (VoxSpeech *)ListFirstItem(&SpeechQueuedList)) != 0) { // RA2: as above
 		ListNodeRemove(speech); // RA2: as above
-		speech->Vox->State = 2; // RA2: as above
+		speech->Vox->State = VOXSTATE_IDLE; // RA2: as above
 		delete speech; // RA2: as above
 	}
 	for (int i = 0; i < 4; i++) { // RA2: as above
 		while ((speech = (VoxSpeech *)ListFirstItem(&SpeechLists[i])) != 0) { // RA2: as above
 			ListNodeRemove(speech); // RA2: as above
-			speech->Vox->State = 2; // RA2: as above
+			speech->Vox->State = VOXSTATE_IDLE; // RA2: as above
 			delete speech; // RA2: as above
 		}
 	}
@@ -159,11 +159,11 @@ void __fastcall Queue_Speech(int index, int type, int priority) // RA2: 0x007158
 			if (priority == -1) { // RA2: as above
 				priority = vox->Priority; // RA2: as above
 			}
-			if (SpeechPlaying != 0 && type == 2) { // RA2: as above
+			if (SpeechPlaying != 0 && type == VOXSPEECH_INTERRUPT) { // RA2: as above
 				VoxSpeech *speech; // RA2: as above
 				while ((speech = (VoxSpeech *)ListFirstItem(&SpeechQueuedList)) != 0) { // RA2: as above
 					ListNodeRemove(speech); // RA2: as above
-					speech->Vox->State = 2; // RA2: as above
+					speech->Vox->State = VOXSTATE_IDLE; // RA2: as above
 					delete speech; // RA2: as above
 				}
 				Speech_Stop(true); // RA2: as above
@@ -187,19 +187,19 @@ void __fastcall Speech_Enqueue(VoxClass *vox, int type, int priority) // RA2: 0x
 	speech->Type = type; // RA2: as above
 	speech->Serial = SpeechSerial % 100; // RA2: as above
 	SpeechSerial++; // RA2: as above
-	vox->State = 1; // RA2: as above
-	if (type == 3) { // RA2: as above
+	vox->State = VOXSTATE_QUEUED; // RA2: as above
+	if (type == VOXSPEECH_QUEUED_INTERRUPT) { // RA2: as above
 		ListNodeInsert(&SpeechQueuedList, speech); // RA2: as above
-	} else if (type == 1) { // RA2: as above
+	} else if (type == VOXSPEECH_QUEUE) { // RA2: as above
 		ListNodeInsert(&SpeechLists[priority], speech); // RA2: as above
-	} else if (priority == 3) { // RA2: as above
+	} else if (priority == VOXPRIORITY_CRITICAL) { // RA2: as above
 		ListNodeInsert(&SpeechUrgentList, speech); // RA2: as above
 	} else if (SpeechQueuedList.prev == &SpeechQueuedList // RA2: as above
 			&& SpeechUrgentList.prev == &SpeechUrgentList // RA2: as above
 			&& (SpeechPending == 0 || SpeechPending->Priority < priority)) { // RA2: as above
 		SpeechPending = speech; // RA2: as above
 	} else {
-		vox->State = 2; // RA2: as above
+		vox->State = VOXSTATE_IDLE; // RA2: as above
 		delete speech; // RA2: as above
 	}
 }
@@ -216,7 +216,7 @@ VoxSpeech *__fastcall Speech_Find(VoxClass *vox) // RA2: 0x00715AC0; the waiting
 	if (SpeechPending != 0 && SpeechPending->Vox == vox) { // RA2: as above
 		return SpeechPending; // RA2: as above
 	}
-	for (int priority = 3; priority >= 0; priority--) { // RA2: as above
+	for (int priority = VOXPRIORITY_CRITICAL; priority >= VOXPRIORITY_LOW; priority--) { // RA2: as above
 		for (speech = (VoxSpeech *)ListFirstItem(&SpeechLists[priority]); speech != 0; // RA2: as above
 				speech = (VoxSpeech *)ListNextItem(speech)) { // RA2: as above
 			if (speech->Vox == vox) { // RA2: as above
@@ -253,7 +253,7 @@ void Speech_Service(void) // RA2: 0x00715BA0; when the stream is free and the ga
 		return; // RA2: as above
 	}
 	if (SpeechPlaying != 0) { // RA2: as above
-		SpeechPlaying->State = 2; // RA2: as above
+		SpeechPlaying->State = VOXSTATE_IDLE; // RA2: as above
 		SpeechPlaying = 0; // RA2: as above
 	}
 	int type = 0; // RA2: as above
@@ -297,7 +297,7 @@ void Speech_Service(void) // RA2: 0x00715BA0; when the stream is free and the ga
 	if (vox == 0) { // RA2: as above
 		return; // RA2: as above
 	}
-	vox->State = 2; // RA2: as above
+	vox->State = VOXSTATE_IDLE; // RA2: as above
 	char filename[256]; // RA2: as above
 	strcpy(filename, SpeechSovietFiles == 0 ? vox->Allied : vox->Russian); // RA2: as above
 	strcat(filename, ".WAV"); // RA2: as above
@@ -306,14 +306,14 @@ void Speech_Service(void) // RA2: 0x00715BA0; when the stream is free and the ga
 		SpeechPlaying = vox; // RA2: as above
 		SpeechPlayingType = type; // RA2: as above
 		SpeechPlayingPriority = priority; // RA2: as above
-		vox->State = 0; // RA2: as above
+		vox->State = VOXSTATE_PLAYING; // RA2: as above
 	}
 }
 
 void __fastcall Speech_Stop(bool clear) // RA2: 0x00715DE0; stops the speech playing and, with clear, drops the waiting ones too
 {
 	if (SpeechPlaying != 0) { // RA2: as above
-		SpeechPlaying->State = 2; // RA2: as above
+		SpeechPlaying->State = VOXSTATE_IDLE; // RA2: as above
 		SpeechPlaying = 0; // RA2: as above
 	}
 	if (SpeechStream != 0) { // RA2: as above
@@ -359,7 +359,7 @@ void __fastcall Speech_Cancel(int index) // RA2: 0x00715E80; drops every waiting
 			if (speech == SpeechPending) { // RA2: as above
 				SpeechPending = 0; // RA2: as above
 			}
-			speech->Vox->State = 2; // RA2: as above
+			speech->Vox->State = VOXSTATE_IDLE; // RA2: as above
 			delete speech; // RA2: as above
 		}
 	}
@@ -474,25 +474,25 @@ bool VoxClass::Read_INI(CCINIClass &ini) // RA2: 0x007161E0; the volume, type, p
 		ini.Get_String(Name, "Type", "", buffer, sizeof(buffer)); // RA2: as above
 		if (strlen(buffer) != 0) { // RA2: as above
 			if (_stricmp(buffer, "QUEUE") == 0) { // RA2: as above
-				Type = 1; // RA2: as above
+				Type = VOXSPEECH_QUEUE; // RA2: as above
 			} else if (_stricmp(buffer, "STANDARD") == 0) { // RA2: as above
-				Type = 0; // RA2: as above
+				Type = VOXSPEECH_STANDARD; // RA2: as above
 			} else if (_stricmp(buffer, "INTERRUPT") == 0) { // RA2: as above
-				Type = 2; // RA2: as above
+				Type = VOXSPEECH_INTERRUPT; // RA2: as above
 			} else if (_stricmp(buffer, "QUEUED_INTERRUPT") == 0) { // RA2: as above
-				Type = 3; // RA2: as above
+				Type = VOXSPEECH_QUEUED_INTERRUPT; // RA2: as above
 			}
 		}
 		ini.Get_String(Name, "Priority", "", buffer, sizeof(buffer)); // RA2: as above
 		if (strlen(buffer) != 0) { // RA2: as above
 			if (_stricmp(buffer, "LOW") == 0) { // RA2: as above
-				Priority = 0; // RA2: as above
+				Priority = VOXPRIORITY_LOW; // RA2: as above
 			} else if (_stricmp(buffer, "NORMAL") == 0) { // RA2: as above
-				Priority = 1; // RA2: as above
+				Priority = VOXPRIORITY_NORMAL; // RA2: as above
 			} else if (_stricmp(buffer, "IMPORTANT") == 0) { // RA2: as above
-				Priority = 2; // RA2: as above
+				Priority = VOXPRIORITY_IMPORTANT; // RA2: as above
 			} else if (_stricmp(buffer, "CRITICAL") == 0) { // RA2: as above
-				Priority = 3; // RA2: as above
+				Priority = VOXPRIORITY_CRITICAL; // RA2: as above
 			}
 		}
 		ini.Get_String(Name, "Russian", "", buffer, sizeof(buffer)); // RA2: as above

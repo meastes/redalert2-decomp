@@ -2242,11 +2242,11 @@ int __fastcall Planning_Count(int house) // RA2: 0x00616D50 (also expanded where
 
 void __fastcall Planning_Refuse_Event(EventClass * event) // RA2: 0x00616D70; says why planning mode refuses an event of this type, then scolds
 {
-	if (event->Type == 9) { // RA2: as above
+	if (event->Type == EventClass::DEPLOY) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoDeploy"); // RA2: as above
-	} else if (event->Type == 6) { // RA2: as above
+	} else if (event->Type == EventClass::IDLE) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoStop"); // RA2: as above
-	} else if (event->Type == 7) { // RA2: as above
+	} else if (event->Type == EventClass::SCATTER) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoScatter"); // RA2: as above
 	}
 	VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000); // RA2: as above
@@ -2314,11 +2314,11 @@ void __fastcall Planning_Refuse(char const * label) // RA2: 0x00616FD0; shows a 
 
 void __fastcall Planning_Refuse_Order(EventClass const * event) // RA2: 0x00617020; says why planning mode refuses an order of this type
 {
-	if (event->Type == 9) { // RA2: as above
+	if (event->Type == EventClass::DEPLOY) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoDeploy"); // RA2: as above
-	} else if (event->Type == 6) { // RA2: as above
+	} else if (event->Type == EventClass::IDLE) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoStop"); // RA2: as above
-	} else if (event->Type == 7) { // RA2: as above
+	} else if (event->Type == EventClass::SCATTER) { // RA2: as above
 		Planning_Refuse("MSG:PlanningModeNoScatter"); // RA2: as above
 	}
 }

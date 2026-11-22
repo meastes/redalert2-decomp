@@ -189,51 +189,51 @@ RulesClass::RulesClass(void) :
 	CrateImg(0), // RA2: as above
 	WaterCrateImg(0), // RA2: as above
 	DigSound(VOC_NONE),
-	CreateUnitSound(-1), // RA2: the executable's initializer list, in RA2's member order and values
-	CreateInfantrySound(-1), // RA2: as above
-	CreateAircraftSound(-1), // RA2: as above
-	BaseUnderAttackSound(-1), // RA2: as above
-	GUIMainButtonSound(-1), // RA2: as above
-	GUIBuildSound(-1), // RA2: as above
-	GUITabSound(-1), // RA2: as above
-	GUIOpenSound(-1), // RA2: as above
-	GUICloseSound(-1), // RA2: as above
-	GUIMoveOutSound(-1), // RA2: as above
-	GUIMoveInSound(-1), // RA2: as above
-	GUIComboOpenSound(-1), // RA2: as above
-	GUIComboCloseSound(-1), // RA2: as above
-	GUICheckboxSound(-1), // RA2: as above
-	ScoreAnimSound(-1), // RA2: as above
-	IFVTransformSound(-1), // RA2: as above
-	PsychicSensorDetectSound(-1), // RA2: as above
-	BuildingGarrisonedSound(-1), // RA2: as above
-	BuildingAbandonedSound(-1), // RA2: as above
-	BuildingRepairedSound(-1), // RA2: as above
-	CheerSound(-1), // RA2: as above
-	PlaceBeaconSound(-1), // RA2: as above
-	DefaultChronoSound(-1), // RA2: as above
-	StartPlanningModeSound(-1), // RA2: as above
-	AddPlanningModeCommandSound(-1), // RA2: as above
-	ExecutePlanSound(-1), // RA2: as above
-	EndPlanningModeSound(-1), // RA2: as above
-	CrateMoneySound(-1), // RA2: as above
-	CrateRevealSound(-1), // RA2: as above
-	CrateFireSound(-1), // RA2: as above
-	CrateArmourSound(-1), // RA2: as above
-	CrateSpeedSound(-1), // RA2: as above
-	CrateUnitSound(-1), // RA2: as above
-	CratePromoteSound(-1), // RA2: as above
-	ImpactWaterSound(-1), // RA2: as above
-	ImpactLandSound(-1), // RA2: as above
-	SinkingSound(-1), // RA2: as above
-	BombTickingSound(-1), // RA2: as above
-	BombAttachSound(-1), // RA2: as above
-	ChronoInSound(-1), // RA2: as above
-	ChronoOutSound(-1), // RA2: as above
-	SpySatActivationSound(-1), // RA2: as above
-	SpySatDeactivationSound(-1), // RA2: as above
-	UpgradeVeteranSound(-1), // RA2: as above
-	UpgradeEliteSound(-1), // RA2: as above
+	CreateUnitSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
+	CreateInfantrySound(VOC_NONE), // RA2: as above
+	CreateAircraftSound(VOC_NONE), // RA2: as above
+	BaseUnderAttackSound(VOC_NONE), // RA2: as above
+	GUIMainButtonSound(VOC_NONE), // RA2: as above
+	GUIBuildSound(VOC_NONE), // RA2: as above
+	GUITabSound(VOC_NONE), // RA2: as above
+	GUIOpenSound(VOC_NONE), // RA2: as above
+	GUICloseSound(VOC_NONE), // RA2: as above
+	GUIMoveOutSound(VOC_NONE), // RA2: as above
+	GUIMoveInSound(VOC_NONE), // RA2: as above
+	GUIComboOpenSound(VOC_NONE), // RA2: as above
+	GUIComboCloseSound(VOC_NONE), // RA2: as above
+	GUICheckboxSound(VOC_NONE), // RA2: as above
+	ScoreAnimSound(VOC_NONE), // RA2: as above
+	IFVTransformSound(VOC_NONE), // RA2: as above
+	PsychicSensorDetectSound(VOC_NONE), // RA2: as above
+	BuildingGarrisonedSound(VOC_NONE), // RA2: as above
+	BuildingAbandonedSound(VOC_NONE), // RA2: as above
+	BuildingRepairedSound(VOC_NONE), // RA2: as above
+	CheerSound(VOC_NONE), // RA2: as above
+	PlaceBeaconSound(VOC_NONE), // RA2: as above
+	DefaultChronoSound(VOC_NONE), // RA2: as above
+	StartPlanningModeSound(VOC_NONE), // RA2: as above
+	AddPlanningModeCommandSound(VOC_NONE), // RA2: as above
+	ExecutePlanSound(VOC_NONE), // RA2: as above
+	EndPlanningModeSound(VOC_NONE), // RA2: as above
+	CrateMoneySound(VOC_NONE), // RA2: as above
+	CrateRevealSound(VOC_NONE), // RA2: as above
+	CrateFireSound(VOC_NONE), // RA2: as above
+	CrateArmourSound(VOC_NONE), // RA2: as above
+	CrateSpeedSound(VOC_NONE), // RA2: as above
+	CrateUnitSound(VOC_NONE), // RA2: as above
+	CratePromoteSound(VOC_NONE), // RA2: as above
+	ImpactWaterSound(VOC_NONE), // RA2: as above
+	ImpactLandSound(VOC_NONE), // RA2: as above
+	SinkingSound(VOC_NONE), // RA2: as above
+	BombTickingSound(VOC_NONE), // RA2: as above
+	BombAttachSound(VOC_NONE), // RA2: as above
+	ChronoInSound(VOC_NONE), // RA2: as above
+	ChronoOutSound(VOC_NONE), // RA2: as above
+	SpySatActivationSound(VOC_NONE), // RA2: as above
+	SpySatDeactivationSound(VOC_NONE), // RA2: as above
+	UpgradeVeteranSound(VOC_NONE), // RA2: as above
+	UpgradeEliteSound(VOC_NONE), // RA2: as above
 	Dig(0), // RA2: as above
 	IonBlast(0), // RA2: as above
 	IonBeam(0), // RA2: as above
@@ -322,7 +322,7 @@ RulesClass::RulesClass(void) :
 	PlayerJoined(VOC_NONE),
 	MessageCharTyped(-1), // RA2: the executable's initializer list, in RA2's member order and values
 	Construction(VOC_NONE),
-	BuildingDieSound(-1), // RA2: the executable's initializer list, in RA2's member order and values
+	BuildingDieSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
 	BuildingSlam(VOC_NONE),
 	RadarOn(VOC_NONE),
 	RadarOff(VOC_NONE),
@@ -333,15 +333,15 @@ RulesClass::RulesClass(void) :
 	TeslaZap(VOC_NONE),
 	GenericClick(VOC_NONE),
 	GenericBeep(VOC_NONE),
-	BuildingDamageSound(-1), // RA2: the executable's initializer list, in RA2's member order and values
+	BuildingDamageSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
 	HealCrateSound(VOC_NONE),
 	ChuteSound(VOC_NONE),
 	StopSound(VOC_NONE),
 	GuardSound(VOC_NONE),
 	ScatterSound(VOC_NONE),
 	DeploySound(VOC_NONE),
-	StormSound(-1), // RA2: the executable's initializer list, in RA2's member order and values
-	ShellButtonSlideSound(-1), // RA2: as above
+	StormSound(VOC_NONE), // RA2: the executable's initializer list, in RA2's member order and values
+	ShellButtonSlideSound(VOC_NONE), // RA2: as above
 	WallBuildSpeedCoefficient(0.5), // RA2: as above
 	ChargeToDrainRatio(3.0), // RA2: as above
 	DamageToFirestormDamageCoefficient(0.1), // RA2: as above

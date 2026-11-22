@@ -1193,8 +1193,8 @@ int TeamClass::Recruit(int typeindex)
 	if (Class->TaskForce->Members[typeindex].Quantity > Quantity[typeindex]) {
 		int group = Class->Get_Group();
 		switch ((RTTIType)Class->TaskForce->Members[typeindex].Class->RTTI) {
-		case 0xF: // RA2: as above
-		case 0x10: { // RA2: as above
+			case RTTI_INFANTRY: // RA2: as above
+			case RTTI_INFANTRYTYPE: { // RA2: as above
 			FootClass *best = 0; // RA2: as above
 			int best_distance = -1; // RA2: as above
 			for (int index = 0; index < Infantry.Count(); index++) { // RA2: as above
@@ -1217,8 +1217,8 @@ int TeamClass::Recruit(int typeindex)
 			}
 			break; // RA2: as above
 		}
-		case 2: // RA2: as above
-		case 3: { // RA2: as above
+			case RTTI_AIRCRAFT: // RA2: as above
+			case RTTI_AIRCRAFTTYPE: { // RA2: as above
 			AircraftClass *best = 0; // RA2: as above
 			int best_distance = -1; // RA2: as above
 			for (int index = 0; index < Aircraft.Count(); index++) { // RA2: as above
@@ -1241,8 +1241,8 @@ int TeamClass::Recruit(int typeindex)
 			}
 			break; // RA2: as above
 		}
-		case 1: // RA2: as above
-		case 0x28: { // RA2: as above
+			case RTTI_UNIT: // RA2: as above
+			case RTTI_UNITTYPE: { // RA2: as above
 			UnitClass *best = 0; // RA2: as above
 			int best_distance = -1; // RA2: as above
 			for (int index = 0; index < Units.Count(); index++) { // RA2: as above

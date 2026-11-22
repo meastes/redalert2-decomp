@@ -83,7 +83,7 @@ ThemeControl::ThemeControl(void) :
 	Normal(true),
 	Repeat(false),
 	Available(false),
-	Owner(-1)
+	Owner(SIDE_NONE)
 {
 	Name[0] = '\0';
 	Sound[0] = '\0'; // RA2: Init_Themes 0x6E7890 clears +0x100 as well
@@ -420,7 +420,7 @@ void ThemeClass::Queue_Song(ThemeType theme)
 {
 	if (ScoresPresent && AudioDeviceAvailable() && !Debug_Quiet) { // RA2: RA2's form
 		Pending = theme;
-		if (theme != -1 && theme != -2 && theme != Score) { // RA2: as above
+		if (theme != THEME_NONE && theme != THEME_PICK_ANOTHER && theme != Score) { // RA2: as above
 			DebugString("Theme::QueueSong(%d)\n", theme); // RA2: as above
 			if (Still_Playing() == true) { // RA2: as above
 				if (Stream != 0) { // RA2: as above
@@ -692,7 +692,7 @@ bool ThemeClass::Is_Allowed(ThemeType index) const
 	if ((unsigned)index >= (unsigned)Themes.Count()) return false; // RA2: as above
 	if (!Themes[index]->Available) return false; // RA2: as above
 	if (!Themes[index]->Normal) return false; // RA2: as above
-	if (PlayerPtr != NULL && Themes[index]->Owner != -1 && PlayerPtr->Class->Side != Themes[index]->Owner) return false; // RA2: as above
+	if (PlayerPtr != NULL && Themes[index]->Owner != SIDE_NONE && PlayerPtr->Class->Side != Themes[index]->Owner) return false; // RA2: as above
 	if (Session.Type == GAME_NORMAL && Scen->Scenario < Themes[index]->Scenario) return false; // RA2: as above
 	return true; // RA2: as above
 }

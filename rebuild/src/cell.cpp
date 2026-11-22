@@ -394,7 +394,7 @@ int CellClass::Preview_Cell_Color(unsigned char & unknown, bool terrainonly) con
 	unknown = 0;
 	BuildingClass *obj = (BuildingClass *)Cell_Building(); // RA2: RA2's form
 
-	if (!terrainonly && obj != 0 && !obj->Class->IsInvisible && !obj->Class->IsInvisibleInGame && Building_Visual(obj) != 5) { // RA2: as above
+	if (!terrainonly && obj != 0 && !obj->Class->IsInvisible && !obj->Class->IsInvisibleInGame && Building_Visual(obj) != VISUAL_HIDDEN) { // RA2: as above
 		ColorScheme *scheme = ColorSchemes[obj->House->Scheme]; // RA2: as above
 		unsigned int color = scheme->Converter->Convert_Pixel(scheme->Color); // RA2: as above
 		return (color << 16) | color; // RA2: as above
@@ -408,14 +408,14 @@ int CellClass::Preview_Cell_Color(unsigned char & unknown, bool terrainonly) con
 
 	IsometricTileTypeClass *ittype; // RA2: as above
 	int icon;
-	if (ITType != 0xFFFF) { // RA2: as above
+	if (ITType != ISOTILE_NONE) { // RA2: as above
 		ittype = IsometricTileTypes[ITType];
 	} else {
 		ittype = IsometricTileTypes[IsometricTileTypeClass::ClearTile]; // RA2: as above
 	}
 
 	icon = 0;
-	if (ITType != 0xFFFF) { // RA2: as above
+	if (ITType != ISOTILE_NONE) { // RA2: as above
 		if (ittype->NumTileTypesInSet > 1) {
 			if (ittype->Is_Randomized((unsigned char)SubTile)) { // RA2: as above
 				icon = IsBridgeDamaged; // RA2: as above
@@ -2393,7 +2393,7 @@ void CellClass::Draw_Shroud_And_Fog(Point2D const & point, Rect const & cliprect
 /// <remarks>The icon pointer is only written when doicon is true; pass NULL otherwise.</remarks>
 inline void CellClass::Fetch_Icon(IsometricTileTypeClass *& ittype, int & subtile, int * icon, bool doicon) const
 {
-	if (ITType != 0xFFFF) {
+	if (ITType != ISOTILE_NONE) {
 		ittype = IsometricTileTypes[ITType];
 		subtile = (unsigned char)SubTile;
 		if (ittype->NumTileTypesInSet > 1) {

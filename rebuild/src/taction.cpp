@@ -577,9 +577,6 @@ void TActionClass::Read_INI(void)
  *=============================================================================================*/
 bool TActionClass::operator() (HouseClass * house, ObjectClass * object, TriggerClass * trig, Cell const & cell)
 {
-	Cell waypoint;
-	Coord coord;
-
 	bool success = true;
 
 	/*
@@ -1601,7 +1598,7 @@ bool TActionClass::TAction_STOP_SOUND_AT(HouseClass * , ObjectClass * , TriggerC
 	Coord coord = Scen->Get_Waypoint_Coord(EffectLocation);
 	ObjectClass * object = Coord_Object(coord);
 	if (object != NULL) {
-		object->Set_Ambient_Sound(-1);
+		object->Set_Ambient_Sound(VOC_NONE);
 	} else {
 		VocClass::Stop_At(coord, 1);
 	}
@@ -1651,7 +1648,8 @@ void Queue_Speech(int speech, int priority, int expire); // RA2: 0x7158C0
 
 bool TActionClass::TAction_PLAY_SPEECH(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
-	Queue_Speech(Data.Speech, 2, -1); // RA2: 0x6B1180 queues it
+	int speech = Data.Speech;
+	Queue_Speech(speech, 2, -1); // RA2: 0x6B1180 queues it
 	return(true);
 }
 
@@ -2437,7 +2435,8 @@ bool TActionClass::TAction_METEOR_SHOWER(HouseClass * , ObjectClass * , TriggerC
 /// </summary>
 bool TActionClass::TAction_SET_AMBIENT_STEP(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
-	Rule->AmbientLightChangeStep = (double)Data.Float;
+	float change_step = Data.Float;
+	Rule->AmbientLightChangeStep = change_step;
 	return(true);
 }
 
@@ -2449,7 +2448,8 @@ bool TActionClass::TAction_SET_AMBIENT_STEP(HouseClass * , ObjectClass * , Trigg
 /// </summary>
 bool TActionClass::TAction_SET_AMBIENT_RATE(HouseClass * , ObjectClass * , TriggerClass * , Cell const & )
 {
-	Rule->AmbientLightChangeRate = (double)Data.Float;
+	float change_rate = Data.Float;
+	Rule->AmbientLightChangeRate = change_rate;
 	return(true);
 }
 
@@ -3116,10 +3116,10 @@ void TActionClass::Compute_CRC(CRCEngine & crc) const
 /// stand on its own.</returns>
 int __fastcall Action_Flags(int action) // RA2: not in TibSun, at 0x006B2DF0
 {
-	int flags = 0;
+	int flags = ATTACH_NONE;
 	switch (action) {
-		case 14: case 32: case 60: case 61: case 62: case 91: case 111:
-			flags = 2;
+		case TACTION_CHANGE_HOUSE: case TACTION_DESTROY_OBJECT: case TACTION_SELL_ATTACHED: case TACTION_TURN_OFF_ATTACHED: case TACTION_TURN_ON_ATTACHED: case TACTION_GO_BERZERK: case TACTION_EJECT_OCCUPANTS:
+			flags = ATTACH_OBJECT;
 			break;
 
 		default:

@@ -401,7 +401,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 					{
 						FootClass * linked = LinkedTo;
 						int sound = linked->Techno_Type_Class()->ChronoOutSound;
-						if (sound != -1 || (sound = Rule->ChronoOutSound) != -1) {
+						if (sound != VOC_NONE || (sound = Rule->ChronoOutSound) != VOC_NONE) {
 							VocClass::PlayAt(sound, linked->PositionCoord, NULL);
 						}
 					}
@@ -419,7 +419,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 					{
 						FootClass * linked = LinkedTo;
 						int sound = linked->Techno_Type_Class()->ChronoInSound;
-						if (sound != -1 || (sound = Rule->ChronoInSound) != -1) {
+						if (sound != VOC_NONE || (sound = Rule->ChronoInSound) != VOC_NONE) {
 							VocClass::PlayAt(sound, linked->PositionCoord, NULL);
 						}
 					}
@@ -453,7 +453,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 		{
 			FootClass * linked = LinkedTo;
 			int sound = linked->Techno_Type_Class()->ChronoOutSound;
-			if (sound != -1 || (sound = Rule->ChronoOutSound) != -1) {
+			if (sound != VOC_NONE || (sound = Rule->ChronoOutSound) != VOC_NONE) {
 				VocClass::PlayAt(sound, linked->PositionCoord, NULL);
 			}
 		}
@@ -491,7 +491,7 @@ boolean STDMETHODCALLTYPE TeleportLocomotionClass::Process(void)
 		{
 			FootClass * linked = LinkedTo;
 			int sound = linked->Techno_Type_Class()->ChronoInSound;
-			if (sound != -1 || (sound = Rule->ChronoInSound) != -1) {
+			if (sound != VOC_NONE || (sound = Rule->ChronoInSound) != VOC_NONE) {
 				VocClass::PlayAt(sound, linked->PositionCoord, NULL);
 			}
 		}

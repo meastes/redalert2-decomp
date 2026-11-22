@@ -1097,7 +1097,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 			Session.LatencyFudge = 0;
 			Session.PrecalcMaxAhead = 0;
 			Session.PrecalcDesiredFrameRate = 0;
-			if (Session.CommProtocol == 2) { // RA2: as above
+			if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) { // RA2: as above
 				Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2; // RA2: as above
 			} else {
 				Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2; // RA2: as above
@@ -1198,7 +1198,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 					Session.LatencyFudge = 0;
 					Session.PrecalcMaxAhead = 0;
 					Session.PrecalcDesiredFrameRate = 0;
-					if (Session.CommProtocol == 2) { // RA2: as above
+					if (Session.CommProtocol == COMM_PROTOCOL_MULTI_E_COMP) { // RA2: as above
 						Session.MaxAhead = ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate > Session.FrameSendRate * 2 ? ((Ipx.Global_Response_Time() / 8 + Session.FrameSendRate - 1) / Session.FrameSendRate) * Session.FrameSendRate : Session.FrameSendRate * 2; // RA2: as above
 					} else {
 						Session.MaxAhead = (int)Ipx.Global_Response_Time() / 8 > 2 ? (int)Ipx.Global_Response_Time() / 8 : 2; // RA2: as above

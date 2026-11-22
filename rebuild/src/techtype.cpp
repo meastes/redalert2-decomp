@@ -1195,13 +1195,13 @@ bool TechnoTypeClass::Legal_Placement(Cell const & pos, HouseClass * house) cons
 int TechnoTypeClass::Max_Pips(void) const
 {
 	switch (PipScale) {
-	case 4: // RA2: RA2's form
+		case PIPSCALE_POWER: // RA2: RA2's form
 		return 10; // RA2: as above
-	case 1: // RA2: as above
+		case PIPSCALE_AMMO: // RA2: as above
 		return MaxAmmo; // RA2: as above
-	case 2: // RA2: as above
+		case PIPSCALE_TIBERIUM: // RA2: as above
 		return 5; // RA2: as above
-	case 3: // RA2: as above
+		case PIPSCALE_PASSENGERS: // RA2: as above
 		return MaxPassengers; // RA2: as above
 	}
 	return(0);

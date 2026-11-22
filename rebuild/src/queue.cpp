@@ -4897,7 +4897,7 @@ void __fastcall Write_Sync_File(int index, EventClass *event) // RA2: 0x0062DBA0
 		for (i = 0; i < state->LayerCounts[layer]; i++) {
 			SyncLayerObject &o = state->Layers[layer][i];
 			fprintf(file, "Object %d: %x ", i, o.Value);
-			if (o.RTTI == 0x2B || o.RTTI == 0x13) {
+			if (o.RTTI == RTTI_WAVE || o.RTTI == RTTI_LIGHT) {
 				fprintf(file, "%s\t(Type:%d) ", Name_From_RTTI((RTTIType)o.RTTI), 0);
 			} else {
 				fprintf(file, "%s\t(Type:%d(%s)) ", Name_From_RTTI((RTTIType)o.RTTI), o.Type, o.Name);
@@ -4914,7 +4914,7 @@ void __fastcall Write_Sync_File(int index, EventClass *event) // RA2: 0x0062DBA0
 	for (i = 0; i < state->LogicCount; i++) {
 		SyncLayerObject &o = state->Logic[i];
 		fprintf(file, "Object %d: %x ", i, o.Value);
-		if (o.RTTI == 0x2B || o.RTTI == 0x13) {
+		if (o.RTTI == RTTI_WAVE || o.RTTI == RTTI_LIGHT) {
 			fprintf(file, "%s\t(Type:%d) ", Name_From_RTTI((RTTIType)o.RTTI), 0);
 		} else {
 			fprintf(file, "%s\t(Type:%d(%s)) ", Name_From_RTTI((RTTIType)o.RTTI), o.Type, o.Name);

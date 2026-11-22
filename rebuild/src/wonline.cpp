@@ -1184,18 +1184,15 @@ bool Wait_Channel_List(void)
 bool Queue_Channel_List_Request(int channel_type, unsigned char autoping, bool wait)
 {
 	if (g_ChanListQueue.length()) {
-		bool result = Wait_Channel_List();
-		if (!result) return(result);
+		if (!Wait_Channel_List()) return false;
 	}
 	Reset_Wait_Events();
-	bool requested = Request_Channel_List(channel_type, autoping);
-	if (!requested) {
+	if (!Request_Channel_List(channel_type, autoping)) {
 		SetEvent(g_WaitEventHandles[EV_ABORT]);
 		return(false);
 	}
 	if (wait) {
-		bool result = Wait_Channel_List();
-		return(result);
+		return Wait_Channel_List();
 	}
 	return(true);
 }
@@ -11824,7 +11821,7 @@ void __fastcall Set_Match_State(int state, int timeout, int result) // RA2: 0x00
 }
 
 int __fastcall Start_Quick_Match(void); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 1762 bytes differ (main's text): the expanded Queue_Channel_List_Request also expands Reset_Wait_Events, which the original calls (its copy 0x752930); the budget that leaves then calls the expanded Reset_Buddy_State's first ArrayList clear out of line. Request_Chat_Channel_List(true) (main's Request_Chat_Channels helper) keeps Queue_Channel_List_Request out of line altogether (1797)
+#ifdef RA2_NON_MATCHING // not exact: 1350 bytes differ (main and ra2-decomp channel-list request; the original calls Reset_Wait_Events here)
 void __fastcall Collect_Remote_Player_Names(void); // RA2: 0x0075A6C0, below
 bool __fastcall Start_Match(void); // RA2: 0x0075BE10, below
 BOOL CALLBACK Wonline_Waiting_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam); // RA2: 0x0075C350, below
@@ -11858,7 +11855,7 @@ int __fastcall Start_Quick_Match(void) // RA2: 0x00759E20, the quick or tour mat
 	Set_Match_State(2, 30, 0); // RA2: as above
 	g_UserChannels.setEmpty(); // RA2: as above
 	g_MatchOpponent.clear(); // RA2: as above
-	if (!Queue_Channel_List_Request(0, 0, true)) return(0);
+	if (!Request_Chat_Channel_List(true)) return(0);
 	if (g_UserChannels.length() == 0) {
 		Show_Match_Message("WOL:NoMatchingAgentFound", 25851); // RA2: as above
 		return(0);

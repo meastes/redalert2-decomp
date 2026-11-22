@@ -507,16 +507,16 @@ bool RadarEventClass::Load(IStream * stream)
 RGBClass RadarEventClass::Get_Max_Color(void) const
 {
 	switch (Type) {
-		case 0: // RA2: RA2's form
-		case 3: // RA2: as above
-		case 4: // RA2: as above
+		case RADAREVENT_COMBAT: // RA2: RA2's form
+		case RADAREVENT_BASE_ATTACKED: // RA2: as above
+		case RADAREVENT_HARVESTER_ATTACKED: // RA2: as above
 			return RGBClass(255, 0, 255); // RA2: as above
-		case 1: // RA2: as above
-		case 2: // RA2: as above
-		case 11: // RA2: as above
-		case 12: // RA2: as above
+		case RADAREVENT_NONCOMBAT: // RA2: as above
+		case RADAREVENT_DROPZONE: // RA2: as above
+		case RADAREVENT_BEACON_PLACED: // RA2: as above
+		case RADAREVENT_SUPERWEAPON_DETECTED: // RA2: as above
 			return RGBClass(255, 255, 0); // RA2: as above
-		case 5: // RA2: as above
+		case RADAREVENT_ENEMY_SENSED: // RA2: as above
 			return RGBClass(0, 255, 255); // RA2: as above
 		default:
 			return RGBClass(0, 0, 0); // RA2: as above
@@ -534,16 +534,16 @@ RGBClass RadarEventClass::Get_Max_Color(void) const
 RGBClass RadarEventClass::Get_Min_Color(void) const
 {
 	switch (Type) {
-		case 0: // RA2: RA2's form
-		case 3: // RA2: as above
-		case 4: // RA2: as above
+		case RADAREVENT_COMBAT: // RA2: RA2's form
+		case RADAREVENT_BASE_ATTACKED: // RA2: as above
+		case RADAREVENT_HARVESTER_ATTACKED: // RA2: as above
 			return RGBClass(128, 0, 128); // RA2: as above
-		case 1: // RA2: as above
-		case 2: // RA2: as above
-		case 11: // RA2: as above
-		case 12: // RA2: as above
+		case RADAREVENT_NONCOMBAT: // RA2: as above
+		case RADAREVENT_DROPZONE: // RA2: as above
+		case RADAREVENT_BEACON_PLACED: // RA2: as above
+		case RADAREVENT_SUPERWEAPON_DETECTED: // RA2: as above
 			return RGBClass(128, 128, 0); // RA2: as above
-		case 5: // RA2: as above
+		case RADAREVENT_ENEMY_SENSED: // RA2: as above
 			return RGBClass(0, 128, 128); // RA2: as above
 		default:
 			return RGBClass(0, 0, 0); // RA2: as above

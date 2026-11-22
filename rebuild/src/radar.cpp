@@ -808,7 +808,7 @@ int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key)
 				case ACTION_IRON_CURTAIN:
 				case ACTION_LIGHTNING_STORM:
 				case ACTION_PARA_DROP:
-				case 65:
+				case ACTION_AMER_PARA_DROP:
 					break;
 
 				default:

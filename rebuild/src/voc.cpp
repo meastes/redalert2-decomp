@@ -844,7 +844,7 @@ HRESULT __fastcall Static_Sounds_Save(IStream * stream) // RA2: the static sound
 				int Y; // RA2: as above
 				int Z; // RA2: as above
 			} entry; // RA2: as above
-			int index = -1; // RA2: as above
+			int index = VOC_NONE; // RA2: as above
 			entry.Index = index; // RA2: as above
 			if (sound->Controller.EventType) { // RA2: as above
 				char const * name = AudioEventTypeName((AudioEventType *)sound->Controller.EventType); // RA2: as above
@@ -890,7 +890,7 @@ long __fastcall Static_Sounds_Load(IStream * stream) // RA2: the static sounds a
 			if (FAILED(result)) { // RA2: as above
 				return(result); // RA2: as above
 			}
-			if (entry.Index != -1 && entry.Index < Vocs.Count() && entry.Index >= 0) { // RA2: as above
+			if (entry.Index != VOC_NONE && entry.Index < Vocs.Count() && entry.Index >= 0) { // RA2: as above
 				VocClass * voc = Vocs[entry.Index]; // RA2: as above
 				if (voc->Event != NULL && AudioEventTypeLoopsForever(voc->Event)) { // RA2: as above
 					Coord position; // RA2: as above

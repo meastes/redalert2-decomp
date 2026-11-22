@@ -4076,7 +4076,7 @@ bool UnitClass::Flag_Remove(void)
 int UnitClass::Pip_Count(void) const
 {
 	switch (Class->PipScale) { // RA2: RA2's form
-	case 2: // RA2: as above
+		case PIPSCALE_TIBERIUM: // RA2: as above
 	{
 		double ratio = Storage.Get_Total_Amount() / Class->Capacity; // RA2: as above
 		return (int)(Class->Max_Pips() * ratio + 0.5); // RA2: as above

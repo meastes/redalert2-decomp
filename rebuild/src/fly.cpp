@@ -578,16 +578,16 @@ void FlyLocomotionClass::Movement_AI(void)
 				int sound; // RA2: as above
 				if (Map[cell].Land_Type() != LAND_WATER) { // RA2: as above
 					sound = LinkedTo->TClass->ImpactLandSound; // RA2: as above
-					if (sound == -1) { // RA2: as above
+					if (sound == VOC_NONE) { // RA2: as above
 						sound = Rule->ImpactLandSound; // RA2: as above
 					}
 				} else {
 					sound = LinkedTo->TClass->ImpactWaterSound; // RA2: as above
-					if (sound == -1) { // RA2: as above
+					if (sound == VOC_NONE) { // RA2: as above
 						sound = Rule->ImpactWaterSound; // RA2: as above
 					}
 				}
-				if (sound != -1) { // RA2: as above
+				if (sound != VOC_NONE) { // RA2: as above
 					VocClass::PlayAt(sound, LinkedTo->Get_Coord(), NULL); // RA2: as above
 				}
 				LinkedTo->Delete_Me();

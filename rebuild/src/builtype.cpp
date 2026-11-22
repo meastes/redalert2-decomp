@@ -273,13 +273,13 @@ BuildingTypeClass::BuildingTypeClass(char const * ininame) :
 	ToOverlay(NULL),
 	ToTile(NULL),
 	BuildupFilename(NoInitClass()),
-	BuildupSound(-1), // RA2: 0xC04..0xC1C are all -1
-	PackupSound(-1), // RA2: as above
-	CreateUnitSound(-1), // RA2: as above
-	UnitEnterSound(-1), // RA2: as above
-	UnitExitSound(-1), // RA2: as above
-	WorkingSound(-1), // RA2: as above
-	NotWorkingSound(-1), // RA2: as above
+	BuildupSound(VOC_NONE), // RA2: 0xC04..0xC1C are all -1
+	PackupSound(VOC_NONE), // RA2: as above
+	CreateUnitSound(VOC_NONE), // RA2: as above
+	UnitEnterSound(VOC_NONE), // RA2: as above
+	UnitExitSound(VOC_NONE), // RA2: as above
+	WorkingSound(VOC_NONE), // RA2: as above
+	NotWorkingSound(VOC_NONE), // RA2: as above
 	PowersUpBuilding(NoInitClass()),
 	FreeUnit(NULL),
 	FoundationFace(FACING_NONE),

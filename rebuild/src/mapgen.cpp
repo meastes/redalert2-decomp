@@ -6056,7 +6056,7 @@ bool MapGeneratorClass::Green_Region_Tiles(int region_id) // RA2: not in TibSun,
 	CellClass * cptr = Map.Iterate();
 	while (cptr != NULL) {
 		if (MapRegionClass::CellData::Get_Region(cptr->CellID) == region_id) {
-			if (cptr->ITType == ISOTILE_CLEAR || cptr->ITType == 0xFFFF) {
+			if (cptr->ITType == ISOTILE_CLEAR || cptr->ITType == ISOTILE_NONE) {
 				cptr->ITType = IsometricTileTypeClass::GreenTile;
 			}
 		}

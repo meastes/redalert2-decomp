@@ -7061,7 +7061,7 @@ void TechnoClass::Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int k
 	unsigned flags = 0x2000;
 	if (!negflags) {
 		switch (Visual_Character(false, 0)) {
-			case 4: {
+			case VISUAL_RIPPLE: {
             // Reference distinguishes ripple stages0,1,and later stages.
 				int stage = CloakingDevice.Fetch_Stage();
 				if (stage == 0) flags = 0x200a;
@@ -7069,9 +7069,9 @@ void TechnoClass::Draw_Voxel(VoxelDataStruct const & voxeldata, int frame, int k
 				else flags = 0x200c;
 				break;
 			}
-			case 1: flags = 0x2002; break;
-			case 2: case 3: flags = 0x2004; break;
-			case 5: return;
+			case VISUAL_INDISTINCT: flags = 0x2002; break;
+			case VISUAL_DARKEN: case VISUAL_SHADOWY: flags = 0x2004; break;
+			case VISUAL_HIDDEN: return;
 		}
 	}
 	if ((IsBeingWarpedOut() || IsWarpingIn()) && (Fetch_RTTI() != RTTI_UNIT || !((UnitClass const *)this)->IsCompositingToEightBitSurface)) flags |= 0x2004;
@@ -8712,7 +8712,7 @@ void TechnoClass::Draw_Pips(Point2D const & bottomleft, Point2D const & center, 
 		pip_shapes = pips2;
 	}
 
-	if (Fetch_RTTI() == RTTI_BUILDING && Techno_Type_Class()->PipScale == 2) { // RA2: a building with this scale draws no pips here
+	if (Fetch_RTTI() == RTTI_BUILDING && Techno_Type_Class()->PipScale == PIPSCALE_TIBERIUM) { // RA2: a building with this scale draws no pips here
 		return; // RA2: as above
 	}
 
@@ -8794,7 +8794,7 @@ void TechnoClass::Draw_Pips(Point2D const & bottomleft, Point2D const & center, 
 		**	Check if it's a harvester, to show the right type of pips for the
 		**	various minerals it could have harvested.
 		*/
-		if (Fetch_RTTI() == RTTI_UNIT && Techno_Type_Class()->PipScale == 2) { // RA2: the harvester scale
+		if (Fetch_RTTI() == RTTI_UNIT && Techno_Type_Class()->PipScale == PIPSCALE_TIBERIUM) { // RA2: the harvester scale
 			float gold = Storage.Get_Amount(0); // RA2: the four tiberium slots are read separately
 			float gems = Storage.Get_Amount(2); // RA2: as above
 			float ore = Storage.Get_Amount(3); // RA2: as above
@@ -8813,7 +8813,7 @@ void TechnoClass::Draw_Pips(Point2D const & bottomleft, Point2D const & center, 
 				}
 				Draw_Shape(*LogicalSurface, *NormalDrawer, pip_shapes, shape, xy + offset * index, rect, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL), NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0)); // RA2: as above
 			}
-		} else if (Techno_Type_Class()->PipScale == 1) { // RA2: the ammo scale, with optional wrapping rows
+		} else if (Techno_Type_Class()->PipScale == PIPSCALE_AMMO) { // RA2: the ammo scale, with optional wrapping rows
 			int wrap = Techno_Type_Class()->PipWrap; // RA2: as above
 			if (wrap == 0) { // RA2: as above
 				int left = pips; // RA2: as above

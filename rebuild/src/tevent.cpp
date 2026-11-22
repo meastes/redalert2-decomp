@@ -732,88 +732,88 @@ char const * Name_From_Event(TEventType event)
  *=============================================================================================*/
 AttachType Attaches_To(TEventType event)
 {
-	int flags = 0; // RA2: RA2's form
+	int flags = ATTACH_NONE; // RA2: RA2's form
 	switch (event) {
-		case 0: // RA2: as above
-		case 1: // RA2: as above
-		case 4: // RA2: as above
-		case 8: // RA2: as above
-		case 24: // RA2: as above
-		case 25: // RA2: as above
-		case 26: // RA2: as above
-		case 31: // RA2: as above
+		case TEVENT_NONE: // RA2: as above
+		case TEVENT_PLAYER_ENTERED: // RA2: as above
+		case TEVENT_DISCOVERED: // RA2: as above
+		case TEVENT_ANY: // RA2: as above
+		case TEVENT_ENTERS_ZONE: // RA2: as above
+		case TEVENT_CROSS_HORIZONTAL: // RA2: as above
+		case TEVENT_CROSS_VERTICAL: // RA2: as above
+		case TEVENT_BRIDGE_DESTROYED: // RA2: as above
 		case 53: // RA2: as above
 		case 54: // RA2: as above
-			flags |= 1; // RA2: as above
+			flags |= ATTACH_CELL; // RA2: as above
 			break;
 	}
 	switch (event) {
-		case 0: // RA2: as above
-		case 1: // RA2: as above
-		case 2: // RA2: as above
-		case 4: // RA2: as above
-		case 6: // RA2: as above
-		case 7: // RA2: as above
-		case 8: // RA2: as above
-		case 29: // RA2: as above
-		case 33: // RA2: as above
-		case 34: // RA2: as above
-		case 35: // RA2: as above
-		case 38: // RA2: as above
-		case 39: // RA2: as above
-		case 40: // RA2: as above
-		case 41: // RA2: as above
-		case 42: // RA2: as above
-		case 43: // RA2: as above
-		case 44: // RA2: as above
-		case 48: // RA2: as above
-		case 49: // RA2: as above
-			flags |= 2; // RA2: as above
+		case TEVENT_NONE: // RA2: as above
+		case TEVENT_PLAYER_ENTERED: // RA2: as above
+		case TEVENT_SPIED: // RA2: as above
+		case TEVENT_DISCOVERED: // RA2: as above
+		case TEVENT_ATTACKED: // RA2: as above
+		case TEVENT_DESTROYED: // RA2: as above
+		case TEVENT_ANY: // RA2: as above
+		case TEVENT_DESTROYED_ANY_X: // RA2: as above
+		case TEVENT_SELECTED: // RA2: as above
+		case TEVENT_NEAR_WAYPOINT: // RA2: as above
+		case TEVENT_ENEMY_IN_SPOTLIGHT: // RA2: as above
+		case TEVENT_FIRST_DAMAGED: // RA2: as above
+		case TEVENT_ENTER_YELLOW: // RA2: as above
+		case TEVENT_ENTER_RED: // RA2: as above
+		case TEVENT_FIRST_DAMAGED_ANY: // RA2: as above
+		case TEVENT_ENTER_YELLOW_ANY: // RA2: as above
+		case TEVENT_ENTER_RED_ANY: // RA2: as above
+		case TEVENT_ATTACKED_BY: // RA2: as above
+		case TEVENT_DESTROYED_ANY: // RA2: as above
+		case TEVENT_PICKUP_CRATE: // RA2: as above
+			flags |= ATTACH_OBJECT; // RA2: as above
 			break;
 	}
-	if (event == 8 || event == 24) { // RA2: as above
-		flags |= 4; // RA2: as above
+	if (event == TEVENT_ANY || event == TEVENT_ENTERS_ZONE) { // RA2: as above
+		flags |= ATTACH_MAP; // RA2: as above
 	}
 	switch (event) {
-		case 3: // RA2: as above
-		case 5: // RA2: as above
-		case 8: // RA2: as above
-		case 9: // RA2: as above
-		case 10: // RA2: as above
-		case 11: // RA2: as above
-		case 12: // RA2: as above
-		case 15: // RA2: as above
-		case 16: // RA2: as above
-		case 17: // RA2: as above
-		case 18: // RA2: as above
-		case 19: // RA2: as above
-		case 20: // RA2: as above
-		case 21: // RA2: as above
-		case 22: // RA2: as above
-		case 30: // RA2: as above
-		case 32: // RA2: as above
-		case 52: // RA2: as above
+		case TEVENT_THIEVED: // RA2: as above
+		case TEVENT_HOUSE_DISCOVERED: // RA2: as above
+		case TEVENT_ANY: // RA2: as above
+		case TEVENT_UNITS_DESTROYED: // RA2: as above
+		case TEVENT_BUILDINGS_DESTROYED: // RA2: as above
+		case TEVENT_ALL_DESTROYED: // RA2: as above
+		case TEVENT_CREDITS: // RA2: as above
+		case TEVENT_NBUILDINGS_DESTROYED: // RA2: as above
+		case TEVENT_NUNITS_DESTROYED: // RA2: as above
+		case TEVENT_NOFACTORIES: // RA2: as above
+		case TEVENT_EVAC_CIVILIAN: // RA2: as above
+		case TEVENT_BUILD: // RA2: as above
+		case TEVENT_BUILD_UNIT: // RA2: as above
+		case TEVENT_BUILD_INFANTRY: // RA2: as above
+		case TEVENT_BUILD_AIRCRAFT: // RA2: as above
+		case TEVENT_LOW_POWER: // RA2: as above
+		case TEVENT_BUILDING_EXISTS: // RA2: as above
+		case TEVENT_CREDITS_BELOW: // RA2: as above
 		case 55: // RA2: as above
 		case 56: // RA2: as above
 		case 57: // RA2: as above
-			flags |= 8; // RA2: as above
+			flags |= ATTACH_HOUSE; // RA2: as above
 			break;
 	}
 	switch (event) {
-		case 8: // RA2: as above
-		case 13: // RA2: as above
-		case 14: // RA2: as above
-		case 23: // RA2: as above
-		case 27: // RA2: as above
-		case 28: // RA2: as above
-		case 36: // RA2: as above
-		case 37: // RA2: as above
-		case 45: // RA2: as above
-		case 46: // RA2: as above
-		case 47: // RA2: as above
-		case 50: // RA2: as above
-		case 51: // RA2: as above
-			flags |= 16; // RA2: as above
+		case TEVENT_ANY: // RA2: as above
+		case TEVENT_TIME: // RA2: as above
+		case TEVENT_MISSION_TIMER_EXPIRED: // RA2: as above
+		case TEVENT_LEAVES_MAP: // RA2: as above
+		case TEVENT_GLOBAL_SET: // RA2: as above
+		case TEVENT_GLOBAL_CLEAR: // RA2: as above
+		case TEVENT_LOCAL_SET: // RA2: as above
+		case TEVENT_LOCAL_CLEAR: // RA2: as above
+		case TEVENT_AMBIENT_LESS_THAN: // RA2: as above
+		case TEVENT_AMBIENT_GREATER_THAN: // RA2: as above
+		case TEVENT_GAME_TIME: // RA2: as above
+		case TEVENT_PICKUP_CRATE_ANY: // RA2: as above
+		case TEVENT_RANDOM_TIME: // RA2: as above
+			flags |= ATTACH_GENERAL; // RA2: as above
 			break;
 	}
 	return (AttachType)flags; // RA2: as above
@@ -922,11 +922,11 @@ HRESULT STDMETHODCALLTYPE TEventClass::Save(IStream * stream, BOOL cleardirty)
 bool TEventClass::Is_Time_Based(void) const
 {
 	switch (Event) {
-		case 1: case 2: case 3: case 4: case 6: case 7: // RA2: the momentary events, 0x01-0x07 as in the executable's table
-		case 18: case 19: case 20: case 21: case 22: case 23: case 24: case 25: case 26: // RA2: as above (0x12-0x1A)
-		case 29: case 31: case 33: case 34: case 35: // RA2: as above (0x1D, 0x1F, 0x21-0x23)
-		case 38: case 39: case 40: case 41: case 42: case 43: case 44: // RA2: as above (0x26-0x2C)
-		case 48: case 49: case 50: case 53: case 54: // RA2: as above (0x30-0x32, 0x35, 0x36)
+		case TEVENT_PLAYER_ENTERED: case TEVENT_SPIED: case TEVENT_THIEVED: case TEVENT_DISCOVERED: case TEVENT_ATTACKED: case TEVENT_DESTROYED: // RA2: the momentary events, 0x01-0x07 as in the executable's table
+		case TEVENT_EVAC_CIVILIAN: case TEVENT_BUILD: case TEVENT_BUILD_UNIT: case TEVENT_BUILD_INFANTRY: case TEVENT_BUILD_AIRCRAFT: case TEVENT_LEAVES_MAP: case TEVENT_ENTERS_ZONE: case TEVENT_CROSS_HORIZONTAL: case TEVENT_CROSS_VERTICAL: // RA2: as above (0x12-0x1A)
+		case TEVENT_DESTROYED_ANY_X: case TEVENT_BRIDGE_DESTROYED: case TEVENT_SELECTED: case TEVENT_NEAR_WAYPOINT: case TEVENT_ENEMY_IN_SPOTLIGHT: // RA2: as above (0x1D, 0x1F, 0x21-0x23)
+		case TEVENT_FIRST_DAMAGED: case TEVENT_ENTER_YELLOW: case TEVENT_ENTER_RED: case TEVENT_FIRST_DAMAGED_ANY: case TEVENT_ENTER_YELLOW_ANY: case TEVENT_ENTER_RED_ANY: case TEVENT_ATTACKED_BY: // RA2: as above (0x26-0x2C)
+		case TEVENT_DESTROYED_ANY: case TEVENT_PICKUP_CRATE: case TEVENT_PICKUP_CRATE_ANY: case 53: case 54: // RA2: as above (0x30-0x32, 0x35, 0x36)
 			return(true);
 
 	}
@@ -944,7 +944,7 @@ bool TEventClass::Is_Time_Based(void) const
 bool TEventClass::Is_To_Flag_As_Tripped(void) const
 {
 	switch (Event) {
-		case 1: case 6: case 44: // RA2: never flagged as tripped: events 1, 6 and 0x2C in the executable
+		case TEVENT_PLAYER_ENTERED: case TEVENT_ATTACKED: case TEVENT_ATTACKED_BY: // RA2: never flagged as tripped: events 1, 6 and 0x2C in the executable
 			return(false);
 	}
 	return(true);

@@ -1698,7 +1698,7 @@ void BuildingClass::AI(void)
 {
 	bool working = IsPowerOnline() && Mission != MISSION_CONSTRUCTION && Mission != MISSION_DECONSTRUCTION; // RA2: a building at work plays its working sound
 	if (working != WasOnline) { // RA2: as above
-		if (Class->WorkingSound != -1 || Class->NotWorkingSound != -1) { // RA2: as above
+		if (Class->WorkingSound != VOC_NONE || Class->NotWorkingSound != VOC_NONE) { // RA2: as above
 			WorkingSoundController.End(); // RA2: as above
 			if (working) { // RA2: as above
 				VocClass::PlayAt(Class->WorkingSound, PositionCoord, &WorkingSoundController); // RA2: as above
@@ -1709,7 +1709,7 @@ void BuildingClass::AI(void)
 		Update_Power_State(); // RA2: as above
 		WasOnline = working; // RA2: as above
 	} else {
-		if (Class->WorkingSound != -1 || Class->NotWorkingSound != -1) { // RA2: as above
+		if (Class->WorkingSound != VOC_NONE || Class->NotWorkingSound != VOC_NONE) { // RA2: as above
 			VocClass::UpdateAt(PositionCoord, &WorkingSoundController); // RA2: as above
 		}
 	}
@@ -2535,7 +2535,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1321 bytes differ (one site: the second distance's Length is a call where the image expands it)
+#ifdef RA2_NON_MATCHING // not exact: 1309 bytes differ (one site: the second distance's Length is a call where the image expands it)
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2647,7 +2647,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 					}
 
 					while (*offset != REFRESH_EOL) { // RA2: no BlowupSound (not in RA2's layout)
-						Cell cell = Cell(*offset++) + Get_Cell(); // RA2: the building's cell through Get_Cell
+						Cell cell = Get_Cell() + Cell(*offset++); // RA2: the building's cell through Get_Cell
 
 						AnimClass * anim = NULL;
 
@@ -3952,7 +3952,7 @@ void BuildingClass::Grand_Opening(bool captured)
 			Map.Request_Column_Redraw(3); // RA2: the sidebar strip is redrawn
 		}
 
-		if (Class->SuperWeapon != -1) { // RA2: a super weapon building shows its charge on its animations
+		if (Class->SuperWeapon != SUPER_NONE) { // RA2: a super weapon building shows its charge on its animations
 			for (int i = 0; i < House->SuperWeapon.Count(); i++) { // RA2: as above
 				SuperClass * super = House->SuperWeapon[i]; // RA2: as above
 				if (super->Class->Type == Class->SuperWeapon) { // RA2: as above
@@ -4010,18 +4010,18 @@ void BuildingClass::Grand_Opening(bool captured)
 		Submit_Radar_Event(RADAREVENT_SUPERWEAPON_DETECTED, Cell(Get_Coord())); // RA2: as above
 	}
 
-	if (!House->Is_Player_Control() && MuteSWLaunches == 0 && Session.Type != GAME_NORMAL && (Class->SuperWeapon == -1 || !SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding || House->ABQuantity.Value(SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding->HeapID) != 0)) { // RA2: other players hear about the detected super weapon
+	if (!House->Is_Player_Control() && MuteSWLaunches == 0 && Session.Type != GAME_NORMAL && (Class->SuperWeapon == SUPER_NONE || !SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding || House->ABQuantity.Value(SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding->HeapID) != 0)) { // RA2: other players hear about the detected super weapon
 		switch (Class->SuperWeapon) { // RA2: as above
-			case 0: // RA2: as above
+			case SUPER_MULTI_MISSILE: // RA2: as above
 				Queue_Speech("EVA_NuclearSiloDetected", -1, -1); // RA2: as above
 				break; // RA2: as above
-			case 1: // RA2: as above
+			case SUPER_IRON_CURTAIN: // RA2: as above
 				Queue_Speech("EVA_IronCurtainDetected", -1, -1); // RA2: as above
 				break; // RA2: as above
-			case 2: // RA2: as above
+			case SUPER_LIGHTNING_STORM: // RA2: as above
 				Queue_Speech("EVA_WeatherDeviceReady", -1, -1); // RA2: as above
 				break; // RA2: as above
-			case 3: // RA2: as above
+			case SUPER_CHRONO_SPHERE: // RA2: as above
 				Queue_Speech("EVA_ChronosphereDetected", -1, -1); // RA2: as above
 				break; // RA2: as above
 		}
@@ -4066,17 +4066,17 @@ void BuildingClass::Grand_Opening(bool captured)
 			**	Try to place down the harvesters. If it could not be placed, then try
 			**	to place it in a nearby location.
 			*/
-			if (!unit->Unlimbo(Coord(cell), (Dir256)0xC0)) { // RA2: Unlimbo takes a coordinate
+			if (!unit->Unlimbo(Coord(cell), (Dir256)DIR_W)) { // RA2: Unlimbo takes a coordinate
 				cell = Map.Nearby_Location(Cell(Get_Coord()), SPEED_WHEEL, Map.Get_Cell_Zone(Cell(Get_Coord()), unit->Class->MZone, false), unit->Class->MZone, false, Point2D(1,1), true, true, false, false, Cell(0, 0), false); // RA2: as above
 
-				if (cell == CELL_NONE || !unit->Unlimbo(Coord(cell), (Dir256)0xA0)) { // RA2: as above
+				if (cell == CELL_NONE || !unit->Unlimbo(Coord(cell), (Dir256)DIR_SW)) { // RA2: as above
 					Cell newcell = Map.Nearby_Location(Cell(Get_Coord()), SPEED_WHEEL, Map.Get_Cell_Zone(Cell(Get_Coord()), unit->Class->MZone, false), unit->Class->MZone, false, Point2D(1,1), false, true, false, false, Cell(0, 0), false); // RA2: as above
 
 					/*
 					**	If the harvester could still not be placed, then refund the money
 					**	to the owner and then bail.
 					*/
-					if (newcell == CELL_NONE || !unit->Unlimbo(Coord(newcell), (Dir256)0xA0)) { // RA2: as above
+					if (newcell == CELL_NONE || !unit->Unlimbo(Coord(newcell), (Dir256)DIR_SW)) { // RA2: as above
 						House->Refund_Money(unit->Class->GetRefund(House, true)); // RA2: as above
 						delete unit; // RA2: as above
 					} else {
@@ -4297,7 +4297,7 @@ ActionType BuildingClass::What_Action(ObjectClass const * object, bool disallow_
 				position.Y = cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2;
 				position.Z = 0;
 				if (!Is_In_Same_Zone(position)) action = ACTION_NOMOVE;
-				if (Map[cell].IsUnderBridge ? false : Map[cell].Passability != 0) { action = ACTION_NOMOVE; goto result_action; }
+				if (Map[cell].IsUnderBridge ? false : Map[cell].Passability != PASSABLE_LAND) { action = ACTION_NOMOVE; goto result_action; }
 			}
 		}
 	}
@@ -4348,7 +4348,7 @@ ActionType BuildingClass::What_Action(Cell const & cell, bool check_fog, bool di
 				position.Y = cell.Y * CELL_LEPTON_H + CELL_LEPTON_H / 2;
 				position.Z = 0;
 				if (!Is_In_Same_Zone(position)) action = ACTION_NOMOVE;
-				if (Map[cell].IsUnderBridge ? false : Map[cell].Passability != 0) {
+				if (Map[cell].IsUnderBridge ? false : Map[cell].Passability != PASSABLE_LAND) {
 					action = ACTION_NOMOVE;
 					goto owner_action;
 				}

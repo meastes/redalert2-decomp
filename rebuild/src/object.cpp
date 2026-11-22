@@ -169,7 +169,7 @@ ObjectClass::ObjectClass(void) : // RA2: at 0x005D22E0
 	Next(NULL), // RA2: as above
 	Tag(NULL), // RA2: as above
 	AttachedBomb(NULL), // RA2: +0x38, cleared
-	CustomSound(-1), // RA2: +0x64, none
+	CustomSound(VOC_NONE), // RA2: +0x64, none
 	BombVisible(false), // RA2: +0x68
 	Strength(255), // RA2: as above
 	EstimatedHealth(255), // RA2: +0x70, starts at full as Strength
@@ -341,11 +341,11 @@ void ObjectClass::AI(void)
 	**	RA2: the object's looping ambient sound and its custom sound are kept playing here.
 	*/
 	if (!IsInLimbo) { // RA2: as above
-		if (Class_Of() && Class_Of()->AmbientSound != -1) { // RA2: as above
+		if (Class_Of() && Class_Of()->AmbientSound != VOC_NONE) { // RA2: as above
 			Coord current = Position; // RA2: as above
 			VocClass::PlayAt(Class_Of()->AmbientSound, current, &AmbientSoundController); // RA2: as above
 		} // RA2: as above
-		if (CustomSound != -1) { // RA2: as above
+		if (CustomSound != VOC_NONE) { // RA2: as above
 			Coord current = Position; // RA2: as above
 			VocClass::PlayAt(CustomSound, current, &CustomSoundController); // RA2: as above
 		} // RA2: as above
@@ -2896,7 +2896,7 @@ Coord ObjectClass::Docking_Coord(TechnoClass *) const
 void ObjectClass::Set_Ambient_Sound(int voc)
 {
 	CustomSound = voc;
-	if (voc == -1) {
+	if (voc == VOC_NONE) {
 		CustomSoundController.End();
 	}
 }

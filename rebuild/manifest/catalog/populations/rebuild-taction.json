@@ -79,32 +79,31 @@
     "?Waypoint_From_Name@@YIHPBD@Z": 7490160,
     "?Scen@@3PAVScenarioClass@@A": 10736272,
     "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z": 6697344,
-    "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z": 5373072,
-    "?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A": 10691200,
+    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Map@@3VMouseClass@@A": 8594656,
     "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
     "??2@YAPAXI@Z": 7872535,
-    "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A": 10706384,
-    "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z": 6335088,
-    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
+    "??0IonBlastClass@@QAE@VCoord@@@Z": 5378672,
+    "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021568,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?As_Cell@Coord@@QBE?AVCell@@XZ": 4274032,
+    "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ": 5373008,
+    "?Rule@@3PAVRulesClass@@A": 8624200,
+    "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z": 5372208,
+    "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022688,
+    "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
     "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z": 7028176,
+    "?TAction_WAKEUP_SELF@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010992,
     "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A": 8806200,
+    "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A": 10751008,
     "?PlayerPtr@@3PAVHouseClass@@A": 10706356,
     "?Flag_To_Win@HouseClass@@QAE_N_N@Z": 5144288,
     "?Flag_To_Lose@HouseClass@@QAE_N_N@Z": 5144784,
     "?Flag_To_End@HouseClass@@QAEXXZ": 5145280,
+    "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011712,
     "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z": 6697408,
-    "?Rule@@3PAVRulesClass@@A": 8624200,
-    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
-    "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
-    "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z": 6697536,
-    "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z": 5673104,
-    "?TacticalMap@@3PAVTactical@@A": 8624492,
-    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
-    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
     "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z": 4716032,
     "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A": 10750712,
-    "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A": 10706504,
     "?Turn_Off@BuildingClass@@QAEXXZ": 4511024,
     "?Turn_On@BuildingClass@@QAEXXZ": 4510688,
     "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z": 5166944,
@@ -116,45 +115,116 @@
     "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z": 5983648,
     "?Make_Ally@HouseClass@@QAEXPAV1@_N@Z": 5133920,
     "?Make_Enemy@HouseClass@@QAEXPAV1@_N@Z": 5134960,
+    "??0Cell@@QAE@HH@Z": 4369712,
+    "??0Coord@@QAE@ABVCell@@H@Z": 6417024,
     "?Begin_Construction@HouseClass@@QAEXXZ": 5200864,
     "?Encroach_Shadow@DisplayClass@@QAEXXZ": 4836384,
     "?Set_Global_To@ScenarioClass@@QAE_NH_N@Z": 6689472,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z": 5546256,
     "?Area_Reduce_Tiberium@MapClass@@QAEXABVCell@@@Z": 5626256,
-    "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
-    "?Reset_Local_Iterator@MapClass@@QAEXXZ": 5614160,
-    "?Local_Iterate@MapClass@@QAEPAVCellClass@@XZ": 5613840,
+    "?TAction_REVEAL_SOME@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014000,
+    "?TAction_REVEAL_ZONE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014464,
     "?Reset_Iterator@MapClass@@QAEXXZ": 5612880,
     "?Iterate@MapClass@@QAEPAVCellClass@@XZ": 5612688,
     "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 6487168,
     "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z": 5114272,
     "?Frame@@3HA": 10751276,
     "?Redraw_Tab@TabClass@@QAEXXZ": 6952880,
+    "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 7025344,
+    "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ": 4538032,
+    "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
+    "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "??_C@_00A@?$AA@": 8635740,
     "??_C@_11A@?$AA?$AA@": 8625484,
+    "??0?$TStringID@$0BP@@@QAE@PBD@Z": 7025152,
+    "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z": 7025200,
     "?Play_Movie@@YIXW4VQType@@W4ThemeType@@_N22@Z": 5900272,
-    "?Play_Ingame_Movie@@YIXW4VQType@@_N@Z": 5900576,
     "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
+    "??0Cell@@QAE@XZ": 4582640,
+    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
+    "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z": 6697536,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "?PlayIndexAtPos@VocClass@@SIPAXHABVCoord@@H@Z": 7422608,
-    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
-    "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z": 4659168,
+    "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z": 7016000,
     "?Set_Ambient_Sound@ObjectClass@@QAEXH@Z": 6116640,
-    "?Stop_At@VocClass@@SIXABVCoord@@H@Z": 7422896,
-    "?Shroud_Gap_Area@MapClass@@QAEXABVCoord@@H@Z": 5547808,
-    "?Refresh_Shroud@MapClass@@QAEXXZ": 5612288,
+    "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016528,
     "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z": 7241248,
     "?Queue_Speech@@YIXHHH@Z": 7428288,
     "?Enable@SuperClass@@QAE_N_N00@Z": 6933744,
     "?Add@SidebarClass@@QAE_NW4RTTIType@@H@Z": 6800688,
     "?Which_Tab@SidebarClass@@SIHW4RTTIType@@H_N@Z": 6822096,
     "?Flag_Tab_To_Redraw@SidebarClass@@QAEXH@Z": 6800080,
-    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017072,
     "?ScenarioInit@@3HA": 10749812,
     "?Create_One_Of@TeamTypeClass@@QBEPAVTeamClass@@PAVHouseClass@@@Z": 7072896,
     "?Destroy_All_Of@TeamTypeClass@@QBEXXZ": 7073040,
     "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z": 6527344,
+    "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017680,
+    "?TAction_RESIZE_PLAYER_VIEW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018064,
+    "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018256,
+    "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018512,
+    "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018912,
+    "?Ion_Storm_End@IonStormClass@@SIXXZ": 5372848,
+    "?Lock_Scenario_Input@@YIXXZ": 6669264,
+    "?Unlock_Scenario_Input@@YIXXZ": 6669344,
+    "?TacticalMap@@3PAVTactical@@A": 8624492,
+    "?Setup_Trigger_Scroll@Tactical@@QAEXABVCoord@@H@Z": 6958256,
+    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
+    "?IgnoreInput@@3_NA": 10751300,
+    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
+    "?MouseCursor@@3PAVMouse@@A": 8625256,
+    "?Abort_Drag_Select@ScrollClass@@UAEXXZ": 6728736,
+    "?Render@GScreenClass@@UAEXXZ": 5114672,
+    "__imp__Sleep@4": 7971300,
+    "?Shroud_The_Map@MapClass@@QAEXXZ": 5611472,
+    "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z": 4408176,
+    "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A": 10750624,
+    "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
+    "?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z": 7264304,
+    "?TAction_ENABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020304,
+    "?Disable@TriggerClass@@QAEXXZ": 7265136,
+    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
+    "?Set_Local_To@ScenarioClass@@QAE_NH_N@Z": 6690144,
+    "?TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020608,
+    "?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021232,
+    "?TAction_SET_AI_TRIGGER_TEAM_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021296,
+    "?TAction_SET_TEAM_AIRCRAFT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021328,
+    "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021360,
+    "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021392,
+    "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010816,
+    "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010688,
+    "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010640,
+    "?TAction_FLASH_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024432,
+    "?TAction_TALK_BUBBLE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024464,
+    "?TAction_SET_TECH_LEVEL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022560,
+    "?TAction_CHRONO_IN_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022608,
+    "?TAction_CREATE_CRATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022640,
+    "?TAction_IRON_CURTAIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022288,
+    "?Hold_Scenario@@YIXH@Z": 6668784,
+    "?TAction_EJECT_OCCUPANTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024544,
+    "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019456,
+    "?TAction_CHEER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021264,
+    "?TAction_SWITCH_TAB@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024656,
+    "?TAction_FLASH_CAMEO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024736,
+    "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016336,
+    "?Play_Ingame_Movie@@YIXW4VQType@@_N@Z": 5900576,
+    "?Lightning_Bolt@IonStormClass@@SIXVCell@@@Z": 5373072,
+    "?ParticleSystems@@3V?$DynamicVectorClass@PAVParticleSystemClass@@@@A": 10691200,
+    "?ParticleSystemTypes@@3V?$DynamicVectorClass@PAVParticleSystemTypeClass@@@@A": 10706384,
+    "??0ParticleSystemClass@@QAE@PBVParticleSystemTypeClass@@ABVCoord@@PAVAbstractClass@@21@Z": 6335088,
+    "?Explosion_Damage@@YIHABVCoord@@HPAVTechnoClass@@PBVWarheadTypeClass@@_N@Z": 4711104,
+    "?Damage_Bridge@MapClass@@QAE_NABVCell@@@Z": 5673104,
+    "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
+    "?Register_Dirty_Area@Tactical@@QAEXV?$TRect@H@@_N@Z": 6959136,
+    "?Sight_From@MapClass@@QAEXABVCoord@@HPAVHouseClass@@_N2222@Z": 5546256,
+    "?Get_Cell_Zone@MapClass@@QAEHABVCell@@W4MZoneType@@_N@Z": 5568752,
+    "?Reset_Local_Iterator@MapClass@@QAEXXZ": 5614160,
+    "?Local_Iterate@MapClass@@QAEPAVCellClass@@XZ": 5613840,
+    "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
+    "?Cell_Terrain@CellClass@@QBEPAVTerrainClass@@_N@Z": 4659168,
+    "?Stop_At@VocClass@@SIXABVCoord@@H@Z": 7422896,
+    "?Shroud_Gap_Area@MapClass@@QAEXABVCoord@@H@Z": 5547808,
+    "?Refresh_Shroud@MapClass@@QAEXXZ": 5612288,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
     "?Reset_Radar@RadarClass@@QAEXXZ": 6495552,
     "?Recalc_Attributes@CellClass@@QAEXH@Z": 4662592,
     "?Zone_Reset@MapClass@@QAEHXZ": 5565392,
@@ -169,36 +239,14 @@
     "?Get_Explosion_Z@@YIHVCoord@@@Z": 4717760,
     "?VoxelAnimTypes@@3V?$DynamicVectorClass@PAVVoxelAnimTypeClass@@@@A": 10750688,
     "??0VoxelAnimClass@@QAE@PBVVoxelAnimTypeClass@@ABVCoord@@PAVHouseClass@@@Z": 7391232,
-    "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ": 5373008,
-    "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z": 5372208,
-    "?Ion_Storm_End@IonStormClass@@SIXXZ": 5372848,
-    "?Lock_Scenario_Input@@YIXXZ": 6669264,
-    "?Unlock_Scenario_Input@@YIXXZ": 6669344,
-    "?Setup_Trigger_Scroll@Tactical@@QAEXABVCoord@@H@Z": 6958256,
     "?Set_Tactical_Position@Tactical@@QAEXABVCoord@@@Z": 6973104,
-    "?Keyboard@@3PAUKeyboardClass@@A": 8594536,
-    "?IgnoreInput@@3_NA": 10751300,
-    "?Clear@WWKeyboardClass@@QAEXXZ": 5450224,
-    "?MouseCursor@@3PAVMouse@@A": 8625256,
-    "?Abort_Drag_Select@ScrollClass@@UAEXXZ": 6728736,
-    "?Render@GScreenClass@@UAEXXZ": 5114672,
-    "__imp__Sleep@4": 7971300,
-    "?Shroud_The_Map@MapClass@@QAEXXZ": 5611472,
-    "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z": 4408176,
-    "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A": 10750624,
-    "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A": 11271752,
-    "?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z": 7264304,
     "?Enable@TriggerClass@@QAEXXZ": 7265120,
-    "?Disable@TriggerClass@@QAEXXZ": 7265136,
-    "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z": 6534576,
-    "?Set_Local_To@ScenarioClass@@QAE_NH_N@Z": 6690144,
     "??RRandom2Class@@QAEHXZ": 6522944,
     "??_C@_08OAEP@METLARGE?$AA@": 8350732,
     "_?_counts@?1??TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z@4PAHA": 8350424,
     "?Anim_From_Name@@YI?AW4AnimType@@PBD@Z": 4328656,
     "??_C@_08JLMH@METSMALL?$AA@": 8350720,
     "?Cheer@HouseClass@@QAEXXZ": 5202608,
-    "??0IonBlastClass@@QAE@VCoord@@@Z": 5378672,
     "??_C@_0M@BCEA@NukePayload?$AA@": 8196672,
     "?From_Name@WeaponTypeClass@@SI?AW4WeaponType@@PBD@Z": 7552816,
     "?Create_Bullet@BulletTypeClass@@QBIPAVBulletClass@@PAVAbstractClass@@PAVTechnoClass@@HPBVWarheadTypeClass@@H_N@Z": 4602256,
@@ -225,7 +273,6 @@
     "?Flash@TeamTypeClass@@QAEXH@Z": 7078160,
     "?Find_First_Of_Type@TeamTypeClass@@QAEPAVTeamClass@@XZ": 7078224,
     "?Set_Talker@TechnoClass@@SIXPAV1@W4TalkType@@@Z": 7180240,
-    "?Hold_Scenario@@YIXH@Z": 6668784,
     "?Eject_Occupants@BuildingClass@@QAEX_N@Z": 4534096,
     "?Has_Buildables@StripClass@SidebarClass@@QBE_NXZ": 6821680,
     "?Select_Tab@SidebarClass@@QAEXH@Z": 6805904,
@@ -243,7 +290,6 @@
     "_$E32": 7000736,
     "_$E35": 7000752,
     "_$E38": 7000784,
-    "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??_I@YGXPAXIHP6EX0@Z@Z": 4239104,
     "_$E197": 7000816,
     "??_G?$DynamicVectorClass@PAVTActionClass@@@@UAEPAXI@Z": 7026096,
@@ -287,16 +333,8 @@
     "?Build_INI_Entry@TActionClass@@QBEXPAD@Z": 7001664,
     "?Read_INI@TActionClass@@QAEXXZ": 7002208,
     "??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7002848,
-    "??0Cell@@QAE@XZ": 4582640,
-    "??0Cell@@QAE@HH@Z": 4369712,
-    "??0Coord@@QAE@ABVCell@@H@Z": 6417024,
-    "?As_Cell@Coord@@QBE?AVCell@@XZ": 4274032,
     "?TAction_DEACTIVATE_FIRESTORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010624,
     "?TAction_ACTIVATE_FIRESTORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010608,
-    "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010640,
-    "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010688,
-    "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010816,
-    "?TAction_WAKEUP_SELF@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7010992,
     "?TAction_VEIN_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011136,
     "?TAction_TIB_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011168,
     "?TAction_ICE_GROWTH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011200,
@@ -306,7 +344,6 @@
     "?TAction_ANNOUNCE_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011632,
     "?TAction_ANNOUNCE_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011664,
     "?TAction_FORCE_END@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011696,
-    "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7011712,
     "?TAction_LIGHT_SMALL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012480,
     "?TAction_LIGHT_MEDIUM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012576,
     "?TAction_LIGHT_LARGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7012672,
@@ -324,9 +361,7 @@
     "?TAction_CREEP_SHADOW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7013920,
     "?TAction_SET_GLOBAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7013936,
     "?TAction_CLEAR_GLOBAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7013968,
-    "?TAction_REVEAL_SOME@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014000,
     "?TAction_REDUCE_TIBERIUM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014400,
-    "?TAction_REVEAL_ZONE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014464,
     "?TAction_REVEAL_ALL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014832,
     "?TAction_START_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7014944,
     "?TAction_STOP_TIMER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015008,
@@ -339,15 +374,11 @@
     "?TAction_PLAY_INGAME_MOVIE_PAUSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015776,
     "?TAction_PLAY_SOUND@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015792,
     "?TAction_PLAY_SOUND_RANDOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7015824,
-    "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z": 7016000,
     "?TAction_PLAY_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016128,
-    "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016336,
-    "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016528,
     "?TAction_PLAY_MUSIC@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016800,
     "?TAction_PLAY_SPEECH@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016832,
     "?TAction_1_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016864,
     "?TAction_FULL_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7016960,
-    "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017072,
     "?TAction_WIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017312,
     "?TAction_LOSE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017360,
     "?TAction_BEGIN_PRODUCTION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017408,
@@ -358,18 +389,12 @@
     "?TAction_REINFORCEMENTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017584,
     "?TAction_REINFORCEMENTS_SPECIAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017616,
     "?TAction_ALL_HUNT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017648,
-    "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7017680,
     "?TAction_CHANGE_ZOOM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018048,
-    "?TAction_RESIZE_PLAYER_VIEW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018064,
-    "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018256,
-    "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018512,
-    "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7018912,
     "?TAction_ION_STORM_START@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019136,
     "?TAction_ION_STORM_STOP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019200,
     "?TAction_LOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019232,
     "?TAction_UNLOCK_INPUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019248,
     "?TAction_CENTER_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019264,
-    "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019456,
     "?TAction_ZOOM_IN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019648,
     "?TAction_ZOOM_OUT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019776,
     "?TAction_RESHROUD@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7019888,
@@ -377,30 +402,16 @@
     "?TAction_DESTROY_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020064,
     "?TAction_DESTROY_TAG@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020144,
     "?TAction_FORCE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020224,
-    "?TAction_ENABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020304,
     "?TAction_DISABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020432,
     "?TAction_RADAR_EVENT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020496,
     "?TAction_SET_LOCAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020544,
     "?TAction_CLEAR_LOCAL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020576,
-    "?TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7020608,
     "?TAction_SET_AMBIENT_STEP@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021088,
     "?TAction_SET_AMBIENT_RATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021120,
     "?TAction_SET_AMBIENT_LIGHT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021152,
     "?TAction_BEGIN_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021200,
-    "?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021232,
-    "?TAction_CHEER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021264,
-    "?TAction_SET_AI_TRIGGER_TEAM_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021296,
-    "?TAction_SET_TEAM_AIRCRAFT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021328,
-    "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021360,
-    "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021392,
     "?TAction_ION_CANNON@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021424,
-    "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7021568,
     "?TAction_LIGHTNING_STORM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022048,
-    "?TAction_IRON_CURTAIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022288,
-    "?TAction_SET_TECH_LEVEL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022560,
-    "?TAction_CHRONO_IN_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022608,
-    "?TAction_CREATE_CRATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022640,
-    "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7022688,
     "?TAction_TOGGLE_TRAIN_CARGO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7023248,
     "?GetClassID@TActionClass@@UAGJPAU_GUID@@@Z": 7023744,
     "?Load@TActionClass@@UAGJPAUIStream@@@Z": 7023808,
@@ -410,21 +421,10 @@
     "?Waypoint_As_Coord@TActionClass@@QAE?AVCoord@@XZ": 7024256,
     "?Set_Text@TActionClass@@QAEXPBD@Z": 7024320,
     "?Get_Text@TActionClass@@QBEPBDXZ": 7024416,
-    "?TAction_FLASH_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024432,
-    "?TAction_TALK_BUBBLE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024464,
     "?TAction_PAUSE_SCENARIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024528,
-    "?TAction_EJECT_OCCUPANTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024544,
-    "?TAction_SWITCH_TAB@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024656,
-    "?TAction_FLASH_CAMEO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z": 7024736,
-    "??0?$TStringID@$0BP@@@QAE@PBD@Z": 7025152,
-    "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z": 7025200,
     "?Clear@?$DynamicVectorClass@PAVTActionClass@@@@UAEXXZ": 7025248,
     "?ID@?$DynamicVectorClass@PAVTActionClass@@@@UAEHPBQAVTActionClass@@@Z": 7025296,
     "?GetItem@?$VectorClass@PAVTActionClass@@@@UBEPAVTActionClass@@H@Z": 7025328,
-    "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z": 4603776,
-    "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ": 4538032,
-    "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 7025344,
-    "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ": 6942000,
     "??8?$VectorClass@PAVTActionClass@@@@UBE_NABV0@@Z": 7025408,
     "?Resize@?$VectorClass@PAVTActionClass@@@@UAE_NHPBQAVTActionClass@@@Z": 7025472,
     "?Clear@?$VectorClass@PAVTActionClass@@@@UAEXXZ": 7025648,
@@ -512,7 +512,7 @@
           "resolved": 11271608
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000320,
@@ -564,7 +564,7 @@
           "resolved": 11271680
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000368,
@@ -616,7 +616,7 @@
           "resolved": 11271664
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000400,
@@ -668,7 +668,7 @@
           "resolved": 11271656
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000432,
@@ -720,7 +720,7 @@
           "resolved": 11271616
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000464,
@@ -772,7 +772,7 @@
           "resolved": 11271552
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000496,
@@ -856,7 +856,7 @@
           "resolved": 11271688
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000528,
@@ -916,7 +916,7 @@
           "resolved": 11271624
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000592,
@@ -976,7 +976,7 @@
           "resolved": 11271648
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000640,
@@ -1036,7 +1036,7 @@
           "resolved": 11271672
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000688,
@@ -1080,7 +1080,7 @@
           "resolved": 11271602
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000736,
@@ -1132,7 +1132,7 @@
           "resolved": 11271640
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000752,
@@ -1192,7 +1192,7 @@
           "resolved": 11271596
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000784,
@@ -1300,7 +1300,7 @@
           "resolved": 874079
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000816,
@@ -1392,7 +1392,7 @@
           "resolved": 11271568
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000880,
@@ -1692,7 +1692,7 @@
           "resolved": 11275420
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7000944,
@@ -1912,7 +1912,7 @@
           "resolved": 4292225428
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001328,
@@ -1939,7 +1939,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001600,
@@ -2095,7 +2095,7 @@
           "resolved": 870561
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7001664,
@@ -2508,10 +2508,3647 @@
           "resolved": 7002303
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7002208,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7002848,
+      "method": "006adae0",
+      "body_bytes": 7752,
+      "body_sha256": "0b01c2fbf188212d67215fb2b4e121cd952edd3fdb5267aa4e271786b3dc2ef9",
+      "padding_bytes": 8,
+      "full_extent_bytes": 7760,
+      "full_extent_sha256": "014075c1d72d1a4e19e78b8274863f864370f876e989c5fe22aee31040b09f83",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 468,
+      "symbol": "??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "symbol_prefix": "??RTActionClass@@QAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 52,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010132,
+          "addend": 0,
+          "resolved": 7010132
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 98,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 109,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294661679
+        },
+        {
+          "offset": 153,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292270771
+        },
+        {
+          "offset": 183,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293576412
+        },
+        {
+          "offset": 203,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 869480
+        },
+        {
+          "offset": 246,
+          "kind": 20,
+          "symbol": "??0IonBlastClass@@QAE@VCoord@@@Z",
+          "target": 5378672,
+          "addend": 0,
+          "resolved": 4293342870
+        },
+        {
+          "offset": 293,
+          "kind": 20,
+          "symbol": "?TAction_MULTI_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021568,
+          "addend": 0,
+          "resolved": 18423
+        },
+        {
+          "offset": 320,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 326,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294661462
+        },
+        {
+          "offset": 370,
+          "kind": 20,
+          "symbol": "??0?$TPoint3D@H@@QAE@HHH@Z",
+          "target": 4306480,
+          "addend": 0,
+          "resolved": 4292270554
+        },
+        {
+          "offset": 400,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 409,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293576195
+        },
+        {
+          "offset": 423,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 428,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293501920
+        },
+        {
+          "offset": 445,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 469,
+          "kind": 20,
+          "symbol": "?As_Cell@Coord@@QBE?AVCell@@XZ",
+          "target": 4274032,
+          "addend": 0,
+          "resolved": 4292238007
+        },
+        {
+          "offset": 476,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293336976
+        },
+        {
+          "offset": 496,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 515,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+          "target": 5372208,
+          "addend": 0,
+          "resolved": 4293336137
+        },
+        {
+          "offset": 562,
+          "kind": 20,
+          "symbol": "?TAction_CHEM_MISSILE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7022688,
+          "addend": 0,
+          "resolved": 19274
+        },
+        {
+          "offset": 580,
+          "kind": 6,
+          "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
+          "target": 10706504,
+          "addend": 16,
+          "resolved": 10706520
+        },
+        {
+          "offset": 601,
+          "kind": 6,
+          "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
+          "target": 10706504,
+          "addend": 4,
+          "resolved": 10706508
+        },
+        {
+          "offset": 638,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 24686
+        },
+        {
+          "offset": 659,
+          "kind": 6,
+          "symbol": "?Infantry@@3V?$DynamicVectorClass@PAVInfantryClass@@@@A",
+          "target": 10706504,
+          "addend": 16,
+          "resolved": 10706520
+        },
+        {
+          "offset": 711,
+          "kind": 20,
+          "symbol": "?TAction_WAKEUP_SELF@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7010992,
+          "addend": 0,
+          "resolved": 7429
+        },
+        {
+          "offset": 729,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 759,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 789,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 818,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 16,
+          "resolved": 8806216
+        },
+        {
+          "offset": 841,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 4,
+          "resolved": 8806204
+        },
+        {
+          "offset": 910,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 16,
+          "resolved": 8806216
+        },
+        {
+          "offset": 935,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 16,
+          "resolved": 8806216
+        },
+        {
+          "offset": 957,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 4,
+          "resolved": 8806204
+        },
+        {
+          "offset": 1027,
+          "kind": 6,
+          "symbol": "?Feet@@3V?$DynamicVectorClass@PAVFootClass@@@@A",
+          "target": 8806200,
+          "addend": 16,
+          "resolved": 8806216
+        },
+        {
+          "offset": 1052,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 1068,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 4,
+          "resolved": 10751012
+        },
+        {
+          "offset": 1157,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 1183,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1190,
+          "kind": 20,
+          "symbol": "?Flag_To_Win@HouseClass@@QAE_N_N@Z",
+          "target": 5144288,
+          "addend": 0,
+          "resolved": 4293107542
+        },
+        {
+          "offset": 1211,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1218,
+          "kind": 20,
+          "symbol": "?Flag_To_Lose@HouseClass@@QAE_N_N@Z",
+          "target": 5144784,
+          "addend": 0,
+          "resolved": 4293108010
+        },
+        {
+          "offset": 1239,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 1244,
+          "kind": 20,
+          "symbol": "?Flag_To_End@HouseClass@@QAEXXZ",
+          "target": 5145280,
+          "addend": 0,
+          "resolved": 4293108480
+        },
+        {
+          "offset": 1291,
+          "kind": 20,
+          "symbol": "?TAction_DAMAGE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7011712,
+          "addend": 0,
+          "resolved": 7569
+        },
+        {
+          "offset": 1313,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1333,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1338,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294660514
+        },
+        {
+          "offset": 1371,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4292679105
+        },
+        {
+          "offset": 1392,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1409,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1420,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294660432
+        },
+        {
+          "offset": 1453,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4292679023
+        },
+        {
+          "offset": 1474,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1491,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 1502,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294660350
+        },
+        {
+          "offset": 1535,
+          "kind": 20,
+          "symbol": "?Combat_Lighting@@YIXVCoord@@HPBVWarheadTypeClass@@HH@Z",
+          "target": 4716032,
+          "addend": 0,
+          "resolved": 4292678941
+        },
+        {
+          "offset": 1555,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1576,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 4,
+          "resolved": 10750716
+        },
+        {
+          "offset": 1613,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 23711
+        },
+        {
+          "offset": 1636,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1661,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1681,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 4,
+          "resolved": 10750716
+        },
+        {
+          "offset": 1718,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 23606
+        },
+        {
+          "offset": 1739,
+          "kind": 20,
+          "symbol": "?Turn_Off@BuildingClass@@QAEXXZ",
+          "target": 4511024,
+          "addend": 0,
+          "resolved": 4292473729
+        },
+        {
+          "offset": 1746,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1771,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1792,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 4,
+          "resolved": 10750716
+        },
+        {
+          "offset": 1829,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 23495
+        },
+        {
+          "offset": 1850,
+          "kind": 20,
+          "symbol": "?Turn_On@BuildingClass@@QAEXXZ",
+          "target": 4510688,
+          "addend": 0,
+          "resolved": 4292473282
+        },
+        {
+          "offset": 1857,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 1882,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 1894,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 4,
+          "resolved": 10751012
+        },
+        {
+          "offset": 1938,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 23386
+        },
+        {
+          "offset": 1954,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293129434
+        },
+        {
+          "offset": 1970,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 2000,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293129388
+        },
+        {
+          "offset": 2007,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 2026,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 4,
+          "resolved": 10751012
+        },
+        {
+          "offset": 2055,
+          "kind": 6,
+          "symbol": "?Technos@@3V?$DynamicVectorClass@PAVTechnoClass@@@@A",
+          "target": 10751008,
+          "addend": 16,
+          "resolved": 10751024
+        },
+        {
+          "offset": 2084,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 2098,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 0,
+          "resolved": 10736280
+        },
+        {
+          "offset": 2118,
+          "kind": 20,
+          "symbol": "?Color_Index_To_Scheme@SessionClass@@QAEHH@Z",
+          "target": 6755792,
+          "addend": 0,
+          "resolved": 4294718118
+        },
+        {
+          "offset": 2134,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2147,
+          "kind": 6,
+          "symbol": "__real@8@4008e100000000000000",
+          "target": 7976456,
+          "addend": 0,
+          "resolved": 7976456
+        },
+        {
+          "offset": 2152,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 855492
+        },
+        {
+          "offset": 2169,
+          "kind": 6,
+          "symbol": "??_C@_0BD@GLBG@D?3?2Ra2?2TAction?4CPP?$AA@",
+          "target": 8350672,
+          "addend": 0,
+          "resolved": 8350672
+        },
+        {
+          "offset": 2178,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 310106
+        },
+        {
+          "offset": 2186,
+          "kind": 6,
+          "symbol": "?Session@@3VSessionClass@@A",
+          "target": 10736280,
+          "addend": 2520,
+          "resolved": 10738800
+        },
+        {
+          "offset": 2191,
+          "kind": 20,
+          "symbol": "?Add_Message@MessageListClass@@QAEPAVTextLabelClass@@PBGH0HW4TextPrintType@@H_N@Z",
+          "target": 5983648,
+          "addend": 0,
+          "resolved": 4293945901
+        },
+        {
+          "offset": 2225,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293129163
+        },
+        {
+          "offset": 2243,
+          "kind": 20,
+          "symbol": "?Make_Ally@HouseClass@@QAEXPAV1@_N@Z",
+          "target": 5133920,
+          "addend": 0,
+          "resolved": 4293096121
+        },
+        {
+          "offset": 2252,
+          "kind": 20,
+          "symbol": "?Make_Ally@HouseClass@@QAEXPAV1@_N@Z",
+          "target": 5133920,
+          "addend": 0,
+          "resolved": 4293096112
+        },
+        {
+          "offset": 2286,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293129102
+        },
+        {
+          "offset": 2304,
+          "kind": 20,
+          "symbol": "?Make_Enemy@HouseClass@@QAEXPAV1@_N@Z",
+          "target": 5134960,
+          "addend": 0,
+          "resolved": 4293097100
+        },
+        {
+          "offset": 2313,
+          "kind": 20,
+          "symbol": "?Make_Enemy@HouseClass@@QAEXPAV1@_N@Z",
+          "target": 5134960,
+          "addend": 0,
+          "resolved": 4293097091
+        },
+        {
+          "offset": 2460,
+          "kind": 20,
+          "symbol": "??0Cell@@QAE@HH@Z",
+          "target": 4369712,
+          "addend": 0,
+          "resolved": 4292331696
+        },
+        {
+          "offset": 2481,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@ABVCell@@H@Z",
+          "target": 6417024,
+          "addend": 0,
+          "resolved": 4294378987
+        },
+        {
+          "offset": 2536,
+          "kind": 20,
+          "symbol": "?Begin_Construction@HouseClass@@QAEXXZ",
+          "target": 5200864,
+          "addend": 0,
+          "resolved": 4293162772
+        },
+        {
+          "offset": 2585,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2590,
+          "kind": 20,
+          "symbol": "?Encroach_Shadow@DisplayClass@@QAEXXZ",
+          "target": 4836384,
+          "addend": 0,
+          "resolved": 4292798238
+        },
+        {
+          "offset": 2614,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 2622,
+          "kind": 20,
+          "symbol": "?Set_Global_To@ScenarioClass@@QAE_NH_N@Z",
+          "target": 6689472,
+          "addend": 0,
+          "resolved": 4294651294
+        },
+        {
+          "offset": 2648,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 2653,
+          "kind": 20,
+          "symbol": "?Set_Global_To@ScenarioClass@@QAE_NH_N@Z",
+          "target": 6689472,
+          "addend": 0,
+          "resolved": 4294651263
+        },
+        {
+          "offset": 2677,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 2688,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294659100
+        },
+        {
+          "offset": 2704,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2709,
+          "kind": 20,
+          "symbol": "?Area_Reduce_Tiberium@MapClass@@QAEXABVCell@@@Z",
+          "target": 5626256,
+          "addend": 0,
+          "resolved": 4293587991
+        },
+        {
+          "offset": 2756,
+          "kind": 20,
+          "symbol": "?TAction_REVEAL_SOME@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7014000,
+          "addend": 0,
+          "resolved": 8392
+        },
+        {
+          "offset": 2801,
+          "kind": 20,
+          "symbol": "?TAction_REVEAL_ZONE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7014464,
+          "addend": 0,
+          "resolved": 8811
+        },
+        {
+          "offset": 2819,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 2838,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2850,
+          "kind": 20,
+          "symbol": "?Reset_Iterator@MapClass@@QAEXXZ",
+          "target": 5612880,
+          "addend": 0,
+          "resolved": 4293574474
+        },
+        {
+          "offset": 2855,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2860,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293574272
+        },
+        {
+          "offset": 2870,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 2880,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2885,
+          "kind": 20,
+          "symbol": "?Map_Cell@RadarClass@@UAE_NABVCell@@PAVHouseClass@@@Z",
+          "target": 6487168,
+          "addend": 0,
+          "resolved": 4294448727
+        },
+        {
+          "offset": 2890,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2895,
+          "kind": 20,
+          "symbol": "?Iterate@MapClass@@QAEPAVCellClass@@XZ",
+          "target": 5612688,
+          "addend": 0,
+          "resolved": 4293574237
+        },
+        {
+          "offset": 2906,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2911,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293075805
+        },
+        {
+          "offset": 2931,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 2958,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 2969,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2974,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294914350
+        },
+        {
+          "offset": 2995,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3021,
+          "kind": 20,
+          "symbol": "?Stop@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+          "target": 7025344,
+          "addend": 0,
+          "resolved": 19471
+        },
+        {
+          "offset": 3026,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3031,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294914293
+        },
+        {
+          "offset": 3051,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3062,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4538032,
+          "addend": 0,
+          "resolved": 4292499414
+        },
+        {
+          "offset": 3085,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292565135
+        },
+        {
+          "offset": 3090,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3120,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3125,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294914199
+        },
+        {
+          "offset": 3146,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3157,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4538032,
+          "addend": 0,
+          "resolved": 4292499319
+        },
+        {
+          "offset": 3180,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292565040
+        },
+        {
+          "offset": 3186,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3214,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3222,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294914102
+        },
+        {
+          "offset": 3243,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3254,
+          "kind": 20,
+          "symbol": "??B?$CDTimerClass@VFrameTimerClass@@@@QBEHXZ",
+          "target": 4538032,
+          "addend": 0,
+          "resolved": 4292499222
+        },
+        {
+          "offset": 3277,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292564943
+        },
+        {
+          "offset": 3283,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3314,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3319,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294914005
+        },
+        {
+          "offset": 3353,
+          "kind": 20,
+          "symbol": "??0?$CDTimerClass@VFrameTimerClass@@@@QAE@H@Z",
+          "target": 4603776,
+          "addend": 0,
+          "resolved": 4292564867
+        },
+        {
+          "offset": 3359,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3390,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3401,
+          "kind": 20,
+          "symbol": "?Start@?$CDTimerClass@VFrameTimerClass@@@@QAEXXZ",
+          "target": 6942000,
+          "addend": 0,
+          "resolved": 4294903043
+        },
+        {
+          "offset": 3407,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3412,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 3422,
+          "kind": 6,
+          "symbol": "??_C@_11A@?$AA?$AA@",
+          "target": 8625484,
+          "addend": 0,
+          "resolved": 8625484
+        },
+        {
+          "offset": 3431,
+          "kind": 20,
+          "symbol": "??0?$TStringID@$0BP@@@QAE@PBD@Z",
+          "target": 7025152,
+          "addend": 0,
+          "resolved": 18869
+        },
+        {
+          "offset": 3437,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3458,
+          "kind": 20,
+          "symbol": "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z",
+          "target": 7025200,
+          "addend": 0,
+          "resolved": 18890
+        },
+        {
+          "offset": 3463,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3468,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294913856
+        },
+        {
+          "offset": 3505,
+          "kind": 20,
+          "symbol": "??0?$TStringID@$0BP@@@QAE@PBD@Z",
+          "target": 7025152,
+          "addend": 0,
+          "resolved": 18795
+        },
+        {
+          "offset": 3519,
+          "kind": 6,
+          "symbol": "??_C@_0BD@GLBG@D?3?2Ra2?2TAction?4CPP?$AA@",
+          "target": 8350672,
+          "addend": 0,
+          "resolved": 8350672
+        },
+        {
+          "offset": 3528,
+          "kind": 20,
+          "symbol": "?LoadString@StringTable@@SIPBGPBDPAPAD0H@Z",
+          "target": 7315136,
+          "addend": 0,
+          "resolved": 308756
+        },
+        {
+          "offset": 3534,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3551,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3567,
+          "kind": 20,
+          "symbol": "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z",
+          "target": 7025200,
+          "addend": 0,
+          "resolved": 18781
+        },
+        {
+          "offset": 3572,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3577,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294913747
+        },
+        {
+          "offset": 3598,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3603,
+          "kind": 6,
+          "symbol": "??_C@_00A@?$AA@",
+          "target": 8635740,
+          "addend": 0,
+          "resolved": 8635740
+        },
+        {
+          "offset": 3617,
+          "kind": 6,
+          "symbol": "??_C@_11A@?$AA?$AA@",
+          "target": 8625484,
+          "addend": 0,
+          "resolved": 8625484
+        },
+        {
+          "offset": 3622,
+          "kind": 20,
+          "symbol": "??0?$TStringID@$0BP@@@QAE@PBD@Z",
+          "target": 7025152,
+          "addend": 0,
+          "resolved": 18678
+        },
+        {
+          "offset": 3628,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3652,
+          "kind": 20,
+          "symbol": "??4?$TStringID@$0BP@@@QAE?AU0@ABU0@@Z",
+          "target": 7025200,
+          "addend": 0,
+          "resolved": 18696
+        },
+        {
+          "offset": 3657,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3662,
+          "kind": 20,
+          "symbol": "?Redraw_Tab@TabClass@@QAEXXZ",
+          "target": 6952880,
+          "addend": 0,
+          "resolved": 4294913662
+        },
+        {
+          "offset": 3694,
+          "kind": 20,
+          "symbol": "?Play_Movie@@YIXW4VQType@@W4ThemeType@@_N22@Z",
+          "target": 5900272,
+          "addend": 0,
+          "resolved": 4293861022
+        },
+        {
+          "offset": 3728,
+          "kind": 20,
+          "symbol": "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z",
+          "target": 7421360,
+          "addend": 0,
+          "resolved": 414780
+        },
+        {
+          "offset": 3748,
+          "kind": 6,
+          "symbol": "??0Cell@@QAE@XZ",
+          "target": 4582640,
+          "addend": 0,
+          "resolved": 4582640
+        },
+        {
+          "offset": 3765,
+          "kind": 20,
+          "symbol": "??_H@YGXPAXIHP6EX0@Z@Z",
+          "target": 4239056,
+          "addend": 0,
+          "resolved": 4292199735
+        },
+        {
+          "offset": 3782,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3788,
+          "kind": 20,
+          "symbol": "?Is_Valid_Waypoint@ScenarioClass@@QBE_NH@Z",
+          "target": 6697536,
+          "addend": 0,
+          "resolved": 4294658192
+        },
+        {
+          "offset": 3804,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3809,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294657979
+        },
+        {
+          "offset": 3836,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3851,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 4294483633
+        },
+        {
+          "offset": 3872,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@ABVCell@@H@Z",
+          "target": 6417024,
+          "addend": 0,
+          "resolved": 4294377596
+        },
+        {
+          "offset": 3882,
+          "kind": 20,
+          "symbol": "?PlayIndexAtPos@VocClass@@SIPAXHABVCoord@@H@Z",
+          "target": 7422608,
+          "addend": 0,
+          "resolved": 415874
+        },
+        {
+          "offset": 3906,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 3917,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Coord@ScenarioClass@@QBE?AVCoord@@H@Z",
+          "target": 6697408,
+          "addend": 0,
+          "resolved": 4294657935
+        },
+        {
+          "offset": 3946,
+          "kind": 20,
+          "symbol": "?Coord_Object@@YIPAVObjectClass@@ABVCoord@@@Z",
+          "target": 7016000,
+          "addend": 0,
+          "resolved": 9202
+        },
+        {
+          "offset": 3961,
+          "kind": 20,
+          "symbol": "?Set_Ambient_Sound@ObjectClass@@QAEXH@Z",
+          "target": 6116640,
+          "addend": 0,
+          "resolved": 4294077123
+        },
+        {
+          "offset": 3990,
+          "kind": 20,
+          "symbol": "?PlayIndexAtPos@VocClass@@SIPAXHABVCoord@@H@Z",
+          "target": 7422608,
+          "addend": 0,
+          "resolved": 415766
+        },
+        {
+          "offset": 4037,
+          "kind": 20,
+          "symbol": "?TAction_REVEAL_AROUND_WAYPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7016528,
+          "addend": 0,
+          "resolved": 9639
+        },
+        {
+          "offset": 4058,
+          "kind": 6,
+          "symbol": "?Theme@@3VThemeClass@@A",
+          "target": 10706296,
+          "addend": 0,
+          "resolved": 10706296
+        },
+        {
+          "offset": 4064,
+          "kind": 20,
+          "symbol": "?Queue_Song@ThemeClass@@QAEXW4ThemeType@@@Z",
+          "target": 7241248,
+          "addend": 0,
+          "resolved": 234332
+        },
+        {
+          "offset": 4094,
+          "kind": 20,
+          "symbol": "?Queue_Speech@@YIXHHH@Z",
+          "target": 7428288,
+          "addend": 0,
+          "resolved": 421342
+        },
+        {
+          "offset": 4137,
+          "kind": 20,
+          "symbol": "?Enable@SuperClass@@QAE_N_N00@Z",
+          "target": 6933744,
+          "addend": 0,
+          "resolved": 4294894051
+        },
+        {
+          "offset": 4166,
+          "kind": 20,
+          "symbol": "?Enable@SuperClass@@QAE_N_N00@Z",
+          "target": 6933744,
+          "addend": 0,
+          "resolved": 4294894022
+        },
+        {
+          "offset": 4188,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 4202,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4210,
+          "kind": 20,
+          "symbol": "?Add@SidebarClass@@QAE_NW4RTTIType@@H@Z",
+          "target": 6800688,
+          "addend": 0,
+          "resolved": 4294760922
+        },
+        {
+          "offset": 4224,
+          "kind": 20,
+          "symbol": "?Which_Tab@SidebarClass@@SIHW4RTTIType@@H_N@Z",
+          "target": 6822096,
+          "addend": 0,
+          "resolved": 4294782316
+        },
+        {
+          "offset": 4230,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 4235,
+          "kind": 20,
+          "symbol": "?Flag_Tab_To_Redraw@SidebarClass@@QAEXH@Z",
+          "target": 6800080,
+          "addend": 0,
+          "resolved": 4294760289
+        },
+        {
+          "offset": 4282,
+          "kind": 20,
+          "symbol": "?TAction_DZ@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7017072,
+          "addend": 0,
+          "resolved": 9938
+        },
+        {
+          "offset": 4301,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 4325,
+          "kind": 20,
+          "symbol": "?Flag_To_Win@HouseClass@@QAE_N_N@Z",
+          "target": 5144288,
+          "addend": 0,
+          "resolved": 4293104407
+        },
+        {
+          "offset": 4346,
+          "kind": 6,
+          "symbol": "?PlayerPtr@@3PAVHouseClass@@A",
+          "target": 10706356,
+          "addend": 0,
+          "resolved": 10706356
+        },
+        {
+          "offset": 4370,
+          "kind": 20,
+          "symbol": "?Flag_To_Win@HouseClass@@QAE_N_N@Z",
+          "target": 5144288,
+          "addend": 0,
+          "resolved": 4293104362
+        },
+        {
+          "offset": 4402,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293126986
+        },
+        {
+          "offset": 4441,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293126947
+        },
+        {
+          "offset": 4483,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293126905
+        },
+        {
+          "offset": 4511,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 4518,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 4533,
+          "kind": 20,
+          "symbol": "?Create_One_Of@TeamTypeClass@@QBEPAVTeamClass@@PAVHouseClass@@@Z",
+          "target": 7072896,
+          "addend": 0,
+          "resolved": 65511
+        },
+        {
+          "offset": 4538,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 4544,
+          "kind": 6,
+          "symbol": "?ScenarioInit@@3HA",
+          "target": 10749812,
+          "addend": 0,
+          "resolved": 10749812
+        },
+        {
+          "offset": 4577,
+          "kind": 20,
+          "symbol": "?Destroy_All_Of@TeamTypeClass@@QBEXXZ",
+          "target": 7073040,
+          "addend": 0,
+          "resolved": 65611
+        },
+        {
+          "offset": 4613,
+          "kind": 20,
+          "symbol": "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z",
+          "target": 6527344,
+          "addend": 0,
+          "resolved": 4294487175
+        },
+        {
+          "offset": 4654,
+          "kind": 20,
+          "symbol": "?Do_Reinforcements@@YI_NPBVTeamTypeClass@@H@Z",
+          "target": 6527344,
+          "addend": 0,
+          "resolved": 4294487134
+        },
+        {
+          "offset": 4675,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293126713
+        },
+        {
+          "offset": 4732,
+          "kind": 20,
+          "symbol": "?TAction_DESTROY_OBJECT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7017680,
+          "addend": 0,
+          "resolved": 10096
+        },
+        {
+          "offset": 4777,
+          "kind": 20,
+          "symbol": "?TAction_RESIZE_PLAYER_VIEW@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7018064,
+          "addend": 0,
+          "resolved": 10435
+        },
+        {
+          "offset": 4822,
+          "kind": 20,
+          "symbol": "?TAction_PLAY_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7018256,
+          "addend": 0,
+          "resolved": 10582
+        },
+        {
+          "offset": 4867,
+          "kind": 20,
+          "symbol": "?TAction_DO_EXPLOSION@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7018512,
+          "addend": 0,
+          "resolved": 10793
+        },
+        {
+          "offset": 4912,
+          "kind": 20,
+          "symbol": "?TAction_METEOR_IMPACT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7018912,
+          "addend": 0,
+          "resolved": 11148
+        },
+        {
+          "offset": 4930,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293332522
+        },
+        {
+          "offset": 4955,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 4960,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 4976,
+          "kind": 20,
+          "symbol": "?Ion_Storm_Begin@IonStormClass@@SIXHHVCell@@PAVHouseClass@@@Z",
+          "target": 5372208,
+          "addend": 0,
+          "resolved": 4293331676
+        },
+        {
+          "offset": 4996,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293332456
+        },
+        {
+          "offset": 5020,
+          "kind": 20,
+          "symbol": "?Ion_Storm_End@IonStormClass@@SIXXZ",
+          "target": 5372848,
+          "addend": 0,
+          "resolved": 4293332272
+        },
+        {
+          "offset": 5040,
+          "kind": 20,
+          "symbol": "?Lock_Scenario_Input@@YIXXZ",
+          "target": 6669264,
+          "addend": 0,
+          "resolved": 4294628668
+        },
+        {
+          "offset": 5060,
+          "kind": 20,
+          "symbol": "?Unlock_Scenario_Input@@YIXXZ",
+          "target": 6669344,
+          "addend": 0,
+          "resolved": 4294628728
+        },
+        {
+          "offset": 5089,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 5095,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294656693
+        },
+        {
+          "offset": 5116,
+          "kind": 20,
+          "symbol": "??0Coord@@QAE@ABVCell@@H@Z",
+          "target": 6417024,
+          "addend": 0,
+          "resolved": 4294376352
+        },
+        {
+          "offset": 5134,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5151,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293571453
+        },
+        {
+          "offset": 5165,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5170,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293497178
+        },
+        {
+          "offset": 5190,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5196,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293497152
+        },
+        {
+          "offset": 5212,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11271672,
+          "addend": 0,
+          "resolved": 11271672
+        },
+        {
+          "offset": 5236,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 5242,
+          "kind": 20,
+          "symbol": "?Setup_Trigger_Scroll@Tactical@@QAEXABVCoord@@H@Z",
+          "target": 6958256,
+          "addend": 0,
+          "resolved": 4294917458
+        },
+        {
+          "offset": 5262,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 5268,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 5287,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 5302,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 5308,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 5314,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 4293409354
+        },
+        {
+          "offset": 5320,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 5330,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5335,
+          "kind": 20,
+          "symbol": "?Abort_Drag_Select@ScrollClass@@UAEXXZ",
+          "target": 6728736,
+          "addend": 0,
+          "resolved": 4294687845
+        },
+        {
+          "offset": 5341,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5346,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293073370
+        },
+        {
+          "offset": 5351,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5356,
+          "kind": 20,
+          "symbol": "?Render@GScreenClass@@UAEXXZ",
+          "target": 5114672,
+          "addend": 0,
+          "resolved": 4293073760
+        },
+        {
+          "offset": 5367,
+          "kind": 6,
+          "symbol": "__imp__Sleep@4",
+          "target": 7971300,
+          "addend": 0,
+          "resolved": 7971300
+        },
+        {
+          "offset": 5387,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 5399,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 5415,
+          "kind": 6,
+          "symbol": "?Keyboard@@3PAUKeyboardClass@@A",
+          "target": 8594536,
+          "addend": 0,
+          "resolved": 8594536
+        },
+        {
+          "offset": 5420,
+          "kind": 20,
+          "symbol": "?Clear@WWKeyboardClass@@QAEXXZ",
+          "target": 5450224,
+          "addend": 0,
+          "resolved": 4293409248
+        },
+        {
+          "offset": 5426,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 5432,
+          "kind": 6,
+          "symbol": "?MouseCursor@@3PAVMouse@@A",
+          "target": 8625256,
+          "addend": 0,
+          "resolved": 8625256
+        },
+        {
+          "offset": 5443,
+          "kind": 6,
+          "symbol": "?IgnoreInput@@3_NA",
+          "target": 10751300,
+          "addend": 0,
+          "resolved": 10751300
+        },
+        {
+          "offset": 5454,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5459,
+          "kind": 20,
+          "symbol": "?Flag_To_Redraw@GScreenClass@@UAEXW4GScreenRedrawFlags@@@Z",
+          "target": 5114272,
+          "addend": 0,
+          "resolved": 4293073257
+        },
+        {
+          "offset": 5464,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5469,
+          "kind": 20,
+          "symbol": "?Render@GScreenClass@@UAEXXZ",
+          "target": 5114672,
+          "addend": 0,
+          "resolved": 4293073647
+        },
+        {
+          "offset": 5489,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5494,
+          "kind": 20,
+          "symbol": "?Shroud_The_Map@MapClass@@QAEXXZ",
+          "target": 5611472,
+          "addend": 0,
+          "resolved": 4293570422
+        },
+        {
+          "offset": 5514,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 5525,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 4,
+          "resolved": 10750716
+        },
+        {
+          "offset": 5602,
+          "kind": 20,
+          "symbol": "?Is_Trigger_Attached@TagClass@@QBE_NPAVTriggerClass@@@Z",
+          "target": 7028176,
+          "addend": 0,
+          "resolved": 19722
+        },
+        {
+          "offset": 5621,
+          "kind": 20,
+          "symbol": "?Set_Behavior_Type@BuildingLightClass@@QAEXW4LightBehaviorType@@@Z",
+          "target": 4408176,
+          "addend": 0,
+          "resolved": 4292366999
+        },
+        {
+          "offset": 5628,
+          "kind": 6,
+          "symbol": "?Buildings@@3V?$DynamicVectorClass@PAVBuildingClass@@@@A",
+          "target": 10750712,
+          "addend": 16,
+          "resolved": 10750728
+        },
+        {
+          "offset": 5663,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 5678,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 5710,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 5746,
+          "kind": 6,
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "target": 11271752,
+          "addend": 16,
+          "resolved": 11271768
+        },
+        {
+          "offset": 5761,
+          "kind": 6,
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "target": 11271752,
+          "addend": 4,
+          "resolved": 11271756
+        },
+        {
+          "offset": 5793,
+          "kind": 6,
+          "symbol": "?Tags@@3V?$DynamicVectorClass@PAVTagClass@@@@A",
+          "target": 11271752,
+          "addend": 4,
+          "resolved": 11271756
+        },
+        {
+          "offset": 5828,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 5844,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 5862,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 11271600,
+          "addend": 0,
+          "resolved": 11271600
+        },
+        {
+          "offset": 5869,
+          "kind": 20,
+          "symbol": "?Spring@TriggerClass@@QAE_NPAVObjectClass@@VCell@@@Z",
+          "target": 7264304,
+          "addend": 0,
+          "resolved": 255583
+        },
+        {
+          "offset": 5874,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 5926,
+          "kind": 20,
+          "symbol": "?TAction_ENABLE_TRIGGER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7020304,
+          "addend": 0,
+          "resolved": 11526
+        },
+        {
+          "offset": 5953,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 5969,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 4,
+          "resolved": 10750628
+        },
+        {
+          "offset": 5987,
+          "kind": 20,
+          "symbol": "?Disable@TriggerClass@@QAEXXZ",
+          "target": 7265136,
+          "addend": 0,
+          "resolved": 256297
+        },
+        {
+          "offset": 5992,
+          "kind": 6,
+          "symbol": "?Triggers@@3V?$DynamicVectorClass@PAVTriggerClass@@@@A",
+          "target": 10750624,
+          "addend": 16,
+          "resolved": 10750640
+        },
+        {
+          "offset": 6026,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 6032,
+          "kind": 20,
+          "symbol": "?Get_Waypoint_Cell@ScenarioClass@@QBE?AVCell@@H@Z",
+          "target": 6697344,
+          "addend": 0,
+          "resolved": 4294655756
+        },
+        {
+          "offset": 6043,
+          "kind": 20,
+          "symbol": "?Submit_Radar_Event@@YI_NW4RadarEventType@@VCell@@@Z",
+          "target": 6534576,
+          "addend": 0,
+          "resolved": 4294492977
+        },
+        {
+          "offset": 6070,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 6075,
+          "kind": 20,
+          "symbol": "?Set_Local_To@ScenarioClass@@QAE_NH_N@Z",
+          "target": 6690144,
+          "addend": 0,
+          "resolved": 4294648513
+        },
+        {
+          "offset": 6099,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 6106,
+          "kind": 20,
+          "symbol": "?Set_Local_To@ScenarioClass@@QAE_NH_N@Z",
+          "target": 6690144,
+          "addend": 0,
+          "resolved": 4294648482
+        },
+        {
+          "offset": 6153,
+          "kind": 20,
+          "symbol": "?TAction_METEOR_SHOWER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7020608,
+          "addend": 0,
+          "resolved": 11603
+        },
+        {
+          "offset": 6175,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 6205,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 6232,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 6246,
+          "kind": 20,
+          "symbol": "?Is_Ion_Storm_Active@IonStormClass@@SI_NXZ",
+          "target": 5373008,
+          "addend": 0,
+          "resolved": 4293331206
+        },
+        {
+          "offset": 6259,
+          "kind": 6,
+          "symbol": "?Scen@@3PAVScenarioClass@@A",
+          "target": 10736272,
+          "addend": 0,
+          "resolved": 10736272
+        },
+        {
+          "offset": 6303,
+          "kind": 20,
+          "symbol": "?House_From_HousesType@@YIPAVHouseClass@@W4HousesType@@@Z",
+          "target": 5166944,
+          "addend": 0,
+          "resolved": 4293125085
+        },
+        {
+          "offset": 6357,
+          "kind": 20,
+          "symbol": "?TAction_STOP_AI_TRIGGERS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021232,
+          "addend": 0,
+          "resolved": 12023
+        },
+        {
+          "offset": 6402,
+          "kind": 20,
+          "symbol": "?TAction_SET_AI_TRIGGER_TEAM_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021296,
+          "addend": 0,
+          "resolved": 12042
+        },
+        {
+          "offset": 6447,
+          "kind": 20,
+          "symbol": "?TAction_SET_TEAM_AIRCRAFT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021328,
+          "addend": 0,
+          "resolved": 12029
+        },
+        {
+          "offset": 6492,
+          "kind": 20,
+          "symbol": "?TAction_SET_TEAM_INFANTRY_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021360,
+          "addend": 0,
+          "resolved": 12016
+        },
+        {
+          "offset": 6537,
+          "kind": 20,
+          "symbol": "?TAction_SET_TEAM_UNIT_RATIO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021392,
+          "addend": 0,
+          "resolved": 12003
+        },
+        {
+          "offset": 6582,
+          "kind": 20,
+          "symbol": "?TAction_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7010816,
+          "addend": 0,
+          "resolved": 1382
+        },
+        {
+          "offset": 6627,
+          "kind": 20,
+          "symbol": "?TAction_REMOVE_PARTICLE_ANIM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7010688,
+          "addend": 0,
+          "resolved": 1209
+        },
+        {
+          "offset": 6672,
+          "kind": 20,
+          "symbol": "?TAction_ION_LIGHTNING_STRIKE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7010640,
+          "addend": 0,
+          "resolved": 1116
+        },
+        {
+          "offset": 6724,
+          "kind": 20,
+          "symbol": "?TAction_FLASH_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7024432,
+          "addend": 0,
+          "resolved": 14856
+        },
+        {
+          "offset": 6769,
+          "kind": 20,
+          "symbol": "?TAction_TALK_BUBBLE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7024464,
+          "addend": 0,
+          "resolved": 14843
+        },
+        {
+          "offset": 6814,
+          "kind": 20,
+          "symbol": "?TAction_SET_TECH_LEVEL@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7022560,
+          "addend": 0,
+          "resolved": 12894
+        },
+        {
+          "offset": 6859,
+          "kind": 20,
+          "symbol": "?TAction_CHRONO_IN_TEAM@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7022608,
+          "addend": 0,
+          "resolved": 12897
+        },
+        {
+          "offset": 6904,
+          "kind": 20,
+          "symbol": "?TAction_CREATE_CRATE@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7022640,
+          "addend": 0,
+          "resolved": 12884
+        },
+        {
+          "offset": 6949,
+          "kind": 20,
+          "symbol": "?TAction_IRON_CURTAIN@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7022288,
+          "addend": 0,
+          "resolved": 12487
+        },
+        {
+          "offset": 6970,
+          "kind": 20,
+          "symbol": "?Hold_Scenario@@YIXH@Z",
+          "target": 6668784,
+          "addend": 0,
+          "resolved": 4294626258
+        },
+        {
+          "offset": 7017,
+          "kind": 20,
+          "symbol": "?TAction_EJECT_OCCUPANTS@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7024544,
+          "addend": 0,
+          "resolved": 14675
+        },
+        {
+          "offset": 7062,
+          "kind": 20,
+          "symbol": "?TAction_JUMP_VIEWPOINT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7019456,
+          "addend": 0,
+          "resolved": 9542
+        },
+        {
+          "offset": 7107,
+          "kind": 20,
+          "symbol": "?TAction_CHEER@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7021264,
+          "addend": 0,
+          "resolved": 11305
+        },
+        {
+          "offset": 7152,
+          "kind": 20,
+          "symbol": "?TAction_SWITCH_TAB@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7024656,
+          "addend": 0,
+          "resolved": 14652
+        },
+        {
+          "offset": 7197,
+          "kind": 20,
+          "symbol": "?TAction_FLASH_CAMEO@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7024736,
+          "addend": 0,
+          "resolved": 14687
+        },
+        {
+          "offset": 7242,
+          "kind": 20,
+          "symbol": "?TAction_STOP_SOUND_AT@TActionClass@@AAE_NPAVHouseClass@@PAVObjectClass@@PAVTriggerClass@@ABVCell@@@Z",
+          "target": 7016336,
+          "addend": 0,
+          "resolved": 6242
+        },
+        {
+          "offset": 7265,
+          "kind": 20,
+          "symbol": "?Play_Ingame_Movie@@YIXW4VQType@@_N@Z",
+          "target": 5900576,
+          "addend": 0,
+          "resolved": 4293857755
+        },
+        {
+          "offset": 7284,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007147,
+          "addend": 0,
+          "resolved": 7007147
+        },
+        {
+          "offset": 7288,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007192,
+          "addend": 0,
+          "resolved": 7007192
+        },
+        {
+          "offset": 7292,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007237,
+          "addend": 0,
+          "resolved": 7007237
+        },
+        {
+          "offset": 7296,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007357,
+          "addend": 0,
+          "resolved": 7007357
+        },
+        {
+          "offset": 7300,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007411,
+          "addend": 0,
+          "resolved": 7007411
+        },
+        {
+          "offset": 7304,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007519,
+          "addend": 0,
+          "resolved": 7007519
+        },
+        {
+          "offset": 7308,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007444,
+          "addend": 0,
+          "resolved": 7007444
+        },
+        {
+          "offset": 7312,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007102,
+          "addend": 0,
+          "resolved": 7007102
+        },
+        {
+          "offset": 7316,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007276,
+          "addend": 0,
+          "resolved": 7007276
+        },
+        {
+          "offset": 7320,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006529,
+          "addend": 0,
+          "resolved": 7006529
+        },
+        {
+          "offset": 7324,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004927,
+          "addend": 0,
+          "resolved": 7004927
+        },
+        {
+          "offset": 7328,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008500,
+          "addend": 0,
+          "resolved": 7008500
+        },
+        {
+          "offset": 7332,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007318,
+          "addend": 0,
+          "resolved": 7007318
+        },
+        {
+          "offset": 7336,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004729,
+          "addend": 0,
+          "resolved": 7004729
+        },
+        {
+          "offset": 7340,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010119,
+          "addend": 0,
+          "resolved": 7010119
+        },
+        {
+          "offset": 7344,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005666,
+          "addend": 0,
+          "resolved": 7005666
+        },
+        {
+          "offset": 7348,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005576,
+          "addend": 0,
+          "resolved": 7005576
+        },
+        {
+          "offset": 7352,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005621,
+          "addend": 0,
+          "resolved": 7005621
+        },
+        {
+          "offset": 7356,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006561,
+          "addend": 0,
+          "resolved": 7006561
+        },
+        {
+          "offset": 7360,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006902,
+          "addend": 0,
+          "resolved": 7006902
+        },
+        {
+          "offset": 7364,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006931,
+          "addend": 0,
+          "resolved": 7006931
+        },
+        {
+          "offset": 7368,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008666,
+          "addend": 0,
+          "resolved": 7008666
+        },
+        {
+          "offset": 7372,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005778,
+          "addend": 0,
+          "resolved": 7005778
+        },
+        {
+          "offset": 7376,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005841,
+          "addend": 0,
+          "resolved": 7005841
+        },
+        {
+          "offset": 7380,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005898,
+          "addend": 0,
+          "resolved": 7005898
+        },
+        {
+          "offset": 7384,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005992,
+          "addend": 0,
+          "resolved": 7005992
+        },
+        {
+          "offset": 7388,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006186,
+          "addend": 0,
+          "resolved": 7006186
+        },
+        {
+          "offset": 7392,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005457,
+          "addend": 0,
+          "resolved": 7005457
+        },
+        {
+          "offset": 7396,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005489,
+          "addend": 0,
+          "resolved": 7005489
+        },
+        {
+          "offset": 7400,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005219,
+          "addend": 0,
+          "resolved": 7005219
+        },
+        {
+          "offset": 7404,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005432,
+          "addend": 0,
+          "resolved": 7005432
+        },
+        {
+          "offset": 7408,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007552,
+          "addend": 0,
+          "resolved": 7007552
+        },
+        {
+          "offset": 7412,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006961,
+          "addend": 0,
+          "resolved": 7006961
+        },
+        {
+          "offset": 7416,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006991,
+          "addend": 0,
+          "resolved": 7006991
+        },
+        {
+          "offset": 7420,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005180,
+          "addend": 0,
+          "resolved": 7005180
+        },
+        {
+          "offset": 7424,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004842,
+          "addend": 0,
+          "resolved": 7004842
+        },
+        {
+          "offset": 7428,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005058,
+          "addend": 0,
+          "resolved": 7005058
+        },
+        {
+          "offset": 7432,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005119,
+          "addend": 0,
+          "resolved": 7005119
+        },
+        {
+          "offset": 7436,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010117,
+          "addend": 0,
+          "resolved": 7010117
+        },
+        {
+          "offset": 7440,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007597,
+          "addend": 0,
+          "resolved": 7007597
+        },
+        {
+          "offset": 7444,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007642,
+          "addend": 0,
+          "resolved": 7007642
+        },
+        {
+          "offset": 7448,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007687,
+          "addend": 0,
+          "resolved": 7007687
+        },
+        {
+          "offset": 7452,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007732,
+          "addend": 0,
+          "resolved": 7007732
+        },
+        {
+          "offset": 7456,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007777,
+          "addend": 0,
+          "resolved": 7007777
+        },
+        {
+          "offset": 7460,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007843,
+          "addend": 0,
+          "resolved": 7007843
+        },
+        {
+          "offset": 7464,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007887,
+          "addend": 0,
+          "resolved": 7007887
+        },
+        {
+          "offset": 7468,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007907,
+          "addend": 0,
+          "resolved": 7007907
+        },
+        {
+          "offset": 7472,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007927,
+          "addend": 0,
+          "resolved": 7007927
+        },
+        {
+          "offset": 7476,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008109,
+          "addend": 0,
+          "resolved": 7008109
+        },
+        {
+          "offset": 7480,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008234,
+          "addend": 0,
+          "resolved": 7008234
+        },
+        {
+          "offset": 7484,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008336,
+          "addend": 0,
+          "resolved": 7008336
+        },
+        {
+          "offset": 7488,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008361,
+          "addend": 0,
+          "resolved": 7008361
+        },
+        {
+          "offset": 7492,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008746,
+          "addend": 0,
+          "resolved": 7008746
+        },
+        {
+          "offset": 7496,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008791,
+          "addend": 0,
+          "resolved": 7008791
+        },
+        {
+          "offset": 7500,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008864,
+          "addend": 0,
+          "resolved": 7008864
+        },
+        {
+          "offset": 7504,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008910,
+          "addend": 0,
+          "resolved": 7008910
+        },
+        {
+          "offset": 7508,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008942,
+          "addend": 0,
+          "resolved": 7008942
+        },
+        {
+          "offset": 7512,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008973,
+          "addend": 0,
+          "resolved": 7008973
+        },
+        {
+          "offset": 7516,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7005520,
+          "addend": 0,
+          "resolved": 7005520
+        },
+        {
+          "offset": 7520,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004402,
+          "addend": 0,
+          "resolved": 7004402
+        },
+        {
+          "offset": 7524,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004508,
+          "addend": 0,
+          "resolved": 7004508
+        },
+        {
+          "offset": 7528,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004618,
+          "addend": 0,
+          "resolved": 7004618
+        },
+        {
+          "offset": 7532,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004111,
+          "addend": 0,
+          "resolved": 7004111
+        },
+        {
+          "offset": 7536,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004156,
+          "addend": 0,
+          "resolved": 7004156
+        },
+        {
+          "offset": 7540,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004238,
+          "addend": 0,
+          "resolved": 7004238
+        },
+        {
+          "offset": 7544,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004320,
+          "addend": 0,
+          "resolved": 7004320
+        },
+        {
+          "offset": 7548,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004029,
+          "addend": 0,
+          "resolved": 7004029
+        },
+        {
+          "offset": 7552,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004057,
+          "addend": 0,
+          "resolved": 7004057
+        },
+        {
+          "offset": 7556,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7004085,
+          "addend": 0,
+          "resolved": 7004085
+        },
+        {
+          "offset": 7560,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7008583,
+          "addend": 0,
+          "resolved": 7008583
+        },
+        {
+          "offset": 7564,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009018,
+          "addend": 0,
+          "resolved": 7009018
+        },
+        {
+          "offset": 7568,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009048,
+          "addend": 0,
+          "resolved": 7009048
+        },
+        {
+          "offset": 7572,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009078,
+          "addend": 0,
+          "resolved": 7009078
+        },
+        {
+          "offset": 7576,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009138,
+          "addend": 0,
+          "resolved": 7009138
+        },
+        {
+          "offset": 7580,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009177,
+          "addend": 0,
+          "resolved": 7009177
+        },
+        {
+          "offset": 7584,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009222,
+          "addend": 0,
+          "resolved": 7009222
+        },
+        {
+          "offset": 7588,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009267,
+          "addend": 0,
+          "resolved": 7009267
+        },
+        {
+          "offset": 7592,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009312,
+          "addend": 0,
+          "resolved": 7009312
+        },
+        {
+          "offset": 7596,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009357,
+          "addend": 0,
+          "resolved": 7009357
+        },
+        {
+          "offset": 7600,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7007478,
+          "addend": 0,
+          "resolved": 7007478
+        },
+        {
+          "offset": 7604,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003531,
+          "addend": 0,
+          "resolved": 7003531
+        },
+        {
+          "offset": 7608,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003665,
+          "addend": 0,
+          "resolved": 7003665
+        },
+        {
+          "offset": 7612,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003782,
+          "addend": 0,
+          "resolved": 7003782
+        },
+        {
+          "offset": 7616,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003899,
+          "addend": 0,
+          "resolved": 7003899
+        },
+        {
+          "offset": 7620,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003576,
+          "addend": 0,
+          "resolved": 7003576
+        },
+        {
+          "offset": 7624,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003605,
+          "addend": 0,
+          "resolved": 7003605
+        },
+        {
+          "offset": 7628,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003635,
+          "addend": 0,
+          "resolved": 7003635
+        },
+        {
+          "offset": 7632,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009402,
+          "addend": 0,
+          "resolved": 7009402
+        },
+        {
+          "offset": 7636,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009447,
+          "addend": 0,
+          "resolved": 7009447
+        },
+        {
+          "offset": 7640,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009492,
+          "addend": 0,
+          "resolved": 7009492
+        },
+        {
+          "offset": 7644,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003427,
+          "addend": 0,
+          "resolved": 7003427
+        },
+        {
+          "offset": 7648,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010117,
+          "addend": 0,
+          "resolved": 7010117
+        },
+        {
+          "offset": 7652,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010117,
+          "addend": 0,
+          "resolved": 7010117
+        },
+        {
+          "offset": 7656,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7002941,
+          "addend": 0,
+          "resolved": 7002941
+        },
+        {
+          "offset": 7660,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003113,
+          "addend": 0,
+          "resolved": 7003113
+        },
+        {
+          "offset": 7664,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003382,
+          "addend": 0,
+          "resolved": 7003382
+        },
+        {
+          "offset": 7668,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7002904,
+          "addend": 0,
+          "resolved": 7002904
+        },
+        {
+          "offset": 7672,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006595,
+          "addend": 0,
+          "resolved": 7006595
+        },
+        {
+          "offset": 7676,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006749,
+          "addend": 0,
+          "resolved": 7006749
+        },
+        {
+          "offset": 7680,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009537,
+          "addend": 0,
+          "resolved": 7009537
+        },
+        {
+          "offset": 7684,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006857,
+          "addend": 0,
+          "resolved": 7006857
+        },
+        {
+          "offset": 7688,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7003158,
+          "addend": 0,
+          "resolved": 7003158
+        },
+        {
+          "offset": 7692,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7006335,
+          "addend": 0,
+          "resolved": 7006335
+        },
+        {
+          "offset": 7696,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009544,
+          "addend": 0,
+          "resolved": 7009544
+        },
+        {
+          "offset": 7700,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009589,
+          "addend": 0,
+          "resolved": 7009589
+        },
+        {
+          "offset": 7704,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009634,
+          "addend": 0,
+          "resolved": 7009634
+        },
+        {
+          "offset": 7708,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009679,
+          "addend": 0,
+          "resolved": 7009679
+        },
+        {
+          "offset": 7712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009724,
+          "addend": 0,
+          "resolved": 7009724
+        },
+        {
+          "offset": 7716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009769,
+          "addend": 0,
+          "resolved": 7009769
+        },
+        {
+          "offset": 7720,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009814,
+          "addend": 0,
+          "resolved": 7009814
+        },
+        {
+          "offset": 7724,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009837,
+          "addend": 0,
+          "resolved": 7009837
+        },
+        {
+          "offset": 7728,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009882,
+          "addend": 0,
+          "resolved": 7009882
+        },
+        {
+          "offset": 7732,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009927,
+          "addend": 0,
+          "resolved": 7009927
+        },
+        {
+          "offset": 7736,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7009972,
+          "addend": 0,
+          "resolved": 7009972
+        },
+        {
+          "offset": 7740,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010017,
+          "addend": 0,
+          "resolved": 7010017
+        },
+        {
+          "offset": 7744,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010062,
+          "addend": 0,
+          "resolved": 7010062
+        },
+        {
+          "offset": 7748,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 7010107,
+          "addend": 0,
+          "resolved": 7010107
+        }
+      ],
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
+      "source": "rebuild/src/taction.cpp",
+      "population": "rebuild-taction",
+      "source_order": 7002848,
       "source_quality_family": "rebuild"
     },
     {
@@ -2535,7 +6172,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010608,
@@ -2562,7 +6199,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010624,
@@ -2614,7 +6251,7 @@
           "resolved": 4293329699
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010640,
@@ -2682,7 +6319,7 @@
           "resolved": 10691216
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010688,
@@ -2774,7 +6411,7 @@
           "resolved": 4294291414
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010816,
@@ -2834,7 +6471,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7010992,
@@ -2870,7 +6507,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011136,
@@ -2906,7 +6543,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011168,
@@ -2942,7 +6579,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011200,
@@ -2994,7 +6631,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011232,
@@ -3046,7 +6683,7 @@
           "resolved": 8806216
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011360,
@@ -3098,7 +6735,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011488,
@@ -3142,7 +6779,7 @@
           "resolved": 4293099939
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011632,
@@ -3186,7 +6823,7 @@
           "resolved": 4293100403
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011664,
@@ -3230,7 +6867,7 @@
           "resolved": 4293100869
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011696,
@@ -3570,7 +7207,7 @@
           "resolved": 4294913975
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7011712,
@@ -3630,7 +7267,7 @@
           "resolved": 4292670776
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012480,
@@ -3690,7 +7327,7 @@
           "resolved": 4292670680
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012576,
@@ -3750,7 +7387,7 @@
           "resolved": 4292670584
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012672,
@@ -3810,7 +7447,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012768,
@@ -3870,7 +7507,7 @@
           "resolved": 10706520
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012880,
@@ -3938,7 +7575,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7012992,
@@ -4006,7 +7643,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013104,
@@ -4074,7 +7711,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013216,
@@ -4134,7 +7771,7 @@
           "resolved": 10751024
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013344,
@@ -4242,7 +7879,7 @@
           "resolved": 4293937387
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013440,
@@ -4294,7 +7931,7 @@
           "resolved": 4293087607
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013568,
@@ -4346,7 +7983,7 @@
           "resolved": 4293088583
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013632,
@@ -4373,7 +8010,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013696,
@@ -4409,7 +8046,7 @@
           "resolved": 4293154271
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013728,
@@ -4453,7 +8090,7 @@
           "resolved": 4292789750
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013920,
@@ -4497,7 +8134,7 @@
           "resolved": 4294642815
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013936,
@@ -4541,7 +8178,7 @@
           "resolved": 4294642783
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7013968,
@@ -4721,7 +8358,7 @@
           "resolved": 4293499171
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014000,
@@ -4781,7 +8418,7 @@
           "resolved": 4293579108
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014400,
@@ -4977,7 +8614,7 @@
           "resolved": 4293566339
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014464,
@@ -5101,7 +8738,7 @@
           "resolved": 4293066643
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014832,
@@ -5161,7 +8798,7 @@
           "resolved": 4294905188
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7014944,
@@ -5221,7 +8858,7 @@
           "resolved": 4294905093
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015008,
@@ -5281,7 +8918,7 @@
           "resolved": 4294904994
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015104,
@@ -5341,7 +8978,7 @@
           "resolved": 4294904859
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015200,
@@ -5465,7 +9102,7 @@
           "resolved": 4294904681
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015328,
@@ -5597,7 +9234,7 @@
           "resolved": 4294904468
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015504,
@@ -5633,7 +9270,7 @@
           "resolved": 4293851823
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015728,
@@ -5669,7 +9306,7 @@
           "resolved": 4293852102
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015760,
@@ -5705,7 +9342,7 @@
           "resolved": 4293852086
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015776,
@@ -5741,7 +9378,7 @@
           "resolved": 405548
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015792,
@@ -5825,7 +9462,7 @@
           "resolved": 406630
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7015824,
@@ -5901,7 +9538,7 @@
           "resolved": 4292610357
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016000,
@@ -6009,7 +9646,7 @@
           "resolved": 406292
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016128,
@@ -6117,7 +9754,7 @@
           "resolved": 406378
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016336,
@@ -6265,7 +9902,7 @@
           "resolved": 4293562803
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016528,
@@ -6309,7 +9946,7 @@
           "resolved": 224434
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016800,
@@ -6345,7 +9982,7 @@
           "resolved": 411441
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016832,
@@ -6429,7 +10066,7 @@
           "resolved": 4294750431
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016864,
@@ -6513,7 +10150,7 @@
           "resolved": 4294750318
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7016960,
@@ -6637,7 +10274,7 @@
           "resolved": 4292275664
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017072,
@@ -6689,7 +10326,7 @@
           "resolved": 4293094725
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017312,
@@ -6741,7 +10378,7 @@
           "resolved": 4293094677
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017360,
@@ -6777,7 +10414,7 @@
           "resolved": 4293116819
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017408,
@@ -6813,7 +10450,7 @@
           "resolved": 4293116787
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017440,
@@ -6849,7 +10486,7 @@
           "resolved": 4293116755
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017472,
@@ -6917,7 +10554,7 @@
           "resolved": 10749812
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017504,
@@ -6953,7 +10590,7 @@
           "resolved": 55476
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017552,
@@ -6989,7 +10626,7 @@
           "resolved": 4294477041
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017584,
@@ -7025,7 +10662,7 @@
           "resolved": 4294477002
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017616,
@@ -7061,7 +10698,7 @@
           "resolved": 4293116584
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017648,
@@ -7217,7 +10854,7 @@
           "resolved": 4294908408
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7017680,
@@ -7244,7 +10881,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018048,
@@ -7456,7 +11093,7 @@
           "resolved": 410691
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018064,
@@ -7580,7 +11217,7 @@
           "resolved": 4292274477
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018256,
@@ -7768,7 +11405,7 @@
           "resolved": 4292659511
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018512,
@@ -7892,7 +11529,7 @@
           "resolved": 372118
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7018912,
@@ -7952,7 +11589,7 @@
           "resolved": 4293320322
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019136,
@@ -7996,7 +11633,7 @@
           "resolved": 4293320927
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019200,
@@ -8032,7 +11669,7 @@
           "resolved": 4294617323
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019232,
@@ -8068,7 +11705,7 @@
           "resolved": 4294617387
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019248,
@@ -8184,7 +11821,7 @@
           "resolved": 4294906110
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019264,
@@ -8300,7 +11937,7 @@
           "resolved": 4294920773
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019456,
@@ -8440,7 +12077,7 @@
           "resolved": 7971300
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019648,
@@ -8556,7 +12193,7 @@
           "resolved": 4293062100
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019776,
@@ -8600,7 +12237,7 @@
           "resolved": 4293558870
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019888,
@@ -8668,7 +12305,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7019904,
@@ -8720,7 +12357,7 @@
           "resolved": 10750628
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020064,
@@ -8772,7 +12409,7 @@
           "resolved": 11271756
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020144,
@@ -8840,7 +12477,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020224,
@@ -8908,7 +12545,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020304,
@@ -8968,7 +12605,7 @@
           "resolved": 10750640
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020432,
@@ -9020,7 +12657,7 @@
           "resolved": 4294481341
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020496,
@@ -9064,7 +12701,7 @@
           "resolved": 4294636879
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020544,
@@ -9108,7 +12745,7 @@
           "resolved": 4294636847
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020576,
@@ -9344,7 +12981,7 @@
           "resolved": 4292271908
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7020608,
@@ -9380,7 +13017,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021088,
@@ -9416,7 +13053,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021120,
@@ -9468,7 +13105,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021152,
@@ -9504,7 +13141,7 @@
           "resolved": 4293113027
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021200,
@@ -9540,7 +13177,7 @@
           "resolved": 4293112995
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021232,
@@ -9584,7 +13221,7 @@
           "resolved": 4293148620
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021264,
@@ -9611,7 +13248,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021296,
@@ -9638,7 +13275,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021328,
@@ -9665,7 +13302,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021360,
@@ -9692,7 +13329,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021392,
@@ -9768,7 +13405,7 @@
           "resolved": 4293324411
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021424,
@@ -9972,7 +13609,7 @@
           "resolved": 8019912
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7021568,
@@ -10080,7 +13717,7 @@
           "resolved": 4293317244
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022048,
@@ -10204,7 +13841,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022288,
@@ -10240,7 +13877,7 @@
           "resolved": 10750652
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022560,
@@ -10276,7 +13913,7 @@
           "resolved": 4294475866
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022608,
@@ -10336,7 +13973,7 @@
           "resolved": 4293508391
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022640,
@@ -10548,7 +14185,7 @@
           "resolved": 7976944
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7022688,
@@ -10584,7 +14221,7 @@
           "resolved": 10736272
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023248,
@@ -10885,7 +14522,7 @@
           "resolved": 7023493
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023280,
@@ -10945,7 +14582,7 @@
           "resolved": 8002940
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023744,
@@ -11085,7 +14722,7 @@
           "resolved": 4294888937
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023808,
@@ -11121,7 +14758,7 @@
           "resolved": 4292203372
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023936,
@@ -11205,7 +14842,7 @@
           "resolved": 4292743496
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7023968,
@@ -11266,7 +14903,7 @@
           "resolved": 7024142
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024112,
@@ -11310,7 +14947,7 @@
           "resolved": 4294640424
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024256,
@@ -11346,7 +14983,7 @@
           "resolved": 849117
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024320,
@@ -11373,7 +15010,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024416,
@@ -11409,7 +15046,7 @@
           "resolved": 53710
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024432,
@@ -11461,7 +15098,7 @@
           "resolved": 155731
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024464,
@@ -11497,7 +15134,7 @@
           "resolved": 4294611544
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024528,
@@ -11565,7 +15202,7 @@
           "resolved": 4292476753
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024544,
@@ -11625,7 +15262,7 @@
           "resolved": 4294748488
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024656,
@@ -11685,7 +15322,7 @@
           "resolved": 4294767143
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024736,
@@ -11712,7 +15349,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024800,
@@ -11739,7 +15376,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024816,
@@ -11766,7 +15403,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024832,
@@ -11994,7 +15631,7 @@
           "resolved": 846674
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7024848,
@@ -12030,7 +15667,7 @@
           "resolved": 848308
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025152,
@@ -12058,7 +15695,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025200,
@@ -12094,7 +15731,7 @@
           "resolved": 846528
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025248,
@@ -12122,7 +15759,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025296,
@@ -12150,7 +15787,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025328,
@@ -12187,7 +15824,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025344,
@@ -12214,7 +15851,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025408,
@@ -12259,7 +15896,7 @@
           "resolved": 846208
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025472,
@@ -12296,7 +15933,7 @@
           "resolved": 846131
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025648,
@@ -12324,7 +15961,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025696,
@@ -12352,7 +15989,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025760,
@@ -12397,7 +16034,7 @@
           "resolved": 845901
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025792,
@@ -12425,7 +16062,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7025968,
@@ -12478,7 +16115,7 @@
           "resolved": 845723
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7026016,
@@ -12531,7 +16168,7 @@
           "resolved": 845643
         }
       ],
-      "source_sha256": "b01141af8b9947fa7a34d8b03fb2d4a0e0aa9862f7a1c3f81bb541b8ed838a0a",
+      "source_sha256": "b85a6808aee19c7b264aa0479e5aeffb48ce1b7a6fffad455851608c969722e7",
       "source": "rebuild/src/taction.cpp",
       "population": "rebuild-taction",
       "source_order": 7026096,

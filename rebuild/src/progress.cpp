@@ -63,7 +63,7 @@ ProgressScreenClass::ProgressScreenClass(void) : // RA2: ProgressScreenClass at 
 	ShowFlags(false), // RA2: as above
 	RowWidth(-1), // RA2: as above
 	Percentage(0), // RA2: as above
-	Side(-1) // RA2: as above
+	Side(SIDE_NONE) // RA2: as above
 {
 	for (int i = 0; i < MAX_PLAYERS; i++) {
 		PlayerProgress[i] = 0;

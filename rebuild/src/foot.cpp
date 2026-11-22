@@ -5352,7 +5352,7 @@ bool FootClass::In_Air(void) const
 void FootClass::Load_Passenger(FootClass * passenger) // RA2: 0x4CCE80
 {
 	Cargo.Attach(passenger); // RA2: the passenger joins the cargo
-	if (passenger != NULL && TClass->EnterTransportSound != -1) { // RA2: as above
+	if (passenger != NULL && TClass->EnterTransportSound != VOC_NONE) { // RA2: as above
 		VocClass::PlayIndexAtPos(TClass->EnterTransportSound, Coord(PositionCoord), 0); // RA2: as above
 	}
 	if (TClass->Gunner && Cargo.How_Many() == 1) { // RA2: as above
@@ -5371,7 +5371,7 @@ void FootClass::Load_Passenger(FootClass * passenger) // RA2: 0x4CCE80
 void FootClass::Remove_Passenger(FootClass * passenger) // RA2: 0x4CCF20
 {
 	Cargo.Detach(passenger); // RA2: the passenger leaves the cargo
-	if (passenger != NULL && TClass->LeaveTransportSound != -1) { // RA2: as above
+	if (passenger != NULL && TClass->LeaveTransportSound != VOC_NONE) { // RA2: as above
 		VocClass::PlayIndexAtPos(TClass->LeaveTransportSound, Coord(PositionCoord), 0); // RA2: as above
 	}
 	if (TClass->Gunner && Cargo.How_Many() == 0) { // RA2: as above
@@ -5392,7 +5392,7 @@ FootClass * FootClass::Unload_Passenger(void) // RA2: 0x4CCFC0
 	if (TClass->Gunner && Cargo.How_Many() == 0) { // RA2: as above
 		RemoveGunner(passenger); // RA2: as above
 	}
-	if (passenger != NULL && TClass->LeaveTransportSound != -1) { // RA2: as above
+	if (passenger != NULL && TClass->LeaveTransportSound != VOC_NONE) { // RA2: as above
 		VocClass::PlayIndexAtPos(TClass->LeaveTransportSound, Coord(PositionCoord), 0); // RA2: as above
 	}
 	return(passenger); // RA2: as above

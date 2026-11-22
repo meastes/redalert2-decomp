@@ -1829,7 +1829,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 						SendDlgItemMessage(window, HoveredSideButton, WM_USER + 213, 0, 0); // RA2: as above
 						SendDlgItemMessage(window, HoveredSideButton, WM_USER + 212, 0, 0); // RA2: as above
 						SideSoundTime = AudioGetTime() + 500; // RA2: as above
-						PendingSideVoc = -1; // RA2: as above
+						PendingSideVoc = VOC_NONE; // RA2: as above
 						HoveredSideButton = 0; // RA2: as above
 					} // RA2: as above
 					if (id == 0x6EA) { // RA2: as above
@@ -1918,10 +1918,10 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 							if (item != NULL) { // RA2: as above
 								Options.Difficulty = SendMessage(item, TBM_GETPOS, 0, 0); // RA2: as above
 							} // RA2: as above
-							if (PendingSideVoc != -1) { // RA2: as above
+							if (PendingSideVoc != VOC_NONE) { // RA2: as above
 								SideSound.Stop(); // RA2: as above
 								VocClass::PlayGlobal(PendingSideVoc, 1.0f, 0x2000, &SideSound); // RA2: as above
-								PendingSideVoc = -1; // RA2: as above
+								PendingSideVoc = VOC_NONE; // RA2: as above
 							} // RA2: as above
 						} // RA2: as above
 					} // RA2: as above

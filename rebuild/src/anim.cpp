@@ -760,7 +760,7 @@ BounceResultType AnimClass::Bounce_AI(void)
  *=============================================================================================*/
 void AnimClass::AI(void)
 {
-	if (!IsInert && Class->StartSound != -1)
+	if (!IsInert && Class->StartSound != VOC_NONE)
 		VocClass::UpdateAt(Center_Coord(), &StartSoundAudioController);
 	if (Class->IsFlamingGuy) {
 		Flaming_Guy_AI();
@@ -1070,7 +1070,7 @@ LayerType AnimClass::In_Which_Layer(void) const
 void AnimClass::Start(void)
 {
 	Mark(MARK_CHANGE);
-	if (!IsInert && Class->StartSound != -1) { // RA2: RA2's form
+	if (!IsInert && Class->StartSound != VOC_NONE) { // RA2: RA2's form
 		VocClass::PlayAt(Class->StartSound, Center_Coord(), &StartSoundAudioController); // RA2: as above
 	} else { // RA2: as above
 		StartSoundAudioController.Stop(); // RA2: as above

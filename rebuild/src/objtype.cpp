@@ -95,7 +95,7 @@ ObjectTypeClass::ObjectTypeClass(char const * ininame) :
 	BASECLASS(ininame),
 	MaxSize(0),
 	CrushSound(VOC_NONE),
-	AmbientSound(-1), // RA2: 0x1C4 starts at -1, like CrushSound
+	AmbientSound(VOC_NONE), // RA2: 0x1C4 starts at -1, like CrushSound
 	GraphicName(),
 	AlternateArcticArt(false), // RA2: 0x1E1 starts clear
 	ArcticArtInUse(false), // RA2: 0x1E2 starts clear
@@ -948,14 +948,14 @@ bool ObjectTypeClass::Read_INI(CCINIClass const & ini)
 		int sound = CrushSound; // RA2: as above
 		if (ini.Get_String(IniName, "CrushSound", "", name, sizeof(name))) { // RA2: as above
 			int found = VocClass::From_Name(name); // RA2: as above
-			if (found != -1) { // RA2: as above
+			if (found != VOC_NONE) { // RA2: as above
 				sound = found; // RA2: as above
 			}
 		}
 		CrushSound = (VocType)sound; // RA2: as above
 		sound = AmbientSound; // RA2: as above
 		int found; // RA2: as above
-		if (!ini.Get_String(IniName, "AmbientSound", "", name, sizeof(name)) || (found = VocClass::From_Name(name)) == -1) { // RA2: as above
+		if (!ini.Get_String(IniName, "AmbientSound", "", name, sizeof(name)) || (found = VocClass::From_Name(name)) == VOC_NONE) { // RA2: as above
 			found = sound; // RA2: as above
 		}
 		AmbientSound = (VocType)found; // RA2: as above

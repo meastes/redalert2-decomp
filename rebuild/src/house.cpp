@@ -3108,7 +3108,7 @@ bool HouseClass::Place_Object(RTTIType type, int id, bool naval, Cell const & ce
 			BuildingClass * builder = tech->Who_Can_Build_Me(false, true); // RA2: the builder's creation sound
 			if (builder && builder->Fetch_RTTI() == RTTI_BUILDING) {
 				int sound = builder->Class->CreateUnitSound;
-				if (sound != -1) VocClass::PlayIndexAtPos(sound, tech->PositionCoord, 0);
+				if (sound != VOC_NONE) VocClass::PlayIndexAtPos(sound, tech->PositionCoord, 0);
 			}
 		}
 	}
@@ -3125,7 +3125,7 @@ bool HouseClass::Place_Object(RTTIType type, int id, bool naval, Cell const & ce
 /// <param name="product">The object that just rolled off the production line.</param>
 void HouseClass::Just_Built(TechnoClass * product)
 {
-	int sound = -1; // RA2: the creation sound of the product, played at its location below
+	int sound = VOC_NONE; // RA2: the creation sound of the product, played at its location below
 	IsBuiltSomething = true;
 
 	TechnoTypeClass const * ttype = product->Techno_Type_Class(); // RA2: the type through the virtual accessor
@@ -3154,10 +3154,10 @@ void HouseClass::Just_Built(TechnoClass * product)
 			sound = Rule->CreateAircraftSound; // RA2: as above
 			break;
 	}
-	if (ttype->CreateSound != -1) { // RA2: the type's own sound wins
+	if (ttype->CreateSound != VOC_NONE) { // RA2: the type's own sound wins
 		sound = ttype->CreateSound; // RA2: as above
 	}
-	if (sound != -1) { // RA2: as above
+	if (sound != VOC_NONE) { // RA2: as above
 		Coord coord = product->Position; // RA2: as above
 		VocClass::PlayAt(sound, coord); // RA2: as above
 	}
@@ -5289,7 +5289,7 @@ void HouseClass::Tracking_Add(TechnoClass const * techno)
 	((TechnoClass *)techno)->CountedAsOwned = true; // RA2: RA2's form
 	if (!techno->Techno_Type_Class()->IsInsignificant) { // RA2: as above
 		switch (techno->Fetch_RTTI()) {
-		case 6: { // RA2: as above
+			case RTTI_BUILDING: { // RA2: as above
 			if (techno->Considered_Vehicle()) {
 				CurUnits++;
 			} else {
@@ -5300,21 +5300,21 @@ void HouseClass::Tracking_Add(TechnoClass const * techno)
 			BuildingTotals.Increment_Unit_Total(index); // RA2: as above
 			break;
 		}
-		case 2: { // RA2: as above
+			case RTTI_AIRCRAFT: { // RA2: as above
 			CurAircraft++;
 			int index = techno->Techno_Type_Class()->Fetch_Heap_ID(); // RA2: as above
 			AQuantity.Increment(index); // RA2: as above
 			AircraftTotals.Increment_Unit_Total(index); // RA2: as above
 			break;
 		}
-		case 15: { // RA2: as above
+			case RTTI_INFANTRY: { // RA2: as above
 			int index = techno->Techno_Type_Class()->Fetch_Heap_ID(); // RA2: as above
 			CurInfantry++;
 			IQuantity.Increment(index); // RA2: as above
 			InfantryTotals.Increment_Unit_Total(index); // RA2: as above
 			break;
 		}
-		case 1: { // RA2: as above
+			case RTTI_UNIT: { // RA2: as above
 			CurUnits++;
 			int index = techno->Techno_Type_Class()->Fetch_Heap_ID(); // RA2: as above
 			UQuantity.Increment(index); // RA2: as above
@@ -9845,7 +9845,7 @@ bool HouseClass::Is_Build_Limited(TechnoTypeClass const * type) const
 		queued = factory->Total(type); // RA2: as above
 	}
 	switch (type->Fetch_RTTI()) { // RA2: as above
-	case 40: // RA2: as above
+		case RTTI_UNITTYPE: // RA2: as above
 		if (type->BuildLimit <= 0) { // RA2: as above
 			if (queued + PUQuantity.Value(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) { // RA2: as above
 				return true; // RA2: as above
@@ -9857,7 +9857,7 @@ bool HouseClass::Is_Build_Limited(TechnoTypeClass const * type) const
 			}
 		}
 		break; // RA2: as above
-	case 16: { // RA2: as above
+		case RTTI_INFANTRYTYPE: { // RA2: as above
 		if (type->BuildLimit <= 0) { // RA2: as above
 			if (queued + PIQuantity.Value(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) { // RA2: as above
 				return true; // RA2: as above
@@ -9879,7 +9879,7 @@ bool HouseClass::Is_Build_Limited(TechnoTypeClass const * type) const
 		}
 		break; // RA2: as above
 	}
-	case 7: // RA2: as above
+		case RTTI_BUILDINGTYPE: // RA2: as above
 		if (type->BuildLimit <= 0) { // RA2: as above
 			if (queued + PBQuantity.Value(type->Fetch_Heap_ID()) >= abs(type->BuildLimit)) { // RA2: as above
 				return true; // RA2: as above
@@ -9891,7 +9891,7 @@ bool HouseClass::Is_Build_Limited(TechnoTypeClass const * type) const
 			}
 		}
 		break; // RA2: as above
-	case 3: // RA2: as above
+		case RTTI_AIRCRAFTTYPE: // RA2: as above
 		if (((AircraftTypeClass *)type)->IsAirportBound) { // RA2: as above
 			int owned = 0; // RA2: as above
 			int queued_aircraft = 0; // RA2: as above

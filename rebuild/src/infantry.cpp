@@ -2452,12 +2452,12 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 	}
 
 	if (todo != Doing && (Doing == DO_NOTHING || force || MasterDoControls[Doing].Interrupt)) {
-		if (todo == 27) { // RA2: the deploy and undeploy sounds
-			if (Techno_Type_Class()->DeploySound != -1) { // RA2: as above
+		if (todo == DO_DEPLOY) { // RA2: the deploy and undeploy sounds
+			if (Techno_Type_Class()->DeploySound != VOC_NONE) { // RA2: as above
 				VocClass::PlayAt(Techno_Type_Class()->DeploySound, PositionCoord); // RA2: as above
 			}
-		} else if (todo == 31) { // RA2: as above
-			if (Techno_Type_Class()->UndeploySound != -1) { // RA2: as above
+		} else if (todo == DO_UNDEPLOY) { // RA2: as above
+			if (Techno_Type_Class()->UndeploySound != VOC_NONE) { // RA2: as above
 				VocClass::PlayAt(Techno_Type_Class()->UndeploySound, PositionCoord); // RA2: as above
 			}
 		}
@@ -2493,7 +2493,7 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 				break;
 
 			case DO_GET_UP:
-			case 27: // RA2: deploying stands up as well
+			case DO_DEPLOY: // RA2: deploying stands up as well
 				IsProne = false;
 				break;
 
@@ -4018,12 +4018,12 @@ void InfantryClass::Doing_AI(void)
 {
 	if (Doing == DO_NOTHING || Fetch_Stage() >= Class->DoControls[Doing].Count) {
 		switch (Doing) {
-			case 27: // RA2: the end of the deploy sequence starts the deployed one
+			case DO_DEPLOY: // RA2: the end of the deploy sequence starts the deployed one
 				Do_Action(DO_DEPLOYED, true, false); // RA2: as above
 				Shorten_Targeting_Timer(); // RA2: as above
 				break;
 
-			case 31: // RA2: stand ready again
+			case DO_UNDEPLOY: // RA2: stand ready again
 				Do_Action(DO_STAND_READY, true, false); // RA2: as above
 				break;
 
@@ -4051,10 +4051,10 @@ void InfantryClass::Doing_AI(void)
 				}
 				break;
 
-			case 33: // RA2: the paradrop sequence has an empty case of its own (jump-table entry to the end); the landing check is below
+			case DO_PARADROP: // RA2: the paradrop sequence has an empty case of its own (jump-table entry to the end); the landing check is below
 				break; // RA2: as above
 
-			case 34: // RA2: a sequence that leads on into the next one
+			case DO_AIR_DEATH_START: // RA2: a sequence that leads on into the next one
 				Do_Action(DO_AIR_DEATH_FALLING, true, false); // RA2: as above
 				break;
 
@@ -4075,9 +4075,9 @@ void InfantryClass::Doing_AI(void)
 				}
 				break;
 
-			case 20: // RA2: the executable's sequence end handling
-			case 21: // RA2: as above
-			case 36: // RA2: as above
+			case DO_WET_DIE1: // RA2: the executable's sequence end handling
+			case DO_WET_DIE2: // RA2: as above
+			case DO_AIR_DEATH_FINISH: // RA2: as above
 				if (Fetch_Stage() >= Class->DoControls[Doing].Count) {
 					Delete_Me();
 				}

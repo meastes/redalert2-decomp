@@ -277,7 +277,7 @@ void BombListClass::Update(void) // RA2: 0x004361F0
 
 	for (i = Planted.Count() - 1; i >= 0; i--) { // RA2: second pass: the ticking sounds
 		BombClass * bomb = Planted[i]; // RA2: as above
-		if (bomb->TickSound != -1) { // RA2: as above
+		if (bomb->TickSound != VOC_NONE) { // RA2: as above
 			if (bomb->Target->IsInLimbo) { // RA2: as above
 				bomb->Audio.Stop(); // RA2: as above
 				bomb->ShouldPlayTickingSound = false; // RA2: as above
@@ -356,7 +356,7 @@ void BombListClass::Plant(TechnoClass * source, ObjectClass * target) // RA2: 0x
 			target->AttachedBomb = bomb; // RA2: as above
 			Planted.Add(bomb); // RA2: as above
 			UpdateDelay = 1; // RA2: the visibility pass runs again on the next frame
-			if (Rule->BombAttachSound != -1 && source->House->Is_Player_Control()) { // RA2: the attach sound plays for the player's own planters
+			if (Rule->BombAttachSound != VOC_NONE && source->House->Is_Player_Control()) { // RA2: the attach sound plays for the player's own planters
 				Coord coord = target->Position; // RA2: as above
 				VocClass::PlayAt(Rule->BombAttachSound, coord, NULL); // RA2: as above
 			}
