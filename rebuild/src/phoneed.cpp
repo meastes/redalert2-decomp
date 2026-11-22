@@ -617,14 +617,14 @@ BOOL CALLBACK Edit_Phone_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 			case IDC_PHONE_DEFAULT:
 				if (HIWORD(wparam) != BN_CLICKED) {
 					Button_SetCheck((HWND)lparam, TRUE);
-					SendDlgItemMessage(window, IDC_PHONE_CUSTOM, BM_SETCHECK, 0, 0);
+					SendDlgItemMessage(window, IDC_PHONE_CUSTOM, BM_SETCHECK, BST_UNCHECKED, 0);
 				}
 				break;
 
 			case IDC_PHONE_CUSTOM:
 				if (HIWORD(wparam) != BN_CLICKED) {
 					Button_SetCheck((HWND)lparam, TRUE);
-					SendDlgItemMessage(window, IDC_PHONE_DEFAULT, BM_SETCHECK, 0, 0);
+					SendDlgItemMessage(window, IDC_PHONE_DEFAULT, BM_SETCHECK, BST_UNCHECKED, 0);
 					UpdateWindow(window);
 					ShowWindow(window, SW_HIDE);
 					UpdateWindow(MainWindow);

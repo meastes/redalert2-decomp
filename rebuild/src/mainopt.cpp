@@ -568,9 +568,9 @@ BOOL CALLBACK IPX_Options_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 			}
 			SendMessage(destination, EM_LIMITTEXT, 11, 0);
 			if (Session.SendDelay) {
-				SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_SETCHECK, 1, 0);
+				SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_SETCHECK, BST_CHECKED, 0);
 			} else {
-				SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_SETCHECK, 0, 0);
+				SendDlgItemMessage(window, IDC_IPX_FIREWALL, BM_SETCHECK, BST_UNCHECKED, 0);
 			}
 			HWND port = GetDlgItem(window, IDC_IPX_PORT);
 			if (port != (HWND)-1 && Session.PortNumberOverride != 0) {

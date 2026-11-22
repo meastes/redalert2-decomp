@@ -938,7 +938,7 @@ bool OptionsClass::Hotkey_Dialog(void)
 {
 	int res = -1;
 
-	HWND handle = OwnerDraw::Begin_Dialog(163, Hotkey_Dialog_Proc, 0);
+	HWND handle = OwnerDraw::Begin_Dialog(IDD_OPT_KEYBOARD, Hotkey_Dialog_Proc, 0);
 	if (handle != NULL) {
 		SetWindowLong(handle, DWL_USER, (LONG)&res);
 		OwnerDraw::Display_Dialog(handle);

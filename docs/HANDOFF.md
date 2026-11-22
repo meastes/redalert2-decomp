@@ -5,6 +5,17 @@ Current state only (2026-11-19 ~08:20Z; account 1 parked, 91% at 04:30Z). Number
 [VC6 notes](VC6_MATCHING_NOTES.md). Open misses and debt: [OPEN_MISSES.md](OPEN_MISSES.md).
 Earlier owner periods are in [history/](history/).
 
+## Final account-2 handoff (owner, 2026-11-22 ~16:05Z)
+
+Supersedes the switch checkpoint below for current figures; the week plan further down stands.
+
+- **State:** 17,508 functions; function-level 86.52% from source / 89.40% reproduced; whole-unit 85.71% / 88.59%. Account 2 ran to about 97% all models / 97% Fable at the user's word. Nothing runs on the Mac; codex1 (gpt-6.2-astra high, deep sessions on the largest parked functions) and codex2 (GPT-6.1-Sol, readability) keep working on credits (~300/h Astra, ~140/h Sol; floor 5,000; plan reset ~Tue 01:46Z).
+- **Since the checkpoint:** codex1 landed TActionClass::operator() (7.7 KB), Init_Game + 3 (4.4 KB), TeamClass::AI (3.5 KB), Do_MISSION_ATTACK (2.3 KB, first image-derived bound); Trackbar_Proc back via countsens; vox Speech_Always_True on its image bound. Many guarded drafts closer (Exit_Object 4,888, Split_Region 1,701, Per_Cell_Process 3,161 with one register left, Set_Map_Dimensions frame now matches, Unit_Draw_Voxel 75 instructions, Fire_At 4,371, Net2DecodeGameopt 82%). flex_menu.py names drafts correctly; 22 parked functions still lack a draft (mostly template copies of other drafts).
+- **Held for the user (end-of-week variations):** WinMain 10.3 KB, Wonline_Game_Options_Dialog_Proc 7.9 KB, ScoreClass::Presentation 7.9 KB, Init_Voxel_Matrices 3.3 KB, Reposition_Sidebar 1.3 KB (all exact only with coined forms), plus the rest of rebuild/manifest/variation_candidates.csv (flex a: 42 functions, 118 KB).
+- **Measured dead ends this weekend (don't repeat without new evidence):** IonBlast One_Time (row/mirror register priority; ra2-decomp's twin has the same miss after 6,016 compiles); Per_Cell_Process (y vs building pointer for ebx; every visible use identical; next lever is y's IL references in the Cell(x,y)/operator+ path, needs evidence); Unit_Draw_Voxel (three inline sites after barrel_cached have no reference source); Start_Quick_Match (one inline site; main's .Count read needs a private field); Set_Slot_Names/OnPrivateGameOptions (memory-leaf count tie). Notes in rebuild/manifest/b_log_*.csv and VC6_MATCHING_NOTES.
+- **Rates:** Fable high from dossiers 2-6 KB/hour; Opus deep sessions mostly drafts; one Opus-max trial (OM1, 24 min) 0 landed; Astra deep single-function sessions were the best yield (~18 KB in a morning).
+- **First on account 1:** start the week plan (two Opus lanes, Fable ~4 high hours/day from dossiers, codex1 Astra on the tail); land codex deliveries beyond codex1 r2676 and codex2 r7625; watch for Codex "Reviewing approval request" over ~15 min (codex1 hung 3 h 23 min once); disk is ~25 GiB free (prune build/r whole-file outputs first).
+
 ## Switch checkpoint, account 2 -> account 1 (owner, 2026-11-22 ~11:00Z)
 
 - State: rebuild 17,506 functions; function-level 86.52% from source / 89.40% reproduced; whole-unit 85.62% / 88.50%. Last account-2 reading 00:44Z: 87% all models, 95% Fable.

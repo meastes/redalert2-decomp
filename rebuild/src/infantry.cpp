@@ -127,6 +127,7 @@
 #include "parasite.h" // RA2: Can_Enter_Cell reads the parasite victim
 #include "planning.h" // RA2: Planning_Allows_Event_Type
 #include "radsite.h" // RA2
+#include "revent.h"
 #include "rules.h"
 #include "scheme.h"
 #include "temporal.h" // RA2: AI calls TemporalClass::AI
@@ -784,10 +785,6 @@ void InfantryClass::Debug_Dump(MonoClass * mono) const
  *   03/01/1995 JLB : Capture building options.                                                *
  *   05/31/1995 JLB : Capture is always successful now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 3161 bytes differ against main's function-map extent (2026-11-22 lane O19: main's RA2 branches, the passive-house renovate test, C4 IsGoingToBlow, QueueMission, HasAnyLink; only the engineer block's register choice differs; was 4261; lane O27: VC6 colours y before the building pointer, which then splits; about 1.5 more weighted uses of the pointer (two extra Scatter_Incoming_Infantry calls, a probe only) give it ebx for the whole block and leave only the first lookup's operand order, which Cell(Cell(x, y) + PositionCell) in both lookups fixes; candidate removals (iscapturable, maxdamage, train, the Detach index) and loop or lookup forms do not move it)
-#include "revent.h"
-#include "vox.h"
-
 void InfantryClass::Per_Cell_Process(PCPType why)
 {
 	BStart(BENCH_PCP);
@@ -812,11 +809,11 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 			BuildingClass * building = cellptr->Cell_Building();
 			if (building && (building == NavCom || building == TarCom)) {
 				if (building->Tag) building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
-				if (Techno_Type_Class()->VoiceDie.Count() > 0 && House->Is_Player_Control()) {
-					VocClass::PlayAt(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
+				if (TClass->VoiceDie.Count() > 0 && House->Is_Player_Control()) {
+					VocClass::PlayAt(TClass->VoiceDie.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
 				}
-				if (Techno_Type_Class()->DieSound.Count() > 0) {
-					VocClass::PlayAt(Techno_Type_Class()->DieSound.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
+				if (TClass->DieSound.Count() > 0) {
+					VocClass::PlayAt(TClass->DieSound.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
 				}
 				building->House->Refund_Money(Refund_Amount());
 				if (Tag) Tag->Spring(TEVENT_DESTROYED_ANY, this);
@@ -862,25 +859,25 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 				}
 			}
 
-			TechnoClass * tech = cellptr->Cell_Building();
+			BuildingClass * building = cellptr->Cell_Building();
 
-			if (tech != NULL && (tech == NavCom || tech == TarCom)) {
-				if (tech->Tag) {
-					tech->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
+			if (building != NULL && (building == NavCom || building == TarCom)) {
+				if (building->Tag) {
+					building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
 				}
 
 				if (Class->IsEngineer) {
 					// are we trying to repair a bridge?
-					if (tech->RTTI == RTTI_BUILDING && ((BuildingClass*)tech)->Class->IsBridgeRepairHut) {
+					if (building->RTTI == RTTI_BUILDING && building->Class->IsBridgeRepairHut) {
 						if (House->Is_Player_Control() && Submit_Radar_Event(RADAREVENT_BRIDGE_REPAIRED, Get_Cell())) Queue_Speech("EVA_BridgeRepaired", -1, -1);
 
 						bool train = false;
 						for (int y = -2; y < 3; y++) {
 							for (int x = -2; x < 3; x++) {
-								Cell cell = (Cell)Cell(PositionCell + Cell(x, y));
+								Cell cell = Cell(Cell(x, y) + PositionCell);
 								IsometricTileType ittype = Map[cell].ITType;
 								OverlayType overlay = Map[Cell(Cell(x, y) + PositionCell)].Overlay;
-								if ((ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) || (overlay >= 74 && overlay <= 101)) {
+								if ((ittype >= IsometricTileTypeClass::TrainBridgeSet && ittype < IsometricTileTypeClass::TrainBridgeSet + TRAIN_BRIDGE_COUNT) || (overlay >= OVERLAY_LOWBRIDGE_FIRST && overlay <= OVERLAY_LOWBRIDGE_LAST)) {
 									train = true;
 								}
 							}
@@ -891,9 +888,9 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 							Map.Repair_Bridge(PositionCell);
 						}
 						for (int i = Infantry.Count() - 1; i >= 0; i--) {
-							Infantry[i]->Detach(tech, false);
+							Infantry[i]->Detach(building, false);
 						}
-						tech->Scatter_Incoming_Infantry();
+						building->Scatter_Incoming_Infantry();
 					}
 
 					/*
@@ -902,45 +899,46 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					**	it damages or captures depends on how badly damaged the
 					**	enemy building is.
 					*/
-					else if (House->Is_Ally(tech) || (tech->House->Class->IsMultiplayPassive && ((BuildingClass *)tech)->Class->CanBeOccupied)) {
-						if (tech->Strength == tech->TClass->MaxStrength) {
+					else if (House->Is_Ally(building) || (building->House->Class->IsMultiplayPassive && building->Class->CanBeOccupied)) {
+						TechnoTypeClass const * building_type = building->TClass;
+						if (building->Strength == building_type->MaxStrength) {
 							Assign_Destination(NULL, true);
-							Scatter(tech->Center_Coord(), true, true);
+							Scatter(building->Center_Coord(), true, true);
 							return;
 						}
-						tech->Renovate();
+						building->Renovate();
 					} else {
 						bool iscapturable = false;
-						if (tech->RTTI == RTTI_BUILDING) {
-							iscapturable = ((BuildingClass *)tech)->Class->IsCaptureable;
+						if (building->RTTI == RTTI_BUILDING) {
+							iscapturable = building->Class->IsCaptureable;
 						}
 
-						if (Session.Type != GAME_NORMAL && Session.Options.CrapEngineers && tech->HealthRatio > Rule->ConditionRed) {
-							int maxdamage = tech->Strength - int(tech->TClass->MaxStrength * Rule->ConditionRed / 2);
-							int damage = MIN((tech->TClass->MaxStrength) * ((1 - Rule->ConditionRed / 2) / 2), maxdamage);
-							tech->Take_Damage(damage, 0, Rule->C4Warhead, this, true);
+						if (Session.Type != GAME_NORMAL && Session.Options.CrapEngineers && building->HealthRatio > Rule->ConditionRed) {
+							int maxdamage = building->Strength - int(building->TClass->MaxStrength * Rule->ConditionRed / 2);
+							int damage = MIN((building->TClass->MaxStrength) * ((1 - Rule->ConditionRed / 2) / 2), maxdamage);
+							building->Take_Damage(damage, 0, Rule->C4Warhead, this, true);
 						} else if (iscapturable) {
-							if (tech->CurrentMission == MISSION_DECONSTRUCTION) {
+							if (building->CurrentMission == MISSION_DECONSTRUCTION) {
 								Assign_Destination(NULL, true);
-								Scatter(tech->Center_Coord(), true, true);
+								Scatter(building->Center_Coord(), true, true);
 								return;
 							}
-							if (tech->Tag) {
-								tech->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
+							if (building->Tag) {
+								building->Tag->Spring(TEVENT_PLAYER_ENTERED, this);
 							}
-							tech->House->IsThieved = true;
+							building->House->IsThieved = true;
 							if (Tag && Tag->Is_To_Inherit()) {
-								tech->Attach_Tag(Tag);
+								building->Attach_Tag(Tag);
 							}
-							tech->Captured(House);
-							tech->EnteredByInfType = Class->HeapID;
-							tech->Scatter_Incoming_Infantry();
+							building->Captured(House);
+							building->EnteredByInfType = Class->HeapID;
+							building->Scatter_Incoming_Infantry();
 						}
 					}
 				} else {
 					if (Class->IsAgent) {
 
-						((BuildingClass *)tech)->Spied_By(House);
+						building->Spied_By(House);
 					}
 				}
 				if (Tag) {
@@ -1139,7 +1137,6 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 	}
 	BEnd(BENCH_PCP);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -2465,12 +2462,12 @@ bool InfantryClass::Do_Action(DoType todo, bool force, bool randomize)
 
 	if (todo != Doing && (Doing == DO_NOTHING || force || MasterDoControls[Doing].Interrupt)) {
 		if (todo == DO_DEPLOY) { // RA2: the deploy and undeploy sounds
-			if (Techno_Type_Class()->DeploySound != VOC_NONE) { // RA2: as above
-				VocClass::PlayAt(Techno_Type_Class()->DeploySound, PositionCoord); // RA2: as above
+			if (TClass->DeploySound != VOC_NONE) { // RA2: as above
+				VocClass::PlayAt(TClass->DeploySound, PositionCoord); // RA2: as above
 			}
 		} else if (todo == DO_UNDEPLOY) { // RA2: as above
-			if (Techno_Type_Class()->UndeploySound != VOC_NONE) { // RA2: as above
-				VocClass::PlayAt(Techno_Type_Class()->UndeploySound, PositionCoord); // RA2: as above
+			if (TClass->UndeploySound != VOC_NONE) { // RA2: as above
+				VocClass::PlayAt(TClass->UndeploySound, PositionCoord); // RA2: as above
 			}
 		}
 
@@ -2774,7 +2771,7 @@ AbstractClass * InfantryClass::Greatest_Threat(ThreatType threat, Coord const & 
 		if (victim != NULL) { // RA2: as above
 			active = (victim->AbstractFlags & ABSTRACT_TECHNO); // RA2: as above
 		}
-		if (victim != NULL && active && ((TechnoClass *)NavCom)->Considered_Vehicle() && !((TechnoClass *)NavCom)->Techno_Type_Class()->IsTrain && Distance(NavCom) < 15 * CELL_LEPTON) { // RA2: the flags test instead of Is_Techno
+		if (victim != NULL && active && ((TechnoClass *)NavCom)->Considered_Vehicle() && !((TechnoClass *)NavCom)->TClass->IsTrain && Distance(NavCom) < 15 * CELL_LEPTON) { // RA2: the flags test instead of Is_Techno
 			return(NavCom);
 		}
 	}
@@ -3235,7 +3232,7 @@ void InfantryClass::Reacquire_Target(void)
 	}
 	Assign_Target(target);
 
-	if (target == NULL && CurrentMission != MISSION_GUARD && !Techno_Type_Class()->JumpJet) {
+	if (target == NULL && CurrentMission != MISSION_GUARD && !TClass->JumpJet) {
 		Enter_Idle_Mode(false, true);
 	}
 }

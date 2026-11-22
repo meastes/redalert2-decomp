@@ -566,7 +566,7 @@ void ModemGuest::SetSettings(void)
 		Button_SetCheck(handle, Session.Options.HarvTruce == true);
 	}
 
-	handle = GetDlgItem(_Dialog, 0x5a8);
+	handle = GetDlgItem(_Dialog, IDC_SCENARIONAME);
 	if (handle) {
 		SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription);
 	}
@@ -938,7 +938,7 @@ void ModemGuest::DrawMessage(const wchar_t * name, int color, const wchar_t * me
 	wchar_t buf[256];
 
 	if (message != NULL) {
-		HWND handle = GetDlgItem(_Dialog, 0x53f);
+		HWND handle = GetDlgItem(_Dialog, IDC_PMESSAGES);
 		if (handle) {
 			COLORREF c = (color >= 0 && color < MAX_PLAYERS ? PlayerColorTable[color] : ColorMe);
 			swprintf(buf, L"[%s] %s", name, message);

@@ -2752,7 +2752,7 @@ BOOL CALLBACK Diplomacy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 						if (!MuteSWLaunches) { // RA2: as above
 							SendMessage(chat, BM_SETCHECK, DiplomacyChatFlags[slot], 0); // RA2: the chat box shows whether that player's chat is listened to
 						} else {
-							SendMessage(chat, BM_SETCHECK, 1, 0); // RA2: as above
+							SendMessage(chat, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
 							EnableWindow(chat, FALSE); // RA2: as above
 						}
 						any_chat = true; // RA2: as above
@@ -2830,9 +2830,9 @@ BOOL CALLBACK Diplomacy_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LP
 						house = 0; // RA2: as above
 					}
 					if (code == 0) { // RA2: as above
-						SendMessage((HWND)lparam, BM_SETCHECK, 1, 0); // RA2: as above
+						SendMessage((HWND)lparam, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
 					} else if (code == 1) { // RA2: as above
-						SendMessage((HWND)lparam, BM_SETCHECK, 0, 0); // RA2: as above
+						SendMessage((HWND)lparam, BM_SETCHECK, BST_UNCHECKED, 0); // RA2: as above
 					}
 					Send_Ally_Event(house); // RA2: as above
 					return(FALSE); // RA2: as above

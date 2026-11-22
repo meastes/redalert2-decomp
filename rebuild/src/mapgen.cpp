@@ -898,7 +898,7 @@ int MapRegionClass::CellData::Get_Region(Cell const &cell)
 	if (RMGCellData == NULL) {
 		return(-1);
 	}
-	return(MapRegionClass::Get_Cell_Data(cell).RegionID);
+	return(MapRegionClass::Get_Cell_Data(cell.X + cell.Y * (int)MapCellStride).RegionID);
 }
 
 
@@ -1080,7 +1080,7 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,701 bytes differ (was 3,204), 1,272 instructions to 1,250, instruction match 81.21 (93.42 with stack offsets ignored), frame 0xA0 as the original; lane O24: height change through Increase_Height, the dry-map height filter (main) and From_ID (TibSun); left: the original keeps operator+ in the adjacent-region loop and Get_Region in the inlined Increase_Height out of line; main: best 70.68, tried 7 times (bound, frame, order, inlining)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,613 bytes differ (was 1,701; all 59 calls and the 0xA0 frame match; left: child-loop layout and stack slots); main: best 70.68, tried 7 times (bound, frame, order, inlining)
 bool MapRegionClass::Split_Region(void)
 {
 	int i, j;
@@ -1273,7 +1273,7 @@ bool MapRegionClass::Split_Region(void)
 			}
 		}
 
-		if (RandomMapGen.SeedData.MapType == 3 || RandomMapGen.SeedData.MapType == 4) {
+		if (Is_Inland_Or_Mountain_Map(RandomMapGen.SeedData.MapType)) {
 			for (j = heights.Count() - 1; j >= 0; j--) {
 				if (heights[j] == 0) {
 					heights.Delete_Index(j);

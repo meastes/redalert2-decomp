@@ -221,15 +221,15 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 					if (!fdata->Valid || fdata->Old) { // RA2: as above
 						wchar_t * text = _this->Description; // RA2: as above
 						if (text != NULL) { // RA2: as above
-							HWND edit = GetDlgItem(window, 0x526); // RA2: as above
+							HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC); // RA2: as above
 							SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 						}
 					} else {
-						HWND edit = GetDlgItem(window, 0x526); // RA2: as above
+						HWND edit = GetDlgItem(window, IDC_MISSION_SAVE_DESC); // RA2: as above
 						SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)fdata->Descr); // RA2: as above
 					}
-					SetFocus(GetDlgItem(window, 0x526)); // RA2: as above
-					Edit_SetSel(GetDlgItem(window, 0x526), 0, -1); // RA2: as above
+					SetFocus(GetDlgItem(window, IDC_MISSION_SAVE_DESC)); // RA2: as above
+					Edit_SetSel(GetDlgItem(window, IDC_MISSION_SAVE_DESC), 0, -1); // RA2: as above
 				}
 			}
 			break;
@@ -404,8 +404,8 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 
 	switch (Style) { // RA2: as above
 		case LOAD: { // RA2: as above
-			dialog = OwnerDraw::Begin_Dialog(0xB7, (DLGPROC)Load_Dialog_Proc, 0); // RA2: dialog 0xB7 (IDD_MISSION_LOAD in TibSun)
-			list = GetDlgItem(dialog, 0x525); // RA2: as above
+			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_LOAD, (DLGPROC)Load_Dialog_Proc, 0); // RA2: dialog 0xB7 (IDD_MISSION_LOAD in TibSun)
+			list = GetDlgItem(dialog, IDC_MISSION_LOAD_LIST); // RA2: as above
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title control's caption comes from the virtual Load_Caption (slot 5)
 			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Load_Caption()); // RA2: as above
 			if (!Session.Is_In_Game()) { // RA2: the button 0x40C is hidden outside a running game
@@ -420,10 +420,10 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 				WWMessageBox().Process(StringTable::LoadString("TXT_DISKFULL", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x1AD), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x1AD), NULL, NULL, false); // RA2: wide message and button texts, line 0x1AD of the source
 				return(false); // RA2: as above
 			} // RA2: as above
-			dialog = OwnerDraw::Begin_Dialog(0x2B4, (DLGPROC)Save_Dialog_Proc, 0); // RA2: dialog 0x2B4 (IDD_MISSION_SAVE in TibSun)
-			list = GetDlgItem(dialog, 0x527); // RA2: as above
+			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_SAVE, (DLGPROC)Save_Dialog_Proc, 0); // RA2: dialog 0x2B4 (IDD_MISSION_SAVE in TibSun)
+			list = GetDlgItem(dialog, IDC_MISSION_SAVE_LIST); // RA2: as above
 			wchar_t * description = Description; // RA2: the suggested description is put into the edit control first
-			HWND edit = GetDlgItem(dialog, 0x526); // RA2: as above
+			HWND edit = GetDlgItem(dialog, IDC_MISSION_SAVE_DESC); // RA2: as above
 			SendMessageA(edit, OD_SETTEXTW, 0, (LPARAM)description); // RA2: as above
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title is the virtual Save_Caption (slot 6)
 			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Save_Caption()); // RA2: as above
@@ -435,8 +435,8 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 		} // RA2: as above
 
 		case WWDELETE: { // RA2: as above
-			dialog = OwnerDraw::Begin_Dialog(0x2B5, (DLGPROC)Delete_Dialog_Proc, 0); // RA2: dialog 0x2B5 (IDD_MISSION_DELETE in TibSun)
-			list = GetDlgItem(dialog, 0x528); // RA2: as above
+			dialog = OwnerDraw::Begin_Dialog(IDD_MISSION_DELETE, (DLGPROC)Delete_Dialog_Proc, 0); // RA2: dialog 0x2B5 (IDD_MISSION_DELETE in TibSun)
+			list = GetDlgItem(dialog, IDC_MISSION_DELETE_LIST); // RA2: as above
 			HWND title = GetDlgItem(dialog, 0x694); // RA2: the title is the virtual Delete_Caption (slot 7)
 			SendMessageA(title, OD_SETTEXTW, 0, (LPARAM)Delete_Caption()); // RA2: as above
 			if (!Session.Is_In_Game()) { // RA2: as in the load case
@@ -454,7 +454,7 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 
 		if (list != 0) { // RA2: as above
 			Fill_List(list); // RA2: as above
-			EnableWindow(GetDlgItem(dialog, 1), bool(ListBox_GetCount(list) > 0)); // RA2: as above
+			EnableWindow(GetDlgItem(dialog, IDOK), bool(ListBox_GetCount(list) > 0)); // RA2: as above
 		} // RA2: as above
 
 		OwnerDraw::Display_Dialog(dialog); // RA2: as above
@@ -505,7 +505,7 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 							break; // RA2: as above
 
 						case SAVE: { // RA2: as above
-							HWND item = GetDlgItem(dialog, 0x527); // RA2: the list's attached control is disabled while the message boxes show
+							HWND item = GetDlgItem(dialog, IDC_MISSION_SAVE_LIST); // RA2: the list's attached control is disabled while the message boxes show
 							HWND disabled = 0; // RA2: as above
 							if (item) { // RA2: as above
 								disabled = (HWND)SendMessageA(item, 0x4EF, 0, 0); // RA2: 0x4EF returns the attached control
@@ -513,14 +513,14 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 									OwnerDraw::Set_Control_Disabled(disabled, true); // RA2: as above
 								} // RA2: as above
 							} // RA2: as above
-							HWND edit = GetDlgItem(dialog, 0x526); // RA2: the description is read as wide text
+							HWND edit = GetDlgItem(dialog, IDC_MISSION_SAVE_DESC); // RA2: the description is read as wide text
 							SendMessageA(edit, 0x4B3, 0x50, (LPARAM)buffer); // RA2: 0x4B3 reads the wide text of the control (at most 0x50 characters)
 							wcstrim(buffer); // RA2: 0x6EEF80 trims it
 
 							if (wcslen(buffer) == 0) { // RA2: as above
 								WWMessageBox().Process(StringTable::LoadString("TXT_MUSTENTER_DESCRIPTION", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x230), StringTable::LoadString("TXT_OK", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x230), NULL, NULL, false); // RA2: wide texts, line 0x230
-								SetFocus(GetDlgItem(dialog, 0x526)); // RA2: as above
-								Edit_SetSel(GetDlgItem(dialog, 0x526), -1, -1); // RA2: as above
+								SetFocus(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC)); // RA2: as above
+								Edit_SetSel(GetDlgItem(dialog, IDC_MISSION_SAVE_DESC), -1, -1); // RA2: as above
 								State = STATE_PENDING; // RA2: as above
 								break; // RA2: as above
 							} // RA2: as above
@@ -573,7 +573,7 @@ bool LoadOptionsClass::Dialog(void) // RA2: as above
 
 						case WWDELETE: { // RA2: as above
 							swprintf(buffer, L"%s\n\n%s", StringTable::LoadString("TXT_DELETE_FILE_QUERY", NULL, "D:\\Ra2\\LoadDlg.CPP", 0x26D), entry->Descr); // RA2: wide text with the entry's wide description, line 0x26D
-							HWND item = GetDlgItem(dialog, 0x528); // RA2: the list's attached control is disabled while the message box shows
+							HWND item = GetDlgItem(dialog, IDC_MISSION_DELETE_LIST); // RA2: the list's attached control is disabled while the message box shows
 							HWND disabled = 0; // RA2: as above
 							if (item) { // RA2: as above
 								disabled = (HWND)SendMessageA(item, 0x4EF, 0, 0); // RA2: as above

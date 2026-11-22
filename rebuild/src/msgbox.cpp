@@ -45,21 +45,21 @@ int WWMessageBox::Process(wchar_t const * msg, wchar_t const * b1txt, wchar_t co
 		SetWindowLong(dialog, DWL_USER, (LONG)&retval);
 
 		if (hasmsg) {
-			HWND item = GetDlgItem(dialog, 0x5B0);
+			HWND item = GetDlgItem(dialog, IDC_MSGBOX_TEXT);
 			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)msg);
 		}
 		if (has1) {
-			HWND item = GetDlgItem(dialog, 0x5AE);
+			HWND item = GetDlgItem(dialog, IDC_MSGBOX_OK);
 			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b1txt);
 			numbuttons = 1;
 		}
 		if (has2) {
-			HWND item = GetDlgItem(dialog, 2);
+			HWND item = GetDlgItem(dialog, IDCANCEL);
 			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b2txt);
 			numbuttons = 2;
 		}
 		if (has3) {
-			HWND item = GetDlgItem(dialog, 0x5AF);
+			HWND item = GetDlgItem(dialog, IDC_MSGBOX_BTN3);
 			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b3txt);
 			numbuttons = 3;
 		}
@@ -128,13 +128,13 @@ void __fastcall Message_Box_On_WM_COMMAND(HWND window, int id, int control, int 
 			}
 			break;
 
-		case 0x5AE:
+		case IDC_MSGBOX_OK:
 			if (notify_code == BN_CLICKED) {
 				*retval = 0;
 			}
 			break;
 
-		case 0x5AF:
+		case IDC_MSGBOX_BTN3:
 			if (notify_code == BN_CLICKED) {
 				*retval = 2;
 			}

@@ -109,7 +109,7 @@ BOOL SerialEdit::Handle_Message(HWND window, UINT message, WPARAM wparam, LPARAM
 					case IDC_SERIAL_PULSE:
 						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
-							SendDlgItemMessage(window, IDC_SERIAL_TONE, BM_SETCHECK, 0, 0);
+							SendDlgItemMessage(window, IDC_SERIAL_TONE, BM_SETCHECK, BST_UNCHECKED, 0);
 						}
 						break;
 
@@ -210,7 +210,7 @@ BOOL SerialEdit::Handle_Message(HWND window, UINT message, WPARAM wparam, LPARAM
 					case IDC_SERIAL_TONE:
 						if (HIWORD(wparam) != BN_CLICKED) {
 							Button_SetCheck((HWND)lparam, TRUE);
-							SendDlgItemMessage(window, IDC_SERIAL_PULSE, BM_SETCHECK, 0, 0);
+							SendDlgItemMessage(window, IDC_SERIAL_PULSE, BM_SETCHECK, BST_UNCHECKED, 0);
 						}
 						break;
 				}

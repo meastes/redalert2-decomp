@@ -5793,6 +5793,7 @@ infantry,004ff980,??1InfantryClass@@UAE@XZ,486,a,mischa85,edit,,,
 infantry,004ffb70,?Take_Damage@InfantryClass@@UAE?AW4ResultType@@AAHHPBVWarheadTypeClass@@PAVTechnoClass@@_N3@Z,2004,a,mischa85,edit,,,
 infantry,00500350,?Shape_Number@InfantryClass@@QBEHXZ,497,a,mischa85,edit,,,
 infantry,00500550,?Draw_It@InfantryClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z,1356,a,mischa85,edit,,,
+infantry,00500aa0,?Per_Cell_Process@InfantryClass@@UAEXW4PCPType@@@Z,4617,b,TibSun and mischa85 infantry.cpp; main src/recovered/infantry.cpp (non-exact); building.cpp/bomb.cpp bridge twins,rematch,27.7,"codex1 r2678: 3161 -> 0 against the frozen image bound (4617 + 7 padding, bound: image-derived); 182/182 calls; the second Cell_Building lookup typed BuildingClass * (no casts), Techno_Type_Class() calls replaced by the TClass member, OVERLAY_LOWBRIDGE_FIRST/LAST names; EVA_BridgeRepaired literal bound to 007daef0; infantry 110 -> 111; calibration:no","count_calibrated: building_type (TechnoTypeClass const * = building->TClass) is a real looked-up value named before the strength read in the allied full-health test; no reference text names it; the natural form building->TClass->MaxStrength leaves Per_Cell_Process 3161 bytes off (lane O34 probe, 2026-11-22)"
 infantry,00501cb0,?Detach@InfantryClass@@UAEXPBVAbstractClass@@_N@Z,42,a,mischa85,edit,,,
 infantry,00502470,?Assign_Target@InfantryClass@@UAEXPAVAbstractClass@@@Z,334,a,mischa85,edit,,,
 infantry,00502d20,?AI@InfantryClass@@UAEXXZ,1128,a,mischa85,edit,,,

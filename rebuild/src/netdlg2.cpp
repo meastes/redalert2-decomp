@@ -260,15 +260,15 @@ void __fastcall Net2DisplayUsersFull(bool full) // RA2: 0x005BBDD0; with a game 
 	}
 	{
 	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND list = GetDlgItem(dialog, 0x53E); // RA2: as above
+	HWND list = GetDlgItem(dialog, IDC_USERS); // RA2: as above
 	if (dialog && list) { // RA2: as above
-		HWND users = GetDlgItem(dialog, 0x53E); // RA2: as above
+		HWND users = GetDlgItem(dialog, IDC_USERS); // RA2: as above
 		OwnerDraw::CellData cell; // RA2: as above
-		int top = SendDlgItemMessage(dialog, 0x53E, 0x18E, 0, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x53E, 0x49D, 0, 1); // RA2: as above
+		int top = SendDlgItemMessage(dialog, IDC_USERS, LB_GETTOPINDEX, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 1); // RA2: as above
 		Dictionary<WideWstring, bool> selections(Wstring_Hash); // RA2: as above
 		LBSaveSelections(list, selections); // RA2: as above
-		SendDlgItemMessage(dialog, 0x53E, 0x184, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_USERS, LB_RESETCONTENT, 0, 0); // RA2: as above
 		if (CurGame == 0) {
 			SendMessage(users, 0x4CC, 0, (LPARAM)Narrow_To_Wide(Session.Handle)); // RA2: as above
 			for (int chat = 1; chat < Session.Chat.Count(); ++chat) { // RA2: as above
@@ -304,11 +304,11 @@ void __fastcall Net2DisplayUsersFull(bool full) // RA2: 0x005BBDD0; with a game 
 				cell.type = OwnerDraw::CellData::PRIMARY; // RA2: as above
 				cell.color = color; // RA2: as above
 				cell.hint.set(L""); // RA2: set, not operator=
-				SendDlgItemMessage(dialog, 0x53E, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Name, player), (LPARAM)&cell); // RA2: as above
+				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Name, player), (LPARAM)&cell); // RA2: as above
 				cell.type = OwnerDraw::CellData::SURFACE; // RA2: as above
 				cell.hint.set(country_name); // RA2: as above
 				cell.surf = flag; // RA2: as above
-				SendDlgItemMessage(dialog, 0x53E, OD_SETCELL, MAKEWPARAM(Net2_g_Col_House, player), (LPARAM)&cell); // RA2: as above
+				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_House, player), (LPARAM)&cell); // RA2: as above
 				cell.hint.set(L""); // RA2: set, not operator=
 				cell.type = OwnerDraw::CellData::SURFACE; // RA2: as above
 				if (state == 2) { // RA2: as above
@@ -318,12 +318,12 @@ void __fastcall Net2DisplayUsersFull(bool full) // RA2: 0x005BBDD0; with a game 
 				} else {
 					cell.type = OwnerDraw::CellData::INVALID; // RA2: as above
 				}
-				SendDlgItemMessage(dialog, 0x53E, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Accept, player), (LPARAM)&cell); // RA2: as above
+				SendDlgItemMessage(dialog, IDC_USERS, OD_SETCELL, MAKEWPARAM(Net2_g_Col_Accept, player), (LPARAM)&cell); // RA2: as above
 			}
 		}
 		LBRestoreSelections(list, selections); // RA2: as above
-		SendDlgItemMessage(dialog, 0x53E, 0x197, top, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x53E, 0x49D, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_USERS, LB_SETTOPINDEX, top, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_USERS, OD_DISABLEPAINT, 0, 0); // RA2: as above
 		InvalidateRect(list, NULL, 0); // RA2: as above
 		UpdateWindow(list); // RA2: as above
 	}
@@ -464,7 +464,7 @@ void Net2DisplayGameList(void)
 
 	if (WS_Top_Window_ID() == 0xBB) { // RA2: as above
 		HWND dialog = WS_Top_Window(); // RA2: as above
-		HWND list = GetDlgItem(dialog, 0x549); // RA2: as above
+		HWND list = GetDlgItem(dialog, IDC_GAMELIST); // RA2: as above
 		if (CurGame >= Session.Games.Count()) { // RA2: as above
 			CurGame = Session.Games.Count() - 1;
 			Send_Join_Queries(0, 1, 0, 0);
@@ -472,8 +472,8 @@ void Net2DisplayGameList(void)
 		if (CurGame < 0) {
 			CurGame = 0;
 		}
-		int top = SendDlgItemMessage(dialog, 0x549, LB_GETTOPINDEX, 0, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, OD_DISABLEPAINT, 0, 1); // RA2: as above
+		int top = SendDlgItemMessage(dialog, IDC_GAMELIST, LB_GETTOPINDEX, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 1); // RA2: as above
 		SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
 		SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString("TXT_LOBBY", NULL, "D:\\Ra2\\netdlg2.cpp", 490)); // RA2: as above
 		for (int i = 1; i < Session.Games.Count(); i++) {
@@ -484,10 +484,10 @@ void Net2DisplayGameList(void)
 			}
 			SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)text); // RA2: as above
 		}
-		SendDlgItemMessage(dialog, 0x549, LB_SETCURSEL, CurGame, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, LB_SETTOPINDEX, top, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, OD_DISABLEPAINT, 0, 0); // RA2: as above
-		list = GetDlgItem(dialog, 0x549); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETCURSEL, CurGame, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_GAMELIST, LB_SETTOPINDEX, top, 0); // RA2: as above
+		SendDlgItemMessage(dialog, IDC_GAMELIST, OD_DISABLEPAINT, 0, 0); // RA2: as above
+		list = GetDlgItem(dialog, IDC_GAMELIST); // RA2: as above
 		InvalidateRect(list, NULL, 0); // RA2: as above
 		UpdateWindow(list); // RA2: as above
 	}
@@ -1353,11 +1353,11 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 			Net2JoinListEnabled = true;
 			Update_Observer_Buttons(window);
 
-			SendDlgItemMessage(window, 0x541, EM_SETLIMITTEXT, 16, 0);
-			SendDlgItemMessage(window, 0x541, 0x4eb, 0, (LPARAM)L",");
-			SendDlgItemMessage(window, 0x541, 0x4d1, 1, 0);
+			SendDlgItemMessage(window, IDC_YOURNAME, EM_SETLIMITTEXT, 16, 0);
+			SendDlgItemMessage(window, IDC_YOURNAME, 0x4eb, 0, (LPARAM)L",");
+			SendDlgItemMessage(window, IDC_YOURNAME, 0x4d1, 1, 0);
 			wchar_t * handle = Narrow_To_Wide(Session.Handle);
-			HWND edit = GetDlgItem(window, 0x541);
+			HWND edit = GetDlgItem(window, IDC_YOURNAME);
 			SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)handle);
 
 			Session.Options.ScenarioDescription[0] = 0;
@@ -1387,13 +1387,13 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 		Net2DisplayGameList();
 			Net2DisplayUsersFull(false);
 			Dialog_On_WM_PAINT(window);
-			SetFocus(GetDlgItem(window, 0x540));
+			SetFocus(GetDlgItem(window, IDC_INPUT));
 		return(0);
 	}
 
 	case WM_COMMAND:
 		switch (LOWORD(wparam)) {
-			case 0x541: { // the name edit
+			case IDC_YOURNAME: { // the name edit
 				if (!IsWindowEnabled(window)) {
 					return(0);
 				}
@@ -1402,7 +1402,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				}
 				wchar_t name[20];
 				name[0] = 0;
-				HWND edit = GetDlgItem(window, 0x541);
+				HWND edit = GetDlgItem(window, IDC_YOURNAME);
 				SendMessage(edit, 0x4b3, 20, (LPARAM)name);
 				wchar_t first = name[0];
 				wchar_t * p = name;
@@ -1414,7 +1414,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				}
 				if (*p == 0 && first != 0) {
 					name[0] = 0;
-					edit = GetDlgItem(window, 0x541);
+					edit = GetDlgItem(window, IDC_YOURNAME);
 					SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)name);
 				}
 				if (strcmp(Wide_To_Narrow(name), Session.Handle) != 0) {
@@ -1425,12 +1425,12 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				return(0);
 			}
 
-			case 0x549: { // the game list
+			case IDC_GAMELIST: { // the game list
 				if (JoinState > JOIN_NOTHING) {
 					return(0);
 				}
 				int old_game = CurGame;
-				int sel = SendDlgItemMessage(window, 0x549, LB_GETCURSEL, 0, 0);
+				int sel = SendDlgItemMessage(window, IDC_GAMELIST, LB_GETCURSEL, 0, 0);
 				if (sel >= 0 && Net2JoinListEnabled) {
 					CurGame = sel;
 					wcscpy(Session.GameName, Session.Games[sel]->Name);
@@ -1450,7 +1450,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 			return(0);
 			}
 
-			case 0x540: { // the chat line
+			case IDC_INPUT: { // the chat line
 				Limit_Name_Text((HWND)lparam);
 				if (HIWORD(wparam) == EN_MAXTEXT) {
 					Send_Chat_Message(window, ColorMe, ColorUser);
@@ -1471,7 +1471,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 			case 0x6cd:
 			case 0x6ce: {
 				EnableWindow(window, FALSE);
-				HWND name = GetDlgItem(window, 0x541);
+				HWND name = GetDlgItem(window, IDC_YOURNAME);
 				if (name) {
 					EnableWindow(name, FALSE);
 			}
@@ -1550,11 +1550,11 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 {
 	wchar_t text[112]; // RA2: as above
 
-	HWND edit = GetDlgItem(dialog, 0x540); // RA2: as above
+	HWND edit = GetDlgItem(dialog, IDC_INPUT); // RA2: as above
 	SendMessage(edit, 0x4B3, 0x6F, (LPARAM)text); // RA2: as above
 	text[0x6F] = 0; // RA2: as above
 	int length = wcslen(text); // RA2: as above
-	edit = GetDlgItem(dialog, 0x540); // RA2: as above
+	edit = GetDlgItem(dialog, IDC_INPUT); // RA2: as above
 	SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
 	InvalidateRect(dialog, NULL, 1); // RA2: as above
 	if (length > 2) { // RA2: as above
@@ -1839,43 +1839,43 @@ LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 			Fill_Options_Dialog(window, 1); // RA2: as above
 			return(0);
 			case WM_HSCROLL: // RA2: as above
-			if (GetDlgItem(window, 0x529) == (HWND)lparam) { // RA2: as above
-				Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, 0x529, 0x400, 0, 0); // RA2: as above
+				if (GetDlgItem(window, IDC_GAME_SPEED_SLIDER) == (HWND)lparam) { // RA2: as above
+					Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, IDC_GAME_SPEED_SLIDER, TBM_GETPOS, 0, 0); // RA2: as above
 			}
-			if (GetDlgItem(window, 0x402) == (HWND)lparam) { // RA2: as above
-				Session.Options.Credits = SendDlgItemMessage(window, 0x402, 0x400, 0, 0); // RA2: as above
+				if (GetDlgItem(window, IDC_CREDITS) == (HWND)lparam) { // RA2: as above
+					Session.Options.Credits = SendDlgItemMessage(window, IDC_CREDITS, TBM_GETPOS, 0, 0); // RA2: as above
 			}
-			if (GetDlgItem(window, 0x54F) == (HWND)lparam) { // RA2: as above
-				Session.Options.UnitCount = SendDlgItemMessage(window, 0x54F, 0x400, 0, 0); // RA2: as above
+				if (GetDlgItem(window, IDC_UNITCOUNT) == (HWND)lparam) { // RA2: as above
+					Session.Options.UnitCount = SendDlgItemMessage(window, IDC_UNITCOUNT, TBM_GETPOS, 0, 0); // RA2: as above
 			}
 			return(0);
 			case WM_COMMAND: // RA2: as above
 			switch ((unsigned short)wparam) { // RA2: as above
-			case 0x54E: // RA2: as above
+				case IDC_SHORT_GAME: // RA2: as above
 				Session.Options.ShortGame = false;
-						if (SendDlgItemMessage(window, 0x54E, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+					if (SendDlgItemMessage(window, IDC_SHORT_GAME, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.ShortGame = true;
 					if (!Session.Options.Bases) {
 						Session.Options.Bases = true;
-								SendDlgItemMessage(window, 0x54B, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
+							SendDlgItemMessage(window, IDC_BASES, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
 					}
 				}
 				return(0);
-			case 0x54D: // RA2: as above
+				case IDC_CRATES: // RA2: as above
 				Session.Options.Goodies = false;
-						if (SendDlgItemMessage(window, 0x54D, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+					if (SendDlgItemMessage(window, IDC_CRATES, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.Goodies = true;
 				}
 				return(0);
-			case 0x3E8: // RA2: as above
+				case IDC_REDEPLOY_MCV: // RA2: as above
 				Session.Options.MCVRedeploy = false;
-						if (SendDlgItemMessage(window, 0x3E8, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+					if (SendDlgItemMessage(window, IDC_REDEPLOY_MCV, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.MCVRedeploy = true;
 				}
 				return(0);
-			case 0x624: // RA2: as above
+				case IDC_BRIDGE_DESTROY: // RA2: as above
 				Session.Options.BridgeDestruction = false;
-						if (SendDlgItemMessage(window, 0x624, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
+					if (SendDlgItemMessage(window, IDC_BRIDGE_DESTROY, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.BridgeDestruction = true;
 				}
 				return(0);
@@ -2715,21 +2715,21 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 			point.x -= rect.left; // RA2: as above
 			point.y -= rect.top; // RA2: as above
 			wchar_t const * text = L""; // RA2: as above
-			HWND control = ChildWindowFromPointEx(window, point, 1); // RA2: as above
+			HWND control = ChildWindowFromPointEx(window, point, CWP_SKIPINVISIBLE); // RA2: as above
 			if (control != NULL) { // RA2: as above
 				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, control); // RA2: as above
 				if (label != NULL) { // RA2: as above
 					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 3143); // RA2: as above
 				}
 			}
-			SendMessage(tip, 0x4B2, 0, (LPARAM)text); // RA2: as above
+			SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 			return(0);
 		}
 		break;
 	}
 	case WM_COMMAND:
 		switch ((unsigned short)wparam) { // RA2: as above
-		case 2: // RA2: as above
+			case IDCANCEL: // RA2: as above
 			if (!Net2OptionsLocked) { // RA2: as above
 				_netresponse = 2;
 				return(0);
@@ -2771,21 +2771,21 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 				return(0);
 			}
 			break;
-		case 0x540: // RA2: as above
+			case IDC_INPUT: // RA2: as above
 			Limit_Name_Text((HWND)lparam); // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 0x501) { // RA2: as above
+				if ((unsigned short)(wparam >> 16) == EN_MAXTEXT) { // RA2: as above
 				Send_Chat_Message(window, ColorMe, ColorUser); // RA2: as above
 				return(0);
 			}
 			break;
-		case 0x59F: // RA2: as above
+			case IDC_ACCEPT: // RA2: as above
 			if (Session.Players.Count() != 0) { // RA2: as above
 				Session.Players[0]->Player.Status = 1;
 				char text[64]; // RA2: as above
 				sprintf(text, "A1"); // RA2: as above
 				Send_Host_Option(text); // RA2: as above
 				Enable_Player_Combos(window, false); // RA2: as above
-				HWND button = GetDlgItem(window, 0x59F); // RA2: as above
+					HWND button = GetDlgItem(window, IDC_ACCEPT); // RA2: as above
 				EnableWindow(button, FALSE); // RA2: as above
 				InvalidateRect(button, NULL, FALSE); // RA2: as above
 				SendMessage(button, 0x4DC, 0, 0); // RA2: as above
@@ -2795,14 +2795,14 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 			break;
 		}
 		break;
-	case 0x497: // RA2: as above
+	case OD_SUBCLASSED: // RA2: as above
 		Fill_Side_Combos(window); // RA2: as above
 		Init_Color_Entries(); // RA2: as above
 		Fill_Color_Combos(window); // RA2: as above
 		Lock_Slots(window, Session.LocalSlot); // RA2: as above
 		Select_Player_Side(window, Session.LocalSlot); // RA2: as above
 		Select_Player_Color(window, Session.LocalSlot); // RA2: as above
-		EnableWindow(GetDlgItem(window, 0x59F), FALSE); // RA2: as above
+		EnableWindow(GetDlgItem(window, IDC_ACCEPT), FALSE); // RA2: as above
 		LobbyDialogFlag = false; // RA2: as above
 		Net2SetAccept(NULL, 0); // RA2: as above
 		Net2DisplayUsersFull(false); // RA2: as above
@@ -2847,7 +2847,7 @@ LRESULT CALLBACK MPlayer_Guest_Dialog_Proc(HWND window, UINT message, WPARAM wpa
 void Join_Lobby_Start_Reminder(void) // RA2: 0x005C28E0; reminds the joiner that the host starts the game
 {
 	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND item = GetDlgItem(dialog, 0x59F); // RA2: as above
+	HWND item = GetDlgItem(dialog, IDC_ACCEPT); // RA2: as above
 	if (Net2GetAccept(NULL) != 1) { // RA2: as above
 		SendMessage(item, 0x4DC, 0, 1); // RA2: as above
 		Lobby_Chat_Printf(-1, StringTable::LoadString("GUI:HostGameStartJoiner", NULL, "D:\\Ra2\\netdlg2.cpp", 4958)); // RA2: as above
@@ -2858,6 +2858,6 @@ void Join_Lobby_Start_Reminder(void) // RA2: 0x005C28E0; reminds the joiner that
 void __cdecl Join_Lobby_Reset_Ready(void) // RA2: 0x005C2940; sends message 0x4DC to the ready button of the joiner's lobby
 {
 	HWND dialog = WS_Top_Window(); // RA2: as above
-	HWND button = GetDlgItem(dialog, 0x59F); // RA2: as above
+	HWND button = GetDlgItem(dialog, IDC_ACCEPT); // RA2: as above
 	SendMessage(button, 0x4DC, 0, 0); // RA2: as above
 }

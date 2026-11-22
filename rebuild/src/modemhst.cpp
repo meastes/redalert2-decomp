@@ -260,7 +260,7 @@ BOOL CALLBACK Modem_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 inline void Wide_SetText(HWND dialog, int id, wchar_t const * text)
 {
 	HWND item = GetDlgItem(dialog, id);
-	SendMessage(item, 0x4b2, 0, (LPARAM)text);
+	SendMessage(item, OD_SETTEXTW, 0, (LPARAM)text);
 }
 
 inline int Wide_AddString(HWND handle, wchar_t const * text)
@@ -294,7 +294,7 @@ void ModemHost::InitDialog(void)
 	HWND handle = GetDlgItem(_Dialog, IDC_NAME);
 	if (handle) {
 		Edit_LimitText(handle, MPLAYER_NAME_MAX-1);
-		SendMessage(handle, 0x4b2, 0, (LPARAM)Narrow_To_Wide(Session.Handle));
+		SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)Narrow_To_Wide(Session.Handle));
 	}
 	DebugString("Name: %ls\n", Session.Handle);
 
@@ -468,7 +468,7 @@ void ModemHost::InitDialog(void)
 
 	ModemRXString[0] = '\0';
 
-	HWND window = GetDlgItem(_Dialog, 1);
+	HWND window = GetDlgItem(_Dialog, IDOK);
 	if (window) {
 		EnableWindow(window, FALSE);
 	}
@@ -901,7 +901,7 @@ void ModemHost::SelectMultiMap(void)
 	} else {
 		ShowWindow(_Dialog, SW_SHOW);
 		if (Set_Scenario_Info_From_Index(Session.Options.ScenarioIndex) == true) {
-			_Send_Dlg_Item_Message(_Dialog, 0x5a8, 0x4b2, 0, (LPARAM)Session.Options.ScenarioDescription);
+			_Send_Dlg_Item_Message(_Dialog, 0x5a8, OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription);
 
 			if (stricmp(Session.Scenarios[Session.Options.ScenarioIndex]->Get_Filename(), "RandMap.Sed") == 0) {
 				if (MultiplayerMapPreview != NULL) {
@@ -939,7 +939,7 @@ void ModemHost::SelectRandomMap(void)
 			MultiplayerMapPreview = NULL;
 		}
 
-		_Send_Dlg_Item_Message(_Dialog, 0x5a8, 0x4b2, 0, (LPARAM)RandomMapGen.SeedData.MapDescription);
+		_Send_Dlg_Item_Message(_Dialog, 0x5a8, OD_SETTEXTW, 0, (LPARAM)RandomMapGen.SeedData.MapDescription);
 		bool found = false;
 
 		int index = 0;
@@ -1102,7 +1102,7 @@ bool ModemHost::Receive(bool silent)
 
 			case (SERIAL_ACCEPT_OPTIONS):
 				DebugString("Received Accept Options\n");
-				EnableWindow(GetDlgItem(_Dialog, 1), TRUE);
+				EnableWindow(GetDlgItem(_Dialog, IDOK), TRUE);
 				break;
 
 			case (SERIAL_MESSAGE):
@@ -1157,7 +1157,7 @@ void ModemHost::SendGameOptions(void)
 	SerialPacketType sendpacket;
 
 	DebugString("Sending game options packet\n");
-	EnableWindow(GetDlgItem(_Dialog, 1), FALSE);
+	EnableWindow(GetDlgItem(_Dialog, IDOK), FALSE);
 
 	memset(&sendpacket, 0, sizeof(SerialPacketType));
 	sendpacket.Command = SERIAL_GAME_OPTIONS;
@@ -1224,7 +1224,7 @@ void ModemHost::DrawMessage(const wchar_t * name, int color, const wchar_t * mes
 	wchar_t buf[256];
 
 	if (message != NULL) {
-		HWND handle = GetDlgItem(_Dialog, 0x53f);
+		HWND handle = GetDlgItem(_Dialog, IDC_PMESSAGES);
 		if (handle) {
 			COLORREF c = (color >= 0 && color < MAX_PLAYERS ? PlayerColorTable[color] : ColorMe);
 			swprintf(buf, L"[%s] %s", name, message);

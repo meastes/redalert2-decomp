@@ -1288,11 +1288,11 @@ bool MPCooperative::vt_entry_90(void) // RA2: 0x005A5350
 	}
 	int difficulty = -1; // RA2: as above
 	if (type == 0 || type == 1) { // RA2: as above
-		difficulty = 0; // RA2: as above
+		difficulty = DIFF_EASY; // RA2: as above
 	} else if (type == 2 || type == 3) { // RA2: as above
-		difficulty = 1; // RA2: as above
+		difficulty = DIFF_NORMAL; // RA2: as above
 	} else if (type == 4) { // RA2: as above
-		difficulty = 2; // RA2: as above
+		difficulty = DIFF_HARD; // RA2: as above
 	}
 	int count; // RA2: as above
 	Campaign->Get_Map_Count(&count); // RA2: as above
@@ -1341,11 +1341,11 @@ void MPCooperative::vt_entry_8C(bool show) // RA2: 0x005A5570
 				}
 				int difficulty = -1; // RA2: as above
 				if (type == 0 || type == 1) { // RA2: as above
-					difficulty = 0; // RA2: as above
+					difficulty = DIFF_EASY; // RA2: as above
 				} else if (type == 2 || type == 3) { // RA2: as above
-					difficulty = 1; // RA2: as above
+					difficulty = DIFF_NORMAL; // RA2: as above
 				} else if (type == 4) { // RA2: as above
-					difficulty = 2; // RA2: as above
+					difficulty = DIFF_HARD; // RA2: as above
 				}
 				score->Presentation(scores, time, difficulty, type + 1, record->Name); // RA2: as above
 				delete score; // RA2: as above

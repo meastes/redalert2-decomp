@@ -827,7 +827,7 @@ BOOL CALLBACK Rules_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 		case WM_INITDIALOG: // RA2: as above
 		{
 			Center_Window_Within_Window(window); // RA2: as above
-			HWND list = GetDlgItem(window, 0x4A3); // RA2: the list box
+			HWND list = GetDlgItem(window, IDC_RULES_LIST); // RA2: the list box
 			DynamicVectorClass<CCINIClass *> * files = (DynamicVectorClass<CCINIClass *> *)lparam; // RA2: Init_Rules passes its file list as the dialog parameter
 			for (int index = 0; index < files->Count(); index++) { // RA2: as above
 				(*files)[index]->Get_String("General", "Name", "", buffer, sizeof(buffer)); // RA2: as above
@@ -843,9 +843,9 @@ BOOL CALLBACK Rules_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam,
 		case WM_COMMAND: // RA2: as above
 			switch (LOWORD(wparam)) { // RA2: as above
 				case IDCANCEL: // RA2: as above
-				case 0x4A4: // RA2: the OK button
+				case IDC_RULES_OK: // RA2: the OK button
 					if (HIWORD(wparam) == BN_CLICKED) { // RA2: as above
-						HWND list = GetDlgItem(window, 0x4A3); // RA2: as above
+						HWND list = GetDlgItem(window, IDC_RULES_LIST); // RA2: as above
 						EndDialog(window, SendMessage(list, LB_GETCURSEL, 0, 0)); // RA2: as above
 						DestroyWindow(window); // RA2: as above
 					}
@@ -1769,9 +1769,9 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 	switch (message) {
 
 		case WM_HSCROLL: // RA2: the difficulty label follows the slider
-			if ((HWND)lparam == GetDlgItem(window, 0x50F)) { // RA2: as above
+			if ((HWND)lparam == GetDlgItem(window, IDC_DIFFICULTY_SLIDER)) { // RA2: as above
 				char const * label = Difficulty_Labels[wparam >> 16]; // RA2: as above
-				item = GetDlgItem(window, 0x670); // RA2: as above
+				item = GetDlgItem(window, IDC_DIFFICULTY_LABEL); // RA2: as above
 				SendMessage(item, OD_SETTEXTW, 0, (LPARAM)StringTable::LoadString(label, NULL, "D:\\Ra2\\Init.CPP", 1193)); // RA2: as above
 				return(FALSE); // RA2: as above
 			} // RA2: as above
@@ -1791,7 +1791,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 							}
 						}
 
-						item = GetDlgItem(window, 0x50F); // RA2: the difficulty slider
+						item = GetDlgItem(window, IDC_DIFFICULTY_SLIDER); // RA2: the difficulty slider
 
 						if (item != NULL) {
 							Options.Difficulty = SendMessage(item, TBM_GETPOS, 0, 0); // RA2: as above
@@ -1913,7 +1913,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 							ScenarioSaveNameSet = false; // RA2: as above
 							SendDlgItemMessage(window, HoveredSideButton, WM_USER + 213, 0, 0); // RA2: as above
 							SendDlgItemMessage(window, HoveredSideButton, WM_USER + 212, 0, 0); // RA2: as above
-							item = GetDlgItem(window, 0x50F); // RA2: as above
+							item = GetDlgItem(window, IDC_DIFFICULTY_SLIDER); // RA2: as above
 							if (item != NULL) { // RA2: as above
 								Options.Difficulty = SendMessage(item, TBM_GETPOS, 0, 0); // RA2: as above
 							} // RA2: as above
@@ -1958,7 +1958,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			if (CampaignListShown) { // RA2: as above
 				if (item != NULL) {
 					for (int index = 0; index < Campaigns.Count(); index++) {
-						SendMessage(item, WM_USER + 205, 0, (LPARAM)Campaigns[index]->Description); // RA2: wide text
+						SendMessage(item, OD_ADDSTRINGW, 0, (LPARAM)Campaigns[index]->Description); // RA2: wide text
 					}
 					SendMessage(item, LB_SETCURSEL, 0, 0); // RA2: as above
 				}
@@ -1969,7 +1969,7 @@ BOOL CALLBACK Campaign_Choice_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 				EnableWindow(button, FALSE); // RA2: as above
 			} // RA2: as above
 
-			item = GetDlgItem(window, 0x50F); // RA2: the difficulty slider
+			item = GetDlgItem(window, IDC_DIFFICULTY_SLIDER); // RA2: the difficulty slider
 			if (item != NULL) {
 				PostMessage(item, OD_TRACKNUMBERS, 0, 0); // RA2: as above
 				PostMessage(item, TBM_SETRANGE, TRUE, MAKELONG(0, 2)); // RA2: as above
@@ -3031,7 +3031,7 @@ BOOL CALLBACK Version_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPAR
 		case OD_SUBCLASSED: // RA2: as above
 		{
 			HWND item = GetDlgItem(window, IDC_VERSION_INFO); // RA2: as above
-			SendMessage(item, WM_USER + 205, 0, (LPARAM)StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Init.CPP", 5428)); // RA2: as above
+			SendMessage(item, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString("TXT_SHORT_TITLE", NULL, "D:\\Ra2\\Init.CPP", 5428)); // RA2: as above
 			sprintf(buffer, "Version %s", Version_Name());
 			SendMessage(item, WM_USER + 200, 0, (LPARAM)buffer); // RA2: as above
 			sprintf(buffer, "Internal Version %s", VerNum.Version_Name());

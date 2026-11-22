@@ -953,7 +953,7 @@ void Selection::Start(void)
 void Selection::End(void)
 {
 	MouseCursor->Hide_Mouse();
-	Theme.Queue_Song((ThemeType)-3);
+	Theme.Queue_Song(THEME_QUIET);
 	AlternateSurface->Fill(0);
 	HiddenSurface->Fill(0);
 	while (MouseCursor->Get_Mouse_State() < 0) {
