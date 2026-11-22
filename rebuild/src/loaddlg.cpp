@@ -290,18 +290,18 @@ LRESULT CALLBACK LoadOptionsClass::Load_Dialog_Proc(HWND window, UINT message, W
 		return rc; // RA2: as above
 	}
 	switch (message) { // RA2: as above
-	case 0x0f: // RA2: as above
+		case WM_PAINT: // RA2: as above
 		Slide_Pending_Dialog(window); // RA2: as above
 		return(1); // RA2: as above
-	case 0x111: // RA2: as above
+		case WM_COMMAND: // RA2: as above
 		Load_Dialog_On_WM_COMMAND(window, (unsigned short)wparam, lparam, (unsigned short)(wparam >> 16)); // RA2: as above
 		break; // RA2: as above
-	case 0x216: // RA2: as above
+		case WM_MOVING: // RA2: as above
 		return On_WM_MOVING(window, wparam, lparam); // RA2: as above
-	case 0x497: // RA2: as above
-		SendDlgItemMessageA(window, 0x525, 0x4a6, 0xf9, 2); // RA2: as above
-		SendDlgItemMessageA(window, 0x525, 0x4a6, 0x38, 0xff); // RA2: as above
-		SendDlgItemMessageA(window, 0x525, 0x4a6, 0, 0x13b); // RA2: as above
+		case OD_SUBCLASSED: // RA2: as above
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0xf9, 2); // RA2: as above
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0x38, 0xff); // RA2: as above
+			SendDlgItemMessageA(window, IDC_MISSION_LOAD_LIST, OD_ADDCOLUMN, 0, 0x13b); // RA2: as above
 		break; // RA2: as above
 	}
 	return(0); // RA2: as above
@@ -338,7 +338,7 @@ LRESULT __stdcall LoadOptionsClass::Save_Dialog_Proc(HWND window, UINT message, 
 		SendDlgItemMessageA(window, IDC_MISSION_SAVE_LIST, OD_ADDCOLUMN, 0, 315); // RA2: as above
 		break; // RA2: as above
 	case 0x4da: // RA2: as above
-		((LoadOptionsClass *)GetWindowLongA(window, 8))->State = STATE_OK; // RA2: as above
+		((LoadOptionsClass *)GetWindowLongA(window, DWL_USER))->State = STATE_OK; // RA2: as above
 		break; // RA2: as above
 	}
 	return(0); // RA2: as above

@@ -4914,9 +4914,9 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     if (Combo_Owner) { // RA2: as above
         Control_Table.getPointer((unsigned int const &)Combo_Owner, &master); // RA2: as above
     }
-	if (message != 0x146 && message != 0x154 && message != WM_VSCROLL) { // RA2: as above
-        int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
-        int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
+	if (message != CB_GETCOUNT && message != CB_GETITEMHEIGHT && message != WM_VSCROLL) { // RA2: as above
+		int item_count = SendMessageA(Combo_Owner, CB_GETCOUNT, 0, 0); // RA2: as above
+		int item_height = SendMessageA(Combo_Owner, CB_GETITEMHEIGHT, 0, 0); // RA2: as above
         if (item_height <= 1) {
             item_height = 1;
         }
@@ -4930,7 +4930,7 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                 info.nMax = max_top; // RA2: as above
                 info.nPos = data->Position; // RA2: as above
                 info.cbSize = 0x1c; // RA2: as above
-                SendMessageA(data->ScrollBar, 0xe9, 0, (LPARAM)&info); // RA2: as above
+				SendMessageA(data->ScrollBar, SBM_SETSCROLLINFO, 0, (LPARAM)&info); // RA2: as above
             }
             if (data->ScrollBar) { // RA2: as above
                 BringWindowToTop(data->ScrollBar); // RA2: as above
@@ -4938,9 +4938,9 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         }
     }
     switch (message) {
-    case 0x14: // RA2: as above
+		case WM_ERASEBKGND: // RA2: as above
         return 0; // RA2: as above
-    case 1: { // RA2: as above
+		case WM_CREATE: { // RA2: as above
         SetCapture(window);
         Combo_Owner = *(HWND *)lparam; // RA2: as above
         char buffer[100]; // RA2: as above
@@ -4949,20 +4949,20 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         SetTimer(window, 0, 20, 0); // RA2: as above
         return 0; // RA2: as above
     }
-    case 0x82: // RA2: as above
+		case WM_NCDESTROY: // RA2: as above
         Dropdown_Window = 0; // RA2: as above
         Dropdown_Owner = 0; // RA2: as above
         ReleaseCapture();
         KillTimer(window, 0);
         break;
-    case 0x115: { // RA2: as above
-        int top = SendMessageA(data->ScrollBar, 0xe1, 0, 0); // RA2: as above
-        if (top != SendMessageA(window, 0x15b, 0, 0)) { // RA2: as above
-            SendMessageA(window, 0x15c, top, 0); // RA2: as above
+		case WM_VSCROLL: { // RA2: as above
+			int top = SendMessageA(data->ScrollBar, SBM_GETPOS, 0, 0); // RA2: as above
+			if (top != SendMessageA(window, CB_GETTOPINDEX, 0, 0)) { // RA2: as above
+				SendMessageA(window, CB_SETTOPINDEX, top, 0); // RA2: as above
         }
         break;
     }
-    case 0x113: { // RA2: as above
+		case WM_TIMER: { // RA2: as above
         HWND capture = GetCapture(); // RA2: as above
         if (capture == window) { // RA2: as above
             ReleaseCapture();
@@ -4971,12 +4971,12 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         }
         break;
     }
-    case 0x15b: // RA2: as above
+		case CB_GETTOPINDEX: // RA2: as above
         if (data) {
             return data->Position; // RA2: as above
         }
         break;
-    case 0x200: { // RA2: as above
+		case WM_MOUSEMOVE: { // RA2: as above
         int x = lparam & 0xffff; // RA2: as above
         int y = (unsigned int)lparam >> 16; // RA2: as above
         int index = SendMessageA(window, 0x4e8, 0, (y << 16) | x); // RA2: as above
@@ -5001,10 +5001,10 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         }
         return 0; // RA2: as above
     }
-    case 0x15c: { // RA2: as above
+		case CB_SETTOPINDEX: { // RA2: as above
         int top = wparam; // RA2: as above
-        int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
-        int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
+			int item_count = SendMessageA(Combo_Owner, CB_GETCOUNT, 0, 0); // RA2: as above
+			int item_height = SendMessageA(Combo_Owner, CB_GETITEMHEIGHT, 0, 0); // RA2: as above
         if (!item_count || !item_height) {
             break;
         }
@@ -5026,8 +5026,8 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         }
         return 0; // RA2: as above
     }
-    case 0x201: // RA2: as above
-    case 0x203: { // RA2: as above
+		case WM_LBUTTONDOWN: // RA2: as above
+		case WM_LBUTTONDBLCLK: { // RA2: as above
         int x = lparam & 0xffff; // RA2: as above
         int y = (unsigned int)lparam >> 16; // RA2: as above
         if (x > client.right && x < client.right + data->ScrollWidth && y > 0 && y < client.bottom) { // RA2: as above
@@ -5036,8 +5036,8 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         }
         VocClass::PlayGlobal(Rule->GUIComboCloseSound, 1.0f, 0x2000, 0); // RA2: as above
         if (x >= 0 && y >= 0 && x <= client.right && y <= client.bottom) {
-            int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
-            int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
+				int item_height = SendMessageA(Combo_Owner, CB_GETITEMHEIGHT, 0, 0); // RA2: as above
+				int item_count = SendMessageA(Combo_Owner, CB_GETCOUNT, 0, 0); // RA2: as above
             int index = y / item_height;
             if (data) {
                 index += data->Position; // RA2: as above
@@ -5047,21 +5047,21 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
             if (max_index < clamped) {
                 clamped = max_index;
             }
-            SendMessageA(Combo_Owner, 0x14e, clamped, 0); // RA2: as above
-            int id = GetWindowLongA(Combo_Owner, -12); // RA2: as above
+				SendMessageA(Combo_Owner, CB_SETCURSEL, clamped, 0); // RA2: as above
+				int id = GetWindowLongA(Combo_Owner, GWL_ID); // RA2: as above
             if (need_scrollbar) {
                 DestroyWindow(data->ScrollBar); // RA2: as above
             }
             ReleaseCapture();
-            SendMessageA(Combo_Owner, 0x14f, 0, 0); // RA2: as above
-            PostMessageA(parent, 0x111, (id & 0xffff) | 0x10000, (LPARAM)Combo_Owner); // RA2: as above
+				SendMessageA(Combo_Owner, CB_SHOWDROPDOWN, 0, 0); // RA2: as above
+				PostMessageA(parent, WM_COMMAND, (id & 0xffff) | 0x10000, (LPARAM)Combo_Owner); // RA2: as above
             return 0; // RA2: as above
         }
         if (need_scrollbar) {
             DestroyWindow(data->ScrollBar); // RA2: as above
         }
         ReleaseCapture();
-        SendMessageA(Combo_Owner, 0x14f, 0, 0); // RA2: as above
+			SendMessageA(Combo_Owner, CB_SHOWDROPDOWN, 0, 0); // RA2: as above
         return 0; // RA2: as above
     }
     case 0x4e8: { // RA2: as above
@@ -5069,8 +5069,8 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         int y = (unsigned int)lparam >> 16; // RA2: as above
         int result = -1; // RA2: as above
         if (x >= 0 && y >= 0 && x < client.right && y < client.bottom) {
-            int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
-            int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
+			int item_height = SendMessageA(Combo_Owner, CB_GETITEMHEIGHT, 0, 0); // RA2: as above
+			int item_count = SendMessageA(Combo_Owner, CB_GETCOUNT, 0, 0); // RA2: as above
             int index = y / item_height + data->Position; // RA2: as above
             int clamped = index < 0 ? 0 : index;
             int max_index = item_count - 1; // RA2: as above
@@ -5084,12 +5084,12 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     case 0x4ea: // RA2: as above
         return (LRESULT)Combo_Owner; // RA2: as above
     case 0x7e8: // RA2: as above
-        data->ItemState = SendMessageA(Combo_Owner, 0x147, 0, 0); // RA2: as above
+		data->ItemState = SendMessageA(Combo_Owner, CB_GETCURSEL, 0, 0); // RA2: as above
         return 0; // RA2: as above
-    case 0xf: { // RA2: as above
+	case WM_PAINT: { // RA2: as above
         BitFont *font = parent_data->Font; // RA2: as above
-        int item_count = SendMessageA(Combo_Owner, 0x146, 0, 0); // RA2: as above
-        int item_height = SendMessageA(Combo_Owner, 0x154, 0, 0); // RA2: as above
+		int item_count = SendMessageA(Combo_Owner, CB_GETCOUNT, 0, 0); // RA2: as above
+		int item_height = SendMessageA(Combo_Owner, CB_GETITEMHEIGHT, 0, 0); // RA2: as above
         int client_height = client.bottom - client.top;
         Rect dest_rect(rect.left, rect.top, rect.right - rect.left, client_height);
         int selected = data->ItemState; // RA2: as above
@@ -5202,14 +5202,14 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         ValidateRect(window, 0);
         return 0; // RA2: as above
     }
-    case 2: // RA2: as above
+	case WM_DESTROY: // RA2: as above
         Remove_Audio_File_Window(window); // RA2: as above
         break;
     }
     if (need_scrollbar == 1) {
         if (data && !data->ScrollBar) { // RA2: as above
             data->ScrollBar = (HWND)1; // RA2: as above
-            GetWindowLongA(window, -12); // RA2: as above
+			GetWindowLongA(window, GWL_ID); // RA2: as above
             parent = GetParent(window);
             RECT parent_display;
             Get_Display_Rect(parent, &parent_display);
@@ -5239,10 +5239,10 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
             info.nMin = 0;
             info.nPos = data->Position; // RA2: as above
             info.cbSize = 0x1c; // RA2: as above
-            SendMessageA(data->ScrollBar, 0xe9, 0, (LPARAM)&info); // RA2: as above
+			SendMessageA(data->ScrollBar, SBM_SETSCROLLINFO, 0, (LPARAM)&info); // RA2: as above
             SendMessageA(data->ScrollBar, 0x4f1, 0, alternate); // RA2: as above
-            SetWindowPos(window, 0, 0, 0, drop_display.right - drop_display.left - scrollbar_width, drop_display.bottom - drop_display.top, 2); // RA2: as above
-            ShowWindow(data->ScrollBar, 5); // RA2: as above
+			SetWindowPos(window, 0, 0, 0, drop_display.right - drop_display.left - scrollbar_width, drop_display.bottom - drop_display.top, SWP_NOMOVE); // RA2: as above
+			ShowWindow(data->ScrollBar, SW_SHOW); // RA2: as above
             BringWindowToTop(data->ScrollBar); // RA2: as above
             InvalidateRect(data->ScrollBar, 0, 0); // RA2: as above
             UpdateWindow(data->ScrollBar); // RA2: as above
@@ -5260,7 +5260,7 @@ LRESULT __stdcall Combo_Drop_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         Restore_Child(data->ScrollBar, 0); // RA2: as above
         data->ScrollBar = 0; // RA2: as above
         data->ScrollWidth = 0; // RA2: as above
-        SetWindowPos(window, 0, 0, 0, client.right - client.left + scrollbar_width, client.bottom - client.top, 2); // RA2: as above
+		SetWindowPos(window, 0, 0, 0, client.right - client.left + scrollbar_width, client.bottom - client.top, SWP_NOMOVE); // RA2: as above
         parent = GetParent(window);
         RECT validate_parent; // RA2: as above
         Get_Display_Rect(parent, &validate_parent); // RA2: as above
@@ -5282,7 +5282,7 @@ namespace OwnerDraw { // RA2: as above
 BOOL __stdcall Replace_Edit(HWND window, LPARAM) // RA2: as above
 {
     unsigned int style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
-    SetWindowLongA(window, -21, 0); // RA2: as above
+	SetWindowLongA(window, GWL_USERDATA, 0); // RA2: as above
     if ((style & 0x10000000) && !(style & 0x08000000)) { // RA2: as above
         char name[128]; // RA2: as above
         GetClassNameA(window, name, sizeof(name)); // RA2: as above
@@ -5303,14 +5303,14 @@ BOOL __stdcall Replace_Edit(HWND window, LPARAM) // RA2: as above
             LONG *data = (LONG *)operator new(8); // RA2: as above
             data[0] = (LONG)"NewEdit"; // RA2: as above
             data[1] = GetWindowLongA(window, GWL_STYLE); // RA2: as above
-            SetWindowLongA(list, -21, (LONG)data); // RA2: as above
+			SetWindowLongA(list, GWL_USERDATA, (LONG)data); // RA2: as above
             EnableWindow(window, FALSE); // RA2: as above
             ShowWindow(window, SW_HIDE); // RA2: as above
             EnableWindow(list, TRUE); // RA2: as above
             ShowWindow(list, SW_SHOWNORMAL); // RA2: as above
-            LONG id = GetWindowLongA(window, -12); // RA2: as above
-            SetWindowLongA(window, -12, GetWindowLongA(list, -12)); // RA2: as above
-            SetWindowLongA(list, -12, id); // RA2: as above
+			LONG id = GetWindowLongA(window, GWL_ID); // RA2: as above
+			SetWindowLongA(window, GWL_ID, GetWindowLongA(list, GWL_ID)); // RA2: as above
+			SetWindowLongA(list, GWL_ID, id); // RA2: as above
         }
     }
     return TRUE; // RA2: as above
@@ -5382,7 +5382,7 @@ BOOL __stdcall Subclass_Control(HWND window, LPARAM lparam) // RA2: as above
     }
     WNDPROC custom_proc = 0; // RA2: as above
     int kind = 0xb; // RA2: as above
-    LONG *user_data = (LONG *)GetWindowLongA(window, -21); // RA2: as above
+	LONG * user_data = (LONG *)GetWindowLongA(window, GWL_USERDATA); // RA2: as above
     if (user_data) { // RA2: as above
         strcpy(class_name, (char const *)user_data[0]); // RA2: as above
     }
@@ -5491,11 +5491,11 @@ BOOL __stdcall Restore_Child(HWND window, LPARAM lparam) // RA2: as above
     Window_Proc_Table.remove(window); // RA2: as above
     Control_Table.remove((unsigned int const &)window); // RA2: as above
     Window_Table.remove(window); // RA2: as above
-    void *data = (void *)GetWindowLongA(window, -21); // RA2: as above
+	void * data = (void *)GetWindowLongA(window, GWL_USERDATA); // RA2: as above
     if (data != 0) { // RA2: as above
         operator delete(data); // RA2: as above
     }
-    SetWindowLongA(window, -21, 0); // RA2: as above
+	SetWindowLongA(window, GWL_USERDATA, 0); // RA2: as above
     Remove_Audio_File_Window(window); // RA2: as above
     return 1; // RA2: as above
 }
@@ -5631,7 +5631,7 @@ int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 6113 bytes differ against the frozen image bound (image_bounds.csv)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 4898 bytes differ against the frozen image bound (image_bounds.csv)
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -5826,8 +5826,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 			result = data->SkipCheckPaint; // RA2: as above
 			data->SkipCheckPaint = lparam; // RA2: as above
 			if (linked != 0) { // RA2: as above
-				WinData *linkeddata = 0; // RA2: as above
-				::Control_Table.getPointer((unsigned int const &)data->ScrollBar, &linkeddata); // RA2: as above
+				WinData * linkeddata = Get_Record(linked); // RA2: as above
 				if (linkeddata != 0) { // RA2: as above
 					linkeddata->SkipCheckPaint = lparam; // RA2: as above
 				}
@@ -5939,13 +5938,13 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		}
 	}
 	if (data) {
-		if (message == 0x49c) { // RA2: as above
+		if (message == OD_SETIMAGE) { // RA2: as above
 			result = (LRESULT)data->Image; // RA2: as above
 			data->Image = (Surface *)lparam; // RA2: as above
 			goto cleanup;
-		} else if (message == 0x4aa) { // RA2: as above
-			result = (LRESULT)(*(Surface **)((char *)data + 0x18)); // RA2: as above
-			(*(Surface **)((char *)data + 0x18)) = (Surface *)lparam; // RA2: as above
+		} else if (message == OD_SETALTIMAGE) { // RA2: as above
+			result = (LRESULT)data->AlternateImage; // RA2: as above
+			data->AlternateImage = (Surface *)lparam; // RA2: as above
 			goto cleanup;
 		} else if (message == 0x49a) { // RA2: as above
 			result = (*(int *)((char *)data + 0x24)); // RA2: as above
@@ -6089,7 +6088,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 			WinData *ownerdata = 0; // RA2: as above
 			if (owner != 0) { // RA2: as above
-				Control_Table.getPointer((unsigned int const &)owner, &ownerdata); // RA2: as above
+				ownerdata = Get_Record(owner); // RA2: as above
 			}
 
 			int state;
@@ -6284,10 +6283,10 @@ LRESULT __stdcall Default_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
     GetClientRect(window, &client);
     WinData *record = 0; // RA2: as above
     Control_Table.getPointer((unsigned int const &)window, &record); // RA2: as above
-    if (message == 0x133) { // RA2: as above
+	if (message == WM_CTLCOLOREDIT) { // RA2: as above
         SetTextColor((HDC)wparam, Text_Color); // RA2: as above
-        SetBkMode((HDC)wparam, 1); // RA2: as above
-        return (LRESULT)GetStockObject(5); // RA2: as above
+		SetBkMode((HDC)wparam, TRANSPARENT); // RA2: as above
+		return (LRESULT)GetStockObject(NULL_BRUSH); // RA2: as above
     }
     return CallWindowProcA(proc, window, message, wparam, lparam); // RA2: as above
 }
@@ -6873,7 +6872,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         data->Position=1; // RA2: as above
         SetFocus(MainWindow);
     }
-    LONG style=GetWindowLongA(window,-16); // RA2: as above
+	LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
 	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == 9) return 0; // RA2: as above
     if(message==0x497) { // RA2: as above
         RECT winrect,client,parentrect; // RA2: as above
@@ -6888,7 +6887,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         }
         if(style&0x10000) { // RA2: as above
             data->HadTabStop=1; // RA2: as above
-            SetWindowLongA(window,-16,style&~0x10000); // RA2: as above
+			SetWindowLongA(window, GWL_STYLE, style & ~0x10000); // RA2: as above
         }
         return 0; // RA2: as above
     }
@@ -6924,7 +6923,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
                 strcat(text,"\r\n"); // RA2: as above
                 CallWindowProcA(previous,window,0xc,0,(LPARAM)text); // RA2: as above
                 delete [] text; // RA2: as above
-                unsigned int id=GetWindowLongA(window,-12)&0xffff; // RA2: as above
+				unsigned int id = GetWindowLongA(window, GWL_ID) & 0xffff; // RA2: as above
                 SendMessageA(GetParent(window),0x111,id|0x5010000,(LPARAM)window); // RA2: as above
                 return 0; // RA2: as above
             }
@@ -6945,7 +6944,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
             SetFocus(window);
             data->Position=0; // RA2: as above
         }
-        if(data->HadTabStop)SetWindowLongA(window,-16,style|0x10000); // RA2: as above
+		if (data->HadTabStop) SetWindowLongA(window, GWL_STYLE, style | 0x10000); // RA2: as above
         return 0; // RA2: as above
     }
 	if (message == WM_PAINT || message == WM_ERASEBKGND) { // RA2: as above
@@ -6965,7 +6964,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         int caret=0; // RA2: as above
         Edit_Text(window,Edit_Buffer,0x1400,&caret); // RA2: as above
         Rect text(display.left,display.top,display.right-display.left+1,display.bottom-display.top+1); // RA2: as above
-        LONG text_style=GetWindowLongA(window,-16); // RA2: as above
+		LONG text_style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
         Draw_Edit_Text(AlternateSurface,text,Edit_Buffer,caret, // RA2: as above
             data->Font,Text_Color,&data->EditScroll,data->Reserved_38,((unsigned int)text_style>>5)&1,0,0); // RA2: as above
         ValidateRect(window,0); // RA2: as above
@@ -7742,7 +7741,7 @@ LRESULT __stdcall Checkbox_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lp
     Control_Table.getPointer(key, &data); // RA2: as above
     if(data) { // RA2: as above
     switch(message) { // RA2: as above
-    case 0xf: // RA2: as above
+		case WM_PAINT: // RA2: as above
         if(data->SkipCheckPaint)break; // RA2: as above
         {
             RECT client;
@@ -7754,11 +7753,11 @@ LRESULT __stdcall Checkbox_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lp
             destination=Rect(bounds.display.left,bounds.display.top,bounds.display.right-bounds.display.left,bounds.display.bottom-bounds.display.top); // RA2: as above
             destination.Width=18; // RA2: as above
             destination.Height=18; // RA2: as above
-            LONG style=GetWindowLongA(window,-16); // RA2: as above
+				LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
             int state=data->ItemState; // RA2: as above
             bool special=data->IsCheckAltArt; // RA2: as above
             bool alternate=data->IsCheckAltSelected; // RA2: as above
-            bool checked=state==1; // RA2: as above
+				bool checked = state == BST_CHECKED; // RA2: as above
             char image_name[64]; // RA2: as above
             if(special) { // RA2: as above
                 if(checked) { // RA2: as above
@@ -7777,40 +7776,40 @@ LRESULT __stdcall Checkbox_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lp
             int height=image->Get_Height(); // RA2: as above
             Rect source(0,0,image->Get_Width(),height); // RA2: as above
             AlternateSurface->Blit_From(destination,*image,source,false,true); // RA2: as above
-            if(style & 0x08000000)Blend_Rect(&destination,AlternateSurface,0,Dim_Alpha); // RA2: as above
+				if (style & WS_DISABLED) Blend_Rect(&destination, AlternateSurface, 0, Dim_Alpha); // RA2: as above
             wchar_t *text=data->Text; // RA2: as above
             bounds.text.left+=26; // RA2: as above
             if(text) { // RA2: as above
                 unsigned int color=Text_Color; // RA2: as above
-                if(style & 0x08000000)color=Disabled_Text_Color; // RA2: as above
+					if (style & WS_DISABLED) color = Disabled_Text_Color; // RA2: as above
                 Draw_Text_In_Rect_Ex(AlternateSurface,text,&bounds.text,data->Font,color,4,0xc,0,0,0); // RA2: as above
             }
             ValidateRect(window,0); // RA2: as above
         }
 zero_result: // RA2: as above
         return 0; // RA2: as above
-    case 0xf0:return data->ItemState; // RA2: as above
-    case 0xf1: // RA2: as above
+case BM_GETCHECK: return data->ItemState; // RA2: as above
+case BM_SETCHECK: // RA2: as above
         data->ItemState=wparam; // RA2: as above
         InvalidateRect(window,0,0); // RA2: as above
         return 0; // RA2: as above
-    case 7:case 8:InvalidateRect(window,0,0);break; // RA2: as above
-    case 0x201:case 0x203: { // RA2: as above
+case WM_SETFOCUS:case WM_KILLFOCUS: InvalidateRect(window, 0, 0); break; // RA2: as above
+case WM_LBUTTONDOWN:case WM_LBUTTONDBLCLK: { // RA2: as above
         Point2D click((unsigned int)lparam & 0xffff,(unsigned int)lparam>>16); // RA2: as above
         if(click.X>=18)goto zero_result; // RA2: as above
         if(click.Y>=18)goto zero_result; // RA2: as above
-        int checked=data->ItemState!=1; // RA2: as above
+	int checked = data->ItemState != BST_CHECKED; // RA2: as above
         data->ItemState=checked; // RA2: as above
         InvalidateRect(window,0,0); // RA2: as above
         VocClass::PlayGlobal(Rule->GUICheckboxSound,1.0f,0x2000,0); // RA2: as above
         HWND parent=GetParent(window); // RA2: as above
-        SendMessageA(parent,0x111,(unsigned int)(unsigned short)GetWindowLongA(window,-12)|((unsigned int)(unsigned short)checked<<16),(LPARAM)window); // RA2: as above
+	SendMessageA(parent, WM_COMMAND, (unsigned int)(unsigned short)GetWindowLongA(window, GWL_ID) | ((unsigned int)(unsigned short)checked << 16), (LPARAM)window); // RA2: as above
         return 0; // RA2: as above
     }
-    case 0x497: { // RA2: as above
+case OD_SUBCLASSED: { // RA2: as above
         WNDPROC previous=0; // RA2: as above
         Window_Proc_Table.getValue(window, previous); // RA2: as above
-        data->ItemState=CallWindowProcA(previous,window,0xf0,0,0); // RA2: as above
+	data->ItemState = CallWindowProcA(previous, window, BM_GETCHECK, 0, 0); // RA2: as above
         break;
     }
     case 0x4e5: { // RA2: as above
@@ -7849,9 +7848,9 @@ LRESULT __stdcall Button_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lpar
     RECT client; memset(&client,0,sizeof(client)); // RA2: as above
     GetClientRect(window,&client); // RA2: as above
     int state=data->ItemState; // RA2: as above
-    LONG style=GetWindowLongA(window,-16); // RA2: as above
+	LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
     switch(message) { // RA2: as above
-    case 0xf: { // RA2: as above
+		case WM_PAINT: { // RA2: as above
         Rect rect=origin; // RA2: as above
         unsigned long color=Text_Color; // RA2: as above
         if(!data->Back) { // RA2: as above
@@ -7874,7 +7873,7 @@ LRESULT __stdcall Button_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lpar
         } else {
             char updown='u'; // RA2: as above
             if(state & 1)updown='d'; // RA2: as above
-            if(style & 0x08000000)updown='u'; // RA2: as above
+				if (style & WS_DISABLED) updown = 'u'; // RA2: as above
             int widths[2]={7,7}; // RA2: as above
             int margins[2]={10,10}; // RA2: as above
             int heights[2]={24,30}; // RA2: as above
@@ -7940,22 +7939,22 @@ LRESULT __stdcall Button_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lpar
             if(state & 1) {text_rect.left+=2;text_rect.top+=4;} // RA2: as above
             Draw_Text_In_Rect_Ex(AlternateSurface,data->Text,&text_rect,data->Font,color,5,0xc,0,0,0); // RA2: as above
         }
-        if(style & 0x08000000)Blend_Rect(&rect,AlternateSurface,0,128); // RA2: as above
+			if (style & WS_DISABLED) Blend_Rect(&rect, AlternateSurface, 0, 128); // RA2: as above
         ValidateRect(window,0); // RA2: as above
         return 0; // RA2: as above
     }
-    case 0xf0:return data->ItemState; // RA2: as above
-    case 0xf1: // RA2: as above
+		case BM_GETCHECK: return data->ItemState; // RA2: as above
+		case BM_SETCHECK: // RA2: as above
         data->ItemState=wparam; // RA2: as above
         InvalidateRect(window,0,1); // RA2: as above
         break;
-    case 0x497: { // RA2: as above
+		case OD_SUBCLASSED: { // RA2: as above
         WNDPROC previous=0; // RA2: as above
         Window_Proc_Table.getValue(window, previous); // RA2: as above
-        data->ItemState=CallWindowProcA(previous,window,0xf0,0,0); // RA2: as above
+			data->ItemState = CallWindowProcA(previous, window, BM_GETCHECK, 0, 0); // RA2: as above
         break;
     }
-    case 0x201:case 0x203: // RA2: as above
+		case WM_LBUTTONDOWN:case WM_LBUTTONDBLCLK: // RA2: as above
         if(!data->ItemState) { // RA2: as above
             data->ItemState=1; // RA2: as above
             InvalidateRect(window,0,1); // RA2: as above
@@ -7963,11 +7962,11 @@ LRESULT __stdcall Button_Proc(HWND window,UINT message,WPARAM wparam,LPARAM lpar
             break;
         }
         return 0; // RA2: as above
-    case 0x202: { // RA2: as above
+		case WM_LBUTTONUP: { // RA2: as above
         LockWindowUpdate(GetParent(window)); // RA2: as above
         WNDPROC previous=0; // RA2: as above
         Window_Proc_Table.getValue(window, previous); // RA2: as above
-        LRESULT result=CallWindowProcA(previous,window,0x202,wparam,lparam); // RA2: as above
+			LRESULT result = CallWindowProcA(previous, window, WM_LBUTTONUP, wparam, lparam); // RA2: as above
         LockWindowUpdate(0); // RA2: as above
         return result; // RA2: as above
     }
@@ -8044,7 +8043,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     }
     int grip_top = 0;
     int grip_bottom = 0;
-    int scroll_code = 0;
+	int scroll_code = SB_LINEUP;
     int width = client_rect.right - client_rect.left;
     int travel = client_rect.bottom - client_rect.top - 44; // RA2: as above
     int grip_height = (int)((double)travel - log((double)(range + 1)) * (double)travel * 0.2); // RA2: as above
@@ -8055,7 +8054,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     if (travel <= 1) {
         travel = 1;
     }
-    if (message < 0x400 || message == 0x4a5) { // RA2: as above
+	if (message < WM_USER || message == 0x4a5) { // RA2: as above
         if (!dragging) {
             grip_top = position * travel / range + client_rect.top + 22;
             grip_bottom = grip_top + grip_height;
@@ -8071,39 +8070,39 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                 grip_top = client_rect.bottom - grip_height - 22;
             }
             grip_bottom = grip_top + grip_height;
-            scroll_code = 5; // RA2: as above
+			scroll_code = SB_THUMBTRACK; // RA2: as above
             position = range * (grip_top - 22) / travel;
         }
     }
     switch (message) {
-    case 0xe1: // RA2: as above
+		case SBM_GETPOS: // RA2: as above
         return position; // RA2: as above
-    case 0xe0: // RA2: as above
+		case SBM_SETPOS: // RA2: as above
         if ((int)wparam <= range && (int)wparam > 0) {
             position = (int)wparam;
         }
         break;
-    case 0xe2: // RA2: as above
+		case SBM_SETRANGE: // RA2: as above
         range = (int)lparam;
         if (position > range) {
             position = range;
         }
         break;
-    case 0xe9: { // RA2: as above
+		case SBM_SETSCROLLINFO: { // RA2: as above
         SCROLLINFO *info = (SCROLLINFO *)lparam; // RA2: as above
         range = info->nMax;
         position = info->nPos;
         break;
     }
-    case 0x84: // RA2: as above
-    case 0x87: { // RA2: as above
+		case WM_NCHITTEST: // RA2: as above
+		case WM_GETDLGCODE: { // RA2: as above
         WNDPROC proc = 0; // RA2: as above
         Window_Proc_Table.getValue(window, proc); // RA2: as above
         return CallWindowProcA(proc, window, message, wparam, lparam); // RA2: as above
     }
-    case 0x14: // RA2: as above
+		case WM_ERASEBKGND: // RA2: as above
         return 0; // RA2: as above
-    case 0xf: { // RA2: as above
+		case WM_PAINT: { // RA2: as above
         if (data->IsDisabled) { // RA2: as above
             ValidateRect(window, 0);
             break;
@@ -8212,7 +8211,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         ValidateRect(window, 0);
         break;
     }
-    case 0x113: { // RA2: as above
+		case WM_TIMER: { // RA2: as above
         POINT cursor;
         GetCursorPos(&cursor);
         ScreenToClient(window, &cursor);
@@ -8224,7 +8223,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                     up_pressed = 1;
                 }
                 if (position != 0) {
-                    scroll_code = 0; // RA2: as above
+						scroll_code = SB_LINEUP; // RA2: as above
                     position--; // RA2: as above
                 }
             } else if (cursor.y > client_rect.bottom - 22) {
@@ -8232,7 +8231,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                     down_pressed = 1;
                 }
                 if (position + 1 <= range) {
-                    scroll_code = 1; // RA2: as above
+						scroll_code = SB_LINEDOWN; // RA2: as above
                     position++; // RA2: as above
                 }
             }
@@ -8240,16 +8239,16 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         SetTimer(window, 0, 0x19, 0); // RA2: as above
         break;
     }
-    case 0x200: // RA2: as above
+		case WM_MOUSEMOVE: // RA2: as above
         if (dragging) {
             RECT area = client_rect; // RA2: as above
             area.left = client_rect.right - width; // RA2: as above
             InvalidateRect(window, &area, 0); // RA2: as above
         }
-        if (wparam & 1) { // RA2: as above
+			if (wparam & MK_LBUTTON) { // RA2: as above
             break;
         }
-    case 0x202: // RA2: as above
+		case WM_LBUTTONUP: // RA2: as above
         message_result = 0;
         dragging = 0;
         if (up_pressed || down_pressed) {
@@ -8262,10 +8261,10 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
         if (keep_parent_capture) {
             SetCapture(data->ScrollOwner); // RA2: as above
         }
-        scroll_code = 8; // RA2: as above
+			scroll_code = SB_ENDSCROLL; // RA2: as above
         break;
-    case 0x201: // RA2: as above
-    case 0x203: { // RA2: as above
+		case WM_LBUTTONDOWN: // RA2: as above
+		case WM_LBUTTONDBLCLK: { // RA2: as above
 		if (message == WM_LBUTTONDOWN) { // RA2: as above
             message_result = 1;
             SetCapture(window);
@@ -8292,14 +8291,14 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
             if (click.x > client_rect.right - width) { // RA2: as above
                 if (click.y < 22 && position) { // RA2: as above
                     up_pressed = 1;
-                    scroll_code = 0; // RA2: as above
+						scroll_code = SB_LINEUP; // RA2: as above
                     position--; // RA2: as above
                 } else {
                     bool skip_thumb = false; // RA2: as above
                     if (click.y > client_rect.bottom - 22) { // RA2: as above
                         if (position + 1 <= range) {
                             down_pressed = 1;
-                            scroll_code = 1; // RA2: as above
+								scroll_code = SB_LINEDOWN; // RA2: as above
                             position++; // RA2: as above
                             skip_thumb = true; // RA2: as above
                         }
@@ -8314,7 +8313,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
                                 grip_top = client_rect.bottom - grip_height - 22;
                             }
                             grip_bottom = grip_top + grip_height;
-                            scroll_code = 5; // RA2: as above
+								scroll_code = SB_THUMBTRACK; // RA2: as above
                             position = range * (grip_top - 22) / travel;
 						} else if (message == WM_LBUTTONDOWN) { // RA2: as above
                             dragging = 1;
@@ -8346,7 +8345,7 @@ LRESULT __stdcall Scroll_Bar_Proc(HWND window, UINT message, WPARAM wparam, LPAR
     data->up_pressed = up_pressed; // RA2: as above
     data->down_pressed = down_pressed; // RA2: as above
     if (send_notify) {
-        SendMessageA(data->ScrollOwner, 0x115, (unsigned short)position << 16 | (unsigned short)scroll_code, (LPARAM)window); // RA2: as above
+		SendMessageA(data->ScrollOwner, WM_VSCROLL, (unsigned short)position << 16 | (unsigned short)scroll_code, (LPARAM)window); // RA2: as above
         InvalidateRect(window, 0, 0); // RA2: as above
     }
     return 0; // RA2: as above
@@ -8364,14 +8363,14 @@ LRESULT __stdcall Progress_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
     Control_Table.getPointer((unsigned int)window, &data); // RA2: as above
     if (data) {
         switch (message) {
-        case 0x497: // RA2: as above
+			case OD_SUBCLASSED: // RA2: as above
             data->RangeMax = 100; // RA2: as above
             break;
-        case 0x401: // RA2: as above
+			case PBM_SETRANGE: // RA2: as above
             data->ItemState = (unsigned int)lparam & 0xffff; // RA2: as above
             data->RangeMax = (unsigned int)lparam >> 16; // RA2: as above
             break;
-        case 0x402: { // RA2: as above
+			case PBM_SETPOS: { // RA2: as above
             int position = (int)wparam;
             if (position < data->ItemState) position = data->ItemState; // RA2: as above
             if (position > data->RangeMax) position = data->RangeMax; // RA2: as above
@@ -8379,7 +8378,7 @@ LRESULT __stdcall Progress_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
             InvalidateRect(window, 0, 0); // RA2: as above
             break;
         }
-        case 0xf: { // RA2: as above
+			case WM_PAINT: { // RA2: as above
             Rect source(0, 0, rect.right-rect.left+1, rect.bottom-rect.top+1); // RA2: as above
             Rect destination(rect.left, rect.top, rect.right-rect.left+1, rect.bottom-rect.top+1); // RA2: as above
             if (!data->Back) { // RA2: as above
@@ -8416,7 +8415,6 @@ struct TrackBarState { // RA2: as above
     int click_suppress; // RA2: as above
 };
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; lane F14 removed five unused coined predicates above it, typed Is_Listed_Kind bool and put Enable_Animated_Control's guarded draft in ra2-decomp's text)
 LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     bool play_click = true;
@@ -8749,7 +8747,6 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     return 0; // RA2: as above
 }
-#endif
 
 }
 
@@ -8759,7 +8756,7 @@ namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Group_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     switch (message) {
-    case 0xf: { // RA2: as above
+		case WM_PAINT: { // RA2: as above
         int gap = 0; // RA2: as above
         WinData *record = Get_Record(window); // RA2: as above
         if (!record) { // RA2: as above
@@ -8790,9 +8787,9 @@ LRESULT __stdcall Group_Box_Proc(HWND window, UINT message, WPARAM wparam, LPARA
         ValidateRect(window, 0);
         return 0; // RA2: as above
     }
-    case 0x14: // RA2: as above
+		case WM_ERASEBKGND: // RA2: as above
         return 1; // RA2: as above
-    case 0x85: // RA2: as above
+		case WM_NCPAINT: // RA2: as above
         return 0; // RA2: as above
     }
     WNDPROC proc = 0; // RA2: as above
@@ -8808,7 +8805,7 @@ namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     switch (message) {
-    case 0xf: { // RA2: as above
+		case WM_PAINT: { // RA2: as above
         RECT area; // RA2: as above
         Get_Display_Rect(window, &area); // RA2: as above
         Rect screen(area.left, area.top, area.right - area.left + 1, area.bottom - area.top + 1); // RA2: as above
@@ -8825,7 +8822,7 @@ LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
             surface->Blit_From(local, *AlternateSurface, screen, false, true); // RA2: as above
         }
         wchar_t text[64]; // RA2: as above
-        unsigned short hotkey = (unsigned short)SendMessageA(window, 0x402, 0, 0); // RA2: as above
+			unsigned short hotkey = (unsigned short)SendMessageA(window, HKM_GETHOTKEY, 0, 0); // RA2: as above
         Hotkey_Text(hotkey, text); // RA2: as above
         if (record->Back) { // RA2: as above
             AlternateSurface->Blit_From(screen, *record->Back, local, false, true); // RA2: as above
@@ -8841,9 +8838,9 @@ LRESULT __stdcall Hotkey_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
         ValidateRect(window, 0);
         return 0; // RA2: as above
     }
-    case 0x14: // RA2: as above
+		case WM_ERASEBKGND: // RA2: as above
         return 1; // RA2: as above
-    case 0x85: // RA2: as above
+		case WM_NCPAINT: // RA2: as above
         return 0; // RA2: as above
     }
     WNDPROC proc = 0; // RA2: as above
@@ -9388,15 +9385,15 @@ void __fastcall Dialog_On_WM_DRAWITEM(long item) // RA2: as above
         RECT client;
         Get_Display_Rect(draw->hwndItem, &area); // RA2: as above
         GetClientRect(draw->hwndItem, &client); // RA2: as above
-        if (GetWindowLongA(draw->hwndItem, GWL_STYLE) & 0x800000) { // RA2: as above
-            int border_x = GetSystemMetrics(5); // RA2: as above
-            int border_y = GetSystemMetrics(6); // RA2: as above
+		if (GetWindowLongA(draw->hwndItem, GWL_STYLE) & WS_BORDER) { // RA2: as above
+			int border_x = GetSystemMetrics(SM_CXBORDER); // RA2: as above
+			int border_y = GetSystemMetrics(SM_CYBORDER); // RA2: as above
             area.left += border_x; // RA2: as above
             area.right -= border_x; // RA2: as above
             area.top += border_y; // RA2: as above
             area.bottom -= border_y; // RA2: as above
         }
-        if (draw->CtlType == 4) { // RA2: as above
+		if (draw->CtlType == ODT_BUTTON) { // RA2: as above
             HWND window = draw->hwndItem; // RA2: as above
             OwnerDraw::WinData *record = 0; // RA2: as above
             Control_Table.getPointer((unsigned int)window, &record); // RA2: as above
@@ -10323,9 +10320,9 @@ WinData::WinData(WinData const & other) // RA2: 0x6006E0 (ra2-decomp's twin 0x62
 
 int __fastcall Clear_ComboBox(HWND combo) // RA2: as above
 {
-    int index = SendMessageA(combo, 0x146, 0, 0); // RA2: as above
+	int index = SendMessageA(combo, CB_GETCOUNT, 0, 0); // RA2: as above
     while (index--) { // RA2: as above
-        SendMessageA(combo, 0x144, index, 0); // RA2: as above
+		SendMessageA(combo, CB_DELETESTRING, index, 0); // RA2: as above
     }
     return 0; // RA2: as above
 }
@@ -10514,9 +10511,9 @@ int __stdcall Choice_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 
 int __fastcall Clear_List_Box(HWND listbox) // RA2: as above
 {
-    int index = SendMessageA(listbox, 0x18B, 0, 0); // RA2: as above
+	int index = SendMessageA(listbox, LB_GETCOUNT, 0, 0); // RA2: as above
     while (index--) { // RA2: as above
-        SendMessageA(listbox, 0x182, index, 0); // RA2: as above
+		SendMessageA(listbox, LB_DELETESTRING, index, 0); // RA2: as above
     }
     return 0; // RA2: as above
 }
@@ -10524,7 +10521,7 @@ int __fastcall Clear_List_Box(HWND listbox) // RA2: as above
 
 LRESULT __fastcall Get_Control_Text(HWND window, Wstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0xE, 0, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, WM_GETTEXTLENGTH, 0, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
         return 0; // RA2: as above
@@ -10539,7 +10536,7 @@ LRESULT __fastcall Get_Control_Text(HWND window, Wstring &text) // RA2: as above
 
 LRESULT __fastcall Get_Control_Wide_Text(HWND window, WideWstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0xE, 0, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, WM_GETTEXTLENGTH, 0, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
         return 0; // RA2: as above
@@ -10554,7 +10551,7 @@ LRESULT __fastcall Get_Control_Wide_Text(HWND window, WideWstring &text) // RA2:
 
 LRESULT __fastcall Get_List_Item_Text(HWND window, WPARAM index, Wstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0x18A, index, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, LB_GETTEXTLEN, index, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
     }
@@ -10568,7 +10565,7 @@ LRESULT __fastcall Get_List_Item_Text(HWND window, WPARAM index, Wstring &text) 
 
 LRESULT __fastcall Get_List_Item_Wide_Text(HWND window, WPARAM index, WideWstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0x18A, index, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, LB_GETTEXTLEN, index, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
     }
@@ -10582,7 +10579,7 @@ LRESULT __fastcall Get_List_Item_Wide_Text(HWND window, WPARAM index, WideWstrin
 
 LRESULT __fastcall Get_Combo_Item_Text(HWND window, WPARAM index, Wstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0x149, index, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, CB_GETLBTEXTLEN, index, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
     }
@@ -10596,7 +10593,7 @@ LRESULT __fastcall Get_Combo_Item_Text(HWND window, WPARAM index, Wstring &text)
 
 LRESULT __fastcall Get_Combo_Item_Wide_Text(HWND window, WPARAM index, WideWstring &text) // RA2: as above
 {
-    LRESULT length = SendMessageA(window, 0x149, index, 0); // RA2: as above
+	LRESULT length = SendMessageA(window, CB_GETLBTEXTLEN, index, 0); // RA2: as above
     if (length <= 0) { // RA2: as above
         text.clear(); // RA2: as above
     }
@@ -10668,7 +10665,7 @@ int __fastcall Controlled_Dialog(int resource,DLGPROC procedure,DialogControl *c
         control->Set_Window(0,0); // RA2: as above
         return 0; // RA2: as above
     }
-    ShowWindow(window,1); // RA2: as above
+	ShowWindow(window, SW_SHOWNORMAL); // RA2: as above
     SetForegroundWindow(window);
     Keyboard->Clear();
     while(!control->Is_Done()&&!control->Is_Cancelled()) { // RA2: as above

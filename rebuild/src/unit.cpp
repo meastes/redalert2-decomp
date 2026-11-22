@@ -2187,7 +2187,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 			RadioClass * radio = Radio_Link(0);
 			if (radio && radio->What_Am_I() == RTTI_BUILDING && ((BuildingClass *)radio)->Class->IsWeeder) Transmit_Message(RADIO_OVER_OUT);
 		}
-		if (!NavCom && Path[0] == -1 && !Class->MobileFire) Arm = Rearm_Delay(1) / 4;
+		if (!NavCom && Path[0] == FACING_NONE && !Class->MobileFire) Arm = Rearm_Delay(1) / 4;
 		CellClass * current_cell = &Map[Get_Coord()];
 		LandType land = current_cell->Land_Type();
 		if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell, FACING_NONE, -1, 0, true) == MOVE_NO && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
@@ -2202,7 +2202,7 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 		}
 	}
 	CellClass * current_cell = &Map[cell];
-	if ((Class->IsCrusher || Has_Ability(ABILITY_CRUSHER)) && current_cell->Overlay != -1) {
+	if ((Class->IsCrusher || Has_Ability(ABILITY_CRUSHER)) && current_cell->Overlay != OVERLAY_NONE) {
 		OverlayTypeClass const * overlay = OverlayTypes[current_cell->Overlay];
 		if (overlay->IsCrushable) {
 			VocClass::PlayAt(overlay->CrushSound, Center_Coord(), NULL); // RA2: as above

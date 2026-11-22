@@ -67,6 +67,7 @@ class WideWstring
 
 class Wstring;
 WideWstring Wstring_ToWide(Wstring const & text); // RA2: widens each character of a narrow string
+WideWstring __fastcall Wide_From_7_Bit(Wstring const & string); // RA2: unpacks a 7-bit string into wide characters
 
 // Declarations moved from the units that used them (one declaration per name).
 extern WideWstring __fastcall WideWstring_FromInt(int value); // RA2: 0x007710C0

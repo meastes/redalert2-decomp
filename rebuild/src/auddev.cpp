@@ -748,7 +748,7 @@ void __fastcall AudioDeviceDump(AudioDevice * dev, void(__fastcall * print)(cons
 		}
 
 		name[0] = 0;
-		sprintf(fmt, "%02d-%2d-%c%c%c", chan->current_format.Rate / 1000, chan->current_format.Compression == 0 ? chan->current_format.SampleWidth << 3 : 4, chan->current_format.Channels != 1 ? 'S' : 'M', chan->format_changed ? '*' : ' ', chan->drv_format_changed ? '+' : ' ');
+		sprintf(fmt, "%02d-%2d-%c%c%c", chan->current_format.Rate / 1000, chan->current_format.Compression == AUDIO_COMPRESS_NONE ? chan->current_format.SampleWidth << 3 : 4, chan->current_format.Channels != 1 ? 'S' : 'M', chan->format_changed ? '*' : ' ', chan->drv_format_changed ? '+' : ' ');
 		sprintf(line, "#%2d :%s:%s:%s:%4d:%3d:%.10s\n", index, type, state, fmt, chan->Control.Priority, ((unsigned)chan->attribs.VolumeLevel.level >> AUDIO_LEVEL_SCALE) * 100 >> 14, name);
 		print(line);
 		index++;

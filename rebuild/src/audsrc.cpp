@@ -5,6 +5,7 @@
 #include "always.h"
 #include <windows.h>
 #include <mmsystem.h>
+#include <mmreg.h>
 #include "audsrc.h"
 #include "wwfile.h"
 #include <stdlib.h>
@@ -124,9 +125,9 @@ int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, i
 				unsigned long type;
 		} rh;
 
-		file->Seek(0, 0);
+		file->Seek(0, SEEK_SET);
 
-		if (file->Read(&rh, sizeof(rh)) == sizeof(rh) && rh.form == 0x46464952 && rh.type == 0x45564157) {
+		if (file->Read(&rh, sizeof(rh)) == sizeof(rh) && rh.form == FOURCC_RIFF && rh.type == mmioFOURCC('W', 'A', 'V', 'E')) {
 			struct {
 					unsigned long type;
 					unsigned long length;
@@ -134,7 +135,7 @@ int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, i
 
 			while (file->Read(&chunk, sizeof(chunk)) == sizeof(chunk)) {
 				switch (chunk.type) {
-				case 0x20746d66:
+					case mmioFOURCC('f', 'm', 't', ' '):
 					if (chunk.length < 0x12) {
 						wformat = (WAVEFORMATEX *)malloc(0x12);
 						memset(wformat, 0, 0x12);
@@ -145,20 +146,20 @@ int __fastcall AudioFormatReadWaveFile(FileClass * file, AudioFormat * format, i
 					file->Read(wformat, chunk.length);
 					wformat->cbSize = (unsigned short)chunk.length;
 					continue;
-				case 0x61746164:
+					case mmioFOURCC('d', 'a', 't', 'a'):
 					break;
 				default:
-					file->Seek(chunk.length, 1);
+						file->Seek(chunk.length, SEEK_CUR);
 					continue;
 				}
 
 				*bytes = chunk.length;
 				if (wformat) {
-					if (wformat->wFormatTag == 0x11) {
+					if (wformat->wFormatTag == WAVE_FORMAT_IMA_ADPCM) {
 						format->BlockSize = wformat->nBlockAlign;
 						format->Compression = AUDIO_COMPRESS_IMA_ADPCM;
 						format->SampleWidth = 2;
-					} else if (wformat->wFormatTag == 1) {
+					} else if (wformat->wFormatTag == WAVE_FORMAT_PCM) {
 						format->Compression = AUDIO_COMPRESS_NONE;
 						format->SampleWidth = wformat->wBitsPerSample / 8;
 					} else {

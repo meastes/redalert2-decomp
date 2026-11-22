@@ -234,7 +234,7 @@ void ParasiteClass::UpdateSquid(void) // RA2: 0x00606780
 			{
 				Victim->AngleRotatedSideways = 0; // RA2: as above
 				AnimType anim = AnimTypeClass::From_Name("SQDG"); // RA2: the squid grapple animation
-				if (anim != -1) { // RA2: as above
+				if (anim != ANIM_NONE) { // RA2: as above
 					AnimTypeClass * type = AnimTypes[anim]; // RA2: as above
 					if (type != NULL) { // RA2: as above
 						AnimClass * grapple = new AnimClass(type, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above

@@ -3757,7 +3757,7 @@ void InfantryClass::Fear_AI(void)
 	/*
 	**	After a time, the infantry will gain courage.
 	*/
-	if (Fear > 0) {
+	if (Fear > FEAR_NONE) {
 		if (!Class->IsFearless) {
 			Fear--;
 		}
@@ -3766,7 +3766,7 @@ void InfantryClass::Fear_AI(void)
 		**	When an armed civilian becomes unafraid, he will then reload
 		**	another clip into his pistol.
 		*/
-		if (Fear == 0 && Ammo == 0 && Is_Weapon_Equipped()) {
+		if (Fear == FEAR_NONE && Ammo == 0 && Is_Weapon_Equipped()) {
 			Ammo = Class->MaxAmmo;
 		}
 
@@ -4030,7 +4030,7 @@ void InfantryClass::Doing_AI(void)
 			default:
 				if (Doing != DO_NOTHING) { // RA2: face the sequence's facing
 					int facing = Class->DoControls[Doing].Facing; // RA2: as above
-					if (facing != -1) { // RA2: as above
+					if (facing != FACING_NONE) { // RA2: as above
 						PrimaryFacing.Set(DirType(facing << 13)); // RA2: as above
 					}
 				}

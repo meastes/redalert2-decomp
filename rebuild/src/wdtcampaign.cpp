@@ -187,7 +187,7 @@ void Campaign::Save_Progress(int faction) // RA2: the day is saved per faction (
 	}
 	ini.Put_Int(Name, key, LastDay[faction], 0); // RA2: as above
 	CDFileClass file;
-	file.Open("WDTHist.ini", 2);
+	file.Open("WDTHist.ini", FileClass::WRITE);
 	ini.Save(file);
 }
 
@@ -210,7 +210,7 @@ void Campaign::Reset_Progress(void) // RA2: 0x00726580, TibSun's Reset_INI; noth
 		ini.Put_Int(Name, key, 0, 0); // RA2: as above
 	}
 	CDFileClass file;
-	file.Open("WDTHist.ini", 2);
+	file.Open("WDTHist.ini", FileClass::WRITE);
 	ini.Save(file);
 }
 
@@ -252,7 +252,7 @@ void Campaign::Set_Faction(int faction) // RA2: 0x007267C0
 			ini.Put_Int(Name, key, PlayerFaction, 0); // RA2: as above
 		}
 		CDFileClass file;
-		file.Open("WDTHist.ini", 2);
+		file.Open("WDTHist.ini", FileClass::WRITE);
 		ini.Save(file);
 	}
 }

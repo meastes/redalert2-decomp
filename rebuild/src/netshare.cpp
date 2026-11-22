@@ -86,6 +86,7 @@ void __fastcall SetPlayerAccepted(Wstring const & name, int status); // RA2: 0x0
 int __fastcall GetPlayerAccepted(Wstring const & name); // RA2: 0x0073D3F0, a player's accept status (the counterpart of Net2GetAccept)
 int __fastcall Assign_House_And_Color(Wstring const & name, int country, int color); // RA2: 0x0073D550, the counterpart of Net2SetHouseAndColor
 bool Is_Tournament_Session(void); // RA2: 0x0073BDB0, Online_Session_State (Session.TournamentState) is 1 or 2
+void Redraw_Player_List(void); // RA2: 0x007412F0, defined in wonline.cpp
 void Draw_Player_List(int keep_selection, bool force); // RA2: 0x0073FEE0, redraws the chat service's player list (the counterpart of Net2DisplayUsers)
 bool __fastcall Is_Real_Player_Entry(NodeNameType * entry); // RA2: 0x005C9320, defined below
 Wstring __fastcall Lobby_Entry_Name(NodeNameType * entry); // RA2: 0x005CD0E0, the lobby's name for a fixed entry
@@ -1051,7 +1052,7 @@ int __fastcall Get_Slot_Control_Id(int slot); // RA2: 0x005C97A0, as above
 /// <param name="name">Name of the player the options came from.</param>
 /// <returns>bool; Did the scenario change?</returns>
 bool __fastcall Net2DecodeGameopt(char const * text, char const * sender); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row); 7569 bytes differ against the frozen image bound (image_bounds.csv)
 /*
  * If the host is forcing a color reassignment, then this flag will be true. It is set when
  * the host accepts the game options and cleared once the assignment has been processed, and
@@ -1371,7 +1372,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	}
 	token = strtok(NULL, ","); // RA2: as above
 	if (token != NULL) { // RA2: as above
-		*(int *)&Options = atol(token);
+		Options.GameSpeed = atol(token);
 	}
 	token = strtok(NULL, ","); // RA2: as above
 	if (token != NULL) { // RA2: as above
@@ -1409,10 +1410,10 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	if (token != NULL) { // RA2: as above
 		Session.Options.MPModeIndex = atol(token); // RA2: as above
 	}
-	bool same = true; // RA2: as above
+	bool same_scenario = true; // RA2: as above
 	token = strtok(NULL, ","); // RA2: as above
 	WideWstring scenario_name(Session.Type == GAME_INTERNET && Is_Tournament_Session() // RA2: as above
-		? WideWstring(L"") : Wstring_ToWide(Wstring(token))); // RA2: as above
+			? WideWstring(L"") : Wide_From_7_Bit(Wstring(token))); // RA2: as above
 	token = strtok(NULL, ","); // RA2: as above
 	int old_count = Session.ScenarioMaxPlayers; // RA2: as above
 	if (token != NULL) { // RA2: as above
@@ -1431,7 +1432,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	token = strtok(NULL, ","); // RA2: as above
 	if (token != NULL) { // RA2: as above
 		if (_stricmp(Session.ScenarioFileName, token) != 0) { // RA2: as above
-			same = false; // RA2: as above
+			same_scenario = false; // RA2: as above
 		}
 		strncpy(Session.ScenarioFileName, token, 0x202); // RA2: as above
 		strcpy(Scen->ScenarioName, Session.ScenarioFileName); // RA2: as above
@@ -1439,7 +1440,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	char *digest = strtok(NULL, ":"); // RA2: as above
 	if (digest != NULL) { // RA2: as above
 		if (strcmp(Session.ScenarioDigest, digest) != 0) { // RA2: as above
-			same = false; // RA2: as above
+			same_scenario = false; // RA2: as above
 		}
 		strncpy(Session.ScenarioDigest, digest, 0x21); // RA2: as above
 	}
@@ -1449,13 +1450,13 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 			mode); // RA2: as above
 	}
 	bool found = true; // RA2: as above
-	if (!same || wcslen(Session.Options.ScenarioDescription) == 0) { // RA2: as above
+	if (!same_scenario || wcslen(Session.Options.ScenarioDescription) == 0) { // RA2: as above
 		found = false; // RA2: as above
-		same = false; // RA2: as above
+		same_scenario = false; // RA2: as above
 		for (int i = 0; i < Session.Scenarios.Count(); i++) { // RA2: as above
-			MultiMission *scenario = Session.Scenarios[i]; // RA2: as above
-			if (_stricmp(Session.ScenarioFileName, scenario->Get_Filename()) == 0) { // RA2: as above
-				CCFileClass file(scenario->Get_Filename()); // RA2: as above
+			char const * filename = Session.Scenarios[i]->Get_Filename();
+			if (_stricmp(Session.ScenarioFileName, filename) == 0) { // RA2: as above
+				CCFileClass file(filename); // RA2: as above
 				if (file.Is_Available(false) && file.Size() == Session.ScenarioFileLength) { // RA2: as above
 					INIClass ini; // RA2: as above
 					ini.Load(file, false); // RA2: as above
@@ -1463,7 +1464,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 					ini.Get_String("Digest", "1", "No digest here mate. Nope.", buffer, sizeof(buffer)); // RA2: as above
 					if (Session.ScenarioDigest[0] == 0 // RA2: as above
 						|| strcmp(Session.ScenarioDigest, buffer) == 0) { // RA2: as above
-						wcscpy(Session.Options.ScenarioDescription, scenario->Description()); // RA2: as above
+						wcscpy(Session.Options.ScenarioDescription, Session.Scenarios[i]->Description()); // RA2: as above
 						found = true; // RA2: as above
 					}
 				}
@@ -1486,7 +1487,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 		}
 	}
 	Session.MPGameMode = mode; // RA2: as above
-	if (mode != NULL && !same) { // RA2: as above
+	if (mode != NULL && !same_scenario) { // RA2: as above
 		mode->UnfixAlliances(); // RA2: as above
 	}
 	HWND dialog = GameoptWindow(); // RA2: as above
@@ -1494,12 +1495,12 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	SendMessageA(GetDlgItem(dialog, IDC_SCENARIONAME), OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: as above
 	Scen->Scenario = -1; // RA2: as above
 	Frame = 0; // RA2: as above
-	Session.TournamentState = 2; // RA2: as above
+	Session.CommProtocol = DEFAULT_COMM_PROTOCOL; // RA2: restore the default protocol after selecting a scenario
 	if (old_official != Session.ScenarioIsOfficial // RA2: as above
 		|| old_length != Session.ScenarioFileLength) { // RA2: as above
-		same = false; // RA2: as above
+		same_scenario = false; // RA2: as above
 	}
-	if (!same) { // RA2: as above
+	if (!same_scenario) { // RA2: as above
 		DebugString("Not same scenario...\n"); // RA2: as above
 		if (Session.ScenarioIsOfficial && !found // RA2: as above
 			&& _stricmp(Session.ScenarioFileName, "RandMap.Sed") != 0) { // RA2: as above
@@ -1669,7 +1670,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	if (_last_goodies != Session.Options.Goodies) { // RA2: as above
 		changed = true; // RA2: as above
 	}
-	if (!same || changed) { // RA2: as above
+	if (!same_scenario || changed) { // RA2: as above
 		int result; // RA2: as above
 		if (g_pChat != NULL) { // RA2: as above
 			result = GetPlayerAccepted(Wstring(0)); // RA2: as above
@@ -1706,7 +1707,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 		SendDlgItemMessage(GameoptWindow(), IDC_USERS, OD_DISABLEPAINT, 0, 0); // RA2: as above
 	}
 	if (g_pChat != NULL) { // RA2: as above
-		Draw_Player_List(0, false); // RA2: as above
+		Redraw_Player_List(); // RA2: as above
 	} else {
 		Net2DisplayUsers(); // RA2: as above
 	}
@@ -1718,7 +1719,10 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	_last_build_off_ally = Session.Options.BuildOffAlly; // RA2: as above
 	_last_mcv_redeploy = Session.Options.MCVRedeploy; // RA2: as above
 	_last_goodies = Session.Options.Goodies; // RA2: as above
-	return(!same); // RA2: as above
+	if (!same_scenario) {
+		return(true);
+	}
+	return(false);
 }
 #endif
 
@@ -4093,7 +4097,6 @@ void __fastcall Change_Slot_Count(HWND dialog, int old_count, int count, Multipl
 
 
 void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode); // RA2: 0x005CBF20, defined below
-void Redraw_Player_List(void); // RA2: 0x007412F0, defined in wonline.cpp
 Wstring Wstring_Narrow(WideWstring const & text); // RA2: 0x00771280, as wonline.cpp
 
 void __fastcall Change_Slot_Range(HWND dialog, int first, int count) // RA2: 0x005CB3F0, not in TibSun; the entries chosen in the combo boxes of count slots from the first one on are seated, empty ones become open or closed, then the controls are shown

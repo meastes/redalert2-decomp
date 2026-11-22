@@ -5028,15 +5028,15 @@ bool TechnoClass::Player_Assign_Mission(MissionType order, AbstractClass * targe
 		} else if (order == MISSION_MOVE) { // RA2: as above
 			Response_Move(); // RA2: as above
 		} else if (order == MISSION_ENTER) { // RA2: as above
-			if (TClass->VoiceEnter != -1) { // RA2: as above
+			if (TClass->VoiceEnter != VOC_NONE) { // RA2: as above
 				VocClass::PlayGlobal(TClass->VoiceEnter, 1.0f, 0x2000, 0); // RA2: as above
 			} else {
 				Response_Move(); // RA2: as above
 			}
 		} else if (order == MISSION_CAPTURE) { // RA2: as above
-			if (TClass->VoiceCapture != -1) { // RA2: as above
+			if (TClass->VoiceCapture != VOC_NONE) { // RA2: as above
 				VocClass::PlayGlobal(TClass->VoiceCapture, 1.0f, 0x2000, 0); // RA2: as above
-			} else if (TClass->VoiceEnter != -1) { // RA2: as above
+			} else if (TClass->VoiceEnter != VOC_NONE) { // RA2: as above
 				VocClass::PlayGlobal(TClass->VoiceEnter, 1.0f, 0x2000, 0); // RA2: as above
 			} else {
 				Response_Move(); // RA2: as above
@@ -5842,7 +5842,7 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 		double incoming = damage;
 		House->Add_Anger((int)(type->Raw_Cost() * (incoming / Techno_Type_Class()->MaxStrength)), attacker->House);
 	}
-	if (result == 4) {
+	if (result == RESULT_DESTROYED) {
 		if (Fetch_RTTI() == RTTI_BUILDING && warhead && warhead->CausesDelayKill) {
 			BuildingClass * building = As_Building(this);
 			if (building->Class->EligibleForDelayKill) {
@@ -5859,17 +5859,17 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 			}
 		}
 	}
-	if (result == 5) return RESULT_ALREADY_DESTROYED;
-	if (result != 0) {
+	if (result == RESULT_ALREADY_DESTROYED) return RESULT_ALREADY_DESTROYED;
+	if (result != RESULT_NONE) {
 		RadarFlashTimer = CDTimerClass<FrameTimerClass>(Rule->RadarCombatFlashTime);
 	}
-	if (result != 0 && result != 4 && Techno_Type_Class()->CanDisguise && !Techno_Type_Class()->PermaDisguise) {
+	if (result != RESULT_NONE && result != RESULT_DESTROYED && Techno_Type_Class()->CanDisguise && !Techno_Type_Class()->PermaDisguise) {
 		if (IsDisguised()) ClearDisguise();
 		InfantryBlinkTimer = CDTimerClass<FrameTimerClass>(damage * 2);
 	}
 	if (Strength == 0) result = RESULT_DESTROYED;
 	switch (result) {
-		case 4:
+		case RESULT_DESTROYED:
         {
 			if (Techno_Type_Class()->VoiceDie.Count() > 0 && House->Is_Player_Control()) {
 				VocClass::PlayAt(Techno_Type_Class()->VoiceDie.Pick(NonCriticalRandomNumber()), PositionCoord, 0);
@@ -5915,7 +5915,7 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 		}
 			if (AttachedBomb) AttachedBomb->Detonate();
 			break;
-		case 2:
+		case RESULT_HALF:
         {
 			TechnoTypeClass const * type = Techno_Type_Class();
 			if (type->VoiceFeedback.Count() > 0 && NonCriticalRandomNumber(0, 99) < 30 && House->Is_Player_Control()) {
@@ -5925,26 +5925,26 @@ ResultType TechnoClass::Take_Damage(int & damage, int distance, WarheadTypeClass
 			}
 		}
         break;
-		case 0:
+		case RESULT_NONE:
 			break;
-		case 3:
+		case RESULT_MAJOR:
 			break;
 		default:
-			if (Techno_Type_Class()->DamageSound != -1) {
+			if (Techno_Type_Class()->DamageSound != VOC_NONE) {
 				VocClass::PlayIndexAtPos(Techno_Type_Class()->DamageSound, PositionCoord, 0);
 			}
-			if (Techno_Type_Class()->DamageSound != -1) {
+			if (Techno_Type_Class()->DamageSound != VOC_NONE) {
 				VocClass::PlayIndexAtPos(Techno_Type_Class()->DamageSound, PositionCoord, 0);
 			}
 			if ((Techno_Type_Class()->IsToProtect || IsNeedingRescue) && !House->Is_Human_Player() && attacker) Base_Is_Attacked(attacker);
 			break;
 	}
-	if (result != 4) {
+	if (result != RESULT_DESTROYED) {
 		if (attacker && !House->Is_Ally(attacker)) IsTickedOff = true;
 		Do_Shimmer();
 		if (HealthRatio > Rule->ConditionYellow) {
 			if (ParticleSystems[3]) ParticleSystems[3]->Delete_Me();
-		} else if (result == 2 || result == 3) {
+		} else if (result == RESULT_HALF || result == RESULT_MAJOR) {
 			DynamicVectorClass<ParticleSystemTypeClass const *> smoke_types;
 			for (int index = Techno_Type_Class()->DamageParticleSystems.Count() - 1; index >= 0; --index) {
 				if (Techno_Type_Class()->DamageParticleSystems[index]->BehavesLike == PSYS_BEHAVIOR_SMOKE) smoke_types.Add(Techno_Type_Class()->DamageParticleSystems[index]);
@@ -6072,7 +6072,7 @@ void TechnoClass::Record_The_Kill(TechnoClass * source)
 		if (TClass->IsInsignificant) { // RA2: as above
 			break;
 		}
-		if ((((BuildingClass *)this))->WhoLastHurtMe != -1) { // RA2: as above
+		if ((((BuildingClass *)this))->WhoLastHurtMe != HOUSE_NONE) { // RA2: as above
 			House->BuildingsLost++; // RA2: as above
 		}
 		if (source != 0) { // RA2: as above

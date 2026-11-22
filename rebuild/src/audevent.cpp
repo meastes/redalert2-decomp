@@ -68,14 +68,14 @@ static EventKeyword TypeKeywords[] = {
 };
 
 static EventKeyword ControlKeywords[] = {
-	{"ALL", 0x4},
-	{"LOOP", 0x1},
-	{"RANDOM", 0x2},
-	{"PREDELAY", 0x8},
-	{"INTERRUPT", 0x10},
-	{"ATTACK", 0x20},
-	{"DECAY", 0x40},
-	{"AMBIENT", 0x80},
+	{ "ALL", AUDIO_EVENT_CTRL_ALL },
+	{ "LOOP", AUDIO_EVENT_CTRL_LOOP },
+	{ "RANDOM", AUDIO_EVENT_CTRL_RANDOM },
+	{ "PREDELAY", AUDIO_EVENT_CTRL_PREDELAY },
+	{ "INTERRUPT", AUDIO_EVENT_CTRL_INTERRUPT },
+	{ "ATTACK", AUDIO_EVENT_CTRL_ATTACK },
+	{ "DECAY", AUDIO_EVENT_CTRL_DECAY },
+	{ "AMBIENT", AUDIO_EVENT_CTRL_AMBIENT },
 	{NULL, 0}
 };
 

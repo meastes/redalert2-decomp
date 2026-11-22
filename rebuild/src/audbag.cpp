@@ -202,7 +202,7 @@ int __fastcall AudioIDXData::OpenSample(int index)
 	CurrentSampleFile = (RawFileClass *)BagFile;
 	CurrentSampleSize = entry->Size;
 
-	if (CurrentSampleFile->Seek(entry->Offset, 0) != entry->Offset) {
+	if (CurrentSampleFile->Seek(entry->Offset, SEEK_SET) != entry->Offset) {
 		ok = 0;
 	}
 	if (entry->Size == 0) {

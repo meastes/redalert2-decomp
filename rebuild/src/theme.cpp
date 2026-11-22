@@ -210,7 +210,7 @@ void ThemeClass::Scan(void)
 			if (Themes[theme]->Available) { // RA2: as above
 				AudioFormat format; // RA2: as above
 				AudioFormatInit(&format); // RA2: as above
-				file.Open(1); // RA2: as above
+				file.Open(FileClass::READ); // RA2: as above
 				int size; // RA2: as above
 				if (AudioFormatReadWaveFile(&file, &format, &size)) { // RA2: as above
 					Themes[theme]->Duration = (int)(AudioFormatTime(&format, size) / 1000); // RA2: the length in seconds

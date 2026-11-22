@@ -785,7 +785,7 @@ void AnimClass::AI(void)
 	if (Unpaused && PausedAnimFrame == Fetch_Stage()) Unpaused = false;
 	if (IsBouncing) {
 		int result = Bounce_AI();
-		if (result == 2 || result == 1) {
+		if (result == BOUNCE_SETTLED || result == BOUNCE_IMPACT) {
 			CellClass & cell = Map[Get_Coord()];
 			int land = cell.Land_Type();
 			bool water = land == LAND_WATER;

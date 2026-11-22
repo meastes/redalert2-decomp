@@ -472,21 +472,21 @@ void Net2DisplayGameList(void)
 		if (CurGame < 0) {
 			CurGame = 0;
 		}
-		int top = SendDlgItemMessage(dialog, 0x549, 0x18E, 0, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, 0x49D, 0, 1); // RA2: as above
-		SendMessage(list, 0x184, 0, 0); // RA2: as above
-		SendMessage(list, 0x4CD, 0, (LPARAM)StringTable::LoadString("TXT_LOBBY", NULL, "D:\\Ra2\\netdlg2.cpp", 490)); // RA2: as above
+		int top = SendDlgItemMessage(dialog, 0x549, LB_GETTOPINDEX, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, 0x549, OD_DISABLEPAINT, 0, 1); // RA2: as above
+		SendMessage(list, LB_RESETCONTENT, 0, 0); // RA2: as above
+		SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)StringTable::LoadString("TXT_LOBBY", NULL, "D:\\Ra2\\netdlg2.cpp", 490)); // RA2: as above
 		for (int i = 1; i < Session.Games.Count(); i++) {
 			if (Session.Games[i]->Game.IsOpen) {
 				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME", NULL, "D:\\Ra2\\netdlg2.cpp", 496), Session.Games[i]->Name); // RA2: as above
 			} else {
 				swprintf(text, StringTable::LoadString("TXT_THATGUYS_GAME_BRACKET", NULL, "D:\\Ra2\\netdlg2.cpp", 498), Session.Games[i]->Name); // RA2: as above
 			}
-			SendMessage(list, 0x4CD, 0, (LPARAM)text); // RA2: as above
+			SendMessage(list, OD_ADDSTRINGW, 0, (LPARAM)text); // RA2: as above
 		}
-		SendDlgItemMessage(dialog, 0x549, 0x186, CurGame, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, 0x197, top, 0); // RA2: as above
-		SendDlgItemMessage(dialog, 0x549, 0x49D, 0, 0); // RA2: as above
+		SendDlgItemMessage(dialog, 0x549, LB_SETCURSEL, CurGame, 0); // RA2: as above
+		SendDlgItemMessage(dialog, 0x549, LB_SETTOPINDEX, top, 0); // RA2: as above
+		SendDlgItemMessage(dialog, 0x549, OD_DISABLEPAINT, 0, 0); // RA2: as above
 		list = GetDlgItem(dialog, 0x549); // RA2: as above
 		InvalidateRect(list, NULL, 0); // RA2: as above
 		UpdateWindow(list); // RA2: as above
@@ -779,7 +779,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 	OwnerDraw::Register_Window_Classes(); // RA2: as above
 	HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
 	Show_Dialog(dialog, 0xBB); // RA2: as above
-	ShowWindow(dialog, 1); // RA2: as above
+	ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 	Net2DisplayUsersFull(false); // RA2: as above
 	CurGame = 0;
 	_netresponse = 0;
@@ -845,7 +845,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Reset_Slots(); // RA2: as above
 				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(dialog, 0xBB); // RA2: as above
-				ShowWindow(dialog, 1); // RA2: as above
+				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 				Send_Join_Queries(0, 0, 1, 0);
 			} else if (WS_Top_Window_ID() == 0xBD) { // RA2: as above
 				if (JoinState == JOIN_CONFIRMED) {
@@ -889,7 +889,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Reset_Slots(); // RA2: as above
 				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(dialog, 0xBB); // RA2: as above
-				ShowWindow(dialog, 1); // RA2: as above
+				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 			} else {
 				if (JoinState == JOIN_CONFIRMED) {
 					Unjoin_Game(CurGame);
@@ -927,7 +927,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				Reset_Slots(); // RA2: as above
 				dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBB, MainWindow, (DLGPROC)MPlayer_Game_List_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(dialog, 0xBB); // RA2: as above
-				ShowWindow(dialog, 1); // RA2: as above
+				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 			}
 		}
 
@@ -1064,7 +1064,7 @@ bool Net_Join_Dialog(void) // RA2: as above
 				HWND host = (HWND)WS_Create_Dialog(ProgramInstance, 0xBC, MainWindow, (DLGPROC)MPlayer_Host_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(host, 0xBC); // RA2: as above
 				SendMessageA(host, 0x4A9, 0, 1); // RA2: as above
-				ShowWindow(host, 1); // RA2: as above
+				ShowWindow(host, SW_SHOWNORMAL); // RA2: as above
 			} else {
 				HWND top = WS_Top_Window(); // RA2: as above
 				if (top) { // RA2: as above
@@ -1835,10 +1835,10 @@ LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 {
 	if (!Net2OptionsLocked) { // RA2: as above
 		switch (message) {
-		case 0x497: // RA2: as above
+			case OD_SUBCLASSED: // RA2: as above
 			Fill_Options_Dialog(window, 1); // RA2: as above
 			return(0);
-		case 0x114: // RA2: as above
+			case WM_HSCROLL: // RA2: as above
 			if (GetDlgItem(window, 0x529) == (HWND)lparam) { // RA2: as above
 				Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, 0x529, 0x400, 0, 0); // RA2: as above
 			}
@@ -1849,45 +1849,45 @@ LRESULT CALLBACK Options_Dialog_Proc(HWND window, UINT message, WPARAM wparam, L
 				Session.Options.UnitCount = SendDlgItemMessage(window, 0x54F, 0x400, 0, 0); // RA2: as above
 			}
 			return(0);
-		case 0x111: // RA2: as above
+			case WM_COMMAND: // RA2: as above
 			switch ((unsigned short)wparam) { // RA2: as above
 			case 0x54E: // RA2: as above
 				Session.Options.ShortGame = false;
-				if (SendDlgItemMessage(window, 0x54E, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x54E, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.ShortGame = true;
 					if (!Session.Options.Bases) {
 						Session.Options.Bases = true;
-						SendDlgItemMessage(window, 0x54B, 0xF1, 1, 0); // RA2: as above
+								SendDlgItemMessage(window, 0x54B, BM_SETCHECK, BST_CHECKED, 0); // RA2: as above
 					}
 				}
 				return(0);
 			case 0x54D: // RA2: as above
 				Session.Options.Goodies = false;
-				if (SendDlgItemMessage(window, 0x54D, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x54D, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.Goodies = true;
 				}
 				return(0);
 			case 0x3E8: // RA2: as above
 				Session.Options.MCVRedeploy = false;
-				if (SendDlgItemMessage(window, 0x3E8, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x3E8, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.MCVRedeploy = true;
 				}
 				return(0);
 			case 0x624: // RA2: as above
 				Session.Options.BridgeDestruction = false;
-				if (SendDlgItemMessage(window, 0x624, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x624, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.BridgeDestruction = true;
 				}
 				return(0);
 			case 0x69D: // RA2: as above
 				Session.Options.BuildOffAlly = false; // RA2: as above
-				if (SendDlgItemMessage(window, 0x69D, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x69D, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.BuildOffAlly = true; // RA2: as above
 				}
 				return(0);
 			case 0x69A: // RA2: as above
 				Session.Options.SWAllowed = false; // RA2: as above
-				if (SendDlgItemMessage(window, 0x69A, 0xF0, 0, 0) == 1) { // RA2: as above
+						if (SendDlgItemMessage(window, 0x69A, BM_GETCHECK, 0, 0) == BST_CHECKED) { // RA2: as above
 					Session.Options.SWAllowed = true; // RA2: as above
 				}
 				return(0);
@@ -2258,7 +2258,7 @@ void Get_Join_Responses(void) // RA2: as above
 				Seat_First_Player(Session.GPacket.PlayerInfo.Slot); // RA2: as above
 				HWND dialog = (HWND)WS_Create_Dialog(ProgramInstance, 0xBD, MainWindow, (DLGPROC)MPlayer_Guest_Dialog_Proc, 0); // RA2: as above
 				Show_Dialog(dialog, 0xBD); // RA2: as above
-				ShowWindow(dialog, 1); // RA2: as above
+				ShowWindow(dialog, SW_SHOWNORMAL); // RA2: as above
 				display_users = true;
 				Send_Join_Queries(1, 1, 1, 0);
 			}

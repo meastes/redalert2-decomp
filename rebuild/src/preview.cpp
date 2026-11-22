@@ -407,7 +407,7 @@ bool MapPreviewClass::Read_INI_Preview(char const * filename)
 				return(false);
 			}
 
-			file.Seek(0, 0);
+			file.Seek(0, SEEK_SET);
 			file.Read(buffer, length);
 			buffer[length] = '\0';
 

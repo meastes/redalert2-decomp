@@ -86,7 +86,7 @@ rc_ptr<PlayerProfile> PlayerProfile::Load_Default(void) // RA2: 0x00738670
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	if (file.Is_Available()) { // RA2: as above
 		INIClass ini; // RA2: as above
@@ -111,7 +111,7 @@ rc_ptr<PlayerProfile> PlayerProfile::Load(Wstring const & name) // RA2: 0x007388
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	if (!file.Is_Available()) { // RA2: as above
 		return Load_Default(); // RA2: as above
@@ -181,7 +181,7 @@ void __fastcall WOL_Set_Auto_Login(bool value) // RA2: 0x00738DA0
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	INIClass ini; // RA2: as above
 	if (file.Is_Available()) { // RA2: as above
@@ -215,7 +215,7 @@ void __fastcall WOL_Set_Add_Match_Buddies(bool value) // RA2: 0x00738FA0
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	INIClass ini; // RA2: as above
 	if (file.Is_Available()) { // RA2: as above
@@ -255,7 +255,7 @@ void __fastcall WOL_Set_Auto_Login_Persona(Wstring const & persona) // RA2: 0x00
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	INIClass ini; // RA2: as above
 	if (file.Is_Available()) { // RA2: as above
@@ -299,7 +299,7 @@ void __fastcall WOL_Set_Last_Valid_Persona(Wstring const & persona) // RA2: 0x00
 	if (!file.Is_Available()) { // RA2: as above
 		file.Create(); // RA2: as above
 		file.Close(); // RA2: as above
-		file.Open("wolinfo.ini", 1); // RA2: as above
+		file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 	}
 	INIClass ini; // RA2: as above
 	if (file.Is_Available()) { // RA2: as above
@@ -341,7 +341,7 @@ void PlayerProfile::Save(Wstring const * name) // RA2: 0x007395D0
 		if (!file.Is_Available()) { // RA2: as above
 			file.Create(); // RA2: as above
 			file.Close(); // RA2: as above
-			file.Open("wolinfo.ini", 1); // RA2: as above
+			file.Open("wolinfo.ini", FileClass::READ); // RA2: as above
 		}
 		if (file.Is_Available()) { // RA2: as above
 			INIClass ini; // RA2: as above
