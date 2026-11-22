@@ -2987,10 +2987,10 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
             Point2D point = Point_Copy((Point2D const *)&rect_b8); // RA2: as above
             int phase = Slide_Phase(step - order[pieces - 3]); // RA2: as above
             if (phase == -1) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer, shape_ec, reverse ? 6 : 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_ec, reverse ? 6 : 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
                 if (!reverse) { // RA2: as above
-                    Draw_Shape(*AlternateSurface, *drawer, shape_ec, 6, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+					Draw_Shape(*AlternateSurface, *drawer, shape_ec, 6, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
                 }
             }
         }
@@ -2998,14 +2998,14 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
             Point2D point = Point_Copy((Point2D const *)&rect_bc); // RA2: as above
             int phase = Slide_Phase(step - order[pieces - 2]); // RA2: as above
             if (phase == -1) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer, shape_e8, !reverse, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_e8, !reverse, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer, shape_e8, reverse != 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_e8, reverse != 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
                 point = Point_Copy((Point2D const *)&rect_c4); // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer, shape_e8, 1, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_e8, 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
                 point = Point_Copy((Point2D const *)&rect_bc); // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer, shape_b4, phase * dir + base_88, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_b4, phase * dir + base_88, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         if (has_d6) { // RA2: as above
@@ -3013,10 +3013,10 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
             int phase = Slide_Phase(step - order[pieces - 3]); // RA2: as above
             if (phase == -2) { // RA2: as above
                 if (reverse) { // RA2: as above
-                    Draw_Shape(*AlternateSurface, *drawer, shape_ec, 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+					Draw_Shape(*AlternateSurface, *drawer, shape_ec, 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
                 }
             } else {
-                Draw_Shape(*AlternateSurface, *drawer, shape_ec, phase * dir + base_94, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer, shape_ec, phase * dir + base_94, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         int k; // RA2: as above
@@ -3024,33 +3024,33 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
             Point2D point(rect_b4.X, k * rect_b4.Height + top); // RA2: as above
             int phase = Slide_Phase(step - order[k]); // RA2: as above
             if (phase == -1) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 1, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 1 : 10, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 1 : 10, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_64, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_64, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         for (k = buttons; k < last; k++) { // RA2: as above
             Point2D point(rect_b4.X, k * rect_b4.Height + top); // RA2: as above
             int phase = Slide_Phase(step - order[k]); // RA2: as above
             if (phase == -1) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 0 : 10, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 0 : 10, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_8c, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_8c, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         if (any) { // RA2: as above
             Point2D point(rect_b4.X, Button_Strip_Bottom->Y - rect_b4.Height); // RA2: as above
             int phase = Slide_Phase(step - order[count - 1]); // RA2: as above
             if (phase == -1) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 1, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 10 : 1, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 1 : 10, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, reverse ? 1 : 10, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
-                Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_64, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_b, shape_b8, phase * dir + base_64, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         if (has_d7) { // RA2: as above
@@ -3060,15 +3060,15 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
                 if (!reverse) { // RA2: as above
                     if (VideoModeWidth >= Base_Screen_Width) point.X += 0x50; // RA2: as above
                 }
-                Draw_Shape(*AlternateSurface, *drawer_c, (reverse ? Art_Chat_Back : shape_f0), 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_c, (reverse ? Art_Chat_Back : shape_f0), 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else if (phase == -2) { // RA2: as above
                 if (reverse) { // RA2: as above
                     if (VideoModeWidth >= Base_Screen_Width) point.X += 0x50; // RA2: as above
                 }
-                Draw_Shape(*AlternateSurface, *drawer_c, (reverse ? shape_f0 : Art_Chat_Back), 0, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_c, (reverse ? shape_f0 : Art_Chat_Back), 0, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             } else {
                 if (VideoModeWidth >= Base_Screen_Width) point.X += 0x50; // RA2: as above
-                Draw_Shape(*AlternateSurface, *drawer_c, shape_f0, phase * dir + base_90, point, window, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				Draw_Shape(*AlternateSurface, *drawer_c, shape_f0, phase * dir + base_90, point, window, ShapeFlags_Type(SHAPE_WIN_REL), 0, 0, ZGradientType(ZGRAD_GROUND), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
             }
         }
         VisibleSurface->Lock();
@@ -10146,7 +10146,7 @@ int __stdcall Cancel_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARA
 	if (message == WM_COMMAND && wparam == 0x5c0) { // RA2: as above
         bool *cancelled = (bool *)GetWindowLongA(window, DWL_USER); // RA2: as above
         if (cancelled) {
-            Keyboard->Put((KeyNumType)0x1b); // RA2: as above
+			Keyboard->Put((KeyNumType)KN_ESC); // RA2: as above
             *cancelled = true;
         }
     }

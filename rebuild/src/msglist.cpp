@@ -314,7 +314,7 @@ TextLabelClass * MessageListClass::Add_Message(wchar_t const * name, int id, wch
 		}
 		delete txtlabel;
 	}
-	txtlabel = new TextLabelClass(message, MessageX, MessageY, color, (TextPrintType)(style | 0x8000));
+	txtlabel = new TextLabelClass(message, MessageX, MessageY, color, (TextPrintType)(style | TPF_FADED_BACKGROUND));
 	if (Session.Type == GAME_INTERNET) txtlabel->Animate = !singleplayer && Session.WOLScrollText;
 	else if (Session.Type == GAME_IPX) txtlabel->Animate = !singleplayer && Session.LANScrollText;
 	else txtlabel->Animate = !singleplayer;
@@ -599,7 +599,7 @@ TextLabelClass * MessageListClass::Add_Edit(int color, // RA2: YR's wide-text fo
 	OverflowBuf[0] = 0;
 	EditCurPos = EditInitPos = wcslen(to);
 	EditLabel = new TextLabelClass(EditBuf, EditX, EditY,
-		color, (TextPrintType)(style | 0x8000));
+		color, (TextPrintType)(style | TPF_FADED_BACKGROUND));
 	if (width > 0) {
 		EditLabel->PixWidth = width;
 	} else {

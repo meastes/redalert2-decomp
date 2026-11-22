@@ -193,7 +193,7 @@ void LoadOptionsClass::Load_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 			break;
 
 		case 0x686: // RA2: as above
-			_this->State = (LoadDialogState)2; // RA2: as above
+			_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
 			break;
 	}
 }
@@ -236,13 +236,13 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 
 		case 0x686: // RA2: as above
 			if (id == 0) {
-				_this->State = (LoadDialogState)2; // RA2: as above
+				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
 			}
 			break;
 
 		case 0x6C7: // RA2: as above
 			if (id == 0) { // RA2: as above
-				_this->State = (LoadDialogState)1; // RA2: as above
+				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
 			}
 			break;
 	}
@@ -262,13 +262,13 @@ void LoadOptionsClass::Delete_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, L
 	switch ((int)wparam) {
 		case 0x686: // RA2: Delete_Dialog_On_WM_COMMAND at 0x53B390 matches only so
 			if (id == 0) {
-				_this->State = (LoadDialogState)2; // RA2: as above
+				_this->State = (LoadDialogState)STATE_CLOSE; // RA2: as above
 			}
 			break;
 
 		case 0x6C8: // RA2: as above
 			if (id == 0) { // RA2: as above
-				_this->State = (LoadDialogState)1; // RA2: as above
+				_this->State = (LoadDialogState)STATE_OK; // RA2: as above
 			}
 			break;
 	}

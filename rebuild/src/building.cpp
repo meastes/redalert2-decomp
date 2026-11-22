@@ -11413,7 +11413,7 @@ after_first_edge: // RA2: as above
 	probe.Y = (short)((unsigned int)(int)probe.Y + (unsigned int)height); // RA2: as above
 	while (!found && (int)probe.X > (int)Get_Cell().X - 1) { // RA2: as above
 		probe.X = (short)(probe.X - 1); // RA2: as above
-		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == 0) { // RA2: as above
+		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == MOVE_OK) { // RA2: as above
 			found = true;
 			selected = probe;
 		}
@@ -11424,7 +11424,7 @@ after_first_edge: // RA2: as above
 	probe.Y = (short)(probe.Y - 1); // RA2: as above
 	while (!found && (int)probe.X < (int)((unsigned int)(int)Get_Cell().X + (unsigned int)width)) { // RA2: as above
 		probe.X = (short)(probe.X + 1); // RA2: as above
-		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == 0) { // RA2: as above
+		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == MOVE_OK) { // RA2: as above
 			found = true;
 			selected = probe;
 		}
@@ -11435,7 +11435,7 @@ after_first_edge: // RA2: as above
 	probe.Y = (short)(probe.Y - 1); // RA2: as above
 	while (!found && (int)probe.Y < (int)((unsigned int)(int)Get_Cell().Y + (unsigned int)height)) { // RA2: as above
 		probe.Y = (short)(probe.Y + 1); // RA2: as above
-		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == 0) { // RA2: as above
+		if (occupant->Can_Enter_Cell(&Map[probe], FACING_NONE, -1, NULL, true) == MOVE_OK) { // RA2: as above
 			selected = probe;
 			found = true;
 		}

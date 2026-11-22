@@ -330,6 +330,15 @@ void fit_window(int width, int height)
         w = (int)(w * zoom);
         h = (int)(h * zoom);
     }
+    // RA2_NATIVE_WINDOW_SIZE=<w>x<h> (tests): the window keeps that size in points over the game's
+    // own mode changes too (lane N28: a phone-shaped window for the menus' layout ctest).
+    if (const char *v = getenv("RA2_NATIVE_WINDOW_SIZE")) {
+        int ew = 0, eh = 0;
+        if (sscanf(v, "%dx%d", &ew, &eh) == 2 && ew > 0 && eh > 0) {
+            w = ew;
+            h = eh;
+        }
+    }
     SDL_Rect usable;
     SDL_DisplayID display = SDL_GetDisplayForWindow(window);
     if (display && SDL_GetDisplayUsableBounds(display, &usable) && usable.w > 0 && usable.h > 0) {
@@ -472,9 +481,19 @@ bool update_layout_scaled()
             return true;
         }
         double cx = usable.x + usable.w / 2, cy = usable.y + usable.h / 2;
+        // Menu fill's Scale to fit (lane N28, user report 2026-11-21 from the Duo: Red Alert 2's menus
+        // letterboxed on all four sides with Zoom gestures on): the 800x600 menu at the screen's centre
+        // as large as the window holds, as update_layout shows it without a render scale.
+        bool fit = menu_scale_fit && ra2port_menu_shown() && !ra2port::movie_playing() && !ra2_enh_game_in_play()
+                   && pic_w >= 800 && pic_h >= 600;
+        if (fit) scale = SDL_min(usable.w / 800, usable.h / 600);
         picture = hostos::Rect{cx - pic_w * scale / 2, cy - pic_h * scale / 2, pic_w * scale, pic_h * scale};
         regions.clear();
-        log_layout("host: layout: the screen's centre at %.3f (render scale %d)\n", scale, r);
+        if (fit)
+            log_layout("host: layout: menu %dx%d at the scale of 800x600: picture %.0f,%.0f %.0fx%.0f in %.0fx%.0f\n", pic_w, pic_h,
+                       picture.x, picture.y, picture.w, picture.h, usable.w, usable.h);
+        else
+            log_layout("host: layout: the screen's centre at %.3f (render scale %d)\n", scale, r);
         if (system_toolbar) hostos::keys_button_place(keys_rect());
         return true;
     }

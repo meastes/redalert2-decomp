@@ -1841,7 +1841,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const & xpoint, Rect const & clipr
 		 * Draw the cursor shape -- the valid cursor for a legal placement, or the
 		 * cell's blocked/ramp cursor otherwise.
 		 */
-		ShapeFlags_Type flags = ShapeFlags_Type(zeroalpha ? 0x10600 : 0x20600); // RA2: as above
+		ShapeFlags_Type flags = ShapeFlags_Type(zeroalpha ? (SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZERO_ALPHA) : (SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_NONZERO_ALPHA)); // RA2: as above
 		if (IsFoundationCopyHere) { // RA2: as above
 			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet *)DisplayClass::PlacementShapes, 1, point + xpoint, cliprect, // RA2: as above
 				flags, 0, height_offset, ZGRAD_GROUND, 1000, 0, 0, Point2D(0, 0)); // RA2: as above

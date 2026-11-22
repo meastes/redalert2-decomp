@@ -304,7 +304,7 @@ void GScreenClass::Input(KeyNumType & key, int & x, int & y)
 	} else {
 		key = Keyboard->Check();
 
-		if (key != 0) {
+		if (key != KN_NONE) {
 			key = Keyboard->Get();
 		}
 	}

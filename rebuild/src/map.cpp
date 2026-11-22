@@ -11361,7 +11361,7 @@ int MapClass::Largest_Water_Zone(int & zone) // RA2: 0x5658C0, RA2's form
 	Map.LocalIterY = Map.PlayRect.Width - Map.LocalRect.X + Map.LocalRect.Y; // RA2: as above
 	for (CellClass *cellptr = Map.Local_Iterate(); cellptr != 0; cellptr = Map.Local_Iterate()) { // RA2: as above
 		if (cellptr->Passability == 4) { // RA2: as above
-			int z = Get_Cell_Zone(cellptr->CellID, (MZoneType)10, false); // RA2: as above
+			int z = Get_Cell_Zone(cellptr->CellID, (MZoneType)MZONE_WATER, false); // RA2: as above
 			if (z >= 0) { // RA2: as above
 				if (z >= counts.Count()) { // RA2: as above
 					int need = z - counts.Count() + 1; // RA2: as above

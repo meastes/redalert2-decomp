@@ -557,7 +557,7 @@ void UnitClass::AI(void)
 	}
 
 	if ((IsBeingWarpedOut() || IsWarpingIn()) && Frame % 24 == 0 && Rule->ChronoSparkle1 != NULL) { // RA2: a warping unit sparkles every 24 frames
-		new AnimClass(Rule->ChronoSparkle1, Unit_AI_Smoke_Position(PositionCoord), 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+		new AnimClass(Rule->ChronoSparkle1, Unit_AI_Smoke_Position(PositionCoord), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 	}
 
 	if (IsWarpingIn() || (IsBeingWarpedOut() && IsImmobilized)) { // RA2: the locomotor keeps running while warping
@@ -636,7 +636,7 @@ void UnitClass::AI(void)
 			offset.Y += origin.Y; // RA2: as above
 			offset.Z += origin.Z; // RA2: as above
 			coord = offset; // RA2: as above
-			new AnimClass(Rule->Wake, coord, 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+			new AnimClass(Rule->Wake, coord, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 		}
 	}
 
@@ -1321,8 +1321,8 @@ ResultType UnitClass::Take_Damage(int & damage, int distance, WarheadTypeClass c
 					if (HeightAGL <= 10 && IsToExplode) { // RA2: a wreck over water splashes
 						animation_position = PositionCoord; // RA2: as above
 						if (Map[animation_position].Land_Type() == LAND_WATER) { // RA2: as above
-							new AnimClass(Rule->Wake, (animation_position = PositionCoord), 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
-							new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], (animation_position = PositionCoord + Coord(0, 0, 5)), 0, 1, ShapeFlags_Type(0x600), 0); // RA2: as above
+							new AnimClass(Rule->Wake, (animation_position = PositionCoord), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
+							new AnimClass(Rule->SplashList[Rule->SplashList.Count() - 1], (animation_position = PositionCoord + Coord(0, 0, 5)), 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL), 0); // RA2: as above
 							goto remove_passengers; // RA2: a splash skips the explosion
 						}
 					}
@@ -2190,9 +2190,9 @@ void UnitClass::Per_Cell_Process(PCPType reason)
 		if (!NavCom && Path[0] == -1 && !Class->MobileFire) Arm = Rearm_Delay(1) / 4;
 		CellClass * current_cell = &Map[Get_Coord()];
 		LandType land = current_cell->Land_Type();
-		if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell, FACING_NONE, -1, 0, true) == 7 && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
+		if (!Locomotion->Is_Moving() && Can_Enter_Cell(current_cell, FACING_NONE, -1, 0, true) == MOVE_NO && (!IsOnBridge || !current_cell->IsUnderBridge) && !IsSinking) {
 			if (CurrentMission != MISSION_ENTER) {
-				new AnimClass(Combat_Anim(Strength, Rule->C4Warhead, land, Get_Coord()), Get_Coord(), 0, 1, (ShapeFlags_Type)0x2600, Get_Explosion_Z(Get_Coord()));
+				new AnimClass(Combat_Anim(Strength, Rule->C4Warhead, land, Get_Coord()), Get_Coord(), 0, 1, (ShapeFlags_Type)(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(Get_Coord()));
 				int damage = Strength;
 				Combat_Lighting(Center_Coord(), damage, Rule->C4Warhead, 0, 0);
 				Take_Damage(damage, 0, Rule->C4Warhead, 0, true, 0);
@@ -2727,7 +2727,7 @@ int UnitClass::Do_MISSION_UNLOAD()
 						else if (!House->Is_Human_Player() && Session.Type) QueueMission(MISSION_HUNT, false);
 						else QueueMission(MISSION_GUARD, false);
                     }
-				} else if (MissionQueue != -1 && MissionQueue != MISSION_UNLOAD) Commence();
+				} else if (MissionQueue != MISSION_NONE && MissionQueue != MISSION_UNLOAD) Commence();
                 break;
                 default: break;
             }
@@ -2767,7 +2767,7 @@ int UnitClass::Do_MISSION_UNLOAD()
             case 4: {
                 if (Class->IsToVeinHarvest) {
                     IsDumping=false;
-					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
+					if (NavCom && MissionQueue != MISSION_NONE && MissionQueue != MISSION_HARVEST) {
                         if (Locomotion->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
                     } else {
@@ -2780,7 +2780,7 @@ int UnitClass::Do_MISSION_UNLOAD()
 					if (building && building->Class->IsRefinery) active = building->Anims[BANIM_PRODUCTION] != 0;
                     if (active) return 1;
                     IsDumping=false;
-					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
+					if (NavCom && MissionQueue != MISSION_NONE && MissionQueue != MISSION_HARVEST) {
                         if (Locomotion->Is_Moving()) Stop_Driver();
                         if (Ready_To_Commence()) Commence();
                     } else {
@@ -2818,7 +2818,7 @@ int UnitClass::Do_MISSION_UNLOAD()
                         HouseClass *owner=building->Owner_HouseClass();
                         int purifiers=owner->NumOrePurifiers;
                         if (owner->Power_Fraction()<1.0) purifiers=0;
-                        if (!owner->IsHuman && Session.Type!=0) purifiers+=Rule->AIVirtualPurifiers[owner->Difficulty];
+						if (!owner->IsHuman && Session.Type != GAME_NORMAL) purifiers += Rule->AIVirtualPurifiers[owner->Difficulty];
                         float amount=slot!=-1 ? Storage.Get_Amount(slot) : 0.0f;
                         float bonus=(float)purifiers*Rule->PurifierBonus*amount;
                         float removed;
@@ -2839,7 +2839,7 @@ int UnitClass::Do_MISSION_UNLOAD()
 							if (building->Anims[BANIM_SPECIAL_ONE]) building->End_Anim(BANIM_SPECIAL_ONE);
                         }
                     }
-					if (NavCom && MissionQueue != -1 && MissionQueue != MISSION_HARVEST) {
+					if (NavCom && MissionQueue != MISSION_NONE && MissionQueue != MISSION_HARVEST) {
 						if (building->Class->IsRefinery) building->Begin_Anim(BANIM_PRODUCTION, building->HealthRatio <= Rule->ConditionYellow, false, 0);
                         Status=4;
                         if (building->ParticleSystems[5]) building->ParticleSystems[5]->Delete_Me();
@@ -3338,7 +3338,7 @@ MoveType UnitClass::Can_Enter_Cell(CellClass const * cellptr, FacingType dir, in
 				}
 			} else if (Is_Weapon_Equipped()) { // RA2: a unit with a weapon may shoot the wall down
 				WarheadTypeClass const * warhead = Get_Class_Weapon_Data(0)->Weapon->WarheadPtr; // RA2: as above
-				if (warhead->IsWallDestroyer || (warhead->IsWoodDestroyer && optr->Armor == 6)) { // RA2: as above
+				if (warhead->IsWallDestroyer || (warhead->IsWoodDestroyer && optr->Armor == ARMOR_WOOD)) { // RA2: as above
 					if (House->Is_Ally(cellptr->Owner)) { // RA2: as above
 						if (retval < MOVE_FRIENDLY_DESTROYABLE) retval = MOVE_FRIENDLY_DESTROYABLE; // RA2: as above
 					} else {
@@ -5400,7 +5400,7 @@ void UnitClass::Scatter(Coord const &threat, bool forced, bool nokidding)
                 int dir = (facing + index) & 7;
                 Cell adjacent = center + AdjacentCell[dir & 7];
                 CellClass *next = &Map[adjacent];
-                if (Map.In_Local_Radar(adjacent, true) && Can_Enter_Cell(next, (FacingType)dir, Get_Cell_Height(), 0, 1) == 0) {
+				if (Map.In_Local_Radar(adjacent, true) && Can_Enter_Cell(next, (FacingType)dir, Get_Cell_Height(), 0, 1) == MOVE_OK) {
                     if (alt.X == CELL_NONE.X) {
                         if (alt.Y == CELL_NONE.Y) {
                             alt = adjacent;
@@ -6876,7 +6876,7 @@ void UnitClass::Visceroid_AI()
         direction = VisceroidFacing;
     }
     CellClass *destination = &Map[Adjacent_Cell(position, FacingType(direction))];
-    if (Can_Enter_Cell(destination, (FacingType)direction, Get_Cell_Height(), &Map[position], 1) == 0) {
+	if (Can_Enter_Cell(destination, (FacingType)direction, Get_Cell_Height(), &Map[position], 1) == MOVE_OK) {
         Assign_Destination(destination, true);
         return;
     }

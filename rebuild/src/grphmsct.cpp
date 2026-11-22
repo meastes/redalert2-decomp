@@ -62,7 +62,7 @@ GraphicMenuShortcutItem::GraphicMenuShortcutItem(int id, Wstring const & keys) :
 	int pos = keys.getToken(0, ",", tok);
 	while (tok.length() > 0) {
 		unsigned int key = GM_Build_Key(tok);
-		if (key != 0) {
+		if (key != KN_NONE) {
 			Shortcuts.Add(key);
 		}
 		pos = keys.getToken(pos, ",;", tok);
@@ -119,7 +119,7 @@ unsigned int GM_Build_Key(Wstring const & list) // RA2: Wstring
 	unsigned int key;
 	switch (lower.length()) {
 		case 0:
-			key = 0;
+			key = KN_NONE;
 			break;
 
 		case 1:
@@ -137,13 +137,13 @@ unsigned int GM_Build_Key(Wstring const & list) // RA2: Wstring
 			if (k >= 0) {
 				key = _name2key[k].Key;
 			} else {
-				key = 0;
+				key = KN_NONE;
 			}
 			break;
 		}
 	}
 
-	if (key != 0) {
+	if (key != KN_NONE) {
 		modifiers |= key;
 	} else {
 		modifiers = 0;

@@ -1398,7 +1398,7 @@ bool ModemHost::StartGame(bool load_game)
 	Special.IsHarvesterImmune = Session.Options.HarvTruce;
 	Special.IsDestroyBridges = Session.Options.BridgeDestruction;
 	Frame = 0;
-	Session.CommProtocol = (CommProtocolType)2;
+	Session.CommProtocol = (CommProtocolType)COMM_PROTOCOL_MULTI_E_COMP;
 	Special.IsTGrowth = true;
 	Special.IsTSpread = true;
 	Scen->Special.IsAllianceFixed = false;

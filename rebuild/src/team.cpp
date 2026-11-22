@@ -2107,7 +2107,7 @@ static inline bool _Conscript(TeamClass * team, FootClass * unit)
 {
 	if (_Is_It_Breathing(unit) && !unit->IsInitiated) {
 		TeamMissionType action = team->Script->Get_Current_Mission().Mission;
-		int stray = (action == (TeamMissionType)0x36 || action == (TeamMissionType)0x35) ? Rule->RelaxedStray : Rule->StrayDistance;
+		int stray = (action == (TeamMissionType)TMISSION_GATHER_AT_BASE || action == (TeamMissionType)TMISSION_GATHER_AT_ENEMY_BASE) ? Rule->RelaxedStray : Rule->StrayDistance;
 		if (unit->Distance(team->Zone) > stray) {
 			if (unit->NavCom == NULL) {
 				unit->QueueMission(MISSION_MOVE, false);

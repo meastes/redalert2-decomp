@@ -16,7 +16,9 @@ region looks the same before and after; the Options column slides out before Enh
 (both games, lane N18), and a click on the disabled Internet button leaves the main menu (lane N18).
 Then, at a 1024x768 game resolution, each game's shell
 menu is shown as its original shows it (Yuri's Revenge's filling the screen, Red Alert 2's centred),
-and both fill the window with Menu fill = Scale to fit (see main). No trap, no fault.
+and both fill the window with Menu fill = Scale to fit (see main); in a phone-shaped window (about
+1.42:1) with the phone's settings (Zoom gestures on, interface 1.25x) Red Alert 2's menu is as large as
+Yuri's Revenge's (lane N28). No trap, no fault.
 
   menu_backdrop.py --binary <ra2yr-native> --data-dir <game folder> --game-exe <game.exe> --work <dir>
 """
@@ -79,7 +81,7 @@ def lit_box(path):
     return (min(xs) / width, min(ys) / height, (max(xs) + 2) / width, (max(ys) + 2) / height)
 
 
-def run(a, game, tag=None, ini=INI, script_text=SCRIPT, seconds=45, enhancements=ENHANCEMENTS):
+def run(a, game, tag=None, ini=INI, script_text=SCRIPT, seconds=45, enhancements=ENHANCEMENTS, extra_env=None):
     work = os.path.join(a.work, tag or game)
     os.makedirs(os.path.join(work, 'shots'))
     writes = os.path.join(work, 'w')
@@ -94,6 +96,7 @@ def run(a, game, tag=None, ini=INI, script_text=SCRIPT, seconds=45, enhancements
     env = dict(os.environ, RA2_NATIVE_SETTINGS=os.path.join(work, 'settings'), RA2_GAME_EXE=a.game_exe,
                RA2_NATIVE_ENHANCEMENTS=enhancements, RA2_NATIVE_WINDOW_DUMP=os.path.join(work, 'shots', 'w'),
                RA2_NATIVE_IGNORE_FOCUS='1', RA2_NATIVE_DIALOG_LOG='1', RA2_NATIVE_MOVIE_SKIP='1')
+    env.update(extra_env or {})
     env.pop('RA2_GAMEMD_EXE', None)
     env.pop('RA2_NATIVE_INPUT_SCRIPT', None)
     cmd = [a.binary, '--game=' + game, '--data-dir', a.data_dir, '--run-to=never', '--run-seconds=%d' % seconds,
@@ -185,6 +188,31 @@ def main():
             boxes[(game, fill)] = (mx / ww, my / wh, (mx + 800 * sx) / ww, (my + 600 * sy) / wh)
             print('%s 1024x768 menu fill %s: the menu covers %s of the window' % (
                 game, fill, ', '.join('%.2f' % v for v in boxes[(game, fill)])))
+    # The phone's settings in a phone-shaped window (lane N28, user report 2026-11-21 from the Duo, about
+    # 1.42:1: Red Alert 2's main menu letterboxed on all four sides with Menu fill = Scale to fit while
+    # Yuri's Revenge's filled the screen). Zoom gestures on make Red Alert 2's screen twice as large in
+    # its map column (a render scale of 2, link/native_map_zoom.cpp), and the host's render-scale layout
+    # showed the menus at that screen's nominal size. With Scale to fit both games' menus fill the
+    # window's height alike.
+    phone = 'menufill=fit,uisize=1.25,zoomgestures=on,vsync=on,scaling=smooth'
+    for game in ('yr', 'ra2'):
+        text, work = run(a, game, '%s-phone' % game, big, 's1+1500 dump\n', 25, phone,
+                         {'RA2_NATIVE_WINDOW_SIZE': '1136x800'})
+        lines = re.findall(r'^host: layout: menu (\d+)x(\d+) at the scale of \S+: picture (-?[\d.]+),(-?[\d.]+) ([\d.]+)x([\d.]+) in ([\d.]+)x([\d.]+)', text, re.M)
+        if not lines:
+            failures.append('%s phone window: no Scale to fit layout line (the menu not scaled to fit)' % game)
+            continue
+        pw, ph, x, y, w, h, ww, wh = (float(v) for v in lines[-1])
+        sx, sy = w / pw, h / ph
+        boxes[(game, 'phone')] = ((x + (pw - 800) / 2 * sx) / ww, (y + (ph - 600) / 2 * sy) / wh, 800 * sx / ww, 600 * sy / wh)
+        print('%s phone window (1136x800) Scale to fit: the menu at %s of the window' % (
+            game, ', '.join('%.2f' % v for v in boxes[(game, 'phone')])))
+    phone_yr, phone_ra2 = boxes.get(('yr', 'phone')), boxes.get(('ra2', 'phone'))
+    if phone_yr and phone_ra2:
+        if phone_ra2[3] < 0.97 or abs(phone_ra2[3] - phone_yr[3]) > 0.02 or abs(phone_ra2[2] - phone_yr[2]) > 0.02:
+            failures.append('ra2: the phone window\'s menu (%.2f x %.2f of the window) is not the size of Yuri\'s Revenge\'s (%.2f x %.2f)'
+                            % (phone_ra2[2], phone_ra2[3], phone_yr[2], phone_yr[3]))
+
     def near(p, q, tol=0.03):
         return p is not None and q is not None and all(abs(x - y) <= tol for x, y in zip(p, q))
     off_yr, off_ra2 = boxes.get(('yr', 'off')), boxes.get(('ra2', 'off'))

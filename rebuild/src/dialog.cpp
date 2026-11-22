@@ -76,9 +76,9 @@ Rect * Drawing_GetTextDimensions(Rect * out, wchar_t const * text, Point2D loc, 
 	int height = font->LineHeight;
 	int x = loc.X;
 
-	if (flags & 0x100) {
+	if (flags & TPF_CENTER) {
 		x -= width / 2;
-	} else if (flags & 0x200) {
+	} else if (flags & TPF_RIGHT) {
 		x -= width;
 	}
 	*out = Rect(x - marginX, loc.Y - marginY, width + marginX * 2, height + marginY * 2);

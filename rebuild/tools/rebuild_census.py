@@ -450,6 +450,25 @@ def gate(measures):
             + PLACEHOLDER_KEYS + ('unformatted_new_lines',) if measures[k] > budget.get(k, 0)]
 
 
+def image_bounds(units):
+    """(frozen rows, frozen bytes, unit rows flagged `bound: image-derived`, [mismatch]) for the census line
+    (review session ruling 2026-11-22, docs/DECISIONS.md "Image-derived bound"): a flagged unit row must equal a
+    frozen row of manifest/image_bounds.csv (entry, body bytes, padding)."""
+    import csv
+    path = R.MANIFEST / 'image_bounds.csv'
+    frozen = {r['entry']: r for r in csv.DictReader(open(path)) if r['status'] == 'bound'} if path.exists() else {}
+    flagged, wrong = 0, []
+    for unit, info in units.items():
+        for row in info['rows']:
+            if row.get('bound') != 'image-derived':
+                continue
+            flagged += 1
+            f = frozen.get(row['entry'].lower())
+            if f is None or (int(f['body_bytes']), int(f['padding_bytes'])) != (row.get('body'), row.get('padding')):
+                wrong.append('%s %s' % (unit, row['entry']))
+    return len(frozen), sum(int(r['body_bytes']) for r in frozen.values()), flagged, wrong
+
+
 def main(quiet=False):
     files = subprocess.run(['git', '-C', str(R.ROOT), 'ls-files', 'rebuild/src', 'rebuild/include'],
                            capture_output=True, text=True).stdout.split()
@@ -564,6 +583,11 @@ def main(quiet=False):
     print('  asm bytes not yet flagged in the rebuild (main flags them; header-template attribution to fix): '
           '%d rows, %d body bytes (%s)' % (measures['asm_unflagged_rows'], measures['asm_unflagged_bytes'],
                                            ', '.join('%08x' % e for e in unflagged) or 'none'))
+    frozen_rows, frozen_bytes, flagged, wrong = image_bounds(units)
+    print('Image-derived bounds (bound: image-derived; frozen in manifest/image_bounds.csv by image_bounds.py): '
+          '%d rows, %d bytes frozen; unit rows using one %d%s' % (frozen_rows, frozen_bytes, flagged,
+                                                                  ('; NOT the frozen bound: ' + ', '.join(wrong))
+                                                                  if wrong else ''))
     for warning in helper_byte_warnings(cat['regions']):
         print('  warning (not a gate): ' + warning)
     print('Gate (inherited, to be evidenced): #define GEOMETRY_H in sources %d; #pragma auto_inline(off) %d; '

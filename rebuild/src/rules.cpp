@@ -523,9 +523,9 @@ RulesClass::RulesClass(void) :
 	IQHarvester(3),
 	IQSellBack(2),
 	AIBaseSpacing(1),
-	SilverCrate((CrateType)2), // RA2: the executable's initializer list, in RA2's member order and values
-	WoodCrate((CrateType)0), // RA2: as above
-	WaterCrate((CrateType)0), // RA2: as above
+	SilverCrate((CrateType)CRATE_HEAL_BASE), // RA2: the executable's initializer list, in RA2's member order and values
+	WoodCrate((CrateType)CRATE_MONEY), // RA2: as above
+	WaterCrate((CrateType)CRATE_MONEY), // RA2: as above
 	CrateMinimum(1),
 	CrateMaximum(255),
 	LZScanRadius(8192), // RA2: the executable's initializer list, in RA2's member order and values

@@ -740,7 +740,7 @@ void Keyboard_Process(KeyNumType & input)
 	**	Don't do anything if there is not keyboard event.
 	*/
 	Message_Input(input); // RA2 0x005406E0: Message_Input first, then the commands through the three extra CommandClass slots
-	if (input == 0) { // RA2: as above
+	if (input == KN_NONE) { // RA2: as above
 		return;
 	}
 
@@ -934,12 +934,12 @@ void Message_Input(KeyNumType &input)
 		**	For a serial game, send a message on F1 or F4; set 'txt' to the
 		**	"Message:" string & add an editable message to the list.
 		*/
-	if (input == 0) { // RA2: as above
+	if (input == KN_NONE) { // RA2: as above
 		return; // RA2: as above
 	} // RA2: as above
 
 	if (Session.Type != GAME_NORMAL && Session.Type != GAME_SKIRMISH && !Session.Messages.Is_Edit()) { // RA2: as above
-		if (input & 0x8000) { // RA2: as above
+		if (input & KN_BUTTON) { // RA2: as above
 			return; // RA2: as above
 		} // RA2: as above
 		int ascii = (unsigned char)Keyboard->To_ASCII(input); // RA2: as above

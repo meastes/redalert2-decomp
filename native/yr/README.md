@@ -1469,7 +1469,13 @@ redraws its command bar only once the mouse passes over it.
   resolution with the 800x600 menu centred (game.exe 0x005115F0). Both stay so by default. Menu fill's
   new choice Scale to fit shows the 800x600 menu as large as the screen holds in both games (Red Alert
   2's then fills as Yuri's Revenge's does; off in the Original preset; the Enhanced preset keeps Blurred
-  backdrop). one-game-menu-backdrop checks both looks at 1024x768.
+  backdrop). one-game-menu-backdrop checks both looks at 1024x768. Lane N28 (user report 2026-11-21
+  from the Duo: Red Alert 2's menus letterboxed on all four sides under Scale to fit, Yuri's Revenge's
+  filling): with Zoom gestures on Red Alert 2's screen is twice as large in its map column (render
+  scale 2, link/native_map_zoom.cpp Native_Render_Size) and the host's render-scale layout
+  (host.cpp update_layout_scaled) showed the menus at that screen's nominal size, skipping Scale to
+  fit; it now fits the 800x600 menu there too. Checked in a 1136x800 window with the phone's settings
+  (RA2_NATIVE_WINDOW_SIZE now holds over the game's mode changes): both games' menus the same size.
 * More traps off the play paths: HouseClass::Is_Build_Limited (a second unit queued in a factory),
   MindControlBuildings and RelinquishBuildings are the tree's FUN_0050B370, FUN_0050D290 and
   FUN_0050D2D0 (data/name_aliases.tsv, from gamemd.exe's callers); the TibSun-text drafts called

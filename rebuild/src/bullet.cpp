@@ -1374,10 +1374,10 @@ void BulletClass::Detonate(Coord const &position)
     if (special_impact) {
         AnimTypeClass const *nullify = Rule->WeaponNullifyAnim;
         if (nullify != 0)
-            new AnimClass(nullify, impact, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(impact));
+			new AnimClass(nullify, impact, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(impact));
     } else {
         if (animation != 0) {
-            AnimClass *created = new AnimClass(animation, impact, 0, 1, ShapeFlags_Type(0x2600), Get_Explosion_Z(impact));
+			AnimClass * created = new AnimClass(animation, impact, 0, 1, ShapeFlags_Type(SHAPE_CENTER | SHAPE_WIN_REL | SHAPE_ZGRAD), Get_Explosion_Z(impact));
             if (created == 0 && Warhead == Rule->NukeWarhead) {
                 int house_type = -1;
                 if (Payback != 0) house_type = Payback->House->Class->House;

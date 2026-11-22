@@ -1121,7 +1121,7 @@ bool TechnoTypeClass::Read_INI(CCINIClass const & ini) // RA2: RA2's rules and a
 		}
 		TurretNotExportedOnGround = ArtINI.Get_Bool(GraphicName, "TurretNotExportedOnGround", TurretNotExportedOnGround); // RA2: as above
 		MZone = ini.Get_MZoneType(IniName, "MovementZone", MZone); // RA2: as above
-		IsSubterranean = MZone == 6; // RA2: as above
+		IsSubterranean = MZone == MZONE_SUBTERANNEAN; // RA2: as above
 
 		if (IsVoxel) { // RA2: as above
 			Fetch_Voxel_Image(); // RA2: as above

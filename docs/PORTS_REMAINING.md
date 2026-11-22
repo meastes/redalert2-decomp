@@ -144,3 +144,12 @@ The YR lanes after them, Y13 to Y16, and lane P1 did the rest shown below.
   27 before). Check: lose a skirmish (or a mission); "Game Over" (and a won game's "Mission Accomplished") as bright
   as in Red Alert 2. Red Alert 2 has neither fault (its Init_Game is the matched original's; its game end clears
   the zoomed frame).
+- Lane N27 (2026-11-22): YR command bar reopen button under Zoom gestures — validated by the user on the Duo.
+- Fault (user, Duo, 2026-11-21): with Menu fill = Scale to fit, Red Alert 2's menus (main menu, Options, Enhancements)
+  were letterboxed on all four sides while Yuri's Revenge's filled the screen. Lane N28, please check on the Duo:
+  fixed. Cause: with Zoom gestures on, Red Alert 2's screen is twice as large in its map column (render scale 2) and
+  the host's render-scale layout showed the menus at that screen's nominal size, skipping Scale to fit
+  (host.cpp update_layout_scaled); it now fits the 800x600 menu there as update_layout does (ctest
+  `one-game-menu-backdrop`: a 1136x800 window with the phone's settings, Red Alert 2's menu the size of Yuri's
+  Revenge's; fails on the old build). Check: Red Alert 2's main menu and Enhancements fill the screen's height as
+  Yuri's Revenge's do, with Scale to fit and Pinch zoom on; Off keeps the original look.

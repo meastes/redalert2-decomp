@@ -1002,7 +1002,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 	}
 
 	CellClass * destination = &Map[DestinationCoord]; // RA2: an aircraft bound to an airport needs a link to the building in the cell, any other one a cell it can enter
-	if ((AirportBound && !LinkedTo->ContainsLink((TechnoClass *)destination->Cell_Building())) || (!AirportBound && LinkedTo->Can_Enter_Cell(destination, FACING_NONE, -1, NULL, true) != 0)) { // RA2: as above
+	if ((AirportBound && !LinkedTo->ContainsLink((TechnoClass *)destination->Cell_Building())) || (!AirportBound && LinkedTo->Can_Enter_Cell(destination, FACING_NONE, -1, NULL, true) != MOVE_OK)) { // RA2: as above
 		Take_Off();
 		Cell pos = LinkedTo->PositionCoord.As_Cell();
 		Cell nearby = Map.Nearby_Location(pos, SPEED_TRACK, -1, MZONE_FLYER, false, Point2D(1, 1), false, false, false, true, Cell(0, 0), false); // RA2: all arguments given

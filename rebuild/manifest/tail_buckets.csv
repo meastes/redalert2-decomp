@@ -78,7 +78,6 @@ score,006684f0,?Add@?$DynamicVectorClass@PAVScoreAnimClass@@@@QAE_NABQAVScoreAni
 startup,00691450,?CreateInstance@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@QAEJABU_GUID@@PAUIUnknown@@K@Z,136,exact_when_open,,,exact with the guards open (the guard may protect another row)
 startup,006983e0,?_Release@?$_com_ptr_t@V?$_com_IIID@UIUnknown@@$1?_GUID_00000000_0000_0000_c000_000000000046@@3U__s_GUID@@A@@@@AAEXXZ,13,exact_when_open,,,exact with the guards open (the guard may protect another row)
 startup,00698620,?Add@?$DynamicVectorClass@K@@QAE_NABK@Z,80,exact_when_open,,,exact with the guards open (the guard may protect another row)
-tactical,006ac7a0,_$E298,1,exact_when_open,,,exact with the guards open (the guard may protect another row)
 techno,006d9770,??K?$TPoint3D@H@@QBE?BV0@H@Z,77,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072af50,??4?$VectorCursor@V?$TRect@H@@V?$VectorClass@V?$TRect@H@@@@@@QAEAAV0@ABV0@@Z,21,exact_when_open,,,exact with the guards open (the guard may protect another row)
 wdtmap,0072af70,??0?$TRect@H@@QAE@XZ,3,exact_when_open,,,exact with the guards open (the guard may protect another row)
@@ -157,6 +156,7 @@ ownrdraw,00602510,??_G?$DNode@IUWinData@OwnerDraw@@@@QAEPAXI@Z,138,no_draft,,,
 ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NXZ,135,no_draft,,,
 planmgr,0061a8e0,?unknown_rect_contains_0061a8e0@Owner_0061a8e0@seed_0061a8e0@@QAEIPAH@Z,58,no_draft,,,
 sidebar,00682520,?get@Leaf_682520@@QAEIXZ,29,no_draft,,,
+tactical,006ac7a0,_$E298,1,no_draft,,,
 wdtconflict,00727cc0,??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z,36,no_draft,,,
 wonline,00766dc0,?Shrink_00766dc0@WolChannelArray@@QAE_NXZ,150,no_draft,,,
 wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,,
@@ -169,7 +169,7 @@ laser,005334f0,?Draw_It@LaserDrawClass@@QAEXXZ,1906,register_order,,,"+28 mov al
 netshare,005c8dd0,?Set_Slot_Names@@YIXPBG@Z,920,register_order,,,"+2b mov ebp, dword ptr [0xa72d30] | orig mov ebx, dword ptr [0xa72d2c]"
 score,00663fe0,?Presentation@ScoreClass@@QAEXXZ,7782,register_order,,,"+0 sub esp, 0x69c | orig sub esp, 0x6a0"
 sidebar,0067f800,?Draw_It@StripClass@SidebarClass@@QAEX_N@Z,2760,register_order,,,"+494 mov edx, dword ptr [0] | orig mov edx, dword ptr [0x8323b0]"
-sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,register_order,,,"+ef mov edx, dword ptr [0x839638] | orig mov edx, dword ptr [0x839630]"
+sidebar,006819a0,?Reposition_Sidebar@SidebarClass@@UAEXXZ,1314,register_order,,,"+11 mov eax, dword ptr [0x839630] | orig mov eax, dword ptr [0x839638]"
 techno,006d6ed0,?Railgun_Beam_Damage@TechnoClass@@QAE?AVCoord@@AAV2@PAVAbstractClass@@PAVWeaponTypeClass@@@Z,1521,register_order,,,"+31b sub esp, 8 | orig faddp st(1)"
 techtype,006d9b40,??0TechnoTypeClass@@QAE@PBDW4SpeedType@@@Z,2961,register_order,,,"+478 push ebx | orig mov dword ptr [esi + 0x53c], ebx"
 voxel,00718060,?Init_Voxel_Matrices@@YIXXZ,3290,register_order,,,"+673 xor esi, esi | orig xor edi, edi"

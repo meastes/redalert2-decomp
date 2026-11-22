@@ -6301,7 +6301,7 @@ bool MapGeneratorClass::Seed_Lake(const Cell & cell) // RA2: RA2's form of Seed_
 			Map.Reset_Iterator();
 			for (CellClass *iter = Map.Iterate(); iter; iter = Map.Iterate()) {
 				int index = MapRegionClass::CellData::Get_Region(iter->CellID); // RA2: as above
-				if (index == region && (iter->ITType == 0 || iter->ITType == (IsometricTileType)0xffff)) { // RA2: as above
+				if (index == region && (iter->ITType == ISOTILE_CLEAR || iter->ITType == (IsometricTileType)ISOTILE_NONE)) { // RA2: as above
 					iter->ITType = IsometricTileTypeClass::GreenTile; // RA2: as above
 				}
 			}

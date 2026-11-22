@@ -6365,19 +6365,19 @@ int TechnoClass::Get_Z_Fudge_Column(void) const
 		CellClass * south_east = &Map[Adjacent_Cell(cell, FACING_SE)];
 
 		if (south != NULL && east != NULL && south_east != NULL) {
-			if (south->ITType != (IsometricTileType)0xFFFF && south->ITType != (IsometricTileType)0xFF) { // RA2: Get_Z_Fudge_Column at 0x6CF9D0 matches only so
+			if (south->ITType != (IsometricTileType)ISOTILE_NONE && south->ITType != (IsometricTileType)ISOTILE_NONE_LEGACY) { // RA2: Get_Z_Fudge_Column at 0x6CF9D0 matches only so
 				int tile = south->ITType - IsometricTileTypeClass::BridgeSet + 1;
 				if (tile >= 7 && tile <= 16) { // RA2: as above
 					fudge = 1;
 				}
 			}
-			if (east->ITType != (IsometricTileType)0xFFFF && east->ITType != (IsometricTileType)0xFF) { // RA2: as above
+			if (east->ITType != (IsometricTileType)ISOTILE_NONE && east->ITType != (IsometricTileType)ISOTILE_NONE_LEGACY) { // RA2: as above
 				int tile = east->ITType - IsometricTileTypeClass::BridgeSet + 1;
 				if (tile >= 7 && tile <= 16) { // RA2: as above
 					fudge = 1;
 				}
 			}
-			if (south_east->ITType != (IsometricTileType)0xFFFF && south_east->ITType != (IsometricTileType)0xFF) { // RA2: as above
+			if (south_east->ITType != (IsometricTileType)ISOTILE_NONE && south_east->ITType != (IsometricTileType)ISOTILE_NONE_LEGACY) { // RA2: as above
 				int tile = south_east->ITType - IsometricTileTypeClass::BridgeSet + 1;
 				if (tile >= 7 && tile <= 16) { // RA2: as above
 					fudge++;

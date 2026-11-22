@@ -400,7 +400,7 @@ void __fastcall Group_Reselect(int group)
 		}
 	}
 	Map.Center_Map();
-	Map.Flag_To_Redraw((GScreenRedrawFlags)1);
+	Map.Flag_To_Redraw((GScreenRedrawFlags)GS_REDRAW_TACTICAL);
 	AllowVoice = true;
 }
 

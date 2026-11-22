@@ -4124,7 +4124,7 @@ void InfantryClass::Movement_AI(void)
 		**	that it can't travel to. In such a case, abort the movement process by clearing
 		**	the navigation computer.
 		*/
-		if (!IsZoneCheat || Can_Enter_Cell(Get_Target_Cell_Ptr(), FACING_NONE, -1, 0, 1) != 7) {
+		if (!IsZoneCheat || Can_Enter_Cell(Get_Target_Cell_Ptr(), FACING_NONE, -1, 0, 1) != MOVE_NO) {
 			if (!Locomotion->Is_Moving() && !IsTethered && NavCom != NULL && IsLocked) {
 				Cell current_cell = Destination_Coord(0).As_Cell();
 				if (!Map.Is_Same_Cell_Zone(current_cell, target_cell, Class->MZone,

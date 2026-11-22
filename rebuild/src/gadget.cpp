@@ -552,7 +552,7 @@ KeyNumType GadgetClass::Input(void)
 	**	Fetch any pending keyboard input.
 	*/
 	key = Keyboard->Check();
-	if (key != 0) {
+	if (key != KN_NONE) {
 		key = Keyboard->Get();
 	}
 

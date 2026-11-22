@@ -784,7 +784,7 @@ int RadarClass::RTacticalClass::Action(unsigned flags, KeyNumType & key)
 			} else if (para_drop) {
 				action = ACTION_PARA_DROP;
 			} else if (amer_para_drop) {
-				action = (ActionType)65; // RA2: the American paradrop
+				action = (ActionType)ACTION_AMER_PARA_DROP; // RA2: the American paradrop
 			} else if (object) {
 				action = Best_Selected_Object(NULL, object)->What_Action(object);
 			} else {

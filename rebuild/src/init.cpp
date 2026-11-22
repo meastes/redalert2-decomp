@@ -3132,7 +3132,7 @@ int Main_Menu(unsigned int timeout)
 
 			if (Keyboard->Check()) {
 				int input = Keyboard->Get(); // RA2: as above
-				if ((input & 0x800) == 0) { // RA2: as above
+				if ((input & KN_RLSE_BIT) == 0) { // RA2: as above
 					if (Cheat_Key_Process((char)input) == true) {
 						VocClass::PlayGlobal(Rule->OptionsChanged, 1.0f, 0x2000); // RA2: as above
 						Title_Screen_Restore(true);

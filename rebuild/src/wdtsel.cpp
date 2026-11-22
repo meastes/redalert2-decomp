@@ -912,7 +912,7 @@ bool __fastcall Selection::Choose_Conflict(rc_ptr<Campaign> const & campaign, in
 			Session.Options.SWAllowed = (settings->Booleans & 0x200) != 0;
 			Session.Options.BuildOffAlly = false;
 			Session.Options.AIPlayers = 0;
-			Session.Options.AIDifficulty = (DiffType)1;
+			Session.Options.AIDifficulty = (DiffType)DIFF_NORMAL;
 		} else {
 			chosen = false;
 		}

@@ -1041,7 +1041,7 @@ bool ModemGuest::StartGame(bool load_game)
 	Scen->Scenario = Session.Options.ScenarioIndex;
 	Session.NumPlayers = Session.Players.Count();
 	Frame = 0;
-	Session.CommProtocol = (CommProtocolType)2;
+	Session.CommProtocol = (CommProtocolType)COMM_PROTOCOL_MULTI_E_COMP;
 	Special.IsHarvesterImmune = Session.Options.HarvTruce;
 	Special.IsDestroyBridges = Session.Options.BridgeDestruction;
 	Special.IsTGrowth = true;
