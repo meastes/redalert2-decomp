@@ -6,6 +6,11 @@ exact-match tree of record, `src/` retires at the tag `src-final` (read-only, ke
 text), and the native ports keep building from `src/` until a separate ports repository consumes the
 rebuild at a pinned commit. Creating or publishing that repository is the user's decision alone.
 
+Revised the same day after the review session approved it with seven changes: whole-unit headline,
+the variation list first on 2026-11-29, decisions regrouped, assembly moved into the switch day,
+step 13 (the rebuild owns its evidence), a split-first ordering for the ports, and the STATUS line
+for what `src-final` matches and the rebuild does not yet.
+
 Three plans:
 
 1. [Retiring `src/` on 2026-11-29](#1-retiring-src-on-2026-11-29): ordered steps, each with a check
@@ -14,7 +19,8 @@ Three plans:
 3. [A ports repository, for the user's decision](#3-the-ports-repository-a-design-for-the-users-decision).
 
 Every step stays reversible until the user's go. Text the user must approve is marked
-**[user approval]**. The full list of user decisions is at the end.
+**[user approval]**. The user decisions are at the end, in three groups: the Thursday 26 bundle (the
+only items gating 2026-11-29), defaults taken, and a later ports bundle.
 
 ## Starting point (measured today)
 
@@ -33,8 +39,18 @@ ones (11,588 B: template copies, header statics, class files) sit in no rebuild 
 functions (53,153 B) are exact in the rebuild only, 27 of them main's never-matched functions
 (TActionClass::operator(), Init_Game and others).
 
-So on 2026-11-29 the headline number will fall by about three points unless the rebuild reaches
-main's matched bytes first. The README has to say so plainly (step 8).
+The like-for-like headline is the **whole-unit** figure (what the whole-file exact build accepts,
+the measure main's 93.54% uses): 90.34% today. The function-level figure (90.93%) is shown beside it
+and labelled, never in its place. So on 2026-11-29 the headline will fall by about three points
+unless the rebuild reaches main's matched bytes first. The README has to say so plainly (step 8).
+
+The first item on 2026-11-29 is the user's answer on the variation list
+(`rebuild/manifest/variation_candidates.csv`, `flex_menu.csv`). The held variations total about
+145 KB, against a gap to main of about 123 KB, so the figure is expected to move after that
+decision. The switch does not wait for it.
+
+Until the gap is zero, STATUS carries the line "matched in src-final, not yet in the rebuild: N
+functions / B bytes" (lane O50 is adding it).
 
 ---
 
@@ -45,7 +61,7 @@ main's matched bytes first. The README has to say so plainly (step 8).
 | Area | Today | After 2026-11-29 |
 | --- | --- | --- |
 | Acceptance | Two trees, two gates. `src/` lands through `land.sh` (strict audit, whole-file build). `rebuild/` lands through `land_rebuild_lane.sh` | Only `rebuild/` takes new rows. `src/` and main's catalog are frozen at `src-final`. Acceptance standard unchanged |
-| STATUS (`status.py`) | Main's numbers are the headline; the rebuild is a side column | The rebuild's numbers are the headline (function-level beside whole-unit, as `rebuild/README.md` reports). `src-final` is a frozen reference column |
+| STATUS (`status.py`) | Main's numbers are the headline; the rebuild is a side column | The rebuild's like-for-like whole-unit figure is the headline, with function-level beside it and labelled. `src-final` is a frozen reference column, plus the line "matched in src-final, not yet in the rebuild: N functions / B bytes" until it reaches zero (lane O50) |
 | `build.command` | Main's whole-file build (`build.py`, main's config and catalog) | The rebuild's whole-file build. `build.command --tree src` builds the frozen record |
 | `test.command` | `tests/` (tool tests) | `tests/` plus `rebuild/tests/` |
 | `gate_scope.py` | Scopes `exact`, `native`, `rebuild`, `none` | A change under `src/` or `manifests/original_target/` is refused (scope `frozen`). `rebuild` becomes the acceptance scope. `native` is unchanged |
@@ -55,15 +71,20 @@ main's matched bytes first. The README has to say so plainly (step 8).
 
 ### What stays depending on `src/` and main's catalog, and must not be deleted
 
-The retirement freezes `src/`; it cannot remove it. Measured dependencies:
+On the day the retirement freezes `src/`; it cannot remove it yet. The intended end state (owner
+ruling, matching the user's "kept as reference text") is that `src/` and main's catalog are reference
+only and nothing the tree of record builds or lands depends on them: permanent dependence is not
+accepted. Step 12 removes the assembly dependency on the day; step 13 removes the rest. Measured
+dependencies:
 
 - **The rebuild's whole-file build** assembles the 16 handwritten assembly sources from
-  `src/recovered/asm` (`tools/original_target/assembly_link.py`, not switched by `RA2_TREE`).
+  `src/recovered/asm` (`tools/original_target/assembly_link.py`, not switched by `RA2_TREE`). Cut
+  on the day by step 12.
 - **The rebuild's catalog** keeps main's frozen evidence on every row: bounds, body and padding
   hashes, and the `bound_population` (main's population that froze the row). Its build config is
   main's private config plus one entry per rebuild population pointing at main's inventory
   (`rebuild/tools/rebuild_catalog.py`). So `manifests/original_target/` and the private
-  inventory are inputs of the tree of record. They stay as read-only evidence.
+  inventory are inputs of the tree of record. They stay as read-only evidence until step 13.
 - **Rebuild tools that read main as the answer key**: `rebuild.py` and `assess.py` (main's catalog);
   `mainhist.py`, `filetail.py`, `keptcopy.py`, `nodraft_queue.py`, `tail.py` (main's catalog, module map,
   unit map, non-exact list); `image_bounds.py` (main's `assembly.json` and `library.json`);
@@ -87,8 +108,8 @@ catalog, sorted by what happens to each.
 | `tools/original_target/tree.py` | `RA2_TREE` picks `src/recovered`+`src/shared` (default) or `rebuild/` | Default stays `main` on the day. Flip the default to `rebuild` one week later (step 11), once the landing scripts have run on `RA2_TREE=rebuild` alone |
 | `build.py`, `canonical.py`, `generated_data.py`, `data_bindings.py`, `source_paths.py` (tree-aware through `tree.py`) | Either tree | Unchanged; the rebuild via `RA2_TREE=rebuild` |
 | `catalog_io.py`, `verify_manifest.py`, `coff.py`, `cleanup_census.py` (shared, used by rebuild tools) | Either catalog | Unchanged |
-| `assembly_link.py` | `src/recovered/asm` (hard-coded) | Unchanged on the day. Later, `rebuild/asm/` (step 12) |
-| `status.py` | Main's catalog (headline) plus the rebuild's catalog and `progress.csv` | Headline from the rebuild. `src-final` figures computed from the frozen catalog (they cannot change) |
+| `assembly_link.py` | `src/recovered/asm` (hard-coded) | `rebuild/asm/` through `tree.py`, on the day (step 12) |
+| `status.py` | Main's catalog (headline) plus the rebuild's catalog and `progress.csv` | Headline: the rebuild's whole-unit figure, function-level beside it and labelled. `src-final` figures computed from the frozen catalog (they cannot change), and the "matched in src-final, not yet in the rebuild" line |
 | `bytematch_report.py` | Main by default, `--tree rebuild` for the rebuild series | Default `--tree rebuild`. Main's series stops |
 | `gate_scope.py` | Path prefixes | Adds the frozen scope (step 3) |
 | Main-only matching tools: `accept_sources.py`, `apply_rename.py`, `callsite_rename.py`, `member_rename.py`, `rename_files.py`, `organize_by_class.py`, `refile_unit.py`, `promote_sweep.py`, `regenerate_seeds.py`, `repair_seeds.py`, every `seed_*.py`, `sweep_seeds.py`, `permute_seeds.py`, `class_seed.py`, `generate_*.py`, `module_ledger.py`, `non_exact.py`, `placeholder_census.py`, `source_index.py`, `treemap.py`, `xcu_units.py`, `lane_tools.py`, `check_plans.py/.sh`, `fragile_lab.py`, `remote_compile.py`, `diff_candidate.py` (38 files) | `src/recovered`, `src/shared`, main's catalog | Kept as text, not deleted. Any that writes under `src/` or main's catalog is refused by the frozen gate. Their tests in `tests/` keep running: they test fixtures and shared code |
@@ -101,24 +122,26 @@ catalog, sorted by what happens to each.
 
 ### Ordered steps
 
-Steps 1 to 10 are the switch day. Steps 11 and 12 follow within two weeks. Each step is one
-commit (or one private-script edit), so each reverts on its own.
+Steps 1 to 10 and 12 are the switch day (step 12 is rehearsed in the dry run, so the tree of record
+builds without `src/` from day one). Step 11 follows a week later; step 13 has no date. Each step is
+one commit (or one private-script edit), so each reverts on its own.
 
 | # | Step | Check | Rollback |
 | --- | --- | --- | --- |
-| 0 | **Before the day.** Owner reads this plan. User approves the marked wording and answers decisions 1 to 6. A dry run of steps 2 to 6 on a branch `retire-src-dryrun` in its own worktree, run in a fresh worktree as the 2026-11-19 clean-reproduction check was | Fresh-worktree `build.command` (rebuild) and `build.command --tree src` both print `"whole_file_exact": true`; `test.command` passes | Delete the branch |
-| 1 | **Freeze point.** Land the last `src/` delivery, if any. Run `./build.command` (main) and `status.py --write`. Commit. Make the annotated local tag `src-final` on that commit | `git rev-parse src-final` resolves; the build log at that commit is whole-file exact; `git diff --quiet src-final HEAD -- src manifests/original_target` | `git tag -d src-final` (local only until published, decision 3) |
+| 0 | **Before the day.** Owner reads this plan. The Thursday 26 bundle goes to the user (variation list, AGENTS.md wording, README wording). A dry run of steps 2 to 6 and 12 on a branch `retire-src-dryrun` in its own worktree, run in a fresh worktree as the 2026-11-19 clean-reproduction check was | Fresh-worktree `build.command` (rebuild) and `build.command --tree src` both print `"whole_file_exact": true`, the rebuild one also with `src/recovered/asm` renamed away; `test.command` passes | Delete the branch |
+| 1 | **Freeze point.** First, apply the user's answer on the variation list (Thursday 26 bundle) as rebuild landings; the switch does not wait for it if it has not come. Land the last `src/` delivery, if any. Run `./build.command` (main) and `status.py --write`. Commit. Make the annotated local tag `src-final` on that commit | `git rev-parse src-final` resolves; the build log at that commit is whole-file exact; `git diff --quiet src-final HEAD -- src manifests/original_target` | `git tag -d src-final` (local only, default A) |
 | 2 | **Tests cover the frozen tree.** `tests/test_src_frozen.py`: fails when `git diff src-final HEAD -- src manifests/original_target` is non-empty | `test.command` passes; a scratch edit under `src/` makes it fail | Revert the commit |
 | 3 | **Gate.** `gate_scope.py`: paths under `src/` or `manifests/original_target/` give scope `frozen`, which the landing scripts refuse. `rebuild/` is the acceptance scope. A shared-tool change still runs the rebuild gate, the native gate, and `build.command --tree src` so `src-final` stays reproducible | `gate_scope.py --base src-final` on a scratch `src/` edit prints `frozen`; on a `rebuild/` edit prints `rebuild`; `tests/test_original_target_gate_scope*` pass | Revert the commit |
 | 4 | **`build.command` and `test.command`.** `build.command` runs the rebuild's whole-file build: write the config under `build/r/` without touching tracked files, then `build.py --config build/r/rebuild-config.json --manifest rebuild/manifest/catalog`. `--tree src` runs today's command. `test.command` discovers `tests/` and `rebuild/tests/`. (Today the config is written by `rebuild.py catalog`, which also rewrites `units.json`. The landing script restores that file afterwards; `build.command` needs a config-only mode or that restore) | Both builds whole-file exact from a fresh worktree; `git status` clean after each | Revert the two files |
-| 5 | **STATUS.** `status.py`: the headline table comes from the rebuild (function-level and whole-unit pair, judgment-call bytes, parked tail). Main's table becomes "src-final (frozen 2026-11-29)", computed from the frozen catalog. Matched bytes per hour from the rebuild's `progress.csv` | `status.py --write`: the headline numbers equal the last `progress.csv` row; the src-final numbers equal step 1's STATUS | Revert `status.py` and `STATUS.md` |
+| 5 | **STATUS.** `status.py`: the headline is the rebuild's like-for-like whole-unit figure, with function-level beside it and labelled; judgment-call bytes, parked tail and the "matched in src-final, not yet in the rebuild: N functions / B bytes" line (lane O50) until that reaches zero. Main's table becomes "src-final (frozen 2026-11-29)", computed from the frozen catalog. Matched bytes per hour from the rebuild's `progress.csv` | `status.py --write`: the headline equals the last `progress.csv` row's whole-unit `reproduced_text`; the src-final numbers equal step 1's STATUS | Revert `status.py` and `STATUS.md` |
 | 6 | **ByteMatch.** `bytematch_report.py` defaults to `--tree rebuild`; one final main upload at `src-final` | `--dry-run` (or no `--upload`) writes the rebuild report | Revert the default |
-| 7 | **Landing scripts (private, untracked).** `land.sh`, `land_round.sh`, `land_status.sh`, `accept.sh`, `merge_headers.sh`, `rehash_catalog.py`, `rehead_plan.py` and `publish_rebuild.sh` exit with the retirement message. Keep a `.pre-retire` copy of each. `land_rebuild_lane.sh` keeps setting the `rebuild-trial` pointer the Windows workers fetch until step 9 is done. Its hourly publish gate follows decision 5 | `land.sh x` prints the refusal; one real rebuild landing goes through end to end (gate, whole-file build, `progress.csv`, commit, mirror sync, publish) | Restore the `.pre-retire` copies |
+| 7 | **Landing scripts (private, untracked).** `land.sh`, `land_round.sh`, `land_status.sh`, `accept.sh`, `merge_headers.sh`, `rehash_catalog.py`, `rehead_plan.py` and `publish_rebuild.sh` exit with the retirement message. Keep a `.pre-retire` copy of each. `land_rebuild_lane.sh` keeps setting the `rebuild-trial` pointer the Windows workers fetch until step 9 is done. Its hourly publish gate stays (default C) | `land.sh x` prints the refusal; one real rebuild landing goes through end to end (gate, whole-file build, `progress.csv`, commit, mirror sync, publish) | Restore the `.pre-retire` copies |
 | 8 | **Docs.** AGENTS.md **[user approval]**, README.md **[user approval]**, ORIGINAL_TARGET_PROCESS.md ("Two trees, two gates" becomes "Tree of record"), ORIGINAL_TARGET_BUILD.md (commands), ARCHITECTURE.md (canonical source in `rebuild/`), STATUS.md (generated), HANDOFF.md, RECOVERED_SOURCE_INDEX.md (frozen header line), `rebuild/README.md` ("How it relates": `src/` is now the `src-final` reference), DECISIONS.md (the ruling), NATIVE_COUPLING.md (points at plan 2). THIRD_PARTY.md needs no change | Doc-only commit; `gate_scope.py` prints `none` | Revert the commit |
 | 9 | **Windows workers.** Their brief and assignments fetch `main`, not `rebuild-trial`; the mirror sync is unchanged. Once both workers have fetched main, drop the `rebuild-trial` pointer line from `land_rebuild_lane.sh` | Next delivery from each worker is based on main | Restore the pointer line |
-| 10 | **Public snapshot.** The first publish after the switch carries the new README. Push `src-final` as a public tag only on the user's word (decision 3), mirroring `historical-final-public` | `owner_checks.sh` "Public snapshot" line shows the commit; the public README shows the rebuild's numbers | A further snapshot restores the text (published history itself is not reversible: that is why the wording is approved first) |
+| 10 | **Public snapshot.** The first publish after the switch carries the new README. `src-final` stays a local tag (default A); pushed as a public tag only if the user asks, mirroring `historical-final-public` | `owner_checks.sh` "Public snapshot" line shows the commit; the public README shows the rebuild's numbers | A further snapshot restores the text (published history itself is not reversible: that is why the wording is approved first) |
 | 11 | **One week later: tool default.** `tree.py` default becomes `rebuild`; `RA2_TREE=main` reaches the frozen tree. A shared-tool change, so both gates | Both builds whole-file exact; `test.command` passes | Revert `tree.py` |
-| 12 | **Within two weeks: assembly into the rebuild.** Copy the 16 `src/recovered/asm` files (`.asm`, `.inc`) to `rebuild/asm/` unchanged, with their notices, and have `assembly_link.py` read the tree's directory (`tree.py`). The rebuild then no longer needs `src/` to build | Rebuild whole-file build exact with `src/recovered/asm` temporarily renamed in a scratch worktree | Revert; `src/recovered/asm` is untouched |
+| 12 | **On the day (rehearsed in step 0): assembly into the rebuild.** Copy the 16 `src/recovered/asm` files (`.asm`, `.inc`) to `rebuild/asm/` unchanged, with their notices, and have `assembly_link.py` read the tree's directory (`tree.py`). The rebuild then no longer needs `src/` to build | Rebuild whole-file build exact with `src/recovered/asm` temporarily renamed in a scratch worktree | Revert; `src/recovered/asm` is untouched |
+| 13 | **No date: the rebuild owns its evidence.** The rebuild catalog carries its own bounds, hashes and inventory, after which `src/` and main's catalog are reference only. Dependencies to cut, each one commit: (a) the catalog rows' `bound_population` and frozen evidence (bound, body, padding and full-extent hashes, padding provenance) copied into rebuild-owned populations, so `rebuild_catalog.py` no longer reads main's catalog; (b) the build config generated from the rebuild's own populations and an inventory folder the rebuild names (copied or re-pointed from main's private inventory), not main's config plus overrides; (c) `image_bounds.py`'s use of main's `assembly.json` and `library.json` moved to rebuild manifests; (d) the answer-key readers (`rebuild.py`, `assess.py`, `mainhist.py`, `filetail.py`, `keptcopy.py`, `nodraft_queue.py`, `tail.py`, `declared_never_defined.py`, `provenance.py`) reading `src-final` through `git archive` under `build/` or a generated rebuild-side index, and optional for landing; (e) `rebuild_census.py`'s structure checks from `cleanup_census.py` made tree-aware; (f) shared tools default to the rebuild (step 11) | Rebuild gate passes in a fresh worktree with `src/` and `manifests/original_target/` renamed away | Revert the commit for the item; main's files were never changed |
 
 ### What keeps building from `src/` meanwhile
 
@@ -132,7 +155,7 @@ commit (or one private-script edit), so each reverts on its own.
 
 ### Wording the user must approve
 
-**[user approval] AGENTS.md**, replacing the "Fixed constraints" paragraph that begins "User decision
+**[user approval] AGENTS.md** (no figures in it, so it does not go stale), replacing the "Fixed constraints" paragraph that begins "User decision
 (2026-11-22, confirmed in the owner session)":
 
 > User decision (2026-11-22; in force since 2026-11-29): `rebuild/` is the exact-match tree of record.
@@ -151,12 +174,15 @@ they move to a "Retired with src/" note rather than being deleted.
 
 **[user approval] README.md**, the opening paragraph's second sentence and the "Where it stands" lead:
 
-> About 90.9% of the code is rebuilt from source in the current tree, `rebuild/`: one source file per
-> original source file, laid out like Westwood's own code. The earlier tree, `src/`, reached 93.5% and
-> is kept unchanged as a reference (tag `src-final`); the native ports still build from it while they
-> move to the new tree.
+> About 90.3% of the code is rebuilt from source in the current tree, `rebuild/` (90.9% counting each
+> function checked on its own): one source file per original source file, laid out like Westwood's own
+> code. The earlier tree, `src/`, reached 93.5% on the same measure and is kept unchanged as a
+> reference (tag `src-final`); the native ports still build from it while they move to the new tree.
+> The figure is expected to move in the coming days as held forms are decided.
 
-(The figure is the rebuild's function-level reproduced share on 2026-11-22; step 5 regenerates it.)
+(90.3% is the like-for-like whole-unit reproduced share on 2026-11-22, the measure of main's 93.5%;
+90.9% is function-level, labelled. Step 5 regenerates both; the last sentence stays until the
+variation-list answer has landed.)
 
 ---
 
@@ -242,6 +268,22 @@ took one lane session; YR went from nothing to a skirmish played to the score sc
 about five calendar days. The RA2 move starts better placed: every behaviour question already has
 a working answer in today's port, addressed by entry.
 
+### Order of work (for the later ports bundle)
+
+Start after the flex week. Two orderings; the cheaper one first:
+
+1. **Split first, then move (recommended).** Create the ports repository with `src-final` vendored
+   (`vendor/ra2-src-final/`: `src/recovered` and `src/shared` at the tag, unchanged, under a `PIN`
+   list). Today's `native_units.py`, fixups and tables point at that folder instead of `../src`. This
+   costs 1 to 2 lane-days, and the played port stays byte-for-byte the same program. The move onto
+   the rebuild (items 1 to 8, 17 to 28 lane-days) then happens inside the new repository, with
+   `vendor/ra2-rebuild/` beside the old folder until the new port passes the full tier and the
+   user's device checks. This repository stops carrying ports work from the split onwards.
+2. **Move first, then split.** Items 1 to 8 here in `native/`, then the split. Same total, but two
+   generated trees and both ports live in this repository for the whole move.
+
+Creating the repository stays the user's decision alone (decision P2).
+
 ### Main risks
 
 - **Behaviour drift where two exact texts differ in source.** Both trees give the same VC6 bytes, but
@@ -249,8 +291,7 @@ a working answer in today's port, addressed by entry.
   (signed overflow, evaluation order, uninitialised locals, bit-field layout). The frame-identity
   and played tests are the net; budgeted in item 7.
 - **A moving target.** The rebuild lands daily and the user plans rule flexes after 2026-11-29. Pin a
-  commit, re-vendor deliberately, and start after the flex week, or at parity of main's matched
-  bytes, so the overlay (item 4) is small.
+  commit, re-vendor deliberately, and start after the flex week, so the overlay (item 4) is small.
 - **Parked drafts are non-exact.** The 45 codegen-only drafts should behave like main's exact text,
   but nobody has proven it. Each gets a behaviour check against main's text before it replaces it.
 - **Layouts under clang.** `-mms-bitfields` and the TibSun headers' packing must reproduce the sizes
@@ -324,7 +365,7 @@ from the rebuild catalog, so the port's address-keyed tools do not need the 55 M
   with LLVM exception). Packaged builds include SDL's licence file, as `build.sh windows-one`
   already does.
 - **EA's section 7 terms forbid use of EA's trademarks.** App and bundle names (`RA2.app`,
-  `RA2YRNative.exe`) and store-style descriptions are the user's call in that light (decision 12).
+  `RA2YRNative.exe`) and store-style descriptions are the user's call in that light (decision P6).
 - **No new grant of rights** in the game, as THIRD_PARTY.md says today.
 
 ### Layout
@@ -343,7 +384,7 @@ ra2-native-ports/            (name: user decision)
     ra2-rebuild/   src/ include/ LICENSE.md adopted.csv symbols.tsv PIN
     ra2-decomp/    (today's yr/ra2-decomp, unchanged)
     tibsun/        (today's yr/tibsun, unchanged)
-  .github/workflows/ci.yml   (if decision 11 says yes)
+  .github/workflows/ci.yml   (if decision P5 says yes)
 ```
 
 During the move (plan 2) a second vendor folder, `vendor/ra2-src-final/` (`src/recovered`,
@@ -364,49 +405,65 @@ CI has no game files and no VC6, so it proves building, packaging and hygiene, n
 | iOS simulator build, compile and link only | Nightly |
 | Played tests, frame identity, campaign start sweep, LAN, saves | Not in CI: they need the user's installed game. Run on the owner's Mac (today's native gate, full tier) before any build for the user's devices and before a re-vendor lands |
 
-CI downloads the toolchain, SDL and Homebrew packages; that needs the user's word (decision 11).
+CI downloads the toolchain, SDL and Homebrew packages; that needs the user's word (decision P5).
 
 ### History and the move itself
 
 - Start the new repository either with a fresh history (one commit naming this repository's commit),
   or with `native/`'s history carried over by a subdirectory filter. The decision is the user's
-  (decision 10).
+  (decision P4).
 - This repository keeps `native/` until the ports repository builds and passes the full tier. Then
   `native/` and `yr/` either stay frozen here or are removed under a tag `native-final`, like
-  `historical-final`. Removal is the user's decision (decision 13).
+  `historical-final`. Removal is the user's decision (decision P7).
 
 ---
 
 ## Decisions for the user
 
-Each answer is independent. The default held meanwhile is in brackets. None blocks the rebuild lanes.
+Three groups. None blocks the rebuild lanes.
 
-1. **AGENTS.md wording** for the retirement (section 1, "Wording the user must approve"). Cost: none.
-   [Default: the 2026-11-22 text stands, and the owner runs the switch under it.]
-2. **README wording**: the public headline falls from main's 93.5% to the rebuild's figure (about
-   90.9% today) unless parity comes first. [Default: no README change until approved; the switch
-   waits only for this text.]
-3. **Push `src-final` as a public tag** (as `historical-final-public` was). [Default: local tag only.]
-4. **The public `rebuild-trial` branch**: leave it frozen at its last snapshot, or delete it.
-   Deleting cannot be undone for anyone who linked to it. [Default: leave it frozen.]
-5. **Publish cadence after the switch**: keep the hourly cap for rebuild commits, or publish every
-   landing as main's commits were. [Default: hourly cap.]
-6. **ByteMatch**: make the rebuild series the project's main series, or keep it as a second series
-   (an external service). [Default: keep both, stop main's uploads.]
-7. **Whether and when to move the ports onto the rebuild**: 17 to 28 lane-days (about 21). Start now,
-   after the flex week, or at parity of main's matched bytes. [Default: not started; recommended
-   start at parity or after the flex week, whichever comes first.]
-8. **Create the ports repository**: yes or no, its name, host and account, and whether it is public
-   or private. Publishing it also redistributes the adopted GPL text as a whole tree. [Default: not
-   created.]
-9. **How it consumes the rebuild**: A submodule, B fetch script, or C vendored snapshot.
-   [Recommended: C.]
-10. **History**: fresh, or `native/`'s history carried over. [Recommended: fresh, with a pointer
-    commit; smaller and free of this repository's large blobs.]
-11. **CI**: whether to use a hosted CI (macOS runner minutes cost money on private repositories), and
-    approval for CI to download llvm-mingw, SDL 3.4.2 source and Homebrew packages.
-    [Default: no hosted CI; the owner's Mac runs the checks.]
-12. **Binary releases and names**: whether built apps are published at all, and under which names,
-    given EA's section 7 trademark term. [Default: no binary releases; builds stay local, as today.]
-13. **After the ports repository passes**: keep `native/` and `yr/` frozen in this repository, or
-    remove them under a tag `native-final`. [Default: keep them frozen.]
+### Thursday 26 bundle: the only things gating 2026-11-29
+
+(a) **The variation list** (`rebuild/manifest/variation_candidates.csv`, totals in `flex_menu.csv`):
+    which held hand-made forms may land. About 145 KB is held against a gap to main of about 123 KB,
+    so this answer can move the headline past main's figure. It is applied first on 2026-11-29
+    (step 1); the switch is not delayed if it has not come. [Default meanwhile: nothing held lands.]
+
+(b) **AGENTS.md wording** for the retirement (section 1, "Wording the user must approve"; no figures
+    in it). [Default: the 2026-11-22 text stands, and the owner runs the switch under it.]
+
+(c) **README wording**: the public lead becomes the rebuild's like-for-like whole-unit figure (about
+    90.3% today, function-level 90.9% beside it and labelled) against `src/`'s 93.5%, with a sentence
+    that the figure is expected to move as held forms are decided. [Default: no README change until
+    approved.]
+
+### Defaults taken: say if you want otherwise
+
+- **A.** `src-final` stays a local tag; it is not pushed as a public tag (as `historical-final-public`
+  was) unless asked.
+- **B.** The public `rebuild-trial` branch is left frozen at its last snapshot, not deleted (deleting
+  cannot be undone for anyone who linked to it).
+- **C.** Rebuild commits keep the hourly publish cap after the switch.
+- **D.** ByteMatch: main's uploads stop at `src-final`; the rebuild series continues as a second
+  series, not renamed or merged.
+
+### Later bundle: the ports (sent when the ports move is proposed, after the flex week)
+
+- **P1. Whether and when to move the ports onto the rebuild.** Two orderings (plan 2, "Order of
+  work"): split the repository first with `src-final` vendored (1 to 2 lane-days, the played port
+  unchanged), then move onto the rebuild inside it (17 to 28 lane-days, about 21); or move first,
+  then split. [Recommended: split first, start after the flex week.]
+- **P2. Create the ports repository**: yes or no, its name, host and account, and whether it is public
+  or private. Publishing it also redistributes the adopted GPL text as a whole tree. This is the
+  user's decision alone. [Default: not created.]
+- **P3. How it consumes the rebuild**: A submodule, B fetch script, or C vendored snapshot.
+  [Recommended: C.]
+- **P4. History**: fresh, or `native/`'s history carried over. [Recommended: fresh, with a pointer
+  commit; smaller and free of this repository's large blobs.]
+- **P5. CI**: whether to use a hosted CI (macOS runner minutes cost money on private repositories), and
+  approval for CI to download llvm-mingw, SDL 3.4.2 source and Homebrew packages.
+  [Default: no hosted CI; the owner's Mac runs the checks.]
+- **P6. Binary releases and names**: whether built apps are published at all, and under which names,
+  given EA's section 7 trademark term. [Default: no binary releases; builds stay local, as today.]
+- **P7. After the ports repository passes**: keep `native/` and `yr/` frozen in this repository, or
+  remove them under a tag `native-final`. [Default: keep them frozen.]
