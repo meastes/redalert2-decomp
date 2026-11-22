@@ -10690,7 +10690,7 @@ bool __fastcall Control_Test(HWND window) // RA2: as above
         unsigned int const &key=(unsigned int const &)window; // RA2: as above
         if(Control_Table.getPointer(key, &record))return record->SkipTests==1; // RA2: as above
     }
-    if(!strcmp(name,"ComboBox"))return (GetWindowLongA(window,-16)&3)!=3; // RA2: as above
+	if (!strcmp(name, "ComboBox")) return (GetWindowLongA(window, GWL_STYLE) & 3) != CBS_DROPDOWNLIST; // RA2: as above
     return false; // RA2: as above
 }
 }

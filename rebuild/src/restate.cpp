@@ -90,10 +90,10 @@ int CALLBACK Restate_Mission_Dialog_Proc(HWND window, UINT message, WPARAM wpara
 				*(int *)GetWindowLong(window, DWL_USER) = 0x423;
 			}
 			break;
-		case 0x497:
+		case OD_SUBCLASSED:
 			{
 				HWND item = GetDlgItem(window, 0x6e7);
-				SendMessage(item, 0x4b2, 0, (LPARAM)RestateText);
+			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)RestateText);
 			}
 			break;
 	}

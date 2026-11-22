@@ -46,21 +46,21 @@ int WWMessageBox::Process(wchar_t const * msg, wchar_t const * b1txt, wchar_t co
 
 		if (hasmsg) {
 			HWND item = GetDlgItem(dialog, 0x5B0);
-			SendMessage(item, 0x4B2, 0, (LPARAM)msg);
+			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)msg);
 		}
 		if (has1) {
 			HWND item = GetDlgItem(dialog, 0x5AE);
-			SendMessage(item, 0x4B2, 0, (LPARAM)b1txt);
+			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b1txt);
 			numbuttons = 1;
 		}
 		if (has2) {
 			HWND item = GetDlgItem(dialog, 2);
-			SendMessage(item, 0x4B2, 0, (LPARAM)b2txt);
+			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b2txt);
 			numbuttons = 2;
 		}
 		if (has3) {
 			HWND item = GetDlgItem(dialog, 0x5AF);
-			SendMessage(item, 0x4B2, 0, (LPARAM)b3txt);
+			SendMessage(item, OD_SETTEXTW, 0, (LPARAM)b3txt);
 			numbuttons = 3;
 		}
 

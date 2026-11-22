@@ -27,6 +27,7 @@
 #include "session.h" // RA2: as above
 #include "netshare.h" // RA2: as above
 #include "gdlgsupp.h"
+#include "ownrdraw.h"
 
 int __fastcall Combo_Selected_Data(HWND dialog, int id, int index); // RA2: 0x005C99D0 (netshare.cpp)
 namespace OwnerDraw { void __fastcall Set_Control_Image(HWND control, Surface * image); } // RA2: 0x005E1F30, as ownrdraw.cpp
@@ -575,7 +576,7 @@ void __fastcall Fill_Random_Color_Combo(HWND dialog, int id) // RA2: 0x004D2250,
 	SendMessageA(combo, 0x4DE, 0, 9); // RA2: as above
 	int item = SendMessageA(combo, 0x4C2, 0, (LPARAM)StringTable::LoadString("GUI:RandomAsSymbols", NULL, "D:\\Ra2\\GDlgSupp.cpp", 544)); // RA2: as above
 	SendMessageA(combo, CB_SETITEMDATA, item, -2); // RA2: as above
-	SendMessageA(combo, 0x498, item, -1); // RA2: as above
+	SendMessageA(combo, OD_SETCOLOR, item, -1); // RA2: as above
 	SendMessageA(combo, CB_SETCURSEL, 0, 0); // RA2: as above
 	SendMessageA(combo, 0x4F1, 0, 1); // RA2: as above
 	if (!hidden) { // RA2: as above

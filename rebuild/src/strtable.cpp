@@ -737,8 +737,8 @@ int __fastcall Message_Box_Wide(HWND window, wchar_t const * text, wchar_t const
 {
 	char narrow_text[0x1400]; // RA2: as above
 	char narrow_caption[0x800]; // RA2: as above
-	WideCharToMultiByte(0, 0, text, -1, narrow_text, sizeof(narrow_text), 0, 0); // RA2: the ANSI code page
-	WideCharToMultiByte(0, 0, caption, -1, narrow_caption, sizeof(narrow_caption), 0, 0); // RA2: as above
+	WideCharToMultiByte(CP_ACP, 0, text, -1, narrow_text, sizeof(narrow_text), 0, 0); // RA2: the ANSI code page
+	WideCharToMultiByte(CP_ACP, 0, caption, -1, narrow_caption, sizeof(narrow_caption), 0, 0); // RA2: as above
 	return MessageBoxA(window, narrow_text, narrow_caption, type); // RA2: as above
 }
 

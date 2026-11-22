@@ -626,7 +626,7 @@ void ModemHost::SendCurrentMessage(void)
 	HWND handle = GetDlgItem(_Dialog, IDC_INPUT);
 	if (handle) {
 		SendMessage(handle, 0x4b3, 0x100, (LPARAM)buf);
-		SendMessage(handle, 0x4b2, 0, (LPARAM)L"");
+		SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)L"");
 		if (wcslen(buf) && buf[0] != '\r') {
 			wcstrim(buf);
 			SendAMessage(buf);
@@ -672,7 +672,7 @@ void ModemHost::SetName(bool update)
 		SendMessage(handle, 0x4b3, 0x14, (LPARAM)namebuf);
 		wcstrim(namebuf);
 		if (!update) {
-			SendMessage(handle, 0x4b2, 0, (LPARAM)namebuf);
+			SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)namebuf);
 		}
 		strcpy(Session.Handle, Wide_To_Narrow(namebuf));
 		Transmit = true;
@@ -692,7 +692,7 @@ void ModemHost::SetOther(const wchar_t * name, int color, int house)
 		HWND handle = GetDlgItem(_Dialog, IDC_MODEM_OPPONENT);
 		if (handle) {
 			swprintf(buf, L"%s [%s]", name, HouseTypes[house]->UIName);
-			SendMessage(handle, 0x4b2, 0, (LPARAM)buf);
+			SendMessage(handle, OD_SETTEXTW, 0, (LPARAM)buf);
 			SendMessage(handle, OD_SETCOLOR, 0, (color >= 0 && color < MAX_PLAYERS ? PlayerColorTable[color] : ColorMe));
 		}
 

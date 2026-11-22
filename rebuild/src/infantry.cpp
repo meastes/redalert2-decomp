@@ -784,7 +784,7 @@ void InfantryClass::Debug_Dump(MonoClass * mono) const
  *   03/01/1995 JLB : Capture building options.                                                *
  *   05/31/1995 JLB : Capture is always successful now.                                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 3161 bytes differ against main's function-map extent (2026-11-22 lane O19: main's RA2 branches, the passive-house renovate test, C4 IsGoingToBlow, QueueMission, HasAnyLink; only the engineer block's register choice differs; was 4261)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00500aa0 has no row); 3161 bytes differ against main's function-map extent (2026-11-22 lane O19: main's RA2 branches, the passive-house renovate test, C4 IsGoingToBlow, QueueMission, HasAnyLink; only the engineer block's register choice differs; was 4261; lane O27: VC6 colours y before the building pointer, which then splits; about 1.5 more weighted uses of the pointer (two extra Scatter_Incoming_Infantry calls, a probe only) give it ebx for the whole block and leave only the first lookup's operand order, which Cell(Cell(x, y) + PositionCell) in both lookups fixes; candidate removals (iscapturable, maxdamage, train, the Detach index) and loop or lookup forms do not move it)
 #include "revent.h"
 #include "vox.h"
 

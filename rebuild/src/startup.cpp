@@ -291,9 +291,9 @@ HRESULT RegisterServer(void)
 
 	GetModuleFileName(ProgramInstance, szModulePath, sizeof(szModulePath) / sizeof(TCHAR));
 	StringFromGUID2(CLSID_TiberianSun, temp, (sizeof(temp) / sizeof(WCHAR)) - 1);
-	WideCharToMultiByte(0, 0, temp, -1, szID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
+	WideCharToMultiByte(CP_ACP, 0, temp, -1, szID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
 	StringFromGUID2(LIBID_TiberianSun, temp, (sizeof(temp) / sizeof(WCHAR)) - 1);
-	WideCharToMultiByte(0, 0, temp, -1, szLibID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
+	WideCharToMultiByte(CP_ACP, 0, temp, -1, szLibID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
 
 	/// Create some base key strings.
 	lstrcpy(szCLSID, TEXT("CLSID\\"));
@@ -350,7 +350,7 @@ HRESULT UnregisterServer(void)
 
 	/// Create some base key strings.
 	StringFromGUID2(CLSID_TiberianSun, temp, (sizeof(temp) / sizeof(WCHAR)) - 1);
-	WideCharToMultiByte(0, WC_SEPCHARS, temp, -1, szID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
+	WideCharToMultiByte(CP_ACP, WC_SEPCHARS, temp, -1, szID, (sizeof(temp) / sizeof(WCHAR)) - 1, 0, 0);
 	lstrcpy(szCLSID, TEXT("CLSID\\"));
 	lstrcat(szCLSID, szID);
 

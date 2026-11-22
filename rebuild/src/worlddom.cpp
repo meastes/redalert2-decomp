@@ -228,7 +228,7 @@ BOOL CALLBACK Faction_Select_Dialog_Proc(HWND window, UINT message, WPARAM wpara
 			}
 			break;
 
-		case 0x497: // RA2: message 0x497 is left alone
+		case OD_SUBCLASSED: // RA2: message 0x497 is left alone
 			return(FALSE);
 
 		case 0x4E9: { // RA2: the tool tip request; the text depends on the side under the mouse

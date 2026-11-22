@@ -1554,7 +1554,7 @@ struct IsoBlitState {
 #pragma pack(pop)
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052c230 has no row); Draw_Tile with the blit state and span tables only it uses; main: best 81.25, tried 9 times (register, frame, layout)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0052c230 has no row); 6081 of 6967 bytes differ against the image-derived extent; Draw_Tile with the blit state and span tables only it uses; main: best 81.25, tried 9 times (register, frame, layout)
 IsoBlitState IsoDrawData;
 unsigned short _iso_row_offsets[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
 unsigned char _iso_start_cols[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
@@ -1694,22 +1694,15 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 				 * Find the first non-space column of this mask row and the
 				 * length of the solid span that follows it.
 				 */
-				int first_col = 0;
-				while (first_col < ISO_DRAW_WIDTH && _tilemask[cell_offset + first_col] == 32) {
-					++first_col;
-				}
-				span_count = 1;
-				if (first_col + 1 < ISO_DRAW_WIDTH) {
-					int scan = first_col + 1;
-					const unsigned char * mask = &_tilemask[cell_offset + 1 + first_col];
-					do {
-						if (*mask == 32) {
-							break;
+				int first_col;
+				for (first_col = 0; first_col < ISO_DRAW_WIDTH; ++first_col) {
+					if (_tilemask[cell_offset + first_col] != 32) {
+						span_count = 1;
+						while (first_col + span_count < ISO_DRAW_WIDTH && _tilemask[cell_offset + first_col + span_count] != 32) {
+							++span_count;
 						}
-						++span_count;
-						++scan;
-						++mask;
-					} while (scan < ISO_DRAW_WIDTH);
+						break;
+					}
 				}
 				if (first_col >= ISO_DRAW_WIDTH) {
 					first_col = 0;
@@ -1849,6 +1842,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 						IsoDrawData.AlphaPtr = arow;
 						IsoDrawData.AlphaWidth = AlphaBuffer->Get_Buffer_Width();
 						IsoDrawData.SrcPixel = (int)(record + 1);
+						unsigned char const * image = (unsigned char const *)IsoDrawData.SrcPixel;
 						drawer = (LightConvertClass *)IsoDrawData.SrcPixel;
 						if (fill || fog) {
 							IsoDrawData.FillDepth = 0;
@@ -1937,7 +1931,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 											IsoDrawData.DestPtr = (unsigned short *)&destrow[start];
 											IsoDrawData.DepthPtr = (unsigned short *)((char *)zrow + start);
 											IsoDrawData.DepthPtr = (unsigned short *)DepthBuffer->Wrap_Overflow((unsigned int)IsoDrawData.DepthPtr);
-											int checker = ((unsigned char *)IsoDrawData.SrcPixel - (unsigned char *)drawer + row + IsoDrawData.ClipTop) & 1;
+											int checker = ((unsigned char *)IsoDrawData.SrcPixel - image + row + IsoDrawData.ClipTop) & 1;
 											int run = *IsoDrawData.RowRunLength;
 											if (run > 0) {
 												do {
@@ -2101,7 +2095,7 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 											IsoDrawData.DestPtr = (unsigned short *)&destrow[start * 2];
 											IsoDrawData.DepthPtr = &zrow[start];
 											int run = *IsoDrawData.RowRunLength;
-											int checker = (unsigned char *)IsoDrawData.SrcPixel - (unsigned char *)drawer;
+											int checker = (unsigned char *)IsoDrawData.SrcPixel - image;
 											checker += row;
 											checker += IsoDrawData.ClipTop;
 											checker &= 1;

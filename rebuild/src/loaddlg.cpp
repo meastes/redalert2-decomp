@@ -222,11 +222,11 @@ void LoadOptionsClass::Save_Dialog_On_WM_COMMAND(HWND window, WPARAM wparam, LPA
 						wchar_t * text = _this->Description; // RA2: as above
 						if (text != NULL) { // RA2: as above
 							HWND edit = GetDlgItem(window, 0x526); // RA2: as above
-							SendMessage(edit, 0x4B2, 0, (LPARAM)text); // RA2: as above
+							SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)text); // RA2: as above
 						}
 					} else {
 						HWND edit = GetDlgItem(window, 0x526); // RA2: as above
-						SendMessage(edit, 0x4B2, 0, (LPARAM)fdata->Descr); // RA2: as above
+						SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)fdata->Descr); // RA2: as above
 					}
 					SetFocus(GetDlgItem(window, 0x526)); // RA2: as above
 					Edit_SetSel(GetDlgItem(window, 0x526), 0, -1); // RA2: as above

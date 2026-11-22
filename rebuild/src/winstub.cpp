@@ -273,7 +273,7 @@ LRESULT CALLBACK Windows_Procedure(HWND hwnd, UINT message, UINT wParam, LONG lP
 			mb[0] = (char)wParam;
 			mb[1] = 0;
 		}
-		int converted = MultiByteToWideChar(0, 0, mb, strlen(mb), (LPWSTR)&wc, 1);
+		int converted = MultiByteToWideChar(CP_ACP, 0, mb, strlen(mb), (LPWSTR)&wc, 1);
 		IMEResultString[length] = (converted == 1) ? wc : 0;
 		IMEResultString[length + 1] = 0;
 		return(0);
@@ -435,7 +435,7 @@ void IME_Update_Composition(void)
 		int size = ImmGetCompositionStringA(IMEContext, GCS_COMPSTR, buffer, 512);
 		if (size > 0) {
 			buffer[size] = 0;
-			int wide = MultiByteToWideChar(0, 0, buffer, -1, IMECompositionString, 256);
+			int wide = MultiByteToWideChar(CP_ACP, 0, buffer, -1, IMECompositionString, 256);
 			IMECompositionTerminator = 0;
 			int length;
 			if (wide < 0) {
@@ -465,7 +465,7 @@ void __fastcall IME_Send_Result(HWND window)
 		if (size > 0) {
 			buffer[size] = 0;
 			wchar_t wide[257];
-			int count = MultiByteToWideChar(0, 0, buffer, strlen(buffer), wide, 256);
+			int count = MultiByteToWideChar(CP_ACP, 0, buffer, strlen(buffer), wide, 256);
 			if (count < 0) {
 				count = 0;
 			}
@@ -556,7 +556,7 @@ wchar_t IME_Char_To_Wide(unsigned int wparam, long lparam)
 		mb[0] = (char)wparam;
 		mb[1] = 0;
 	}
-	int converted = MultiByteToWideChar(0, 0, mb, strlen(mb), (LPWSTR)&wc, 1);
+	int converted = MultiByteToWideChar(CP_ACP, 0, mb, strlen(mb), (LPWSTR)&wc, 1);
 	return (converted == 1) ? wc : 0;
 }
 

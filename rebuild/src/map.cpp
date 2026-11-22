@@ -1090,7 +1090,7 @@ void MapClass::Init_Cells(void)
  * HISTORY:                                                                                    *
  *   05/14/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); 3842 bytes differ against main's function-map extent (2026-11-22 lane O19: TibSun cells and cells_base kept apart as the original keeps both slots, ra2-decomp freshcalled; was 4522)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005484e0 has no row); 3658 bytes differ against main's function-map extent (2026-11-22 lane O30: no header form evidenced for either lead. TibSun point.h/coord.h, ra2-decomp and mischa85 all define TPoint2D::operator+= in class as ours and give Cell none; the image calls 0x56AA20 only from the two tube sites here, yet expands the 118-unit In_Radar after them, so a 46-unit += at depth 1 cannot be budget-refused there: the original decides it a level deeper (a Cell += forwarder, ra2-decomp YR 0x565C10's unproven hypothesis, gives the same calls but a 0x54 frame and 245 -> 358 instructions off); the +0x140 copy is register context, as CellClass's own operator= compiled alone gives the original's order; lane O27: main's offset and tube locals give the original's 0x50 frame, instruction score 73.21 -> 83.54; the original calls TPoint2D<short>::operator+= out of line, 0x56AA20, and copies CellClass's second bitfield word with another register order; lane O19: TibSun cells and cells_base kept apart as the original keeps both slots, ra2-decomp freshcalled; was 3842)
 void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_height, bool refresh_map)
 {
 	int i = 0;
@@ -1175,12 +1175,12 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 		Reset_Iterator();
 		Cell icell = Iterate()->CellID;
 		Cell cellpos = Cell(rect.Y + rect.X, rect.Y - rect.X);
-		cell = (icell - cell) - cellpos;
+		Cell offset = (icell - cell) - cellpos;
 
 		for (i = 0; i < cellcount; i++) {
 			cptr = &cells[i];
 			Cell scell = cptr->CellID;
-			Cell shifted = scell + cell;
+			Cell shifted = scell + offset;
 
 			CellClass *c = &(*this)[shifted];
 
@@ -1219,16 +1219,17 @@ void MapClass::Set_Map_Dimensions(Rect const & rect, bool reset_cells, int cell_
 
 		for (i = 0; i < WAYPT_COUNT; i++) {
 			if (Scen->Is_Valid_Waypoint(i)) {
-				Scen->Set_Waypoint(i, Scen->Get_Waypoint_Cell(i) + cell);
+				Scen->Set_Waypoint(i, Scen->Get_Waypoint_Cell(i) + offset);
 			}
 		}
 
 		for (i = 0; i < Tubes.Count(); i++) {
-			Tubes[i]->Enter += cell;
-			Tubes[i]->Exit += cell;
+			TubeClass * tube = Tubes[i];
+			tube->Enter += offset;
+			tube->Exit += offset;
 		}
 
-		Coord coord = Coord(cell, 0) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0);
+		Coord coord = Coord(offset, 0) - Coord(CELL_LEPTON_W / 2, CELL_LEPTON_H / 2, 0);
 
 		for (i = 0; i < Objects.Count(); i++) {
 			ObjectClass *obj = Objects[i];

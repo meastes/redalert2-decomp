@@ -31,7 +31,7 @@
 #undef Edit_GetText // RA2: as above
 #define Edit_SetText(h, s) ((int)SendMessage((h), 0x4b4, 0, (LPARAM)(s))) // RA2: 0x4B4 sets the text of an edit box as ANSI
 #define Edit_GetText(h, s, n) ((int)SendMessage((h), 0x4b5, (n), (LPARAM)(s))) // RA2: 0x4B5 gets the text as ANSI
-#define Edit_SetTextW(h, s) ((int)SendMessage((h), 0x4b2, 0, (LPARAM)(s))) // RA2: 0x4B2 sets the text as wide characters
+#define Edit_SetTextW(h, s) ((int)SendMessage((h), OD_SETTEXTW, 0, (LPARAM)(s))) // RA2: 0x4B2 sets the text as wide characters
 #define Edit_GetTextW(h, s, n) ((int)SendMessage((h), 0x4b3, (n), (LPARAM)(s))) // RA2: 0x4B3 gets the text as wide characters
 #define LS(name, line) StringTable::LoadString(name, NULL, "D:\\Ra2\\PhoneEd.cpp", line) // RA2: the string table lookup keeps its label and source line
 

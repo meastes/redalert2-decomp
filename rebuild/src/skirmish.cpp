@@ -583,7 +583,7 @@ int __stdcall Skirmish_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	case WM_COMMAND:
 		Skirmish_On_WM_COMMAND(window, wparam & 0xFFFF, (HWND)lparam, wparam >> 16);
 		return(1);
-	case 0x497:
+	case OD_SUBCLASSED:
 		return(Skirmish_On_WM_INITDIALOG(window, wparam, lparam));
 	case 0x4E9: {
 		ToolTipTextRequest * request = (ToolTipTextRequest *)lparam;
@@ -628,7 +628,7 @@ int __fastcall Skirmish_On_WM_INITDIALOG(HWND dialog, WPARAM wparam, LPARAM lpar
 	HWND item = GetDlgItem(dialog, 0x6A0);
 	if (item != NULL) {
 		SendMessage(item, 0xC5, 19, 0);
-		SendMessage(item, 0x4B2, 0, (LPARAM)Narrow_To_Wide(Session.Handle));
+		SendMessage(item, OD_SETTEXTW, 0, (LPARAM)Narrow_To_Wide(Session.Handle));
 		SendMessage(item, 0x4D1, 1, 0);
 	}
 	for (int i = 0; i < 7; i++) {

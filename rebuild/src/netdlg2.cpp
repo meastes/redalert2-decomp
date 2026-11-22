@@ -1358,7 +1358,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 			SendDlgItemMessage(window, 0x541, 0x4d1, 1, 0);
 			wchar_t * handle = Narrow_To_Wide(Session.Handle);
 			HWND edit = GetDlgItem(window, 0x541);
-			SendMessage(edit, 0x4b2, 0, (LPARAM)handle);
+			SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)handle);
 
 			Session.Options.ScenarioDescription[0] = 0;
 			int color = Session.Color;
@@ -1415,7 +1415,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				if (*p == 0 && first != 0) {
 					name[0] = 0;
 					edit = GetDlgItem(window, 0x541);
-					SendMessage(edit, 0x4b2, 0, (LPARAM)name);
+					SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)name);
 				}
 				if (strcmp(Wide_To_Narrow(name), Session.Handle) != 0) {
 					strcpy(Session.Handle, Wide_To_Narrow(name));
@@ -1516,7 +1516,7 @@ LRESULT CALLBACK MPlayer_Game_List_Dialog_Proc(HWND window, UINT message, WPARAM
 				text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2285);
 			}
 		}
-		SendMessage(tip, 0x4b2, 0, (LPARAM)text);
+		SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text);
 		return(0);
 	}
 
@@ -1555,7 +1555,7 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 	text[0x6F] = 0; // RA2: as above
 	int length = wcslen(text); // RA2: as above
 	edit = GetDlgItem(dialog, 0x540); // RA2: as above
-	SendMessage(edit, 0x4B2, 0, (LPARAM)L""); // RA2: as above
+	SendMessage(edit, OD_SETTEXTW, 0, (LPARAM)L""); // RA2: as above
 	InvalidateRect(dialog, NULL, 1); // RA2: as above
 	if (length > 2) { // RA2: as above
 		Lobby_Chat_Printf(color, L"[%s] %s", Narrow_To_Wide(Session.Handle), text); // RA2: as above

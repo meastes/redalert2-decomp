@@ -3793,7 +3793,7 @@ BOOL CALLBACK Map_Seed_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 		/*
 		 * Initialize the dialog controls from the current seed settings.
 		 */
-		case 0x497: { // RA2: RA2's own message to set the dialog up (WM_USER + 0x97)
+		case OD_SUBCLASSED: { // RA2: RA2's own message to set the dialog up (WM_USER + 0x97)
 			MapSeedSelection = -1; // RA2: a file scope variable at 0x7E0ADC
 			HWND handle = GetDlgItem(window, IDC_MAPGEN_PREVIEW); // RA2: as above
 			if (Debug_Map) { // RA2: as above

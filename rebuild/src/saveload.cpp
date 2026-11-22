@@ -363,7 +363,7 @@ bool Save_Game(const char * file_name, wchar_t const * descr, bool) // RA2: the 
 
 	IStoragePtr storage;
 	MultiByteToWideChar(
-		0, 0, file_name, -1, name,
+		CP_ACP, 0, file_name, -1, name,
 		sizeof(name) / sizeof(WCHAR));
 
 	HRESULT error = StgCreateDocfile(
@@ -981,7 +981,7 @@ bool Load_Game(const char *file_name)
 	**	Open the file
 	*/
 	IStoragePtr storage;
-	MultiByteToWideChar(0,0,file_name, -1, name, (sizeof(name)/sizeof(WCHAR)));
+	MultiByteToWideChar(CP_ACP, 0, file_name, -1, name, (sizeof(name) / sizeof(WCHAR)));
 
 	if (FAILED(StgOpenStorage(name, 0, STGM_SHARE_DENY_WRITE, 0, 0, &storage))) {
 		return(false);
@@ -1685,7 +1685,7 @@ bool Get_Savefile_Info(char const * name, SaveVersionInfo * info)
 	IStoragePtr storage;
 	WCHAR wname[64];
 
-	MultiByteToWideChar(0, 0, name, -1, wname, sizeof(wname) / sizeof(WCHAR));
+	MultiByteToWideChar(CP_ACP, 0, name, -1, wname, sizeof(wname) / sizeof(WCHAR));
 
 	HRESULT result = StgOpenStorage(wname, NULL, STGM_SHARE_EXCLUSIVE|STGM_READWRITE, NULL, 0, &storage);
 	if (FAILED(result)) {
