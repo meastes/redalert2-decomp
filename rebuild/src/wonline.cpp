@@ -9415,7 +9415,7 @@ bool __fastcall Find_Local_Address(IPXAddressClass * address) // RA2: 0x0074FCB0
 	return(found);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 32 bytes differ, 2 real diff lines (main's text): in the host's answer loop the two Session.Players[i] loads address [esi + eax + 4] where this build gives [eax + esi + 4]
+#ifdef RA2_NON_MATCHING // not exact: 32 bytes differ, 2 real diff lines (main's text): in the host's answer loop the two Session.Players[i] loads address [esi + eax + 4] where this build gives [eax + esi + 4]; the order answers to the expanded Set_Connection_Status(i, 0) in that loop: with its test written out at the site the loads are the image's (no reference writes it out; held on variation_candidates.csv, lane F45)
 int __fastcall Negotiate_Scenario_Transfer(bool connected) // RA2: 0x00750330, its caller's debug text "Negotiate_Scenario_Transfer failed" names it (wonline.h's Sync_Scenario_With_Guests): the host waits for each guest's answer (ready, wants the scenario, don't go, has none), sends the scenario to those that asked and then GO or DONT_GO; a guest checks its copy of the scenario, answers the host, takes the file and waits for GO; 0 to go on, 1 when the start is called off, 2 when the scenarios do not match
 {
 	GlobalPacketType packet; // RA2: as above

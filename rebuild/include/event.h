@@ -174,7 +174,7 @@ class EventClass
 			struct {
 				xTargetClass	Whom;			// Whom to apply mission to.
 				char			Mission;			// What mission to apply. RA2: a byte
-				unsigned char	Unused_6;			// RA2
+				char Slot;			// RA2: saved megamission list slot
 				xTargetClass	Target;			// Target to assign.
 				xTargetClass	Destination;	// Destination to assign.
 				xTargetClass	Follow;			// RA2

@@ -405,10 +405,9 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 222 bytes differ against the image-derived bound 006faa30 (1730 B), 2026-11-23 (lane F41): every instruction is the image's (522 = 522) and the frame is the image's 0x70; left: which locals share a slot (the image puts `coord` with the exit temporary and the later new_coord, and the occupier vector with the enter temporary; here `coord` has a slot of its own; a block around `coord` shares too much). The two sites lane F35 counted are ra2-decomp's tube accessors: its hover text `(Map.Get_Height_GL(tube->Get_Exit()) - ...) / tube->Get_Count()` (src/hover.cpp:298) gives the image's copied cells, its refused Length and its frame size in one statement, with `tube->Get_Exit()` again for the exit cell; accessors returning references leave the frame 8 bytes short. Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35), the stepped coordinate assigned from a sum (lane F34)
 void UnitClass::Tunnel_AI(void)
 {
-	Coord coord;
+	Coord coord; // RA2: the TibSun archive's declaration (code/unit.cpp:341), kept at its place; RA2 takes the adjacent cell inside the step statement below, which leaves it without a use
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
 	if (!finished) {
 		int distance = Distance(LastTubeCoord);
@@ -427,8 +426,7 @@ void UnitClass::Tunnel_AI(void)
 			PositionCoord = LastTubeCoord;
 
 			if (!finished) {
-				coord = Adjacent_Cell(LastTubeCoord, tube_dir);
-				Coord delta = Map[coord].Cell_Coord() - Map[LastTubeCoord].Cell_Coord();
+				Coord delta = Map[Adjacent_Cell(LastTubeCoord, tube_dir)].Cell_Coord() - Map[LastTubeCoord].Cell_Coord(); // RA2: the adjacent cell is a temporary of this statement (ra2-decomp's form for the Yuri's Revenge twin 0x7359F0, data/attempts.csv 2026-11-23)
 				LastTubeCoord = LastTubeCoord + Coord(delta.X, delta.Y, 0);
 				LastTubeCoord.Z += height_step;
 
@@ -483,32 +481,30 @@ void UnitClass::Tunnel_AI(void)
 				}
 			}
 			Set_Speed(0);
-			return;
-		}
+		} else {
+			TubeClass * tube = Tubes[CurrentTube];
+			Cell exit_cell = tube->Get_Exit();
+			Coord exit_coord(exit_cell, LastTubeCoord.Z);
+			PositionCoord = exit_coord;
+			CurrentTube = TUBE_NONE;
 
-		TubeClass * tube = Tubes[CurrentTube];
-		Cell exit_cell = tube->Get_Exit();
-		Coord exit_coord(exit_cell, LastTubeCoord.Z);
-		PositionCoord = exit_coord;
-		CurrentTube = TUBE_NONE;
+			Mark(MARK_DOWN);
 
-		Mark(MARK_DOWN);
+			if (NavCom == cellptr) {
+				Scatter(Coord(0, 0, 0), true, true);
+			}
 
-		if (NavCom == cellptr) {
-			Scatter(Coord(0, 0, 0), true, true);
-		}
+			IsPlanningToLook = true;
+			Per_Cell_Process(PCP_END);
+			Set_Speed(1);
 
-		IsPlanningToLook = true;
-		Per_Cell_Process(PCP_END);
-		Set_Speed(1);
-
-		TubeClass * tube_here = Map[Get_Coord()].Get_Tunnel();
-		if (tube_here != NULL) {
-			PrimaryFacing.Set(DirType(DirType(tube_here->EnterDir).As_Int() - DirType(FACING_135).As_Int() - 1).Snap_To_8());
+			TubeClass * tube_here = Map[Get_Coord()].Get_Tunnel();
+			if (tube_here != NULL) {
+				PrimaryFacing.Set(DirType(DirType(tube_here->EnterDir).As_Int() - DirType(FACING_135).As_Int() - 1).Snap_To_8());
+			}
 		}
 	}
 }
-#endif
 
 
 /// <summary>

@@ -271,7 +271,7 @@ int MegamissionFrames[8]; // RA2: 0x00AABE94; frame each cached list was last us
 #ifdef RA2_NON_MATCHING // cached targets used only by the packet decoding draft
 xTargetClass MegamissionUnitLists[64][128]; // RA2: 0x00AABED0; the units of the runs of the last megamission lists, 8 slots per player
 #endif
-int SavedUnitCounts[8][8]; // RA2: 0x00A76B74; unit counts of the saved lists (64 ints; cleared column by column)
+int SavedUnitCounts[MAX_PLAYERS * ARRAY_SIZE(MegamissionCounts)]; // RA2: 0x00A76B74; unit counts of the saved lists (64 ints; cleared column by column)
 int SentFrameSyncCount = 0;
 
 //---------------------------------------------------------------------------
@@ -887,7 +887,7 @@ static void Queue_AI_Multiplayer(void)
 			MegamissionCounts[i] = 0; // RA2: as above
 		for (i = 0; i < 32; i += 4) // RA2: as above
 			for (int j = 0; j < 8; j++) // RA2: as above
-				*(int *)((char *)&SavedUnitCounts[j][0] + i) = 0; // RA2: as above
+				*(int *)((char *)&SavedUnitCounts[j * ARRAY_SIZE(MegamissionCounts)] + i) = 0; // RA2: as above
 
 		//.....................................................................
 		// If we've loaded a saved game:
@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006282d0 has no row); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,455 B) 972 bytes differ (was 1,375; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3006,17 +3006,13 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 	EventClass eventdata;       // stores Frame, ID, etc
 	unsigned char numunits = 0; // # units stored in compressed MegaMissions
 	int house; // RA2: the sender, to find his cached unit lists
-	int slot; // RA2: the cached unit list of a run
-	int units; // RA2: how many units of the run are known
-	xTargetClass *list; // RA2: the cached units
-	char *src; // RA2: the units in the packet
-	unsigned char eventtype; // RA2: the type of the record being read
 
 	//------------------------------------------------------------------------
 	// Clear work event structure
 	//------------------------------------------------------------------------
 	memset (&eventdata, 0, sizeof(EventClass));
-	house = ((EventClass *)buf)->ID; // RA2: as above
+	event = (EventClass *)(((char *)buf) + pos);
+	house = event->ID; // RA2: as above
 
 	//------------------------------------------------------------------------
 	// Assume the first event is a FRAMEINFO event
@@ -3026,7 +3022,6 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 	//------------------------------------------------------------------------
 	datasize = (offsetof(EventClass, Data) +
 		size_of(EventClass, Data.FrameInfo)) - size_of(EventClass, Type);
-	event = (EventClass *)(((char *)buf) + pos);
 
 	while ((unsigned)leftover >= (datasize + size_of(EventClass, Type)) ) {
 
@@ -3034,13 +3029,12 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 		// add event to the DoList, only if it's not a FRAMESYNC
 		// (but FRAMEINFO's do get added.)
 		//.....................................................................
-		eventtype = event->Type; // RA2: as above
-		if (eventtype != EventClass::FRAMESYNC) {
+		if (event->Type != EventClass::FRAMESYNC) {
 			//..................................................................
 			// initialize the common data from the FRAMEINFO event
 			// keeping IsExecuted 0
 			//..................................................................
-			if (eventtype == EventClass::FRAMEINFO) {
+			if (event->Type == EventClass::FRAMEINFO) {
 				eventdata.Frame = event->Frame;
 				eventdata.ID = event->ID;
 
@@ -3055,7 +3049,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 			//..................................................................
 			// if MEGAMISSION event get the number of units (events to generate)
 			//..................................................................
-			else if (eventtype == EventClass::MEGAMISSION) {
+			else if (event->Type == EventClass::MEGAMISSION) {
 				numunits = *(((unsigned char *)buf) + pos + sizeof(eventdata.Type));
 				pos += sizeof(numunits);
 				leftover -= sizeof(numunits);
@@ -3065,7 +3059,7 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 			// clear the union data portion of the event
 			//..................................................................
 			memset (&eventdata.Data, 0, sizeof(eventdata.Data));
-			eventdata.Type = eventtype;
+			eventdata.Type = event->Type;
 			datasize = EventClass::EventLength[ eventdata.Type ];
 
 			switch (eventdata.Type) {
@@ -3105,34 +3099,32 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						leftover -= (datasize + size_of(EventClass, Type));
 						datasize = sizeof(eventdata.Data.MegaMission.Whom);
 						DebugString("Decoding new MEGAMISSION\n"); // RA2: as above
-						slot = (char)eventdata.Data.MegaMission.Unused_6 + house * 8; // RA2: as above
-						MegamissionUnitLists[slot][0] = eventdata.Data.MegaMission.Whom; // RA2: as above
-						units = 1; // RA2: as above
-						SavedUnitCounts[0][slot] = units; // RA2: as above
+						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts); // RA2: as above
+						memcpy(&MegamissionUnitLists[index][0], &eventdata.Data.MegaMission.Whom, datasize); // RA2: as above
+						int units = 1; // RA2: as above
+						SavedUnitCounts[index] = units; // RA2: as above
 						if (eventdata.Frame == 0 || eventdata.Type == 0) { // RA2: as above
 							DebugString("Frame %d:Empty megamission decoded\n", Frame); // RA2: as above
 						}
 
 						if (numunits) {
-							src = ((char *)buf) + pos; // RA2: as above
-							list = &MegamissionUnitLists[slot][1]; // RA2: as above
+							xTargetClass * list = &MegamissionUnitLists[index][units]; // RA2: as above
 							do {
 								if ( !DoList.Add( eventdata ) ) {
 									return(-1);
 								}
 								count++;
-								*list = *(xTargetClass *)src; // RA2: as above
-								eventdata.Data.MegaMission.Whom = *list++; // RA2: as above
+								memcpy(&eventdata.Data.MegaMission.Whom, ((char *)buf) + pos, datasize);
+								memcpy(list++, &eventdata.Data.MegaMission.Whom, datasize); // RA2: save the decoded target in this run
 								numunits--;
 								units++; // RA2: as above
-								SavedUnitCounts[0][slot] = units; // RA2: as above
+								SavedUnitCounts[index] = units; // RA2: as above
 								if (numunits == 1) {
 									datasize -= size_of(EventClass, Type);
-									DebugString("Got new unit list for player %d with %d units in slot %d\n", house, units, (char)eventdata.Data.MegaMission.Unused_6); // RA2: as above
+									DebugString("Got new unit list for player %d with %d units in slot %d\n", house, units, eventdata.Data.MegaMission.Slot); // RA2: as above
 									break;
 								}
 								pos += datasize;
-								src += datasize; // RA2: as above
 								leftover -= datasize;
 							} while (numunits);
 						}
@@ -3144,15 +3136,15 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 						pos += (datasize + size_of(EventClass, Type)); // RA2: as above
 						leftover -= (datasize + size_of(EventClass, Type)); // RA2: as above
 						datasize = sizeof(eventdata.Data.MegaMission.Whom); // RA2: as above
-						units = 1; // RA2: as above
-						slot = (char)eventdata.Data.MegaMission.Unused_6 + house * 8; // RA2: as above
-						numunits = SavedUnitCounts[0][slot]; // RA2: as above
-						eventdata.Data.MegaMission.Whom = MegamissionUnitLists[slot][0]; // RA2: as above
+						int units = 1; // RA2: as above
+						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts); // RA2: as above
+						numunits = SavedUnitCounts[index]; // RA2: as above
+						memcpy(&eventdata.Data.MegaMission.Whom, &MegamissionUnitLists[index][0], datasize); // RA2: as above
 						if (eventdata.Frame == 0 || eventdata.Type == 0) { // RA2: as above
-							DebugString("Frame %d:Empty megamission decoded from slot %d. Player %d\n", Frame, (char)eventdata.Data.MegaMission.Unused_6, house); // RA2: as above
+							DebugString("Frame %d:Empty megamission decoded from slot %d. Player %d\n", Frame, eventdata.Data.MegaMission.Slot, house); // RA2: as above
 						}
 						if (numunits) { // RA2: as above
-							list = &MegamissionUnitLists[slot][1]; // RA2: as above
+							xTargetClass const * src = &MegamissionUnitLists[index][units]; // RA2: as above
 							do { // RA2: as above
 								if ( !DoList.Add( eventdata ) ) { // RA2: as above
 									return(-1); // RA2: as above
@@ -3160,10 +3152,10 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 								count++; // RA2: as above
 								numunits--; // RA2: as above
 								units++; // RA2: as above
-								eventdata.Data.MegaMission.Whom = *list++; // RA2: as above
+								memcpy(&eventdata.Data.MegaMission.Whom, src++, datasize); // RA2: as above
 								if (numunits == 1) { // RA2: as above
 									datasize = -1; // RA2: as above
-									DebugString("Used old unit list in slot %d - %d bytes saved\n", (char)eventdata.Data.MegaMission.Unused_6, units * 5); // RA2: as above
+									DebugString("Used old unit list in slot %d - %d bytes saved\n", eventdata.Data.MegaMission.Slot, units * sizeof(eventdata.Data.MegaMission.Whom)); // RA2: as above
 									break; // RA2: as above
 								}
 							} while (numunits); // RA2: as above
@@ -3196,13 +3188,14 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 			pos += (datasize + size_of(EventClass, Type));
 			leftover -= (datasize + size_of(EventClass, Type));
 
-			if (leftover == 0) { // RA2: the packet is used up
-				return(count); // RA2: as above
-			}
-			event = (EventClass *)(((char *)buf) + pos);
-			datasize = EventClass::EventLength[ event->Type ];
-			if (event->Type == EventClass::MEGAMISSION) {
-				datasize += sizeof(numunits);
+			if (leftover) {
+				event = (EventClass *)(((char *)buf) + pos);
+				datasize = EventClass::EventLength[event->Type];
+				if (event->Type == EventClass::MEGAMISSION) {
+					datasize += sizeof(numunits);
+				}
+			} else {
+				return(count);
 			}
 		}
 		//.....................................................................

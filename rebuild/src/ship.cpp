@@ -457,7 +457,7 @@ BOOL ShipLocomotionClass::Is_Angled(void) const // RA2: as above
 /// </summary>
 /// <param name="key">Pointer to the voxel cache key to be updated. May be NULL.</param>
 /// <returns>Returns with the matrix the unit is to be rendered through.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 97.08, tried 11 times (frame, bound, register)
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 97.08, tried 11 times (frame, bound, register); lane F43: 0x676010 714 bytes differ, frame the image's with ra2-decomp's plain temporaries in the product (hover's form) and hover's offsets; left: which CDTimerClass::operator() sites expand (image: both of the level path and the first of the tilted path; ours: the last site first)
 Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // RA2: as above
 {
 	Matrix3DStruct m; // RA2: as above
@@ -478,15 +478,13 @@ Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // R
 
 		int num = fabs(ssin) * val + fabs(fsin) * val2; // RA2: as above
 
-		int x_shift = (int)(val2 - (float)(int)(fcos * val2)); // RA2: as above
-		int x_offset = x_shift; // RA2: as above
-		int y_shift = (int)(val - (float)(int)(scos * val)); // RA2: as above
-		int y_offset = y_shift; // RA2: as above
+		int x_offset = (int)(val2 - (float)(int)(fcos * val2)); // RA2: as above
+		int y_offset = (int)(val - (float)(int)(scos * val)); // RA2: as above
 		if (LinkedTo->AngleRotatedForwards < 0.0f) { // RA2: as above
-			x_offset = -x_shift; // RA2: as above
+			x_offset = -x_offset; // RA2: as above
 		}
 		if (LinkedTo->AngleRotatedSideways > 0.0f) { // RA2: as above
-			y_offset = -y_shift; // RA2: as above
+			y_offset = -y_offset; // RA2: as above
 		}
 
 		m1.Translate_Z(num); // RA2: as above
@@ -499,9 +497,7 @@ Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // R
 			*key = -1;
 		}
 
-		Matrix3D basemtx(BASECLASS::Draw_Matrix(key)); // RA2: as above
-		Matrix3D slopemtx = Get_Slope_Matrix(); // RA2: as above
-		m = (Matrix3DStruct &)(((m1 * slopemtx) * basemtx) * m2); // RA2: as above
+		m = (Matrix3DStruct &)(((m1 * Get_Slope_Matrix()) * BASECLASS::Draw_Matrix(key)) * m2); // RA2: as above
 		return(m); // RA2: as above
 	}
 
@@ -511,9 +507,7 @@ Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // R
 		*key = keybase + CurrentRamp;
 	}
 
-	Matrix3D basemtx(BASECLASS::Draw_Matrix(key)); // RA2: as above
-	Matrix3D slopemtx = Get_Slope_Matrix(); // RA2: as above
-	m = (Matrix3DStruct &)(slopemtx * basemtx); // RA2: as above
+	m = (Matrix3DStruct &)(Get_Slope_Matrix() * BASECLASS::Draw_Matrix(key)); // RA2: as above
 	return(m); // RA2: as above
 }
 #endif

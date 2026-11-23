@@ -532,8 +532,6 @@ bool __fastcall Color_Entry_Taken(int entry) // RA2: 0x004D2060, not in TibSun
 }
 
 /// <summary>Fills a color combo box with "random" and the colors that are free or the player's own, and selects the player's.</summary>
-void __fastcall Fill_Color_Combo(HWND dialog, int id); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 34 bytes differ in 17 instructions (161 by position), same length; ra2-decomp's twin text (Yuri's Revenge 0x004E45A0, matched there) in this tree's names. Only two callee-saved registers are exchanged in the loop: the executable keeps the pointer into the color entries in ebx and the player and the new item in ebp, ours the other way round; not moved by an entry pointer local, the declaration order, a second item local or the comparison's operand order
 void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in TibSun (ra2-decomp's twin text, Yuri's Revenge 0x004E45A0)
 {
 	HWND item = GetDlgItem(dialog, id); // RA2: the first item is "random" with color -1; the free colors and the player's own follow, the player's own is selected
@@ -549,7 +547,8 @@ void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in
 	for (int i = 0; i < 8; i++) {
 		bool mine = ColorEntries[i].Player == owner;
 		if (mine || ColorEntries[i].Player == -1) {
-			index = SendMessage(item, 0x4C2, 0, (LPARAM)ColorEntries[i].Name);
+			wchar_t const * name = ColorEntries[i].Name; // RA2: the name is read into a local first, as Fill_Side_Combo (0x004D1560) above reads its house name; the twin has a literal here
+			index = SendMessage(item, 0x4C2, 0, (LPARAM)name);
 			SendMessage(item, 0x498, index, ColorEntries[i].Color);
 			SendMessage(item, CB_SETITEMDATA, index, i);
 			if (mine) {
@@ -563,7 +562,6 @@ void __fastcall Fill_Color_Combo(HWND dialog, int id) // RA2: 0x004D2080, not in
 		ShowWindow(item, SW_SHOW);
 	}
 }
-#endif
 
 /// <summary>Fills a color combo box with "random" only, and selects it.</summary>
 void __fastcall Fill_Random_Color_Combo(HWND dialog, int id) // RA2: 0x004D2250, not in TibSun

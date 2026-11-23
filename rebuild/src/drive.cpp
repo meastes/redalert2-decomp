@@ -498,7 +498,7 @@ BOOL DriveLocomotionClass::Is_Angled(void) const
 /// </summary>
 /// <param name="key">Pointer to the voxel cache key to be updated. May be NULL.</param>
 /// <returns>Returns with the matrix the unit is to be rendered through.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 95.91, tried 9 times (inline, bound, frame)
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 95.91, tried 9 times (inline, bound, frame); lane F43: 0x4A0050 708 bytes differ, frame the image's with ra2-decomp's plain temporaries in the product (hover's form) and hover's offsets; left: which CDTimerClass::operator() sites expand (image: both of the level path and the first of the tilted path; ours: the last site first)
 Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 {
 	Matrix3DStruct m;
@@ -519,15 +519,13 @@ Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 
 		int num = fabs(ssin) * val + fabs(fsin) * val2;
 
-		int x_shift = (int)(val2 - (float)(int)(fcos * val2));
-		int x_offset = x_shift;
-		int y_shift = (int)(val - (float)(int)(scos * val));
-		int y_offset = y_shift;
+		int x_offset = (int)(val2 - (float)(int)(fcos * val2));
+		int y_offset = (int)(val - (float)(int)(scos * val));
 		if (LinkedTo->AngleRotatedForwards < 0.0f) {
-			x_offset = -x_shift;
+			x_offset = -x_offset;
 		}
 		if (LinkedTo->AngleRotatedSideways > 0.0f) {
-			y_offset = -y_shift;
+			y_offset = -y_offset;
 		}
 
 		m1.Translate_Z(num);
@@ -540,9 +538,7 @@ Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 			*key = -1;
 		}
 
-		Matrix3D basemtx(BASECLASS::Draw_Matrix(key));
-		Matrix3D slopemtx = Get_Slope_Matrix();
-		m = (Matrix3DStruct &)(((m1 * slopemtx) * basemtx) * m2);
+		m = (Matrix3DStruct &)(((m1 * Get_Slope_Matrix()) * BASECLASS::Draw_Matrix(key)) * m2);
 		return(m);
 	}
 
@@ -552,9 +548,7 @@ Matrix3DStruct STDMETHODCALLTYPE DriveLocomotionClass::Draw_Matrix(int *key)
 		*key = keybase + CurrentRamp;
 	}
 
-	Matrix3D basemtx(BASECLASS::Draw_Matrix(key));
-	Matrix3D slopemtx = Get_Slope_Matrix();
-	m = (Matrix3DStruct &)(slopemtx * basemtx);
+	m = (Matrix3DStruct &)(Get_Slope_Matrix() * BASECLASS::Draw_Matrix(key));
 	return(m);
 }
 #endif

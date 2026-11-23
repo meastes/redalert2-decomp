@@ -900,8 +900,8 @@ void InfantryClass::Per_Cell_Process(PCPType why)
 					**	enemy building is.
 					*/
 					else if (House->Is_Ally(building) || (building->House->Class->IsMultiplayPassive && building->Class->CanBeOccupied)) {
-						TechnoTypeClass const * building_type = building->TClass;
-						if (building->Strength == building_type->MaxStrength) {
+						TechnoTypeClass const * ttype = building->TClass;
+						if (building->Strength == ttype->MaxStrength) {
 							Assign_Destination(NULL, true);
 							Scatter(building->Center_Coord(), true, true);
 							return;
@@ -1361,7 +1361,7 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1841 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1984 B), 2026-11-23 (lane F41): the height step through ra2-decomp's tube accessors as in UnitClass::Tunnel_AI 0x6FAA30 (src/hover.cpp:298), which gives the image's frame 0x80; left: the first distance's operator- and Length are calls in the image and expanded here. Scratch: six empty inline sites at the end of the root (before `CurrentTube = TUBE_NONE`) give every instruction of the image (560 = 560) and its frame size, with the same slot sharing left as in the unit's (`coord` with the later new_coord, the occupier vector on top); sites placed after `speed` instead raise the root's budget (it is over the 1000 floor) and expand Move_Coord's constructors. So the image's root has more sites late, or about 100 units less text; no reference form found for them. Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35)
+#ifdef RA2_NON_MATCHING // not exact: 1759 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1920 B), 2026-11-23 (lane F43): the height step through ra2-decomp's tube accessors and the step statement in UnitClass::Tunnel_AI's form (the adjacent cell a temporary of the `Coord delta` statement), which give the image's frame 0x80, its slot sharing and its called operator-; left: the first distance's Length is a call in the image and expanded here. Scratch: six empty inline sites at the end of the root give the row exact (560 = 560 instructions, every slot); one to four do not, and sites at the top turn operator- back. So the image's root has about six more sites late or lighter text; ra2-decomp reads the same on the Yuri's Revenge twin 0x51B350 (five sites after the Distance statement; its Get_Enter/Get_Dir accessors are invented). Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35)
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
@@ -1380,8 +1380,8 @@ void InfantryClass::Tunnel_AI(void)
 			PositionCoord = LastTubeCoord;
 
 			if (!finished) {
-				Coord coord = Adjacent_Cell(LastTubeCoord, tube->Dirs[CurrentTubeDir]);
-				LastTubeCoord = LastTubeCoord + ((TPoint2D<int> const &)Map[coord].Cell_Coord() - (TPoint2D<int> const &)Map[LastTubeCoord].Cell_Coord());
+				Coord delta = Map[Adjacent_Cell(LastTubeCoord, tube->Dirs[CurrentTubeDir])].Cell_Coord() - Map[LastTubeCoord].Cell_Coord();
+				LastTubeCoord = LastTubeCoord + Coord(delta.X, delta.Y, 0);
 				LastTubeCoord.Z += height_step;
 
 				DirType dir = Direction(LastTubeCoord);

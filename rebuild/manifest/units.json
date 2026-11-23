@@ -132249,7 +132249,8 @@
    "_?$S248@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S244@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
    "_?$S246@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
-   "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
+   "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0",
+   "?SavedUnitCounts@@3PAHA": "00a76b74"
   },
   "partial_ok": true,
   "count_watch": {
@@ -132420,6 +132421,15 @@
     "symbol": "??1UnitClass@@UAE@XZ",
     "main_symbol": "??1UnitClass@@UAE@XZ",
     "main_source": "src/recovered/unit.cpp"
+   },
+   {
+    "entry": "006faa30",
+    "body": 1730,
+    "padding": 14,
+    "symbol": "?Tunnel_AI@UnitClass@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006fb100",
@@ -133160,6 +133170,7 @@
   ],
   "references": {
    "??_C@_05MLML@Units?$AA@": "007f8f6c",
+   "__real@8@4007b504f333f9de6800": "007a3a20",
    "_?$S300@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4EA": "00ad04b8",
    "_?$S302@?1??Draw_It@UnitClass@@UBEXABVPoint2D@@ABV?$TRect@H@@@Z@4EA": "00ad0578",
    "_?_offsets@?BO@??Goto_Clear_Spot@UnitClass@@QAE_NXZ@4PAVCell@@A": "00ad04e8",

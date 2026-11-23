@@ -2633,128 +2633,148 @@ bool Set_Scenario_Info_From_Index(int index)
 /// </summary>
 /// <remarks>Only the game host should call this routine.</remarks>
 void __fastcall Send_Map_Preview(MapPreviewClass * preview); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c7ef0 has no row)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,325 B) 1,131 bytes differ by position (was 1,247; ra2-decomp's twin text, Yuri's Revenge 0x005E7EB0, in this tree's names): the constant 0 takes ebx for the whole function where the image keeps the packet length 455 in ebx through the two message loops and clears ebx only for the file block, so the row is one use of the constant 0 over, or one of 455 short, ahead of the file block; the node test written `== true` (3 bytes off, a compare the image does not make) is held on variation_candidates.csv (lanes F45, O58)
 void __fastcall Send_Map_Preview(MapPreviewClass * preview) // RA2: 0x005C7EF0, TibSun's Send_Preview_To_Guests takes no preview; it is called when a guest asks for the preview
 {
 	CDTimerClass<SystemTimerClass> response_timer;
 	char options[256]; // RA2: the options string of an Internet game that cannot send the preview
+	GlobalPacketType packet;
+	GlobalPacketType response;
+	bool responses[MAX_PLAYERS];
+	int length;
+	unsigned short product_id;
+	int size;
 
 	if (preview != NULL && Session.Players.Count() > 1) { // RA2: the preview is passed, not read from MultiplayerMapPreview; the random map test is gone
 		if (Session.Type == GAME_INTERNET) { // RA2: a player behind a NAT or with different local and external addresses cannot download the preview
-			bool direct = true;
-			if (FirewallHelper.Detected != 0 && !(FirewallHelper.Detected & 1)) { // RA2: as above
-				direct = false; // RA2: as above
-			} else {
-				for (int i = 1; i < Session.Players.Count(); i++) { // RA2: as above
-					int slot = Session.Player_To_Slot(i); // RA2: as above
-					if (slot >= 0 && slot < 8) { // RA2: as above
-						unsigned int flags = Session.WolPlayerState[slot]; // RA2: as above
-						if (flags != 0 && !(flags & 1)) { // RA2: as above
-							DebugString("Player %s has a NAT - no preview download possible\n", Wide_To_Narrow(Session.Players[i]->Name)); // RA2: as above
-							direct = false; // RA2: as above
-						} else if (!Session.SlotAddresses[slot].Is_Same_Node(Session.Players[i]->Address)) { // RA2: as above
-							DebugString("Player %s has different local and external IPs - no preview download possible\n", Wide_To_Narrow(Session.Players[i]->Name)); // RA2: as above
-							direct = false; // RA2: as above
-						}
-						if (!direct) { // RA2: as above
-							break; // RA2: as above
-						}
-					}
-				}
-			}
-			if (!direct) { // RA2: the host sends the options string Z3, which tells the guests there is no preview to expect
-				options[0] = 'Z'; // RA2: as above
-				options[1] = '3'; // RA2: as above
-				options[2] = '\0'; // RA2: as above
-				DebugString("Sending public options string %s\n", options); // RA2: as above
-				g_pChat->RequestPublicGameOptions(options); // RA2: as above
+			if (FirewallHelper.Detected != 0
+				&& !(FirewallHelper.Detected & 1)) {
+			no_preview: // RA2: the host sends the options string Z3, which tells the guests there is no preview to expect
+				options[0] = 'Z';
+				options[1] = '3';
+				options[2] = '\0';
+				DebugString(
+					"Sending public options string %s\n",
+					options);
+				g_pChat->RequestPublicGameOptions(options);
 				return;
 			}
-		}
-		DebugString("Starting map preview upload\n");
 
-		GlobalPacketType packet;
+			int peer = 1;
+			if (peer < Session.Players.Count()) {
+				do {
+					int slot = Session.Player_To_Slot(peer);
+					if (slot >= 0 && slot < MAX_PLAYERS) {
+						int flags = Session.WolPlayerState[slot];
+						if (flags == 0 || (flags & 1)) {
+							if (Session.SlotAddresses[slot].
+								Is_Same_Node(
+									Session.Players[peer]->Address)) {
+								goto next_peer;
+							}
+							DebugString(
+								"Player %s has different local and external IPs - no preview download possible\n",
+								Wide_To_Narrow(
+									Session.Players[peer]->Name));
+						} else {
+							DebugString(
+								"Player %s has a NAT - no preview download possible\n",
+								Wide_To_Narrow(
+									Session.Players[peer]->Name));
+						}
+						goto no_preview;
+					}
+
+				next_peer:
+					peer++;
+				} while (peer < Session.Players.Count());
+			}
+		}
+
+		DebugString("Starting map preview upload\n");
 		memset(&packet, 0, sizeof(packet));
 		packet.Command = NET_PREVIEW_MODE;
 		strcpy(packet.Name, Session.Handle);
-
 		Ipx.Set_Timing(50, -1, 5000, true); // RA2: the immediate flag is passed
 		response_timer = TIMER_SECOND * 20;
 
 		for (int i = 1; i < Session.Players.Count(); i++) {
-			Ipx.Send_Global_Message_To_Name(&packet, 455, 1, Session.Players[i]->Name); // RA2: the guest is addressed by name, the packet length is the full 455 bytes
+			Ipx.Send_Global_Message_To_Name(
+				&packet, sizeof(packet), 1,
+				Session.Players[i]->Name); // RA2: the guest is addressed by name, the packet length is the full 455 bytes
 			Call_Back();
 		}
 
 		while (Ipx.Global_Num_Send() != 0 && response_timer) {
 			Call_Back();
 		}
+		if (!response_timer) return;
 
-		if (response_timer) {
-			IPXAddressClass sender_address;
-			bool responses[MAX_PLAYERS];
-			memset(responses, 0, sizeof(responses));
-			int num_responses = 0;
+		IPXAddressClass sender_address;
+		memset(responses, 0, sizeof(responses));
+		int num_responses = 0;
+		response_timer = TIMER_SECOND * 30;
+		DebugString(
+			"Waiting for %d players to signal ready to receive\n",
+			Session.Players.Count() - 1);
 
-			response_timer = TIMER_SECOND * 30;
-			DebugString("Waiting for %d players to signal ready to receive\n", Session.Players.Count() - 1);
-
-			while (num_responses < Session.Players.Count() - 1 && response_timer) {
-
-				Call_Back();
-
-				GlobalPacketType response;
-				int length = 455;
-				unsigned short product_id;
-
-				if (Ipx.Get_Global_Message(&response, &length, &sender_address, &product_id)) {
-					if (response.Command == NET_PREVIEW_ACK) {
-						for (int j = 1; j < Session.Players.Count(); j++) {
-							if (sender_address.Is_Same_Node(Session.Players[j]->Address)) { // RA2: the node addresses are compared, not the whole address
-								if (!responses[j]) {
-									responses[j] = true;
-									num_responses++;
-								}
-								break;
+		while (num_responses < Session.Players.Count() - 1
+			&& response_timer) {
+			Call_Back();
+			length = sizeof(response);
+			if (Ipx.Get_Global_Message(
+					&response, &length,
+					&sender_address, &product_id)) {
+				if (response.Command == NET_PREVIEW_ACK) {
+					for (int j = 1;
+						j < Session.Players.Count(); j++) {
+						if (sender_address.Is_Same_Node(
+								Session.Players[j]->Address)) { // RA2: the node addresses are compared, not the whole address
+							if (!responses[j]) {
+								responses[j] = true;
+								num_responses++;
 							}
+							break;
 						}
 					}
 				}
 			}
+		}
 
-			if (num_responses == Session.Players.Count() - 1) {
-				DebugString("Creating low-res preview image\n");
+		if (num_responses == Session.Players.Count() - 1) {
+			DebugString("Creating low-res preview image\n");
+			size = 0;
+			unsigned * image =
+				preview->Create_Paletted_Preview(64, size);
+			DebugString("Preview size is %d bytes\n", size);
 
-				int size = 0;
-				unsigned * image = preview->Create_Paletted_Preview(64, size);
-				DebugString("Preview size is %d bytes\n", size);
+			unsigned * buffer = new unsigned[size];
+			BufferPipe bpipe(buffer, size * sizeof(unsigned));
+			LZOPipe lzopipe(LZOPipe::COMPRESS, 0x2000); // RA2: the block size is passed
+			lzopipe.Put_To(&bpipe);
+			int comp_size = lzopipe.Put(image, size);
+			comp_size += lzopipe.End();
+			delete[] image; // RA2: the paletted preview is released
 
-				unsigned * buffer = new unsigned[size];
-				BufferPipe bpipe(buffer, size * sizeof(unsigned));
-
-				LZOPipe lzopipe(LZOPipe::COMPRESS, 0x2000); // RA2: the block size is passed
-				lzopipe.Put_To(&bpipe);
-				int comp_size = lzopipe.Put(image, size);
-				comp_size += lzopipe.End();
-				delete [] image; // RA2: the paletted preview is released
-
-				DebugString("Compressed preview image is %d bytes\n", comp_size);
-
-				RawFileClass file("Preview.bin");
-				if (file.Is_Available()) {
-					file.Delete();
-				}
-
-				file.Open(RawFileClass::WRITE);
-				file.Write(&size, sizeof(size));
-				file.Write(buffer, comp_size);
-				file.Close();
-				delete [] buffer;
-
-				DebugString("Calling Send_Remote_File to send the preview\n");
-				Send_Remote_File("Preview.bin", GAME_IPX, true, false);
-				Ipx.Set_Timing(TIMER_SECOND / 2, -1, 10 * TIMER_SECOND, true); // RA2: as above
+			DebugString(
+				"Compressed preview image is %d bytes\n",
+				comp_size);
+			RawFileClass file("Preview.bin");
+			if (file.Is_Available()) {
+				file.Delete();
 			}
+			file.Open(RawFileClass::WRITE);
+			file.Write(&size, sizeof(size));
+			file.Write(buffer, comp_size);
+			file.Close();
+			delete[] buffer;
+
+			DebugString(
+				"Calling Send_Remote_File to send the preview\n");
+			Send_Remote_File(
+				"Preview.bin", GAME_IPX, true, false);
+			Ipx.Set_Timing(
+				TIMER_SECOND / 2, -1, 10 * TIMER_SECOND, true); // RA2: as above
 		}
 	}
 }

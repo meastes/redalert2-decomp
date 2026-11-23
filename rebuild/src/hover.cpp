@@ -148,7 +148,6 @@ Matrix3DStruct STDMETHODCALLTYPE HoverLocomotionClass::Draw_Matrix(int *key)
 		}
 
 		Matrix3D m1(true), m2(true); // RA2: two working matrices,
-		Matrix3D basemtx; // RA2: and the base matrix
 
 		float val = LinkedTo->TClass->VoxelCenterY; // RA2: the voxel centre's Y
 		float val2 = LinkedTo->TClass->VoxelCenterX; // RA2: and X
@@ -177,7 +176,7 @@ Matrix3DStruct STDMETHODCALLTYPE HoverLocomotionClass::Draw_Matrix(int *key)
 		m2.Rotate_X(LinkedTo->AngleRotatedSideways); // RA2: rotated sideways
 		m2.Rotate_Y(LinkedTo->AngleRotatedForwards); // RA2: and forwards
 
-		return(basemtx.Matrix3D::Matrix3D(BASECLASS::Draw_Matrix(key)), (Matrix3DStruct &)((m1 * basemtx) * m2)); // RA2: lift * base * tilt
+		return((Matrix3DStruct &)((m1 * BASECLASS::Draw_Matrix(key)) * m2)); // RA2: lift * base * tilt
 	}
 
 	if (!Is_Powered()) {

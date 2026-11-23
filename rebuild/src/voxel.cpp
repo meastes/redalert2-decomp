@@ -79,7 +79,7 @@ void Set_Voxel_Light_Angle(float angle)
 /// tilt vector of every facing, the isometric view transform, and the bounce matrices.
 /// </summary>
 /// <remarks>Call this routine before any voxel is drawn.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: 25 bytes differ (text_if0 bucket; register choices)
+#ifdef RA2_NON_MATCHING // not exact: one instruction differs, 3 bytes shorter (1414 by position): the light vector loop in the TibSun archive's text (voxel.cpp:138, both vectors through references) has the image's registers; the cross product reads the direction's Y as [esi + 4] where the image indexes the array ([edi + LightDirectionVectors + 4]); with the array indexed anywhere in the loop the read is the image's and the offset and the pointer exchange esi and edi (25 bytes, the earlier text)
 void __fastcall Init_Voxel_Matrices()
 {
 	float slope_h = (float)CELL_SLOPE_ANGLE;
@@ -135,14 +135,21 @@ void __fastcall Init_Voxel_Matrices()
 	ScreenSlopeQuaternions[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
 	ScreenSlopeQuaternions[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
 
-	for (int facing = 0; facing < 256; facing++) {
-		Matrix3D matrix;
-		matrix.Make_Identity();
-		matrix.Rotate_Z(facing * 0.024542969f);
-		LightDirectionVectors[facing] = matrix * Vector3(1.0f, 0.0f, 0.0f);
-		LightTiltVectors[facing] = Vector3::Cross_Product(LightDirectionVectors[facing], Vector3(0.0f, 0.0f, 1.0f));
-		Matrix3D rotation(LightTiltVectors[facing], VoxelLightAngle);
-		LightDirectionVectors[facing] = rotation * LightDirectionVectors[facing];
+	for (int i = 0; i < ARRAY_SIZE(LightDirectionVectors); i++) {
+		Matrix3D direction_matrix;
+		direction_matrix.Make_Identity();
+		float theta = i * 0.024542969f;
+		direction_matrix.Rotate_Z(theta);
+
+		Vector3 & direction_vec = LightDirectionVectors[i];
+		Vector3 & tilt_vec = LightTiltVectors[i];
+
+		direction_vec = direction_matrix * Vector3(1.0f, 0.0f, 0.0f);
+
+		tilt_vec = Vector3::Cross_Product(direction_vec, Vector3(0.0f, 0.0f, 1.0f));
+
+		Matrix3D tilt_matrix(tilt_vec, VoxelLightAngle);
+		direction_vec = tilt_matrix * direction_vec;
 	}
 
 	SlopeMatrices[0].Make_Identity();

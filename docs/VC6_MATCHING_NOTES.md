@@ -4533,6 +4533,7 @@ fmap.py lists a listing's frame objects with reference counts).
   the last two, the image's "middle refused, outer two expanded" needs spends between S2 and S3 below T times b and room at
   S1, which pads and count probes at three places each confirm (a pad between S1 and S2 refuses S3 first; sites anywhere
   between S2 and S3 behave alike). Write the inequalities before sweeping counts.
+
 ## A held variation row closes when the twin matches; a register pair one reference apart; a charged comparison refused by sites between; home slots that follow reload order (found in the rebuild (lane F40, high))
 
 Found in the rebuild (lane F40, high):
@@ -4590,3 +4591,97 @@ Found in the rebuild (lane F42, high); nothing exact, one draft moved:
 - A near twin compiled whole can be byte-neutral in every form (wonline Negotiate_Scenario_Transfer 0x750330: ten
   forms, the same two loads): then the tie is not in the function's text and the row waits for a header or a
   count reading, not for more statement forms.
+
+## Slot sharing left over is statement scope: a statement temporary against a named local, if/else against an early return; read a twin's attempt log as well as its source (found in the rebuild (lane F43, high))
+
+Found in the rebuild (lane F43, high). Lane tools in build/r/f43: tmap.py lists each frame symbol of an /FAs listing with the
+source lines that use it; frame.py (lane F35's) maps the image's slots onto those names when the instructions are equal.
+
+- UnitClass::Tunnel_AI 0x6FAA30 (1,730 B, exact) was 222 bytes of slot sharing with every instruction right. Reading the
+  two maps side by side named both causes. (1) The image keeps `coord` in a slot it shares with temporaries and puts the two
+  Cell_Coord results into the 8-byte slots. A named function-level `coord` whose address reaches a call (`Map[coord]`) is
+  live over its block and shares with nothing; the same value as a temporary of the statement
+  (`Map[Adjacent_Cell(LastTubeCoord, tube_dir)].Cell_Coord() - ...`) is live only there, and then the two Cell_Coord
+  temporaries conflict with it and fall to the 8-byte slots. The instructions do not change. (2) An object of a later
+  arm sharing with the wrong member of an earlier pair (the occupier vector with the else arm's new_coord where the image
+  has the first arm's) and a late local one slot off came from an early `return;` out of the first arm of what the archive
+  writes as if/else. With the same code bytes, `if (a) {...; return;} rest` and `if (a) {...} else {rest}` give different
+  liveness to everything after. When only slots are left, compare the block structure with the archive's before
+  simulating the placement order.
+- What did not give it: named or reference-bound locals for the two cell coordinates (copies appear), a block around the
+  statements (the frame shrinks), the local declared in the inner block (the empty constructor site moves and a nested
+  constructor call expands).
+- ra2-decomp's data/attempts.csv describes banked forms that are not in its source yet ("held for a ruling", branch names,
+  "matches only with ..."). Two of the lane's forms came from such rows (the adjacent cell as a statement temporary, the
+  inner-block reading of the tunnel mouths). Read the rows of the target's twin address after every pull; a described form
+  is a hypothesis to compile, cited by the row's date.
+- A declaration the archive has whose one use a later edit folded into another statement still counts as an inline site
+  (an empty constructor). Without the archive's `Coord coord;` the first distance's TPoint3D constructor expands. It landed
+  flagged, cited to the archive's line.
+- DriveLocomotionClass::Draw_Matrix 0x4A0050 and the ship's twin: a named Matrix3D built from a call result shares a frame
+  slot with other temporaries, the same value as a plain temporary of the product does not (frame 0x1c4 against the image's
+  0x224). What is left is the order in which five expansions of one accessor chain get budget: the image fills the first
+  chain of each Get_Slope_Matrix expansion before the second, ours the second first at every root size (pads of 1 to 32
+  stores step through i c c c i, i c c i i, i c i i i, all). A sweep that never passes through the image's pattern says
+  the two chains' relative cost is wrong, not the root's budget.
+- Planning_Execute 0x614BA0: three decisions each bound one site count (after Commit_Plans not lower, after the expanded
+  Planning_Path_Add not higher, after the second search one lower), read with a single empty site at five places with and
+  without one site removed. A root under the 1000 floor does not answer to text pads at all; try 1 to 16 dead stores first
+  to know which kind of root it is.
+
+## A sweep for unit functions written out by hand: what the image shows, what it does not decide; a member read named before a call (found in the rebuild (lane F44, high))
+
+Found in the rebuild (lane F44, high). The lane swept every parked row for blocks that are a small function of the unit
+expanded (lane F41's Fetch_Super_Weapon case), with a detector instead of reading drafts one by one (scratch,
+build/r/f44/sweep.py: the operand sequence of each unit function of 12 to 220 bytes, searched in order inside each parked
+row's image body; sites found plus direct calls against the times the draft names the function).
+
+- The detector finds real cases, and most are byte-neutral. A twin's or main's hand-written copy of a helper compiles to
+  the helper's expansion when its statements are the helper's: Request_All_User_Pings twice in
+  Wonline_Game_Options_Dialog_Proc, Clear_Cell_Data_Spreads in Create_Urban_Area, Exit_New_Object in Exit_Object,
+  Is_Real_Player_Entry in Set_Slot_Names. The call pays only when the row's residue is a size or budget decision (Do_MISSION_GUARD);
+  when the residue is a register or operand-order tie the call form is the same bytes or one tie further away.
+- Hits of two or three operands are false more often than not: sibling accessors share a lookup prefix, and a sibling
+  function shares its prologue. Read a hit only when the function has four or more operands in it or when the tree has no
+  other use of it.
+- After an expanded void helper the statement that follows decides where its early exits land. In the dialog procedure the
+  image sends the helper's two early exits to the shared `return 0` block and gives the loop's fall-through its own copy:
+  that is `Helper(); goto shared;` at both sites; `return 0;` or `break;` at either site merges the copies differently
+  and shortens one conditional jump by four bytes.
+- An operand-order tie can answer to which named objects the root has. Replacing the two hand-written ping loops by the call
+  removed ten locals from the root and flipped `lea esi, [eax + ecx]` to `[ecx + eax]` in an unrelated g_UserList.get
+  earlier in the function; one to eight unused locals moved nothing. The Session.Players and vector Add ties
+  (Negotiate_Scenario_Transfer, OnUserList, Apply_Endpoint_Map, dropship) may be of this kind: look for a block in the
+  root that is a helper expanded, or a helper call that the original wrote out, before trying statement forms at the site.
+- A member read named before a call exchanges two callee-saved registers. gdlgsupp Fill_Color_Combo 0x4D2080 was 34 bytes
+  off for four lanes with the entry pointer and the item index in each other's register; `wchar_t const * name =
+  ColorEntries[i].Name; index = SendMessage(item, 0x4C2, 0, (LPARAM)name);` is exact. The unit's exact sibling
+  Fill_Side_Combo has that form for the same step. When a twin has a literal where RA2 reads a member, RA2's statement has
+  no reference text: take the form of the nearest exact sibling in the same file first.
+- A function the image never references and the tree never uses is not evidence by itself: the image keeps hundreds of
+  unreferenced functions (the link had no unreferenced-function removal), so "needs a use" (lane F39) holds only inside a
+  unit whose other helpers are all accounted for.
+- voxel Init_Voxel_Matrices 0x718060: the same exchange (offset and pointer in each other's register) goes away with the
+  archive's two references in the light vector loop, leaving one read through the pointer where the image indexes the
+  array. Before trying statement forms on an esi/edi or ebx/ebp exchange in a loop, diff the loop against the archive for
+  references and named member reads that the draft wrote as indexed expressions.
+
+## An expanded helper's parameters can decide an operand-order tie; a zero register against a second constant; a loop offset that starts at zero (found in the rebuild (lane F45, high))
+
+Found in the rebuild (lane F45, high); nothing exact, two causes found:
+
+- wonline Negotiate_Scenario_Transfer 0x750330: bisect an operand-order tie by deleting blocks before trying forms. Deleting
+  the guest branch or the host tail whole gave the image's `[esi + eax + 4]`; no single statement of either did; writing the
+  expanded Set_Connection_Status(i, 0) out by hand in the same loop did, alone. The two parameter temporaries of a call
+  expanded inside the loop are enough to turn the base and index of an unrelated load there. No reference writes the helper
+  out, so the form is held; when a tie sits in a loop that also holds an expanded helper, test the helper written out first
+  to learn whether the tie is the loop's temporaries, then look for evidenced ways to the same count.
+- netshare Send_Map_Preview 0x5C7EF0: `mov ebx, 455` in the middle of a function and `xor ebx, ebx` only near the end is two
+  constants competing for one free register, decided by uses. A form that seems to fix a block's layout (`== true` on a bool
+  call) may only be removing one use of 0: check the image's own compare (test al, al) before reading the form as the
+  author's. The row is one use of 0 over or one of 455 short ahead of the last block.
+- voxel Init_Voxel_Matrices 0x718060: a loop offset that starts at 0 shares the register of a zero pushed before the loop
+  (`xor edi, edi` ahead of four `Set(0, 0, 0, 1)` calls, then `mov [i], edi`). The offset and pointer exchange is therefore
+  set where that zero is allocated, ahead of the loop; 96 forms of the loop body leave it.
+- A sweep of small statement forms through v.py costs about 2.5 seconds a form: write the product of the axes as edit sets
+  and read the distinct scores first (build/r/f45/vxsweep.py).

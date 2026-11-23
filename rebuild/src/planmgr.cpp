@@ -1554,7 +1554,7 @@ bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningToke
 void __fastcall Planning_Set_Selected_Node(PlanningNodeClass * node); // RA2: 0x00617E20
 
 void __fastcall Planning_Execute(EventClass * event); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 272 bytes differ by position, ours 62 longer; ra2-decomp's whole twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the twin's node search (the coordinate before the id) and the twin's Lead_At. All inline budget, in the delete arm only: the executable expands Member_Owner inside the second Planning_Find_Node and calls Node_At, ours the reverse. Diagnostic (lane F37): with the selected node stored directly, one to six empty inline sites anywhere between Commit_Plans and the delete arm's search are exact byte for byte (after the search, or in the last arm: not); with the twin's `return member->Get_Owner();` Member_Owner the text as it stands is exact, but that form loses Planning_Add_Order and Planning_Connect_Selection
+#ifdef RA2_NON_MATCHING // not exact: 272 bytes differ by position, ours 62 longer; ra2-decomp's whole twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the twin's node search (the coordinate before the id) and the twin's Lead_At. All inline budget, in the delete arm only: the executable expands Member_Owner inside the second Planning_Find_Node and calls Node_At, ours the reverse. Diagnostic (lane F37): with the selected node stored directly, one to six empty inline sites anywhere between Commit_Plans and the delete arm's search are exact byte for byte (after the search, or in the last arm: not); with the twin's `return member->Get_Owner();` Member_Owner the text as it stands is exact, but that form loses Planning_Add_Order and Planning_Connect_Selection. Lane F43: the root is under the 1000 floor (1 to 16 dead stores of root text move nothing), so only site counts decide. Read with one empty site at five places: the count of sites after Commit_Plans may not fall, the count after Planning_Path_Add may not rise, and the count after the delete arm's search must be one lower: the selected node stored directly plus one empty site in the connect arm or at the head of the delete arm is exact, the same site ahead of Commit_Plans is not. No reference form found for the pair (an explicit Coord copy or the coordinate as a call argument is no site); ra2-decomp stores the selected node directly in its Connect_Selection twin, not here
 void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries out a planning event: plan commit restarts the paths of the event's house, plan connect adds the node at the second target's coordinate to the first target's path, plan node delete takes the node at the target's coordinate out of every path (remembering the next node for the player); any other event is an order for its techno
 {
 	if (event->Type == EventClass::PLAN_COMMIT) { // RA2: as above
@@ -1983,7 +1983,7 @@ void __fastcall Planning_Path_Add(TechnoClass * techno, PlanningNodeClass * node
 	if (!token) { // RA2: as above
 		token = Planning_New_Token(techno); // RA2: as above
 	}
-	if (token->Node_Index(node) != -1) { // RA2: as above
+	if (token->Has_Node(node)) { // RA2: as above; ra2-decomp's test (its src/planmgr.cpp Path_Add twin), the member's one use
 		Planning_Close_Loop(techno, node); // RA2: as above
 	} else { // RA2: as above
 		Planning_Path_Append(techno, node); // RA2: as above
