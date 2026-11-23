@@ -1352,6 +1352,16 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 }
 
 
+static inline double _Tube_Divisor(FacingType dir) // RA2: ra2-decomp's file-local helper (src/infantry.cpp, InfantryClass::Tunnel_AI, GAMEMD 0x0051B350, matched 2026-11-23 in 1f23144)
+{
+	return((dir % 2) ? CELL_LEPTON_H * M_SQRT2 : CELL_LEPTON_H);
+}
+
+static inline DirType _Direction(ObjectClass const * from, Coord const & to) // RA2: ra2-decomp's file-local helper, as above
+{
+	return(DirType().Direction(from->Center_Coord(), to));
+}
+
 
 /// <summary>
 /// Handles the infantry traveling through a subterranean tunnel.
@@ -1361,17 +1371,22 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1759 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1920 B), 2026-11-23 (lane F43): the height step through ra2-decomp's tube accessors and the step statement in UnitClass::Tunnel_AI's form (the adjacent cell a temporary of the `Coord delta` statement), which give the image's frame 0x80, its slot sharing and its called operator-; left: the first distance's Length is a call in the image and expanded here. Scratch: six empty inline sites at the end of the root give the row exact (560 = 560 instructions, every slot); one to four do not, and sites at the top turn operator- back. So the image's root has about six more sites late or lighter text; ra2-decomp reads the same on the Yuri's Revenge twin 0x51B350 (five sites after the Distance statement; its Get_Enter/Get_Dir accessors are invented). Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35)
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
 	if (!finished) {
 		int distance = Distance(LastTubeCoord);
 		TubeClass * tube = Tubes[CurrentTube];
-		DirType direction = Direction(LastTubeCoord);
+		DirType direction = _Direction(this, LastTubeCoord);
 		int speed = Class->MaxSpeed;
 
-		int height_step = (Map.Get_Height_GL(tube->Get_Exit()) - Map.Get_Height_GL(Cell(tube->Enter))) / tube->Get_Count();
+		int height_step;
+		{
+			Coord exit(tube->Get_Exit());
+			Coord enter(Cell(tube->Enter));
+			int count = tube->Get_Count();
+			height_step = (Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / count;
+		}
 
 		if (distance <= speed) {
 			CurrentTubeDir++;
@@ -1381,17 +1396,12 @@ void InfantryClass::Tunnel_AI(void)
 
 			if (!finished) {
 				Coord delta = Map[Adjacent_Cell(LastTubeCoord, tube->Dirs[CurrentTubeDir])].Cell_Coord() - Map[LastTubeCoord].Cell_Coord();
-				LastTubeCoord = LastTubeCoord + Coord(delta.X, delta.Y, 0);
+				LastTubeCoord = LastTubeCoord + TPoint2D<int>(delta.X, delta.Y);
 				LastTubeCoord.Z += height_step;
 
-				DirType dir = Direction(LastTubeCoord);
+				DirType dir = _Direction(this, LastTubeCoord);
 				Coord new_coord = Move_Coord(PositionCoord, dir, speed - distance);
-				double divisor;
-				if (tube_dir % 2) {
-					divisor = CELL_LEPTON_H * M_SQRT2;
-				} else {
-					divisor = CELL_LEPTON_H;
-				}
+				double divisor = _Tube_Divisor(tube_dir);
 				new_coord.Z += (speed - distance) / divisor * height_step;
 				PositionCoord = new_coord;
 				return;
@@ -1399,12 +1409,7 @@ void InfantryClass::Tunnel_AI(void)
 		} else {
 			FacingType tube_dir = tube->Dirs[CurrentTubeDir];
 			Coord new_coord = Move_Coord(Get_Coord(), direction, speed);
-			double divisor;
-			if (tube_dir % 2) {
-				divisor = CELL_LEPTON_H * M_SQRT2;
-			} else {
-				divisor = CELL_LEPTON_H;
-			}
+			double divisor = _Tube_Divisor(tube_dir);
 			new_coord.Z += speed / divisor * height_step;
 			PositionCoord = new_coord;
 			return;
@@ -1428,7 +1433,7 @@ void InfantryClass::Tunnel_AI(void)
 			}
 			for (int index = 0; index < occupiers.Count(); index++) {
 				ObjectClass * object = occupiers[index];
-				if (object->RTTI == RTTI_UNIT || object->RTTI == RTTI_INFANTRY) {
+				if (object->RTTI == RTTI_UNIT || object->Is_Infantry()) {
 					if (!((FootClass *)object)->Locomotion->Is_Moving()) {
 						object->Scatter(Coord(0, 0, 0), true, true);
 					}
@@ -1456,7 +1461,6 @@ void InfantryClass::Tunnel_AI(void)
 		}
 	}
 }
-#endif
 
 
 /***********************************************************************************************

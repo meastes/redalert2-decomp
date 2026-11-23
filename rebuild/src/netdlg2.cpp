@@ -25,6 +25,7 @@
 #include "data.h"
 #include "dbgprint.h"
 #include "globals.h"
+#include "narrow.h" // RA2: Narrow_Text, ra2-decomp 61ba2ad
 #include "goptions.h"
 #include "houstype.h"
 #include "init.h"
@@ -613,8 +614,7 @@ int Net2SetHouseAndColor(char const * who, int house, int color) // RA2: 0x005BC
 	int offset = -1;
 	NodeNameType * node;
 	for (int i = 0; i < 8; i++) {
-		node = Session.Slots[i]; // RA2: the entry is named in the search too (the twin reads Session.Slots[i]->Name in place)
-		char * name = Wide_To_Narrow(node->Name);
+		char * name = Narrow_Text(Session.Slots[i]->Name); // RA2: the twin's statement, with its Narrow_Text (narrow.h) where the twin calls the conversion directly
 		if (_stricmp(name, who) == 0) {
 			offset = i;
 			break;

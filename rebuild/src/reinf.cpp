@@ -825,7 +825,7 @@ int Create_Air_Reinforcement(HouseClass * house, AircraftType air, int number, M
 
 /// and warped there by a teleport locomotor riding on its own, and starts with the reinforcement chrono delay.
 /// </summary>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 84 bytes differ against the image-derived bound 0063a880 (1,567 B; ours 1,567 B, 485 = 485 instructions, same calls and frame): esi and edi are exchanged for the whole function (the image keeps the object of the first loop in edi and the cell pointer, the team type and the second loop's object in esi). The text is ra2-decomp's matched twin (src/reinf.cpp, Yuri's Revenge 0x0065EC30) less its aircraft blocks. Lane F49: one reference to object fewer gives the image's registers (diagnostic: the unit flag written as one conditional expression, three instructions off there); the twin's other spellings, a do-while and a second pointer for the last loop leave the exchange
 bool Do_Chrono_Reinforcements(TeamTypeClass const * teamtype, WAYPOINT wp)
 {
 	if (!teamtype || !teamtype->TaskForce->ClassCount) return(false);

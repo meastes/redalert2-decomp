@@ -407,7 +407,6 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// </summary>
 void UnitClass::Tunnel_AI(void)
 {
-	Coord coord; // RA2: the TibSun archive's declaration (code/unit.cpp:341), kept at its place; RA2 takes the adjacent cell inside the step statement below, which leaves it without a use
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
 	if (!finished) {
 		int distance = Distance(LastTubeCoord);
@@ -417,7 +416,12 @@ void UnitClass::Tunnel_AI(void)
 		DirType direction = Direction(LastTubeCoord);
 		int speed = (int)(Class->MaxSpeed * 1.5);
 
-		int height_step = (Map.Get_Height_GL(tube->Get_Exit()) - Map.Get_Height_GL(Cell(tube->Enter))) / tube->Get_Count();
+		int height_step;
+		{	// RA2: the two tunnel mouths in a block of their own, as ra2-decomp's matched twin writes them (src/unit.cpp, GAMEMD 0x007359F0) after TibSun's infantry Tunnel_AI
+			Coord exit(tube->Get_Exit());
+			Coord enter(Cell(tube->Enter));
+			height_step = (Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / tube->Get_Count();
+		}
 
 		if (distance <= speed) {
 			CurrentTubeDir++;
@@ -476,7 +480,8 @@ void UnitClass::Tunnel_AI(void)
 				ObjectClass * object = occupiers[index];
 				if (object->RTTI == RTTI_UNIT || object->RTTI == RTTI_INFANTRY) {
 					if (!((FootClass *)object)->Locomotion->Is_Moving()) {
-						object->Scatter(Coord(0, 0, 0), true, true);
+						Coord scatter_coord(0, 0, 0);
+						object->Scatter(scatter_coord, true, true);
 					}
 				}
 			}

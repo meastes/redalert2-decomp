@@ -4764,3 +4764,76 @@ Found in the rebuild (lane F48, high); one name landed, no row:
 - SidebarClass::AI 0x67DC90 does not answer to the count (0 to 23 dead locals: 480 bytes or worse). Its
   paging-down block comes out right with a conditional-expression inline in Page and its up block does not (the
   flag sinks below the TopIndex test); lane F33's if-and-return helper remains the only exact form.
+
+## A twin's inline wrapper lands where the twin uses it, not where it happens to help; a spilled local with a zero register is one reference short; a whole-function register exchange is one reference over (found in the rebuild (lane F49, high))
+
+Found in the rebuild (lane F49, high); two rows and one header landed:
+
+- narrow.h's `Narrow_Text` (ra2-decomp 61ba2ad) is an inline over the conversion function, so both names of an argument
+  list are converted before the call. scenario Wait_For_Players_To_Load 0x65C520 was exact at the first compile with the
+  twin's whole text (77 bytes after 45 forms without it), and the twin's two session functions keep their bytes with its
+  forms. The wrapper also turns netshare Send_Map_Preview 0x5C7EF0 exact, by what it does to a register choice, at two
+  lines where the twin's own matched text of that function calls the conversion directly: that is a helper overriding
+  the twin at its own site, and it is held (owner ruling, variation kind C). Before using a twin's helper at another
+  site, read the twin's text of that function first.
+- A header from a twin that carries its own prototype of a function the tree already declares is adopted without the
+  prototype (include the declaring header instead), and included only by the units that use it; count-sensitive rows in
+  other units then cannot move (queue Print_CRCs stayed exact).
+- techno Area_Modify 0x6C5270: a guard note that calls a row "the twin's own dead end" goes stale; the twin was matched
+  ten days earlier with one reference local (`Rect const & bounds = Map.MapRect;`). Check the twin's manifest for the
+  address before believing a guard.
+- techno Laser_Zap 0x6C9DF0: `xor ebp, ebp` with a local kept in memory, where the image keeps the local in a register
+  and has no zero register, is the local losing its register to later values. A second assignment of the local, or one
+  compare with 0 fewer on a register candidate (the clamp test, the target's NULL test), gives the image's code; zeros
+  pushed as arguments and a constructor's zero bytes do not count. Spellings that fold to the same tree (`a = p - q`
+  against `a = p; a -= q`, `+=` on a known zero) do not add a reference.
+- reinf Do_Chrono_Reinforcements 0x63A880: esi and edi exchanged for a whole function with every instruction equal is
+  the rank of two values (the loop's object against the inner loop's cell pointer). Removing any one reference to the
+  object turned every other instruction right; a do-while, a separate pointer for a later loop and reorderings that keep
+  the references do not.
+- xsurface Plot_Line 0x773F00: the archive's text is itself a reconstruction; where the image keeps a value in one stack
+  slot and steps it there (start.X in the steep loop), the source read it once ahead of the branch, and main's old
+  draft may already have that shape (155 -> 9 bytes).
+
+## A twin's member call the draft wrote out is an inline site: diff the draft against the twin token by token before reading sites; a twin helper can be one level too deep for the sibling image (found in the rebuild (lane F50, high))
+
+Found in the rebuild (lane F50, high); one row landed and one judgment flag cleared. Lane tools in build/r/f50: tdiff.py
+prints a normalised text difference of a guarded draft against the twin's function; gsweep.py opens every guard alone and
+scores it against its image bound or row.
+
+- InfantryClass::Tunnel_AI 0x5025C0 (1,876 B, exact) had been read by three lanes as "about six empty inline sites missing
+  late in the root" (the first distance's Length expanded where the image calls 0x41B780). The scratch that carried the
+  twin's text differed from the twin in one token nobody had listed: the occupier loop's `object->RTTI == RTTI_INFANTRY`,
+  which the twin writes `object->Is_Infantry()`. The member is an inline over Fetch_RTTI, two nested sites late in the
+  root, and it is the whole cause (the Length call and a push order 0xC0 bytes earlier). When a row's residue is "N sites
+  short" and a matched twin exists, diff the two texts mechanically (comments stripped, one statement a line) and look at
+  every place the draft spells out what the twin calls: a property read against a member, a test against Is_/As_ helpers,
+  a temporary against a named local. Renaming the twin's text into the tree's names is where such tokens get lost.
+- UnitClass::Tunnel_AI 0x6FAA30: the flagged unused `Coord coord` (kept for its one inline site) is gone. An earlier lane
+  had tried the twin's inner block for the tunnel mouths without it and was 1,300 bytes off; the twin's text has a second
+  difference from the archive in the same function, the scatter coordinate as a named `Coord scatter_coord(0, 0, 0)`.
+  Both together are exact; either alone is not. A twin form measured alone and found wanting is not measured: take every
+  difference of the twin's function at once, then remove them one at a time.
+- A twin's file-local helper does not always carry over. reinf Do_Reinforcements 0x639970: the image calls Coord's cell
+  constructor 0x61EA80 at the paradrop's Unlimbo; Yuri's Revenge calls the TPoint3D base inside the expanded constructor,
+  and the twin's `_Place_Reinforcement` helper reproduces exactly that here (0x41B630 called, the constructor expanded):
+  one level deeper than Red Alert 2's image. The call set says which level a helper gives; when it names the callee's
+  callee, the helper is the sibling's shape, not this image's.
+- The same reading in the other direction does not have a twin answer: building Take_Damage 0x43EE70 needs fewer sites
+  after its second distance (Red Alert 2's own run-away loop), techno Draw_Post_Render 0x6C2C40 more before its last
+  (the talk bubble timer's operator int is a call in the image), and neither twin text differs there. Take_Damage's draft
+  is back to one cause with the archive's `Cell(*offset++) + Get_Cell()` (the twin's order added four hunks).
+- skirmish Skirmish_On_WM_COMMAND 0x6829F0: a unit function the image calls once and expands at three other places
+  (Skirmish_Is_Computer, 64 B, defined after its caller) is the auto-inliner's choice, not a written-out copy. The one
+  call sits in a block Yuri's Revenge has out of line as its own function; that function as a file-static here still
+  expands the callee. The byte-sized store of the result (`test al, al`, `and esi, 0xFF` at the uses) reads as an
+  `unsigned char` local of an int-returning call.
+- palette Set_Scheme_Table_Theater 0x603750: two registers exchanged for a whole function with every instruction equal
+  did not answer to eleven spellings of the pointer's reads (the global after the inline, a reference, a split
+  declaration, an early return): references the optimiser folds do not change the rank. map Compute_Zone_Connections
+  0x54FDA0: a call instruction reached from three places (a loop's first step and two continue paths) looks like a
+  `for` header's step, but the header form and the archive's `for (;;)` with the step first compile to the same bytes;
+  what differs is which of the cell pointer and the facing gets the register.
+- The queue's "matched twin" for a row can be the other overload: Tactical::Draw_Tiles' matched Yuri's Revenge function
+  is the Rect overload (exact in the tree); the cell overload has no reference text. Check the argument list before
+  counting a twin.

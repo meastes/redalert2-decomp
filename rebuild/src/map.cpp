@@ -2158,20 +2158,11 @@ void MapClass::Repair_High_Bridge_Span(CellClass * cptr, FacingType dir, Rect * 
 		Point2D point;
 		TacticalMap->Coord_To_Pixel(coord, point);
 
-		int x1 = dirty->X;
-		int y1 = dirty->Y;
-		int minx = dirty->X;
-		if (dirty->X >= point.X) {
-			minx = point.X;
-		}
-		int miny = dirty->Y;
-		dirty->X = minx - 64;
-		if (y1 >= point.Y) {
-			miny = point.Y;
-		}
-		dirty->Y = miny - 64;
-		dirty->Width = abs(x1 - point.X) + 128;
-		dirty->Height = abs(y1 - point.Y) + 128;
+		Point2D start(dirty->X, dirty->Y);
+		dirty->X = min(start.X, point.X) - 64;
+		dirty->Y = min(start.Y, point.Y) - 64;
+		dirty->Width = abs(start.X - point.X) + 128;
+		dirty->Height = abs(start.Y - point.Y) + 128;
 	}
 
 	if (reset_zones) {
@@ -2181,13 +2172,6 @@ void MapClass::Repair_High_Bridge_Span(CellClass * cptr, FacingType dir, Rect * 
 	if (cells.Count() > 0) {
 		Recalc_Cells_In_List(cells);
 	}
-	int n0 = cells.Count(); // RA2: as above
-	int n1 = cells.Count(); // RA2: as above
-	int n2 = cells.Count(); // RA2: as above
-	int n3 = cells.Count(); // RA2: as above
-	int n4 = cells.Count(); // RA2: as above
-	int n5 = cells.Count(); // RA2: as above
-	int n6 = cells.Count(); // RA2: as above
 }
 
 
@@ -2349,20 +2333,11 @@ void MapClass::Repair_Train_Bridge_Span(CellClass * cptr, FacingType dir, Rect *
 		Point2D point;
 		TacticalMap->Coord_To_Pixel(coord, point);
 
-		int x1 = dirty->X;
-		int y1 = dirty->Y;
-		int minx = dirty->X;
-		if (dirty->X >= point.X) {
-			minx = point.X;
-		}
-		int miny = dirty->Y;
-		dirty->X = minx - 64;
-		if (y1 >= point.Y) {
-			miny = point.Y;
-		}
-		dirty->Y = miny - 64;
-		dirty->Width = abs(x1 - point.X) + 128;
-		dirty->Height = abs(y1 - point.Y) + 128;
+		Point2D start(dirty->X, dirty->Y);
+		dirty->X = min(start.X, point.X) - 64;
+		dirty->Y = min(start.Y, point.Y) - 64;
+		dirty->Width = abs(start.X - point.X) + 128;
+		dirty->Height = abs(start.Y - point.Y) + 128;
 	}
 
 	if (reset_zones) {
@@ -2372,13 +2347,6 @@ void MapClass::Repair_Train_Bridge_Span(CellClass * cptr, FacingType dir, Rect *
 	if (cells.Count() != 0) {
 		Recalc_Cells_In_List(cells);
 	}
-	int n0 = cells.Count(); // RA2: as above
-	int n1 = cells.Count(); // RA2: as above
-	int n2 = cells.Count(); // RA2: as above
-	int n3 = cells.Count(); // RA2: as above
-	int n4 = cells.Count(); // RA2: as above
-	int n5 = cells.Count(); // RA2: as above
-	int n6 = cells.Count(); // RA2: as above
 }
 
 

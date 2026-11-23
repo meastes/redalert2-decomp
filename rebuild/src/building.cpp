@@ -2535,7 +2535,7 @@ void BuildingClass::Leave_Rubble(void) // RA2: not in TibSun, at 0x43EBA0
  *   11/22/1994 JLB : Shares base damage handler for techno objects.                           *
  *   07/15/1995 JLB : Power ratio gets adjusted.                                               *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1309 bytes differ (one site: the second distance's Length is a call where the image expands it)
+#ifdef RA2_NON_MATCHING // not exact: 1321 bytes differ by position, one cause (723 = 723 instructions otherwise): at the run-away loop the image expands Length (the square root 0x4BA410 called) and calls it (0x41B780) at the destroyed-contacts loop; this calls it at both. The loop is Red Alert 2's own (ra2-decomp's Yuri's Revenge twin has none), and the twin's forms after it (PositionCoord at the sound, the animation pointer inside the sparky block) give the same bytes
 ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeClass const * warhead, TechnoClass * source, bool forced, bool no_crew)
 {
 	ResultType res = RESULT_NONE;
@@ -2647,7 +2647,7 @@ ResultType BuildingClass::Take_Damage(int & damage, int distance, WarheadTypeCla
 					}
 
 					while (*offset != REFRESH_EOL) { // RA2: no BlowupSound (not in RA2's layout)
-						Cell cell = Get_Cell() + Cell(*offset++); // RA2: the building's cell through Get_Cell
+						Cell cell = Cell(*offset++) + Get_Cell(); // RA2: the building's cell through Get_Cell; the archive's operand order (TibSun building.cpp:2333), which the image has (the offset is copied before the virtual call)
 
 						AnimClass * anim = NULL;
 

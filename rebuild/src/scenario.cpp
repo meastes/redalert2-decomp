@@ -178,6 +178,7 @@
 #include "bench.hh"
 #include "wstring.h"
 #include "mpscore.h"
+#include "narrow.h" // RA2: Narrow_Text, ra2-decomp 61ba2ad
 #include "stlscore.h" // RA2: the single player score screen (0x69A640)
 
 void Audio_Pause_All(void); // RA2
@@ -738,7 +739,7 @@ void Toggle_Display_Mode(bool ingame)
 /// allowed to hold the game up forever. Solo and skirmish games have nobody to wait for.
 /// </summary>
 /// <returns>bool; Did everyone make it into the game?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0065c520 has no row); 77 of 676 bytes differ against the frozen image bound (image_bounds.csv; was 201; same size, 198 = 198 instructions, 16 of the 77 are four unbound literals), 2026-11-22 (lane F28): left in the drop loop, the callee-saved registers of i, name and narrow (esi, edi, ebp in the image; ebp, esi, edi here) and the scratch registers that follow them; main: best 96.97, tried 10 times (register, frame, order)
+// RA2: the text is ra2-decomp's matched twin (Yuri's Revenge 0x00684370, their 61ba2ad): Narrow_Text at both names, the loader's index stepped at the end of the loop
 bool Wait_For_Players_To_Load(void)
 {
 	if (Session.Type == GAME_NORMAL || Session.Type == GAME_SKIRMISH) {
@@ -764,11 +765,10 @@ bool Wait_For_Players_To_Load(void)
 		}
 
 		if (wait_timeout <= 0) {
-			for (int i = 1, slot = 1; i < Session.Players.Count(); slot++, i++) { // RA2: slot and i step together except after a drop; the image steps slot first
-				if (Progress.Get_Current_Progress(slot) < 0.999) { // RA2: below 0.999 instead of not exactly 1.0
-					wchar_t const * name = Session.Players[i]->Name; // RA2: read once for both names
-					char const * narrow = Wide_To_Narrow(name); // RA2: the image converts the first name before the second and holds it across that call
-					DebugString("Player %s failed to make it into the game. Dropping %s\n", narrow, Wide_To_Narrow(name)); // RA2: the wide names
+			int loader = 1;
+			for (int i = 1; i < Session.Players.Count(); i++) {
+				if (Progress.Get_Current_Progress(loader) < 0.999) { // RA2: below 0.999 instead of not exactly 1.0
+					DebugString("Player %s failed to make it into the game. Dropping %s\n", Narrow_Text(Session.Players[i]->Name), Narrow_Text(Session.Players[i]->Name)); // RA2: the wide names
 					int id = Session.Players[i]->Player.ID; // RA2: the connection's id is kept for the master test
 					Destroy_Connection(id, 1); // RA2: as above
 					if (Session.Am_I_Master(Houses[id])) { // RA2: a dropped master is forgotten (0x66F150)
@@ -777,6 +777,7 @@ bool Wait_For_Players_To_Load(void)
 					}
 					i--;
 				}
+				loader++;
 			}
 			return(false);
 		}
@@ -799,7 +800,6 @@ bool Wait_For_Players_To_Load(void)
 	}
 	return(true);
 }
-#endif
 
 
 

@@ -478,7 +478,7 @@ bool XSurface::Draw_RGB_Multiplying_Line(Rect const & cliprect, Point2D const & 
 /// <param name="xcliprect">The clipping rectangle to plot within.</param>
 /// <param name="drawer_callback">The routine to call for each point along the line.</param>
 /// <returns>bool; Did any part of the line survive the clipping?</returns>
-#if 0
+#ifdef RA2_NON_MATCHING // not exact: 9 bytes differ against the image-derived bound 00773f00 (511 B; ours 511 B, 179 = 179 instructions): two adjacent instructions exchanged ahead of the sloped part (the image copies dy for abs before it stores pitch = 1; ours stores first). The straight parts are the archive's text; the sloped part follows main's draft (x and y read once ahead of the branch, the steep loop steps x itself, no k), which the image shows (start.X kept in one stack slot and incremented there); the archive's sloped text is 155 bytes off. Lane F49: 20 orders and spellings of pitch, dy and abs leave the exchange
 bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D & endpoint, void(*drawer_callback)(Point2D const &))
 {
 	//assert(xcliprect.Is_Valid());
@@ -528,15 +528,16 @@ bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D &
 		/*
 		 * Distances to x and y.
 		 */
-		int x2 = end.X;
-		int dx = x2 - start.X;
-		int dy = end.Y - start.Y;
+		int x = start.X;
+		int pitch = 1;
+		int y = start.Y;
+		int dx = end.X - x;
+		int dy = end.Y - y;
 		/*
 		 * The line isn't straight so we need to do some maths.
 		 */
-		int pitch = 1;
 		if (dy < 0) {
-			pitch = -pitch;
+			pitch = -1;
 		}
 
 		dy = abs(dy);
@@ -549,17 +550,18 @@ bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D &
 			 * The slope is not steep.
 			 */
 			int delta = dy2 - dx;
-			int y = start.Y;
+			int x2 = end.X;
+			int y2 = y;
 
 			/*
 			 * Plot low line.
 			 */
-			for (int i = start.X; i <= x2; i++) {
-				drawer_callback(Point2D(i, y));
+			for (int i = x; i <= x2; i++) {
+				drawer_callback(Point2D(i, y2));
 
 				if (delta > 0) {
 					delta -= dx2;
-					y += pitch;
+					y2 += pitch;
 				}
 
 				delta += dy2;
@@ -570,18 +572,15 @@ bool XSurface::Plot_Line(Rect const & xcliprect, Point2D & startpoint, Point2D &
 			 * The slope is steep.
 			 */
 			int delta = dx2 - dy;
-			int x = start.X;
-			int y = start.Y;
-			int k = 0;
 
 			/*
 			 * Plot high line.
 			 */
 			for (int i = 0; i <= dy; i++) {
-				drawer_callback(Point2D(x + k, y));
+				drawer_callback(Point2D(x, y));
 
 				if (delta > 0) {
-					k++;
+					x++;
 					delta -= dy2;
 				}
 

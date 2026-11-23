@@ -2916,13 +2916,13 @@ void Tactical::Update_Visible_Cells(void)
 	TacPixelX -= TacticalDimensions.Width / 2;
 	TacPixelY -= TacticalDimensions.Height / 2;
 
-	Point2D lepton = Pixel_To_Lepton(Point2D(TacPixelX - 60, TacPixelY - 30)); // RA2: Update_Visible_Cells at 0x6A9170 matches only so
+	Point2D lepton;
+	lepton = Pixel_To_Lepton(Point2D(TacPixelX - ISO_TILE_PIXEL_W, TacPixelY - ISO_TILE_PIXEL_H)); // RA2: declared, then assigned (ra2-decomp's form for the Yuri's Revenge twin 0x6D8B30, f486127)
 
 	VisibleCellRect.X = lepton.X / CELL_LEPTON;
 	VisibleCellRect.Y = lepton.Y / CELL_LEPTON;
-	VisibleCellRect.Width = TacticalDimensions.Width / 60 + 2; // RA2: as above
-	VisibleCellRect.Height = TacticalDimensions.Height / 15 + 4; // RA2: as above
-	do { } while (0); // RA2: as above
+	VisibleCellRect.Width = TacticalDimensions.Width / ISO_TILE_PIXEL_W + 2;
+	VisibleCellRect.Height = TacticalDimensions.Height / (ISO_TILE_PIXEL_H / 2) + 4;
 }
 
 

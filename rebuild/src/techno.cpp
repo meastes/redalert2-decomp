@@ -1755,7 +1755,7 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const // RA2: 0x006C3F00, ra2-decomp's twin text (Yuri's Revenge 0x006F64A0) without YR's CanBeOccupied pips and PixelSelectionBracketDelta, RA2's pip shapes 15-17
 {
 	if (RTTI == RTTI_BUILDING) {
-		HeightAGL;
+		Get_Height_AGL();
 
 		Point3D dim = TClass->Lepton_Dimensions();
 		Coord coord = dim - dim / 2;
@@ -2441,12 +2441,12 @@ void TechnoClass::Draw_It(int x, int y, int /*WindowNumberType*/ window) const
  * HISTORY:                                                                                    *
  *   08/23/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 31 bytes differ against the image-derived bound 006c5270 (761 B; ours 761 B), all in the last newcell block (cell + Cell(radius, y): the image loads the cell pointer first and adds y + cell.Y); ra2-decomp's weapon test adopted; the same register allocation is ra2-decomp's own dead end (data/attempts.csv, 0x006F79A0, 96.8% after about 60 forms)
 double TechnoClass::Area_Modify(Cell const & cell) const
 {
-	WeaponDataStruct const * weapon_data = GetTurretWeapon(); // RA2: ra2-decomp's form (src/techno.cpp, Area_Modify)
+	WeaponDataStruct const * weapon_data = GetTurretWeapon(); // RA2: the function's text is ra2-decomp's matched twin (src/techno.cpp Area_Modify, Yuri's Revenge 0x006F79A0) over the archive's
 	if (weapon_data == NULL || weapon_data->Weapon == NULL || !weapon_data->Weapon->IsSupressed) return(1);
 
+	Rect const & bounds = Map.MapRect; // RA2: ra2-decomp's matched twin reads the map's bounds through one reference (Yuri's Revenge 0x006F79A0)
 	int crange = Rule->SupressRadius / CELL_LEPTON;
 	double odds = 1;
 
@@ -2458,10 +2458,10 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 		for (int x = -radius; x <= radius; x++) {
 			Cell newcell;
 
-			if (cell.X + x < Map.MapRect.X) continue;
-			if (cell.X + x >= (Map.MapRect.X+Map.MapRect.Width)) continue;
+			if (cell.X + x < bounds.X) continue;
+			if (cell.X + x >= (bounds.X + bounds.Width)) continue;
 
-			if ((cell.Y - radius) >= Map.MapRect.Y) {
+			if ((cell.Y - radius) >= bounds.Y) {
 				newcell = cell + Cell(x, -radius);
 				BuildingClass const * building = Map[newcell].Cell_Building();
 				if (building != NULL && House->Is_Ally(building)) {
@@ -2469,7 +2469,7 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 				}
 			}
 
-			if ((cell.Y + radius) < (Map.MapRect.Y+Map.MapRect.Height)) {
+			if ((cell.Y + radius) < (bounds.Y + bounds.Height)) {
 				newcell = cell + Cell(x, radius);
 				BuildingClass const * building = Map[newcell].Cell_Building();
 				if (building != NULL && House->Is_Ally(building)) {
@@ -2484,10 +2484,10 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 		for (int y = -(radius-1); y < radius; y++) {
 			Cell newcell;
 
-			if ((cell.Y + y) < Map.MapRect.Y) continue;
-			if ((cell.Y + y) >= (Map.MapRect.Y+Map.MapRect.Height)) continue;
+			if ((cell.Y + y) < bounds.Y) continue;
+			if ((cell.Y + y) >= (bounds.Y + bounds.Height)) continue;
 
-			if ((cell.X - radius) >= Map.MapRect.X) {
+			if ((cell.X - radius) >= bounds.X) {
 				newcell = cell + Cell(-radius, y);
 				BuildingClass const * building = Map[newcell].Cell_Building();
 				if (building != NULL && House->Is_Ally(building)) {
@@ -2495,7 +2495,7 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 				}
 			}
 
-			if ((cell.X + radius) < (Map.MapRect.X+Map.MapRect.Width)) {
+			if ((cell.X + radius) < (bounds.X + bounds.Width)) {
 				newcell = cell + Cell(radius, y);
 				BuildingClass const * building = Map[newcell].Cell_Building();
 				if (building != NULL && House->Is_Ally(building)) {
@@ -2506,7 +2506,6 @@ double TechnoClass::Area_Modify(Cell const & cell) const
 	}
 	return(odds);
 }
-#endif
 
 
 /***********************************************************************************************
@@ -4268,17 +4267,20 @@ int TechnoClass::Rearm_Delay(int which) const
  *   09/30/1996 BWG : Created.                                                                 *
  *   09/30/1996 JLB : Uses standard facing conversion and distance routines.                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
+#ifdef RA2_NON_MATCHING // not exact: 439 bytes differ by position against the image-derived bound 006c9df0 (560 B; ours 560 B + 11 instructions); the text is ra2-decomp's matched twin (src/techno.cpp CreateLaser, Yuri's Revenge 0x006FD210) in this tree's names with RA2's one-argument Fire_Coord. One decision is left: the image keeps zadjust in edi for the whole function and has no zero register; ours caches 0 in ebp and keeps zadjust in memory, so the end coordinate takes other registers. Diagnostics, none of them landed (lane F49): a second `zadjust = 0;` in the first arm gives the image's code plus that one `xor edi, edi`; the clamp test written `>= 1` or the target test without its NULL compare gives every other instruction. The row is one reference of zadjust short, or one compare with 0 over; 25 natural spellings of the difference, the clamp, the target test and the declaration order leave it
 LaserDrawClass * TechnoClass::Laser_Zap(AbstractClass * target, int which, WeaponTypeClass const * weapon, Coord const & source_coord)
 {
-	RGBClass half; // RA2: the house colour halved, zeroed on entry
-	RGBClass const * outer; // RA2: the bolt colors are kept by pointer
-	RGBClass const * inner; // RA2: as above
+	RGBClass color; // RA2: the house colour halved, zeroed on entry
 	int duration = weapon->LaserDuration; // RA2: as above
+	RGBClass const * spread = &weapon->LaserOuterSpread; // RA2: as above
+	RGBClass const * inner; // RA2: the bolt colors are kept by pointer
+	RGBClass const * outer; // RA2: as above
 	if (weapon->IsHouseColor) { // RA2: a house coloured laser: inner is the house's laser colour, outer half of it
-			inner = &House->LaserColor; // RA2: a house coloured laser: inner is the house's laser colour, outer half of it
-		half.Set(inner->Get_Red() >> 1, inner->Get_Green() >> 1, inner->Get_Blue() >> 1); // RA2: as above
-		outer = &half; // RA2: as above
+		inner = &House->LaserColor; // RA2: as above
+		color.Set_Red(inner->Get_Red() >> 1); // RA2: as above
+		color.Set_Green(inner->Get_Green() >> 1); // RA2: as above
+		color.Set_Blue(inner->Get_Blue() >> 1); // RA2: as above
+		outer = &color; // RA2: as above
 	} else {
 		inner = &weapon->LaserInnerColor; // RA2: the weapon's own colours
 		outer = &weapon->LaserOuterColor; // RA2: as above
@@ -4293,23 +4295,22 @@ LaserDrawClass * TechnoClass::Laser_Zap(AbstractClass * target, int which, Weapo
 		if (Fetch_RTTI() == RTTI_BUILDING) { // RA2: only a building's beam is kept above its own render row
 			Point2D p1 = TacticalMap->Coord_To_Pixel_Absolute(source); // RA2: as above
 			Point2D p2 = TacticalMap->Coord_To_Pixel_Absolute(Render_Coord()); // RA2: as above
-			zadjust = p1.Y; // RA2: as above
-			zadjust -= p2.Y; // RA2: as above
+			zadjust = p1.Y - p2.Y; // RA2: as above
 			if (zadjust > 0) { // RA2: as above
 				zadjust = 0; // RA2: as above
 			}
 		}
 	}
-	if (target && (target->AbstractFlags & 2)) { // RA2: an object gives its target coordinate
+	if (target != NULL && (target->AbstractFlags & 2)) { // RA2: an object gives its target coordinate
 		dest = ((ObjectClass *)target)->Target_Coord(); // RA2: as above
 	} else {
 		dest = target->As_Coord(); // RA2: else its own coordinate
 	}
-	LaserDrawClass * laser = new LaserDrawClass(source, dest, zadjust, true, *inner, *outer, weapon->LaserOuterSpread, duration, false, true, 1.0f, 0.0f); // RA2: no wave, fades
-	if (laser && weapon->IsHouseColor) { // RA2: the beam remembers it is house coloured
+	LaserDrawClass * laser = new LaserDrawClass(source, dest, zadjust, true, *inner, *outer, *spread, duration, false, true, 1.0f, 0.0f); // RA2: no wave, fades
+	if (laser != NULL && weapon->IsHouseColor) { // RA2: the beam remembers it is house coloured
 		laser->IsHouseColor = true; // RA2: as above
 	}
-	return laser;
+	return(laser);
 }
 #endif
 

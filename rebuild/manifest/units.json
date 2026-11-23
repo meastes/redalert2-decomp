@@ -83072,6 +83072,15 @@
     "main_source": "src/recovered/techno.cpp"
    },
    {
+    "entry": "006c5270",
+    "body": 761,
+    "padding": 7,
+    "symbol": "?Area_Modify@TechnoClass@@QBENABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "006c5570",
     "body": 2998,
     "padding": 10,
@@ -91680,7 +91689,8 @@
    "?Unknown_Virtual_4D0@InfantryClass@@UAEXXZ": "00508750",
    "?IsDeployed@InfantryClass@@UBE_NXZ": "00509470",
    "?Do_Action@InfantryClass@@UAE_NW4DoType@@_N1@Z": "00504740",
-   "??_C@_0BD@HGEC@EVA_BridgeRepaired?$AA@": "007daef0"
+   "??_C@_0BD@HGEC@EVA_BridgeRepaired?$AA@": "007daef0",
+   "__real@8@4007b504f333f9de6800": "007a3a20"
   },
   "partial_ok": true
  },
@@ -93255,6 +93265,15 @@
     "main_source": "src/recovered/scenario.cpp"
    },
    {
+    "entry": "0065c520",
+    "body": 676,
+    "padding": 12,
+    "symbol": "?Wait_For_Players_To_Load@@YI_NXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0065c7d0",
     "body": 1527,
     "padding": 9,
@@ -93707,7 +93726,11 @@
    "_RAD_90": "00ab6e70",
    "_RECT_NONE": "00ab6e78",
    "_?BASIC@?1??Write_INI@ScenarioClass@@QBE_NAAVCCINIClass@@_N@Z@4QBDB": "007a9204",
-   "_?WAYNAME@?1??Write_Waypoints@ScenarioClass@@QBEXAAVCCINIClass@@@Z@4QBDB": "007a9218"
+   "_?WAYNAME@?1??Write_Waypoints@ScenarioClass@@QBEXAAVCCINIClass@@@Z@4QBDB": "007a9218",
+   "??_C@_0CN@LDAF@Carrier?5Detect?5is?5false?4?5Abortin@": "007f1f3c",
+   "??_C@_0DI@OCKB@Player?5?$CFs?5failed?5to?5make?5it?5into@": "007f1f04",
+   "__real@8@3ffeffbe76c8b4395800": "007a9220",
+   "__real@8@3ffeffdf3b645a1cb000": "007a9228"
   },
   "partial_ok": true
  },

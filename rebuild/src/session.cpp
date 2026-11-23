@@ -62,6 +62,7 @@
 #include "data.h"
 #include "dbgprint.h"
 #include "globals.h"
+#include "narrow.h" // RA2: Narrow_Text, ra2-decomp 61ba2ad
 #include "ipxmgr.h"
 #include "language\language.h"
 #include "mixfile.h"
@@ -2239,9 +2240,7 @@ int SessionClass::Name_To_Slot(char const * name)
 int SessionClass::Slot_To_Player(int slot)
 {
 	for (int i = 0; i < Session.Players.Count(); i++) {
-		NodeNameType * node = Session.Slots[slot];
-		char * a = Wide_To_Narrow(Session.Players[i]->Name);
-		if (stricmp(a, Wide_To_Narrow(node->Name)) == 0) {
+		if (stricmp(Narrow_Text(Session.Players[i]->Name), Narrow_Text(Session.Slots[slot]->Name)) == 0) {
 			return i;
 		}
 	}
@@ -2268,9 +2267,7 @@ void SessionPortAllocator::Allocate_Player_Ports(void)
 		int slot = Player_To_Slot(player);
 		if (slot >= 0 && slot < MAX_PLAYERS) {
 			Players[player]->Address.Set_Port(PlayerPortBase[slot]);
-			char * name = Wide_To_Narrow(Players[player]->Name);
-			char const * address = Players[player]->Address.As_String(NULL);
-			DebugString("Allocated port for player %s - %s\n", name, address);
+			DebugString("Allocated port for player %s - %s\n", Narrow_Text(Players[player]->Name), Players[player]->Address.As_String(NULL));
 		}
 	}
 
@@ -2319,13 +2316,11 @@ void SessionPortAllocator::Allocate_Player_Ports(void)
 						DebugString("Two player behand the same NAT but they are using different port bases anyway\n");
 					}
 
-					char * name = Wide_To_Narrow(ordered[i]->Name);
-					if (stricmp(name, g_NickName.get()) == 0) {
+					if (stricmp(Narrow_Text(ordered[i]->Name), g_NickName.get()) == 0) {
 						Copy_Player_Name(NatPeerNames[local_count++], ordered[j]->Name);
 					}
 
-					name = Wide_To_Narrow(ordered[j]->Name);
-					if (stricmp(name, g_NickName.get()) == 0) {
+					if (stricmp(Narrow_Text(ordered[j]->Name), g_NickName.get()) == 0) {
 						Copy_Player_Name(NatPeerNames[local_count++], ordered[i]->Name);
 					}
 				}
@@ -2355,17 +2350,12 @@ void SessionPortAllocator::Allocate_Player_Ports(void)
 			DebugString("%s has the same IP address as me\n", Wide_To_Narrow(Players[i]->Name));
 
 			for (int j = 0; j < MAX_PLAYERS; j++) {
-				NodeNameType * node = Slots[j];
-				char * name = Wide_To_Narrow(Players[i]->Name);
-				char * peer_name = Wide_To_Narrow(node->Name);
-
-				if (stricmp(name, peer_name) == 0) {
+				if (stricmp(Narrow_Text(Players[i]->Name), Narrow_Text(Slots[j]->Name)) == 0) {
 					NetNodeType local_node;
 					SlotAddresses[j].Get_Node(local_node);
 					Players[i]->Address.Set_Address(NULL, local_node, Players[i]->Address.Get_Port());
 
-					name = Wide_To_Narrow(Players[i]->Name);
-					DebugString("Talking to NAT player %s on IP address %s\n", name, Players[i]->Address.As_String(NULL));
+					DebugString("Talking to NAT player %s on IP address %s\n", Narrow_Text(Players[i]->Name), Players[i]->Address.As_String(NULL));
 				}
 			}
 		}
