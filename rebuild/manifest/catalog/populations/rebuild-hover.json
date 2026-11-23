@@ -5956,6 +5956,34 @@
       "source_order": 5238528,
       "source_quality_family": "rebuild",
       "bound_population": "population-4352"
+    },
+    {
+      "entry": 5238560,
+      "method": "004fef20",
+      "body_bytes": 35,
+      "body_sha256": "94e3ef9ef2fee4d7cf1c8213fca072c5cdf1cfcb38980bfa7ca42ea9cc295335",
+      "padding_bytes": 13,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "da9136369b31f33d72f28e54d80f70a29cfbbf317f35151814ee480aa25eecf5",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8?$TPoint2D@F@@QBE_NABV0@@Z",
+      "symbol_prefix": "??8?$TPoint2D@F@@QBE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "0e118b2b94368e4777b81c6055d7a26de06ccedd9ae5f3b28022563dfba2750e",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5238560,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
     }
   ]
 }

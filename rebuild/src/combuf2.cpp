@@ -7,6 +7,7 @@
 #include "command.h"
 #include "index.h"
 #include "_command.h"
+#include "keyboard.h" // RA2: the original unit includes this header
 
 bool __fastcall Command_Allows_Modified_Key(CommandClass const & command, unsigned key)
 {

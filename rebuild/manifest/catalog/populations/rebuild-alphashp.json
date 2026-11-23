@@ -3066,6 +3066,34 @@
       "population": "rebuild-alphashp",
       "source_order": 4324768,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4324848,
+      "method": "0041fdf0",
+      "body_bytes": 289,
+      "body_sha256": "7be2d34557a7b156778538acb80c33b82c572831d0b66b21979cb3733ee74925",
+      "padding_bytes": 15,
+      "full_extent_bytes": 304,
+      "full_extent_sha256": "560fcff6c1131aac1a3986149ccf869164c633ca35c32aeb7f6791a9f431f056",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+      "symbol_prefix": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "62368f07019894b857e548a79e6d7437ba600b63c80f9119744a39b41c315e31",
+      "source": "rebuild/src/alphashp.cpp",
+      "population": "rebuild-alphashp",
+      "source_order": 4324848,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3420"
     }
   ]
 }

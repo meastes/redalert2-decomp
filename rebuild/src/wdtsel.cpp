@@ -2,6 +2,8 @@
  *                                O P E N  T S
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 ra2-decomp contributors
+ * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
@@ -30,6 +32,7 @@
 #include "session.h"
 #include "stringtable.h"
 #include "theme.h"
+#include "vcursor.h"
 #include "vector.h"
 #include "wdtnet.h"
 #include "wonline.h"
@@ -330,7 +333,7 @@ void Selection::Update_Hovered_Territory(Point2D const & point)
 /// </summary>
 /// <param name="point">The point to look up, relative to the campaign map.</param>
 /// <returns>bool; Is there a conflict waiting on the territory selected?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1325 bytes differ against the image bound 0072e780 (1531 body bytes; 841 with main's coined one-caller Walk_Territories wrapper, removed: the cursor constructed in place as mischa85's wdtsel.cpp writes it at the sibling territory walks, flagged: another site)
+#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ against the image bound 0072e780 (1531 body bytes; register choice for the two X-coordinate loads): ra2-decomp text at its own site with RA2's Get_ID/Owner_Of/Get_Target accessors (was 1325; 841 with main's coined Walk_Territories wrapper, not taken)
 void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, bool silent)
 {
 	Remove_Target_Anims();
@@ -338,66 +341,62 @@ void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, b
 	MS_ANIM_LIST zoom_anims;
 	MS_ANIM_LIST throb_anims;
 
-	/*
-	 * Walk each territory and advance any whose state has changed. When requested, queue the zoom/throb
-	 * target animations for newly disputed territories.
-	 */
-	for (TERRITORY_ITER it(WorldMap->Territories, 0); it; it++) {
-		int id = (*it)->Get_ID();
-		int old_state = CurrentState->Owner_Of(id);
-		int new_state = state->Owner_Of(id);
+	for (TERRITORY_ITER it = Cursor_Of(WorldMap->Territories); it; it++) {
+		rc_ptr<Territory> const & territory = it.Cur_Ref();
+		int id = territory->Get_ID();
+		State * previous = CurrentState.operator->();
+		int old_state = previous->Owner_Of(id);
+		State * incoming = state.operator->();
+		int new_state = incoming->Owner_Of(id);
 
 		if (new_state != old_state) {
 			Check_For_Breakout();
-			(*it)->Set_Owner_State(new_state, this, !Brokeout || silent);
+			it->Set_Owner_State(new_state, this, !Brokeout || silent);
 		}
 
-		if (show_targets && new_state == 1) {
-			Point2D target = WorldMap->Origin + (*it)->Get_Target();
-			int x = target.X;
-			int y = target.Y;
+		if (!show_targets || new_state != 1) {
+			continue;
+		}
+		Point2D target(WorldMap->Origin + it->Get_Target());
 
-			if (ZoomingTarget != NULL) {
-				CCFileClass file(ZoomingTarget->Get_Filename());
-				if (file.Is_Available()) {
-					MSFadeAnim * fade = new MSFadeAnim(ZoomingTarget->Get_Filename(), x, y, TargetDrawer, 3, SHAPE_CENTER, &Anims);
-					zoom_anims.Add(fade);
-				}
-			}
-
-			CCFileClass file(ThrobbingTarget->Get_Filename());
+		if (ZoomingTarget != NULL) {
+			CCFileClass file(ZoomingTarget->Get_Filename());
 			if (file.Is_Available()) {
-				MSShapeAnim * shape = new MSShapeAnim(ThrobbingTarget->Get_Filename(), x, y, TargetDrawer, 5, true, SHAPE_CENTER);
-				shape->Set_Stop_Frame(ThrobbingTargetDividingFrame - 1);
-				shape->Set_Start_Frame(0);
-				shape->Set_Frame(0);
-				(*it)->Set_Target_Anim(shape);
-				throb_anims.Add(shape);
+				MSFadeAnim * fade = new MSFadeAnim(ZoomingTarget->Get_Filename(), target.X, target.Y, TargetDrawer, 3, SHAPE_CENTER, &Anims);
+				zoom_anims.Add(fade);
 			}
+		}
+
+		CCFileClass file(ThrobbingTarget->Get_Filename());
+		if (file.Is_Available()) {
+			MSShapeAnim * shape = new MSShapeAnim(ThrobbingTarget->Get_Filename(), target.X, target.Y, TargetDrawer, 5, true, SHAPE_CENTER);
+			shape->Set_Stop_Frame(ThrobbingTargetDividingFrame - 1);
+			shape->Set_Start_Frame(0);
+			shape->Set_Frame(0);
+			it->Set_Target_Anim(shape);
+			throb_anims.Add(shape);
 		}
 	}
 
-	/*
-	 * Play the queued target animations. On abort, discard the zoom animations;
-	 * otherwise play the zoom SFX and wait for each to complete.
-	 */
-	MS_ANIM_ITER zoom_iter(zoom_anims, 0);
-	for (MS_ANIM_ITER throb_iter(throb_anims, 0); throb_iter; throb_iter++) {
+	MS_ANIM_ITER zoom_iter(zoom_anims);
+	for (MS_ANIM_ITER throb_iter(throb_anims); throb_iter; throb_iter++) {
 		Check_For_Breakout();
 
 		if (zoom_iter) {
 			if (Brokeout) {
-				MSAnim * anim = *zoom_iter;
-				delete anim;
+				MSAnim * anim = zoom_iter.Cur();
+				if (anim != NULL) {
+					delete anim;
+				}
 			} else {
 				Play_SFX("TargetZoom");
-				Add_Animation(*zoom_iter);
-				Wait_For_Anim(*zoom_iter, 300000);
+				Add_Animation(zoom_iter.Cur());
+				Wait_For_Anim(zoom_iter.Cur(), 300000);
 			}
 			zoom_iter++;
 		}
 
-		Add_Animation(*throb_iter);
+		Add_Animation(throb_iter.Cur());
 	}
 
 	CurrentState = state;

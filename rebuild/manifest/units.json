@@ -9,7 +9,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "004bbf00",
+   "004bbee0",
    "004bbf20"
   ],
   "mischa85": "tibsun: functions compiled from src/flasher.cpp, matched, without gaps",
@@ -23,6 +23,14 @@
   ],
   "rows": [
    {
+    "entry": "004bbee0",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E4",
+    "main_symbol": "?get@Leaf_4bbee0@@QAEXXZ",
+    "main_source": "src/recovered/unidentified/seed_views/004bbee0.cpp"
+   },
+   {
     "entry": "004bbf00",
     "body": 27,
     "padding": 5,
@@ -31,7 +39,9 @@
     "main_source": "src/recovered/flasher.cpp"
    }
   ],
-  "references": {}
+  "references": {
+   "_RECT_NONE": "00865db0"
+  }
  },
  "facing": {
   "source": "rebuild/src/facing.cpp",
@@ -19372,7 +19382,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "00468f50",
+   "00468f30",
    "004694c0"
   ],
   "mischa85": "tibsun: functions compiled from src/ccfile.cpp, matched, without gaps",
@@ -19385,6 +19395,14 @@
    ]
   ],
   "rows": [
+   {
+    "entry": "00468f30",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "?get@Leaf_468f30@@QAEXXZ",
+    "main_source": "src/recovered/unidentified/seed_views/00468f30.cpp"
+   },
    {
     "entry": "00468f50",
     "body": 51,
@@ -19498,7 +19516,9 @@
     "main_source": "src/recovered/ccfile.cpp"
    }
   ],
-  "references": {}
+  "references": {
+   "_RECT_NONE": "00850718"
+  }
  },
  "ipxaddr": {
   "core": [
@@ -20528,7 +20548,7 @@
   "status": "catalogued",
   "range": [
    "00496d10",
-   "00497320"
+   "00497340"
   ],
   "mischa85": "tibsun: functions compiled from src/dial8.cpp, matched, without gaps; one placed by the gap",
   "main_options": [
@@ -20596,6 +20616,14 @@
     "symbol": "?Set_Direction@Dial8Class@@QAEXW4Dir256@@@Z",
     "main_symbol": "?Set_Direction@Dial8Class@@QAEXI@Z",
     "main_source": "src/recovered/dial8.cpp"
+   },
+   {
+    "entry": "00497320",
+    "body": 30,
+    "padding": 2,
+    "symbol": "??_GDial8Class@@UAEPAXI@Z",
+    "main_symbol": "?unknown_scalar_deleting_destructor_00497320@Owner_00497320@seed_00497320@@QAEIE@Z",
+    "main_source": "src/recovered/classes/Dial8Class/unknown_scalar_deleting_destructor.cpp"
    }
   ],
   "references": {
@@ -32793,7 +32821,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "0059e160",
+   "0059d590",
    "0059eb60"
   ],
   "mischa85": "tibsun: functions compiled from src/mono.cpp, matched, without gaps; one placed by the gap",
@@ -32807,6 +32835,198 @@
    ]
   ],
   "rows": [
+   {
+    "entry": "0059d590",
+    "body": 23,
+    "padding": 9,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d5b0",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d5e0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d600",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d620",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d640",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d660",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d680",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d6c0",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d6f0",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d720",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d750",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d760",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d780",
+    "body": 382,
+    "padding": 2,
+    "symbol": "?Mono_Window_Init@@YIXPAUHINSTANCE__@@PAUHWND__@@_N@Z",
+    "main_symbol": "?Mono_Window_Init@@YIXPAXPAUHWND__@@_N@Z",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d900",
+    "body": 105,
+    "padding": 7,
+    "symbol": "?Mono_Window_Shutdown@@YIXXZ",
+    "main_symbol": "?Mono_Window_Shutdown@@YAXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d970",
+    "body": 75,
+    "padding": 5,
+    "symbol": "?Mono_Window_Show_Requested@@YIXXZ",
+    "main_symbol": "?Mono_Window_Show_Requested@@YAXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059d9c0",
+    "body": 58,
+    "padding": 6,
+    "symbol": "?Enable@MonoClass@@SIXXZ",
+    "main_symbol": "?Mono_Window_Show@@YAXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059da00",
+    "body": 32,
+    "padding": 0,
+    "symbol": "?Disable@MonoClass@@SIXXZ",
+    "main_symbol": "?Mono_Window_Hide@@YAXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059da20",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?Mono_Window_Is_Active@@YIHXZ",
+    "main_symbol": "?Mono_Window_Is_Active_0059da20@seed_0059da20@@YAIXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059da40",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?Mono_Viewed_Page@@YIPAVMonoClass@@XZ",
+    "main_symbol": "?Mono_Viewed_Page_0059da40@seed_0059da40@@YAIXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059da50",
+    "body": 8,
+    "padding": 8,
+    "symbol": "?Get_Page@MonoClass@@SIPAV1@H@Z",
+    "main_symbol": "?Mono_Page_0059da50@@YIPAVMonoClass@@H@Z",
+    "main_source": "src/recovered/classes/MonoClass/Mono_Page.cpp"
+   },
+   {
+    "entry": "0059da60",
+    "body": 104,
+    "padding": 8,
+    "symbol": "?Mono_View_Page@@YIXH@Z",
+    "main_symbol": "?Mono_View_Page@@YIXH@Z",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059dad0",
+    "body": 92,
+    "padding": 4,
+    "symbol": "?Mono_Clear_All_Pages@@YIXXZ",
+    "main_symbol": "?Mono_Clear_All_Pages@@YAXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
+   {
+    "entry": "0059db30",
+    "body": 426,
+    "padding": 6,
+    "symbol": "?Mono_Window_Create@@YIXXZ",
+    "main_symbol": "?Mono_Window_Create@@YIXXZ",
+    "main_source": "src/recovered/motlib.cpp"
+   },
    {
     "entry": "0059e160",
     "body": 48,
@@ -32976,7 +33196,30 @@
     "main_source": "src/recovered/motlib.cpp"
    }
   ],
-  "references": {}
+  "references": {
+   "_MonoInstance": "00a70f00",
+   "_MonoPages": "00a70e40",
+   "_MonoParent": "00a70f04",
+   "_MonoWindowAllowed": "00a70f08",
+   "_MonoWindowRequested": "00a70f09",
+   "_BRIDGE_LEPTON_HEIGHT": "00a70ed8",
+   "_CELL_DIAG_SLOPE_ANGLE": "00a70e88",
+   "_CELL_LEPTON_DIAG": "00a70e28",
+   "_CELL_NONE": "00a70e20",
+   "_CELL_SLOPE_ANGLE": "00a70e38",
+   "_COORD_NONE": "00a70e60",
+   "_ISO_TILE_SIZE": "007a64a8",
+   "_LEPTONS_PER_PIXEL": "00a70ee0",
+   "_LEVEL_LEPTON_H": "00a70ee8",
+   "_ONE_RAD": "007a64b0",
+   "_PIXELS_PER_LEPTON": "00a70e98",
+   "_RAD_45": "00a70e90",
+   "_RAD_60": "00a70e30",
+   "_RAD_90": "00a70e08",
+   "_RECT_NONE": "00a70e10",
+   "?Mono_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z": "0059dce0"
+  },
+  "note": "Range widened to 0x59D590-0x59EB60 (owner ruling with review agreement, lane C1D; DECISIONS 'unit boundary settled by data layout'): the 13 head initializers (RECT_NONE, geometry.h's twelve; modemreg ends at 0x59D590) and the mono window functions 0x59D780-0x59DB30 that main and ra2-decomp label motlib: MonoWindowAllowed 0xA70F08, MonoWindowRequested 0xA70F09 and MonoClass::Enabled 0xA70F0A share one 4-byte slot, the window, MonoClass and geometry statics interleave in one .bss block, YR packs them the same way. Mono_Window_Create 0x59DB30 held (its callback declaration moves Print_CRCs by 4 B); Mono_Dialog_Proc 0x59DCE0 (1,148 B) is mono's, not yet drafted"
  },
  "combuf": {
   "core": [
@@ -40746,7 +40989,7 @@
   "status": "catalogued",
   "range": [
    "0076aa90",
-   "0076b9e0"
+   "0076ba00"
   ],
   "mischa85": "tibsun: functions compiled from src/wsproto.cpp, matched, without gaps",
   "main_options": [
@@ -41012,6 +41255,22 @@
     "padding": 14,
     "symbol": "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z",
     "main_symbol": "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z",
+    "main_source": "src/recovered/wsproto.cpp"
+   },
+   {
+    "entry": "0076b9e0",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?Set_Packet_Loss_Percent@@YIXH@Z",
+    "main_symbol": "?unknown_76b9e0@WinsockInterfaceClass@@SIXH@Z",
+    "main_source": "src/recovered/wsproto.cpp"
+   },
+   {
+    "entry": "0076b9f0",
+    "body": 6,
+    "padding": 10,
+    "symbol": "?Get_Packet_Loss_Percent@@YAHXZ",
+    "main_symbol": "?Get_Packet_Loss_Percent@WinsockInterfaceClass@@SAHXZ",
     "main_source": "src/recovered/wsproto.cpp"
    },
    {
@@ -42362,7 +42621,7 @@
   "status": "catalogued",
   "range": [
    "00497340",
-   "00498160"
+   "004981a0"
   ],
   "mischa85": "tibsun: functions compiled from src/dialog.cpp, matched, without gaps",
   "main_options": [
@@ -42478,10 +42737,19 @@
     "symbol": "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z",
     "main_symbol": "?Plain_Text_Print_Wide@@YI?AUPoint2D@@PBGPAVSurface@@PBVRect@@PAU1@IIIHH@Z",
     "main_source": "src/recovered/dialog.cpp"
+   },
+   {
+    "entry": "00498160",
+    "body": 52,
+    "padding": 12,
+    "symbol": "?Font_Palette@@YIPAEH@Z",
+    "main_symbol": "?unknown_fill_buffer_498160@@YIPAEH@Z",
+    "main_source": "src/recovered/dialog.cpp"
    }
   ],
   "references": {
-   "_RECT_NONE": "00852490"
+   "_RECT_NONE": "00852490",
+   "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA": "00852480"
   }
  },
  "bomb": {
@@ -89456,7 +89724,7 @@
   "status": "catalogued",
   "range": [
    "005c29b0",
-   "005cda50"
+   "005cdaf0"
   ],
   "mischa85": "tibsun: functions compiled from src/netshare.cpp, without gaps; matched except ?Net2DecodeGameopt@@YI_NPBD0@Z and ?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z and ?Scenario_DlgProc@@YGHPAUHWND__@@IIJ@Z and ?Send_Map_Preview@@YIXPAVMapPreviewClass@@@Z and ?Set_Slot_Names@@YIXPBG@Z and ?Is_Observer_Slot_Occupied@@YI_NXZ and ?Is_Channel_Full@@YI_NXZ and ?Show_Slot_Controls@@YIXPAUHWND__@@HH@Z and ?Hide_Slot_Controls@@YIXPAUHWND__@@H@Z and ?Change_Scenario_Slots@@YIXPAUHWND__@@HH@Z and ?Change_Slot_Type@@YIXPAUHWND__@@HHH@Z and ?Load_Lobby_Options@@YIXPAUHWND__@@PAUSessionOptionsClass@@@Z; one placed by the gap; ?Net2DecodeGameopt@@YI_NPBD0@Z to ?LBSaveSelections@@YIXPAUHWND__@@AAV?$Dictionary@VWideWstring@@_N@@@Z share the room between their neighbours; ?Is_Observer_Slot_Occupied@@YI_NXZ to ?Is_Channel_Full@@YI_NXZ share the room between their neighbours",
   "main_options": [
@@ -90619,6 +90887,14 @@
     "padding": 8,
     "symbol": "?shrink@?$Dictionary@VWideWstring@@_N@@AAEXXZ",
     "main_symbol": "?Shrink_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ",
+    "main_source": "src/recovered/netshare.cpp"
+   },
+   {
+    "entry": "005cda50",
+    "body": 156,
+    "padding": 4,
+    "symbol": "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ",
+    "main_symbol": "?Grow_Table@?$WolDictionary@VWideString@@_N@@QAEXXZ",
     "main_source": "src/recovered/netshare.cpp"
    }
   ],
@@ -106612,7 +106888,7 @@
   "status": "catalogued",
   "range": [
    "004fb6e0",
-   "004fef20"
+   "004fef50"
   ],
   "mischa85": "tibsun: functions compiled from src/hover.cpp, without gaps; matched except ?Process@HoverLocomotionClass@@UAGEXZ and ?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z and ?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z; four placed by the gap; ?Mark_All_Occupation_Bits@HoverLocomotionClass@@UAGXH@Z not placed; ?Is_Moving_Here@HoverLocomotionClass@@UAGEUCoordStruct@@@Z not placed",
   "main_options": [
@@ -107016,6 +107292,14 @@
     "symbol": "??_GLocomotionClass@@UAEPAXI@Z",
     "main_symbol": "??_GLocomotionClass@@UAEPAXI@Z",
     "main_source": "src/recovered/hover.cpp"
+   },
+   {
+    "entry": "004fef20",
+    "body": 35,
+    "padding": 13,
+    "symbol": "??8?$TPoint2D@F@@QBE_NABV0@@Z",
+    "main_symbol": "?Equal_004fef20@Cell@@QBEHABV1@@Z",
+    "main_source": "src/recovered/classes/Cell/Equal.cpp"
    }
   ],
   "references": {
@@ -108848,6 +109132,14 @@
     "padding": 10,
     "symbol": "??F?$VectorCursor@V?$rc_ptr@VTerritory@WorldDominationTour@@@@V?$DynamicVectorClass@V?$rc_ptr@VTerritory@WorldDominationTour@@@@@@@@UAEAAV0@XZ",
     "main_symbol": "?get@Leaf_730440@@QAEIXZ",
+    "main_source": "src/recovered/wdtsel.cpp"
+   },
+   {
+    "entry": "007304c0",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PAVMSSfxEntry@@@@QAE@HPBQAVMSSfxEntry@@@Z",
+    "main_symbol": "?get@Storage_7304c0@@QAEPAXIPAI@Z",
     "main_source": "src/recovered/wdtsel.cpp"
    }
   ],
@@ -115049,7 +115341,7 @@
   "status": "catalogued",
   "range": [
    "004d2a20",
-   "004d2a60"
+   "004d2ba0"
   ],
   "mischa85": "tibsun: functions compiled from src/getcpu.cpp, matched, without gaps",
   "main_options": [
@@ -115069,9 +115361,38 @@
     "symbol": "?Get_CPU_Type@@YIXAAHAA_NPADH@Z",
     "main_symbol": "?Get_CPU_Info@@YIXPAHPAEPADI@Z",
     "main_source": "src/recovered/getcpu.cpp"
+   },
+   {
+    "entry": "004d2a60",
+    "body": 276,
+    "padding": 12,
+    "symbol": "?Get_CPU_Type@@YIHXZ",
+    "main_symbol": "?Get_CPU_Type@@YAHXZ",
+    "main_source": "src/recovered/getcpu.cpp"
+   },
+   {
+    "entry": "004d2b80",
+    "body": 29,
+    "padding": 3,
+    "symbol": "?Get_CPU_Type_Name@@YIPBDXZ",
+    "main_symbol": "?Get_CPU_Type_Name@@YIPBDXZ",
+    "main_source": "src/recovered/getcpu/Get_CPU_Type_Name.cpp"
    }
   ],
-  "references": {}
+  "references": {
+   "_?names@?1??Get_CPU_Type_Name@@YIPBDXZ@4QBQBDB": "007d8838",
+   "??_C@_07PCHH@Unknown?$AA@": "007d88cc",
+   "??_C@_03CFKI@486?$AA@": "007d88a8",
+   "??_C@_07FOGL@Pentium?$AA@": "007d88a0",
+   "??_C@_0M@NPJM@Pentium?5Pro?$AA@": "007d8894",
+   "??_C@_0L@HIHP@Pentium?5II?$AA@": "007d8888",
+   "??_C@_0M@KAJH@Pentium?5III?$AA@": "007d887c",
+   "??_C@_07LOED@Celeron?$AA@": "007d8874",
+   "??_C@_09JKPM@Pentium?54?$AA@": "007d8868",
+   "??_C@_03ILNB@AMD?$AA@": "007d8864",
+   "??_C@_05NJMG@Cyrix?$AA@": "007d885c"
+  },
+  "partial_ok": true
  },
  "mpu": {
   "core": [
@@ -116367,7 +116688,7 @@
   "status": "catalogued",
   "range": [
    "0041e970",
-   "0041fdf0"
+   "0041ff20"
   ],
   "mischa85": "tibsun: functions compiled from src/alphashp.cpp, without gaps; matched except ?Draw_In_Area@AlphaShapeClass@@SIXABVPoint2D@@ABV?$TRect@H@@@Z and ?Draw_All@AlphaShapeClass@@SIXABV?$TRect@H@@@Z; three placed by the gap; ?Draw_In_Area@AlphaShapeClass@@SIXABVPoint2D@@ABV?$TRect@H@@@Z to ?Draw_All@AlphaShapeClass@@SIXABV?$TRect@H@@@Z share the room between their neighbours",
   "main_options": [
@@ -116722,6 +117043,14 @@
     "symbol": "??_G?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z",
     "main_symbol": "??_G?$DynamicVectorClass@PAVAlphaShapeClass@@@@UAEPAXI@Z",
     "main_source": "src/recovered/alphashp.cpp"
+   },
+   {
+    "entry": "0041fdf0",
+    "body": 289,
+    "padding": 15,
+    "symbol": "?Intersect@@YI?BV?$TRect@H@@ABV1@0PAH1@Z",
+    "main_symbol": "?Intersect@@YI?AVRect@@ABV1@0PAH1@Z",
+    "main_source": "src/recovered/alphashp/Intersect.cpp"
    }
   ],
   "references": {
@@ -120659,7 +120988,7 @@
   "status": "catalogued",
   "range": [
    "006be760",
-   "006c09a0"
+   "006c0a50"
   ],
   "mischa85": "tibsun: functions compiled from src/teamtype.cpp, without gaps; matched except ?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z; two placed by the gap; ?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z placed at their function starts",
   "main_options": [
@@ -121092,7 +121421,7 @@
     "entry": "006c0780",
     "body": 1,
     "padding": 15,
-    "symbol": "?unknown_empty_006c0780@@YAXXZ",
+    "symbol": "??1?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAE@XZ",
     "main_symbol": "?unknown_empty_006c0780@@YAXXZ",
     "main_source": "src/recovered/teamtype.cpp"
    },
@@ -121143,6 +121472,14 @@
     "symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c09a0",
+    "body": 162,
+    "padding": 14,
+    "symbol": "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@HPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "??0?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE@IPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_DiscreteDistributionClass_AITriggerTypeClass___DistributionObject_AITriggerTypeClass_ptr/Constructor.cpp"
    }
   ],
   "references": {
@@ -124776,7 +125113,7 @@
   "status": "catalogued",
   "range": [
    "004123e0",
-   "00413770"
+   "00413800"
   ],
   "mischa85": "source: functions compiled from src/atracker.cpp, without gaps; matched except ?Append_Radius_Bins@AircraftTrackerClass@@QAEXPAVCellClass@@H@Z; one placed by the gap",
   "main_options": [
@@ -125028,6 +125365,22 @@
     "symbol": "?Update@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z",
     "main_symbol": "?Update_00413600@AircraftTrackerClass@@QAEXPAVTechnoClass@@VCell@@1@Z",
     "main_source": "src/recovered/classes/AircraftTrackerClass/Update.cpp"
+   },
+   {
+    "entry": "00413770",
+    "body": 54,
+    "padding": 10,
+    "symbol": "?As_Cell@Coord@@QBE?AVCell@@XZ",
+    "main_symbol": "?As_Cell_00413770@Div256PairSource_00413770@@QBEPAUSignedWordPair@@PAU2@@Z",
+    "main_source": "src/recovered/awaiting_join/member_views/CopyDiv256PairAsSignedWords_00413770.cpp"
+   },
+   {
+    "entry": "004137b0",
+    "body": 80,
+    "padding": 0,
+    "symbol": "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z",
+    "main_symbol": "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z",
+    "main_source": "src/recovered/ahandle2.cpp"
    }
   ],
   "references": {
@@ -126434,7 +126787,7 @@
   ],
   "status": "catalogued",
   "range": [
-   "00480b20",
+   "00480b00",
    "00480c30"
   ],
   "mischa85": "No source/module-map row; assigned class c. Bounds from main frozen combuf2 module map, cross-checked against frozen catalog.",
@@ -126448,6 +126801,16 @@
    ]
   ],
   "rows": [
+   {
+    "entry": "00480b00",
+    "body": 23,
+    "padding": 0,
+    "symbol": "_$E2",
+    "main_symbol": "?get@Leaf_480b00@@QAEXXZ",
+    "main_source": "src/recovered/unidentified/seed_views/00480b00.cpp",
+    "gap_padding": 9,
+    "gap_population": "population-106"
+   },
    {
     "entry": "00480b20",
     "body": 27,
@@ -126473,7 +126836,9 @@
     "main_source": "src/recovered/combuf2.cpp"
    }
   ],
-  "references": {}
+  "references": {
+   "_RECT_NONE": "00850d00"
+  }
  },
  "voxel": {
   "core": [
@@ -147621,7 +147986,7 @@
   "status": "catalogued",
   "range": [
    "006f55f0",
-   "006f8b90"
+   "006f8be0"
   ],
   "mischa85": "source: functions compiled from src/uicmnds.cpp, without gaps; matched except ?Select_All_Combatants@@YIX_N@Z; four placed by the gap; ?Matches_Any_Name@@YI_NPAVTechnoClass@@ABV?$DynamicVectorClass@PBD@@@Z not placed; ?Type_Select_Key_Down@@YIXXZ not placed; ?Is_Type_Select_Key_Held@@YI_NXZ not placed; ?Collect_Selected_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@XZ not placed; ?For_Each_Of_Type@@YIXPBDP6IXPAVTechnoClass@@H@ZH@Z not placed; ?Detach_From_Command_List@@YIXPAVAbstractClass@@@Z not placed; ?Refresh_Type_Select_List@@YAXXZ not placed; ?Is_Selectable_Player_Techno@@YIHPAVTechnoClass@@H@Z not placed; ?Health_Message@@YIPBGH@Z not placed; ?Next_Health_Kind@@YIHH@Z not placed; ?Rank_Message@@YIPBGH@Z not placed; ?Next_Rank_Kind@@YIHH@Z not placed; ?Collect_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVTechnoClass@@@@@Z not placed; ?Pick_Type_By_Cost@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z not placed; ?Reset_Group_Select@@YIXXZ not placed; ?Set_Tab_Building@@YIXPAVBuildingClass@@@Z not placed; ?Clear_Sidebar_Tab_Object@@YIXPAVTechnoClass@@@Z not placed; ?Get_Structure_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Get_Defense_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Is_Techno@AbstractClass@@QBE_NXZ not placed",
   "main_options": [
@@ -148360,6 +148725,14 @@
     "symbol": "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z",
     "main_symbol": "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z",
     "main_source": "src/recovered/classes/DynamicVectorClass_char_const_ptr/Add.cpp"
+   },
+   {
+    "entry": "006f8b90",
+    "body": 74,
+    "padding": 6,
+    "symbol": "??0?$VectorClass@PBD@@QAE@HPBQBD@Z",
+    "main_symbol": "?get@Storage_6f8b90@@QAEPAXIPAI@Z",
+    "main_source": "src/recovered/uicmnds.cpp"
    }
   ],
   "references": {
@@ -170818,5 +171191,70 @@
    "_RAD_90": "00839b40"
   },
   "note": "new unit (lane O52, the underscore-file ruling of lane R23): the global object DynamicVectorClass<WeaponTypeClass *> Weapons; positive source TibSun's code/_weapon.cpp and ra2-decomp's src/_weapon.cpp (geometry.h's twelve header statics, the object's initializer and atexit destructor, then the vector's template copies, in this order), linked between _warhead and abstract in the alphabetical run of underscore objects; mischa85 leaves the span unassigned (unk_0040F3C0). Evidence that 0x40F720-0x40FCD0 is its own object: (1) the image's .CRT$XCU table holds a second complete run of geometry.h's twelve header-static initializers (entries 185-196, 0x40F720-0x40F8D0) after _warhead's run (172-184), then this object's own initializer (197, 0x40F8F0), then abstract's run (198, 0x40FCD0): one object cannot initialise the same header statics twice; (2) data: its twelve statics and Weapons lie in their own contiguous .bss block 0x839B40-0x839BBF (Weapons 0x839B90), after _warhead's (statics from 0x839AD0, Warheads 0x839B00) and before abstract's WinVersion (0x839BC0); its vector vtable 0x79AD5C follows _warhead's 0x79AD0C in .rdata; (3) padding: the span starts 16-aligned right after _warhead's last row and ends at abstract's first initializer; (4) mischa85's unit map leaves it unassigned (unk_0040F3C0, absence) and main's module map assigns these rows to no module (main files them under header_statics/after_warhead and classes/WeaponTypeClass); (5) TibSun code/_weapon.cpp and ra2-decomp src/_weapon.cpp are this file, alphabetically between _warhead and abstract"
+ },
+ "mssfx": {
+  "core": [
+   "005b69b0",
+   "005b6a00"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/mssfx.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy",
+   "/Gr"
+  ],
+  "status": "catalogued",
+  "range": [
+   "005b69b0",
+   "005b6a00"
+  ],
+  "mischa85": "none: mischa85's map leaves 0x5B69B0-0x5B6A00 to no module (unk_005B6210 gap); the unit between msgloop and mstimer by the image (it exactly fills the gap: msgloop ends 0x5B69B0, mstimer starts 0x5B6A00), the archive's mssfx.cpp and ra2-decomp's mssfx unit (YR 0x5D5820/0x5D5850/0x5D5860: constructor, destructor, Play, the same three members); link order alphabetical (msgloop, mssfx, mstimer)",
+  "main_options": [
+   [
+    "/O1",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ],
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "005b69b0",
+    "body": 43,
+    "padding": 5,
+    "symbol": "??0MSSfx@@QAE@PBD0@Z",
+    "main_symbol": "?MSSfx_Constructor_005b69b0@Owner_005b69b0@seed_005b69b0@@QAEPAIIH@Z",
+    "main_source": "src/recovered/mssfx/MSSfx_Constructor.cpp"
+   },
+   {
+    "entry": "005b69e0",
+    "body": 14,
+    "padding": 0,
+    "symbol": "??1MSSfx@@QAE@XZ",
+    "main_symbol": "?MSSfx_Destructor_005b69e0@seed_005b69e0@@YIXPAH@Z",
+    "main_source": "src/recovered/mssfx/MSSfx_Destructor.cpp",
+    "gap_padding": 2,
+    "gap_population": "population-106"
+   },
+   {
+    "entry": "005b69f0",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?Play@MSSfx@@QAEXH@Z",
+    "main_symbol": "?MSSfx_Play_005b69f0@seed_005b69f0@@YGXH@Z",
+    "main_source": "src/recovered/mssfx/MSSfx_Play.cpp"
+   }
+  ],
+  "references": {},
+  "note": "new unit (owner ruling, lane C1D, codex1 r2761): MSSfx constructor, destructor and Play; positive sources TibSun code/mssfx.cpp and ra2-decomp src/mssfx.cpp (the same three members in one file, YR 0x5D5820-0x5D5860); the span 0x5B69B0-0x5B6A00 exactly fills the gap between msgloop's last row and mstimer's first, with no interleaving; link order alphabetical (msgloop, mssfx, mstimer); mischa85 leaves it unassigned (unk_005B6210, absence); main files the rows under src/recovered/mssfx with no rebuild unit. The destructor's padding (2 nops) is a correction of main's zero-padding frozen bound (kind v), from the aligned split of main's own pass"
  }
 }

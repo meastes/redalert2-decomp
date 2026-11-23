@@ -12125,25 +12125,7 @@ bool __fastcall Find_Channel_By_Name(Wstring const & name, ArrayList<Channel> co
 }
 
 int __fastcall Run_Online_Menu(bool first_time); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 34 bytes differ (main's text with main's helpers): only the frame order of three slot groups (the leave-channel title and the buddy name; the dictionary value pointers and the guest timeout; the dialog control) differs. The test of the second lookup binds the ternary to a const reference as main's text does (the original keeps the unfolded false test); a plain bool gives 1212 bytes
-inline bool Request_Buddy_Game_List(void) // RA2: main's helper: asks for the game channel list and waits for it; on a failure the error event is set
-{
-	if (!Request_Game_Channel_List(0, true)) {
-		DebugString("Buddy List Guest Get Channel List failed\n"); // RA2: as above
-		SetEvent(g_WaitEventHandles[5]); // RA2: as above
-		return(false);
-	}
-	return(true);
-}
-
-inline void Report_Disconnected(HWND dialog, int line) // RA2: main's helper: closes the waits and the dialog and tells the player the connection was lost
-{
-	Close_Wait_Window(~0U); // RA2: as above
-	OwnerDraw::End_Dialog(dialog); // RA2: as above
-	Online_Session_Return = 0; // RA2: as above
-	ODMessageBox(StringTable::LoadString("TXT_YOURE_DISCON", NULL, "D:\\Ra2\\wonline.cpp", line), MB_OK, Wait_Callback_Thunk, false); // RA2: as above
-}
-
+#ifdef RA2_NON_MATCHING // not exact: 2579 bytes differ (main's text with main's two single-caller helpers Request_Buddy_Game_List and Report_Disconnected written out at their sites and the event numbers named; 2391 with the helpers, held on variation_candidates.csv); the second lookup as the plain found test the original keeps
 int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy list screen run from the online menu: hosts a game, joins a buddy's lobby or game, or leaves; 1 when a game starts, 2 for a skirmish, 0 otherwise (main's text)
 {
 	g_PlayingNetGame = false; // RA2: as above
@@ -12161,25 +12143,31 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 		HWND dialog = OwnerDraw::Begin_Dialog(0x116, (DLGPROC)Buddy_Dialog_Proc, (LPARAM)&control); // RA2: as above
 		OwnerDraw::Display_Dialog(dialog); // RA2: as above
 		while (!control.Is_Done()) {
-			DWORD event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 100); // RA2: as above
+			DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
 			while (event == WAIT_TIMEOUT && !control.Is_Done()) {
 				WOL_Wait_Callback(); // RA2: as above
-				event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 100); // RA2: as above
+				event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 100); // RA2: as above
 			}
 			ResetEvent(g_WaitEventHandles[event]); // RA2: as above
-			if (event == 0) {
-				Report_Disconnected(dialog, 25585); // RA2: as above
+			if (event == EV_ABORT) {
+				Close_Wait_Window(~0U); // RA2: as above
+				OwnerDraw::End_Dialog(dialog); // RA2: as above
+				Online_Session_Return = 0; // RA2: as above
+				ODMessageBox(StringTable::LoadString("TXT_YOURE_DISCON", NULL, "D:\\Ra2\\wonline.cpp", 25585), MB_OK, Wait_Callback_Thunk, false); // RA2: as above
 				return(0);
 			}
-			if (event == 5) {
-				Report_Disconnected(dialog, 25593); // RA2: as above
+			if (event == EV_ERROR) {
+				Close_Wait_Window(~0U); // RA2: as above
+				OwnerDraw::End_Dialog(dialog); // RA2: as above
+				Online_Session_Return = 0; // RA2: as above
+				ODMessageBox(StringTable::LoadString("TXT_YOURE_DISCON", NULL, "D:\\Ra2\\wonline.cpp", 25593), MB_OK, Wait_Callback_Thunk, false); // RA2: as above
 				return(0);
 			}
 			Title_Screen_Restore(false); // RA2: as above
 		}
 		OwnerDraw::End_Dialog(dialog); // RA2: as above
 		switch ((int)control.Get_Window()) {
-		case 0x62B:
+			case IDC_NEWCHAN:
 			Reset_Wait_Events(); // RA2: as above
 			if (!Host_Game()) {
 				DebugString("Buddy List Host Create Game failed\n"); // RA2: as above
@@ -12188,27 +12176,27 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 				do {
 					DWORD event;
 					do {
-						event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 20); // RA2: as above
+							event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 20); // RA2: as above
 						if (event == WAIT_TIMEOUT) {
 							WOL_Wait_Callback(); // RA2: as above
 						}
 					} while (event == WAIT_TIMEOUT && !g_JoinLobbyNow);
 					ResetEvent(g_WaitEventHandles[event]); // RA2: as above
-					if (event == 0) {
+						if (event == EV_ABORT) {
 						DebugString("EV_ABORT from Buddy List Host\n"); // RA2: as above
 						g_JoinLobbyNow = 1; // RA2: as above
 					}
-					if (event == 6) {
+						if (event == EV_EXIT) {
 						DebugString("EV_EXIT from Buddy List Host\n"); // RA2: as above
 						g_JoinLobbyNow = 1; // RA2: as above
 					}
-					if (event == 15) {
+						if (event == EV_SKIRMISH) {
 						DebugString("Skirmish from Buddy List\n"); // RA2: as above
 						g_GameStartRequested = false; // RA2: as above
 						g_LastErrorMessage[0] = 0; // RA2: as above
 						g_PlayingNetGame = false; // RA2: as above
 						return(2);
-					} else if (event == 7) {
+						} else if (event == EV_STARTGAME) {
 						DebugString("Start Game from Buddy List Host\n"); // RA2: as above
 						g_GameStartRequested = false; // RA2: as above
 						g_pChat->RequestChannelLeave(); // RA2: virtual 0x24
@@ -12230,7 +12218,7 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 			}
 			g_PlayingNetGame = false; // RA2: as above
 			break;
-		case 0x62D: {
+			case IDC_JOINLEAVE: {
 			Channel channel; // RA2: as above
 			memset(&channel, 0, sizeof(channel)); // RA2: as above
 			if (g_SelectedBuddy.length() > 0 && g_BuddyChannels.getValue(g_SelectedBuddy, channel)) {
@@ -12254,10 +12242,18 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 					case 5: {
 						Wstring name((char *)channel.name); // RA2: as above
 						Channel game; // RA2: as above
-						if (!Find_Channel_By_Name(name, g_GameChannelList, game)) {
-							bool const & found = Request_Buddy_Game_List() ? Find_Channel_By_Name(name, g_GameChannelList, game) : false; // RA2: as above
+								char found = Find_Channel_By_Name(name, g_GameChannelList, game);
+								if (!found) {
+									found = Request_Game_Channel_List(0, true);
+									if (!found) {
+										DebugString("Buddy List Guest Get Channel List failed\n");
+										SetEvent(g_WaitEventHandles[EV_ERROR]);
+									}
+									if (found) {
+										found = Find_Channel_By_Name(name, g_GameChannelList, game);
+									}
 							if (!found) {
-								DebugString("Buddy List Guest Find Channel by name failed\n"); // RA2: as above
+										DebugString("Buddy List Guest Find Channel by name failed\n");
 								break;
 							}
 						}
@@ -12267,29 +12263,29 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 							g_JoinLobbyNow = 0; // RA2: as above
 							int timeout = 500; // RA2: as above
 							do {
-								DWORD event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 20); // RA2: as above
+										DWORD event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 20); // RA2: as above
 								while (event == WAIT_TIMEOUT && !g_JoinLobbyNow) {
 									WOL_Wait_Callback(); // RA2: as above
-									event = WaitForMultipleObjects(18, g_WaitEventHandles, FALSE, 20); // RA2: as above
+											event = WaitForMultipleObjects(EV_COUNT, g_WaitEventHandles, FALSE, 20); // RA2: as above
 								}
 								ResetEvent(g_WaitEventHandles[event]); // RA2: as above
-								if (event == 0) {
+										if (event == EV_ABORT) {
 									DebugString("EV_ABORT from Buddy List Guest\n"); // RA2: as above
 									g_JoinLobbyNow = 1; // RA2: as above
 								}
-								if (event == 6) {
+										if (event == EV_EXIT) {
 									DebugString("EV_EXIT from Buddy List Guest\n"); // RA2: as above
 									g_JoinLobbyNow = 1; // RA2: as above
 								}
-								if (event == 5) {
+										if (event == EV_ERROR) {
 									DebugString("EV_ERROR from Buddy List Guest\n"); // RA2: as above
 									g_JoinLobbyNow = 1; // RA2: as above
 								}
-								if (event == 10) {
+										if (event == EV_CHAN_JOIN_FAIL) {
 									DebugString("EV_CHAN_JOIN_FAIL from Buddy List Guest\n"); // RA2: as above
 									g_JoinLobbyNow = 1; // RA2: as above
 								}
-								if (event == 7) {
+										if (event == EV_STARTGAME) {
 									DebugString("EV_STARTGAME from Buddy List Guest\n"); // RA2: as above
 									g_GameStartRequested = false; // RA2: as above
 									g_pChat->RequestChannelLeave(); // RA2: virtual 0x24
@@ -12313,7 +12309,7 @@ int __fastcall Run_Online_Menu(bool first_time) // RA2: 0x00759370, the buddy li
 			}
 			break;
 		}
-		case 0x5C0:
+			case IDC_CANCEL:
 		case 0x686:
 			if (Online_Session_Return == 3) {
 				g_HasJoinedLobby = false; // RA2: as above

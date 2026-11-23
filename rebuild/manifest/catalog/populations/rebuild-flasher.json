@@ -8,9 +8,70 @@
     "historical_acceptance_sha256": "cb4faf80e95833916d3b6d176aa4b582e819644f8b2524befe84948d7a3fcb4e"
   },
   "references": {
+    "_RECT_NONE": 8805808,
+    "_$E4": 4964064,
     "?Process@FlasherClass@@QAE_NXZ": 4964096
   },
   "regions": [
+    {
+      "entry": 4964064,
+      "method": "4bbee0",
+      "body_bytes": 23,
+      "body_sha256": "2a3d23108e6b148a8446f98cfb4df3460b60e1418f1acbffae35cc0208ed54a7",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8af5df7256b5d4ae6b0a45113160b803fd1df2b7e88018c50f8726a6af29ab25",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E4",
+      "symbol_prefix": "_$E4",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805808,
+          "addend": 0,
+          "resolved": 8805808
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805808,
+          "addend": 4,
+          "resolved": 8805812
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805808,
+          "addend": 8,
+          "resolved": 8805816
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8805808,
+          "addend": 12,
+          "resolved": 8805820
+        }
+      ],
+      "source_sha256": "957c03f63e14c3b7a20fb70eefdc50c1efe80c105064bb1d8a6732b9ace67275",
+      "source": "rebuild/src/flasher.cpp",
+      "population": "rebuild-flasher",
+      "source_order": 4964064,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
     {
       "entry": 4964096,
       "method": "004bbf00",
@@ -30,7 +91,7 @@
         "/Gy"
       ],
       "relocations": [],
-      "source_sha256": "541f17a30470c0c77d9f236fa01f5165390a72f68dab27dc3530977ebf768db9",
+      "source_sha256": "957c03f63e14c3b7a20fb70eefdc50c1efe80c105064bb1d8a6732b9ace67275",
       "source": "rebuild/src/flasher.cpp",
       "population": "rebuild-flasher",
       "source_order": 4964096,

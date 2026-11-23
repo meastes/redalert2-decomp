@@ -19560,6 +19560,49 @@
       "population": "rebuild-netshare",
       "source_order": 6085024,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6085200,
+      "method": "005cda50",
+      "body_bytes": 156,
+      "body_sha256": "142350a3acdf868a1f9a95eb3565e1677b3dfa11182549237d66d63a6b114a09",
+      "padding_bytes": 4,
+      "full_extent_bytes": 160,
+      "full_extent_sha256": "b43ad25cd74b4e260551c889cd5ccbf98a60b0e99c54d0110f9564a1b8350721",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ",
+      "symbol_prefix": "?expand@?$Dictionary@VWideWstring@@_N@@AAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 44,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1787287
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1786456
+        }
+      ],
+      "source_sha256": "06a56b6d78a433c3394ec7c862a3b8ca1dabbc6d92c1a404d593ebb4479c881c",
+      "source": "rebuild/src/netshare.cpp",
+      "population": "rebuild-netshare",
+      "source_order": 6085200,
+      "source_quality_family": "rebuild"
     }
   ]
 }

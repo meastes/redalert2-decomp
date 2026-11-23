@@ -3103,7 +3103,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4888 bytes differ against it; common ScenarioInit success return restored, all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); previous frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4867 bytes differ against it; the cloning-vat loop calls the image's own Exit_New_Object (0x4538D0) for each vat (was 4888 with it written out); common ScenarioInit success return restored, all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); previous frame 0x14c against 0x12c, the spawn cell kept in registers, two shared return tails, loop index spills; main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 #include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
@@ -3312,8 +3312,7 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						TechnoTypeClass const * type = base->TClass;
 						for (int index = 0; index < House->CloningVats.Count(); index++) {
 							BuildingClass * vat = House->CloningVats[index];
-							TechnoClass * object = (TechnoClass *)type->Create_One_Of(vat->House);
-							vat->Exit_Object(object);
+							vat->Exit_New_Object(type);
 						}
 					}
 					Coord exitcellcoord(exitcell);

@@ -13,7 +13,20 @@
     "_CPUType": 8394147,
     "_VendorID": 8394149,
     "_strncpy": 7873488,
-    "?Get_CPU_Type@@YIXAAHAA_NPADH@Z": 5057056
+    "?Get_CPU_Type@@YIHXZ": 5057120,
+    "_?names@?1??Get_CPU_Type_Name@@YIPBDXZ@4QBQBDB": 8226872,
+    "??_C@_07PCHH@Unknown?$AA@": 8227020,
+    "??_C@_05NJMG@Cyrix?$AA@": 8226908,
+    "??_C@_03ILNB@AMD?$AA@": 8226916,
+    "??_C@_09JKPM@Pentium?54?$AA@": 8226920,
+    "??_C@_07LOED@Celeron?$AA@": 8226932,
+    "??_C@_0M@KAJH@Pentium?5III?$AA@": 8226940,
+    "??_C@_0L@HIHP@Pentium?5II?$AA@": 8226952,
+    "??_C@_0M@NPJM@Pentium?5Pro?$AA@": 8226964,
+    "??_C@_07FOGL@Pentium?$AA@": 8226976,
+    "??_C@_03CFKI@486?$AA@": 8226984,
+    "?Get_CPU_Type@@YIXAAHAA_NPADH@Z": 5057056,
+    "?Get_CPU_Type_Name@@YIPBDXZ": 5057408
   },
   "regions": [
     {
@@ -78,11 +91,64 @@
           "resolved": 2816379
         }
       ],
-      "source_sha256": "8e5881e58698b50898a172deed845a313f65a9b8e25789bfd63e0776a9c9dd8f",
+      "source_sha256": "75ab70e479c54166ab866146af64d9ae9c5b59e746e4c0899c27c9e90cbe1b96",
       "source": "rebuild/src/getcpu.cpp",
       "population": "rebuild-getcpu",
       "source_order": 5057056,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5057408,
+      "method": "004d2b80",
+      "body_bytes": 29,
+      "body_sha256": "7715e1fa697e76c405d54cb93fe29f8373cd8e4869c9686291cfca678cc802cc",
+      "padding_bytes": 3,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "0d35612ba58f66a4b5e14781dff7558e88ac9006ba762a7c44d515efad16b1cf",
+      "padding_sha256": "e65ca7c06ae3e9bacd16f6d87026d2fd51447f87f8771676568af93c6313d707",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_CPU_Type_Name@@YIPBDXZ",
+      "symbol_prefix": "?Get_CPU_Type_Name@@YIPBDXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "?Get_CPU_Type@@YIHXZ",
+          "target": 5057120,
+          "addend": 0,
+          "resolved": 4294967003
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_?names@?1??Get_CPU_Type_Name@@YIPBDXZ@4QBQBDB",
+          "target": 8226872,
+          "addend": 0,
+          "resolved": 8226872
+        },
+        {
+          "offset": 24,
+          "kind": 6,
+          "symbol": "??_C@_07PCHH@Unknown?$AA@",
+          "target": 8227020,
+          "addend": 0,
+          "resolved": 8227020
+        }
+      ],
+      "source_sha256": "75ab70e479c54166ab866146af64d9ae9c5b59e746e4c0899c27c9e90cbe1b96",
+      "source": "rebuild/src/getcpu.cpp",
+      "population": "rebuild-getcpu",
+      "source_order": 5057408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3733"
     }
   ]
 }

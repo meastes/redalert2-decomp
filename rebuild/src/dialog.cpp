@@ -501,3 +501,21 @@ Point2D Plain_Text_Print(wchar_t const * text, Surface * surface, Rect const * r
 	}
 	return(Simple_Text_Print(text, *surface, *rect, *pt, ColorSchemes[scheme], (int)back, flag, unused));
 }
+
+
+/// <summary>
+/// Fetches a font remap palette for a solid color.
+/// This routine builds the small remap table that the font printing routines expect, filled
+/// so that the text prints in the requested color over a transparent background.
+/// </summary>
+/// <param name="color">The color to print the text in.</param>
+/// <remarks>The palette is a shared buffer, so it only lasts until the next call to this
+/// routine.</remarks>
+unsigned char * Font_Palette(int color)
+{
+	static unsigned char _fpalette[16];
+
+	memset(_fpalette, '\0', sizeof(_fpalette));
+	memset(&_fpalette[11], color, 5);
+	return(_fpalette);
+}

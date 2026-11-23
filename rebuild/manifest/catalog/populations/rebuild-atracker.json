@@ -1956,6 +1956,62 @@
       "population": "rebuild-atracker",
       "source_order": 4273664,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4274032,
+      "method": "00413770",
+      "body_bytes": 54,
+      "body_sha256": "89b7b7c1ec3f1121af5a589d8ececf44acfe2daf10536c266f0dd451f66a86c8",
+      "padding_bytes": 10,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "aa9b8edd7aae0a5fad9c9f6cf1b2fbecd365f28dbf5ebe2d76d9bfa78614717d",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?As_Cell@Coord@@QBE?AVCell@@XZ",
+      "symbol_prefix": "?As_Cell@Coord@@QBE?AVCell@@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f5795b61a16a87a6b7649cc63c1a509e73fd08dde7a80da04ad014a9d6bf1381",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4274032,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-37"
+    },
+    {
+      "entry": 4274096,
+      "method": "4137b0",
+      "body_bytes": 80,
+      "body_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_bytes": 0,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "30af68b9c6a673326067624c6aebf06e6d7145fa754b7738b9265393be87482f",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z",
+      "symbol_prefix": "?Add@?$DynamicVectorClass@PAVTechnoClass@@@@QAE_NABQAVTechnoClass@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "f5795b61a16a87a6b7649cc63c1a509e73fd08dde7a80da04ad014a9d6bf1381",
+      "source": "rebuild/src/atracker.cpp",
+      "population": "rebuild-atracker",
+      "source_order": 4274096,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-19"
     }
   ]
 }

@@ -128,6 +128,8 @@
     "?Clear_Socket_Error@WinsockInterfaceClass@@UAEXI@Z": 7780512,
     "?Set_Socket_Options@WinsockInterfaceClass@@UAE_NI@Z": 7780592,
     "?Get_Host_Name@WinsockInterfaceClass@@UAE_NPADH@Z": 7780752,
+    "?Set_Packet_Loss_Percent@@YIXH@Z": 7780832,
+    "?Get_Packet_Loss_Percent@@YAHXZ": 7780848,
     "?Clear@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEXXZ": 7781120,
     "?ID@?$DynamicVectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UAEHPBQAUWinsockBufferType@WinsockInterfaceClass@@@Z": 7781168,
     "?GetItem@?$VectorClass@PAUWinsockBufferType@WinsockInterfaceClass@@@@UBEPAUWinsockBufferType@WinsockInterfaceClass@@H@Z": 7781200,
@@ -194,7 +196,7 @@
           "resolved": 11710012
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7776912,
@@ -261,7 +263,7 @@
           "resolved": 11710024
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7776944,
@@ -312,7 +314,7 @@
           "resolved": 11710096
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7776992,
@@ -363,7 +365,7 @@
           "resolved": 11710080
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777024,
@@ -414,7 +416,7 @@
           "resolved": 11710072
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777056,
@@ -465,7 +467,7 @@
           "resolved": 11710032
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777088,
@@ -516,7 +518,7 @@
           "resolved": 11709992
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777120,
@@ -599,7 +601,7 @@
           "resolved": 11710104
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777152,
@@ -658,7 +660,7 @@
           "resolved": 11710040
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777216,
@@ -717,7 +719,7 @@
           "resolved": 11710064
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777264,
@@ -776,7 +778,7 @@
           "resolved": 11710088
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777312,
@@ -819,7 +821,7 @@
           "resolved": 11710018
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777360,
@@ -870,7 +872,7 @@
           "resolved": 11710056
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777376,
@@ -929,7 +931,7 @@
           "resolved": 4291410832
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777408,
@@ -1028,7 +1030,7 @@
           "resolved": 94010
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777648,
@@ -1063,7 +1065,7 @@
           "resolved": 93580
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777808,
@@ -1106,7 +1108,7 @@
           "resolved": 93479
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777856,
@@ -1213,7 +1215,7 @@
           "resolved": 4291410423
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7777920,
@@ -1272,7 +1274,7 @@
           "resolved": 93292
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7778064,
@@ -1307,7 +1309,7 @@
           "resolved": 93632
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7778144,
@@ -1350,7 +1352,7 @@
           "resolved": 93424
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7778256,
@@ -1641,7 +1643,7 @@
           "resolved": 92867
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7778464,
@@ -1684,7 +1686,7 @@
           "resolved": 4293652550
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7778960,
@@ -1743,7 +1745,7 @@
           "resolved": 4291409241
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7779088,
@@ -1786,7 +1788,7 @@
           "resolved": 93101
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7779232,
@@ -1821,7 +1823,7 @@
           "resolved": 92920
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7779584,
@@ -1872,7 +1874,7 @@
           "resolved": 91893
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7779744,
@@ -1939,7 +1941,7 @@
           "resolved": 4292635462
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7779952,
@@ -2006,7 +2008,7 @@
           "resolved": 4292635196
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780256,
@@ -2049,7 +2051,7 @@
           "resolved": 90814
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780512,
@@ -2188,7 +2190,7 @@
           "resolved": 4291407731
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780592,
@@ -2263,10 +2265,80 @@
           "resolved": 4291407655
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780832,
+      "method": "0076b9e0",
+      "body_bytes": 7,
+      "body_sha256": "adabb4e76054ebb395238f07e015f3e76d0eefc4c01869e6047065041016d24d",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "7d5e770849cb95233b215a4afe0c8bd2e95e6ddd9d46de5789e205fb60be0c65",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Set_Packet_Loss_Percent@@YIXH@Z",
+      "symbol_prefix": "?Set_Packet_Loss_Percent@@YIXH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "?PacketLossPercent@@3HA",
+          "target": 11710112,
+          "addend": 0,
+          "resolved": 11710112
+        }
+      ],
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780832,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7780848,
+      "method": "0076b9f0",
+      "body_bytes": 6,
+      "body_sha256": "e6b5ed1ae26a0f2314cdc43003046f8493bc7be13b81e2d1733c779c65bb8806",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "a0a0e4d2df87f09bc57abcbe6975b9631a0e9062380f5bc2d11499707eaa4563",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Get_Packet_Loss_Percent@@YAHXZ",
+      "symbol_prefix": "?Get_Packet_Loss_Percent@@YAHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 6,
+          "symbol": "?PacketLossPercent@@3HA",
+          "target": 11710112,
+          "addend": 0,
+          "resolved": 11710112
+        }
+      ],
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
+      "source": "rebuild/src/wsproto.cpp",
+      "population": "rebuild-wsproto",
+      "source_order": 7780848,
       "source_quality_family": "rebuild"
     },
     {
@@ -2289,7 +2361,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780864,
@@ -2315,7 +2387,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780880,
@@ -2341,7 +2413,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780896,
@@ -2367,7 +2439,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780912,
@@ -2474,7 +2546,7 @@
           "resolved": 90704
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7780928,
@@ -2509,7 +2581,7 @@
           "resolved": 90656
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781120,
@@ -2536,7 +2608,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781168,
@@ -2563,7 +2635,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781200,
@@ -2590,7 +2662,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781216,
@@ -2634,7 +2706,7 @@
           "resolved": 90400
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781280,
@@ -2670,7 +2742,7 @@
           "resolved": 90323
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781456,
@@ -2697,7 +2769,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781504,
@@ -2724,7 +2796,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781568,
@@ -2768,7 +2840,7 @@
           "resolved": 90093
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781600,
@@ -2794,7 +2866,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781776,
@@ -2846,7 +2918,7 @@
           "resolved": 89915
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781824,
@@ -2898,7 +2970,7 @@
           "resolved": 89835
         }
       ],
-      "source_sha256": "0da878e349fc4a689a5eef444db77f875097b3897772ea62793c3cc11ca5b25f",
+      "source_sha256": "ed888eef2694acf482ee1e43ff46c2a4cc708ff28e9451fec64a0639e30233e4",
       "source": "rebuild/src/wsproto.cpp",
       "population": "rebuild-wsproto",
       "source_order": 7781904,

@@ -1,13 +1,17 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Adopted from mischa85/RedAlert2 (src/mono.cpp, commit 32ed14c); that file carries no notice of its own.
+// Contains material derived from ra2-decomp, copyright 2026 its contributors, under GPL-3.0-or-later.
 // See rebuild/LICENSE.md and THIRD_PARTY.md.
 /**
  *  RA2: the monochrome debug window (MonoClass): an 80 x 25 character page drawn with GDI.
- *  In the executable these functions lie directly before motlib.cpp's (0x0059E160-0x0059EB60).
+ *  In the executable the unit runs from its head initializers to motlib.cpp (0x0059D590-0x0059EB60): the window functions, then MonoPoint and MonoClass.
  */
 
 #include "always.h" // RA2: as above
-#include "mono.h" // RA2: as above
+#include "rect.h" // RA2: the head initializers: RECT_NONE, then geometry.h's twelve header statics (0x0059D590-0x0059D780)
+#include "geometry.h" // RA2: as above
+#include "mono.h"
+#include "audfile.h" // RA2: as above
 
 #include "point.h" // RA2: as above
 
@@ -17,6 +21,15 @@
 #include <cwchar> // RA2: as above
 
 
+static COLORREF MonoTextColor; // RA2: 0x00A70DE8
+static COLORREF MonoBackColor; // RA2: 0x00A70E00
+static MonoClass * MonoPages[MonoClass::MAX_MONO_PAGES]; // RA2: 0x00A70E40, the pages Mono_Window_Init makes
+static TEXTMETRICA MonoMetrics; // RA2: 0x00A70EA0, the font's metrics (height, external leading and maximum width are read)
+static HINSTANCE MonoInstance; // RA2: 0x00A70F00
+static HWND MonoParent; // RA2: 0x00A70F04, the game window
+static bool MonoWindowAllowed; // RA2: 0x00A70F08, windowed mode
+static bool MonoWindowRequested; // RA2: 0x00A70F09, shown as soon as the pages exist
+
 /// <summary>
 /// Whether the mono window is on and the page it shows.
 /// </summary>
@@ -25,9 +38,158 @@ MonoClass * MonoClass::Current; // RA2: 0x00A70F0C
 
 static HWND MonoWindow; // RA2: 0x00A70F10, the dialog the pages are drawn on
 static HFONT MonoFont; // RA2: 0x00A70F14, the Courier font of the dialog
-static TEXTMETRICA MonoMetrics; // RA2: 0x00A70EA0, the font's metrics (height, external leading and maximum width are read)
-static COLORREF MonoTextColor; // RA2: 0x00A70DE8
-static COLORREF MonoBackColor; // RA2: 0x00A70E00
+
+void Mono_Window_Create(void); // RA2: 0x0059DB30, creates the modeless mono window when the first page is shown
+BOOL CALLBACK Mono_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam);
+void Mono_Clear_All_Pages(void); // RA2: 0x0059DAD0
+
+
+void Mono_Window_Init(HINSTANCE instance, HWND window, bool windowed) // RA2: 0x0059D780
+{
+	MonoInstance = instance;
+	MonoParent = window;
+	MonoWindowAllowed = windowed;
+	for (int page = 0; page < MonoClass::MAX_MONO_PAGES; page++) {
+		MonoPages[page] = new MonoClass(page);
+	}
+	MonoClass::Current = MonoPages[0];
+	Mono_Clear_All_Pages();
+	if (MonoWindowRequested) {
+		MonoClass::Enable();
+	}
+}
+
+
+void Mono_Window_Shutdown(void) // RA2: 0x0059D900
+{
+	for (int page = 0; page < MonoClass::MAX_MONO_PAGES; page++) {
+		if (MonoPages[page] != NULL) {
+			delete MonoPages[page];
+			MonoPages[page] = NULL;
+		}
+	}
+	if (MonoWindow != NULL) {
+		DeleteObject(MonoFont);
+		Remove_Audio_File_Window(MonoWindow);
+		DestroyWindow(MonoWindow);
+		MonoFont = NULL;
+		MonoWindow = NULL;
+	}
+}
+
+
+void Mono_Window_Show_Requested(void) // RA2: 0x0059D970
+{
+	if (MonoParent == NULL) {
+		MonoWindowRequested = true;
+		return;
+	}
+	MonoClass::Enable();
+}
+
+
+void MonoClass::Enable(void) // RA2: 0x0059D9C0
+{
+	if (MonoWindowAllowed) {
+		if (MonoWindow == NULL) {
+			Mono_Window_Create();
+		}
+		Enabled = true;
+		ShowWindow(MonoWindow, SW_SHOWNORMAL);
+		SetFocus(MonoParent);
+	}
+}
+
+
+void MonoClass::Disable(void) // RA2: 0x0059DA00
+{
+	MonoWindowRequested = false;
+	if (MonoWindow != NULL) {
+		Enabled = false;
+		ShowWindow(MonoWindow, SW_HIDE);
+	}
+}
+
+
+int Mono_Window_Is_Active(void) // RA2: 0x0059DA20
+{
+	if (MonoClass::Is_Enabled() || MonoWindowRequested) {
+		return(1);
+	}
+	return(0);
+}
+
+
+MonoClass * Mono_Viewed_Page(void) // RA2: 0x0059DA40
+{
+	return(MonoClass::Current);
+}
+
+
+MonoClass * MonoClass::Get_Page(int index) // RA2: 0x0059DA50
+{
+	return(MonoPages[index]);
+}
+
+
+void Mono_View_Page(int index) // RA2: 0x0059DA60
+{
+	MonoClass * page = MonoClass::Get_Page(index);
+	MonoClass::Current = page;
+	page->Clear();
+	MonoClass::Current->Refresh(0, 0, MonoClass::COLUMNS, MonoClass::LINES);
+}
+
+
+void Mono_Clear_All_Pages(void) // RA2: 0x0059DAD0
+{
+	for (int page = 0; page < MonoClass::MAX_MONO_PAGES; page++) {
+		MonoPages[page]->Clear();
+	}
+}
+
+
+void Mono_Window_Create(void)
+{
+	MonoWindow = CreateDialogParamA(MonoInstance, MAKEINTRESOURCE(248), MonoParent, Mono_Dialog_Proc, 0);
+	Add_Audio_File_Window(MonoWindow);
+	HDC dc = GetDC(MonoWindow);
+
+	LOGFONT lf;
+	lf.lfHeight = -MulDiv(8, GetDeviceCaps(dc, LOGPIXELSY), 72);
+	lf.lfWidth = 0;
+	lf.lfEscapement = 0;
+	lf.lfOrientation = 0;
+	lf.lfWeight = 0;
+	lf.lfItalic = 0;
+	lf.lfUnderline = 0;
+	lf.lfStrikeOut = 0;
+	lf.lfCharSet = 0;
+	lf.lfOutPrecision = 0;
+	lf.lfClipPrecision = 0;
+	lf.lfQuality = 0;
+	lf.lfPitchAndFamily = 0;
+	strcpy(lf.lfFaceName, "Courier");
+	MonoFont = CreateFontIndirect(&lf);
+	HGDIOBJ old = SelectObject(dc, MonoFont);
+	GetTextMetrics(dc, &MonoMetrics);
+	SelectObject(dc, old);
+	MonoBackColor = GetSysColor(COLOR_BTNFACE);
+	MonoTextColor = GetSysColor(COLOR_WINDOWTEXT);
+
+	RECT rect;
+	rect.left = 0;
+	rect.top = 0;
+	rect.right = MonoMetrics.tmMaxCharWidth * (MonoClass::COLUMNS - 1) + 20;
+	rect.bottom = (MonoMetrics.tmHeight + MonoMetrics.tmExternalLeading) * MonoClass::LINES + 20;
+	AdjustWindowRect(&rect, WS_CAPTION, FALSE);
+	RECT parent;
+	GetWindowRect(MonoParent, &parent);
+	MoveWindow(MonoWindow, parent.right + 5, 0, rect.right - rect.left, rect.bottom - rect.top, TRUE);
+	ShowWindow(MonoWindow, SW_HIDE);
+	SetFocus(MonoParent);
+	ReleaseDC(MonoWindow, dc);
+}
 
 
 /// <summary>

@@ -953,3 +953,13 @@ bool WinsockInterfaceClass::Get_Host_Name(char *name, int len)
 }
 
 
+void __fastcall Set_Packet_Loss_Percent(int percent)
+{
+	PacketLossPercent = percent;
+}
+
+
+int __cdecl Get_Packet_Loss_Percent(void)
+{
+	return(PacketLossPercent);
+}

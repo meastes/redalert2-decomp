@@ -37,6 +37,7 @@
 #include "flasher.h"
 
 #include "mono.h"
+#include "rect.h" // RA2: the original unit includes this header
 
 
 #ifdef _DEBUG

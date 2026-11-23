@@ -24,6 +24,8 @@
     "?ColorSchemes@@3V?$DynamicVectorClass@PAVColorScheme@@@@A": 11235064,
     "?NormalDrawer@@3PAVConvertClass@@A": 8594372,
     "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "??1GadgetClass@@UAE@XZ": 5042304,
+    "??3@YAXPAX@Z": 7871803,
     "_$E2": 4812048,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "??0Dial8Class@@QAE@HHHHHW4Dir256@@@Z": 4812080,
@@ -55,6 +57,7 @@
     "?Add@LinkClass@@UAEAAV1@AAV1@@Z": 5476512,
     "?Get_Prev@GadgetClass@@UBEPAVLinkClass@@XZ": 5042592,
     "?Get_Next@GadgetClass@@UBEPAVLinkClass@@XZ": 5042576,
+    "??_GDial8Class@@UAEPAXI@Z": 4813600,
     "??_R0?AVLinkClass@@@8": 8198056,
     "??_R0?AVGadgetClass@@@8": 8204080,
     "??_R0?AVControlClass@@@8": 8204112,
@@ -64,8 +67,6 @@
     "?LastList@GadgetClass@@1PAV1@A": 8806388,
     "?Peer_To_Peer@GadgetClass@@UAEXIAAW4KeyNumType@@AAVControlClass@@@Z": 4732256,
     "?Is_To_Redraw@GadgetClass@@UAE_NXZ": 4708096,
-    "??3@YAXPAX@Z": 7871803,
-    "??1GadgetClass@@UAE@XZ": 5042304,
     "?Action@Dial8Class@@MAEHIAAW4KeyNumType@@@Z": 4812768,
     "?Draw_Me@Dial8Class@@UAEHH@Z": 4813104,
     "?Get_Direction@Dial8Class@@QBE?AW4Dir256@@XZ": 4813520,
@@ -471,6 +472,51 @@
       "population": "rebuild-dial8",
       "source_order": 4813536,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4813600,
+      "method": "00497320",
+      "body_bytes": 30,
+      "body_sha256": "15b0cc37a6d1ce4144de86a3c7d84a4ec325993289a13ebdd7dfad02df6c355f",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "aae0e10fc15c0aaab72e73717c9b411108ca29015544439fbdc827e7eac85762",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GDial8Class@@UAEPAXI@Z",
+      "symbol_prefix": "??_GDial8Class@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1GadgetClass@@UAE@XZ",
+          "target": 5042304,
+          "addend": 0,
+          "resolved": 228696
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 3058182
+        }
+      ],
+      "source_sha256": "de2a05daaa186c9787fb276cecba2c2a6673eab9374921bc901fcaed809e4b0f",
+      "source": "rebuild/src/dial8.cpp",
+      "population": "rebuild-dial8",
+      "source_order": 4813600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-4471"
     }
   ]
 }

@@ -33,6 +33,7 @@
     "_wcscpy": 7878281,
     "_wcschr": 7879366,
     "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HPBH@Z": 4816096,
+    "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA": 8725632,
     "??_H@YGXPAXIHP6EX0@Z@Z": 4239056,
     "_$E2": 4813632,
     "?Drawing_GetTextDimensions@@YIPAV?$TRect@H@@PAV1@PBGVPoint2D@@GHH@Z": 4813664,
@@ -44,7 +45,8 @@
     "?Fancy_Text_Print@@YA?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@ZZ": 4815680,
     "?Conquer_Clip_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@PAVColorScheme@@HW4TextPrintType@@HPBH@Z": 4816512,
     "?Plain_Text_Print@@YI?AVPoint2D@@PBGAAVSurface@@ABV?$TRect@H@@ABV1@IIW4TextPrintType@@HH@Z": 4816704,
-    "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z": 4816976
+    "?Plain_Text_Print@@YI?AVPoint2D@@PBGPAVSurface@@PBV?$TRect@H@@PBV1@IIW4TextPrintType@@HH@Z": 4816976,
+    "?Font_Palette@@YIPAEH@Z": 4817248
   },
   "regions": [
     {
@@ -101,7 +103,7 @@
           "resolved": 8725660
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4813632,
@@ -145,7 +147,7 @@
           "resolved": 4294550298
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4813664,
@@ -261,7 +263,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4813776,
@@ -313,7 +315,7 @@
           "resolved": 4294548638
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4814800,
@@ -397,7 +399,7 @@
           "resolved": 4294552030
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4814896,
@@ -489,7 +491,7 @@
           "resolved": 4294966777
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4815248,
@@ -525,7 +527,7 @@
           "resolved": 8710632
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4815440,
@@ -577,7 +579,7 @@
           "resolved": 4294966550
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4815456,
@@ -733,7 +735,7 @@
           "resolved": 4294966123
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4815680,
@@ -809,7 +811,7 @@
           "resolved": 4294965799
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4816096,
@@ -901,7 +903,7 @@
           "resolved": 4294966708
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4816512,
@@ -1009,7 +1011,7 @@
           "resolved": 4294965241
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4816704,
@@ -1117,10 +1119,94 @@
           "resolved": 4294964969
         }
       ],
-      "source_sha256": "49e9313a2686df7c1dfb28c838452450ee82896493090608705b6860028c1060",
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
       "source": "rebuild/src/dialog.cpp",
       "population": "rebuild-dialog",
       "source_order": 4816976,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4817248,
+      "method": "00498160",
+      "body_bytes": 52,
+      "body_sha256": "72fdb3a70f89005375b7886ab28544cd03f17d3220f0f569a76cfaa4793ca6e0",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "1c63afc1913263e20e7ea8a88379e9b70f4587efa132c5eaf93391ae8c692fe0",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Font_Palette@@YIPAEH@Z",
+      "symbol_prefix": "?Font_Palette@@YIPAEH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 7,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 0,
+          "resolved": 8725632
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 4,
+          "resolved": 8725636
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 8,
+          "resolved": 8725640
+        },
+        {
+          "offset": 30,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 12,
+          "resolved": 8725644
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 11,
+          "resolved": 8725643
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 15,
+          "resolved": 8725647
+        },
+        {
+          "offset": 47,
+          "kind": 6,
+          "symbol": "_?_fpalette@?1??Font_Palette@@YIPAEH@Z@4PAEA",
+          "target": 8725632,
+          "addend": 0,
+          "resolved": 8725632
+        }
+      ],
+      "source_sha256": "7646ea013cd9d0841bba7bbc96d66e14a1b4a6d1f529b6a456353425b3d7d0d0",
+      "source": "rebuild/src/dialog.cpp",
+      "population": "rebuild-dialog",
+      "source_order": 4817248,
       "source_quality_family": "rebuild"
     }
   ]

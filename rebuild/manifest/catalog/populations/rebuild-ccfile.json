@@ -8,6 +8,7 @@
     "historical_acceptance_sha256": "e36a5c9c9a87d6e6291d74b24446b4bd23c0e5280720faab4de959caee0fe454"
   },
   "references": {
+    "_RECT_NONE": 8718104,
     "??0CDFileClass@@QAE@XZ": 4652432,
     "??0Buffer@@QAE@PAXH@Z": 4424384,
     "??_7CCFileClass@@6B@": 7972512,
@@ -33,6 +34,7 @@
     "??_7CDFileClass@@6B@": 7972440,
     "??1BufferIOFileClass@@UAE@XZ": 4387664,
     "?Set_Date_Time@RawFileClass@@UAE_NI@Z": 6525680,
+    "_$E2": 4624176,
     "??0CCFileClass@@QAE@PBD@Z": 4624208,
     "?Delete@RawFileClass@@UAEHXZ": 6525504,
     "?Create@RawFileClass@@UAEHXZ": 6525440,
@@ -61,6 +63,66 @@
     "?Set_Date_Time@CCFileClass@@UAE_NI@Z": 4625408
   },
   "regions": [
+    {
+      "entry": 4624176,
+      "method": "468f30",
+      "body_bytes": 23,
+      "body_sha256": "3d1a498ea18083424566a869afdcd1e7a212bd98b2fc06962dc049090e58eeb4",
+      "padding_bytes": 9,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "1046446bc2659cc22b92adac1966251af2e99e5948b2b51a47062ee8f31e0e57",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E2",
+      "symbol_prefix": "_$E2",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 3,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718104,
+          "addend": 0,
+          "resolved": 8718104
+        },
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718104,
+          "addend": 4,
+          "resolved": 8718108
+        },
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718104,
+          "addend": 8,
+          "resolved": 8718112
+        },
+        {
+          "offset": 18,
+          "kind": 6,
+          "symbol": "_RECT_NONE",
+          "target": 8718104,
+          "addend": 12,
+          "resolved": 8718116
+        }
+      ],
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
+      "source": "rebuild/src/ccfile.cpp",
+      "population": "rebuild-ccfile",
+      "source_order": 4624176,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-09"
+    },
     {
       "entry": 4624208,
       "method": "00468f50",
@@ -114,7 +176,7 @@
           "resolved": 29139
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624208,
@@ -181,7 +243,7 @@
           "resolved": 29070
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624272,
@@ -232,7 +294,7 @@
           "resolved": 7972512
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624336,
@@ -283,7 +345,7 @@
           "resolved": 7985256
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624384,
@@ -318,7 +380,7 @@
           "resolved": 4294731732
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624432,
@@ -361,7 +423,7 @@
           "resolved": 4294732199
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624480,
@@ -396,7 +458,7 @@
           "resolved": 4294732616
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624624,
@@ -447,7 +509,7 @@
           "resolved": 4294732771
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624720,
@@ -490,7 +552,7 @@
           "resolved": 4294731013
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624800,
@@ -525,7 +587,7 @@
           "resolved": 4294731025
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624864,
@@ -568,7 +630,7 @@
           "resolved": 4294732687
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624880,
@@ -667,7 +729,7 @@
           "resolved": 27340
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4624928,
@@ -766,7 +828,7 @@
           "resolved": 4294729570
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4625232,
@@ -873,7 +935,7 @@
           "resolved": 4294729376
         }
       ],
-      "source_sha256": "cb48b25c1cb74e034cadaa71e49cb2cf80bfa062c9461f3a48fa349d2421648f",
+      "source_sha256": "f58d5baabce851193d0761a0e0ae107c195f6970dd8e4bc9e401b999eeb76d7f",
       "source": "rebuild/src/ccfile.cpp",
       "population": "rebuild-ccfile",
       "source_order": 4625408,

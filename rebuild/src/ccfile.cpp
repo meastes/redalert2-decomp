@@ -43,6 +43,7 @@
  * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 #include "always.h"
+#include "rect.h" // RA2: the original unit includes this header
 
 #include "ccfile.h"
 #include "wstring.h"

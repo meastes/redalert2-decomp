@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
  * Copyright 2026 OpenTS contributors
+ * Contains material derived from the ra2-decomp project, copyright 2026 its contributors.
  *
  * Contains material derived from Electronic Arts source code.
  * Modified by OpenTS contributors, 2026.
@@ -77,4 +78,18 @@ void Get_CPU_Type(int & cpu_type, bool & mmx, char * vendor_id, int vendor_id_le
 		char * vendor_ptr = &VendorID;
 		strncpy(vendor_id, vendor_ptr, vendor_id_length);
 	}
+}
+
+
+char const * Get_CPU_Type_Name(void)
+{
+	static char const * const names[CPU_COUNT] = {
+		"486", "Pentium", "Pentium Pro", "Pentium II", "Pentium III",
+		"Celeron", "Pentium 4", "AMD", "Cyrix"
+	};
+	int type = Get_CPU_Type();
+	if (type > CPU_UNKNOWN && type < CPU_COUNT) {
+		return(names[type]);
+	}
+	return("Unknown");
 }

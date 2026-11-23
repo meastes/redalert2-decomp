@@ -5634,7 +5634,7 @@ int __fastcall Hash_CtrlMsg(int *); // RA2: as above
 namespace OwnerDraw { // RA2: as above
 LRESULT __stdcall Owner_Button_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
 LRESULT __stdcall List_Proc(HWND, UINT, WPARAM, LPARAM); // RA2: as above
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 4898 bytes differ against the frozen image bound (image_bounds.csv)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005ee460 has no row); 4898 bytes differ against the frozen image bound (image_bounds.csv); TibSun CtrlProc's getTail and named WM_SYSKEYUP/VK_TAB, same score
 LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
 	static POINT min_update_rect = {0xFFFFFF, 0xFFFFFF};
@@ -5665,8 +5665,8 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	WNDPROC original_proc = 0; // RA2: as above
 	::Window_Proc_Table.getValue(window, original_proc); // RA2: as above
 
-	if (message == WM_SYSKEYUP && wparam == 0x9) { // RA2: as above
-		SendMessageA(MainWindow, 0x105, 0x9, lparam); // RA2: as above
+	if (message == WM_SYSKEYUP && wparam == VK_TAB) { // RA2: as above
+		SendMessageA(MainWindow, WM_SYSKEYUP, VK_TAB, lparam); // RA2: as above
 	}
 
 	LRESULT result = 0;
@@ -5692,7 +5692,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 
 	if (hwndarray.length() != 0) {
 		HWND topwindow = 0; // RA2: as above
-		hwndarray.get(topwindow, hwndarray.length() - 1); // RA2: as above
+		hwndarray.getTail(topwindow); // RA2: as above
 
 	/*
 	 * When a window has been pushed to the top (modal) via OD_SETTOP, swallow
@@ -5844,7 +5844,7 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 	 */
 	if (message == 0x4a9) { // RA2: as above
 		HWND topwindow = 0; // RA2: as above
-		hwndarray.get(topwindow, hwndarray.length() - 1); // RA2: as above
+		hwndarray.getTail(topwindow); // RA2: as above
 		result = (LRESULT)topwindow;
 
 		HWND target = window;
