@@ -457,7 +457,7 @@ BOOL ShipLocomotionClass::Is_Angled(void) const // RA2: as above
 /// </summary>
 /// <param name="key">Pointer to the voxel cache key to be updated. May be NULL.</param>
 /// <returns>Returns with the matrix the unit is to be rendered through.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 97.08, tried 11 times (frame, bound, register); lane F43: 0x676010 714 bytes differ, frame the image's with ra2-decomp's plain temporaries in the product (hover's form) and hover's offsets; left: which CDTimerClass::operator() sites expand (image: both of the level path and the first of the tilted path; ours: the last site first)
+#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced); main: best 97.08, tried 11 times (frame, bound, register); lane F43: 0x676010 714 bytes differ, frame the image's with ra2-decomp's plain temporaries in the product (hover's form) and hover's offsets; left: which CDTimerClass::operator() sites expand (image: both of the level path and the first of the tilted path; ours: the last site first); lane F46: 579 bytes differ with the two paths as if/else and one shared return (as drive)
 Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // RA2: as above
 {
 	Matrix3DStruct m; // RA2: as above
@@ -498,16 +498,15 @@ Matrix3DStruct STDMETHODCALLTYPE ShipLocomotionClass::Draw_Matrix(int *key) // R
 		}
 
 		m = (Matrix3DStruct &)(((m1 * Get_Slope_Matrix()) * BASECLASS::Draw_Matrix(key)) * m2); // RA2: as above
-		return(m); // RA2: as above
-	}
+	} else {
+		if (key && *key != -1) { // RA2: as above
+			int keybase = *key << 6; // RA2: as above
+			*key = keybase;
+			*key = keybase + CurrentRamp;
+		}
 
-	if (key && *key != -1) { // RA2: as above
-		int keybase = *key << 6; // RA2: as above
-		*key = keybase;
-		*key = keybase + CurrentRamp;
+		m = (Matrix3DStruct &)(Get_Slope_Matrix() * BASECLASS::Draw_Matrix(key)); // RA2: as above
 	}
-
-	m = (Matrix3DStruct &)(Get_Slope_Matrix() * BASECLASS::Draw_Matrix(key)); // RA2: as above
 	return(m); // RA2: as above
 }
 #endif

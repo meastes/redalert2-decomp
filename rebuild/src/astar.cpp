@@ -249,7 +249,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 /// <param name="to">The destination cell, used to estimate the remaining cost.</param>
 /// <param name="movement_cost">The cost of the step from the parent into this cell.</param>
 /// <returns>Returns with a pointer to the new node, taken from the search's node pool.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1125 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The blocked-destination path is laid out before the node insertion.
+#ifdef RA2_NON_MATCHING // not exact: 1125 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The blocked-destination path is laid out before the node insertion. Lane F46: the archive's order (`if (move < MOVE_NO) { if (Is_Visited(0, base_level, node_index)) continue; ... } else if (working_to == to_pptr && !is_passive) {`, astar.cpp:437-469) gives the image's layout and its 812 instructions, 10 bytes short (1,714 by position): the zero register (image edx, set before the loop test; ours ebp) and the slots of the first two locals are then left; this text keeps the better score by position.
 PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, FootClass *foot, FacingType *moves, int max_loops, bool with_hs)
 {
 	FacingType face;

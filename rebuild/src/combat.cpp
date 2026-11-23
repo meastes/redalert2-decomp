@@ -222,7 +222,7 @@ static inline bool Is_Bridge_Middle(int ittype)
 /// the warhead's particle system is spawned.
 /// </summary>
 /// <returns>2 when an iron curtained object blocked the blast, 1 when nothing was hit, else 0.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 12 instruction lines differ (64 bytes); the text is ra2-decomp's twin's where the image agrees (the aircraft distances through Distance_To on the position accessor, the three group distances through inline.h's Distance, groups.Delete_All(), the rocker loop's occupier as `isbridge ? Cell_Bridge_Occupier() : Cell_Occupier(false)`). Left: three ties that follow the function's count of named locals (the X sum of `cell + RadiusOffset[m]`, and the order the two cell-distance sites convert X, Y, Z): exact with 17 unused reference locals at the top (a probe; 1, 9 fix the sum, 6-7 and 17-24 the conversions), none with header declarations
+#ifdef RA2_NON_MATCHING // not exact: 7 instruction lines differ (30 bytes; lane F46: ra2-decomp's `Cell(coord)` and the archive's `bool destroyed` at the low bridge test, the same form at RA2's second low bridge test, close the second cell-distance site; 64 bytes before); the text is ra2-decomp's twin's where the image agrees (the aircraft distances through Distance_To on the position accessor, the three group distances through inline.h's Distance, groups.Delete_All(), the rocker loop's occupier as `isbridge ? Cell_Bridge_Occupier() : Cell_Occupier(false)`). Left: three ties that follow the function's count of named locals (the X sum of `cell + RadiusOffset[m]`, and the order the two cell-distance sites convert X, Y, Z): exact with 17 unused reference locals at the top (a probe; 1, 9 fix the sum, 6-7 and 17-24 the conversions), none with header declarations
 int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, WarheadTypeClass const * warhead, bool dochainreaction)
 {
 	int distance;
@@ -235,7 +235,7 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 	}
 
 	int range = (int)(warhead->SpreadFactor * 256.0f);
-	Cell cell = coord.As_Cell();
+	Cell cell = Cell(coord);
 	CellClass * cellptr = &Map[cell];
 	bool isbridge = false;
 	bool hit = false;
@@ -427,14 +427,16 @@ int Explosion_Damage(Coord const & coord, int strength, TechnoClass * source, Wa
 
 		if (cellptr->Is_Overlay_Low_Bridge()) {
 			if (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength) {
-				if (Map.Damage_Low_Bridge(cell)) {
+				bool destroyed = Map.Damage_Low_Bridge(cell);
+				if (destroyed) {
 					TechnoClass::Remove_Target(cellptr);
 				}
 			}
 		}
 		if (cellptr->Overlay >= 0xCD && cellptr->Overlay <= 0xE6) {
 			if (warhead == Rule->IonCannonWarhead || Random_Pick(1, Rule->BridgeStrength) < strength) {
-				if (Map.Damage_Low_Bridge2(cell)) {
+				bool destroyed = Map.Damage_Low_Bridge2(cell);
+				if (destroyed) {
 					TechnoClass::Remove_Target(cellptr);
 				}
 			}

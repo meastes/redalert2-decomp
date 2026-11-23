@@ -170,7 +170,7 @@ void STDMETHODCALLTYPE MechLocomotionClass::Force_Immediate_Destination(CoordStr
 /// </summary>
 /// <param name="continue_moving">Should the routine pick a fresh step immediately when the
 /// one it chose turns out to be unusable?</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005919a0 has no row); main: best 89.00, tried 13 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (5,575 B) 4,352 bytes differ (was 5,066; the archive's mech.cpp path and tube logic, the crusher's sandbag test as YR's and TibSun's drive have it, the docking arguments the image passes); main: best 89.00, tried 13 times (frame, inline, register)
 void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here, between Force_Immediate_Destination and Mark_Head_To
 {
 	if (LinkedTo->PrimaryFacing.Is_Rotating()) {
@@ -195,50 +195,47 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 
 				if (!LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, 0)) {
 
-					if (LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
-
-						int dist = Distance(LinkedTo->Center_Coord(), DestinationCoord);
-
-						if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
-							LinkedTo->Assign_Destination(NULL);
-						} else {
-
-							if (LinkedTo->TryTryAgain != 0) {
-								LinkedTo->TryTryAgain--;
-							} else {
-
-								if (LinkedTo->IsNewNavCom) {
-									VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
-								}
-								LinkedTo->IsNewNavCom = false;
-
-								Cell dest_cell = DestinationCoord;
-								if (LinkedTo->IsLocked) {
-									Cell src_cell = LinkedTo->Destination_Coord().As_Cell();
-									if (!Map.Is_Same_Cell_Zone(src_cell, dest_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(), Map[dest_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
-										LinkedTo->Assign_Destination(NULL);
-									}
-								}
-
-								if (LinkedTo->TarCom != NULL) {
-									Cell tar_cell = LinkedTo->TarCom->Destination_Coord().As_Cell();
-									if (LinkedTo->IsLocked) {
-										Cell src_cell = LinkedTo->Destination_Coord().As_Cell();
-										if (!Map.Is_Same_Cell_Zone(src_cell, tar_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(), Map[tar_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
-											LinkedTo->Assign_Target(NULL);
-										}
-									}
-								}
-							}
-						}
-
-						LinkedTo->Set_Speed(0);
-						Stop_Moving();
-						IsMoving = false;
+					if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+						LinkedTo->Assign_Destination(NULL);
 						return;
 					}
 
-					LinkedTo->Assign_Destination(NULL);
+					int dist = Distance(LinkedTo->Center_Coord(), DestinationCoord);
+
+					if (dist < Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
+						LinkedTo->Assign_Destination(NULL);
+					} else if (LinkedTo->TryTryAgain != 0) {
+						LinkedTo->TryTryAgain--;
+					} else {
+
+						if (LinkedTo->IsNewNavCom) {
+							VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
+						}
+						LinkedTo->IsNewNavCom = false;
+
+						Cell dest_cell = DestinationCoord;
+						if (LinkedTo->IsLocked) {
+							Cell src_cell = LinkedTo->Destination_Coord().As_Cell();
+							if (!Map.Is_Same_Cell_Zone(src_cell, dest_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(), Map[dest_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
+								LinkedTo->Assign_Destination(NULL);
+							}
+						}
+
+						if (LinkedTo->TarCom != NULL) {
+							// RA2: the target and the mover both use this unit as the docking object.
+							Cell tar_cell = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
+							if (LinkedTo->IsLocked) {
+								Cell src_cell = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
+								if (!Map.Is_Same_Cell_Zone(src_cell, tar_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
+									LinkedTo->Assign_Target(NULL);
+								}
+							}
+						}
+					}
+
+					LinkedTo->Set_Speed(0);
+					Stop_Moving();
+					IsMoving = false;
 					return;
 				}
 
@@ -309,7 +306,9 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 			 * A crusher driving into an occupied destroyable cell that has crushable
 			 * overlay just crushes through it -- treat as a normal (clear) move.
 			 */
-			if (((can_enter != MOVE_DESTROYABLE && can_enter != MOVE_FRIENDLY_DESTROYABLE) || !LinkedTo->TClass->IsCrusher || what_cell->Overlay != OVERLAY_FIRST) && can_enter != MOVE_OK) {
+			if (can_enter != MOVE_OK &&
+				!((can_enter == MOVE_DESTROYABLE || can_enter == MOVE_FRIENDLY_DESTROYABLE) &&
+					LinkedTo->TClass->IsCrusher && what_cell->Overlay == OVERLAY_SANDBAG_WALL)) {
 
 				LinkedTo->Stop_Movement_Animation();
 
