@@ -168,6 +168,17 @@
     "?Draw_All@AlphaShapeClass@@SIXABV?$TRect@H@@@Z": 4322784,
     "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ": 4674224,
     "?Draw_It@CellClass@@QBEXABVPoint2D@@ABV?$TRect@H@@_N@Z": 4675200,
+    "?GetMinFrameRate@Detail@@YIIXZ": 5494848,
+    "?CurrentFrameRate@FPSCounter@@3IA": 10939164,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "__imp__timeGetTime@0": 7972132,
+    "_?_lasttime@?1??Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z@4IA": 11271536,
+    "?Tiberium_Value@CellClass@@QBEHXZ": 4694576,
+    "?Is_Shrouded@CellClass@@QBE_NXZ": 4705104,
+    "??0PixelFXClass@@QAE@H@Z": 6351888,
+    "?Init@PixelFXClass@@QAEXH@Z": 6351648,
+    "?Expire@PixelFXClass@@QAE_NH@Z": 6352064,
+    "?Update@PixelFXClass@@QAEXH@Z": 6351920,
     "??0Coord@@QAE@HHH@Z": 4409376,
     "?Draw_Shadow_Cast@CellClass@@QAEXABVPoint2D@@ABV?$TRect@H@@@Z": 4675024,
     "_?$S293@?1??Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z@4EA": 11265488,
@@ -319,6 +330,7 @@
     "?Get_Cell_Ramp@Tactical@@QAEHABVCoord@@@Z": 6975760,
     "?Add_Shadow_Control@Tactical@@QAEXVShadowControlClass@@@Z": 6975792,
     "?Find_Bridge_Owner_Cell@Tactical@@QAEPAVCellClass@@ABVCell@@@Z": 6975984,
+    "?Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z": 6979200,
     "?Draw_Tile_Shadows@Tactical@@QAEXHABV?$TRect@H@@@Z": 6981792,
     "?Clamp_Pixel_To_Tactical@Tactical@@QAE?AVPoint2D@@ABV2@@Z": 6982416,
     "?Scroll_Map@Tactical@@QAEXW4FacingType@@H@Z": 6982512,
@@ -458,7 +470,7 @@
           "resolved": 11265216
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955232,
@@ -510,7 +522,7 @@
           "resolved": 11265512
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955280,
@@ -562,7 +574,7 @@
           "resolved": 11265496
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955312,
@@ -614,7 +626,7 @@
           "resolved": 11265480
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955344,
@@ -666,7 +678,7 @@
           "resolved": 11265232
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955376,
@@ -718,7 +730,7 @@
           "resolved": 11265184
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955408,
@@ -802,7 +814,7 @@
           "resolved": 11265520
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955440,
@@ -862,7 +874,7 @@
           "resolved": 11265240
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955504,
@@ -922,7 +934,7 @@
           "resolved": 11265368
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955552,
@@ -982,7 +994,7 @@
           "resolved": 11265504
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955600,
@@ -1026,7 +1038,7 @@
           "resolved": 11265210
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955648,
@@ -1078,7 +1090,7 @@
           "resolved": 11265352
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955664,
@@ -1138,7 +1150,7 @@
           "resolved": 11265204
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955696,
@@ -1198,7 +1210,7 @@
           "resolved": 11265388
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955728,
@@ -1306,7 +1318,7 @@
           "resolved": 919135
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955760,
@@ -1414,7 +1426,7 @@
           "resolved": 11265464
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955824,
@@ -1441,7 +1453,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955920,
@@ -1549,7 +1561,7 @@
           "resolved": 918959
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6955936,
@@ -1657,7 +1669,7 @@
           "resolved": 11265328
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956000,
@@ -1749,7 +1761,7 @@
           "resolved": 11265168
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956096,
@@ -1825,7 +1837,7 @@
           "resolved": 11265312
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956160,
@@ -2037,7 +2049,7 @@
           "resolved": 8624492
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956208,
@@ -2113,7 +2125,7 @@
           "resolved": 8045892
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956736,
@@ -2190,7 +2202,7 @@
           "resolved": 4292270166
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956816,
@@ -2217,7 +2229,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956864,
@@ -2269,7 +2281,7 @@
           "resolved": 903356
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6956960,
@@ -2296,7 +2308,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957168,
@@ -2348,7 +2360,7 @@
           "resolved": 903095
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957312,
@@ -2400,7 +2412,7 @@
           "resolved": 903016
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957424,
@@ -2452,7 +2464,7 @@
           "resolved": 902982
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957488,
@@ -2520,7 +2532,7 @@
           "resolved": 11265388
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957520,
@@ -2620,7 +2632,7 @@
           "resolved": 11265352
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6957840,
@@ -2712,7 +2724,7 @@
           "resolved": 11265352
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6958064,
@@ -2772,7 +2784,7 @@
           "resolved": 902029
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6958256,
@@ -2952,7 +2964,7 @@
           "resolved": 24931
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6958544,
@@ -3157,7 +3169,7 @@
           "resolved": 11265460
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6959136,
@@ -3184,7 +3196,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6960096,
@@ -3389,7 +3401,7 @@
           "resolved": 4292681322
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6960112,
@@ -3545,7 +3557,7 @@
           "resolved": 17126
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6960752,
@@ -3701,7 +3713,7 @@
           "resolved": 18231
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6961360,
@@ -3825,7 +3837,7 @@
           "resolved": 13927
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6961952,
@@ -3957,7 +3969,7 @@
           "resolved": 4292989245
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6962432,
@@ -4161,7 +4173,7 @@
           "resolved": 11265472
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6962928,
@@ -4309,7 +4321,7 @@
           "resolved": 23588
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6963456,
@@ -4457,7 +4469,7 @@
           "resolved": 22660
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6964048,
@@ -4589,7 +4601,7 @@
           "resolved": 4292814698
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6967936,
@@ -4625,7 +4637,7 @@
           "resolved": 909928
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6968304,
@@ -4653,7 +4665,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6968384,
@@ -4914,7 +4926,7 @@
           "resolved": 4292398329
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6968416,
@@ -5526,7 +5538,7 @@
           "resolved": 4292665832
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6968944,
@@ -5706,7 +5718,7 @@
           "resolved": 4292841201
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6970736,
@@ -5894,7 +5906,7 @@
           "resolved": 4292840552
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6971408,
@@ -6114,7 +6126,7 @@
           "resolved": 4292839812
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6972048,
@@ -6174,7 +6186,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6972784,
@@ -6258,7 +6270,7 @@
           "resolved": 11073
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6972832,
@@ -6311,7 +6323,7 @@
           "resolved": 10961
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6972992,
@@ -6372,7 +6384,7 @@
           "resolved": 10706
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973104,
@@ -6400,7 +6412,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973360,
@@ -6428,7 +6440,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973392,
@@ -6455,7 +6467,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973440,
@@ -6482,7 +6494,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973536,
@@ -6510,7 +6522,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973632,
@@ -6538,7 +6550,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973728,
@@ -6607,7 +6619,7 @@
           "resolved": 8349996
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6973872,
@@ -6684,7 +6696,7 @@
           "resolved": 4293530936
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6974032,
@@ -6856,7 +6868,7 @@
           "resolved": 4294949005
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6974416,
@@ -6908,7 +6920,7 @@
           "resolved": 4292646340
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6975696,
@@ -6952,7 +6964,7 @@
           "resolved": 4293529313
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6975760,
@@ -7061,7 +7073,7 @@
           "resolved": 11265324
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6975792,
@@ -7153,7 +7165,7 @@
           "resolved": 4293528920
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6975984,
@@ -7389,7 +7401,7 @@
           "resolved": 4292661324
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6976336,
@@ -7617,7 +7629,7 @@
           "resolved": 4292311631
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6977568,
@@ -7765,11 +7777,306 @@
           "resolved": 4292663356
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6978464,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6979200,
+      "method": "006a7e80",
+      "body_bytes": 954,
+      "body_sha256": "fe83e439ec19ceccc973321bbf3e501fc546a530503beb521a6a9ed50bcab36b",
+      "padding_bytes": 6,
+      "full_extent_bytes": 960,
+      "full_extent_sha256": "9b95fdb114e2a7069ad06550c77e0f7697678fdf6840326451d3fe431e2728ef",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Image-derived bound (rebuild/manifest/image_bounds.csv, image_bounds.py; start call@006a504b, end bound row)",
+      "padding_provenance": null,
+      "bound": "image-derived",
+      "symbol": "?Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z",
+      "symbol_prefix": "?Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 20,
+          "symbol": "?GetMinFrameRate@Detail@@YIIXZ",
+          "target": 5494848,
+          "addend": 0,
+          "resolved": 4293482932
+        },
+        {
+          "offset": 14,
+          "kind": 6,
+          "symbol": "?CurrentFrameRate@FPSCounter@@3IA",
+          "target": 10939164,
+          "addend": 0,
+          "resolved": 10939164
+        },
+        {
+          "offset": 26,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 45,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 59,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "__imp__timeGetTime@0",
+          "target": 7972132,
+          "addend": 0,
+          "resolved": 7972132
+        },
+        {
+          "offset": 94,
+          "kind": 6,
+          "symbol": "_?_lasttime@?1??Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z@4IA",
+          "target": 11271536,
+          "addend": 0,
+          "resolved": 11271536
+        },
+        {
+          "offset": 103,
+          "kind": 6,
+          "symbol": "_?_lasttime@?1??Draw_Pixel_Effects@Tactical@@QAEXABV?$TRect@H@@0@Z@4IA",
+          "target": 11271536,
+          "addend": 0,
+          "resolved": 11271536
+        },
+        {
+          "offset": 129,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 170,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 4,
+          "resolved": 8623668
+        },
+        {
+          "offset": 233,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293825555
+        },
+        {
+          "offset": 262,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 881030
+        },
+        {
+          "offset": 273,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 881019
+        },
+        {
+          "offset": 483,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 489,
+          "kind": 20,
+          "symbol": "?In_Radar@MapClass@@QBE_NABVCell@@@Z",
+          "target": 5548720,
+          "addend": 0,
+          "resolved": 4293536323
+        },
+        {
+          "offset": 507,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 512,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293525484
+        },
+        {
+          "offset": 521,
+          "kind": 20,
+          "symbol": "?Tiberium_Value@CellClass@@QBEHXZ",
+          "target": 4694576,
+          "addend": 0,
+          "resolved": 4292682147
+        },
+        {
+          "offset": 544,
+          "kind": 20,
+          "symbol": "?Is_Shrouded@CellClass@@QBE_NXZ",
+          "target": 4705104,
+          "addend": 0,
+          "resolved": 4292692652
+        },
+        {
+          "offset": 624,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 892707
+        },
+        {
+          "offset": 639,
+          "kind": 20,
+          "symbol": "??0PixelFXClass@@QAE@H@Z",
+          "target": 6351888,
+          "addend": 0,
+          "resolved": 4294339341
+        },
+        {
+          "offset": 676,
+          "kind": 20,
+          "symbol": "?Init@PixelFXClass@@QAEXH@Z",
+          "target": 6351648,
+          "addend": 0,
+          "resolved": 4294339064
+        },
+        {
+          "offset": 696,
+          "kind": 20,
+          "symbol": "?Expire@PixelFXClass@@QAE_NH@Z",
+          "target": 6352064,
+          "addend": 0,
+          "resolved": 4294339460
+        },
+        {
+          "offset": 716,
+          "kind": 20,
+          "symbol": "?Cell_Render_Rect@CellClass@@QBE?AV?$TRect@H@@XZ",
+          "target": 4674224,
+          "addend": 0,
+          "resolved": 4292661600
+        },
+        {
+          "offset": 806,
+          "kind": 20,
+          "symbol": "?Update@PixelFXClass@@QAEXH@Z",
+          "target": 6351920,
+          "addend": 0,
+          "resolved": 4294339206
+        },
+        {
+          "offset": 815,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 826,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 834,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 842,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 850,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 863,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 935,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        }
+      ],
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
+      "source": "rebuild/src/tactical.cpp",
+      "population": "rebuild-tactical",
+      "source_order": 6979200,
+      "source_quality_family": "rebuild",
+      "bound_population": "image-bounds"
     },
     {
       "entry": 6980160,
@@ -7985,7 +8292,7 @@
           "resolved": 4292661422
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6980160,
@@ -8125,7 +8432,7 @@
           "resolved": 4292659962
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6981792,
@@ -8169,7 +8476,7 @@
           "resolved": 10751251
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6982416,
@@ -8373,7 +8680,7 @@
           "resolved": 11265396
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6982512,
@@ -8401,7 +8708,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6982768,
@@ -8486,7 +8793,7 @@
           "resolved": 8594916
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6982784,
@@ -8795,7 +9102,7 @@
           "resolved": 8045500
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6982976,
@@ -8822,7 +9129,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6983968,
@@ -8906,7 +9213,7 @@
           "resolved": 11265388
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6984048,
@@ -8982,7 +9289,7 @@
           "resolved": 11265388
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6984352,
@@ -9530,7 +9837,7 @@
           "resolved": 8726004
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6984688,
@@ -9598,7 +9905,7 @@
           "resolved": 8623668
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6987280,
@@ -9634,7 +9941,7 @@
           "resolved": 4292964535
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6987600,
@@ -9718,7 +10025,7 @@
           "resolved": 8725944
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6987616,
@@ -9794,7 +10101,7 @@
           "resolved": 8725944
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6987920,
@@ -9870,7 +10177,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6988160,
@@ -9986,7 +10293,7 @@
           "resolved": 10750728
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6988544,
@@ -10054,7 +10361,7 @@
           "resolved": 11265536
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989072,
@@ -10081,7 +10388,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989216,
@@ -10109,7 +10416,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989280,
@@ -10146,7 +10453,7 @@
           "resolved": 1345
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989328,
@@ -10183,7 +10490,7 @@
           "resolved": 11265528
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989472,
@@ -10210,7 +10517,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989680,
@@ -10262,7 +10569,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989712,
@@ -10491,7 +10798,7 @@
           "resolved": 8350016
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6989888,
@@ -10519,7 +10826,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990176,
@@ -10547,7 +10854,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990192,
@@ -10574,7 +10881,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990208,
@@ -10707,7 +11014,7 @@
           "resolved": 4293514603
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990224,
@@ -10799,7 +11106,7 @@
           "resolved": 8599156
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990688,
@@ -10891,7 +11198,7 @@
           "resolved": 8227030
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6990784,
@@ -10951,7 +11258,7 @@
           "resolved": 309784
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6991168,
@@ -11011,7 +11318,7 @@
           "resolved": 4293174527
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6991216,
@@ -11103,7 +11410,7 @@
           "resolved": 8623676
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6991312,
@@ -11163,7 +11470,7 @@
           "resolved": 11265472
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6991744,
@@ -11535,7 +11842,7 @@
           "resolved": 8350036
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6991824,
@@ -12011,7 +12318,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6992736,
@@ -12359,7 +12666,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6993936,
@@ -12683,7 +12990,7 @@
           "resolved": 4293583697
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6994976,
@@ -12807,7 +13114,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6996320,
@@ -12867,7 +13174,7 @@
           "resolved": 8003228
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6996704,
@@ -12951,7 +13258,7 @@
           "resolved": 4294954378
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6996768,
@@ -12987,7 +13294,7 @@
           "resolved": 4292230316
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6996992,
@@ -13015,7 +13322,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6997936,
@@ -13052,7 +13359,7 @@
           "resolved": 11265528
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6997952,
@@ -13080,7 +13387,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6997984,
@@ -13107,7 +13414,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998000,
@@ -13191,7 +13498,7 @@
           "resolved": 873729
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998016,
@@ -13219,7 +13526,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998096,
@@ -13255,7 +13562,7 @@
           "resolved": 873648
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998128,
@@ -13283,7 +13590,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998176,
@@ -13311,7 +13618,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998224,
@@ -13348,7 +13655,7 @@
           "resolved": 873488
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998288,
@@ -13376,7 +13683,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998336,
@@ -13404,7 +13711,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998368,
@@ -13432,7 +13739,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998384,
@@ -13477,7 +13784,7 @@
           "resolved": 873071
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998512,
@@ -13514,7 +13821,7 @@
           "resolved": 872979
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998800,
@@ -13542,7 +13849,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998848,
@@ -13570,7 +13877,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6998960,
@@ -13631,7 +13938,7 @@
           "resolved": 872582
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999008,
@@ -13659,7 +13966,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999296,
@@ -13687,7 +13994,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999392,
@@ -13732,7 +14039,7 @@
           "resolved": 872224
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999456,
@@ -13769,7 +14076,7 @@
           "resolved": 872147
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999632,
@@ -13797,7 +14104,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999680,
@@ -13825,7 +14132,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999744,
@@ -13870,7 +14177,7 @@
           "resolved": 871917
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999776,
@@ -13898,7 +14205,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 6999952,
@@ -13951,7 +14258,7 @@
           "resolved": 871739
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 7000000,
@@ -14004,7 +14311,7 @@
           "resolved": 871659
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 7000080,
@@ -14057,7 +14364,7 @@
           "resolved": 871579
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 7000160,
@@ -14110,7 +14417,7 @@
           "resolved": 871499
         }
       ],
-      "source_sha256": "c3e026c07cbca60d191ba1571b8d29d619b3b7c88f3223c734665eb48f1ef9d3",
+      "source_sha256": "a72b586f3260fb816e6e2b5af75362ba7b85be1d789e624d265548bcec46d35f",
       "source": "rebuild/src/tactical.cpp",
       "population": "rebuild-tactical",
       "source_order": 7000240,

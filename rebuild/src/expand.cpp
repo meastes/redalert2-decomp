@@ -63,10 +63,8 @@ bool Expansion_Present(void)
 /// This routine is called by the main menu when the player elects to start a new
 /// scenario game. No expansion scenarios are offered, so the selection always succeeds.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 bool Expansion_Dialog(void)
 {
 	bool okval = true;
 	return(okval);
 }
-#endif

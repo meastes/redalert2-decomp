@@ -241,7 +241,10 @@ def main():
             known.add((u, e or fname))
     # no draft in the unit yet (no_draft_queue.csv)
     for r in queue:
-        if (r['unit'], r['entry']) in known:
+        # no_draft_queue.csv is refreshed only by nodraft_queue.py: a function whose row the unit's current check
+        # finds exact has landed, not "no draft yet" (lane O65: Zone_Reset, One_Time and Compute_Zone_Connections
+        # were listed so after landing).
+        if (r['unit'], r['entry']) in known or current.get((r['unit'], r['entry'])) == 'exact':
             continue
         rows.append(dict(unit=r['unit'], entry=r['entry'], function=demangle(r['symbol']) or r['symbol'],
                          bytes=int(r['bytes'] or 0), bucket='no_draft (%s)' % r['group'], label='', draft='no'))

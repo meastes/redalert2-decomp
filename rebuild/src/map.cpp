@@ -3882,7 +3882,6 @@ void MapClass::Update_Cell_Zone_Constructively(Cell const & cell)
 /// hunts them all down and records them. The zone and subzone rebuilds work from that list
 /// when stitching the two ends of each crossing together.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054fda0 has no row); main: best 62.12, tried 4 times (register, inline, layout)
 void MapClass::Compute_Zone_Connections(void)
 {
 	static int _bridge_subtiles1[] = {
@@ -3906,17 +3905,12 @@ void MapClass::Compute_Zone_Connections(void)
 
 		if (!cptr->Is_Tile_Bridge() && !cptr->Is_Tile_Train_Bridge()) {
 
-			/*
-			 * A tunnel entrance pairs with its exit cell; record the connection once,
-			 * from the lower numbered cell of the pair.
-			 */
 			if (cptr->Has_Tunnel()) {
 				if ((cptr->Adjacent_Cell(FACING_E).Has_Tunnel() && cptr->Adjacent_Cell(FACING_W).Has_Tunnel()) ||
 					(cptr->Adjacent_Cell(FACING_S).Has_Tunnel() && cptr->Adjacent_Cell(FACING_N).Has_Tunnel())) {
 
-					Cell cell = cptr->Get_Tunnel()->Exit;
-					if (Map_Cell_Index(cptr->CellID) < Map_Cell_Index(cell)) {
-						Cell exit = cptr->Get_Tunnel()->Exit;
+					if (Map_Cell_Index(cptr->CellID) < Map_Cell_Index(cptr->Get_Tunnel()->Get_Exit())) {
+						Cell exit = cptr->Get_Tunnel()->Get_Exit();
 						ZoneConnectionClass con;
 						con.From = cptr->CellID;
 						con.To = exit;
@@ -3936,58 +3930,35 @@ void MapClass::Compute_Zone_Connections(void)
 				faceindex = cptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
 			}
 
-			/*
-			 * Only walk the span from its starting subtile.
-			 */
 			if (_bridge_subtiles1[faceindex] == cptr->SubTile) {
 
 				bool crossed = false;
-				bool passable = true;
 				FacingType facing = _facings[faceindex];
+				bool passable = true;
 
-				/*
-				 * Walk across the span until the far end subtile has been passed or
-				 * the walk leaves the radar map.
-				 */
-				CellClass * bptr = cptr;
-				for (;;) {
-					bptr = &bptr->Adjacent_Cell(facing);
-
-					if (In_Radar(bptr->CellID)) {
-
-						if (!crossed) {
-
-							if (bptr->Is_Tile_Bridge()) {
-								int index = bptr->ITType - IsometricTileTypeClass::BridgeSet;
-								if (index != -1 && _bridge_subtiles2[index] == bptr->SubTile) {
-									crossed = true;
-								}
-
-							} else if (bptr->Is_Tile_Train_Bridge()) {
-								int index = bptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
-								if (index != -1 && _bridge_subtiles2[index] == bptr->SubTile) {
-									crossed = true;
-								}
-							} else if (!bptr->IsUnderBridge) {
-								passable = false;
-							}
-							continue;
-						}
-
-					} else if (!crossed) {
-						break;
+				CellClass * bptr = &cptr->Adjacent_Cell(facing);
+				while (In_Radar(bptr->CellID) && !crossed) {
+					int index = -1;
+					if (bptr->Is_Tile_Bridge()) {
+						index = bptr->ITType - IsometricTileTypeClass::BridgeSet;
+					} else if (bptr->Is_Tile_Train_Bridge()) {
+						index = bptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
+					} else if (!bptr->IsUnderBridge) {
+						passable = false;
 					}
+					if (index != -1 && _bridge_subtiles2[index] == bptr->SubTile) {
+						crossed = true;
+					}
+					bptr = &bptr->Adjacent_Cell(facing);
+				}
 
-					/*
-					 * Record the bridge span as a zone connection.
-					 */
+				if (crossed) {
 					ZoneConnectionClass con;
+					con.To = bptr->Adjacent_Cell(Facing_Sub(facing, FACING_180)).CellID;
 					con.From = cptr->CellID;
-					con.To = bptr->Adjacent_Cell(Facing_Sub((unsigned char)facing, FACING_180)).CellID;
 					con.IsPassable = passable;
 					con.Type = 0;
 					ZoneConnections.Add(con);
-					break;
 				}
 			}
 		}
@@ -3995,7 +3966,6 @@ void MapClass::Compute_Zone_Connections(void)
 		cptr = Iterate();
 	}
 }
-#endif
 
 
 /// <summary>

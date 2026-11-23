@@ -289,7 +289,6 @@ void IonBlastClass::Update_All(void)
 /// surfaces are kept until the game exits.
 /// </summary>
 /// <remarks>Harmless to call more than once -- only the first call does any work.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (541 B) 17 bytes differ (was 23 with the static one_time unbound; now bound at 0xA51FB4, read and written at 0x521A99 and 0x521C9E): scratch registers around the reflected row and the double copy, 2026-11-23
 void IonBlastClass::One_Time(void)
 {
 	static bool one_time = false;
@@ -311,20 +310,23 @@ void IonBlastClass::One_Time(void)
 		 * The vertical axis counts double toward the distance because the
 		 * shockwave ellipse is half as tall as it is wide.
 		 */
-		char * center = (char *)BlastSurfaces[frame]->Lock() + 0x4080;
-		for (int y = 63; y >= 0; y--) {
+		int x = 128;
+		int y = 64;
+		char * center = (char *)BlastSurfaces[frame]->Lock() + (y << 8) + x;
+
+		for (y = 63; y >= 0; y--) {
 			int y_dist_sq = y * y * 4;
-			for (int x = 127; x >= 0; x--) {
+			for (int i = 0; i <= 127; i++) {
+				x = 127 - i;
 				double dist = fastmath::sqrt(x * x + y_dist_sq);
 				if (dist >= min_dist && dist <= max_dist) {
 					double wave_height = (fastmath::sin((dist - frame * WavePhaseSpeed + 38.0) * WaveFrequency) * 3.5 + 3.0) / (dist / WaveAmplitudeFalloff + 1.0) + 0.5;
 					char spiral_index = Point_To_Spiral_Index(Point2D(0, wave_height));
 					int row = y << 8;
-					center[row + x] = spiral_index;  /// Quadrant I
-					center[row - x] = spiral_index;  /// Quadrant II
-					char * mirror = center - row;
-					mirror[x] = spiral_index;        /// Quadrant IV
-					mirror[-x] = spiral_index;       /// Quadrant III
+					center[row + x] = spiral_index;
+					center[row - x] = spiral_index;
+					center[-row + x] = spiral_index;
+					center[-row - x] = spiral_index;
 				}
 			}
 		}
@@ -342,7 +344,6 @@ void IonBlastClass::One_Time(void)
 
 	one_time = true;
 }
-#endif
 
 
 /// <summary>

@@ -30,7 +30,8 @@
     "??_C@_04ONPB@Hey?$CB?$AA@": 8215664,
     "__imp__MessageBoxA@16": 7971964,
     "?Force_Available@DiskSwap@@UAE_NW4DiskID@@@Z": 4818368,
-    "?Swap@DiskSwap@@UAE_NW4DiskID@@@Z": 4818704
+    "?Swap@DiskSwap@@UAE_NW4DiskID@@@Z": 4818704,
+    "?Request_Disk@DiskSwap@@UAE_NW4DiskID@@@Z": 4818768
   },
   "regions": [
     {
@@ -175,7 +176,7 @@
           "resolved": 7971284
         }
       ],
-      "source_sha256": "5693183bc98c47a3f26e765ddc9324cae95c16813fcdde04dff05c08403fd8f9",
+      "source_sha256": "61eb59680dfe54150801aa05a3098136342e60acad929d0c20cc2cfb61f3c2f2",
       "source": "rebuild/src/diskswap.cpp",
       "population": "rebuild-diskswap",
       "source_order": 4817888,
@@ -331,7 +332,7 @@
           "resolved": 8215636
         }
       ],
-      "source_sha256": "5693183bc98c47a3f26e765ddc9324cae95c16813fcdde04dff05c08403fd8f9",
+      "source_sha256": "61eb59680dfe54150801aa05a3098136342e60acad929d0c20cc2cfb61f3c2f2",
       "source": "rebuild/src/diskswap.cpp",
       "population": "rebuild-diskswap",
       "source_order": 4818368,
@@ -391,10 +392,38 @@
           "resolved": 7971964
         }
       ],
-      "source_sha256": "5693183bc98c47a3f26e765ddc9324cae95c16813fcdde04dff05c08403fd8f9",
+      "source_sha256": "61eb59680dfe54150801aa05a3098136342e60acad929d0c20cc2cfb61f3c2f2",
       "source": "rebuild/src/diskswap.cpp",
       "population": "rebuild-diskswap",
       "source_order": 4818704,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3772"
+    },
+    {
+      "entry": 4818768,
+      "method": "00498750",
+      "body_bytes": 5,
+      "body_sha256": "f4c6d7ae520f88aecb3ea65952e885437fa4a6ce4b5c3439a161d1c5d8e42863",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "379d09f1f223152c4910467bafdec001cd9a948b0d5d8362212da7a5dccd9ce1",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Request_Disk@DiskSwap@@UAE_NW4DiskID@@@Z",
+      "symbol_prefix": "?Request_Disk@DiskSwap@@UAE_NW4DiskID@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "61eb59680dfe54150801aa05a3098136342e60acad929d0c20cc2cfb61f3c2f2",
+      "source": "rebuild/src/diskswap.cpp",
+      "population": "rebuild-diskswap",
+      "source_order": 4818768,
       "source_quality_family": "rebuild",
       "bound_population": "population-3772"
     }
