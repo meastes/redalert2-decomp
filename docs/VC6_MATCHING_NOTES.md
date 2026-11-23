@@ -4311,3 +4311,89 @@ Found in the rebuild (lane F36, high):
   constructor, declaration orders and extra uses did not move the three.
 - order_search.py needs a units.json row: for a no-row function add an image-derived row in the working copy, run it,
   and restore units.json.
+
+## A record fetched into its own pointer against a second pointer; a new twin text is pulled before anything else; one reference more or less decides who gets the callee-saved register (found in the rebuild (lane F33, high))
+
+Found in the rebuild (lane F33, high):
+
+- Check the reference pull first. Of the lane's exact rows, three were on the first compile of a twin text
+  ra2-decomp had matched the same night: map Repair_Bridge 0x555A60 (2,743 B, a group-A row that was exact in main
+  only with coined helpers), cell Reduce_Tiberium 0x475DB0 (556 B) and, with RA2's own statements kept,
+  netdlg2 Net2SetHouseAndColor 0x5BCCF0 (403 B). The twin list a pull prints covers only rows that have a
+  tail_buckets entry: read the twin project's log since the last map as well (Reduce_Tiberium was not on the list).
+  A twin's commit can also change a helper's form: the one that matched Planning_Draw_Techno's twin gave the
+  midpoint helper the early return that three held routes here had needed.
+- `WinData * record = NULL; getPointer(window, &record); EditRecord * data = (EditRecord *)record;` is not the
+  same code as the twin's `WinData * data = NULL; getPointer(window, &data);`. With the pointer's own address
+  taken, VC6 copies a member through a scratch register before pushing it (`mov ecx, eax; push ecx`), keeps a
+  decremented member in a callee-saved register beside the pushed copy, and steps the scratch rotation of the
+  pushes after it. OwnerDraw::New_Edit_Proc 0x5F22A0 (2,215 B) was three such sites from the image, nine forms
+  of the argument expressions changed nothing, and the twin's declaration alone made it exact. A view struct
+  cast from a fetched record is a second pointer: name the record's fields in its own struct instead.
+- A header change that only names members (three members where a reserved array stood) still moves the
+  declaration count: wonline Encode_Game_Options turned, and ownrdraw Trackbar_Proc came back. Probe the turned
+  row on both header states with forward declarations at the end of the changed header (lane tool
+  build/r/f33/cs.py) before parking it; run countsens after, not before, the guard changes of the same tip.
+- Which of two values takes the one callee-saved register left is a matter of single references. In
+  Net2SetHouseAndColor the image keeps `who` in ebp through the search loop and loads `house` into ebp after it;
+  ours gave ebp to `house` for the whole function and read `who` from its home slot inside the loop. Replacing
+  any one of house's three references (probe) gave the image's choice, so the two weights were one reference
+  apart; the twin's `node` local naming the slot inside the loop as well (a looked-up value, flagged) made the
+  function exact. Read the first instructions after the prologue: `mov [home], edx; mov ebp, ecx` against
+  `mov ebp, edx; mov [home], ecx` says which parameter lost.
+- The same question is open on three rows where nothing but the callee-saved registers differ, and none of them
+  is a count (dead locals and expressions leave them): netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0 (61 bytes: message and
+  lparam exchange ebx and edi; the pair turns when lparam is not passed in the set-up case's call, and with the
+  order of the two point assignments, but not with one to four more reads of either), scenario
+  Wait_For_Players_To_Load 0x65C520 (77 bytes: i, name and the held conversion one step round esi, edi, ebp) and
+  ownrdraw Owner_Button_Proc 0x5F0320 (the previous procedure and the origin's width and height one step round).
+  Adding uses at the top of a function does not move such a pair; removing the one use that keeps a value alive
+  across a long block does.
+- A pip loop's sum whose two operands are loads commutes with the references to the local's member, not with the
+  spelling of the sum: TechnoClass::Draw_Health_Bar 0x6C3F00 loads `xpoint.Y` before `offset.Y` only when
+  `offset.Y` is referred to by member somewhere ahead of the single Point2D sum (a folding `offset.Y += 0`
+  anywhere before the loop, or Yuri's Revenge's `offset.Y += delta`). The archive's two member statements for the
+  point are such references and are its text for this loop.
+- An operand of a row sum that comes out of an inline of its own with control flow is evaluated first and
+  subtracted first; the same value as an if/else local of the function is a leaf and is ordered after the globals;
+  as a conditional expression it is moved below a later test. SidebarClass::AI 0x67DC90 has all three signs
+  (the side's extra subtracted before StripTop, the flag worked out before Scroll's TopIndex test) and is exact
+  only with such a helper, which no reference has (held). The term order written in the source sum moves nothing.
+- A `default: return(0);` inside an inner switch keeps that switch's own epilogue; `break` shares the outer one
+  (eight instructions in MPlayer_Host_Dialog_Proc). A value pushed from a global where a draft passes a constant, or a
+  flag passed in cl to a function a draft calls through its no-argument wrapper, are read off the call sites
+  before any register work.
+
+## A twin's helper forms come with its function text; every text of a unit carrying one source line is one function body; a count window can come back with evidenced forms (found in the rebuild (lane F37, high))
+
+Found in the rebuild (lane F37, high), in planmgr:
+
+- ra2-decomp's new planning matches name the helper forms they rest on ("real forms"). The node search takes the
+  coordinate before the id (`Planning_Find_Node(int house, Coord coord, int id)`, by-value `Coord`, `Lead_At(coord)`,
+  `Get_Id()`): the same register convention, another argument evaluation order at every caller, and small enough to
+  be expanded where the image expands it. The tree's `CoordStruct` form with its `Coord(coord)` copy was too large for
+  that, which is why main needed an inline copy of the search. When a twin text lands in a later commit, read the
+  commit's other hunks first: the helper changes are the content.
+- With the twin's search, `Lead_At` (`Coord c; c = Lead_Coord(); return c == coord;`) and `Planning_Remove_Node`
+  (`next->Rebuild()`, `Member_Owner`), Planning_Update 0x614010, parked as "exact form, count-sensitive" since lane
+  F27, is exact again (countsens.py took the guard off). The window moved with the search or Remove_Node form, not with
+  `Lead_At` alone and not with the prototype that moved. Evidenced forms are not picked for a window, but each one that
+  lands is a reason to run countsens.py on the unit.
+- Planning_Execute 0x614BA0 went from 516 to 272 bytes in the twin's whole text and is exact in two diagnostic states:
+  (a) the selected node stored directly plus one to six empty inline sites anywhere between `Commit_Plans` and the
+  delete arm's search (after the search or in the last arm they do not help); (b) the text as it stands with
+  ra2-decomp's `Member_Owner` (`return member->Get_Owner();`). Form (b) costs Planning_Add_Order and
+  Planning_Connect_Selection (their last decided site expands where the image calls it), so the family's budget is
+  still one or two pending sites short somewhere the three functions share; `Member_Owner` with a named local is the
+  heavier form the other rows need.
+- Every `StringTable::LoadString` in the unit's code (15 functions, 20 sites) pushes the same file and line
+  (PlanMgr.cpp, 3231). `__LINE__` is the line of one function body, so all of them are expansions of one function,
+  Planning_Message 0x616FB0, and ra2-decomp's `LoadString` written in place inside its refusal helper cannot be the
+  author's text even though it compiles to the same out-of-line bytes. As a budget form it differs: in place the
+  message body is charged to the root (Planning_Add_Order's twin text is then exact with the tree's `Member_Owner`,
+  and Planning_Update loses its third refused site), nested it is charged to the helper's share. A line number shared
+  by several call sites is direct evidence of the nesting; check it before adopting an in-place form from a reference.
+- Tool notes: build/r/f37/tryall.py compares every row of a unit for a set of substituted bodies and reports the rows
+  that change; pair2.py pairs the unit's functions with the twin's by size sequence and lists the pairs whose
+  statement skeletons differ (75 of 214 in planmgr; most are names and literals, a dozen are real form differences:
+  Member_Owner, Order_Kind, Event_Result, Refuse_Order by reference, Selection_Node_State, the draw helpers).

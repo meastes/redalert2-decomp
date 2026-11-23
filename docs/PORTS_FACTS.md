@@ -147,6 +147,14 @@ platform layer. It earns no exact-match credit.
   and 13; a unit leaving a factory diagonally used a track past the table's end. The full tables
   are now loaded from the player's gamemd.exe. Checked: ctests `yr-native-campaign-allied/-soviet`
   now fail on any off-map line, and pass.
+- Fixed 2026-11-22 (lane N30), from the user's iPhone report (Red Alert 2, Allied "Operation:
+  Hail to the Chief": a crash when a vehicle took the veteran crate). The app's log on the Duo had
+  the stack: a bad memory access in the sound system (Audio_List_Remove from Audio_Events_Update).
+  When the sample cache cannot load a new sound, the sound system stops the sounds of a weaker
+  sound type; the recovered lookup of that type (Audio_Find_Listed) subtracted a 32-bit build's
+  field offset, so natively it handed back an address 36 bytes off and unlinking it faulted. A
+  native fixup takes the native offset. Checked: ctest `native-audio-check` (fails on the old
+  build). Needs a user check on the device.
 - Stand-in code (clearly labelled, not exact) for functions not recovered yet, reached in play:
   ctest `yr-native-standins` (lane Y16) has a Magnetron, a Prism Tank and a Mirage Tank fire on
   enemy Apocalypse tanks, makes sonic and magnetron waves, sends a spy into a power plant and

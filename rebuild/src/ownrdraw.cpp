@@ -9521,105 +9521,104 @@ void __fastcall Draw_Score_Top(Surface * surface, Rect const & window); // RA2: 
 void __fastcall Draw_Sidebar_Art(Surface * surface, Rect const & window, bool tabs); // RA2: 0x6F4620 (txtlabel2.cpp)
 ConvertClass * __cdecl Get_Dialog_Drawer(void); // RA2: 0x6F2230 (txtlabel2.cpp)
 
-namespace OwnerDraw { // RA2: as above
 
-static inline void __cdecl Lookup(unsigned int const &key, WinData *&record) // RA2: as above
-{
-    Control_Table.getPointer(key, &record); // RA2: as above
-}
-}
-
-#ifdef RA2_NON_MATCHING // not exact: 536 bytes differ: Is_Chat_Dialog's lookup calls keyHash (0x602020) where the executable expands it; the root is a little short of IL for that budget (two probe statements flip it), TibSun's Draw_Dialog_Back forms tried; Art_Popup_Back* are txtlabel2's ArtPopupBack* (globals.h declares the other spelling)
+#ifdef RA2_NON_MATCHING // not exact: 536 bytes differ: ra2-decomp's twin text (OwnerDraw::Paint, Yuri's Revenge 0x00621E90) with RA2's popup art; Is_Chat_Dialog's lookup calls keyHash (0x602020) where the executable expands it: the root is a little short of IL for that budget (two probe statements flip it; the twin's named position and palette do not), and three art pointers are unbound until the row is exact (lanes O5, F33)
 void __fastcall Dialog_On_WM_PAINT(HWND window) // RA2: as above
 {
-    using namespace OwnerDraw;
-    ConvertClass *drawer = 0; // RA2: as above
-    unsigned int key = (unsigned int)window; // RA2: as above
-    WinData *record = 0; // RA2: as above
-    Lookup(key, record); // RA2: as above
-    WinData *const &found = record; // RA2: as above
-    if (found) { // RA2: as above
-        RECT client;
-        GetClientRect(window, &client);
-        RECT screen; // RA2: as above
-        Get_Display_Rect(window, &screen); // RA2: as above
-        Rect full; // RA2: as above
-        full.Set(screen.left, screen.top, screen.right - screen.left, screen.bottom - screen.top); // RA2: as above
-        if (full.Width <= client.right) { // RA2: as above
-            full.Width = client.right; // RA2: as above
-        }
-        if (full.Height <= client.bottom) { // RA2: as above
-            full.Height = client.bottom; // RA2: as above
-        }
-        if (record->SkipCheckPaint == 0) { // RA2: as above
-            Surface *surface = record->Back; // RA2: as above
-            if (!surface) {
-                surface = new BSurface(client.right, client.bottom, 2); // RA2: as above
-                record->Back = surface; // RA2: as above
-                Surface_Count++; // RA2: as above
-            }
-            if (record->ButtonKind == 1) { // RA2: as above
-                if (Session.Is_In_Game()) { // RA2: as above
-					Draw_Sidebar_Art(surface, full, false); // RA2: as above
-                } else {
-					if (Is_Interface_Art_Loaded()) { // RA2: as above
-                        Draw_Interface_Frame(surface, full, !record->IsWaiting); // RA2: as above
-                        drawer = (ConvertClass *)Control_Drawer(window); // RA2: as above
-						ShapeSet * shape640 = (ShapeSet *)Control_Shape_640(window); // RA2: as above
-						ShapeSet * shape = (ShapeSet *)Control_Shape(window); // RA2: as above
-						Draw_Dialog_Backdrop(surface, full, drawer, shape640, shape); // RA2: as above
-                        if (record->IsLobbyArt) { // RA2: as above
-							Draw_Slide_Top(surface, full); // RA2: as above
-                        }
-                        if (record->IsLobbyFrame) { // RA2: as above
-							Draw_Slide_MP_Button(surface, full); // RA2: as above
-                        }
-                        if (Is_Chat_Dialog(window)) { // RA2: as above
-							Draw_Score_Top(surface, full); // RA2: as above
-                        }
-                    }
-                }
-            } else if (record->ButtonKind == 2) { // RA2: as above
-                Rect to = full; // RA2: as above
-                to.X = 0; // RA2: as above
-                to.Y = 0; // RA2: as above
-                surface->Blit_From(to, *AlternateSurface, full, false, true); // RA2: as above
-                void *shape; // RA2: as above
-                if (Session.Is_In_Game()) { // RA2: as above
-                    if (Scen->IsGDI) { // RA2: as above
-                        shape = Art_Popup_Back_Allied; // RA2: as above
-                    } else {
-                        shape = Art_Popup_Back_Soviet; // RA2: as above
-                    }
-                } else {
-                    shape = Art_Popup_Back; // RA2: as above
-                }
-				drawer = Get_Dialog_Drawer(); // RA2: as above
-                Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
-            } else {
-                Surface *back = SurfaceCache.GetSurface(OwnerDraw::Dialog_Back_Name, 0); // RA2: as above
-                Rect to = full; // RA2: as above
-                Rect from = full; // RA2: as above
-                to.X -= screen.left; // RA2: as above
-                to.Y -= screen.top; // RA2: as above
-                int width = back->Get_Width(); // RA2: as above
-                int height = back->Get_Height(); // RA2: as above
-                if (VideoModeWidth > width) { // RA2: as above
-                    from.X -= (VideoModeWidth - width) / 2; // RA2: as above
-                }
-                if (VideoModeHeight > height) { // RA2: as above
-                    from.Y -= (VideoModeHeight - height) / 2; // RA2: as above
-                }
-                surface->Blit_From(to, *back, from, false, true); // RA2: as above
-            }
-            if (surface) { // RA2: as above
-                Rect from = full; // RA2: as above
-                from.X -= screen.left; // RA2: as above
-                from.Y -= screen.top; // RA2: as above
-                AlternateSurface->Blit_From(full, *surface, from, false, true); // RA2: as above
-            }
-        }
-    }
+	using namespace OwnerDraw;
+	WinData * entry = Get_Record(window);
+	if (entry == NULL) {
+		return;
+	}
+	RECT client;
+	GetClientRect(window, &client);
+
+	RECT screen;
+	Get_Display_Rect(window, &screen);
+
+	Rect full;
+	full.Set(screen.left, screen.top, screen.right - screen.left, screen.bottom - screen.top);
+	if (full.Width <= client.right) {
+		full.Width = client.right;
+	}
+	if (full.Height <= client.bottom) {
+		full.Height = client.bottom;
+	}
+
+	if (entry->SkipCheckPaint == 0) {
+		Surface * surface = entry->Back;
+		if (!surface) {
+			surface = new BSurface(client.right, client.bottom, 2);
+			entry->Back = surface;
+			Surface_Count++;
+		}
+
+		int mode = entry->ButtonKind;
+		if (mode == 1) {
+			if (Session.Is_In_Game()) {
+				Draw_Sidebar_Art(surface, full, false);
+			} else if (Is_Interface_Art_Loaded()) {
+				Draw_Interface_Frame(surface, full, !entry->IsWaiting);
+
+				ConvertClass * drawer = (ConvertClass *)Control_Drawer(window);
+				ShapeSet * shape640 = (ShapeSet *)Control_Shape_640(window);
+				ShapeSet * shape = (ShapeSet *)Control_Shape(window);
+				Draw_Dialog_Backdrop(surface, full, drawer, shape640, shape);
+
+				if (entry->IsLobbyArt) {
+					Draw_Slide_Top(surface, full);
+				}
+				if (entry->IsLobbyFrame) {
+					Draw_Slide_MP_Button(surface, full);
+				}
+				if (Is_Chat_Dialog(window)) {
+					Draw_Score_Top(surface, full);
+				}
+			}
+		} else if (mode == 2) {
+			Rect to = full;
+			to.X = 0;
+			to.Y = 0;
+			surface->Blit_From(to, *AlternateSurface, full, false, true);
+
+			void * shape;
+			if (Session.Is_In_Game()) {
+				if (Scen->IsGDI) {
+					shape = Art_Popup_Back_Allied;
+				} else {
+					shape = Art_Popup_Back_Soviet;
+				}
+			} else {
+				shape = Art_Popup_Back;
+			}
+			ConvertClass * drawer = Get_Dialog_Drawer();
+			Draw_Shape(*surface, *drawer, (ShapeSet const *)shape, 0, Point2D(0, 0), to, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0));
+		} else {
+			Surface * back = SurfaceCache.GetSurface(OwnerDraw::Dialog_Back_Name, 0);
+
+			Rect to = full;
+			Rect from = full;
+			to.X -= screen.left;
+			to.Y -= screen.top;
+
+			int width = back->Get_Width();
+			int height = back->Get_Height();
+			if (VideoModeWidth > width) {
+				from.X += (VideoModeWidth - width) / -2;
+			}
+			if (VideoModeHeight > height) {
+				from.Y += (VideoModeHeight - height) / -2;
+			}
+			surface->Blit_From(to, *back, from, false, true);
+		}
+
+		if (surface) {
+			Rect from = full;
+			from.X -= screen.left;
+			from.Y -= screen.top;
+			AlternateSurface->Blit_From(full, *surface, from, false, true);
+		}
+	}
 }
 #endif
 

@@ -129014,7 +129014,7 @@
     "entry": "00615fb0",
     "body": 187,
     "padding": 5,
-    "symbol": "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z",
+    "symbol": "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HVCoord@@H@Z",
     "main_symbol": "?Planning_Find_Node@@YIPAVPlanningNodeClass@@HHUCoordStruct@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
    },
@@ -130238,14 +130238,7 @@
    "_$S193": "00a76660",
    "??_C@_0BN@GEHP@MSG?3PlanningModeInvalidNodeX?$AA@": "007ebeec"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "00614010": {
-    "header": "none: planmgr.cpp's own definition of Planning_Convert_Loop_Moves 0x616A50 (ra2-decomp's twin text, src/planmgr.cpp:2192 FUN_00639CB0, with the twin's Node_At form), which lands exact (lane F27, 2026-11-22; owner ruling: land Convert_Loop_Moves, park Planning_Update under DECISIONS 91)",
-    "note": "lane O40 probe 2026-11-22: (a) the displacing change is evidenced content (the twin's text); (b)(i) Planning_Update uses nothing Convert_Loop_Moves adds (any definition of it flips Planning_Update the same way, lane F27); (ii) windows above; (c) the unchanged text was exact while the neighbour was undefined. The difference is one load-order tie (4 bytes: mov eax,[esp+0x10] and mov ecx,[esp+0x1c] exchanged)",
-    "windows": "probe declarations after Planning_Update's declaration in planning.h, Convert_Loop_Moves defined: +8 +12 exact; +1 +2 +3 +4 +6 +16 off"
-   }
-  }
+  "partial_ok": true
  },
  "taction": {
   "core": [
@@ -148050,6 +148043,15 @@
     "symbol": "?Select_Type@@YIXPBD@Z",
     "main_symbol": "?Unknown_006F71E0@@YIXPBD@Z",
     "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f7360",
+    "body": 682,
+    "padding": 6,
+    "symbol": "?Command_Type_Select@@YIXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "006f7610",

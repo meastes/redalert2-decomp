@@ -198,6 +198,27 @@ add_executable(native-core-check tests/core_check.cpp "${RA2_NATIVE_GEN}/fast_ma
 target_link_libraries(native-core-check PRIVATE ra2_recovered)
 target_link_options(native-core-check PRIVATE -Wl,-dead_strip)
 add_test(NAME native-core-check COMMAND native-core-check)
+# 5b. The audio event library's list lookups (lane N30: Audio_Find_Listed's VC6 BucketNode
+#     offset crashed the sacrifice step on the iPhone; tests/audio_check.cpp). Built from the
+#     generated units of audevent.cpp and audlists.cpp only (the archive would pull in units
+#     whose initialisers need the whole game); after dead stripping only the list functions
+#     stay, and the units' other references are left to the loader and never bound.
+set(ra2_audio_check_units "")
+foreach(ra2_unit IN LISTS RA2_NATIVE_UNITS)
+  file(STRINGS "${ra2_unit}" ra2_unit_line LIMIT_INPUT 1024
+       REGEX "^#line 1 \".*/src/recovered/(audevent|audlists)\\.cpp\"$")
+  if(ra2_unit_line)
+    list(APPEND ra2_audio_check_units "${ra2_unit}")
+  endif()
+endforeach()
+list(LENGTH ra2_audio_check_units ra2_audio_check_count)
+if(NOT ra2_audio_check_count EQUAL 2)
+  message(FATAL_ERROR "native-audio-check: the audevent.cpp and audlists.cpp units were not found (${ra2_audio_check_units})")
+endif()
+add_executable(native-audio-check tests/audio_check.cpp ${ra2_audio_check_units})
+target_link_libraries(native-audio-check PRIVATE ra2_dialect)
+target_link_options(native-audio-check PRIVATE -Wl,-dead_strip -Wl,-undefined,dynamic_lookup)
+add_test(NAME native-audio-check COMMAND native-audio-check)
 # Mods (lane C16): the port's read layers (a mod ahead of the write folder and the installation;
 # merged listings; writes never into the mod) in a made-up installation (tests/mod_layers.cpp).
 if(NOT WIN32)

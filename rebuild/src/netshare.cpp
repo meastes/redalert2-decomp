@@ -78,7 +78,7 @@ void Wol_Handle_Start_Reminder(void); // RA2: 0x0075C980, the joiner is told to 
 void Wol_Reset_Ready(void); // RA2: 0x0075CA00, sends message 0x4DC to the ready button (the counterpart of Join_Lobby_Reset_Ready)
 
 bool __fastcall Local_User_Is_Channel_Owner(void); // RA2: 0x0074D960, the local user owns the channel (WOL)
-void __fastcall Set_Connection_State(char const * sender, char const * receiver, int state); // RA2: 0x0074E1F0, the sender reports its connection state to the receiver (WOL)
+void __fastcall Register_Connection_State(char const * sender, char const * receiver, int state); // RA2: 0x0074E1F0, the sender reports its connection state to the receiver (WOL)
 void __fastcall Store_Player_Port(char const * name, unsigned short port); // RA2: 0x0074E2D0, the port a player reported (WOL)
 void __fastcall Leave_Channel_With_Message(HWND dialog); // RA2: 0x0074C5F0, the joiner has no slot any more (WOL)
 void __fastcall Store_User_Ping(char const * name, int ping); // RA2: 0x0075B110, a user's ping (WOL)
@@ -99,6 +99,7 @@ int __fastcall Player_Side_Combo_ID(int player); // RA2: 0x004D1350
 int __fastcall Player_Color_Combo_ID(int player); // RA2: 0x004D1CB0
 void __fastcall Select_Player_Side(HWND dialog, int player); // RA2: 0x004D1820
 void __fastcall Select_Player_Color(HWND dialog, int player); // RA2: 0x004D23C0
+void __fastcall Lock_Slots(HWND dialog, int slot); // RA2: defined below at 005C9DA0.
 void __fastcall Update_Slot_Controls(HWND dialog, int slot, bool flag); // RA2: 0x005C9B90
 void __fastcall Show_Observer_Slot_Controls(HWND dialog); // RA2: 0x005CAFD0, defined below
 void __fastcall Change_Slot_Count(HWND dialog, int old_count, int count, MultiplayerGameMode * mode); // RA2: 0x005CB300
@@ -1052,7 +1053,7 @@ int __fastcall Get_Slot_Control_Id(int slot); // RA2: 0x005C97A0, as above
 /// <param name="name">Name of the player the options came from.</param>
 /// <returns>bool; Did the scenario change?</returns>
 bool __fastcall Net2DecodeGameopt(char const * text, char const * sender); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005c3ff0 has no row); against the frozen image bound (image_bounds.csv) 7781 bytes differ, instruction score 82.12 (shape 96.83; 65.10 before lane O22), 2026-11-22
+#ifdef RA2_NON_MATCHING // not exact: 7768 bytes differ at 005c3ff0 (8191 body bytes, image_bounds.csv).
 /*
  * If the host is forcing a color reassignment, then this flag will be true. It is set when
  * the host accepts the game options and cleared once the assignment has been processed, and
@@ -1080,7 +1081,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 				if (_stricmp(sender, Wide_To_Narrow(Session.Slots[i]->Name)) == 0) { // RA2: as above
 					char receiver[64]; // RA2: as above
 					strcpy(receiver, copy + 3); // RA2: as above
-					Set_Connection_State(sender, receiver, copy[2] - '0'); // RA2: as above
+					Register_Connection_State(sender, receiver, copy[2] - '0'); // RA2: as above
 				}
 			}
 			free(copy); // RA2: as above
@@ -1286,12 +1287,7 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 				}
 				slot = Find_First_Player_Slot(); // RA2: as above
 				Session.LocalSlot = slot; // RA2: as above
-				for (int i = 0; i < 8; i++) { // RA2: as above
-					EnableWindow(GetDlgItem(dialog, Get_Slot_Control_Id(i)), FALSE); // RA2: as above
-					Update_Slot_Controls(dialog, i, false); // RA2: as above
-				}
-				EnableWindow(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), TRUE); // RA2: as above
-				Update_Slot_Controls(dialog, slot, true); // RA2: as above
+				Lock_Slots(dialog, slot); // RA2: enable the new local slot and disable the other controls.
 				Select_Player_Side(dialog, Session.LocalSlot); // RA2: as above
 				Select_Player_Color(dialog, Session.LocalSlot); // RA2: as above
 			}
@@ -1492,9 +1488,8 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 		mode->UnfixAlliances(); // RA2: as above
 	}
 	HWND dialog = GameoptWindow(); // RA2: as above
-	HWND item = GetDlgItem(dialog, 1772); // RA2: a looked-up value: the original reads the control before the text (main's Fill_Options_Dialog reads this control the same way)
-	SendMessageA(item, OD_SETTEXTW, 0, (LPARAM)mode->UIName.text()); // RA2: as above
-	SendMessageA(GetDlgItem(dialog, IDC_SCENARIONAME), OD_SETTEXTW, 0, (LPARAM)Session.Options.ScenarioDescription); // RA2: as above
+	Set_Item_Text(dialog, mode); // RA2: the verified game-mode label function at 005C3450.
+	Set_Skirmish_Dialog_Text(dialog); // RA2: the verified scenario label function at 005C34B0.
 	Scen->Scenario = -1; // RA2: as above
 	Frame = 0; // RA2: as above
 	Session.CommProtocol = DEFAULT_COMM_PROTOCOL; // RA2: restore the default protocol after selecting a scenario
@@ -1680,19 +1675,14 @@ bool __fastcall Net2DecodeGameopt(char const * text, char const * sender) // RA2
 	if (!same_scenario || changed) { // RA2: as above
 		int result; // RA2: as above
 		if (g_pChat != NULL) { // RA2: as above
-			result = GetPlayerAccepted(Wstring(0)); // RA2: as above
+			result = GetPlayerAccepted(NULL); // RA2: as above
 		} else {
 			result = Net2GetAccept(0); // RA2: as above
 		}
-		Session.IsStartReminded = false; // RA2: as above
-		if (g_pChat != NULL) { // RA2: as above
-			Wol_Reset_Ready(); // RA2: as above
-		} else {
-			Join_Lobby_Reset_Ready(); // RA2: as above
-		}
+		Handle_Reset_Ready(); // RA2: the settings change clears the reminder and updates the active lobby.
 		if (result == 1) { // RA2: as above
 			if (g_pChat != NULL) { // RA2: as above
-				SetPlayerAccepted(Wstring(0), 0); // RA2: as above
+				SetPlayerAccepted(NULL, 0); // RA2: as above
 			} else {
 				Net2SetAccept(0, 0); // RA2: as above
 			}

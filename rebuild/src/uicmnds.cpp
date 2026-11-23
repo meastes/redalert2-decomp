@@ -918,7 +918,6 @@ void __fastcall Select_Type(char const * name)
 	AllowVoice = voice;
 }
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006f7360 has no row); against main's 682-byte extent 839 bytes differ, ours 896 (inline_call: we expand Is_Owned_Active, the original calls it out of line), main: best 37.13
 bool __fastcall Matches_Any_Name(TechnoClass * techno, DynamicVectorClass<char const *> const & names); // RA2: defined below
 DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void); // RA2: defined below
 
@@ -926,6 +925,13 @@ DynamicVectorClass<char const *> * Collect_Selected_Type_Names(void); // RA2: de
 /// Selects every object of the selected kinds: those on the screen, or on the whole map when the screen holds none
 /// that is not already selected, or when the last selection by type reached over the map.
 /// </summary>
+static bool __fastcall Named_Selection_Test(TechnoClass * techno, int context)
+{
+	bool selectable = Matches_Any_Name(techno, *(DynamicVectorClass<char const *> *)context);
+	bool selected = techno->IsSelected;
+	return selectable && !selected;
+}
+
 void __fastcall Command_Type_Select(void)
 {
 	wchar_t text[256];
@@ -942,15 +948,7 @@ void __fastcall Command_Type_Select(void)
 		list = Collect_Technos((TechnoTest)Is_Owned_Active, 0);
 	} else {
 		list = Collect_Visible_Technos((TechnoTest)Is_Owned_Active, 0);
-		int count = list->Count();
-		int index;
-		for (index = 0; index < count; index++) {
-			TechnoClass * techno = (*list)[index];
-			if (Matches_Any_Name(techno, *names) && !techno->IsSelected) {
-				break;
-			}
-		}
-		if (index >= count) {
+		if (!Any_Techno_Passes(list, Named_Selection_Test, (int)names)) {
 			SelectAcrossMap = true;
 		}
 		if (SelectAcrossMap) {
@@ -958,20 +956,14 @@ void __fastcall Command_Type_Select(void)
 			list = Collect_Technos((TechnoTest)Is_Owned_Active, 0);
 		}
 	}
-	int count = list->Count();
-	for (int index = 0; index < count; index++) {
-		TechnoClass * techno = (*list)[index];
-		if (Matches_Any_Name(techno, *names)) {
-			techno->Select();
-		}
-	}
+	For_Each_Techno_If(list, (TechnoTest)Matches_Any_Name, Select_Techno, (int)names, 0); // RA2: as Select_All_Combatants selects its list (the Yuri's Revenge twin writes the loop out)
 	Get_Selection_Scope_Text(text);
 	Show_Player_Message(text, -1);
-	Set_Type_Select_Mode(2);
+	TypeSelectMode = 2;
+	AttackMoveMode = false;
 	delete names;
 	delete list;
 }
-#endif
 
 /// <summary>
 /// Whether the object is of any of the kinds in the list.

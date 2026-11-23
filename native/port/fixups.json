@@ -940,6 +940,13 @@
    "verified": true
   },
   {
+   "source": "src/recovered/audevent.cpp",
+   "old": "                return (char *)node - 0xa4;\n",
+   "new": "                return (char *)node - __builtin_offsetof(AudioEventType, BucketNode);   // NATIVE: was 0xa4 (VC6 offset of BucketNode)\n",
+   "why": "Audio_Find_Listed 0x00404E00 returns the event type of the first node on Audio_Priority_Lists by subtracting BucketNode's VC6 offset (0xA4); natively BucketNode is at offsetof(AudioEventType, BucketNode) (0xC8), so the type pointer was 0x24 bytes late and Audio_Events_Update's sacrifice step (stopping a weaker type's events when the sample bank cannot load a new sound) unlinked a garbage node and faulted in Audio_List_Remove (lane N30: the user's iPhone crash in Hail to the Chief, a veteran crate's promotion sounds with a full bank). Same meaning.",
+   "verified": true
+  },
+  {
    "source": "src/recovered/audcache.cpp",
    "old": "    bank->Pieces = Audio_Pool_Create(bytes / (block + 0x1c), block + 0x1c);\n    bank->Entries = Audio_Pool_Create(entries, 100);\n",
    "new": "    bank->Pieces = Audio_Pool_Create(bytes / (block + (int)sizeof(AudioSourceInfo) + 4), block + (int)sizeof(AudioSourceInfo) + 4);   // NATIVE: was block + 0x1c\n    bank->Entries = Audio_Pool_Create(entries, (int)sizeof(AudioBankEntry));   // NATIVE: was 100\n",

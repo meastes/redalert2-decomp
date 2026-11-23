@@ -376,8 +376,9 @@ Rect __fastcall Planning_Centered_Rect(Point2D center, int size) // RA2: 0x00611
 
 bool PlanningNodeClass::Lead_At(Coord coord) // RA2: 0x00611310
 {
-	Coord c = Planning_Event_Coord(*PlanningMembers[0]->Packet); // RA2: as above
-	return c.X == coord.X && c.Y == coord.Y && c.Z == coord.Z; // RA2: as above
+	Coord c; // RA2: as above
+	c = Lead_Coord(); // RA2: as above
+	return c == coord; // RA2: as above
 }
 
 Rect PlanningNodeClass::Lead_Rect(void) // RA2: 0x00611360
@@ -1271,7 +1272,6 @@ void __cdecl Planning_Reset_State(void) // RA2: 0x00613E50; deletes every token 
 	memset(PlanningHelpCounts, 0, sizeof(PlanningHelpCounts)); // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; Planning_Convert_Loop_Moves 0x616A50 defined, ra2-decomp's twin)
 void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: drops the steps whose target is gone and shows a pending refusal
 {
 	Planning_Hover(); // RA2: as above
@@ -1313,7 +1313,6 @@ void __fastcall Planning_Update(void) // RA2: 0x00614010; the per frame update: 
 	Reset_Planning_Command_Flags(); // RA2: as above
 	PlanningRefusalShown = false; // RA2: as above
 }
-#endif
 
 void __fastcall Planning_Free_Nodes(void) // RA2: 0x006142F0; runs the planned events still held and frees them
 {
@@ -1558,12 +1557,13 @@ void __fastcall Planning_Set_Pending_Refusal(int value); // RA2: 0x00617240
 PlanningTokenClass * __fastcall Planning_New_Token(TechnoClass * techno); // RA2: 0x00615820
 void __fastcall Planning_Close_Loop(TechnoClass * techno, PlanningNodeClass * node); // RA2: 0x006164E0
 void __fastcall Planning_Path_Add(TechnoClass * techno, PlanningNodeClass * node); // RA2: 0x00616350
-PlanningNodeClass * __fastcall Planning_Find_Node(int house, int id, CoordStruct coord); // RA2: 0x00615FB0
+PlanningNodeClass * __fastcall Planning_Find_Node(int house, Coord coord, int id); // RA2: 0x00615FB0
 void __fastcall Planning_Cancel_Token(TechnoClass * techno); // RA2: 0x006155E0
 bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningTokenClass * second); // RA2: 0x00616BD0
+void __fastcall Planning_Set_Selected_Node(PlanningNodeClass * node); // RA2: 0x00617E20
 
 void __fastcall Planning_Execute(EventClass * event); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 516 bytes differ by position (580 with the hand-expanded search, main's best 89.13); ra2-decomp's twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the selected node stored directly (one inline call site fewer, which lets Planning_New_Token expand inside Planning_Path_Add as the executable has it). Left, all inline budget: the executable expands Lead_At in the first Planning_Find_Node and Member_Owner and the Coord copy in the second where ours calls them. Scratch: 24 more plain call statements in the root would also expand Planning_New_Token; code-free spends and empty sites at the top do not help
+#ifdef RA2_NON_MATCHING // not exact: 272 bytes differ by position, ours 62 longer; ra2-decomp's whole twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the twin's node search (the coordinate before the id) and the twin's Lead_At. All inline budget, in the delete arm only: the executable expands Member_Owner inside the second Planning_Find_Node and calls Node_At, ours the reverse. Diagnostic (lane F37): with the selected node stored directly, one to six empty inline sites anywhere between Commit_Plans and the delete arm's search are exact byte for byte (after the search, or in the last arm: not); with the twin's `return member->Get_Owner();` Member_Owner the text as it stands is exact, but that form loses Planning_Add_Order and Planning_Connect_Selection
 void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries out a planning event: plan commit restarts the paths of the event's house, plan connect adds the node at the second target's coordinate to the first target's path, plan node delete takes the node at the target's coordinate out of every path (remembering the next node for the player); any other event is an order for its techno
 {
 	if (event->Type == EventClass::PLAN_COMMIT) { // RA2: as above
@@ -1574,7 +1574,7 @@ void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries
 			AbstractClass * object = event->Data.NavCom.Where.As_Abstract(); // RA2: as above
 			if (object) { // RA2: as above
 				Coord coord = object->As_Coord(); // RA2: as above
-				PlanningNodeClass * node = Planning_Find_Node(event->ID, -1, coord); // RA2: as above
+				PlanningNodeClass * node = Planning_Find_Node(event->ID, coord, -1); // RA2: as above
 				if (node) { // RA2: as above
 					Planning_Path_Add(techno, node); // RA2: as above
 				}
@@ -1585,7 +1585,7 @@ void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries
 		if (object) { // RA2: as above
 			Coord coord = object->As_Coord();
 			int house = event->ID;
-			PlanningNodeClass * node = Planning_Find_Node(house, -1, coord);
+			PlanningNodeClass * node = Planning_Find_Node(house, coord, -1);
 			if (node) {
 				TechnoClass * owner = node->Member_Owner(0);
 				int index = node->Index_In(owner);
@@ -1593,7 +1593,7 @@ void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries
 				PlanningNodeClass * next = token->Node_At(index + 1);
 				Planning_Remove_Node(node);
 				if (next && house == PlayerPtr->HeapID) {
-					PlanningSelectedNode = next;
+					Planning_Set_Selected_Node(next);
 				}
 			}
 		}
@@ -1820,19 +1820,15 @@ void __cdecl Planning_Clear_Drawn(void) // RA2: 0x00615BC0; empties the list of 
 	PlanningNodeClass::DrawnNodes.Clear(); // RA2: as above
 }
 
-// RA2: the node searches below are ra2-decomp's twin text
+// RA2: the node searches below are ra2-decomp's twin text (Find_Node_At as of d5cab17: a plain for loop)
 static inline PlanningNodeClass * Find_Node_At(DynamicVectorClass<PlanningNodeClass *> const & nodes, Point2D const & point)
 {
-	int count = nodes.Count(); // RA2: as above
-	int i = 0; // RA2: as above
-	if (count > 0) { // RA2: as above
-		do {
-			PlanningNodeClass * node = nodes[i]; // RA2: as above
-			if (node->Hit_Test(point.X, point.Y)) return node; // RA2: as above
-			++i; // RA2: as above
-		} while (i < count);
+	int count = nodes.Count();
+	for (int i = 0; i < count; ++i) {
+		PlanningNodeClass * node = nodes[i];
+		if (node->Hit_Test(point.X, point.Y)) return node;
 	}
-	return NULL; // RA2: as above
+	return NULL;
 }
 
 void __cdecl Planning_Hover(void) // RA2: 0x00615C00; the planning mode's mouse hover: the drawn node under the mouse, unless it is not the player's to use
@@ -1949,19 +1945,21 @@ bool __fastcall Planning_Can_Add(void) // RA2: 0x00615ED0; whether the selected 
 	return true; // RA2: as above
 }
 
-PlanningNodeClass * __fastcall Planning_Find_Node(int house, int id, CoordStruct coord) // RA2: 0x00615FB0; the planned node whose lead order aims at the coordinate (of an id and a house unless -1)
+PlanningNodeClass * __fastcall Planning_Find_Node(int house, Coord coord, int id) // RA2: 0x00615FB0; the planned node whose lead order aims at the coordinate (of an id and a house unless -1); ra2-decomp's twin text (Yuri's Revenge 0x00639210), the coordinate before the id
 {
-	int count = PlanningNodeClass::Unknown1.Count();
-	for (int i = 0; i < count; i++) {
-		PlanningNodeClass * node = PlanningNodeClass::Unknown1[i];
-		if (node->Lead_At(Coord(coord)) && (id == -1 || id == node->Id)) {
-			int owner = Planning_House(node->Member_Owner(0));
-			if (house == -1 || house == owner) {
-				return node;
+	int count = PlanningNodeClass::Unknown1.Count(); // RA2: as above
+	for (int i = 0; i < count; i++) { // RA2: as above
+		PlanningNodeClass * node = PlanningNodeClass::Unknown1[i]; // RA2: as above
+		if (node->Lead_At(coord)) { // RA2: as above
+			if (id == -1 || id == node->Get_Id()) { // RA2: as above
+				int owner = Planning_House(node->Member_Owner(0)); // RA2: as above
+				if (house == -1 || house == owner) { // RA2: as above
+					return node; // RA2: as above
+				}
 			}
 		}
 	}
-	return NULL;
+	return 0; // RA2: as above
 }
 
 
@@ -2104,22 +2102,15 @@ void __fastcall Planning_Copy_Members(PlanningNodeClass * node, PlanningNodeClas
 
 void __fastcall Planning_Remove_Node(PlanningNodeClass * node) // RA2: 0x00616960; takes a node out of the paths of its members
 {
-	if (node != NULL) { // RA2: as above
-		TechnoClass * owner = node->PlanningMembers[0]->Owner; // RA2: as above
-		PlanningNodeClass * next = node->Next_Node(owner); // RA2: as above
+	if (node) { // RA2: as above
+		PlanningNodeClass * next = node->Next_Node(node->Member_Owner(0)); // RA2: as above
 		for (int i = node->PlanningMembers.Count() - 1; i >= 0; i--) { // RA2: as above
-			TechnoClass * member = node->PlanningMembers[i]->Owner; // RA2: as above
-			PlanningTokenClass * token = member->Get_Planning_Token(); // RA2: as above
+			TechnoClass * owner = node->Member_Owner(i); // RA2: as above
+			PlanningTokenClass * token = owner->Get_Planning_Token(); // RA2: as above
 			token->Remove_Node_At(token->Node_Index(node)); // RA2: as above
 		}
-		if (next != NULL && next != node) { // RA2: as above
-			next->Clear(); // RA2: as above
-			int count = next->PlanningMembers.Count(); // RA2: as above
-			for (int j = 0; j < count; j++) { // RA2: as above
-				next->Assign_Branch(next->PlanningMembers[j]); // RA2: as above
-			}
-			next->Update_Active(); // RA2: as above
-			next->Queued = false; // RA2: as above
+		if (next && next != node) { // RA2: as above
+			next->Rebuild(); // RA2: as above
 		}
 	}
 }
@@ -2360,7 +2351,6 @@ void __fastcall Planning_Refuse_Command(int kind) // RA2: 0x00617250; drops the 
 void __cdecl Planning_Connect_Selection(void); // RA2: 0x00617AF0
 void __fastcall Planning_Set_Picked_Node(PlanningNodeClass * node); // RA2: 0x00617AD0
 PlanningNodeClass * __fastcall Planning_Get_Picked_Node(void); // RA2: 0x00617AE0
-void __fastcall Planning_Set_Selected_Node(PlanningNodeClass * node); // RA2: 0x00617E20
 void __cdecl Planning_Clear_Selected_Node(void); // RA2: 0x00617E30
 PlanningNodeClass * __fastcall Planning_Selected_Node(void); // RA2: 0x00617A00
 void __fastcall Planning_Draw_Node(PlanningNodeClass * node); // RA2: 0x00619420
@@ -2381,7 +2371,7 @@ Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, Abstra
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno); // RA2: 0x00618BB0
 
 bool __stdcall Planning_Left_Press(Point2D xy); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 847 bytes differ by position, ours 54 instructions longer; ra2-decomp's twin text (Yuri's Revenge 0x0063A5A0) in this tree's names, the parameter a Point2D as the twin has it. The twin's do-while Find_Node_At peels its first pass here where the executable has one loop. With Find_Node_At as a plain for loop (a form no reference has; variation_candidates.csv) 17 bytes in 8 instructions are left, calls, frame and registers the executable's. Those 17: in the three expanded Planning_Refuse copies the executable loads the pan value before pushing the controller argument (mov edx, 0x2000; push 0), as Planning_Refuse's own body does, where ours pushes first, and one return sets al before the register pops; an instruction scheduling difference no root statement form moved
+#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ by position, same size; ra2-decomp's twin text (Yuri's Revenge 0x0063A5A0) in this tree's names, the parameter a Point2D as the twin has it. With Find_Node_At as the plain for loop ra2-decomp has now (src/planmgr.cpp:1891 at d5cab17; its earlier do-while peeled the first pass here) 17 bytes in 8 instructions are left, calls, frame and registers the executable's. Those 17: in the three expanded Planning_Refuse copies the executable loads the pan value before pushing the controller argument (mov edx, 0x2000; push 0), as Planning_Refuse's own body does, where ours pushes first, and one return sets al before the register pops; an instruction scheduling difference no root statement form moved
 bool __stdcall Planning_Left_Press(Point2D xy) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot take; true when planning mode used the press (ra2-decomp's twin text, Yuri's Revenge 0x0063A5A0)
 {
 	if (!Planning_Is_Active()) return false;

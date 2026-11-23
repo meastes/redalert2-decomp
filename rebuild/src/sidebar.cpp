@@ -2388,7 +2388,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
  *   01/19/1995 JLB : Created.                                                                 *
  *   06/26/1995 JLB : Doesn't collapse sidebar when buildables removed.                        *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 1623 bytes differ against the image-derived bound 006802d0 (1732 B; ours 1536 B); the StageClass constructor now called as in the image (SmartPtr, ra2-decomp); the image expands Update_Column_Availability here: written with First_Used_Column() it expands (1421 bytes off, calls but one as the image) but 0x67CA50's own exact row then loses its zero register, so it stays called; main: best 62.52, tried 9 times (inline, order, frame)
+#ifdef RA2_NON_MATCHING // not exact: 1660 bytes differ by position against the image-derived bound 006802d0 (1732 B; ours 1472 B, the frame the image's): ra2-decomp's twin statements (the named type, id and last entry; BuildType's constructor clears IsAlt, sidebar.h). The image expands the plain member Update_Column_Availability here with its loop, first Update_Build_Buttons and the tab lookup, and calls the second Update_Build_Buttons and Select_Tab inside it; ours calls the member: it is over the plain-function limit by its shutter block (without that block, or declared inline, it expands and 10 to 16 instructions are left: the scratch registers of the old-position search); written with First_Used_Column() it expands but First_Used_Column is then called (327 bytes) and the member's own exact row is lost (lane F33, 2026-11-23)
 bool SidebarClass::StripClass::Recalc(void)
 {
 	int ok;
@@ -2427,9 +2427,11 @@ bool SidebarClass::StripClass::Recalc(void)
 		}
 
 		if (!ok) {
-			if (Buildables[index].Factory) {
-				OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::ABANDON, Buildables[index].BuildableType, Buildables[index].BuildableID, tech->Naval));
-				if (Buildables[index].BuildableType == RTTI_BUILDING || Buildables[index].BuildableType == RTTI_BUILDINGTYPE) {
+			if (Buildables[index].Factory != NULL) {
+				RTTIType object_type = Buildables[index].BuildableType;
+				int object_id = Buildables[index].BuildableID;
+				OutList.Add(EventClass(PlayerPtr->HeapID, EventClass::ABANDON, object_type, object_id, tech->Naval));
+				if (Buildables[index].BuildableType == RTTI_BUILDINGTYPE || Buildables[index].BuildableType == RTTI_BUILDING) {
 					Map.PendingObjectPtr = NULL;
 					Map.PendingObject = NULL;
 					Map.PendingHouse = HOUSE_NONE;
@@ -2462,14 +2464,15 @@ bool SidebarClass::StripClass::Recalc(void)
 			}
 			redraw = true;
 			scroll = true;
-			Buildables[BuildableCount-1].Factory = NULL;
-			Buildables[BuildableCount - 1].BuildableID = 0;
-			Buildables[BuildableCount - 1].BuildableType = RTTI_NONE;
-			Buildables[BuildableCount - 1].IsAlt = false;
-			Buildables[BuildableCount - 1].Unknown_10 = 0;
-			Buildables[BuildableCount - 1].Progress.Set_Rate(0);
-			Buildables[BuildableCount - 1].Progress.Set_Stage(0);
-			Buildables[BuildableCount - 1].FlashEndFrame = 0;
+			int last = BuildableCount - 1;
+			Buildables[last].Factory = NULL;
+			Buildables[last].BuildableID = 0;
+			Buildables[last].BuildableType = RTTI_NONE;
+			Buildables[last].IsAlt = 0;
+			Buildables[last].Unknown_10 = 0;
+			Buildables[last].Progress.Set_Stage(0);
+			Buildables[last].Progress.Set_Rate(0);
+			Buildables[last].FlashEndFrame = 0;
 			IsToRedraw = true;
 			BuildableCount--;
 			index--;
