@@ -650,6 +650,102 @@ void GScreenClass::AI(KeyNumType &, Point2D const & xy)
 }
 
 
+#include <string.h> // RA2: the color scheme library's key (palette.cpp), here where ra2-decomp's gscreen.cpp has it
+#include "hashstr.h" // RA2: as above
+
+
+/// <summary>
+/// Makes an empty name.
+/// </summary>
+HashString::HashString(void)
+{
+	Str[0] = '\0';
+}
+
+
+/// <summary>
+/// Makes a name from a string, in upper case.
+/// </summary>
+/// <param name="str">The name.</param>
+HashString::HashString(char const * str)
+{
+	strcpy(Str, str);
+	strupr(Str);
+}
+
+
+/// <summary>
+/// Copies a name.
+/// </summary>
+/// <param name="that">The name to copy.</param>
+HashString::HashString(HashString const & that)
+{
+	strcpy(Str, that.Str);
+}
+
+
+/// <summary>
+/// Is the name empty?
+/// </summary>
+/// <returns>bool; Is the name empty?</returns>
+bool HashString::operator ! (void) const
+{
+	return Str[0] == '\0';
+}
+
+
+/// <summary>
+/// Copies a name over this one.
+/// </summary>
+/// <param name="that">The name to copy.</param>
+/// <returns>HashString &; This name.</returns>
+HashString & HashString::operator = (HashString const & that)
+{
+	strcpy(Str, that.Str);
+	return *this;
+}
+
+
+/// <summary>
+/// Are the names the same?
+/// </summary>
+/// <param name="that">The other name.</param>
+/// <returns>bool; Are the names the same?</returns>
+bool HashString::operator == (HashString const & that)
+{
+	return strcmp(Str, that.Str) == 0;
+}
+
+
+/// <summary>
+/// Do the names differ?
+/// </summary>
+/// <param name="that">The other name.</param>
+/// <returns>bool; Do the names differ?</returns>
+bool HashString::operator != (HashString const & that)
+{
+	return strcmp(Str, that.Str) != 0;
+}
+
+
+/// <summary>
+/// Are the names the same? (RA2: both are const, so the comparison resolves to this function again and never
+/// returns, as in the executable.)
+/// </summary>
+bool operator == (HashString const & a, HashString const & b)
+{
+	return a == b;
+}
+
+
+/// <summary>
+/// Do the names differ? (RA2: through the free comparison above.)
+/// </summary>
+bool operator != (HashString const & a, HashString const & b)
+{
+	return !(a == b);
+}
+
 /// Unlike the other interface identifiers, the IGameMap GUID is defined in this module.
 #define INITGUID
 #undef DEFINE_GUID

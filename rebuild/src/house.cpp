@@ -161,6 +161,7 @@
 #include "ddist.h"
 #include "dsurface.h"
 #include "factory.h"
+#include "facing_offset.h"
 #include "globals.h"
 #include "goptions.h"
 #include "houstype.h"
@@ -168,6 +169,7 @@
 #include "infantry.h"
 #include "infatype.h"
 #include "inline.h"
+#include "velocity.h"
 #include "ion.h"
 #include "ipowerevents.h"
 #include "language\language.h"
@@ -8074,16 +8076,6 @@ int HouseClass::Base_Cell_Weight_By_Defense_Coverage(HouseClass const & house, C
 	}
 	return tie_breaker + (value * 128 + diff) * 1000; // RA2: as above
 }
-struct Facing_Offset : Cell { // RA2: the element type of the static neighbour tables of Where_To_Place_Building; its destructor makes the executable register each table with atexit
-	Facing_Offset(Cell const & cell) : Cell(cell) {} // RA2: as above
-	~Facing_Offset() {} // RA2: as above
-};
-
-inline int Coord_Span(Coord const & a, Coord const & b) // RA2: the distance of two coordinates, as meastes has it
-{
-	return (a - b).Length(); // RA2: as above
-}
-
 inline int Coord_Span2(Coord const & a, Coord const & b) // RA2: the same distance with the square root inline, summed z, y, x
 {
 	Coord d; // RA2: the differences are stored one at a time, x first
@@ -8111,7 +8103,7 @@ inline int Coord_Span2(Coord const & a, Coord const & b) // RA2: the same distan
 /// <param name="func">The weight function used to rank the candidate cells; lower wins.</param>
 /// <param name="context">Extra context handed through to the weight function.</param>
 /// <returns>Returns with the cell to build upon, or Cell(0,0) if the base has no room.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 803 of 2629 bytes differ (mischa85 text; the old-tree body is not carried yet)
+#ifdef RA2_NON_MATCHING // not exact: 800 of 2629 bytes differ, the three static-table symbols unbound (the YR twin's Facing_Sub at the reverse step; exact with main's Adjacent_Cell(Cell, int) overload, held on variation_candidates.csv)
 Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (__fastcall *func)(HouseClass const &, Cell const &, int, int), int context) // RA2: the executable places ship buildings by the yard rule and uses the static offset tables of Facing_Offset
 {
 	if (buildingtype->Naval) { // RA2: a ship building (the naval yard) is placed on the water next to the construction yard
@@ -8122,7 +8114,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (
 		Cell spot = Map.Nearby_Location(center, SPEED_FLOAT, -1, MZONE_NORMAL, false, Point2D(width, height), false, false, false, true, no_cell, false); // RA2: as above
 		if (spot != CELL_NONE) { // RA2: as above
 			if (ConYards[0] != NULL) { // RA2: as above
-				if (Coord_Span(Map[spot].Center_Coord(), ConYards[0]->Center_Coord()) > Rule->AINavalYardAdjacency * 256) { // RA2: as above
+				if (Distance(Map[spot].Center_Coord(), ConYards[0]->Center_Coord()) > Rule->AINavalYardAdjacency * CELL_LEPTON_W) { // RA2: as above
 					return(CELL_NONE); // RA2: the "none" cell, not (0, 0)
 				}
 			}
@@ -8162,7 +8154,7 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (
 			for (i = 0; i < sorted_cells.Count(); i++) { // RA2: as above
 				base_cell = sorted_cells[i]; // RA2: as above
 				Cell occupied(0, 0); // RA2: as above
-				for (int face = 0; face < 8; face++) { // RA2: as above
+				for (int face = 0; face < FACING_COUNT; face++) { // RA2: as above
 					CellClass * cptr = &Map[Adjacent_Cell(base_cell, (FacingType)face)]; // RA2: as above
 					if (cptr->OccupiedBy & house_mask) { // RA2: as above
 						occupied = Adjacent_Cell(occupied, (FacingType)face); // RA2: as above
@@ -8171,53 +8163,53 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (
 				if (occupied == Cell(0, 0)) { // RA2: as above
 					continue; // RA2: as above
 				}
-				Point2D delta; // RA2: as above
-				delta.X = -(int)occupied.X; // RA2: as above
-				delta.Y = -(int)occupied.Y; // RA2: as above
-				double angle = fastmath::atan2((double)-delta.Y, (double)delta.X); // RA2: as above
-				DirType dir = DirType(angle); // RA2: as above
-				int facing = dir.As_Facing(); // RA2: the facing of the direction
+				DirType dir = TVelocity2D<int>(-occupied.X, -occupied.Y).Get_Yaw();
+				FacingType facing = dir.As_Facing();
 				Cell offset(0, 0); // RA2: as above
 				int width = buildingtype->Width(); // RA2: as above
 				int height = buildingtype->Height(false); // RA2: as above
 				bool extra = buildingtype->ProtectWithWall || buildingtype->WantsExtraSpace; // RA2: walled and wide structures want one more cell of spacing
 				int spacing = Rule->AIBaseSpacing; // RA2: as above
 				if (extra) spacing++; // RA2: as above
-				if (facing >= 1 && facing <= 3) { // RA2: as above
+				if (facing >= FACING_NE && facing <= FACING_SE) { // RA2: as above
 					offset.X = (short)spacing; // RA2: as above
-				} else if (facing >= 5 && facing <= 7) { // RA2: as above
+				} else if (facing >= FACING_SW && facing <= FACING_NW) { // RA2: as above
 					offset.X = (short)(1 - width - spacing); // RA2: as above
 				}
-				if (facing >= 3 && facing <= 5) { // RA2: as above
+				if (facing >= FACING_SE && facing <= FACING_SW) { // RA2: as above
 					offset.Y = (short)(spacing + 1); // RA2: as above
-				} else if (facing >= 7 || facing <= 1) { // RA2: as above
+				} else if (facing >= FACING_NW || facing <= FACING_NE) { // RA2: as above
 					offset.Y = (short)(1 - height - spacing); // RA2: as above
 				}
 				for (int trial = 0; trial < 2; trial++) { // RA2: as above
-					static Facing_Offset scan_offsets[8] = { // RA2: as above
+					static Facing_Offset scan_offsets[FACING_COUNT] = { // RA2: as above
 						Cell(-1, 0), Cell(-1, -1), Cell(0, -1), Cell(1, -1), // RA2: as above
 						Cell(1, 0), Cell(1, 1), Cell(0, 1), Cell(-1, 1) // RA2: as above
 					};
-					static Facing_Offset step_offsets[8] = { // RA2: as above
+					static Facing_Offset step_offsets[FACING_COUNT] = { // RA2: as above
 						Cell(1, 0), Cell(1, 1), Cell(0, 1), Cell(-1, 1), // RA2: as above
 						Cell(-1, 0), Cell(-1, -1), Cell(0, -1), Cell(1, -1) // RA2: as above
 					};
 					Cell pos = base_cell + offset + scan_offsets[facing]; // RA2: as above
 					if (trial == 1) { // RA2: as above
-						pos = Adjacent_Cell(pos, Facing_Sub(facing, 4)); // RA2: as above
+						pos = Adjacent_Cell(pos, Facing_Sub(facing, FACING_COUNT / 2)); // RA2: as above
 						spacing -= Rule->AIBaseSpacing; // RA2: the second trial drops the spacing border
 					}
 					for (int attempt = 0; attempt < 3; attempt++) { // RA2: as above
-						Rect rect(pos.X - spacing, pos.Y - spacing, width + spacing * 2, height + spacing * 2); // RA2: as above
+						int h = height + 2 * spacing;
+						int w = width + 2 * spacing;
+						int y = pos.Y - spacing;
+						int x = pos.X - spacing;
+						Rect rect(x, y, w, h); // RA2: as above
 						if (Map.Is_Area_Available(rect, HeapID)) { // RA2: no relaxed second pass
 							if (buildingtype->Legal_Placement(pos, this)) { // RA2: as above
-								if (abs(base_height - Map[pos].Height) < 3 && Can_Build_Here(buildingtype, pos)) { // RA2: as above
+								CellClass const & candidate_cell = Map[pos];
+								if (abs(base_height - candidate_cell.Height) < 3 && Can_Build_Here(buildingtype, pos)) { // RA2: as above
 									return(pos); // RA2: as above
 								}
 							}
 						}
-						pos.X += step_offsets[facing].X; // RA2: as above
-						pos.Y += step_offsets[facing].Y; // RA2: as above
+						pos += step_offsets[facing]; // RA2: as above
 					}
 				}
 			}

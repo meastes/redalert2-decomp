@@ -74,6 +74,8 @@
     "__imp__Sleep@4": 7971300,
     "?Frame@@3HA": 10751276,
     "??3@YAXPAX@Z": 7871803,
+    "_strupr": 7954916,
+    "??8@YI_NABVHashString@@0@Z": 5116560,
     "_$E2": 5113568,
     "_$E5": 5113600,
     "_$E8": 5113648,
@@ -112,6 +114,14 @@
     "?Render@GScreenClass@@UAEXXZ": 5114672,
     "?Blit_Display@GScreenClass@@UAEXXZ": 5114960,
     "?AI@GScreenClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 5116096,
+    "??0HashString@@QAE@XZ": 5116208,
+    "??0HashString@@QAE@PBD@Z": 5116224,
+    "??0HashString@@QAE@ABV0@@Z": 5116288,
+    "??7HashString@@QBE_NXZ": 5116336,
+    "??4HashString@@QAEAAV0@ABV0@@Z": 5116352,
+    "??8HashString@@QAE_NABV0@@Z": 5116400,
+    "??9HashString@@QAE_NABV0@@Z": 5116480,
+    "??9@YI_NABVHashString@@0@Z": 5116576,
     "??_ESubzoneTrackingStruct@@QAEPAXI@Z": 4239264,
     "??_G?$VectorClass@USubzoneConnectionStruct@@@@UAEPAXI@Z": 4239920,
     "??_7?$VectorClass@USubzoneConnectionStruct@@@@6B@": 7972716,
@@ -180,7 +190,7 @@
           "resolved": 10751628
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113568,
@@ -248,7 +258,7 @@
           "resolved": 10751640
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113600,
@@ -300,7 +310,7 @@
           "resolved": 10751712
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113648,
@@ -352,7 +362,7 @@
           "resolved": 10751696
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113680,
@@ -404,7 +414,7 @@
           "resolved": 10751688
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113712,
@@ -456,7 +466,7 @@
           "resolved": 10751648
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113744,
@@ -508,7 +518,7 @@
           "resolved": 10751608
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113776,
@@ -592,7 +602,7 @@
           "resolved": 10751720
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113808,
@@ -652,7 +662,7 @@
           "resolved": 10751656
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113872,
@@ -712,7 +722,7 @@
           "resolved": 10751680
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113920,
@@ -772,7 +782,7 @@
           "resolved": 10751704
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5113968,
@@ -816,7 +826,7 @@
           "resolved": 10751634
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114016,
@@ -868,7 +878,7 @@
           "resolved": 10751672
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114032,
@@ -904,7 +914,7 @@
           "resolved": 8006716
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114064,
@@ -948,7 +958,7 @@
           "resolved": 8006696
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114096,
@@ -984,7 +994,7 @@
           "resolved": 10751724
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114192,
@@ -1011,7 +1021,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114208,
@@ -1038,7 +1048,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114240,
@@ -1074,7 +1084,7 @@
           "resolved": 10751724
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114256,
@@ -1126,7 +1136,7 @@
           "resolved": 500469
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114272,
@@ -1250,7 +1260,7 @@
           "resolved": 334009
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114320,
@@ -1286,7 +1296,7 @@
           "resolved": 10751724
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114528,
@@ -1330,7 +1340,7 @@
           "resolved": 10751724
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114560,
@@ -1366,7 +1376,7 @@
           "resolved": 10751724
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114624,
@@ -1610,7 +1620,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114672,
@@ -1678,7 +1688,7 @@
           "resolved": 14
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5114960,
@@ -2082,7 +2092,7 @@
           "resolved": 8625256
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5115024,
@@ -2118,7 +2128,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5116096,
@@ -2162,11 +2172,281 @@
           "resolved": 2755604
         }
       ],
-      "source_sha256": "8d0cfc6bfa29d0c33cac1fb743d4d2d6c2fa4eaf6bcbeb998f2508ea1d9eae43",
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
       "source": "rebuild/src/gscreen.cpp",
       "population": "rebuild-gscreen",
       "source_order": 5116176,
       "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5116208,
+      "method": "004e1130",
+      "body_bytes": 6,
+      "body_sha256": "643a9b227f3b8bc93142e908d080e8b01a97ebcffea9da65e5062be083708e0e",
+      "padding_bytes": 10,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "b4688e2d86fea3d27884e9fc1dc230303971bd98fe28f30663aba518734f72fc",
+      "padding_sha256": "bde559b24d3a5302d82a4e56eb6f4b12d39057d100fd0ca81b337f5c1aa80cba",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0HashString@@QAE@XZ",
+      "symbol_prefix": "??0HashString@@QAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116208,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116224,
+      "method": "004e1140",
+      "body_bytes": 55,
+      "body_sha256": "73fae6834aac465ce197194816a09ff44c488353faa2234baac9a32abbe219d6",
+      "padding_bytes": 9,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "fac39d63b2aa214a338052ea152f9e4119a405819d004a24eee927bfdecb1a2f",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0HashString@@QAE@PBD@Z",
+      "symbol_prefix": "??0HashString@@QAE@PBD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 40,
+          "kind": 20,
+          "symbol": "_strupr",
+          "target": 7954916,
+          "addend": 0,
+          "resolved": 2838648
+        }
+      ],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116224,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116288,
+      "method": "004e1180",
+      "body_bytes": 44,
+      "body_sha256": "317971ffb33841c394b7a4be12b4b4fd0a8355e372ee112f17aae53b8eb373f6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5634ebc319696bc752ab1a3d051168be8e8f606568bccec9f7e8cc2b98a66d49",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0HashString@@QAE@ABV0@@Z",
+      "symbol_prefix": "??0HashString@@QAE@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116288,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116336,
+      "method": "004e11b0",
+      "body_bytes": 10,
+      "body_sha256": "a01d5489d374625f52e18f8b80b0d11feebe3d4db44a884395ba2dab9af4a089",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "0aa32b277fe5fdbcf551a43572d2fcf73df4beebef1f5db94d8be61fe4f24676",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??7HashString@@QBE_NXZ",
+      "symbol_prefix": "??7HashString@@QBE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116336,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116352,
+      "method": "004e11c0",
+      "body_bytes": 44,
+      "body_sha256": "317971ffb33841c394b7a4be12b4b4fd0a8355e372ee112f17aae53b8eb373f6",
+      "padding_bytes": 4,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "5634ebc319696bc752ab1a3d051168be8e8f606568bccec9f7e8cc2b98a66d49",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??4HashString@@QAEAAV0@ABV0@@Z",
+      "symbol_prefix": "??4HashString@@QAEAAV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116352,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116400,
+      "method": "004e11f0",
+      "body_bytes": 79,
+      "body_sha256": "9fa69449c94499d2f0d973974c12fd9bf0660e8999a9bcdabc76c3d3ddacd30f",
+      "padding_bytes": 1,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "f6dd97473e2eaac3cce8fb780851f2adf80f8057299c898e832bfd14d34f2a60",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8HashString@@QAE_NABV0@@Z",
+      "symbol_prefix": "??8HashString@@QAE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116400,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116480,
+      "method": "004e1240",
+      "body_bytes": 79,
+      "body_sha256": "9a148d69e058299ac01a64eef3d41715174736ce2d4b840e4a9d71a01bd97e8f",
+      "padding_bytes": 1,
+      "full_extent_bytes": 80,
+      "full_extent_sha256": "1c7ccc700fb503fafdd190e4e3f7b7ef6c7145723ba1327e24182701f74f591d",
+      "padding_sha256": "9e076ceaf246b6003d9c2680a2b4cf0bffd069805902b0b5edeebf49039fe4bd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??9HashString@@QAE_NABV0@@Z",
+      "symbol_prefix": "??9HashString@@QAE_NABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116480,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3714"
+    },
+    {
+      "entry": 5116560,
+      "method": "004e1290",
+      "body_bytes": 2,
+      "body_sha256": "34dfe0b0eaab153ac0c52aa124e3eb09251e848844f3d01a68e3bf195dc7d987",
+      "padding_bytes": 14,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "513de9e4497e7663bf0c7e514b6544784cdd606ec5e9d583b2eb5e308aef0b8e",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??8@YI_NABVHashString@@0@Z",
+      "symbol_prefix": "??8@YI_NABVHashString@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116560,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-42"
+    },
+    {
+      "entry": 5116576,
+      "method": "004e12a0",
+      "body_bytes": 11,
+      "body_sha256": "fd05bf4243165a3a0c2d325cc6a3bf8d34b3aafb70d5f8a51e2d5238e58ec89e",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5e20cd44b3f1c07163a39d75b4da6dc6907be04a066ac0e9f0b5b3d273dbd097",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??9@YI_NABVHashString@@0@Z",
+      "symbol_prefix": "??9@YI_NABVHashString@@0@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 1,
+          "kind": 20,
+          "symbol": "??8@YI_NABVHashString@@0@Z",
+          "target": 5116560,
+          "addend": 0,
+          "resolved": 4294967275
+        }
+      ],
+      "source_sha256": "01896aceeca65ddf2aeffa04302f78c885bc9aad704eb8f3844560b2b74a9663",
+      "source": "rebuild/src/gscreen.cpp",
+      "population": "rebuild-gscreen",
+      "source_order": 5116576,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-106"
     }
   ]
 }

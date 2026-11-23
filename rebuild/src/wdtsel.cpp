@@ -291,35 +291,32 @@ rc_ptr<Territory> Selection::Pick_Territory(void)
 /// </summary>
 /// <param name="point">The screen position that was clicked.</param>
 /// <param name="selected">Set to true if the click landed on a selectable territory.</param>
-#ifdef RA2_NON_MATCHING // not exact: 505 bytes differ (adopted text)
 void Selection::Handle_Click(Point2D const & point, bool & selected)
 {
-	switch (Region_At(point)) {
-		case 2:
-			WorldMap->Set_Back_Hot(this, true);
-			On_Cancel_Enter();
-			break;
-
+	int zone = (char)WorldMap->Is_Over_Back(point) ? 2 : 1;
+	switch (zone) {
 		case 1:
 			WorldMap->Set_Back_Hot(this, false);
-			selected = Hover_At(point);
+			selected = Select_Territory_At(point);
 			if (selected) {
 				Play_SFX("ConflictSelected");
 			}
 			break;
+
+		case 2:
+			WorldMap->Set_Back_Hot(this, true);
+			On_Cancel_Enter();
+			break;
 	}
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: 175 bytes differ (adopted text)
 bool Selection::Select_Territory_At(Point2D const & point)
 {
 	Update_Hovered_Territory(point);
-	rc_ptr<Territory> territory = WorldMap->Get_Territory(HoveredTerritoryID);
+	rc_ptr<Territory> territory = HoveredTerritoryID >= 0 ? WorldMap->Get_Territory(HoveredTerritoryID) : rc_ptr<Territory>();
 	return(Select_Territory(territory));
 }
-#endif
 
 
 void Selection::Update_Hovered_Territory(Point2D const & point)

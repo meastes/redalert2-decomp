@@ -249,7 +249,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 /// <param name="to">The destination cell, used to estimate the remaining cost.</param>
 /// <param name="movement_cost">The cost of the step from the parent into this cell.</param>
 /// <returns>Returns with a pointer to the new node, taken from the search's node pool.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00427370 has no row); 1897 of 2506 bytes differ against the frozen image bound (image_bounds.csv), 812 = 812 instructions, 2026-11-22 (lane F25); main: best 78.55, tried 3 times (frame)
+#ifdef RA2_NON_MATCHING // not exact: 1125 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The blocked-destination path is laid out before the node insertion.
 PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, FootClass *foot, FacingType *moves, int max_loops, bool with_hs)
 {
 	FacingType face;
@@ -329,7 +329,7 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 			int facing_diff = foot->PrimaryFacing.Current().As_Dir8() - face;
 			int abs_diff = abs(facing_diff);
 			if (abs_diff > FACING_E && abs_diff < FACING_W && face != FACING_COUNT) {
-				CellClass * neighbor = from_pptr[_offsets[face]];
+				CellClass *& neighbor = from_pptr[_offsets[face]]; // RA2: the adjacent map slot
 				int neighbor_index = neighbor->CellID.X + MapCellStride * neighbor->CellID.Y;
 				if (CurrentCellHeight > neighbor->Height + 1) {
 					RegularBridgeVisited[neighbor_index] = UniqueID;
@@ -385,15 +385,13 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 			if (face != TUNNEL) {
 				node_index = from_index + AStarFacingToOffset[face];
 			} else {
-				node_index = neighbor_cell->CellID.X + MapCellStride * neighbor_cell->CellID.Y;
+				node_index = neighbor_id.X + MapCellStride * neighbor_id.Y;
 			}
 
 			bool base_level = !neighbor_cell->IsUnderBridge || abs(CurrentCellHeight - neighbor_cell->Height) <= 1;
 
-			int zone_index = Map.Get_Cell_Zone_Index(neighbor_id);
-			CellSubzoneStruct * subzones = Map.CellSubzones;
-
-			short subzone_id = subzones[zone_index].SubzoneID[SUBZONE_FINE];
+			CellSubzoneStruct & subzone = Map.CellSubzones[Map.Get_Cell_Zone_Index(neighbor_id)];
+			int subzone_id = subzone.SubzoneID[SUBZONE_FINE];
 			if (fine_final_ids[subzone_id] != UniqueID && base_level && !neighbor_cell->AdjacentObjectCount && with_hs) {
 				continue;
 			}
@@ -414,18 +412,19 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 			if (face != TUNNEL) {
 				movement_cost = Get_Movement_Cost(working_from, working_to, base_level == 0, move, foot) * MovementCostMultiplier + _facing_costs[face];
 			} else {
-				CellClass & from_cell = *working_from[0];
-				CellClass & to_cell = *neighbor_cell;
-				int dx = ((int)from_cell.CellID.X - (int)to_cell.CellID.X);
-				int dy = ((int)from_cell.CellID.Y - (int)to_cell.CellID.Y);
-				movement_cost = max(abs(dy), abs(dx));
+				Cell const & source_id = (*working_from)->CellID;
+				int dy = abs(source_id.Y - neighbor_id.Y);
+				int dx = abs(source_id.X - neighbor_id.X);
+				movement_cost = MAX(dx, dy);
 			}
 
-			if (move < MOVE_NO) {
-				if (Is_Visited(0, base_level, node_index)) {
-					continue;
+			if (move >= MOVE_NO) {
+				if (working_to == to_pptr && !is_passive) {
+					if (abs(CurrentCellHeight - DestCellHeight) <= 1) {
+						goto breakout;
+					}
 				}
-
+			} else if (!Is_Visited(0, base_level, node_index)) {
 				RegularOpenNode * new_node = Create_Node(working_node, working_to, to, movement_cost);
 				if (temp_node == NULL) {
 					temp_node = new_node;
@@ -447,11 +446,7 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 				}
 				if (subzone_id == HierSubzonePath[SUBZONE_FINE][HierNodeIndex + 1]) {
 					HierNodeIndex++;
-					HierLastNodeCell = neighbor_cell->CellID;
-				}
-			} else if (working_to == to_pptr && !is_passive) {
-				if (abs(CurrentCellHeight - DestCellHeight) <= 1) {
-					goto breakout;
+					HierLastNodeCell = neighbor_id;
 				}
 			}
 		}

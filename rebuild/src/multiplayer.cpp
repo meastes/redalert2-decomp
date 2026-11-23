@@ -51,11 +51,7 @@
 
 
 
-class MultiplayerBattle : public MultiplayerGameMode // RA2: constructed at 0x005A2320; only what this file needs of it (its own file declares the rest)
-{
-	public:
-		MultiplayerBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex); // RA2: as above
-};
+#include "mpbattle.h" // RA2: the battle game mode, constructed at 0x005A2320 (movies.cpp defines it)
 
 
 

@@ -206,3 +206,82 @@ bool operator!=(HSVClass & a, HSVClass & b)
 {
 	return(!(a == b));
 }
+
+
+#include <windows.h> // RA2: the Westwood Online options, here where ra2-decomp's hsv.cpp has them
+#include <string.h>
+#include "wolopt.h"
+
+
+/// <summary>
+/// RA2: reads the options value of Westwood Online from the registry.
+/// </summary>
+/// <returns>bool; Was the value there?</returns>
+bool WOLOptionsClass::Load(void)
+{
+	DWORD size = REG_DWORD;
+	IsValid = false;
+	char path[128];
+	strcpy(path, "SOFTWARE\\Westwood\\WOLAPI\\");
+	DWORD type;
+	HKEY key;
+	if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, path, 0, KEY_ALL_ACCESS, &key) == ERROR_SUCCESS) {
+		DWORD value = 0;
+		if (RegQueryValueEx(key, "Options", 0, &type, (LPBYTE)&value, &size) == ERROR_SUCCESS) {
+			if (type == REG_DWORD) {
+				IsValid = true;
+				Options = value;
+			}
+		}
+		RegCloseKey(key);
+	}
+	return IsValid;
+}
+
+
+bool WOLOptionsClass::Is_Bit0_Clear(void)
+{
+	if (Options & 1) return false;
+	return true;
+}
+
+
+bool WOLOptionsClass::Is_Bit1_Clear(void)
+{
+	if (Options & 2) return false;
+	return true;
+}
+
+
+bool WOLOptionsClass::Is_Bit2_Clear(void)
+{
+	if (Options & 4) return false;
+	return true;
+}
+
+
+/// <summary>
+/// RA2: writes the options value of Westwood Online to the registry, then reads it back.
+/// </summary>
+/// <param name="value">The options.</param>
+/// <returns>bool; Was the value written?</returns>
+bool WOLOptionsClass::Save(unsigned long value)
+{
+	bool ok = false;
+	char path[128];
+	strcpy(path, "SOFTWARE\\Westwood\\WOLAPI\\");
+	HKEY key;
+	DWORD disposition;
+	if (RegOpenKeyEx(HKEY_LOCAL_MACHINE, path, 0, KEY_ALL_ACCESS, &key) != ERROR_SUCCESS) {
+		if (RegCreateKeyEx(HKEY_LOCAL_MACHINE, path, 0, 0, 0, KEY_ALL_ACCESS, 0, &key, &disposition) != ERROR_SUCCESS) {
+			return false;
+		}
+	}
+	if (RegSetValueEx(key, "Options", 0, REG_DWORD, (CONST BYTE *)&value, sizeof(value)) == ERROR_SUCCESS) {
+		ok = true;
+	}
+	RegCloseKey(key);
+
+	Load();
+	return ok;
+}

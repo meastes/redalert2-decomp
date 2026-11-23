@@ -2,21 +2,33 @@
   "id": "rebuild-hsv",
   "population": {
     "id": "rebuild-hsv",
-    "inventory_sha256": "f6150dab555d7f27ae4e8c333f10271885f5fc28062053b092e96b863174e243",
-    "gaps_sha256": "aa711cc35b13d2ea6f58112850d12f825aa9a4739ed90c1b25475c240129fbd6",
-    "historical_population_sha256": "ae9a6b0ada674f8a7de204cd51acb73a6f66a0a435042e741136ef229b5d8d24",
-    "historical_acceptance_sha256": "cbe505d7392efe23b30102fa2dc12ba13d333dc15a16af4963fc883470f9db2f"
+    "inventory_sha256": "d2a043b267365d8cdade028a4f3a8a1c4388d3521812b702696b327caa594f60",
+    "gaps_sha256": "484223bb8d71073075f0d59db97319946bbd591209729e825e264c5cb146060c",
+    "historical_population_sha256": "390a2224de088d0757c24cf7a7441fcdbd227d704d7dfe28c061ad86ff37c62b",
+    "historical_acceptance_sha256": "b749f20f60c2ba858f8618de86e9d0bf89fc798425cc86238e55a6fddb39e195"
   },
   "references": {
     "?BlackColor@HSVClass@@0V1@B": 10752188,
     "??8@YI_NAAVHSVClass@@ABV0@@Z": 5239264,
+    "??_C@_0BK@MEEM@SOFTWARE?2Westwood?2WOLAPI?2?$AA@": 8236700,
+    "__imp__RegOpenKeyExA@20": 7970828,
+    "??_C@_07BFAH@Options?$AA@": 8236692,
+    "__imp__RegQueryValueExA@24": 7970824,
+    "__imp__RegCloseKey@4": 7970820,
+    "__imp__RegCreateKeyExA@36": 7970840,
+    "__imp__RegSetValueExA@24": 7970836,
     "_$E3": 5238608,
     "?Adjust@HSVClass@@QAEXHABV1@@Z": 5238640,
     "?Difference@HSVClass@@QBEHABV1@@Z": 5238784,
     "??BHSVClass@@QBE?AVRGBClass@@XZ": 5238864,
     "??8HSVClass@@QBE_NABV0@@Z": 5239152,
     "??9HSVClass@@QBE_NABV0@@Z": 5239200,
-    "??9@YI_NAAVHSVClass@@0@Z": 5239280
+    "??9@YI_NAAVHSVClass@@0@Z": 5239280,
+    "?Load@WOLOptionsClass@@QAE_NXZ": 5239296,
+    "?Is_Bit0_Clear@WOLOptionsClass@@QAE_NXZ": 5239472,
+    "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ": 5239488,
+    "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ": 5239504,
+    "?Save@WOLOptionsClass@@QAE_NK@Z": 5239520
   },
   "regions": [
     {
@@ -65,11 +77,12 @@
           "resolved": 10752190
         }
       ],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5238608,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3712"
     },
     {
       "entry": 5238640,
@@ -92,7 +105,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5238640,
@@ -120,11 +133,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5238784,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3712"
     },
     {
       "entry": 5238864,
@@ -147,11 +161,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5238864,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3712"
     },
     {
       "entry": 5239152,
@@ -174,11 +189,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5239152,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3712"
     },
     {
       "entry": 5239200,
@@ -201,11 +217,12 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5239200,
-      "source_quality_family": "rebuild"
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3712"
     },
     {
       "entry": 5239264,
@@ -228,7 +245,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5239264,
@@ -265,12 +282,269 @@
           "resolved": 4294967275
         }
       ],
-      "source_sha256": "f6942c070e17be5591004ff11f88ce2b5536df3c8c85050de01b3fa9b0d7f00f",
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
       "source": "rebuild/src/hsv.cpp",
       "population": "rebuild-hsv",
       "source_order": 5239280,
       "source_quality_family": "rebuild",
       "bound_population": "population-3817"
+    },
+    {
+      "entry": 5239296,
+      "method": "004ff200",
+      "body_bytes": 176,
+      "body_sha256": "e34e21560c19f59ab71eecae4a7aec04bca9571c339122074e199d2b1b8a8a01",
+      "padding_bytes": 0,
+      "full_extent_bytes": 176,
+      "full_extent_sha256": "e34e21560c19f59ab71eecae4a7aec04bca9571c339122074e199d2b1b8a8a01",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Load@WOLOptionsClass@@QAE_NXZ",
+      "symbol_prefix": "?Load@WOLOptionsClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 12,
+          "kind": 6,
+          "symbol": "??_C@_0BK@MEEM@SOFTWARE?2Westwood?2WOLAPI?2?$AA@",
+          "target": 8236700,
+          "addend": 0,
+          "resolved": 8236700
+        },
+        {
+          "offset": 85,
+          "kind": 6,
+          "symbol": "__imp__RegOpenKeyExA@20",
+          "target": 7970828,
+          "addend": 0,
+          "resolved": 7970828
+        },
+        {
+          "offset": 119,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 126,
+          "kind": 6,
+          "symbol": "__imp__RegQueryValueExA@24",
+          "target": 7970824,
+          "addend": 0,
+          "resolved": 7970824
+        },
+        {
+          "offset": 159,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        }
+      ],
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5239296,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5239472,
+      "method": "004ff2b0",
+      "body_bytes": 7,
+      "body_sha256": "9982656fcb768925a5300cfe01ff4cbb70f9389650925182be4a12bb25149850",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c63f8b03ed94e94816990d6c0fd76554c834c93d5832af40c38dec1441bd421b",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Bit0_Clear@WOLOptionsClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_Bit0_Clear@WOLOptionsClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5239472,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5239488,
+      "method": "004ff2c0",
+      "body_bytes": 9,
+      "body_sha256": "910162ca1d165004d5098c1c4a44e6cad8f6e643683f02a58bd3150e9b60f01a",
+      "padding_bytes": 7,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "8cf7fbaaa9c5196a0c868acbaa33f05d57981d4fb2c56f3967d9d17e78f2f073",
+      "padding_sha256": "ca4b9a2ec05863e71b87c84feb71741348a30400daeddedd67bc4cdbca737252",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5239488,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5239504,
+      "method": "004ff2d0",
+      "body_bytes": 10,
+      "body_sha256": "5f1913defd15812a205af1506437b77abb3443d2e109c3abe22957c6627b51c0",
+      "padding_bytes": 6,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "79ae6550d1c00f96d25e2021b320c12ab860cb1927280a993e339d650fa99030",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ",
+      "symbol_prefix": "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5239504,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5239520,
+      "method": "004ff2e0",
+      "body_bytes": 368,
+      "body_sha256": "fec12c1c017c47093a865f33531ed49af37e8ef59cd8a9b106d634c69389ae21",
+      "padding_bytes": 0,
+      "full_extent_bytes": 368,
+      "full_extent_sha256": "fec12c1c017c47093a865f33531ed49af37e8ef59cd8a9b106d634c69389ae21",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Save@WOLOptionsClass@@QAE_NK@Z",
+      "symbol_prefix": "?Save@WOLOptionsClass@@QAE_NK@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 13,
+          "kind": 6,
+          "symbol": "??_C@_0BK@MEEM@SOFTWARE?2Westwood?2WOLAPI?2?$AA@",
+          "target": 8236700,
+          "addend": 0,
+          "resolved": 8236700
+        },
+        {
+          "offset": 40,
+          "kind": 6,
+          "symbol": "__imp__RegOpenKeyExA@20",
+          "target": 7970828,
+          "addend": 0,
+          "resolved": 7970828
+        },
+        {
+          "offset": 124,
+          "kind": 6,
+          "symbol": "__imp__RegCreateKeyExA@36",
+          "target": 7970840,
+          "addend": 0,
+          "resolved": 7970840
+        },
+        {
+          "offset": 166,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 173,
+          "kind": 6,
+          "symbol": "__imp__RegSetValueExA@24",
+          "target": 7970836,
+          "addend": 0,
+          "resolved": 7970836
+        },
+        {
+          "offset": 193,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "??_C@_0BK@MEEM@SOFTWARE?2Westwood?2WOLAPI?2?$AA@",
+          "target": 8236700,
+          "addend": 0,
+          "resolved": 8236700
+        },
+        {
+          "offset": 307,
+          "kind": 6,
+          "symbol": "??_C@_07BFAH@Options?$AA@",
+          "target": 8236692,
+          "addend": 0,
+          "resolved": 8236692
+        },
+        {
+          "offset": 314,
+          "kind": 6,
+          "symbol": "__imp__RegQueryValueExA@24",
+          "target": 7970824,
+          "addend": 0,
+          "resolved": 7970824
+        },
+        {
+          "offset": 347,
+          "kind": 6,
+          "symbol": "__imp__RegCloseKey@4",
+          "target": 7970820,
+          "addend": 0,
+          "resolved": 7970820
+        }
+      ],
+      "source_sha256": "74d91fbb5660c34ecfd996987c782c55ff53eb5d7521008b6b4b04fe96bb2131",
+      "source": "rebuild/src/hsv.cpp",
+      "population": "rebuild-hsv",
+      "source_order": 5239520,
+      "source_quality_family": "rebuild"
     }
   ]
 }

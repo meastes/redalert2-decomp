@@ -10,6 +10,8 @@
   "references": {
     "??_7FileStraw@@6B@": 7985580,
     "??1FileStraw@@UAE@XZ": 7813376,
+    "??_7ReferenceCounted@@6B@": 8031508,
+    "??3@YAXPAX@Z": 7871803,
     "?Read_Line@@YIHAAVFileClass@@PADHAA_N@Z": 6526400,
     "?Get@FileStraw@@UAEHPAXH@Z": 7813280,
     "?Get_From@Straw@@UAEXPAV1@@Z": 6926416,
@@ -17,8 +19,12 @@
     "??_R0?AVStraw@@@8": 8199872,
     "??_7type_info@@6B@": 8066532,
     "??_R0?AVFileStraw@@@8": 8199896,
-    "??3@YAXPAX@Z": 7871803,
-    "?Read_Line@@YIHAAVStraw@@PADHAA_N@Z": 6526576
+    "?Read_Line@@YIHAAVStraw@@PADHAA_N@Z": 6526576,
+    "??1ReferenceCounted@@UAE@XZ": 6526736,
+    "??_GReferenceCounted@@UAEPAXI@Z": 6526800,
+    "??_R0?AVReferenceCounted@@@8": 8316240,
+    "?Release@ReferenceCounted@@UAEXXZ": 6526752,
+    "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z": 6526784
   },
   "regions": [
     {
@@ -67,7 +73,7 @@
           "resolved": 1286810
         }
       ],
-      "source_sha256": "fc5dc634a3a2d4743ce0de80fc96ba3d1f4cc1ba5745c7446367752cd4551b93",
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
       "source": "rebuild/src/readline.cpp",
       "population": "rebuild-readline",
       "source_order": 6526400,
@@ -94,10 +100,144 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "fc5dc634a3a2d4743ce0de80fc96ba3d1f4cc1ba5745c7446367752cd4551b93",
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
       "source": "rebuild/src/readline.cpp",
       "population": "rebuild-readline",
       "source_order": 6526576,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526736,
+      "method": "00639710",
+      "body_bytes": 7,
+      "body_sha256": "314ce81b2d1d068aa2ba7e939aa149418765726b2a8572202d019eecf80a3b84",
+      "padding_bytes": 9,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "5a1c1d12d7e8554a53a52260e73612c0a75f30ce82c1673aea105e04b75199ce",
+      "padding_sha256": "f56642978961c41b24911838d549a9957c25a0dee0914c9230b5f17a3567418b",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1ReferenceCounted@@UAE@XZ",
+      "symbol_prefix": "??1ReferenceCounted@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        }
+      ],
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
+      "source": "rebuild/src/readline.cpp",
+      "population": "rebuild-readline",
+      "source_order": 6526736,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526752,
+      "method": "00639720",
+      "body_bytes": 20,
+      "body_sha256": "3a34abdfe59d5d9b0d8ecd190a6cfa7f3c2025be078c89b78081c1b798a0b761",
+      "padding_bytes": 12,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "d8db9c6fc9ece771809e8342c8c5548c1e4c49f87e05f0ed84e2271678e76933",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Release@ReferenceCounted@@UAEXXZ",
+      "symbol_prefix": "?Release@ReferenceCounted@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
+      "source": "rebuild/src/readline.cpp",
+      "population": "rebuild-readline",
+      "source_order": 6526752,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526784,
+      "method": "00639740",
+      "body_bytes": 5,
+      "body_sha256": "cc0e3cb106eb0fdec984d44a563d98c3da80700bbb8d2be4e66ebd54a9919626",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "9fa697955e6e50ca514c5e17cfc025b33f6dcb749299caabf3bb95c6a10fda65",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z",
+      "symbol_prefix": "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
+      "source": "rebuild/src/readline.cpp",
+      "population": "rebuild-readline",
+      "source_order": 6526784,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6526800,
+      "method": "00639750",
+      "body_bytes": 32,
+      "body_sha256": "888a56dfcd326b8713d865bf26d77c5a1ec3bd4f60aa90af55bfa04e5a7f78d7",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "888a56dfcd326b8713d865bf26d77c5a1ec3bd4f60aa90af55bfa04e5a7f78d7",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GReferenceCounted@@UAEPAXI@Z",
+      "symbol_prefix": "??_GReferenceCounted@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 11,
+          "kind": 6,
+          "symbol": "??_7ReferenceCounted@@6B@",
+          "target": 8031508,
+          "addend": 0,
+          "resolved": 8031508
+        },
+        {
+          "offset": 19,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1344980
+        }
+      ],
+      "source_sha256": "7416566103b3c4561e6dbbdcd38020fdbb929da4047c3a6dc0a8f1aa8e1ca26b",
+      "source": "rebuild/src/readline.cpp",
+      "population": "rebuild-readline",
+      "source_order": 6526800,
       "source_quality_family": "rebuild"
     }
   ]

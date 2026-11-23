@@ -5564,7 +5564,7 @@
   "status": "catalogued",
   "range": [
    "00622090",
-   "006220d0"
+   "00622160"
   ],
   "mischa85": "tibsun: functions compiled from src/quarry.cpp, matched, without gaps; ?Name_From_Quarry@@YIPBDW4QuarryType@@@Z not placed",
   "main_options": [
@@ -5584,6 +5584,22 @@
     "symbol": "?Quarry_From_Name@@YI?AW4QuarryType@@PBD@Z",
     "main_symbol": "?unknown_quarry_from_name@@YIHPBD@Z",
     "main_source": "src/recovered/quarry/unknown_quarry_from_name.cpp"
+   },
+   {
+    "entry": "006220d0",
+    "body": 8,
+    "padding": 8,
+    "symbol": "?Name_From_Quarry@@YIPBDW4QuarryType@@@Z",
+    "main_symbol": "?Name_From_Quarry@seed_006220d0@@YIPAEH@Z",
+    "main_source": "src/recovered/quarry/Name_From_Quarry.cpp"
+   },
+   {
+    "entry": "006220e0",
+    "body": 116,
+    "padding": 12,
+    "symbol": "?Quarry_To_Threat@@YI?AW4ThreatType@@H@Z",
+    "main_symbol": "?Quarry_To_Threat@@YIHH@Z",
+    "main_source": "src/recovered/unowned/Quarry_To_Threat.cpp"
    }
   ],
   "references": {
@@ -5892,7 +5908,7 @@
   "status": "catalogued",
   "range": [
    "006eef10",
-   "006eef80"
+   "006eefe0"
   ],
   "mischa85": "tibsun: functions compiled from src/trim.cpp, matched, without gaps",
   "main_options": [
@@ -5911,6 +5927,14 @@
     "padding": 9,
     "symbol": "?strtrim@@YIPADPAD@Z",
     "main_symbol": "?strtrim@@YIPADPAD@Z",
+    "main_source": "src/recovered/trim.cpp"
+   },
+   {
+    "entry": "006eef80",
+    "body": 95,
+    "padding": 1,
+    "symbol": "?wcstrim@@YIPAGPAG@Z",
+    "main_symbol": "?wcstrim@@YIPAGPAG@Z",
     "main_source": "src/recovered/trim.cpp"
    }
   ],
@@ -28018,7 +28042,7 @@
   "status": "catalogued",
   "range": [
    "004e06e0",
-   "004e1130"
+   "004e12ab"
   ],
   "mischa85": "tibsun: functions compiled from src/gscreen.cpp, matched, without gaps; three placed by the gap",
   "main_options": [
@@ -28262,6 +28286,80 @@
     "symbol": "??_GGScreenClass@@UAEPAXI@Z",
     "main_symbol": "??_GGScreenClass@@UAEPAXI@Z",
     "main_source": "src/recovered/gscreen.cpp"
+   },
+   {
+    "entry": "004e1130",
+    "body": 6,
+    "padding": 10,
+    "symbol": "??0HashString@@QAE@XZ",
+    "main_symbol": "??0HashString@@QAE@XZ",
+    "main_source": "src/recovered/classes/HashString/Default_Constructor.cpp"
+   },
+   {
+    "entry": "004e1140",
+    "body": 55,
+    "padding": 9,
+    "symbol": "??0HashString@@QAE@PBD@Z",
+    "main_symbol": "??0HashString@@QAE@PBD@Z",
+    "main_source": "src/recovered/classes/HashString/Constructor_Text.cpp"
+   },
+   {
+    "entry": "004e1180",
+    "body": 44,
+    "padding": 4,
+    "symbol": "??0HashString@@QAE@ABV0@@Z",
+    "main_symbol": "??0HashString@@QAE@ABV0@@Z",
+    "main_source": "src/recovered/classes/HashString/Copy_Constructor.cpp"
+   },
+   {
+    "entry": "004e11b0",
+    "body": 10,
+    "padding": 6,
+    "symbol": "??7HashString@@QBE_NXZ",
+    "main_symbol": "?Is_Empty@HashString@@QBE_NXZ",
+    "main_source": "src/recovered/classes/HashString/Is_Empty.cpp"
+   },
+   {
+    "entry": "004e11c0",
+    "body": 44,
+    "padding": 4,
+    "symbol": "??4HashString@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4HashString@@QAEAAV0@ABV0@@Z",
+    "main_source": "src/recovered/classes/HashString/operator_assign.cpp"
+   },
+   {
+    "entry": "004e11f0",
+    "body": 79,
+    "padding": 1,
+    "symbol": "??8HashString@@QAE_NABV0@@Z",
+    "main_symbol": "??8HashString@@QBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/HashString/operator_equal.cpp"
+   },
+   {
+    "entry": "004e1240",
+    "body": 79,
+    "padding": 1,
+    "symbol": "??9HashString@@QAE_NABV0@@Z",
+    "main_symbol": "??9HashString@@QBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/HashString/operator_not_equal.cpp"
+   },
+   {
+    "entry": "004e1290",
+    "body": 2,
+    "padding": 14,
+    "symbol": "??8@YI_NABVHashString@@0@Z",
+    "main_symbol": "?unknown_endless_loop_004e1290@@YAXXZ",
+    "main_source": "src/recovered/gscreen.cpp"
+   },
+   {
+    "entry": "004e12a0",
+    "body": 11,
+    "padding": 0,
+    "symbol": "??9@YI_NABVHashString@@0@Z",
+    "main_symbol": "?unknown_endless_loop_check_004e12a0@@YA_NXZ",
+    "main_source": "src/recovered/gscreen/unknown_endless_loop_check.cpp",
+    "gap_padding": 5,
+    "gap_population": "population-106"
    }
   ],
   "references": {
@@ -48982,7 +49080,7 @@
   "status": "catalogued",
   "range": [
    "005a0b50",
-   "005a2320"
+   "005a2610"
   ],
   "mischa85": "tibsun: functions compiled from src/movies.cpp, matched, without gaps; 14 placed by the gap; two copies the compiler emitted after the last function",
   "main_options": [
@@ -49570,6 +49668,246 @@
     "symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
     "main_symbol": "??_G?$DynamicVectorClass@PBD@@UAEPAXI@Z",
     "main_source": "src/recovered/movies.cpp"
+   },
+   {
+    "entry": "005a2320",
+    "body": 52,
+    "padding": 12,
+    "symbol": "??0MultiplayerBattle@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+    "main_symbol": "??0MultiplayerBattle@@QAE@ABVWideString@@0ABVWstring@@1_NH@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattle/Constructor.cpp"
+   },
+   {
+    "entry": "005a2360",
+    "body": 11,
+    "padding": 5,
+    "symbol": "??1MultiplayerBattle@@UAE@XZ",
+    "main_symbol": "??1MultiplayerBattle@@UAE@XZ",
+    "main_source": "src/recovered/classes/MultiplayerBattle/Destructor.cpp"
+   },
+   {
+    "entry": "005a2370",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?IsSkirmishAllowed@MultiplayerBattle@@UAE_NXZ",
+    "main_symbol": "?unknown_slot12@MultiplayerBattle@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerBattle/unknown_slot12.cpp"
+   },
+   {
+    "entry": "005a2380",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ",
+    "main_symbol": "?unknown_slot1@MultiplayerGameMode@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot1.cpp"
+   },
+   {
+    "entry": "005a2390",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_08@MultiplayerGameMode@@UAE_NXZ",
+    "main_symbol": "?unknown_slot2@MultiplayerGameMode@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot2.cpp"
+   },
+   {
+    "entry": "005a23a0",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?vt_entry_0C@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z",
+    "main_symbol": "?unknown_slot3@MultiplayerGameMode@@UAE_NPAVWideString@@@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot3.cpp"
+   },
+   {
+    "entry": "005a23b0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_20@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot8@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot8.cpp"
+   },
+   {
+    "entry": "005a23c0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_24@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot9@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot9.cpp"
+   },
+   {
+    "entry": "005a23d0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?vt_entry_48@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@PBD1@Z",
+    "main_symbol": "?unknown_slot18@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@PBD1@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot18.cpp"
+   },
+   {
+    "entry": "005a23f0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?vt_entry_44@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z",
+    "main_symbol": "?unknown_slot17@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot17.cpp"
+   },
+   {
+    "entry": "005a2410",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?vt_entry_4C@MultiplayerGameMode@@UAE_NIIPAUMPlayerScoreType@@@Z",
+    "main_symbol": "?unknown_slot19@MultiplayerGameMode@@UAE_NHHPAVMPlayerScoreType@@@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot19.cpp"
+   },
+   {
+    "entry": "005a2420",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_58@MultiplayerGameMode@@UAE_NXZ",
+    "main_symbol": "?unknown_slot22@MultiplayerGameMode@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot22.cpp"
+   },
+   {
+    "entry": "005a2430",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_64@MultiplayerGameMode@@UAEXIPAD@Z",
+    "main_symbol": "?unknown_slot25@MultiplayerGameMode@@UAEXHPAD@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot25.cpp"
+   },
+   {
+    "entry": "005a2440",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_78@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot30@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot30.cpp"
+   },
+   {
+    "entry": "005a2450",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_7C@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot31@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot31.cpp"
+   },
+   {
+    "entry": "005a2460",
+    "body": 4,
+    "padding": 12,
+    "symbol": "?vt_entry_80@MultiplayerGameMode@@UAEHXZ",
+    "main_symbol": "?unknown_slot32@MultiplayerGameMode@@UAEHXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot32.cpp"
+   },
+   {
+    "entry": "005a2470",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_84@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot33@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot33.cpp"
+   },
+   {
+    "entry": "005a2480",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_88@MultiplayerGameMode@@UAEX_N@Z",
+    "main_symbol": "?unknown_slot34@MultiplayerGameMode@@UAEX_N@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot34.cpp"
+   },
+   {
+    "entry": "005a2490",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_8C@MultiplayerGameMode@@UAEX_N@Z",
+    "main_symbol": "?unknown_slot35@MultiplayerGameMode@@UAEX_N@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot35.cpp"
+   },
+   {
+    "entry": "005a24a0",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_90@MultiplayerGameMode@@UAE_NXZ",
+    "main_symbol": "?unknown_slot36@MultiplayerGameMode@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot36.cpp"
+   },
+   {
+    "entry": "005a24b0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_94@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot37@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot37.cpp"
+   },
+   {
+    "entry": "005a24c0",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?vt_entry_98@MultiplayerGameMode@@UAEXXZ",
+    "main_symbol": "?unknown_slot38@MultiplayerGameMode@@UAEXXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot38.cpp"
+   },
+   {
+    "entry": "005a24d0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z",
+    "main_symbol": "?unknown_slot39@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot39.cpp"
+   },
+   {
+    "entry": "005a24f0",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ",
+    "main_symbol": "?unknown_slot40@MultiplayerGameMode@@UAE_NXZ",
+    "main_source": "src/recovered/classes/MultiplayerGameMode/unknown_slot40.cpp"
+   },
+   {
+    "entry": "005a2500",
+    "body": 36,
+    "padding": 12,
+    "symbol": "??_GMultiplayerBattle@@UAEPAXI@Z",
+    "main_symbol": "??_GMultiplayerBattle@@UAEPAXI@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattle/Scalar_Deleting_Destructor.cpp"
+   },
+   {
+    "entry": "005a2530",
+    "body": 32,
+    "padding": 0,
+    "symbol": "??0MultiplayerBattleTeam@@QAE@ABVWideWstring@@H@Z",
+    "main_symbol": "??0MultiplayerBattleTeam@@QAE@ABVWideString@@H@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattleTeam/Constructor.cpp"
+   },
+   {
+    "entry": "005a2550",
+    "body": 88,
+    "padding": 8,
+    "symbol": "?Create_Battle_Team@@YIPAVMultiplayerTeam@@H@Z",
+    "main_symbol": "?unknown_create_battle_team_005a2550@@YIPAVMultiplayerTeam@@H@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattleTeam/unknown_create_battle_team.cpp"
+   },
+   {
+    "entry": "005a25b0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z",
+    "main_symbol": "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattleTeam/IsTeamIncluded.cpp"
+   },
+   {
+    "entry": "005a25d0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z",
+    "main_symbol": "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattleTeam/SetPlayerTeam.cpp"
+   },
+   {
+    "entry": "005a25f0",
+    "body": 30,
+    "padding": 2,
+    "symbol": "??_GMultiplayerBattleTeam@@UAEPAXI@Z",
+    "main_symbol": "??_GMultiplayerBattleTeam@@UAEPAXI@Z",
+    "main_source": "src/recovered/classes/MultiplayerBattleTeam/Scalar_Deleting_Destructor.cpp"
    }
   ],
   "references": {
@@ -115181,7 +115519,7 @@
   "status": "catalogued",
   "range": [
    "006395c0",
-   "00639710"
+   "00639770"
   ],
   "mischa85": "tibsun: functions compiled from src/readline.cpp, matched, without gaps",
   "main_options": [
@@ -115208,6 +115546,38 @@
     "padding": 8,
     "symbol": "?Read_Line@@YIHAAVStraw@@PADHAA_N@Z",
     "main_symbol": "?Read_Line@@YIHAAVStraw@@PADHAA_N@Z",
+    "main_source": "src/recovered/readline.cpp"
+   },
+   {
+    "entry": "00639710",
+    "body": 7,
+    "padding": 9,
+    "symbol": "??1ReferenceCounted@@UAE@XZ",
+    "main_symbol": "??1ReferenceCounted@@UAE@XZ",
+    "main_source": "src/recovered/readline.cpp"
+   },
+   {
+    "entry": "00639720",
+    "body": 20,
+    "padding": 12,
+    "symbol": "?Release@ReferenceCounted@@UAEXXZ",
+    "main_symbol": "?Release@ReferenceCounted@@UAEXXZ",
+    "main_source": "src/recovered/readline.cpp"
+   },
+   {
+    "entry": "00639740",
+    "body": 5,
+    "padding": 11,
+    "symbol": "?Unknown_Virtual_4@ReferenceCounted@@UAE_NH@Z",
+    "main_symbol": "?unknown_slot1@ReferenceCounted@@UAE_NH@Z",
+    "main_source": "src/recovered/readline.cpp"
+   },
+   {
+    "entry": "00639750",
+    "body": 32,
+    "padding": 0,
+    "symbol": "??_GReferenceCounted@@UAEPAXI@Z",
+    "main_symbol": "??_GReferenceCounted@@UAEPAXI@Z",
     "main_source": "src/recovered/readline.cpp"
    }
   ],
@@ -143413,7 +143783,7 @@
   "status": "catalogued",
   "range": [
    "004fef50",
-   "004ff200"
+   "004ff450"
   ],
   "mischa85": "tibsun: functions compiled from src/hsv.cpp, matched, without gaps; _$E3 not placed",
   "main_options": [
@@ -143502,6 +143872,46 @@
     "padding": 5,
     "symbol": "??9@YI_NAAVHSVClass@@0@Z",
     "main_symbol": "?unknown_endless_loop_check_004ff1f0@@YA_NXZ",
+    "main_source": "src/recovered/hsv.cpp"
+   },
+   {
+    "entry": "004ff200",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Load@WOLOptionsClass@@QAE_NXZ",
+    "main_symbol": "?Read_004ff200@WolRegistryOptions@@QAE_NXZ",
+    "main_source": "src/recovered/hsv.cpp"
+   },
+   {
+    "entry": "004ff2b0",
+    "body": 7,
+    "padding": 9,
+    "symbol": "?Is_Bit0_Clear@WOLOptionsClass@@QAE_NXZ",
+    "main_symbol": "?unknown_004ff2b0@WolRegistryOptions@@QBE_NXZ",
+    "main_source": "src/recovered/hsv.cpp"
+   },
+   {
+    "entry": "004ff2c0",
+    "body": 9,
+    "padding": 7,
+    "symbol": "?Is_Bit1_Clear@WOLOptionsClass@@QAE_NXZ",
+    "main_symbol": "?unknown_004ff2c0@WolRegistryOptions@@QBE_NXZ",
+    "main_source": "src/recovered/hsv.cpp"
+   },
+   {
+    "entry": "004ff2d0",
+    "body": 10,
+    "padding": 6,
+    "symbol": "?Is_Bit2_Clear@WOLOptionsClass@@QAE_NXZ",
+    "main_symbol": "?unknown_004ff2d0@WolRegistryOptions@@QBE_NXZ",
+    "main_source": "src/recovered/hsv.cpp"
+   },
+   {
+    "entry": "004ff2e0",
+    "body": 368,
+    "padding": 0,
+    "symbol": "?Save@WOLOptionsClass@@QAE_NK@Z",
+    "main_symbol": "?Write_004ff2e0@WolRegistryOptions@@QAE_NI@Z",
     "main_source": "src/recovered/hsv.cpp"
    }
   ],
@@ -159452,7 +159862,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005aa530",
    "005aa830"
@@ -160553,7 +160963,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005a74b0",
    "005a7530"
@@ -170011,5 +170421,260 @@
   "references": {
    "_RECT_NONE": "00a765a0"
   }
+ },
+ "_weapon": {
+  "core": [
+   "0040f720",
+   "0040fcd0"
+  ],
+  "symbol_overrides": {},
+  "source": "rebuild/src/_weapon.cpp",
+  "options": [
+   "/O2",
+   "/Ob2",
+   "/G5",
+   "/Gy"
+  ],
+  "status": "catalogued",
+  "range": [
+   "0040f720",
+   "0040fcd0"
+  ],
+  "mischa85": "none: no mischa85 module; range from main's unit map",
+  "main_options": [
+   [
+    "/O2",
+    "/Ob2",
+    "/G5",
+    "/Gy"
+   ]
+  ],
+  "rows": [
+   {
+    "entry": "0040f720",
+    "body": 40,
+    "padding": 8,
+    "symbol": "_$E2",
+    "main_symbol": "_$E2",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_diagonal_init.cpp"
+   },
+   {
+    "entry": "0040f750",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E5",
+    "main_symbol": "_$E5",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_b_init.cpp"
+   },
+   {
+    "entry": "0040f770",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E8",
+    "main_symbol": "_$E8",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_c_init.cpp"
+   },
+   {
+    "entry": "0040f790",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E11",
+    "main_symbol": "_$E11",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_angle45_init.cpp"
+   },
+   {
+    "entry": "0040f7b0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E14",
+    "main_symbol": "_$E14",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_angle60_init.cpp"
+   },
+   {
+    "entry": "0040f7d0",
+    "body": 19,
+    "padding": 13,
+    "symbol": "_$E17",
+    "main_symbol": "_$E17",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_angle90_init.cpp"
+   },
+   {
+    "entry": "0040f7f0",
+    "body": 49,
+    "padding": 15,
+    "symbol": "_$E20",
+    "main_symbol": "_$E20",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_g_init.cpp"
+   },
+   {
+    "entry": "0040f830",
+    "body": 33,
+    "padding": 15,
+    "symbol": "_$E23",
+    "main_symbol": "_$E23",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_h_init.cpp"
+   },
+   {
+    "entry": "0040f860",
+    "body": 44,
+    "padding": 4,
+    "symbol": "_$E26",
+    "main_symbol": "_$E26",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_i_init.cpp"
+   },
+   {
+    "entry": "0040f890",
+    "body": 39,
+    "padding": 9,
+    "symbol": "_$E29",
+    "main_symbol": "_$E29",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_j_init.cpp"
+   },
+   {
+    "entry": "0040f8c0",
+    "body": 15,
+    "padding": 1,
+    "symbol": "_$E32",
+    "main_symbol": "_$E32",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_k_init.cpp"
+   },
+   {
+    "entry": "0040f8d0",
+    "body": 18,
+    "padding": 14,
+    "symbol": "_$E35",
+    "main_symbol": "_$E35",
+    "main_source": "src/recovered/header_statics/after_warhead/HeaderStatics_l_init.cpp"
+   },
+   {
+    "entry": "0040f8f0",
+    "body": 61,
+    "padding": 3,
+    "symbol": "_$E40",
+    "main_symbol": "_$E40",
+    "main_source": "src/recovered/classes/WeaponTypeClass/WeaponTypeClass_list_init.cpp"
+   },
+   {
+    "entry": "0040f930",
+    "body": 59,
+    "padding": 5,
+    "symbol": "_$E38",
+    "main_symbol": "_$E38",
+    "main_source": "src/recovered/classes/WeaponTypeClass/WeaponTypeClass_list_atexit_destructor.cpp"
+   },
+   {
+    "entry": "0040f970",
+    "body": 42,
+    "padding": 6,
+    "symbol": "?Clear@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040f9a0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEHPBQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEHPBQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040f9c0",
+    "body": 13,
+    "padding": 3,
+    "symbol": "?GetItem@?$VectorClass@PAVWeaponTypeClass@@@@UBEPAVWeaponTypeClass@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@PAVWeaponTypeClass@@@@UBEPAVWeaponTypeClass@@H@Z",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/Fetch.cpp"
+   },
+   {
+    "entry": "0040f9d0",
+    "body": 62,
+    "padding": 2,
+    "symbol": "??8?$VectorClass@PAVWeaponTypeClass@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@PAVWeaponTypeClass@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/operator_equal.cpp"
+   },
+   {
+    "entry": "0040fa10",
+    "body": 174,
+    "padding": 2,
+    "symbol": "?Resize@?$VectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040fac0",
+    "body": 39,
+    "padding": 9,
+    "symbol": "?Clear@?$VectorClass@PAVWeaponTypeClass@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@PAVWeaponTypeClass@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/Clear.cpp"
+   },
+   {
+    "entry": "0040faf0",
+    "body": 51,
+    "padding": 13,
+    "symbol": "?ID@?$VectorClass@PAVWeaponTypeClass@@@@UAEHABQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVWeaponTypeClass@@@@UAEHABQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040fb30",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@PAVWeaponTypeClass@@@@UAEHPBQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?ID@?$VectorClass@PAVWeaponTypeClass@@@@UAEHPBQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_WeaponTypeClass_ptr/ID_pointer.cpp"
+   },
+   {
+    "entry": "0040fb50",
+    "body": 176,
+    "padding": 0,
+    "symbol": "?Resize@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAE_NHPBQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/Resize.cpp"
+   },
+   {
+    "entry": "0040fc00",
+    "body": 38,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEHABQAVWeaponTypeClass@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEHABQAVWeaponTypeClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_WeaponTypeClass_ptr/ID_object.cpp"
+   },
+   {
+    "entry": "0040fc30",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$VectorClass@PAVWeaponTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_40fc30@@QAEPAXI@Z",
+    "main_source": "src/recovered/awaiting_join/deleting_destructors/VectorClass_WeaponTypeClass_ptr_0040fc30.cpp"
+   },
+   {
+    "entry": "0040fc80",
+    "body": 73,
+    "padding": 7,
+    "symbol": "??_G?$DynamicVectorClass@PAVWeaponTypeClass@@@@UAEPAXI@Z",
+    "main_symbol": "?get@Leaf_40fc80@@QAEPAXI@Z",
+    "main_source": "src/recovered/awaiting_join/deleting_destructors/DynamicVectorClass_WeaponTypeClass_ptr_0040fc80.cpp"
+   }
+  ],
+  "references": {
+   "_BRIDGE_LEPTON_HEIGHT": "00839ba8",
+   "_CELL_DIAG_SLOPE_ANGLE": "00839b78",
+   "_CELL_LEPTON_DIAG": "00839b50",
+   "_CELL_NONE": "00839b48",
+   "_CELL_SLOPE_ANGLE": "00839b60",
+   "_COORD_NONE": "00839b68",
+   "_ISO_TILE_SIZE": "0079ad48",
+   "_LEPTONS_PER_PIXEL": "00839bb0",
+   "_LEVEL_LEPTON_H": "00839bb8",
+   "_ONE_RAD": "0079ad50",
+   "_PIXELS_PER_LEPTON": "00839b88",
+   "_RAD_45": "00839b80",
+   "_RAD_60": "00839b58",
+   "_RAD_90": "00839b40"
+  },
+  "note": "new unit (lane O52, the underscore-file ruling of lane R23): the global object DynamicVectorClass<WeaponTypeClass *> Weapons; positive source TibSun's code/_weapon.cpp and ra2-decomp's src/_weapon.cpp (geometry.h's twelve header statics, the object's initializer and atexit destructor, then the vector's template copies, in this order), linked between _warhead and abstract in the alphabetical run of underscore objects; mischa85 leaves the span unassigned (unk_0040F3C0). Evidence that 0x40F720-0x40FCD0 is its own object: (1) the image's .CRT$XCU table holds a second complete run of geometry.h's twelve header-static initializers (entries 185-196, 0x40F720-0x40F8D0) after _warhead's run (172-184), then this object's own initializer (197, 0x40F8F0), then abstract's run (198, 0x40FCD0): one object cannot initialise the same header statics twice; (2) data: its twelve statics and Weapons lie in their own contiguous .bss block 0x839B40-0x839BBF (Weapons 0x839B90), after _warhead's (statics from 0x839AD0, Warheads 0x839B00) and before abstract's WinVersion (0x839BC0); its vector vtable 0x79AD5C follows _warhead's 0x79AD0C in .rdata; (3) padding: the span starts 16-aligned right after _warhead's last row and ends at abstract's first initializer; (4) mischa85's unit map leaves it unassigned (unk_0040F3C0, absence) and main's module map assigns these rows to no module (main files them under header_statics/after_warhead and classes/WeaponTypeClass); (5) TibSun code/_weapon.cpp and ra2-decomp src/_weapon.cpp are this file, alphabetically between _warhead and abstract"
  }
 }

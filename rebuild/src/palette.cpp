@@ -285,22 +285,7 @@ int PaletteClass::Closest_Color(RGBClass const & rgb) const
 **	in a hash table under the file's name. Nothing of this is in the Tiberian Sun reconstruction, so each line
 **	below is what the executable shows (0x00603200 to 0x00603FA0, without Set_Scheme_Table_Theater at 0x00603750).
 */
-class HashString { // RA2: the table key, a 256 byte name (the hash functions are outside this file)
-	public: // RA2: as above
-		HashString(void); // RA2: 0x004E1130
-		HashString(char const * str); // RA2: 0x004E1140
-		HashString(HashString const & that); // RA2: 0x004E1180
-		HashString & operator = (HashString const & that); // RA2: 0x004E11C0
-		bool operator == (HashString const & that); // RA2: 0x004E11F0
-		bool operator != (HashString const & that); // RA2: member comparisons on a mutable key
-		bool operator ! (void) const; // RA2: 0x004E11B0, true for an empty name
-
-		char Str[256]; // RA2: +0x0
-};
-
-// RA2: const hash-table entries use the free comparisons declared in ra2-decomp/include/hashstr.h.
-bool operator == (HashString const & a, HashString const & b);
-bool operator != (HashString const & a, HashString const & b);
+#include "hashstr.h" // RA2: the table key (ra2-decomp's header; its members are gscreen.cpp's)
 
 
 class SchemeNode { // RA2: the schemes generated from one palette file

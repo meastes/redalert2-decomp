@@ -79,3 +79,32 @@ char * strtrim(char * buffer)
 	}
 	return(buffer);
 }
+
+
+/// <summary>
+/// RA2: strtrim for a wide string (ra2-decomp's trim.cpp has it after strtrim).
+/// </summary>
+/// <param name="buffer">The string to trim, in place.</param>
+/// <returns>wchar_t *; The string.</returns>
+wchar_t * wcstrim(wchar_t * buffer)
+{
+	if (buffer) {
+		wchar_t * source = buffer;
+		while ((*source != 0) && ((unsigned short)*source <= 32)) {
+			source++;
+		}
+
+		if (source != buffer) {
+			wcscpy(buffer, source);
+		}
+
+		for (int index = wcslen(buffer) - 1; index >= 0; index--) {
+			if ((*source != 0) && ((unsigned short)buffer[index] <= 32)) {
+				buffer[index] = L'\0';
+			} else {
+				break;
+			}
+		}
+	}
+	return(buffer);
+}

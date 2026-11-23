@@ -949,8 +949,6 @@ namespace WorldDominationTour
 			void End(void); // RA2: 0x00730230
 
 			void Add_Sfx_Entry(MSSfxEntry * entry) { if (entry != NULL) SfxEntries.Add(entry); }
-			bool Hover_At(Point2D const & point) { return(Select_Territory_At(point)); } // RA2: an inline layer around the hover selection
-			int Region_At(Point2D const & point) { return((char)WorldMap->Is_Over_Back(point) ? 2 : 1); } // RA2: 2 over the back button, else 1 (inline)
 
 		public:
 			rc_ptr<Campaign> TourCampaign; // RA2: +0x48; the campaign the screen presents
@@ -965,7 +963,7 @@ namespace WorldDominationTour
 			int StartTick; // RA2: +0x450; the last conflict of the campaign
 			int LastHoverZone; // RA2: +0x454
 			rc_ptr<Map> WorldMap; // RA2: +0x458
-			int HoveredTerritoryID; // RA2: +0x460
+			unsigned int HoveredTerritoryID; // RA2: +0x460
 			rc_ptr<Territory> MousedTerritory; // RA2: +0x464
 			ConvertClass * TargetDrawer; // RA2: +0x46C
 			MSAnimEntry * ZoomingTarget; // RA2: +0x470

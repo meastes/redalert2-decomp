@@ -119,6 +119,16 @@
     "?DebugString@@YAXPBDZZ": 4221168,
     "??0BinkHandle@@QAE@PBDPAVSurface@@@Z": 4390560,
     "?Movie_Create@@YIPAUVQHandle@@PBDPAVSurface@@V?$TRect@H@@2H_N@Z": 5902352,
+    "??0MultiplayerGameMode@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z": 5991632,
+    "??_7MultiplayerBattle@@6B@": 8021684,
+    "??1MultiplayerGameMode@@UAE@XZ": 5991968,
+    "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z": 6003488,
+    "??_7MultiplayerBattleTeam@@6B@": 8021868,
+    "?WideWstring_FromInt@@YI?AVWideWstring@@H@Z": 7803072,
+    "??1WideWstring@@QAE@XZ": 7797328,
+    "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z": 6003552,
+    "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z": 6003584,
+    "??1MultiplayerTeam@@UAE@XZ": 6003536,
     "_$E2": 5901136,
     "_$E5": 5901168,
     "_$E8": 5901216,
@@ -215,6 +225,62 @@
     "?OwnerDraw_InitMovieHandle@@YIPAVMovieHandle@@PBDPAVSurface@@PAV?$TRect@H@@@Z": 5905712,
     "?IsMoviePlaying@Game@@YI_NXZ": 5906128,
     "?BlitMovie@Game@@YIXXZ": 5906160,
+    "??0MultiplayerBattle@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z": 5907232,
+    "?GenerateStartingUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@AAH@Z": 5996640,
+    "?SpawnBaseUnits@MultiplayerGameMode@@UAE_NPAVHouseClass@@I@Z": 5996432,
+    "?AssignStartingPositionsToHouse@MultiplayerGameMode@@UAEPAVCell@@PAV2@HPAV?$DynamicVectorClass@VCell@@@@PAE@Z": 5994784,
+    "?CreateMPTeams@MultiplayerGameMode@@UAEXPAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@@Z": 5994272,
+    "?OnGameStart@MultiplayerGameMode@@UAE_NXZ": 5997680,
+    "?AllyTeams@MultiplayerGameMode@@UAE_NXZ": 5997600,
+    "?StartingPositionsToHouseBaseCells@MultiplayerGameMode@@UAE_ND@Z": 5995520,
+    "?UnfixAlliances@MultiplayerGameMode@@UAE_NXZ": 5994528,
+    "?RandomAICountryIndex@MultiplayerGameMode@@UAEHXZ": 5993680,
+    "?RandomHumanCountryIndex@MultiplayerGameMode@@UAEHXZ": 5993664,
+    "?vt_entry_54@MultiplayerGameMode@@UAE_NXZ": 5993408,
+    "?vt_entry_50@MultiplayerGameMode@@UAE_NXZ": 5993392,
+    "?PopulateTeamDropdownForPlayer@MultiplayerGameMode@@UAEXPAUHWND__@@H@Z": 5993936,
+    "?DrawTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PAV?$DynamicVectorClass@PBVMultiMission@@@@PBVMultiMission@@@Z": 5993808,
+    "?PopulateTeamDropdown@MultiplayerGameMode@@UAEXPAUHWND__@@PAV?$DynamicVectorClass@PAVMultiplayerTeam@@@@PAVMultiplayerTeam@@@Z": 5993696,
+    "?FirstValidMapIndex@MultiplayerGameMode@@UAEHXZ": 5993472,
+    "?IsAIAllowed@MultiplayerGameMode@@UAE_NXZ": 5993440,
+    "?DefaultCountry@MultiplayerGameMode@@UAEHXZ": 5992112,
+    "?IsCountryAllowed@MultiplayerGameMode@@UAE_NH@Z": 5994544,
+    "?AssignTeamsAtStart@MultiplayerGameMode@@UAE_NXZ": 5993424,
+    "?CheckStartConditions@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z": 5993376,
+    "?AssignTeams@MultiplayerGameMode@@UAE_NXZ": 5993296,
+    "??_GMultiplayerBattle@@UAEPAXI@Z": 5907712,
+    "??_R0?AVMultiplayerGameMode@@@8": 8270672,
+    "??_R0?AVMultiplayerBattle@@@8": 8270712,
+    "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ": 5907328,
+    "?vt_entry_08@MultiplayerGameMode@@UAE_NXZ": 5907344,
+    "?vt_entry_0C@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z": 5907360,
+    "?vt_entry_20@MultiplayerGameMode@@UAEXXZ": 5907376,
+    "?vt_entry_24@MultiplayerGameMode@@UAEXXZ": 5907392,
+    "?vt_entry_44@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z": 5907440,
+    "?vt_entry_48@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@PBD1@Z": 5907408,
+    "?vt_entry_4C@MultiplayerGameMode@@UAE_NIIPAUMPlayerScoreType@@@Z": 5907472,
+    "?vt_entry_58@MultiplayerGameMode@@UAE_NXZ": 5907488,
+    "?vt_entry_64@MultiplayerGameMode@@UAEXIPAD@Z": 5907504,
+    "?vt_entry_78@MultiplayerGameMode@@UAEXXZ": 5907520,
+    "?vt_entry_7C@MultiplayerGameMode@@UAEXXZ": 5907536,
+    "?vt_entry_80@MultiplayerGameMode@@UAEHXZ": 5907552,
+    "?vt_entry_84@MultiplayerGameMode@@UAEXXZ": 5907568,
+    "?vt_entry_88@MultiplayerGameMode@@UAEX_N@Z": 5907584,
+    "?vt_entry_8C@MultiplayerGameMode@@UAEX_N@Z": 5907600,
+    "?vt_entry_90@MultiplayerGameMode@@UAE_NXZ": 5907616,
+    "?vt_entry_94@MultiplayerGameMode@@UAEXXZ": 5907632,
+    "?vt_entry_98@MultiplayerGameMode@@UAEXXZ": 5907648,
+    "?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z": 5907664,
+    "?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ": 5907696,
+    "??1MultiplayerBattle@@UAE@XZ": 5907296,
+    "?IsSkirmishAllowed@MultiplayerBattle@@UAE_NXZ": 5907312,
+    "??0MultiplayerBattleTeam@@QAE@ABVWideWstring@@H@Z": 5907760,
+    "??_GMultiplayerBattleTeam@@UAEPAXI@Z": 5907952,
+    "??_R0?AVMultiplayerTeam@@@8": 8270744,
+    "??_R0?AVMultiplayerBattleTeam@@@8": 8270776,
+    "?Create_Battle_Team@@YIPAVMultiplayerTeam@@H@Z": 5907792,
+    "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z": 5907888,
+    "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z": 5907920,
     "?Clear@?$DynamicVectorClass@PBD@@UAEXXZ": 5906368,
     "?ID@?$DynamicVectorClass@PBD@@UAEHPBQBD@Z": 5906416,
     "?GetItem@?$VectorClass@PBD@@UBEPBDH@Z": 5906448,
@@ -290,7 +356,7 @@
           "resolved": 10948660
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901136,
@@ -358,7 +424,7 @@
           "resolved": 10948672
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901168,
@@ -410,7 +476,7 @@
           "resolved": 10948768
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901216,
@@ -462,7 +528,7 @@
           "resolved": 10948752
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901248,
@@ -514,7 +580,7 @@
           "resolved": 10948744
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901280,
@@ -566,7 +632,7 @@
           "resolved": 10948680
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901312,
@@ -618,7 +684,7 @@
           "resolved": 10948640
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901344,
@@ -702,7 +768,7 @@
           "resolved": 10948776
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901376,
@@ -762,7 +828,7 @@
           "resolved": 10948712
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901440,
@@ -822,7 +888,7 @@
           "resolved": 10948736
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901488,
@@ -882,7 +948,7 @@
           "resolved": 10948760
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901536,
@@ -926,7 +992,7 @@
           "resolved": 10948666
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901584,
@@ -978,7 +1044,7 @@
           "resolved": 10948728
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901600,
@@ -1086,7 +1152,7 @@
           "resolved": 1973263
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901632,
@@ -1178,7 +1244,7 @@
           "resolved": 10948696
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901696,
@@ -1230,7 +1296,7 @@
           "resolved": 1557546
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901760,
@@ -1266,7 +1332,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901856,
@@ -1350,7 +1416,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5901872,
@@ -1490,7 +1556,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5902016,
@@ -1742,7 +1808,7 @@
           "resolved": 1023307
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5902352,
@@ -1810,7 +1876,7 @@
           "resolved": 1968264
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903472,
@@ -1942,7 +2008,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903568,
@@ -2002,7 +2068,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903856,
@@ -2038,7 +2104,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903904,
@@ -2074,7 +2140,7 @@
           "resolved": 1555297
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903920,
@@ -2110,7 +2176,7 @@
           "resolved": 1555345
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903936,
@@ -2226,7 +2292,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5903952,
@@ -2253,7 +2319,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904144,
@@ -2321,7 +2387,7 @@
           "resolved": 1967522
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904224,
@@ -2373,7 +2439,7 @@
           "resolved": 1555256
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904304,
@@ -2417,7 +2483,7 @@
           "resolved": 1554880
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904368,
@@ -2469,7 +2535,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904432,
@@ -2496,7 +2562,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904464,
@@ -2556,7 +2622,7 @@
           "resolved": 10948780
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904480,
@@ -2583,7 +2649,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904544,
@@ -2610,7 +2676,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904560,
@@ -2646,7 +2712,7 @@
           "resolved": 1022960
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904624,
@@ -2690,7 +2756,7 @@
           "resolved": 1553204
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904656,
@@ -2717,7 +2783,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904688,
@@ -2833,7 +2899,7 @@
           "resolved": 8624464
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904704,
@@ -2925,7 +2991,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5904896,
@@ -2961,7 +3027,7 @@
           "resolved": 8021636
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905024,
@@ -2997,7 +3063,7 @@
           "resolved": 4293454147
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905072,
@@ -3049,7 +3115,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905088,
@@ -3085,7 +3151,7 @@
           "resolved": 4293454136
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905120,
@@ -3121,7 +3187,7 @@
           "resolved": 4293455112
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905136,
@@ -3157,7 +3223,7 @@
           "resolved": 4293455064
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905152,
@@ -3193,7 +3259,7 @@
           "resolved": 4293453662
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905168,
@@ -3229,7 +3295,7 @@
           "resolved": 4293453987
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905200,
@@ -3265,7 +3331,7 @@
           "resolved": 4293453907
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905216,
@@ -3301,7 +3367,7 @@
           "resolved": 4293453928
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905232,
@@ -3337,7 +3403,7 @@
           "resolved": 4293455032
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905248,
@@ -3397,7 +3463,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905264,
@@ -3433,7 +3499,7 @@
           "resolved": 8021588
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905312,
@@ -3573,7 +3639,7 @@
           "resolved": 4293449334
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905328,
@@ -3721,7 +3787,7 @@
           "resolved": 1553527
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5905712,
@@ -3765,7 +3831,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906128,
@@ -3801,7 +3867,7 @@
           "resolved": 10948784
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906160,
@@ -3893,7 +3959,7 @@
           "resolved": 1965513
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906176,
@@ -3961,7 +4027,7 @@
           "resolved": 1965446
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906304,
@@ -3997,7 +4063,7 @@
           "resolved": 1965408
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906368,
@@ -4025,7 +4091,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906416,
@@ -4053,7 +4119,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906448,
@@ -4081,7 +4147,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906464,
@@ -4126,7 +4192,7 @@
           "resolved": 1965152
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906528,
@@ -4163,7 +4229,7 @@
           "resolved": 1965075
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906704,
@@ -4191,7 +4257,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906752,
@@ -4219,7 +4285,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906816,
@@ -4264,7 +4330,7 @@
           "resolved": 1964845
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5906848,
@@ -4292,7 +4358,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5907024,
@@ -4345,7 +4411,7 @@
           "resolved": 1964667
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5907072,
@@ -4398,12 +4464,1031 @@
           "resolved": 1964587
         }
       ],
-      "source_sha256": "e9cc2fb8166447f564ef93cce23a2d63d60fb8ed31d05c3331a900d61d2082b9",
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
       "source": "rebuild/src/movies.cpp",
       "population": "rebuild-movies",
       "source_order": 5907152,
       "source_quality_family": "rebuild",
       "bound_population": "population-66"
+    },
+    {
+      "entry": 5907232,
+      "method": "005a2320",
+      "body_bytes": 52,
+      "body_sha256": "5fe525471f1f063d6bdcad7d7aff70a1925c293741aaf1b55937db120d6e5a18",
+      "padding_bytes": 12,
+      "full_extent_bytes": 64,
+      "full_extent_sha256": "65bebfa1c8f9dd82cf9de0c0adbc249d52cf617e15d48c92bc297761f936065f",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MultiplayerBattle@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+      "symbol_prefix": "??0MultiplayerBattle@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 36,
+          "kind": 20,
+          "symbol": "??0MultiplayerGameMode@@QAE@ABVWideWstring@@0ABVWstring@@1_NH@Z",
+          "target": 5991632,
+          "addend": 0,
+          "resolved": 84360
+        },
+        {
+          "offset": 42,
+          "kind": 6,
+          "symbol": "??_7MultiplayerBattle@@6B@",
+          "target": 8021684,
+          "addend": 0,
+          "resolved": 8021684
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907232,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907296,
+      "method": "005a2360",
+      "body_bytes": 11,
+      "body_sha256": "31a17f13175be166009010ab1508f280ec93405b8ca597a2ffb5f04b13242b49",
+      "padding_bytes": 5,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "86d4274e9a7a3003b35d730e6bcec17205515c5f39105aa6ef77816438994532",
+      "padding_sha256": "18e800921eac4b6ea289ffc28abb7e2d58e7521d3568dcacd9e3aa55096f35de",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??1MultiplayerBattle@@UAE@XZ",
+      "symbol_prefix": "??1MultiplayerBattle@@UAE@XZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 2,
+          "kind": 6,
+          "symbol": "??_7MultiplayerBattle@@6B@",
+          "target": 8021684,
+          "addend": 0,
+          "resolved": 8021684
+        },
+        {
+          "offset": 7,
+          "kind": 20,
+          "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+          "target": 5991968,
+          "addend": 0,
+          "resolved": 84661
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907296,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907312,
+      "method": "005a2370",
+      "body_bytes": 3,
+      "body_sha256": "e18aacce29affcdddaa5f641ac1ec12552e0fe9d066e6408941b1792818b8619",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1191f37eec740e495eda01ae2ac0969bf44c3c661ce4ae90583b5fdc05c0f707",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsSkirmishAllowed@MultiplayerBattle@@UAE_NXZ",
+      "symbol_prefix": "?IsSkirmishAllowed@MultiplayerBattle@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907312,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907328,
+      "method": "005a2380",
+      "body_bytes": 3,
+      "body_sha256": "01cb47d078b4841b8408ec4fe278efa83115c6f6e101972987507d2b2b57dcf0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ",
+      "symbol_prefix": "?vt_entry_04@MultiplayerGameMode@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907328,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907344,
+      "method": "005a2390",
+      "body_bytes": 3,
+      "body_sha256": "01cb47d078b4841b8408ec4fe278efa83115c6f6e101972987507d2b2b57dcf0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_08@MultiplayerGameMode@@UAE_NXZ",
+      "symbol_prefix": "?vt_entry_08@MultiplayerGameMode@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907344,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907360,
+      "method": "005a23a0",
+      "body_bytes": 5,
+      "body_sha256": "f4c6d7ae520f88aecb3ea65952e885437fa4a6ce4b5c3439a161d1c5d8e42863",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "379d09f1f223152c4910467bafdec001cd9a948b0d5d8362212da7a5dccd9ce1",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_0C@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z",
+      "symbol_prefix": "?vt_entry_0C@MultiplayerGameMode@@UAE_NPAVWideWstring@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907360,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907376,
+      "method": "005a23b0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_20@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_20@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907376,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907392,
+      "method": "005a23c0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_24@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_24@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907392,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907408,
+      "method": "005a23d0",
+      "body_bytes": 30,
+      "body_sha256": "30abb6abcb9024ec3f07eea8c3daeef223c6e3860e40984f62a213b7c89ab2ce",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "8e8099c0ebe86f04d969b4a1c5c3d4cec5fab79d2c1a8feca43a911ee2576b63",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_48@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@PBD1@Z",
+      "symbol_prefix": "?vt_entry_48@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@PBD1@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964373
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907408,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907440,
+      "method": "005a23f0",
+      "body_bytes": 30,
+      "body_sha256": "e70186faeddad30a0a417850569551a2f7c103c9dd6aeb621159c11e5d2ec776",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2e3a3c4b3b71f578af393a85970858eb491c0751853e3a7be7a0e6fb65f6764f",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_44@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z",
+      "symbol_prefix": "?vt_entry_44@MultiplayerGameMode@@UAE_NHV?$DynamicVectorClass@H@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964341
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907440,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907472,
+      "method": "005a2410",
+      "body_bytes": 5,
+      "body_sha256": "d94cc1c82e8ea202d242e9bd83dcad4b047b4cc733a571a749d0f2613aae60ee",
+      "padding_bytes": 11,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "17426a1d7bd46d6237cc0d2642caf56b063b2dfa75d4042714f9e42caa48e2b0",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_4C@MultiplayerGameMode@@UAE_NIIPAUMPlayerScoreType@@@Z",
+      "symbol_prefix": "?vt_entry_4C@MultiplayerGameMode@@UAE_NIIPAUMPlayerScoreType@@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907472,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907488,
+      "method": "005a2420",
+      "body_bytes": 3,
+      "body_sha256": "e18aacce29affcdddaa5f641ac1ec12552e0fe9d066e6408941b1792818b8619",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1191f37eec740e495eda01ae2ac0969bf44c3c661ce4ae90583b5fdc05c0f707",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_58@MultiplayerGameMode@@UAE_NXZ",
+      "symbol_prefix": "?vt_entry_58@MultiplayerGameMode@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907488,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907504,
+      "method": "005a2430",
+      "body_bytes": 3,
+      "body_sha256": "1d10894625976bca9d8906f3ecf1e766b94e9219ec3bf1c30e02feea5e18e45a",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "2a2f950faf0d7851fcb17366fb6bc179054ac4270b9c00d37aa03373db6cc20a",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_64@MultiplayerGameMode@@UAEXIPAD@Z",
+      "symbol_prefix": "?vt_entry_64@MultiplayerGameMode@@UAEXIPAD@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907504,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907520,
+      "method": "005a2440",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_78@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_78@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907520,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907536,
+      "method": "005a2450",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_7C@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_7C@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907536,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907552,
+      "method": "005a2460",
+      "body_bytes": 4,
+      "body_sha256": "031a1d90a8a2c46993613c8b2828efd0c52f20f2852d5f2ff930bc6acc0090c8",
+      "padding_bytes": 12,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "ca7ecff8f03519160102a6cef35737c8af874a9bea7748eb56fc710a9fb329f3",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_80@MultiplayerGameMode@@UAEHXZ",
+      "symbol_prefix": "?vt_entry_80@MultiplayerGameMode@@UAEHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907552,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907568,
+      "method": "005a2470",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_84@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_84@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907568,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907584,
+      "method": "005a2480",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_88@MultiplayerGameMode@@UAEX_N@Z",
+      "symbol_prefix": "?vt_entry_88@MultiplayerGameMode@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907584,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907600,
+      "method": "005a2490",
+      "body_bytes": 3,
+      "body_sha256": "e598d0c3ba86d917b177d7adde0556aa99bc355543c57aee0a3e50b684dd7e99",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "c4e48398aa494fd8abf1c3e8e6cc058bcdca3836fdfe6744b7d353c518e1c019",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_8C@MultiplayerGameMode@@UAEX_N@Z",
+      "symbol_prefix": "?vt_entry_8C@MultiplayerGameMode@@UAEX_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907600,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907616,
+      "method": "005a24a0",
+      "body_bytes": 3,
+      "body_sha256": "01cb47d078b4841b8408ec4fe278efa83115c6f6e101972987507d2b2b57dcf0",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1c93847ee0f29c8102c08f41566abe2ae27a71ab314eec709e90e3a28353e543",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_90@MultiplayerGameMode@@UAE_NXZ",
+      "symbol_prefix": "?vt_entry_90@MultiplayerGameMode@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907616,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907632,
+      "method": "005a24b0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_94@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_94@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907632,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907648,
+      "method": "005a24c0",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_98@MultiplayerGameMode@@UAEXXZ",
+      "symbol_prefix": "?vt_entry_98@MultiplayerGameMode@@UAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907648,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907664,
+      "method": "005a24d0",
+      "body_bytes": 30,
+      "body_sha256": "3464cbec354357ab1054b770ab76562e07fa811e82ce223a73911c63aa16988b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "31e8366ef579edc329468eff97a9b86972fa296584ca45b8f7df99b3927a0d67",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z",
+      "symbol_prefix": "?vt_entry_9C@MultiplayerGameMode@@UAE_NV?$DynamicVectorClass@H@@PAH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 18,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964117
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907664,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907696,
+      "method": "005a24f0",
+      "body_bytes": 3,
+      "body_sha256": "e18aacce29affcdddaa5f641ac1ec12552e0fe9d066e6408941b1792818b8619",
+      "padding_bytes": 13,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "1191f37eec740e495eda01ae2ac0969bf44c3c661ce4ae90583b5fdc05c0f707",
+      "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ",
+      "symbol_prefix": "?vt_entry_A0@MultiplayerGameMode@@UAE_NXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907696,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907712,
+      "method": "005a2500",
+      "body_bytes": 36,
+      "body_sha256": "4d81d1a10a67339629065765922d83c4a18c6c7ed9cdec26a2b510d75e443dcb",
+      "padding_bytes": 12,
+      "full_extent_bytes": 48,
+      "full_extent_sha256": "bf52bbb75eb3a42fe7d35c37d9f167a6bc467598a5251e75579a91b9d344fd2d",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMultiplayerBattle@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMultiplayerBattle@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 6,
+          "symbol": "??_7MultiplayerBattle@@6B@",
+          "target": 8021684,
+          "addend": 0,
+          "resolved": 8021684
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "??1MultiplayerGameMode@@UAE@XZ",
+          "target": 5991968,
+          "addend": 0,
+          "resolved": 84242
+        },
+        {
+          "offset": 23,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1964064
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907712,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907760,
+      "method": "005a2530",
+      "body_bytes": 32,
+      "body_sha256": "09c2abbfec28870b3c416f4bf4d65f45d2615e7f178dd83497e246b61d7d5a1a",
+      "padding_bytes": 0,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "09c2abbfec28870b3c416f4bf4d65f45d2615e7f178dd83497e246b61d7d5a1a",
+      "padding_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??0MultiplayerBattleTeam@@QAE@ABVWideWstring@@H@Z",
+      "symbol_prefix": "??0MultiplayerBattleTeam@@QAE@ABVWideWstring@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 16,
+          "kind": 20,
+          "symbol": "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z",
+          "target": 6003488,
+          "addend": 0,
+          "resolved": 95708
+        },
+        {
+          "offset": 22,
+          "kind": 6,
+          "symbol": "??_7MultiplayerBattleTeam@@6B@",
+          "target": 8021868,
+          "addend": 0,
+          "resolved": 8021868
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907760,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907792,
+      "method": "005a2550",
+      "body_bytes": 88,
+      "body_sha256": "a32b79e002484b69b878f75c119771b5f38bbb4b0bef0f74ef11c78629e524eb",
+      "padding_bytes": 8,
+      "full_extent_bytes": 96,
+      "full_extent_sha256": "6b0662a15213fc533d7cc6964c9ee59ad9618c5035a8f7060d239f042efa6316",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Create_Battle_Team@@YIPAVMultiplayerTeam@@H@Z",
+      "symbol_prefix": "?Create_Battle_Team@@YIPAVMultiplayerTeam@@H@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1964722
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "?WideWstring_FromInt@@YI?AVWideWstring@@H@Z",
+          "target": 7803072,
+          "addend": 0,
+          "resolved": 1895234
+        },
+        {
+          "offset": 51,
+          "kind": 20,
+          "symbol": "??0MultiplayerTeam@@QAE@ABVWideWstring@@H@Z",
+          "target": 6003488,
+          "addend": 0,
+          "resolved": 95641
+        },
+        {
+          "offset": 57,
+          "kind": 6,
+          "symbol": "??_7MultiplayerBattleTeam@@6B@",
+          "target": 8021868,
+          "addend": 0,
+          "resolved": 8021868
+        },
+        {
+          "offset": 75,
+          "kind": 20,
+          "symbol": "??1WideWstring@@QAE@XZ",
+          "target": 7797328,
+          "addend": 0,
+          "resolved": 1889457
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907792,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907888,
+      "method": "005a25b0",
+      "body_bytes": 18,
+      "body_sha256": "542066b038e31c3bcca3163970ed3266be64231e6cda8143cdd2fe606319c177",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "102d8219b0f9c0acf4dd21e7f6b00dd13b09106f818d40afdca9757918ffacb1",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z",
+      "symbol_prefix": "?IsTeamIncluded@MultiplayerBattleTeam@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?IsTeamIncluded@MultiplayerTeam@@UAE_NH@Z",
+          "target": 6003552,
+          "addend": 0,
+          "resolved": 95654
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907888,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907920,
+      "method": "005a25d0",
+      "body_bytes": 18,
+      "body_sha256": "542066b038e31c3bcca3163970ed3266be64231e6cda8143cdd2fe606319c177",
+      "padding_bytes": 14,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "102d8219b0f9c0acf4dd21e7f6b00dd13b09106f818d40afdca9757918ffacb1",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z",
+      "symbol_prefix": "?SetPlayerTeam@MultiplayerBattleTeam@@UAE_NH@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 6,
+          "kind": 20,
+          "symbol": "?SetPlayerTeam@MultiplayerTeam@@UAE_NH@Z",
+          "target": 6003584,
+          "addend": 0,
+          "resolved": 95654
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907920,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
+    },
+    {
+      "entry": 5907952,
+      "method": "005a25f0",
+      "body_bytes": 30,
+      "body_sha256": "fd0184b6fdcd9ecee1b38c5d3f1a9cb10d52f325bdaa122b258a9d6ceaa8621b",
+      "padding_bytes": 2,
+      "full_extent_bytes": 32,
+      "full_extent_sha256": "2de63d2f818aa799723e792ff17db2ebaf1f34b38dac65688b03b2fdec8a75cc",
+      "padding_sha256": "182003d5c37dc5253d84cc5156ca9f93aab75e72e395d157748de67cc20f4f76",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??_GMultiplayerBattleTeam@@UAEPAXI@Z",
+      "symbol_prefix": "??_GMultiplayerBattleTeam@@UAEPAXI@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 4,
+          "kind": 20,
+          "symbol": "??1MultiplayerTeam@@UAE@XZ",
+          "target": 6003536,
+          "addend": 0,
+          "resolved": 95576
+        },
+        {
+          "offset": 17,
+          "kind": 20,
+          "symbol": "??3@YAXPAX@Z",
+          "target": 7871803,
+          "addend": 0,
+          "resolved": 1963830
+        }
+      ],
+      "source_sha256": "1c84fb8b2213f675f35b9bf2671bb6d2e56a833ad1156f1a732bad30023f6d80",
+      "source": "rebuild/src/movies.cpp",
+      "population": "rebuild-movies",
+      "source_order": 5907952,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-2393"
     }
   ]
 }

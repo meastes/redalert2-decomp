@@ -114,3 +114,26 @@ int Read_Line(Straw & file, char * buffer, int len, bool & eof)
 	//strtrim(buffer);
 	return(strlen(buffer));
 }
+
+
+#include "refcount.h" // RA2: the reference counted base, here where ra2-decomp's readline.cpp has it
+
+
+ReferenceCounted::~ReferenceCounted(void)
+{
+}
+
+
+/// <summary>
+/// Drops a reference, deleting the object with the last one.
+/// </summary>
+void ReferenceCounted::Release(void)
+{
+	if (--Count == 0) delete this;
+}
+
+
+bool ReferenceCounted::Unknown_Virtual_4(int)
+{
+	return false;
+}

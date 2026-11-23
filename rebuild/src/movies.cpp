@@ -555,3 +555,68 @@ void __fastcall Game::BlitMovie(void)
 		ActiveMovieHandle->Blit();
 	}
 }
+
+
+#include "mpbattle.h" // RA2: the battle game mode and its teams, here where ra2-decomp's movies.cpp has them
+
+
+/// <summary>
+/// Makes the battle game mode.
+/// </summary>
+MultiplayerBattle::MultiplayerBattle(WideWstring const & title, WideWstring const & tooltip, Wstring const & inifile, Wstring const & mapfilter, bool aiallowed, int modeindex) :
+	MultiplayerGameMode(title, tooltip, inifile, mapfilter, aiallowed, modeindex)
+{
+}
+
+
+MultiplayerBattle::~MultiplayerBattle(void)
+{
+}
+
+
+/// <summary>
+/// RA2: the battle mode may be played in a skirmish.
+/// </summary>
+bool MultiplayerBattle::IsSkirmishAllowed(void)
+{
+	return(true);
+}
+
+
+/*
+**	RA2: a team of the battle mode, titled with its number.
+*/
+class MultiplayerBattleTeam : public MultiplayerTeam
+{
+	public:
+		MultiplayerBattleTeam(WideWstring const & title, int index);
+		virtual bool IsTeamIncluded(int index);
+		virtual bool SetPlayerTeam(int player);
+};
+
+
+MultiplayerBattleTeam::MultiplayerBattleTeam(WideWstring const & title, int index) :
+	MultiplayerTeam(title, index)
+{
+}
+
+
+/// <summary>
+/// Makes the battle mode's team of a number, titled with the number.
+/// </summary>
+MultiplayerTeam * __fastcall Create_Battle_Team(int index)
+{
+	return(new MultiplayerBattleTeam(WideWstring_FromInt(index), index));
+}
+
+
+bool MultiplayerBattleTeam::IsTeamIncluded(int index)
+{
+	return(MultiplayerTeam::IsTeamIncluded(index) ? true : false);
+}
+
+
+bool MultiplayerBattleTeam::SetPlayerTeam(int player)
+{
+	return(MultiplayerTeam::SetPlayerTeam(player) ? true : false);
+}
