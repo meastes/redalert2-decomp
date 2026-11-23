@@ -493,7 +493,7 @@ void LoadProgressManager::Draw(void)
 				}
 				wcscpy(text, LoadBriefing);
 				RGBClass pixel_color = scheme->HSV;
-				int pixel = DSurface::Build_Hicolor_Pixel(pixel_color);
+				int pixel = DSurface::Build_Hicolor_Pixel(pixel_color.Get_Red(), pixel_color.Get_Green(), pixel_color.Get_Blue());
 				int width = 0;
 				int height = 0;
 				BitFont::Instance->Text_Dimensions(text, &width, &height, 400);
@@ -516,7 +516,7 @@ void LoadProgressManager::Draw(void)
 
 		ColorScheme * scheme = Progress.Text_Scheme();
 		RGBClass pixel_color = scheme->HSV;
-		int pixel = DSurface::Build_Hicolor_Pixel(pixel_color);
+		int pixel = DSurface::Build_Hicolor_Pixel(pixel_color.Get_Red(), pixel_color.Get_Green(), pixel_color.Get_Blue());
 
 		wchar_t const * country_name = Country_Name(side);
 		Rect area = Name_Area();

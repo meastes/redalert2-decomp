@@ -514,10 +514,10 @@ extern bool Session_Busy; // RA2: as above
 extern void* DialogControl_Vtable; // RA2: as above
 extern char const *Dialog_Back_Name; // RA2: as above
 extern char const *Listed_Kind_Art_Name; // RA2: as above
-extern ShapeSet *Cancel_Button_Shape; // RA2: 0xAC10C0
-extern RGBClass Menu_Disabled_Color; // RA2: 0xAC109C
-extern RGBClass Soviet_Disabled_Color; // RA2: 0xAC1100
-extern RGBClass Allied_Disabled_Color; // RA2: 0xAC1008
+extern void * ArtMainButton; // RA2: 0xAC10C0, the main menu button shapes (txtlabel2.cpp)
+extern RGBClass DarkRedColor1; // RA2: 0xAC109C, a disabled button's caption outside a game (txtlabel2.cpp)
+extern RGBClass DarkRedColor2; // RA2: 0xAC1100, the same on the Soviet side (txtlabel2.cpp)
+extern RGBClass TealColor; // RA2: 0xAC1008, the same on the Allied side (txtlabel2.cpp)
 extern void *Art_Popup_Back; // RA2: as above
 extern void *Art_Popup_Back_Allied; // RA2: as above
 extern void *Art_Popup_Back_Soviet; // RA2: as above

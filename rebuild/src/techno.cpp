@@ -6579,8 +6579,7 @@ int TechnoClass::Get_Z_Adjust(void) const
 
 static inline Rect Line_End_Rect(Point2D const & point)
 {
-	Point2D offset = point - Point2D(2, 2);
-	return Rect(Point2D(offset.X, offset.Y), 3, 3);
+	return(Rect(point - Point2D(2, 2), 3, 3));
 }
 
 
@@ -6702,8 +6701,8 @@ void TechnoClass::Draw_Shaded_Line(Coord from, Coord to, RGBClass color, bool sh
 	Point2D shadow_end = end;
 	shadow_end.Y += 1;
 	if (shadow) {
-		CompositeSurface->Fill_Rect(Intersect(TacticalRect, Moved_Rect(Rect(-2, -2, 3, 3), shadow_start)), pixel);
-		CompositeSurface->Fill_Rect(Intersect(TacticalRect, Moved_Rect(Rect(-2, -2, 3, 3), shadow_end)), fade);
+		CompositeSurface->Fill_Rect(Intersect(TacticalRect, Rect(-2, -2, 3, 3) + shadow_start), pixel);
+		CompositeSurface->Fill_Rect(Intersect(TacticalRect, Rect(-2, -2, 3, 3) + shadow_end), fade);
 	}
 	Rect clip = TacticalRect;
 	if (shadow && Clip_Line_To_Rect(shadow_start, shadow_end, clip)) {
@@ -6725,8 +6724,7 @@ void TechnoClass::Draw_Shaded_Line(Coord from, Coord to, RGBClass color, bool sh
 		end.Y += TacticalRect.Y;
 		if (Clip_Line_To_Rect(start, end, clip)) {
 			shade = color;
-			int ratio = j * 4;
-			shade.Adjust(ratio < 0xfe ? ratio : 0xfe, BlackColor);
+			shade.Adjust(MIN(j * 4, 254), BlackColor);
 			CompositeSurface->Draw_Line(start, end, DSurface::Build_Hicolor_Pixel(shade));
 		}
 		last = next;

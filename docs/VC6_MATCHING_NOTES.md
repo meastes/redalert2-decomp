@@ -4685,3 +4685,33 @@ Found in the rebuild (lane F45, high); nothing exact, two causes found:
   set where that zero is allocated, ahead of the loop; 96 forms of the loop body leave it.
 - A sweep of small statement forms through v.py costs about 2.5 seconds a form: write the product of the axes as edit sets
   and read the distinct scores first (build/r/f45/vxsweep.py).
+
+## A forwarding overload is one more nesting level at every site; two exchanged home slots follow the order of first definition and a member read once; second names of one object hide as unbound sites (found in the rebuild (lane F47, high))
+
+Found in the rebuild (lane F47, high); one header form and one row landed:
+
+- dsurface.h `Build_Hicolor_Pixel(RGBClass const &)` forwarding to the three-value overload (ra2-decomp 10faa4d)
+  changes the expansions where three globals are packed in one function (ownrdraw Owner_Button_Proc 0x5F0320: 1,968
+  bytes with the open-coded shifts) and leaves most sites as they were (18 sites in exact rows, 17 unchanged). What
+  it costs is a nesting level: techno Draw_Shaded_Line 0x6D0DC0 lost Point2D::operator- to a call inside its
+  line-end helper, and a guarded draft (ldprgmgr Draw) lost 218 bytes of expansions at two sites inside loops. Both
+  answers were reference text: the twin's own shorter helper (`return(Rect(point - Point2D(2, 2), 3, 3));`, no named
+  offset) and the three-value call written with the accessors, as the twin writes it elsewhere. When a header form
+  from a twin costs a row, read the twin's text of that row before anything else: it was matched under that header.
+- The forward does not settle the channel order everywhere. sidebar StripClass::Draw_It 0x67F800 keeps its 6 bytes
+  under both forms, and 94 plain forms of the statement give four different orders of the three channel reads: the
+  order is the function's tie, read after the header is right, not through it.
+- Two pointers in each other's home slot with every instruction equal (convert and shape at [esp+0x28] and
+  [esp+0x40], both kept in registers and stored at each definition because an expansion between takes the registers):
+  the slots follow the order in which the block's values are first defined, not the order of the declarations.
+  Declaring a third local first without a value changes nothing; defining it first exchanges the slots and moves
+  its store. Dead locals, pass-through locals of an outer value and declarations in the enclosing scope do not move
+  it. A member the block tests three times, read once into a local at the top of the block, does (`int kind =
+  data->ButtonKind;`), and only inside the block: one more definition ahead of the pair. It is a looked-up local with
+  no reference text, so it lands flagged.
+- Unbound sites in a draft whose names nobody else uses are worth a look before binding: the draft's drawer
+  functions and four colour and shape globals were second names of objects txtlabel2.cpp defines under other names
+  (same addresses in symbols.csv from another unit's rows). --learn would have bound both names to one address. Check
+  each inferred address against symbols.csv and use the definition's name.
+- A count-sensitive row later in the unit (Trackbar_Proc 0x5FB270) went off and came back while the opened function's
+  prototypes changed. Check the unit's whole row list after the last text change, not after the row turns exact.

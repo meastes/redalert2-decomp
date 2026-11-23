@@ -4615,8 +4615,8 @@ inline double Sample_Truncated_Normal_Inline(double mean, double scale, double l
 /// Reads the random map generator's settings from RMG.INI's General section: the tiberium limits, the level light
 /// and theater ambient light lists, the vegetation limits, the tree count and the buildings that light ore patches.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00579960 has no row); main: best 61.57, tried once
-void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960; near miss, exact size: the exe expands the second Get_IntList assignment inline (copying three fields) where this build still calls DynamicVectorClass<int>::operator= for it, so the exe keeps the second and third list address in registers
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,897 B) 1,429 bytes differ (was 1,536 with its references bound; the lamp lists through a scoped const reference as ra2-decomp's rules.cpp reads its type lists; left: the temporary cleanup at four integer keys); main: best 61.57, tried once
+void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960
 {
 	static char const * section = "General"; // RA2: the section name is a static pointer (0x7E0BE4), read for every key
 	CCFileClass file("RMG.INI"); // RA2: as above
@@ -4646,8 +4646,14 @@ void MapGeneratorClass::Read_RMG_INI(void) // RA2: not in TibSun, at 0x579960; n
 	SnowAmbientBlue = ini->Get_IntList(section, "SnowAmbientBlue", SnowAmbientBlue); // RA2: as above
 	MaxTrees = ini->Get_Int(section, "MaxTrees", MaxTrees); // RA2: as above
 
-	TemperateOrePatchLamps = TGet_TypeList<BuildingTypeClass>(*ini, section, "TemperateOrePatchLamps", TemperateOrePatchLamps); // RA2: the lamp lists are read with the generic type-list reader (a 128 byte buffer inside), not by hand
-	SnowOrePatchLamps = TGet_TypeList<BuildingTypeClass>(*ini, section, "SnowOrePatchLamps", SnowOrePatchLamps); // RA2: as above
+	{
+		TypeList<BuildingTypeClass const *> const & parsed = TGet_TypeList<BuildingTypeClass>(*ini, section, "TemperateOrePatchLamps", TemperateOrePatchLamps);
+		TemperateOrePatchLamps = parsed;
+	}
+	{
+		TypeList<BuildingTypeClass const *> const & parsed = TGet_TypeList<BuildingTypeClass>(*ini, section, "SnowOrePatchLamps", SnowOrePatchLamps);
+		SnowOrePatchLamps = parsed;
+	}
 
 	delete ini; // RA2: as above
 	file.Close(); // RA2: as above

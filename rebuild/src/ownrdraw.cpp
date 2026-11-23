@@ -6304,41 +6304,66 @@ LRESULT __stdcall Default_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 /// </summary>
 /// <returns>Returns with the result of the original window procedure for anything this
 /// routine does not handle itself.</returns>
-void *__fastcall Get_Network_Drawer(); // RA2: 0x6F45F0
-void *__fastcall Get_Cancel_Drawer(); // RA2: 0x6F2250
+ConvertClass * __cdecl Get_Sidebar_Art_Drawer(void); // RA2: 0x6F45F0, the side's button palette (ra2-decomp's GetSideButtonConvert)
+ConvertClass * __cdecl Get_Main_Button_Drawer(void); // RA2: 0x6F2250
+ConvertClass * __cdecl Get_Button_Anim_Drawer(void); // RA2: 0x6F34C0
 
 namespace OwnerDraw { // RA2: as above
 
 /*
 **	RA2: the window procedure of the owner-drawn (BS_OWNERDRAW) buttons: plain buttons from the b?e_ art,
 **	or the campaign, network and cancel button shapes by the record's button kind, which can flash.
+**	The text is ra2-decomp's matched twin (OwnerDrawButtonHandler, Yuri's Revenge 0x00612B70) in this
+**	tree's names; RA2 has two sides where the twin has three and converts the pixel through Pixel_To_Color.
 */
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f0320 has no row); 980 bytes differ against main's function-map extent
 LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
-	static char last_look = 'u'; // RA2: as above
-
-	WNDPROC previous = 0; // RA2: as above
+	WNDPROC previous = NULL; // RA2: as above
 	Window_Proc_Table.getValue(window, previous); // RA2: as above
+
 	RECT display; // RA2: as above
 	memset(&display, 0, sizeof(display)); // RA2: as above
 	Get_Display_Rect(window, &display); // RA2: as above
+
 	Rect origin; // RA2: as above
 	origin.X = display.left; // RA2: as above
 	origin.Y = display.top; // RA2: as above
 	origin.Width = display.right - display.left; // RA2: as above
 	origin.Height = display.bottom - display.top; // RA2: as above
+
 	RECT client;
 	memset(&client, 0, sizeof(client)); // RA2: as above
 	GetClientRect(window, &client);
+
 	WinData * data = Get_Record(window); // RA2: as above
 	if (data == NULL) {
 		return(CallWindowProcA(previous, window, message, wparam, lparam)); // RA2: as above
 	}
+
 	int state = data->ItemState; // RA2: as above
 	LONG style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
 
 	switch (message) {
+		case WM_TIMER: // RA2: as above
+			data->IsFlashLit = !data->IsFlashLit; // RA2: as above
+			InvalidateRect(window, NULL, TRUE); // RA2: as above
+			break;
+
+		case WM_USER + 220: { // RA2: lparam 1 starts the flashing, anything else stops it
+			Control_Table.getPointer((unsigned int const &)window, &data); // RA2: as above
+			bool on = lparam == 1;
+			if (on && !data->IsFlashing) {
+				data->IsFlashing = true; // RA2: as above
+				SetTimer(window, 0, 1000, NULL); // RA2: as above
+			} else if (!on && data->IsFlashing) {
+				data->IsFlashing = false; // RA2: as above
+				data->IsFlashLit = false; // RA2: as above
+				KillTimer(window, 0);
+				InvalidateRect(window, NULL, TRUE); // RA2: as above
+			}
+			break;
+		}
+
 		case WM_LBUTTONDOWN:
 		case WM_LBUTTONDBLCLK:
 			if (data->IsDisabled) { // RA2: as above
@@ -6354,193 +6379,199 @@ LRESULT __stdcall Owner_Button_Proc(HWND window, UINT message, WPARAM wparam, LP
 
 		case WM_PAINT: {
 			if (data->IsDisabled) { // RA2: as above
-				ValidateRect(window, 0);
+				ValidateRect(window, NULL);
 				return(0);
 			}
+
 			Rect rect = origin;
-			unsigned long color = Text_Color; // RA2: as above
-			if (!data->Back) { // RA2: as above
-				BSurface * captured = new BSurface(client.right + 1, client.bottom + 1, 2); // RA2: as above
-				data->Back = captured; // RA2: as above
-				++Surface_Count; // RA2: as above
-				Rect destination, source; // RA2: as above
-				destination.X = 0; // RA2: as above
-				destination.Y = 0; // RA2: as above
-				destination.Width = client.right + 1; // RA2: as above
-				destination.Height = client.bottom + 1; // RA2: as above
-				source.X = display.left; // RA2: as above
-				source.Y = display.top; // RA2: as above
-				source.Width = client.right + 1; // RA2: as above
-				source.Height = client.bottom + 1; // RA2: as above
-				captured->Blit_From(destination, *AlternateSurface, source, false, true); // RA2: as above
+			unsigned color = Text_Color; // RA2: as above
+			Surface * image;
+
+			if (data->Back == NULL) { // RA2: as above
+				Surface * surface = new BSurface(client.right + 1, client.bottom + 1, 2); // RA2: as above
+				data->Back = surface; // RA2: as above
+				Surface_Count++; // RA2: as above
+
+				Rect dest(0, 0, client.right + 1, client.bottom + 1);
+				Rect src(display.left, display.top, client.right + 1, client.bottom + 1);
+
+				surface->Blit_From(dest, *AlternateSurface, src);
 			}
+
 			if (data->ButtonKind != 0) { // RA2: as above
-				ConvertClass * drawer = 0; // RA2: as above
-				ShapeSet * shape = 0; // RA2: as above
+				int kind = data->ButtonKind; // RA2: the kind read once (flagged: the twin tests the member each time)
+				ConvertClass * convert = NULL; // RA2: as above
+				ShapeSet const * shape = NULL; // RA2: as above
 				int frame = 0;
-				if (data->ButtonKind == 1) { // RA2: as above
-					drawer = (ConvertClass *)Get_Alternate_Drawer(); // RA2: as above
+
+				if (kind == 1) {
+					convert = Get_Button_Anim_Drawer(); // RA2: as above
 					shape = Slide_Button_Shape; // RA2: as above
-					frame = 2; // RA2: as above
+					int f = 2;
 					if (state & 1) {
-						frame = 4; // RA2: as above
+						f = 4;
 					} else if (data->IsFlashLit) { // RA2: as above
-						frame = 3; // RA2: as above
+						f = 3;
 					}
-				} else if (data->ButtonKind == 2) { // RA2: as above
-					drawer = (ConvertClass *)Get_Network_Drawer(); // RA2: as above
+					frame = f;
+				} else if (kind == 2) {
+					convert = Get_Sidebar_Art_Drawer(); // RA2: as above
 					shape = Button_Strip_Shape; // RA2: as above
+					int f = 0;
 					if (state & 1) {
-						frame = 1; // RA2: as above
+						f = 1;
 					} else if (data->IsFlashLit) {
-						frame = 2; // RA2: as above
+						f = 2;
 					}
-				} else if (data->ButtonKind == 3) { // RA2: as above
-					drawer = (ConvertClass *)Get_Cancel_Drawer(); // RA2: as above
-					shape = Cancel_Button_Shape; // RA2: as above
+					frame = f;
+				} else if (kind == 3) {
+					convert = Get_Main_Button_Drawer(); // RA2: as above
+					shape = (ShapeSet const *)ArtMainButton; // RA2: as above
+					int f = 0;
 					if (state & 1) {
-						frame = 1; // RA2: as above
+						f = 1;
 					} else if (data->IsFlashLit) {
-						frame = 2; // RA2: as above
+						f = 2;
 					}
+					frame = f;
 				}
+
 				if (style & WS_DISABLED) {
 					int pixel;
 					if (Session.Is_In_Game()) {
-						if (Scen->IsGDI) {
-							pixel = DSurface::Build_Hicolor_Pixel(Allied_Disabled_Color);
+						if (Scen->IsGDI) { // RA2: two sides
+							pixel = DSurface::Build_Hicolor_Pixel(TealColor);
 						} else {
-							pixel = DSurface::Build_Hicolor_Pixel(Soviet_Disabled_Color);
+							pixel = DSurface::Build_Hicolor_Pixel(DarkRedColor2);
 						}
 					} else {
-						pixel = DSurface::Build_Hicolor_Pixel(Menu_Disabled_Color);
+						pixel = DSurface::Build_Hicolor_Pixel(DarkRedColor1);
 					}
 					color = Pixel_To_Color((unsigned short)pixel); // RA2: as above
 				}
+
 				Point2D point = Point_Copy((Point2D const *)&rect); // RA2: as above
 				Rect window_rect = AlternateSurface->Get_Rect(); // RA2: as above
-				if (drawer && shape) { // RA2: as above
-					Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, ShapeFlags_Type(0x400), 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0)); // RA2: as above
+				if (convert && shape) { // RA2: as above
+					Draw_Shape(*AlternateSurface, *convert, shape, frame, point, window_rect, SHAPE_WIN_REL); // RA2: as above
 				}
+
+			} else if (data->Image != NULL) { // RA2: as above
+				image = data->Image; // RA2: as above
+				if ((state & 1) && data->AlternateImage != NULL) { // RA2: as above
+					image = data->AlternateImage; // RA2: as above
+				}
+
+				Rect src = rect;
+				src.X = 0;
+				src.Y = 0;
+				AlternateSurface->Blit_From(rect, *image, src);
+
 			} else {
-				if (data->Image) { // RA2: as above
-					Surface * image = data->Image; // RA2: as above
-					if ((state & 1) && data->AlternateImage) image = data->AlternateImage; // RA2: as above
-					Rect source = rect; // RA2: as above
-					source.Y = source.X = 0; // RA2: as above
-					AlternateSurface->Blit_From(rect, *image, source, false, true); // RA2: as above
-				} else {
-					char updown = 'u';
-					if (state & 1) updown = 'd'; // RA2: as above
-					if (style & WS_DISABLED) {
-						updown = 'u';
-					} else if (updown == 'd' && last_look == 'u') { // RA2: as above
-						VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, 0); // RA2: as above
-					}
-					last_look = updown; // RA2: as above
-					int widths[2] = {7, 7};
-					int margins[2] = {10, 10};
-					int heights[2] = {24, 30};
-					int index = 0; // RA2: as above
-					for (unsigned i = 0; i < 2; i++) { // RA2: as above
-						if (heights[i] > rect.Height && i != 0) break; // RA2: as above
-						index = i;
-					}
-					int height = heights[index];
-					int width = widths[index]; // RA2: as above
-					int margin = margins[index];
-					if (data->Back) { // RA2: as above
-						Rect source, destination; // RA2: as above
-						source.X = 0; // RA2: as above
-						source.Y = 0; // RA2: as above
-						source.Width = client.right + 1; // RA2: as above
-						source.Height = client.bottom + 1; // RA2: as above
-						destination.X = display.left; // RA2: as above
-						destination.Y = display.top; // RA2: as above
-						destination.Width = client.right + 1; // RA2: as above
-						destination.Height = client.bottom + 1; // RA2: as above
-						AlternateSurface->Blit_From(destination, *data->Back, source, false, true); // RA2: as above
-						InvalidateRect(window, 0, 0); // RA2: as above
-					}
-					origin.Y += (rect.Height - height) / 2;
-					if (state & 1) origin.Y += 2; // RA2: as above
-					char name[40]; // RA2: as above
-					sprintf(name, "b%c%c_li%d.pcx", updown, 'e', height); // RA2: as above
-					Surface * image = SurfaceCache.GetSurface(name, 0); // RA2: as above
-					origin.Height = image->Get_Height(); // RA2: as above
-					Rect destination, source; // RA2: as above
-					destination = origin; // RA2: as above
-					destination.Width = width; // RA2: as above
-					source.Width = width; // RA2: as above
-					source.Y = 0; // RA2: as above
-					source.X = 0; // RA2: as above
-					destination.Height = height; // RA2: as above
-					source.Height = height; // RA2: as above
-					AlternateSurface->Blit_From(destination, *image, source, false, true); // RA2: as above
-					sprintf(name, "b%c%c_mi%d.pcx", updown, 'e', height); // RA2: as above
-					image = SurfaceCache.GetSurface(name, 0); // RA2: as above
-					Rect middle = origin; // RA2: as above
-					middle.X += width; // RA2: as above
-					middle.Width -= margin; // RA2: as above
-					middle.Height = image->Get_Height(); // RA2: as above
-					SurfaceCache.Draw(middle, *AlternateSurface, *image, 0, 0); // RA2: as above
-					sprintf(name, "b%c%c_ri%d.pcx", updown, 'e', height); // RA2: as above
-					image = SurfaceCache.GetSurface(name, 0); // RA2: as above
-					destination = origin; // RA2: as above
-					destination.X += origin.Width - margin; // RA2: as above
-					destination.Width = margin; // RA2: as above
-					destination.Height = image->Get_Height(); // RA2: as above
-					source.Width = destination.Width; // RA2: as above
-					source.Height = destination.Height; // RA2: as above
-					source.Y = 0; // RA2: as above
-					source.X = 0; // RA2: as above
-					AlternateSurface->Blit_From(destination, *image, source, false, true); // RA2: as above
+				static char last_look = 'u'; // RA2: as above
+
+				char updown = 'u';
+				if (state & 1) {
+					updown = 'd';
 				}
+				if (style & WS_DISABLED) {
+					updown = 'u';
+				} else if (updown == 'd' && last_look == 'u') { // RA2: as above
+					VocClass::PlayGlobal(Rule->GenericClick, 1.0f, 0x2000, 0); // RA2: as above
+				}
+				last_look = updown; // RA2: as above
+
+				int widths[2] = {7, 7};
+				int margins[2] = {10, 10};
+				int heights[2] = {24, 30};
+
+				int index = 0;
+				for (unsigned int i = 0; i < 2; i++) {
+					if (heights[i] > rect.Height && i != 0) {
+						break;
+					}
+					index = i;
+				}
+
+				int height = heights[index];
+				int w = widths[index];
+				int margin = margins[index];
+
+				if (data->Back != NULL) { // RA2: as above
+					Rect cachesrc(0, 0, client.right + 1, client.bottom + 1);
+					Rect cachedest(display.left, display.top, client.right + 1, client.bottom + 1);
+					AlternateSurface->Blit_From(cachedest, *data->Back, cachesrc);
+					InvalidateRect(window, NULL, FALSE);
+				}
+
+				origin.Y += (rect.Height - height) / 2;
+				if (state & 1) {
+					origin.Y += 2;
+				}
+
+				Rect destrect;
+				Rect sourcerect;
+				char buffer[40];
+
+				sprintf(buffer, "b%c%c_li%d.pcx", updown, 'e', height);
+				image = SurfaceCache.GetSurface(buffer);
+				origin.Height = image->Get_Height();
+				destrect = origin;
+				destrect.Width = w;
+				sourcerect.Y = 0;
+				sourcerect.X = 0;
+				destrect.Height = height;
+				sourcerect.Width = w;
+				sourcerect.Height = height;
+				AlternateSurface->Blit_From(destrect, *image, sourcerect);
+
+				sprintf(buffer, "b%c%c_mi%d.pcx", updown, 'e', height);
+				image = SurfaceCache.GetSurface(buffer);
+				Rect midrect = origin;
+				midrect.X += w;
+				midrect.Width -= margin;
+				midrect.Height = image->Get_Height();
+				SurfaceCache.Draw(midrect, *AlternateSurface, *image, 0, 0);
+
+				sprintf(buffer, "b%c%c_ri%d.pcx", updown, 'e', height);
+				image = SurfaceCache.GetSurface(buffer);
+				destrect = origin;
+				destrect.X += origin.Width - margin;
+				destrect.Width = margin;
+				destrect.Height = image->Get_Height();
+				sourcerect.Height = destrect.Height;
+				sourcerect.Y = 0;
+				sourcerect.X = 0;
+				sourcerect.Width = destrect.Width;
+				AlternateSurface->Blit_From(destrect, *image, sourcerect);
 			}
-			if (!data->Image && data->Text) { // RA2: as above
+
+			if (data->Image == NULL && data->Text) { // RA2: as above
 				RECT unused_client; // RA2: as above
 				GetClientRect(window, &unused_client); // RA2: as above
-				RECT text_rect;
-				text_rect.left = origin.X; // RA2: as above
-				text_rect.top = origin.Y + 1; // RA2: as above
-				text_rect.right = origin.Width + origin.X - 2; // RA2: as above
-				text_rect.bottom = origin.Height + origin.Y; // RA2: as above
+
+				Rect text_rect(
+					origin.X,
+					origin.Y + 1,
+					origin.Width + origin.X - 2,
+					origin.Height + origin.Y);
 				if (state & 1) {
-					text_rect.left += 2; // RA2: as above
-					text_rect.top += 4; // RA2: as above
+					text_rect.X += 2;
+					text_rect.Y += 4;
 				}
-				Draw_Text_In_Rect_Ex(AlternateSurface, data->Text, &text_rect, data->Font, color, 5, 0xc, 0, 0, 0); // RA2: as above
+				Draw_Text_In_Rect_Ex(AlternateSurface, data->Text, (RECT *)&text_rect, data->Font, color, 5, 0xc, 0, 0, 0); // RA2: as above
 			}
+
 			if (data->ButtonKind == 0 && (style & WS_DISABLED)) { // RA2: as above
 				Blend_Rect(&rect, AlternateSurface, 0, 128); // RA2: as above
 			}
-			ValidateRect(window, 0);
+			ValidateRect(window, NULL);
 			return(0);
 		}
-
-		case WM_TIMER: // RA2: as above
-			data->IsFlashLit = !data->IsFlashLit; // RA2: as above
-			InvalidateRect(window, 0, TRUE); // RA2: as above
-			break;
-
-		case WM_USER + 220: { // RA2: lparam 1 starts the flashing, anything else stops it
-			Control_Table.getPointer((unsigned int const &)window, &data); // RA2: as above
-			BOOL flash = (lparam == 1);
-			if (flash && !data->IsFlashing) {
-				data->IsFlashing = true; // RA2: as above
-				SetTimer(window, 0, 1000, 0); // RA2: as above
-			} else if (!flash && data->IsFlashing) {
-				data->IsFlashing = false; // RA2: as above
-				data->IsFlashLit = false; // RA2: as above
-				KillTimer(window, 0);
-				InvalidateRect(window, 0, TRUE); // RA2: as above
-			}
-			break;
-		}
 	}
+
 	return(CallWindowProcA(previous, window, message, wparam, lparam)); // RA2: as above
 }
-#endif
 
 }
 

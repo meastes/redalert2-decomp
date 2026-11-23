@@ -832,7 +832,7 @@
       },
       {
         "path": "rebuild/include/dsurface.h",
-        "sha256": "001ec282c8c58b610d986e2032d40891e59829ccf44be4fff203cb62fda1ccf1"
+        "sha256": "0f6c3edf7a3266c10e193229034cd0698d25a380cd623c4e2029b21f4b1348c0"
       },
       {
         "path": "rebuild/include/ebolt.h",
@@ -1008,7 +1008,7 @@
       },
       {
         "path": "rebuild/include/globals.h",
-        "sha256": "ad78791dde8b91c2e014f888f240e70d050d57e1afa5ca2d949d32043255aa51"
+        "sha256": "5aafdd1a9536b6b202b2afd3e229359e7a3287055423ef6e166e5e68fd4a44a5"
       },
       {
         "path": "rebuild/include/goptions.h",
@@ -4075,7 +4075,7 @@
     ["rebuild-overlay", 34],
     ["rebuild-overtype", 36],
     ["rebuild-ovrlight", 35],
-    ["rebuild-ownrdraw", 233],
+    ["rebuild-ownrdraw", 234],
     ["rebuild-packet", 13],
     ["rebuild-palette", 75],
     ["rebuild-parasite", 50],
@@ -5134,7 +5134,7 @@
     "rebuild-lcwpipe": "51a0a0d461180d893fb1a9efc6a5164e67408180bdc0975307f613b653047c3a",
     "rebuild-lcwstraw": "fbf37781bbb9836a1f9cca2e10c5271d595e57986e80faae38dce1cbe1e166f1",
     "rebuild-lcwuncmp": "caea9117993b3cc7d1a67d12ea9273cf4bfaa05f7de1f4dd19bd3355b5c860fd",
-    "rebuild-ldprgmgr": "a9690cf5f76a95796d7cb0d33e2819ec234ba90d75075664f5eb97dd132b9c77",
+    "rebuild-ldprgmgr": "a573d01a51e3fb5c09ac914d5dc617801ebf23191b5dd06ec0576429605d2e24",
     "rebuild-light": "1a1da7f4d73a85ebc37dc5168de35fce3bb34bd2618e87e17fe9827428e3cad6",
     "rebuild-lightcalc": "4f431d04bd9ff535ff2a848a18e61b85230db21aeb2a99169acafe95f36511d9",
     "rebuild-lightcon": "3c5ae01a48ff5bf862b3b9ff1ccee5194a6b469ae6a8a9c62cf9cc14e925d1e3",
@@ -5152,7 +5152,7 @@
     "rebuild-mainloop": "f58bad94a5d420a04a80a6c08176baee7e0808f3758f459269f4583123052ce4",
     "rebuild-mainopt": "f4401d4c9aae6d39ce2584bc2cf4a838d47bd028b92b70b3d4f0057ad1ce2915",
     "rebuild-map": "a24eb508bd5b7ef186e5b24a3af70b698b80013483b7b3c2053edf079c12ee16",
-    "rebuild-mapgen": "903cfba02d2aeaba2afeb4c7f2f080fe6b96fbbf3850f54f220bae6e592809bb",
+    "rebuild-mapgen": "0d72dff83b5cdc98b29346cb569c495b50e9f7ddcb8d1325c5efa0dfa54c42f9",
     "rebuild-mapsel": "ead56c11db7257648c2c0a14403fab29e4e86c2502b7c8ea4d52d8ec35b7891f",
     "rebuild-matrix3d": "8c0cdca830c32d16f12b9fdb6fbdbf01880d1708d7343573a560d34eceff59b7",
     "rebuild-mech": "de8826725e49bfa6f546a8b8b5488acb86ea5913021fbba726b8824a384583e7",
@@ -5203,7 +5203,7 @@
     "rebuild-overtype": "61d3d4e690d8005fc84e701f03c6aaf4d5d300ae1c2809ea9164219527cfe1a1",
     "rebuild-ovrlight": "e6e9b77b8f2acb37e5a70145f7ce6a054191c153989e95a3afdd9766e500c786",
     "rebuild-ownertalk": "bd7b249813a73aecfada59f646f97926c057c50cd228fb006cf37a3700d38670",
-    "rebuild-ownrdraw": "b80c142fd19c3a46d9ef068b7bd85a005eceafe40e8cfd6d4eb62f951a95d618",
+    "rebuild-ownrdraw": "640238c0c0f66f698dfa03f7c6880e608bff8e0759551fbde2b572051bdaf7d4",
     "rebuild-packet": "f3317c513a29308a53943ff9df787b15971697e88b58a7fdae965f88dbcd591a",
     "rebuild-palette": "155441bacf172f7d3e9ed4bcd48319dedfb8e206846dbc90eaa70a8e1ba470e0",
     "rebuild-parasite": "6da50e01d54567202c4ba0a849b7808a6d60fc09ee9382736516d6443a488972",
@@ -5293,7 +5293,7 @@
     "rebuild-taskforc": "30c634c817a740fe103c0dcab50a535e81fe0ea1ac48c7f43ad2072789436118",
     "rebuild-team": "80e9187e9a70fb42e7322f0c0bacdfa46d1a2fc57201725dfd7c8060ae920c2f",
     "rebuild-teamtype": "407aeafb1a6bad066f6f861c73e14c16464238f8f1af874f370e5379c1a8ddda",
-    "rebuild-techno": "92ea39356b91bb9d0f1b9b07545ca35bb1b9f0fb3b773b5320b8c9c618ed82eb",
+    "rebuild-techno": "052ee50250b7ac93a49aebc9ac023096eb5464c772f77af4de7ff3c8320a320b",
     "rebuild-techtype": "1eecf214c0c65d1ebc9d5a271489f5067cea2203f5d41de325ff24e2fa66a19b",
     "rebuild-teleport": "0959e1f8d0b733420f58418a38e6018427e8fea0fcd5d47d535a68f71853f381",
     "rebuild-temporal": "7eb16c8b4c80318c7bc518459c8bc7d811ed2a6d3222956e6e4006052be783f7",
