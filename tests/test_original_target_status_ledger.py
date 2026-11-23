@@ -209,6 +209,23 @@ class RebuildCategoryLineTests(unittest.TestCase):
         self.assertIn('**42 B, 4.250% function-level** (40 B, 4.000% whole-unit) of .text; left out',
                       self.line(self.lines(row), '| C/C++ bodies, exact with no judgment call'))
 
+    def test_soft_judgment_and_kind_rows(self):
+        """Lane O63 (review session request, 2026-11-23): exact with no soft judgment, and judgment by kind."""
+        row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
+        self.assertTrue(self.line(self.lines(row), '| C/C++ bodies, exact with no soft judgment').endswith(
+            '| 70 B, 7.00% | from the next gated landing |'))
+        row.update(judgment_by_kind='iv-a 2/1000; vii 1/234', soft_judgment_rows='1', soft_judgment_bytes='234',
+                   soft_free_c_body_bytes='60', soft_free_source_share_of_text='6.000%',
+                   soft_free_function_level_c_body_bytes='65', soft_free_function_level_source_share_of_text='6.500%')
+        lines = self.lines(row)
+        self.assertIn('| **65 B, 6.500% function-level** (60 B, 6.000% whole-unit); left out: soft judgment rows 1 / 234 B',
+                      self.line(lines, '| C/C++ bodies, exact with no soft judgment'))
+        self.assertTrue(self.line(lines, '| Rebuild judgment calls by kind').endswith('| | iv-a 2/1000; vii 1/234 |'))
+
+    def test_flagged_note_reads_past_a_kind_prefix(self):
+        self.assertTrue(status.FLAGGED_NOTE.match('[iv-b] count_calibrated: a looked-up local'))
+        self.assertFalse(status.FLAGGED_NOTE.match('[iv-a] twin statement at the same place'))
+
     def test_judgment_line_names_both_definitions(self):
         line = self.line(self.lines(dict(self.BASE, **dict(self.BODY, **self.CLEAN))), '| Judgment calls, each')
         self.assertIn('not comparable', line)

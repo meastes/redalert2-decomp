@@ -1948,6 +1948,22 @@ int Get_Selected_Scenario_Row(void) // RA2: 0x005C67A0, the highlighted row of t
 }
 
 
+// RA2: the map dialog and its idle callback both keep the highlighted scenario name.
+static inline void Save_Scenario_Name(void)
+{
+	HWND list = ScenarioPick;
+	int sel = SendDlgItemMessage(ScenarioPick, IDC_AILEVEL_SLIDER, LB_GETCURSEL, 0, 0);
+	if (sel != -1) {
+		MultiMission * title = (MultiMission *)SendDlgItemMessage(list, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, sel, 0);
+		if (title != NULL) {
+			wcscpy(PickedScenarioDescription, title->Description());
+			return;
+		}
+	}
+	PickedScenarioDescription[0] = 0;
+}
+
+
 /// <summary>
 /// Handles the idle processing while the map selection dialog is up.
 /// This routine keeps the preview in step with whichever map is highlighted and pumps the
@@ -1985,14 +2001,7 @@ bool Scenario_Select_Callback(void)
 			Set_Scenario_Info_From_Index(OriginalScenario);
 		}
 	}
-	HWND dialog = ScenarioPick; // RA2: the description of the highlighted map is kept for the dialog procedure
-	row = SendDlgItemMessage(dialog, IDC_AILEVEL_SLIDER, LB_GETCURSEL, 0, 0); // RA2: as above
-	MultiMission * picked;
-	if (row != -1 && (picked = (MultiMission *)SendDlgItemMessage(dialog, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, row, 0)) != NULL) { // RA2: as above
-		wcscpy(PickedScenarioDescription, (wchar_t const *)picked); // RA2: as above; the description is the first member of the MultiMission
-	} else {
-		PickedScenarioDescription[0] = '\0'; // RA2: as above
-	}
+	Save_Scenario_Name();
 	if (Session.Type == GAME_IPX) { // RA2: IPX (3) takes the network callback, the Internet game its own
 		return(Net2Callback());
 	}
@@ -2026,11 +2035,6 @@ int Scenario_Dialog(HWND top)
 }
 
 
-struct MapTipRequest { // RA2: what a list box asks for with message 0x4E9
-	HWND Window; // RA2: the control
-	int Item; // RA2: the list item under the cursor, -1 for none
-	WideWstring Text; // RA2: the answer
-};
 static bool MapListBusy; // RA2: 0x00A72D58, set while the dialog refills its lists
 static bool ModeWarningShown; // RA2: 0x00A72D59, the game mode's start conditions were reported
 
@@ -2049,19 +2053,6 @@ static inline MultiplayerGameMode * Get_Selected_Game_Mode(HWND window)
 	return((MultiplayerGameMode *)SendDlgItemMessage(window, 1771, LB_GETITEMDATA, selected, 0));
 }
 
-static inline void Save_Scenario_Name(void)
-{
-	HWND list = ScenarioPick;
-	int sel = SendDlgItemMessage(ScenarioPick, IDC_AILEVEL_SLIDER, LB_GETCURSEL, 0, 0);
-	if (sel != -1) {
-		MultiMission * title = (MultiMission *)SendDlgItemMessage(list, IDC_AILEVEL_SLIDER, LB_GETITEMDATA, sel, 0);
-		if (title != NULL) {
-			wcscpy(PickedScenarioDescription, title->Description());
-			return;
-		}
-	}
-	PickedScenarioDescription[0] = 0;
-}
 
 static inline int Select_Scenario_By_Name(HWND window, wchar_t const * name)
 {
@@ -2117,7 +2108,7 @@ static inline void Populate_Scenario_List(HWND window, MultiplayerGameMode * mod
 /// </summary>
 /// <returns>Returns with TRUE if the message was dealt with here, FALSE to leave it to the
 /// dialog manager.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1212 bytes differ by position, ours 96 bytes shorter (1,624 before, main-derived text); ra2-decomp's twin text (Yuri's Revenge 0x005E6920, matched there) with its file-local helpers, in this tree's names: the calls and their order are the executable's up to the mode list. There the executable calls the DynamicVectorClass constructor and expands the vector's Clear where ours expands the constructor and calls Clear, and at the dialog's start it expands Select_List_Item_By_Data where ours calls it: an inline budget difference. Scratch probes: five or six more empty inline call sites at the start of the dialog's start case give the executable's calls everywhere; no reference text has them
+#ifdef RA2_NON_MATCHING // not exact: 1219 bytes differ by position, ours 96 bytes shorter (1,212 before the shared ToolTipTextRequest replaced a second declaration of the 0x4E9 request; 1,624 before that, main-derived text); ra2-decomp's twin text (Yuri's Revenge 0x005E6920, matched there) with its file-local helpers, in this tree's names: the calls and their order are the executable's up to the mode list. There the executable calls the DynamicVectorClass constructor and expands the vector's Clear where ours expands the constructor and calls Clear, and at the dialog's start it expands Select_List_Item_By_Data where ours calls it: an inline budget difference. Scratch probes: five or six more empty inline call sites at the start of the dialog's start case give the executable's calls everywhere; no reference text has them
 int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005C69E0, ra2-decomp's twin text (Yuri's Revenge 0x005E6920) in this tree's names
 {
 	switch (message) {
@@ -2198,7 +2189,7 @@ int CALLBACK Scenario_DlgProc(HWND window, UINT message, WPARAM wparam, LPARAM l
 			break;
 
 		case 0x4E9: { // RA2: the tool tip of a mode in the list
-			MapTipRequest * request = (MapTipRequest *)lparam;
+			ToolTipTextRequest * request = (ToolTipTextRequest *)lparam;
 			int id = GetDlgCtrlID(request->Window);
 			request->Text = (wchar_t const *)NULL;
 			if (id == 1771 && request->Item != -1) {

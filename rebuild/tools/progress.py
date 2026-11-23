@@ -111,6 +111,17 @@ line.update(duplicates=m['duplicates'], externs_landed=ext_landed, externs_all=m
             clean_function_level_c_body_bytes=m['clean_function_source_bytes'],
             judgment_any_rows=m['judgment_any_rows'], judgment_any_bytes=m['judgment_any_bytes'],
             header_dependent_rows=m['header_dependent_rows'], header_dependent_bytes=m['header_dependent_bytes'],
+            # Judgment by kind and exact with no soft judgment (review session request, 2026-11-23, lane O63): the
+            # function-level judgment rows per kind ('kind rows/body bytes; ...', kinds in rebuild_census.py), and the
+            # headline sets with only the soft kinds (iii, iv-b, vii, header-form dependents of a soft form) and the
+            # count-sensitive rows left out (rebuild_census.clean_measures).
+            judgment_by_kind=rebuild_census.format_kinds(m['judgment_kinds']),
+            soft_judgment_rows=m['soft_judgment_rows'], soft_judgment_bytes=m['soft_judgment_bytes'],
+            soft_free_functions=m['soft_free_whole_rows'], soft_free_c_body_bytes=m['soft_free_whole_source_bytes'],
+            soft_free_source_share_of_text='%.3f%%' % (100.0 * m['soft_free_whole_source_bytes'] / TEXT),
+            soft_free_function_level_functions=m['soft_free_function_rows'],
+            soft_free_function_level_c_body_bytes=m['soft_free_function_source_bytes'],
+            soft_free_function_level_source_share_of_text='%.3f%%' % (100.0 * m['soft_free_function_source_bytes'] / TEXT),
             tree='rebuild-trial')
 path = R.MANIFEST / 'progress.csv'
 rows = list(csv.DictReader(open(path))) if path.exists() else []

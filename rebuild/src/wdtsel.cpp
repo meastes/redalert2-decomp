@@ -40,8 +40,6 @@ using namespace WorldDominationTour;
 
 
 
-inline TERRITORY_ITER Walk_Territories(TERRITORY_LIST & list) { return(TERRITORY_ITER(list, 0)); }
-
 static WideWstring Load_Selection_Text(char const * label, int source_line) // RA2: ra2-decomp's file-local helper (its wdtsel.cpp, used by its Select_Territory at the four tooltips)
 {
 	return(WideWstring(StringTable::LoadString(label, NULL, "D:\\Ra2\\WDTSel.cpp", source_line)));
@@ -332,7 +330,7 @@ void Selection::Update_Hovered_Territory(Point2D const & point)
 /// </summary>
 /// <param name="point">The point to look up, relative to the campaign map.</param>
 /// <returns>bool; Is there a conflict waiting on the territory selected?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 841 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 1325 bytes differ against the image bound 0072e780 (1531 body bytes; 841 with main's coined one-caller Walk_Territories wrapper, removed: the cursor constructed in place as mischa85's wdtsel.cpp writes it at the sibling territory walks, flagged: another site)
 void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, bool silent)
 {
 	Remove_Target_Anims();
@@ -341,11 +339,10 @@ void Selection::Do_Target_Anim(rc_ptr<State> const & state, bool show_targets, b
 	MS_ANIM_LIST throb_anims;
 
 	/*
-	 * Walk each territory and advance any whose state has changed, playing the
-	 * matching occupation sound effect. When requested, queue the zoom/throb
+	 * Walk each territory and advance any whose state has changed. When requested, queue the zoom/throb
 	 * target animations for newly disputed territories.
 	 */
-	for (TERRITORY_ITER it = Walk_Territories(WorldMap->Territories); it; it++) {
+	for (TERRITORY_ITER it(WorldMap->Territories, 0); it; it++) {
 		int id = (*it)->Get_ID();
 		int old_state = CurrentState->Owner_Of(id);
 		int new_state = state->Owner_Of(id);

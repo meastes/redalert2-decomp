@@ -1094,7 +1094,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 /// </summary>
 /// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
 /// <returns>Returns with the distance remaining to the destination.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1456 bytes differ (DirType's operator>= inline where the original calls it; frame 0x34 against 0x2c), 2026-11-23 (lane F35): the first direction through Red Alert's inline ObjectClass::Direction(Coord const &), from which the image calls DirType::Direction 0x423EF0 as it does here
+#ifdef RA2_NON_MATCHING // not exact: 562 bytes differ against the image bound 004be720 (1633 body bytes; 1456 before TibSun's strafe block at its place: the Coord here local, Point2D(here).Distance_To and DIR_STEP_8 from its fly.cpp): DirType's operator>= inline where the original calls it (0x4be97d); frame 0x34 against 0x2c, 2026-11-23 (lane F35): the first direction through Red Alert's inline ObjectClass::Direction(Coord const &), from which the image calls DirType::Direction 0x423EF0 as it does here
 int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 {
 	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
@@ -1142,10 +1142,10 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 
 		bool turn = true;
 		if (flyctrl != NULL && flyctrl->Is_Strafe()) {
-			if (Distance(Point2D(LinkedTo->Center_Coord()), Point2D(Coord(coord))) <= CELL_LEPTON * 3) { // RA2: within three cells of the destination
-				if (!dir.Is_Complete_Turn(LinkedTo->PrimaryFacing.Current(), DirType(0x2000))) { // RA2: the turn left is more than 45 degrees
-					turn = false;
-				}
+			Coord here = LinkedTo->Center_Coord(); // RA2: the center used by the three-cell strafe test
+			if (!(Point2D(here).Distance_To(Coord(coord)) > CELL_LEPTON * 3 ||
+					dir.Is_Complete_Turn(LinkedTo->PrimaryFacing.Current(), DIR_STEP_8))) {
+				turn = false;
 			}
 		}
 

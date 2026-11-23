@@ -637,7 +637,8 @@ def rebuild_categories(repository=REPOSITORY, main_catalog=None):
 # A rebuild judgment note under main's definition (owner ruling, 2026-11-22, lane O46): the note names one of main's
 # JUDGMENT_FLAGS as its first word (`count_calibrated: ...`). The rebuild's notes are free text with no flag field,
 # so only a note that names the flag is counted; one that describes the same kind of choice in other words is not.
-FLAGGED_NOTE = re.compile(r'\s*(?:%s)\b' % '|'.join(JUDGMENT_FLAGS))
+# A rebuild judgment note may start with its bracketed kind (lane O63, 2026-11-23: "[iv-b] count_calibrated: ...").
+FLAGGED_NOTE = re.compile(r'\s*(?:\[[a-z-]+\]\s*)?(?:%s)\b' % '|'.join(JUDGMENT_FLAGS))
 HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
 
 
@@ -716,6 +717,17 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
             int(r['count_sensitive_rows']), int(r['count_sensitive_bytes']))
     else:
         clean_cell = 'from the next gated landing'
+    # Exact with no soft judgment and judgment by kind (review session request, 2026-11-23, lane O63).
+    if r.get('soft_free_function_level_c_body_bytes'):
+        soft_cell = ('**{:,} B, {} function-level** ({:,} B, {} whole-unit); left out: soft judgment rows {:,} / {:,} B '
+                     '(kinds iii, iv-b, vii and header-form dependents of such a form), count-sensitive {:,} rows / '
+                     '{:,} B').format(
+            int(r['soft_free_function_level_c_body_bytes']), r['soft_free_function_level_source_share_of_text'],
+            int(r['soft_free_c_body_bytes']), r['soft_free_source_share_of_text'], int(r['soft_judgment_rows']),
+            int(r['soft_judgment_bytes']), int(r['count_sensitive_rows']), int(r['count_sensitive_bytes']))
+        kind_cell = r.get('judgment_by_kind') or 'none'
+    else:
+        soft_cell = kind_cell = 'from the next gated landing'
     lines = ['| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) '
              '| `rebuild/` (clean tree in progress; last gated landing {}) |'.format(r['time_utc']),
              '| --- | ---: | ---: |',
@@ -733,6 +745,15 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
              '| {:,} B |'.format(asm_bytes, asm_bytes),
              '| C/C++ bodies, exact with no judgment call (each tree\'s judgment rows left out) | {:,} B, {} | {} |'.format(
                  main_clean, pct(main_clean), clean_cell),
+             '| C/C++ bodies, exact with no soft judgment (only the judgment rows resting on a choice left out: '
+             'in the rebuild kinds iii author idiom unreferenced at the line, iv-b looked-up local no reference has, vii '
+             'other; main\'s flags are all choices, so its figure is the line above) | {:,} B, {} | {} |'.format(
+                 main_clean, pct(main_clean), soft_cell),
+             '| Rebuild judgment calls by kind (function-level, rows/body bytes; i reference form chosen by caller '
+             'evidence, ii sibling-image helper form, iii author idiom unreferenced at the line, iv-a twin or reference '
+             'text at this or a sibling site, iv-b looked-up local no reference has, v image-derived or frozen bound, vi '
+             'header-form dependent, joined two references joined at one site, vii other; kinds tagged in provenance.csv and header_judgments.csv) | | {} |'.format(
+                 kind_cell),
              '| Judgment calls, one definition for both trees (main\'s: the manifest flags {}; in the rebuild, the '
              'accepted rows whose provenance.csv judgment note, or a header_judgments.csv form they depend on, names '
              'one of those flags; whole-unit, body bytes) | {:,} rows / {:,} B | {} |'.format(

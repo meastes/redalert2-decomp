@@ -4878,3 +4878,11 @@ text file of variants into edit sets for v.py.
   before it. Inline sites inside the arguments of the Is_Complete_Turn call (a step built from two conversions and an
   operator) do not count as sites after it; DirType::Turn in its place (four sites after the comparison in its body)
   keeps its stores and is 1,520 bytes off.
+- The same two sweeps over the other near drafts closed none (about 1,400 compiles over reinf, netshare Set_Slot_Names,
+  planmgr Planning_Left_Press, sidebar Reposition_Sidebar, tactical Draw_Pixel_Effects, init Allocate_Surfaces and the
+  first third of voxel): a moved declaration answers only where its place emits nothing, and most declarations in
+  those functions load or store where they stand. netshare Set_Slot_Names 0x5C8DD0 (4 bytes) is the opposite case: the
+  image's load order wants `open` declared ahead of `closed` and its registers want the other order (185 orders of the
+  four entries, as locals or not: 2 bytes at best). A statement moved across a call can give a row's registers and
+  still be wrong: reinf with `object->WarpingOut = true;` ahead of Move_To has the image's esi and edi and the store on
+  the wrong side of the call.

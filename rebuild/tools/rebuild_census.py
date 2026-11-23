@@ -279,7 +279,7 @@ def inliner_statements():
     import csv
     path = R.MANIFEST / 'provenance.csv'
     return [(r['unit'], r['entry'], r['symbol']) for r in csv.DictReader(open(path))
-            if (r.get('judgment') or '').strip().lower().startswith('inliner:')] if path.exists() else []
+            if judgment_text(r.get('judgment')).lower().startswith('inliner:')] if path.exists() else []
 
 
 def provisional_names():
@@ -292,6 +292,98 @@ def provisional_names():
 
 
 HEX_ENTRY = re.compile(r'\b(?:0x)?(?=[0-9A-Fa-f]*[0-9])([0-9A-Fa-f]{6,8})\b')
+
+# Judgment kinds (review session request, 2026-11-23, lane O63): every judgment note in provenance.csv and every
+# header_judgments.csv form starts with its kind in brackets, e.g. "[iv-a] twin text ...", so strong evidence can be
+# told from weak:
+#   i     a reference form chosen by caller evidence (several reference forms of one inline; the one under which
+#         every caller is exact; DECISIONS "Several reference forms of one shared inline")
+#   ii    a sibling-image helper form (helper read off Yuri's Revenge's out-of-line copy; DECISIONS row of 2026-11-23)
+#   iii   an author idiom unreferenced at the line (DECISIONS "An author idiom at a line where no reference has it")
+#   iv-a  twin text or a reference-borrowed value that a reference has at this site or a sibling site
+#   iv-b  a looked-up named local no reference has (main's own form or the lane's)
+#   v     image-derived or frozen bounds only (the text itself is not a judgment)
+#   vi    header-form dependents: rows with no note of their own that rest on a header_judgments.csv form
+#         (a provenance note tagged [vi] points at such a form too)
+#   joined statements from two references of the lineage joined at one site; strong only when the note says why
+#         each side's form cannot stand whole (review spot-check, owner 2026-11-23; non-soft)
+#   vii   anything else (coined helpers, composites, choices the image does not fix); held items not in the tree
+#         belong in variation_candidates.csv, not header_judgments.csv (their dependents are not judgment rows)
+# SOFT_KINDS rest on a choice and are left out of "exact with no soft judgment"; a header-form dependent is soft when
+# any form it rests on is of a soft kind. An untagged note counts as vii (soft) and is listed as unclassified.
+JUDGMENT_KINDS = ('i', 'ii', 'iii', 'iv-a', 'iv-b', 'v', 'vi', 'joined', 'vii')
+SOFT_KINDS = frozenset(('iii', 'iv-b', 'vii'))
+KIND_PREFIX = re.compile(r'\s*\[(%s)\]\s*' % '|'.join(re.escape(k) for k in sorted(JUDGMENT_KINDS, key=len, reverse=True)))
+
+
+def judgment_kind(note):
+    """The bracketed kind a judgment note starts with, or None (untagged or empty)."""
+    m = KIND_PREFIX.match(note or '')
+    return m.group(1) if m else None
+
+
+def judgment_text(note):
+    """The judgment note without its kind prefix."""
+    note = note or ''
+    m = KIND_PREFIX.match(note)
+    return note[m.end():] if m else note.strip()
+
+
+def classify_judgments(provenance_rows, header_rows, known):
+    """({entry: (kind, soft)}, [unclassified (where, key)]) from provenance.csv rows and header_judgments.csv rows
+    (dicts): a provenance row with a judgment note takes its own kind (untagged: vii); an entry listed in a flagged
+    header form's dependents, known (a units.json row) and without a provenance note, takes kind vi, soft when any
+    form it rests on is of a soft kind (or untagged)."""
+    kinds, unclassified = {}, []
+    for r in provenance_rows:
+        note = (r.get('judgment') or '').strip()
+        if not note:
+            continue
+        kind = judgment_kind(note)
+        if kind is None:
+            unclassified.append(('provenance', r['entry'])); kind = 'vii'
+        kinds[r['entry']] = (kind, kind in SOFT_KINDS)
+    forms = {}
+    for r in header_rows:
+        note = (r.get('judgment') or '').strip()
+        if not note:
+            continue
+        kind = judgment_kind(note)
+        if kind is None:
+            unclassified.append(('header', r.get('member', ''))); kind = 'vii'
+        for m in HEX_ENTRY.finditer(r.get('dependents') or ''):
+            forms.setdefault(m.group(1).lower().zfill(8), set()).add(kind)
+    for entry, form_kinds in forms.items():
+        if entry in known and entry not in kinds:
+            kinds[entry] = ('vi', bool(form_kinds & SOFT_KINDS))
+    return kinds, unclassified
+
+
+def judgment_kinds(units=None):
+    """classify_judgments on the tree's manifests."""
+    import csv
+    units = R.load_json(R.UNITS, {}) if units is None else units
+    known = {r['entry'] for info in units.values() for r in info['rows']}
+    read = lambda name: list(csv.DictReader(open(R.MANIFEST / name))) if (R.MANIFEST / name).exists() else []
+    return classify_judgments(read('provenance.csv'), read('header_judgments.csv'), known)
+
+
+def kind_split(function, kinds, body):
+    """({kind: (rows, body bytes)} over the function-level set FUNCTION, every kind listed; (rows, body bytes) of
+    the soft rows) from KINDS ({entry: (kind, soft)}) and BODY ({entry: body bytes})."""
+    split = {k: [0, 0] for k in JUDGMENT_KINDS}
+    soft = [0, 0]
+    for entry in set(function) & set(kinds):
+        kind, is_soft = kinds[entry]
+        split[kind][0] += 1; split[kind][1] += body.get(entry, 0)
+        if is_soft:
+            soft[0] += 1; soft[1] += body.get(entry, 0)
+    return {k: tuple(v) for k, v in split.items()}, tuple(soft)
+
+
+def format_kinds(split):
+    """'i 1/362; iv-a 50/80,000; ...' (rows/body bytes per kind, kinds with no row left out)."""
+    return '; '.join('%s %d/%d' % (k, split[k][0], split[k][1]) for k in JUDGMENT_KINDS if split.get(k, (0,))[0])
 
 
 def judgment_entries(units=None):
@@ -352,6 +444,13 @@ def clean_measures(regions, level=None):
                       body)
     fl = set(level['function_entries'])
     out['header'] = (len(header & fl), sum(body.get(e, 0) for e in header & fl))
+    # Exact with no soft judgment (lane O63, 2026-11-23): only the judgment rows of a soft kind (iii, iv-b, vii, and
+    # header-form dependents of a soft form) and the count-sensitive rows left out.
+    kinds, out['unclassified'] = judgment_kinds(units)
+    out['kinds'], _ = kind_split(fl, kinds, body)
+    soft = {e for e, (_, is_soft) in kinds.items() if is_soft}
+    free = clean_exact(level['whole_entries'], level['function_entries'], soft, sensitive, asm_body, body)
+    out['soft_free_whole'], out['soft_free_function'], out['soft'] = free['whole'], free['function'], free['judgment']
     return out
 
 
@@ -592,6 +691,13 @@ def main(quiet=False):
     measures['judgment_any_rows'], measures['judgment_any_bytes'] = clean['judgment']
     measures['header_dependent_rows'], measures['header_dependent_bytes'] = clean['header']
     measures['clean_sensitive_rows'], measures['clean_sensitive_bytes'] = clean['sensitive']
+    measures['judgment_kinds'] = clean['kinds']
+    measures['judgment_unclassified'] = clean['unclassified']
+    measures['soft_judgment_rows'], measures['soft_judgment_bytes'] = clean['soft']
+    measures['soft_free_whole_rows'], measures['soft_free_whole_bytes'], measures['soft_free_whole_source_bytes'] = \
+        clean['soft_free_whole']
+    measures['soft_free_function_rows'], measures['soft_free_function_bytes'], \
+        measures['soft_free_function_source_bytes'] = clean['soft_free_function']
     # House format of new lines (lane F1): the diff BASE..working tree; adopted text and manifest/format_exempt.csv
     # are not counted. Gated when RA2_FMT_BASE names the base (the owner's landing, after fmtnew.py); without it the
     # merge-base with rebuild-trial is measured and reported only, so a lane's catalog is never refused for it.
@@ -660,6 +766,17 @@ def main(quiet=False):
               measures['judgment_any_rows'], measures['judgment_any_bytes'],
               measures['header_dependent_rows'], measures['header_dependent_bytes'],
               measures['clean_sensitive_rows'], measures['clean_sensitive_bytes']))
+    print('Judgment calls by kind over the function-level set (rows/body bytes; lane O63; kinds in rebuild_census.py): '
+          '%s; unclassified notes %d%s' % (format_kinds(measures['judgment_kinds']) or 'none',
+                                            len(measures['judgment_unclassified']), ''.join(
+              (': ' if i == 0 else ', ') + '%s %s' % w for i, w in enumerate(measures['judgment_unclassified']))))
+    print('Exact with no soft judgment (reported, not gated; left out: judgment kinds %s, header-form dependents of a '
+          'form of those kinds, count-sensitive rows): whole-unit %d rows, %d bytes (C/C++ body %d); function-level %d '
+          'rows, %d bytes (C/C++ body %d); soft judgment rows %d, %d body bytes' % (
+              ', '.join(sorted(SOFT_KINDS)), measures['soft_free_whole_rows'], measures['soft_free_whole_bytes'],
+              measures['soft_free_whole_source_bytes'], measures['soft_free_function_rows'],
+              measures['soft_free_function_bytes'], measures['soft_free_function_source_bytes'],
+              measures['soft_judgment_rows'], measures['soft_judgment_bytes']))
     print('Unplaced unreferenced objects (data_bound_by: unplaced-unreferenced; earn nothing): %d symbols, %d bytes' % (
         measures['unplaced_symbols'], measures['unplaced_bytes']))
     print('Data placed by layout (data_bound_by: layout; declarations a hypothesis): %d symbols; pending data owned by '
