@@ -1867,7 +1867,7 @@ bool CellClass::Draw_Placement_Cursor(Point2D const & xpoint, Rect const & clipr
 /// <param name="drawpoint">The pixel position to draw the shape at.</param>
 /// <param name="cliprect">The clipping rectangle to draw within.</param>
 /// <param name="shapenum">The shroud shape to draw.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00474260 has no row); 721 of 675 bytes differ against the frozen image bound (image_bounds.csv) (emitted 736 bytes), 2026-11-22 (lane O32)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (675 B) 646 bytes differ (was 721; the clipped extents named, the contiguous raster as counted loops; left: the ebp frame and the full-width compare at 0x79DAD0), 2026-11-23
 void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const & cliprect, int shapenum)
 {
 	static bool shapes_loaded = false;
@@ -1902,14 +1902,17 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const &
 	int src_x = inter_left - drawpoint.X - shaperect.X;
 	int inter_right = MIN(drawpoint.X + shaperect.X + shaperect.Width, cliprect.X + cliprect.Width);
 
-	int shape_skip = drawpoint.X - inter_right + shaperect.X + shaperect.Width + src_x;
-	int alpha_skip = inter_left - inter_right + AlphaBuffer->Get_Buffer_Width();
+	int width = inter_right - inter_left;
+	int height = inter_bottom - inter_top;
 
-	unsigned char * shapedata = (unsigned char *)shapes->Get_Data(shapenum);
+	int shape_skip = shaperect.Width - width;
+	int alpha_skip = AlphaBuffer->Get_Buffer_Width() - width;
+
+	unsigned char const * shapeptr = (unsigned char const *)shapes->Get_Data(shapenum);
 	unsigned short * alphaptr = (unsigned short *)AlphaBuffer->Get_Buffer_Offset(Point2D(inter_left, inter_top - TacticalRect.Y));
 
-	unsigned char * shapeptr = (unsigned char *)&shapedata[src_x + src_y * shaperect.Width];
-	if (&alphaptr[inter_right - inter_left + (inter_bottom - inter_top) * AlphaBuffer->Get_Buffer_Width() + 2] >= (unsigned short *)AlphaBuffer->Get_Buffer_End()) {
+	shapeptr += src_x + src_y * shaperect.Width;
+	if (&alphaptr[width + height * AlphaBuffer->Get_Buffer_Width() + 2] >= (unsigned short *)AlphaBuffer->Get_Buffer_End()) {
 		for (int i = inter_top; i < inter_bottom; i++) {
 			for (int j = inter_left; j < inter_right; j++) {
 				unsigned char pixel = *shapeptr++;
@@ -1924,11 +1927,11 @@ void CellClass::Draw_Shroud_Or_Fog_Shape(Point2D const & drawpoint, Rect const &
 			alphaptr = (unsigned short *)AlphaBuffer->Wrap_Overflow((unsigned)alphaptr);
 		}
 	} else {
-		for (int i = inter_top; i < inter_bottom; i++) {
-			for (int j = inter_left; j < inter_right; j++) {
-				unsigned char pixel = *shapeptr++;
+		for (int rows = height; rows > 0; --rows) {
+			for (int columns = width; columns > 0; --columns) {
+				unsigned int pixel = *shapeptr++;
 				if (pixel != 0xFE) {
-					*alphaptr = pixel;
+					*alphaptr = (unsigned short)pixel;
 				}
 				++alphaptr;
 			}

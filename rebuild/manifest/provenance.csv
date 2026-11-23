@@ -7582,6 +7582,8 @@ map,0055d990,?Area_Reduce_Tiberium@MapClass@@QAEXABVCell@@@Z,211,a,mischa85,yes,
 map,0055da70,?Get_Low_Bridge_EW_Neighbor_Mask@MapClass@@CIHABVCell@@@Z,282,a,mischa85,yes,,,
 map,0055db90,?Get_Low_Bridge_NS_Neighbor_Mask@MapClass@@CIHABVCell@@@Z,262,a,mischa85,yes,,,
 map,0055dca0,?Damage_Low_Bridge@MapClass@@QAE_NABVCell@@@Z,582,a,mischa85,yes,,,
+map,0055def0,?Damage_Low_Bridge_EW@MapClass@@AAE_NABVCell@@@Z,1302,b,TibSun and ra2-decomp signed offsets in bridge lookups and damage calls,miss,3,"codex1 r2708: exact from 5 (image-derived bound); the unconsumed kill flag removed","the neighbour cells as cell + Cell(-1, 0) / cell + Cell(0, -1): TibSun's and ra2-decomp's spelling at other bridge sites (map.cpp:3069 ff., TibSun Smoothen_Full_Ice and the low bridge neighbour masks), not at this function's twin (which writes cell - Cell(0, 1)); flagged as reference text at another site"
+map,0055e410,?Damage_Low_Bridge_NS@MapClass@@AAE_NABVCell@@@Z,1302,b,TibSun and ra2-decomp signed offsets in bridge lookups and damage calls,miss,10,"lane O58 (owner follow-up): the r2707/r2708 spelling applied to the NS twin; exact from 5 (image-derived bound); the unconsumed kill flag removed","the neighbour cells as cell + Cell(-1, 0) / cell + Cell(0, -1): TibSun's and ra2-decomp's spelling at other bridge sites (map.cpp:3069 ff., TibSun Smoothen_Full_Ice and the low bridge neighbour masks), not at this function's twin (which writes cell - Cell(0, 1)); flagged as reference text at another site"
 map,0055e930,?Spring_Low_Bridge_Destroyed_NS@MapClass@@AAEXVCell@@@Z,287,a,mischa85,yes,,,
 map,0055ea50,?Spring_Low_Bridge_Destroyed_EW@MapClass@@AAEXVCell@@@Z,287,a,mischa85,yes,,,
 map,0055eb70,?Get_Low_Bridge2_EW_Neighbor_Mask@MapClass@@CIHABVCell@@@Z,290,a,mischa85,yes,,,

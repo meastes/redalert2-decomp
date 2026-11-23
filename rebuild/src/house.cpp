@@ -6594,12 +6594,12 @@ Cell HouseClass::Find_Cell_In_Zone(TechnoClass const * techno, ZoneType zone) co
 /// </summary>
 /// <param name="dir">The direction to rotate.</param>
 /// <returns>Returns with the direction rotated back one facing.</returns>
-static DirType Rotate_Back_One_Facing(DirType const & dir)
+static DirType const & Rotate_Back_One_Facing(DirType & dir)
 {
-	int fraction = dir.Facing & ((DIR_STEP_8 << 8) - 1);
 	DirType sector(dir);
-	DirType back(sector.Snap_To_8().Raw - 1);
-	return(DirType(back.Snap_To_8().Facing ^ fraction));
+	int back = sector.Snap_To_8().As_Int() - 1;
+	dir.Raw = (dir.Raw & ~0xE000) | (back & 0xE000);
+	return(dir);
 }
 
 
@@ -6619,7 +6619,7 @@ static DirType Rotate_Back_One_Facing(DirType const & dir)
  * HISTORY:                                                                                    *
  *   11/04/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (004eca50 has no row); main: best 54.60, tried 5 times (frame, ruling, switch)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (1,276 B) 119 bytes differ (Rotate_Back_One_Facing in the form ra2-decomp's attempts.csv reads from Yuri's Revenge's out-of-line copy FUN_0050DF30: in place, a const reference back, the literal mask 0xE000; with the mask as a named local the row is exact, held on variation_candidates.csv as kind C; the archive's by-value helper is 1,173 B off); main: best 54.60, tried 5 times (frame, ruling, switch)
 Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 {
 	Coord coord;
@@ -6673,6 +6673,9 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 			coord = Move_Coord(Center, Rotate_Back_One_Facing(dir), distance);
 			break;
 		}
+		default:
+			coord = COORD_NONE; // RA2: an unknown zone falls back to the core.
+			break;
 	}
 
 	/*
@@ -6687,7 +6690,7 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 			**	Finding a cell within the core failed, so just pick the center
 			**	cell. This cell is guaranteed to be valid.
 			*/
-			cell = Center.As_Cell();
+			cell = Cell(Center);
 		} else {
 
 			/*
@@ -6696,7 +6699,7 @@ Cell HouseClass::Random_Cell_In_Zone(ZoneType zone) const
 			cell = Random_Cell_In_Zone(ZONE_CORE);
 		}
 	} else {
-		cell = coord.As_Cell();
+		cell = Cell(coord);
 	}
 
 	/*

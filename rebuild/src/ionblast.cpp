@@ -289,7 +289,7 @@ void IonBlastClass::Update_All(void)
 /// surfaces are kept until the game exits.
 /// </summary>
 /// <remarks>Harmless to call more than once -- only the first call does any work.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00521a90 has no row); 23 of 541 bytes differ against the frozen image bound (image_bounds.csv), register allocation and the unbound static one_time, 2026-11-22 (lane O32)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (541 B) 17 bytes differ (was 23 with the static one_time unbound; now bound at 0xA51FB4, read and written at 0x521A99 and 0x521C9E): scratch registers around the reflected row and the double copy, 2026-11-23
 void IonBlastClass::One_Time(void)
 {
 	static bool one_time = false;

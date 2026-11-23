@@ -9306,15 +9306,13 @@ bool MapClass::Damage_Low_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The center cell of the span that was hit.</param>
 /// <returns>bool; Was the bridge destroyed outright?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055def0 has no row); main: best 98.73, tried 5 times (inline, frame)
 bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 {
 	CellClass * cellptr1 = &Map[cell];
-	CellClass * cellptr2 = &Map[cell - Cell(0, 1)];
+	CellClass * cellptr2 = &Map[cell + Cell(0, -1)];
 	CellClass * cellptr3 = &Map[cell + Cell(0, 1)];
 
 	OverlayType otype = cellptr1->Overlay;
-	bool kill = false; // RA2: as above
 	bool didwork = false;
 
 	Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect());
@@ -9325,7 +9323,7 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_20;
 			cellptr3->Overlay = OVERLAY_LOWBRIDGE_20;
 			cellptr1->Overlay = OVERLAY_LOWBRIDGE_20;
-			Damage_Low_Bridge_Piece_EW(cell - Cell(1, 0));
+			Damage_Low_Bridge_Piece_EW(cell + Cell(-1, 0));
 		} else if (otype == OVERLAY_LOWBRIDGE_21) {
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_22;
 			cellptr3->Overlay = OVERLAY_LOWBRIDGE_22;
@@ -9335,7 +9333,7 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_07;
 			cellptr3->Overlay = OVERLAY_LOWBRIDGE_07;
 			cellptr1->Overlay = OVERLAY_LOWBRIDGE_07;
-			Damage_Low_Bridge_Piece_EW(cell - Cell(1, 0));
+			Damage_Low_Bridge_Piece_EW(cell + Cell(-1, 0));
 			Damage_Low_Bridge_Piece_EW(cell + Cell(1, 0));
 		} else if (otype < OVERLAY_LOWBRIDGE_10) {
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_27;
@@ -9344,8 +9342,7 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 			Map.Radar_Background(cellptr2->CellID);
 			Map.Radar_Background(cellptr3->CellID);
 			Map.Radar_Background(cellptr1->CellID);
-			kill = true; // RA2: as above
-			Damage_Low_Bridge_Piece_EW(cell - Cell(1, 0));
+			Damage_Low_Bridge_Piece_EW(cell + Cell(-1, 0));
 			Damage_Low_Bridge_Piece_EW(cell + Cell(1, 0));
 			Spring_Low_Bridge_Destroyed_EW(cell);
 			didwork = true;
@@ -9375,7 +9372,6 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 
 	return(didwork);
 }
-#endif
 
 
 /// <summary>
@@ -9386,15 +9382,13 @@ bool MapClass::Damage_Low_Bridge_EW(Cell const & cell)
 /// </summary>
 /// <param name="cell">The center cell of the span that was hit.</param>
 /// <returns>bool; Was the bridge destroyed outright?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055e410 has no row); main: best 98.73, tried 4 times (inline, frame)
 bool MapClass::Damage_Low_Bridge_NS(Cell const & cell)
 {
 	CellClass * cellptr1 = &Map[cell];
-	CellClass * cellptr2 = &Map[cell - Cell(1, 0)];
+	CellClass * cellptr2 = &Map[cell + Cell(-1, 0)];
 	CellClass * cellptr3 = &Map[cell + Cell(1, 0)];
 
 	OverlayType otype = cellptr1->Overlay;
-	bool kill = false; // RA2: as above
 	bool didwork = false;
 
 	Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect());
@@ -9410,12 +9404,12 @@ bool MapClass::Damage_Low_Bridge_NS(Cell const & cell)
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_26;
 			cellptr3->Overlay = OVERLAY_LOWBRIDGE_26;
 			cellptr1->Overlay = OVERLAY_LOWBRIDGE_26;
-			Damage_Low_Bridge_Piece_NS(cell - Cell(0, 1));
+			Damage_Low_Bridge_Piece_NS(cell + Cell(0, -1));
 		} else if (otype < OVERLAY_LOWBRIDGE_16) {
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_16;
 			cellptr3->Overlay = OVERLAY_LOWBRIDGE_16;
 			cellptr1->Overlay = OVERLAY_LOWBRIDGE_16;
-			Damage_Low_Bridge_Piece_NS(cell - Cell(0, 1));
+			Damage_Low_Bridge_Piece_NS(cell + Cell(0, -1));
 			Damage_Low_Bridge_Piece_NS(cell + Cell(0, 1));
 		} else if (otype < OVERLAY_LOWBRIDGE_19) {
 			cellptr2->Overlay = OVERLAY_LOWBRIDGE_28;
@@ -9424,8 +9418,7 @@ bool MapClass::Damage_Low_Bridge_NS(Cell const & cell)
 			Map.Radar_Background(cellptr2->CellID);
 			Map.Radar_Background(cellptr3->CellID);
 			Map.Radar_Background(cellptr1->CellID);
-			kill = true; // RA2: as above
-			Damage_Low_Bridge_Piece_NS(cell - Cell(0, 1));
+			Damage_Low_Bridge_Piece_NS(cell + Cell(0, -1));
 			Damage_Low_Bridge_Piece_NS(cell + Cell(0, 1));
 			Spring_Low_Bridge_Destroyed_NS(cell);
 			didwork = true;
@@ -9455,7 +9448,6 @@ bool MapClass::Damage_Low_Bridge_NS(Cell const & cell)
 
 	return(didwork);
 }
-#endif
 
 
 /// <summary>

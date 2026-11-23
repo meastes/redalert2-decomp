@@ -125401,7 +125401,8 @@
    "?Clear@?$VectorClass@PAVIonBlastClass@@@@UAEXXZ": "005222f0",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHABQAVIonBlastClass@@@Z": "00522320",
    "?ID@?$VectorClass@PAVIonBlastClass@@@@UAEHPBQAVIonBlastClass@@@Z": "00522360",
-   "_$S172": "00a51948"
+   "_$S172": "00a51948",
+   "_?one_time@?1??One_Time@IonBlastClass@@SIXXZ@4_NA": "00a51fb4"
   },
   "partial_ok": true
  },
@@ -136777,6 +136778,24 @@
     "symbol": "?Damage_Low_Bridge@MapClass@@QAE_NABVCell@@@Z",
     "main_symbol": "?Damage_Low_Bridge@MapClass@@QAE_NABVCell@@@Z",
     "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "0055def0",
+    "body": 1302,
+    "padding": 10,
+    "symbol": "?Damage_Low_Bridge_EW@MapClass@@AAE_NABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
+    "entry": "0055e410",
+    "body": 1302,
+    "padding": 10,
+    "symbol": "?Damage_Low_Bridge_NS@MapClass@@AAE_NABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0055e930",
