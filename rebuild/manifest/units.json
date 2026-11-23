@@ -143501,14 +143501,7 @@
      "00765990"
     ]
    }
-  ],
-  "count_sensitive": {
-   "0073ccb0": {
-    "windows": "forward struct declarations at the end of globals.h (lane F38, build/r/f38/cs.py). New header (six scalar sizes): +0 off (4 B), +1 to +8 exact. Old header (ScreenWidths[] and ScreenHeights[], main 2b5f4eba25): +0 exact. On the same new header queue Print_CRCs 0x62A360 is +0 exact, +1 to +5 off (8 B), +6 to +8 exact",
-    "header": "globals.h (owner ruling 2026-11-23 under DECISIONS 91, not reviewed): ScreenWidths[] and ScreenHeights[] replaced by six extern int scalars (LowResWidth .. HighResHeight, 0x7ADD68 .. 0x7ADD7C), ra2-decomp's form in ownrdraw, ldprgmgr and gadget and the only declaration of that storage; with them ownrdraw Default_Dialog_Proc 0x5FFB00 is exact (Show_Dialog under the plain-function size limit) and queue Print_CRCs 0x62A360 is exact again",
-    "note": "lane F38 probe 2026-11-23 on the merged tree: Encode_Game_Options names none of the six sizes; the difference is the declaration count before it (4 B). The displacing change is evidenced content, so the row is parked, not the header (lane F33 saw the same row turn on a header that only named members)"
-   }
-  }
+  ]
  },
  "skirmish": {
   "core": [

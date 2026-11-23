@@ -226,8 +226,6 @@
 #include "dsurface.h" // RA2: Draw_Text_Overlay: Build_Hicolor_Pixel
 #include "conquer.h"
 static inline Rect Text_Rect(wchar_t const * text, Point2D loc, unsigned short flags, int marginx, int marginy) {Rect rect; return(*Drawing_GetTextDimensions(&rect, text, loc, flags, marginx, marginy));} // RA2: the box a text needs (Draw_Text_Overlay)
-static inline bool Mouse_Hover_Flag(TechnoClass const * techno) {return(techno->IsMouseHovering);} // RA2: read accessor of the tail test in Draw_Post_Render (its site decides the temporaries)
-static inline bool Techno_Is_Selected(TechnoClass const * techno) {return(techno->IsSelected);} // RA2: as above
 inline float Vector3_Length(Vector3 const & vector) {double y = vector.Y; double z = vector.Z; double x = vector.X; return fastmath::sqrt(y * y + (x * x + z * z));} // RA2: the length of a vector, summed in doubles (ra2-decomp's include/vectornorm.h; Railgun_Beam_Damage)
 
 namespace FileSystem { extern ConvertClass * PALETTE_PAL; }
@@ -1404,7 +1402,7 @@ void TechnoClass::Per_Cell_Process(PCPType why)
 /// selection box and its condition indicator drawn over it. The talk bubble, when the
 /// object has something to say, is drawn whether the object is selected or not.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 110 bytes differ (adopted text)
+#ifdef RA2_NON_MATCHING // not exact: 3138 bytes differ (adopted text)
 void TechnoClass::Draw_Post_Render(Point2D const & point, Rect const & cliprect) const
 {
 	bool sensed_underground = false;
@@ -1481,7 +1479,7 @@ void TechnoClass::Draw_Post_Render(Point2D const & point, Rect const & cliprect)
 			Draw_Health_Bar(point, cliprect, sensed_underground); // RA2: as above
 		}
 
-		if (Mouse_Hover_Flag(this) && !Techno_Is_Selected(this)) { // RA2: a hovered object shows its health bar too
+		if (IsMouseHovering && !IsSelected) { // RA2: a hovered object shows its health bar too
 			if (IsDisguisedAs(PlayerPtr)) { // RA2: as above
 				if (GetDisguiseHouse(true) != NULL) { // RA2: as above
 					Draw_Health_Bar(point, cliprect, true); // RA2: as above
@@ -1491,7 +1489,7 @@ void TechnoClass::Draw_Post_Render(Point2D const & point, Rect const & cliprect)
 			}
 		}
 
-		if (TalkBubbleOwner == this && TalkBubbleType > 0 && (int)TalkBubbleTimer > 0) { // RA2: as above
+		if (TalkBubbleOwner == this && TalkBubbleType > 0 && TalkBubbleTimer.Value() > 0) { // RA2: as above
 			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::TalkBubbleShapes, TalkBubbleType - 1, point, cliprect, ShapeFlags_Type(SHAPE_CENTER|SHAPE_WIN_REL), NULL, 0, ZGRAD_GROUND, 1000, NULL, 0, Point2D(0, 0)); // RA2: the last arguments are passed explicitly
 		}
 	}

@@ -111,7 +111,7 @@ bool StillUpdating;
 
 
 
-#ifdef RA2_NON_MATCHING // not exact: 279 bytes differ (no_draft bucket; RA2 campaign score screen)
+#ifdef RA2_NON_MATCHING // not exact: 279 bytes differ (RA2 campaign score screen)
 #include "fame.h"
 #include "mouse.h"
 #include <stdio.h>
@@ -119,7 +119,6 @@ bool StillUpdating;
 
 #define FETCH(label, line) StringTable::LoadString(label, NULL, "D:\\Ra2\\Score.CPP", line)
 #define PRINT(string, xp, yp, font) Alloc_Object(obj = new ScorePrintClass(string, xp, yp, font, false))
-#define WAIT() Wait_For_Print(obj)
 #define LOAD(var, name) file.Open(name); ShapeSet const * var = (ShapeSet const *)Load_Alloc_Data(file); file.Close();
 #define WIPE(shape, xp, yp) Draw_Shape(*HiddenSurface, *Drawer, shape, i, Point2D(xp, yp), HiddenSurface->Get_Rect(), SHAPE_WIN_REL)
 
@@ -142,12 +141,18 @@ void ScoreClass::Presentation()
 	Theme.Play_Song((ThemeType)Theme.From_Name("SCORE"));
 
 	file.Open("SIDEFNT3.PAL");
-	unsigned char * fontpal = (unsigned char *)Load_Alloc_Data(file);
+	PaletteClass *fontpal = (PaletteClass *)Load_Alloc_Data(file);
 	file.Close();
 	for (i = 0; i < 256; i++) {
-		CCPalette[i] = RGBClass(fontpal[i * 3] << 2, fontpal[i * 3 + 1] << 2, fontpal[i * 3 + 2] << 2);
+		CCPalette[i] = RGBClass(
+			((unsigned char *)*fontpal)[i * 3] << 2,
+			((unsigned char *)*fontpal)[i * 3 + 1] << 2,
+			((unsigned char *)*fontpal)[i * 3 + 2] << 2);
 	}
-	Color = DSurface::Build_Hicolor_Pixel(fontpal[204] << 2, fontpal[205] << 2, fontpal[206] << 2);
+	Color = DSurface::Build_Hicolor_Pixel(
+		(*fontpal)[68].Get_Red() << 2,
+		(*fontpal)[68].Get_Green() << 2,
+		(*fontpal)[68].Get_Blue() << 2);
 	delete fontpal;
 
 	ConvertClass * drawer = new ConvertClass(CCPalette, CCPalette, *VisibleSurface, 1, 0);
@@ -200,14 +205,14 @@ void ScoreClass::Presentation()
 	FullFont->String_Width(str);
 	x = XPos - FullFont->String_Width(str) / 2 + 552;
 	PRINT(str, x, YPos + 13, FullFont);
-	WAIT();
+	Wait_For_Print(obj);
 	Keyboard->Clear();
 
 	total = Do_Calc(PlayerPtr);
 	wchar_t dest[64];
-	swprintf((wchar_t *)dest, L"%3d%%", total);
+	swprintf(dest, L"%3d%%", total);
 	PRINT(dest, XPos + 520, YPos + 60, BigFont);
-	WAIT();
+	Wait_For_Print(obj);
 
 	for (i = 0; i < 10; i++) {
 		WIPE(curr01shape, XPos + 481, YPos + 148);
@@ -220,7 +225,7 @@ void ScoreClass::Presentation()
 	FullFont->String_Width(str);
 	x = XPos - FullFont->String_Width(str) / 2 + 560;
 	PRINT(str, x, YPos + 193, FullFont);
-	WAIT();
+	Wait_For_Print(obj);
 	rect.Set(XPos + 481, YPos + 148, 150, 120);
 	SurfacePtr->Blit_From(rect, *HiddenSurface, rect, false, true);
 	AlternateSurface->Blit_From(rect, *HiddenSurface, rect, false, true);
@@ -237,8 +242,8 @@ void ScoreClass::Presentation()
 	FullFont->String_Width(str);
 	x = XPos - FullFont->String_Width(str) / 2 + 542;
 	PRINT(str, x, YPos + 366, FullFont);
-	WAIT();
-	Print_Minutes(Scen->ElapsedTimer.Value() / 60);
+	Wait_For_Print(obj);
+	Print_Minutes(Scen->ElapsedTimer / 60);
 
 	DoSound("Emblem", 256);
 	for (i = 0; i < 10; i++) {
@@ -253,20 +258,20 @@ void ScoreClass::Presentation()
 	FullFont->String_Width(str);
 	x = XPos - FullFont->String_Width(str) / 2 + 316;
 	PRINT(str, x, YPos + 300, FullFont);
-	WAIT();
+	Wait_For_Print(obj);
 
 	str = FETCH("TXT_STRUCTURES", 613);
 	x = XPos + 194;
 	PRINT(str, x, YPos + 247, FullFont);
 	x = XPos + 328;
 	PRINT(str, x, YPos + 247, FullFont);
-	WAIT();
+	Wait_For_Print(obj);
 	str = FETCH("TXT_UNITS", 628);
 	x = XPos - FullFont->String_Width(str) / 2 + 290;
 	PRINT(str, x, YPos + 247, FullFont);
 	x = XPos - FullFont->String_Width(str) / 2 + 422;
 	PRINT(str, x, YPos + 247, FullFont);
-	WAIT();
+	Wait_For_Print(obj);
 	Do_Graphs();
 	while (StillUpdating) {
 		Call_Back_Delay(1);
@@ -322,7 +327,7 @@ void ScoreClass::Presentation()
 			char * levelstr = scorestr + 16;
 			sprintf(levelstr, "%02d", hallfame[i].level);
 			PRINT(levelstr, XPos + 151, YPos + 242 + i * 16, FullFont);
-			WAIT();
+			Wait_For_Print(obj);
 		}
 		Call_Back_Delay(1);
 	}
@@ -383,7 +388,6 @@ void ScoreClass::Presentation()
 
 #undef FETCH
 #undef PRINT
-#undef WAIT
 #undef LOAD
 #undef WIPE
 #endif

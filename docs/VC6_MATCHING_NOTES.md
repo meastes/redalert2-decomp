@@ -4886,3 +4886,40 @@ text file of variants into edit sets for v.py.
   four entries, as locals or not: 2 bytes at best). A statement moved across a call can give a row's registers and
   still be wrong: reinf with `object->WarpingOut = true;` ahead of Move_To has the image's esi and edi and the store on
   the wrong side of the call.
+
+## A soft flag is first checked against the newest twin and the archive under their own names; an operand-order tie can be settled by a conversion elsewhere in the twin's text; template instances are emitted in first-instantiation order (found in the rebuild (lane F52, high))
+
+Found in the rebuild (lane F52, high); a hardening pass over the eleven soft judgment rows. Lane tools in build/r/f52:
+hdiff.py compares every handler of a dispatcher with two references token by token, callers.py lists the direct calls
+to an address, prov.py edits single manifest records in place.
+
+- hover While_Moving 0x4FCBC0 rested on two coined helpers (the adjacent cell with the table entry first, the tube
+  height step). The twin matched after the row landed. Its tube block alone gives the image's instructions with the
+  two cell sums in the wrong operand order (same size, 3,057 bytes by position); the tie is settled by a statement
+  thirty lines later, the twin's `Cell c = HeadToCoord;` (implicit conversion) where the tree had
+  `HeadToCoord.As_Cell()`. Six other twin statements are byte-neutral. A coined helper that exists to give an operand
+  order is the sign of a tie decided elsewhere: take the whole twin text before reading the order.
+- A header flag that says "no reference has either form" is checked under the references' own names. OwnerDraw's
+  colour masks are the archive's `ODRComponentMask`, `ODGComponentMask`, `ODBComponentMask` (code/ownrdraw.h:340),
+  three scalars as the tree has them; the flag was written after a search for the tree's names.
+- A member taken from an older game with its body from the archive is a joined form, and the note has to carry both
+  measurements: ObjectClass::Direction(Coord const &) written out at infantry Start_Driver is 784 bytes off, and Red
+  Alert's own body through the free `::Direction` is 741 bytes off (no operator== call). hover Process depends on the
+  same member: the twin's file-local `Facing_To` is 1,897 bytes off there.
+- hover Process 0x4FBFC0: two twin statements that are only exact together (`delta.Length()` for the planar distance
+  and `Move_Point` for the step; the step alone is 1,897 bytes off). Try a near-matched twin's statements as a set.
+- Template instances leave the compiler in the order of their first instantiation in the unit, inline-expanded uses
+  included. rules has two byte-identical TGet_Class<AnimTypeClass> copies (ten callers, two callers); with the ten
+  members non-const and the two const the object emits the const copy first, against the image. So the image
+  excludes that assignment and leaves two: the tree's (the two non-const) and its mirror (every anim member but the
+  two non-const). The rules object also emits TGet_Class<BuildingTypeClass const> ahead of
+  TGet_TypeList<InfantryTypeClass const *> where the image has them the other way round (0x653E90, 0x654060): a
+  first-instantiation order the whole-file build does not check, open for a later lane.
+- Not closed, searched: taction's dispatcher (the three looked-up locals carry about 130 budget units no reference
+  statement supplies; Waypoint_As_Coord in the LIGHT handlers is before BASE_BUILDING and refuses its As_Cell),
+  uicmnds Select_All_Combatants (the twin's written-out loop leaves budget for Show_Player_Message, 98 bytes),
+  techno Can_Deploy_Now, Evaluate_Object and ownrdraw Owner_Button_Proc (no new reference text).
+- A count-sensitive row can come back through reference text instead of a count: wonline Encode_Game_Options
+  0x73CCB0 (4 bytes, two frame homes exchanged since the globals.h scalars) is exact under the current headers with
+  the twin's `wchar_t const * description = Session.Options.ScenarioDescription;` ahead of the Wstring, one more
+  definition ahead of the homes. Before a count-sensitive row goes to the flex list, compile its twin's statements.

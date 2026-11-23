@@ -787,12 +787,12 @@ static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * secon
 /// house, and color, into a single comma-separated string for transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the three screen widths and heights became six scalars in globals.h, ra2-decomp's form)
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
 
-	Wstring name = Session.Options.ScenarioDescription ? Wstring_FromWide(Session.Options.ScenarioDescription) : "";
+	wchar_t const * description = Session.Options.ScenarioDescription;
+	Wstring name = description ? Wstring_FromWide(description) : "";
 
 	int max_players = Session.ScenarioMaxPlayers;
 
@@ -840,7 +840,6 @@ void Encode_Game_Options(char * out)
 
 	strcat(out, useroptions);
 }
-#endif
 
 /// <summary>
 /// Combines the rules, AI, and art CRCs into a single hash used to verify that all players
@@ -8886,6 +8885,167 @@ void __fastcall Queue_Peer_Timeout(int peer) // RA2: 0x0074E590, not in TibSun: 
 }
 
 bool __fastcall Start_Talking_To(int player, int pair_slot, int retries); // RA2: 0x0074E5E0, the executable's debug text "Start_Talking_To player %d, retries = %d" names it: makes the connection to one peer by port probes, tries again up to the number of retries; true when it is made
+
+#ifdef RA2_NON_MATCHING // not exact: 2261 bytes differ
+bool __fastcall Start_Talking_To(int player, int pair_slot, int retries)
+{
+	CDTimerClass<SystemTimerClass> timer;
+	CDTimerClass<SystemTimerClass> resend;
+	bool negotiate_port = true;
+	int length = 0;
+	IPXAddressClass sender;
+	int packet_index = 0;
+	bool received = false;
+
+	DebugString("Start_Talking_To player %d, retries = %d\n", player, retries);
+	int player_index = -1;
+	int i;
+	for (i = 0; i < Session.Players.Count(); ++i) {
+		char const * name = Wide_To_Narrow(Session.Players[i]->Name);
+		if (!stricmp(name, Wide_To_Narrow(Session.Slots[player]->Name))) {
+			player_index = i;
+		}
+	}
+	if (player_index < 0) {
+		Send_Public_Options(0, NULL);
+		return false;
+	}
+
+	for (i = 0; i < MAX_PLAYERS && Session.NatPeerNames[i][0]; ++i) {
+		if (!stricmp(Session.NatPeerNames[i], Wide_To_Narrow(Session.Slots[player]->Name))) {
+			negotiate_port = false;
+			break;
+		}
+	}
+	if (negotiate_port && (!Session.WolPlayerState[player] || (Session.WolPlayerState[player] & 1))
+		&& (!(FirewallHelper.Detected & 0xffff) || (FirewallHelper.Detected & 1))) {
+		negotiate_port = false;
+	}
+
+	int attempt = 0;
+	unsigned short previous_port = 0;
+	unsigned short source_port = 0;
+	for (;;) {
+		Resend_Pending_Requests();
+		if (negotiate_port) {
+			source_port = 0;
+			if (!(FirewallHelper.Detected & 0x40)) {
+				DebugString("No destination port delta - looking for earlier connections at the same address\n");
+				for (i = 0; i < Session.KeepAliveCount; ++i) {
+					int slot = Session.KeepAliveSlot[i];
+					IPXAddressClass address = Session.Slots[slot]->Address;
+					if (address.Is_Same_Node(Session.Slots[player]->Address)) {
+						int port;
+						memcpy(&port, &Session.PeerAttemptBlock[3 + slot * sizeof(port)], sizeof(port));
+						source_port = port;
+						DebugString("Found old connection port number to use - port number %d\n", source_port);
+					}
+				}
+			}
+			if (!source_port) {
+				for (i = 0; i < Session.Players.Count(); ++i) {
+					char const * name = Wide_To_Narrow(Session.Players[i]->Name);
+					if (!stricmp(name, g_NickName.get())) {
+						source_port = FirewallHelper.Get_Next_Mangled_Source_Port(Session.PlayerPorts[i]);
+						break;
+					}
+				}
+			}
+			Send_User_Port(Wide_To_Narrow(Session.Slots[player]->Name), source_port);
+		} else {
+			Session.PeerPorts[player] = Session.PlayerPorts[player_index];
+		}
+		timer = CDTimerClass<SystemTimerClass>(360);
+		if (attempt > 0) {
+			timer = CDTimerClass<SystemTimerClass>(240);
+		}
+		while (timer && ((negotiate_port && Session.PeerPorts[player] == previous_port)
+			|| (!negotiate_port && Session.PeerPorts[player] == 0))) {
+			WOL_Wait_Callback();
+		}
+		previous_port = Session.PeerPorts[player];
+		if (previous_port) {
+			Session.PlayerPorts[player_index] = previous_port;
+			Session.Players[player_index]->Address.Set_Port(Session.PeerPorts[player]);
+			Session.Slots[player]->Address.Set_Port(Session.PeerPorts[player]);
+
+			GlobalPacketType probe;
+			memset(&probe, 0, 0x2f);
+			probe.Command = NET_PORT_PROBE;
+			strcpy(probe.Name, g_NickName.get());
+			if ((FirewallHelper.Detected & 8) && !(Session.WolPlayerState[player] & 8)) {
+				DebugString("Doing the netgear sleep thing\n");
+				CDTimerClass<SystemTimerClass> delay(240);
+				while (delay) {
+					WOL_Wait_Callback();
+				}
+			}
+			DebugString("Sending NET_PORT_PROBE packet to %s at port %d\n", Wide_To_Narrow(Session.Slots[player]->Name), Session.PlayerPorts[player_index]);
+			timer = CDTimerClass<SystemTimerClass>(360);
+			resend = CDTimerClass<SystemTimerClass>(0);
+			do {
+				if (!resend) {
+					Ipx.Send_Global_Message_To_Name(&probe, 0x2f, 0, Session.Slots[player]->Name);
+					resend = CDTimerClass<SystemTimerClass>(30);
+				}
+				WOL_Wait_Callback();
+				if (!received) {
+					if (packet_index >= Ipx.Global_Num_Receive()) {
+						packet_index = 0;
+					}
+					GlobalPacketType packet;
+					unsigned short product;
+					if (Ipx.Peek_Global_Message(packet_index, &packet, &length, &sender, &product, NULL) && product == 0xaa03) {
+						switch (packet.Command) {
+							case NET_PORT_PROBE:
+								DebugString("Got NET_PORT_PROBE packet\n");
+								if (Session.Players[player_index]->Address.Is_Same_Node(sender) && !stricmp(Wide_To_Narrow(Session.Slots[player]->Name), packet.Name)) {
+									DebugString("Got NET_PORT_PROBE packet from %s\n", packet.Name);
+									Send_Public_Options(11, packet.Name);
+									if (player_index >= 0 && player_index < Session.Players.Count()) {
+										HWND window = WS_Find_Dialog(300);
+										if (window) {
+											HWND control = GetDlgItem(window, g_PlayerCheckBoxIDs[player_index]);
+											g_PlayerChecked[player_index] = true;
+											SendMessage(control, BM_SETCHECK, 1, 0);
+											PostMessage(window, WM_PAINT, 0, 0);
+										}
+									}
+									Queue_Peer_Timeout(player);
+									received = true;
+									int port = source_port;
+									memcpy(&Session.PeerAttemptBlock[3 + player * sizeof(port)], &port, sizeof(port));
+								}
+								// The probe has been handled and can leave the receive queue.
+							case NET_PING:
+							case NET_MANGLER_RESPONSE:
+								Ipx.Mark_Global_Message_Read(packet_index);
+								break;
+						}
+					}
+				}
+				if (received && Session.ConnectionResults[pair_slot >> 1][pair_slot & 1] == 11) {
+					DebugString("Got connection result - my packet must have got through\n");
+					break;
+				}
+				int result = Session.ConnectionResults[pair_slot >> 1][pair_slot & 1];
+				if (result >= 1 && result < 11 && result - 1 > attempt) {
+					DebugString("Other player is trying again - their_try = %d\n", result - 1);
+					attempt = result - 2;
+					break;
+				}
+				++packet_index;
+			} while (timer);
+		}
+		if ((received && Session.ConnectionResults[pair_slot >> 1][pair_slot & 1] == 11) || attempt >= retries) {
+			return received;
+		}
+		++attempt;
+		Send_Public_Options(attempt + 1, Wide_To_Narrow(Session.Slots[player]->Name));
+		DebugString("Trying again - trying = %d\n", attempt);
+	}
+}
+#endif
 
 bool Connect_Player_Pairs(void) // RA2: 0x0074EF80, not in TibSun: makes the connections of the pairs of players Build_Connection_Pairs arranged: talks to the peer of each pair the local player is in (Start_Talking_To), waits for the others to connect among themselves; false when one of them fails
 {

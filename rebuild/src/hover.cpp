@@ -29,6 +29,7 @@
 #include "house.h"
 #include "infantry.h"
 #include "inline.h"
+#include "movepoint.h"
 #include "ion.h"
 #include "overtype.h"
 #include "rules.h"
@@ -222,8 +223,9 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 			speed = LinkedTo->Current_Speed() * Acceleration;
 		}
 
-		Coord position = LinkedTo->PositionCoord; // RA2: distance in the movement plane
-		if (speed >= Point2D(position.X, position.Y).Distance_To(Point2D(HeadToCoord.X, HeadToCoord.Y))) {
+		Point2D delta = LinkedTo->Get_Coord(); // RA2: distance in the movement plane
+		delta = delta - HeadToCoord;
+		if (speed >= delta.Length()) {
 			LinkedTo->IsOccupyingCell = true;
 			LinkedTo->IsToPathAroundBlockage = false;
 			WasPushed = false;
@@ -237,11 +239,11 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 			TechnoClass * contact = LinkedTo->Radio_Link(0); // RA2: the radio contact
 			Cell dock = CELL_NONE; // RA2: a unit that has reached its docking cell carries on moving
 			if (contact != NULL) { // RA2: if there is one
-				dock = contact->Destination_Coord(LinkedTo).As_Cell(); // RA2: gives the cell it is bound for
+				dock = Cell(contact->Destination_Coord(LinkedTo)); // RA2: gives the cell it is bound for
 			}
 			bool at_dock = (LinkedTo->Get_Cell() == dock); // RA2: has the unit reached it
 
-			MoveType ok; // RA2: checked again after the per-cell callback
+			MoveType ok = MOVE_OK; // RA2: checked again after the per-cell callback
 			if (DestinationCoord != COORD_NONE || at_dock) { // RA2: keeps moving at its dock
 				ok = While_Moving(true);
 				if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(MOVE_NO);
@@ -252,8 +254,6 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 					LinkedTo->Per_Cell_Process(PCP_END);
 					if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false); // RA2: no NULL test of LinkedTo
 				}
-			} else {
-				ok = MOVE_OK;
 			}
 			if (ok == MOVE_NO) {
 				if (LinkedTo->CurrentTube >= TUBE_FIRST) return(false);
@@ -265,7 +265,6 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 		}
 
 		if (speed > 0) {
-			Point2D point;
 			Coord coord = LinkedTo->PositionCoord;
 
 			if (LinkedTo->Occupies_Cells() && HeadToCoord != COORD_NONE) {
@@ -274,10 +273,10 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 				LinkedTo->IsToPathAroundBlockage = false;
 			}
 
-			point = Point2D(coord.X, coord.Y);
-			Point2D moved = Move_Coord(Coord(point, coord.Z), Facing.Current(), speed); // RA2: retain the current altitude
-			coord.X = moved.X;
-			coord.Y = moved.Y;
+			Point2D position(coord.X, coord.Y);
+			Point2D next = Move_Point(position, Facing.Current(), speed);
+			coord.X = next.X;
+			coord.Y = next.Y;
 			if (coord.As_Cell() != LinkedTo->Get_Coord().As_Cell()) {
 				LinkedTo->Mark(MARK_UP);
 				LinkedTo->PositionCoord = coord;
@@ -433,20 +432,6 @@ void STDMETHODCALLTYPE HoverLocomotionClass::Move_To(CoordStruct to)
 }
 
 
-// RA2: kept as this file's own helper: inline.h's Adjacent_Cell and the sum in place in either order change While_Moving's code
-static inline Cell Hover_Adjacent_Cell(Cell const & cell, FacingType dir) // RA2: an adjacent cell with the table entry first
-{
-	return(AdjacentCell[(int)dir & 0x07] + cell);
-}
-
-
-static inline int Tube_Height_Step(Coord const & exit, TubeClass const * tube, int current_height) // RA2: the height change per tube step
-{
-	int count = tube->Get_Count();
-	return((Map.Get_Height_GL(exit) - current_height) / count);
-}
-
-
 /***********************************************************************************************
  * DriveClass::While_Moving -- Processes unit movement.                                        *
  *                                                                                             *
@@ -503,14 +488,12 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			LinkedTo->Path[CONQUER_PATH_MAX-1] = FACING_NONE;
 			LinkedTo->CurrentTube = tubenum;
 			LinkedTo->CurrentTubeDir = FACING_FIRST;
-			TPoint2D<short> const & enter = tube->Enter;
-			Coord diff = Map[Hover_Adjacent_Cell(Cell(enter), tube->Dirs[0])].Cell_Coord() - Coord(Cell(enter));
-			LinkedTo->LastTubeCoord = diff + LinkedTo->PositionCoord;
+			Coord enter = (Cell)tube->Enter;
+			Coord offset = Map[Adjacent_Cell((Cell)tube->Enter, tube->Dirs[0])].Cell_Coord() - enter;
+			LinkedTo->LastTubeCoord = LinkedTo->PositionCoord + offset;
 			int height = LinkedTo->Height;
 			int current_height = Map.Get_Height_GL(LinkedTo->PositionCoord);
-			Cell exit2 = tube->Exit;
-			int z = height + Tube_Height_Step(exit2, tube, current_height);
-			LinkedTo->LastTubeCoord.Z = z;
+			LinkedTo->LastTubeCoord.Z = height + (Map.Get_Height_GL(tube->Get_Exit()) - current_height) / tube->Get_Count();
 		} else {
 			LinkedTo->Path[0] = FACING_NONE;
 			HeadToCoord = COORD_NONE;
@@ -521,7 +504,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 	}
 
 	if (nextface != FACING_NONE) {
-		HeadToCoord = Cell(LinkedTo->PositionCell + AdjacentCell[nextface & 7]).As_Coord();
+		HeadToCoord = Adjacent_Cell(LinkedTo->PositionCell, nextface).As_Coord();
 		HeadToCoord.Z = Map.Get_Height_GL(HeadToCoord);
 		if (LinkedTo->PositionCoord.Z >= HeadToCoord.Z + 2 * LEVEL_LEPTON_H + LEVEL_LEPTON_H) {
 			HeadToCoord.Z += BRIDGE_LEPTON_HEIGHT;
@@ -544,17 +527,17 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			return(MOVE_NO);
 		}
 
-		CellClass & adjacent = Map[Adjacent_Cell(LinkedTo->PositionCoord, nextface)];
-		if (adjacent.IsUnderBridge ^ LinkedTo->IsOnBridge) {
+		CellClass const & next = Map[Adjacent_Cell(LinkedTo->PositionCoord, nextface)];
+		if (LinkedTo->IsOnBridge ^ next.IsUnderBridge) {
 			LinkedTo->IsPlanningToLook = true;
 		}
 
-		Cell c = HeadToCoord.As_Cell();
-		int ok = LinkedTo->Can_Enter_Cell(&Map[c], nextface, LinkedTo->Get_Cell_Height());
+		Cell c = HeadToCoord;
+		MoveType ok = LinkedTo->Can_Enter_Cell(&Map[c], nextface, LinkedTo->Get_Cell_Height());
 
 		switch (ok) {
-		case MOVE_NO:
 		case MOVE_CLOAK:
+		case MOVE_NO:
 			Map[HeadToCoord].Shimmer();
 			if (first_pass) {
 				Stop_Driver();
@@ -567,7 +550,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				HeadToCoord = COORD_NONE;
 				Stop_Driver();
 			}
-			return((MoveType)ok);
+			return(ok);
 
 		case MOVE_CLOSED_GATE:
 			HeadToCoord = COORD_NONE;
@@ -583,7 +566,6 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				LinkedTo->Path[0] = FACING_NONE;
 				Start_Of_Move(0);
 				ok = While_Moving(false);
-				break;
 			} else {
 				if (LinkedTo->Center_Coord().Distance_To(DestinationCoord) < Rule->CloseEnoughDistance
 					&& abs(DestinationCoord.Z - LinkedTo->PositionCoord.Z) < 2 * LEVEL_LEPTON_H
@@ -601,8 +583,8 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 				Map[HeadToCoord].Incoming(COORD_NONE, true, true, bridge);
 				HeadToCoord = COORD_NONE;
 				Stop_Driver();
-				break;
 			}
+			break;
 
 		case MOVE_OK:
 			LinkedTo->Per_Cell_Process(PCP_END);
@@ -653,7 +635,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			Start_Of_Move((blocked != 0) + 1);
 			break;
 		}
-		return((MoveType)ok);
+		return(ok);
 	}
 
 	Start_Of_Move(0);

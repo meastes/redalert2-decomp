@@ -249,7 +249,7 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 /// <param name="to">The destination cell, used to estimate the remaining cost.</param>
 /// <param name="movement_cost">The cost of the step from the parent into this cell.</param>
 /// <returns>Returns with a pointer to the new node, taken from the search's node pool.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1125 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The blocked-destination path is laid out before the node insertion. Lane F46: the archive's order (`if (move < MOVE_NO) { if (Is_Visited(0, base_level, node_index)) continue; ... } else if (working_to == to_pptr && !is_passive) {`, astar.cpp:437-469) gives the image's layout and its 812 instructions, 10 bytes short (1,714 by position): the zero register (image edx, set before the loop test; ours ebp) and the slots of the first two locals are then left; this text keeps the better score by position.
+#ifdef RA2_NON_MATCHING // not exact: 1705 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The archive's order (astar.cpp:437-469) gives the image's layout; the zero register (image edx, set before the loop test; ours ebp) and the slots of the first two locals are left (the earlier order, blocked destination first, gave 1,125 by position).
 PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, FootClass *foot, FacingType *moves, int max_loops, bool with_hs)
 {
 	FacingType face;
@@ -359,22 +359,21 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 
 		for (face = FACING_FIRST; face <= FACING_COUNT; face++) {
 
-			CellClass ** neighbor_slot;
+			CellClass ** working_to;
 			if (face == TUNNEL) {
 				int tube = (*working_from)->Tube;
 				if (tube != -1) {
 					Cell exit_cell = Tubes[tube]->Exit;
-					neighbor_slot = &Map.Array[MAP_CELL_W * exit_cell.Y + exit_cell.X];
+					working_to = &Map.Array[MAP_CELL_W * exit_cell.Y + exit_cell.X];
 				} else {
 					static CellClass * NoneCell = NULL;
-					neighbor_slot = &NoneCell;
+					working_to = &NoneCell;
 				}
 			} else {
-				neighbor_slot = &working_from[_offsets[face]];
+				working_to = &working_from[_offsets[face]];
 			}
 
-			CellClass * neighbor_cell = *neighbor_slot;
-			CellClass ** working_to = neighbor_slot;
+			CellClass * neighbor_cell = *working_to;
 
 			if (neighbor_cell == NULL) {
 				continue;
@@ -418,13 +417,11 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 				movement_cost = MAX(dx, dy);
 			}
 
-			if (move >= MOVE_NO) {
-				if (working_to == to_pptr && !is_passive) {
-					if (abs(CurrentCellHeight - DestCellHeight) <= 1) {
-						goto breakout;
-					}
+			if (move < MOVE_NO) {
+				if (Is_Visited(0, base_level, node_index)) {
+					continue;
 				}
-			} else if (!Is_Visited(0, base_level, node_index)) {
+
 				RegularOpenNode * new_node = Create_Node(working_node, working_to, to, movement_cost);
 				if (temp_node == NULL) {
 					temp_node = new_node;
@@ -447,6 +444,10 @@ PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, F
 				if (subzone_id == HierSubzonePath[SUBZONE_FINE][HierNodeIndex + 1]) {
 					HierNodeIndex++;
 					HierLastNodeCell = neighbor_id;
+				}
+			} else if (working_to == to_pptr && !is_passive) {
+				if (abs(CurrentCellHeight - DestCellHeight) <= 1) {
+					goto breakout;
 				}
 			}
 		}
