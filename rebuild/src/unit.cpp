@@ -405,7 +405,7 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1874 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1920 B); the occupied exit now copies the occupiers into a DynamicVectorClass and waits (calls as the image there); left: Distance's Length and both DirType::Direction calls are out of line in the image (ours expands them); main: best 58.99, tried 8 times (frame, inline, bound)
+#ifdef RA2_NON_MATCHING // not exact: 1664 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1776 B), 2026-11-23 (lane F34): every call the image's but the first distance's TPoint3D operator- (called in the image, expanded here with its constructor called); both directions through RA2's DirType(Coord, Coord) constructor 0x423EF0, copy-initialised as the image copies them; the tube's ends through one reused cell in a block (InfantryClass::Tunnel_AI's form), the heights in one expression, the stepped coordinate assigned from a sum. Scratch: five or more empty inline sites between the distance and Adjacent_Cell give every instruction of the image (522 = 522) with the frame 8 bytes short (0x68 against 0x70); no reference form found for them
 void UnitClass::Tunnel_AI(void)
 {
 	Coord coord;
@@ -415,15 +415,18 @@ void UnitClass::Tunnel_AI(void)
 		TubeClass * tube = Tubes[CurrentTube];
 		Get_Coord();	/// Result discarded.
 
-		DirType direction_temp;
-		DirType direction = direction_temp.Direction(Center_Coord(), LastTubeCoord);
+		DirType direction = DirType(Center_Coord(), LastTubeCoord);
 		int speed = (int)(Class->MaxSpeed * 1.5);
 
-		Coord exit(tube->Exit);
-		Coord enter(tube->Enter);
-		int height_step = tube->Count;
-		int enter_height = Map.Get_Height_GL(enter);
-		height_step = (Map.Get_Height_GL(exit) - enter_height) / height_step;
+		int height_step;
+		{
+			Cell tube_cell = tube->Exit;
+			Coord exit(tube_cell);
+			tube_cell = tube->Enter;
+			Coord enter(tube_cell);
+			height_step = tube->Count;
+			height_step = (Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / height_step;
+		}
 
 		if (distance <= speed) {
 			CurrentTubeDir++;
@@ -434,10 +437,10 @@ void UnitClass::Tunnel_AI(void)
 			if (!finished) {
 				coord = Adjacent_Cell(LastTubeCoord, tube_dir);
 				Coord delta = Map[coord].Cell_Coord() - Map[LastTubeCoord].Cell_Coord();
-				LastTubeCoord += Coord(delta.X, delta.Y, 0);
+				LastTubeCoord = LastTubeCoord + Coord(delta.X, delta.Y, 0);
 				LastTubeCoord.Z += height_step;
 
-				DirType dir = DirType().Direction(Center_Coord(), LastTubeCoord);
+				DirType dir = DirType(Center_Coord(), LastTubeCoord);
 				Coord new_coord = Move_Coord(PositionCoord, dir, speed - distance);
 				double divisor;
 				if (tube_dir % 2) {

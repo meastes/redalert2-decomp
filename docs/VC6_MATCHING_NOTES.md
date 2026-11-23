@@ -4148,3 +4148,90 @@ Found in the rebuild (lane F29, high):
 - A parameter type change in a class header (MultiplayerGameMode slot 0x0C to `WideWstring *`) renames a
   vtable slot's symbol: graft every includer of the header, not only the units whose sources changed, or the
   whole-file build refuses the vtable's data section.
+
+## An operand-order tie that counts the function's distinct static addresses, dead ones included; read a three-site budget with every call in the filter (found in the rebuild (lane F32, high))
+
+Found in the rebuild (lane F32, high); nothing landed, the probes are diagnostic only:
+
+- CChatEventSink::OnChannelJoin 0x75F530 (17 bytes: `add ecx, edx` against `lea eax, [edx + ecx]` in the expanded
+  ArrayList<User>::add). F29's "memory references" are distinct static addresses named in the function's own text,
+  and they need no code: k dead reads `ProbeM[k];` of an extern array give every instruction of the image at
+  k = 45..47, 61..67, 93..95 and 125..127 and leave 2 to 14 lines elsewhere above 44. One unit per distinct address
+  (also under `if (0)`; a block-local initialised from one about two; a string literal about a third); the same
+  address again, reads through a pointer parameter, locals, empty blocks and constant casts count nothing. The
+  counter is the function's own: the same reads in the next member function, every other guarded body of the unit
+  compiled, and 1 to 64 `struct P;` lines at the unit's first line or just above the class do not move it. So
+  before reading such a tie as a declaration window, put code-free reads of distinct globals in the function and
+  in its neighbour: only the first moves this kind.
+- A code-free probe is the cleaner ruler for it: F29's load-and-store statements gave 29..33 and added bytes each
+  (they seem to weigh about a unit and a half); dead reads give the thresholds with the listing otherwise equal, so "exact" can be
+  read off the diff.
+- netshare Scenario_DlgProc 0x5C69E0: when a budget row has several sites of one helper, put every call the
+  helper can make in the probe's filter (constructor of each level, Clear, the plain callee). With the vector
+  constructors in it, no site count at one place gives the image: sites after the mode list turn the random map
+  site with or before it, sites at the top only expand the last select, spends take the last site first. The image
+  has the middle site poorest (constructor called, Clear expanded) and the draft has it richest, which a root-wide
+  count cannot do; the difference is in that case's own text.
+- An accepted text on main is a reference for a helper's form: Planning_Pick_Node 0x616070 on main is the plain
+  for loop the rebuild held as coined for Planning_Left_Press 0x617340. Look at main's text of the function a
+  twin's file-local helper stands for before listing the plain form as a variation.
+- Scheduling inside an expanded copy that differs from the same body standalone (Planning_Refuse's `push 0`
+  against `mov edx, 0x2000`) was not moved by counts (locals, stores), by the callee's text, by nesting or by
+  cutting the root down to one copy: every copy expanded in that root has the other order.
+
+## A matched twin of the same size is taken whole before any operand search; an operand-order tie can follow the function's expression count, dead expressions included (found in the rebuild (lane F31, high))
+
+- LaserDrawClass::Draw_It 0x5334F0 (1,906 B) stood at 12 bytes through four lanes and a 256-order operand search of
+  the tree's draft. ra2-decomp's matched Yuri's Revenge twin has the same 1,906 bytes; its text taken whole was exact on
+  the first compile. It differs in three places at once (no named direction before `As_Facing()`, the outer colour
+  tested member by member instead of through `operator==` on a temporary, and its own operand order at each glow sum),
+  and no single one of them reads as the cause from the diff. When a twin is matched and has the image's size, compile
+  its whole text under the tree's names before reading the residue. A relocation-masked diff of zero hunks with
+  unbound function statics is an exact row waiting for bindings: name the atexit thunk rows as the object names them
+  (the `_$E` counter moves when a guarded function is opened), then `check --learn` binds the statics.
+- Damage_Low_Bridge_EW 0x55DEF0 (5 bytes, one load order in the expanded Union): the order follows how many expression
+  nodes the function holds after inlining, counting ones the optimiser later deletes. In place of one deleted
+  Damage_Low_Bridge_Piece statement, a dead inline that only copies two members keeps the image's order; the same
+  inline with one subtraction gives ours; `Cell(cell.X - 1, 0)` (one load, one subtraction) keeps the image. Dead
+  scalar assignments (`kill = true`) do not count. The text is three to four simple call statements over the
+  threshold. The inline decision for the later Unions is a second, separate measure that moves the other way (calls
+  and no-op statements add room, expanded sites spend it), so a row can sit in a narrow window of both. Probe with dead
+  inline helpers of graded size (never landing forms): the smallest helper that flips the order back sizes the gap.
+- `&Map[Cell(cell.X, cell.Y - 1)]` and `&Map[cell - Cell(0, 1)]` compile to the same lookup instructions; they differ
+  only in inline sites and nodes. Passing `cell - Cell(1, 0)` to a `Cell const &` parameter is two temporaries (the
+  operator's TPoint2D<short> and the converted Cell, a dword copy); `Cell(cell.X - 1, cell.Y)` is one.
+- A variable that is a copy of another (`begin_x = x`) can take the register with a home slot while the source
+  variable's first web is coalesced into it; the image then reloads that register from the copy's home after each block
+  that borrows it and the source needs no home (MapClass::Subzone_Span 0x564290). The top-of-function stores come in
+  declaration order, which tells whether such a copy is declared at all.
+
+## An out-of-line constructor the image calls is the source form; site probes placed between two decisions; callee-saved registers follow use counts (found in the rebuild (lane F34, high))
+
+Found in the rebuild (lane F34, high); nothing landed as bytes, the probes are diagnostic only:
+
+- UnitClass::Tunnel_AI 0x6FAA30 and InfantryClass::Tunnel_AI 0x5025C0: the "DirType::Direction calls out of line" were
+  never Direction: the callee 0x423EF0 is RA2's own `DirType(Coord const & from, Coord const & to)` constructor
+  (anim.cpp). `DirType direction = DirType(Center_Coord(), LastTubeCoord);` gives the call and the image's copy of
+  the temporary. When a draft expands a helper where the image calls something, look up what the callee is before
+  reading it as a budget miss.
+- A value the image holds in a scratch-saved register across exactly one call and then drops was not a named local:
+  `(Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / height_step` evaluates the right operand first and keeps it
+  in ebx; the named `enter_height` took the frame slot and pushed `distance` into the register.
+- A self-copy of a member the statement does not change (`mov eax, [edi+8]` ... `mov [ebp+8], eax`) is an
+  assignment from a sum (`a = a + Coord(dx, dy, 0)`), not `+=`.
+- Where a probe's empty inline sites go matters as much as how many: in Tunnel_AI sites at the end of the root starve
+  the later operator+ before they starve the first distance's Length (both have them after), while sites between the
+  two decisions lower only the first one's share. Put the probe between the decision that must fall and the one that
+  must stand. Five or more there give every instruction of the image; the frame then tells whether the real sites own
+  locals (eight bytes short here, so they do).
+- BuildingClass::Do_MISSION_GUARD 0x445620: one to five empty sites after Distance_To, or about 100 units of charged
+  inline before it, are exact byte for byte. Checks made on the way: a non-inline function of the unit is a site only
+  under the auto-inline cap (Clear_Weapons_Factory_Bib is not until cut to six statements; GetOccupantCount is);
+  `DebugString` is only an empty inline where dbgprint.h's stub wins, in building.cpp it is the real 0x4068F0;
+  Red Alert's `::Distance(Center_Coord(), coord)` member form is cheaper than TibSun's Distance_To level, so it expands
+  more, not less.
+- Callee-saved registers go by use count: Net2SetHouseAndColor 0x5BCCF0 keeps the search key in ebp through its loop
+  and loads `house` at first use only when `house` has one use fewer than the twin's three (diagnostic); in
+  Wait_For_Players_To_Load 0x65C520 the image's esi, edi, ebp are i, name, held value in falling use count. When two
+  register parameters swap homes, count the uses of each in the draft against what the image needs before trying
+  shapes; a use the image does not show (a debug stub's argument, an assert) is the usual missing one.

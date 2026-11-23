@@ -5930,9 +5930,9 @@ LRESULT __stdcall Control_Proc(HWND window, UINT message, WPARAM wparam, LPARAM 
 		if (specific_proc == Owner_Button_Proc || specific_proc == List_Proc) { // RA2: as above
 			SetFocus((HWND)wparam);
 		}
-        if (data && !data->Reserved_38) { IME_Cancel_Composition(); data->Reserved_38 = 1; } // RA2: as above
+		if (data && !data->ImeState) { IME_Cancel_Composition(); data->ImeState = 1; } // RA2: as above
 	} else if (message == WM_KILLFOCUS) { // RA2: as above
-        data->Reserved_38 = 0; // RA2: as above
+		data->ImeState = 0; // RA2: as above
 	} else if (message == WM_SHOWWINDOW) { // RA2: as above
 		if (wparam == 0 && data) { // RA2: as above
 			(*(int *)((char *)data + 0x1FC)) = 0; // RA2: as above
@@ -6898,7 +6898,7 @@ LRESULT __stdcall Edit_Control_Proc(HWND window,UINT message,WPARAM wparam,LPARA
         Rect text(display.left,display.top,display.right-display.left+1,display.bottom-display.top+1); // RA2: as above
 		LONG text_style = GetWindowLongA(window, GWL_STYLE); // RA2: as above
         Draw_Edit_Text(AlternateSurface,text,Edit_Buffer,caret, // RA2: as above
-            data->Font,Text_Color,&data->EditScroll,data->Reserved_38,((unsigned int)text_style>>5)&1,0,0); // RA2: as above
+			data->Font, Text_Color, &data->EditScroll, data->ImeState, ((unsigned int)text_style >> 5) & 1, 0, 0); // RA2: as above
         ValidateRect(window,0); // RA2: as above
     }
 	if (message == WM_CONTEXTMENU) return 1; // RA2: as above
@@ -6961,29 +6961,6 @@ int __fastcall Edit_Text(HWND window, wchar_t *text, int size, int *caret) // RA
 
 unsigned short __fastcall IME_Char_To_Wide(unsigned int wparam, long lparam); // RA2: 0x738130 (winstub.cpp)
 
-/*
-**	RA2: a "NewEdit" control's view of its record: the wide text it edits, the caret and the limits.
-*/
-struct EditRecord { // RA2: the control record's fields 0x5F22A0 uses
-	char Reserved_00[0x28]; // RA2: as above
-	wchar_t * Text;					// RA2: +0x28 the text it starts with
-	int Reserved_2C; // RA2: as above
-	int IsAsciiOnly;				// RA2: +0x30 only characters below 0x100 are accepted
-	char Reserved_34[0x38 - 0x34]; // RA2: as above
-	int ImeState;					// RA2: +0x38 drawn with the text
-	WideWstring * Buffer;			// RA2: +0x3C the edited text
-	int Caret;						// RA2: +0x40
-	int Scroll;						// RA2: +0x44
-	int MaxLength;					// RA2: +0x48 0 for none
-	int IsCaretHidden;					// RA2: +0x4C toggled by the 1 s timer, drawn as Caret_Hidden
-	wchar_t const * Excluded;		// RA2: +0x50 characters it refuses
-	unsigned int Style;				// RA2: +0x54 the window style (ES_MULTILINE 4, ES_PASSWORD 0x20)
-	char Reserved_58[0x64 - 0x58]; // RA2: as above
-	BitFont * Font;					// RA2: +0x64
-	char Reserved_68[0xC8 - 0x68]; // RA2: as above
-	int TextStyle;					// RA2: +0xC8
-}; // RA2: as above
-
 namespace OwnerDraw { // RA2: as above
 
 
@@ -6991,7 +6968,6 @@ namespace OwnerDraw { // RA2: as above
 **	RA2: the window procedure of the "NewEdit" control, an edit control that keeps its text in the record as wide
 **	characters and draws itself. The cursor keys (the jump table at 0x5F2B04) move the caret in it.
 */
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005f22a0 has no row); 1510 of 2215 bytes differ against the image bound (image_bounds.csv; ours 2211 B: three register choices, the rest the 4-byte shift), 2026-11-22 (lane O39, ra2-decomp's twin NewEditHandler with this tree's names and RA2's one-pixel frame)
 LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x5F22A0, the NewEdit window procedure
 {
 	WNDPROC proc = NULL;
@@ -7001,9 +6977,8 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		return DLGC_WANTALLKEYS;
 	}
 	Window_Proc_Table.getValue(window, proc);
-	WinData * record = NULL;
-	Control_Table.getPointer((unsigned int const &)window, &record);
-	EditRecord * data = (EditRecord *)record; // RA2: the record seen as an edit control's
+	WinData * data = NULL;
+	Control_Table.getPointer((unsigned int const &)window, &data);
 	HWND parent = GetParent(window);
 
 	if ((message == WM_KEYUP || message == WM_KEYDOWN) && wparam == VK_TAB) {
@@ -7027,13 +7002,13 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	} else if (message == EM_LIMITTEXT) {
 		data->MaxLength = wparam;
 		if (wparam) {
-			data->Buffer->truncate(wparam);
+			data->WideText->truncate(wparam);
 		}
 	} else if (message == WM_USER + 181 || message == WM_USER + 179 || message == WM_GETTEXTLENGTH) {
 		if (message == WM_GETTEXTLENGTH) {
-			return data->Buffer->length();
+			return data->WideText->length();
 		}
-		WideWstring * query_text = data->Buffer;
+		WideWstring * query_text = data->WideText;
 		if (message == WM_USER + 179) {
 			wcsncpy((wchar_t *)lparam, query_text->get(), wparam);
 			((wchar_t *)lparam)[wparam - 1] = 0;
@@ -7044,22 +7019,22 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		return strlen((char *)lparam);
 	} else {
 		if (message == WM_USER + 180 || message == WM_USER + 178) {
-			data->Buffer->clear();
+			data->WideText->clear();
 			data->Caret = 0;
-			data->Scroll = 0;
+			data->EditScroll = 0;
 			if (data->Text != NULL) {
-				data->Buffer->set(data->Text);
+				data->WideText->set(data->Text);
 			}
 			if (data->MaxLength) {
-				data->Buffer->truncate((unsigned int)data->MaxLength);
+				data->WideText->truncate((unsigned int)data->MaxLength);
 			}
-			data->Caret = data->Buffer->length();
+			data->Caret = data->WideText->length();
 		}
 		if (message == WM_KEYDOWN) {
 			if (wparam == VK_RETURN) {
 				SendMessage(parent, WM_USER + 218, 0, (LPARAM)window);
-				if (data->Style & ES_MULTILINE) {
-					*data->Buffer += L"\r\n";
+				if (data->UserDataWord & ES_MULTILINE) {
+					*data->WideText += L"\r\n";
 					WPARAM command = (unsigned short)GetWindowLong(window, GWL_ID) | 0x5010000;
 					SendMessage(parent, WM_COMMAND, command, (LPARAM)window);
 				}
@@ -7103,10 +7078,10 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 				text_rect.Width = display_rect.right - display_rect.left + 1;
 				text_rect.Height = display_rect.bottom - display_rect.top + 1;
 				Caret_Hidden = data->IsCaretHidden;
-				Draw_Edit_Text(AlternateSurface, text_rect, data->Buffer->get(),
+				Draw_Edit_Text(AlternateSurface, text_rect, data->WideText->get(),
 					data->Caret, data->Font, Text_Color,
-					&data->Scroll, data->ImeState,
-					(data->Style & ES_PASSWORD) != 0, 0, 0);
+					&data->EditScroll, data->ImeState,
+					(data->UserDataWord & ES_PASSWORD) != 0, 0, 0);
 				ValidateRect(window, NULL);
 			}
 			if (message == WM_CONTEXTMENU) {
@@ -7134,8 +7109,8 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		} else if (message == WM_KEYDOWN) {
 			switch (wparam) {
 			case VK_DELETE:
-				if (data->Caret < (int)data->Buffer->length()) {
-					data->Buffer->remove(data->Caret, 1);
+				if (data->Caret < (int)data->WideText->length()) {
+					data->WideText->remove(data->Caret, 1);
 					changed = 1;
 				}
 				handled = 1;
@@ -7143,7 +7118,7 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 			case VK_BACK:
 				if (data->Caret > 0) {
 					data->Caret--;
-					data->Buffer->remove(data->Caret, 1);
+					data->WideText->remove(data->Caret, 1);
 					changed = 1;
 				}
 				handled = 1;
@@ -7156,14 +7131,14 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 				handled = 1;
 				break;
 			case VK_RIGHT:
-				if (data->Caret < (int)data->Buffer->length()) {
+				if (data->Caret < (int)data->WideText->length()) {
 					++data->Caret;
 					return 0;
 				}
 				handled = 1;
 				break;
 			case VK_END:
-				data->Caret = data->Buffer->length();
+				data->Caret = data->WideText->length();
 				return 0;
 			case VK_HOME:
 				data->Caret = 0;
@@ -7180,9 +7155,9 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 		}
 		if (ch) {
 			if ((!data->Excluded || !wcschr(data->Excluded, ch)) &&
-				(!data->MaxLength || (int)data->Buffer->length() < data->MaxLength) &&
+				(!data->MaxLength || (int)data->WideText->length() < data->MaxLength) &&
 				ch > 31 && (!data->IsAsciiOnly || ch < 256)) {
-				data->Buffer->insert(ch, data->Caret++);
+				data->WideText->insert(ch, data->Caret++);
 				changed = 1;
 			}
 			handled = 1;
@@ -7198,7 +7173,6 @@ LRESULT __stdcall New_Edit_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 	}
 	return CallWindowProc(proc, window, message, wparam, lparam);
 }
-#endif
 
 
 } // RA2: as above
@@ -8349,7 +8323,6 @@ struct TrackBarState { // RA2: as above
     int click_suppress; // RA2: as above
 };
 
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the file-scope union ODColorBits of Tab_Proc, ra2-decomp's)
 LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: as above
 {
     bool play_click = true;
@@ -8682,7 +8655,6 @@ LRESULT __stdcall Trackbar_Proc(HWND window, UINT message, WPARAM wparam, LPARAM
 
     return 0; // RA2: as above
 }
-#endif
 
 }
 
@@ -10072,7 +10044,7 @@ WinData::WinData() // RA2: as above
     SkipTests = 0xb; // RA2: as above
     Font = BitFont::Instance; // RA2: as above
     WideText = new WideWstring; // RA2: as above
-    Reserved_40 = 0; // RA2: as above
+	Caret = 0; // RA2: as above
     Reserved_5C = 0; // RA2: as above
     TypingSound = -1; // RA2: as above
 }

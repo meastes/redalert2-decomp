@@ -123405,7 +123405,7 @@
     "entry": "00533c70",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E50",
+    "symbol": "_$E148",
     "main_symbol": "_$E50",
     "main_source": "src/recovered/laser.cpp"
    },
@@ -123421,7 +123421,7 @@
     "entry": "00534340",
     "body": 1,
     "padding": 15,
-    "symbol": "_$E148",
+    "symbol": "_$E150",
     "main_symbol": "?unknown_empty_00534340@@YAXXZ",
     "main_source": "src/recovered/laser.cpp"
    },
@@ -123523,7 +123523,6 @@
    }
   ],
   "references": {
-   "_?$S145@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": "00a6e5f8",
    "_?_house_offsets@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A": "00a6e618",
    "_BRIDGE_LEPTON_HEIGHT": "00a6e6c0",
    "_CELL_DIAG_SLOPE_ANGLE": "00a6e610",
@@ -123551,7 +123550,10 @@
    "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHABQAVLaserDrawClass@@@Z": "005344d0",
    "?ID@?$VectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z": "00534510",
    "_$S143": "00a6e538",
-   "_?$S147@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": "00a6e5f8"
+   "_$E150": "00534340",
+   "_?$S149@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": "00a6e5f8",
+   "_?$S147@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA": "00a6e539",
+   "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A": "00a6e558"
   },
   "partial_ok": true
  },
@@ -143380,7 +143382,14 @@
      "00765990"
     ]
    }
-  ]
+  ],
+  "count_sensitive": {
+   "0073ccb0": {
+    "windows": "forward struct declarations at the end of ownrdraw.h. New header (WinData's edit-control fields named, lane F33): +0 off; +1 to +16 exact. Old header (main 97bd039d77): +0 exact; +1 +2 off; +3 to +16 exact",
+    "header": "ownrdraw.h (lane F33, 2026-11-23): OwnerDraw::WinData names its edit-control fields (IsAsciiOnly, ImeState, Caret, MaxLength, IsCaretHidden, Excluded) as ra2-decomp's WinData does (src/ownrdraw.cpp: asciiOnly, hasFocus, caretIndex, textLimit, caretBlink, rejectChars); with them New_Edit_Proc 0x5F22A0 is exact in the twin's text (2,215 B) and Trackbar_Proc 0x5FB270 is exact again (3,489 B)",
+    "note": "lane F33 probe 2026-11-23 on the final tree (DoType precedent): (a) the displacing change is evidenced content (the twin's record fields at the same offsets; three members where a reserved array stood); (b)(i) Encode_Game_Options names no WinData member and no header inline calls one; (ii) windows above, exact and off on both header states; (c) the unchanged text is exact on the old header. The difference is the frame order of equal-weight locals (4 bytes), as lane F8 measured"
+   }
+  }
  },
  "skirmish": {
   "core": [
@@ -158978,6 +158987,15 @@
     "main_source": "src/recovered/ownrdraw.cpp"
    },
    {
+    "entry": "005f22a0",
+    "body": 2215,
+    "padding": 9,
+    "symbol": "?New_Edit_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "005f3cf0",
     "body": 1497,
     "padding": 7,
@@ -159838,14 +159856,7 @@
    "_?string1@?1??Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PADA": "00a736d4",
    "_?string2@?1??Tab_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z@4PAGA": "00a76160"
   },
-  "partial_ok": true,
-  "count_sensitive": {
-   "005fb270": {
-    "windows": "forward struct declarations at the place of ODColorBits (before Tab_Proc), union absent, Tab_Proc guarded: +1 +2 +8 +12 +16 exact; +3 +4 +6 off. With the union (file scope or block scope): off",
-    "header": "none: ownrdraw.cpp's file-scope union ODColorBits (ra2-decomp's src/ownrdraw.cpp, used by OwnerDraw::SysTabHandler, matched there 2026-11-22 in 2bf8d31), which Tab_Proc 0x5F0F40 needs (lane O39, 2026-11-22; owner ruling: land Tab_Proc, park Trackbar_Proc under DECISIONS 91)",
-    "note": "lane O39 probe 2026-11-22: (a) the displacing change is evidenced content (the twin's union); (b)(i) Trackbar_Proc uses nothing the union adds; (ii) windows above; (c) the unchanged text was exact before (c2land run 41). Trackbar_Proc has no function statics"
-   }
-  }
+  "partial_ok": true
  },
  "mpobserver": {
   "core": [

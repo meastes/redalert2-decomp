@@ -155,7 +155,6 @@ void LaserDrawClass::Draw_All(void)
 
 /// nothing, and a beam with IsHouseColor set is drawn by Draw_House_Color instead.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 182 bytes differ (text_if0 bucket)
 void LaserDrawClass::Draw_It(void)
 {
 	if (Duration > 0) {
@@ -200,8 +199,7 @@ void LaserDrawClass::Draw_It(void)
 			/// (both on one side), biasing the glow off the core axis -- this is the
 			/// "thick and thin face different ways" artifact. Do NOT "fix" the table or
 			/// switch to screen-space facing without opting into a deliberate deviation.
-			DirType dir = Direction(Start, End);
-			FacingType facing = dir.As_Facing();
+			FacingType facing = Direction(Start, End).As_Facing();
 
 			Point2D start_pixel;
 			TacticalMap->Coord_To_Pixel(Start, start_pixel);
@@ -215,7 +213,7 @@ void LaserDrawClass::Draw_It(void)
 			int outer_hicolor = 0;
 			bool has_outer_glow = true;
 
-			if (OuterColor == RGBClass(0, 0, 0)) {
+			if (OuterColor.Get_Red() == 0 && OuterColor.Get_Green() == 0 && OuterColor.Get_Blue() == 0) {
 				has_outer_glow = false;
 			} else {
 				int red = Sim_Random_Pick(-OuterSpread.Get_Red(), OuterSpread.Get_Red());
@@ -254,37 +252,12 @@ void LaserDrawClass::Draw_It(void)
 				if (Blinks) {
 					LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel, InnerColor, start_z, end_z, false, true, true, true, current_intensity);
 					if (has_outer_glow) {
-						LogicalSurface->Draw_Depth_Antialiased_Line(
-							TacticalRect,
-							start_pixel + _glow_offsets[2 * facing],
-							_glow_offsets[2 * facing] + end_pixel,
-							outer_color,
-							start_z, end_z, false, true, true, true, 1.0
-						);
-
-						LogicalSurface->Draw_Depth_Antialiased_Line(
-							TacticalRect,
-							start_pixel + _glow_offsets[2 * facing + 1],
-							end_pixel + _glow_offsets[2 * facing + 1],
-							outer_color,
-							start_z, end_z, false, true, true, true, 1.0
-						);
+						LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, _glow_offsets[2 * facing] + start_pixel, _glow_offsets[2 * facing] + end_pixel, outer_color, start_z, end_z, false, true, true, true, 1.0f);
+						LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel + _glow_offsets[2 * facing + 1], _glow_offsets[2 * facing + 1] + end_pixel, outer_color, start_z, end_z, false, true, true, true, 1.0f);
 					}
 				} else if (has_outer_glow) {
-					LogicalSurface->Draw_RGB_Multiplying_Line(
-						TacticalRect,
-						_glow_offsets[2 * facing] + start_pixel,
-						_glow_offsets[2 * facing] + end_pixel,
-						outer_color, current_intensity, start_z, end_z
-					);
-
-					LogicalSurface->Draw_RGB_Multiplying_Line(
-						TacticalRect,
-						start_pixel + _glow_offsets[2 * facing + 1],
-						end_pixel + _glow_offsets[2 * facing + 1],
-						outer_color, current_intensity, start_z, end_z
-					);
-
+					LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, _glow_offsets[2 * facing] + start_pixel, _glow_offsets[2 * facing] + end_pixel, outer_color, current_intensity, start_z, end_z);
+					LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, _glow_offsets[2 * facing + 1] + start_pixel, _glow_offsets[2 * facing + 1] + end_pixel, outer_color, current_intensity, start_z, end_z);
 					LogicalSurface->Draw_RGB_Multiplying_Line(TacticalRect, start_pixel, end_pixel, InnerColor, current_intensity, start_z, end_z);
 				} else {
 					LogicalSurface->Draw_Depth_Antialiased_Line(TacticalRect, start_pixel, end_pixel, InnerColor, start_z, end_z, false, has_r, has_g, has_b, current_intensity);
@@ -292,25 +265,11 @@ void LaserDrawClass::Draw_It(void)
 			} else {
 				LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel, end_pixel,
 					DSurface::Build_Hicolor_Pixel(InnerColor.Get_Red(), InnerColor.Get_Green(), InnerColor.Get_Blue()),
-					start_z, end_z, false
-				);
+					start_z, end_z, false);
 
 				if (has_outer_glow) {
-					LogicalSurface->Draw_Depth_Shaded_Line(
-						TacticalRect,
-						start_pixel + _glow_offsets[2 * facing],
-						end_pixel + _glow_offsets[2 * facing],
-						outer_hicolor,
-						start_z, end_z
-					);
-
-					LogicalSurface->Draw_Depth_Shaded_Line(
-						TacticalRect,
-						start_pixel + _glow_offsets[2 * facing + 1],
-						end_pixel + _glow_offsets[2 * facing + 1],
-						outer_hicolor,
-						start_z, end_z
-					);
+					LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, _glow_offsets[2 * facing] + start_pixel, _glow_offsets[2 * facing] + end_pixel, outer_hicolor, start_z, end_z);
+					LogicalSurface->Draw_Depth_Shaded_Line(TacticalRect, start_pixel + _glow_offsets[2 * facing + 1], _glow_offsets[2 * facing + 1] + end_pixel, outer_hicolor, start_z, end_z);
 				}
 			}
 		}
@@ -325,7 +284,6 @@ void LaserDrawClass::Draw_It(void)
 /// pairs of glow lines around it, each pair half as bright as the one before. Below the
 /// minimum frame rate, or at the lowest detail level, the lines are plain shaded lines.
 /// </summary>
-#endif
 void LaserDrawClass::Draw_House_Color(void)
 {
 	static Point2D _house_offsets[16] = {

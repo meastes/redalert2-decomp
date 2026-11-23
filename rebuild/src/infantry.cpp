@@ -1361,15 +1361,14 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1979 bytes differ against the image-derived bound 005025c0 (1876 B; ours 2048 B); the blocked exit now copies the occupiers into a DynamicVectorClass and waits (calls as the image there); left: Distance's TPoint3D operator- and both DirType::Direction calls are out of line in the image (ours expands them); main: best 61.13, tried 7 times (ruling, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: 1825 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1840 B), 2026-11-23 (lane F34): both directions through RA2's DirType(Coord, Coord) constructor 0x423EF0, copy-initialised (the image's two calls of it); left: the first distance's TPoint3D operator- is a call in the image, and two TPoint3D constructor calls of the image are expanded here (the stepped coordinate; UnitClass::Tunnel_AI's `Coord delta` and sum give those calls but another block order). Same budget question as UnitClass::Tunnel_AI 0x6FAA30
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
 	if (!finished) {
 		int distance = Distance(LastTubeCoord);
 		TubeClass * tube = Tubes[CurrentTube];
-		DirType facing;
-		DirType direction = facing.Direction(Center_Coord(), LastTubeCoord);
+		DirType direction = DirType(Center_Coord(), LastTubeCoord);
 		int speed = Class->MaxSpeed;
 
 		int height_step;
@@ -1393,7 +1392,7 @@ void InfantryClass::Tunnel_AI(void)
 				LastTubeCoord = LastTubeCoord + ((TPoint2D<int> const &)Map[coord].Cell_Coord() - (TPoint2D<int> const &)Map[LastTubeCoord].Cell_Coord());
 				LastTubeCoord.Z += height_step;
 
-				DirType dir = DirType().Direction(Center_Coord(), LastTubeCoord);
+				DirType dir = DirType(Center_Coord(), LastTubeCoord);
 				Coord new_coord = Move_Coord(PositionCoord, dir, speed - distance);
 				double divisor;
 				if (tube_dir % 2) {

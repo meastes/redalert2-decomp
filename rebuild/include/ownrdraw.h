@@ -197,13 +197,15 @@ namespace OwnerDraw {
 		char Reserved_24[0x28 - 0x24];
 		wchar_t * Text;					// RA2: +0x28 owned wide text
 		int Reserved_2C;
-		char Reserved_30[0x34 - 0x30];
+		int IsAsciiOnly;				// RA2: +0x30 an edit control accepts only characters below 0x100
 		TextNode * Nodes;				// RA2: +0x34 owned node list
-		int Reserved_38;
-		WideWstring * WideText;			// RA2: +0x3C made by the constructor
-		int Reserved_40;
+		int ImeState;					// RA2: +0x38 an edit control's composition state, drawn with its text
+		WideWstring * WideText;			// RA2: +0x3C made by the constructor; the text an edit control edits
+		int Caret;						// RA2: +0x40 an edit control's caret position
 		int EditScroll;					// RA2: +0x44 an edit control's scroll position
-		char Reserved_48[0x54 - 0x48];
+		int MaxLength;					// RA2: +0x48 an edit control's text limit, 0 for none
+		int IsCaretHidden;				// RA2: +0x4C toggled by an edit control's 1 s timer
+		wchar_t const * Excluded;		// RA2: +0x50 characters an edit control refuses
 		int UserDataWord;				// RA2: +0x54 the second word of the GWL_USERDATA block
 		char Reserved_58[0x5C - 0x58];
 		int Reserved_5C;

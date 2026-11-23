@@ -45,28 +45,34 @@
     "??3@YAXPAX@Z": 7871803,
     "?Frame@@3HA": 10751276,
     "?Draw_It@LaserDrawClass@@QAEXXZ": 5453040,
-    "_?$S147@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": 10937848,
-    "_?_house_offsets@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A": 10937880,
-    "_$E148": 5456704,
+    "?Draw_House_Color@LaserDrawClass@@QAEXXZ": 5454976,
+    "_?$S147@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA": 10937657,
+    "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A": 10937688,
+    "_$E148": 5454960,
     "?atan2@fastmath@@YANNN@Z": 4957696,
     "__real@8@3fffc90fdaa22168c000": 7976496,
     "__real@8@c00ca2f83d7b47677800": 7976488,
     "?TacticalMap@@3PAVTactical@@A": 8624492,
     "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z": 6957520,
     "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z": 6957424,
-    "?GetMinFrameRate@Detail@@YIIXZ": 5494848,
-    "?CurrentFrameRate@FPSCounter@@3IA": 10939164,
-    "?Options@@3VGameOptionsClass@@A": 10750744,
-    "__real@4@4006ff00000000000000": 7975080,
-    "?LogicalSurface@@3PAVSurface@@A": 8624476,
-    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
-    "?Adjust@RGBClass@@QAEXHABV1@@Z": 6541088,
+    "?NonCriticalRandomNumber@@3VRandom2Class@@A": 8622616,
+    "??RRandom2Class@@QAEHHH@Z": 6523040,
     "?BlueLeft@DSurface@@2HA": 8728516,
     "?BlueRight@DSurface@@2HA": 8728512,
     "?GreenLeft@DSurface@@2HA": 8728524,
     "?GreenRight@DSurface@@2HA": 8728520,
     "?RedLeft@DSurface@@2HA": 8728508,
     "?RedRight@DSurface@@2HA": 8728504,
+    "?Options@@3VGameOptionsClass@@A": 10750744,
+    "?LogicalSurface@@3PAVSurface@@A": 8624476,
+    "?TacticalRect@@3V?$TRect@H@@A": 8623664,
+    "_?$S149@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA": 10937848,
+    "_?_house_offsets@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A": 10937880,
+    "_$E150": 5456704,
+    "?GetMinFrameRate@Detail@@YIIXZ": 5494848,
+    "?CurrentFrameRate@FPSCounter@@3IA": 10939164,
+    "__real@4@4006ff00000000000000": 7975080,
+    "?Adjust@RGBClass@@QAEXHABV1@@Z": 6541088,
     "??2@YAPAXI@Z": 7872535,
     "_$E2": 5451392,
     "_$E5": 5451440,
@@ -93,7 +99,6 @@
     "?AI@LaserDrawClass@@QAEXXZ": 5452592,
     "?Update_All@LaserDrawClass@@SIXXZ": 5452784,
     "?Draw_All@LaserDrawClass@@SIXXZ": 5453008,
-    "?Draw_House_Color@LaserDrawClass@@QAEXXZ": 5454976,
     "?Clear@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEXXZ": 5456720,
     "?ID@?$DynamicVectorClass@PAVLaserDrawClass@@@@UAEHPBQAVLaserDrawClass@@@Z": 5456768,
     "?GetItem@?$VectorClass@PAVLaserDrawClass@@@@UBEPAVLaserDrawClass@@H@Z": 5456800,
@@ -177,7 +182,7 @@
           "resolved": 10937824
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451392,
@@ -229,7 +234,7 @@
           "resolved": 10938056
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451440,
@@ -281,7 +286,7 @@
           "resolved": 10938040
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451472,
@@ -333,7 +338,7 @@
           "resolved": 10938032
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451504,
@@ -385,7 +390,7 @@
           "resolved": 10937832
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451536,
@@ -437,7 +442,7 @@
           "resolved": 10937664
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451568,
@@ -521,7 +526,7 @@
           "resolved": 10938064
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451600,
@@ -581,7 +586,7 @@
           "resolved": 10937840
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451664,
@@ -641,7 +646,7 @@
           "resolved": 10937872
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451712,
@@ -701,7 +706,7 @@
           "resolved": 10938048
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451760,
@@ -745,7 +750,7 @@
           "resolved": 10937818
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451808,
@@ -797,7 +802,7 @@
           "resolved": 10937864
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451824,
@@ -857,7 +862,7 @@
           "resolved": 10937684
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451856,
@@ -965,7 +970,7 @@
           "resolved": 2423007
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451888,
@@ -1073,7 +1078,7 @@
           "resolved": 10938016
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5451952,
@@ -1189,7 +1194,7 @@
           "resolved": 10938012
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5452048,
@@ -1265,7 +1270,7 @@
           "resolved": 10938024
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5452384,
@@ -1373,7 +1378,7 @@
           "resolved": 10938024
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5452464,
@@ -1473,7 +1478,7 @@
           "resolved": 2419032
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5452592,
@@ -1589,7 +1594,7 @@
           "resolved": 2418816
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5452784,
@@ -1641,10 +1646,953 @@
           "resolved": 5
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5453008,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5453040,
+      "method": "005334f0",
+      "body_bytes": 1906,
+      "body_sha256": "d91a1a0a634bfc2f8f467b98969ff71a25abd0c7da2649139926246c7598e27c",
+      "padding_bytes": 14,
+      "full_extent_bytes": 1920,
+      "full_extent_sha256": "9f1a2199c04a58b53f7e4ea6cb9fd7705c82ba652dabe1ea29d47eada9f6aebe",
+      "padding_sha256": "e2dac2a3e4166130a2801c775fbc9d722fbafd40c777e11c307e3e69c0feaffc",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Draw_It@LaserDrawClass@@QAEXXZ",
+      "symbol_prefix": "?Draw_It@LaserDrawClass@@QAEXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 28,
+          "kind": 20,
+          "symbol": "?Draw_House_Color@LaserDrawClass@@QAEXXZ",
+          "target": 5454976,
+          "addend": 0,
+          "resolved": 1904
+        },
+        {
+          "offset": 41,
+          "kind": 6,
+          "symbol": "_?$S147@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
+          "target": 10937657,
+          "addend": 0,
+          "resolved": 10937657
+        },
+        {
+          "offset": 62,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 69,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 80,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 88,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 96,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 20,
+          "resolved": 10937708
+        },
+        {
+          "offset": 106,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 16,
+          "resolved": 10937704
+        },
+        {
+          "offset": 111,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 24,
+          "resolved": 10937712
+        },
+        {
+          "offset": 118,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 32,
+          "resolved": 10937720
+        },
+        {
+          "offset": 125,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 40,
+          "resolved": 10937728
+        },
+        {
+          "offset": 134,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 28,
+          "resolved": 10937716
+        },
+        {
+          "offset": 139,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 48,
+          "resolved": 10937736
+        },
+        {
+          "offset": 152,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 36,
+          "resolved": 10937724
+        },
+        {
+          "offset": 157,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 56,
+          "resolved": 10937744
+        },
+        {
+          "offset": 171,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 44,
+          "resolved": 10937732
+        },
+        {
+          "offset": 176,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 64,
+          "resolved": 10937752
+        },
+        {
+          "offset": 186,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 52,
+          "resolved": 10937740
+        },
+        {
+          "offset": 192,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 60,
+          "resolved": 10937748
+        },
+        {
+          "offset": 198,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 68,
+          "resolved": 10937756
+        },
+        {
+          "offset": 203,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 72,
+          "resolved": 10937760
+        },
+        {
+          "offset": 208,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 80,
+          "resolved": 10937768
+        },
+        {
+          "offset": 224,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 76,
+          "resolved": 10937764
+        },
+        {
+          "offset": 229,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 88,
+          "resolved": 10937776
+        },
+        {
+          "offset": 240,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 84,
+          "resolved": 10937772
+        },
+        {
+          "offset": 245,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 96,
+          "resolved": 10937784
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 92,
+          "resolved": 10937780
+        },
+        {
+          "offset": 261,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 104,
+          "resolved": 10937792
+        },
+        {
+          "offset": 273,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 100,
+          "resolved": 10937788
+        },
+        {
+          "offset": 278,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 112,
+          "resolved": 10937800
+        },
+        {
+          "offset": 293,
+          "kind": 6,
+          "symbol": "_$E148",
+          "target": 5454960,
+          "addend": 0,
+          "resolved": 5454960
+        },
+        {
+          "offset": 299,
+          "kind": 6,
+          "symbol": "_?$S147@?7??Draw_It@LaserDrawClass@@QAEXXZ@4EA",
+          "target": 10937657,
+          "addend": 0,
+          "resolved": 10937657
+        },
+        {
+          "offset": 305,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 108,
+          "resolved": 10937796
+        },
+        {
+          "offset": 311,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 116,
+          "resolved": 10937804
+        },
+        {
+          "offset": 316,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 120,
+          "resolved": 10937808
+        },
+        {
+          "offset": 322,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 124,
+          "resolved": 10937812
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "_atexit",
+          "target": 7874954,
+          "addend": 0,
+          "resolved": 2421583
+        },
+        {
+          "offset": 393,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294471555
+        },
+        {
+          "offset": 399,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 408,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 413,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2407039
+        },
+        {
+          "offset": 428,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 448,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1504028
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "?TacticalMap@@3PAVTactical@@A",
+          "target": 8624492,
+          "addend": 0,
+          "resolved": 8624492
+        },
+        {
+          "offset": 465,
+          "kind": 20,
+          "symbol": "?Coord_To_Pixel@Tactical@@QAE_NABVCoord@@AAVPoint2D@@@Z",
+          "target": 6957520,
+          "addend": 0,
+          "resolved": 1504011
+        },
+        {
+          "offset": 473,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1503907
+        },
+        {
+          "offset": 489,
+          "kind": 20,
+          "symbol": "?Z_Lepton_To_Pixel@Tactical@@SIHH@Z",
+          "target": 6957424,
+          "addend": 0,
+          "resolved": 1503891
+        },
+        {
+          "offset": 571,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 576,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1069420
+        },
+        {
+          "offset": 596,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 601,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1069395
+        },
+        {
+          "offset": 621,
+          "kind": 6,
+          "symbol": "?NonCriticalRandomNumber@@3VRandom2Class@@A",
+          "target": 8622616,
+          "addend": 0,
+          "resolved": 8622616
+        },
+        {
+          "offset": 626,
+          "kind": 20,
+          "symbol": "??RRandom2Class@@QAEHHH@Z",
+          "target": 6523040,
+          "addend": 0,
+          "resolved": 1069370
+        },
+        {
+          "offset": 754,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 766,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 774,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 790,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 810,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 818,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 947,
+          "kind": 6,
+          "symbol": "?Options@@3VGameOptionsClass@@A",
+          "target": 10750744,
+          "addend": 20,
+          "resolved": 10750764
+        },
+        {
+          "offset": 976,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1009,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1048,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1054,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1070,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1092,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1121,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1134,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1143,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1163,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1173,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1179,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1227,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1244,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1286,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1292,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1300,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1330,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1356,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1369,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1378,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1394,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1404,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1416,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1450,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1467,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1480,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1501,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1522,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1564,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1581,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1602,
+          "kind": 6,
+          "symbol": "?BlueLeft@DSurface@@2HA",
+          "target": 8728516,
+          "addend": 0,
+          "resolved": 8728516
+        },
+        {
+          "offset": 1610,
+          "kind": 6,
+          "symbol": "?BlueRight@DSurface@@2HA",
+          "target": 8728512,
+          "addend": 0,
+          "resolved": 8728512
+        },
+        {
+          "offset": 1620,
+          "kind": 6,
+          "symbol": "?GreenLeft@DSurface@@2HA",
+          "target": 8728524,
+          "addend": 0,
+          "resolved": 8728524
+        },
+        {
+          "offset": 1628,
+          "kind": 6,
+          "symbol": "?GreenRight@DSurface@@2HA",
+          "target": 8728520,
+          "addend": 0,
+          "resolved": 8728520
+        },
+        {
+          "offset": 1636,
+          "kind": 6,
+          "symbol": "?RedLeft@DSurface@@2HA",
+          "target": 8728508,
+          "addend": 0,
+          "resolved": 8728508
+        },
+        {
+          "offset": 1656,
+          "kind": 6,
+          "symbol": "?RedRight@DSurface@@2HA",
+          "target": 8728504,
+          "addend": 0,
+          "resolved": 8728504
+        },
+        {
+          "offset": 1664,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1682,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1717,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1723,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1745,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 0,
+          "resolved": 10937688
+        },
+        {
+          "offset": 1755,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 4,
+          "resolved": 10937692
+        },
+        {
+          "offset": 1782,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1796,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        },
+        {
+          "offset": 1805,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1821,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1831,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 8,
+          "resolved": 10937696
+        },
+        {
+          "offset": 1837,
+          "kind": 6,
+          "symbol": "_?_glow_offsets@?7??Draw_It@LaserDrawClass@@QAEXXZ@4PAVPoint2D@@A",
+          "target": 10937688,
+          "addend": 12,
+          "resolved": 10937700
+        },
+        {
+          "offset": 1873,
+          "kind": 6,
+          "symbol": "?LogicalSurface@@3PAVSurface@@A",
+          "target": 8624476,
+          "addend": 0,
+          "resolved": 8624476
+        },
+        {
+          "offset": 1891,
+          "kind": 6,
+          "symbol": "?TacticalRect@@3V?$TRect@H@@A",
+          "target": 8623664,
+          "addend": 0,
+          "resolved": 8623664
+        }
+      ],
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
+      "source": "rebuild/src/laser.cpp",
+      "population": "rebuild-laser",
+      "source_order": 5453040,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5454960,
+      "method": "00533c70",
+      "body_bytes": 1,
+      "body_sha256": "ae3f4619b0413d70d3004b9131c3752153074e45725be13b9a148978895e359e",
+      "padding_bytes": 15,
+      "full_extent_bytes": 16,
+      "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
+      "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "_$E148",
+      "symbol_prefix": "_$E148",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [],
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
+      "source": "rebuild/src/laser.cpp",
+      "population": "rebuild-laser",
+      "source_order": 5454960,
       "source_quality_family": "rebuild"
     },
     {
@@ -1671,7 +2619,7 @@
         {
           "offset": 4,
           "kind": 6,
-          "symbol": "_?$S147@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S149@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937848,
           "addend": 0,
           "resolved": 10937848
@@ -1911,7 +2859,7 @@
         {
           "offset": 273,
           "kind": 6,
-          "symbol": "_$E148",
+          "symbol": "_$E150",
           "target": 5456704,
           "addend": 0,
           "resolved": 5456704
@@ -1919,7 +2867,7 @@
         {
           "offset": 279,
           "kind": 6,
-          "symbol": "_?$S147@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
+          "symbol": "_?$S149@?1??Draw_House_Color@LaserDrawClass@@QAEXXZ@4EA",
           "target": 10937848,
           "addend": 0,
           "resolved": 10937848
@@ -2349,7 +3297,7 @@
           "resolved": 8623664
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5454976,
@@ -2365,8 +3313,8 @@
       "full_extent_sha256": "499f1f307c1cb989f968a6b7fcaec591e1828877223d0b0e7e8e8b76cde8c9ca",
       "padding_sha256": "40f0d021fa824f3b40dc646f67479997734d273d9121690b6f042c512df3a838",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "_$E148",
-      "symbol_prefix": "_$E148",
+      "symbol": "_$E150",
+      "symbol_prefix": "_$E150",
       "options": [
         "/O2",
         "/Ob2",
@@ -2376,7 +3324,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456704,
@@ -2413,7 +3361,7 @@
           "resolved": 2415056
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456720,
@@ -2441,7 +3389,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456768,
@@ -2469,7 +3417,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456800,
@@ -2497,7 +3445,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456816,
@@ -2542,7 +3490,7 @@
           "resolved": 2414800
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5456880,
@@ -2579,7 +3527,7 @@
           "resolved": 2414723
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457056,
@@ -2607,7 +3555,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457104,
@@ -2635,7 +3583,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457168,
@@ -2680,7 +3628,7 @@
           "resolved": 2414493
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457200,
@@ -2708,7 +3656,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457376,
@@ -2761,7 +3709,7 @@
           "resolved": 2414315
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457424,
@@ -2814,7 +3762,7 @@
           "resolved": 2414235
         }
       ],
-      "source_sha256": "27b015888e938c9389b4ec826256a98aba17885bfc174a23ee35956933245f40",
+      "source_sha256": "3cc69f6f24715f1e142d5fa916e582cb0fa23a4d20b425969bbd84286d9f504e",
       "source": "rebuild/src/laser.cpp",
       "population": "rebuild-laser",
       "source_order": 5457504,

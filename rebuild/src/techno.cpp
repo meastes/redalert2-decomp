@@ -1752,7 +1752,6 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 /// it. An ally, or a house that has spied on the object, is also shown its cargo pips.
 /// </summary>
 /// <param name="sensed_underground">Should the select graphic be drawn only when the object is selected?</param>
-#ifdef RA2_NON_MATCHING // not exact: 6 of 1407 bytes differ (image-derived bound 006c3f00-006c447f; ra2-decomp's twin text, with its bool Is_Red_Health/Is_Yellow_Health): the last pip loop's Y sum loads offset.Y before xpoint.Y; the archive's point.X/point.Y statements (44 B), offset + xpoint (6 B) and two other operand orders do not give it (lanes O47, O49, 2026-11-22)
 void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const // RA2: 0x006C3F00, ra2-decomp's twin text (Yuri's Revenge 0x006F64A0) without YR's CanBeOccupied pips and PixelSelectionBracketDelta, RA2's pip shapes 15-17
 {
 	if (RTTI == RTTI_BUILDING) {
@@ -1848,8 +1847,11 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 			shapenum = 17;
 		}
 
+		Point2D point;
 		for (int index = 0; index < n; index++) {
-			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, shapenum, xpoint + offset + Point2D(2 * index, 0), cliprect, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER));
+			point.X = xpoint.X + offset.X; // RA2: these two statements as TibSun has them (techno.cpp:1510); the twin writes one sum
+			point.Y = offset.Y + xpoint.Y;
+			Draw_Shape(*LogicalSurface, *NormalDrawer, (ShapeSet const *)ObjectTypeClass::PipShapes, shapenum, point + Point2D(2 * index, 0), cliprect, ShapeFlags_Type(SHAPE_WIN_REL | SHAPE_CENTER));
 		}
 
 		if (House->Is_Ally(PlayerPtr) || (SpiedBy & (1 << PlayerPtr->Class->House))) {
@@ -1857,7 +1859,6 @@ void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect,
 		}
 	}
 }
-#endif
 
 
 /// <summary>

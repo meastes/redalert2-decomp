@@ -5043,11 +5043,10 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
 {
 	if (Class->IsWeaponsFactory) {
 
-		Cell exit = Class->ExitList[10]; // RA2: RA2's form
-		Cell cell = PositionCell + exit; // RA2: as above
-		cell = cell + Cell(-1, 0); // RA2: as above
-		Cell cell2 = cell;
-		Coord coord = cell2.As_Coord(); // RA2: as above
+		Cell exit = Class->ExitList[10]; // RA2: the eleventh exit cell
+		Cell cell = exit + PositionCell;
+		Cell cell2 = Cell(cell.X - 1, cell.Y); // RA2: the cell to its west, as ra2-decomp's matched twin has it (Yuri's Revenge 0x00449540)
+		Coord coord = cell2.As_Coord();
 		CellClass * cellptr = &Map[cell2];
 
 		TechnoClass * tech = cellptr->Cell_Techno(Point2D(0,0), false, this);
@@ -5088,7 +5087,7 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
  * HISTORY:                                                                                    *
  *   06/25/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 789 bytes differ (ra2-decomp's Yuri's Revenge text less its gattling and bunker parts; every call the image's but TPoint3D<int>::Length, expanded here and called there, which also aligns the frame; 280 against 252 instructions), 2026-11-22 (lane F25)
+#ifdef RA2_NON_MATCHING // not exact: 789 bytes differ (ra2-decomp's Yuri's Revenge text less its gattling and bunker parts; every call the image's but TPoint3D<int>::Length, expanded here and called there, which also aligns the frame; 280 against 252 instructions), 2026-11-22 (lane F25). Scratch (lane F34, 2026-11-23): one to five empty inline sites anywhere after Distance_To, or about 100 units or more of charged inline before it, give the image byte for byte; six sites refuse operator- as well. Clear_Weapons_Factory_Bib is over the auto-inline cap and no site; Red Alert's ::Distance(Center_Coord(), coord) member form gives more budget, not less. No reference form found for the missing site
 int BuildingClass::Do_MISSION_GUARD(void)
 {
 	if (Is_Weapon_Equipped()) {
