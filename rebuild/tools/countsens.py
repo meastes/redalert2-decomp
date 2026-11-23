@@ -11,7 +11,12 @@ Run it at a landing whenever a header changes (the declaration count before the 
 into an exact window); it never edits a header. Unguarding a function can renumber the compiler's `_$E`
 initializer names after it, so each trial first renames the unit's initializer rows by their evidence
 (xcu.py: the .CRT$XCU table, then the calls and atexit registrations it makes) and checks again; a refused
-trial restores units.json as it was."""
+trial restores units.json as it was.
+
+Rows that are exact but sit at the edge of a declaration-count window are listed in the unit's
+`count_watch` (entry -> {windows, note}); each run checks those units and reports each watched row as
+exact or FLIPPED (then park it: guard it with the count-sensitive label and move its entry to
+`count_sensitive`)."""
 import hashlib
 import json
 import re
@@ -88,6 +93,15 @@ def main(argv):
             src.write_text(text, encoding='latin-1')
             R.UNITS.write_bytes(saved)
             check(unit, src)
+
+    for unit, info in R.load_json(R.UNITS, {}).items():
+        if names and unit not in names or not info.get('count_watch'):
+            continue
+        now = check(unit, R.ROOT / info['source'])
+        for entry in info['count_watch']:
+            state = 'does not compile' if now is None else 'exact' if entry in now else \
+                'FLIPPED: park it count-sensitive (guard it, move the entry to count_sensitive)'
+            print('%s %s: watched, %s' % (unit, entry, state))
 
 
 if __name__ == '__main__':

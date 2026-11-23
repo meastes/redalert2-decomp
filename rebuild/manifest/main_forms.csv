@@ -44,4 +44,3 @@ map,0056be10,?Resize@?$DynamicVectorClass@W4PassabilityType@@@@UAE_NHPBW4Passabi
 house,004f03c0,HouseClass::Where_To_Place_Building,2629,E,,not tested,0,2629,none known: main's text is plain; not yet probed in the rebuild,,
 sidebar,0067dc90,SidebarClass::AI,1315,E,,not tested,0,1315,none known: main's text is plain; not yet probed in the rebuild,,
 ownrdraw,00601410,Leaf_601410::get,21,E,,not tested,0,21,none known: main's text is plain; not yet probed in the rebuild,,
-queue,0062a360,Print_CRCs,11223,C,strictness,yes,0,11223,"exact with the unused DirType(Coord, Coord) declaration kept","owner ruling 2026-11-23 (review agreed): the coined DirType(Coord, Coord) constructor declaration (no reference has it) removed from face.h under test (b); Print_CRCs flips by 4 B and parks count-sensitive (windows in units.json)","lane O44 2026-11-23: face.h +0/+1 off, +2..+4 exact, +6/+8 off, +16 exact; old header exact"

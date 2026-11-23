@@ -320,6 +320,18 @@ inline WinData * __cdecl Get_Record(HWND window) // RA2: as above
 }
 
 /*
+**	RA2: the record of a subclassed window with the lookup's result tested (ra2-decomp's Get_Data).
+*/
+inline WinData * Get_Data(HWND window)
+{
+	WinData * data = NULL;
+	if (!Control_Table.getPointer((unsigned int const &)window, &data)) {
+		return NULL;
+	}
+	return data;
+}
+
+/*
 **	RA2: how far a sidebar-anchored control sits in from the edge (none in a game session).
 */
 inline int __cdecl Sidebar_Inset(int width, unsigned char ingame) // RA2: as above
@@ -2782,15 +2794,6 @@ inline bool Is_Quick_Control_D(int id)
 		id == 0x711;
 }
 
-inline WinData * Get_Data(HWND window)
-{
-	WinData * data = NULL;
-	if (!Control_Table.getPointer((unsigned int const &)window, &data)) {
-		return NULL;
-	}
-	return data;
-}
-
 inline bool Is_Flag_Control_B(int type, int id)
 {
 	return (type == 0xbc ||
@@ -3100,8 +3103,7 @@ void __fastcall Slide_Dialog(HWND dialog, bool reverse) // RA2: as above
 
 void __fastcall Slide_Pending_Dialog(HWND window) // RA2: as above
 {
-    OwnerDraw::WinData *record = 0; // RA2: as above
-    Control_Table.getPointer((unsigned int)window, &record); // RA2: as above
+	OwnerDraw::WinData * record = OwnerDraw::Get_Record(window); // RA2: ra2-decomp's Find_Data (Yuri's Revenge 0x00607FD0)
     if (record && record->IsNotifyPending) { // RA2: as above
         HWND item = GetDlgItem(window, 0x71a); // RA2: as above
         if (item) { // RA2: as above
@@ -3251,7 +3253,7 @@ bool __fastcall Select_Control_Rect(HWND dialog,HWND control,Rect *bounds) // RA
     int id = GetDlgCtrlID(control); // RA2: as above
     Rect *selected = 0; // RA2: as above
     if (kind == 0x94) { // RA2: as above
-        if (VideoModeWidth < ScreenWidths[1]) return false; // RA2: as above
+		if (VideoModeWidth < MedResWidth) return false; // RA2: as above
         if (id == 0x6ea) selected = new Rect(0x1e,0x1a,0x23a,0x87); // RA2: as above
         else if (id == 0x6eb) selected = new Rect(0x52,0xbb,0x1d4,0x6c); // RA2: as above
         else if (id == 0x6ec) selected = new Rect(0x62,0x12a,0x1bc,0x95); // RA2: as above
@@ -3262,7 +3264,7 @@ bool __fastcall Select_Control_Rect(HWND dialog,HWND control,Rect *bounds) // RA
     }
     else if (kind == 0x103) { // RA2: as above
         if (id != 0x72b) return false; // RA2: as above
-        if (VideoModeWidth >= ScreenWidths[1]) { // RA2: as above
+		if (VideoModeWidth >= MedResWidth) { // RA2: as above
             if (Scen->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc); // RA2: as above
             else selected = new Rect(0x67,0x82,0x1a8,0xe6); // RA2: as above
         } else {
@@ -3272,7 +3274,7 @@ bool __fastcall Select_Control_Rect(HWND dialog,HWND control,Rect *bounds) // RA
     }
     else if (kind == 0xbc7) { // RA2: as above
         if (id != 0x72b) return false; // RA2: as above
-        if (VideoModeWidth >= ScreenWidths[1]) { // RA2: as above
+		if (VideoModeWidth >= MedResWidth) { // RA2: as above
             if (Scen->IsGDI) selected = new Rect(0x68,0x8e,0x1a8,0xdc); // RA2: as above
             else selected = new Rect(0x67,0x82,0x1a8,0xe6); // RA2: as above
         } else {
@@ -3282,26 +3284,26 @@ bool __fastcall Select_Control_Rect(HWND dialog,HWND control,Rect *bounds) // RA
     }
     else if (kind == 0xbc) { // RA2: as above
         if (id != 0x72f) return false; // RA2: as above
-        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f); // RA2: as above
-        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f); // RA2: as above
+		if (VideoModeWidth == LowResWidth) selected = new Rect(0x34, 0x4e, 0x18c, 0x8f); // RA2: as above
+		else if (VideoModeWidth == MedResWidth || VideoModeWidth == HighResWidth) selected = new Rect(0x84, 0x8a, 0x18c, 0x8f); // RA2: as above
         else return false; // RA2: as above
     }
     else if (kind == 0xbd) { // RA2: as above
         if (id != 0x72f) return false; // RA2: as above
-        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f); // RA2: as above
-        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f); // RA2: as above
+		if (VideoModeWidth == LowResWidth) selected = new Rect(0x34, 0x4e, 0x18c, 0x8f); // RA2: as above
+		else if (VideoModeWidth == MedResWidth || VideoModeWidth == HighResWidth) selected = new Rect(0x84, 0x8a, 0x18c, 0x8f); // RA2: as above
         else return false; // RA2: as above
     }
     else if (kind == 0xc2) { // RA2: as above
         if (id != 0x72f) return false; // RA2: as above
-        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f); // RA2: as above
-        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f); // RA2: as above
+		if (VideoModeWidth == LowResWidth) selected = new Rect(0x34, 0x4e, 0x18c, 0x8f); // RA2: as above
+		else if (VideoModeWidth == MedResWidth || VideoModeWidth == HighResWidth) selected = new Rect(0x84, 0x8a, 0x18c, 0x8f); // RA2: as above
         else return false; // RA2: as above
     }
     else if (kind == 0xc9) { // RA2: as above
         if (id != 0x72f) return false; // RA2: as above
-        if (VideoModeWidth == ScreenWidths[0]) selected = new Rect(0x34,0x4e,0x18c,0x8f); // RA2: as above
-        else if (VideoModeWidth == ScreenWidths[1] || VideoModeWidth == ScreenWidths[2]) selected = new Rect(0x84,0x8a,0x18c,0x8f); // RA2: as above
+		if (VideoModeWidth == LowResWidth) selected = new Rect(0x34, 0x4e, 0x18c, 0x8f); // RA2: as above
+		else if (VideoModeWidth == MedResWidth || VideoModeWidth == HighResWidth) selected = new Rect(0x84, 0x8a, 0x18c, 0x8f); // RA2: as above
         else return false; // RA2: as above
     }
     else return false; // RA2: as above
@@ -4296,13 +4298,13 @@ void __fastcall Adjust_Control_Position(HWND window) // RA2: as above
     } else if (kind == 0x103) { // RA2: as above
         if (id == 0x6f3 || id == 0x6f4 || id == 0x69f || id == 0x6f6 || id == 0x6ef || id == 0x6f1 || id == 0x6f0 || id == 0x6f2) { // RA2: as above
             if (VideoModeWidth >= Base_Screen_Width) { // RA2: as above
-                y -= (Base_Screen_Height - ScreenHeights[0]) / 2; // RA2: as above
+				y -= (Base_Screen_Height - LowResHeight) / 2; // RA2: as above
             }
         }
     } else if (kind == 0xbc7) { // RA2: as above
         if (id == 0x733 || id == 0x735 || id == 0x732 || id == 0x3ea || id == 0x73c || id == 0x411 || id == 0x412 || id == 0x73d || id == 0x419 || id == 0x41a || id == 0x73e || id == 0x6a3 || id == 0x6a4 || id == 0x73f || id == 0x6a5 || id == 0x6a7 || id == 0x740 || id == 0x6a6 || id == 0x6a8 || id == 0x736 || id == 0x73a || id == 0x73b || id == 0x737 || id == 0x739 || id == 0x738) { // RA2: as above
             if (VideoModeWidth >= Base_Screen_Width) { // RA2: as above
-                y -= (Base_Screen_Height - ScreenHeights[0]) / 2; // RA2: as above
+				y -= (Base_Screen_Height - LowResHeight) / 2; // RA2: as above
             }
         }
     }
@@ -4738,7 +4740,7 @@ namespace OwnerDraw { // RA2: as above
 
 void __fastcall Set_Dialog_Kind(HWND control, int value) // RA2: as above
 {
-    WinData *record = Control_Record(control); // RA2: as above
+	WinData * record = Get_Record(control); // RA2: ra2-decomp's Find_Data (Yuri's Revenge 0x0060D2C0)
     if (record) { // RA2: as above
         record->Kind = value; // RA2: as above
     }
@@ -9796,31 +9798,29 @@ void __fastcall Display_Dialog(HWND window) // RA2: as above
 }
 
 
-void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: 0x005FF7E0, ra2-decomp's UI::RegisterWindow (Yuri's Revenge 0x00622820): the controls are subclassed, then the dialog is set up for its kind
+void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: 0x005FF7E0, ra2-decomp's UI::RegisterWindow (Yuri's Revenge 0x00622820) statement for statement: the controls are subclassed, then the dialog is set up for its kind. With the twin's three one-call wrappers and its two scalar sizes the function is under the size limit of a function not declared inline, and Default_Dialog_Proc expands it twice
 {
 	using namespace OwnerDraw;
 	Subclass_Dialog(dialog, 0);
-    Resize_Dialogs(dialog); // RA2: as above
-    Set_Dialog_Kind(dialog, kind); // RA2: as above
-    if (!Session.Is_In_Game()) { // RA2: as above
-        Set_Control_Art((unsigned int)dialog); // RA2: as above
-    }
-    Update_Lobby_Art_Dialog(dialog); // RA2: as above
-    Update_Lobby_Frame_Dialog(dialog); // RA2: as above
-    Update_Chat_Dialog(dialog); // RA2: as above
-    Update_Setup_Dialog(dialog); // RA2: as above
-    EnumChildWindows(dialog, Assign_Control_Sounds, 0); // RA2: as above
-    if (Is_Framed_Dialog(dialog)) { // RA2: as above
-        Point2D size; // RA2: as above
-        size.X = ScreenWidths[0]; // RA2: as above
-        size.Y = ScreenHeights[0]; // RA2: as above
-        Resize_Dialog_To_Screen(dialog, &size); // RA2: as above
-    } else {
-        Centre_Dialog(dialog); // RA2: as above
-    }
-    EnumChildWindows(dialog, Assign_Button_Kind, 0); // RA2: as above
-    EnumChildWindows(dialog, Init_Control_Animation, 0); // RA2: as above
-    Center_Window_Within_Window(dialog); // RA2: as above
+	Resize_Dialogs(dialog);
+	Set_Dialog_Kind(dialog, kind);
+	if (!Session.Is_In_Game()) {
+		Set_Control_Art((unsigned int)dialog);
+	}
+	Update_Lobby_Art_Dialog(dialog);
+	Update_Lobby_Frame_Dialog(dialog);
+	Update_Chat_Dialog(dialog);
+	Update_Setup_Dialog(dialog);
+	Assign_All_Control_Sounds(dialog);
+	if (Is_Framed_Dialog(dialog)) {
+		int layout[2] = { LowResWidth, LowResHeight };
+		Resize_Dialog_To_Screen(dialog, (Point2D *)layout);
+	} else {
+		Centre_Dialog(dialog);
+	}
+	Assign_Button_Kinds(dialog);
+	Init_Control_Animations(dialog);
+	Center_Window_Within_Window(dialog);
 }
 
 
@@ -9830,8 +9830,7 @@ void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: 0x005FF7E0, ra2-decom
 */
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: 1419 bytes differ by position, ours 377 instructions against 472 (1,414 before with a hand-split start case); ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names. The executable expands Show_Dialog at both of its sites here (Subclass_Dialog expanded in the first and called in the second, Set_Dialog_Kind called in the first and expanded in the second) and keeps Show_Dialog's own body at 0x005FF7E0; ours calls Show_Dialog twice. The cases follow the executable's block order (the hit test ahead of the dialog start, where the twin has it after): the tip texts then match but for Get_Item_Tip_Text, which the executable calls and ours expands. Scratch: with Show_Dialog declared inline both sites expand and 457 instructions come out, but its own body is then not emitted; the tip texts and the two record lookups also divide the inline budget another way
-int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005FFB00, ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names
+int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005FFB00, ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names and the twin's case order
 {
 	switch (message) {
 		case WM_DESTROY:
@@ -9845,7 +9844,7 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 			return(1);
 
 		case WM_PAINT: {
-			WinData * data = Get_Record(window);
+			WinData * data = Get_Data(window);
 			if (data != NULL) {
 				if (data->IsDisabled) { // RA2: a disabled dialog only validates
 					ValidateRect(window, NULL);
@@ -9860,6 +9859,25 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 
 		case WM_ERASEBKGND:
 			return(1);
+
+		case WM_INITDIALOG:
+			++_dialog_count;
+			if (lparam != 0) {
+				Show_Dialog(window, *(unsigned short *)lparam);
+			} else {
+				Show_Dialog(window, 0);
+			}
+			SetFocus(window);
+			return(0);
+
+		case WM_CTLCOLORMSGBOX:
+		case WM_CTLCOLOREDIT:
+		case WM_CTLCOLORLISTBOX:
+		case WM_CTLCOLORBTN:
+		case WM_CTLCOLORDLG:
+		case WM_CTLCOLORSCROLLBAR:
+		case WM_CTLCOLORSTATIC:
+			return((int)GetStockObject(BLACK_BRUSH));
 
 		case WM_NCHITTEST: {
 			HWND tip = GetDlgItem(window, 0x695); // RA2: the dialog's tooltip label shows the text under the mouse
@@ -9887,25 +9905,6 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 			return(0);
 		}
 
-		case WM_CTLCOLORMSGBOX:
-		case WM_CTLCOLOREDIT:
-		case WM_CTLCOLORLISTBOX:
-		case WM_CTLCOLORBTN:
-		case WM_CTLCOLORDLG:
-		case WM_CTLCOLORSCROLLBAR:
-		case WM_CTLCOLORSTATIC:
-			return((int)GetStockObject(BLACK_BRUSH));
-
-		case WM_INITDIALOG:
-			++_dialog_count;
-			if (lparam != 0) {
-				Show_Dialog(window, *(unsigned short *)lparam);
-			} else {
-				Show_Dialog(window, 0);
-			}
-			SetFocus(window);
-			return(0);
-
 		case OD_SUBCLASSED:
 			SendMessage(window, OD_SETTOP, (WPARAM)window, 1);
 			return(0);
@@ -9916,7 +9915,6 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 	}
 	return(0);
 }
-#endif
 
 }
 

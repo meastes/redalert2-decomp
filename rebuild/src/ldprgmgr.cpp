@@ -127,9 +127,9 @@ void LoadProgressManager::Compute_Rects(void)
 {
 	int render_width = VideoModeWidth;
 	bool low_res = render_width == 640;
-	int width = low_res ? ScreenWidths[0] : ScreenWidths[1];
+	int width = low_res ? LowResWidth : MedResWidth;
 	if (Session.Type == GAME_NORMAL) {
-		int height = (low_res ? ScreenHeights[0] : ScreenHeights[1]) - 80;
+		int height = (low_res ? LowResHeight : MedResHeight) - 80;
 		int x = (render_width - width) / 2;
 		int y = (VideoModeHeight - height - 80) / 2;
 		TextBarRect.Width = PictureRect.Width = TitleBarRect.Width = width;
@@ -144,7 +144,7 @@ void LoadProgressManager::Compute_Rects(void)
 		TextBarRect.Y = y;
 		TextBarRect.Height = 40;
 	} else {
-		int height = low_res ? ScreenHeights[0] : ScreenHeights[1];
+		int height = low_res ? LowResHeight : MedResHeight;
 		PictureRect.Set((render_width - width) / 2, (VideoModeHeight - height) / 2, width, height);
 	}
 }
@@ -159,7 +159,7 @@ Point2D LoadProgressManager::Text_Origin(void)
 	Point2D p;
 	if (Session.Type == GAME_NORMAL) {
 		p.X = TextBarRect.X;
-		if (VideoModeWidth == ScreenWidths[0]) {
+		if (VideoModeWidth == LowResWidth) {
 			p.X += 0x54;
 		} else {
 			p.X += 0xA4;
@@ -167,7 +167,7 @@ Point2D LoadProgressManager::Text_Origin(void)
 		p.Y = TextBarRect.Y + 7;
 	} else {
 		p = Copy_Point((Point2D const *)&PictureRect);
-		if (VideoModeWidth == ScreenWidths[0]) {
+		if (VideoModeWidth == LowResWidth) {
 			p.X += 0xC;
 			p.Y += 0x100;
 		} else {
@@ -186,7 +186,7 @@ int LoadProgressManager::Get_Row_Width(void)
 {
 	int width = -1;
 	if (Session.Type != GAME_NORMAL) {
-		width = VideoModeWidth == ScreenWidths[0] ? 326 : 406;
+		width = VideoModeWidth == LowResWidth ? 326 : 406;
 	}
 	return width;
 }
@@ -261,7 +261,7 @@ inline void Loading_Filename(char * filename, int side, char const * suffix)
 inline Rect Name_Area(void)
 {
 	Rect area;
-	if (VideoModeWidth == ScreenWidths[0]) {
+	if (VideoModeWidth == LowResWidth) {
 		area.X = 385;
 		area.Y = 436;
 	} else {
@@ -270,9 +270,9 @@ inline Rect Name_Area(void)
 	}
 	area.Width = 200;
 	area.Height = 20;
-	if (VideoModeWidth >= ScreenWidths[1]) {
-		area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
-		area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
+	if (VideoModeWidth >= MedResWidth) {
+		area.X += (VideoModeWidth - MedResWidth) / 2;
+		area.Y += (VideoModeHeight - MedResHeight) / 2;
 	}
 	return area;
 }
@@ -283,7 +283,7 @@ inline Rect Name_Area(void)
 inline Rect Unit_Area(void)
 {
 	Rect area;
-	if (VideoModeWidth == ScreenWidths[0]) {
+	if (VideoModeWidth == LowResWidth) {
 		area.X = 16;
 		area.Y = 72;
 	} else {
@@ -292,9 +292,9 @@ inline Rect Unit_Area(void)
 	}
 	area.Width = 200;
 	area.Height = 20;
-	if (VideoModeWidth >= ScreenWidths[1]) {
-		area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
-		area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
+	if (VideoModeWidth >= MedResWidth) {
+		area.X += (VideoModeWidth - MedResWidth) / 2;
+		area.Y += (VideoModeHeight - MedResHeight) / 2;
 	}
 	return area;
 }
@@ -430,7 +430,7 @@ void LoadProgressManager::Draw(void)
 	wchar_t unit_name[128];
 	char filename[32];
 
-	bool low_res = VideoModeWidth == ScreenWidths[0];
+	bool low_res = VideoModeWidth == LowResWidth;
 	ProgressSurface = new BSurface(VideoModeWidth, VideoModeHeight, 2);
 	if (ProgressSurface == NULL) {
 		return;
@@ -507,7 +507,7 @@ void LoadProgressManager::Draw(void)
 
 	{
 		int side = Session.Players[0]->Get_Country();
-		char const * suffix = VideoModeWidth == ScreenWidths[0] ? Suffix640 : Suffix800;
+		char const * suffix = VideoModeWidth == LowResWidth ? Suffix640 : Suffix800;
 		Loading_Filename(filename, side, suffix);
 		PictureShape = Load_Alloc_Data(filename, PictureShapeLoaded);
 		ConvertClass * drawer = Get_MP_Load_Drawer();
@@ -554,14 +554,14 @@ void LoadProgressManager::Draw(void)
 Rect __fastcall Get_Briefing_Area(void)
 {
 	Rect area;
-	if (VideoModeWidth == ScreenWidths[0]) {
+	if (VideoModeWidth == LowResWidth) {
 		area = Rect(16, 126, 318, 104);
 	} else {
 		area = Rect(20, 158, 398, 130);
 	}
-	if (VideoModeWidth >= ScreenWidths[1]) {
-		area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
-		area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
+	if (VideoModeWidth >= MedResWidth) {
+		area.X += (VideoModeWidth - MedResWidth) / 2;
+		area.Y += (VideoModeHeight - MedResHeight) / 2;
 	}
 	return area;
 }
@@ -573,14 +573,14 @@ Rect __fastcall Get_Briefing_Area(void)
 Rect __fastcall Get_Loading_Text_Area(void)
 {
 	Rect area;
-	if (VideoModeWidth == ScreenWidths[0]) {
+	if (VideoModeWidth == LowResWidth) {
 		area = Rect(16, 235, 200, 20);
 	} else {
 		area = Rect(20, 300, 200, 20);
 	}
-	if (VideoModeWidth >= ScreenWidths[1]) {
-		area.X += (VideoModeWidth - ScreenWidths[1]) / 2;
-		area.Y += (VideoModeHeight - ScreenHeights[1]) / 2;
+	if (VideoModeWidth >= MedResWidth) {
+		area.X += (VideoModeWidth - MedResWidth) / 2;
+		area.Y += (VideoModeHeight - MedResHeight) / 2;
 	}
 	return area;
 }

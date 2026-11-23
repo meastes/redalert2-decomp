@@ -28,6 +28,7 @@
 #include "shared/rect.hpp"
 #include "shared/unknown_globals.hpp"
 #include "shared/tactical.hpp"
+#include "shared/cd_timer.hpp"     // Frame
 #include <stdio.h>
 
 Rect __fastcall Get_Title_Screen_Area_006f1f30();     // the tactical rectangle for the screen (0x006F1F30)
@@ -168,9 +169,18 @@ void apply_zoom()
 
 // The host's zoom (platform/sdl/host.cpp: the wheel, a trackpad pinch, a two-finger pinch): the zoom
 // is multiplied by factor about (ax, ay), game pixels across the tactical rectangle from its corner;
-// taken at the frame's end.
+// taken at the frame's end. Not while the game ignores the player's input (IgnoreInput 0x00A40D44: a
+// mission's locked intro, TAction_LOCK_INPUT 0x006B1AE0 -> Pause_Game 0x0065C3D0, until its unlock; the
+// original's own scrolling refuses then, ScrollClass::Scroll_AI 0x0066A290; lane N31, the user's Duo report
+// from Hail to the Chief).
 extern "C" void ra2_native_zoom_by(double factor, double ax, double ay)
 {
+    if (IgnoreInput) {
+        static int last = -1000;     // logged once a pinch, not at each of its steps
+        if (Frame - last > 30 || Frame < last) fprintf(stderr, "zoom: input locked (frame %d): the pinch is ignored\n", Frame);
+        last = Frame;
+        return;
+    }
     pending_factor = pending ? pending_factor * factor : factor;
     pending_ax = ax;
     pending_ay = ay;
@@ -315,16 +325,33 @@ void Native_Map_Zoom_End()
 // sidebar's 168 columns and the command bar's 32 rows keep their sizes (the host shows them twice as
 // large), so the window shows the same layout and the map can be shown down to 0.5x with the art's own
 // pixels. Taken at each mode set (the start's; the Options dialog's resolution change).
+static int nominal_width = 0;   // the screen's width before the render scale (Native_Render_Size)
 extern "C" void Native_Render_Size(int *w, int *h)
 {
     int scale = ra2_enh_zoom_gestures() && *w >= 800 && *h >= 600 ? 2 : 1;
     render_scale = scale;
     ra2_enh_set_render_scale(scale);
+    nominal_width = *w;
     if (scale == 1) return;
     int nw = *w, nh = *h;
     *w = (nw - 168) * scale + 168;
     *h = (nh - 32) * scale + 32;
     fprintf(stderr, "zoom: render scale %d: the game's screen %dx%d for %dx%d\n", scale, *w, *h, nw, nh);
+}
+
+// Unknown_Layout_Sidebar 0x006F4C90 (native fixup at its command bar's layout; lane N31, Yuri's Revenge's
+// lane N27 Yr_Command_Bar_Right carried over): the x of the command bar's right end, from which the original
+// lays out its end piece, its button tiles, the close thumb and the open thumb leftwards; the original's is
+// the sidebar column's x. Laid out for the screen scaled by the render scale, the host shows only the bar's
+// left part, the window's map column (the screen's own width less the column), so the right end is that
+// part's: else the open thumb lies off the picture and a bar closed with the close thumb cannot be opened
+// again (the user's Duo report, 2026-11-22). At render scale 1, and for a layout at the window's size (the
+// in-play dialogs', Native_Dialog_Screen), the original's.
+int Native_Command_Bar_Right(int width, int column_x)
+{
+    if (render_scale <= 1 || nominal_width <= 168) return column_x;
+    if (width != (nominal_width - 168) * render_scale + 168) return column_x;
+    return column_x - (width - nominal_width);
 }
 
 // The in-play dialogs at the window's size (native fixup: Special_Dialog 0x00481850 around its dialog

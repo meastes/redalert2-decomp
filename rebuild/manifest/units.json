@@ -132250,11 +132250,10 @@
    "_?$S247@?3??Queue_AI_Multiplayer@@YIXXZ@4EA": "00a780d0"
   },
   "partial_ok": true,
-  "count_sensitive": {
+  "count_watch": {
    "0062a360": {
-    "windows": "forward struct declarations at the end of face.h. New header (DirType(Coord, Coord) declaration removed): +0 off (4 B), +1 off (4 B), +2 to +4 exact, +6 and +8 off (8 B), +16 exact. Old header (with the declaration): exact",
-    "header": "face.h (owner ruling 2026-11-23, review agreed): the DirType(Coord, Coord) constructor, a declaration no reference has (ra2-decomp's face.h has none), removed with its anim.cpp definition; row 0x423EF0 rebound to the inline DirType::Direction member's out-of-line copy; inc.sh over all 212 includers: only Print_CRCs flips",
-    "note": "lane O44 probe 2026-11-23 on the final tree: Print_CRCs names no DirType member; the difference is the declaration count before it (4 B). Parked under the Is_At precedent: a declaration that is no real member, kept only for one includer's count window, is removed under test (b); the dependent parks count-sensitive and goes to the flex list (kind C)"
+    "windows": "forward struct declarations at the end of globals.h (lane F38, unified six scalars): +0 exact, +1 to +5 off (8 B), +6 to +8 exact",
+    "note": "exact but count-sensitive by nature (owner 2026-11-23): Print_CRCs and wonline Encode_Game_Options 0x73CCB0 (parked, windows in wonline count_sensitive: +0 off, +1 to +8 exact) trade places on one extra declaration in globals.h or an earlier header; countsens.py reports this row on every run"
    }
   }
  },
@@ -143409,7 +143408,14 @@
      "00765990"
     ]
    }
-  ]
+  ],
+  "count_sensitive": {
+   "0073ccb0": {
+    "windows": "forward struct declarations at the end of globals.h (lane F38, build/r/f38/cs.py). New header (six scalar sizes): +0 off (4 B), +1 to +8 exact. Old header (ScreenWidths[] and ScreenHeights[], main 2b5f4eba25): +0 exact. On the same new header queue Print_CRCs 0x62A360 is +0 exact, +1 to +5 off (8 B), +6 to +8 exact",
+    "header": "globals.h (owner ruling 2026-11-23 under DECISIONS 91, not reviewed): ScreenWidths[] and ScreenHeights[] replaced by six extern int scalars (LowResWidth .. HighResHeight, 0x7ADD68 .. 0x7ADD7C), ra2-decomp's form in ownrdraw, ldprgmgr and gadget and the only declaration of that storage; with them ownrdraw Default_Dialog_Proc 0x5FFB00 is exact (Show_Dialog under the plain-function size limit) and queue Print_CRCs 0x62A360 is exact again",
+    "note": "lane F38 probe 2026-11-23 on the merged tree: Encode_Game_Options names none of the six sizes; the difference is the declaration count before it (4 B). The displacing change is evidenced content, so the row is parked, not the header (lane F33 saw the same row turn on a header that only named members)"
+   }
+  }
  },
  "skirmish": {
   "core": [

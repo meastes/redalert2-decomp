@@ -909,7 +909,17 @@ are made again for it, so each dialog is laid out at the screen's top left as th
 out at the window's size (the Abort screen's backdrop, message and column, the column's bottom
 button), and the host shows that part at the window's scale (`Native_Dialog_Screen`,
 `ra2_enh_dialog_screen`); the screen size and the layouts are restored when the loop ends (the
-user's Duo report). A dialog in play outside that loop is shown through regions as a fallback
+user's Duo report). The sidebar art's layout (0x006F4C90) puts the command bar at the bottom of the
+height it is given; natively it is also given the sidebar's shorter height (Game interface size, Zoom
+gestures: when a dialog closes, and when the art is first drawn), so the bar stays at the screen's
+bottom whatever that height (`Native_Command_Bar_Top`, lane N31: before, after any in-play dialog the
+bar was drawn hundreds of rows up the map whenever its buttons asked for a redraw). With the render
+scale the bar's pieces are laid out from the shown part's right end, the window's map column
+(`Native_Command_Bar_Right`, lane N31, as Yuri's Revenge's lane N27): the open thumb, the only way
+back once the close thumb hides the buttons, lay off the picture. Touch pan, the trackpad's pan and
+the zoom gestures do nothing while the game ignores the player's input (IgnoreInput 0x00A40D44: a
+mission intro's TAction_LOCK_INPUT until its unlock), as the original's own scrolling (lane N31;
+ctests native-command-bar-thumb and native-locked-input, tests/command_bar_input.py). A dialog in play outside that loop is shown through regions as a fallback
 (`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen (Do_Win/Do_Lose, run
 inside Main_Loop's end) is a menu-style dialog: the host is told the game is over before it (native
 fixups in mainloop.cpp), so it is shown as the menus are. A start is centred on the point
@@ -1742,9 +1752,9 @@ laid the picture out again at every present until C18 (`fit_window` returned bef
 play layout at every frame); the layout's log line is now written only when it changes, and the
 render scale's whole-screen layout logs too (`log_layout`), so a layout that changes for a frame
 shows in a device's log. The Duo's report of the command bar flashing higher while its buttons are
-pressed did not reproduce on the Mac (interface 1.25x, with and without Zoom gestures, HD vehicles
-and the Duo's other settings, every present captured around taps on each command bar button); the
-per-frame layout was the one difference found on the device. The in-game resolution (RA2.INI
+pressed did not reproduce on the Mac at the time (taps on each command bar button straight after a
+start); lane N31 found it needs an in-play dialog first (the in-game menu, say): the
+bar's layout made again for the sidebar's height (`Native_Command_Bar_Top`, above). The in-game resolution (RA2.INI
 [Video], written before the game starts) is a fixed number of lines by the screen's size
 in points (lane C14, `app::game_resolution` in app_mode.hpp; never by device name): 720
 lines on a large screen (the shorter side at least 600 points and the aspect at most

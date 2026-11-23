@@ -200,6 +200,19 @@ int Native_Sidebar_Height(int screen_height)
 {
     return ra2_enh_sidebar_height(screen_height);
 }
+// The command bar's top row in the sidebar art's layout (Unknown_Layout_Sidebar 0x006F4C90, native fixup; lane N31):
+// the original lays the bar out at the bottom of the height it is given (height - 32), always the screen's
+// (VideoModeHeight). The layout's native callers give it the sidebar's height when that is shorter (the C3 fixup at
+// Unknown_Draw_Sidebar 0x006F4620; link/native_map_zoom.cpp relayout_art when an in-play dialog closes), which put the
+// bar's rectangles (TabBarRect, the thumbs, the end piece) hundreds of rows up the map: TabClass::Draw_It 0x006A12D0
+// drew the bar there whenever its buttons asked for a redraw, a frame before the map covered it again (the user's
+// Duo report 2026-11-22: the bar flashes higher up when its icons are tapped). The bar stays at the screen's
+// bottom; the sidebar column's pieces keep the height given. With the defaults the two are the same.
+int Native_Command_Bar_Top()
+{
+    return VideoModeHeight - 32;
+}
+
 // startup.cpp's call site sits in C linkage (its unit's extern "C" block): the same function
 // under the plain C name.
 extern "C" int Native_Sidebar_Height_C(int screen_height) __asm__("_Native_Sidebar_Height");

@@ -53,6 +53,9 @@
 
 class TechnoClass;
 extern DynamicVectorClass<TechnoClass *> Technos;   // 0x00A40C20 (shared/logic.hpp)
+int Native_Harness_Thumb(void);                     // team_button_hook.cpp (lane N31)
+extern bool IgnoreInput;                            // 0x00A40D44 (shared/unknown_globals.hpp)
+extern "C" double ra2_native_zoom(void);            // native_map_zoom.cpp
 
 extern "C" {
 const char *ra2port_skirmish_order(void);
@@ -160,6 +163,16 @@ int Scripted_Order(char const *command)
             ++listed;
         }
         return listed;
+    }
+    if (Same(word[1], "thumb", 6)) return Native_Harness_Thumb();   // `thumb` (lane N31): the command bar's thumbs
+    if (Same(word[1], "view", 5)) {
+        // `view` (lane N31, test scaffolding): logs `harness-view <x>,<y> locked <0|1> zoom <z>`: the tactical
+        // view's position (Tactical +0xD64) and whether the game ignores the player's input (IgnoreInput
+        // 0x00A40D44, a mission's locked intro); the touch pan and pinch must not move the view while it is set.
+        if (TacticalMap == 0) return -1;
+        Point2D at = TacticalMap->Get_Tactical_Position();
+        fprintf(stderr, "harness-view %d,%d locked %d zoom %.3f frame %d\n", at.X, at.Y, IgnoreInput ? 1 : 0, ra2_native_zoom(), Frame);
+        return 1;
     }
     if (Same(word[1], "health", 7)) {
         // `health` (lane C22, test scaffolding): logs every vehicle's and infantry's strength as

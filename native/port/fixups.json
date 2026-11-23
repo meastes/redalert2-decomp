@@ -3428,6 +3428,27 @@
    "new": "        // NATIVE (lane C23, Y11): the one-game app's toggle (port/src/user32.cpp, id 0x7F5E) is a main-menu sidebar button.\n        if (unknown_5e7740((unsigned int)parent, window) || GetDlgCtrlID(window) == 0x7F5E) {\n            record->unknown_b0 = 1;\n",
    "why": "Native addition (not original behaviour): the one-game app's main-menu toggle (port/src/user32.cpp, id 0x7F5E, a clone of the main menu's Exit Game 0x3EE) is drawn and animated as the main menu's sidebar buttons (record +0xB0 = 1, as 0x005E7740 gives Exit Game), as YR's twin ClassifyLayoutBand gives it (yr/fixups.json). 0x005E7740 knows only the listed dialogs' ids. Without the toggle (RA2.app, every other dialog) nothing changes: no control has that id. Lane Y11 (user request 2026-11-17, adopted by the owner): the toggle is a regular main-menu sidebar button in the slot directly above Exit Game, so it takes the sidebar buttons' kind as Exit Game does (record +0xB0 = 1) instead of the dialogs' push buttons' (3).",
    "verified": false
+  },
+  {
+   "source": "src/recovered/txtlabel2/Unknown_Layout_Sidebar.cpp",
+   "old": "extern int VideoModeWidth;                 // screen width\n",
+   "new": "extern int VideoModeWidth;                 // screen width\nint Native_Command_Bar_Right(int width, int column_x);   // NATIVE (lane N31): link/native_map_zoom.cpp\nint Native_Command_Bar_Top();                           // NATIVE (lane N31): link/native_enhancements.cpp\nextern int VideoModeHeight;\n",
+   "why": "Native addition (lane N31, the user's Duo report 2026-11-22: the command bar closed and could not be opened again; not original behaviour; Yuri's Revenge's lane N27 fix carried to Red Alert 2): Unknown_Layout_Sidebar 0x006F4C90 lays the command bar's pieces out from its right end, the sidebar column's x (width less the column's width, the same number in the original): the end piece, the button tiles, the close thumb (ThumbOpenRect, button 0xF0) and the open thumb (ThumbClosedRect, button 0xF1, the only way back once the close thumb is pressed: TabClass::AI 0x006A0F30). At render scale 2 (Zoom gestures on) the art is laid out for the larger screen but the host shows only the bar's left part, the window's map column, so the open thumb lay off the picture. The right end is the shown part's (link/native_map_zoom.cpp Native_Command_Bar_Right); at render scale 1, and for the in-play dialogs' layout at the window's size, it is the original's. This row: the declarations (with Native_Command_Bar_Top's, the row below the next).",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/txtlabel2/Unknown_Layout_Sidebar.cpp",
+   "old": "    unknown_value_ac0ff4 = (width - ThumbOpenRect->Width - unknown_rect_ac11d8->Width - TabEndRect->Width)\n                           / ButtonSlotRect->Width;\n    int bar_x = unknown_rect_ac11d8->X - TabEndRect->Width;\n",
+   "new": "    int bar_right = Native_Command_Bar_Right(width, unknown_rect_ac11d8->X);   /* NATIVE (lane N31): link/native_map_zoom.cpp */\n    unknown_value_ac0ff4 = (bar_right - ThumbOpenRect->Width - TabEndRect->Width) / ButtonSlotRect->Width;\n    int bar_x = bar_right - TabEndRect->Width;\n",
+   "why": "Native addition (lane N31, the user's Duo report 2026-11-22: the command bar closed and could not be opened again; not original behaviour; Yuri's Revenge's lane N27 fix carried to Red Alert 2): Unknown_Layout_Sidebar 0x006F4C90 lays the command bar's pieces out from its right end, the sidebar column's x (width less the column's width, the same number in the original): the end piece, the button tiles, the close thumb (ThumbOpenRect, button 0xF0) and the open thumb (ThumbClosedRect, button 0xF1, the only way back once the close thumb is pressed: TabClass::AI 0x006A0F30). At render scale 2 (Zoom gestures on) the art is laid out for the larger screen but the host shows only the bar's left part, the window's map column, so the open thumb lay off the picture. The right end is the shown part's (link/native_map_zoom.cpp Native_Command_Bar_Right); at render scale 1, and for the in-play dialogs' layout at the window's size, it is the original's. This row: the tile count and the right end.",
+   "verified": false
+  },
+  {
+   "source": "src/recovered/txtlabel2/Unknown_Layout_Sidebar.cpp",
+   "old": "    y = height - 32;\n    int bar_width = Unknown_Bar_Rect().Width;\n",
+   "new": "    y = Native_Command_Bar_Top();   /* NATIVE (lane N31): link/native_enhancements.cpp */\n    int bar_width = Unknown_Bar_Rect().Width;\n",
+   "why": "Native addition (lane N31, the user's Duo report 2026-11-22: the command bar flashes higher up the screen when its icons are tapped; not original behaviour): Unknown_Layout_Sidebar 0x006F4C90 puts the command bar's rectangles (TabBarRect, the thumbs, the button tiles' row, the end piece) at the bottom of the height it is given, height - 32; the original always gives the screen's height (VideoModeHeight). Natively the layout is also made for the sidebar's shorter height (Game interface size above 1x, or Zoom gestures: the C3 fixup at Unknown_Draw_Sidebar 0x006F4620 and link/native_map_zoom.cpp relayout_art when an in-play dialog closes), and TabClass::Draw_It 0x006A12D0 then drew the bar that far up the map whenever a button asked for a redraw. Native_Command_Bar_Top (link/native_enhancements.cpp) answers the screen's bottom (VideoModeHeight - 32); with the defaults that is height - 32 as in the original.",
+   "verified": false
   }
  ]
 }

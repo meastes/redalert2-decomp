@@ -9,11 +9,24 @@
 //     does (Select_Game 0x005135F0: Options.Save_Settings 0x005D91B0).
 #include "shared/tactical.hpp"
 #include "shared/options.hpp"
+#include "shared/cd_timer.hpp"     // Frame
+#include <stdio.h>
 
+// The pan does nothing while the game ignores the player's input (IgnoreInput 0x00A40D44: a mission's locked
+// intro, TAction_LOCK_INPUT 0x006B1AE0 -> Pause_Game 0x0065C3D0, until its unlock), as the original's own edge
+// and drag scrolling refuse then (ScrollClass::Scroll_AI 0x0066A290); it is taken (1) and dropped, not turned
+// into sidebar wheel notches (lane N31, the user's Duo report from Hail to the Chief).
+extern bool IgnoreInput;   // shared/unknown_globals.hpp
 extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
     Tactical *tactical = TacticalMap;
     if (!tactical) return 0;
+    if (IgnoreInput) {
+        static int last = -1000;
+        if (Frame - last > 30 || Frame < last) fprintf(stderr, "scroll: input locked (frame %d): the pan is ignored\n", Frame);
+        last = Frame;
+        return 1;
+    }
     Point2D view = tactical->Get_Tactical_Position();
     view.X += dx;
     view.Y += dy;

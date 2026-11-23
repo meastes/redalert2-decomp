@@ -4397,3 +4397,44 @@ Found in the rebuild (lane F37, high), in planmgr:
   that change; pair2.py pairs the unit's functions with the twin's by size sequence and lists the pairs whose
   statement skeletons differ (75 of 214 in planmgr; most are names and literals, a dozen are real form differences:
   Member_Owner, Order_Kind, Event_Result, Refuse_Order by reference, Selection_Node_State, the draw helpers).
+## A function the image expands and still emits is an ordinary one under the size limit, and the limit counts its own text: scalars against array elements, wrappers against written-out calls (found in the rebuild (lane F38, high))
+
+Found in the rebuild (lane F38, high). The lane asked when VC6 SP3 both expands a function at a site and emits its
+body, for the rows where ours either calls it or expands it and loses the row (lab units under the project flags,
+build/r/f38/emit.py, emit2.py, cap.py, cap2.py, cap3.py).
+
+- Expanded and emitted: (a) an ordinary external function, member or free, under the size limit of a function not
+  declared inline; (b) an `inline` function any declaration of which carries `extern` (`extern void f(int);` then
+  `inline void f(int) {...}`, or `extern inline`): no size limit, body emitted at its place; (c) an inline whose address
+  is taken; (d) `__declspec(dllexport)`; (e) an inline with a refused site. Expanded and dropped: a prototype without
+  `extern` followed by an inline definition, `inline` in the class with a plain definition, a call ahead of the inline
+  definition, a static member, a friend, `extern "C"`, a namespace. A `static` function with one call site is expanded
+  whatever its size and dropped; with two sites it is held to the limit. Nothing else moves the limit: /G5 or /G6, /GX,
+  /GR, /Zi, /Oa, /Ow, /Op, /Oy-, /Gy, `#pragma auto_inline(on)`, `#pragma optimize`.
+- So (b) is the only form that lifts the limit and keeps the body, and no reference has it for any row here: it stays
+  a variation. The rows are (a): the function's text was heavier than the original's.
+- The limit is measured on the function's own text before anything in it is expanded: four calls of an inline of eight
+  stores cost what four calls cost. With a constant store to a global array element as 6 units (26 fit, 27 do not,
+  about 170 units): a call statement with no argument 4, one argument 7, two 9.5, three 12.5; `if (f(x)) { f(x); }`
+  23; `D[i] = S;` 7 for a scalar global S, 8 for a const scalar, 10 for an array element with a constant index, a
+  dereferenced array or a struct member. Casts cost nothing. So the levers are, in this order: a twin's one-call wrapper where
+  the text has the three-argument call written out; a scalar where the text reads `Table[0]`; const.
+- Default_Dialog_Proc 0x5FFB00 (1,482 B, exact): Show_Dialog 0x5FF7E0 was over the limit by the three
+  `EnumChildWindows(dialog, proc, 0)` calls and the two reads `ScreenWidths[0]`, `ScreenHeights[0]`. ra2-decomp's
+  UI::RegisterWindow has `FUN_0060AF40(window)` style wrappers (in this tree Assign_All_Control_Sounds,
+  Assign_Button_Kinds, Init_Control_Animations, each with its own row) and two scalars; with exactly those it expands
+  at both sites and keeps its row. One unit decides: const scalars leave it a call. With the function in, the twin's
+  case order and the twin's lookup wrappers gave every decision: the tested `Get_Data` at WM_PAINT is a charged site,
+  which leaves the pending slide's lookup a call; the twin's `Find_Data` (this tree's Get_Record) is under the free
+  limit of 40 where Control_Record is 42, so it expands in the second copy's Set_Dialog_Kind. When a twin uses two
+  lookup wrappers, which one stands at which site is part of its text.
+- A value fetched by an inline wrapper is a plain copy and may stay in a callee-saved register across calls; the same
+  record fetched through `getPointer(key, &record)` in the function itself is an escaped local and is reloaded after
+  every call. The image's expanded Slide_Pending_Dialog keeps the record in edi: the wrapper form, although both give
+  the same bytes in its own row.
+- StripClass::Recalc 0x6802D0 stays parked. Update_Column_Availability 0x67CA50 measures 196 to 198 units against
+  about 170. Ruled out with its own row kept: First_Used_Column() in it (72 units, charged, and no loop is under the
+  free limit), a one-line Get_Doubled_Row_Count (free: the member's own row expands two calls more), early returns,
+  no braces, one loop variable, the shutter shape as a scalar with or without ra2-decomp's `((short *)shape)[3]`
+  (6 units of the 25 or so; TibSun has four separate shape statics where this tree has one SidebarShapes array).
+  Forced in (inline, probe only) Recalc is 22 instruction lines off, so the member's missing form is still unknown.

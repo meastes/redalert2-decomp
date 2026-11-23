@@ -42,9 +42,11 @@
     "?Release@LoadProgressManager@@QAEXXZ": 5467680,
     "??3@YAXPAX@Z": 7871803,
     "?VideoModeWidth@@3HA": 8725472,
-    "?ScreenWidths@@3QBHB": 8052072,
+    "?LowResWidth@@3HA": 8052072,
+    "?MedResWidth@@3HA": 8052076,
     "?Session@@3VSessionClass@@A": 10736280,
-    "?ScreenHeights@@3QBHB": 8052084,
+    "?LowResHeight@@3HA": 8052084,
+    "?MedResHeight@@3HA": 8052088,
     "?VideoModeHeight@@3HA": 8725476,
     "?Copy_Point@@YI?AVPoint2D@@PBV1@@Z": 7281376,
     "?FastKey@@3VPKey@@A": 8622096,
@@ -176,7 +178,7 @@
           "resolved": 10938212
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461792,
@@ -243,7 +245,7 @@
           "resolved": 10938224
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461824,
@@ -294,7 +296,7 @@
           "resolved": 10938296
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461872,
@@ -345,7 +347,7 @@
           "resolved": 10938280
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461904,
@@ -396,7 +398,7 @@
           "resolved": 10938272
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461936,
@@ -447,7 +449,7 @@
           "resolved": 10938232
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5461968,
@@ -498,7 +500,7 @@
           "resolved": 10938192
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462000,
@@ -581,7 +583,7 @@
           "resolved": 10938304
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462032,
@@ -640,7 +642,7 @@
           "resolved": 10938240
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462096,
@@ -699,7 +701,7 @@
           "resolved": 10938264
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462144,
@@ -758,7 +760,7 @@
           "resolved": 10938288
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462192,
@@ -801,7 +803,7 @@
           "resolved": 10938218
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462240,
@@ -852,7 +854,7 @@
           "resolved": 10938256
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462256,
@@ -919,7 +921,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462288,
@@ -986,7 +988,7 @@
           "resolved": 10938308
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462384,
@@ -1021,7 +1023,7 @@
           "resolved": 8017052
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462432,
@@ -1058,7 +1060,7 @@
         {
           "offset": 18,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
@@ -1066,9 +1068,9 @@
         {
           "offset": 31,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
-          "target": 8052072,
-          "addend": 4,
+          "symbol": "?MedResWidth@@3HA",
+          "target": 8052076,
+          "addend": 0,
           "resolved": 8052076
         },
         {
@@ -1082,7 +1084,7 @@
         {
           "offset": 48,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
+          "symbol": "?LowResHeight@@3HA",
           "target": 8052084,
           "addend": 0,
           "resolved": 8052084
@@ -1090,9 +1092,9 @@
         {
           "offset": 55,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
-          "target": 8052084,
-          "addend": 4,
+          "symbol": "?MedResHeight@@3HA",
+          "target": 8052088,
+          "addend": 0,
           "resolved": 8052088
         },
         {
@@ -1106,7 +1108,7 @@
         {
           "offset": 140,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
+          "symbol": "?LowResHeight@@3HA",
           "target": 8052084,
           "addend": 0,
           "resolved": 8052084
@@ -1114,9 +1116,9 @@
         {
           "offset": 150,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
-          "target": 8052084,
-          "addend": 4,
+          "symbol": "?MedResHeight@@3HA",
+          "target": 8052088,
+          "addend": 0,
           "resolved": 8052088
         },
         {
@@ -1128,7 +1130,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462496,
@@ -1173,7 +1175,7 @@
         {
           "offset": 20,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
@@ -1189,7 +1191,7 @@
         {
           "offset": 100,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
@@ -1203,7 +1205,7 @@
           "resolved": 8725472
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462704,
@@ -1248,13 +1250,13 @@
         {
           "offset": 20,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462880,
@@ -1345,7 +1347,7 @@
           "resolved": 1821142
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5462928,
@@ -1382,7 +1384,7 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
@@ -1390,17 +1392,17 @@
         {
           "offset": 63,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
-          "target": 8052072,
-          "addend": 4,
+          "symbol": "?MedResWidth@@3HA",
+          "target": 8052076,
+          "addend": 0,
           "resolved": 8052076
         },
         {
           "offset": 78,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
-          "target": 8052084,
-          "addend": 4,
+          "symbol": "?MedResHeight@@3HA",
+          "target": 8052088,
+          "addend": 0,
           "resolved": 8052088
         },
         {
@@ -1412,7 +1414,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467008,
@@ -1449,7 +1451,7 @@
         {
           "offset": 7,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
+          "symbol": "?LowResWidth@@3HA",
           "target": 8052072,
           "addend": 0,
           "resolved": 8052072
@@ -1457,17 +1459,17 @@
         {
           "offset": 43,
           "kind": 6,
-          "symbol": "?ScreenWidths@@3QBHB",
-          "target": 8052072,
-          "addend": 4,
+          "symbol": "?MedResWidth@@3HA",
+          "target": 8052076,
+          "addend": 0,
           "resolved": 8052076
         },
         {
           "offset": 68,
           "kind": 6,
-          "symbol": "?ScreenHeights@@3QBHB",
-          "target": 8052084,
-          "addend": 4,
+          "symbol": "?MedResHeight@@3HA",
+          "target": 8052088,
+          "addend": 0,
           "resolved": 8052088
         },
         {
@@ -1479,7 +1481,7 @@
           "resolved": 8725476
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467136,
@@ -1538,7 +1540,7 @@
           "resolved": 818759
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467248,
@@ -1629,7 +1631,7 @@
           "resolved": 815663
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467440,
@@ -1655,7 +1657,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467648,
@@ -1722,7 +1724,7 @@
           "resolved": 1816660
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467680,
@@ -1757,7 +1759,7 @@
           "resolved": 8624468
         }
       ],
-      "source_sha256": "bfa77212b116aa37f757afcca2725ac1947847261275f00582a162e9be4d9ef0",
+      "source_sha256": "609c766fc37e160eb75435f1be545c54205e3055a73bc61f0597c201a6446aa0",
       "source": "rebuild/src/ldprgmgr.cpp",
       "population": "rebuild-ldprgmgr",
       "source_order": 5467808,

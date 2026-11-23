@@ -10,7 +10,7 @@
 // objects (type ID, mission, cell; '*' when selected; :p<order> a pending order), then
 // the player's production (" inf=N veh=N", harness_sidebar.cpp). "@tab=N" and
 // "@cameo=ID" are the sidebar's tab buttons and build icons (harness_sidebar.cpp); "@cmd=NAME" the
-// command bar's button for a command (team_button_hook.cpp, lane N10).
+// command bar's button for a command (team_button_hook.cpp, lane N10); "@thumb" its thumb shown now (lane N31).
 #define RA2_COORD_AS_CELL   // CoordStruct::As_Cell (shared/coord.hpp)
 #include "shared/display.hpp"     // before map_view.hpp (full DisplayClass)
 #include "shared/map_view.hpp"
@@ -87,6 +87,7 @@ bool Is_Selected(ObjectClass *object)
 int Native_Harness_Sidebar_Point(char const *spec, int *x, int *y);   // harness_sidebar.cpp (lane C16)
 int Native_Harness_Production(int kind);
 int Native_Harness_Bar_Point(char const *spec, int *x, int *y);      // team_button_hook.cpp (lane N10)
+int Native_Harness_Thumb_Point(int *x, int *y);                       // the same (lane N31)
 int Native_Harness_Terrain_Point(bool mine, int *x, int *y);   // harness_orders.cpp (lane N14)
 
 namespace {
@@ -99,6 +100,9 @@ int Resolve(char const *spec, int *x, int *y)
     if (Native_Harness_Sidebar_Point(spec, x, y)) return 1;
     // "@cmd=NAME": the command bar's button for that command (lane N10).
     if (spec[0] == 'c' && spec[1] == 'm' && spec[2] == 'd' && spec[3] == '=') return Native_Harness_Bar_Point(spec, x, y);
+    // "@thumb": the command bar's thumb shown now (the close thumb while the bar is open, else the open thumb; lane N31).
+    if (spec[0] == 't' && spec[1] == 'h' && spec[2] == 'u' && spec[3] == 'm' && spec[4] == 'b' && spec[5] == 0)
+        return Native_Harness_Thumb_Point(x, y);
     // "@terrain", "@terrain=mine": the terrain object nearest the player's first techno (lane N14, harness_orders.cpp).
     if (spec[0] == 't' && spec[1] == 'e' && spec[2] == 'r' && spec[3] == 'r' && spec[4] == 'a' && spec[5] == 'i' && spec[6] == 'n')
         return Native_Harness_Terrain_Point(spec[7] == '=', x, y);

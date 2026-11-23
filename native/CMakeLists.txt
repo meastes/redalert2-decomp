@@ -794,6 +794,17 @@ if(RA2_NATIVE_SDL)
                    --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --log "${CMAKE_CURRENT_BINARY_DIR}/native-zoom-${ra2_zoom_case}.log")
           set_tests_properties(native-zoom-${ra2_zoom_case} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 400)
         endforeach()
+        # 12f. The command bar and the camera input (lane N31; tests/command_bar_input.py): the bar stays at the screen's
+        #      bottom after an in-play dialog and its thumbs close and open it, inside the part the host shows with Zoom
+        #      gestures on; touch pan and pinch zoom wait for a mission intro's input lock (Allied mission 1).
+        foreach(ra2_bar_case IN ITEMS "thumb;native-command-bar-thumb" "lock;native-locked-input")
+          list(GET ra2_bar_case 0 ra2_bar_kind)
+          list(GET ra2_bar_case 1 ra2_bar_name)
+          add_test(NAME ${ra2_bar_name} COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/command_bar_input.py"
+                   --case ${ra2_bar_kind} --binary $<TARGET_FILE:ra2-native> --data-dir "${RA2_NATIVE_CENSUS_DATA_DIR}"
+                   --game-exe "${RA2_NATIVE_CENSUS_GAME_EXE}" --work "${CMAKE_CURRENT_BINARY_DIR}/${ra2_bar_name}")
+          set_tests_properties(${ra2_bar_name} PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
+        endforeach()
         # 12d. Mods (C16, level 1): a mod made at test time (the game's rules with the Grizzly's
         #      cost changed) is read ahead of the installation; without a mod nothing changes.
         add_test(NAME native-mod-rules COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/tests/mod_rules.py"

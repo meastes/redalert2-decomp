@@ -375,8 +375,12 @@ extern int ManglerPorts[64]; // RA2: 0xB291A4, their ports
 extern int MuteSWLaunches; // RA2: 0x00A3D548, nonzero while the launch announcements are muted (as the other files declare it)
 extern char const * const Difficulty_Labels[3]; // RA2: 0x007D8404, as init.cpp declares it
 extern bool GameControlsShown; // RA2: 0x00A40D84, set by -SPEEDCONTROL, as init.cpp declares it
-extern int const ScreenWidths[]; // RA2: {640, 800, 1024} at 0x007ADD68
-extern int const ScreenHeights[]; // RA2: {480, 600, 768} at 0x007ADD74
+extern int LowResWidth; // RA2: 0x007ADD68 (640); the three screen widths and heights are six scalars, as ra2-decomp reads them (DAT_007F5BE0 in Yuri's Revenge)
+extern int MedResWidth; // RA2: 0x007ADD6C (800), ra2-decomp's DAT_007F5BE4
+extern int HighResWidth; // RA2: 0x007ADD70 (1024), ra2-decomp's WideScreenThreshold
+extern int LowResHeight; // RA2: 0x007ADD74 (480), ra2-decomp's DAT_007F5BEC
+extern int MedResHeight; // RA2: 0x007ADD78 (600), ra2-decomp's DAT_007F5BF0
+extern int HighResHeight; // RA2: 0x007ADD7C (768), ra2-decomp's DAT_007F5BF4
 extern bool ScenarioSaveNameSet; // RA2: 0x00A6EBD0, as in mainloop.cpp
 extern bool InMainLoop; // RA2: as above
 extern int ChatTarget; // RA2: 0x00A6EBE0; who a typed message goes to: 1 everybody, 2 allies, 3 one player, 0 nobody

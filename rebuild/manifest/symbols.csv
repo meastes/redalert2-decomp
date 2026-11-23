@@ -1865,6 +1865,8 @@ symbol,address,evidence
 ?Help_Text@TabClass@@UAEPBDH@Z,0x006A20B0,slot +84 of ??_7MouseClass@@6BSidebarClass@@@ at 0079a954; main row ?Help_Text@TabClass@@UAEPBGH@Z
 ?Hidden@ObjectClass@@UAEXXZ,0x005D2C80,slot +118 of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Hidden@ObjectClass@@UAEXXZ
 ?Hidden@TechnoClass@@UAEXXZ,0x006C2520,slot +118 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Hidden@TechnoClass@@UAEXXZ
+?HighResHeight@@3HA,0x007ADD7C,inferred: gadget rows 004cf290 differ only at its sites
+?HighResWidth@@3HA,0x007ADD70,inferred: ownrdraw rows 005e6450 005e6450 differ only at its sites
 ?Horizontal_Speed@?$TVelocity3D@N@@QBENXZ,0x0041B750,"aircraft emission order: TVelocity3D::Get_Pitch (0x41B6E0) calls this copy, emitted right after it; see TVelocity2D::Speed"
 ?Hotkey_Proc@OwnerDraw@@YGJPAUHWND__@@IIJ@Z,0x005FC330,inferred: ownrdraw rows 005ed180 differ only at its sites
 ?How_Many_Survivors@TechnoClass@@UBEHXZ,0x006C16D0,slot +2b4 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?unknown_slot172@TechnoClass@@UAEHXZ
@@ -2397,6 +2399,8 @@ symbol,address,evidence
 ?Logic@MapClass@@UAEXXZ,0x0054E300,slot +6c of ??_7RadarClass@@6B@ at 007a871c; main row ?unknown_slot27@MapClass@@UAEXXZ
 ?Look@ObjectClass@@UAEX_N0@Z,0x005D2C90,slot +11c of ??_7MissionClass@@6BIPersistStream@@@ at 007a61fc; main row ?Look@ObjectClass@@UAEX_N0@Z
 ?Look@TechnoClass@@UAEX_N0@Z,0x006D5AA0,slot +11c of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Look@TechnoClass@@UAEX_N0@Z
+?LowResHeight@@3HA,0x007ADD74,inferred: ownrdraw rows 005ff7e0 005ffb00 005ffb00 differ only at its sites
+?LowResWidth@@3HA,0x007ADD68,inferred: ownrdraw rows 005ff7e0 005ffb00 005ffb00 differ only at its sites
 ?MPlayer_Game_List_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x005BE6B0,inferred: netdlg2 rows 005bd070 005bd070 005bd070 differ only at its sites
 ?MPlayer_Host_Dialog_Proc@@YGJPAUHWND__@@IIJ@Z,0x005BEFE0,inferred: netdlg2 rows 005bd070 differ only at its sites
 ?Main_Options_Dialog_Proc@@YGHPAUHWND__@@IIJ@Z,0x00542590,inferred: mainopt rows 00542460 differ only at its sites
@@ -2414,6 +2418,8 @@ symbol,address,evidence
 ?Mark_For_Redraw@ObjectClass@@EAEXXZ,0x005D36E0,slot +130 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?Mark_For_Redraw@ObjectClass@@UAEXXZ
 ?Max_Pips@ObjectTypeClass@@UBEHXZ,0x005D5D00,slot +78 of ??_7IsometricTileTypeClass@@6BIPersistStream@@@ at 007a51a4; main row ?Max_Pips@ObjectTypeClass@@UBEHXZ
 ?Max_Pips@TechnoTypeClass@@UBEHXZ,0x006DE220,slot +78 of ??_7UnitTypeClass@@6BIPersistStream@@@ at 007ae324; main row ?Max_Pips@TechnoTypeClass@@UBEHXZ
+?MedResHeight@@3HA,0x007ADD78,inferred: ldprgmgr rows 005359e0 005359e0 00536b80 00536c00 differ only at its sites
+?MedResWidth@@3HA,0x007ADD6C,inferred: ownrdraw rows 005e6450 005e6450 005e6450 005e6450 differ only at its sites
 ?MegaMissionIsAttackMove@FootClass@@UBE_NXZ,0x004CDBD0,slot +454 of ??_7UnitClass@@6BIPersistStream@@@ at 007addf4; main row ?FootClass_MegaMissionIsAttackMove@@YI_NH@Z
 ?MegaMissionIsAttackMove@TechnoClass@@UBE_NXZ,0x006D8F90,slot +454 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?get@Leaf_6d8f90@@QAE_NXZ
 ?Message_Handler@WinsockInterfaceClass@@UAEHPAUHWND__@@IIJ@Z,0x0076BA30,slot +40 of ??_7WinsockInterfaceClass@@6B@ at 007afa7c; main row ?Message_Handler@WinsockInterfaceClass@@UAEHHHHH@Z
