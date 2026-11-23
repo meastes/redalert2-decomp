@@ -9859,7 +9859,7 @@ void __fastcall Show_Dialog(HWND dialog, int kind) // RA2: 0x005FF7E0, ra2-decom
 */
 namespace OwnerDraw { // RA2: as above
 
-#ifdef RA2_NON_MATCHING // not exact: 1419 bytes differ by position, ours 377 instructions against 472 (1,414 before with a hand-split start case); ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names. The executable expands Show_Dialog at both of its sites here (Subclass_Dialog expanded in the first and called in the second, Set_Dialog_Kind called in the first and expanded in the second) and keeps Show_Dialog's own body at 0x005FF7E0; ours calls Show_Dialog twice. Scratch: with Show_Dialog declared inline both sites expand and 457 instructions come out, but its own body is then not emitted; the tip texts and the two record lookups also divide the inline budget another way
+#ifdef RA2_NON_MATCHING // not exact: 1419 bytes differ by position, ours 377 instructions against 472 (1,414 before with a hand-split start case); ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names. The executable expands Show_Dialog at both of its sites here (Subclass_Dialog expanded in the first and called in the second, Set_Dialog_Kind called in the first and expanded in the second) and keeps Show_Dialog's own body at 0x005FF7E0; ours calls Show_Dialog twice. The cases follow the executable's block order (the hit test ahead of the dialog start, where the twin has it after): the tip texts then match but for Get_Item_Tip_Text, which the executable calls and ours expands. Scratch: with Show_Dialog declared inline both sites expand and 457 instructions come out, but its own body is then not emitted; the tip texts and the two record lookups also divide the inline budget another way
 int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005FFB00, ra2-decomp's twin text (UI::StandardWndProc, Yuri's Revenge 0x00622B50) in this tree's names
 {
 	switch (message) {
@@ -9890,25 +9890,6 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 		case WM_ERASEBKGND:
 			return(1);
 
-		case WM_INITDIALOG:
-			++_dialog_count;
-			if (lparam != 0) {
-				Show_Dialog(window, *(unsigned short *)lparam);
-			} else {
-				Show_Dialog(window, 0);
-			}
-			SetFocus(window);
-			return(0);
-
-		case WM_CTLCOLORMSGBOX:
-		case WM_CTLCOLOREDIT:
-		case WM_CTLCOLORLISTBOX:
-		case WM_CTLCOLORBTN:
-		case WM_CTLCOLORDLG:
-		case WM_CTLCOLORSCROLLBAR:
-		case WM_CTLCOLORSTATIC:
-			return((int)GetStockObject(BLACK_BRUSH));
-
 		case WM_NCHITTEST: {
 			HWND tip = GetDlgItem(window, 0x695); // RA2: the dialog's tooltip label shows the text under the mouse
 			if (tip != NULL) {
@@ -9934,6 +9915,25 @@ int OwnerDraw::Default_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPA
 			}
 			return(0);
 		}
+
+		case WM_CTLCOLORMSGBOX:
+		case WM_CTLCOLOREDIT:
+		case WM_CTLCOLORLISTBOX:
+		case WM_CTLCOLORBTN:
+		case WM_CTLCOLORDLG:
+		case WM_CTLCOLORSCROLLBAR:
+		case WM_CTLCOLORSTATIC:
+			return((int)GetStockObject(BLACK_BRUSH));
+
+		case WM_INITDIALOG:
+			++_dialog_count;
+			if (lparam != 0) {
+				Show_Dialog(window, *(unsigned short *)lparam);
+			} else {
+				Show_Dialog(window, 0);
+			}
+			SetFocus(window);
+			return(0);
 
 		case OD_SUBCLASSED:
 			SendMessage(window, OD_SETTOP, (WPARAM)window, 1);

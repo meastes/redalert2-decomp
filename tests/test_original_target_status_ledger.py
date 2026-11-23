@@ -227,6 +227,22 @@ class RebuildCategoryLineTests(unittest.TestCase):
             self.CAT = saved
         self.assertTrue(line.endswith('| 2 rows / 30 B | 1 rows / 4,617 B |'))
 
+    def test_main_only_line(self):
+        """Lane O50 (owner, 2026-11-22): main's accepted entries with no rebuild catalog row, until zero."""
+        main = dict(regions=[dict(entry=0x401000, body_bytes=100), dict(entry=0x402000, body_bytes=40),
+                             dict(entry=0x403000, body_bytes=7)])
+        rebuild = dict(regions=[dict(entry=0x402000, body_bytes=40), dict(entry=0x404000, body_bytes=9)])
+        self.assertEqual(status.main_only(main, rebuild), (2, 107))
+        row = dict(self.BASE, **dict(self.BODY, **self.CLEAN))
+        self.assertTrue(self.line(self.lines(row), '| Matched in src-final (main)').endswith('| | n/a |'))
+        saved = self.CAT
+        try:
+            self.CAT = dict(saved, main_only=(387, 171314))
+            line = self.line(self.lines(row), '| Matched in src-final (main)')
+        finally:
+            self.CAT = saved
+        self.assertTrue(line.endswith('| | 387 functions / 171,314 B |'))
+
     def test_rebuild_flagged_judgment_reads_named_flags_only(self):
         import csv, tempfile
         catalog = dict(regions=[dict(entry=0x401000, body_bytes=100), dict(entry=0x402000, body_bytes=40),

@@ -6793,7 +6793,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005a6e70",
    "005a71c0"
@@ -64929,7 +64929,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005a2610",
    "005a6e70"
@@ -67476,7 +67476,7 @@
     "entry": "005d45b0",
     "body": 74,
     "padding": 6,
-    "symbol": "?Is_Red_Health@ObjectClass@@QBEHXZ",
+    "symbol": "?Is_Red_Health@ObjectClass@@QBE_NXZ",
     "main_symbol": "?Is_Red_HP@ObjectClass@@QBEHXZ",
     "main_source": "src/recovered/object.cpp"
    },
@@ -67484,7 +67484,7 @@
     "entry": "005d4600",
     "body": 112,
     "padding": 0,
-    "symbol": "?Is_Yellow_Health@ObjectClass@@QBEHXZ",
+    "symbol": "?Is_Yellow_Health@ObjectClass@@QBE_NXZ",
     "main_symbol": "?Is_Yellow_HP@ObjectClass@@QBEHXZ",
     "main_source": "src/recovered/object.cpp"
    },
@@ -91124,6 +91124,15 @@
     "main_source": "src/recovered/infantry.cpp"
    },
    {
+    "entry": "00509580",
+    "body": 3,
+    "padding": 13,
+    "symbol": "?Draw_Radial_Indicator@ObjectClass@@UAEXK@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00509590",
     "body": 214,
     "padding": 10,
@@ -92677,7 +92686,7 @@
   "status": "catalogued",
   "range": [
    "0065b2c0",
-   "00663590"
+   "00663610"
   ],
   "mischa85": "tibsun: functions compiled from src/scenario.cpp, without gaps; matched except ?Scan_Place_Object@@YIHPAVObjectClass@@ABVCell@@H@Z and ?Wait_For_Players_To_Load@@YI_NXZ and ?Do_Win@@YIXXZ; ??0ScenarioClass@@QAE@XZ not placed; ??0ScenarioClass@@QAE@ABVNoInitClass@@@Z not placed",
   "main_options": [
@@ -93320,6 +93329,14 @@
     "padding": 0,
     "symbol": "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z",
     "main_symbol": "?Add@?$DynamicVectorClass@PAVTechnoTypeClass@@@@QAE_NABQAVTechnoTypeClass@@@Z",
+    "main_source": "src/recovered/scenario.cpp"
+   },
+   {
+    "entry": "00663590",
+    "body": 124,
+    "padding": 4,
+    "symbol": "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/scenario.cpp"
    }
   ],
@@ -109609,7 +109626,7 @@
    "/Gy",
    "/Gr"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005b6a40",
    "005b9930"
@@ -120211,7 +120228,7 @@
   "status": "catalogued",
   "range": [
    "006be760",
-   "006c0360"
+   "006c09a0"
   ],
   "mischa85": "tibsun: functions compiled from src/teamtype.cpp, without gaps; matched except ?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z; two placed by the gap; ?Suggested_New_Team@TeamTypeClass@@SI?AV?$TypeList@PBVTeamTypeClass@@@@PAVHouseClass@@_N@Z placed at their function starts",
   "main_options": [
@@ -120558,6 +120575,142 @@
     "padding": 10,
     "symbol": "??_GTeamTypeClass@@UAEPAXI@Z",
     "main_symbol": "??_GTeamTypeClass@@UAEPAXI@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c0360",
+    "body": 53,
+    "padding": 11,
+    "symbol": "?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ",
+    "main_source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Clear.cpp"
+   },
+   {
+    "entry": "006c03a0",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/ID_pointer.cpp"
+   },
+   {
+    "entry": "006c03c0",
+    "body": 28,
+    "padding": 4,
+    "symbol": "?GetItem@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE?AV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@H@Z",
+    "main_symbol": "?Fetch@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE?AV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@H@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c03e0",
+    "body": 93,
+    "padding": 3,
+    "symbol": "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@IPBQBVTeamTypeClass@@@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PBVTeamTypeClass@@@@QAE@IPBQBVTeamTypeClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_TeamTypeClass_const_ptr/Constructor.cpp"
+   },
+   {
+    "entry": "006c0440",
+    "body": 82,
+    "padding": 14,
+    "symbol": "??8?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE_NABV0@@Z",
+    "main_symbol": "??8?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UBE_NABV0@@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c04a0",
+    "body": 257,
+    "padding": 15,
+    "symbol": "?Resize@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?Resize@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c05b0",
+    "body": 50,
+    "padding": 14,
+    "symbol": "?Clear@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ",
+    "main_symbol": "?Clear@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEXXZ",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c05f0",
+    "body": 70,
+    "padding": 10,
+    "symbol": "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_AITriggerTypeDistribution/ID.cpp"
+   },
+   {
+    "entry": "006c0640",
+    "body": 27,
+    "padding": 5,
+    "symbol": "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?ID@?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/VectorClass_AITriggerTypeDistribution/ID_pointer.cpp"
+   },
+   {
+    "entry": "006c0660",
+    "body": 285,
+    "padding": 3,
+    "symbol": "?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?Resize@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAE_NHPBV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Resize.cpp"
+   },
+   {
+    "entry": "006c0780",
+    "body": 1,
+    "padding": 15,
+    "symbol": "?unknown_empty_006c0780@@YAXXZ",
+    "main_symbol": "?unknown_empty_006c0780@@YAXXZ",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c0790",
+    "body": 87,
+    "padding": 9,
+    "symbol": "?Add@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?Add@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@QAE_NABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_AITriggerTypeDistribution/Add.cpp"
+   },
+   {
+    "entry": "006c07f0",
+    "body": 54,
+    "padding": 10,
+    "symbol": "?ID@?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEHABV?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@Z",
+    "main_symbol": "?ID_006c07f0@Owner_006c07f0@seed_006c07f0@@QAEHPAH@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c0830",
+    "body": 84,
+    "padding": 12,
+    "symbol": "??_G?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$VectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c0890",
+    "body": 59,
+    "padding": 5,
+    "symbol": "??_E?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAEPAXI@Z",
+    "main_symbol": "??_E?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@QAEPAXI@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c08d0",
+    "body": 84,
+    "padding": 12,
+    "symbol": "??_G?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+    "main_symbol": "??_G?$DynamicVectorClass@V?$DistributionObject@PAVAITriggerTypeClass@@@?$DiscreteDistributionClass@VAITriggerTypeClass@@@@@@UAEPAXI@Z",
+    "main_source": "src/recovered/teamtype.cpp"
+   },
+   {
+    "entry": "006c0930",
+    "body": 108,
+    "padding": 4,
+    "symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
+    "main_symbol": "??4?$VectorClass@PBVTeamTypeClass@@@@QAEAAV0@ABV0@@Z",
     "main_source": "src/recovered/teamtype.cpp"
    }
   ],
@@ -128304,6 +128457,15 @@
     "symbol": "?Planning_Send_Event@@YGXVEventClass@@@Z",
     "main_symbol": "?Planning_Send_Event@@YGXVEventClass@@@Z",
     "main_source": "src/recovered/planmgr.cpp"
+   },
+   {
+    "entry": "00614ba0",
+    "body": 786,
+    "padding": 14,
+    "symbol": "?Planning_Execute@@YIXPAVEventClass@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "00614ec0",
@@ -146928,7 +147090,7 @@
   "status": "catalogued",
   "range": [
    "006f55f0",
-   "006f8a80"
+   "006f8b90"
   ],
   "mischa85": "source: functions compiled from src/uicmnds.cpp, without gaps; matched except ?Select_All_Combatants@@YIX_N@Z; four placed by the gap; ?Matches_Any_Name@@YI_NPAVTechnoClass@@ABV?$DynamicVectorClass@PBD@@@Z not placed; ?Type_Select_Key_Down@@YIXXZ not placed; ?Is_Type_Select_Key_Held@@YI_NXZ not placed; ?Collect_Selected_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@XZ not placed; ?For_Each_Of_Type@@YIXPBDP6IXPAVTechnoClass@@H@ZH@Z not placed; ?Detach_From_Command_List@@YIXPAVAbstractClass@@@Z not placed; ?Refresh_Type_Select_List@@YAXXZ not placed; ?Is_Selectable_Player_Techno@@YIHPAVTechnoClass@@H@Z not placed; ?Health_Message@@YIPBGH@Z not placed; ?Next_Health_Kind@@YIHH@Z not placed; ?Rank_Message@@YIPBGH@Z not placed; ?Next_Rank_Kind@@YIHH@Z not placed; ?Collect_Type_Names@@YIPAV?$DynamicVectorClass@PBD@@ABV?$DynamicVectorClass@PAVTechnoClass@@@@@Z not placed; ?Pick_Type_By_Cost@@YIPADABV?$DynamicVectorClass@PAVTechnoClass@@@@PBDHPAH@Z not placed; ?Reset_Group_Select@@YIXXZ not placed; ?Set_Tab_Building@@YIXPAVBuildingClass@@@Z not placed; ?Clear_Sidebar_Tab_Object@@YIXPAVTechnoClass@@@Z not placed; ?Get_Structure_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Get_Defense_Tab_Object@@YIPAVTechnoClass@@XZ not placed; ?Is_Techno@AbstractClass@@QBE_NXZ not placed",
   "main_options": [
@@ -147634,6 +147796,30 @@
     "symbol": "?Is_Techno@AbstractClass@@QBE_NXZ",
     "main_symbol": "?Is_Techno@AbstractClass@@QBE_NXZ",
     "main_source": "src/recovered/uicmnds.cpp"
+   },
+   {
+    "entry": "006f8a80",
+    "body": 93,
+    "padding": 3,
+    "symbol": "??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PAVTechnoClass@@@@QAE@IPBQAVTechnoClass@@@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_TechnoClass_ptr/Constructor.cpp"
+   },
+   {
+    "entry": "006f8ae0",
+    "body": 93,
+    "padding": 3,
+    "symbol": "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z",
+    "main_symbol": "??0?$DynamicVectorClass@PBD@@QAE@IPBQBD@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_char_const_ptr/Constructor.cpp"
+   },
+   {
+    "entry": "006f8b40",
+    "body": 80,
+    "padding": 0,
+    "symbol": "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z",
+    "main_symbol": "?Add@?$DynamicVectorClass@PBD@@QAE_NABQBD@Z",
+    "main_source": "src/recovered/classes/DynamicVectorClass_char_const_ptr/Add.cpp"
    }
   ],
   "references": {
@@ -159484,7 +159670,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005ac140",
    "005ac540"
@@ -159698,7 +159884,7 @@
    "/Gr",
    "/GR"
   ],
-  "status": "pending",
+  "status": "catalogued",
   "range": [
    "005ab3b0",
    "005abbd0"

@@ -22308,6 +22308,42 @@
       "source_order": 6698304,
       "source_quality_family": "rebuild",
       "bound_population": "population-19"
+    },
+    {
+      "entry": 6698384,
+      "method": "00663590",
+      "body_bytes": 124,
+      "body_sha256": "d754ff860c40019b72c913782929cb1dff5c8494b965240db3c8e8acea8f3986",
+      "padding_bytes": 4,
+      "full_extent_bytes": 128,
+      "full_extent_sha256": "5d033445cab8b2fea069ea808139b463ba37f0671fd188887681bdaa9fc1e96b",
+      "padding_sha256": "e61d6a793b42951d4e466a18683567c9011cd840b03559c0cc9e94c761995098",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z",
+      "symbol_prefix": "??4?$VectorClass@VCell@@@@QAEAAV0@ABV0@@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr"
+      ],
+      "relocations": [
+        {
+          "offset": 37,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 1174110
+        }
+      ],
+      "source_sha256": "968f895f6e3f25705b57c7adc5219df4dd72d84ef07ceb9f4bc228f40739f9b4",
+      "source": "rebuild/src/scenario.cpp",
+      "population": "rebuild-scenario",
+      "source_order": 6698384,
+      "source_quality_family": "rebuild",
+      "bound_population": "population-3287"
     }
   ]
 }

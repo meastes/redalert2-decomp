@@ -11397,7 +11397,7 @@ bool BuildingClass::CanBeOccupiedBy(InfantryClass * infantry) const // RA2: not 
 	if (infantry->Class->Occupier // RA2: as above
 	    ? ((House == infantry->House || House->Class->IsMultiplayPassive) // RA2: as above
 	       && GetOccupantCount() != Class->MaxNumberOccupants // RA2: as above
-	       && !(char)Is_Red_Health() && !infantry->MindControlledBy) // RA2: as above
+				  && !Is_Red_Health() && !infantry->MindControlledBy) // RA2: as above
 	    : (infantry->Class->Assaulter && !House->Is_Ally(infantry) && GetOccupantCount())) { // RA2: as above
 		return(true); // RA2: as above
 	}
@@ -11512,7 +11512,7 @@ int BuildingClass::GetOccupantCount(void) const // RA2: not in TibSun, at 0x4532
 /// </summary>
 void BuildingClass::Update_Garrison_Owner(void) // RA2: not in TibSun, at 0x453300
 {
-	if ((char)Is_Red_Health()) { // RA2: as above
+	if (Is_Red_Health()) { // RA2: as above
 		Eject_Occupants(0); // RA2: as above
 	}
 	int count = Houses.Count();

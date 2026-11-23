@@ -613,7 +613,15 @@ def rebuild_pair(r, function_key, unit_key, suffix=''):
     return '{}{}'.format(r[unit_key], suffix)
 
 
-def rebuild_categories(repository=REPOSITORY):
+def main_only(main_catalog, rebuild_catalog):
+    """(functions, body bytes) of main's accepted rows whose entry has no row in the rebuild catalog: matched in
+    src-final (main), not yet in the rebuild (lane O50, 2026-11-22; the line stays until it reaches zero)."""
+    have = {r['entry'] for r in rebuild_catalog['regions']}
+    rows = [r for r in main_catalog['regions'] if r.get('entry') is not None and r['entry'] not in have]
+    return len(rows), sum(r['body_bytes'] for r in rows)
+
+
+def rebuild_categories(repository=REPOSITORY, main_catalog=None):
     """Whole-unit category bytes of the rebuild catalog (rebuild/manifest/catalog: the rows the whole-file build
     accepts), counted as main's coverage() counts main's: C/C++ body (no padding, no evidenced inline asm),
     evidenced inline asm body, frozen padding. None when the rebuild has no catalog."""
@@ -622,7 +630,8 @@ def rebuild_categories(repository=REPOSITORY):
         return None
     catalog = catalog_io.load(path, references=False)
     return dict(coverage(catalog), inline_asm_rows=sum(1 for r in catalog['regions'] if evidenced_inline_asm(r)),
-                flagged_judgment=rebuild_flagged_judgment(catalog, repository))
+                flagged_judgment=rebuild_flagged_judgment(catalog, repository),
+                main_only=main_only(main_catalog, catalog) if main_catalog is not None else None)
 
 
 # A rebuild judgment note under main's definition (owner ruling, 2026-11-22, lane O46): the note names one of main's
@@ -656,7 +665,8 @@ def kb(value):
     return '{:,.1f} KB'.format(value / 1000.0)
 
 
-def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None):
+def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, repository=REPOSITORY, categories=None,
+                  main_catalog=None):
     """Main's tree and the rebuild tree (rebuild/, on main since 2026-11-19) side by side, never added, on the same
     category lines (lane O41, 2026-11-22; AGENTS.md status measures): Reproduced .text is the sum of C/C++ body,
     evidenced inline asm, frozen padding, linked library members and assembled handwritten asm in both trees. The
@@ -673,7 +683,7 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
     if not rows:
         return []
     r = rows[-1]
-    cat = categories if categories is not None else rebuild_categories(repository)
+    cat = categories if categories is not None else rebuild_categories(repository, main_catalog)
     if cat is None:
         return []
     pct = lambda value: '{:.2f}%'.format(100.0 * value / text)
@@ -735,6 +745,9 @@ def rebuild_lines(text, main, lib_bytes, asm_bytes, judgment, main_clean, reposi
                  '{:,} rows / {:,} B'.format(int(r['judgment_any_rows']), int(r['judgment_any_bytes']))
                  if r.get('judgment_any_rows') else '{:,} rows / {:,} B (provenance notes only)'.format(
                      int(r['judgment_rows']), int(r['judgment_bytes']))),
+             '| Matched in src-final (main), not yet in the rebuild (main\'s accepted entries with no rebuild catalog '
+             'row; body bytes; stays until it reaches zero) | | {} |'.format(
+                 '{:,} functions / {:,} B'.format(*cat['main_only']) if cat.get('main_only') else 'n/a'),
              '| Accepted | {:,} regions | {:,} functions in {:,} units{} |'.format(main['regions'],
                  int(r['functions_exact']), int(r['units']), '; function-level {:,} functions'.format(
                      int(r['function_level_functions'])) if r.get('function_level_functions') else ''),
@@ -769,7 +782,7 @@ def render(catalog, text, rows, funcs=None, lib=None, asm=None, drafts=(0, 0, 0.
     reproduced = now['body'] + now['evidenced_inline_asm'] + now['padding'] + lib_bytes + asm_bytes
     main_clean = sum(r['body_bytes'] for r in catalog['regions']
                      if not evidenced_inline_asm(r) and not any(r.get(flag) is True for flag in JUDGMENT_FLAGS))
-    lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean) + [
+    lines = [BEGIN, ''] + rebuild_lines(text, now, lib_bytes, asm_bytes, judgment, main_clean, main_catalog=catalog) + [
              '| Measure | Value |', '| --- | ---: |',
              '| **Reproduced .text** (built from real inputs, not copied from the original: C/C++ source + '
              'evidenced inline asm + frozen padding + linked library members + assembled handwritten asm; 100% when done) '

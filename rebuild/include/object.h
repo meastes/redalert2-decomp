@@ -307,8 +307,8 @@ class ObjectClass : public AbstractClass
 		void Set_Health_Ratio(double health);
 
 		__declspec( property( get=Get_Health_Ratio, put=Set_Health_Ratio ) ) double HealthRatio;
-		int Is_Red_Health(void) const; // RA2: 0x5D45B0
-		int Is_Yellow_Health(void) const; // RA2: 0x5D4600
+		bool Is_Red_Health(void) const; // RA2: 0x5D45B0, bool as ra2-decomp's Is_Red_HP
+		bool Is_Yellow_Health(void) const; // RA2: 0x5D4600, bool as ra2-decomp's Is_Yellow_HP
 		int Is_Green_Health(void) const; // RA2: 0x5D4670
 		int Health_Status(void) const; // RA2: 0x5D46B0; 0 red, 1 yellow, 2 green
 

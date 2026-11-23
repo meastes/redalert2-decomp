@@ -2108,12 +2108,9 @@ void ObjectClass::Set_Health_Ratio(double health)
 /// Checks whether this object is alive but damaged into the red condition band.
 /// </summary>
 /// <returns>Is the health ratio at or below ConditionRed while some strength remains?</returns>
-int ObjectClass::Is_Red_Health(void) const // RA2: not in TibSun, at 0x5D45B0
+bool ObjectClass::Is_Red_Health(void) const // RA2: not in TibSun, at 0x5D45B0; ra2-decomp's Is_Red_HP text
 {
-	if (HealthRatio <= Rule->ConditionRed && Strength > 0) {
-		return(1);
-	}
-	return(0);
+	return(HealthRatio <= Rule->ConditionRed && Strength > 0);
 }
 
 
@@ -2121,12 +2118,9 @@ int ObjectClass::Is_Red_Health(void) const // RA2: not in TibSun, at 0x5D45B0
 /// Checks whether this object is damaged into the yellow condition band.
 /// </summary>
 /// <returns>Is the health ratio above ConditionRed and at or below ConditionYellow?</returns>
-int ObjectClass::Is_Yellow_Health(void) const // RA2: not in TibSun, at 0x5D4600
+bool ObjectClass::Is_Yellow_Health(void) const // RA2: not in TibSun, at 0x5D4600; ra2-decomp's Is_Yellow_HP text
 {
-	if (HealthRatio > Rule->ConditionRed && HealthRatio <= Rule->ConditionYellow) {
-		return(1);
-	}
-	return(0);
+	return(HealthRatio > Rule->ConditionRed && HealthRatio <= Rule->ConditionYellow);
 }
 
 

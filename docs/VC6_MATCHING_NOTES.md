@@ -4099,3 +4099,52 @@ Found in the rebuild (lane F27, high):
   Is_Yellow_Health declared bool with the twin's one-line bodies keep object (111/111) and building (288/290)
   unchanged and drop building's two `(char)` casts; patch kept in lane scratch, not landed (object.h needs the full
   includer gates).
+## A coined unit-local specialisation costs every later site; the whole twin text before any part of it; scratch registers step with each named local and wrapper; an empty inline call is a site probe (found in the rebuild (lane F29, high))
+
+Found in the rebuild (lane F29, high):
+
+- wonline carried `template<> inline bool DynamicVectorClass<NodeNameType *>::Add` (a named new_length form no
+  reference has, written for Host_Game 0x7459A0's one growth sum). It turned the sum at every later
+  Session.Players.Add of the unit: OnUserList 0x760C00 (30 bytes), the three test players (2 bytes each) and the
+  three sites of OnChannelJoin 0x75F530. Removed, those are exact with vector.h's Add and unchanged text, and
+  Host_Game is exact again with the host's address built in place, the statements main's exact text has there,
+  where the tree had `User_To_IPX_Address(user)` expanded: the same bytes, another count. When a small
+  count-sensitive row is fixed by a unit-local form, check what main's accepted text spells out in that function
+  before coining anything; a written-out block and an expanded helper are not the same count.
+- Take the twin's text whole before judging it. RadarDiplomacy::Update_Diplomacy_Row 0x634670 was 6 bytes off
+  with a hand-tuned draft; each single statement of the twin tried alone looked far worse (202 bytes by
+  position, the callee-saved registers exchanged), the whole twin text left 26 bytes of scratch registers, and
+  one more named local in the twin's own form made it exact. A low twin score is not a text problem either:
+  TechnoClass::Rock 0x6D5F40 (0.59: a Yuri's Revenge parameter and float constants) and RadBeam's two step
+  routines (0.72: a degree factor that is a variable of the file, not a literal) were exact on the first or
+  second compile of the twin's statements.
+- Scratch registers: a table value read inside a call's argument is a temporary that takes the next register
+  of the eax, ecx, edx rotation; the same value in a named local takes eax over its index. Every inline
+  wrapper call or named local ahead of a site moves the rotation of the temporaries after it by one step. A
+  draft whose temporaries are one register off from some point on wants one more (or one fewer) named value or
+  wrapper before that point; look at how the twin names the neighbouring values first.
+- A do-while search helper (`i = 0; if (count > 0) do {...} while (++i < count)`) peels its first pass when it
+  is expanded after a path on which the result is already known null; the plain for loop keeps one loop
+  (Planning_Left_Press 0x617340, 847 to 17 bytes). Held as a variation: the twin has the do-while and every
+  credited row is exact with either.
+- Probing inline budget splits in scratch (never landing forms): `inline void NopSite(void) {}` called k times is
+  k more inline sites with no spend; F27's `Pad(0)` is spend with no code. The two move opposite ways and tell
+  which the image has: netshare Scenario_DlgProc 0x5C69E0 needs five or six more sites between its second and
+  third list (the second then calls the vector constructor and expands Clear, the third expands
+  Select_List_Item_By_Data, as the image); the ScenarioClass NoInit constructor 0x65B780 needs one site or one
+  spend in its body; planmgr Planning_Execute 0x614BA0 needs fewer sites near the end of the root (the selected
+  node stored directly in place of its setter lets Planning_New_Token expand). Compare the direct-call lists of
+  the two listings, not the byte count: a budget row's count by position is meaningless.
+- An image block order that differs from the draft's case order is the source order: rewriting
+  Scenario_DlgProc and OwnerDraw::Default_Dialog_Proc in the twin's case order made every call up to the first
+  budget decision the image's. A big ordinary function the image expands twice and still emits (Show_Dialog
+  0x5FF7E0 in Default_Dialog_Proc) is not `inline`: the keyword expands both sites but drops the body.
+- OnChannelJoin's last 17 bytes are a commutative operand order inside the expanded ArrayList<User>::add
+  (`lea eax, [edx + ecx]` against `add ecx, edx`); the same header text gives the other order in OnUserFlags.
+  It moves with the number of memory references in the function, not with locals, types or position in the
+  file: 29 to 33 more load-and-store statements after the site give every instruction of the image, 16 before
+  it flip the growth sums of the three Add sites the wrong way. No reference form found; a row to revisit when
+  one of its inlined callees changes text.
+- A parameter type change in a class header (MultiplayerGameMode slot 0x0C to `WideWstring *`) renames a
+  vtable slot's symbol: graft every includer of the header, not only the units whose sources changed, or the
+  whole-file build refuses the vtable's data section.

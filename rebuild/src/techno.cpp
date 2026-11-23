@@ -1752,7 +1752,7 @@ void TechnoClass::Draw_Pre_Render(Point2D const & point, Rect const & cliprect) 
 /// it. An ally, or a house that has spied on the object, is also shown its cargo pips.
 /// </summary>
 /// <param name="sensed_underground">Should the select graphic be drawn only when the object is selected?</param>
-#ifdef RA2_NON_MATCHING // not exact: 8 of 1407 bytes differ (image-derived bound 006c3f00-006c447f; ra2-decomp's twin text): the two health tests read eax where the image reads al (the twin declares Is_Red_HP/Is_Yellow_HP bool: with that header form 6 bytes, object and building stay exact), and the last pip loop's Y sum loads offset.Y before xpoint.Y (lane O47, 2026-11-22)
+#ifdef RA2_NON_MATCHING // not exact: 6 of 1407 bytes differ (image-derived bound 006c3f00-006c447f; ra2-decomp's twin text, with its bool Is_Red_Health/Is_Yellow_Health): the last pip loop's Y sum loads offset.Y before xpoint.Y; the archive's point.X/point.Y statements (44 B), offset + xpoint (6 B) and two other operand orders do not give it (lanes O47, O49, 2026-11-22)
 void TechnoClass::Draw_Health_Bar(Point2D const & xpoint, Rect const & cliprect, bool sensed_underground) const // RA2: 0x006C3F00, ra2-decomp's twin text (Yuri's Revenge 0x006F64A0) without YR's CanBeOccupied pips and PixelSelectionBracketDelta, RA2's pip shapes 15-17
 {
 	if (RTTI == RTTI_BUILDING) {

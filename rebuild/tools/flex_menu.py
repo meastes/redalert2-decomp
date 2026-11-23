@@ -304,7 +304,23 @@ def main():
 
     rows.sort(key=lambda r: (r['flex'], r['unit'], r['entry'], r['function']))
     cols = ['unit', 'entry', 'function', 'bytes', 'bucket', 'best', 'flex', 'flex_note', 'also', 'draft',
-            'gap_reason', 'allowance', 'brings']
+            'gap_reason', 'allowance', 'brings', 'main_form', 'main_form_cost', 'tested_exact', 'net_bytes']
+    # Main's accepted forms the rebuild's rules refuse (lane O50, 2026-11-22): rebuild/manifest/main_forms.csv groups
+    # the parked functions main has exact by what main's text relies on (A coined unit-local helpers, B shared
+    # header forms, C count-window locals and statement forms, D main's own translation unit, E none known).
+    forms_path = MAN / 'main_forms.csv'
+    forms = {f['entry']: f for f in csv.DictReader(open(forms_path, encoding='utf-8'))} if forms_path.exists() else {}
+    for r in rows:
+        f = forms.get(r['entry'])
+        if f:
+            r.update(main_form=f['group'], main_form_cost=f['cost'], tested_exact=f['tested_exact'], net_bytes=f['net_bytes'])
+    kinds = collections.OrderedDict((k, [0, 0, 0, 0]) for k in 'ABCDE')
+    for f in forms.values():
+        k = kinds[f['group']]
+        k[0] += 1; k[1] += int(f['bytes'])
+        if f['tested_exact'] == 'yes' and int(f['net_bytes']) > 0:
+            k[2] += 1; k[3] += int(f['net_bytes'])
+    refused = [f for f in forms.values() if f['group'] != 'E']
     tot = collections.OrderedDict((f, [0, 0]) for f in 'abcde')
     for r in rows:
         tot[r['flex']][0] += 1
@@ -314,6 +330,12 @@ def main():
         with open(OUT, 'w', newline='', encoding='utf-8') as f:
             w = csv.DictWriter(f, cols, extrasaction='ignore', lineterminator='\n')
             w.writeheader()
+            if forms:
+                w.writerow(dict(unit='(summary)', function="main's accepted forms the rebuild's rules refuse: %d rows / %d B" % (
+                    len(refused), sum(int(f['bytes']) for f in refused))))
+                for k, (n, b, tn, tb) in kinds.items():
+                    w.writerow(dict(unit='(main forms)', function='%s: %d rows' % (k, n), bytes=b, main_form=k,
+                                    tested_exact='%d rows' % tn, net_bytes=tb))
             for r in rows:
                 w.writerow(r)
             for k, (n, b) in tot.items():
@@ -334,6 +356,10 @@ def main():
         print('flex %s: %4d functions %8d B' % (k, n, b))
     print('no draft yet (within e): %d functions %d B' % (len(nod), sum(r['bytes'] for r in nod)))
     print('rows %d' % len(rows))
+    if forms:
+        print("main's accepted forms the rebuild's rules refuse: %d rows / %d B" % (len(refused), sum(int(f['bytes']) for f in refused)))
+        for k, (n, b, tn, tb) in kinds.items():
+            print('  %s: %3d rows %7d B gross; tested exact %d rows, %d B net' % (k, n, b, tn, tb))
     print('gap (function-level minus whole-unit; bytes with padding):')
     for (reason, allow), (n, b) in gap.items():
         print('  %4d functions %7d B  %s  -> allowance: %s' % (n, b, reason, allow))

@@ -9,20 +9,21 @@ the native port is in progress. Per-batch evidence through A15 is in
 
 <!-- generated:status -->
 
-| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-22T23:22Z) |
+| Tree (built and gated separately; numbers side by side, never added) | `src/` (exact-match record) | `rebuild/` (clean tree in progress; last gated landing 2026-11-23T00:11Z) |
 | --- | ---: | ---: |
-| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the five lines below) | 93.54% (3,526,174 B) | **90.93% function-level** (3,428,049 B) (90.34% whole-unit, 3,405,521 B) |
-| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | 3,274,492 B, 86.86% | **3,178,277 B, 84.31% function-level** (3,156,290 B, 83.73% whole-unit); gap to main 96.2 KB (118.2 KB whole-unit) |
+| Reproduced .text (both trees: C/C++ body + evidenced inline asm + frozen padding + linked library members + assembled handwritten asm, the five lines below) | 93.54% (3,526,174 B) | **91.03% function-level** (3,431,569 B) (90.43% whole-unit, 3,409,041 B) |
+| C/C++ bodies matched (body bytes: no padding, no evidenced inline asm; the parity line) | 3,274,492 B, 86.86% | **3,181,621 B, 84.40% function-level** (3,159,634 B, 83.81% whole-unit); gap to main 92.9 KB (114.9 KB whole-unit) |
 | Evidenced inline assembly (cited TibSun `__asm`; not C/C++ credit) | 2,514 B | 2,555 B in 8 rows (whole-unit) |
-| Frozen padding of accepted rows | 143,042 B | 141,091 B function-level (140,550 B whole-unit) |
+| Frozen padding of accepted rows | 143,042 B | 141,267 B function-level (140,726 B whole-unit) |
 | Linked library members (the same archive members in both builds) | 89,127 B | 89,127 B |
 | Assembled handwritten assembly (the same adopted TibSun .asm procedures in both builds) | 16,999 B | 16,999 B |
-| C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | 3,245,325 B, 86.09% | **3,057,112 B, 81.095% function-level** (3,041,261 B, 80.674% whole-unit) of .text; left out: judgment calls 65 rows / 115,029 B (of which header-form dependents 7 / 23,173 B), count-sensitive 3 rows / 6,136 B |
+| C/C++ bodies, exact with no judgment call (each tree's judgment rows left out) | 3,245,325 B, 86.09% | **3,059,698 B, 81.163% function-level** (3,043,847 B, 80.743% whole-unit) of .text; left out: judgment calls 66 rows / 115,787 B (of which header-form dependents 7 / 23,173 B), count-sensitive 3 rows / 6,136 B |
 | Judgment calls, one definition for both trees (main's: the manifest flags count_calibrated, split_declaration, declarations_only; in the rebuild, the accepted rows whose provenance.csv judgment note, or a header_judgments.csv form they depend on, names one of those flags; whole-unit, body bytes) | 10 rows / 29,167 B | 1 rows / 4,617 B |
-| Judgment calls, each tree's own count (not comparable row for row: main counts the manifest flags above; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus the rows listed as dependents of a flagged header form; body bytes) | 10 rows / 29,167 B | 65 rows / 115,029 B |
-| Accepted | 17,910 regions | 17,560 functions in 438 units; function-level 17,644 functions |
-| Rebuild provenance (rebuild/README.md; body plus padding) | | adopted 16,669 fn / 2,844,975 B; reshaped from src/ 178 / 181,396 B; fresh 163 / 19,920 B; Windows workers 550 / 253,104 B |
-| Rebuild structure | | duplicates 0, externs 6 landed / 6 all, address-suffixed 0; parked 169 functions / 167,155 B (>=1 KB: 47 / 151,359 B); judgment 58 rows / 91,856 B; count-sensitive 3 rows / 6,136 B |
+| Judgment calls, each tree's own count (not comparable row for row: main counts the manifest flags above; the rebuild counts every provenance.csv judgment note, which includes twin-text forms and bounds, plus the rows listed as dependents of a flagged header form; body bytes) | 10 rows / 29,167 B | 66 rows / 115,787 B |
+| Matched in src-final (main), not yet in the rebuild (main's accepted entries with no rebuild catalog row; body bytes; stays until it reaches zero) | | 367 functions / 169,476 B |
+| Accepted | 17,910 regions | 17,583 functions in 438 units; function-level 17,667 functions |
+| Rebuild provenance (rebuild/README.md; body plus padding) | | adopted 16,692 fn / 2,848,495 B; reshaped from src/ 178 / 181,396 B; fresh 163 / 19,920 B; Windows workers 550 / 253,104 B |
+| Rebuild structure | | duplicates 0, externs 6 landed / 6 all, address-suffixed 0; parked 172 functions / 169,349 B (>=1 KB: 48 / 152,766 B); judgment 59 rows / 92,614 B; count-sensitive 3 rows / 6,136 B |
 | Rebuild evidenced inline assembly reached through a file-static helper of its unit | | 2 rows / 789 B |
 | Rebuild asm bytes not yet flagged (main flags them; header-template attribution to fix) | | 0 rows / 0 B |
 

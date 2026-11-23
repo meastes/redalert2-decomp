@@ -1563,7 +1563,7 @@ void __fastcall Planning_Cancel_Token(TechnoClass * techno); // RA2: 0x006155E0
 bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningTokenClass * second); // RA2: 0x00616BD0
 
 void __fastcall Planning_Execute(EventClass * event); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00614ba0 has no row); main: best 89.13, tried 3 times (inline)
+#ifdef RA2_NON_MATCHING // not exact: 516 bytes differ by position (580 with the hand-expanded search, main's best 89.13); ra2-decomp's twin text (Yuri's Revenge 0x00637E00) in this tree's names, with the selected node stored directly (one inline call site fewer, which lets Planning_New_Token expand inside Planning_Path_Add as the executable has it). Left, all inline budget: the executable expands Lead_At in the first Planning_Find_Node and Member_Owner and the Coord copy in the second where ours calls them. Scratch: 24 more plain call statements in the root would also expand Planning_New_Token; code-free spends and empty sites at the top do not help
 void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries out a planning event: plan commit restarts the paths of the event's house, plan connect adds the node at the second target's coordinate to the first target's path, plan node delete takes the node at the target's coordinate out of every path (remembering the next node for the player); any other event is an order for its techno
 {
 	if (event->Type == EventClass::PLAN_COMMIT) { // RA2: as above
@@ -1583,24 +1583,17 @@ void __fastcall Planning_Execute(EventClass * event) // RA2: 0x00614BA0; carries
 	} else if (event->Type == EventClass::PLAN_NODE_DELETE) { // RA2: as above
 		AbstractClass * object = event->Data.Target.Whom.As_Abstract(); // RA2: as above
 		if (object) { // RA2: as above
-			Coord coord = object->As_Coord(); // RA2: as above
-			int house = event->ID; // RA2: as above
-			PlanningNodeClass * node = NULL; // RA2: as above
-			int count = PlanningNodeClass::Unknown1.Count(); // RA2: as above
-			for (int i = 0; i < count; i++) { // RA2: as above
-				PlanningNodeClass * lead = PlanningNodeClass::Unknown1[i]; // RA2: as above
-				if (lead->Lead_At(coord) && (house == -1 || house == Planning_House(lead->PlanningMembers[0]->Owner))) { // RA2: as above
-					node = lead; // RA2: as above
-					break; // RA2: as above
-				}
-			}
-			if (node) { // RA2: as above
-				TechnoClass * owner = node->PlanningMembers[0]->Owner; // RA2: as above
-				int index = owner->Get_Planning_Token()->Node_Index(node); // RA2: as above
-				PlanningNodeClass * next = owner->Get_Planning_Token()->Node_At(index + 1); // RA2: as above
-				Planning_Remove_Node(node); // RA2: as above
-				if (next && house == PlayerPtr->HeapID) { // RA2: as above
-					PlanningSelectedNode = next; // RA2: as above
+			Coord coord = object->As_Coord();
+			int house = event->ID;
+			PlanningNodeClass * node = Planning_Find_Node(house, -1, coord);
+			if (node) {
+				TechnoClass * owner = node->Member_Owner(0);
+				int index = node->Index_In(owner);
+				PlanningTokenClass * token = owner->Get_Planning_Token();
+				PlanningNodeClass * next = token->Node_At(index + 1);
+				Planning_Remove_Node(node);
+				if (next && house == PlayerPtr->HeapID) {
+					PlanningSelectedNode = next;
 				}
 			}
 		}

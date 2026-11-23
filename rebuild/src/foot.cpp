@@ -4812,7 +4812,7 @@ Cell FootClass::Search_For_Tiberium(int rad, bool allow_weighted)
 /// <param name="rad">The limit of the search, expressed in cells from this object.</param>
 /// <returns>Returns with the cell of the Tiberium chosen. Otherwise, CELL_NONE is
 /// returned.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1391 bytes differ (the original calls the distribution's vector constructor 0x4CE710 out of line; this text expands it)
+#ifdef RA2_NON_MATCHING // not exact: 1045 bytes differ; ra2-decomp's twin text (Yuri's Revenge 0x004DD2F0) with RA2's harvester count in place of YR's CountResourceGatherers: the distribution's vector constructor 0x4CE710 is now called as in the image; left are the four Cell sums ahead of Tiberium_Check (the image computes X with lea and stores X before Y) and the lea/push pairs ahead of Add. Any archive form in place of the twin's max/MAX forms expands the constructor again (1207 B; lane O49)
 Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 {
 	DiscreteDistributionClass<CellClass> celldist;
@@ -4823,25 +4823,15 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 	}
 
 	int numharv = House->AUQuantity.Value(House->Get_First_Ownable(Rule->HarvesterUnit)->HeapID); // RA2: the first harvester this house may own, not the list's first
-	if (numharv < 1) {
-		numharv = 1;
-	}
+	numharv = max(1, numharv);
 
-	double weight;
-	/*
-	**	Perform a ring search outward from the center.
-	*/
 	for (int radius = 1; radius < rad; radius++) {
-		int ringspan = radius * 3; // RA2: three cells per ring step
-		int share = ringspan / numharv;
+		int share = radius * 3 / numharv; // RA2: three cells per ring step
 		bool northrun = false;
 		bool southrun = false;
 		bool westrun = false;
 		bool eastrun = false;
-		int divisor = 1;
-		if (share >= 1) {
-			divisor = share;
-		}
+		int divisor = max(1, share);
 		double scale = 1.0 / (double)divisor;
 		for (int x = -radius; x <= radius; x++) {
 			Cell cell;
@@ -4849,12 +4839,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!northrun) {
 					CellClass *cptr = &Map[cell];
-					if (cptr->Tiberium_Value() * scale < 1.0) {
-						weight = 1.0;
-					} else {
-						weight = cptr->Tiberium_Value() * scale;
-					}
-					int intweight = (int)weight;
+					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
 					northrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4866,12 +4851,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!southrun) {
 					CellClass *cptr = &Map[cell];
-					if (cptr->Tiberium_Value() * scale < 1.0) {
-						weight = 1.0;
-					} else {
-						weight = cptr->Tiberium_Value() * scale;
-					}
-					int intweight = (int)weight;
+					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
 					southrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4883,12 +4863,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!westrun) {
 					CellClass *cptr = &Map[cell];
-					if (cptr->Tiberium_Value() * scale < 1.0) {
-						weight = 1.0;
-					} else {
-						weight = cptr->Tiberium_Value() * scale;
-					}
-					int intweight = (int)weight;
+					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
 					westrun = true;
 					celldist.Add(cptr, intweight);
 				}
@@ -4900,14 +4875,9 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 			if (Tiberium_Check(cell)) {
 				if (!eastrun) {
 					CellClass *cptr = &Map[cell];
-					if (cptr->Tiberium_Value() * scale < 1.0) { // RA2: the east run weighs like the others
-						weight = 1.0; // RA2: as above
-					} else { // RA2: as above
-						weight = cptr->Tiberium_Value() * scale; // RA2: as above
-					}
-					int intweight = (int)weight; // RA2: as above
-					eastrun = true; // RA2: as above
-					celldist.Add(cptr, intweight); // RA2: as above
+					int intweight = (int)MAX(1.0, cptr->Tiberium_Value() * scale);
+					eastrun = true;
+					celldist.Add(cptr, intweight);
 				}
 			} else {
 				eastrun = false;
@@ -4917,7 +4887,7 @@ Cell FootClass::Search_For_Tiberium_Weighted(int rad)
 
 	CellClass *cellptr = celldist.Sample();
 	if (cellptr != NULL) {
-		return(cellptr->Fetch_CellID());
+		return(cellptr->CellID);
 	}
 	return(CELL_NONE);
 }
