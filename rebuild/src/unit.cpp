@@ -405,7 +405,7 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1640 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1776 B), 2026-11-23 (lane F35): both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (object.h; ABSTRACT.H:115), from which the image calls the out-of-line copy of face.h's DirType::Direction 0x423EF0 as it does here, and the first distance's operator- is the image's call; left: the first distance's TPoint3D Length (called in the image, expanded here). The tube's ends through one reused cell in a block (InfantryClass::Tunnel_AI's form), the heights in one expression, the stepped coordinate assigned from a sum (lane F34). Scratch: two empty inline sites anywhere between the first direction and Adjacent_Cell (five with lane F34's constructor form) give every instruction of the image (522 = 522) with the frame 8 bytes short (0x68 against 0x70: the image keeps both Cell_Coord() temporaries in slots of their own and `coord` in the tube exit's slot); no reference form found for the two sites
+#ifdef RA2_NON_MATCHING // not exact: 222 bytes differ against the image-derived bound 006faa30 (1730 B), 2026-11-23 (lane F41): every instruction is the image's (522 = 522) and the frame is the image's 0x70; left: which locals share a slot (the image puts `coord` with the exit temporary and the later new_coord, and the occupier vector with the enter temporary; here `coord` has a slot of its own; a block around `coord` shares too much). The two sites lane F35 counted are ra2-decomp's tube accessors: its hover text `(Map.Get_Height_GL(tube->Get_Exit()) - ...) / tube->Get_Count()` (src/hover.cpp:298) gives the image's copied cells, its refused Length and its frame size in one statement, with `tube->Get_Exit()` again for the exit cell; accessors returning references leave the frame 8 bytes short. Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35), the stepped coordinate assigned from a sum (lane F34)
 void UnitClass::Tunnel_AI(void)
 {
 	Coord coord;
@@ -418,15 +418,7 @@ void UnitClass::Tunnel_AI(void)
 		DirType direction = Direction(LastTubeCoord);
 		int speed = (int)(Class->MaxSpeed * 1.5);
 
-		int height_step;
-		{
-			Cell tube_cell = tube->Exit;
-			Coord exit(tube_cell);
-			tube_cell = tube->Enter;
-			Coord enter(tube_cell);
-			height_step = tube->Count;
-			height_step = (Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / height_step;
-		}
+		int height_step = (Map.Get_Height_GL(tube->Get_Exit()) - Map.Get_Height_GL(Cell(tube->Enter))) / tube->Get_Count();
 
 		if (distance <= speed) {
 			CurrentTubeDir++;
@@ -495,7 +487,7 @@ void UnitClass::Tunnel_AI(void)
 		}
 
 		TubeClass * tube = Tubes[CurrentTube];
-		Cell exit_cell = tube->Exit;
+		Cell exit_cell = tube->Get_Exit();
 		Coord exit_coord(exit_cell, LastTubeCoord.Z);
 		PositionCoord = exit_coord;
 		CurrentTube = TUBE_NONE;

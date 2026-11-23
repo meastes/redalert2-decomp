@@ -1490,22 +1490,13 @@ void __stdcall Planning_Send_Event(EventClass event) // RA2: 0x00614B70; sends a
 inline bool __fastcall Planning_Target_Fits(int mission, TargetClass target) // RA2: no function of its own; whether an attack or an area guard order aims at a cell or (for the area guard) at nothing
 {
 	if (mission == MISSION_ATTACK || mission == MISSION_GUARD_AREA) { // RA2: as above
-		do { // RA2: as above
-			if (RTTIType(target) == RTTI_CELL) { // RA2: as above
-				break; // RA2: as above
-			}
-			if (mission != MISSION_GUARD_AREA || target.Is_Valid()) { // RA2: as above
-				return false; // RA2: as above
-			}
-		} while (false); // RA2: as above
-		return true; // RA2: as above
+		if ((RTTIType)target == RTTI_CELL) goto fits; // RA2: as above
+		if (mission == MISSION_GUARD_AREA && (RTTIType)target == RTTI_NONE) { // RA2: as above
+		fits:
+			return true; // RA2: as above
+		}
 	}
 	return false; // RA2: as above
-}
-
-inline bool Planning_Valid_House(int house) // RA2: no function of its own; whether a house number indexes the counters
-{
-	return house >= 0 && house < 8; // RA2: as above
 }
 
 inline bool Planning_Token_Looped(PlanningTokenClass * token) // RA2: no function of its own; the path of the token has closed a loop
@@ -1879,13 +1870,6 @@ PlanningNodeClass * __fastcall Planning_Node_At(Point2D point) // RA2: 0x00615D3
 }
 
 bool __fastcall Is_Planning_Selection_Valid(void); // RA2: the definition is not exact yet
-static inline bool Planning_Is_Techno(ObjectClass const * object)
-{
-	if (object == 0) return false;
-	unsigned char flag = (object->AbstractFlags & ABSTRACT_TECHNO);
-	return flag != 0;
-}
-
 bool __fastcall Is_Planning_Selection_Valid(void) // RA2: 0x00615DE0; whether planning mode accepts the selected objects: every selected techno has a path that ends at a node of the same members
 {
 	if (!PlanningNodeClass::PlanningModeActive) {
@@ -1898,11 +1882,11 @@ bool __fastcall Is_Planning_Selection_Valid(void) // RA2: 0x00615DE0; whether pl
 	int i;
 	for (i = 0; i < count; i++) {
 		ObjectClass * object = CurrentObject[i];
-		if (Planning_Is_Techno(object)) {
+		if (object->Is_Techno()) { // RA2: as above
 			PlanningTokenClass * first = ((TechnoClass *)object)->Get_Planning_Token();
 			for (i = 0; i < count; i++) {
 				ObjectClass * other = CurrentObject[i];
-				if (!Planning_Is_Techno(other)) goto fail;
+				if (!other->Is_Techno()) goto fail; // RA2: as above
 				PlanningTokenClass * token = ((TechnoClass *)other)->Get_Planning_Token();
 				if (!Planning_Same_Last_Node(first, token)) goto fail;
 			}
@@ -1924,11 +1908,7 @@ bool __fastcall Planning_Can_Add(void) // RA2: 0x00615ED0; whether the selected 
 		int count = CurrentObject.Count(); // RA2: as above
 		for (int i = 0; i < count; i++) { // RA2: as above
 			ObjectClass * object = CurrentObject[i]; // RA2: as above
-			bool techno; // RA2: as above
-			if (object != NULL) { // RA2: as above
-				techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
-			}
-			if (object != NULL && techno) { // RA2: as above
+			if (object->Is_Techno()) { // RA2: as above
 				PlanningTokenClass * token = ((TechnoClass *)object)->Get_Planning_Token(); // RA2: as above
 				if (token == NULL) { // RA2: as above
 					added++; // RA2: as above
@@ -2150,27 +2130,26 @@ static inline int Planning_Object_Kind(TechnoClass * techno) // RA2: no function
 
 int __cdecl Planning_Selection_Kind(void) // RA2: 0x00616B40; what the selected technos have in common: -1 for none that cannot use a waypoint, else the kind of the first of them
 {
-	int kind = -1; // RA2: as above
+	int type = -1; // RA2: as above
 	int count = CurrentObject.Count(); // RA2: as above
 	for (int i = 0; i < count; i++) { // RA2: as above
 		ObjectClass * object = CurrentObject[i]; // RA2: as above
-		bool techno; // RA2: as above
-		if (object != NULL) { // RA2: as above
-			techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
+		if (!object->Is_Techno()) { // RA2: as above
+			type = 2; // RA2: as above
+			break; // RA2: as above
 		}
-		TechnoClass * candidate = (object != NULL && techno) ? (TechnoClass *)object : NULL; // RA2: as above
-		if (candidate == NULL || !candidate->CanUseWaypoint()) { // RA2: as above
-			if (candidate != NULL && candidate->Fetch_RTTI() == RTTI_AIRCRAFT) { // RA2: as above
-				kind = 0; // RA2: as above
-			} else if (candidate != NULL && candidate->Fetch_RTTI() == RTTI_BUILDING) { // RA2: as above
-				kind = 1; // RA2: as above
+		if (!((TechnoClass *)object)->CanUseWaypoint()) { // RA2: as above
+			if (object != NULL && object->Fetch_RTTI() == RTTI_AIRCRAFT) { // RA2: as above
+				type = 0; // RA2: as above
+			} else if (object != NULL && object->Fetch_RTTI() == RTTI_BUILDING) { // RA2: as above
+				type = 1; // RA2: as above
 			} else { // RA2: as above
-				kind = 2; // RA2: as above
+				type = 2; // RA2: as above
 			}
 			break; // RA2: as above
 		}
 	}
-	return kind; // RA2: as above
+	return(type); // RA2: as above
 }
 
 bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningTokenClass * second) // RA2: 0x00616BD0; whether both paths (or none) end at nodes holding the owners of both
@@ -2206,14 +2185,14 @@ bool __fastcall Planning_Same_Last_Node(PlanningTokenClass * first, PlanningToke
 }
 void __fastcall Planning_Recount(int house) // RA2: 0x00616D00; raises the count of a house
 {
-	if (Planning_Valid_House(house)) { // RA2: as above
+	if (house >= 0 && house < 8) { // RA2: as above
 		PlanningUnitCounts[house]++; // RA2: as above
 	}
 }
 
 int __fastcall Planning_Count(int house) // RA2: 0x00616D50 (also expanded where it is used); the number of units of a house with a planned path, 0 for a number that is no house
 {
-	bool valid = Planning_Valid_House(house); // RA2: as above
+	bool valid = house >= 0 && house < 8; // RA2: as above
 	int count = 0; // RA2: as above
 	if (valid) { // RA2: as above
 		count = PlanningUnitCounts[house]; // RA2: as above
@@ -2467,24 +2446,22 @@ int __fastcall Planning_Selection_Node_State(PlanningNodeClass * node) // RA2: 0
 	int count = CurrentObject.Count(); // RA2: as above
 	for (int i = 0; i < count; i++) { // RA2: as above
 		ObjectClass * object = CurrentObject[i]; // RA2: as above
-		bool techno; // RA2: as above
-		if (object != NULL) { // RA2: as above
-			techno = object->AbstractFlags & ABSTRACT_TECHNO; // RA2: as above
-		}
-		if (object != NULL && techno) { // RA2: as above
-			PlanningTokenClass * token = ((TechnoClass *)object)->Get_Planning_Token(); // RA2: as above
-			if (token != NULL) { // RA2: as above
-				if (Planning_Token_Looped(token)) { // RA2: as above
+		if (object && object->Is_Techno()) { // RA2: as above
+			TechnoClass * techno = (TechnoClass *)object; // RA2: as above
+			PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
+			if (token) { // RA2: as above
+				if (token->Loop_Start_Valid()) { // RA2: as above
 					return 1; // RA2: as above
 				}
 				int index = token->Node_Index(node); // RA2: as above
 				if (index == -1) { // RA2: as above
 					return 5; // RA2: as above
 				}
-				if (index == token->PlanningNodes.Count() - 1) { // RA2: as above
+				int last = token->PlanningNodes.Count(); // RA2: as above
+				if (index == last - 1) { // RA2: as above
 					return 2; // RA2: as above
 				}
-				if (index == token->PlanningNodes.Count() - 2) { // RA2: as above
+				if (index == last - 2) { // RA2: as above
 					return 3; // RA2: as above
 				}
 			}
@@ -2512,7 +2489,7 @@ void __cdecl Planning_Connect_Selection(void) // RA2: 0x00617AF0 (called Plannin
 		DynamicVectorClass<TechnoClass *> units; // RA2: as above
 		for (int i = 0; i < count; i++) { // RA2: as above
 			ObjectClass * object = CurrentObject[i]; // RA2: as above
-			if (Planning_Is_Techno(object)) {
+			if (object->Is_Techno()) { // RA2: as above
 				TechnoClass * unit = (TechnoClass *)object; // RA2: as above
 				PlanningTokenClass * token = unit->Get_Planning_Token(); // RA2: as above
 				if (token != NULL) { // RA2: as above
@@ -2520,7 +2497,7 @@ void __cdecl Planning_Connect_Selection(void) // RA2: 0x00617AF0 (called Plannin
 					if (last == NULL) { // RA2: as above
 						units.Add(unit); // RA2: as above
 					} else { // RA2: as above
-						int members = last->PlanningMembers.Count(); // RA2: as above
+						int members = last->Get_Count(); // RA2: as above
 						for (int j = 0; j < members; j++) { // RA2: as above
 							TechnoClass * owner = last->Member_Owner(j); // RA2: as above
 							if (units.ID(owner) == -1) { // RA2: as above
@@ -2767,69 +2744,70 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 
 int __fastcall Planning_Guard_Frame(TechnoClass * techno);
 
-#ifdef RA2_NON_MATCHING // not exact: 604 of 2230 bytes differ: ra2-decomp's twin text (Yuri's Revenge 0x0063B550) less its separate source point, the popped order copied with =; the twin's frame conditional calls both frame functions and costs two expansions the image has (Planning_Draw_Dot and the lead pixel's conversion). Exact with the guard test written in place (held, owner 2026-11-23: variation_candidates.csv)
-void __fastcall Planning_Draw_Techno(TechnoClass * techno) // RA2: 0x006182F0; ra2-decomp's twin text (Yuri's Revenge 0x0063B550) less its separate source point, with RA2's guard frame read in place
+void __fastcall Planning_Draw_Techno(TechnoClass * techno) // RA2: 0x006182F0; draws the path of a techno: the order under way, the current action and the line to the first node; ra2-decomp's whole twin text (Yuri's Revenge 0x0063B550, the separate source point included), the popped order copied with = and the frame read through RA2's member
 {
-	PlanningTokenClass * token = techno->Get_Planning_Token();
-	Coord origin = techno->As_Coord();
-	Point2D center = Planning_Coord_Pixel(origin);
-	int color = Planning_Techno_Color(techno);
-	bool has_nodes = Has_Planned_Nodes(token);
-	bool draw_action = Should_Draw_Active_Action(techno, has_nodes);
-	int width = 4;
-	if (token && token->Owner_Is_Mission()) {
-		EventClass packet = token->Popped;
-		Coord coord = Planning_Event_Or_Object_Coord(packet, techno);
-		Point2D target = Planning_Coord_Pixel(coord);
-		Planning_Draw_Dot(center, color);
-		Planning_Draw_Thick_Line(center, target, 3, color);
-		int frame = packet.Get_Event_Frame();
-		if (frame != -1) Planning_Draw_Midpoint(center, target, color);
-		Planning_Draw_Dot(target, color);
-		return;
+	PlanningTokenClass * token = techno->Get_Planning_Token(); // RA2: as above
+	Coord origin = techno->As_Coord(); // RA2: as above
+	Point2D center = Planning_Coord_Pixel(origin); // RA2: as above
+	Point2D source; // RA2: as above
+	source.X = center.X; // RA2: as above
+	source.Y = center.Y; // RA2: as above
+	int color = Planning_Techno_Color(techno); // RA2: as above
+	bool has_nodes = Has_Planned_Nodes(token); // RA2: as above
+	bool draw_action = Should_Draw_Active_Action(techno, has_nodes); // RA2: as above
+	int width = 4; // RA2: as above
+	if (token && token->Owner_Is_Mission()) { // RA2: as above
+		EventClass packet = token->Popped; // RA2: as above
+		Coord coord = Planning_Event_Or_Object_Coord(packet, techno); // RA2: as above
+		Point2D target = Planning_Coord_Pixel(coord); // RA2: as above
+		Planning_Draw_Dot(center, color); // RA2: as above
+		Planning_Draw_Thick_Line(center, target, 3, color); // RA2: as above
+		int frame = packet.Get_Event_Frame(); // RA2: as above
+		if (frame != -1) Planning_Draw_Midpoint(center, target, color); // RA2: as above
+		Planning_Draw_Dot(target, color); // RA2: as above
+		return; // RA2: as above
 	}
 
-	if (draw_action) {
-		bool mega_mission = techno->HaveMegaMission();
-		bool attack_move = techno->HaveAttackMoveTarget();
-		Coord coord = techno->GetAttackCoordinates();
-		Point2D action = Planning_Coord_Pixel(coord);
-		if (techno->IsInLimbo) {
-			Planning_Draw_Dot(action, color);
-			return;
+	if (draw_action) { // RA2: as above
+		bool mega_mission = techno->HaveMegaMission(); // RA2: as above
+		bool attack_move = techno->HaveAttackMoveTarget(); // RA2: as above
+		Coord coord = techno->GetAttackCoordinates(); // RA2: as above
+		Point2D action = Planning_Coord_Pixel(coord); // RA2: as above
+		if (techno->IsInLimbo) { // RA2: as above
+			Planning_Draw_Dot(action, color); // RA2: as above
+			return; // RA2: as above
 		}
-		Planning_Draw_Dot(center, color);
-		Planning_Draw_Thick_Line(center, action, 3, color);
-		int frame = (mega_mission && !attack_move) ? Planning_Mega_Frame(techno) : Planning_Guard_Frame(techno);
-		if (frame != -1) Planning_Draw_Midpoint(center, action, color);
-		Planning_Draw_Dot(action, color);
-		if (attack_move) {
-			Coord attack_coord = techno->GetAttackMoveCoords();
-			Point2D dest = Planning_Coord_Pixel(attack_coord);
-			Planning_Draw_Thick_Line(action, dest, 3, color);
-			frame = Planning_Mega_Frame(techno);
-			if (frame != -1) Planning_Draw_Midpoint(action, dest, color);
-			Planning_Draw_Dot(dest, color);
-			return;
+		Planning_Draw_Dot(center, color); // RA2: as above
+		Planning_Draw_Thick_Line(center, action, 3, color); // RA2: as above
+		int frame = (mega_mission && !attack_move) ? Planning_Mega_Frame(techno) : Planning_Guard_Frame(techno); // RA2: as above
+		if (frame != -1) Planning_Draw_Midpoint(center, action, color); // RA2: as above
+		Planning_Draw_Dot(action, color); // RA2: as above
+		if (attack_move) { // RA2: as above
+			Coord attack_coord = techno->GetAttackMoveCoords(); // RA2: as above
+			Point2D dest = Planning_Coord_Pixel(attack_coord); // RA2: as above
+			Planning_Draw_Thick_Line(action, dest, 3, color); // RA2: as above
+			frame = Planning_Mega_Frame(techno); // RA2: as above
+			if (frame != -1) Planning_Draw_Midpoint(action, dest, color); // RA2: as above
+			Planning_Draw_Dot(dest, color); // RA2: as above
+			return; // RA2: as above
 		}
-		if (!has_nodes) return;
-		center = action;
-		width = 3;
-	} else if (!has_nodes) {
-		return;
+		if (!has_nodes) return; // RA2: as above
+		source = action; // RA2: as above
+		width = 3; // RA2: as above
+	} else if (!has_nodes) { // RA2: as above
+		return; // RA2: as above
 	}
 
-	PlanningNodeClass * node = token->Node_At(0);
-	Point2D target = node->Lead_Pixel();
-	PlanningBranchClass * branch = node->Branch_Of(techno);
-	if (branch) target = Planning_Event_Pixel(&branch->Event, techno);
-	Planning_Draw_Dot(center, color);
-	Planning_Draw_Thick_Line(center, target, width, color);
-	if (branch) Planning_Draw_Dot(target, color);
-	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno));
-	if (frame != -1) Planning_Draw_Midpoint(center, target, color);
+	PlanningNodeClass * node = token->Node_At(0); // RA2: as above
+	Point2D target = node->Lead_Pixel(); // RA2: as above
+	PlanningBranchClass * branch = node->Branch_Of(techno); // RA2: as above
+	if (branch) target = Planning_Event_Pixel(&branch->Event, techno); // RA2: as above
+	Planning_Draw_Dot(source, color); // RA2: as above
+	Planning_Draw_Thick_Line(source, target, width, color); // RA2: as above
+	if (branch) Planning_Draw_Dot(target, color); // RA2: as above
+	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno)); // RA2: as above
+	if (frame != -1) Planning_Draw_Midpoint(source, target, color); // RA2: as above
 }
-#endif
 
 void __fastcall Planning_Draw_Node(PlanningNodeClass * node) // RA2: 0x00619420; draws the lines from the nodes before this one (and from its own loop) to it as solid lines, and its box
 {
@@ -2973,11 +2951,9 @@ int PlanningNodeClass::Lead_Color(void) // RA2: 0x0061A060 (a member of the node
 
 void __fastcall Planning_Draw_Dot(Point2D center, int color) // RA2: 0x0061A190; draws a 6 by 6 frame around a pixel
 {
-	Rect view; // RA2: as above
-	view = Get_Title_Screen_Area(); // RA2: as above
-	Rect square; // RA2: as above
-	square = Planning_Centered_Rect(center, 6); // RA2: as above
-	CompositeSurface->Draw_Rect(view, square, color); // RA2: as above
+	Rect clip = Get_Title_Screen_Area(); // RA2: as above
+	Rect rect = Planning_Centered_Rect(center, 6); // RA2: as above
+	CompositeSurface->Draw_Rect(clip, rect, color); // RA2: as above
 }
 
 void __fastcall Planning_Fill_Dot(Point2D center, int color) // RA2: 0x0061A210; fills a 6 by 6 square around a pixel, less its edge

@@ -1361,7 +1361,7 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1846 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1936 B), 2026-11-23 (lane F35): both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (object.h; ABSTRACT.H:115), from which the image calls the out-of-line copy of face.h's DirType::Direction 0x423EF0 as it does here; left: the first distance's TPoint3D operator- is a call in the image (expanded here with its constructor called), and two TPoint3D constructor calls of the image are expanded here (the stepped coordinate; UnitClass::Tunnel_AI's `Coord delta` and sum give those calls but another block order). Scratch: no count of empty sites after the distance gives the image's calls (1 to 3 none, 4 to 6 refuse operator- and expand Length, 10 refuse the constructors as well). Same budget question as UnitClass::Tunnel_AI 0x6FAA30
+#ifdef RA2_NON_MATCHING // not exact: 1841 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1984 B), 2026-11-23 (lane F41): the height step through ra2-decomp's tube accessors as in UnitClass::Tunnel_AI 0x6FAA30 (src/hover.cpp:298), which gives the image's frame 0x80; left: the first distance's operator- and Length are calls in the image and expanded here. Scratch: six empty inline sites at the end of the root (before `CurrentTube = TUBE_NONE`) give every instruction of the image (560 = 560) and its frame size, with the same slot sharing left as in the unit's (`coord` with the later new_coord, the occupier vector on top); sites placed after `speed` instead raise the root's budget (it is over the 1000 floor) and expand Move_Coord's constructors. So the image's root has more sites late, or about 100 units less text; no reference form found for them. Both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (lane F35)
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
@@ -1371,15 +1371,7 @@ void InfantryClass::Tunnel_AI(void)
 		DirType direction = Direction(LastTubeCoord);
 		int speed = Class->MaxSpeed;
 
-		int height_step;
-		{
-			Cell tube_cell = tube->Exit;
-			Coord exit(tube_cell);
-			tube_cell = tube->Enter;
-			Coord enter(tube_cell);
-			height_step = tube->Count;
-			height_step = (Map.Get_Height_GL(exit) - Map.Get_Height_GL(enter)) / height_step;
-		}
+		int height_step = (Map.Get_Height_GL(tube->Get_Exit()) - Map.Get_Height_GL(Cell(tube->Enter))) / tube->Get_Count();
 
 		if (distance <= speed) {
 			CurrentTubeDir++;

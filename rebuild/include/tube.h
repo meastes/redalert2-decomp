@@ -43,6 +43,8 @@ class TubeClass : public AbstractClass
 
 		bool Not_In_Tube(Cell const & cell) const;
 		void Add_Direction(FacingType dir);
+		Cell Get_Exit(void) const { return(Exit); } // RA2: ra2-decomp's tube.h declares it (out of line in Yuri's Revenge; RA2 has no copy of it, every site is expanded)
+		int Get_Count(void) const { return(Count); } // RA2: as above
 
 	public:
 		/*

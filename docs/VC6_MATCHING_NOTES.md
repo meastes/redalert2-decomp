@@ -4438,3 +4438,98 @@ build/r/f38/emit.py, emit2.py, cap.py, cap2.py, cap3.py).
   no braces, one loop variable, the shutter shape as a scalar with or without ra2-decomp's `((short *)shape)[3]`
   (6 units of the 25 or so; TibSun has four separate shape statics where this tree has one SidebarShapes array).
   Forced in (inline, probe only) Recalc is 22 instruction lines off, so the member's missing form is still unknown.
+
+
+## A twin draft is measured with every statement of the twin back in; a statement form can cross the free inline size; functions the image never calls must each have a use (found in the rebuild (lane F39, high))
+
+Found in the rebuild (lane F39, high), in planmgr:
+
+- Planning_Draw_Techno 0x6182F0 (2,230 B) had been parked for three lanes as "the twin's text less its separate
+  source point". With ra2-decomp's Planning_Draw_Dot (both Rects initialised: 604 to 440 bytes) and the dropped
+  statements back (`Point2D source; source.X = center.X; source.Y = center.Y;`, `source = action;`, the last block
+  drawing from `source`) it is exact on the first compile. The two decisions that were left (a conversion nested in
+  Lead_Pixel refused, Get_Event_For expanded) were the root's budget: a root this large has B = 2S, so every
+  statement of the root's own text is two units of budget, and a named `EventClass` copy in the last block (probe)
+  moved the same two decisions. When a draft is "the twin's text less X", put X back before reading its budget, and
+  read a nested refusal in a large root as root text missing, not as a site count.
+- The held variation for the same row (the guard frame test written in place) would have left Planning_Guard_Frame
+  0x61A290 without a single use. A function of the unit that the image never calls (lane tool build/r/f39/uncalled.py:
+  no rel32 call or jump and no data pointer to it) exists only as expansions, so each one needs a use in the source,
+  and a form that removes the last use is ruled out by the image. The same list names real helpers a draft may be
+  missing: Planning_Add_To_Nodes 0x615B60 has no call in our source or in the twin's.
+- A statement form that compiles to the same bytes can cross the 40-unit free size. Planning_Recount 0x616D00 with
+  `PlanningUnitCounts[house]++;` is free; with `PlanningUnitCounts[house] = PlanningUnitCounts[house] + 1;` (also
+  with a named value, or under `bool valid = ...; if (valid)`) it measures 48 and is charged. That one charge is
+  what ra2-decomp's whole Planning_Add_Order text needs here (Last_Node is then called, as in the image), with the
+  twin's by-reference Planning_Order_Kind, Planning_Event_Result and Planning_Refuse_Order: every row of the unit
+  exact, Planning_Update included. Held on variation_candidates.csv (no reference has the form for this function; its
+  only effect is the budget), with a ready patch; it would replace main's three coined helpers in that function.
+  Found by adding two scalar stores to each helper the root expands (build/r/f39/heavy.py) and reading the root's
+  call list against the image's (cs.sh): the one helper whose extra weight gives the image's list is the one sitting
+  just under the free size.
+- Sizes measured in the unit itself (build/r/f39/size.py: k charged code-free pads, then the call; pad
+  `inline void Pad(int x) {if (x) {n array stores, m scalar stores}}` measures 6n + 4m + 23, free up to 40; root
+  budget 1000): Member_Owner 48 with its named owner local, 44 in ra2-decomp's `return member->Get_Owner();`,
+  Last_Node 61, Node_At 141. Calibrate the pads first by counting how many of each size a root accepts; assumed
+  sizes were off by one unit per pad and hid a 22-unit error.
+- Planning_Execute 0x614BA0 (272 B) read against the image call by call: the first search copy expands Lead_At and
+  calls Member_Owner, the second calls Lead_At and expands Member_Owner, the root expands its own Member_Owner and
+  calls Node_At. Ours differs only inside the second copy: its nested Member_Owner (48) is refused, and the 48 units
+  left over let Node_At in. The nested share is (R - s)//N, N the sites from the search to the end of the root, and
+  it is exact with one site fewer after the search and the sites before it unchanged (probe: the selected node stored
+  directly plus one empty site ahead of the delete arm). Lighter text ahead of the search (6 to 12 units) does not
+  move it. With the 44-unit Member_Owner the share fits here, but the same form expands the search's Member_Owner in
+  Planning_Add_Order, where the image calls it, in main's text and in the twin's alike.
+- A twin text that is exact for its own row can still cost a caller: Planning_Close_Loop in ra2-decomp's text
+  (Set_Loop, the unselect loop written out) is exact and small enough to be expanded in Planning_Path_Add, where the
+  image calls it (353 bytes). Test a helper's twin text against every row that reaches it, not its own row.
+
+
+## A written-out flag block in a twin is a plain function of the unit expanded; two missing sites can be a reference's accessors; read "N empty sites" rows as sizes first (found in the rebuild (lane F41, high))
+
+Found in the rebuild (lane F41, high). The lane re-read the "N more empty inline sites" rows with the calibrated size model
+(lane tools in build/r/f41: v.py applies named edit sets to any unit, header edits included and restored, and prints the
+call list against the image's with a frame-insensitive diff; callers.py lists the image's call sites of an address by row;
+fmap.py lists a listing's frame objects with reference counts).
+
+- BuildingClass::Do_MISSION_GUARD 0x445620 (788 B, exact). The root is over the 1000 floor, so its own text sets the budget
+  (B = 2S): cutting about 28 units of root text, before or after the decision, refused TPoint3D<int>::Length as the image
+  does, where earlier lanes had read "one to five empty sites after Distance_To". The twin's block
+  `bool idle = false; if (A && B) idle = true; else if (C) idle = true; if (idle)` is the expansion of
+  BuildingClass::Fetch_Super_Weapon 0x452800, a plain function of the unit under the auto-inline size, and the TibSun
+  archive has the call at that point (`Fetch_Super_Weapon() == SUPER_NONE`): the root's text is lighter and the helper is a
+  charged site ahead of the decision. A flag set in two arms and tested once is how a decompiled twin shows an expanded
+  bool or enum function; find the function by listing the small image functions that call the same callee with the same
+  test (callers.py), then look for the archive's call. A plain function defined later in the file is expanded like one
+  defined before.
+- Two coined forms were exact for the same row before the evidenced one was found (an inline one-argument wrapper over
+  `QueueMission(mission, false)`, an inline helper holding the test). Exact under a probe is not evidence of the form: at
+  every false site of building.cpp the wrapper flips three exact rows.
+- UnitClass::Tunnel_AI 0x6FAA30 and InfantryClass::Tunnel_AI 0x5025C0: the two sites lane F35 counted are ra2-decomp's tube
+  accessors (`Cell Get_Exit() const`, `int Get_Count() const`, declared in its tube.h, out of line in Yuri's Revenge, no
+  copy in RA2's image, so inline here). ra2-decomp's hover statement
+  `(Map.Get_Height_GL(tube->Get_Exit()) - ...) / tube->Get_Count()` gives the image's copied cells, the refused Length,
+  every instruction and the frame size in one statement, where the archive's block with a reused `tube_cell` gave the
+  instructions only with probe sites. By-value accessors make the cell temporaries share the height step's slot;
+  reference-returning ones leave the frame 8 bytes short. Casts such as `(Cell)tunnel->Exit` and `Cell(tube->Exit)` in an
+  exact row are the trace of a by-value accessor: look in the references' headers for a declared member before reading
+  the sites as unknown. What is left in both rows is slot sharing among 12-byte objects (see the log rows).
+- In a root over the floor an empty probe site is not neutral: each call statement adds 4 units of text, 8 of budget. Six
+  probe sites after `speed` in the infantry row raised the budget and expanded Move_Coord's constructors; the same six at
+  the end of the root gave the image. Place count probes where they do not sit ahead of the decisions they should starve,
+  and read a count that works only at the end as "sites late or less text", not as a number of sites.
+- A missing spend is told from a missing site with graded pads in the first initialiser or statement: the ScenarioClass
+  NoInit constructor 0x65B780 is exact with any charged pad of 41 to 251 there and unchanged by free pads of 23 to 35, so
+  it lacks a spend, not a site. Weighting each helper by one and two scalar stores (4 and 8 units) finds the helper just
+  under the free 40: CDTimerClass's NoInit constructor is 33 to 36, and six of them charged are the image's calls. The
+  Yuri's Revenge twin gets the same spend from two class arrays RA2 does not have, so a twin that matches there can still
+  be one spend short here: compare the member lists before the text.
+- A plain member the image never calls (no rel32 call or jump) and still emits was expanded at every use. For
+  SidebarClass::First_Used_Column 0x681980 (70 units, charged) and Update_Column_Availability 0x67CA50 (198 against about
+  170) that leaves a contradiction the size model does not resolve with any reference form: the standalone member has no
+  room for a 70-unit charge and Recalc needs the member 26 units lighter. rebuild/tools/il_lab.py measures a plain member
+  when the scratch copy declares it inline (build/r/f41/sbvar.py).
+- Three sites of one helper in a large root (netshare Scenario_DlgProc): with a = sites between the first two, b between
+  the last two, the image's "middle refused, outer two expanded" needs spends between S2 and S3 below T times b and room at
+  S1, which pads and count probes at three places each confirm (a pad between S1 and S2 refuses S3 first; sites anywhere
+  between S2 and S3 behave alike). Write the inequalities before sweeping counts.

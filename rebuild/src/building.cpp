@@ -5087,25 +5087,16 @@ bool BuildingClass::Clear_Weapons_Factory_Bib(void)
  * HISTORY:                                                                                    *
  *   06/25/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 789 bytes differ (ra2-decomp's Yuri's Revenge text less its gattling and bunker parts; every call the image's but TPoint3D<int>::Length, expanded here and called there, which also aligns the frame; 280 against 252 instructions), 2026-11-22 (lane F25). Scratch (lane F34, 2026-11-23): one to five empty inline sites anywhere after Distance_To, or about 100 units or more of charged inline before it, give the image byte for byte; six sites refuse operator- as well. Clear_Weapons_Factory_Bib is over the auto-inline cap and no site; Red Alert's ::Distance(Center_Coord(), coord) member form gives more budget, not less. No reference form found for the missing site
 int BuildingClass::Do_MISSION_GUARD(void)
 {
 	if (Is_Weapon_Equipped()) {
 		IsReadyToCommence = true;
-		if (!Class->IsEMPulseCannon) {
-			bool idle = false;
-			if (Class->SuperWeapon != -1 && SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding && House->ABQuantity.Value(SuperWeapons[Class->SuperWeapon]->Class->AuxBuilding->HeapID) == 0) {
-				idle = true;
-			} else if (Class->SuperWeapon == -1) {
-				idle = true;
-			}
-			if (idle) {
-				if (!Class->CanBeOccupied || GetOccupantCount() > 0) {
-					if (TarCom != NULL) {
-						QueueMission(MISSION_ATTACK, false);
-						Commence();
-						return(1);
-					}
+		if (!Class->IsEMPulseCannon && Fetch_Super_Weapon() == SUPER_NONE) { // RA2: TibSun's test (building.cpp:4560) less the chemical missile; Fetch_Super_Weapon 0x452800 is expanded here, which is what leaves TPoint3D<int>::Length a call
+			if (!Class->CanBeOccupied || GetOccupantCount() > 0) {
+				if (TarCom != NULL) {
+					QueueMission(MISSION_ATTACK, false);
+					Commence();
+					return(1);
 				}
 			}
 		}
@@ -5153,7 +5144,6 @@ int BuildingClass::Do_MISSION_GUARD(void)
 	}
 	return(Current_Mission_Control().AA_Delay() + Random_Pick(0, 2));
 }
-#endif
 
 
 /// <summary>

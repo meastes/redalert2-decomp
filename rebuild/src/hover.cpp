@@ -437,7 +437,7 @@ static inline Cell Hover_Adjacent_Cell(Cell const & cell, FacingType dir) // RA2
 
 static inline int Tube_Height_Step(Coord const & exit, TubeClass const * tube, int current_height) // RA2: the height change per tube step
 {
-	int count = tube->Count;
+	int count = tube->Get_Count();
 	return((Map.Get_Height_GL(exit) - current_height) / count);
 }
 
@@ -491,7 +491,7 @@ MoveType HoverLocomotionClass::While_Moving(bool first_pass)
 			LinkedTo->Mark(MARK_UP);
 			LinkedTo->Clear_Occupy_Bit(LinkedTo->PositionCoord);
 			TubeClass * tube = Tubes[tubenum];
-			Cell exit = tube->Exit;
+			Cell exit = tube->Get_Exit();
 			HeadToCoord = exit.As_Coord();
 			memcpy((char*)&LinkedTo->Path, (char*)&LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX-1));
 			LinkedTo->LastPathingCell = HeadToCoord.As_Cell();
