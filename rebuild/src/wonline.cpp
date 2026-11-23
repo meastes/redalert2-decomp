@@ -787,7 +787,6 @@ static inline bool Same_Player_Name(wchar_t const * first, wchar_t const * secon
 /// house, and color, into a single comma-separated string for transmission over WOL.
 /// </summary>
 /// <param name="out">Buffer that receives the encoded options string.</param>
-#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; OwnerDraw::WinData names its edit-control fields, ra2-decomp's record)
 void Encode_Game_Options(char * out)
 {
 	static char useroptions[512];
@@ -840,7 +839,6 @@ void Encode_Game_Options(char * out)
 
 	strcat(out, useroptions);
 }
-#endif
 
 /// <summary>
 /// Combines the rules, AI, and art CRCs into a single hash used to verify that all players

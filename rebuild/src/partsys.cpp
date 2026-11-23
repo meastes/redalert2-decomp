@@ -463,7 +463,7 @@ void ParticleSystemClass::Spark_AI(void)
 /// either side, so that the column spreads as it rises. Fresh particles are emitted on the
 /// spawn interval, which lengthens as the system tires until it finally retires.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0060bb70 has no row); main: best 54.23, tried 8 times (inline, frame, register)
+#ifdef RA2_NON_MATCHING // not exact: 1088 bytes differ against the image-derived bound 0060bb70 (1240 B; ours 1328 B), 2026-11-23 (lane F36): no dynamic cast (the foot flag tested), both dying-particle spawns through Spawn_Particle and the last through Spawn_Held_Particle; the image calls DynamicVectorClass<ParticleClass *>::Add in the first two and expands the third, which this text gives only with 20 to 28 charged spends ahead or 12 or more inline sites after (probes); main: best 54.23
 void ParticleSystemClass::Smoke_AI(void)
 {
 	int i;
@@ -511,22 +511,18 @@ void ParticleSystemClass::Smoke_AI(void)
 				ncoord.Y = y + yrand;
 				ncoord.Z = z;
 				ncoord.X = x + xrand;
-				ParticleClass *npart = new ParticleClass(next, ncoord, COORD_NONE, NULL); // RA2: no spawn point and no owning system are passed
+				ParticleClass * npart = Spawn_Particle(next, ncoord); // RA2: through the unit's Spawn_Particle, as Spark_AI and Railgun_AI go through Spawn_Held_Particle
 				if (npart != NULL) {
-					SystemParticles.Add(npart);
-					if (npart != NULL) {
-						npart->Speed = spart->Speed;
-						npart->Translucency = spart->Translucency + (Scen->RandomNumber() % 6 != 0 ? 25 : 0);
-					}
+					npart->Speed = spart->Speed;
+					npart->Translucency = spart->Translucency + (Scen->RandomNumber() % 6 != 0 ? 25 : 0);
 				}
 
 				Coord pcoord;
 				pcoord.X = x - xrand;
 				pcoord.Y = y - yrand;
 				pcoord.Z = z;
-				ParticleClass *ppart = new ParticleClass(next, pcoord, COORD_NONE, NULL); // RA2: as above
+				ParticleClass * ppart = Spawn_Particle(next, pcoord);
 				if (ppart != NULL) {
-					SystemParticles.Add(ppart);
 					ppart->Speed = spart->Speed;
 					ppart->Translucency = spart->Translucency + (Scen->RandomNumber() % 6 != 0 ? 25 : 0);
 				}
@@ -538,24 +534,21 @@ void ParticleSystemClass::Smoke_AI(void)
 	}
 
 	if (!IsMarkedForDeletion && IsActive && (Frame % (int)SpawnFrames) == 0) {
-		FootClass *foot = Source->As_FootClass();
+		FootClass * foot = Source != NULL && (Source->AbstractFlags & 4) ? (FootClass *)Source : NULL;
 		if (foot == NULL || foot->CurrentTube < 0) {
 			int xrand = Scen->RandomNumber();
 			int yrand = Scen->RandomNumber();
 			int range = Class->SpawnRadius + 1;
 			Coord scoord = Get_Coord() + Coord(xrand % range, yrand % range, 10);
 
-			if (Class->HoldsWhat != PARTICLE_NONE) {
-				ParticleClass *npart = new ParticleClass(ParticleTypes[Class->HoldsWhat], scoord, SpawnCoord, this);
-				if (npart != NULL) {
-					SystemParticles.Add(npart);
-					if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
-						npart->Translucency += 25;
-					}
-					npart->Speed = npart->Speed - (SpawnFrames - Class->SpawnFrames) * 0.35f;
-					if (npart->Speed < 2.0) {
-						npart->Speed = 2.0;
-					}
+			ParticleClass * npart = Spawn_Held_Particle(scoord, SpawnCoord);
+			if (npart != NULL) {
+				if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
+					npart->Translucency += 25;
+				}
+				npart->Speed = npart->Speed - (SpawnFrames - Class->SpawnFrames) * 0.35f;
+				if (npart->Speed < 2.0) {
+					npart->Speed = 2.0;
 				}
 			}
 		}

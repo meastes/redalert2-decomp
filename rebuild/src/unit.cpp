@@ -405,7 +405,7 @@ void UnitClass::Debug_Dump(MonoClass * mono) const
 /// tunnel's slope, and hands it back to the map at the far mouth. If the exit cell is
 /// already spoken for the unit waits underground, first shooing any idle occupier away.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1664 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1776 B), 2026-11-23 (lane F34): every call the image's but the first distance's TPoint3D operator- (called in the image, expanded here with its constructor called); both directions through RA2's DirType(Coord, Coord) constructor 0x423EF0, copy-initialised as the image copies them; the tube's ends through one reused cell in a block (InfantryClass::Tunnel_AI's form), the heights in one expression, the stepped coordinate assigned from a sum. Scratch: five or more empty inline sites between the distance and Adjacent_Cell give every instruction of the image (522 = 522) with the frame 8 bytes short (0x68 against 0x70); no reference form found for them
+#ifdef RA2_NON_MATCHING // not exact: 1640 bytes differ against the image-derived bound 006faa30 (1730 B; ours 1776 B), 2026-11-23 (lane F35): both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (object.h; ABSTRACT.H:115), from which the image calls the out-of-line copy of face.h's DirType::Direction 0x423EF0 as it does here, and the first distance's operator- is the image's call; left: the first distance's TPoint3D Length (called in the image, expanded here). The tube's ends through one reused cell in a block (InfantryClass::Tunnel_AI's form), the heights in one expression, the stepped coordinate assigned from a sum (lane F34). Scratch: two empty inline sites anywhere between the first direction and Adjacent_Cell (five with lane F34's constructor form) give every instruction of the image (522 = 522) with the frame 8 bytes short (0x68 against 0x70: the image keeps both Cell_Coord() temporaries in slots of their own and `coord` in the tube exit's slot); no reference form found for the two sites
 void UnitClass::Tunnel_AI(void)
 {
 	Coord coord;
@@ -415,7 +415,7 @@ void UnitClass::Tunnel_AI(void)
 		TubeClass * tube = Tubes[CurrentTube];
 		Get_Coord();	/// Result discarded.
 
-		DirType direction = DirType(Center_Coord(), LastTubeCoord);
+		DirType direction = Direction(LastTubeCoord);
 		int speed = (int)(Class->MaxSpeed * 1.5);
 
 		int height_step;
@@ -440,7 +440,7 @@ void UnitClass::Tunnel_AI(void)
 				LastTubeCoord = LastTubeCoord + Coord(delta.X, delta.Y, 0);
 				LastTubeCoord.Z += height_step;
 
-				DirType dir = DirType(Center_Coord(), LastTubeCoord);
+				DirType dir = Direction(LastTubeCoord);
 				Coord new_coord = Move_Coord(PositionCoord, dir, speed - distance);
 				double divisor;
 				if (tube_dir % 2) {

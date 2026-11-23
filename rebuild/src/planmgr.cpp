@@ -2652,73 +2652,6 @@ static inline bool Should_Draw_Active_Action(TechnoClass * techno, bool has_node
 		&& (has_nodes || techno->IsSelected);
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 1665 bytes differ (both waypoint renderers use the same node and active-order predicates; all 50 direct calls agree and every instruction is the image's but for its stack offsets: the frame is 0x178 against 0x174, the attack-move flag not beside has_nodes)
-void __fastcall Planning_Draw_Techno(TechnoClass * techno)
-{
-	PlanningTokenClass * token = techno->Get_Planning_Token();
-	Coord current_coord = techno->As_Coord();
-	Point2D start = Planning_Coord_Pixel(current_coord);
-	int color = Planning_Techno_Color(techno);
-	bool has_nodes = Has_Planned_Nodes(token);
-	bool current_order = Should_Draw_Active_Action(techno, has_nodes);
-	int thickness = 4;
-	if (token && token->Owner_Is_Mission()) {
-		EventClass event = token->Popped;
-		Coord coord = Planning_Event_Or_Object_Coord(event, techno);
-		Point2D end = Planning_Coord_Pixel(coord);
-		Planning_Draw_Dot(start, color);
-		Planning_Draw_Thick_Line(start, end, 3, color);
-		if (event.Get_Event_Frame() != -1) Planning_Draw_Midpoint(start, end, color);
-		Planning_Draw_Dot(end, color);
-		return;
-	}
-	if (current_order) {
-		bool alternate = techno->HaveMegaMission();
-		bool secondary = techno->HaveAttackMoveTarget();
-		Coord coord = techno->GetAttackCoordinates();
-		Point2D end = Planning_Coord_Pixel(coord);
-		if (techno->IsInLimbo) {
-			Planning_Draw_Dot(end, color);
-			return;
-		}
-		Planning_Draw_Dot(start, color);
-		Planning_Draw_Thick_Line(start, end, 3, color);
-		int action = -1;
-		if (!alternate || secondary) {
-			if (techno->Get_Mission() == MISSION_GUARD_AREA) action = Cursor_Start_Frame_76();
-		} else if (techno->GetMegaMission() == MISSION_ATTACK_MOVE) action = Cursor_Start_Frame_77();
-		if (action != -1) Planning_Draw_Midpoint(start, end, color);
-		Planning_Draw_Dot(end, color);
-		if (secondary) {
-			Coord next_coord = techno->GetAttackMoveCoords();
-			Point2D next = Planning_Coord_Pixel(next_coord);
-			Planning_Draw_Thick_Line(end, next, 3, color);
-			if (techno->GetMegaMission() == MISSION_ATTACK_MOVE && Cursor_Start_Frame_77() != -1)
-				Planning_Draw_Midpoint(end, next, color);
-			Planning_Draw_Dot(next, color);
-			return;
-		}
-		if (!has_nodes) return;
-		start = end;
-		thickness = 3;
-	} else if (!has_nodes) {
-		return;
-	}
-	{
-		PlanningNodeClass * node = token->Node_At(0);
-		Point2D end = node->Lead_Pixel();
-		PlanningBranchClass * branch = node->Branch_Of(techno);
-		if (branch) end = Planning_Event_Pixel(&branch->Event, techno);
-		Planning_Draw_Dot(start, color);
-		Planning_Draw_Thick_Line(start, end, thickness, color);
-		if (branch) Planning_Draw_Dot(end, color);
-		EventClass event = node->Get_Event_For(techno);
-		if (event.Get_Event_Frame() != -1)
-			Planning_Draw_Midpoint(start, end, color);
-	}
-}
-#endif
-
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno) // RA2: 0x00618BB0; whether a techno is on its move mission with nothing to move to or to attack
 {
 	if (techno->Get_Mission() == MISSION_GUARD_AREA) { // RA2: as above
@@ -2841,6 +2774,72 @@ void __fastcall Planning_Draw_Filled_Techno(TechnoClass * techno)
 	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno)); // RA2: as above
 	if (frame != -1) Planning_Draw_Midpoint_Shape(source, target, path_color, fill, frame); // RA2: as above
 }
+
+int __fastcall Planning_Guard_Frame(TechnoClass * techno);
+
+#ifdef RA2_NON_MATCHING // not exact: 604 of 2230 bytes differ: ra2-decomp's twin text (Yuri's Revenge 0x0063B550) less its separate source point, the popped order copied with =; the twin's frame conditional calls both frame functions and costs two expansions the image has (Planning_Draw_Dot and the lead pixel's conversion). Exact with the guard test written in place (held, owner 2026-11-23: variation_candidates.csv)
+void __fastcall Planning_Draw_Techno(TechnoClass * techno) // RA2: 0x006182F0; ra2-decomp's twin text (Yuri's Revenge 0x0063B550) less its separate source point, with RA2's guard frame read in place
+{
+	PlanningTokenClass * token = techno->Get_Planning_Token();
+	Coord origin = techno->As_Coord();
+	Point2D center = Planning_Coord_Pixel(origin);
+	int color = Planning_Techno_Color(techno);
+	bool has_nodes = Has_Planned_Nodes(token);
+	bool draw_action = Should_Draw_Active_Action(techno, has_nodes);
+	int width = 4;
+	if (token && token->Owner_Is_Mission()) {
+		EventClass packet = token->Popped;
+		Coord coord = Planning_Event_Or_Object_Coord(packet, techno);
+		Point2D target = Planning_Coord_Pixel(coord);
+		Planning_Draw_Dot(center, color);
+		Planning_Draw_Thick_Line(center, target, 3, color);
+		int frame = packet.Get_Event_Frame();
+		if (frame != -1) Planning_Draw_Midpoint(center, target, color);
+		Planning_Draw_Dot(target, color);
+		return;
+	}
+
+	if (draw_action) {
+		bool mega_mission = techno->HaveMegaMission();
+		bool attack_move = techno->HaveAttackMoveTarget();
+		Coord coord = techno->GetAttackCoordinates();
+		Point2D action = Planning_Coord_Pixel(coord);
+		if (techno->IsInLimbo) {
+			Planning_Draw_Dot(action, color);
+			return;
+		}
+		Planning_Draw_Dot(center, color);
+		Planning_Draw_Thick_Line(center, action, 3, color);
+		int frame = (mega_mission && !attack_move) ? Planning_Mega_Frame(techno) : Planning_Guard_Frame(techno);
+		if (frame != -1) Planning_Draw_Midpoint(center, action, color);
+		Planning_Draw_Dot(action, color);
+		if (attack_move) {
+			Coord attack_coord = techno->GetAttackMoveCoords();
+			Point2D dest = Planning_Coord_Pixel(attack_coord);
+			Planning_Draw_Thick_Line(action, dest, 3, color);
+			frame = Planning_Mega_Frame(techno);
+			if (frame != -1) Planning_Draw_Midpoint(action, dest, color);
+			Planning_Draw_Dot(dest, color);
+			return;
+		}
+		if (!has_nodes) return;
+		center = action;
+		width = 3;
+	} else if (!has_nodes) {
+		return;
+	}
+
+	PlanningNodeClass * node = token->Node_At(0);
+	Point2D target = node->Lead_Pixel();
+	PlanningBranchClass * branch = node->Branch_Of(techno);
+	if (branch) target = Planning_Event_Pixel(&branch->Event, techno);
+	Planning_Draw_Dot(center, color);
+	Planning_Draw_Thick_Line(center, target, width, color);
+	if (branch) Planning_Draw_Dot(target, color);
+	int frame = Planned_Waypoint_Frame(node->Get_Event_For(techno));
+	if (frame != -1) Planning_Draw_Midpoint(center, target, color);
+}
+#endif
 
 void __fastcall Planning_Draw_Node(PlanningNodeClass * node) // RA2: 0x00619420; draws the lines from the nodes before this one (and from its own loop) to it as solid lines, and its box
 {
@@ -3031,13 +3030,14 @@ int EventClass::Get_Event_Frame(void) const // RA2: 0x0061A2D0
 
 void __fastcall Planning_Draw_Midpoint(Point2D start, Point2D end, int color) // RA2: 0x0061A2F0; draws a 21 by 21 frame halfway along a line when it is at least 37 pixels long
 {
-	if (Distance(start, end) >= 37) { // RA2: as above
-		int x = (start.X + end.X) / 2 - 10; // RA2: as above
-		int y = (start.Y + end.Y) / 2 - 10; // RA2: as above
-		Rect view = Get_Title_Screen_Area(); // RA2: as above
-		Rect square(x, y, 21, 21); // RA2: as above
-		CompositeSurface->Draw_Rect(view, square, color); // RA2: as above
+	if (Distance(start, end) < 37) {
+		return;
 	}
+	int x = (start.X + end.X) / 2 - 10;
+	int y = (start.Y + end.Y) / 2 - 10;
+	Rect view = Get_Title_Screen_Area();
+	Rect square(x, y, 21, 21);
+	CompositeSurface->Draw_Rect(view, square, color);
 }
 
 void __fastcall Planning_Draw_Midpoint_Shape(Point2D start, Point2D end, int color, int fill, int frame) // RA2: 0x0061A3C0; draws a framed and filled 21 by 21 box halfway along a line when it is at least 37 pixels long, with a cursor shape in it

@@ -4235,3 +4235,79 @@ Found in the rebuild (lane F34, high); nothing landed as bytes, the probes are d
   Wait_For_Players_To_Load 0x65C520 the image's esi, edi, ebp are i, name, held value in falling use count. When two
   register parameters swap homes, count the uses of each in the draft against what the image needs before trying
   shapes; a use the image does not show (a debug stub's argument, an assert) is the usual missing one.
+
+## A callee the image calls from among a unit's inline copies is a refused header inline, reached through an inline wrapper; no debug stub stands behind the empty-site rows (found in the rebuild (lane F35, high))
+
+Found in the rebuild (lane F35, high). The lane tested one question across the rows that are exact once code-free inline
+sites are added (Do_MISSION_GUARD 0x445620, both Tunnel_AI, the ScenarioClass NoInit constructor 0x65B780, netshare
+Scenario_DlgProc, Damage_Low_Bridge, OnChannelJoin): did Westwood's text hold inline calls that compile to nothing and
+that the references dropped?
+
+- No debug or validation construct was found. Searched in the TibSun archive: `assert` is `((void)0)` (assert.h:28) and
+  `BStart`/`BEnd` are empty macros (_bench.h:24), so neither is a site; `Mono_Printf` is `Mono.Printf`; the empty inlines
+  are `DebugString`/`DebugStringNoPrefix` (dbgprint.h:22, variadic, so never expanded: in RA2 every call pushes its
+  arguments and calls 0x4068F0), `Last_Error_Text`, `CargoClass::AI`, `StageClass::AI`, `BuildingClass::Rotation_AI`,
+  the type classes' `Init(TheaterType) {}` and `TerrainTypeClass::One_Time`; none is called in the counterpart of a
+  listed row. The archive marks discarded results where its image showed a call (unit.cpp:346 `Get_Coord()`, which the
+  Tunnel_AI draft already has and which is code-free in RA2 because Get_Coord is no longer virtual; building.cpp:3786
+  and 5929, techno.cpp:2110, infantry.cpp:4245 `height = height`), all in other functions. ra2-decomp's and mischa85's
+  headers hold no further stub; mischa85's Tunnel_AI is the archive's text unmatched and ra2-decomp has none. Do not
+  repeat this search.
+- What was found is a wrapper level. 0x423EF0, which the tree carries as a constructor `DirType(Coord, Coord)` defined in
+  anim.cpp, is the out-of-line copy of face.h's inline `DirType::Direction(Coord const &, Coord const &)`: it lies among
+  anim's inline copies (after `??_GAnimClass`, before a CDTimerClass template constructor), anim's object emits that
+  member byte for byte without the constructor (Flaming_Guy_AI's refused site), and the image calls it seven times, never
+  at root level. A root-level `temp.Direction(a, b)` always expands (one to eight empty sites after it do not refuse it);
+  through Red Alert's inline `ObjectClass::Direction(Coord const &)` (object.h, ABSTRACT.H:115) it is two levels down and
+  is refused as the image has it. So where the image calls a function that sits among a unit's inline copies, look for
+  the inline wrapper that puts the site one level deeper before writing an out-of-line form: `Direction(LastTubeCoord)`
+  in both Tunnel_AI and `LinkedTo->Direction(coord)` in fly Nearing_Target give the image's calls of 0x423EF0. In
+  UnitClass::Tunnel_AI the wrapper accounts for three of lane F34's five empty sites: two are left, anywhere between the
+  first direction and Adjacent_Cell.
+- The constructor is not removed here: without its declaration face.h is ra2-decomp's face.h line for line, and of the
+  212 units that include it only queue changes, where Print_CRCs 0x62A360 (11,223 B, declaration-count sensitive) flips.
+  Recorded for the owner: the row can be bound to `?Direction@DirType@@QAEAAV1@ABVCoord@@0@Z` (`check anim --learn` does
+  it) and the constructor dropped from face.h and anim.cpp whenever Print_CRCs' window allows.
+- A frame map from the compiler's own listing: compile the scratch unit with `/FAs` and an absolute `/Fa` path
+  (build/r/f35/m.py `--fa`); the listing names every frame reference (`_distance$[esp+120]`), and when a probe makes the
+  instructions equal one for one, pairing listing, object and image line by line gives the image's slot for each of our
+  named locals and temporaries (build/r/f35/frame.py). For UnitClass::Tunnel_AI it shows the 8 missing bytes are not a
+  missing local: the image keeps the two `Cell_Coord()` return temporaries in slots of their own (ours shares them with
+  the other temporaries and with the tube's exit), puts `coord` in the exit's slot and the vector of occupiers above it.
+  Empty sites that own a temporary (a discarded `Get_Coord()`, a by-value or const-reference parameter, a local) do not
+  add frame; a file-local inline around each `Map[x].Cell_Coord()` gives 0x70 with another layout and too little
+  budget. The frame is a packing order, not a count.
+- Checked and ruled out for Do_MISSION_GUARD: ra2-decomp's spelling of Is_Techno (`unsigned char flag`, `flag != 0`)
+  changes nothing; an inline `Assign_Mission(mission)` over `QueueMission(mission, false)` (199 of 212 sites pass false)
+  has no out-of-line copy anywhere in the image and is more likely a default argument, which is no site; radio.h's
+  Transmit_Message forms are three virtuals in RA2, no inline wrapper. For the ScenarioClass NoInit constructor the image
+  default-constructs RandomNumber, PauseTimer and the three type lists, so the missing site is not one of their `(x)`
+  initialisers, and SpecialClass has no NoInit constructor in any reference. For Nearing_Target the refused
+  `operator>=` (0x4BFB30, its only call in the image) does not answer to empty sites at three places (1 to 8).
+
+## A twin matched since the last map is the first compile; a helper's nested call is told from a root call by spend probes (found in the rebuild (lane F36, high))
+
+Found in the rebuild (lane F36, high):
+
+- CellClass::Reduce_Tiberium 0x475DB0 (556 B) stood at 397 bytes with a draft that reused the parameter as the result.
+  ra2-decomp matched its identical Yuri's Revenge twin a few hours after the queue's twin map was made; the twin's whole
+  text (a named `reducer` set on both arms, one return) was exact on the first compile. Before working a queue, diff
+  ra2-decomp's data/manifest.csv between the map's commit and its head (`git diff MAPREV HEAD -- data/manifest.csv`):
+  every added line is a row to compile first.
+- ParticleSystemClass::Smoke_AI 0x60BB70: the image calls DynamicVectorClass<ParticleClass *>::Add at two sites and
+  expands it at the third. Spend probes tell where such a call lives: with `new` and Add written in the root, no number
+  of charged pads makes Add a call (a depth-1 site is expanded whatever is left); through the unit's plain member
+  Spawn_Particle, which the compiler expands on its own, the nested Add becomes a call with 20 to 28 pads ahead or 12 or
+  more empty sites after, exactly the image's split. A result the image keeps in a memory local, passes by address and
+  then copies into a second variable is that helper's local and its return value. Look for the unit's own small
+  members (here Spawn_Particle and Spawn_Held_Particle, which the exact Spark_AI and Railgun_AI already use) before
+  reading "called early, expanded late" as a budget of the root's own text.
+- A `shr reg, n; and reg, 1` flag read stored to a byte temporary before its test is the body of an Is_Techno-style
+  accessor (`unsigned char flag = (AbstractFlags >> n) & 1; return(flag != 0);`); `test byte ptr [..], mask` after a null
+  test is cast.h's As_Foot form. The two are different helpers in the same function.
+- OwnerDraw::Owner_Button_Proc 0x5F0320 (same size, 87 masked hunks) has one cause at its first instruction: which of
+  ebx, edi, esi take the previous procedure, the origin's width and its height. The zero register of WM_PAINT, the
+  slot shared by colour and shape and the frame number held in eax all follow from ebx being free there. The origin
+  constructor, declaration orders and extra uses did not move the three.
+- order_search.py needs a units.json row: for a no-row function add an image-derived row in the working copy, run it,
+  and restore units.json.

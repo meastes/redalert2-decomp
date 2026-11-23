@@ -300,7 +300,7 @@ bool BulletClass::Mark(MarkType mark)
  * HISTORY:                                                                                    *
  *   05/02/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0045f710 has no row); against the frozen image bound (image_bounds.csv, 6438+10) 4747 bytes differ; previous 5157. Instruction score 58.70, shape 88.75. Frame 0x170 vs 0x198. Point and velocity helpers still expand at original call sites.
+#ifdef RA2_NON_MATCHING // not exact: 4639 bytes differ at 0045f710 (6438 body bytes, image_bounds.csv).
 #include "ion.h"
 #include "revent.h"
 void BulletClass::AI(void)
@@ -440,9 +440,8 @@ void BulletClass::AI(void)
 		 * rather than the ground it happens to be standing on.
 		 */
 		Coord target_coord = TarCom != NULL ? TarCom->As_Coord() : COORD_NONE;
-		ObjectClass * target = TarCom && (TarCom->AbstractFlags & ABSTRACT_OBJECT) ? (ObjectClass *)TarCom : NULL;
-		if (target != NULL) {
-			target_coord = target->Target_Coord();
+		if (TarCom != NULL && (TarCom->AbstractFlags & ABSTRACT_OBJECT)) {
+			target_coord = ((ObjectClass *)TarCom)->Target_Coord();
 		}
 
 		/*
@@ -459,7 +458,7 @@ void BulletClass::AI(void)
 		 * Allow a sharper turn over the last cell of the approach so that the
 		 * projectile can still catch a target that dodges at the last moment.
 		 */
-		if ((Center_Coord() - target_coord).Length() < CELL_LEPTON) {
+		if (Center_Coord().Distance_To(target_coord) < CELL_LEPTON) {
 			rot *= 1.5;
 		}
 
@@ -470,10 +469,7 @@ void BulletClass::AI(void)
 		 * than hugging the terrain on the way, since there is no ground between
 		 * the two of them that needs clearing.
 		 */
-		int is_aircraft = false;
-		if (TarCom != NULL && TarCom->RTTI == RTTI_AIRCRAFT) {
-			is_aircraft = true;
-		}
+		int is_aircraft = TarCom != NULL && TarCom->RTTI == RTTI_AIRCRAFT ? true : false;
 
 		int distance = Projectile_Motion(coord, velocity, target_coord, DirType((Dir256)(IsLaunching == false ? rot : 0)), (bool &)is_aircraft, Class->IsAirburst, Class->IsVeryHigh, Class->Level); // RA2: the eighth argument (BulletTypeClass +0x26D) is pushed at 0x0045FD0E
 		CellClass * cellptr = &Map[coord];
@@ -533,7 +529,11 @@ void BulletClass::AI(void)
 		 */
 		if (impact == IMPACT_NONE && (cellptr->IsUnderBridge || Map[old_coord].IsUnderBridge)) {
 			int bridge_height = Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT;
-			if (coord.Z > bridge_height && old_coord.Z < bridge_height || coord.Z < bridge_height && old_coord.Z > bridge_height) {
+			if (coord.Z > bridge_height && old_coord.Z < bridge_height) {
+				impact = IMPACT_NORMAL;
+				coord.Z = bridge_height;
+				forced = true;
+			} else if (coord.Z < bridge_height && old_coord.Z > bridge_height) {
 				impact = IMPACT_NORMAL;
 				coord.Z = bridge_height;
 				forced = true;
@@ -570,21 +570,32 @@ void BulletClass::AI(void)
 		}
 
 		if (Class->Vertical) {
-			int speed = (int)Velocity.Speed();
-			if (speed < MaxSpeed) {
-				Velocity.Set_Speed(speed + Class->Acceleration);
+			int current = (int)Velocity.Speed();
+			if (current < MaxSpeed) {
+				Velocity.Set_Speed(Class->Acceleration + current);
 			}
+			TVelocity3D<double> step = Velocity;
+			Coord delta((int)step.X, (int)step.Y, (int)step.Z);
 			Coord old_coord = coord;
-			coord += Coord((int)Velocity.X, (int)Velocity.Y, (int)Velocity.Z);
-			if (coord.Z > Class->DetonationAltitude || HeightAGL < 0) {
+			coord = coord + delta;
+			if (coord.Z > Class->DetonationAltitude) {
+				impact = IMPACT_NORMAL;
+				forced = true;
+			} else if (HeightAGL < 0) {
 				impact = IMPACT_NORMAL;
 				forced = true;
 			} else {
 				int bridge_height = Map.Get_Height_GL(coord) + BRIDGE_LEPTON_HEIGHT;
-				if ((Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) &&
-					((coord.Z >= bridge_height) != (old_coord.Z >= bridge_height))) {
-					impact = IMPACT_NORMAL;
-					forced = true;
+				if (Map[coord].IsUnderBridge || Map[old_coord].IsUnderBridge) {
+					if (coord.Z >= bridge_height) {
+						if (old_coord.Z < bridge_height) {
+							impact = IMPACT_NORMAL;
+							forced = true;
+						}
+					} else if (old_coord.Z >= bridge_height) {
+						impact = IMPACT_NORMAL;
+						forced = true;
+					}
 				}
 			}
 		} else {
@@ -597,7 +608,7 @@ void BulletClass::AI(void)
 			 */
 			velocity.Z -= gravity;
 
-			Coord old_coord(position.X, position.Y, position.Z);
+			Point3D old_coord((int)position.X, (int)position.Y, (int)position.Z);
 			position += velocity;
 
 			Coord new_coord(position.X, position.Y, position.Z);
@@ -660,15 +671,19 @@ void BulletClass::AI(void)
 				}
 			}
 
-			if (do_bounce && (!payback || fell_through_bridge || rose_through_bridge)) {
-				if (fell_through_bridge) {
-					position.Z = bridge_height;
-				} else if (rose_through_bridge) {
-					position.Z = bridge_height - 20;
-				} else if (height - 100 < position.Z) {
-					position.Z = height;
-				}
-				if (!payback) {
+			if (do_bounce) {
+				if (payback == NULL) {
+					if (fell_through_bridge) {
+						position.Z = bridge_height;
+					} else if (rose_through_bridge) {
+						bridge_height -= 20;
+						position.Z = bridge_height;
+					} else {
+						bridge_height = height - 100;
+						if (bridge_height < position.Z) {
+							position.Z = height;
+						}
+					}
 					Matrix3D slope_matrix;
 					Matrix3D slope_matrix_inv;
 					slope_matrix_inv = Matrix3D::Orthogonal_Inverse(
@@ -681,13 +696,21 @@ void BulletClass::AI(void)
 					velocity.X = vec.X;
 					velocity.Y = -vec.Y;
 					velocity.Z = vec.Z;
+				} else {
+					if (fell_through_bridge) {
+						position.Z = bridge_height;
+					} else if (rose_through_bridge) {
+						bridge_height -= 20;
+						position.Z = bridge_height;
+					} else {
+						goto bounced;
+					}
 				}
 				impact = IMPACT_NORMAL;
 				forced = true;
 			}
-			coord.X = (int)position.X;
-			coord.Y = (int)position.Y;
-			coord.Z = (int)position.Z;
+		bounced:
+			coord = Coord((int)position.X, (int)position.Y, (int)position.Z);
 		}
 
 		Cell here = coord.As_Cell();
@@ -711,7 +734,7 @@ void BulletClass::AI(void)
 				bool payback_valid = Payback != NULL;
 				bool is_owner = payback_valid && techno == Payback;
 				bool ally = techno_valid && payback_valid && Payback->House->Is_Ally(techno);
-				bool close = techno_valid && coord.Distance_YZX(techno->PositionCoord) < CELL_LEPTON / 2;
+				bool close = techno_valid && coord.Distance_To(techno->PositionCoord) < CELL_LEPTON / 2;
 				if (!is_owner && !ally && close) {
 					impact = IMPACT_NORMAL;
 					forced = true;
@@ -775,7 +798,8 @@ void BulletClass::AI(void)
 					if (Class_Of() != NULL && !Class_Of()->IsIgnoresFirestorm) {
 						building->Crossing_Firestorm(this, false);
 						Delete_Me();
-						break;
+						LastMapCoords = coord.As_Cell();
+						return;
 					}
 				}
 			}
@@ -824,7 +848,7 @@ void BulletClass::AI(void)
 						Coord midpoint = coord;
 						Coord target_coord = TarCom->As_Coord();
 						midpoint.Z = (midpoint.Z + target_coord.Z) / 2;
-						int target_distance = midpoint.Distance_YZX(target_coord);
+						int target_distance = midpoint.Distance_To(target_coord);
 						if (collided) {
 							target_distance /= 3;
 						}

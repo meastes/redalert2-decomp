@@ -3788,6 +3788,7 @@ inline char const * Sync_Target_Name(AbstractClass * target, int & id)
 	return name;
 }
 
+#ifdef RA2_NON_MATCHING // exact form, count-sensitive (windows and probe in units.json; the coined DirType(Coord, Coord) constructor declaration removed from face.h, owner ruling)
 void __fastcall Print_CRCs(EventClass * event)
 {
 	char filename[0x200];
@@ -4415,6 +4416,7 @@ void __fastcall Print_CRCs(EventClass * event)
 	delete crc;
 	fclose(file);
 }	/* end of Print_CRCs */
+#endif
 
 
 /// <summary>

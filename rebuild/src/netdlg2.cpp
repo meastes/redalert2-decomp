@@ -608,56 +608,64 @@ int Net2GetAccept(char const * who) // RA2: as above
 /// </summary>
 /// <param name="who">The name of the player to adjust.</param>
 /// <returns>Returns with TRUE if the player's house actually changed.</returns>
-#ifdef RA2_NON_MATCHING // not exact: no row of the original matches it yet (unplaced)
 int Net2SetHouseAndColor(char const * who, int house, int color) // RA2: 0x005BCCF0; a player's side and color changed (by the host's message): the lobby dialog's boxes follow
 {
-	int slot = -1; // RA2: as above
-	for (int i = 0; i < 8; i++) { // RA2: as above
-		if (_stricmp(Wide_To_Narrow(Session.Slots[i]->Name), who) == 0) { // RA2: as above
-			slot = i; // RA2: as above
+	int offset = -1;
+	NodeNameType * node;
+	for (int i = 0; i < 8; i++) {
+		node = Session.Slots[i]; // RA2: the entry is named in the search too (the twin reads Session.Slots[i]->Name in place)
+		char * name = Wide_To_Narrow(node->Name);
+		if (_stricmp(name, who) == 0) {
+			offset = i;
 			break;
 		}
 	}
-	int changed = 0; // RA2: as above
-	if (slot == -1) { // RA2: as above
+
+	int retval = 0;
+	if (offset == -1) {
 		return(0);
 	}
-	HWND dialog = WS_Find_Dialog(0xBC); // RA2: as above
-	if (dialog == NULL) { // RA2: as above
-		dialog = WS_Find_Dialog(0xBD); // RA2: as above
+
+	HWND dialog = WS_Find_Dialog(0xbc);
+	if (dialog == NULL) {
+		dialog = WS_Find_Dialog(0xbd);
 	}
-	NodeNameType * node = Session.Slots[slot]; // RA2: as above
-	if (node->Get_Country() != house) { // RA2: as above
-		node->Set_Country(house); // RA2: as above
-		changed = 1; // RA2: as above
+
+	node = Session.Slots[offset];
+	if (node->Get_Country() != house) {
+		retval = 1;
+		node->Set_Country(house);
 	}
-	int side_id = Player_Side_Combo_ID(slot); // RA2: as above
-	bool observer_side = Side_Combo_Data(dialog, side_id, -1) == -3; // RA2: as above
-	if (house == -3) { // RA2: as above
-		if (!observer_side) { // RA2: as above
-			Fill_Observer_Combo(dialog, side_id); // RA2: as above
-			SendMessage(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 1); // RA2: as above
-			int color_id = Player_Color_Combo_ID(slot); // RA2: as above
-			Fill_Random_Color_Combo(dialog, color_id); // RA2: as above
-			Select_Color_Combo(dialog, color_id, 8); // RA2: as above
+
+	int id = Player_Side_Combo_ID(offset);
+	bool random = Side_Combo_Data(dialog, id, -1) == -3;
+	if (house == -3) {
+		if (!random) {
+			Fill_Observer_Combo(dialog, id);
+			int box = Get_Slot_Control_Id(offset);
+			SendMessage(GetDlgItem(dialog, box), 0x4f1, 0, 1);
+			id = Player_Color_Combo_ID(offset);
+			Fill_Random_Color_Combo(dialog, id);
+			Select_Color_Combo(dialog, id, 8);
 		}
-	} else if (observer_side) { // RA2: as above
-		Fill_Side_Combo(dialog, side_id); // RA2: as above
-		SendMessage(GetDlgItem(dialog, Get_Slot_Control_Id(slot)), 0x4F1, 0, 0); // RA2: as above
-		int color_id = Player_Color_Combo_ID(slot); // RA2: as above
-		Fill_Color_Combo(dialog, color_id); // RA2: as above
-		Select_Color_Combo(dialog, color_id, -2); // RA2: as above
+	} else if (random) {
+		Fill_Side_Combo(dialog, id);
+		int box = Get_Slot_Control_Id(offset);
+		SendMessage(GetDlgItem(dialog, box), 0x4f1, 0, 0);
+		id = Player_Color_Combo_ID(offset);
+		Fill_Color_Combo(dialog, id);
+		Select_Color_Combo(dialog, id, -2);
 	}
-	if (Session.Slots[slot]->Get_Color() != color) { // RA2: as above
-		node->Set_Color(color); // RA2: as above
+
+	if (Session.Slots[offset]->Get_Color() != color) {
+		node->Set_Color(color);
 	}
-	if (Session.Slots[slot] == Session.Players[0]) { // RA2: as above
+	if (Session.Slots[offset] == Session.Players[0]) {
 		Session.PrefColor = color;
 	}
-	Net2DisplayUsers();
-	return(changed); // RA2: as above
+	Net2DisplayUsersFull(false);
+	return(retval);
 }
-#endif
 
 
 /// <summary>
@@ -1583,249 +1591,256 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005befe0 has no row); main: best 85.37
+#ifdef RA2_NON_MATCHING // not exact: 61 of 2507 bytes differ (image-derived bound 005befe0-005bf9ab): ra2-decomp's twin text (Yuri's Revenge 0x005DE520) with RA2's statements; message and lparam take each other's registers (ebx, edi) and nothing else differs; the pair turns with lparam's use in the set-up case's Options_Dialog_Proc call and with the order of pt.x/pt.y (lane F33, 2026-11-23)
 LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BEFE0; the lobby dialog of the host
 {
-	if (message != 0x497) { // RA2: as above
-		Options_Dialog_Proc(window, message, wparam, lparam); // RA2: as above
+	if (message != 0x497) {
+		Options_Dialog_Proc(window, message, wparam, lparam);
 	}
-	int scenario = Session.Options.ScenarioIndex; // RA2: as above
+
 	switch (message) {
-	case WM_DESTROY:
-		if (Progress.Has_Dialog()) { // RA2: as above
-			Progress.Clear_Dialog(); // RA2: as above
-		}
-		return(0);
-	case WM_PAINT:
-		Dialog_On_WM_PAINT(window); // RA2: as above
-		if (MultiplayerMapPreview != NULL) {
-			MultiplayerMapPreview->Blit_Preview(window);
-		}
-		if (Progress.Has_Dialog()) { // RA2: as above
-			Progress.Display_Progress(Point2D(-1, -1)); // RA2: as above
-		}
-		Slide_Pending_Dialog(window); // RA2: as above
-		ValidateRect(window, NULL);
-		return(0);
-	case WM_ERASEBKGND:
-		return(1);
-	case WM_DRAWITEM:
-		Dialog_On_WM_DRAWITEM(lparam); // RA2: as above
-		return(1);
-	case WM_NCHITTEST: { // the tool tip of the control under the cursor // RA2: as above
-		HWND tip = GetDlgItem(window, 0x695); // RA2: as above
-		if (tip != NULL) { // RA2: as above
-			RECT rect; // RA2: as above
-			GetWindowRect(window, &rect); // RA2: as above
-			POINT point; // RA2: as above
-			point.x = (lparam & 0xFFFF) - rect.left; // RA2: as above
-			point.y = ((unsigned long)lparam >> 16) - rect.top; // RA2: as above
-			wchar_t const * text = L""; // RA2: as above
-			HWND control = ChildWindowFromPointEx(window, point, 1); // RA2: as above
-			if (control != NULL) { // RA2: as above
-				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, control); // RA2: as above
-				if (label != NULL) { // RA2: as above
-					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2704); // RA2: as above
+		case WM_NCHITTEST: { // RA2: the tool tip of the control under the cursor
+			HWND tip = GetDlgItem(window, 0x695);
+			if (tip == NULL) {
+				break;
 				}
-			}
-			SendMessage(tip, 0x4B2, 0, (LPARAM)text); // RA2: as above
-		}
-		return(0);
-	}
-	case 0x49B: // the text of the edit control that was asked for // RA2: as above
-		SendMessage(GetDlgItem(window, wparam), 0x4B3, 0x7F, lparam); // RA2: as above
-		return(0);
-	case 0x114: // RA2: as above
-	case 0x115: // RA2: as above
-		if (!Net2OptionsLocked) { // RA2: as above
-			Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, 0x529, 0x400, 0, 0); // RA2: as above
-			Session.Options.Credits = SendDlgItemMessage(window, 0x402, 0x400, 0, 0); // RA2: as above
-			Session.Options.UnitCount = SendDlgItemMessage(window, 0x54F, 0x400, 0, 0); // RA2: as above
-		}
-		return(0);
-	case 0x4E9: { // the tool tip text of a combo box item // RA2: as above
-		ToolTipTextRequest * request = (ToolTipTextRequest *)lparam; // RA2: as above
-		request->Text = NULL; // RA2: as above
-		if (request->Window != NULL) { // RA2: as above
-			if (request->Item == -1) { // RA2: as above
-				return(1);
-			}
-			int id = GetDlgCtrlID(request->Window); // RA2: as above
-			if (Control_Slot(id) == -1) { // RA2: as above
-				if (Side_Combo_Player(id) == -1) { // RA2: as above
-					if (Color_Combo_Player(id) == -1) { // RA2: as above
-						return(1);
+			POINT pt;
+			pt.x = LOWORD(lparam);
+			pt.y = HIWORD(lparam);
+			RECT rect;
+			GetWindowRect(window, &rect);
+			pt.x -= rect.left;
+			pt.y -= rect.top;
+			wchar_t const * text = L"";
+			HWND child = ChildWindowFromPointEx(window, pt, CWP_SKIPINVISIBLE);
+			if (child) {
+				char const * label = OwnerDraw::Control_Tooltip_Label((unsigned int)window, child);
+				if (label) {
+					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2704);
 					}
-					request->Text = Color_Name(Color_Combo_Data(window, id, request->Item)); // RA2: as above
+				}
+			SendMessage(tip, 0x4b2, 0, (LPARAM)text);
+			break;
+			}
+
+		case WM_DRAWITEM:
+			Dialog_On_WM_DRAWITEM(lparam);
+			return(1);
+
+		case WM_PAINT:
+			Dialog_On_WM_PAINT(window);
+			if (MultiplayerMapPreview) {
+				MultiplayerMapPreview->Blit_Preview(window);
+			}
+			if (Progress.Has_Dialog()) {
+				Progress.Display_Progress();
+			}
+			Slide_Pending_Dialog(window);
+			ValidateRect(window, NULL);
+			break;
+
+		case WM_DESTROY:
+			if (Progress.Has_Dialog()) {
+				Progress.Clear_Dialog();
+			}
+			break;
+
+		case WM_COMMAND:
+			switch (LOWORD(wparam)) {
+				case IDCANCEL:
+					if (Net2OptionsLocked) {
+						break;
+					}
+					if (MultiplayerMapPreview) {
+						delete MultiplayerMapPreview;
+						MultiplayerMapPreview = NULL;
+					}
+					Save_Lobby_Options(window, &Session.LAN);
+					_netresponse = IDCANCEL;
+					break;
+
+				case 0x411: case 0x412: case 0x413: case 0x414: case 0x415: case 0x416: case 0x417: case 0x418:
+					if (HIWORD(wparam) != 1) {
+						break;
+					}
+					if (Net2OptionsLocked) {
+						break;
+					}
+					if (Is_Host()) {
+						int node = Combo_Selected_Data(window, LOWORD(wparam), -1);
+						Change_Slot_Type(window, LOWORD(wparam), node, 2);
+					}
+					break;
+
+				case 0x540:
+					Limit_Name_Text((HWND)lparam);
+					if (HIWORD(wparam) == EN_MAXTEXT) {
+						Send_Chat_Message(window, ColorMe, ColorUser);
+					}
+					break;
+
+				case 0x588:
+					EnableWindow(GetDlgItem(window, 0x588), FALSE);
+					Net2OptionsLocked = true;
+					Save_Lobby_Options(window, &Session.LAN);
+					_netresponse = 0x588;
+					break;
+
+				case 0x510: case 0x513: case 0x514:
+				case 0x51e: case 0x51f: case 0x520: case 0x521:
+				case 0x6a1:
+					if (HIWORD(wparam) == 1 && !Net2OptionsLocked) {
+						Set_Slot_Country(window, LOWORD(wparam));
+						Send_Lobby_Options(true, false);
+						Net2DisplayUsersFull(false);
+					}
+					break;
+
+				case 0x522: case 0x523: case 0x524: case 0x525: case 0x526: case 0x527: case 0x528:
+				case 0x6a2:
+					if (HIWORD(wparam) == 1 && !Net2OptionsLocked) {
+						Set_Slot_Color(window, LOWORD(wparam));
+						Send_Lobby_Options(true, false);
+						Net2DisplayUsersFull(false);
+					}
+					break;
+
+				case 0x5aa: { // RA2: choose another map
+					if (Net2OptionsLocked) {
+						break;
+					}
+					int scenario = Session.Options.ScenarioIndex;
+					bool was_skirmish = (Session.MPGameMode == NULL) || Session.MPGameMode->IsSkirmishAllowed();
+					bool was_observer = (Session.MPGameMode == NULL) || Session.MPGameMode->vt_entry_A0();
+					OwnerDraw::WS_Save_Dialog_Values(window);
+					ShowWindow(window, SW_HIDE);
+					IsRandomMap = false;
+					if (Scenario_Dialog(MainWindow) == 2) {
+						Session.Options.ScenarioIndex = scenario;
+						Set_Scenario_Info_From_Index(scenario);
+						Update_Network_Dialog_Preview(window);
+						IsRandomMap = true;
+						ShowWindow(window, SW_SHOW);
+						Load_Random_Map_Preview(window);
+						Send_Lobby_Options(true, false);
+						InvalidateRect(window, NULL, FALSE);
+						break;
+					}
+					if (!Set_Scenario_Info_From_Index(Session.Options.ScenarioIndex)) {
+						Session.Options.ScenarioIndex = scenario;
+					} else {
+						Change_Scenario_Slots(window, scenario, Session.Options.ScenarioIndex);
+					}
+					IsRandomMap = true;
+					ShowWindow(window, SW_SHOW);
+					Set_Skirmish_Dialog_Text(window);
+					Load_Random_Map_Preview(window);
+					bool is_skirmish = (Session.MPGameMode == NULL) || Session.MPGameMode->IsSkirmishAllowed();
+					bool is_observer = (Session.MPGameMode == NULL) || Session.MPGameMode->vt_entry_A0();
+					if (was_observer && !is_observer) {
+						Clear_Observer_Slots(window);
+					}
+					if (was_skirmish && !is_skirmish && Reset_AI_Slots(window)) {
+						Session.Options.AIPlayers = 0;
+						Send_Slot_Names();
+						Net2DisplayUsersFull(false);
+						Send_Lobby_Options(true, false);
+						break;
+					}
+					Net2DisplayUsersFull(true);
+					break;
+				}
+
+				default:
+					return(0);
+			}
+			break;
+
+		case 0x497: {
+			VerNum.Init_Clipping();
+			srand(NonCriticalRandomNumber(1, 0x7fff));
+			Seed = rand();
+			Center_Window_Within_Window(window);
+			Fill_Side_Combos(window);
+			Init_Color_Entries();
+			Fill_Color_Combos(window);
+			Select_Player_Side(window, Session.LocalSlot);
+			Select_Player_Color(window, Session.LocalSlot);
+			Net2DisplayUsersFull(false);
+			Load_Lobby_Options(window, &Session.LAN);
+			if (Session.MPGameMode && !Session.MPGameMode->vt_entry_A0()) {
+				LobbyObserverSlot = -1;
+				ObserverMode = 0;
+				Update_Observer_Buttons(NULL);
+				Session.Slots[0]->Slot.SpectatorFlag = 0;
+				Session.Slots[0]->Set_Country(Session.MPGameMode->DefaultCountry());
+				Session.Slots[0]->Set_Color(-2);
+				Fill_Color_Combos(window);
+			}
+			Update_Slot_Controls(window, 0, true);
+			Change_Scenario_Slots(window, -1, Session.Options.ScenarioIndex);
+			if (LobbyObserverSlot == 0 && Session.MPGameMode && Session.MPGameMode->vt_entry_A0()) {
+				Session.Slots[0]->Set_Country(-3);
+				Session.Slots[0]->Slot.SpectatorFlag = -1;
+			}
+			Refresh_Slot_Images(window);
+			Set_Item_Text(window, Session.MPGameMode);
+			Set_Skirmish_Dialog_Text(window);
+			Load_Random_Map_Preview(window);
+			Options_Dialog_Proc(window, 0x497, wparam, lparam);
+			Net2DisplayGameList();
+			break;
+			}
+
+		case WM_HSCROLL:
+		case WM_VSCROLL:
+			if (Net2OptionsLocked) {
+				break;
+			}
+			Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, 0x529, 0x400, 0, 0);
+			Session.Options.Credits = SendDlgItemMessage(window, 0x402, 0x400, 0, 0);
+			Session.Options.UnitCount = SendDlgItemMessage(window, 0x54f, 0x400, 0, 0);
+			break;
+
+		case 0x49b: { // RA2: the text of the edit control that was asked for
+			HWND item = GetDlgItem(window, wparam);
+			SendMessage(item, 0x4b3, 0x7f, lparam);
+			return(0);
+			}
+
+		default:
+			return(0);
+
+		case 0x4ec:
+			Dialog_On_OD_4EC(window);
+			break;
+
+		case 0x4e9: { // RA2: the tool tip text of a combo box item
+			ToolTipTextRequest * request = (ToolTipTextRequest *)lparam;
+			request->Text = (wchar_t const *)NULL;
+			if (request->Window && request->Item != -1) {
+				int id = GetDlgCtrlID(request->Window);
+				if (Control_Slot(id) == -1) {
+					if (Side_Combo_Player(id) == -1) {
+						if (Color_Combo_Player(id) != -1) {
+							request->Text = Color_Name(Color_Combo_Data(window, id, request->Item));
+						}
+					} else {
+						int side = Side_Combo_Data(window, id, request->Item);
+						if (side != -1) {
+							request->Text = Side_Name(side);
+						}
+					}
 				} else {
-					int side = Side_Combo_Data(window, id, request->Item); // RA2: as above
-					if (side == -1) { // RA2: as above
-						return(1);
-					}
-					request->Text = Side_Name(side); // RA2: as above
+					request->Text = Entry_Type_Name((NodeNameType *)Combo_Selected_Data(window, id, request->Item));
 				}
-			} else {
-				request->Text = Entry_Type_Name((NodeNameType *)Combo_Selected_Data(window, id, request->Item)); // RA2: as above
 			}
-		}
-		return(1);
+			}
+
+		case WM_ERASEBKGND:
+			return(1);
 	}
-	case 0x4EC: // RA2: as above
-		Dialog_On_OD_4EC(window); // RA2: as above
-		return(0);
-	case 0x497: // RA2: as above
-		VerNum.Init_Clipping();
-		srand(NonCriticalRandomNumber(1, 0x7FFF));
-		Seed = rand();
-		Center_Window_Within_Window(window);
-		Fill_Side_Combos(window); // RA2: as above
-		Init_Color_Entries(); // RA2: as above
-		Fill_Color_Combos(window); // RA2: as above
-		Select_Player_Side(window, 0); // RA2: as above
-		Select_Player_Color(window, 0); // RA2: as above
-		Net2DisplayUsers();
-		Load_Lobby_Options(window, &Session.LAN); // RA2: as above
-		if (Session.MPGameMode != NULL && !Session.MPGameMode->vt_entry_A0()) { // RA2: as above
-			LobbyObserverSlot = -1; // RA2: as above
-			ObserverMode = 0; // RA2: as above
-			Update_Observer_Buttons(NULL); // RA2: as above
-			Session.Slots[0]->Slot.SpectatorFlag = 0; // RA2: as above
-			Session.Slots[0]->Set_Country(Session.MPGameMode->DefaultCountry()); // RA2: as above
-			Session.Slots[0]->Set_Color(-2); // RA2: as above
-			Fill_Color_Combos(window); // RA2: as above
-		}
-		Update_Slot_Controls(window, 0, true); // RA2: as above
-		Change_Scenario_Slots(window, -1, Session.Options.ScenarioIndex); // RA2: as above
-		if (LobbyObserverSlot == 0 && Session.MPGameMode != NULL && Session.MPGameMode->vt_entry_A0()) { // RA2: as above
-			Session.Slots[0]->Set_Country(-3); // RA2: as above
-			Session.Slots[0]->Slot.SpectatorFlag = -1; // RA2: as above
-		}
-		Refresh_Slot_Images(window); // RA2: as above
-		Set_Item_Text(window, Session.MPGameMode); // RA2: as above
-		Set_Skirmish_Dialog_Text(window); // RA2: as above
-		Load_Random_Map_Preview(window); // RA2: as above
-		Options_Dialog_Proc(window, 0x497, wparam, lparam); // RA2: as above
-		Net2DisplayGameList();
-		return(0);
-	case WM_COMMAND:
-		switch ((unsigned short)wparam) { // RA2: as above
-		case 2: // RA2: as above
-			if (!Net2OptionsLocked) { // RA2: as above
-				if (MultiplayerMapPreview != NULL) {
-					delete MultiplayerMapPreview;
-					MultiplayerMapPreview = NULL;
-				}
-				Save_Lobby_Options(window, &Session.LAN); // RA2: the dialog and the LAN options are passed (the function takes both)
-				_netresponse = 2;
-			}
-			return(0);
-		case 0x540: // RA2: as above
-			Limit_Name_Text((HWND)lparam); // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 0x501) { // RA2: as above
-				Send_Chat_Message(window, 0xF0F0, ColorUser); // RA2: as above
-			}
-			return(0);
-		case 0x588: // RA2: as above
-			EnableWindow(GetDlgItem(window, 0x588), FALSE); // RA2: as above
-			Net2OptionsLocked = true; // RA2: as above
-			Save_Lobby_Options(window, &Session.LAN); // RA2: the dialog and the LAN options are passed (the function takes both)
-			_netresponse = 0x588; // RA2: as above
-			return(0);
-		case 0x5AA: { // choose another map // RA2: as above
-			if (Net2OptionsLocked) { // RA2: as above
-				return(0);
-			}
-			bool was_skirmish = Session.MPGameMode == NULL || Session.MPGameMode->IsSkirmishAllowed(); // RA2: as above
-			bool was_observer = Session.MPGameMode == NULL || Session.MPGameMode->vt_entry_A0(); // RA2: as above
-			OwnerDraw::WS_Save_Dialog_Values(window); // RA2: as above
-			ShowWindow(window, SW_HIDE);
-			IsRandomMap = false;
-			if (Scenario_Dialog(MainWindow) == 2) {
-				Session.Options.ScenarioIndex = scenario; // RA2: as above
-				Set_Scenario_Info_From_Index(scenario); // RA2: as above
-				Update_Network_Dialog_Preview(window);
-				IsRandomMap = true;
-				ShowWindow(window, SW_SHOW);
-				Load_Random_Map_Preview(window); // RA2: as above
-				Send_Lobby_Options(true, false); // RA2: as above
-				InvalidateRect(window, NULL, FALSE);
-				return(0);
-			}
-			if (Set_Scenario_Info_From_Index(Session.Options.ScenarioIndex)) { // RA2: as above
-				Change_Scenario_Slots(window, 0, Session.Options.ScenarioIndex); // RA2: as above
-				scenario = Session.Options.ScenarioIndex; // RA2: as above
-			}
-			Session.Options.ScenarioIndex = scenario; // RA2: as above
-			IsRandomMap = true;
-			ShowWindow(window, SW_SHOW);
-			Set_Skirmish_Dialog_Text(window); // RA2: as above
-			Load_Random_Map_Preview(window); // RA2: as above
-			bool is_skirmish = Session.MPGameMode == NULL || Session.MPGameMode->IsSkirmishAllowed(); // RA2: as above
-			bool is_observer = Session.MPGameMode == NULL || Session.MPGameMode->vt_entry_A0(); // RA2: as above
-			if (was_observer && !is_observer) { // RA2: as above
-				Clear_Observer_Slots(window); // RA2: as above
-			}
-			if (!was_skirmish || is_skirmish || !Reset_AI_Slots(window)) { // RA2: as above
-				Net2DisplayUsers();
-				return(0);
-			}
-			Session.PrecalcMaxAhead = 0;
-			GlobalPacketType packet;
-			memset(&packet, 0, sizeof(packet)); // RA2: as above
-			packet.Command = NET_COMMAND_16; // RA2: as above
-			strcpy(packet.Name, Session.Handle);
-			Get_Slot_Names(packet.Slots.Names); // RA2: as above
-			for (int i = 1; i < Session.Players.Count(); i++) {
-				Ipx.Send_Global_Message(&packet, sizeof(packet), 1, &Session.Players[i]->Address); // RA2: as above
-				Call_Back();
-			}
-			Net2DisplayUsers();
-			Send_Lobby_Options(true, false); // RA2: as above
-			return(0);
-		}
-		case 0x510: // RA2: as above
-		case 0x513: // RA2: as above
-		case 0x514: // RA2: as above
-		case 0x51E: // RA2: as above
-		case 0x51F: // RA2: as above
-		case 0x520: // RA2: as above
-		case 0x521: // RA2: as above
-		case 0x6A1: // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 1 && !Net2OptionsLocked) { // RA2: as above
-				Set_Slot_Country(window, (unsigned short)wparam); // RA2: as above
-				Send_Lobby_Options(true, false); // RA2: as above
-				Net2DisplayUsers();
-			}
-			return(0);
-		case 0x522: // RA2: as above
-		case 0x523: // RA2: as above
-		case 0x524: // RA2: as above
-		case 0x525: // RA2: as above
-		case 0x526: // RA2: as above
-		case 0x527: // RA2: as above
-		case 0x528: // RA2: as above
-		case 0x6A2: // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 1 && !Net2OptionsLocked) { // RA2: as above
-				Set_Slot_Color(window, (unsigned short)wparam); // RA2: as above
-				Send_Lobby_Options(true, false); // RA2: as above
-				Net2DisplayUsers();
-			}
-			return(0);
-		case 0x411: // RA2: as above
-		case 0x412: // RA2: as above
-		case 0x413: // RA2: as above
-		case 0x414: // RA2: as above
-		case 0x415: // RA2: as above
-		case 0x416: // RA2: as above
-		case 0x417: // RA2: as above
-		case 0x418: // RA2: as above
-			if ((unsigned short)(wparam >> 16) == 1 && !Net2OptionsLocked && Is_Host()) { // RA2: as above
-				Change_Slot_Type(window, (unsigned short)wparam, Combo_Selected_Data(window, (unsigned short)wparam, -1), 2); // RA2: as above
-			}
-			return(0);
-		}
-		return(0);
-	}
+
 	return(0);
 }
 #endif

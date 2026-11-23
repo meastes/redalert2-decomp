@@ -1361,14 +1361,14 @@ void InfantryClass::Assign_Target(AbstractClass * target)
 /// cell process so that it rejoins the world properly. Anything standing in the way of
 /// the exit is told to scatter first.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1825 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1840 B), 2026-11-23 (lane F34): both directions through RA2's DirType(Coord, Coord) constructor 0x423EF0, copy-initialised (the image's two calls of it); left: the first distance's TPoint3D operator- is a call in the image, and two TPoint3D constructor calls of the image are expanded here (the stepped coordinate; UnitClass::Tunnel_AI's `Coord delta` and sum give those calls but another block order). Same budget question as UnitClass::Tunnel_AI 0x6FAA30
+#ifdef RA2_NON_MATCHING // not exact: 1846 bytes differ against the image-derived bound 005025c0 (1876 B; ours 1936 B), 2026-11-23 (lane F35): both directions through Red Alert's inline ObjectClass::Direction(Coord const &) (object.h; ABSTRACT.H:115), from which the image calls the out-of-line copy of face.h's DirType::Direction 0x423EF0 as it does here; left: the first distance's TPoint3D operator- is a call in the image (expanded here with its constructor called), and two TPoint3D constructor calls of the image are expanded here (the stepped coordinate; UnitClass::Tunnel_AI's `Coord delta` and sum give those calls but another block order). Scratch: no count of empty sites after the distance gives the image's calls (1 to 3 none, 4 to 6 refuse operator- and expand Length, 10 refuse the constructors as well). Same budget question as UnitClass::Tunnel_AI 0x6FAA30
 void InfantryClass::Tunnel_AI(void)
 {
 	bool finished = Tubes[CurrentTube]->Dirs[CurrentTubeDir] == FACING_NONE;
 	if (!finished) {
 		int distance = Distance(LastTubeCoord);
 		TubeClass * tube = Tubes[CurrentTube];
-		DirType direction = DirType(Center_Coord(), LastTubeCoord);
+		DirType direction = Direction(LastTubeCoord);
 		int speed = Class->MaxSpeed;
 
 		int height_step;
@@ -1392,7 +1392,7 @@ void InfantryClass::Tunnel_AI(void)
 				LastTubeCoord = LastTubeCoord + ((TPoint2D<int> const &)Map[coord].Cell_Coord() - (TPoint2D<int> const &)Map[LastTubeCoord].Cell_Coord());
 				LastTubeCoord.Z += height_step;
 
-				DirType dir = DirType(Center_Coord(), LastTubeCoord);
+				DirType dir = Direction(LastTubeCoord);
 				Coord new_coord = Move_Coord(PositionCoord, dir, speed - distance);
 				double divisor;
 				if (tube_dir % 2) {

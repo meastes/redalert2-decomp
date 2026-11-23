@@ -2704,9 +2704,9 @@ Coord CellClass::Cell_Coord(void) const
  * HISTORY:                                                                                    *
  *   09/19/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00475db0 has no row); main: best 76.76, tried 7 times (register, frame, order)
 int CellClass::Reduce_Tiberium(int levels)
 {
+	int reducer = 0;
 	Rect dirty = Union(Overlay_Render_Rect(), Overlay_Shadow_Render_Rect());
 	dirty.Y -= TacticalRect.Y;
 
@@ -2719,26 +2719,25 @@ int CellClass::Reduce_Tiberium(int levels)
 		}
 		if (OverlayData+1 > levels) {
 			OverlayData -= levels;
+			reducer = levels;
 		} else {
-			levels = OverlayData; // RA2: the cell gives up what it had: the amount is returned in the parameter itself
+			reducer = OverlayData; // RA2: the cell gives up what it had
 			Overlay = OVERLAY_NONE;
 			OverlayData = 0;
 			Recalc_Attributes(); // RA2: no passability comparison and no zone update afterwards
 			Map.Flag_Background_Update(CellID);
 			tiberium->Clear_Spread_State(CellID);
 			for (int facing = FACING_FIRST; facing < FACING_COUNT; facing++) {
-				Cell adjacent = (Cell)::Adjacent_Cell(CellID, (FacingType)facing);
+				Cell adjacent = ::Adjacent_Cell(CellID, (FacingType)facing);
 				if (Map.In_Radar(adjacent) && !tiberium->SpreadState[Map_Cell_Index(adjacent)]) {
 					tiberium->Queue_Spread(adjacent);
 				}
 			}
 		}
 		TacticalMap->Register_Dirty_Area(dirty);
-		return(levels); // RA2: the parameter holds the amount actually removed
 	}
-	return(0);
+	return(reducer);
 }
-#endif
 
 
 

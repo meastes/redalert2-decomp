@@ -1094,7 +1094,7 @@ bool FlyLocomotionClass::Process_Landing(void)
 /// </summary>
 /// <param name="stage_approach">Should the approach speed and turret aim be staged for arrival?</param>
 /// <returns>Returns with the distance remaining to the destination.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1441 bytes differ (DirType's operator>= inline where the original calls it; frame 0x44 against 0x2c)
+#ifdef RA2_NON_MATCHING // not exact: 1456 bytes differ (DirType's operator>= inline where the original calls it; frame 0x34 against 0x2c), 2026-11-23 (lane F35): the first direction through Red Alert's inline ObjectClass::Direction(Coord const &), from which the image calls DirType::Direction 0x423EF0 as it does here
 int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 {
 	LinkedTo->Get_Cell(); // RA2: the cell is fetched and not used
@@ -1138,7 +1138,7 @@ int FlyLocomotionClass::Nearing_Target(bool stage_approach, CoordStruct coord)
 	 * Turn the body of the aircraft to face the destination coordinate.
 	 */
 	if (flyctrl == NULL || !flyctrl->Is_Locked()) {
-		DirType dir(LinkedTo->Center_Coord(), coord); // RA2: the coordinate constructor in anim.cpp
+		DirType dir = LinkedTo->Direction(coord); // RA2: ObjectClass::Direction (the image calls DirType::Direction 0x423EF0 from it)
 
 		bool turn = true;
 		if (flyctrl != NULL && flyctrl->Is_Strafe()) {
