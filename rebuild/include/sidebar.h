@@ -141,7 +141,7 @@ class SidebarClass : public PowerClass
 		void Start_Tab_Flash(int tab); // RA2: 0x67DC00
 		bool Stop_Tab_Flash(int tab); // RA2: 0x67DC70
 		int First_Used_Column(void); // RA2: 0x681980; the first strip that holds something, or -1
-		int Get_Row_Count(void); // RA2: 0x6820A0; the rows of cameos that fit
+		int Max_Visible(void); // RA2: 0x6820A0; the rows of cameos that fit
 		int Get_Doubled_Row_Count(void); // RA2: 0x6820F0; two cameos to a row
 		static int __fastcall Cameos_Width(int count); // RA2: 0x67E640
 		static int __fastcall Cameos_Height(int count); // RA2: 0x67E650

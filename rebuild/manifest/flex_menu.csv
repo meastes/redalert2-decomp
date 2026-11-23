@@ -24,14 +24,15 @@ netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv:
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,,,B,structure,no,2468
 ownrdraw,005ee460,Control_Proc,7252,no_row,4898,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
-ownrdraw,005f2b50,Static_Proc,4512,no_row,,a,"variation_candidates.csv: codex1 r2701 (refs/c1pk/r2701, 3fb22e013c): StaticRecord view removed, but its fields moved into ownrdraw.h WinData as anonymous unions over the existing Animat",,yes,,,,,,,
+ownrdraw,005f2b50,Static_Proc,4512,no_row,,a,"variation_candidates.csv: codex1 r2703 (refs/c1pk/r2703, 89cb227e56): WinData plain members for +0x58..+0x60, +0x78..+0xAC, +0xB4/+0xB8 (one declaration each), ControlAnimationState and ",,yes,,,,,,,
 ownrdraw,005fee70,Dialog_On_WM_PAINT,1281,inline_call,536,a,variation_candidates.csv: main's coined callee declarations / helpers,,yes,,,,B,structure,not tested,1281
 planmgr,00617340,Planning_Left_Press,818,no_row,17,a,"variation_candidates.csv: file-local Find_Node_At written as a plain for loop (for (int i = 0; i < count; i++) { node = nodes[i]; if (node->Hit_Test(point.X, point.Y)) return node; }) in",,yes,,,,,,,
 saveload,006558b0,Put_All,4055,exact_when_open,,a,"variation_candidates.csv: main's empty-inline DebugString lines (6 to 20 of the archive's `Saving ...` / FAILED lines, a budget form)",b,yes,guard-open exact (not probed),unknown until probed,,,,,
 score,00663fe0,ScoreClass::Presentation,7782,register_order,279,a,variation_candidates.csv: Score_Object_Not_Present written bool done = ScoreObjs.ID(obj) == -1 ? true : false; return(done); (TibSun: if (ScoreObjs.ID(obj) == -1) return(true); return(fa,,yes,,,,C,strictness,yes,7782
 sidebar,0067dc90,SidebarClass::AI,1315,inline_body,480,a,"variation_candidates.csv: lane F33's coined form (no reference has it): the file inline Bottom_Extra() written with an if and two returns in place of its conditional expression, and Stri",,yes,,,,E,,not tested,1315
+sidebar,0067e210,SidebarClass::Activate,1067,no_row,58,a,"variation_candidates.csv: 8 to 12 dead locals in the function (`int p = 0;`), or 3 to 6 in SidebarClass::Max_Visible: a count calibration, no reference has them",,yes,,,,,,,
 sidebar,0067f800,SidebarClass::StripClass::Draw_It,2760,register_order,6,a,"variation_candidates.csv: main's open-coded hicolor packing with chosen channel orders (outline Green|Red|Blue from a by-value RGBClass copy, text Red|Blue|Green from TooltipColor) in pl",,yes,,,,A,structure,no,2760
-sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,4,a,variation_candidates.csv: split assignment SidebarRect.X = TacticalRect.X; SidebarRect.X += TacticalRect.Width; (ra2-decomp's twin writes the single sum; main's row was count_calibrated),,yes,,,,C,strictness,no,1314
+sidebar,006819a0,SidebarClass::Reposition_Sidebar,1314,register_order,54,a,variation_candidates.csv: split assignment SidebarRect.X = TacticalRect.X; SidebarRect.X += TacticalRect.Width; (ra2-decomp's twin writes the single sum; main's row was count_calibrated),,yes,,,,C,strictness,no,1314
 skirmish,006829f0,Skirmish_On_WM_COMMAND,3264,inline_call,2819,a,variation_candidates.csv: main's hypothesized Get_Item wrapper with its row helper and looked-up locals; codex1 r2686 (results only),,yes,,,,D,structure,not tested,3264
 startup,0068e280,WinMain,10076,inline_call,7223,a,"variation_candidates.csv: main's text: coined inline helpers Init_Mouse, Init_Language and Read_Destination_Network (TibSun writes the DestNet scan, LANGUAGE.MIX and WWMouseClass stateme",,yes,,,,A,structure,no,10076
 strtable,006f8e30,StringTable::LoadFile,1134,inline_call,783,a,"variation_candidates.csv: main's coined Open_File / Close_File wrappers (one of two fopen sites, three fclose sites)",,yes,,,,A,structure,yes,1134
@@ -78,9 +79,6 @@ house,004f6e60,?Clear@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingType
 house,004f6ea0,?ID@?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEHPBV?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 house,004f88a0,??_G?$DynamicVectorClass@V?$DistributionObject@PAVBuildingTypeClass@@@?$DiscreteDistributionClass@VBuildingTypeClass@@@@@@UAEPAXI@Z,84,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 map,0056a9f0,??4AbstractClass@@QAEAAV0@ABV0@@Z,39,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-map,0056ace0,?Clear@?$DynamicVectorClass@W4PassabilityType@@@@UAEXXZ,42,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-map,0056ad10,?ID@?$DynamicVectorClass@W4PassabilityType@@@@UAEHPBW4PassabilityType@@@Z,27,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
-map,0056ad30,?GetItem@?$VectorClass@W4PassabilityType@@@@UBE?AW4PassabilityType@@H@Z,13,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,0058db80,??4?$DynamicVectorClass@H@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,0058dc70,??0?$TypeList@PBVBuildingTypeClass@@@@QAE@XZ,34,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,0058dca0,??4?$DynamicVectorClass@PBVBuildingTypeClass@@@@QAEAAV0@ABV0@@Z,132,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
@@ -130,8 +128,6 @@ wonline,00767cf0,?getPointer@?$Dictionary@VWstring@@UChannel@WOL@@@@QAEDABVWstri
 wonline,00768290,?growVector@?$ArrayList@H@@AAEDXZ,143,exact_when_open,,b,exact with every guard of the unit open,,yes,guard-open exact (not probed),unknown until probed,,,,,
 mapgen,00586b40,MapGeneratorClass::Create_Urban_Area,1913,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration,,,,,
 wonline,0073ccb0,Encode_Game_Options,797,count_sensitive,,c,exact under a declaration-count window (units.json count_sensitive),,yes,exact form parked count-sensitive,a count-holding declaration,,,,,
-map,0056c870,??_G?$VectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,,,,,,
-map,0056c8c0,??_G?$DynamicVectorClass@W4PassabilityType@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,,,,,,
 netshare,005cd770,??0?$DynamicVectorClass@PBVMultiMission@@@@QAE@IPBQBVMultiMission@@@Z,93,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,,,,,,
 netshare,005cd900,??_G?$VectorClass@PBVMultiMission@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,,,,,,
 netshare,005cd950,??_G?$DynamicVectorClass@PBVMultiMission@@@@UAEPAXI@Z,73,unbound,,d,binding allowance: differs only at references this check has not bound,,yes,,,,,,,
@@ -181,16 +177,15 @@ map,,MapClass::Smoothen_Ice_Edge,0,unplaced,,e,no row of the original matches th
 map,,MapClass::Smoothen_Ice_Shore,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 map,,MapClass::Subzone_Span,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 map,,MapClass::Terrain_Deformation_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-map,0054ebd0,MapClass::Zone_Reset,1646,no_row,12,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+map,0054ebd0,MapClass::Zone_Reset,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 map,0054fda0,MapClass::Compute_Zone_Connections,804,no_row,main best 62.12%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 map,0055def0,MapClass::Damage_Low_Bridge_EW,1302,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 map,0055e410,MapClass::Damage_Low_Bridge_NS,1302,no_row,main best 98.73%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-map,0055f020,MapClass::Damage_Low_Bridge2_EW,1308,no_row,5,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-map,0055f540,MapClass::Damage_Low_Bridge2_NS,1308,no_row,5,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+map,0055f020,MapClass::Damage_Low_Bridge2_EW,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
+map,0055f540,MapClass::Damage_Low_Bridge2_NS,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 map,00563d80,MapClass::Reset_Subzone,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 map,00569320,MapClass::Can_Repair_Bridge,2109,no_row,1332,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 map,0056aa20,??Y?$TPoint2D@F@@QAEABV0@ABV0@@Z,23,no_draft,,e,no draft yet,,no,,,,,,,
-map,0056be10,?Resize@?$DynamicVectorClass@W4PassabilityType@@@@UAE_NHPBW4PassabilityType@@@Z,176,inline_call,,e,stays a flagged draft,,yes,,,,D,structure,not tested,176
 mapgen,,MapGeneratorClass::Generate_Crystals,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 mapgen,,MapGeneratorClass::Generate_Mold,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 mapgen,,MapGeneratorClass::Generate_Swamp,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -207,7 +202,7 @@ mapgen,,MapSeedClass::Set_Scroll_Bar,0,unplaced,,e,no row of the original matche
 mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,555,e,stays a flagged draft,,yes,,,,A,structure,no,1678
 mapgen,0056ef20,MapRegionClass::Split_Region,4012,no_row,1285,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 mapgen,00576420,Generate_Starting_Points,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
-mapgen,00579960,MapGeneratorClass::Read_RMG_INI,1897,no_row,main best 61.57%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+mapgen,00579960,MapGeneratorClass::Read_RMG_INI,1897,no_row,1429,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 mapgen,0057d3a0,MapGeneratorClass::Spread_Land,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 missile,,Projectile_Motion,0,unplaced,1332,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 missile,005940b0,??HDirType@@QBE?AV0@ABV0@@Z,28,no_draft,,e,no draft yet,,no,,,,,,,
@@ -252,7 +247,6 @@ sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original m
 sidebar,,SidebarClass::Activate_Upgrade,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Reload_Sidebar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Which_Column,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-sidebar,0067e210,SidebarClass::Activate,1067,no_row,main best 99.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 sidebar,006802d0,SidebarClass::StripClass::Recalc,1732,no_row,1660,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 sidebar,00682520,Leaf_682520::get,29,no_draft,,e,no draft yet,,no,,,,,,,
 srfcache,0068cce0,SurfaceCacheClass::Draw,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
@@ -298,14 +292,14 @@ wonline,00766dc0,WolChannelArray::Shrink_00766dc0,150,no_draft,,e,no draft yet,,
 wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
-(total),,flex a: 44 functions,150688,,,a,,,,,,,,,,
-(total),,flex b: 79 functions,6060,,,b,,,,,,,,,,
+(total),,flex a: 45 functions,151755,,,a,,,,,,,,,,
+(total),,flex b: 76 functions,5978,,,b,,,,,,,,,,
 (total),,flex c: 2 functions,2710,,,c,,,,,,,,,,
-(total),,flex d: 6 functions,458,,,d,,,,,,,,,,
-(total),,flex e: 162 functions,78492,,,e,,,,,,,,,,
-(total),,no draft yet: 49 functions,1805,,,e,,,no,,,,,,,
-(gap),,80 functions,10624,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
+(total),,flex d: 4 functions,312,,,d,,,,,,,,,,
+(total),,flex e: 160 functions,72987,,,e,,,,,,,,,,
+(total),,no draft yet: 52 functions,1805,,,e,,,no,,,,,,,
+(gap),,77 functions,10528,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,2 functions,2720,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,
-(gap),,82 functions,13344,,,,,,,total: function-level minus whole-unit,,,,,,
+(gap),,79 functions,13248,,,,,,,total: function-level minus whole-unit,,,,,,
 (gap),,0 functions,0,,,,,,,exact but unbound / data not bound,an unverified reference,,,,,
-(not counted),,7 functions,1925,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference,,,,,
+(not counted),,5 functions,1779,unbound,,,,,,differ only at unbound references: counted at neither level,an unverified reference,,,,,

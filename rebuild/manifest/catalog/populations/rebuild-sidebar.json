@@ -149,7 +149,7 @@
     "?Remove_Buttons@StripClass@SidebarClass@@QAEXXZ": 6810016,
     "?Turn_On@ToggleClass@@QAEXXZ": 7254368,
     "?Add_Buttons@StripClass@SidebarClass@@QAEXXZ": 6809840,
-    "?Get_Row_Count@SidebarClass@@QAEHXZ": 6824096,
+    "?Max_Visible@SidebarClass@@QAEHXZ": 6824096,
     "?IsToBlitSidebar@SidebarClass@@2_NA": 11259268,
     "?Get_Doubled_Row_Count@SidebarClass@@QAEHXZ": 6824176,
     "?Remove_A_Button@GScreenClass@@UAE_NAAVGadgetClass@@@Z": 5114624,
@@ -368,9 +368,6 @@
     "?Is_Scrolling@MapClass@@UBE_NXZ": 4844816,
     "?Put_Place_Back@DisplayClass@@UAEXPAVTechnoClass@@@Z": 4247840,
     "??0SidebarClass@@QAE@ABVNoInitClass@@@Z": 6797232,
-    "?Reposition_Sidebar@PowerClass@@UAEXXZ": 6410544,
-    "?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6409264,
-    "??_GPowerClass@@UAEPAXI@Z": 6410784,
     "?Init_For_House@RadarClass@@UAEXXZ": 6484752,
     "?DisposeOfArt@RadarClass@@UAEXXZ": 6484496,
     "?Reposition_Sidebar@RadarClass@@UAEXXZ": 6489808,
@@ -380,6 +377,9 @@
     "?Init_Clear@RadarClass@@UAEXXZ": 6484576,
     "?One_Time@RadarClass@@UAEXXZ": 6484336,
     "??_GRadarClass@@UAEPAXI@Z": 6507216,
+    "?Reposition_Sidebar@PowerClass@@UAEXXZ": 6410544,
+    "?AI@PowerClass@@UAEXAAW4KeyNumType@@ABVPoint2D@@@Z": 6409264,
+    "??_GPowerClass@@UAEPAXI@Z": 6410784,
     "?RevealFogShroud@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@_N@Z": 4825024,
     "?Map_Cell@DisplayClass@@UAE_NABVCell@@PAVHouseClass@@@Z": 4823984,
     "?Reposition_Sidebar@DisplayClass@@UAEXXZ": 4843472,
@@ -467,8 +467,8 @@
     "?ID@?$VectorClass@VCell@@@@UAEHPBVCell@@@Z": 4378672,
     "?Resize@?$DynamicVectorClass@VCell@@@@UAE_NHPBVCell@@@Z": 4378704,
     "?ID@?$DynamicVectorClass@VCell@@@@UAEHABVCell@@@Z": 4378912,
-    "??_G?$DynamicVectorClass@VPoint2D@@@@UAEPAXI@Z": 5974096,
     "??_G?$VectorClass@VPoint2D@@@@UAEPAXI@Z": 5974016,
+    "??_G?$DynamicVectorClass@VPoint2D@@@@UAEPAXI@Z": 5974096,
     "?Clear@?$DynamicVectorClass@VPoint2D@@@@UAEXXZ": 5969632,
     "?ID@?$DynamicVectorClass@VPoint2D@@@@UAEHPBVPoint2D@@@Z": 5969680,
     "?GetItem@?$VectorClass@VPoint2D@@@@UBE?AVPoint2D@@H@Z": 5969712,
@@ -545,7 +545,7 @@
           "resolved": 11245204
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6795968,
@@ -612,7 +612,7 @@
           "resolved": 11245216
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796000,
@@ -663,7 +663,7 @@
           "resolved": 11258960
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796048,
@@ -714,7 +714,7 @@
           "resolved": 11258848
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796080,
@@ -765,7 +765,7 @@
           "resolved": 11258840
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796112,
@@ -816,7 +816,7 @@
           "resolved": 11245224
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796144,
@@ -867,7 +867,7 @@
           "resolved": 11244664
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796176,
@@ -950,7 +950,7 @@
           "resolved": 11259064
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796208,
@@ -1009,7 +1009,7 @@
           "resolved": 11245232
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796272,
@@ -1068,7 +1068,7 @@
           "resolved": 11258832
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796320,
@@ -1127,7 +1127,7 @@
           "resolved": 11258952
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796368,
@@ -1170,7 +1170,7 @@
           "resolved": 11245210
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796416,
@@ -1221,7 +1221,7 @@
           "resolved": 11258824
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796432,
@@ -1296,7 +1296,7 @@
           "resolved": 1078448
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796464,
@@ -1355,7 +1355,7 @@
           "resolved": 4293213058
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796512,
@@ -1414,7 +1414,7 @@
           "resolved": 1078390
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796544,
@@ -1473,7 +1473,7 @@
           "resolved": 4294941618
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796576,
@@ -1532,7 +1532,7 @@
           "resolved": 1078326
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796608,
@@ -1591,7 +1591,7 @@
           "resolved": 4294941554
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796640,
@@ -1650,7 +1650,7 @@
           "resolved": 1078247
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796672,
@@ -1709,7 +1709,7 @@
           "resolved": 4294941462
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796720,
@@ -1768,7 +1768,7 @@
           "resolved": 1078166
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796768,
@@ -1827,7 +1827,7 @@
           "resolved": 4294941394
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796800,
@@ -1886,7 +1886,7 @@
           "resolved": 1078102
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796832,
@@ -1945,7 +1945,7 @@
           "resolved": 4294941330
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796864,
@@ -2012,7 +2012,7 @@
           "resolved": 1077998
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796896,
@@ -2071,7 +2071,7 @@
           "resolved": 4293212582
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6796976,
@@ -2114,7 +2114,7 @@
           "resolved": 8041204
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797024,
@@ -2189,7 +2189,7 @@
           "resolved": 11971
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797056,
@@ -2320,7 +2320,7 @@
           "resolved": 8041480
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797232,
@@ -2346,7 +2346,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797440,
@@ -2405,7 +2405,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797456,
@@ -2448,7 +2448,7 @@
           "resolved": 11918
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797488,
@@ -2699,7 +2699,7 @@
           "resolved": 11259264
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797584,
@@ -2822,7 +2822,7 @@
           "resolved": 11259252
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6797920,
@@ -3433,7 +3433,7 @@
           "resolved": 10908
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798032,
@@ -4012,7 +4012,7 @@
           "resolved": 11259180
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6798736,
@@ -4391,7 +4391,7 @@
           "resolved": 4294938802
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799296,
@@ -4442,7 +4442,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799616,
@@ -4549,7 +4549,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6799696,
@@ -4592,7 +4592,7 @@
           "resolved": 4293281431
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800080,
@@ -4643,7 +4643,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800144,
@@ -4694,7 +4694,7 @@
           "resolved": 4293281119
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800240,
@@ -4720,7 +4720,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800464,
@@ -4746,7 +4746,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800576,
@@ -4919,7 +4919,7 @@
         {
           "offset": 598,
           "kind": 20,
-          "symbol": "?Get_Row_Count@SidebarClass@@QAEHXZ",
+          "symbol": "?Max_Visible@SidebarClass@@QAEHXZ",
           "target": 6824096,
           "addend": 0,
           "resolved": 22806
@@ -5053,7 +5053,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6800688,
@@ -5232,7 +5232,7 @@
           "resolved": 4293208129
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801488,
@@ -5443,7 +5443,7 @@
           "resolved": 4293207824
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6801680,
@@ -5888,7 +5888,7 @@
         {
           "offset": 729,
           "kind": 20,
-          "symbol": "?Get_Row_Count@SidebarClass@@QAEHXZ",
+          "symbol": "?Max_Visible@SidebarClass@@QAEHXZ",
           "target": 6824096,
           "addend": 0,
           "resolved": 21363
@@ -6014,7 +6014,7 @@
           "resolved": 4293206936
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802000,
@@ -6081,7 +6081,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6802896,
@@ -6140,7 +6140,7 @@
           "resolved": 11259236
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803088,
@@ -6855,7 +6855,7 @@
           "resolved": 8624476
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6803328,
@@ -7370,7 +7370,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6804512,
@@ -7645,7 +7645,7 @@
           "resolved": 4293203921
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805472,
@@ -7992,7 +7992,7 @@
           "resolved": 4293203297
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6805904,
@@ -8067,7 +8067,7 @@
           "resolved": 4293274941
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806528,
@@ -8110,7 +8110,7 @@
           "resolved": 4294932091
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6806640,
@@ -8145,7 +8145,7 @@
           "resolved": 8440
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6808000,
@@ -8180,7 +8180,7 @@
           "resolved": 11259240
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809152,
@@ -8215,7 +8215,7 @@
           "resolved": 11259244
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809168,
@@ -8290,7 +8290,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809184,
@@ -8341,7 +8341,7 @@
           "resolved": 11244672
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809376,
@@ -8384,7 +8384,7 @@
           "resolved": 10748732
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809408,
@@ -8419,7 +8419,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809456,
@@ -8518,7 +8518,7 @@
           "resolved": 8600128
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809568,
@@ -8625,7 +8625,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6809840,
@@ -8708,7 +8708,7 @@
           "resolved": 4293271786
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810016,
@@ -8791,7 +8791,7 @@
           "resolved": 1067737
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810144,
@@ -8842,7 +8842,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6810896,
@@ -8909,7 +8909,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811120,
@@ -8968,7 +8968,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811232,
@@ -9027,7 +9027,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811376,
@@ -9086,7 +9086,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811504,
@@ -9129,7 +9129,7 @@
           "resolved": 4293269856
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811696,
@@ -9653,7 +9653,7 @@
           "resolved": 6812702
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6811728,
@@ -9832,7 +9832,7 @@
           "resolved": 11244676
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813056,
@@ -9939,7 +9939,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813312,
@@ -10022,7 +10022,7 @@
           "resolved": 4293268310
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813488,
@@ -10057,7 +10057,7 @@
           "resolved": 4293107987
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6813632,
@@ -10100,7 +10100,7 @@
           "resolved": 8041340
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818208,
@@ -10126,7 +10126,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818256,
@@ -11681,7 +11681,7 @@
           "resolved": 4292878023
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6818288,
@@ -11772,7 +11772,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821376,
@@ -11847,7 +11847,7 @@
           "resolved": 11259268
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821456,
@@ -11882,7 +11882,7 @@
           "resolved": 10751300
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821520,
@@ -11925,7 +11925,7 @@
           "resolved": 4294040466
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821552,
@@ -11969,7 +11969,7 @@
           "resolved": 4293259902
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821584,
@@ -11995,7 +11995,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821680,
@@ -12038,7 +12038,7 @@
           "resolved": 6
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821696,
@@ -12129,7 +12129,7 @@
           "resolved": 8614851
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6821840,
@@ -12172,7 +12172,7 @@
           "resolved": 10751304
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822064,
@@ -12208,7 +12208,7 @@
           "resolved": 4293303350
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822096,
@@ -12234,7 +12234,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822208,
@@ -12261,7 +12261,7 @@
         "/Gr"
       ],
       "relocations": [],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6822272,
@@ -12544,7 +12544,7 @@
           "resolved": 4294956281
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6823632,
@@ -12560,8 +12560,8 @@
       "full_extent_sha256": "6e540f67b5461c9a98d0cf32893d6af6bfbe4bc1f6130512c5f956fec686d815",
       "padding_sha256": "aff312c80e826834eed3e424180d0b1150cd49ab4454e19d6d9cd884a2178915",
       "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
-      "symbol": "?Get_Row_Count@SidebarClass@@QAEHXZ",
-      "symbol_prefix": "?Get_Row_Count@SidebarClass@@QAEHXZ",
+      "symbol": "?Max_Visible@SidebarClass@@QAEHXZ",
+      "symbol_prefix": "?Max_Visible@SidebarClass@@QAEHXZ",
       "options": [
         "/O2",
         "/Ob2",
@@ -12603,7 +12603,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824096,
@@ -12662,7 +12662,7 @@
           "resolved": 8623652
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824176,
@@ -12833,7 +12833,7 @@
           "resolved": 4292543001
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824256,
@@ -12868,7 +12868,7 @@
           "resolved": 4294642006
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824592,
@@ -12904,7 +12904,7 @@
           "resolved": 4294642534
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824608,
@@ -13020,7 +13020,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824624,
@@ -13055,7 +13055,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6824960,
@@ -13098,7 +13098,7 @@
           "resolved": 1046758
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825024,
@@ -13141,7 +13141,7 @@
           "resolved": 1046726
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825056,
@@ -13176,7 +13176,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825088,
@@ -13235,7 +13235,7 @@
           "resolved": 1046623
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825120,
@@ -13278,7 +13278,7 @@
           "resolved": 7989532
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825200,
@@ -13330,7 +13330,7 @@
           "resolved": 8023976
         }
       ],
-      "source_sha256": "cab9a4458b7b7ec967b14240e35be7f9d846f0fbc1ac1ef22911cb849f5c5661",
+      "source_sha256": "43685de51b7d38ae1f0d2b0787151074c8719278a8a60787d44e55f81918ddcd",
       "source": "rebuild/src/sidebar.cpp",
       "population": "rebuild-sidebar",
       "source_order": 6825344,

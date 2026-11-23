@@ -134866,7 +134866,7 @@
     "entry": "006820a0",
     "body": 67,
     "padding": 13,
-    "symbol": "?Get_Row_Count@SidebarClass@@QAEHXZ",
+    "symbol": "?Max_Visible@SidebarClass@@QAEHXZ",
     "main_symbol": "?Unknown_006820A0@SidebarClass@@QAEHXZ",
     "main_source": "src/recovered/sidebar.cpp"
    },
@@ -136024,6 +136024,15 @@
     "main_source": "src/recovered/map.cpp"
    },
    {
+    "entry": "0054ebd0",
+    "body": 1646,
+    "padding": 2,
+    "symbol": "?Zone_Reset@MapClass@@QAEHXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0054f240",
     "body": 16,
     "padding": 0,
@@ -136808,6 +136817,24 @@
     "symbol": "?Damage_Low_Bridge2@MapClass@@QAE_NABVCell@@@Z",
     "main_symbol": "?Unknown_0055EDB0@MapClass@@QAE_NABVCell@@@Z",
     "main_source": "src/recovered/map.cpp"
+   },
+   {
+    "entry": "0055f020",
+    "body": 1308,
+    "padding": 4,
+    "symbol": "?Damage_Low_Bridge2_EW@MapClass@@AAE_NABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
+    "entry": "0055f540",
+    "body": 1308,
+    "padding": 4,
+    "symbol": "?Damage_Low_Bridge2_NS@MapClass@@AAE_NABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
    },
    {
     "entry": "0055fa60",
@@ -138098,7 +138125,9 @@
    "?Resize@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAE_NHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": "0056c6d0",
    "?Clear@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEXXZ": "0056c7d0",
    "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHABU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": "0056c800",
-   "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": "0056c840"
+   "?ID@?$VectorClass@U?$HashObject@IUSubzoneConnectionStruct@@@@@@UAEHPBU?$HashObject@IUSubzoneConnectionStruct@@@@@Z": "0056c840",
+   "??_7?$DynamicVectorClass@W4PassabilityType@@@@6B@": "007a5ab8",
+   "??_7?$VectorClass@W4PassabilityType@@@@6B@": "007a5a98"
   },
   "partial_ok": true
  },

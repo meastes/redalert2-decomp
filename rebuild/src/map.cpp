@@ -268,31 +268,7 @@ double Random_Fraction(void);
 
 
 
-/// <summary>
-/// RA2
-/// </summary>
-static inline void Reveal_Radius(int & height, int & radius) // RA2: as above
-{
-	if (radius > 11) { // RA2: as above
-		radius = 11; // RA2: as above
-	} else if (radius < 3) { // RA2: as above
-		radius = 3; // RA2: as above
-	}
 
-	if (height < 0) { // RA2: as above
-		height = 0; // RA2: as above
-		goto base; // RA2: as above
-	}
-	if (height > 8) { // RA2: as above
-		height = 8; // RA2: as above
-	}
-	if (height == 0) { // RA2: as above
-base: // RA2: as above
-		radius = MapClass::RadiusCount[radius]; // RA2: as above
-	} else {
-		radius = MapClass::RadiusCount[radius] - MapClass::RadiusCount[height - 1]; // RA2: as above
-	}
-}
 
 
 
@@ -3318,7 +3294,6 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
  * HISTORY:                                                                                    *
  *   09/22/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); 12 of 1646 bytes differ against main's function-map extent, 2026-11-23 (lane F40): ra2-decomp's matched twin text (8a10b56: the continue, the second bucket loop as a for over Count(), the n loop); left: the home slots of this and zone_degree and their two reloads after the neighbour loop come in the other order
 int MapClass::Zone_Reset(void)
 {
 	int i;
@@ -3487,7 +3462,6 @@ int MapClass::Zone_Reset(void)
 
 	return(bestzone);
 }
-#endif
 
 
 /// <summary>
@@ -9637,46 +9611,43 @@ bool MapClass::Damage_Low_Bridge2(Cell const & cell) // RA2: 0x55EDB0, as Damage
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f020 has no row); main: best 98.73, tried 4 times (inline, frame); 5 of 1308 bytes differ against the frozen image bound (image_bounds.csv): the load order of the two right edges in the expanded Union, 2026-11-22 (lane F22)
 bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Damage_Low_Bridge_EW for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
-	CellClass * cellptr2 = &Map[cell - Cell(0, 1)]; // RA2: as above
+	CellClass * cellptr2 = &Map[cell + Cell(0, -1)]; // RA2: as above
 	CellClass * cellptr3 = &Map[cell + Cell(0, 1)]; // RA2: as above
 
 	OverlayType otype = cellptr1->Overlay; // RA2: as above
-	bool kill = false; // RA2: as above
 	bool didwork = false; // RA2: as above
 
 	Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect()); // RA2: as above
 	Rect recalc_rect(0, 0, 0, 0); // RA2: as above
 
 	do { // RA2: as above
-		if (otype == 0xDF) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE0; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE0; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE0; // RA2: as above
-			Damage_Low_Bridge2_Piece_EW(cell - Cell(1, 0)); // RA2: as above
-		} else if (otype == 0xE1) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE2; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE2; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE2; // RA2: as above
+		if (otype == OVERLAY_LOWBRIDGE2_19) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 19); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 19); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 19); // RA2: as above
+			Damage_Low_Bridge2_Piece_EW(cell + Cell(-1, 0)); // RA2: as above
+		} else if (otype == OVERLAY_LOWBRIDGE2_21) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 21); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 21); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 21); // RA2: as above
 			Damage_Low_Bridge2_Piece_EW(cell + Cell(1, 0)); // RA2: as above
-		} else if (otype < 0xD3) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xD3; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xD3; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xD3; // RA2: as above
-			Damage_Low_Bridge2_Piece_EW(cell - Cell(1, 0)); // RA2: as above
+		} else if (otype < (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 6)) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 6); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 6); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 6); // RA2: as above
+			Damage_Low_Bridge2_Piece_EW(cell + Cell(-1, 0)); // RA2: as above
 			Damage_Low_Bridge2_Piece_EW(cell + Cell(1, 0)); // RA2: as above
-		} else if (otype < 0xD6) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE7; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE7; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE7; // RA2: as above
+		} else if (otype < OVERLAY_LOWBRIDGE2_10) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 26); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 26); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 26); // RA2: as above
 			Map.Radar_Background(cellptr2->CellID); // RA2: as above
 			Map.Radar_Background(cellptr3->CellID); // RA2: as above
 			Map.Radar_Background(cellptr1->CellID); // RA2: as above
-			kill = true; // RA2: as above
-			Damage_Low_Bridge2_Piece_EW(cell - Cell(1, 0)); // RA2: as above
+			Damage_Low_Bridge2_Piece_EW(cell + Cell(-1, 0)); // RA2: as above
 			Damage_Low_Bridge2_Piece_EW(cell + Cell(1, 0)); // RA2: as above
 			Spring_Low_Bridge2_Destroyed_EW(cell); // RA2: as above
 			didwork = true; // RA2: as above
@@ -9706,49 +9677,45 @@ bool MapClass::Damage_Low_Bridge2_EW(Cell const & cell) // RA2: 0x55F020, as Dam
 
 	return(didwork); // RA2: as above
 }
-#endif
 
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0055f540 has no row); main: best 98.73, tried 4 times (inline, frame); 5 of 1308 bytes differ against the frozen image bound (image_bounds.csv): the load order of the two right edges in the expanded Union, 2026-11-22 (lane F22)
 bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Damage_Low_Bridge_NS for the second low bridge kind
 {
 	CellClass * cellptr1 = &Map[cell]; // RA2: as above
-	CellClass * cellptr2 = &Map[cell - Cell(1, 0)]; // RA2: as above
+	CellClass * cellptr2 = &Map[cell + Cell(-1, 0)]; // RA2: as above
 	CellClass * cellptr3 = &Map[cell + Cell(1, 0)]; // RA2: as above
 
 	OverlayType otype = cellptr1->Overlay; // RA2: as above
-	bool kill = false; // RA2: as above
 	bool didwork = false; // RA2: as above
 
 	Rect draw_rect = Union(cellptr1->Overlay_Render_Rect(), cellptr1->Overlay_Shadow_Render_Rect()); // RA2: as above
 	Rect recalc_rect(0, 0, 0, 0); // RA2: as above
 
 	do { // RA2: as above
-		if (otype == 0xE3) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE4; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE4; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE4; // RA2: as above
+		if (otype == OVERLAY_LOWBRIDGE2_23) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 23); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 23); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 23); // RA2: as above
 			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, 1)); // RA2: as above
-		} else if (otype == 0xE5) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE6; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE6; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE6; // RA2: as above
-			Damage_Low_Bridge2_Piece_NS(cell - Cell(0, 1)); // RA2: as above
-		} else if (otype < 0xDC) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xDC; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xDC; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xDC; // RA2: as above
-			Damage_Low_Bridge2_Piece_NS(cell - Cell(0, 1)); // RA2: as above
+		} else if (otype == OVERLAY_LOWBRIDGE2_25) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 25); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 25); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 25); // RA2: as above
+			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, -1)); // RA2: as above
+		} else if (otype < (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 15)) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 15); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 15); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 15); // RA2: as above
+			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, -1)); // RA2: as above
 			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, 1)); // RA2: as above
-		} else if (otype < 0xDF) { // RA2: as above
-			cellptr2->Overlay = (OverlayType)0xE8; // RA2: as above
-			cellptr3->Overlay = (OverlayType)0xE8; // RA2: as above
-			cellptr1->Overlay = (OverlayType)0xE8; // RA2: as above
+		} else if (otype < OVERLAY_LOWBRIDGE2_19) { // RA2: as above
+			cellptr2->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 27); // RA2: as above
+			cellptr3->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 27); // RA2: as above
+			cellptr1->Overlay = (OverlayType)(OVERLAY_LOWBRIDGE2_01 + 27); // RA2: as above
 			Map.Radar_Background(cellptr2->CellID); // RA2: as above
 			Map.Radar_Background(cellptr3->CellID); // RA2: as above
 			Map.Radar_Background(cellptr1->CellID); // RA2: as above
-			kill = true; // RA2: as above
-			Damage_Low_Bridge2_Piece_NS(cell - Cell(0, 1)); // RA2: as above
+			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, -1)); // RA2: as above
 			Damage_Low_Bridge2_Piece_NS(cell + Cell(0, 1)); // RA2: as above
 			Spring_Low_Bridge2_Destroyed_NS(cell); // RA2: as above
 			didwork = true; // RA2: as above
@@ -9778,7 +9745,6 @@ bool MapClass::Damage_Low_Bridge2_NS(Cell const & cell) // RA2: 0x55F540, as Dam
 
 	return(didwork); // RA2: as above
 }
-#endif
 
 
 void MapClass::Spring_Low_Bridge2_Destroyed_NS(Cell cell) // RA2: 0x55FA60, as Spring_Low_Bridge_Destroyed_NS for the second low bridge kind
@@ -14258,130 +14224,6 @@ DynamicVectorClass<SubzoneConnectionStruct>::DynamicVectorClass(unsigned size, S
 
 
 template<>
-bool VectorClass<PassabilityType>::Resize(int newsize, PassabilityType const * array)
-{
-	if (newsize) {
-
-		/*
-		**	Allocate a new vector of the size specified. The default constructor
-		**	will be called for every object in this vector.
-		*/
-		PassabilityType * newptr;
-
-		/*
-		**	Either create a new memory block for the object array or initialize
-		**	an existing block as indicated by the array parameter. When creating a new
-		**	memory block, flag that the vector object is currently in an invalid
-		**	state. This is necessary because the default constructor for the object
-		**	elements may look to the vector to fetch their ID number.
-		*/
-		IsValid = false;
-		if (!array) {
-			newptr = new PassabilityType[newsize];
-		} else {
-			newptr = new ((void *)array) PassabilityType[newsize];
-		}
-		IsValid = true;
-		if (!newptr) {
-			return(false);
-		}
-
-		/*
-		**	If there is an old vector, then it must be copied (as much as is feasible)
-		**	to the new vector.
-		*/
-		if (Vector != NULL) {
-
-			/*
-			**	Copy as much of the old vector into the new vector as possible. This
-			**	presumes that there is a functional assignment operator for each
-			**	of the objects in the vector.
-			*/
-			int copycount = (newsize < VectorMax) ? newsize : VectorMax;
-			for (int index = 0; index < copycount; index++) {
-				newptr[index] = Vector[index];
-			}
-
-			/*
-			**	Delete the old vector. This might cause the destructors to be called
-			**	for all of the old elements. This makes the implementation of suitable
-			**	assignment operator very important. The default assignment operator will
-			**	only work for the simplest of objects.
-			*/
-			if (IsAllocated) {
-				delete[] Vector;
-				Vector = 0;
-			}
-		}
-
-		/*
-		**	Assign the new vector data to this class.
-		*/
-		Vector = newptr;
-		VectorMax = newsize;
-		IsAllocated = (Vector && !array);
-
-	} else {
-
-		/*
-		**	Resizing to zero is the same as clearing the vector.
-		*/
-		Clear();
-	}
-	return(true);
-}
-
-template<>
-void VectorClass<PassabilityType>::Clear(void)
-{
-	if (Vector && IsAllocated) {
-		delete[] Vector;
-		Vector = 0;
-	}
-	IsAllocated = false;
-	VectorMax = 0;
-}
-
-
-template<>
-bool VectorClass<PassabilityType>::operator == (VectorClass<PassabilityType> const & vector) const
-{
-	if (VectorMax == vector.Length()) {
-		for (int index = 0; index < VectorMax; index++) {
-			if (Vector[index] != vector[index]) {
-				return(false);
-			}
-		}
-		return(true);
-	}
-	return(false);
-}
-
-template<>
-int VectorClass<PassabilityType>::ID(PassabilityType const & object)
-{
-	if (!IsValid) return(0);
-
-	for (int index = 0; index < VectorMax; index++) {
-		if ((*this)[index] == object) {
-			return(index);
-		}
-	}
-	return(-1);
-}
-
-
-template<>
-int DynamicVectorClass<PassabilityType>::ID(PassabilityType const & object)
-{
-	for (int index = 0; index < Count(); index++) {
-		if ((*this)[index] == object) return(index);
-	}
-	return(-1);
-}
-
-
-template<>
 bool DynamicVectorClass<SUBZONE_CONNECTION_HASH_SET::ObjectType>::Add(SUBZONE_CONNECTION_HASH_SET::ObjectType const & object)
 {
 	if (ActiveCount >= Length()) {
@@ -14411,13 +14253,6 @@ bool DynamicVectorClass<SUBZONE_CONNECTION_HASH_SET::ObjectType>::Add(SUBZONE_CO
 	return(true);
 }
 
-
-template<>
-int VectorClass<PassabilityType>::ID(PassabilityType const * ptr)
-{
-	if (!IsValid) return(0);
-	return(((unsigned int)ptr - (unsigned int)&(*this)[0]) / sizeof(PassabilityType));
-}
 
 template<>
 bool HashTableClass<unsigned int, SubzoneConnectionStruct>::Add_Object(int bucket_index, ObjectType const & object)

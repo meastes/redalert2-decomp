@@ -4715,3 +4715,52 @@ Found in the rebuild (lane F47, high); one header form and one row landed:
   each inferred address against symbols.csv and use the definition's name.
 - A count-sensitive row later in the unit (Trackbar_Proc 0x5FB270) went off and came back while the opened function's
   prototypes changed. Check the unit's whole row list after the last text change, not after the row turns exact.
+
+## A twin's member can be the text the tree already has; an operand order that differs between two expansions of one member in one function is a count of assignments, the unit's other functions included (found in the rebuild (lane F48, high))
+
+Found in the rebuild (lane F48, high); one name landed, no row:
+
+- Read a twin's commit against the tree before pricing it. ra2-decomp d27b937 put the sidebar's row counts behind
+  the TibSun members; its Max_Visible (the side read, an if/else local, one sum) was already the tree's
+  Get_Row_Count 0x6820A0, so what the commit gave was the name. Its body for the doubled count (the whole chain
+  again, `/ 50 * 2`) is a Yuri's Revenge difference: RA2's Add 0x67C530 expands the doubled member and calls
+  0x6820A0 inside it, so RA2's calls Max_Visible. A member the image calls from inside another member's
+  expansion fixes the nesting of the outer one.
+- One sum, two orders in one function. SidebarClass::Activate 0x67E210 expands the row sum three times; the if
+  arm's two copies subtract StripTop first, the else arm's copy subtracts the side's extra first and keeps StripTop
+  in a scratch register. No form of the member can do that, and none did: term orders, a nested if-and-return
+  helper, the flag in a local, the twin's written-out loops with `Max_Visible() * 2` all leave the same three
+  instructions. A conditional-expression inline gives the order with other registers. When copies of one
+  expansion disagree inside one function, stop varying the helper.
+- The ruler that moved it is a dead initialised local: `int p = 0;`, k of them at the top of the function.
+  Activate is exact for k = 8..12, or with 3..6 of them inside Max_Visible (three expansions). Uninitialised
+  declarations count nothing, nor do forward declarations ahead of the function, nor lane F32's dead reads of
+  distinct static addresses, nor an inline's parameters (`Region.Set(x, y, w, h)` for four member stores); a named
+  local with an initialiser counts one (`int tab_x = ...; Set_Position(tab_x, ...)`), and so does each such local
+  of every member the function expands. So a twin's written-out block and the call it stands for differ by the
+  callee's locals: the written-out if arm moved Activate's window up by two.
+- The count is not the function's alone. Reposition_Sidebar 0x6819A0 with the twin's whole text (its named
+  locals, `Max_Visible()` for the rows) has every instruction and three operand orders left; it is exact with 5,
+  6, 10 or 11 dead locals alone, and with none when Activate's guard is open and Max_Visible holds three. The
+  count-sensitive SelectClass::Action 0x6809F0 is exact with no guard open, off with AI's alone, exact with AI's
+  and Activate's, off with Activate's and Reposition_Sidebar's, exact with all nine. A window measured on a unit
+  with guards closed is a window of that state; measure such rows with every guarded draft of the unit compiled
+  (lane tool build/r/f48/v.py takes several guards joined with `+`).
+- A twin's named locals are part of its text for this measure: they are what its author needed for the same ties
+  in Yuri's Revenge. Take them all before scanning, then scan to see how far the twin's count is from RA2's
+  (Reposition_Sidebar: four short). The scan is a diagnostic; the locals it would add are a count form and stay
+  on variation_candidates.csv.
+- A written-out head can be a member of the unit expanded, and the member's own text then has two readings.
+  Reposition_Sidebar's first block is Recalc_Horizontal_Layout 0x67BA60 (ra2-decomp calls its layout member
+  there). The call gives the image's head only when the member is written on SidebarRect.X, as the twin's layout
+  text is; with the tree's `int x` form the expansion merges the two arms' last store and is 11 instructions
+  longer, although both forms give the member's own row. The form that expands right is the evidenced one; here
+  it turns Action (count-sensitive) with nothing gained yet, so it waits for the row it serves.
+- Update_Column_Availability 0x67CA50 sits at the edge of its budget from the other side too: one assignment
+  more in Max_Visible and its last Update_Build_Buttons calls the doubled count where the image expands it. With
+  lanes F38 and F41's reading (the member is about 26 units over the plain limit for Recalc), the three members
+  Max_Visible, the doubled count and Update_Column_Availability are one system: a form for any of them is to be
+  measured on Add, Update_Column_Availability, Activate, AI, Reposition_Sidebar and Action together.
+- SidebarClass::AI 0x67DC90 does not answer to the count (0 to 23 dead locals: 480 bytes or worse). Its
+  paging-down block comes out right with a conditional-expression inline in Page and its up block does not (the
+  flag sinks below the TopIndex test); lane F33's if-and-return helper remains the only exact form.

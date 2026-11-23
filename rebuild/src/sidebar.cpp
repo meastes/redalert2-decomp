@@ -133,7 +133,7 @@ inline int Bottom_Extra(void) // RA2: the strips leave this much room for the sc
 {
 	return Scen->IsGDI ? 26 : 18; // RA2: as above
 }
-inline int Max_Visible_Rows(void) // RA2: the rows that fit, inline in Draw_It (0x67CF80) and AI (0x67DC90); Get_Row_Count (0x6820A0) has the same term out of line
+inline int Max_Visible_Rows(void) // RA2: the rows that fit, inline in Draw_It (0x67CF80) and AI (0x67DC90); Max_Visible (0x6820A0) has the same term out of line
 {
 	return (SidebarRect.Y + SidebarRect.Height - SidebarClass::StripTop - (Scen->IsGDI ? 26 : 18) - 7) / 50; // RA2: as above
 }
@@ -894,7 +894,7 @@ bool SidebarClass::Page(bool up, int column)
 		column = ActiveTabIndex; // RA2: as above
 	}
 	StripClass &strip = Column[column]; // RA2: as above
-	int amount = Get_Row_Count(); // RA2: as above
+	int amount = Max_Visible(); // RA2: as above
 	if (strip.Scroll(up, amount)) { // RA2: as above
 		Flag_To_Redraw();
 		return(true);
@@ -1266,7 +1266,7 @@ void SidebarClass::Recalc(void)
  * HISTORY:                                                                                    *
  *   12/09/1994 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0067e210 has no row); main: best 99.04, tried 11 times (frame, register, order)
+#ifdef RA2_NON_MATCHING // not exact: 58 bytes differ against the image-derived bound 0067e210 (1067 B): three instructions in the else arm's expanded Remove_Buttons (the side's extra subtracted before StripTop, StripTop in a scratch register). The order follows the number of locals the function holds, its expanded members' locals included: exact with eight to twelve more locals in the function, or three to six more in Max_Visible (dead `int p = 0;` probes, never a landing form); ra2-decomp's written-out loops with `Max_Visible() * 2` move the window the other way (lane F48, 2026-11-23); main: best 99.04
 bool SidebarClass::Activate(int control)
 {
 	bool old = IsSidebarActive;
@@ -1500,7 +1500,7 @@ void SidebarClass::StripClass::Clear_Buildables() // RA2: as above
 void SidebarClass::StripClass::Init_Buttons(int id) // RA2: as above
 {
 	ID = id;
-	int rows = Map.Get_Row_Count(); // RA2: as above
+	int rows = Map.Max_Visible(); // RA2: as above
 	for (int row = 0; row < rows; row++) { // RA2: as above
 		for (int column = 0; column < 2; column++) { // RA2: as above
 			int index = row * 2 + column; // RA2: as above
@@ -1740,7 +1740,7 @@ bool SidebarClass::StripClass::Scroll(bool up, int amount) // RA2: as above
 		Scroller -= amount; // RA2: as above
 		return true; // RA2: as above
 	}
-	if ((TopIndex + Map.Get_Row_Count()) * 2 >= BuildableCount) { // RA2: as above
+	if ((TopIndex + Map.Max_Visible()) * 2 >= BuildableCount) { // RA2: as above
 		return false; // RA2: as above
 	}
 	Scroller += amount; // RA2: as above
@@ -1764,7 +1764,7 @@ bool SidebarClass::StripClass::Step(bool up) // RA2: as above
 
 bool SidebarClass::StripClass::Page(bool up)
 {
-	int amount = Map.Get_Row_Count(); // RA2: 0x67EF70
+	int amount = Map.Max_Visible(); // RA2: 0x67EF70
 	return Scroll(up, amount); // RA2: as above
 }
 
@@ -1822,7 +1822,7 @@ bool SidebarClass::StripClass::AI(KeyNumType & input, Point2D const & xy) // RA2
 	*/
 	if (!IsScrolling && Scroller) { // RA2: as above
 		int columns = COLUMNS; // RA2: two cameos to a row
-		int rows = Map.Get_Row_Count(); // RA2: the rows are computed once and used twice
+		int rows = Map.Max_Visible(); // RA2: the rows are computed once and used twice
 		if (BuildableCount <= rows * 2) { // RA2: two cameos to a row
 			Scroller = 0;
 		} else {
@@ -2129,7 +2129,7 @@ void SidebarClass::StripClass::Draw_It(bool complete)
 		**	them. Their Y offset may be adjusted if the strip is in the process of scrolling.
 		*/
 		int columns = COLUMNS; // RA2: two cameos to a row
-		int rows = Map.Get_Row_Count() + (IsScrolling ? 1 : 0); // RA2: the rows are counted once, and two cameos make a row
+		int rows = Map.Max_Visible() + (IsScrolling ? 1 : 0); // RA2: the rows are counted once, and two cameos make a row
 		for (int row = 0; row < rows; row++) { // RA2: as above
 			for (int col = 0; col < columns; col++) { // RA2: as above
 				bool draw = complete; // RA2: only changed cameos are drawn unless the strip is redrawn in full
@@ -2398,7 +2398,7 @@ bool SidebarClass::StripClass::Recalc(void)
 	}
 
 	bool scroll = false;
-	int max_visible = Map.Get_Row_Count() * 2; // RA2: as above
+	int max_visible = Map.Max_Visible() * 2; // RA2: as above
 	SmartPtr<BuildType> unshifted(new BuildType[max_visible]); // RA2: ra2-decomp's form
 
 	for (int i = 0; i < max_visible; i++) {
@@ -3194,7 +3194,7 @@ int SidebarClass::First_Used_Column() // RA2: as above
 }
 
 
-#ifdef RA2_NON_MATCHING // not exact: 4 bytes differ (calibrated to an incomplete unit; flipped by sidebar Action and the trect.h split)
+#ifdef RA2_NON_MATCHING // not exact: 54 bytes differ against 006819a0 (1314 B, every instruction the image's but three operand orders: the two TacticalRect sums and the row sum): ra2-decomp's text (Max_Visible() for the rows, its named locals x, y, power_x, tab_x, waypoint_x, cameo_x, cameo_y, tab_button, cameo_button and Region.Set). The three orders follow the number of locals the function holds, its expanded members' locals included: exact with five, six, ten or eleven more locals (dead `int p = 0;` probes, never a landing form), which no reference supplies. The head is Recalc_Horizontal_Layout() expanded (ra2-decomp calls its layout member there): the call gives these instructions only with that member written on SidebarRect.X, which costs SelectClass::Action 0x6809F0 (count-sensitive), so the head stays written out (lane F48, 2026-11-23)
 void SidebarClass::Reposition_Sidebar() // RA2: as above
 {
 	PowerClass::Reposition_Sidebar(); // RA2: as above
@@ -3229,24 +3229,27 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 
 	Background.Set_Position(SidebarRect.X + 0x10, TacticalRect.Y); // RA2: as above
 	Background.Flag_To_Redraw();
-	int top = RadarButton.Y + RadarButton.Height; // RA2: as above
+	int x = 0; // RA2: as above
+	int y = RadarButton.Y + RadarButton.Height; // RA2: as above
 	if (Options.IsSidebarOnRight) {
-		Background.Set_Position(TacticalRect.X + TacticalRect.Width, top); // RA2: as above
+		Background.Set_Position(TacticalRect.X + TacticalRect.Width, y); // RA2: as above
 	} else {
-		Background.Set_Position(0, top); // RA2: as above
+		Background.Set_Position(x, y); // RA2: as above
 	}
-	Background.Set_Size(SidebarSurface->Get_Width(), SidebarSurface->Get_Height() - top); // RA2: as above
+	Background.Set_Size(SidebarSurface->Get_Width(), SidebarSurface->Get_Height() - y); // RA2: as above
 
 	Upgrade.Set_Position(TopButtonX, TopButtonY); // RA2: as above
 	Upgrade.Flag_To_Redraw();
 	Upgrade.DrawOffsetX = -SidebarRect.X;
 
-	Repair.Set_Position(Upgrade.X + TopButtonSpacing, Upgrade.Y); // RA2: as above
+	int power_x = Upgrade.X + TopButtonSpacing; // RA2: as above
+	Repair.Set_Position(power_x, Upgrade.Y); // RA2: as above
 	Repair.Flag_To_Redraw();
 	Repair.DrawOffsetX = -SidebarRect.X;
 
 	for (int tab = 0; tab < 4; tab++) { // RA2: as above
-		TabButton[tab].Set_Position(TabButtonSpacing * tab + TabButtonX, TabButtonY); // RA2: as above
+		int tab_x = TabButtonX + TabButtonSpacing * tab; // RA2: as above
+		TabButton[tab].Set_Position(tab_x, TabButtonY); // RA2: as above
 		TabButton[tab].Flag_To_Redraw(); // RA2: as above
 		TabButton[tab].DrawOffsetX = -SidebarRect.X; // RA2: as above
 	}
@@ -3255,27 +3258,23 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 	ScrollDownButton.Flag_To_Redraw(); // RA2: as above
 	ScrollDownButton.DrawOffsetX = -SidebarRect.X; // RA2: as above
 
-	ScrollUpButton.Set_Position(PowerBarLeft + SidebarEdgeWidth, SidebarBottomY); // RA2: as above
+	int waypoint_x = PowerBarLeft + SidebarEdgeWidth; // RA2: as above
+	ScrollUpButton.Set_Position(waypoint_x, SidebarBottomY); // RA2: as above
 	ScrollUpButton.Flag_To_Redraw(); // RA2: as above
 	ScrollUpButton.DrawOffsetX = -SidebarRect.X; // RA2: as above
 
 	/*
 	 * Create the tooltips for the sidebar.
 	 */
-	int strip_top = StripTop; // RA2: the strip top is read before the side's bottom piece
-	int extra;
-	if (Scen->IsGDI) {
-		extra = 26;
-	} else {
-		extra = 18;
-	}
-	int rows = (SidebarRect.Y + SidebarRect.Height - strip_top - extra - 7) / 50;
+	int rows = Max_Visible(); // RA2: as above
 	int count = rows * 2; // RA2: as above
 	for (int column = 0; column < 4; column++) { // RA2: as above
 		StripClass::SelectClass *button = &StripClass::SelectButton[column * 60]; // RA2: as above
 		for (int row = 0; row < rows; row++) { // RA2: as above
 			for (int side = 0; side < 2; side++, button++) { // RA2: as above
-				button->Set_Position(CameoWidth * side + StripLeft, CameoHeight * row + StripTop + 1); // RA2: as above
+				int cameo_y = StripTop + CameoHeight * row + 1; // RA2: as above
+				int cameo_x = StripLeft + CameoWidth * side; // RA2: as above
+				button->Set_Position(cameo_x, cameo_y); // RA2: as above
 				button->Flag_To_Redraw(); // RA2: as above
 			}
 		}
@@ -3286,20 +3285,16 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		for (int tab = 0; tab < 4; tab++) { // RA2: as above
 			tip.ID = tab + 0xCB; // RA2: as above
 			tip.Text = 0; // RA2: as above
-			tip.Region.X = TabButton[tab].X; // RA2: as above
-			tip.Region.Y = TabButton[tab].Y; // RA2: as above
-			tip.Region.Width = TabButton[tab].Width; // RA2: as above
-			tip.Region.Height = TabButton[tab].Height; // RA2: as above
+			ShapeButtonClass const & tab_button = TabButton[tab]; // RA2: as above
+			tip.Region.Set(tab_button.X, tab_button.Y, tab_button.Width, tab_button.Height); // RA2: as above
 			ToolTips->Remove(tip.ID); // RA2: as above
 			ToolTips->Add(&tip); // RA2: as above
 		}
 		for (int index = 0; index < count; index++) { // RA2: as above
 			tip.ID = index + 1000; // RA2: as above
 			tip.Text = 0; // RA2: as above
-			tip.Region.X = StripClass::SelectButton[index].X; // RA2: as above
-			tip.Region.Y = StripClass::SelectButton[index].Y; // RA2: as above
-			tip.Region.Width = StripClass::SelectButton[index].Width; // RA2: as above
-			tip.Region.Height = StripClass::SelectButton[index].Height; // RA2: as above
+			StripClass::SelectClass const & cameo_button = StripClass::SelectButton[index]; // RA2: as above
+			tip.Region.Set(cameo_button.X, cameo_button.Y, cameo_button.Width, cameo_button.Height); // RA2: as above
 			tip.IsAnchored = true; // RA2: as above
 			ToolTips->Remove(tip.ID); // RA2: as above
 			ToolTips->Add(&tip); // RA2: as above
@@ -3307,34 +3302,22 @@ void SidebarClass::Reposition_Sidebar() // RA2: as above
 		tip.IsAnchored = false; // RA2: as above
 		tip.ID = 0x66; // RA2: as above
 		tip.Text = (int)"TXT_SELL_MODE"; // RA2: the label of the string table
-		tip.Region.X = Repair.X; // RA2: as above
-		tip.Region.Y = Repair.Y; // RA2: as above
-		tip.Region.Width = Repair.Width; // RA2: as above
-		tip.Region.Height = Repair.Height; // RA2: as above
+		tip.Region.Set(Repair.X, Repair.Y, Repair.Width, Repair.Height); // RA2: as above
 		ToolTips->Remove(0x66); // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 		tip.ID = 0x65; // RA2: as above
 		tip.Text = (int)"TXT_REPAIR_MODE"; // RA2: as above
-		tip.Region.X = Upgrade.X; // RA2: as above
-		tip.Region.Y = Upgrade.Y; // RA2: as above
-		tip.Region.Width = Upgrade.Width; // RA2: as above
-		tip.Region.Height = Upgrade.Height; // RA2: as above
+		tip.Region.Set(Upgrade.X, Upgrade.Y, Upgrade.Width, Upgrade.Height); // RA2: as above
 		ToolTips->Remove(0x65); // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 		tip.ID = 0xC8; // RA2: as above
 		tip.Text = 0; // RA2: as above
-		tip.Region.X = ScrollUpButton.X; // RA2: as above
-		tip.Region.Y = ScrollUpButton.Y; // RA2: as above
-		tip.Region.Width = ScrollUpButton.Width; // RA2: as above
-		tip.Region.Height = ScrollUpButton.Height; // RA2: as above
+		tip.Region.Set(ScrollUpButton.X, ScrollUpButton.Y, ScrollUpButton.Width, ScrollUpButton.Height); // RA2: as above
 		ToolTips->Remove(0xC8); // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 		tip.ID = 0xC9; // RA2: as above
 		tip.Text = 0; // RA2: as above
-		tip.Region.X = ScrollDownButton.X; // RA2: as above
-		tip.Region.Y = ScrollDownButton.Y; // RA2: as above
-		tip.Region.Width = ScrollDownButton.Width; // RA2: as above
-		tip.Region.Height = ScrollDownButton.Height; // RA2: as above
+		tip.Region.Set(ScrollDownButton.X, ScrollDownButton.Y, ScrollDownButton.Width, ScrollDownButton.Height); // RA2: as above
 		ToolTips->Remove(0xC9); // RA2: as above
 		ToolTips->Add(&tip); // RA2: as above
 	}
@@ -3393,7 +3376,7 @@ const char * SidebarClass::Help_Text(int id) // RA2: the text is wide
 /// resolution. It is used to lay the strips out and to decide when scrolling is called for.
 /// </summary>
 /// <returns>Returns with the number of build cameos that will fit in one strip.</returns>
-int SidebarClass::Get_Row_Count(void) // RA2: as above
+int SidebarClass::Max_Visible(void) // RA2: as above
 {
 	int extra; // RA2: as above
 	if (Scen->IsGDI) { // RA2: 0x6820A0
@@ -3407,7 +3390,7 @@ int SidebarClass::Get_Row_Count(void) // RA2: as above
 
 int SidebarClass::Get_Doubled_Row_Count() // RA2: as above
 {
-	int const rows = Get_Row_Count(); // RA2: as above
+	int const rows = Max_Visible(); // RA2: as above
 	int const count = rows + rows; // RA2: as above
 	return count; // RA2: as above
 }
@@ -3499,11 +3482,11 @@ void SidebarClass::Reload_Sidebar(void)
 {
 	Column[0].X = COLUMN_ONE_X;
 	Column[0].Y = COLUMN_ONE_Y;
-	Column[0].ObjectRect = Rect(Column[0].X, Column[0].Y, StripClass::OBJECT_WIDTH, (StripClass::OBJECT_HEIGHT) * Get_Row_Count()); // RA2: as above
+	Column[0].ObjectRect = Rect(Column[0].X, Column[0].Y, StripClass::OBJECT_WIDTH, (StripClass::OBJECT_HEIGHT)*Max_Visible()); // RA2: as above
 
 	Column[1].X = COLUMN_TWO_X;
 	Column[1].Y = COLUMN_ONE_Y;
-	Column[1].ObjectRect = Rect(Column[1].X, Column[1].Y, StripClass::OBJECT_WIDTH, (StripClass::OBJECT_HEIGHT) * Get_Row_Count()); // RA2: as above
+	Column[1].ObjectRect = Rect(Column[1].X, Column[1].Y, StripClass::OBJECT_WIDTH, (StripClass::OBJECT_HEIGHT)*Max_Visible()); // RA2: as above
 }
 #endif
 
