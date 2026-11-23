@@ -1,11 +1,11 @@
 unit,entry,function,bytes,bucket,best,flex,flex_note,also,draft,gap_reason,allowance,brings,main_form,main_form_cost,tested_exact,net_bytes
-(summary),,main's accepted forms the rebuild's rules refuse: 41 rows / 115492 B,,,,,,,,,,,,,,
-(main forms),,A: 19 rows,49459,,,,,,,,,,A,,6 rows,13601
+(summary),,main's accepted forms the rebuild's rules refuse: 40 rows / 113263 B,,,,,,,,,,,,,,
+(main forms),,A: 18 rows,47230,,,,,,,,,,A,,5 rows,11372
 (main forms),,B: 11 rows,34157,,,,,,,,,,B,,0 rows,0
 (main forms),,C: 9 rows,28436,,,,,,,,,,C,,6 rows,22400
 (main forms),,D: 2 rows,3440,,,,,,,,,,D,,0 rows,0
 (main forms),,E: 3 rows,3965,,,,,,,,,,E,,0 rows,0
-building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1309,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
+building,0043ee70,BuildingClass::Take_Damage,2501,inline_call,1321,a,variation_candidates.csv: main's coined Damage_Object_Distance / Damage_Object_Distance_Squared helpers with an explicit sqrt (main src/recovered/building.cpp:2029-2131),,yes,,,,A,structure,no,2501
 building,00440520,BuildingClass::Exit_Object,6505,no_row,4888,a,"variation_candidates.csv: worker form (refused, owner 2026-11-22): inline.h Direction(Cell const &, Cell const &) rewritten with copy locals short x1 = cell1.X; short x2 = cell2.X; befor",,yes,,,,,,,
 bullet,00462c50,BulletClass::Shrapnel,2757,inline_call,1787,a,"variation_candidates.csv: a split declaration `Cell cell; cell = Get_Cell();` in the second loop, found by a count probe (the Cell default constructor is the extra inline-candidate site ",,yes,,,,C,strictness,yes,2757
 combat,0047e2c0,Explosion_Damage,4611,register_order,,a,variation_candidates.csv: main's Coord::operator+ form and coined Explosion_Length / Coord_Length(Coord_Difference) helpers (their named double locals supply the local count),,yes,,,,A,structure,no,4611
@@ -21,7 +21,7 @@ map,005484e0,MapClass::Set_Map_Dimensions,5322,no_row,3658,a,variation_candidate
 map,00564b60,MapClass::Register_Zone_Connection_Entries,1025,inline_call,87,a,variation_candidates.csv: main's record helper Set_Zone_Record with a SubzoneConnectionStruct temporary and count locals,,yes,,,,A,structure,no,1025
 map,00566340,MapClass::Update_Cell_Subzones,2281,no_row,main best 64.37%,a,"variation_candidates.csv: main's coined inline Cell_Passability (src/recovered/map.cpp:10324, no image function) plus a pointer-local split of the exact Get_Cell_Zone_ID outside the guar",,yes,,,,,,,
 mech,005919a0,MechLocomotionClass::Movement_AI,5575,no_row,4352,a,"variation_candidates.csv: worker form (held, lane O34 2026-11-22): pass-through aliases RulesClass const & rules = *Rule; and FootClass * unit = LinkedTo; (twice), Cell const & enter = t",,yes,,,,,,,
-netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv: kind B (a comparison form no reference has): the first peer's node test written `Is_Same_Node(...) == true` (codex1 r2700's guarded draft, 963393bda4)",,yes,,,,,,,
+netshare,005c7ef0,Send_Map_Preview,1325,no_row,1131,a,"variation_candidates.csv: kind C (a twin helper overriding the twin's own text at its own site): ra2-decomp's Narrow_Text (include/narrow.h, 61ba2ad) at the two `no preview download poss",,yes,,,,,,,
 ownrdraw,005e0760,Is_Tested_Control,1594,inline_call,1444,a,variation_candidates.csv: none admissible: as Enable_Animated_Control 0x5E4780 (the declared-only second name for Is_Listed_Kind),,yes,,,,B,structure,no,1594
 ownrdraw,005e4780,OwnerDraw::Enable_Animated_Control,2468,inline_call,,a,variation_candidates.csv: none admissible: main and ra2-decomp both reach the out-of-line Is_Listed_Kind call through a declared-only second name for the predicate (main's Is_Listed_Kind,,yes,,,,B,structure,no,2468
 ownrdraw,005ee460,Control_Proc,7252,no_row,4898,a,"variation_candidates.csv: codex1 r2692 (refs/c1pk/r2692, 80ab511e9b): three coined record blocks ({ unsigned int control_key = (unsigned int)window; WinData *record = NULL; Control_Table",,yes,,,,,,,
@@ -155,9 +155,8 @@ expand,,Expansion_Dialog,0,unplaced,,e,no row of the original matches the draft 
 fly,004be720,FlyLocomotionClass::Nearing_Target,1633,inline_call,1456,e,stays a flagged draft,,yes,,,,A,structure,no,1633
 fly,004bfb30,UnknownFacingDir::Magnitude_At_Least_004bfb30,36,no_draft,,e,no draft yet,,no,,,,,,,
 gdlgsupp,004d2080,Fill_Color_Combo,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
-hover,004fbfc0,HoverLocomotionClass::Process,2229,inline_call,1890,e,stays a flagged draft,,yes,,,,A,structure,yes,2229
 infantry,,InfantryClass::Is_Immobilized,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-infantry,005025c0,InfantryClass::Tunnel_AI,1876,no_row,1759,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+infantry,005025c0,InfantryClass::Tunnel_AI,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 ionblast,00521a90,IonBlastClass::One_Time,541,no_row,17,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 ipxmgr,00525f60,IPXManagerClass::Service,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 isotype,0052c230,IsometricTileTypeClass::Draw_Tile,6967,no_row,6016,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
@@ -199,7 +198,7 @@ mapgen,,MapGeneratorClass::Smooth_Ice,0,unplaced,,e,no row of the original match
 mapgen,,MapSeedClass::Clamp_Setting,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 mapgen,,MapSeedClass::Set_Checkbox,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 mapgen,,MapSeedClass::Set_Scroll_Bar,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,555,e,stays a flagged draft,,yes,,,,A,structure,no,1678
+mapgen,0056e100,MapRegionClass::Create_Region_From_Cell,1678,inline_call,313,e,stays a flagged draft,,yes,,,,A,structure,no,1678
 mapgen,0056ef20,MapRegionClass::Split_Region,4012,no_row,1285,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 mapgen,00576420,Generate_Starting_Points,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 mapgen,00579960,MapGeneratorClass::Read_RMG_INI,1897,no_row,1429,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
@@ -239,9 +238,10 @@ queue,006282d0,Extract_Compressed_Events,1455,no_row,972,e,"no row of its own ye
 radar,00634670,RadarDiplomacy::Update_Diplomacy_Row,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 radbeam,00635c30,RadBeam::Compute_Pulse_Step,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 radbeam,00636130,RadBeam::Compute_Swing_Step,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
+reinf,,Do_Chrono_Reinforcements,0,unplaced,84,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 reinf,00639970,Do_Reinforcements,1069,inline_call,432,e,stays a flagged draft,,yes,,,,A,structure,yes,1069
 scenario,0065b780,ScenarioClass,171,no_row,,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
-scenario,0065c520,Wait_For_Players_To_Load,676,no_row,77,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+scenario,0065c520,Wait_For_Players_To_Load,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Abandon_Production,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 sidebar,,SidebarClass::Activate_Upgrade,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -258,9 +258,8 @@ tactical,006a45a0,Tactical::Render,3288,no_row,2650,e,"no row of its own yet (ne
 tactical,006a7e80,Tactical::Draw_Pixel_Effects,954,no_row,180,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006a8560,Tactical::Draw_Tiles,824,no_row,main best 63.04%,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 tactical,006ac7a0,_$E298,1,no_draft,,e,no draft yet,,no,,,,,,,
-techno,,TechnoClass::Area_Modify,0,unplaced,31,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,,TechnoClass::Find_Docking_Bay,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-techno,,TechnoClass::Laser_Zap,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
+techno,,TechnoClass::Laser_Zap,0,unplaced,439,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,,TechnoClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 techno,006c5570,TechnoClass::Evaluate_Object,0,no_draft (no_main_row),,e,no draft yet,,no,,,,,,,
 techno,006ca890,TechnoClass::Fire_At,6019,inline_call,4371,e,stays a flagged draft,,yes,,,,A,structure,yes,6019
@@ -292,12 +291,13 @@ wonline,00766dc0,WolChannelArray::Shrink_00766dc0,150,no_draft,,e,no draft yet,,
 wonline,00766e60,?growVector@?$ArrayList@UUser@WOL@@@@AAEDXZ,148,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767550,?keyHash@?$Dictionary@VWstring@@ULadder@WOL@@@@AAEIABVWstring@@@Z,29,no_draft,,e,no draft yet,,no,,,,,,,
 wonline,00767cd0,WolNameTable::Key_Hash_00767cd0,29,no_draft,,e,no draft yet,,no,,,,,,,
+xsurface,,XSurface::Plot_Line,0,unplaced,9,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 (total),,flex a: 46 functions,153008,,,a,,,,,,,,,,
 (total),,flex b: 76 functions,5978,,,b,,,,,,,,,,
 (total),,flex c: 2 functions,2710,,,c,,,,,,,,,,
 (total),,flex d: 4 functions,312,,,d,,,,,,,,,,
-(total),,flex e: 159 functions,69130,,,e,,,,,,,,,,
-(total),,no draft yet: 54 functions,1805,,,e,,,no,,,,,,,
+(total),,flex e: 159 functions,64349,,,e,,,,,,,,,,
+(total),,no draft yet: 56 functions,1805,,,e,,,no,,,,,,,
 (gap),,77 functions,10528,,,,,,,guard-open exact (not probed),unknown until probed,,,,,
 (gap),,2 functions,2720,,,,,,,exact form parked count-sensitive,a count-holding declaration,,,,,
 (gap),,79 functions,13248,,,,,,,total: function-level minus whole-unit,,,,,,

@@ -4267,12 +4267,10 @@ int TechnoClass::Rearm_Delay(int which) const
  *   09/30/1996 BWG : Created.                                                                 *
  *   09/30/1996 JLB : Uses standard facing conversion and distance routines.                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: 439 bytes differ by position against the image-derived bound 006c9df0 (560 B; ours 560 B + 11 instructions); the text is ra2-decomp's matched twin (src/techno.cpp CreateLaser, Yuri's Revenge 0x006FD210) in this tree's names with RA2's one-argument Fire_Coord. One decision is left: the image keeps zadjust in edi for the whole function and has no zero register; ours caches 0 in ebp and keeps zadjust in memory, so the end coordinate takes other registers. Diagnostics, none of them landed (lane F49): a second `zadjust = 0;` in the first arm gives the image's code plus that one `xor edi, edi`; the clamp test written `>= 1` or the target test without its NULL compare gives every other instruction. The row is one reference of zadjust short, or one compare with 0 over; 25 natural spellings of the difference, the clamp, the target test and the declaration order leave it
 LaserDrawClass * TechnoClass::Laser_Zap(AbstractClass * target, int which, WeaponTypeClass const * weapon, Coord const & source_coord)
 {
 	RGBClass color; // RA2: the house colour halved, zeroed on entry
 	int duration = weapon->LaserDuration; // RA2: as above
-	RGBClass const * spread = &weapon->LaserOuterSpread; // RA2: as above
 	RGBClass const * inner; // RA2: the bolt colors are kept by pointer
 	RGBClass const * outer; // RA2: as above
 	if (weapon->IsHouseColor) { // RA2: a house coloured laser: inner is the house's laser colour, outer half of it
@@ -4285,6 +4283,7 @@ LaserDrawClass * TechnoClass::Laser_Zap(AbstractClass * target, int which, Weapo
 		inner = &weapon->LaserInnerColor; // RA2: the weapon's own colours
 		outer = &weapon->LaserOuterColor; // RA2: as above
 	}
+	RGBClass const * spread = &weapon->LaserOuterSpread; // RA2: declared after the colours are chosen (ra2-decomp's twin declares it beside the duration)
 	Coord source;
 	Coord dest;
 	int zadjust = 0;
@@ -4312,7 +4311,6 @@ LaserDrawClass * TechnoClass::Laser_Zap(AbstractClass * target, int which, Weapo
 	}
 	return(laser);
 }
-#endif
 
 
 

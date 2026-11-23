@@ -225,7 +225,7 @@ class DirType
 		const DirType & operator *= (int rvalue) { Facing *= rvalue; return *this; }
 		const DirType & operator /= (int rvalue) { Facing /= rvalue; return *this; }
 
-		bool operator >= (DirType const & rvalue) const { return abs(Facing) >= abs(rvalue.Facing); } // RA2: a member, as ra2-decomp's face.h has it: the image's out-of-line copy (0x4BFB30) takes this in ecx
+		bool operator >= (DirType const & rvalue) const { return abs(As_Int()) >= abs(rvalue.As_Int()); } // RA2: a member compared through As_Int, as ra2-decomp's face.h has it: the image's out-of-line copy (0x4BFB30) takes this in ecx
 
 		bool Is_Complete_Turn(DirType const & towards, DirType const & by)
 		{

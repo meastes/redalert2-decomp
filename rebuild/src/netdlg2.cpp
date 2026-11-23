@@ -1594,7 +1594,7 @@ void Send_Chat_Message(HWND dialog, int color, int recipients) // RA2: 0x005BEE2
 #ifdef RA2_NON_MATCHING // not exact: 61 of 2507 bytes differ (image-derived bound 005befe0-005bf9ab): ra2-decomp's twin text (Yuri's Revenge 0x005DE520) with RA2's statements; message and lparam take each other's registers (ebx, edi) and nothing else differs; the pair turns with lparam's use in the set-up case's Options_Dialog_Proc call and with the order of pt.x/pt.y (lane F33, 2026-11-23)
 LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x005BEFE0; the lobby dialog of the host
 {
-	if (message != 0x497) {
+	if (message != OD_SUBCLASSED) {
 		Options_Dialog_Proc(window, message, wparam, lparam);
 	}
 
@@ -1619,7 +1619,7 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 					text = StringTable::LoadString(label, NULL, "D:\\Ra2\\netdlg2.cpp", 2704);
 					}
 				}
-			SendMessage(tip, 0x4b2, 0, (LPARAM)text);
+				SendMessage(tip, OD_SETTEXTW, 0, (LPARAM)text);
 			break;
 			}
 
@@ -1756,7 +1756,7 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			}
 			break;
 
-		case 0x497: {
+		case OD_SUBCLASSED: {
 			VerNum.Init_Clipping();
 			srand(NonCriticalRandomNumber(1, 0x7fff));
 			Seed = rand();
@@ -1787,7 +1787,7 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			Set_Item_Text(window, Session.MPGameMode);
 			Set_Skirmish_Dialog_Text(window);
 			Load_Random_Map_Preview(window);
-			Options_Dialog_Proc(window, 0x497, wparam, lparam);
+			Options_Dialog_Proc(window, OD_SUBCLASSED, wparam, lparam);
 			Net2DisplayGameList();
 			break;
 			}
@@ -1797,9 +1797,9 @@ LRESULT CALLBACK MPlayer_Host_Dialog_Proc(HWND window, UINT message, WPARAM wpar
 			if (Net2OptionsLocked) {
 				break;
 			}
-			Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, 0x529, 0x400, 0, 0);
-			Session.Options.Credits = SendDlgItemMessage(window, 0x402, 0x400, 0, 0);
-			Session.Options.UnitCount = SendDlgItemMessage(window, 0x54f, 0x400, 0, 0);
+			Session.Options.GameSpeed = 6 - SendDlgItemMessage(window, IDC_GAME_SPEED_SLIDER, TBM_GETPOS, 0, 0);
+			Session.Options.Credits = SendDlgItemMessage(window, IDC_CREDITS, TBM_GETPOS, 0, 0);
+			Session.Options.UnitCount = SendDlgItemMessage(window, IDC_UNITCOUNT, TBM_GETPOS, 0, 0);
 			break;
 
 		case 0x49b: { // RA2: the text of the edit control that was asked for

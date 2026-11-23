@@ -4837,3 +4837,44 @@ scores it against its image bound or row.
 - The queue's "matched twin" for a row can be the other overload: Tactical::Draw_Tiles' matched Yuri's Revenge function
   is the Rect overload (exact in the tree); the cell overload has no reference text. Check the argument list before
   counting a twin.
+
+## A declaration whose place emits nothing still ranks the register candidates: move each one-line declaration through its block before reading references; a store behind the copy it should precede is the first arm of an if/else (found in the rebuild (lane F51, high))
+
+Found in the rebuild (lane F51, high); one row and one header landed. Lane tools in build/r/f51: mvsweep.py moves each
+one-line declaration of a guarded draft to every other place of its own block and scores each compile; mk.py turns a
+text file of variants into edit sets for v.py.
+
+- techno Laser_Zap 0x6C9DF0 (560 B, exact). Lane F49 read the row as "one reference of zadjust short, or one compare with
+  0 over" (the image keeps zadjust in edi and has no zero register) and 25 spellings of the references left it. The
+  cause was a declaration two blocks earlier: the twin declares `RGBClass const * spread = &weapon->LaserOuterSpread;`
+  beside the duration; the pointer is a folded address, so the line emits no instruction where it stands, and declared
+  after the colour block (anywhere from there to `int zadjust = 0;`) the function is the image's. The compiler ranks
+  equal register candidates by the order of their first definitions, and a definition that emits nothing can be moved
+  without any other change to the code. A "one reference" diagnosis on a twin text is first answered by moving every
+  declaration with an initialiser through its block (mvsweep.py: 11 compiles here), before any spelling of the
+  references. Declarations without an initialiser do not count: 240 orders of them in Plot_Line changed no byte; what
+  counts is the first assignment.
+- xsurface Plot_Line 0x773F00: the same effect, `int y = start.Y;` read after the pitch test instead of ahead of dx
+  (the load is shared with the straight parts, so the line emits nothing), is what gives the steep loop's registers
+  once the pitch block is right. The pitch block itself: the image has `sub esi, ebp / mov eax, esi / mov [pitch], 1 /
+  jns`, the store of 1 behind dy's copy. A store waiting to be placed is put between two dependent instructions
+  (`mov ebx, edi / store / sub ebx, ecx`, `sub esi, ebp / store / mov eax, esi`): with `int pitch = 1;` anywhere ahead of
+  the test the store lands before the copy, whatever the order of the other statements (about 900 orders). A store
+  behind the copy was emitted after it: the first arm of an if/else that stores in both arms, which the compiler puts
+  ahead of the branch (`if (c) { v = 1; .. } else { v = -1; .. }` gives `mov v, 1 / jcc / mov v, -1` when the arms hold
+  more than the store and their tails merge; two bare stores become a setcc). Exact in scratch with `dy = abs(dy)` in
+  both arms, a doubled statement no reference has: held as a variation.
+- A row diagnosed by a diagnostic that adds an assignment is checked by reading the image's jump targets. Laser_Zap with
+  no initialiser and `zadjust = 0;` on both zero paths is the image less its first `xor edi, edi`: the compiler sends
+  both paths into the clamp's `xor`, and the image's three jumps land behind it. The listing tools print jumps as
+  `jmp L`; decode the targets when a variant is "one instruction short".
+- reinf Do_Chrono_Reinforcements 0x63A880: `tries++` written in both arms of the inner loop gives the image's esi and
+  edi and loses its zero register: the image re-makes eax = 0 at the end of each arm because the source has one
+  latch block (one `tries++` after the if/else) that the compiler copies into both arms later. A zero kept in eax
+  across a loop header (`xor eax, eax` ahead of the loop and at each back edge, `push eax` on the exit path) is that
+  shape; the register exchange is separate.
+- face.h `DirType::operator>=` through As_Int() (ra2-decomp 081a238) changes no row of its 212 includers and is in the
+  tree; fly's out-of-line copy 0x4BFB30 has one caller in the image (Nearing_Target), so it lands with that row, not
+  before it. Inline sites inside the arguments of the Is_Complete_Turn call (a step built from two conversions and an
+  operator) do not count as sites after it; DirType::Turn in its place (four sites after the comparison in its body)
+  keeps its stores and is 1,520 bytes off.

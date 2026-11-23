@@ -207,7 +207,6 @@ Matrix3DStruct STDMETHODCALLTYPE HoverLocomotionClass::Shadow_Matrix(int *key) /
 
 
 /// <returns>bool; Is the object still moving?</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1890 bytes differ (adopted text): the original calls the cell comparison inside the expanded Start() out of line, moves the coordinate as a 2D point (X and Y only) and tests ok without threading it
 boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 {
 	if (Is_Moving() && Is_Moving1()) {
@@ -223,7 +222,8 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 			speed = LinkedTo->Current_Speed() * Acceleration;
 		}
 
-		if (speed >= Point2D(LinkedTo->PositionCoord).Distance_To(Point2D(HeadToCoord))) {
+		Coord position = LinkedTo->PositionCoord; // RA2: distance in the movement plane
+		if (speed >= Point2D(position.X, position.Y).Distance_To(Point2D(HeadToCoord.X, HeadToCoord.Y))) {
 			LinkedTo->IsOccupyingCell = true;
 			LinkedTo->IsToPathAroundBlockage = false;
 			WasPushed = false;
@@ -241,8 +241,9 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 			}
 			bool at_dock = (LinkedTo->Get_Cell() == dock); // RA2: has the unit reached it
 
+			MoveType ok; // RA2: checked again after the per-cell callback
 			if (DestinationCoord != COORD_NONE || at_dock) { // RA2: keeps moving at its dock
-				MoveType ok = While_Moving(true);
+				ok = While_Moving(true);
 				if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(MOVE_NO);
 				if (ok == MOVE_OK && HeadToCoord == COORD_NONE) {
 					/*
@@ -251,17 +252,20 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 					LinkedTo->Per_Cell_Process(PCP_END);
 					if (!LinkedTo->IsActive || LinkedTo->IsInLimbo || LinkedTo->IsFalling) return(false); // RA2: no NULL test of LinkedTo
 				}
-				if (ok == MOVE_NO) {
-					if (LinkedTo->CurrentTube >= TUBE_FIRST) return(false);
-					Stop();
-				} else if (ok != MOVE_OK) {
-					Stop_Driver();
-					speed = 0;
-				}
+			} else {
+				ok = MOVE_OK;
+			}
+			if (ok == MOVE_NO) {
+				if (LinkedTo->CurrentTube >= TUBE_FIRST) return(false);
+				Stop();
+			} else if (ok != MOVE_OK) {
+				Stop_Driver();
+				speed = 0;
 			}
 		}
 
 		if (speed > 0) {
+			Point2D point;
 			Coord coord = LinkedTo->PositionCoord;
 
 			if (LinkedTo->Occupies_Cells() && HeadToCoord != COORD_NONE) {
@@ -270,7 +274,10 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 				LinkedTo->IsToPathAroundBlockage = false;
 			}
 
-			coord = Move_Coord(coord, Facing.Current(), speed);
+			point = Point2D(coord.X, coord.Y);
+			Point2D moved = Move_Coord(Coord(point, coord.Z), Facing.Current(), speed); // RA2: retain the current altitude
+			coord.X = moved.X;
+			coord.Y = moved.Y;
 			if (coord.As_Cell() != LinkedTo->Get_Coord().As_Cell()) {
 				LinkedTo->Mark(MARK_UP);
 				LinkedTo->PositionCoord = coord;
@@ -334,7 +341,6 @@ boolean STDMETHODCALLTYPE HoverLocomotionClass::Process(void)
 
 	return(Is_Moving());
 }
-#endif
 
 
 /// <summary>

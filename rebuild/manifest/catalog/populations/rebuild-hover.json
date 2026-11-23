@@ -70,10 +70,25 @@
     "??0Matrix3D@@QAE@ABUMatrix3DStruct@@@Z": 5832208,
     "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
     "?Shadow_Matrix@LocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5492944,
-    "__real@8@00000000000000000000": 7976464,
-    "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
+    "?Motion_AI@HoverLocomotionClass@@AAEXXZ": 5233392,
+    "??8?$TPoint2D@H@@QBE_NABV0@@Z": 4979552,
+    "?atan2@fastmath@@YANNN@Z": 4957696,
+    "__real@8@3fffc90fdaa22168c000": 7976496,
+    "__real@8@c00ca2f83d7b47677800": 7976488,
+    "?As_Cell@Coord@@QBE?AVCell@@XZ": 4274032,
+    "??8?$TPoint2D@F@@QBE_NABV0@@Z": 5238560,
     "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z": 5234928,
     "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z": 5229504,
+    "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z": 6516240,
+    "__real@8@bff1c9116cc4faf2b800": 7976480,
+    "?Set_Height@ObjectClass@@QAEXH@Z": 6113568,
+    "??2@YAPAXI@Z": 7872535,
+    "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z": 4325648,
+    "?Gravity_AI@HoverLocomotionClass@@AAEXXZ": 5224912,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?Trigger_Veins@CellClass@@QAEXXZ": 4700976,
+    "__real@8@00000000000000000000": 7976464,
+    "?Ion_Sensitives_Should_Be_Offline@HouseClass@@QAE_NXZ": 5373056,
     "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
     "?AdjacentCell@@3QBVCell@@B": 8723056,
     "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
@@ -88,12 +103,7 @@
     "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
     "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
     "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
-    "??8?$TPoint2D@H@@QBE_NABV0@@Z": 4979552,
-    "?atan2@fastmath@@YANNN@Z": 4957696,
-    "__real@8@3fffc90fdaa22168c000": 7976496,
-    "__real@8@c00ca2f83d7b47677800": 7976488,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
-    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
     "?Reduce_Path_Length@HoverLocomotionClass@@AAE_NXZ": 5234640,
     "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
     "?Is_On_Priority_Mission@FootClass@@QBE_NXZ": 5016928,
@@ -105,7 +115,6 @@
     "?Scen@@3PAVScenarioClass@@A": 10736272,
     "??RRandom2Class@@QAEHHH@Z": 6523040,
     "?Power_Off@LocomotionClass@@UAGEXZ": 5493264,
-    "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z": 6516240,
     "?Cell_Building@CellClass@@QBEPAVBuildingClass@@XZ": 4659120,
     "_CLSID_HoverLocomotion": 8003456,
     "?Load@LocomotionClass@@UAGJPAUIStream@@@Z": 5493696,
@@ -138,7 +147,6 @@
     "?Power_On@LocomotionClass@@UAGEXZ": 5493232,
     "?Tilt_Pitch_AI@LocomotionClass@@UAGXXZ": 5493904,
     "?Unlimbo@LocomotionClass@@UAGXXZ": 5494048,
-    "?Process@HoverLocomotionClass@@UAGEXZ": 5226432,
     "?Z_Gradient@LocomotionClass@@UAG?AW4ZGradientType@@XZ": 5493936,
     "?Z_Adjust@LocomotionClass@@UAGHXZ": 5493920,
     "?Visual_Character@LocomotionClass@@UAG?AW4VisualType@@E@Z": 5493952,
@@ -174,9 +182,9 @@
     "?Fetch_Object_Size@HoverLocomotionClass@@UBEHXZ": 5238464,
     "?Link_To_Object@HoverLocomotionClass@@UAGJPAX@Z": 5224800,
     "??1HoverLocomotionClass@@UAE@XZ": 5224880,
-    "?Gravity_AI@HoverLocomotionClass@@AAEXXZ": 5224912,
     "?Draw_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5225456,
     "?Shadow_Matrix@HoverLocomotionClass@@UAG?AUMatrix3DStruct@@PAH@Z": 5226320,
+    "?Process@HoverLocomotionClass@@UAGEXZ": 5226432,
     "?Is_Moving@HoverLocomotionClass@@UAGEXZ": 5228672,
     "?Is_Moving_Now@HoverLocomotionClass@@UAGEXZ": 5228752,
     "?Destination@HoverLocomotionClass@@UAG?AUCoordStruct@@XZ": 5228800,
@@ -184,7 +192,6 @@
     "?Move_To@HoverLocomotionClass@@UAGXUCoordStruct@@@Z": 5229024,
     "?Stop@HoverLocomotionClass@@AAEXXZ": 5233232,
     "?Stop_Driver@HoverLocomotionClass@@AAEXXZ": 5233280,
-    "?Motion_AI@HoverLocomotionClass@@AAEXXZ": 5233392,
     "?Stop_Moving@HoverLocomotionClass@@UAGXXZ": 5234496,
     "?Do_Turn@HoverLocomotionClass@@UAGXUDirStruct@@@Z": 5234576,
     "?Is_Moving1@HoverLocomotionClass@@AAE_NXZ": 5234624,
@@ -221,7 +228,6 @@
     "?GetItem@?$VectorClass@USubzoneConnectionStruct@@@@UBE?AUSubzoneConnectionStruct@@H@Z": 4239440,
     "??8?$VectorClass@USubzoneConnectionStruct@@@@UBE_NABV0@@Z": 4239472,
     "?Resize@?$VectorClass@USubzoneConnectionStruct@@@@UAE_NHPBUSubzoneConnectionStruct@@@Z": 4239536,
-    "??2@YAPAXI@Z": 7872535,
     "?Clear@?$VectorClass@USubzoneConnectionStruct@@@@UAEXXZ": 4239776,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHABUSubzoneConnectionStruct@@@Z": 4239824,
     "?ID@?$VectorClass@USubzoneConnectionStruct@@@@UAEHPBUSubzoneConnectionStruct@@@Z": 4239888,
@@ -292,7 +298,7 @@
           "resolved": 10752104
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224160,
@@ -344,7 +350,7 @@
           "resolved": 10752176
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224208,
@@ -396,7 +402,7 @@
           "resolved": 10752160
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224240,
@@ -448,7 +454,7 @@
           "resolved": 10752152
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224272,
@@ -500,7 +506,7 @@
           "resolved": 10752112
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224304,
@@ -552,7 +558,7 @@
           "resolved": 10752072
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224336,
@@ -636,7 +642,7 @@
           "resolved": 10752184
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224368,
@@ -696,7 +702,7 @@
           "resolved": 10752120
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224432,
@@ -756,7 +762,7 @@
           "resolved": 10752144
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224480,
@@ -816,7 +822,7 @@
           "resolved": 10752168
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224528,
@@ -860,7 +866,7 @@
           "resolved": 10752098
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224576,
@@ -912,7 +918,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224592,
@@ -972,7 +978,7 @@
           "resolved": 10752092
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224624,
@@ -1080,7 +1086,7 @@
           "resolved": 8008172
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224656,
@@ -1124,7 +1130,7 @@
           "resolved": 4294692956
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224800,
@@ -1176,7 +1182,7 @@
           "resolved": 267822
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224880,
@@ -1388,7 +1394,7 @@
           "resolved": 8624200
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5224912,
@@ -1672,7 +1678,7 @@
           "resolved": 610907
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5225456,
@@ -1724,10 +1730,590 @@
           "resolved": 266544
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5226320,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5226432,
+      "method": "004fbfc0",
+      "body_bytes": 2229,
+      "body_sha256": "5aec2133b08f7d8a38afe3fc7435de6360ae69ed4daee760b2878019991a4720",
+      "padding_bytes": 11,
+      "full_extent_bytes": 2240,
+      "full_extent_sha256": "5936d0d6a9b5f64a6f12abd9e92eccd5e592caf18a9f8b841c2f7fa9619a8a7a",
+      "padding_sha256": "19f3c2045194c5d2e45451e3dfe6a203b5e240aec5a2400a92cdb425c3331137",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Process@HoverLocomotionClass@@UAGEXZ",
+      "symbol_prefix": "?Process@HoverLocomotionClass@@UAGEXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 53,
+          "kind": 20,
+          "symbol": "?Motion_AI@HoverLocomotionClass@@AAEXXZ",
+          "target": 5233392,
+          "addend": 0,
+          "resolved": 6903
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2633947
+        },
+        {
+          "offset": 143,
+          "kind": 20,
+          "symbol": "??8?$TPoint2D@H@@QBE_NABV0@@Z",
+          "target": 4979552,
+          "addend": 0,
+          "resolved": 4294720269
+        },
+        {
+          "offset": 172,
+          "kind": 20,
+          "symbol": "?atan2@fastmath@@YANNN@Z",
+          "target": 4957696,
+          "addend": 0,
+          "resolved": 4294698384
+        },
+        {
+          "offset": 178,
+          "kind": 6,
+          "symbol": "__real@8@3fffc90fdaa22168c000",
+          "target": 7976496,
+          "addend": 0,
+          "resolved": 7976496
+        },
+        {
+          "offset": 187,
+          "kind": 6,
+          "symbol": "__real@8@c00ca2f83d7b47677800",
+          "target": 7976488,
+          "addend": 0,
+          "resolved": 7976488
+        },
+        {
+          "offset": 192,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2633868
+        },
+        {
+          "offset": 220,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294691648
+        },
+        {
+          "offset": 259,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 275,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 287,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 304,
+          "kind": 20,
+          "symbol": "?As_Cell@Coord@@QBE?AVCell@@XZ",
+          "target": 4274032,
+          "addend": 0,
+          "resolved": 4294014588
+        },
+        {
+          "offset": 327,
+          "kind": 20,
+          "symbol": "??8?$TPoint2D@F@@QBE_NABV0@@Z",
+          "target": 5238560,
+          "addend": 0,
+          "resolved": 11797
+        },
+        {
+          "offset": 378,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 8114
+        },
+        {
+          "offset": 391,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 2677
+        },
+        {
+          "offset": 418,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2633642
+        },
+        {
+          "offset": 496,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4294697564
+        },
+        {
+          "offset": 504,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2633556
+        },
+        {
+          "offset": 547,
+          "kind": 20,
+          "symbol": "?Start_Of_Move@HoverLocomotionClass@@AAEXH@Z",
+          "target": 5234928,
+          "addend": 0,
+          "resolved": 7945
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 581,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 593,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 609,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 618,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 631,
+          "kind": 20,
+          "symbol": "?Radio_Link@RadioClass@@QAEPAVTechnoClass@@H@Z",
+          "target": 6516240,
+          "addend": 0,
+          "resolved": 1289173
+        },
+        {
+          "offset": 637,
+          "kind": 6,
+          "symbol": "_CELL_NONE",
+          "target": 10752096,
+          "addend": 0,
+          "resolved": 10752096
+        },
+        {
+          "offset": 757,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 770,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 783,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 804,
+          "kind": 20,
+          "symbol": "?While_Moving@HoverLocomotionClass@@AAE?AW4MoveType@@_N@Z",
+          "target": 5229504,
+          "addend": 0,
+          "resolved": 2264
+        },
+        {
+          "offset": 855,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 867,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 880,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1068,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1080,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1093,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1192,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294690676
+        },
+        {
+          "offset": 1215,
+          "kind": 6,
+          "symbol": "__real@8@bff1c9116cc4faf2b800",
+          "target": 7976480,
+          "addend": 0,
+          "resolved": 7976480
+        },
+        {
+          "offset": 1250,
+          "kind": 20,
+          "symbol": "?sin@fastmath@@YANN@Z",
+          "target": 4957312,
+          "addend": 0,
+          "resolved": 4294696922
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2632797
+        },
+        {
+          "offset": 1274,
+          "kind": 20,
+          "symbol": "?cos@fastmath@@YANN@Z",
+          "target": 4957392,
+          "addend": 0,
+          "resolved": 4294696978
+        },
+        {
+          "offset": 1290,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 2632770
+        },
+        {
+          "offset": 1451,
+          "kind": 20,
+          "symbol": "?Set_Height@ObjectClass@@QAEXH@Z",
+          "target": 6113568,
+          "addend": 0,
+          "resolved": 885681
+        },
+        {
+          "offset": 1460,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1466,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 309890
+        },
+        {
+          "offset": 1505,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 10752168,
+          "addend": 0,
+          "resolved": 10752168
+        },
+        {
+          "offset": 1597,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1612,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1624,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1648,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 0,
+          "resolved": 10752128
+        },
+        {
+          "offset": 1656,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 4,
+          "resolved": 10752132
+        },
+        {
+          "offset": 1664,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 10752128,
+          "addend": 8,
+          "resolved": 10752136
+        },
+        {
+          "offset": 1716,
+          "kind": 20,
+          "symbol": "?Set_Height@ObjectClass@@QAEXH@Z",
+          "target": 6113568,
+          "addend": 0,
+          "resolved": 885416
+        },
+        {
+          "offset": 1744,
+          "kind": 6,
+          "symbol": "?Frame@@3HA",
+          "target": 10751276,
+          "addend": 0,
+          "resolved": 10751276
+        },
+        {
+          "offset": 1788,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1808,
+          "kind": 20,
+          "symbol": "??2@YAPAXI@Z",
+          "target": 7872535,
+          "addend": 0,
+          "resolved": 2644291
+        },
+        {
+          "offset": 1866,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 1880,
+          "kind": 20,
+          "symbol": "??0AnimClass@@QAE@PBVAnimTypeClass@@ABVCoord@@HHW4ShapeFlags_Type@@H@Z",
+          "target": 4325648,
+          "addend": 0,
+          "resolved": 4294064628
+        },
+        {
+          "offset": 1888,
+          "kind": 20,
+          "symbol": "?Gravity_AI@HoverLocomotionClass@@AAEXXZ",
+          "target": 5224912,
+          "addend": 0,
+          "resolved": 4294963884
+        },
+        {
+          "offset": 1928,
+          "kind": 20,
+          "symbol": "?Current@FacingClass@@QBE?AVDirType@@XZ",
+          "target": 4951008,
+          "addend": 0,
+          "resolved": 4294689940
+        },
+        {
+          "offset": 1970,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4294689690
+        },
+        {
+          "offset": 2056,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2068,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 309288
+        },
+        {
+          "offset": 2075,
+          "kind": 20,
+          "symbol": "?Trigger_Veins@CellClass@@QAEXXZ",
+          "target": 4700976,
+          "addend": 0,
+          "resolved": 4294439761
+        },
+        {
+          "offset": 2114,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2119,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 309237
+        },
+        {
+          "offset": 2180,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2189,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 383535
+        },
+        {
+          "offset": 2195,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 10752184,
+          "addend": 0,
+          "resolved": 10752184
+        }
+      ],
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
+      "source": "rebuild/src/hover.cpp",
+      "population": "rebuild-hover",
+      "source_order": 5226432,
       "source_quality_family": "rebuild"
     },
     {
@@ -1776,7 +2362,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5228672,
@@ -1812,7 +2398,7 @@
           "resolved": 7976464
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5228752,
@@ -1864,7 +2450,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5228800,
@@ -1916,7 +2502,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5228896,
@@ -2072,7 +2658,7 @@
           "resolved": 16
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5229024,
@@ -3389,7 +3975,7 @@
           "resolved": 5231041
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5229504,
@@ -3416,7 +4002,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5233232,
@@ -3492,7 +4078,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5233280,
@@ -3880,7 +4466,7 @@
           "resolved": 4294962322
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5233392,
@@ -3932,7 +4518,7 @@
           "resolved": 10752136
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5234496,
@@ -3968,7 +4554,7 @@
           "resolved": 4294683265
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5234576,
@@ -3995,7 +4581,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5234624,
@@ -4039,7 +4625,7 @@
           "resolved": 2625664
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5234640,
@@ -4523,7 +5109,7 @@
           "resolved": 4294410556
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5234928,
@@ -4591,7 +5177,7 @@
           "resolved": 256412
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5236736,
@@ -4627,7 +5213,7 @@
           "resolved": 256421
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5236864,
@@ -4703,7 +5289,7 @@
           "resolved": 4294389376
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5236912,
@@ -4819,7 +5405,7 @@
           "resolved": 10752168
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5237280,
@@ -4879,7 +5465,7 @@
           "resolved": 1285260
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5237712,
@@ -4939,7 +5525,7 @@
           "resolved": 1285181
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5237808,
@@ -4999,7 +5585,7 @@
           "resolved": 8003468
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5237888,
@@ -5075,7 +5661,7 @@
           "resolved": 8008172
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5237952,
@@ -5102,7 +5688,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238032,
@@ -5170,7 +5756,7 @@
           "resolved": 4294958587
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238048,
@@ -5197,7 +5783,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238224,
@@ -5233,7 +5819,7 @@
           "resolved": 10752184
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238304,
@@ -5260,7 +5846,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238464,
@@ -5320,7 +5906,7 @@
           "resolved": 2633289
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238480,
@@ -5364,7 +5950,7 @@
           "resolved": 2633254
         }
       ],
-      "source_sha256": "530155c2ffbf07483e2200f663a8fc43df98acc5f3820272229b3efeb252d5dd",
+      "source_sha256": "ec4315cf34797887699470762a97ded19f4def5497b05d8eccb27c46dab877e1",
       "source": "rebuild/src/hover.cpp",
       "population": "rebuild-hover",
       "source_order": 5238528,
