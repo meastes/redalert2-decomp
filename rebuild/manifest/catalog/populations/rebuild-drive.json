@@ -78,6 +78,26 @@
     "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
     "?Mark_Track@DriveLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z": 4852672,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "__sinking_scale": 7989848,
+    "__sinking": 7989840,
+    "__real@8@3ffcccccccccccccd000": 7979616,
+    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z": 7174416,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "?Lerp@@YI?AVCoord@@ABV1@0M@Z": 7479488,
     "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ": 6858368,
     "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
@@ -85,24 +105,14 @@
     "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
     "?Is_On_Priority_Mission@FootClass@@QBE_NXZ": 5016928,
     "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
-    "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
-    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
-    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
     "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
     "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
     "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
-    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
     "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
     "?Scan_Limit@TeamClass@@QAEXXZ": 7055920,
-    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
-    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
-    "?Shimmer@CellClass@@QAEXXZ": 4687680,
     "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
     "?Ground@@3PAUGroundType@@A": 8720032,
-    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
     "?Get_Health_Ratio@ObjectClass@@QBENXZ": 6112576,
     "__real@8@3ffec000000000000000": 7996888,
     "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
@@ -297,7 +307,7 @@
           "resolved": 8726912
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846672,
@@ -349,7 +359,7 @@
           "resolved": 8726984
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846720,
@@ -401,7 +411,7 @@
           "resolved": 8726968
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846752,
@@ -453,7 +463,7 @@
           "resolved": 8726960
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846784,
@@ -505,7 +515,7 @@
           "resolved": 8726920
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846816,
@@ -557,7 +567,7 @@
           "resolved": 8726880
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846848,
@@ -641,7 +651,7 @@
           "resolved": 8726992
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846880,
@@ -701,7 +711,7 @@
           "resolved": 8726928
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846944,
@@ -761,7 +771,7 @@
           "resolved": 8726952
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4846992,
@@ -821,7 +831,7 @@
           "resolved": 8726976
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847040,
@@ -865,7 +875,7 @@
           "resolved": 8726906
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847088,
@@ -917,7 +927,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847104,
@@ -977,7 +987,7 @@
           "resolved": 8726900
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847136,
@@ -1093,7 +1103,7 @@
           "resolved": 7996584
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847168,
@@ -1153,7 +1163,7 @@
           "resolved": 645349
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847328,
@@ -1229,7 +1239,7 @@
           "resolved": 3105109
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847376,
@@ -1273,7 +1283,7 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847648,
@@ -1349,7 +1359,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847744,
@@ -1417,7 +1427,7 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4847872,
@@ -1444,7 +1454,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848096,
@@ -1471,7 +1481,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848176,
@@ -1498,7 +1508,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848240,
@@ -1574,7 +1584,7 @@
           "resolved": 2593284
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848288,
@@ -1618,7 +1628,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848528,
@@ -1654,7 +1664,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848624,
@@ -1690,7 +1700,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848688,
@@ -1742,7 +1752,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848752,
@@ -1802,7 +1812,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4848912,
@@ -1829,7 +1839,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849024,
@@ -1881,7 +1891,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849072,
@@ -1957,7 +1967,7 @@
           "resolved": 8726976
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849200,
@@ -2057,7 +2067,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849392,
@@ -2125,7 +2135,7 @@
           "resolved": 7983472
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4849600,
@@ -2201,7 +2211,7 @@
           "resolved": 641845
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4850944,
@@ -2228,7 +2238,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4851136,
@@ -2504,7 +2514,7 @@
           "resolved": 1117
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4851184,
@@ -2588,7 +2598,7 @@
           "resolved": 15051
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4852672,
@@ -2744,7 +2754,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853040,
@@ -2812,7 +2822,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853392,
@@ -2960,7 +2970,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853472,
@@ -2996,10 +3006,1207 @@
           "resolved": 96833
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4853712,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 4853760,
+      "method": "004a1000",
+      "body_bytes": 5736,
+      "body_sha256": "46752bce911a1b5a055ff5aa7fe72e8d6dbe4f801d40f3b13b41059e7f780fb0",
+      "padding_bytes": 8,
+      "full_extent_bytes": 5744,
+      "full_extent_sha256": "64fb577b93f26e1e2c0253a97cdce33887ce1e3d3ddcef9f6eedc12cfed88034",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?While_Moving@DriveLocomotionClass@@AAE_N_N@Z",
+      "symbol_prefix": "?While_Moving@DriveLocomotionClass@@AAE_N_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 683839
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8726976,
+          "addend": 0,
+          "resolved": 8726976
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 758168
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 103094
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3006382
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "__deaccel",
+          "target": 7989832,
+          "addend": 0,
+          "resolved": 7989832
+        },
+        {
+          "offset": 448,
+          "kind": 6,
+          "symbol": "__deaccel",
+          "target": 7989832,
+          "addend": 0,
+          "resolved": 7989832
+        },
+        {
+          "offset": 454,
+          "kind": 6,
+          "symbol": "__deaccel",
+          "target": 7989832,
+          "addend": 4,
+          "resolved": 7989836
+        },
+        {
+          "offset": 495,
+          "kind": 6,
+          "symbol": "__sinking_scale",
+          "target": 7989848,
+          "addend": 0,
+          "resolved": 7989848
+        },
+        {
+          "offset": 505,
+          "kind": 6,
+          "symbol": "__sinking",
+          "target": 7989840,
+          "addend": 0,
+          "resolved": 7989840
+        },
+        {
+          "offset": 519,
+          "kind": 6,
+          "symbol": "__sinking",
+          "target": 7989840,
+          "addend": 0,
+          "resolved": 7989840
+        },
+        {
+          "offset": 525,
+          "kind": 6,
+          "symbol": "__sinking",
+          "target": 7989840,
+          "addend": 4,
+          "resolved": 7989844
+        },
+        {
+          "offset": 565,
+          "kind": 6,
+          "symbol": "__real@8@3ffcccccccccccccd000",
+          "target": 7979616,
+          "addend": 0,
+          "resolved": 7979616
+        },
+        {
+          "offset": 583,
+          "kind": 6,
+          "symbol": "__real@8@3ffcccccccccccccd000",
+          "target": 7979616,
+          "addend": 0,
+          "resolved": 7979616
+        },
+        {
+          "offset": 929,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 948,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 961,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 975,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 983,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1022,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 16,
+          "resolved": 8806872
+        },
+        {
+          "offset": 1033,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 4,
+          "resolved": 8806860
+        },
+        {
+          "offset": 1153,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1160,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1202,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1207,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 682933
+        },
+        {
+          "offset": 1214,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4294789278
+        },
+        {
+          "offset": 1278,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1283,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 757113
+        },
+        {
+          "offset": 1349,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1354,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 757042
+        },
+        {
+          "offset": 1416,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 1424,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1433,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1441,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 1454,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1467,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1483,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 1491,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 1538,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 0,
+          "resolved": 7995776
+        },
+        {
+          "offset": 1576,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967280,
+          "resolved": 7995552
+        },
+        {
+          "offset": 1887,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@DriveLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 4867904,
+          "addend": 0,
+          "resolved": 12253
+        },
+        {
+          "offset": 1996,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@DriveLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 4867904,
+          "addend": 0,
+          "resolved": 12144
+        },
+        {
+          "offset": 2191,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2196,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 681944
+        },
+        {
+          "offset": 2205,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2213,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 681927
+        },
+        {
+          "offset": 2391,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2403,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 755993
+        },
+        {
+          "offset": 2409,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 8726976,
+          "addend": 0,
+          "resolved": 8726976
+        },
+        {
+          "offset": 2422,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2428,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 681712
+        },
+        {
+          "offset": 2445,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2451,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 681689
+        },
+        {
+          "offset": 2492,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2538,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2631,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 2672,
+          "kind": 20,
+          "symbol": "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z",
+          "target": 7174416,
+          "addend": 0,
+          "resolved": 2317980
+        },
+        {
+          "offset": 2831,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 94205
+        },
+        {
+          "offset": 2848,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967292,
+          "resolved": 7995564
+        },
+        {
+          "offset": 2955,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967284,
+          "resolved": 7995556
+        },
+        {
+          "offset": 3020,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 0,
+          "resolved": 7995776
+        },
+        {
+          "offset": 3027,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 0,
+          "resolved": 7995776
+        },
+        {
+          "offset": 3047,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967288,
+          "resolved": 7995560
+        },
+        {
+          "offset": 3104,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 3111,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 3196,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 1256272
+        },
+        {
+          "offset": 3212,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3217,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 680923
+        },
+        {
+          "offset": 3243,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4859468,
+          "addend": 0,
+          "resolved": 4859468
+        },
+        {
+          "offset": 3318,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967288,
+          "resolved": 7995560
+        },
+        {
+          "offset": 3328,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967280,
+          "resolved": 7995552
+        },
+        {
+          "offset": 3333,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3352,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3365,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3379,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3387,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3457,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3472,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3485,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3499,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3508,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3521,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3543,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3551,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3576,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3587,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 680441
+        },
+        {
+          "offset": 3594,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4294790834
+        },
+        {
+          "offset": 3622,
+          "kind": 20,
+          "symbol": "?Mark_Track@DriveLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z",
+          "target": 4852672,
+          "addend": 0,
+          "resolved": 4294962582
+        },
+        {
+          "offset": 3703,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3711,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 3719,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 3740,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3746,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 680282
+        },
+        {
+          "offset": 3753,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4294797459
+        },
+        {
+          "offset": 3781,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3836,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 757200
+        },
+        {
+          "offset": 3850,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3856,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 680172
+        },
+        {
+          "offset": 3902,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3907,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 680121
+        },
+        {
+          "offset": 3928,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 3954,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3964,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 3970,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 680058
+        },
+        {
+          "offset": 3977,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4294789523
+        },
+        {
+          "offset": 4036,
+          "kind": 6,
+          "symbol": "?TrackControl@DriveLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 7995776,
+          "addend": 0,
+          "resolved": 7995776
+        },
+        {
+          "offset": 4123,
+          "kind": 6,
+          "symbol": "__real@8@3ffbba2e8ba2e8ba3000",
+          "target": 7996880,
+          "addend": 0,
+          "resolved": 7996880
+        },
+        {
+          "offset": 4129,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 4135,
+          "kind": 6,
+          "symbol": "__real@8@4001e000000000000000",
+          "target": 7996872,
+          "addend": 0,
+          "resolved": 7996872
+        },
+        {
+          "offset": 4140,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 3002592
+        },
+        {
+          "offset": 4371,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4386,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4399,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4413,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4421,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4573,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 8726992,
+          "addend": 0,
+          "resolved": 8726992
+        },
+        {
+          "offset": 4591,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4607,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4616,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4624,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 0,
+          "resolved": 8726936
+        },
+        {
+          "offset": 4637,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4650,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4662,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 4,
+          "resolved": 8726940
+        },
+        {
+          "offset": 4670,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 8726936,
+          "addend": 8,
+          "resolved": 8726944
+        },
+        {
+          "offset": 4731,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 177969
+        },
+        {
+          "offset": 4892,
+          "kind": 6,
+          "symbol": "?RawTracks@DriveLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 7995568,
+          "addend": 4294967280,
+          "resolved": 7995552
+        },
+        {
+          "offset": 5017,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@DriveLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 4867904,
+          "addend": 0,
+          "resolved": 9123
+        },
+        {
+          "offset": 5088,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5100,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 678928
+        },
+        {
+          "offset": 5126,
+          "kind": 6,
+          "symbol": "__real@8@3ffc9249249249249000",
+          "target": 7996864,
+          "addend": 0,
+          "resolved": 7996864
+        },
+        {
+          "offset": 5160,
+          "kind": 20,
+          "symbol": "?Lerp@@YI?AVCoord@@ABV1@0M@Z",
+          "target": 7479488,
+          "addend": 0,
+          "resolved": 2620564
+        },
+        {
+          "offset": 5239,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5248,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 678780
+        },
+        {
+          "offset": 5264,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5269,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 678759
+        },
+        {
+          "offset": 5380,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5399,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 678629
+        },
+        {
+          "offset": 5708,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857007,
+          "addend": 0,
+          "resolved": 4857007
+        },
+        {
+          "offset": 5712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857495,
+          "addend": 0,
+          "resolved": 4857495
+        },
+        {
+          "offset": 5716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857007,
+          "addend": 0,
+          "resolved": 4857007
+        },
+        {
+          "offset": 5720,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857522,
+          "addend": 0,
+          "resolved": 4857522
+        },
+        {
+          "offset": 5724,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857741,
+          "addend": 0,
+          "resolved": 4857741
+        },
+        {
+          "offset": 5728,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857741,
+          "addend": 0,
+          "resolved": 4857741
+        },
+        {
+          "offset": 5732,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 4857605,
+          "addend": 0,
+          "resolved": 4857605
+        }
+      ],
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
+      "source": "rebuild/src/drive.cpp",
+      "population": "rebuild-drive",
+      "source_order": 4853760,
       "source_quality_family": "rebuild"
     },
     {
@@ -5360,7 +6567,7 @@
           "resolved": 8726944
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4859504,
@@ -5387,7 +6594,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4867888,
@@ -5424,7 +6631,7 @@
           "resolved": 7995784
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4867904,
@@ -5468,7 +6675,7 @@
           "resolved": 746749
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868032,
@@ -5495,7 +6702,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868064,
@@ -5555,7 +6762,7 @@
           "resolved": 8003452
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868080,
@@ -5582,7 +6789,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868144,
@@ -5618,7 +6825,7 @@
           "resolved": 625766
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868160,
@@ -5654,7 +6861,7 @@
           "resolved": 168251
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868176,
@@ -5714,7 +6921,7 @@
           "resolved": 4294951667
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868240,
@@ -5814,7 +7021,7 @@
           "resolved": 8726992
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868320,
@@ -5882,7 +7089,7 @@
           "resolved": 7995560
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4868800,
@@ -5909,7 +7116,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869024,
@@ -5936,7 +7143,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869040,
@@ -5963,7 +7170,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869056,
@@ -5990,7 +7197,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869072,
@@ -6017,7 +7224,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869088,
@@ -6044,7 +7251,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869104,
@@ -6071,7 +7278,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869136,
@@ -6098,7 +7305,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869152,
@@ -6125,7 +7332,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869168,
@@ -6152,7 +7359,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869184,
@@ -6179,7 +7386,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869200,
@@ -6215,7 +7422,7 @@
           "resolved": 624102
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869216,
@@ -6251,7 +7458,7 @@
           "resolved": 624118
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869232,
@@ -6278,7 +7485,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869248,
@@ -6305,7 +7512,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869280,
@@ -6373,7 +7580,7 @@
           "resolved": 3002451
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869296,
@@ -6400,7 +7607,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869376,
@@ -6427,7 +7634,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869392,
@@ -6463,7 +7670,7 @@
           "resolved": 4294945494
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869440,
@@ -6499,7 +7706,7 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869456,
@@ -6535,7 +7742,7 @@
           "resolved": 4294967046
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869472,
@@ -6571,7 +7778,7 @@
           "resolved": 4294945446
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869488,
@@ -6607,7 +7814,7 @@
           "resolved": 4294966998
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869504,
@@ -6643,7 +7850,7 @@
           "resolved": 4294966998
         }
       ],
-      "source_sha256": "e0e06c53226a0916327d6a168c80010da661bfe296ca5c592441945b828553a7",
+      "source_sha256": "f7ccaa1d0cff924dd0101b6bb6fd347738e163b02e1ff5c6b092a56e4194a6e3",
       "source": "rebuild/src/drive.cpp",
       "population": "rebuild-drive",
       "source_order": 4869520,

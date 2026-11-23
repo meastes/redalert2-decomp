@@ -111,6 +111,10 @@
 //                   at the player's first techno (a SpotLightClass, as Combat_Lighting makes for a bright warhead;
 //                   lane N5: Delete_All_Objects deletes the living ones when a game is loaded or a new one starts);
 //   occupants <BLDG>  logs `harness-occupants <BLDG> h<house> <n>[p]`: the garrison of each building of type BLDG;
+//   view            logs `harness-view <x>,<y> locked <0|1> zoom <z> frame <f>`: the tactical view's position
+//                   (Tactical::Get_Tactical_Position), whether the game ignores the player's input (IgnoreInput
+//                   0x00A8ED9C, a mission's locked intro) and the map zoom (lane N32: the touch pan and the pinch must
+//                   not move the view while it is set; RA2's harness `view`, lane N31);
 // "+<n>[/<p>] <order>" (lane N25, the mission soak): n game frames (Unsorted::CurrentFrame) into each scenario, then
 // every p frames; a new scenario starts the count again.
 // RA2_NATIVE_SOAK=<period> and the rest of the mission soak (lane N25; RA2's link/harness_soak.cpp, the same lines):
@@ -156,6 +160,7 @@
 #include "ccini.h"
 extern CCINIClass ArtINI;
 namespace Unsorted { extern int CurrentFrame; }
+extern "C" double ra2_native_zoom(void);   // glue/yr_map_zoom.cpp: the map zoom in play (lane N32's `view`)
 LayerType Layer_From_Name(char const * name);
 #include "building.h"
 #include "super.h"
@@ -978,6 +983,13 @@ int Run_Order(int frame, char const * text)
 			bar.X, bar.Y, bar.Width, bar.Height, DAT_00B0FC0C ? "laid out" : "not laid out",
 			CompositeSurface ? CompositeSurface->Get_Width() : 0, CompositeSurface ? CompositeSurface->Get_Height() : 0);
 		fprintf(stderr, "harness-rects commandbar on screen %d%% drawn\n", Bar_Drawn(bar));
+		return(1);
+	}
+	if (!strcmp(word[0], "view")) {
+		if (TacticalMap == NULL) return(-1);
+		Point2D at = TacticalMap->Get_Tactical_Position();
+		fprintf(stderr, "harness-view %d,%d locked %d zoom %.3f frame %d\n", at.X, at.Y, IgnoreInput ? 1 : 0, ra2_native_zoom(),
+			Unsorted::CurrentFrame);
 		return(1);
 	}
 	if (!strcmp(word[0], "thumb")) {

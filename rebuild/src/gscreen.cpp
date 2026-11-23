@@ -405,10 +405,10 @@ void GScreenClass::Render(void)
 	bool complete = DrawFlags == GS_REDRAW_ALL;
 	DrawFlags = GS_REDRAW_DIRTY; // RA2: reset before drawing
 
-	TacticalMap->Render(*CompositeSurface, redraw, DRAW_PASS_PAN);
-	TacticalMap->Render(*CompositeSurface, redraw, DRAW_PASS_BACKGROUND);
+	TacticalMap->Render(CompositeSurface, redraw, DRAW_PASS_PAN);
+	TacticalMap->Render(CompositeSurface, redraw, DRAW_PASS_BACKGROUND);
 	Draw_It(complete);
-	TacticalMap->Render(*CompositeSurface, redraw, DRAW_PASS_FOREGROUND);
+	TacticalMap->Render(CompositeSurface, redraw, DRAW_PASS_FOREGROUND);
 
 	if (SidebarClass::IsToEraseSidebarMouse && !Debug_Map) {
 		MouseCursor->Erase_Mouse(SidebarSurface, true);

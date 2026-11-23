@@ -3318,7 +3318,7 @@ ObjectClass * MapClass::Close_Object(Coord const & coord) const
  * HISTORY:                                                                                    *
  *   09/22/1995 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); 1158 bytes differ against main's function-map extent
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0054ebd0 has no row); 12 of 1646 bytes differ against main's function-map extent, 2026-11-23 (lane F40): ra2-decomp's matched twin text (8a10b56: the continue, the second bucket loop as a for over Count(), the n loop); left: the home slots of this and zone_degree and their two reloads after the neighbour loop come in the other order
 int MapClass::Zone_Reset(void)
 {
 	int i;
@@ -3373,15 +3373,16 @@ int MapClass::Zone_Reset(void)
 
 	for (i = ZoneConnections.Count() - 1; i >= 0; i--) {
 
-		if (ZoneConnections[i].IsPassable) {
-			int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
-			int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
-			if (to_zone != from_zone) {
-				if (to_zone < from_zone) {
-					swap(to_zone, from_zone);
-				}
-				ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(from_zone, to_zone));
+		if (!ZoneConnections[i].IsPassable) {
+			continue;
+		}
+		int from_zone = Get_Cell_Zone_ID(ZoneConnections[i].From);
+		int to_zone = Get_Cell_Zone_ID(ZoneConnections[i].To);
+		if (to_zone != from_zone) {
+			if (to_zone < from_zone) {
+				swap(to_zone, from_zone);
 			}
+			ZoneAdjacency->Add_Object(ZONE_PAIR_HASH_SET::ObjectType(from_zone, to_zone));
 		}
 	}
 
@@ -3417,10 +3418,9 @@ int MapClass::Zone_Reset(void)
 
 	for (i = 0; i < 256; i++) {
 		ZONE_PAIR_HASH_SET::BucketType & bucket = ZoneAdjacency->Buckets[i];
-		j = bucket.Count();
-		if (j > 0) {
+		if (bucket.Count() > 0) {
 			ZONE_PAIR_HASH_SET::ObjectType * obj = &bucket[0];
-			do {
+			for (j = bucket.Count(); j > 0; j--) {
 				unsigned int value = obj->Value;
 				unsigned short zone1 = LOWORD(value);
 				unsigned short zone2 = HIWORD(value);
@@ -3429,7 +3429,7 @@ int MapClass::Zone_Reset(void)
 				zone_degree[zone1]++;
 				zone_degree[zone2]++;
 				obj++;
-			} while (--j);
+			}
 		}
 	}
 
@@ -3447,8 +3447,8 @@ int MapClass::Zone_Reset(void)
 		unsigned short * nzone = new unsigned short[ZoneCount];
 		Zones[mzone] = nzone;
 
-		for (j = 0; j < ZoneCount; j++) {
-			nzone[j] = table[zone_passability[j]] != TRAVERSAL_PASSABLE;
+		for (int n = 0; n < ZoneCount; n++) {
+			nzone[n] = table[zone_passability[n]] != TRAVERSAL_PASSABLE;
 		}
 
 		for (int zone_index = 0; zone_index < ZoneCount; zone_index++) {
@@ -12766,7 +12766,7 @@ bool MapClass::Damage_Bridge(Cell const & cell)
 /// </summary>
 /// <param name="cell">The cell the repair attempt was aimed at.</param>
 /// <returns>bool; Is there a repairable bridge within reach of this cell?</returns>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00569320 has no row); main: best 99.49, tried 12 times (register, frame, order)
+#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00569320 has no row); 1332 of 2109 bytes differ against the image-derived bound, 2026-11-23 (lane F42): the four walks back as `walk -= Cell(..)`, the tile type pointer with the cell difference, the vector test before the connection pointer; with six empty inline sites before the last return 15 bytes differ (the probe cell's home slot, 0x14 in the executable), so the executable has that many more inline sites after the bridge walk
 bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 {
 	static short _x[] = { // RA2: as above
@@ -12822,7 +12822,7 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 					int overlay = cellptr->Overlay; // RA2: as above
 
 					if (overlay >= 0xcd && overlay <= 0xd5 || overlay >= 0xdf && overlay <= 0xe2 || overlay == 0xe7) { // RA2: as above
-						for (Cell walk = cellptr->CellID; ; walk.X--) { // RA2: as above
+						for (Cell walk = cellptr->CellID;; walk -= Cell(1, 0)) { // RA2: the step back is a cell difference (the executable stores Y again after the decrement)
 							if (!Is_Low_Bridge2(walk)) { // RA2: as above
 								break; // RA2: as above
 							}
@@ -12854,7 +12854,7 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 							}
 						}
 
-						for (Cell walk = cellptr->CellID; ; walk.Y--) { // RA2: as above
+						for (Cell walk = cellptr->CellID;; walk -= Cell(0, 1)) { // RA2: as above (X is stored again)
 							if (!Is_Low_Bridge2(walk)) { // RA2: as above
 								break; // RA2: as above
 							}
@@ -12868,7 +12868,7 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 					cellptr->Overlay >= OVERLAY_LOWBRIDGE_19 && cellptr->Overlay <= OVERLAY_LOWBRIDGE_22 || // RA2: as above
 					cellptr->Overlay == OVERLAY_LOWBRIDGE_27) { // RA2: as above
 
-					for (Cell walk = cellptr->CellID; ; walk.X--) { // RA2: as above
+					for (Cell walk = cellptr->CellID;; walk -= Cell(1, 0)) { // RA2: the step back is a cell difference (the executable stores Y again after the decrement)
 						if (!Is_Low_Bridge(walk)) { // RA2: as above
 							break; // RA2: as above
 						}
@@ -12900,7 +12900,7 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 						}
 					}
 
-					for (Cell walk = cellptr->CellID; ; walk.Y--) { // RA2: as above
+					for (Cell walk = cellptr->CellID;; walk -= Cell(0, 1)) { // RA2: as above (X is stored again)
 						if (!Is_Low_Bridge(walk)) { // RA2: as above
 							break; // RA2: as above
 						}
@@ -12914,8 +12914,9 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 			break; // RA2: as above
 
 		default: { // RA2: as above
-			int width = IsometricTileTypes[cellptr->ITType]->Width; // RA2: as above
-			Cell topleft(cellptr->CellID.X - cellptr->SubTile % width, cellptr->CellID.Y - cellptr->SubTile / width); // RA2: as above
+
+			IsometricTileTypeClass * type = IsometricTileTypes[cellptr->ITType]; // RA2: the tile type is kept, its width read at both uses
+			Cell topleft = cellptr->CellID - Cell(cellptr->SubTile % type->Width, cellptr->SubTile / type->Width); // RA2: both terms are computed before the cell difference
 
 			Cell search = topleft + Cell(_x[offset], _y[offset]); // RA2: the probe cell is the variable and the walked entry a copy of it
 			FacingType dir = _facings[offset]; // RA2: as above
@@ -12927,10 +12928,10 @@ bool MapClass::Can_Repair_Bridge(Cell const & cell) // RA2: as above
 					if (index < 0) { // RA2: as above
 						break; // RA2: as above
 					}
-					ZoneConnectionClass * con = &ZoneConnections[index]; // RA2: as above
-					if (!con->IsPassable) { // RA2: as above
+					if (!ZoneConnections[index].IsPassable) { // RA2: the test reads the vector, the pointer is taken after it
 						return(true); // RA2: as above
 					}
+					ZoneConnectionClass * con = &ZoneConnections[index]; // RA2: as above
 					Cell next; // RA2: the next probe cell is built in a temporary
 					if (con->From == entry) { // RA2: as above
 						entry = con->To; // RA2: as above

@@ -919,7 +919,8 @@ scale the bar's pieces are laid out from the shown part's right end, the window'
 back once the close thumb hides the buttons, lay off the picture. Touch pan, the trackpad's pan and
 the zoom gestures do nothing while the game ignores the player's input (IgnoreInput 0x00A40D44: a
 mission intro's TAction_LOCK_INPUT until its unlock), as the original's own scrolling (lane N31;
-ctests native-command-bar-thumb and native-locked-input, tests/command_bar_input.py). A dialog in play outside that loop is shown through regions as a fallback
+ctests native-command-bar-thumb and native-locked-input, tests/command_bar_input.py; Yuri's Revenge the same
+since lane N32, IgnoreInput 0x00A8ED9C, ctest yr-native-locked-input). A dialog in play outside that loop is shown through regions as a fallback
 (`ra2port_top_dialog_rect`, `ra2port_top_dialog_controls`). The score screen (Do_Win/Do_Lose, run
 inside Main_Loop's end) is a menu-style dialog: the host is told the game is over before it (native
 fixups in mainloop.cpp), so it is shown as the menus are. A start is centred on the point

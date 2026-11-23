@@ -38,10 +38,21 @@ extern "C" void ra2port_frame(int frame);  // port/src/run_progress.cpp
 extern "C" void ra2port_progress(const char *milestone, const char *detail);   // port/src/run_progress.cpp
 extern "C" int ra2port_skirmish_frames(void);                                   // the same: --frames=N
 
+// The pan does nothing while the game ignores the player's input (IgnoreInput, gamemd.exe 0x00A8ED9C, the
+// variable ra2-decomp also names UserInputLocked: a mission's locked intro, the LOCK_INPUT trigger action 0x006E2660 ->
+// Lock_Scenario_Input 0x00684240, until its unlock), as the original's own edge and drag scrolling refuse then
+// (ScrollClass::Scroll_AI 0x00692F30); it is taken (1) and dropped, not turned into sidebar wheel notches (lane N32,
+// Red Alert 2's lane N31 carried over).
 extern "C" int ra2_native_scroll_map(int, int, int dx, int dy)
 {
     Tactical *tactical = TacticalMap;
     if (!tactical) return 0;
+    if (IgnoreInput) {
+        static int last = -1000;
+        if (Frame - last > 30 || Frame < last) fprintf(stderr, "scroll: input locked (frame %d): the pan is ignored\n", Frame);
+        last = Frame;
+        return 1;
+    }
     Point2D view = tactical->Get_Tactical_Position();
     view.X += dx;
     view.Y += dy;

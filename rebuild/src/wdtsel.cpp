@@ -74,12 +74,10 @@ Selection::Selection(rc_ptr<Campaign> const & campaign, int faction) :
 	TooltipAnim(NULL),
 	Font(new MSFont(false)),
 	CurrentState(State::Create()),
-	ThemeName(NULL),
-	SfxEntries(0, 0)
+	ThemeName(NULL)
 {
-	int color = Text_Color;
-	int pixel = DSurface::Build_Hicolor_Pixel((unsigned char)color, (unsigned char)((unsigned short)color >> 8), (unsigned char)(color >> 16));
-	TextColor = BitFont::Instance->Set_Color(pixel) & 0xFFFF;
+	int pixel = DSurface::Build_Hicolor_Pixel(GetRValue(Text_Color), GetGValue(Text_Color), GetBValue(Text_Color));
+	TextColor = BitFont::Instance->Set_Color(pixel);
 
 	Add_Animation(VoicePlayer.Create_Anim());
 
@@ -96,12 +94,12 @@ Selection::Selection(rc_ptr<Campaign> const & campaign, int faction) :
 
 	WorldMap->Load(ini, this, campaign->Is_Different(faction));
 
-	WideWstring play_text(Load_Selection_Text("GUI:PlayWDT", 157)); // RA2: the unit's loader (no twin text of this constructor: a judgment call)
+	WideWstring play_text = Load_Selection_Text("GUI:PlayWDT", 157);
 	MSBitPrintAnim * play = new MSBitPrintAnim(play_text, WorldMap->PlayRect, true);
 	play->Set_Flag(true);
 	Add_Animation(play);
 
-	WideWstring back_text(Load_Selection_Text("TXT_BACK", 164)); // RA2: as above
+	WideWstring back_text = Load_Selection_Text("TXT_BACK", 164);
 	MSBitPrintAnim * back = new MSBitPrintAnim(back_text, WorldMap->BackRect, true);
 	back->Set_Flag(true);
 	Add_Animation(back);

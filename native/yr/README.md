@@ -1717,6 +1717,21 @@ column (0-632). A native fixup in FUN_0072FC60 lays the bar out from the shown p
 interface 1.25x (the open thumb must lie in the shown part: 576 now, 1208 before) and with the defaults (576, the
 original's).
 
+## Lane N32 (2026-11-23): touch pan and the zoom gestures wait for a mission intro's input lock
+
+Red Alert 2's lane N31 (the user's Duo report from Hail to the Chief: the map could be panned during the locked
+intro) carried over. A mission intro locks the player's input with the LOCK_INPUT trigger action (gamemd.exe
+0x006E2660, which ra2-decomp calls TAction_CLEAR_MODES) -> Lock_Scenario_Input 0x00684240, which sets the flag at
+0x00A8ED9C until the unlock; ra2-decomp names it both IgnoreInput (globals.h; ScrollClass::Scroll_AI 0x00692F30 and
+Message_Handler refuse the edge and drag scrolling while it is set) and UserInputLocked (scenario.cpp, taction.cpp,
+keyboard.cpp), and globals.tsv gives both names the one address, so they are one variable natively too. The touch
+controls' and the trackpad's pan (`ra2_native_scroll_map`, glue/yr_app_hooks.cpp) take the pan and drop it, and the
+zoom gestures (`ra2_native_zoom_by`, glue/yr_map_zoom.cpp) do nothing, while it is set; each refusal is logged once
+a gesture. Harness order `view` (`harness-view <x>,<y> locked <0|1> zoom <z> frame <f>`). ctest
+`yr-native-locked-input` (yr/tests/yr_locked_input.py): Allied mission 1 (ALL01UMD) from the menus, Zoom gestures
+and the touch controls on; a swipe and a pinch step while the intro's camera rests (frames 500-520, input locked)
+leave the view and the zoom as they were, the same at frame 1600 (after the unlock at about 1490) move and zoom it.
+
 ## Next
 
 0. The Windows builds on a real PC (RA2YRNative.exe with its two DLLs and SDL3.dll is on the user's PC, lane P1;

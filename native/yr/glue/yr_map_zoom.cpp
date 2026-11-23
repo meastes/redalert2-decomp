@@ -33,6 +33,8 @@
 #include "goptions.h"
 #include <stdio.h>
 
+extern bool IgnoreInput;                         // the player's input ignored (globals.h; gamemd.exe 0x00A8ED9C)
+extern int Frame;                                 // the game frame (globals.h)
 extern Rect VisibleRect;                          // the screen
 extern Rect TacticalRect;                         // the view rectangle Set_View_Dimensions keeps (DSurface::ViewBounds)
 Rect __fastcall Get_Title_Screen_Area(void);      // the tactical rectangle for the screen (gamemd.exe 0x0072AD20, txtlabel2.cpp)
@@ -158,9 +160,18 @@ void apply_zoom()
 }  // namespace
 
 // The host's zoom (platform/sdl/host.cpp: the wheel, a trackpad pinch, a two-finger pinch), taken at
-// the frame's end; and the zoom in play now (tests).
+// the frame's end; and the zoom in play now (tests). Not while the game ignores the player's input
+// (IgnoreInput 0x00A8ED9C, ra2-decomp's UserInputLocked too: a mission's locked intro, Lock_Scenario_Input
+// 0x00684240, until its unlock; the original's own scrolling refuses then, ScrollClass::Scroll_AI 0x00692F30;
+// lane N32, Red Alert 2's lane N31 carried over).
 extern "C" void ra2_native_zoom_by(double factor, double ax, double ay)
 {
+    if (IgnoreInput) {
+        static int last = -1000;     // logged once a pinch, not at each of its steps
+        if (Frame - last > 30 || Frame < last) fprintf(stderr, "zoom: input locked (frame %d): the pinch is ignored\n", Frame);
+        last = Frame;
+        return;
+    }
     pending_factor = pending ? pending_factor * factor : factor;
     pending_ax = ax;
     pending_ay = ay;

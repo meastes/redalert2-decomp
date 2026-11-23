@@ -947,7 +947,6 @@ void DriveLocomotionClass::Do_Turn(DirStruct coord)
  *   02/02/1992 JLB : Created.                                                                 *
  *   04/15/1994 JLB : Converted to member function.                                            *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place: the train test with the unit in a local (the archive's and the twin's idiom in this unit's Stop_Moving), `Map[Coord(coord)]` (the archive writes `Map[Coord(coord).As_Cell()]` in fly.cpp) and the `Cell here` local; variation_candidates.csv, lane F2 session 2
 bool DriveLocomotionClass::While_Moving(bool just_started)
 {
 	assert(LinkedTo->IsActive);
@@ -992,7 +991,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 			}
 
 			if (LinkedTo->RTTI == RTTI_UNIT) {
-				UnitClass * following = ((UnitClass *)LinkedTo)->FollowingMe;
+				UnitClass * unit = (UnitClass *)LinkedTo; // RA2: the twin's local
+				UnitClass * following = unit->FollowingMe;
 				if (following != NULL) {
 					do {
 						following->Set_Speed(LinkedTo->Speed);
@@ -1124,7 +1124,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 					if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) {
 						LinkedTo->IsOnBridge = false;
 					}
-					if (LinkedTo->TClass->IsTrain) { // RA2: the train test as Stop_Moving has it in this unit (the archive's idiom there: the unit in a local, then IsFollowing); no reference text at this place, a variation
+					if (LinkedTo->TClass->IsTrain) { // RA2: the train test with the unit in a local, as ra2-decomp's matched Yuri's Revenge twin of Drive's While_Moving (src/drive.cpp, GAMEMD 0x4B0F20) has it
 						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: as above
 						if (!unit->IsFollowing) { // RA2: as above
 							bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT));
@@ -1222,8 +1222,10 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 								Map[c].Shimmer();
 								break;
 
-							case MOVE_CLOSED_GATE:
-								Incoming(c.As_Cell()); // RA2: through the locomotor's own Incoming, as Start_Of_Move
+							case MOVE_CLOSED_GATE: { // RA2: the twin's gate statements
+								Cell gate = c.As_Cell();
+								Map.Try_Open_Gate(LinkedTo, gate);
+							}
 								break;
 
 							case MOVE_TEMP: {
@@ -1248,8 +1250,8 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				LinkedTo->IsOccupyingCell = true;
 				LinkedTo->IsToPathAroundBlockage = false;
 
-				Cell here = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (no reference text; a variation)
-				if (here != HeadToCoord.As_Cell()) { // RA2: as above
+				Cell poscell = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (the twin's statements)
+				if (poscell != HeadToCoord.As_Cell()) {
 					LinkedTo->Mark(MARK_UP);
 					LinkedTo->PositionCoord = HeadToCoord;
 					LinkedTo->HeightAGL = 0;
@@ -1355,7 +1357,7 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 				coord = partialcoord;
 			}
 
-			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (no reference text; a variation)
+			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (the twin's statement)
 
 			if (coord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) {
 				LinkedTo->Mark(MARK_UP);
@@ -1378,7 +1380,6 @@ bool DriveLocomotionClass::While_Moving(bool just_started)
 
 	return(false);
 }
-#endif
 
 
 

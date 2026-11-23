@@ -1080,7 +1080,7 @@ void MapRegionClass::Increase_Height(char cell_height)
 /// neighbor instead. A region marked unsplittable is left well alone.
 /// </summary>
 /// <returns>bool; Was the region split?</returns>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,613 bytes differ (was 1,701; all 59 calls and the 0xA0 frame match; left: child-loop layout and stack slots); main: best 70.68, tried 7 times (bound, frame, order, inlining)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (4,012 B) 1,285 bytes differ (was 1,701; the neighbour cell as cell + AdjacentCell[], as the tree's other sites write it); main: best 70.68, tried 7 times (bound, frame, order, inlining)
 bool MapRegionClass::Split_Region(void)
 {
 	int i, j;
@@ -1209,7 +1209,7 @@ bool MapRegionClass::Split_Region(void)
 		for (j = cells->Count() - 1; j >= 0; j--) {
 			Cell c = (*cells)[j];
 			for (int m = 0; m < FACING_COUNT; m++) {
-				Cell ncell = Adjacent_Cell(c, (FacingType)m);
+				Cell ncell = c + AdjacentCell[(FacingType)m & 7];
 				if (My_In_Radar(ncell)) {
 					int id = MapRegionClass::Get_Cell_Data(ncell).RegionID;
 					if (id >= 0 && id != region->ID) {

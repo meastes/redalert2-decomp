@@ -4533,3 +4533,60 @@ fmap.py lists a listing's frame objects with reference counts).
   the last two, the image's "middle refused, outer two expanded" needs spends between S2 and S3 below T times b and room at
   S1, which pads and count probes at three places each confirm (a pad between S1 and S2 refuses S3 first; sites anywhere
   between S2 and S3 behave alike). Write the inequalities before sweeping counts.
+## A held variation row closes when the twin matches; a register pair one reference apart; a charged comparison refused by sites between; home slots that follow reload order (found in the rebuild (lane F40, high))
+
+Found in the rebuild (lane F40, high):
+
+- When a twin matches a function that sits on variation_candidates.csv, read its text for every held form before
+  anything else. ra2-decomp's Drive While_Moving (961b13a) has all three forms held since lane F2 session 2 word for
+  word (the train test with the unit in a local, `&Map[Coord(coord)]`, the arrival test through a `Cell` local): drive
+  0x4A1000 and, with the sibling's forms and the twin's `target` local, ship 0x676F60 are exact (11,456 B). A sibling's
+  private constants (`_ship_sinking`) bind by `check --learn` once the row differs only at them.
+- netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0 (61 B): the exchange of message and lparam is lparam against the tool
+  tip's `pt.x`, one reference apart. One more real reference to lparam below the top call, or one fewer to `pt.x`,
+  gives the image's registers; the set-up case's zero register is not what decides (with no zero register the pair
+  stays, and dropping lparam at the set-up call moves the zero register instead). Extra tests of message at the top
+  change the prologue, which is why "more reads" seemed to do nothing. No reference has a code-free reference there.
+- fly Nearing_Target 0x4BE720: a comparison under the free limit is never refused, whatever the sites after it;
+  ra2-decomp's `abs(As_Int()) >= abs(rvalue.As_Int())` makes DirType::operator>= a charged site, and then four empty
+  sites between the strafe test and the turn statement give the image's whole call list and every instruction from
+  there to the end. Sites after the later direction, or spend before both, flip the later (larger) direction first:
+  to refuse an early small site and keep a later large one, the missing sites lie between the two. A heavier body of
+  the small callee does not do it.
+- map Zone_Reset 0x54EBD0 (1,165 -> 12 B in the twin's text matched the same night): what is left is two home slots
+  and the order of their two reloads after an inner loop (this and zone_degree). The slots follow the reload order,
+  and neither follows reference counts (three more references to one of them, inside or outside loops, change
+  nothing). Read such a pair as an order of eviction in the inner loop, not as a frame sort.
+
+## A coordinate stored again after a decrement is a cell difference; where the shared return sits tells which block is last; sites after a nested call are read at each place (found in the rebuild (lane F42, high))
+
+Found in the rebuild (lane F42, high); nothing exact, one draft moved:
+
+- map Can_Repair_Bridge 0x569320 (1,385 -> 1,332 B in the tree; 15 B with six probe sites). A walk that steps back
+  and then stores the other coordinate unchanged (`dec word [X]` then `mov [Y], cx`) is `walk -= Cell(1, 0)`:
+  TPoint2D's operator-= subtracts both members and the zero keeps its store. `walk.X--` has no second store and
+  `walk += Cell(-1, 0)` folds it away. The walks forward are plain `scan.X++`. When a loop step of the archive leaves
+  one extra store, try the compound operator with a constant cell before any other form.
+- Both terms of a difference computed before either subtraction (`idiv`, save the remainder, `idiv`, then two `sub`)
+  are the arguments of one `Cell(a, b)` handed to operator-, not the archive's two-argument constructor of the
+  differences; a divisor that stays in a callee-saved register across both divisions is read through a kept pointer
+  (`type->Width` twice), not a named `int width`.
+- The shared `return(true)` epilogue is emitted at the last return of its kind in source order. The archive's
+  `if (found) {..} else if (cellptr != NULL) {..}` and a switch on the flag give the same block layout, but the
+  if/else puts the epilogue after the last walk and the image has it after the bridge walk: the bridge block is
+  last in the source. Read the epilogue's place before choosing between two orders with the same layout.
+- A nested call the image refuses at both of two sites (Adjacent_Cell's operator+ 0x42ADD0, cross-jumped into one
+  call) answers to inline sites after it: four give one site, six or more both, in either block order. Probe the
+  count at the end of the function first; a single-call static or inline helper around a whole block is over the
+  size cap and is called, so it cannot stand for the missing sites.
+- fly Nearing_Target 0x4BE720: with the As_Int comparison, the four sites count only between the
+  Is_Complete_Turn site and the second direction. A probe placed ahead of the `if` that holds the comparison does
+  nothing; one after the statement that holds the later direction refuses that direction. Map each probe position
+  before reading a count: "between the two" here is three statements wide.
+- netdlg2 MPlayer_Host_Dialog_Proc 0x5BEFE0: the register pair of message and lparam also turns with the order of
+  two statements in one case (`pt.y -= rect.top` before `pt.x -= rect.left`), with the rest of that case then
+  wrong. A pair that is one reference apart can be moved by statement order far from the pair's first use; test
+  the orders of the tied variable's own statements before looking for a missing reference.
+- A near twin compiled whole can be byte-neutral in every form (wonline Negotiate_Scenario_Transfer 0x750330: ten
+  forms, the same two loads): then the tie is not in the function's text and the row waits for a header or a
+  count reading, not for more statement forms.

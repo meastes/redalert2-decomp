@@ -78,6 +78,26 @@
     "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z": 4680896,
     "?Mark_Track@ShipLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z": 6777632,
     "?Set_Desired@FacingClass@@QAE_NABVDirType@@@Z": 4950576,
+    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
+    "__ship_sinking_scale": 8033992,
+    "__ship_sinking": 8033984,
+    "__real@8@3ffcccccccccccccd000": 7979616,
+    "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A": 8806856,
+    "?AdjacentCell@@3QBVCell@@B": 8723056,
+    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
+    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
+    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
+    "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z": 7174416,
+    "?Set@FacingClass@@QAE_NABVDirType@@@Z": 4950800,
+    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
+    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
+    "?Shimmer@CellClass@@QAEXXZ": 4687680,
+    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
+    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
+    "__real@8@3ffbba2e8ba2e8ba3000": 7996880,
+    "__real@8@4001e000000000000000": 7996872,
+    "__real@8@3ffc9249249249249000": 7996864,
+    "?Lerp@@YI?AVCoord@@ABV1@0M@Z": 7479488,
     "?CountLaunchingSpawns@SpawnManagerClass@@QAEHXZ": 6858368,
     "??0?$TPoint3D@H@@QAE@HHH@Z": 4306480,
     "?Length@?$TPoint3D@H@@QBEHXZ": 4306816,
@@ -85,24 +105,14 @@
     "?Basic_Path@FootClass@@QAE_NVCell@@HH@Z": 4993024,
     "?Is_On_Priority_Mission@FootClass@@QBE_NXZ": 5016928,
     "?Current@FacingClass@@QBE?AVDirType@@XZ": 4951008,
-    "?AdjacentCell@@3QBVCell@@B": 8723056,
     "?In_Local_Radar@MapClass@@QBE_NABVCell@@_N@Z": 5613152,
-    "?Get_Cell_Height@ObjectClass@@QBEHXZ": 6113232,
-    "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z": 5537904,
-    "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z": 5614800,
-    "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z": 5612160,
     "?Cell_Techno@CellClass@@QBEPAVTechnoClass@@ABVPoint2D@@_NPBV2@@Z": 4658784,
     "?Is_Ally@HouseClass@@QBE_NPBVObjectClass@@@Z": 5133696,
     "?HasAnyLink@RadioClass@@QBE_NXZ": 6516496,
-    "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z": 4679968,
     "?PlayGlobal@VocClass@@SIPAXHMHPAUAudioController@@@Z": 7421360,
     "?Scan_Limit@TeamClass@@QAEXXZ": 7055920,
-    "?AdjacentPoint@@3QBVPoint2D@@B": 8723136,
-    "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A": 10706408,
-    "?Shimmer@CellClass@@QAEXXZ": 4687680,
     "?Cell_Object@CellClass@@QBEPAVObjectClass@@ABVPoint2D@@_N@Z": 4659248,
     "?Ground@@3PAUGroundType@@A": 8720032,
-    "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ": 4676960,
     "?Get_Health_Ratio@ObjectClass@@QBENXZ": 6112576,
     "__real@8@3ffec000000000000000": 7996888,
     "?Adjacent_Cell@CellClass@@QBEABV1@W4FacingType@@@Z": 4680384,
@@ -297,7 +307,7 @@
           "resolved": 11243952
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771728,
@@ -349,7 +359,7 @@
           "resolved": 11244024
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771776,
@@ -401,7 +411,7 @@
           "resolved": 11244008
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771808,
@@ -453,7 +463,7 @@
           "resolved": 11244000
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771840,
@@ -505,7 +515,7 @@
           "resolved": 11243960
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771872,
@@ -557,7 +567,7 @@
           "resolved": 11243920
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771904,
@@ -641,7 +651,7 @@
           "resolved": 11244032
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6771936,
@@ -701,7 +711,7 @@
           "resolved": 11243968
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772000,
@@ -761,7 +771,7 @@
           "resolved": 11243992
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772048,
@@ -821,7 +831,7 @@
           "resolved": 11244016
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772096,
@@ -865,7 +875,7 @@
           "resolved": 11243946
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772144,
@@ -917,7 +927,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772160,
@@ -977,7 +987,7 @@
           "resolved": 11243940
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772192,
@@ -1093,7 +1103,7 @@
           "resolved": 8040728
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772224,
@@ -1153,7 +1163,7 @@
           "resolved": 4293687589
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772384,
@@ -1229,7 +1239,7 @@
           "resolved": 1180053
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772432,
@@ -1273,7 +1283,7 @@
           "resolved": 8003664
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772704,
@@ -1349,7 +1359,7 @@
           "resolved": 7972332
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772800,
@@ -1417,7 +1427,7 @@
           "resolved": 7972328
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6772928,
@@ -1444,7 +1454,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773152,
@@ -1471,7 +1481,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773232,
@@ -1498,7 +1508,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773296,
@@ -1574,7 +1584,7 @@
           "resolved": 668228
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773344,
@@ -1618,7 +1628,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773584,
@@ -1654,7 +1664,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773680,
@@ -1690,7 +1700,7 @@
           "resolved": 10751276
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773744,
@@ -1742,7 +1752,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773808,
@@ -1802,7 +1812,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6773968,
@@ -1829,7 +1839,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6774080,
@@ -1881,7 +1891,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6774128,
@@ -1957,7 +1967,7 @@
           "resolved": 11244016
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6774256,
@@ -2057,7 +2067,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6774448,
@@ -2125,7 +2135,7 @@
           "resolved": 7983472
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6774656,
@@ -2201,7 +2211,7 @@
           "resolved": 4293684085
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6776000,
@@ -2228,7 +2238,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6776192,
@@ -2496,7 +2506,7 @@
           "resolved": 1118
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6776240,
@@ -2580,7 +2590,7 @@
           "resolved": 15035
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6777632,
@@ -2736,7 +2746,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6778000,
@@ -2804,7 +2814,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6778352,
@@ -2952,7 +2962,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6778432,
@@ -2988,10 +2998,1207 @@
           "resolved": 4293139169
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6778672,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 6778720,
+      "method": "00676f60",
+      "body_bytes": 5720,
+      "body_sha256": "08de55d90a8b9b677bdd350e915edf46c2e5ec5f8bb13482688e3cac06d2bdd8",
+      "padding_bytes": 8,
+      "full_extent_bytes": 5728,
+      "full_extent_sha256": "fd3f399de265adf790d152b344643869e13c0c932531d0e012e0a8d80a29d143",
+      "padding_sha256": "9e8376b4aa602de084708bf231f7ab5bd700e3d623bcf47a3851ce49cbe46f08",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 28,
+      "symbol": "?While_Moving@ShipLocomotionClass@@AAE_N_N@Z",
+      "symbol_prefix": "?While_Moving@ShipLocomotionClass@@AAE_N_N@Z",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 177,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 189,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293726175
+        },
+        {
+          "offset": 201,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11244016,
+          "addend": 0,
+          "resolved": 11244016
+        },
+        {
+          "offset": 221,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 228,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293800504
+        },
+        {
+          "offset": 342,
+          "kind": 20,
+          "symbol": "?sqrt@fastmath@@YANN@Z",
+          "target": 4957200,
+          "addend": 0,
+          "resolved": 4293145430
+        },
+        {
+          "offset": 350,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1081422
+        },
+        {
+          "offset": 419,
+          "kind": 6,
+          "symbol": "__ship_deaccel",
+          "target": 8033976,
+          "addend": 0,
+          "resolved": 8033976
+        },
+        {
+          "offset": 434,
+          "kind": 6,
+          "symbol": "__ship_deaccel",
+          "target": 8033976,
+          "addend": 0,
+          "resolved": 8033976
+        },
+        {
+          "offset": 439,
+          "kind": 6,
+          "symbol": "__ship_deaccel",
+          "target": 8033976,
+          "addend": 4,
+          "resolved": 8033980
+        },
+        {
+          "offset": 482,
+          "kind": 6,
+          "symbol": "__ship_sinking_scale",
+          "target": 8033992,
+          "addend": 0,
+          "resolved": 8033992
+        },
+        {
+          "offset": 492,
+          "kind": 6,
+          "symbol": "__ship_sinking",
+          "target": 8033984,
+          "addend": 0,
+          "resolved": 8033984
+        },
+        {
+          "offset": 506,
+          "kind": 6,
+          "symbol": "__ship_sinking",
+          "target": 8033984,
+          "addend": 0,
+          "resolved": 8033984
+        },
+        {
+          "offset": 512,
+          "kind": 6,
+          "symbol": "__ship_sinking",
+          "target": 8033984,
+          "addend": 4,
+          "resolved": 8033988
+        },
+        {
+          "offset": 552,
+          "kind": 6,
+          "symbol": "__real@8@3ffcccccccccccccd000",
+          "target": 7979616,
+          "addend": 0,
+          "resolved": 7979616
+        },
+        {
+          "offset": 570,
+          "kind": 6,
+          "symbol": "__real@8@3ffcccccccccccccd000",
+          "target": 7979616,
+          "addend": 0,
+          "resolved": 7979616
+        },
+        {
+          "offset": 921,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 940,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 953,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 967,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 975,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 1014,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 16,
+          "resolved": 8806872
+        },
+        {
+          "offset": 1025,
+          "kind": 6,
+          "symbol": "?Tubes@@3V?$DynamicVectorClass@PAVTubeClass@@@@A",
+          "target": 8806856,
+          "addend": 4,
+          "resolved": 8806860
+        },
+        {
+          "offset": 1145,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1152,
+          "kind": 6,
+          "symbol": "?AdjacentCell@@3QBVCell@@B",
+          "target": 8723056,
+          "addend": 0,
+          "resolved": 8723056
+        },
+        {
+          "offset": 1194,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1199,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293725277
+        },
+        {
+          "offset": 1206,
+          "kind": 20,
+          "symbol": "?Cell_Coord@CellClass@@QBE?AVCoord@@XZ",
+          "target": 4676960,
+          "addend": 0,
+          "resolved": 4292864326
+        },
+        {
+          "offset": 1270,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1275,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293799457
+        },
+        {
+          "offset": 1341,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 1346,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293799386
+        },
+        {
+          "offset": 1408,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 1416,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 1425,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 1433,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 1446,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 1459,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 1475,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 1483,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 1530,
+          "kind": 6,
+          "symbol": "?TrackControl@ShipLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 8039920,
+          "addend": 0,
+          "resolved": 8039920
+        },
+        {
+          "offset": 1568,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967280,
+          "resolved": 8039696
+        },
+        {
+          "offset": 1879,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@ShipLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 6792848,
+          "addend": 0,
+          "resolved": 12245
+        },
+        {
+          "offset": 1988,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@ShipLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 6792848,
+          "addend": 0,
+          "resolved": 12136
+        },
+        {
+          "offset": 2183,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2188,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293724288
+        },
+        {
+          "offset": 2197,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2205,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293724271
+        },
+        {
+          "offset": 2383,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2395,
+          "kind": 20,
+          "symbol": "?Get_Height_GL@MapClass@@QAEHABVCoord@@@Z",
+          "target": 5612160,
+          "addend": 0,
+          "resolved": 4293798337
+        },
+        {
+          "offset": 2401,
+          "kind": 6,
+          "symbol": "_BRIDGE_LEPTON_HEIGHT",
+          "target": 11244016,
+          "addend": 0,
+          "resolved": 11244016
+        },
+        {
+          "offset": 2414,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2420,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293724056
+        },
+        {
+          "offset": 2437,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 2443,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293724033
+        },
+        {
+          "offset": 2484,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2527,
+          "kind": 6,
+          "symbol": "?Rule@@3PAVRulesClass@@A",
+          "target": 8624200,
+          "addend": 0,
+          "resolved": 8624200
+        },
+        {
+          "offset": 2617,
+          "kind": 6,
+          "symbol": "?OverlayTypes@@3V?$DynamicVectorClass@PAVOverlayTypeClass@@@@A",
+          "target": 10706408,
+          "addend": 4,
+          "resolved": 10706412
+        },
+        {
+          "offset": 2658,
+          "kind": 20,
+          "symbol": "?Has_Ability@TechnoClass@@QBE_NW4AbilityType@@@Z",
+          "target": 7174416,
+          "addend": 0,
+          "resolved": 393034
+        },
+        {
+          "offset": 2817,
+          "kind": 20,
+          "symbol": "?Set@FacingClass@@QAE_NABVDirType@@@Z",
+          "target": 4950800,
+          "addend": 0,
+          "resolved": 4293136555
+        },
+        {
+          "offset": 2834,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967292,
+          "resolved": 8039708
+        },
+        {
+          "offset": 2941,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967284,
+          "resolved": 8039700
+        },
+        {
+          "offset": 3006,
+          "kind": 6,
+          "symbol": "?TrackControl@ShipLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 8039920,
+          "addend": 0,
+          "resolved": 8039920
+        },
+        {
+          "offset": 3013,
+          "kind": 6,
+          "symbol": "?TrackControl@ShipLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 8039920,
+          "addend": 0,
+          "resolved": 8039920
+        },
+        {
+          "offset": 3033,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967288,
+          "resolved": 8039704
+        },
+        {
+          "offset": 3090,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 3097,
+          "kind": 6,
+          "symbol": "?AdjacentPoint@@3QBVPoint2D@@B",
+          "target": 8723136,
+          "addend": 0,
+          "resolved": 8723136
+        },
+        {
+          "offset": 3182,
+          "kind": 20,
+          "symbol": "?Get_Cell_Height@ObjectClass@@QBEHXZ",
+          "target": 6113232,
+          "addend": 0,
+          "resolved": 4294298622
+        },
+        {
+          "offset": 3198,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3203,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCell@@@Z",
+          "target": 5537904,
+          "addend": 0,
+          "resolved": 4293723273
+        },
+        {
+          "offset": 3229,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6784412,
+          "addend": 0,
+          "resolved": 6784412
+        },
+        {
+          "offset": 3304,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967288,
+          "resolved": 8039704
+        },
+        {
+          "offset": 3314,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967280,
+          "resolved": 8039696
+        },
+        {
+          "offset": 3319,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 3338,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3351,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3365,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3373,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3443,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 3458,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3471,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3485,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3494,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3507,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 3529,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3537,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3562,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3573,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293722791
+        },
+        {
+          "offset": 3580,
+          "kind": 20,
+          "symbol": "?Goodie_Check@CellClass@@QAE_NPAVFootClass@@@Z",
+          "target": 4680896,
+          "addend": 0,
+          "resolved": 4292865888
+        },
+        {
+          "offset": 3608,
+          "kind": 20,
+          "symbol": "?Mark_Track@ShipLocomotionClass@@QAEXABVCoord@@W4MarkType@@@Z",
+          "target": 6777632,
+          "addend": 0,
+          "resolved": 4294962596
+        },
+        {
+          "offset": 3689,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 3697,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 3705,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 3726,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3732,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293722632
+        },
+        {
+          "offset": 3739,
+          "kind": 20,
+          "symbol": "?Shimmer@CellClass@@QAEXXZ",
+          "target": 4687680,
+          "addend": 0,
+          "resolved": 4292872513
+        },
+        {
+          "offset": 3767,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3822,
+          "kind": 20,
+          "symbol": "?Try_Open_Gate@MapClass@@QAE_NPAVFootClass@@ABVCell@@@Z",
+          "target": 5614800,
+          "addend": 0,
+          "resolved": 4293799550
+        },
+        {
+          "offset": 3836,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3842,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293722522
+        },
+        {
+          "offset": 3888,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3893,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293722471
+        },
+        {
+          "offset": 3914,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11244032,
+          "addend": 0,
+          "resolved": 11244032
+        },
+        {
+          "offset": 3940,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 3950,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 3956,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293722408
+        },
+        {
+          "offset": 3963,
+          "kind": 20,
+          "symbol": "?Incoming@CellClass@@QAEXABVCoord@@_N11@Z",
+          "target": 4679968,
+          "addend": 0,
+          "resolved": 4292864577
+        },
+        {
+          "offset": 4022,
+          "kind": 6,
+          "symbol": "?TrackControl@ShipLocomotionClass@@0QBUTurnTrackType@1@B",
+          "target": 8039920,
+          "addend": 0,
+          "resolved": 8039920
+        },
+        {
+          "offset": 4109,
+          "kind": 6,
+          "symbol": "__real@8@3ffbba2e8ba2e8ba3000",
+          "target": 7996880,
+          "addend": 0,
+          "resolved": 7996880
+        },
+        {
+          "offset": 4115,
+          "kind": 6,
+          "symbol": "__real@8@3fff8000000000000000",
+          "target": 7972616,
+          "addend": 0,
+          "resolved": 7972616
+        },
+        {
+          "offset": 4121,
+          "kind": 6,
+          "symbol": "__real@8@4001e000000000000000",
+          "target": 7996872,
+          "addend": 0,
+          "resolved": 7996872
+        },
+        {
+          "offset": 4126,
+          "kind": 20,
+          "symbol": "__ftol",
+          "target": 7860496,
+          "addend": 0,
+          "resolved": 1077646
+        },
+        {
+          "offset": 4357,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 4372,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 4385,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 4399,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 4407,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 4559,
+          "kind": 6,
+          "symbol": "_LEVEL_LEPTON_H",
+          "target": 11244032,
+          "addend": 0,
+          "resolved": 11244032
+        },
+        {
+          "offset": 4577,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 4593,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 4602,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 4610,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 0,
+          "resolved": 11243976
+        },
+        {
+          "offset": 4623,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 4636,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 4648,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 4,
+          "resolved": 11243980
+        },
+        {
+          "offset": 4656,
+          "kind": 6,
+          "symbol": "_COORD_NONE",
+          "target": 11243976,
+          "addend": 8,
+          "resolved": 11243984
+        },
+        {
+          "offset": 4717,
+          "kind": 20,
+          "symbol": "?Abort_Motion@FootClass@@QAEXXZ",
+          "target": 5036464,
+          "addend": 0,
+          "resolved": 4293220319
+        },
+        {
+          "offset": 4878,
+          "kind": 6,
+          "symbol": "?RawTracks@ShipLocomotionClass@@0QBURawTrackType@1@B",
+          "target": 8039712,
+          "addend": 4294967280,
+          "resolved": 8039696
+        },
+        {
+          "offset": 5003,
+          "kind": 20,
+          "symbol": "?Smooth_Turn@ShipLocomotionClass@@AAE?AVPoint2D@@ABV2@AAW4Dir256@@@Z",
+          "target": 6792848,
+          "addend": 0,
+          "resolved": 9121
+        },
+        {
+          "offset": 5074,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5086,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293721278
+        },
+        {
+          "offset": 5112,
+          "kind": 6,
+          "symbol": "__real@8@3ffc9249249249249000",
+          "target": 7996864,
+          "addend": 0,
+          "resolved": 7996864
+        },
+        {
+          "offset": 5146,
+          "kind": 20,
+          "symbol": "?Lerp@@YI?AVCoord@@ABV1@0M@Z",
+          "target": 7479488,
+          "addend": 0,
+          "resolved": 695618
+        },
+        {
+          "offset": 5225,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5234,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293721130
+        },
+        {
+          "offset": 5250,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5255,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293721109
+        },
+        {
+          "offset": 5366,
+          "kind": 6,
+          "symbol": "?Map@@3VMouseClass@@A",
+          "target": 8594656,
+          "addend": 0,
+          "resolved": 8594656
+        },
+        {
+          "offset": 5385,
+          "kind": 20,
+          "symbol": "??AMapClass@@QBEAAVCellClass@@ABVCoord@@@Z",
+          "target": 5537792,
+          "addend": 0,
+          "resolved": 4293720979
+        },
+        {
+          "offset": 5692,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6781953,
+          "addend": 0,
+          "resolved": 6781953
+        },
+        {
+          "offset": 5696,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6782441,
+          "addend": 0,
+          "resolved": 6782441
+        },
+        {
+          "offset": 5700,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6781953,
+          "addend": 0,
+          "resolved": 6781953
+        },
+        {
+          "offset": 5704,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6782468,
+          "addend": 0,
+          "resolved": 6782468
+        },
+        {
+          "offset": 5708,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6782687,
+          "addend": 0,
+          "resolved": 6782687
+        },
+        {
+          "offset": 5712,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6782687,
+          "addend": 0,
+          "resolved": 6782687
+        },
+        {
+          "offset": 5716,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 6782551,
+          "addend": 0,
+          "resolved": 6782551
+        }
+      ],
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
+      "source": "rebuild/src/ship.cpp",
+      "population": "rebuild-ship",
+      "source_order": 6778720,
       "source_quality_family": "rebuild"
     },
     {
@@ -5352,7 +6559,7 @@
           "resolved": 11243984
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6784448,
@@ -5379,7 +6586,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6792832,
@@ -5416,7 +6623,7 @@
           "resolved": 8039928
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6792848,
@@ -5460,7 +6667,7 @@
           "resolved": 4293789101
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6792976,
@@ -5487,7 +6694,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793008,
@@ -5547,7 +6754,7 @@
           "resolved": 8003580
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793024,
@@ -5574,7 +6781,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793088,
@@ -5610,7 +6817,7 @@
           "resolved": 4293668118
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793104,
@@ -5646,7 +6853,7 @@
           "resolved": 4293210603
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793120,
@@ -5706,7 +6913,7 @@
           "resolved": 4294951683
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793184,
@@ -5806,7 +7013,7 @@
           "resolved": 11244032
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793264,
@@ -5874,7 +7081,7 @@
           "resolved": 8039704
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793744,
@@ -5901,7 +7108,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793968,
@@ -5928,7 +7135,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6793984,
@@ -5955,7 +7162,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794000,
@@ -5982,7 +7189,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794016,
@@ -6009,7 +7216,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794032,
@@ -6045,7 +7252,7 @@
           "resolved": 4293666566
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794048,
@@ -6081,7 +7288,7 @@
           "resolved": 4293666582
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794064,
@@ -6108,7 +7315,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794080,
@@ -6135,7 +7342,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794112,
@@ -6203,7 +7410,7 @@
           "resolved": 1077619
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794128,
@@ -6239,7 +7446,7 @@
           "resolved": 4294945782
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794208,
@@ -6275,7 +7482,7 @@
           "resolved": 4294967110
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794224,
@@ -6311,7 +7518,7 @@
           "resolved": 4294967110
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794240,
@@ -6347,7 +7554,7 @@
           "resolved": 4294945734
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794256,
@@ -6383,7 +7590,7 @@
           "resolved": 4294967062
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794272,
@@ -6419,7 +7626,7 @@
           "resolved": 4294967062
         }
       ],
-      "source_sha256": "eb70a18ed80e54eeffa263dd0cc183f874b564f886e194e537acb1f713022ee2",
+      "source_sha256": "30329935d797d114c0b9e5de3b2916e51b9789116f9fd3be932f3ea502f5b0e8",
       "source": "rebuild/src/ship.cpp",
       "population": "rebuild-ship",
       "source_order": 6794288,

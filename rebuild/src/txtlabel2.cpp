@@ -285,10 +285,9 @@ void __fastcall Layout_Sidebar_Art(int width, int height);
 void __fastcall Free_Sidebar_Shapes(void);
 void __fastcall Free_Sidebar_Rects(void);
 
-Point2D __fastcall Copy_Point(Point2D const * source) // RA2: 0x006F1AE0; a copy of a point
+Point2D __fastcall Copy_Point(Rect const * source) // RA2: 0x006F1AE0; the rectangle's top-left point
 {
-	Point2D result(source->X, source->Y); // RA2: as above
-	return result; // RA2: as above
+	return Point2D(source->X, source->Y); // RA2: matches the rectangle accessor in the YR twin
 }
 
 /// <summary>

@@ -12890,34 +12890,36 @@ void __fastcall Set_Player_Endpoint(char const * name, char const * address_text
 	}
 }
 
-void __fastcall Apply_Endpoint_Map(char const * text); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 2 bytes differ (main's text): the inlined DynamicVectorClass<MultiMission *>::Add sums Length() + GrowthStep into ecx where the executable sums into eax, the register that held Length() (add eax, ecx); main's text gets it from a unit-local specialization of Add that holds the new length in a variable, an inline twin of vector.h's Add (refused); no natural form found yet (mission local, declaration order, branch order, the found flag's place)
-void __fastcall Apply_Endpoint_Map(char const * text) // RA2: 0x0075C570, takes the two players of a matched game and their endpoints from the match server's command and sets up the random map for them (main's text; no Yuri's Revenge twin)
+void __fastcall Apply_Endpoint_Map(char const * text) // RA2: 0x0075C570, takes the two players of a matched game and their endpoints from the match server's command and sets up the random map for them (ra2-decomp's twin, Yuri's Revenge 0x007A2330)
 {
 	char data[256];
-	strcpy(data, text); // RA2: as above
-	char * name = strtok(data, ":,"); // RA2: as above
-	int country = atol(strtok(NULL, ",")); // RA2: as above
-	int color = atol(strtok(NULL, ",")); // RA2: as above
-	char * address = strtok(NULL, ","); // RA2: as above
-	char * firewall = strtok(NULL, ","); // RA2: as above
-	char * port = strtok(NULL, ","); // RA2: as above
-	Set_Player_Endpoint(name, address, firewall, port); // RA2: as above
-	Assign_House_And_Color(name, country, color); // RA2: as above
-	name = strtok(NULL, ","); // RA2: as above
-	country = atol(strtok(NULL, ",")); // RA2: as above
-	color = atol(strtok(NULL, ",")); // RA2: as above
-	address = strtok(NULL, ","); // RA2: as above
-	firewall = strtok(NULL, ","); // RA2: as above
-	port = strtok(NULL, ","); // RA2: as above
-	Set_Player_Endpoint(name, address, firewall, port); // RA2: as above
-	Assign_House_And_Color(name, country, color); // RA2: as above
-	RandomMapGen.SeedData.NumPlayers = 4; // RA2: as above
-	strcpy(Session.ScenarioFileName, "RandMap.Sed"); // RA2: as above
-	Session.Options.ScenarioIndex = -1; // RA2: as above
+	strcpy(data, text);
+	char * name = strtok(data, ":,");
+	char * country_text = strtok(NULL, ",");
+	int country = atol(country_text);
+	char * color_text = strtok(NULL, ",");
+	int color = atol(color_text);
+	char * address = strtok(NULL, ",");
+	char * firewall = strtok(NULL, ",");
+	char * port = strtok(NULL, ",");
+	Set_Player_Endpoint(name, address, firewall, port);
+	Assign_House_And_Color(name, country, color);
+	char * name2 = strtok(NULL, ",");
+	char * country2_text = strtok(NULL, ",");
+	int country2 = atol(country2_text);
+	char * color2_text = strtok(NULL, ",");
+	int color2 = atol(color2_text);
+	char * address2 = strtok(NULL, ",");
+	char * firewall2 = strtok(NULL, ",");
+	char * port2 = strtok(NULL, ",");
+	Set_Player_Endpoint(name2, address2, firewall2, port2);
+	Assign_House_And_Color(name2, country2, color2);
+	RandomMapGen.SeedData.NumPlayers = 4;
+	strcpy(Session.ScenarioFileName, "RandMap.Sed");
+	Session.Options.ScenarioIndex = -1;
 	HWND dialog = WS_Find_Dialog(0x11F);
-	Do_Random_Map(dialog, Wait_Callback_Thunk); // RA2: as above
-	RandomMapGen.SeedData.Save("RandMap.Sed"); // RA2: as above
+	Do_Random_Map(dialog, Wait_Callback_Thunk);
+	RandomMapGen.SeedData.Save("RandMap.Sed");
 	bool found = false;
 	int index;
 	for (index = 0; index < Session.Scenarios.Count(); index++) {
@@ -12926,17 +12928,19 @@ void __fastcall Apply_Endpoint_Map(char const * text) // RA2: 0x0075C570, takes 
 			break;
 		}
 	}
-	char * digest = CalcRandomMapDigest(); // RA2: as above
+	char * digest = CalcRandomMapDigest();
 	if (!found) {
-		Session.Scenarios.Add(new MultiMission("RandMap.Sed", RandomMapGen.SeedData.MapDescription, digest, true, NULL, 2, 4)); // RA2: as above
+		MultiMission * map = new MultiMission("RandMap.Sed", RandomMapGen.SeedData.MapDescription, digest, true, NULL, 2, 4);
+		Session.Scenarios.Add(map);
 	} else {
-		Session.Scenarios[index]->Set_Digest(digest); // RA2: as above
-		Session.Scenarios[index]->Set_Description(RandomMapGen.SeedData.MapDescription); // RA2: as above
+		Session.Scenarios[index]->Set_Digest(digest);
+		Session.Scenarios[index]->Set_Description(RandomMapGen.SeedData.MapDescription);
 	}
-	delete digest; // RA2: as above
-	if (Set_Scenario_Info_From_Index(index) == true) Session.Options.ScenarioIndex = index;
+	delete digest;
+	if (Set_Scenario_Info_From_Index(index) == true) {
+		Session.Options.ScenarioIndex = index;
+	}
 }
-#endif
 
 BOOL CALLBACK Wonline_Map_Download_Dialog_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam) // RA2: 0x0075C830, the map dialog (0x11F) of the quick match: shows the preview and the progress while the map is made (ra2-decomp's twin, Yuri's Revenge 0x007A2600)
 {

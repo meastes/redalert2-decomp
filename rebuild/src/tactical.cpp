@@ -1021,7 +1021,7 @@ void Tactical::Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool
 /// <param name="surface">The composite surface the foreground objects are drawn onto.</param>
 /// <param name="fullredraw">Redraw the whole view rather than just the scrolled strips?</param>
 /// <param name="drawpass">Which rendering pass to perform. See DrawPassType.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (006a45a0 has no row); 2722 bytes differ against main's function-map extent; main: best 64.69, tried 13 times (register, layout, frame)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (3,288 B) 2,650 bytes differ (was 2,722 against main's function-map extent; Surface pointer parameter as the image's symbol has it); main: best 64.69, tried 13 times (register, layout, frame)
 #include "beacon.h"
 #include "capmgr.h"
 #include "ebolt.h"
@@ -1038,7 +1038,7 @@ void __cdecl Planning_Draw_All(void);
 void __cdecl Planning_Draw_Remembered(void);
 bool __fastcall Building_Player_Detector_Covers_Target(FootClass * object); // RA2: 0x004386F0, the detector test called before drawing an enemy action line
 
-void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
+void Tactical::Render(Surface * surface, bool fullredraw, int drawpass)
 {
 	/*
 	 * Set true when the view scrolled further than one screen, so the still-valid region can no
@@ -1082,7 +1082,7 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 	 * The composite surface to draw the foreground objects onto. This tracks the front buffer
 	 * across the surface swap performed during the pan pass.
 	 */
-	Surface * composite = &surface;
+	Surface * composite = surface;
 
 	/*
 	 * Decide whether the cached layers actually need to be rebuilt this pass. A pending redraw,
@@ -1095,20 +1095,23 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 		render = false;
 	} else if (fullredraw) {
 		render = true;
-	} else if (IsFirstRender) {
-		if (has_selectable_buildings) {
-			render = true;
-		} else {
-			render = IsToRedraw || DirtyAreas.Count() != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
-		}
-	} else if (has_selectable_buildings) {
-		render = true;
-	} else if (DirtyAreas.Count() == 0 && IsToRedraw) {
-		render = true;
-	} else if (DirtyAreas.Count() == 0 && TacticalCoord.X == LastTacticalCoord.X && TacticalCoord.Y == LastTacticalCoord.Y) {
-		render = false;
 	} else {
-		render = IsToRedraw || DirtyAreas.Count() != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
+		int dirty_count = DirtyAreas.Count();
+		if (IsFirstRender) {
+			if (has_selectable_buildings) {
+				render = true;
+			} else {
+				render = IsToRedraw || dirty_count != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
+			}
+		} else if (has_selectable_buildings) {
+			render = true;
+		} else if (dirty_count == 0 && IsToRedraw) {
+			render = true;
+		} else if (dirty_count == 0 && TacticalCoord.X == LastTacticalCoord.X && TacticalCoord.Y == LastTacticalCoord.Y) {
+			render = false;
+		} else {
+			render = IsToRedraw || dirty_count != 0 || TacPixelX != LastTacPixelX || TacPixelY != LastTacPixelY;
+		}
 	}
 
 	if (render) {
@@ -1147,10 +1150,11 @@ void Tactical::Render(Surface & surface, bool fullredraw, int drawpass)
 				 * render target.
 				 */
 				Surface * oldcomp = CompositeSurface;
-				CompositeSurface = TileSurface;
+				Surface * oldtile = TileSurface;
+				CompositeSurface = oldtile;
 				TileSurface = oldcomp;
-				composite = CompositeSurface;
-				LogicalSurface = CompositeSurface;
+				composite = oldtile;
+				LogicalSurface = oldtile;
 			}
 		} else {
 			if (fullredraw && (drawpass == DRAW_PASS_PAN || drawpass == DRAW_PASS_FULL)) {

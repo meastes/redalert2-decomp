@@ -350,6 +350,14 @@ add_test(NAME yr-native-command-bar-thumb COMMAND "${Python3_EXECUTABLE}" -B "${
          --work "${CMAKE_CURRENT_BINARY_DIR}/yr-command-bar-thumb")
 set_tests_properties(yr-native-command-bar-thumb PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 300)
 
+# ctest yr-native-locked-input (lane N32): touch pan and the zoom gestures wait for a mission intro's input lock
+# (IgnoreInput 0x00A8ED9C: glue/yr_app_hooks.cpp ra2_native_scroll_map, glue/yr_map_zoom.cpp ra2_native_zoom_by;
+# Allied mission 1's intro, yr/tests/yr_locked_input.py)
+add_test(NAME yr-native-locked-input COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_locked_input.py"
+         --binary $<TARGET_FILE:yr-native> --data-dir "${RA2_NATIVE_YR_DATA_DIR}"
+         --work "${CMAKE_CURRENT_BINARY_DIR}/yr-locked-input")
+set_tests_properties(yr-native-locked-input PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 420)
+
 # ctest yr-native-standins-triggers (lane N3): stand-ins the campaign triggers and keys reach (ForceCreate, the
 # lightning bolt and storm stop, the Gap Generator's range ring, HealthNav/VeterancyNav; yr/tests/yr_standins_triggers.py)
 add_test(NAME yr-native-standins-triggers COMMAND "${Python3_EXECUTABLE}" -B "${CMAKE_CURRENT_SOURCE_DIR}/yr/tests/yr_standins_triggers.py"

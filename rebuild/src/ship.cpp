@@ -814,7 +814,6 @@ void ShipLocomotionClass::Do_Turn(DirStruct coord) // RA2: as above
 /// </summary>
 /// <param name="just_started">Is this the first call after the move was started?</param>
 /// <returns>bool; Is the ship done moving for this frame (arrived or blocked)?</returns>
-#ifdef RA2_NON_MATCHING // not exact as a landing: the text is exact, but three of its forms have no reference text at their place: the train test with the unit in a local (the archive's and the twin's idiom in this unit's Stop_Moving), `Map[Coord(coord)]` (the archive writes `Map[Coord(coord).As_Cell()]` in fly.cpp) and the `Cell here` local; variation_candidates.csv, lane F2 session 2 and the named-local count is a window (`target`)
 bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 {
 	assert(LinkedTo->IsActive); // RA2: as above
@@ -858,7 +857,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 			}
 
 			if (LinkedTo->RTTI == RTTI_UNIT) { // RA2: as above
-				UnitClass * following = ((UnitClass *)LinkedTo)->FollowingMe; // RA2: as above
+				UnitClass * unit = (UnitClass *)LinkedTo; // RA2: the twin's local
+				UnitClass * following = unit->FollowingMe;
 				if (following != NULL) { // RA2: as above
 					do { // RA2: as above
 						following->Set_Speed(LinkedTo->Speed); // RA2: as above
@@ -990,7 +990,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 					if (!newcellptr->IsUnderBridge && oldcellptr->IsUnderBridge) { // RA2: as above
 						LinkedTo->IsOnBridge = false; // RA2: as above
 					}
-					if (LinkedTo->TClass->IsTrain) { // RA2: the train test as Stop_Moving has it in this unit (the archive's idiom there: the unit in a local, then IsFollowing); no reference text at this place, a variation
+					if (LinkedTo->TClass->IsTrain) { // RA2: the train test with the unit in a local, as ra2-decomp's matched Yuri's Revenge twin of Drive's While_Moving (src/drive.cpp, GAMEMD 0x4B0F20), the sibling locomotor's text has it
 						UnitClass * unit = (UnitClass *)LinkedTo; // RA2: as above
 						if (!unit->IsFollowing) { // RA2: as above
 							bool is_bridge = LinkedTo->IsOnBridge || (LinkedTo->PositionCoord.Z >= (Map.Get_Height_GL(LinkedTo->PositionCoord) + BRIDGE_LEPTON_HEIGHT)); // RA2: as above
@@ -1088,8 +1088,10 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 								Map[c].Shimmer(); // RA2: as above
 								break; // RA2: as above
 
-							case MOVE_CLOSED_GATE: // RA2: as above
-								Incoming(c.As_Cell()); // RA2: through the locomotor's own Incoming, as Start_Of_Move
+							case MOVE_CLOSED_GATE: { // RA2: the twin's gate statements
+								Cell gate = c.As_Cell();
+								Map.Try_Open_Gate(LinkedTo, gate);
+							}
 								break; // RA2: as above
 
 							case MOVE_TEMP: { // RA2: as above
@@ -1114,8 +1116,8 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				LinkedTo->IsOccupyingCell = true; // RA2: as above
 				LinkedTo->IsToPathAroundBlockage = false; // RA2: as above
 
-				Cell here = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (no reference text; a variation)
-				if (here != HeadToCoord.As_Cell()) { // RA2: as above
+				Cell poscell = LinkedTo->PositionCoord.As_Cell(); // RA2: the unit's cell is read first and compared on the left (the twin's statements)
+				if (poscell != HeadToCoord.As_Cell()) {
 					LinkedTo->Mark(MARK_UP); // RA2: as above
 					LinkedTo->PositionCoord = HeadToCoord; // RA2: as above
 					LinkedTo->HeightAGL = 0; // RA2: as above
@@ -1135,7 +1137,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				TrackIndex = NULL; // RA2: as above
 
 				bool arrived = false; // RA2: as above
-				AbstractClass * target = LinkedTo->NavCom; // RA2: the ship's text holds the NavCom in a local (Drive's has its maxspeed local instead; the function is sensitive to the count of named locals)
+				AbstractClass * target = LinkedTo->NavCom; // RA2: the NavCom in a local, as ra2-decomp's matched twin of Drive's While_Moving has it (RA2's Drive does not)
 				if (target != NULL && LinkedTo->PositionCell == target->Destination_Coord(LinkedTo).As_Cell()) { // RA2: Destination_Coord takes the unit
 					if (abs(LinkedTo->Destination_Coord(LinkedTo).Z - DestinationCoord.Z) < 2 * LEVEL_LEPTON_H) { // RA2: as above
 						arrived = true; // RA2: as above
@@ -1222,7 +1224,7 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 				coord = partialcoord; // RA2: as above
 			}
 
-			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (no reference text; a variation)
+			CellClass * newcellptr = &Map[Coord(coord)]; // RA2: the cell is looked up through a copy of the coordinate (the twin's statement)
 
 			if (coord.As_Cell() != LinkedTo->PositionCoord.As_Cell()) { // RA2: as above
 				LinkedTo->Mark(MARK_UP); // RA2: as above
@@ -1245,7 +1247,6 @@ bool ShipLocomotionClass::While_Moving(bool just_started) // RA2: as above
 
 	return(false); // RA2: as above
 }
-#endif
 
 
 

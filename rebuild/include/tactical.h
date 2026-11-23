@@ -198,7 +198,7 @@ class Tactical : public AbstractClass
 		void Render_Shroud(Rect const & xpanrect, Rect const & ypanrect, Rect const & cliprect, bool fullredraw);
 		void Render_Buildings(Rect const & xpanrect, Rect const & ypanrect, bool fullredraw);
 		void Render_Terrain(Rect const & xpanrect, Rect const & ypanrect, bool fullredraw);
-		void Render(Surface & surface, bool fullredraw, int drawpass);
+		void Render(Surface * surface, bool fullredraw, int drawpass);
 		bool Blit_Tiles(void);
 
 		/*
