@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 934 bytes differ (was 945; TibSun queue.cpp sets the first event pointer after the frame-info data size, RA2's sender capture follows it; before that the archive's numunits decrement before the next target copy; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 924 bytes differ (was 934; the saved run's list index and unit count computed before the stream advance, a statement order no reference shows (RA2's saved-list code is not in the archive): flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size, RA2's sender capture follows it; the archive's numunits decrement before the next target copy; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3134,11 +3134,11 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 					// RA2: a run with the units of an earlier list
 					//.........................................................
 					else if (numunits == 0) {
+						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
+						int units = 1;
 						pos += (datasize + size_of(EventClass, Type));
 						leftover -= (datasize + size_of(EventClass, Type));
 						datasize = sizeof(eventdata.Data.MegaMission.Whom);
-						int units = 1;
-						int index = eventdata.Data.MegaMission.Slot + house * ARRAY_SIZE(MegamissionCounts);
 						numunits = SavedUnitCounts[index];
 						memcpy(&eventdata.Data.MegaMission.Whom, &MegamissionUnitLists[index][0], datasize);
 						if (eventdata.Frame == 0 || eventdata.Type == 0) {

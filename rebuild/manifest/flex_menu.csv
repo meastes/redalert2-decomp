@@ -170,7 +170,7 @@ ownrdraw,006029d0,?Grow_Vector@?$WolArrayList@UUnknownListEntry_602480@@@@QAE_NX
 palette,00603750,Set_Scheme_Table_Theater,504,no_row,454,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 particle,,ParticleClass::Web_Behavior_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 partsys,,ParticleSystemClass::Web_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
-queue,006282d0,Extract_Compressed_Events,1455,no_row,934,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
+queue,006282d0,Extract_Compressed_Events,1455,no_row,924,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 reinf,0063a880,Do_Chrono_Reinforcements,1567,no_row,84,e,"no row of its own yet (needs an independent bound, then an exact draft); bytes = main's size if main has the row",,yes,,,,,,,
 scenario,0065b780,ScenarioClass::ScenarioClass,171,inline_call,,e,stays a flagged draft,,yes,,,,,,,
 ship,,ShipLocomotionClass::Draw_Matrix,0,unplaced,714,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
@@ -197,7 +197,7 @@ unit,,UnitClass::Jellyfish_AI,0,unplaced,,e,no row of the original matches the d
 unit,,UnitClass::Reload_AI,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 unit,,UnitClass::Weed_Load,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtconflict,00727cc0,??_G?$rc_ptr@VConflict@WorldDominationTour@@@@UAEPAXI@Z,36,no_draft,,e,no draft yet,,no,,,,,,,
-wdtmap,0072a880,WDT_Write_Map_Ini,1652,register_order,7,e,stays a flagged draft,,yes,,,,A,structure,no,1652
+wdtmap,0072a880,WDT_Write_Map_Ini,1652,register_order,1,e,stays a flagged draft,,yes,,,,A,structure,no,1652
 wdtnet,,WDTState::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtnet,,WDTTerritory::Get_Game_Options,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,
 wdtnet,,WDTTerritory::To_String,0,unplaced,,e,no row of the original matches the draft yet (unplaced; bytes unknown),,yes,,,,,,,

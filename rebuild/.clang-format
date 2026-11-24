@@ -55,4 +55,6 @@ SpaceBeforeParens: ControlStatements
 FixNamespaceComments: false
 SpaceAfterTemplateKeyword: false
 IndentPPDirectives: None
+# VC6 is a C++98 compiler: `>>` closing two template argument lists is a shift there, so keep `> >`.
+Standard: c++03
 ...
