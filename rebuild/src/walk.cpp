@@ -222,7 +222,7 @@ void STDMETHODCALLTYPE WalkLocomotionClass::Force_Immediate_Destination(CoordStr
  * HISTORY:                                                                                    *
  *   07/29/1996 JLB : Created.                                                                 *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,611 bytes differ (was 4,301; the end of the move as TibSun walk.cpp and ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) both write it: old and new cells tested directly, veins triggered inside the moved arm, IsNewNavCom cleared on both exits; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order; before that TibSun hover.cpp's one-line tube position 4,595); main: best 89.83, tried 12 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 0071e220 (4,967 B) 3,581 bytes differ (was 3,611; the visual cell coordinate evaluated inside the LastTubeCoord sum as ra2-decomp's banked form banks/0x0075AEC0_returns.cpp (11df85d) has it; the end of the move as TibSun walk.cpp and the bank write it; TibSun walk.cpp's tube intermediates and the bank's single arrival test bring back the second three-axis Coord constructor: all 119 calls in native order); main: best 89.83, tried 12 times (frame, inline, register)
 void WalkLocomotionClass::Movement_AI(bool first_pass)
 {
 	if (HeadToCoord == COORD_NONE) {
@@ -310,8 +310,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					cell = tube_ptr->Enter;
 					Cell visual_cell = Adjacent_Cell(cell, tube_ptr->Dirs[0]);
 					Coord enter_coord(cell);
-					Coord visual_coord = Map[visual_cell].Cell_Coord();
-					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (visual_coord - enter_coord);
+					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (Map[visual_cell].Cell_Coord() - enter_coord);
 
 					int start_h = Map.Get_Height_GL(LinkedTo->Get_Coord());
 					cell = tube_ptr->Get_Exit();

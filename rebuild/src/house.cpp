@@ -8106,7 +8106,7 @@ inline int Coord_Span2(Coord const & a, Coord const & b) // RA2: the same distan
 /// <param name="func">The weight function used to rank the candidate cells; lower wins.</param>
 /// <param name="context">Extra context handed through to the weight function.</param>
 /// <returns>Returns with the cell to build upon, or Cell(0,0) if the base has no room.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 800 of 2629 bytes differ, the three static-table symbols unbound (the YR twin's Facing_Sub at the reverse step; exact with main's Adjacent_Cell(Cell, int) overload, held on variation_candidates.csv)
+#ifdef RA2_NON_MATCHING // not exact: 763 of 2629 bytes differ (main house.cpp's plain placement loop: rectangle built at use, candidate height read directly, both scan coordinates advanced; same code as the form with single-use locals) (the YR twin's Facing_Sub at the reverse step; exact with main's Adjacent_Cell(Cell, int) overload, held on variation_candidates.csv)
 Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (__fastcall *func)(HouseClass const &, Cell const &, int, int), int context) // RA2: the executable places ship buildings by the yard rule and uses the static offset tables of Facing_Offset
 {
 	if (buildingtype->Naval) { // RA2: a ship building (the naval yard) is placed on the water next to the construction yard
@@ -8199,20 +8199,16 @@ Cell HouseClass::Where_To_Place_Building(BuildingTypeClass * buildingtype, int (
 						spacing -= Rule->AIBaseSpacing; // RA2: the second trial drops the spacing border
 					}
 					for (int attempt = 0; attempt < 3; attempt++) { // RA2: as above
-						int h = height + 2 * spacing;
-						int w = width + 2 * spacing;
-						int y = pos.Y - spacing;
-						int x = pos.X - spacing;
-						Rect rect(x, y, w, h); // RA2: as above
+						Rect rect(pos.X - spacing, pos.Y - spacing, width + spacing * 2, height + spacing * 2); // RA2: as above
 						if (Map.Is_Area_Available(rect, HeapID)) { // RA2: no relaxed second pass
 							if (buildingtype->Legal_Placement(pos, this)) { // RA2: as above
-								CellClass const & candidate_cell = Map[pos];
-								if (abs(base_height - candidate_cell.Height) < 3 && Can_Build_Here(buildingtype, pos)) { // RA2: as above
+								if (abs(base_height - Map[pos].Height) < 3 && Can_Build_Here(buildingtype, pos)) { // RA2: as above
 									return(pos); // RA2: as above
 								}
 							}
 						}
-						pos += step_offsets[facing]; // RA2: as above
+						pos.X += step_offsets[facing].X;
+						pos.Y += step_offsets[facing].Y; // RA2: as above
 					}
 				}
 			}

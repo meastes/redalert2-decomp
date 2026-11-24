@@ -10649,7 +10649,7 @@ TextNode *NodeList::Add_Node(int length) // RA2: as above
     return node; // RA2: as above
 }
 
-#ifdef RA2_NON_MATCHING // not exact: 6583 bytes differ
+#ifdef RA2_NON_MATCHING // not exact: 6582 bytes differ against the image-derived bound 005f4ba0 (6,895 body bytes) (was 6583; the item sentinel tested before null as ra2-decomp's banked form banks/0x00617250_odh.cpp (11df85d) has it)
 namespace OwnerDraw {
 
 LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
@@ -10860,7 +10860,7 @@ LRESULT __stdcall Combo_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lp
 				SendMessageA(window, 0x4b4, 0, (LPARAM) "");
 			} else {
 				TextNode * node = (TextNode *)CallWindowProcA(previous, window, CB_GETITEMDATA, wparam, 0);
-				if (node && node != (TextNode *)CB_ERR) {
+				if (node != (TextNode *)CB_ERR && node != NULL) {
 					if (node->Reserved_0C) SendMessageA(window, OD_SETTEXTW, 0, (LPARAM)node->Data);
 					else {
 						char text[128];

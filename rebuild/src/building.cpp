@@ -3141,7 +3141,7 @@ none: // RA2: as above
  *   04/10/1995 JLB : Handles building production by computer.                                 *
  *   06/17/1995 JLB : Handles refinery exit.                                                   *
  *=============================================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4858 bytes differ against it (was 4862; ra2-decomp banked form banks/0x00443C60_exit.cpp (11df85d) adapted to RA2: its exit paths, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat); all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22: mission/radio slots, archive target, cached count; was 6093 against main's extent); main: best 92.27, tried 12 times (frame, register, inline)
+#ifdef RA2_NON_MATCHING // not exact: no row yet (image-derived bound 00440520-00441eab, 6539+5, in image_bounds.csv); 4469 bytes differ against it (was 4858; the water exit facing through the DirType Direction member as ra2-decomp's banked form banks/0x00443C60_exit.cpp (11df85d) has it; before that the bank's exit paths adapted to RA2, keeping RA2's one-argument exits, native mission paths and the cloning-vat loop calling the image's own Exit_New_Object (0x4538D0) for each vat); all 146 calls in order (3569 and frame 0x12c only with copy locals in inline.h Direction(Cell, Cell), refused: variation_candidates.csv); previous 5824 (lane O20, 2026-11-22); main: best 92.27, tried 12 times (frame, register, inline)
 #include "airctype.h"
 #include "targetcell.h"
 int BuildingClass::Exit_Object(TechnoClass * base)
@@ -3284,7 +3284,8 @@ int BuildingClass::Exit_Object(TechnoClass * base)
 						Cell cell = Target_Cell(this);
 
 						if (ArchiveTarget != NULL) {
-							FacingType facing = Dir_Facing(::Direction(Get_Cell(), Target_Cell(ArchiveTarget)));
+							DirType dir;
+							FacingType facing = Dir_Facing(dir.Direction(Get_Cell(), Target_Cell(ArchiveTarget)));
 							while (Map[cell].Cell_Building() == this) {
 								cell = Adjacent_Cell(cell, facing);
 							}
