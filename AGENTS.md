@@ -35,7 +35,17 @@ external material. `docs/history/` holds per-batch records: consult, don't reloa
   in the owner session): "revised, binary-derived lines" — a MASM procedure whose TibSun archive parent
   is cited, carrying RA2's revisions of it as derived from the binary (ra2-decomp `src/ra2asm`, attributed,
   shown as a diff against the archive), is credited to Reproduced .text only, never C/C++; its own STATUS
-  sub-line, strict-audit flag and per-source allowlist; both trees' ledgers. Exception
+  sub-line, strict-audit flag and per-source allowlist; both trees' ledgers. Exception (user,
+  2026-11-24, in the owner session): flagged variation forms land in the rebuild, each flagged by kind and
+  counted on the judgment line and the STATUS kinds line: inline helpers where the image's expansion depth
+  shows a helper existed; alternative statement or condition spellings; named locals chosen for the
+  compiler; readability aliases (a copy with a more meaningful name or type than what it copies, one copy
+  per value used from then on in place of the original, no copy of a copy). Still refused: any header form
+  under which another function stops being exact; copies with an equivalent or meaningless name, several
+  copies of one value, or a once-used copy where the original reads the same; dummy variables, dead code,
+  pass-through wrappers and second names for an existing function. Every line does real work; matching
+  reference text replaces a flagged form whenever it appears; acceptance is unchanged (one definition,
+  whole-file exact, no other function stops matching). Exception
   (user, 2026-11-13, "Let's go with option 2 then", confirmed in the owner
   session): exact matching on the unmatched tail stops; the best drafts of
   unmatched functions are tracked in their unit's source under a non-matching

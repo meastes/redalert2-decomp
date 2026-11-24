@@ -1,19 +1,28 @@
 #!/usr/bin/env python3
-"""twinmap.py [--write]: Yuri's Revenge twins of the rebuild's parked tail (lane L2, 2026-11-19).
+"""twinmap.py [--write] | --new-since A..B|A|YYYY-MM-DD [--out FILE]: Yuri's Revenge twins of every RA2 function
+the rebuild has not made exact (lane L2, 2026-11-19; candidates and --new-since lane O75, 2026-11-24).
 
-For every row of rebuild/manifest/tail_buckets.csv (tailmap.py) this looks for a twin body in the retail
-gamemd.exe 1.001 (SHA-256 7e839d3b...6077) and says whether gibbo101/ra2-decomp has matched it, without
-compiling anything. Measurement only: nothing is adopted.
+Candidates (lane O75): every RA2 function the tools know, from main's manifests/function_map.csv, the rebuild's
+units.json rows and rebuild/manifest/image_bounds.csv, less those the rebuild catalog holds or whose unit's
+current check (build/r/last) finds exact. Each carries the rebuild's state (class Ours: catalogued rows are
+left out; guarded draft with its score, count-sensitive, active, row with no draft, image bound or main row
+with no rebuild row). Rows that landed drop out by themselves; tail_buckets.csv only adds its bucket.
+
+For each candidate a twin body is looked up in the retail gamemd.exe 1.001 (SHA-256 7e839d3b...6077) and
+ra2-decomp's matched state is read, without compiling anything. Measurement only: nothing is adopted.
 
 Bodies are compared as the 2026-11-06 and Scout808 (2026-11-14) measurements did: each body is decoded on
 its own (capstone, linear); the rel32 field of call/jmp/jcc and every 4-byte immediate or displacement whose
 value lies inside that image are masked. Identical = same length, same bytes outside both masks (a second
 pass lets a byte differ inside a dword that is in-image in both bodies: switch tables decoded as code).
 Near twins: (layout) same length and instruction boundaries, only immediate/displacement fields differ; or
-(fuzzy) length within 10%, mnemonic-sequence ratio >= 0.90. Their score is a token similarity over the
-masked instruction text (1.0 for identical). A row with several identical YR candidates takes the one that
-lies between the YR twins of its neighbouring anchors (identical twins of every units.json row with one
-candidate, kept as a monotonic chain), else the first.
+(fuzzy) length within 10%, mnemonic-sequence ratio >= 0.90; or (window, lane O75) a body between the YR twins
+of the two neighbouring anchors, length within 30%, mnemonic ratio >= 0.60 (rows that grew or shrank between
+the games: Techno_Render_Voxel_Object, Send_Statistics_Packet). Name (lane O75): a matched YR function whose
+Class::Member equals one of the row's names (rebuild, main, image_bounds, mischa85 names.csv, symbols.csv;
+address suffixes dropped, placeholders ignored) and is unique on both sides; it wins over an unmatched byte
+twin or a window guess that disagrees. Anchors are identical twins with a single candidate over every
+units.json row, kept as a monotonic chain. Score: a token similarity over the masked instruction text.
 
 Matched = the YR address is in ra2-decomp's data/manifest.csv; candidates come from data/functions.csv
 (every YR function with its size). Classes: identical_matched, near_matched, identical_unmatched,
@@ -25,19 +34,28 @@ the definition of the row's name in rebuild/src/<unit>.cpp (any guard state; the
 text_sim is a token ratio over both bodies with comments and spaces removed; text_same says "same" when the
 token lists are equal.
 
---write writes rebuild/manifest/tail_twins.csv (one line per tail row) and rebuild/manifest/twin_queue.csv
-(rows with a matched twin, by bytes) and prints the split. The YR executable is looked up in $YR_GAMEMD,
-the user's installation and ra2-decomp work clones; it is read only.
+--write writes rebuild/manifest/tail_twins.csv (one line per candidate) and rebuild/manifest/twin_queue.csv
+(rows with a matched twin, by bytes) and prints the split. Without it nothing is written.
+
+--new-since (the daily pull's first step, lane O75): the YR functions in ra2-decomp's data/manifest.csv at B
+(default HEAD) that were not there at A (a commit, or the last commit before a date), each with the commit
+that added it, its RA2 twin (same searches in the other direction: identical, layout, fuzzy, name, window),
+the rebuild's state and LEAD when that state is not exact. --out also writes the list to FILE.
+
+The YR executable is looked up in $YR_GAMEMD, the user's installation and ra2-decomp work clones; it is read
+only.
 """
 import bisect
 import collections
 import csv
 import difflib
 import hashlib
+import io
 import json
 import os
 import re
 import struct
+import subprocess
 import sys
 from pathlib import Path
 
@@ -249,8 +267,8 @@ def their_text(path, addr):
 _our_cache = {}
 
 
-def our_texts(unit, name):
-    """Every definition of Class::Name (or Name) at file scope in rebuild/src/<unit>.cpp."""
+def definitions(unit, name):
+    """[(line, offset, text)] of every definition of Class::Name (or Name) at file scope in rebuild/src/<unit>.cpp."""
     p = REBUILD / 'src' / (unit + '.cpp')
     if p not in _our_cache:
         _our_cache[p] = p.read_text(errors='replace') if p.exists() else ''
@@ -258,15 +276,20 @@ def our_texts(unit, name):
     if not name:
         return []
     out = []
-    pat = re.compile(r'^[^\s#/][^;{}\n]*?(?<![\w:])' + re.escape(name) + r'\s*\(', re.M)
+    pat = re.compile(r'^(?:[^\s#/][^;{}\n]*?)?(?<![\w:~])' + re.escape(name) + r'\s*\(', re.M)
     for m in pat.finditer(text):
         end = braced(text, m.start())
         head = text[m.start(): text.find('{', m.start())] if end else ''
         if not end or ';' in COMMENT.sub(' ', head):
             continue
         line = text.count('\n', 0, m.start()) + 1
-        out.append((line, text[m.start():end]))
+        out.append((line, m.start(), text[m.start():end]))
     return out
+
+
+def our_texts(unit, name):
+    """Every definition of Class::Name (or Name) at file scope in rebuild/src/<unit>.cpp: [(line, text)]."""
+    return [(line, text) for line, _, text in definitions(unit, name)]
 
 
 def text_compare(ours, theirs):
@@ -276,7 +299,16 @@ def text_compare(ours, theirs):
     return 'differs', difflib.SequenceMatcher(None, a, b, autojunk=False).ratio()
 
 
-# ---------------------------------------------------------------- main
+# ---------------------------------------------------------------- our side: every RA2 function and its state
+
+FUNCTION_MAP = ROOT / 'manifests/function_map.csv'
+IMAGE_BOUNDS = MANIFEST / 'image_bounds.csv'
+NAMES = ROOT / 'private/reference/mischa85-RedAlert2/config/ra2-1.006/names.csv'
+GUARD = re.compile(r'^#ifdef RA2_NON_MATCHING\b[^\n]*', re.M)
+DIRECTIVE = re.compile(r'^[ \t]*#[ \t]*(if|ifdef|ifndef|endif)\b', re.M)
+PLACEHOLDER = re.compile(r'(?:^|::)(?:Unknown|FUN|sub|thunk|Leaf|Func)_[0-9A-Fa-f]+|_[0-9A-Fa-f]{6,8}::')
+DONE = ('catalogued', 'exact in its unit check')
+
 
 def read_csv(path):
     with open(path, newline='') as f:
@@ -290,124 +322,405 @@ def find_yr():
     raise SystemExit('gamemd.exe 1.001 not found; set YR_GAMEMD')
 
 
-def main(write):
-    ra2, yr = Image(RA2, RA2_SHA), Image(find_yr(), YR_SHA)
-    man = {int(r['address'], 16): (int(r['size']), r['symbol'], r['source'])
-           for r in read_csv(THEIRS / 'data/manifest.csv')}
-    fl = {int(r['address'], 16): (int(r['size']), r['name']) for r in read_csv(THEIRS / 'data/functions.csv')}
-    for a, (n, sym, src) in man.items():
-        fl.setdefault(a, (n, sym))
-    yb = {}
-    for a, (n, _) in fl.items():
-        d = yr.read(a, n)
-        if d:
-            yb[a] = Body(yr, a, d)
-    by_len = collections.defaultdict(list)
-    by_key = collections.defaultdict(list)
-    for a, b in yb.items():
-        by_len[len(b.data)].append(a)
-        by_key[b.key].append(a)
-    print('YR bodies', len(yb), 'matched', sum(1 for a in yb if a in man), flush=True)
+def name_key(sym):
+    """'Class::Member' of a symbol for matching across the two games, or None for a placeholder name
+    (Unknown_..., FUN_..., an address-suffixed class); a member's address suffix is dropped
+    (Render_Voxel_Object_006d24e0 -> Render_Voxel_Object)."""
+    if not sym:
+        return None
+    d = demangle(sym) if sym[0] in '?_' else sym
+    if not d:
+        return None
+    if PLACEHOLDER.search(d):
+        return None
+    return re.sub(r'_[0-9A-Fa-f]{6,8}$', '', d)
 
-    def identical(b):
-        hits = [a for a in by_key.get(b.key, ()) if equiv(b, yb[a], ra2, yr)]
-        if not hits:
-            hits = [a for a in by_len.get(len(b.data), ()) if equiv(b, yb[a], ra2, yr)]
-        return hits
 
-    # anchors: identical twins with a single candidate over every units.json row
-    units = json.load(open(MANIFEST / 'units.json'))
-    anchors = []
-    for u, info in units.items():
-        for r in info.get('rows', ()):
-            e, n = int(r['entry'], 16), int(r.get('body') or 0)
-            if n < 16:
+def guard_spans(text):
+    """[(start, end, label)] of every RA2_NON_MATCHING guard in text."""
+    out = []
+    for m in GUARD.finditer(text):
+        depth = 0
+        for d in DIRECTIVE.finditer(text, m.start()):
+            depth += 1 if d.group(1).startswith('if') else -1
+            if depth == 0:
+                out.append((m.start(), d.start(), m.group(0)))
+                break
+    return out
+
+
+def guard_score(label):
+    m = re.search(r'(\d[\d,]*) of (\d[\d,]*) bytes differ', label) or re.search(r'(\d[\d,]*) bytes differ', label)
+    if m:
+        return '%s B off' % m.group(1)
+    m = re.search(r'best ([\d.]+)', label)
+    return 'main best %s%%' % m.group(1) if m else ''
+
+
+class Ours:
+    """Every RA2 function the tools know (main's function map, the rebuild's unit rows, image-derived bounds)
+    with its names and the rebuild's state of it. States, first that applies:
+      catalogued                the rebuild catalog holds it (whole-file exact)
+      exact in its unit check   its unit's current check (build/r/last) finds it exact
+      count-sensitive           parked exact form (units.json count_sensitive)
+      header-form parked        units.json header_form_parked
+      guarded draft[, no row]   its definition is under RA2_NON_MATCHING (the guard's score follows)
+      active, not exact         an active definition the unit's check does not find exact
+      row, no definition in the unit file   a unit row whose name is not defined in rebuild/src/<unit>.cpp
+                                (a header inline or template)
+    A row's tailmap bucket (tail_buckets.csv, as of its last --write) follows in brackets.
+      image bound, no row       image_bounds.csv only
+      no row                    main's function map only (a unit not yet holding it)"""
+
+    def __init__(self):
+        self.units = json.load(open(MANIFEST / 'units.json'))
+        self.fn = {}
+        ranges = []
+        for u, info in self.units.items():
+            lo, hi = (int(x, 16) for x in info.get('range') or ('0', '0'))
+            ranges.append((hi - lo, lo, hi, u))
+        ranges.sort()
+
+        def get(e):
+            return self.fn.setdefault(e, dict(entry=e, unit='', bytes=0, names=[], row=None, image=False))
+        for r in read_csv(FUNCTION_MAP):
+            f = get(int(r['address'], 16))
+            f['bytes'], f['main_unit'] = int(r['size']), Path(r['source']).stem
+            f['names'].append(r['symbol'])
+        for r in read_csv(IMAGE_BOUNDS):
+            if r['status'] == 'bound':
+                f = get(int(r['entry'], 16))
+                f['bytes'], f['image'] = int(r['body_bytes']), True
+                f['names'].append(r['catalog_symbol'])
+        for u, info in self.units.items():
+            for r in info['rows']:
+                f = get(int(r['entry'], 16))
+                f['unit'], f['bytes'], f['row'] = u, int(r['body']), r
+                f['names'] = [r['symbol'], r.get('main_symbol') or ''] + f['names']
+        for path in (NAMES, MANIFEST / 'symbols.csv'):
+            if path.exists():
+                for r in read_csv(path):
+                    e = int(r['address'], 16)
+                    if e in self.fn:
+                        self.fn[e]['names'].append(r['symbol'])
+        for e, f in self.fn.items():
+            f['names'] = [n for n in dict.fromkeys(f['names']) if n]
+            if not f['unit']:      # inside a unit's range, else no rebuild unit (main's file stays in main_unit)
+                f['unit'] = next((u for _, lo, hi, u in ranges if lo <= e < hi), '')
+        self.by_name = collections.defaultdict(set)
+        for e, f in self.fn.items():
+            for n in f['names']:
+                k = name_key(n)
+                if k:
+                    self.by_name[k].add(e)
+        self.done = {}
+        try:
+            sys.path.insert(0, str(ROOT / 'tools/original_target'))
+            import catalog_io
+            for r in catalog_io.load(MANIFEST / 'catalog')['regions']:
+                self.done[r['entry']] = 'catalogued'
+        except Exception as err:   # a tree without a catalog: every row reads as not exact
+            print('catalog not read:', err)
+        work = ROOT / 'build/r/last'
+        for u, info in self.units.items():
+            p = work / (u + '.json')
+            if not p.exists():
                 continue
-            d = ra2.read(e, n)
-            if d:
-                h = identical(Body(ra2, e, d))
+            last = json.load(open(p))
+            src = ROOT / info['source']
+            if not src.exists() or last.get('source_sha256') != hashlib.sha256(src.read_bytes()).hexdigest():
+                continue
+            if [(r['entry'], r['symbol']) for r in last['results']] != [(r['entry'], r['symbol']) for r in info['rows']]:
+                continue
+            for r in last['results']:
+                if r['status'] == 'exact':
+                    self.done.setdefault(int(r['entry'], 16), 'exact in its unit check')
+        self._spans = {}
+        path = MANIFEST / 'tail_buckets.csv'
+        self.buckets = {r['entry']: r['bucket'] for r in read_csv(path)} if path.exists() else {}
+
+    def name(self, e):
+        """The function's best name: the rebuild row's symbol, else the first non-placeholder one."""
+        f = self.fn[e]
+        named = [n for n in f['names'] if name_key(n)]
+        return (named or f['names'] or [''])[0]
+
+    def state(self, e):
+        if e in self.done:
+            return self.done[e]
+        f = self.fn.get(e)
+        if not f:
+            return 'unknown to the tools'
+        info = self.units.get(f['unit'], {})
+        h = '%08x' % e
+        if h in (info.get('count_sensitive') or {}):
+            return 'count-sensitive'
+        if h in (info.get('header_form_parked') or {}):
+            return 'header-form parked'
+        defs = []
+        for n in f['names']:
+            k = name_key(n)
+            parts = k.split('::') if k else []
+            for i in range(max(1, len(parts) - 1)):   # NS::Class::Member, then Class::Member
+                defs = definitions(f['unit'], '::'.join(parts[i:]))
+                if defs:
+                    break
+            if defs:
+                break
+        if f['unit'] not in self._spans:
+            p = REBUILD / 'src' / (f['unit'] + '.cpp')
+            self._spans[f['unit']] = guard_spans(p.read_text(errors='replace')) if p.exists() else []
+        guarded = [label for _, at, _ in defs for a, b, label in self._spans[f['unit']] if a <= at < b]
+        bucket = self.buckets.get(h)
+        tail = ' [tailmap %s]' % bucket if bucket and f['row'] else ''
+        if guarded:      # an overload of the name may be an exact row of its own
+            s = guard_score(guarded[0])
+            return 'guarded draft' + ('' if f['row'] else ', no row') + (' (%s)' % s if s else '') + tail
+        if defs:
+            return ('active, not exact' if f['row'] else 'active definition, no row') + tail
+        if f['row']:
+            return 'row, no definition in the unit file' + tail
+        state = 'image bound, no row' if f['image'] else 'no row'
+        return state if f['unit'] else '%s (no unit; main %s)' % (state, f.get('main_unit', '?'))
+
+
+# ---------------------------------------------------------------- main
+
+def their_manifest(ref=None):
+    """{YR address: (size, symbol, source)} of ra2-decomp's data/manifest.csv (at ref, else the checkout)."""
+    if ref:
+        text = subprocess.run(['git', '-C', str(THEIRS), 'show', ref + ':data/manifest.csv'], capture_output=True,
+                              text=True, check=True).stdout
+        rows = csv.DictReader(io.StringIO(text))
+    else:
+        rows = read_csv(THEIRS / 'data/manifest.csv')
+    return {int(r['address'], 16): (int(r['size']), r['symbol'], r['source']) for r in rows}
+
+
+class Twins:
+    """Both images' bodies, the anchor chain of single identical twins and the searches in both directions."""
+
+    def __init__(self, ours):
+        self.ours = ours
+        self.ra2, self.yr = Image(RA2, RA2_SHA), Image(find_yr(), YR_SHA)
+        self.man = their_manifest()
+        self.fl = {int(r['address'], 16): (int(r['size']), r['name']) for r in read_csv(THEIRS / 'data/functions.csv')}
+        for a, (n, sym, src) in self.man.items():
+            self.fl.setdefault(a, (n, sym))
+        self.yb = self._bodies(self.yr, ((a, n) for a, (n, _) in self.fl.items()))
+        self.rb = self._bodies(self.ra2, ((e, f['bytes']) for e, f in ours.fn.items()))
+        self.y_len, self.y_key = self._index(self.yb)
+        self.r_len, self.r_key = self._index(self.rb)
+        self.ry = sorted(self.yb)
+        self.rr = sorted(self.rb)
+        self.y_name = collections.defaultdict(set)
+        for a, (n, sym, src) in self.man.items():
+            k = name_key(sym)
+            if k:
+                self.y_name[k].add(a)
+        print('YR bodies', len(self.yb), 'matched', sum(1 for a in self.yb if a in self.man), '| RA2 bodies',
+              len(self.rb), flush=True)
+        anchors = []
+        for e, f in ours.fn.items():
+            b = self.rb.get(e)
+            if b is not None and f['row'] and len(b.data) >= 16:
+                h = self.identical(b, self.yb, self.y_key, self.y_len, self.ra2, self.yr)
                 if len(h) == 1:
                     anchors.append((e, h[0]))
-    anchors.sort()
-    tails, ty, prev = [], [], [None] * len(anchors)
-    for i, (_, y) in enumerate(anchors):
-        j = bisect.bisect_left(ty, y)
-        if j == len(tails):
-            tails.append(i); ty.append(y)
-        else:
-            tails[j] = i; ty[j] = y
-        prev[i] = tails[j - 1] if j else None
-    chain, i = [], tails[-1] if tails else None
-    while i is not None:
-        chain.append(anchors[i]); i = prev[i]
-    chain.reverse()
-    ax = [c[0] for c in chain]
-    print('anchors', len(chain), 'of', len(anchors), flush=True)
+        anchors.sort()
+        tails, ty, prev = [], [], [None] * len(anchors)
+        for i, (_, y) in enumerate(anchors):
+            j = bisect.bisect_left(ty, y)
+            if j == len(tails):
+                tails.append(i); ty.append(y)
+            else:
+                tails[j] = i; ty[j] = y
+            prev[i] = tails[j - 1] if j else None
+        chain, i = [], tails[-1] if tails else None
+        while i is not None:
+            chain.append(anchors[i]); i = prev[i]
+        chain.reverse()
+        self.chain = chain
+        self.cx = [c[0] for c in chain]
+        self.cy = [c[1] for c in chain]
+        print('anchors', len(chain), 'of', len(anchors), flush=True)
 
-    def window(e):
-        i = bisect.bisect_left(ax, e)
-        return (chain[i - 1][1] if i else 0), (chain[i][1] if i < len(chain) else 1 << 32)
+    @staticmethod
+    def _bodies(img, items):
+        out = {}
+        for a, n in items:
+            d = img.read(a, n)
+            if d:
+                out[a] = Body(img, a, d)
+        return out
 
-    hist = {(r['unit'], r['entry']): r for r in read_csv(MANIFEST / 'tail_history.csv')}
-    out = []
-    for r in read_csv(MANIFEST / 'tail_buckets.csv'):
-        e, n = int(r['entry'], 16), int(r['bytes'])
-        h = hist.get((r['unit'], r['entry']), {})
-        row = dict(unit=r['unit'], entry=r['entry'], function=r['function'], bytes=n, bucket=r['bucket'],
-                   difficulty=h.get('difficulty', ''), twin_class='ra2_only', yr_entry='', yr_bytes='',
-                   how='', score='', candidates=0, in_order='', matched='', their_symbol='', their_path='',
-                   their_line='', their_text='', our_line='', text_same='', text_sim='')
-        d = ra2.read(e, n)
-        out.append(row)
-        if not d:
-            row['how'] = 'unreadable'
-            continue
-        b = Body(ra2, e, d)
-        lo, hi = window(e)
-        hits = identical(b)
+    @staticmethod
+    def _index(bodies):
+        by_len, by_key = collections.defaultdict(list), collections.defaultdict(list)
+        for a, b in bodies.items():
+            by_len[len(b.data)].append(a)
+            by_key[b.key].append(a)
+        return by_len, by_key
+
+    @staticmethod
+    def identical(b, pool, by_key, by_len, ib, ip):
+        hits = [a for a in by_key.get(b.key, ()) if equiv(b, pool[a], ib, ip)]
+        if not hits:
+            hits = [a for a in by_len.get(len(b.data), ()) if equiv(b, pool[a], ib, ip)]
+        return hits
+
+    def yr_window(self, e):
+        """YR addresses between the twins of the anchors around RA2 entry e."""
+        i = bisect.bisect_left(self.cx, e)
+        return (self.cy[i - 1] if i else 0), (self.cy[i] if i < len(self.cy) else 1 << 32)
+
+    def ra2_window(self, y):
+        i = bisect.bisect_left(self.cy, y)
+        return (self.cx[i - 1] if i else 0), (self.cx[i] if i < len(self.cx) else 1 << 32)
+
+    @staticmethod
+    def near(b, pool, by_len, among=None):
+        """[(score, address, how)] of near twins of b in pool: same layout, or a close mnemonic sequence
+        (length within 10%); with `among` (addresses between two anchors) also any body there whose length is
+        within 30% and whose mnemonic sequence is >= 0.60 alike (rows that grew or shrank between the games)."""
+        n = len(b.data)
+        lay = []
+        for a in by_len.get(n, ()):
+            f = layout_equiv(b, pool[a])
+            if f is not None:
+                lay.append((tok_sim(b, pool[a]), a, 'layout (%d field%s)' % (len(f), '' if len(f) == 1 else 's')))
+        if lay:
+            return lay
+        cands = []
+        if n >= 16:
+            for L in range(int(n * 0.9), int(n * 1.1) + 2):
+                for a in by_len.get(L, ()):
+                    y = pool[a]
+                    if abs(y.ninsn - b.ninsn) > max(2, b.ninsn // 10):
+                        continue
+                    if sum((b.cmn & y.cmn).values()) / max(b.ninsn, y.ninsn) < 0.88:
+                        continue
+                    mr = difflib.SequenceMatcher(None, b.mn, y.mn, autojunk=False).ratio()
+                    if mr >= 0.90:
+                        cands.append((tok_sim(b, y), a, 'fuzzy (mnemonics %.3f)' % mr))
+        if not cands and among and n >= 32:
+            for a in among:
+                y = pool[a]
+                if not 0.7 <= len(y.data) / n <= 1.43:
+                    continue
+                if sum((b.cmn & y.cmn).values()) / max(b.ninsn, y.ninsn) < 0.6:
+                    continue
+                mr = difflib.SequenceMatcher(None, b.mn, y.mn, autojunk=False).ratio()
+                if mr >= 0.60:
+                    cands.append((tok_sim(b, y), a, 'window (mnemonics %.3f)' % mr))
+        return cands
+
+    def between(self, ordered, lo, hi, limit=400):
+        i, j = bisect.bisect_left(ordered, lo), bisect.bisect_right(ordered, hi)
+        return ordered[i:j] if j - i <= limit else ()
+
+    def to_yr(self, e, names):
+        """(yr address, how, score, candidates, in_order, name_hit) of RA2 entry e's YR twin, or None.
+        Order: identical bytes; same layout or close mnemonics; a matched YR function of the same name; a body
+        between the two anchors (window). A byte twin that is unmatched gives way to a matched name twin."""
+        b = self.rb.get(e)
+        lo, hi = self.yr_window(e)
+        name_hit = None
+        for n in names:
+            k = name_key(n)
+            hits = self.y_name.get(k, ()) if k else ()
+            if len(hits) == 1:
+                name_hit = next(iter(hits))
+                break
         pick = None
-        if hits:
-            hits.sort(key=lambda a: (not (lo <= a <= hi), a not in man))
-            pick, how, score, ncand = hits[0], 'identical', 1.0, len(hits)
-        else:
-            lay = []
-            for a in by_len.get(n, ()):
-                f = layout_equiv(b, yb[a])
-                if f is not None:
-                    lay.append((len(f), a))
-            cands = []
-            if lay:
-                for nf, a in lay:
-                    cands.append((tok_sim(b, yb[a]), a, 'layout (%d field%s)' % (nf, '' if nf == 1 else 's')))
-            elif n >= 16:
-                lo_n, hi_n = int(n * 0.9), int(n * 1.1) + 1
-                for L in range(lo_n, hi_n + 1):
-                    for a in by_len.get(L, ()):
-                        y = yb[a]
-                        if abs(y.ninsn - b.ninsn) > max(2, b.ninsn // 10):
-                            continue
-                        if sum((b.cmn & y.cmn).values()) / max(b.ninsn, y.ninsn) < 0.88:
-                            continue
-                        mr = difflib.SequenceMatcher(None, b.mn, y.mn, autojunk=False).ratio()
-                        if mr >= 0.90:
-                            cands.append((tok_sim(b, y), a, 'fuzzy (mnemonics %.3f)' % mr))
-            if cands:
-                cands.sort(key=lambda c: (lo <= c[1] <= hi, c[0], c[1] in man), reverse=True)
-                score, pick, how = cands[0]
-                ncand = len(cands)
+        if b is not None:
+            hits = self.identical(b, self.yb, self.y_key, self.y_len, self.ra2, self.yr)
+            if hits:
+                hits.sort(key=lambda a: (not (lo <= a <= hi), a not in self.man, a != name_hit))
+                pick = (hits[0], 'identical', 1.0, len(hits))
+            else:
+                cands = self.near(b, self.yb, self.y_len, self.between(self.ry, lo, hi))
+                if cands:
+                    cands.sort(key=lambda c: (c[1] == name_hit, lo <= c[1] <= hi, c[0], c[1] in self.man), reverse=True)
+                    score, a, how = cands[0]
+                    if not how.startswith('window') or name_hit is None or a == name_hit:
+                        pick = (a, how, score, len(cands))
+        if name_hit is not None and (pick is None or (pick[0] != name_hit and pick[0] not in self.man)):
+            score = tok_sim(b, self.yb[name_hit]) if b is not None and name_hit in self.yb else 0.0
+            pick = (name_hit, 'name', score, 1)
         if pick is None:
+            return None
+        a, how, score, ncand = pick
+        return a, how, score, ncand, 'yes' if lo <= a <= hi else 'no', name_hit
+
+    def to_ra2(self, y):
+        """(ra2 entry, how, score, name_hit) of YR function y's RA2 twin, or None (the same order as to_yr)."""
+        b = self.yb.get(y)
+        lo, hi = self.ra2_window(y)
+        name_hit = None
+        k = name_key(self.man[y][1]) if y in self.man else None
+        hits = self.ours.by_name.get(k, ()) if k else ()
+        if len(hits) == 1:
+            name_hit = next(iter(hits))
+        if b is not None:
+            hits = self.identical(b, self.rb, self.r_key, self.r_len, self.yr, self.ra2)
+            if hits:
+                hits.sort(key=lambda a: (a != name_hit, not (lo <= a <= hi)))
+                a = hits[0]
+                if len(hits) > 1 and len(b.data) < 16 and a != name_hit and not lo <= a <= hi:
+                    return None          # a tiny body (ret, a thunk) identical to many: no evidence
+                return a, 'identical', 1.0, name_hit
+            cands = self.near(b, self.rb, self.r_len, self.between(self.rr, lo, hi))
+            if cands:
+                cands.sort(key=lambda c: (c[1] == name_hit, lo <= c[1] <= hi, c[0]), reverse=True)
+                score, a, how = cands[0]
+                if name_hit is None or a == name_hit or not how.startswith('window'):
+                    return a, how, score, name_hit
+        if name_hit is not None:
+            score = tok_sim(b, self.rb[name_hit]) if b is not None and name_hit in self.rb else 0.0
+            return name_hit, 'name', score, name_hit
+        return None
+
+
+def main(write):
+    ours = Ours()
+    tw = Twins(ours)
+    man, fl, yb = tw.man, tw.fl, tw.yb
+    hist = {(r['unit'], r['entry']): r for r in read_csv(MANIFEST / 'tail_history.csv')}
+    buckets = ours.buckets
+    out = []
+    for e in sorted(ours.fn):
+        state = ours.state(e)
+        if state in DONE:
             continue
+        f = ours.fn[e]
+        h = '%08x' % e
+        n = f['bytes']
+        hr = hist.get((f['unit'], h), {})
+        row = dict(unit=f['unit'], entry=h, function=ours.name(e), bytes=n, bucket=buckets.get(h, ''),
+                   difficulty=hr.get('difficulty', ''), twin_class='ra2_only', yr_entry='', yr_bytes='',
+                   how='', score='', candidates=0, in_order='', matched='', their_symbol='', their_path='',
+                   their_line='', their_text='', our_line='', text_same='', text_sim='', state=state, name_twin='')
+        out.append(row)
+        if e not in tw.rb:
+            row['how'] = 'unreadable'
+        t = tw.to_yr(e, f['names'])
+        if t is None:
+            continue
+        pick, how, score, ncand, in_order, name_hit = t
         matched = pick in man
-        row.update(yr_entry='%08x' % pick, yr_bytes=len(yb[pick].data), how=how, score='%.4f' % score,
-                   candidates=ncand, in_order='yes' if lo <= pick <= hi else 'no', matched='yes' if matched else 'no',
+        row.update(yr_entry='%08x' % pick, yr_bytes=len(yb[pick].data) if pick in yb else fl.get(pick, ('',))[0],
+                   how=how, score='%.4f' % score, candidates=ncand, in_order=in_order,
+                   matched='yes' if matched else 'no',
                    twin_class=('identical_' if how == 'identical' else 'near_') + ('matched' if matched else 'unmatched'),
-                   their_symbol=man[pick][1] if matched else fl[pick][1])
+                   their_symbol=man[pick][1] if matched else fl.get(pick, ('', ''))[1],
+                   name_twin='%08x' % name_hit if name_hit is not None else '')
         if matched:
             path = man[pick][2]
             line, tt = their_text(path, pick)
             row.update(their_path=path, their_line=line or '', their_text='body' if tt else 'header')
-            name = demangle(r['function']) or r['function']
-            mine = our_texts(r['unit'], name)
+            name = name_key(row['function']) or ''
+            mine = our_texts(f['unit'], name) if name else []
             if tt and mine:
                 best = max(((text_compare(t, tt), ln) for ln, t in mine), key=lambda x: x[0][1])
                 (same, sim), ln = best
@@ -416,8 +729,6 @@ def main(write):
                 row.update(our_line=mine[0][0], text_same='no their body')
             else:
                 row.update(text_same='not in unit source')
-        if len(out) % 100 == 0:
-            print('rows', len(out), flush=True)
 
     split(out)
     if write:
@@ -431,7 +742,7 @@ def main(write):
         with open(MANIFEST / 'twin_queue.csv', 'w', newline='') as f:
             w = csv.writer(f, lineterminator='\n')
             w.writerow(['unit', 'function', 'entry', 'yr_entry', 'their_path', 'their_line', 'bytes', 'twin_class',
-                        'score', 'bucket', 'difficulty', 'text_same', 'text_sim', 'action'])
+                        'score', 'bucket', 'difficulty', 'text_same', 'text_sim', 'action', 'state'])
             for r in q:
                 if r['text_same'] == 'same':
                     act = 'text is already the twin\'s: adopt its header forms (twin_header_diffs.csv)'
@@ -441,13 +752,13 @@ def main(write):
                     act = 'adopt the twin\'s text and its header forms'
                 w.writerow([r['unit'], r['function'], r['entry'], r['yr_entry'], r['their_path'], r['their_line'],
                             r['bytes'], r['twin_class'], r['score'], r['bucket'], r['difficulty'], r['text_same'],
-                            r['text_sim'], act])
+                            r['text_sim'], act, r['state']])
         print('wrote tail_twins.csv and twin_queue.csv (%d queued)' % len(q))
 
 
 def split(out):
     classes = ['identical_matched', 'near_matched', 'identical_unmatched', 'near_unmatched', 'ra2_only']
-    for title, rows in (('all parked', out), ('hard on main', [r for r in out if r['difficulty'] == 'hard on main'])):
+    for title, rows in (('all not exact', out), ('hard on main', [r for r in out if r['difficulty'] == 'hard on main'])):
         print('%s: %d rows, %d B' % (title, len(rows), sum(r['bytes'] for r in rows)))
         for c in classes:
             sel = [r for r in rows if r['twin_class'] == c]
@@ -455,7 +766,80 @@ def split(out):
     sel = [r for r in out if r['twin_class'] == 'identical_matched']
     tc = collections.Counter(r['text_same'] or '-' for r in sel)
     print('identical_matched text:', dict(tc))
+    sc = collections.Counter(re.sub(r' \([^)]*\)| \[.*', '', r['state']) for r in out)
+    print('states:', ', '.join('%s %d' % kv for kv in sc.most_common()))
 
+
+# ---------------------------------------------------------------- new since (--new-since)
+
+def resolve_range(spec):
+    """(old, new) commits of ra2-decomp for 'A..B', 'A' (to HEAD) or a date 'YYYY-MM-DD' (last commit before it)."""
+    def rev(r):
+        return subprocess.run(['git', '-C', str(THEIRS), 'rev-parse', '--short', r], capture_output=True, text=True,
+                              check=True).stdout.strip()
+    old, _, new = spec.partition('..')
+    if re.match(r'\d{4}-\d\d-\d\d', old):
+        old = subprocess.run(['git', '-C', str(THEIRS), 'rev-list', '-1', '--before=' + old, new or 'HEAD'],
+                             capture_output=True, text=True, check=True).stdout.strip()
+    return rev(old), rev(new or 'HEAD')
+
+
+def new_since(spec, out_path=None):
+    """ra2-decomp functions matched at B but not at A, each with its RA2 twin and the rebuild's state of it."""
+    old, new = resolve_range(spec)
+    log = subprocess.run(['git', '-C', str(THEIRS), 'log', '--reverse', '--format=%h %s', old + '..' + new, '--',
+                          'data/manifest.csv'], capture_output=True, text=True, check=True).stdout.splitlines()
+    seen = set(their_manifest(old))
+    added = {}
+    for line in log:
+        c, _, subject = line.partition(' ')
+        for a in set(their_manifest(c)) - seen:
+            added[a] = (c, subject)
+        seen |= set(their_manifest(c))
+    final = their_manifest(new)
+    added = {a: v for a, v in added.items() if a in final}
+    for a, (c, subject) in list(added.items()):   # the commit that brought the source (Restore ...), when another
+        src = subprocess.run(['git', '-C', str(THEIRS), 'log', '--reverse', '--format=%h %s', '-S',
+                              'GAMEMD 0x%08X' % a, old + '..' + new, '--', 'src', 'include'],
+                             capture_output=True, text=True).stdout.splitlines()
+        if src and not src[0].startswith(c + ' '):
+            added[a] = tuple(src[0].split(' ', 1)) if ' ' in src[0] else (src[0], '')
+    ours = Ours()
+    tw = Twins(ours)
+    for a in added:
+        if a not in tw.man:          # the checkout is behind B: take B's rows
+            tw.man[a] = final[a]
+    rows = []
+    for a in sorted(added):
+        size, sym, src = final[a]
+        c, subject = added[a]
+        r = dict(commit=c, subject=subject, yr_entry='%08x' % a, yr_bytes=size, their_symbol=sym, their_path=src,
+                 ra2_entry='', unit='', function='', bytes='', how='', score='', state='', note='')
+        t = tw.to_ra2(a)
+        if t is None:
+            r['note'] = 'no RA2 twin found (YR only?)'
+        else:
+            e, how, score, name_hit = t
+            f = ours.fn.get(e, {})
+            r.update(ra2_entry='%08x' % e, unit=f.get('unit', ''), function=ours.name(e) if f else '',
+                     bytes=f.get('bytes', ''), how=how, score='%.4f' % score, state=ours.state(e))
+            if name_hit is not None and name_hit != e:
+                r['note'] = 'name twin %08x differs' % name_hit
+        rows.append(r)
+    lead = [r for r in rows if r['state'] and r['state'] not in DONE]
+    lines = ['# ra2-decomp functions newly matched %s..%s (%d commits touching data/manifest.csv): %d, '
+             'RA2 twin not exact here: %d' % (old, new, len(log), len(rows), len(lead))]
+    for r in sorted(rows, key=lambda r: (r['state'] in DONE or not r['state'], -(r['bytes'] or 0))):
+        lines.append('%s %s %s YR %s (%s B) -> %s %s %s (%s B) %s %s | %s%s' % (
+            'LEAD' if r in lead else 'done' if r['state'] else '----', r['commit'], demangle(r['their_symbol'])
+            or r['their_symbol'], r['yr_entry'], r['yr_bytes'], r['unit'] or '-', r['ra2_entry'] or '-',
+            r['function'] and (demangle(r['function']) or r['function']), r['bytes'], r['how'], r['score'],
+            r['state'] or '-', (' | ' + r['note']) if r['note'] else ''))
+    text = '\n'.join(lines) + '\n'
+    print(text, end='')
+    if out_path:
+        Path(out_path).write_text(text)
+    return rows
 
 
 # ---------------------------------------------------------------- headers (--headers)
@@ -702,5 +1086,9 @@ if __name__ == '__main__':
         headers()
     elif '--countsens' in sys.argv:
         countsens()
+    elif '--new-since' in sys.argv:
+        i = sys.argv.index('--new-since')
+        out = sys.argv[sys.argv.index('--out') + 1] if '--out' in sys.argv else None
+        new_since(sys.argv[i + 1], out)
     else:
         main('--write' in sys.argv)
