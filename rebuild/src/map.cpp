@@ -3722,6 +3722,12 @@ int MapClass::Get_Cell_Subzone_Index(Cell const & cell)
 }
 
 
+static inline CellZoneStruct * Zone_Of(MapClass * map, Cell const & cell)
+{
+	return(&map->CellZones[map->Get_Cell_Zone_Index(cell)]);
+}
+
+
 /// <summary>
 /// Incrementally re-assigns a single cell's normal zone from a passable neighbor.
 /// If the surrounding topology has too many zone transitions, triggers a full Zone_Reset.
@@ -3730,7 +3736,7 @@ int MapClass::Get_Cell_Subzone_Index(Cell const & cell)
 /// <param name="cell">The cell whose zone assignment is being updated.</param>
 void MapClass::Update_Cell_Zone(Cell const & cell)
 {
-	CellZoneStruct * cell_data = &CellZones[Get_Cell_Zone_Index(cell)];
+	CellZoneStruct * cell_data = Zone_Of(this, cell);
 
 	/*
 	 * Calculate the offsets for accessing neighbors per facing in the flattened map array.
@@ -3808,7 +3814,7 @@ void MapClass::Update_Cell_Zone(Cell const & cell)
 /// <param name="cell">The cell whose zone needs revisiting.</param>
 void MapClass::Update_Cell_Zone_Constructively(Cell const & cell)
 {
-	CellZoneStruct * cell_data = &CellZones[Get_Cell_Zone_Index(cell)];
+	CellZoneStruct * cell_data = Zone_Of(this, cell);
 	int passability = cell_data->Passability;
 
 	/*
@@ -10912,7 +10918,7 @@ void MapClass::Register_Subzone_Zone_Connections(int subzone)
 /// </summary>
 /// <param name="connection">The bridge or tunnel connection to stitch in.</param>
 /// <param name="index">The subzone level whose staging set receives the links.</param>
-#ifdef RA2_NON_MATCHING // not exact: 87 bytes differ (2026-11-19, main's record helper and count locals; the original leaves the third Add_Object out of line and loads BridgeSet before ITType)
+#ifdef RA2_NON_MATCHING // not exact: 74 bytes differ (2026-11-23, the bridge facing index written as in this file's Compute_Zone_Connections; main's record helper and count locals; the original leaves the third Add_Object out of line)
 static inline void Set_Zone_Record(SUBZONE_CONNECTION_HASH_SET::ObjectType & record, unsigned int key, SubzoneConnectionStruct const & value)
 {
 	record.Key = key;
@@ -10955,13 +10961,13 @@ void MapClass::Register_Zone_Connection_Entries(ZoneConnectionClass * connection
 		int count2 = tube2->Count;
 		newcell2 = Follow_Path(enter2, count2, tube2->Dirs);
 	} else {
-		bool is_bridge = cell1ptr->Is_Tile_Bridge();
-		IsometricTileType bridge_set = IsometricTileTypeClass::BridgeSet;
-		IsometricTileType tile = cell1ptr->ITType;
-		if (!is_bridge) {
-			bridge_set = IsometricTileTypeClass::TrainBridgeSet;
+		int faceindex;
+		if (cell1ptr->Is_Tile_Bridge()) {
+			faceindex = cell1ptr->ITType - IsometricTileTypeClass::BridgeSet;
+		} else {
+			faceindex = cell1ptr->ITType - IsometricTileTypeClass::TrainBridgeSet;
 		}
-		FacingType dir = BridgeSideFacings[tile - bridge_set];
+		FacingType dir = BridgeSideFacings[faceindex];
 
 		enter1 = Adjacent_Cell(from, dir);
 		enter2 = Adjacent_Cell(from, (FacingType)(dir - FACING_180)); // RA2: both second cells lie at dir - 4
@@ -11460,35 +11466,27 @@ bool MapClass::Build_Reachable_Subzones(CellClass * cptr, int subzone_level, Dyn
 /// working from has moved underneath it.
 /// </summary>
 /// <param name="cell">The cell whose terrain has changed.</param>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (00566340 has no row); main: best 64.37, tried 9 times (register, inline, order)
 void MapClass::Update_Cell_Subzones(Cell const & cell)
 {
-	if (In_Local_Radar(cell)) {
+	if (In_Local_Radar(cell, true)) {
 
 		int y;
 		int x;
-		Cell trycell;
-		for (int subzone = 2; subzone >= 0; subzone--) {
+		for (int subzone = SUBZONE_COUNT - 1; subzone >= 0; subzone--) {
 
 			/*
 			 * Compute the square window of cells (aligned to the level's grid size)
 			 * that surrounds the changed cell for this coarseness level.
 			 */
-			int var = subzone + 1;
-			Rect bounds;
-			bounds.Width = 1 << var;
-			bounds.Height = bounds.Width;
-			bounds.X = cell.X - cell.X % bounds.Width;
-			bounds.Y = cell.Y - cell.Y % bounds.Height;
+			int size = 1 << (subzone + 1);
+			Rect bounds = Rect(Point2D(cell.X - cell.X % size, cell.Y - cell.Y % size), size, size);
 
 			/*
 			 * Clear out every bucket of the connection hash set for this level.
 			 */
 			DynamicVectorClass<unsigned short> collected;
 			SUBZONE_CONNECTION_HASH_SET * set = SubzoneConnectionHashTable[subzone];
-			for (int bucket = 0; bucket < set->NumBuckets; bucket++) {
-				set->Buckets[bucket].Clear();
-			}
+			set->Clear();
 
 			DynamicVectorClass<SubzoneTrackingStruct> * track = &SubzoneTracking[subzone];
 
@@ -11498,7 +11496,7 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 			 */
 			for (y = bounds.Y; y < bounds.Y + bounds.Height; y++) {
 				for (x = bounds.X; x < bounds.Width + bounds.X; x++) {
-					CellSubzoneStruct * subptr = &CellSubzones[(short)x + (short)y * (PlayRect.Width + PlayRect.Height + 1)];
+					CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
 					unsigned short subid = subptr->SubzoneID[subzone];
 					if (subid != 0) {
 						int found;
@@ -11512,7 +11510,7 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 						}
 					}
 					subptr->SubzoneID[subzone] = 0;
-					subptr->ZoneID = CellZones[(short)x + (short)y * (PlayRect.Width + PlayRect.Height + 1)].ZoneID;
+					subptr->ZoneID = Zone_Of(this, Cell(x, y))->ZoneID;
 				}
 			}
 
@@ -11521,11 +11519,11 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 			 * delete the mirror connection entry from every neighbor it connected to,
 			 * then clear its own connection list.
 			 */
-			for (int idx = collected.Count() - 1; idx >= 0; idx--) {
-				unsigned short subid = collected[idx];
+			for (y = collected.Count() - 1; y >= 0; y--) {
+				unsigned short subid = collected[y];
 				SubzoneTrackingStruct * entry = &SubzoneTracking[subzone][subid];
-				for (int i = entry->Connections.Count() - 1; i >= 0; i--) {
-					SubzoneTrackingStruct * neighbor = &SubzoneTracking[subzone][entry->Connections[i].SubzoneID];
+				for (x = entry->Connections.Count() - 1; x >= 0; x--) {
+					SubzoneTrackingStruct * neighbor = &SubzoneTracking[subzone][entry->Connections[x].SubzoneID];
 					int j;
 					for (j = neighbor->Connections.Count() - 1; j >= 0; j--) {
 						if (neighbor->Connections[j].SubzoneID == subid) {
@@ -11545,30 +11543,28 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 			for (y = bounds.Y; y < bounds.Y + bounds.Height; y++) {
 				for (x = bounds.X; x < bounds.Width + bounds.X; x++) {
 
-					Cell cella;
-					cella.X = x;
-					cella.Y = y;
-					if (In_Local_Radar(cella)) {
+					if (In_Local_Radar(Cell(x, y), true)) {
 
-						CellSubzoneStruct * subptr = &CellSubzones[(short)y * (PlayRect.Width + PlayRect.Height + 1) + (short)x];
-						int passability = CellZones[(short)y * (PlayRect.Width + PlayRect.Height + 1) + (short)x].Passability;
+						CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
+						int passability = Zone_Of(this, Cell(x, y))->Passability;
 						if (passability != PASSABLE_OUTSIDE && subptr->SubzoneID[subzone] == 0) {
 
-							trycell.Y = y;
-							trycell.X = x;
-							Subzone_Span(subptr, subzone, entry_count, bounds, trycell);
+							Cell seed(x, y);
+							Subzone_Span(subptr, subzone, entry_count, bounds, seed);
 
 							track->Add(SubzoneTrackingStruct());
 
 							SubzoneTrackingStruct * added = &(*track)[entry_count];
-							int parent = 0;
-							if (subzone != 2) {
+							int parent;
+							if (subzone == SUBZONE_COUNT - 1) {
+								parent = 0;
+							} else {
 								parent = subptr->SubzoneID[subzone + 1];
 							}
 							added->ParentSubzoneID = (unsigned short)parent;
 							added->Passability = (PassabilityType)passability;
 							added->Connections.Set_Growth_Step(16);
-							added->ThreatRegion = (short)x / REGION_WIDTH + MAP_REGION_WIDTH * ((short)y / REGION_HEIGHT) + (MAP_REGION_WIDTH + 1);
+							added->ThreatRegion = Cell_Region(Cell(x, y));
 
 							entry_count++;
 							if (entry_count == 0) {
@@ -11586,10 +11582,8 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 			 */
 			for (int connection_index = ZoneConnections.Count() - 1; connection_index >= 0; connection_index--) {
 				ZoneConnectionClass & connection = ZoneConnections[connection_index];
-				if ((connection.From.X >= bounds.X && connection.From.X < bounds.Width + bounds.X
-					&& connection.From.Y >= bounds.Y && connection.From.Y < bounds.Y + bounds.Height)
-					|| (connection.To.X >= bounds.X && connection.To.X < bounds.Width + bounds.X
-					&& connection.To.Y >= bounds.Y && connection.To.Y < bounds.Y + bounds.Height)) {
+				if (bounds.Is_Point_Within(Point2D(connection.From.X, connection.From.Y))
+					|| bounds.Is_Point_Within(Point2D(connection.To.X, connection.To.Y))) {
 					if (connection.IsPassable) {
 						Register_Zone_Connection_Entries(&connection, subzone); // RA2: by pointer
 					}
@@ -11601,21 +11595,20 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 			 * of each recorded connection into the subzone tracking list.
 			 */
 			for (int bucket_index = 0; bucket_index < 256; bucket_index++) {
-				if (set->Buckets[bucket_index].Count() > 0) {
-					SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &set->Buckets[bucket_index][0];
-					for (int index = set->Buckets[bucket_index].Count(); index > 0; index--) {
+				SUBZONE_CONNECTION_HASH_SET::BucketType & bucket = set->Buckets[bucket_index];
+				if (bucket.Count() > 0) {
+					SUBZONE_CONNECTION_HASH_SET::ObjectType * object = &bucket[0];
+					for (int index = bucket.Count(); index > 0; index--) {
 						unsigned packed = object->Value.SubzoneID;
 						WORD low = LOWORD(packed);
 						WORD high = HIWORD(packed);
 						bool costly = object->Value.IsCrossBlock;
 
-						SubzoneConnectionStruct conn;
-						conn.SubzoneID = high;
+						SubzoneConnectionStruct conn(high);
 						conn.IsCrossBlock = costly;
 						(*track)[low].Connections.Add(conn);
 
-						SubzoneConnectionStruct conn2;
-						conn2.SubzoneID = low;
+						SubzoneConnectionStruct conn2(low);
 						conn2.IsCrossBlock = costly;
 						(*track)[high].Connections.Add(conn2);
 
@@ -11629,15 +11622,13 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 		 * Propagate the parent subzone identifiers down through the coarser levels
 		 * for the finest (8 cell) window around the changed cell.
 		 */
-		int basex = cell.X - cell.X % 8;
-		int basey = cell.Y - cell.Y % 8;
-		for (y = basey; y < basey + 8; y++) {
-			for (x = basex; x < basex + 8; x++) {
-				trycell.X = x;
-				trycell.Y = y;
-				if (In_Local_Radar(trycell)) {
-					CellSubzoneStruct * subptr = &CellSubzones[(short)x + (short)y * (PlayRect.Width + PlayRect.Height + 1)];
-					for (int level = 0; level < 2; level++) {
+		Rect block(cell.X - cell.X % 8, cell.Y - cell.Y % 8, 8, 8);
+		for (y = block.Y; y < block.Y + block.Height; y++) {
+			for (x = block.X; x < block.Width + block.X; x++) {
+				Cell probe(x, y);
+				if (In_Local_Radar(probe, true)) {
+					CellSubzoneStruct * subptr = Subzone_Of(this, Cell(x, y));
+					for (int level = 0; level < SUBZONE_COUNT - 1; level++) {
 						SubzoneTracking[level][subptr->SubzoneID[level]].ParentSubzoneID = subptr->SubzoneID[level + 1];
 					}
 				}
@@ -11646,7 +11637,6 @@ void MapClass::Update_Cell_Subzones(Cell const & cell)
 		Search.Reset();
 	}
 }
-#endif
 
 
 /// <summary>

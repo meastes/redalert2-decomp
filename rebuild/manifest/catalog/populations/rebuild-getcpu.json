@@ -13,6 +13,10 @@
     "_CPUType": 8394147,
     "_VendorID": 8394149,
     "_strncpy": 7873488,
+    "?CPUModel@@3DA": 8394148,
+    "??_C@_0N@OLMF@AuthenticAMD?$AA@": 8227004,
+    "_stricmp": 7872288,
+    "??_C@_0N@MOOL@CyrixInstead?$AA@": 8226988,
     "?Get_CPU_Type@@YIHXZ": 5057120,
     "_?names@?1??Get_CPU_Type_Name@@YIPBDXZ@4QBQBDB": 8226872,
     "??_C@_07PCHH@Unknown?$AA@": 8227020,
@@ -91,10 +95,199 @@
           "resolved": 2816379
         }
       ],
-      "source_sha256": "75ab70e479c54166ab866146af64d9ae9c5b59e746e4c0899c27c9e90cbe1b96",
+      "source_sha256": "9c155dbd408ed1e685ef926a5a500b5e365bcd87abefd37b91e6b839c63a2123",
       "source": "rebuild/src/getcpu.cpp",
       "population": "rebuild-getcpu",
       "source_order": 5057056,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 5057120,
+      "method": "004d2a60",
+      "body_bytes": 276,
+      "body_sha256": "19acc10c10f227167fa63e8f84e0f5d4667119c21d1544777c08edd8a62b690d",
+      "padding_bytes": 12,
+      "full_extent_bytes": 288,
+      "full_extent_sha256": "d6edc8dc574df7e0949f241b7180d845cedb44103c7257495b78081ccea3d098",
+      "padding_sha256": "ab16a4264a14a2fd326c262e20ab7a8d0e67bc1658371fe45c446f311cdb6dbd",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "switch_data_bytes": 32,
+      "symbol": "?Get_CPU_Type@@YIHXZ",
+      "symbol_prefix": "?Get_CPU_Type@@YIHXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 5,
+          "kind": 20,
+          "symbol": "_Detect_MMX_Availability",
+          "target": 7860557,
+          "addend": 0,
+          "resolved": 2803428
+        },
+        {
+          "offset": 10,
+          "kind": 20,
+          "symbol": "_Detect_CMOV_Availability",
+          "target": 7860751,
+          "addend": 0,
+          "resolved": 2803617
+        },
+        {
+          "offset": 17,
+          "kind": 6,
+          "symbol": "_CPUType",
+          "target": 8394147,
+          "addend": 0,
+          "resolved": 8394147
+        },
+        {
+          "offset": 36,
+          "kind": 6,
+          "symbol": "_VendorID",
+          "target": 8394149,
+          "addend": 0,
+          "resolved": 8394149
+        },
+        {
+          "offset": 42,
+          "kind": 20,
+          "symbol": "_strncpy",
+          "target": 7873488,
+          "addend": 0,
+          "resolved": 2816322
+        },
+        {
+          "offset": 58,
+          "kind": 6,
+          "symbol": "?CPUModel@@3DA",
+          "target": 8394148,
+          "addend": 0,
+          "resolved": 8394148
+        },
+        {
+          "offset": 75,
+          "kind": 6,
+          "symbol": "??_C@_0N@OLMF@AuthenticAMD?$AA@",
+          "target": 8227004,
+          "addend": 0,
+          "resolved": 8227004
+        },
+        {
+          "offset": 81,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 2815083
+        },
+        {
+          "offset": 107,
+          "kind": 6,
+          "symbol": "??_C@_0N@MOOL@CyrixInstead?$AA@",
+          "target": 8226988,
+          "addend": 0,
+          "resolved": 8226988
+        },
+        {
+          "offset": 113,
+          "kind": 20,
+          "symbol": "_stricmp",
+          "target": 7872288,
+          "addend": 0,
+          "resolved": 2815051
+        },
+        {
+          "offset": 160,
+          "kind": 6,
+          "symbol": "?CPUModel@@3DA",
+          "target": 8394148,
+          "addend": 0,
+          "resolved": 8394148
+        },
+        {
+          "offset": 175,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057364,
+          "addend": 0,
+          "resolved": 5057364
+        },
+        {
+          "offset": 244,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057299,
+          "addend": 0,
+          "resolved": 5057299
+        },
+        {
+          "offset": 248,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057329,
+          "addend": 0,
+          "resolved": 5057329
+        },
+        {
+          "offset": 252,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057299,
+          "addend": 0,
+          "resolved": 5057299
+        },
+        {
+          "offset": 256,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057309,
+          "addend": 0,
+          "resolved": 5057309
+        },
+        {
+          "offset": 260,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057319,
+          "addend": 0,
+          "resolved": 5057319
+        },
+        {
+          "offset": 264,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057319,
+          "addend": 0,
+          "resolved": 5057319
+        },
+        {
+          "offset": 268,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057329,
+          "addend": 0,
+          "resolved": 5057329
+        },
+        {
+          "offset": 272,
+          "kind": 6,
+          "symbol": "$local",
+          "target": 5057319,
+          "addend": 0,
+          "resolved": 5057319
+        }
+      ],
+      "source_sha256": "9c155dbd408ed1e685ef926a5a500b5e365bcd87abefd37b91e6b839c63a2123",
+      "source": "rebuild/src/getcpu.cpp",
+      "population": "rebuild-getcpu",
+      "source_order": 5057120,
       "source_quality_family": "rebuild"
     },
     {
@@ -143,7 +336,7 @@
           "resolved": 8227020
         }
       ],
-      "source_sha256": "75ab70e479c54166ab866146af64d9ae9c5b59e746e4c0899c27c9e90cbe1b96",
+      "source_sha256": "9c155dbd408ed1e685ef926a5a500b5e365bcd87abefd37b91e6b839c63a2123",
       "source": "rebuild/src/getcpu.cpp",
       "population": "rebuild-getcpu",
       "source_order": 5057408,

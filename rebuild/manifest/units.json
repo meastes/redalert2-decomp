@@ -87454,6 +87454,15 @@
     "main_source": "src/recovered/cell.cpp"
    },
    {
+    "entry": "0047ad00",
+    "body": 2191,
+    "padding": 1,
+    "symbol": "?Place_Veins@CellClass@@QAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0047b590",
     "body": 20,
     "padding": 12,
@@ -103065,6 +103074,15 @@
     "main_source": "src/recovered/astar.cpp"
    },
    {
+    "entry": "00427370",
+    "body": 2506,
+    "padding": 6,
+    "symbol": "?Find_Path_Regular@AStarClass@@AAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@H_N@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00427d40",
     "body": 327,
     "padding": 9,
@@ -103566,7 +103584,11 @@
    "?Clear@?$DynamicVectorClass@G@@UAEXXZ": "0042ae60",
    "?ID@?$DynamicVectorClass@G@@UAEHABG@Z": "0042b3a0",
    "?ID@?$DynamicVectorClass@G@@UAEHPBG@Z": "0042ae90",
-   "_?$S154@?1??Build_Final_Path@AStarClass@@AAEPAUPathStruct@@PAURegularOpenNode@2@PAW4FacingType@@@Z@4EA": "0084e7d4"
+   "_?$S154@?1??Build_Final_Path@AStarClass@@AAEPAUPathStruct@@PAURegularOpenNode@2@PAW4FacingType@@@Z@4EA": "0084e7d4",
+   "_?_offsets@?BJ@??Find_Path_Regular@AStarClass@@AAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@H_N@Z@4QBHB": "0079c484",
+   "_?NoneCell@?DI@??Find_Path_Regular@AStarClass@@AAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@H_N@Z@4PAVCellClass@@A": "0084e808",
+   "__real@8@3fff8126e978d4fdf000": "0079c4d0",
+   "_?_facing_costs@?1??Find_Path_Regular@AStarClass@@AAEPAUPathStruct@@ABVCell@@0PAVFootClass@@PAW4FacingType@@H_N@Z@4PAMA": "007cf0dc"
   },
   "partial_ok": true
  },
@@ -111434,6 +111456,15 @@
     "main_source": "src/recovered/partsys.cpp"
    },
    {
+    "entry": "0060bb70",
+    "body": 1240,
+    "padding": 8,
+    "symbol": "?Smoke_AI@ParticleSystemClass@@AAEXXZ",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "0060c050",
     "body": 1904,
     "padding": 0,
@@ -111600,7 +111631,8 @@
    "__FireStepY": "007eb8a4",
    "__FireStepX": "007eb884",
    "?Fetch_RTTI@ParticleSystemClass@@UBE?AW4RTTIType@@XZ": "0060d010",
-   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020"
+   "?Class_Of@ParticleSystemClass@@UBEPBVObjectTypeClass@@XZ": "0060d020",
+   "__real@4@3ffdb333330000000000": "007a7f40"
   },
   "partial_ok": true
  },
@@ -127193,18 +127225,10 @@
    "_RAD_45": "00af7928",
    "_RAD_60": "00af7390",
    "_RAD_90": "00af7368",
-   "_RECT_NONE": "00af7370"
+   "_RECT_NONE": "00af7370",
+   "__real@4@3ff9c90e560418937800": "007aea34"
   },
-  "partial_ok": true,
-  "parked_rows": [
-   {
-    "entry": "00718060",
-    "symbol": "?Init_Voxel_Matrices@@YIXXZ",
-    "body": 3290,
-    "best_differing": 25,
-    "note": "Guarded non-exact draft; no credit; original bytes remain"
-   }
-  ]
+  "partial_ok": true
  },
  "unittype": {
   "core": [
@@ -129665,7 +129689,7 @@
     "entry": "00617340",
     "body": 818,
     "padding": 14,
-    "symbol": "?Planning_Left_Press@@YG_NVPoint2D@@@Z",
+    "symbol": "?Planning_Left_Press@@YI_NVPoint2D@@@Z",
     "main_symbol": "",
     "main_source": "",
     "bound": "image-derived"
@@ -132687,7 +132711,7 @@
   "partial_ok": true,
   "count_watch": {
    "0062a360": {
-    "windows": "forward struct declarations at the end of globals.h (lane F38, unified six scalars): +0 exact, +1 to +5 off (8 B), +6 to +8 exact",
+    "windows": "forward struct declarations at the end of globals.h (lane F38, unified six scalars): +0 exact, +1 to +5 off (8 B), +6 to +8 exact; `struct P;` lines ahead of TechnoTypeClass in techtype.h (lane F53, period 64): before the twin's vector4.h and matrix3d.h exact at -2 to +3, +5, +29, +38, +39, +42, +45, +46, +50, +51, +55 of 64; the two headers move the row +5 (operator= pair -4, index operator pair +9), so now exact at +0 and off at +1 to +11",
     "note": "exact but count-sensitive by nature (owner 2026-11-23): Print_CRCs and wonline Encode_Game_Options 0x73CCB0 (parked, windows in wonline count_sensitive: +0 off, +1 to +8 exact) trade places on one extra declaration in globals.h or an earlier header; countsens.py reports this row on every run"
    }
   }
@@ -137529,6 +137553,15 @@
     "main_source": "src/recovered/map.cpp"
    },
    {
+    "entry": "00566340",
+    "body": 2281,
+    "padding": 7,
+    "symbol": "?Update_Cell_Subzones@MapClass@@QAEXABVCell@@@Z",
+    "main_symbol": "",
+    "main_source": "",
+    "bound": "image-derived"
+   },
+   {
     "entry": "00566c30",
     "body": 863,
     "padding": 1,
@@ -138591,7 +138624,13 @@
    "_?_bridge_subtiles2@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAHA": "007e02c4",
    "_?_facings@?1??Compute_Zone_Connections@MapClass@@QAEXXZ@4PAW4FacingType@@A": "007e0284"
   },
-  "partial_ok": true
+  "partial_ok": true,
+  "count_watch": {
+   "0054ebd0": {
+    "windows": "`struct P;` lines ahead of TechnoTypeClass in techtype.h (lane F53, period 64): before the twin's vector4.h and matrix3d.h exact at -3 to +7 only; the two headers move the row +5, so now exact at +0 to +2 and off at +3 to +11; inline declarations after the includes (lane F50): +0 to +2 exact, +3 to +40 off",
+    "note": "exact but count-sensitive (two frame slots, 4 B): MapClass::Zone_Reset moves with queue Print_CRCs 0x62A360 on every widely included header change measured so far; countsens.py reports this row on every run"
+   }
+  }
  },
  "wonline": {
   "core": [

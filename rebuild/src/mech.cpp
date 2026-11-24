@@ -2,6 +2,7 @@
  *                                O P E N  T S
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright 2026 ra2-decomp contributors
  * Copyright 2026 OpenTS contributors
  *
  * See LICENSE.md for applicable additional terms and warranty disclaimers.
@@ -170,7 +171,7 @@ void STDMETHODCALLTYPE MechLocomotionClass::Force_Immediate_Destination(CoordStr
 /// </summary>
 /// <param name="continue_moving">Should the routine pick a fresh step immediately when the
 /// one it chose turns out to be unusable?</param>
-#ifdef RA2_NON_MATCHING // not exact: against the image bound (5,575 B) 4,352 bytes differ (was 5,066; the archive's mech.cpp path and tube logic, the crusher's sandbag test as YR's and TibSun's drive have it, the docking arguments the image passes); main: best 89.00, tried 13 times (frame, inline, register)
+#ifdef RA2_NON_MATCHING // not exact: against the image bound (5,575 B) 951 bytes differ (was 4,352; the public mech text's navigation-flag write, moved-cell test and tube exit; before that the archive's mech.cpp path and tube logic, the crusher's sandbag test as YR's and TibSun's drive have it, the docking arguments the image passes; one instruction left, the second adjacent-cell addition after Per_Cell_Process); main: best 89.00, tried 13 times (frame, inline, register)
 void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here, between Force_Immediate_Destination and Mark_Head_To
 {
 	if (LinkedTo->PrimaryFacing.Is_Rotating()) {
@@ -202,32 +203,35 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 
 					int dist = Distance(LinkedTo->Center_Coord(), DestinationCoord);
 
-					if (dist < Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
+					if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->IsTethered) {
 						LinkedTo->Assign_Destination(NULL);
-					} else if (LinkedTo->TryTryAgain != 0) {
-						LinkedTo->TryTryAgain--;
 					} else {
 
-						if (LinkedTo->IsNewNavCom) {
-							VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
-						}
-						LinkedTo->IsNewNavCom = false;
+						if (LinkedTo->TryTryAgain != 0) {
+							LinkedTo->TryTryAgain--;
+						} else {
 
-						Cell dest_cell = DestinationCoord;
-						if (LinkedTo->IsLocked) {
-							Cell src_cell = LinkedTo->Destination_Coord().As_Cell();
-							if (!Map.Is_Same_Cell_Zone(src_cell, dest_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(), Map[dest_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
-								LinkedTo->Assign_Destination(NULL);
+							if (LinkedTo->IsNewNavCom) {
+								VocClass::PlayGlobal(Rule->ScoldSound, 1.0f, 0x2000, 0); // RA2: as in drive.cpp
 							}
-						}
+							LinkedTo->IsNewNavCom = false;
 
-						if (LinkedTo->TarCom != NULL) {
-							// RA2: the target and the mover both use this unit as the docking object.
-							Cell tar_cell = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
+							Cell dest_cell = DestinationCoord;
 							if (LinkedTo->IsLocked) {
-								Cell src_cell = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
-								if (!Map.Is_Same_Cell_Zone(src_cell, tar_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
-									LinkedTo->Assign_Target(NULL);
+								Cell src_cell = LinkedTo->Destination_Coord().As_Cell();
+								if (!Map.Is_Same_Cell_Zone(src_cell, dest_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(), Map[dest_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
+									LinkedTo->Assign_Destination(NULL);
+								}
+							}
+
+							if (LinkedTo->TarCom != NULL) {
+								// RA2: the target and the mover both use this unit as the docking object.
+								Cell tar_cell = LinkedTo->TarCom->Destination_Coord(LinkedTo).As_Cell();
+								if (LinkedTo->IsLocked) {
+									Cell src_cell = LinkedTo->Destination_Coord(LinkedTo).As_Cell();
+									if (!Map.Is_Same_Cell_Zone(src_cell, tar_cell, LinkedTo->TClass->MZone, LinkedTo->Is_Moving_Onto_Bridge(LinkedTo), Map[tar_cell].IsUnderBridge, LinkedTo->Is_Allowed_To_Leave_Map())) {
+										LinkedTo->Assign_Target(NULL);
+									}
 								}
 							}
 						}
@@ -256,25 +260,21 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 
 					TubeClass * tubeptr = Tubes[tube];
 
-					Cell cell = tubeptr->Exit;
-					HeadToCoord = Coord(cell, 0);
+					Cell exit = tubeptr->Get_Exit();
+					HeadToCoord = exit.As_Coord();
 
-					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], 92);
-					LinkedTo->Path[23] = FACING_NONE;
+					memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
+					LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
 
 					LinkedTo->CurrentTube = tube;
 					LinkedTo->CurrentTubeDir = FACING_FIRST;
 
-					cell = tubeptr->Enter;
-					Cell visual_cell = Adjacent_Cell(cell, tubeptr->Dirs[0]);
-					Coord enter_coord(cell);
-					Coord visual_coord = Map[visual_cell].Cell_Coord();
-					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (visual_coord - enter_coord);
+					Coord enter = (Cell)tubeptr->Enter;
+					Coord offset = Map[Adjacent_Cell((Cell)tubeptr->Enter, tubeptr->Dirs[0])].Cell_Coord() - enter;
+					LinkedTo->LastTubeCoord = LinkedTo->PositionCoord + offset;
 
-					int start_h = Map.Get_Height_GL(LinkedTo->Get_Coord());
-					cell = tubeptr->Exit;
-					int count = tubeptr->Count;
-					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(Coord(cell, 0)) - start_h) / count;
+					int start_h = Map.Get_Height_GL(LinkedTo->PositionCoord);
+					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(tubeptr->Get_Exit()) - start_h) / tubeptr->Get_Count();
 					return;
 				}
 
@@ -283,114 +283,101 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 				Stop_Moving();
 				LinkedTo->Assign_Destination(NULL);
 				return;
-			}
+			} else {
+				Cell what = Adjacent_Cell(LinkedTo->Get_Coord().As_Cell(), dir);
 
-			Cell what = Adjacent_Cell(LinkedTo->Get_Coord().As_Cell(), dir);
+				Coord head_coord = Coord(what, 0);
+				head_coord.Z = Map.Get_Height_GL(head_coord);
 
-			Coord head_coord = Coord(what, 0);
-			head_coord.Z = Map.Get_Height_GL(head_coord);
+				CellClass * what_cell = &Map[what];
 
-			CellClass * what_cell = &Map[what];
+				/*
+				 * If the bridge status of the cell being moved into differs from this
+				 * unit's bridge status, force a fresh look scan next time.
+				 */
+				if (LinkedTo->IsOnBridge ^ what_cell->IsUnderBridge) {
+					LinkedTo->IsPlanningToLook = true;
+				}
 
-			/*
-			 * If the bridge status of the cell being moved into differs from this
-			 * unit's bridge status, force a fresh look scan next time.
-			 */
-			if (LinkedTo->IsOnBridge ^ what_cell->IsUnderBridge) {
-				LinkedTo->IsPlanningToLook = true;
-			}
+				MoveType can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Get_Cell_Height(), 0, true);
 
-			MoveType can_enter = LinkedTo->Can_Enter_Cell(&Map[what], dir, LinkedTo->Get_Cell_Height(), 0, true);
+				/*
+				 * A crusher driving into an occupied destroyable cell that has crushable
+				 * overlay just crushes through it -- treat as a normal (clear) move.
+				 */
+				if (((can_enter != MOVE_DESTROYABLE && can_enter != MOVE_FRIENDLY_DESTROYABLE) || !LinkedTo->TClass->IsCrusher || what_cell->Overlay != OVERLAY_SANDBAG_WALL) && can_enter != MOVE_OK) {
 
-			/*
-			 * A crusher driving into an occupied destroyable cell that has crushable
-			 * overlay just crushes through it -- treat as a normal (clear) move.
-			 */
-			if (can_enter != MOVE_OK &&
-				!((can_enter == MOVE_DESTROYABLE || can_enter == MOVE_FRIENDLY_DESTROYABLE) &&
-					LinkedTo->TClass->IsCrusher && what_cell->Overlay == OVERLAY_SANDBAG_WALL)) {
+					LinkedTo->Stop_Movement_Animation();
 
-				LinkedTo->Stop_Movement_Animation();
+					if (can_enter == MOVE_TEMP) {
 
-				if (can_enter == MOVE_TEMP) {
+						CellClass * cellptr = &Map[what];
 
-					CellClass * cellptr = &Map[what];
+						if (continue_moving) {
+							LinkedTo->Path[0] = FACING_NONE;
+							HeadToCoord = COORD_NONE;
+							LinkedTo->PathDelay = 0;
+							Movement_AI(false);
+							return;
+						}
 
-					if (continue_moving) {
-						LinkedTo->Path[0] = FACING_NONE;
-						HeadToCoord = COORD_NONE;
-						LinkedTo->PathDelay = 0;
-						Movement_AI(false);
+						int dist = LinkedTo->Distance(DestinationCoord);
+
+						if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */
+							&& abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H
+							&& Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
+
+							LinkedTo->Set_Speed(0);
+							LinkedTo->Assign_Destination(NULL);
+							LinkedTo->Path[0] = FACING_NONE;
+							Stop_Moving();
+							IsMoving = false;
+						} else {
+
+							bool bridge = cellptr->IsUnderBridge && abs(LinkedTo->Get_Coord().Z / LEVEL_LEPTON_H - cellptr->Height) > 2;
+							cellptr->Incoming(COORD_NONE, true, true, bridge);
+						}
 						return;
 					}
 
-					int dist = LinkedTo->Distance(DestinationCoord);
+					if (can_enter == MOVE_MOVING_BLOCK) {
 
-					if (dist < (int)Rule->CloseEnoughDistance && !LinkedTo->HasAnyLink() /* RA2: HasAnyLink, not In_Radio_Contact */
-						&& abs(DestinationCoord.Z - LinkedTo->Get_Coord().Z) < 2 * LEVEL_LEPTON_H
-						&& Map[LinkedTo->Get_Coord()].Land_Type() != LAND_TUNNEL) {
-
-						LinkedTo->Set_Speed(0);
-						LinkedTo->Assign_Destination(NULL);
-						LinkedTo->Path[0] = FACING_NONE;
-						Stop_Moving();
-						IsMoving = false;
-					} else {
-
-						bool bridge;
-						if (cellptr->IsUnderBridge) {
-							int z = LinkedTo->Get_Coord().Z;
-							bridge = true;
-							if (abs(z / LEVEL_LEPTON_H - cellptr->Height) <= 2) {
-								bridge = false;
-							}
-						} else {
-							bridge = false;
+						if (!LinkedTo->IsToPathAroundBlockage) {
+							LinkedTo->IsToPathAroundBlockage = true;
+							LinkedTo->BlockagePathDelay = Rule->BlockagePathDelay;
 						}
-						cellptr->Incoming(COORD_NONE, true, true, bridge);
-					}
-					return;
-				}
 
-				if (can_enter == MOVE_MOVING_BLOCK) {
+						if (LinkedTo->PathDelay == 0) {
 
-					if (!LinkedTo->IsToPathAroundBlockage) {
-						LinkedTo->IsToPathAroundBlockage = true;
-						LinkedTo->BlockagePathDelay = Rule->BlockagePathDelay;
-					}
+							bool blockage_expired = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
 
-					if (LinkedTo->PathDelay == 0) {
+							bool path_ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, blockage_expired ? 2 : 1);
+							LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
 
-						bool blockage_expired = LinkedTo->IsToPathAroundBlockage && LinkedTo->BlockagePathDelay == 0;
-
-						bool path_ok = LinkedTo->Basic_Path(DestinationCoord.As_Cell(), 0, blockage_expired ? 2 : 1);
-						LinkedTo->PathDelay = Rule->PathDelay * TICKS_PER_MINUTE;
-
-						if (!path_ok) {
-							if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
-								LinkedTo->Assign_Destination(NULL);
+							if (!path_ok) {
+								if (!LinkedTo->Is_In_Same_Zone(DestinationCoord)) {
+									LinkedTo->Assign_Destination(NULL);
+								} else {
+									LinkedTo->On_Movement_Blocked();
+								}
 							} else {
-								LinkedTo->On_Movement_Blocked();
+								LinkedTo->JumpJet_To_Walk();
 							}
-						} else {
-							LinkedTo->JumpJet_To_Walk();
+							return;
 						}
+
+						DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), head_coord);
+						Do_Turn(face);
 						return;
 					}
 
-					DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), head_coord);
-					Do_Turn(face);
-					return;
-				}
+					if (can_enter == MOVE_CLOSED_GATE) {
+						Map.Try_Open_Gate(LinkedTo, what);
+						LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
+						return;
+					}
 
-				if (can_enter == MOVE_CLOSED_GATE) {
-					Map.Try_Open_Gate(LinkedTo, what);
-					LinkedTo->TryTryAgain = FootClass::PATH_RETRY;
-					return;
-				}
-
-				if (can_enter != MOVE_CLOAK) {
-					if (can_enter != MOVE_NO) {
+					if (can_enter != MOVE_CLOAK && can_enter != MOVE_NO) {
 						if (can_enter == MOVE_DESTROYABLE || can_enter == MOVE_FRIENDLY_DESTROYABLE) {
 
 							ObjectClass * obj = Map[what].Cell_Object(Point2D(0, 0), false);
@@ -418,54 +405,50 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 						LinkedTo->Set_Speed(0);
 						Stop_Moving();
 						LinkedTo->IsNewNavCom = false;
-						LinkedTo->IsNewNavCom = false;
+					} else {
+						if (can_enter == MOVE_CLOAK) {
+							Map[what].Shimmer();
+						}
+
+						if (!continue_moving) return;
+
+						LinkedTo->Path[0] = FACING_NONE;
+						HeadToCoord = COORD_NONE;
+						LinkedTo->PathDelay = 0;
+						Movement_AI(false);
 						return;
 					}
 				} else {
-					Map[what].Shimmer();
-				}
 
-				if (!continue_moving) return;
+					if (Mark_Head_To(head_coord)) {
 
-				LinkedTo->Path[0] = FACING_NONE;
-				HeadToCoord = COORD_NONE;
-				LinkedTo->PathDelay = 0;
-				Movement_AI(false);
-				return;
-			}
-
-			if (Mark_Head_To(head_coord)) {
-
-				FacingType next_dir = LinkedTo->Path[0];
-				if (next_dir != FACING_NONE && next_dir != FACING_COUNT) {
-					Cell cell = Adjacent_Cell(LinkedTo->Get_Cell(), next_dir);
-					OverlayType overlay = Map[cell].Overlay;
-					if (overlay != OVERLAY_NONE) {
-						OverlayTypeClass * otype = OverlayTypes[overlay];
-						if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
-							LinkedTo->IsCrushing = true;
-							if (LinkedTo->TClass->IsTiltsWhenCrushes) {
-								LinkedTo->RockingForwardsPerFrame = -0.01f;
+						if (LinkedTo->Path[0] != FACING_NONE && LinkedTo->Path[0] != FACING_COUNT) {
+							Cell cell = Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
+							CellClass * cellptr = &Map[cell];
+							if (cellptr->Overlay != OVERLAY_NONE) {
+								OverlayTypeClass * otype = OverlayTypes[cellptr->Overlay];
+								if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
+									LinkedTo->IsCrushing = true;
+									if (LinkedTo->TClass->IsTiltsWhenCrushes) {
+										LinkedTo->RockingForwardsPerFrame = -0.01f;
+									}
+								}
 							}
 						}
-					}
-				}
 
-				if (LinkedTo->IsActive) {
+						if (!LinkedTo->IsActive) return;
 
-					DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
-					Do_Turn(face);
+						DirStruct face = (DirStruct &)::Direction(LinkedTo->Center_Coord(), HeadToCoord);
+						Do_Turn(face);
 
-					if (!LinkedTo->PrimaryFacing.Is_Rotating()) {
+						if (LinkedTo->PrimaryFacing.Is_Rotating()) return;
+
 						LinkedTo->Set_Speed(1.0);
-						LinkedTo->IsNewNavCom = false;
+					} else {
+						LinkedTo->Set_Speed(0);
 					}
 				}
-			} else {
-				LinkedTo->Set_Speed(0);
-				LinkedTo->IsNewNavCom = false;
 			}
-			return;
 
 		} else {
 
@@ -475,11 +458,7 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 			 */
 			if (LinkedTo->Speed > 0.0) {
 				LinkedTo->Set_Speed(0.0);
-				LinkedTo->IsNewNavCom = false;
-				return;
 			}
-			LinkedTo->IsNewNavCom = false;
-			return;
 		}
 	} else {
 
@@ -491,8 +470,8 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 				LinkedTo->Path[1] = FACING_NONE;
 			}
 
-			memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], 92);
-			LinkedTo->Path[23] = FACING_NONE;
+			memcpy(&LinkedTo->Path[0], &LinkedTo->Path[1], sizeof(LinkedTo->Path[0]) * (CONQUER_PATH_MAX - 1));
+			LinkedTo->Path[CONQUER_PATH_MAX - 1] = FACING_NONE;
 
 			LinkedTo->Set_Coord(HeadToCoord);
 			LinkedTo->LastPathingCell = HeadToCoord.As_Cell();
@@ -524,90 +503,83 @@ void MechLocomotionClass::Movement_AI(bool continue_moving) // RA2: defined here
 
 			LinkedTo->Per_Cell_Process(PCP_END);
 
-			if (LinkedTo && LinkedTo->IsActive) {
-				if (!LinkedTo->IsInLimbo && !LinkedTo->IsFalling) {
-					FacingType next_move = LinkedTo->Path[0];
-					if (next_move != FACING_NONE && next_move != FACING_COUNT) {
-						Cell check_coord = Adjacent_Cell(LinkedTo->Get_Cell(), next_move);
+			if (!LinkedTo->IsActive) return;
+			if (LinkedTo->IsInLimbo || LinkedTo->IsFalling) return;
 
-						OverlayType overlay = Map[check_coord].Overlay;
-						if (overlay != OVERLAY_NONE) {
-							OverlayTypeClass * otype = OverlayTypes[overlay];
-							if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
-								LinkedTo->IsCrushing = true;
+			if (LinkedTo->Path[0] != FACING_NONE && LinkedTo->Path[0] != FACING_COUNT) {
+				Cell check_coord = Adjacent_Cell(LinkedTo->Get_Cell(), LinkedTo->Path[0]);
 
-								if (LinkedTo->TClass->IsTiltsWhenCrushes) {
-									LinkedTo->RockingForwardsPerFrame = -0.01f;
-								}
-							}
+				CellClass * cellptr = &Map[check_coord];
+				if (cellptr->Overlay != OVERLAY_NONE) {
+					OverlayTypeClass * otype = OverlayTypes[cellptr->Overlay];
+					if ((LinkedTo->TClass->IsCrusher || LinkedTo->Has_Ability(ABILITY_CRUSHER)) && otype->HeapID == OVERLAY_SANDBAG_WALL) {
+						LinkedTo->IsCrushing = true;
+
+						if (LinkedTo->TClass->IsTiltsWhenCrushes) {
+							LinkedTo->RockingForwardsPerFrame = -0.01f;
 						}
-					}
-
-					if (LinkedTo->IsActive && !LinkedTo->IsInLimbo) {
-						LinkedTo->Mark(MARK_DOWN);
-						LinkedTo->IsNewNavCom = false;
 					}
 				}
 			}
-			return;
-		}
 
-		LinkedTo->Set_Speed(1.0);
+			if (!LinkedTo->IsActive || LinkedTo->IsInLimbo) return;
 
-		int speed = LinkedTo->Current_Speed();
-
-		DirType desired_facing = ::Direction(LinkedTo->Center_Coord(), HeadToCoord);
-		Do_Turn((DirStruct &)desired_facing);
-
-		if (LinkedTo->PrimaryFacing.Is_Rotating()) {
-			return;
-		}
-
-		if (LinkedTo->Occupies_Cells()) {
-			LinkedTo->Clear_Occupy_Bit(LinkedTo->Get_Coord());
-			LinkedTo->IsOccupyingCell = false;
-
-			LinkedTo->IsToPathAroundBlockage = false;
-
-		}
-
-		Cell old_cell = LinkedTo->Get_Cell();
-
-		Coord new_coord = Move_Coord(LinkedTo->Get_Coord(), desired_facing, speed);
-		Cell new_cell = new_coord;
-
-		if (old_cell != new_cell) {
-
-			LinkedTo->Mark(MARK_UP);
-			LinkedTo->Set_Coord(new_coord);
-
-			CellClass * old_cellptr = &Map[old_cell];
-			CellClass * new_cellptr = &Map[new_cell];
-
-			if (new_cellptr->Height == old_cellptr->Height - BRIDGE_CELL_HEIGHT && new_cellptr->IsUnderBridge) {
-				LinkedTo->IsOnBridge = true;
-			}
-			if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
-				LinkedTo->IsOnBridge = false;
-			}
-
-			LinkedTo->HeightAGL = 0;
 			LinkedTo->Mark(MARK_DOWN);
-
-			Map[LinkedTo->Get_Coord()].Trigger_Veins();
-
-			LinkedTo->IsNewNavCom = false;
-			return;
 		} else {
-			bool was_down = LinkedTo->IsDown;
-			LinkedTo->IsDown = false;
-			LinkedTo->Set_Coord(new_coord);
-			LinkedTo->HeightAGL = 0;
-			LinkedTo->IsDown = was_down;
-			LinkedTo->IsNewNavCom = false;
-			return;
+
+			LinkedTo->Set_Speed(1.0);
+
+			int speed = LinkedTo->Current_Speed();
+
+			DirType desired_facing = ::Direction(LinkedTo->Center_Coord(), HeadToCoord);
+			Do_Turn((DirStruct &)desired_facing);
+
+			if (LinkedTo->PrimaryFacing.Is_Rotating()) {
+				return;
+			}
+
+			if (LinkedTo->Occupies_Cells()) {
+				LinkedTo->Clear_Occupy_Bit(LinkedTo->Get_Coord());
+				LinkedTo->IsOccupyingCell = false;
+				LinkedTo->IsToPathAroundBlockage = false;
+			}
+
+			Cell old_cell = LinkedTo->Get_Cell();
+
+			Coord new_coord = Move_Coord(LinkedTo->Get_Coord(), desired_facing, speed);
+			Cell new_cell = new_coord;
+
+			bool moved = (old_cell != new_cell);
+			if (moved) {
+				LinkedTo->Mark(MARK_UP);
+				LinkedTo->Set_Coord(new_coord);
+
+				CellClass * old_cellptr = &Map[old_cell];
+				CellClass * new_cellptr = &Map[new_cell];
+
+				if (new_cellptr->Height == old_cellptr->Height - BRIDGE_CELL_HEIGHT && new_cellptr->IsUnderBridge) {
+					LinkedTo->IsOnBridge = true;
+				}
+				if (!new_cellptr->IsUnderBridge && old_cellptr->IsUnderBridge) {
+					LinkedTo->IsOnBridge = false;
+				}
+
+				LinkedTo->HeightAGL = 0;
+				LinkedTo->Mark(MARK_DOWN);
+			} else {
+				bool was_down = LinkedTo->IsDown;
+				LinkedTo->IsDown = false;
+				LinkedTo->Set_Coord(new_coord);
+				LinkedTo->HeightAGL = 0;
+				LinkedTo->IsDown = was_down;
+			}
+
+			if (moved) {
+				Map[LinkedTo->Get_Coord()].Trigger_Veins();
+			}
 		}
 	}
+	LinkedTo->IsNewNavCom = false;
 }
 #endif
 

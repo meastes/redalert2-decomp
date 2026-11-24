@@ -5081,11 +5081,11 @@ int CellClass::Get_Vein_Frame(void) const
 	int frame = 0;
 	for (int i = 0; i < FACING_COUNT / 2; i++) {
 		CellClass const & adjacent = Adjacent_Cell(FacingType(i << FACING_45));
-		if (adjacent.Overlay != OVERLAY_NONE && (adjacent.Ramp <= RAMP_NONE || OverlayTypes[adjacent.Overlay]->IsVeins)) {
-			if ((adjacent.Overlay != OVERLAY_VEINS && OverlayTypes[adjacent.Overlay]->IsVeins) ||
-				(adjacent.Overlay == OVERLAY_VEINS && adjacent.OverlayData >= 0x30)) { // RA2: Get_Vein_Frame at 0x47A5A0 matches only so
-				frame |= 1 << i;
-			}
+		if (adjacent.Overlay == OVERLAY_NONE) continue;
+		if (adjacent.Ramp > RAMP_NONE && !OverlayTypes[adjacent.Overlay]->IsVeins) continue;
+		if ((adjacent.Overlay != OVERLAY_VEINS && OverlayTypes[adjacent.Overlay]->IsVeins) ||
+			(adjacent.Overlay == OVERLAY_VEINS && adjacent.OverlayData >= 0x30)) {
+			frame |= 1 << i;
 		}
 	}
 	return(frame);
@@ -5127,18 +5127,6 @@ bool CellClass::Can_Place_Veins(void)
 
 
 /// <summary>
-/// RA2
-/// </summary>
-static inline int _Vein_Frame_B(CellClass const * cell) { return cell->Get_Vein_Frame(); }
-
-
-/// <summary>
-/// RA2
-/// </summary>
-static inline int _Vein_Frame_A(CellClass const * cell) { return _Vein_Frame_B(cell); }
-
-
-/// <summary>
 /// Recomputes the vein overlay imagery for this cell and its four cardinal
 /// neighbors after a vein change, and registers every affected screen and
 /// radar area for redraw.
@@ -5157,8 +5145,8 @@ void CellClass::Redraw_Veins(void)
 	 * frame, or the cell is a ramp, then the vein overlay is removed.
 	 */
 	OverlayData = 0;
-	int frame = _Vein_Frame_A(this); // RA2: Redraw_Veins at 0x47A7A0 matches only so
-	if (frame == 0 || Ramp != 0) { // RA2: as above
+	int frame = Get_Vein_Frame();
+	if (frame == 0 || Ramp != 0) {
 		Overlay = OVERLAY_NONE;
 	} else {
 		OverlayData = 3 * frame + abs(Scen->RandomNumber() % 3);
@@ -5173,9 +5161,9 @@ void CellClass::Redraw_Veins(void)
 		CellClass & adjacent = Adjacent_Cell(dir);
 
 		if (adjacent.Ramp == 0 && adjacent.Overlay == OVERLAY_VEINS && adjacent.OverlayData < 0x30) { // RA2: as above
-			int adjframe = _Vein_Frame_A(&adjacent); // RA2: as above
+			int adjframe = adjacent.Get_Vein_Frame();
 
-			Rect rect(0, 0, 0, 0); // RA2: Redraw_Veins at 0x47A7A0 has no int adjframe = adjacent.Get_Vein_Frame()
+			Rect rect(0, 0, 0, 0);
 			rect = Union(rect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
 
 			if (adjframe == 0) {
@@ -5206,7 +5194,6 @@ void CellClass::Redraw_Veins(void)
 /// cardinal neighbors, converting eligible neighbors to veins as well. The cell's radar
 /// background and dirty render areas are updated as the overlay changes.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (0047ad00 has no row); main: best 78.39, tried 5 times (register, frame, bound)
 void CellClass::Place_Veins(void)
 {
 	Rect rect(0, 0, 0, 0);
@@ -5221,8 +5208,8 @@ void CellClass::Place_Veins(void)
 		if (Ramp == RAMP_NONE) {
 			OverlayData = abs(Scen->RandomNumber()) % 3 + OVERLAYDATA_FIRST_SOLID_VEIN;
 
-			for (FacingType dir = FACING_N; dir < FACING_COUNT; dir = FacingType(dir + FACING_90)) {
-				CellClass & adjacent = Adjacent_Cell(dir);
+			for (int dir = FACING_N; dir < FACING_COUNT; dir += FACING_90) {
+				CellClass & adjacent = Adjacent_Cell(FacingType(dir));
 
 				/*
 				 * Skip neighbors that are already solid veins, or that carry some other
@@ -5241,7 +5228,7 @@ void CellClass::Place_Veins(void)
 						Rect adjrect(0, 0, 0, 0);
 						adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect()));
 						adjacent.Overlay = OVERLAY_VEINS;
-						adjacent.OverlayData = 3 * frame + abs(Scen->RandomNumber() % 3);
+						adjacent.OverlayData = 3 * frame + abs(Scen->RandomNumber % 3);
 						adjacent.Recalc_Attributes();
 						Point2D origin = TacticalRect.TopLeft;
 						adjrect = Union(adjrect, Union(adjacent.Overlay_Render_Rect(), adjacent.Overlay_Shadow_Render_Rect())) - origin;
@@ -5269,7 +5256,6 @@ void CellClass::Place_Veins(void)
 		Recalc_Attributes();
 	}
 }
-#endif
 
 
 /// <summary>

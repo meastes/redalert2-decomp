@@ -28,6 +28,7 @@
 #include "house.h"
 #include "inline.h"
 #include "map.h"
+#include "movepoint.h"
 #include "noinit.h"
 #include "rules.h"
 #include "scenario.h"
@@ -394,9 +395,9 @@ void TunnelLocomotionClass::Process_Tunneling(void)
 
 	} else {
 		DirType dir = TVelocity2D<int>(DestinationCoord.X - coord.X, DestinationCoord.Y - coord.Y).Get_Yaw();
-		Point2D point(coord.X, coord.Y);
-		double radians = dir.As_Radian();
-		coord = Coord((int)(point.X + fastmath::cos(radians) * 19), (int)(point.Y - fastmath::sin(radians) * 19), coord.Z); // RA2: in place, as ra2-decomp's twin (Yuri's Revenge 0x00729580) writes it
+		int z = coord.Z;
+		Point2D next = Move_Point(Point2D(coord.X, coord.Y), dir, 19); // RA2: ra2-decomp's twin (Yuri's Revenge 0x00729580) through movepoint.h, as Hover's Process
+		coord = Coord(next, z);
 	}
 
 	LinkedTo->PositionCoord = coord;

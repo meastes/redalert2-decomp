@@ -16,13 +16,13 @@
 #include "globals.h" // RA2: the includes this file needs
 #include "language\language.h"
 #include "wdtnet.h"
+#include "wdtgameoptions.h"
 #include "wstring.h" // RA2: as above
 #include "geoconst2.h" // RA2: the slope and bridge constants (after globals.h)
 
 using namespace WorldDominationTour;
 
 Wstring __fastcall operator+(Wstring const & left, Wstring const & right); // RA2: 0x0076F7D0, the label and the band number joined
-WideWstring __fastcall operator+(WideWstring const & left, WideWstring const & right); // RA2: 0x00771460, the text so far and the separator joined
 
 
 /// <summary>

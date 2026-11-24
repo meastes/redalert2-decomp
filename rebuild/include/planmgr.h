@@ -14,7 +14,7 @@ class TechnoClass;
 **	routine gets the mouse position relative to the tactical view; those that return a
 **	value return true when planning mode handled the input.
 */
-bool __stdcall Planning_Left_Press(Point2D xy);
+bool __fastcall Planning_Left_Press(Point2D xy);
 bool __stdcall Planning_Left_Release(Point2D point);
 void __stdcall Planning_Right_Press(int x, int y);
 void __stdcall Planning_Right_Release(int x, int y);

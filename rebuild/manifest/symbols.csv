@@ -1145,6 +1145,7 @@ symbol,address,evidence
 ?CELL_SLOPE_ANGLE@@3NB,0x00A71738,inferred: mpsiegeteam rows 005abd00 differ only at its sites
 ?CLSID_BombClass@@3U_GUID@@B,0x007A1E00,inferred: bomb rows 00436100 00436100 00436100 00436100 differ only at its sites
 ?COORD_NONE@@3VCoord@@B,0x00A71740,inferred: mpsiegeteam rows 005abda0 005abda0 005abda0 differ only at its sites
+?CPUModel@@3DA,0x008015A4,"the CPUID model byte detproc.asm stores (mov [x], dl after the family); the address mischa85 names _CPUModel; read twice by Get_CPU_Type 0x004D2A60"
 ?CacheBMP@SurfaceCacheClass@@QAE_NPBDPAXHH@Z,0x0068C040,inferred: wonline rows 0075ef30 differ only at its sites
 ?CanAttackOnTheMove@TechnoClass@@UBE_NXZ,0x006D8F40,slot +450 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanAttackOnTheMove@TechnoClass@@UAE_NXZ
 ?CanBeSelected@ObjectClass@@UBE_NXZ,0x005D54B0,slot +134 of ??_7BuildingClass@@6BIPersistStream@@@ at 0079cbb8; main row ?CanBeSelected@ObjectClass@@UAE_NXZ

@@ -3,6 +3,7 @@
  *******************************************************************************
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright 2025 Electronic Arts Inc.
+ * Copyright 2026 ra2-decomp contributors
  * Copyright 2026 OpenTS contributors
  *
  * Contains material derived from Electronic Arts source code.
@@ -249,7 +250,6 @@ double AStarClass::Get_Movement_Cost(CellClass **from, CellClass **to, bool brid
 /// <param name="to">The destination cell, used to estimate the remaining cost.</param>
 /// <param name="movement_cost">The cost of the step from the parent into this cell.</param>
 /// <returns>Returns with a pointer to the new node, taken from the search's node pool.</returns>
-#ifdef RA2_NON_MATCHING // not exact: 1705 bytes differ; 00427370 has a 2506-byte body plus 6 padding bytes. The archive's order (astar.cpp:437-469) gives the image's layout; the zero register (image edx, set before the loop test; ours ebp) and the slots of the first two locals are left (the earlier order, blocked destination first, gave 1,125 by position).
 PathStruct * AStarClass::Find_Path_Regular(Cell const & from, Cell const & to, FootClass *foot, FacingType *moves, int max_loops, bool with_hs)
 {
 	FacingType face;
@@ -487,7 +487,6 @@ breakout:
 	}
 	return(final_path);
 }
-#endif
 
 
 AStarClass::RegularOpenNode * AStarClass::Create_Node(RegularOpenNode * parent, CellClass ** cell, Cell const & to, float movement_cost)
@@ -584,15 +583,15 @@ void AStarClass::Clear(void)
 bool AStarClass::Is_Visited(int, bool base_level, int index)
 {
 	if (base_level) {
-		if (RegularVisited[index] == UniqueID) {
-			return(true);
+		if (RegularVisited[index] != UniqueID) {
+			return(false);
 		}
-		return(false);
-	}
-	if (RegularBridgeVisited[index] == UniqueID) {
 		return(true);
 	}
-	return(false);
+	if (RegularBridgeVisited[index] != UniqueID) {
+		return(false);
+	}
+	return(true);
 }
 
 

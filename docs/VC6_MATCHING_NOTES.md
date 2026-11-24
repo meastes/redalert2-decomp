@@ -4923,3 +4923,93 @@ to an address, prov.py edits single manifest records in place.
   0x73CCB0 (4 bytes, two frame homes exchanged since the globals.h scalars) is exact under the current headers with
   the twin's `wchar_t const * description = Session.Options.ScenarioDescription;` ahead of the Wstring, one more
   definition ahead of the homes. Before a count-sensitive row goes to the flex list, compile its twin's statements.
+
+## A handler's calling convention decides the scheduling of its expanded calls; a callee the image calls late must still be small enough to be a site; twin text that rests on the sibling's own members (found in the rebuild (lane F54, high))
+
+Found in the rebuild (lane F54, high). Lane tools in build/r/f54: v.py (edit sets against one row, call-list diff), yr.py
+(call list or listing of a Yuri's Revenge function), tdiff.py (normalised text difference against the twin).
+
+- planmgr Planning_Left_Press 0x617340 (818 B, exact): 17 bytes had stood since lane F29, argument scheduling in three
+  expanded Planning_Refuse copies (`push 0` against `mov edx, 0x2000`) and one `mov al, 1`. No count moved them (1 to 48
+  declarations ahead of the function included). The twin declares the handler `bool __fastcall (Point2D)`; the tree had
+  `__stdcall` from mischa85's two-int name. With a struct by value both conventions push the same bytes and the caller's
+  code is the same, so only the mangled name tells them apart, but the callee's expanded fastcall calls are scheduled
+  differently. When a residue is scheduling inside expanded copies and nothing else, compare the declaration's tokens with
+  the twin's (convention, by value or reference) before any count.
+- A callee the image calls near the end of a root still has to be a site. planmgr Planning_Add_Order 0x614EC0 calls
+  Planning_Copy_Members 0x6167F0 last. Main's text of that function is written out (the member constructed in place) and
+  is exact for its own row, but it is too large to be an inline candidate, so the root has one site fewer and every
+  nested share ahead of it is larger: the search's Member_Owner expanded where the image calls it. ra2-decomp's short
+  text (`last->Member_Owner(i)`, `node->Add_Member(owner, &event)`) is exact for the row too and is a site. Two texts
+  exact for a function's own bytes are not equal for its callers; when a root is "one site short" look at what its last
+  calls are made of.
+- With that, the planning family closes on twin text alone except one spend: `return member->Get_Owner();` in
+  Member_Owner, Planning_Connect_Selection whole (its file-local Connect_Node_Target, the selected node stored directly),
+  Planning_Copy_Members and Planning_Add_Order whole give Planning_Execute 0x614BA0 exact and leave Add_Order 472 bytes
+  off (Last_Node expanded). Each piece measured alone had failed in earlier lanes; lane F50's rule (take every difference
+  of the twin at once) holds across a unit's functions, not only inside one. The twin gets the last spend from the string
+  lookup written in place in its refusal helper, which the shared line number rules out here; the held Recount form
+  supplies it (variation_candidates.csv, with a ready patch: planmgr 331/331). Not landed: the owner keeps the status quo
+  while the interim state would lose bytes.
+- Compare the sibling's image before trusting its text for a budget row. netshare Scenario_DlgProc 0x5C69E0: Yuri's
+  Revenge expands the vector constructor in all three copies of the list helper; Red Alert 2 calls it in the middle copy
+  (0x5CD770) and expands Clear there. The twin's text reproduces its own image, which is ours today, so it cannot give
+  the middle copy. The root is over the 1000 floor (two dead stores at its head change the last copy's calls), and
+  Yuri's Revenge's added selection test is root text: the two images differ by budget, not by statements.
+- scenario ScenarioClass(NoInitClass) 0x65B780: the two images are the same shape (three vector constructor calls). The
+  twin's class has two Yuri's Revenge members with empty inline constructors ahead of the lists (`Point2D
+  StartingPoints[8]`, `Cell HouseHomeCells[8]`); Red Alert 2's class has no room for them (the waypoints end at 0x7C6,
+  the timer starts at 0x7C8). The twin's extra sites are its own members, so the missing site here is a member this
+  tree declares flat or a constructor form; every reference declares the briefing positions as four ints.
+- wonline OnChannelJoin 0x75F530: the tie that follows the function's count of distinct static addresses counts only
+  the function's own text. 46 dead reads inside it give every instruction; the same reads in the member defined before
+  it or in a file function ahead of the class change nothing, and so does defining it out of the class as the twin
+  does. It is not a declaration-count row.
+- A new declaration in a shared header can flip a watched count row in another unit after a merge. `extern char
+  CPUModel;` in getcpu.h was neutral on the lane's base and moved queue Print_CRCs 0x62A360 out of its window once
+  main's headers had moved. Both references declare the byte in the source file (mischa85 inside the function, the form taken: the structure gate allows no file-level extern); there it costs nothing.
+  Check the watched rows again after merging main, not only before.
+## A twin header that moves a count-sensitive pair is taken whole before it is held; each row has one counter that every declaration moves by its weight; a plain function called early and expanded late can be a repeated block that was one inline (found in the rebuild (lane F53, high))
+
+Found in the rebuild (lane F53, high); one row landed, three exact forms held with numbers. Lane tools in build/r/f53:
+lab.py compiles a unit against its own copy of rebuild/include (tree.INCLUDE_ROOT pointed at the copy), so header
+variants run five at a time and the tree is never edited; sw2.py and sw3.py sweep `struct P;` lines at a header place
+and on a function's own line; var.py runs a file of one-statement variants and prints the first hunks.
+
+- voxel Init_Voxel_Matrices 0x718060 (3,290 B, exact). The twin's matrix3d.h and vector4.h declare no operator=;
+  removing the two alone flips map Zone_Reset 0x54EBD0 and queue Print_CRCs 0x62A360, which had the row held. The
+  twin's vector4.h differs from the tree's in one more place: its two index operators are live (Renegade's too; the
+  archive has them commented out). With the header whole both rows stay exact. When a twin header change costs a
+  count-sensitive row, diff the whole header against the twin's first (comments stripped, one declaration a line):
+  the rest of the difference is evidenced text with a weight of its own.
+- Weights, in `struct P;` lines ahead of TechnoTypeClass, period 64: the operator= pair -4, the index operator pair
+  +9, the twin's UnusedField struct (one int, an inline default constructor) +12, `#include "cast.h"` in map.cpp
+  +28, the twin's four other map.cpp includes +3 together. A removed inline member counts as much as it did when
+  added, so a header's net weight is the sum over its declaration differences.
+- Zone_Reset counts alike from any place: exact over 11 consecutive counts of 64 whether the lines stand in a header
+  or on its own line. Print_CRCs does not: from the header place it is exact at 16 scattered counts (-2 to +3, +5,
+  +29, +38, +39, +42, +45, +46, +50, +51, +55), from its own line at a different set. A row that reads the same from
+  both places has no way back through unit-local declarations; one that differs can be met at its own line.
+- techtype's rules constructor 0x6D9B40 (2,961 B) is exact with the twin's UnusedField and stays held: on top of the
+  voxel headers it needs an evidenced -10 to -20 on Zone_Reset. Searched: dead declarations in the 231 headers both
+  units include that neither reference has (none), the twin's map.cpp include list (+31, wrong direction and short of
+  the far window by 13), the twin's ability.hh (Yuri's Revenge has an out-of-line assignment and destructor there;
+  RA2's image has neither after the deleting destructor).
+- wdtsel Do_Target_Anim 0x72E780 (2 bytes: the sum's two X loads exchange ebp and edi) does not answer to declaration
+  counts, dead locals or the cursor against the reference. It is exact with the point bound as
+  `Point2D const & target = a + b;`: the temporary's lifetime moves the rank of the two loads. Held: the twin has
+  the plain object at this site. A reference bound to a temporary is worth one compile on any row whose residue is
+  the destination register of an inline operator's sum.
+- mono Mono_Dialog_Proc 0x59DCE0 (1,148 B). A twin that writes blocks out is read against the unit's own small
+  functions first: the WM_PAINT block with its dead `cmp esi, esi` is MonoClass::View expanded (`Current != this`
+  with this loaded from Current), the page keys are Mono_View_Page, the command is MonoClass::Disable, the page
+  number Get_Handle; none of the four has a direct caller in the image. No header change was needed for a function
+  an earlier lane had left for missing declarations. What is left is Clear, a plain function defined later in the
+  file: called at the first three page keys, expanded at the last two. Empty inline sites ahead of the switch do
+  nothing; five or more after the last page key give the image, with no upper end up to twenty, so this is not the
+  site division of lane F27 at its last site. Budget spent ahead of the keys does the same: the four speech keys
+  (four identical blocks in the twin) through one file inline are exact. A block a twin repeats word for word ahead
+  of a refused nest is a candidate for a charged inline; without a reference for it the form is a variation.
+- A plain function later in the file is expanded at an earlier site (lane F41) even when the twin avoids it with a
+  second declaration of the same function under another name: that device does not carry over, and the twin's
+  inline copy beside it expands at the first site instead of the last.

@@ -2349,9 +2349,7 @@ Point2D __fastcall Planning_Event_Pixel(EventClass const * event, AbstractClass 
 Coord __fastcall Planning_Event_Or_Object_Coord(EventClass const & event, AbstractClass * object); // RA2: 0x00619810
 bool __fastcall Planning_Idle_Mover(TechnoClass * techno); // RA2: 0x00618BB0
 
-bool __stdcall Planning_Left_Press(Point2D xy); // RA2: the definition is not exact yet
-#ifdef RA2_NON_MATCHING // not exact: 17 bytes differ by position, same size; ra2-decomp's twin text (Yuri's Revenge 0x0063A5A0) in this tree's names, the parameter a Point2D as the twin has it. With Find_Node_At as the plain for loop ra2-decomp has now (src/planmgr.cpp:1891 at d5cab17; its earlier do-while peeled the first pass here) 17 bytes in 8 instructions are left, calls, frame and registers the executable's. Those 17: in the three expanded Planning_Refuse copies the executable loads the pan value before pushing the controller argument (mov edx, 0x2000; push 0), as Planning_Refuse's own body does, where ours pushes first, and one return sets al before the register pops; an instruction scheduling difference no root statement form moved
-bool __stdcall Planning_Left_Press(Point2D xy) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot take; true when planning mode used the press (ra2-decomp's twin text, Yuri's Revenge 0x0063A5A0)
+bool __fastcall Planning_Left_Press(Point2D xy) // RA2: 0x00617340; planning mode's left button press on the tactical view: takes the node under the mouse as the picked one (the path starts there), else refuses a selection or a node planning mode cannot take; true when planning mode used the press (ra2-decomp's twin text, Yuri's Revenge 0x0063A5A0)
 {
 	if (!Planning_Is_Active()) return false;
 
@@ -2377,7 +2375,6 @@ bool __stdcall Planning_Left_Press(Point2D xy) // RA2: 0x00617340; planning mode
 	}
 	return selected || hit;
 }
-#endif
 
 bool __stdcall Planning_Left_Release(Point2D point) // RA2: 0x00617680; planning mode's left button release: connects the selected objects to the node when it is the picked one, else drops the picked node; true when it took the input
 {

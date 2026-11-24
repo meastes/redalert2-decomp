@@ -193,6 +193,178 @@ void Mono_Window_Create(void)
 
 
 /// <summary>
+/// RA2: the dialog procedure of the mono window (0x0059DCE0). It repaints the page on display,
+/// hides the window on a command, and takes the keys of the sound test: 1 to 4 pick a speech
+/// priority, Q W E O speak the next voice, L and T play test sounds, [ and ] start and stop
+/// streams, N S stop sounds, A I M and the angle brackets change the page.
+/// </summary>
+#ifdef RA2_NON_MATCHING // not exact: 759 of 1148 bytes differ by position, ours 308 bytes longer (ra2-decomp's twin text, src/motlib.cpp FUN_005BC6E0, in this tree's names with the unit's View, Mono_View_Page and Disable where the twin writes their bodies out): the image calls MonoClass::Clear at the A, I and M keys and expands it at the angle brackets, ours expands it at all five; the image has five or more inline sites after the last page key that this text lacks (exact with the four speech keys through one file inline, which no reference has: variation_candidates.csv)
+#include "audplay.h"
+#include "auddsnd.h"
+#include "audioctl.h"
+#include "audio.h"
+#include "voc.h"
+#include "vox.h"
+#include "vector.h"
+
+// Voxs (vox.cpp, 0x00AD0930) has no header declaration yet: the draft compiles once vox.h declares it (a line there moves queue Print_CRCs)
+void Audio_Stop_All(void);
+
+static AudioStreamer * MonoStreams[5]; // RA2: 0x00A70DEC, the test streams the [ key starts
+static AudioController MonoTestController; // RA2: 0x00A70E70
+static int MonoAudioToggle; // RA2: 0x00A70EEC, flipped by the N key
+static int MonoVoiceIndex; // RA2: 0x00A70EF0, the next voice the speech keys play
+static AudioController * MonoTestHandle; // RA2: 0x00A70EF4
+static int MonoStreamCount; // RA2: 0x00A70EF8
+static int MonoVoicePriority; // RA2: 0x00A70EFC, set by the keys 1 to 4
+
+BOOL CALLBACK Mono_Dialog_Proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+{
+	if (msg == WM_PAINT) {
+		InvalidateRect(hwnd, NULL, TRUE);
+		PAINTSTRUCT ps;
+		BeginPaint(hwnd, &ps);
+		MonoClass * page = Mono_Viewed_Page();
+		if (page != NULL) {
+			page->View();
+		}
+		EndPaint(hwnd, &ps);
+		return TRUE;
+	}
+	if (msg == WM_CHAR) {
+		if (MonoTestHandle == NULL) {
+			AudioController * controller = &MonoTestController;
+			MonoTestHandle = controller;
+			controller->Init();
+		}
+		switch (wparam) {
+			case '1':
+			case '2':
+			case '3':
+			case '4':
+				MonoVoicePriority = wparam - '1';
+				return FALSE;
+			case 'Q':
+			case 'q':
+				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
+					MonoVoiceIndex = 0;
+				}
+				Queue_Speech(MonoVoiceIndex, VOXSPEECH_QUEUE, MonoVoicePriority);
+				MonoVoiceIndex++;
+				return FALSE;
+			case 'W':
+			case 'w':
+				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
+					MonoVoiceIndex = 0;
+				}
+				Queue_Speech(MonoVoiceIndex, VOXSPEECH_STANDARD, MonoVoicePriority);
+				MonoVoiceIndex++;
+				return FALSE;
+			case 'E':
+			case 'e':
+				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
+					MonoVoiceIndex = 0;
+				}
+				Queue_Speech(MonoVoiceIndex, VOXSPEECH_INTERRUPT, MonoVoicePriority);
+				MonoVoiceIndex++;
+				return FALSE;
+			case 'O':
+			case 'o':
+				if (MonoVoiceIndex > 16 || MonoVoiceIndex >= Voxs.Count()) {
+					MonoVoiceIndex = 0;
+				}
+				Queue_Speech(MonoVoiceIndex, -1, -1);
+				MonoVoiceIndex++;
+				return FALSE;
+			case 'L':
+			case 'l':
+				if (AudioControllerGetEvent(MonoTestHandle) != NULL) {
+					MonoTestHandle->End();
+					return FALSE;
+				}
+				VocClass::PlayGlobal(VocClass::From_Name("TestEnvelopeFShift"), 1.0f, 0x2000, MonoTestHandle);
+				return FALSE;
+			case 'T':
+			case 't':
+				VocClass::PlayGlobal(VocClass::From_Name("TestEffect"), 1.0f, 0x2000, NULL);
+				return FALSE;
+			case '[':
+				if (MonoStreamCount < 5) {
+					AudioStreamer * stream = AudioStreamerCreate(AudioGetDevice(), 5000);
+					MonoStreams[MonoStreamCount] = stream;
+					if (stream != NULL) {
+						if (AudioStreamerPlayWAV(stream, "intro.wav", 1) != 0) {
+							MonoStreamCount++;
+							return FALSE;
+						}
+						AudioStreamerDestroy(MonoStreams[MonoStreamCount]);
+					}
+				}
+				return FALSE;
+			case ']':
+				if (MonoStreamCount > 0) {
+					AudioStreamer * last = MonoStreams[MonoStreamCount - 1];
+					MonoStreamCount--;
+					AudioStreamerStop(last);
+					AudioStreamerDestroy(MonoStreams[MonoStreamCount]);
+				}
+				return FALSE;
+			case 'N':
+			case 'n':
+				MonoAudioToggle = (MonoAudioToggle == 0);
+				return FALSE;
+			case 'S':
+			case 's':
+				Audio_Stop_All();
+				return FALSE;
+			case 'A':
+			case 'a':
+				Mono_View_Page(5);
+				return FALSE;
+			case 'I':
+			case 'i':
+				Mono_View_Page(7);
+				return FALSE;
+			case 'M':
+			case 'm':
+				Mono_View_Page(6);
+				return FALSE;
+			case ',':
+			case '<': {
+				int next = Mono_Viewed_Page()->Get_Handle() + 1;
+				if (next == MonoClass::MAX_MONO_PAGES) {
+					next = 0;
+				}
+				MonoClass::Current = MonoPages[next];
+				MonoClass::Current->Clear();
+				MonoClass::Current->Refresh(0, 0, 80, 25);
+				return FALSE;
+			}
+			case '.':
+			case '>': {
+				int prev = Mono_Viewed_Page()->Get_Handle() - 1;
+				if (prev < 0) {
+					prev = MonoClass::MAX_MONO_PAGES - 1;
+				}
+				MonoClass::Current = MonoPages[prev];
+				MonoClass::Current->Clear();
+				MonoClass::Current->Refresh(0, 0, 80, 25);
+				return FALSE;
+			}
+			default:
+				return FALSE;
+		}
+	}
+	if (msg == WM_COMMAND) {
+		MonoClass::Disable();
+		return TRUE;
+	}
+	return FALSE;
+}
+#endif
+
+
+/// <summary>
 /// The pixel position of a character cell.
 /// </summary>
 struct MonoPoint : public Point2D // RA2: as above

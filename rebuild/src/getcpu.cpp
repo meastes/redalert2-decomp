@@ -81,6 +81,60 @@ void Get_CPU_Type(int & cpu_type, bool & mmx, char * vendor_id, int vendor_id_le
 }
 
 
+/***********************************************************************************************
+ * Get_CPU_Type -- Classify the processor for the display name                                 *
+ *                                                                                             *
+ * Text from ra2-decomp src/getcpu.cpp (Yuri's Revenge 0x004E6190, matched there), with this   *
+ * tree's names.                                                                               *
+ *                                                                                             *
+ * OUTPUT:   CPUType enumeration value, CPU_UNKNOWN if the processor was not identified        *
+ *=============================================================================================*/
+int Get_CPU_Type(void)
+{
+	extern char CPUModel;	// RA2: 0x008015A4, the CPUID model number detproc.asm stores
+	char vendor[64];
+
+	Detect_MMX_Availability();
+	Detect_CMOV_Availability();
+	int cpu = (int)CPUType;
+	if (vendor != NULL) {
+		strncpy(vendor, &VendorID, 64);
+	}
+	if (cpu == 0 || CPUModel == 0) {
+		return(CPU_UNKNOWN);
+	}
+	if (strcmpi(vendor, "AuthenticAMD") == 0) {
+		return(CPU_AMD);
+	}
+	if (strcmpi(vendor, "CyrixInstead") == 0) {
+		return(CPU_CYRIX);
+	}
+	switch (cpu) {
+		case 4:
+			return(CPU_486);
+		case 5:
+			return(CPU_PENTIUM);
+		case 6:
+			switch (CPUModel) {
+				case 3:
+				case 5:
+					return(CPU_PII);
+				case 4:
+					return(CPU_PPRO);
+				case 6:
+					return(CPU_CELERON);
+				case 7:
+				case 8:
+				case 10:
+					return(CPU_PIII);
+				default:
+					return(CPU_PPRO);
+			}
+	}
+	return(CPU_PIV);
+}
+
+
 char const * Get_CPU_Type_Name(void)
 {
 	static char const * const names[CPU_COUNT] = {

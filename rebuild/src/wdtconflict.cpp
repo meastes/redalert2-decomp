@@ -13,7 +13,7 @@
 
 #include "data.h"
 #include "language\language.h"
-#include "wdtnet.h"
+#include "wdtgameoptions.h"
 #include "wstring.h" // RA2: the includes this file needs
 
 using namespace WorldDominationTour;

@@ -801,18 +801,7 @@ namespace WorldDominationTour
 				return(Fallback);
 			}
 
-			virtual WideWstring Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const override
-			{
-				wchar_t buffer[64];
-				Wstring number = Wstring_FromInt(Getter(territory.Get()));
-				WideWstring format(StringTable::LoadString(Name.text(), NULL, "D:\\Ra2\\wdtgameoptions.h", 161));
-				swprintf(buffer, format.get(), number.text());
-				if (prefix.length() != 0) {
-					WideWstring separator(L", ");
-					prefix + separator + buffer;
-				}
-				return(WideWstring(buffer));
-			}
+			virtual WideWstring Get_String(rc_ptr<WDTTerritory> const & territory, WideWstring const & prefix) const override;
 
 		public:
 			int Fallback; // RA2: +0x0C; the priority of a setting the player cannot change

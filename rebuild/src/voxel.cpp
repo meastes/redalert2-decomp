@@ -79,141 +79,168 @@ void Set_Voxel_Light_Angle(float angle)
 /// tilt vector of every facing, the isometric view transform, and the bounce matrices.
 /// </summary>
 /// <remarks>Call this routine before any voxel is drawn.</remarks>
-#ifdef RA2_NON_MATCHING // not exact: one instruction differs, 3 bytes shorter (1414 by position): the light vector loop in the TibSun archive's text (voxel.cpp:138, both vectors through references) has the image's registers; the cross product reads the direction's Y as [esi + 4] where the image indexes the array ([edi + LightDirectionVectors + 4]); with the array indexed anywhere in the loop the read is the image's and the offset and the pointer exchange esi and edi (25 bytes, the earlier text)
 void __fastcall Init_Voxel_Matrices()
 {
-	float slope_h = (float)CELL_SLOPE_ANGLE;
-	float slope_i = (float)CELL_DIAG_SLOPE_ANGLE;
-	Vector3 diagonal1 = Matrix3D(Vector3(0.0f, 0.0f, 1.0f), 0.785375f) * Vector3(1.0f, 0.0f, 0.0f);
-	Vector3 diagonal3 = Matrix3D(Vector3(0.0f, 0.0f, 1.0f), 2.3561251f) * Vector3(1.0f, 0.0f, 0.0f);
-	Vector3 diagonal5 = Matrix3D(Vector3(0.0f, 0.0f, 1.0f), 3.9268751f) * Vector3(1.0f, 0.0f, 0.0f);
-	Vector3 diagonal7 = Matrix3D(Vector3(0.0f, 0.0f, 1.0f), 5.4976249f) * Vector3(1.0f, 0.0f, 0.0f);
-	Vector3 east(1.0f, 0.0f, 0.0f);
-	Vector3 north(0.0f, 1.0f, 0.0f);
-	Vector3 west(-1.0f, 0.0f, 0.0f);
-	Vector3 south(0.0f, -1.0f, 0.0f);
+	float slope_angle = CELL_SLOPE_ANGLE;
+	float slope_diag_angle = CELL_DIAG_SLOPE_ANGLE;
+
+	const double pi = 3.1415;
+
+	Vector3 north_east = Matrix3D(Vector3(0, 0, 1), pi / 4) * Vector3(1, 0, 0);
+	Vector3 north_west = Matrix3D(Vector3(0, 0, 1), 3 * pi / 4) * Vector3(1, 0, 0);
+	Vector3 south_west = Matrix3D(Vector3(0, 0, 1), 5 * pi / 4) * Vector3(1, 0, 0);
+	Vector3 south_east = Matrix3D(Vector3(0, 0, 1), 7 * pi / 4) * Vector3(1, 0, 0);
+
+	Vector3 east(1, 0, 0);
+	Vector3 north(0, 1, 0);
+	Vector3 west(-1, 0, 0);
+	Vector3 south(0, -1, 0);
 
 	ScreenSlopeMatrices[0].Make_Identity();
-	ScreenSlopeMatrices[1] = Matrix3D(3.9268751f, slope_i);
-	ScreenSlopeMatrices[2] = Matrix3D(2.3561251f, slope_i);
-	ScreenSlopeMatrices[3] = Matrix3D(0.785375f, slope_i);
-	ScreenSlopeMatrices[4] = Matrix3D(5.4976249f, slope_i);
-	ScreenSlopeQuaternions[1] = Axis_To_Quat(diagonal5, slope_i);
-	ScreenSlopeQuaternions[2] = Axis_To_Quat(diagonal3, slope_i);
-	ScreenSlopeQuaternions[3] = Axis_To_Quat(diagonal1, slope_i);
-	ScreenSlopeQuaternions[4] = Axis_To_Quat(diagonal7, slope_i);
-	ScreenSlopeMatrices[5] = Matrix3D(3.1415f, slope_h);
-	ScreenSlopeMatrices[6] = Matrix3D(1.57075f, slope_h);
-	ScreenSlopeMatrices[7] = Matrix3D(0.0f, slope_h);
-	ScreenSlopeMatrices[8] = Matrix3D(4.7122502f, slope_h);
-	ScreenSlopeQuaternions[5] = Axis_To_Quat(west, slope_h);
-	ScreenSlopeQuaternions[6] = Axis_To_Quat(north, slope_h);
-	ScreenSlopeQuaternions[7] = Axis_To_Quat(east, slope_h);
-	ScreenSlopeQuaternions[8] = Axis_To_Quat(south, slope_h);
-	ScreenSlopeMatrices[9] = Matrix3D(3.1415f, slope_h);
-	ScreenSlopeMatrices[10] = Matrix3D(1.57075f, slope_h);
-	ScreenSlopeMatrices[11] = Matrix3D(0.0f, slope_h);
-	ScreenSlopeMatrices[12] = Matrix3D(4.7122502f, slope_h);
-	ScreenSlopeQuaternions[9] = Axis_To_Quat(west, slope_h);
-	ScreenSlopeQuaternions[10] = Axis_To_Quat(north, slope_h);
-	ScreenSlopeQuaternions[11] = Axis_To_Quat(east, slope_h);
-	ScreenSlopeQuaternions[12] = Axis_To_Quat(south, slope_h);
-	ScreenSlopeMatrices[13] = Matrix3D(3.1415f, slope_i);
-	ScreenSlopeMatrices[14] = Matrix3D(1.57075f, slope_i);
-	ScreenSlopeMatrices[15] = Matrix3D(0.0f, slope_i);
-	ScreenSlopeMatrices[16] = Matrix3D(4.7122502f, slope_i);
-	ScreenSlopeQuaternions[13] = Axis_To_Quat(west, slope_i);
-	ScreenSlopeQuaternions[14] = Axis_To_Quat(north, slope_i);
-	ScreenSlopeQuaternions[15] = Axis_To_Quat(east, slope_i);
-	ScreenSlopeQuaternions[16] = Axis_To_Quat(south, slope_i);
+
+	ScreenSlopeMatrices[1] = Matrix3D(5 * pi / 4, slope_diag_angle);
+	ScreenSlopeMatrices[2] = Matrix3D(3 * pi / 4, slope_diag_angle);
+	ScreenSlopeMatrices[3] = Matrix3D(pi / 4, slope_diag_angle);
+	ScreenSlopeMatrices[4] = Matrix3D(7 * pi / 4, slope_diag_angle);
+
+	ScreenSlopeQuaternions[1] = Axis_To_Quat(south_west, slope_diag_angle);
+	ScreenSlopeQuaternions[2] = Axis_To_Quat(north_west, slope_diag_angle);
+	ScreenSlopeQuaternions[3] = Axis_To_Quat(north_east, slope_diag_angle);
+	ScreenSlopeQuaternions[4] = Axis_To_Quat(south_east, slope_diag_angle);
+
+	ScreenSlopeMatrices[5] = Matrix3D(pi, slope_angle);
+	ScreenSlopeMatrices[6] = Matrix3D(pi / 2, slope_angle);
+	ScreenSlopeMatrices[7] = Matrix3D(0.0, slope_angle);
+	ScreenSlopeMatrices[8] = Matrix3D(3 * pi / 2, slope_angle);
+
+	ScreenSlopeQuaternions[5] = Axis_To_Quat(west, slope_angle);
+	ScreenSlopeQuaternions[6] = Axis_To_Quat(north, slope_angle);
+	ScreenSlopeQuaternions[7] = Axis_To_Quat(east, slope_angle);
+	ScreenSlopeQuaternions[8] = Axis_To_Quat(south, slope_angle);
+
+	ScreenSlopeMatrices[9] = Matrix3D(pi, slope_angle);
+	ScreenSlopeMatrices[10] = Matrix3D(pi / 2, slope_angle);
+	ScreenSlopeMatrices[11] = Matrix3D(0.0, slope_angle);
+	ScreenSlopeMatrices[12] = Matrix3D(3 * pi / 2, slope_angle);
+
+	ScreenSlopeQuaternions[9] = Axis_To_Quat(west, slope_angle);
+	ScreenSlopeQuaternions[10] = Axis_To_Quat(north, slope_angle);
+	ScreenSlopeQuaternions[11] = Axis_To_Quat(east, slope_angle);
+	ScreenSlopeQuaternions[12] = Axis_To_Quat(south, slope_angle);
+
+	ScreenSlopeMatrices[13] = Matrix3D(pi, slope_diag_angle);
+	ScreenSlopeMatrices[14] = Matrix3D(pi / 2, slope_diag_angle);
+	ScreenSlopeMatrices[15] = Matrix3D(0.0, slope_diag_angle);
+	ScreenSlopeMatrices[16] = Matrix3D(3 * pi / 2, slope_diag_angle);
+
+	ScreenSlopeQuaternions[13] = Axis_To_Quat(west, slope_diag_angle);
+	ScreenSlopeQuaternions[14] = Axis_To_Quat(north, slope_diag_angle);
+	ScreenSlopeQuaternions[15] = Axis_To_Quat(east, slope_diag_angle);
+	ScreenSlopeQuaternions[16] = Axis_To_Quat(south, slope_diag_angle);
+
 	ScreenSlopeMatrices[17].Make_Identity();
 	ScreenSlopeMatrices[18].Make_Identity();
 	ScreenSlopeMatrices[19].Make_Identity();
 	ScreenSlopeMatrices[20].Make_Identity();
-	ScreenSlopeQuaternions[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	ScreenSlopeQuaternions[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	ScreenSlopeQuaternions[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	ScreenSlopeQuaternions[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
+
+	ScreenSlopeQuaternions[17].Make_Identity();
+	ScreenSlopeQuaternions[18].Make_Identity();
+	ScreenSlopeQuaternions[19].Make_Identity();
+	ScreenSlopeQuaternions[20].Make_Identity();
 
 	for (int i = 0; i < ARRAY_SIZE(LightDirectionVectors); i++) {
 		Matrix3D direction_matrix;
 		direction_matrix.Make_Identity();
-		float theta = i * 0.024542969f;
+		float theta = i * (float)(2 * pi / 256);
 		direction_matrix.Rotate_Z(theta);
 
 		Vector3 & direction_vec = LightDirectionVectors[i];
 		Vector3 & tilt_vec = LightTiltVectors[i];
 
-		direction_vec = direction_matrix * Vector3(1.0f, 0.0f, 0.0f);
+		direction_vec = direction_matrix * Vector3(1, 0, 0);
 
-		tilt_vec = Vector3::Cross_Product(direction_vec, Vector3(0.0f, 0.0f, 1.0f));
+		tilt_vec = Vector3::Cross_Product(LightDirectionVectors[i], Vector3(0, 0, 1));
 
 		Matrix3D tilt_matrix(tilt_vec, VoxelLightAngle);
 		direction_vec = tilt_matrix * direction_vec;
 	}
 
 	SlopeMatrices[0].Make_Identity();
-	SlopeMatrices[1] = Matrix3D(4.7122502f, slope_i);
-	SlopeMatrices[2] = Matrix3D(3.1415f, slope_i);
-	SlopeMatrices[3] = Matrix3D(1.57075f, slope_i);
-	SlopeMatrices[4] = Matrix3D(0.0f, slope_i);
-	SlopeMatrices[5] = Matrix3D(3.9268751f, slope_h);
-	SlopeMatrices[6] = Matrix3D(2.3561251f, slope_h);
-	SlopeMatrices[7] = Matrix3D(0.785375f, slope_h);
-	SlopeMatrices[8] = Matrix3D(5.4976249f, slope_h);
-	SlopeMatrices[9] = Matrix3D(3.9268751f, slope_h);
-	SlopeMatrices[10] = Matrix3D(2.3561251f, slope_h);
-	SlopeMatrices[11] = Matrix3D(0.785375f, slope_h);
-	SlopeMatrices[12] = Matrix3D(5.4976249f, slope_h);
-	SlopeMatrices[13] = Matrix3D(3.9268751f, slope_i);
-	SlopeMatrices[14] = Matrix3D(2.3561251f, slope_i);
-	SlopeMatrices[15] = Matrix3D(0.785375f, slope_i);
-	SlopeMatrices[16] = Matrix3D(5.4976249f, slope_i);
-	SlopeQuaternions[0].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	SlopeQuaternions[1] = Axis_To_Quat(south, slope_i);
-	SlopeQuaternions[2] = Axis_To_Quat(west, slope_i);
-	SlopeQuaternions[3] = Axis_To_Quat(north, slope_i);
-	SlopeQuaternions[4] = Axis_To_Quat(east, slope_i);
-	SlopeQuaternions[5] = Axis_To_Quat(diagonal5, slope_h);
-	SlopeQuaternions[6] = Axis_To_Quat(diagonal3, slope_h);
-	SlopeQuaternions[7] = Axis_To_Quat(diagonal1, slope_h);
-	SlopeQuaternions[8] = Axis_To_Quat(diagonal7, slope_h);
-	SlopeQuaternions[9] = Axis_To_Quat(diagonal5, slope_h);
-	SlopeQuaternions[10] = Axis_To_Quat(diagonal3, slope_h);
-	SlopeQuaternions[11] = Axis_To_Quat(diagonal1, slope_h);
-	SlopeQuaternions[12] = Axis_To_Quat(diagonal7, slope_h);
-	SlopeQuaternions[13] = Axis_To_Quat(diagonal5, slope_i);
-	SlopeQuaternions[14] = Axis_To_Quat(diagonal3, slope_i);
-	SlopeQuaternions[15] = Axis_To_Quat(diagonal1, slope_i);
-	SlopeQuaternions[16] = Axis_To_Quat(diagonal7, slope_i);
+
+	SlopeMatrices[1] = Matrix3D(3 * pi / 2, slope_diag_angle);
+	SlopeMatrices[2] = Matrix3D(pi, slope_diag_angle);
+	SlopeMatrices[3] = Matrix3D(pi / 2, slope_diag_angle);
+	SlopeMatrices[4] = Matrix3D(0.0, slope_diag_angle);
+
+	SlopeMatrices[5] = Matrix3D(5 * pi / 4, slope_angle);
+	SlopeMatrices[6] = Matrix3D(3 * pi / 4, slope_angle);
+	SlopeMatrices[7] = Matrix3D(pi / 4, slope_angle);
+	SlopeMatrices[8] = Matrix3D(7 * pi / 4, slope_angle);
+
+	SlopeMatrices[9] = Matrix3D(5 * pi / 4, slope_angle);
+	SlopeMatrices[10] = Matrix3D(3 * pi / 4, slope_angle);
+	SlopeMatrices[11] = Matrix3D(pi / 4, slope_angle);
+	SlopeMatrices[12] = Matrix3D(7 * pi / 4, slope_angle);
+
+	SlopeMatrices[13] = Matrix3D(5 * pi / 4, slope_diag_angle);
+	SlopeMatrices[14] = Matrix3D(3 * pi / 4, slope_diag_angle);
+	SlopeMatrices[15] = Matrix3D(pi / 4, slope_diag_angle);
+	SlopeMatrices[16] = Matrix3D(7 * pi / 4, slope_diag_angle);
+
+	SlopeQuaternions[0].Make_Identity();
+
+	SlopeQuaternions[1] = Axis_To_Quat(south, slope_diag_angle);
+	SlopeQuaternions[2] = Axis_To_Quat(west, slope_diag_angle);
+	SlopeQuaternions[3] = Axis_To_Quat(north, slope_diag_angle);
+	SlopeQuaternions[4] = Axis_To_Quat(east, slope_diag_angle);
+
+	SlopeQuaternions[5] = Axis_To_Quat(south_west, slope_angle);
+	SlopeQuaternions[6] = Axis_To_Quat(north_west, slope_angle);
+	SlopeQuaternions[7] = Axis_To_Quat(north_east, slope_angle);
+	SlopeQuaternions[8] = Axis_To_Quat(south_east, slope_angle);
+
+	SlopeQuaternions[9] = Axis_To_Quat(south_west, slope_angle);
+	SlopeQuaternions[10] = Axis_To_Quat(north_west, slope_angle);
+	SlopeQuaternions[11] = Axis_To_Quat(north_east, slope_angle);
+	SlopeQuaternions[12] = Axis_To_Quat(south_east, slope_angle);
+
+	SlopeQuaternions[13] = Axis_To_Quat(south_west, slope_diag_angle);
+	SlopeQuaternions[14] = Axis_To_Quat(north_west, slope_diag_angle);
+	SlopeQuaternions[15] = Axis_To_Quat(north_east, slope_diag_angle);
+	SlopeQuaternions[16] = Axis_To_Quat(south_east, slope_diag_angle);
+
 	SlopeMatrices[17].Make_Identity();
 	SlopeMatrices[18].Make_Identity();
 	SlopeMatrices[19].Make_Identity();
 	SlopeMatrices[20].Make_Identity();
-	SlopeQuaternions[17].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	SlopeQuaternions[18].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	SlopeQuaternions[19].Set(0.0f, 0.0f, 0.0f, 1.0f);
-	SlopeQuaternions[20].Set(0.0f, 0.0f, 0.0f, 1.0f);
+
+	SlopeQuaternions[17].Make_Identity();
+	SlopeQuaternions[18].Make_Identity();
+	SlopeQuaternions[19].Make_Identity();
+	SlopeQuaternions[20].Make_Identity();
 
 	IsometricViewMatrix.Make_Identity();
-	IsometricViewMatrix.Rotate_X((float)-RAD_60);
-	IsometricViewMatrix.Rotate_Z((float)-RAD_45);
+	IsometricViewMatrix.Rotate_X(-RAD_60);
+	IsometricViewMatrix.Rotate_Z(-RAD_45);
 
-	for (int index = 0; index < 4; index++) {
-		BounceMatrices[index].Make_Identity();
+	for (int j = 0; j < ARRAY_SIZE(BounceMatrices); j++) {
+		BounceMatrices[j].Make_Identity();
 	}
-	BounceMatrices[0][1].Y = -1.0f;
-	BounceMatrices[1][0].X = 0.0f;
-	BounceMatrices[1][0].Y = 1.0f;
-	BounceMatrices[1][1].X = 1.0f;
-	BounceMatrices[1][1].Y = 0.0f;
-	BounceMatrices[2][0].X = -1.0f;
-	BounceMatrices[3][0].X = 0.0f;
-	BounceMatrices[3][0].Y = -1.0f;
-	BounceMatrices[3][1].X = -1.0f;
-	BounceMatrices[3][1].Y = 0.0f;
+
+	BounceMatrices[0][1].Y = -1.0;
+
+	BounceMatrices[1][0].X = 0.0;
+	BounceMatrices[1][0].Y = 1.0;
+	BounceMatrices[1][1].X = 1.0;
+	BounceMatrices[1][1].Y = 0.0;
+
+	BounceMatrices[2][0].X = -1.0;
+
+	BounceMatrices[3][0].X = 0.0;
+	BounceMatrices[3][0].Y = -1.0;
+	BounceMatrices[3][1].X = -1.0;
+	BounceMatrices[3][1].Y = 0.0;
 }
-#endif
 
 
 

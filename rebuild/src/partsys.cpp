@@ -456,6 +456,16 @@ void ParticleSystemClass::Spark_AI(void)
 
 
 
+#include "cast.h"
+
+static inline bool Is_Object(AbstractClass const * a)
+{
+	if (a == NULL) return(false);
+	unsigned char flag = (a->AbstractFlags >> 1) & 1;
+	return(flag != 0);
+}
+
+
 /// <summary>
 /// Handles the per-frame logic for a smoke particle system.
 /// The system rides along with whatever it is attached to, unless that is a building, ages
@@ -463,16 +473,12 @@ void ParticleSystemClass::Spark_AI(void)
 /// either side, so that the column spreads as it rises. Fresh particles are emitted on the
 /// spawn interval, which lengthens as the system tires until it finally retires.
 /// </summary>
-#ifdef RA2_NON_MATCHING // not exact: 1088 bytes differ against the image-derived bound 0060bb70 (1240 B; ours 1328 B), 2026-11-23 (lane F36): no dynamic cast (the foot flag tested), both dying-particle spawns through Spawn_Particle and the last through Spawn_Held_Particle; the image calls DynamicVectorClass<ParticleClass *>::Add in the first two and expands the third, which this text gives only with 20 to 28 charged spends ahead or 12 or more inline sites after (probes); main: best 54.23
 void ParticleSystemClass::Smoke_AI(void)
 {
 	int i;
 
-	if (Source != NULL) { // RA2: the object test is the abstract flag read into a byte temporary, no cast
-		unsigned char const & object = (Source->AbstractFlags >> 1) & 1; // RA2: as above
-		if (object && Source->What_Am_I() != RTTI_BUILDING) { // RA2: as above
-			Set_Coord(Source->Center_Coord() + CoordOffset); // RA2: as above
-		}
+	if (Is_Object(Source) && Source->What_Am_I() != RTTI_BUILDING) {
+		Set_Coord(Source->Center_Coord() + CoordOffset);
 	}
 
 	for (i = 0; i < SystemParticles.Count(); i++) {
@@ -484,71 +490,52 @@ void ParticleSystemClass::Smoke_AI(void)
 		if (spart->IsToDie) {
 			if (spart->Class->NextParticle != PARTICLE_NONE) {
 				Coord coord = spart->Get_Coord();
-				int x = coord.X;
-				int y = coord.Y;
-				int z = coord.Z;
-
-				int xspread = spart->Class->Radius >> 3;
-				int xrand = Scen->RandomNumber() % xspread;
+				int xrand = Scen->RandomNumber % (spart->Class->Radius >> 3);
 				if (xrand <= 0) {
-					xrand = xrand - xspread;
+					xrand = xrand - (spart->Class->Radius >> 3);
 				} else {
-					xrand = xspread + xrand;
+					xrand = (spart->Class->Radius >> 3) + xrand;
 				}
-
-				ParticleTypeClass const *type = spart->Class;
-				int yspread = type->Radius >> 3;
-				int yrand = Scen->RandomNumber() % yspread;
+				int yrand = Scen->RandomNumber % (spart->Class->Radius >> 3);
 				if (yrand <= 0) {
-					yrand = yrand - yspread;
+					yrand = yrand - (spart->Class->Radius >> 3);
 				} else {
-					yrand = yspread + yrand;
+					yrand = (spart->Class->Radius >> 3) + yrand;
 				}
-
-				ParticleTypeClass *next = ParticleTypes[type->NextParticle];
-
-				Coord ncoord;
-				ncoord.Y = y + yrand;
-				ncoord.Z = z;
-				ncoord.X = x + xrand;
-				ParticleClass * npart = Spawn_Particle(next, ncoord); // RA2: through the unit's Spawn_Particle, as Spark_AI and Railgun_AI go through Spawn_Held_Particle
+				ParticleTypeClass * next = ParticleTypes[spart->Class->NextParticle];
+				Point2D offset(xrand, yrand);
+				ParticleClass * npart = Spawn_Particle(next, coord + offset);
 				if (npart != NULL) {
 					npart->Speed = spart->Speed;
-					npart->Translucency = spart->Translucency + (Scen->RandomNumber() % 6 != 0 ? 25 : 0);
+					npart->Translucency = spart->Translucency + (Scen->RandomNumber % 6 != 0 ? 25 : 0);
 				}
-
-				Coord pcoord;
-				pcoord.X = x - xrand;
-				pcoord.Y = y - yrand;
-				pcoord.Z = z;
-				ParticleClass * ppart = Spawn_Particle(next, pcoord);
+				ParticleClass * ppart = Spawn_Particle(next, coord - offset);
 				if (ppart != NULL) {
 					ppart->Speed = spart->Speed;
-					ppart->Translucency = spart->Translucency + (Scen->RandomNumber() % 6 != 0 ? 25 : 0);
+					ppart->Translucency = spart->Translucency + (Scen->RandomNumber % 6 != 0 ? 25 : 0);
 				}
 			}
 			spart->Delete_Me();
 		} else {
-			SystemParticles[i]->Motion_AI();
+			spart->Motion_AI();
 		}
 	}
 
 	if (!IsMarkedForDeletion && IsActive && (Frame % (int)SpawnFrames) == 0) {
-		FootClass * foot = Source != NULL && (Source->AbstractFlags & 4) ? (FootClass *)Source : NULL;
+		FootClass * foot = As_Foot(Source);
 		if (foot == NULL || foot->CurrentTube < 0) {
-			int xrand = Scen->RandomNumber();
-			int yrand = Scen->RandomNumber();
-			int range = Class->SpawnRadius + 1;
-			Coord scoord = Get_Coord() + Coord(xrand % range, yrand % range, 10);
-
-			ParticleClass * npart = Spawn_Held_Particle(scoord, SpawnCoord);
-			if (npart != NULL) {
-				if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
-					npart->Translucency += 25;
-				}
-				npart->Speed = npart->Speed - (SpawnFrames - Class->SpawnFrames) * 0.35f;
-				if (npart->Speed < 2.0) {
-					npart->Speed = 2.0;
+			Coord scoord = Get_Coord() + Coord(Scen->RandomNumber % (Class->SpawnRadius + 1), Scen->RandomNumber % (Class->SpawnRadius + 1), 10);
+			if (Class->HoldsWhat != PARTICLE_NONE) {
+				ParticleClass *npart = new ParticleClass(ParticleTypes[Class->HoldsWhat], scoord, SpawnCoord, this);
+				if (npart != NULL) {
+					SystemParticles.Add(npart);
+					if (SpawnFrames > Class->SpawnTranslucencyCutoff) {
+						npart->Translucency += 25;
+					}
+					npart->Speed = npart->Speed - (SpawnFrames - Class->SpawnFrames) * 0.35f;
+					if (npart->Speed < 2.0) {
+						npart->Speed = 2.0f;
+					}
 				}
 			}
 		}
@@ -559,7 +546,6 @@ void ParticleSystemClass::Smoke_AI(void)
 		IsMarkedForDeletion = true;
 	}
 }
-#endif
 
 
 

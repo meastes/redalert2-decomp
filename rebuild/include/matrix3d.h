@@ -64,9 +64,6 @@ class Matrix3D
 
 		Matrix3D(const Matrix3DStruct & m);
 
-		// Assignment operator
-		Matrix3D & operator=(Matrix3D const & that) { memcpy(this, &that, sizeof(*this)); return(*this);}
-
 
 		Vector4 & operator [] (int i) {
 			return(Row[i]);

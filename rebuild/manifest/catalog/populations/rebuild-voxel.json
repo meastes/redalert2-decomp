@@ -47,8 +47,20 @@
     "?VoxelLightSource@@3VVector3@@A": 8624816,
     "__real@4@c001c000000000000000": 8055344,
     "?VoxelShadowLightVector@@3VVector3@@A": 8624736,
+    "??0Matrix3D@@QAE@ABVVector3@@M@Z": 5832528,
     "?ScreenSlopeMatrices@@3PAVMatrix3D@@A": 11498400,
+    "??0Matrix3D@@QAE@MM@Z": 5832432,
+    "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z": 6433200,
+    "??4Quaternion@@QAE?AV0@ABV0@@Z": 6431312,
+    "?Set@Quaternion@@QAEXMMMM@Z": 6431104,
+    "__real@4@3ff9c90e560418937800": 8055348,
+    "?Rotate_Z@Matrix3D@@QAEXM@Z": 5835168,
+    "?LightDirectionVectors@@3PAVVector3@@A": 11495272,
+    "__real@4@00000000000000000000": 7972664,
+    "?LightTiltVectors@@3PAVVector3@@A": 11499824,
     "?SlopeMatrices@@3PAVMatrix3D@@A": 11503112,
+    "?Rotate_X@Matrix3D@@QAEXM@Z": 5834592,
+    "?BounceMatrices@@3PAVMatrix3D@@A": 11502904,
     "?Slerp@@YI?AVQuaternion@@ABV1@0M@Z": 6433472,
     "?Build_Matrix3D@@YI?AVMatrix3D@@ABVQuaternion@@@Z": 6434480,
     "?SomeNumbers@@3PAHA": 8363420,
@@ -56,16 +68,12 @@
     "__real@8@3fffc90fdaa22168c000": 7976496,
     "__real@8@c00ca2f83d7b47677800": 7976488,
     "?ExtraLightTiltAngles@@3PAMA": 8363396,
-    "?LightTiltVectors@@3PAVVector3@@A": 11499824,
-    "??0Matrix3D@@QAE@ABVVector3@@M@Z": 5832528,
     "??D@YI?AVMatrix3D@@ABV0@0@Z": 5837184,
-    "?LightDirectionVectors@@3PAVVector3@@A": 11495272,
     "__real@4@c000c000000000000000": 8055352,
     "?Translate@Matrix3D@@QAEXABVVector3@@@Z": 5832944,
     "?Translate@Matrix3D@@QAEXMMM@Z": 5832848,
     "__real@4@3fffc000000000000000": 7983336,
     "?Clear_Voxel_Indexes@ObjectTypeClass@@SIXXZ": 6127344,
-    "?BounceMatrices@@3PAVMatrix3D@@A": 11502904,
     "_$E2": 7437536,
     "_$E5": 7437584,
     "_$E8": 7437616,
@@ -90,6 +98,7 @@
     "_$E73": 7438208,
     "?Get_Isometric_View_Matrix@@YI?AVMatrix3D@@XZ": 7438224,
     "?Set_Voxel_Light_Angle@@YIXM@Z": 7438256,
+    "?Init_Voxel_Matrices@@YIXXZ": 7438432,
     "?Get_Screen_Slope_Matrix@@YIXHAAVMatrix3D@@@Z": 7441728,
     "?Get_Slope_Matrix@@YI?AVMatrix3D@@H@Z": 7441760,
     "?Get_Screen_Slope_Transition_Matrix@@YIXHHAAVMatrix3D@@N@Z": 7441792,
@@ -164,7 +173,7 @@
           "resolved": 11498376
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437536,
@@ -216,7 +225,7 @@
           "resolved": 11503104
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437584,
@@ -268,7 +277,7 @@
           "resolved": 11502896
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437616,
@@ -320,7 +329,7 @@
           "resolved": 11499816
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437648,
@@ -372,7 +381,7 @@
           "resolved": 11498384
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437680,
@@ -424,7 +433,7 @@
           "resolved": 11498344
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437712,
@@ -508,7 +517,7 @@
           "resolved": 11504120
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437744,
@@ -568,7 +577,7 @@
           "resolved": 11498392
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437808,
@@ -628,7 +637,7 @@
           "resolved": 11499424
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437856,
@@ -688,7 +697,7 @@
           "resolved": 11503096
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437904,
@@ -732,7 +741,7 @@
           "resolved": 11498370
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437952,
@@ -784,7 +793,7 @@
           "resolved": 11499416
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7437968,
@@ -844,7 +853,7 @@
           "resolved": 11498364
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438000,
@@ -871,7 +880,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438032,
@@ -898,7 +907,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438048,
@@ -942,7 +951,7 @@
           "resolved": 4293960274
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438064,
@@ -986,7 +995,7 @@
           "resolved": 4293960226
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438112,
@@ -1013,7 +1022,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438160,
@@ -1040,7 +1049,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438176,
@@ -1067,7 +1076,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438192,
@@ -1094,7 +1103,7 @@
         "/GR"
       ],
       "relocations": [],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438208,
@@ -1130,7 +1139,7 @@
           "resolved": 11499432
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438224,
@@ -1254,10 +1263,1958 @@
           "resolved": 8624736
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7438256,
+      "source_quality_family": "rebuild"
+    },
+    {
+      "entry": 7438432,
+      "method": "00718060",
+      "body_bytes": 3290,
+      "body_sha256": "46cf86445b06d9b3acfc0c8472962c7492ec2b852f9cbaef67705b0ef396db57",
+      "padding_bytes": 6,
+      "full_extent_bytes": 3296,
+      "full_extent_sha256": "98ddb856a875d71ba9782f0fdffda72c023905e08a6c0a4716762b12b20ecd71",
+      "padding_sha256": "ff35ffe14925642da6f3a258b35811e08101c03f8b5db346e5afcca448677564",
+      "boundary_confidence": "Frozen independent analysis hypothesis; exact compiler extent, not certified function",
+      "symbol": "?Init_Voxel_Matrices@@YIXXZ",
+      "symbol_prefix": "?Init_Voxel_Matrices@@YIXXZ",
+      "options": [
+        "/O2",
+        "/Ob2",
+        "/G5",
+        "/Gy",
+        "/Gr",
+        "/GR"
+      ],
+      "relocations": [
+        {
+          "offset": 8,
+          "kind": 6,
+          "symbol": "_CELL_SLOPE_ANGLE",
+          "target": 11498392,
+          "addend": 0,
+          "resolved": 11498392
+        },
+        {
+          "offset": 23,
+          "kind": 6,
+          "symbol": "_CELL_DIAG_SLOPE_ANGLE",
+          "target": 11499424,
+          "addend": 0,
+          "resolved": 11499424
+        },
+        {
+          "offset": 101,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293361287
+        },
+        {
+          "offset": 112,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293366444
+        },
+        {
+          "offset": 213,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293361175
+        },
+        {
+          "offset": 224,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293366332
+        },
+        {
+          "offset": 322,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293361066
+        },
+        {
+          "offset": 333,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293366223
+        },
+        {
+          "offset": 434,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293360954
+        },
+        {
+          "offset": 445,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293366111
+        },
+        {
+          "offset": 469,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 0,
+          "resolved": 11498400
+        },
+        {
+          "offset": 616,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293361044
+        },
+        {
+          "offset": 635,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360657
+        },
+        {
+          "offset": 647,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 48,
+          "resolved": 11498448
+        },
+        {
+          "offset": 664,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360628
+        },
+        {
+          "offset": 676,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 96,
+          "resolved": 11498496
+        },
+        {
+          "offset": 693,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360599
+        },
+        {
+          "offset": 705,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 144,
+          "resolved": 11498544
+        },
+        {
+          "offset": 722,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360570
+        },
+        {
+          "offset": 734,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 192,
+          "resolved": 11498592
+        },
+        {
+          "offset": 753,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961307
+        },
+        {
+          "offset": 758,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 16,
+          "resolved": 11499496
+        },
+        {
+          "offset": 769,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959403
+        },
+        {
+          "offset": 783,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961277
+        },
+        {
+          "offset": 794,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 32,
+          "resolved": 11499512
+        },
+        {
+          "offset": 799,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959373
+        },
+        {
+          "offset": 816,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961244
+        },
+        {
+          "offset": 825,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 48,
+          "resolved": 11499528
+        },
+        {
+          "offset": 832,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959340
+        },
+        {
+          "offset": 849,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961211
+        },
+        {
+          "offset": 854,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 64,
+          "resolved": 11499544
+        },
+        {
+          "offset": 865,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959307
+        },
+        {
+          "offset": 887,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360405
+        },
+        {
+          "offset": 899,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 240,
+          "resolved": 11498640
+        },
+        {
+          "offset": 916,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360376
+        },
+        {
+          "offset": 928,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 288,
+          "resolved": 11498688
+        },
+        {
+          "offset": 942,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360350
+        },
+        {
+          "offset": 954,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 336,
+          "resolved": 11498736
+        },
+        {
+          "offset": 971,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360321
+        },
+        {
+          "offset": 983,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 384,
+          "resolved": 11498784
+        },
+        {
+          "offset": 1002,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961058
+        },
+        {
+          "offset": 1013,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 80,
+          "resolved": 11499560
+        },
+        {
+          "offset": 1018,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959154
+        },
+        {
+          "offset": 1035,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293961025
+        },
+        {
+          "offset": 1044,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 96,
+          "resolved": 11499576
+        },
+        {
+          "offset": 1051,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959121
+        },
+        {
+          "offset": 1068,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960992
+        },
+        {
+          "offset": 1073,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 112,
+          "resolved": 11499592
+        },
+        {
+          "offset": 1084,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959088
+        },
+        {
+          "offset": 1101,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960959
+        },
+        {
+          "offset": 1112,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 128,
+          "resolved": 11499608
+        },
+        {
+          "offset": 1117,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293959055
+        },
+        {
+          "offset": 1132,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360160
+        },
+        {
+          "offset": 1144,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 432,
+          "resolved": 11498832
+        },
+        {
+          "offset": 1161,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360131
+        },
+        {
+          "offset": 1173,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 480,
+          "resolved": 11498880
+        },
+        {
+          "offset": 1187,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360105
+        },
+        {
+          "offset": 1199,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 528,
+          "resolved": 11498928
+        },
+        {
+          "offset": 1216,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293360076
+        },
+        {
+          "offset": 1228,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 576,
+          "resolved": 11498976
+        },
+        {
+          "offset": 1247,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960813
+        },
+        {
+          "offset": 1256,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 144,
+          "resolved": 11499624
+        },
+        {
+          "offset": 1263,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958909
+        },
+        {
+          "offset": 1280,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960780
+        },
+        {
+          "offset": 1285,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 160,
+          "resolved": 11499640
+        },
+        {
+          "offset": 1296,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958876
+        },
+        {
+          "offset": 1313,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960747
+        },
+        {
+          "offset": 1324,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 176,
+          "resolved": 11499656
+        },
+        {
+          "offset": 1329,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958843
+        },
+        {
+          "offset": 1346,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960714
+        },
+        {
+          "offset": 1355,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 192,
+          "resolved": 11499672
+        },
+        {
+          "offset": 1362,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958810
+        },
+        {
+          "offset": 1377,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359915
+        },
+        {
+          "offset": 1389,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 624,
+          "resolved": 11499024
+        },
+        {
+          "offset": 1406,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359886
+        },
+        {
+          "offset": 1418,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 672,
+          "resolved": 11499072
+        },
+        {
+          "offset": 1432,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359860
+        },
+        {
+          "offset": 1444,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 720,
+          "resolved": 11499120
+        },
+        {
+          "offset": 1461,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359831
+        },
+        {
+          "offset": 1473,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 768,
+          "resolved": 11499168
+        },
+        {
+          "offset": 1492,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960568
+        },
+        {
+          "offset": 1497,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 208,
+          "resolved": 11499688
+        },
+        {
+          "offset": 1508,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958664
+        },
+        {
+          "offset": 1525,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960535
+        },
+        {
+          "offset": 1536,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 224,
+          "resolved": 11499704
+        },
+        {
+          "offset": 1541,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958631
+        },
+        {
+          "offset": 1558,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960502
+        },
+        {
+          "offset": 1567,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 240,
+          "resolved": 11499720
+        },
+        {
+          "offset": 1574,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958598
+        },
+        {
+          "offset": 1591,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293960469
+        },
+        {
+          "offset": 1596,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 256,
+          "resolved": 11499736
+        },
+        {
+          "offset": 1607,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293958565
+        },
+        {
+          "offset": 1612,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 816,
+          "resolved": 11499216
+        },
+        {
+          "offset": 1617,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293360043
+        },
+        {
+          "offset": 1622,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 864,
+          "resolved": 11499264
+        },
+        {
+          "offset": 1627,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293360033
+        },
+        {
+          "offset": 1632,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 912,
+          "resolved": 11499312
+        },
+        {
+          "offset": 1637,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293360023
+        },
+        {
+          "offset": 1642,
+          "kind": 6,
+          "symbol": "?ScreenSlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11498400,
+          "addend": 960,
+          "resolved": 11499360
+        },
+        {
+          "offset": 1647,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293360013
+        },
+        {
+          "offset": 1654,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 272,
+          "resolved": 11499752
+        },
+        {
+          "offset": 1667,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293958297
+        },
+        {
+          "offset": 1672,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 288,
+          "resolved": 11499768
+        },
+        {
+          "offset": 1685,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293958279
+        },
+        {
+          "offset": 1698,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 304,
+          "resolved": 11499784
+        },
+        {
+          "offset": 1703,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293958261
+        },
+        {
+          "offset": 1708,
+          "kind": 6,
+          "symbol": "?ScreenSlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11499480,
+          "addend": 320,
+          "resolved": 11499800
+        },
+        {
+          "offset": 1721,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293958243
+        },
+        {
+          "offset": 1737,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293359923
+        },
+        {
+          "offset": 1755,
+          "kind": 6,
+          "symbol": "__real@4@3ff9c90e560418937800",
+          "target": 8055348,
+          "addend": 0,
+          "resolved": 8055348
+        },
+        {
+          "offset": 1763,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4293362265
+        },
+        {
+          "offset": 1809,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 0,
+          "resolved": 11495272
+        },
+        {
+          "offset": 1814,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293364742
+        },
+        {
+          "offset": 1824,
+          "kind": 6,
+          "symbol": "__real@4@00000000000000000000",
+          "target": 7972664,
+          "addend": 0,
+          "resolved": 7972664
+        },
+        {
+          "offset": 1852,
+          "kind": 6,
+          "symbol": "?LightTiltVectors@@3PAVVector3@@A",
+          "target": 11499824,
+          "addend": 0,
+          "resolved": 11499824
+        },
+        {
+          "offset": 1858,
+          "kind": 6,
+          "symbol": "?LightDirectionVectors@@3PAVVector3@@A",
+          "target": 11495272,
+          "addend": 4,
+          "resolved": 11495276
+        },
+        {
+          "offset": 1898,
+          "kind": 6,
+          "symbol": "?VoxelLightAngle@@3MA",
+          "target": 8624812,
+          "addend": 0,
+          "resolved": 8624812
+        },
+        {
+          "offset": 1909,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@ABVVector3@@M@Z",
+          "target": 5832528,
+          "addend": 0,
+          "resolved": 4293359479
+        },
+        {
+          "offset": 1923,
+          "kind": 20,
+          "symbol": "??D@YI?AVVector3@@ABVMatrix3D@@ABV0@@Z",
+          "target": 5837696,
+          "addend": 0,
+          "resolved": 4293364633
+        },
+        {
+          "offset": 1968,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 0,
+          "resolved": 11503112
+        },
+        {
+          "offset": 1973,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293359687
+        },
+        {
+          "offset": 1988,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359304
+        },
+        {
+          "offset": 2000,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 48,
+          "resolved": 11503160
+        },
+        {
+          "offset": 2017,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359275
+        },
+        {
+          "offset": 2029,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 96,
+          "resolved": 11503208
+        },
+        {
+          "offset": 2046,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359246
+        },
+        {
+          "offset": 2058,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 144,
+          "resolved": 11503256
+        },
+        {
+          "offset": 2072,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359220
+        },
+        {
+          "offset": 2084,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 192,
+          "resolved": 11503304
+        },
+        {
+          "offset": 2101,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359191
+        },
+        {
+          "offset": 2113,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 240,
+          "resolved": 11503352
+        },
+        {
+          "offset": 2130,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359162
+        },
+        {
+          "offset": 2142,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 288,
+          "resolved": 11503400
+        },
+        {
+          "offset": 2159,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359133
+        },
+        {
+          "offset": 2171,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 336,
+          "resolved": 11503448
+        },
+        {
+          "offset": 2188,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359104
+        },
+        {
+          "offset": 2200,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 384,
+          "resolved": 11503496
+        },
+        {
+          "offset": 2217,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359075
+        },
+        {
+          "offset": 2229,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 432,
+          "resolved": 11503544
+        },
+        {
+          "offset": 2246,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359046
+        },
+        {
+          "offset": 2258,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 480,
+          "resolved": 11503592
+        },
+        {
+          "offset": 2275,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293359017
+        },
+        {
+          "offset": 2287,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 528,
+          "resolved": 11503640
+        },
+        {
+          "offset": 2304,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293358988
+        },
+        {
+          "offset": 2316,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 576,
+          "resolved": 11503688
+        },
+        {
+          "offset": 2333,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293358959
+        },
+        {
+          "offset": 2345,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 624,
+          "resolved": 11503736
+        },
+        {
+          "offset": 2362,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293358930
+        },
+        {
+          "offset": 2374,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 672,
+          "resolved": 11503784
+        },
+        {
+          "offset": 2391,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293358901
+        },
+        {
+          "offset": 2403,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 720,
+          "resolved": 11503832
+        },
+        {
+          "offset": 2420,
+          "kind": 20,
+          "symbol": "??0Matrix3D@@QAE@MM@Z",
+          "target": 5832432,
+          "addend": 0,
+          "resolved": 4293358872
+        },
+        {
+          "offset": 2432,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 768,
+          "resolved": 11503880
+        },
+        {
+          "offset": 2450,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 0,
+          "resolved": 11494936
+        },
+        {
+          "offset": 2455,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293957509
+        },
+        {
+          "offset": 2472,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959588
+        },
+        {
+          "offset": 2477,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 16,
+          "resolved": 11494952
+        },
+        {
+          "offset": 2488,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957684
+        },
+        {
+          "offset": 2505,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959555
+        },
+        {
+          "offset": 2516,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 32,
+          "resolved": 11494968
+        },
+        {
+          "offset": 2521,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957651
+        },
+        {
+          "offset": 2538,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959522
+        },
+        {
+          "offset": 2547,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 48,
+          "resolved": 11494984
+        },
+        {
+          "offset": 2554,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957618
+        },
+        {
+          "offset": 2571,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959489
+        },
+        {
+          "offset": 2576,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 64,
+          "resolved": 11495000
+        },
+        {
+          "offset": 2587,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957585
+        },
+        {
+          "offset": 2604,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959456
+        },
+        {
+          "offset": 2615,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 80,
+          "resolved": 11495016
+        },
+        {
+          "offset": 2620,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957552
+        },
+        {
+          "offset": 2634,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959426
+        },
+        {
+          "offset": 2643,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 96,
+          "resolved": 11495032
+        },
+        {
+          "offset": 2650,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957522
+        },
+        {
+          "offset": 2667,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959393
+        },
+        {
+          "offset": 2672,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 112,
+          "resolved": 11495048
+        },
+        {
+          "offset": 2683,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957489
+        },
+        {
+          "offset": 2700,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959360
+        },
+        {
+          "offset": 2711,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 128,
+          "resolved": 11495064
+        },
+        {
+          "offset": 2716,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957456
+        },
+        {
+          "offset": 2733,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959327
+        },
+        {
+          "offset": 2742,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 144,
+          "resolved": 11495080
+        },
+        {
+          "offset": 2749,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957423
+        },
+        {
+          "offset": 2763,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959297
+        },
+        {
+          "offset": 2768,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 160,
+          "resolved": 11495096
+        },
+        {
+          "offset": 2779,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957393
+        },
+        {
+          "offset": 2796,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959264
+        },
+        {
+          "offset": 2807,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 176,
+          "resolved": 11495112
+        },
+        {
+          "offset": 2812,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957360
+        },
+        {
+          "offset": 2829,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959231
+        },
+        {
+          "offset": 2838,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 192,
+          "resolved": 11495128
+        },
+        {
+          "offset": 2845,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957327
+        },
+        {
+          "offset": 2862,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959198
+        },
+        {
+          "offset": 2867,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 208,
+          "resolved": 11495144
+        },
+        {
+          "offset": 2878,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957294
+        },
+        {
+          "offset": 2892,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959168
+        },
+        {
+          "offset": 2903,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 224,
+          "resolved": 11495160
+        },
+        {
+          "offset": 2908,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957264
+        },
+        {
+          "offset": 2925,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959135
+        },
+        {
+          "offset": 2934,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 240,
+          "resolved": 11495176
+        },
+        {
+          "offset": 2941,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957231
+        },
+        {
+          "offset": 2958,
+          "kind": 20,
+          "symbol": "?Axis_To_Quat@@YI?AVQuaternion@@ABVVector3@@M@Z",
+          "target": 6433200,
+          "addend": 0,
+          "resolved": 4293959102
+        },
+        {
+          "offset": 2963,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 256,
+          "resolved": 11495192
+        },
+        {
+          "offset": 2974,
+          "kind": 20,
+          "symbol": "??4Quaternion@@QAE?AV0@ABV0@@Z",
+          "target": 6431312,
+          "addend": 0,
+          "resolved": 4293957198
+        },
+        {
+          "offset": 2979,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 816,
+          "resolved": 11503928
+        },
+        {
+          "offset": 2984,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358676
+        },
+        {
+          "offset": 2989,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 864,
+          "resolved": 11503976
+        },
+        {
+          "offset": 2994,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358666
+        },
+        {
+          "offset": 2999,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 912,
+          "resolved": 11504024
+        },
+        {
+          "offset": 3004,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358656
+        },
+        {
+          "offset": 3009,
+          "kind": 6,
+          "symbol": "?SlopeMatrices@@3PAVMatrix3D@@A",
+          "target": 11503112,
+          "addend": 960,
+          "resolved": 11504072
+        },
+        {
+          "offset": 3014,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358646
+        },
+        {
+          "offset": 3019,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 272,
+          "resolved": 11495208
+        },
+        {
+          "offset": 3035,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293956929
+        },
+        {
+          "offset": 3040,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 288,
+          "resolved": 11495224
+        },
+        {
+          "offset": 3056,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293956908
+        },
+        {
+          "offset": 3061,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 304,
+          "resolved": 11495240
+        },
+        {
+          "offset": 3077,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293956887
+        },
+        {
+          "offset": 3082,
+          "kind": 6,
+          "symbol": "?SlopeQuaternions@@3PAVQuaternion@@A",
+          "target": 11494936,
+          "addend": 320,
+          "resolved": 11495256
+        },
+        {
+          "offset": 3098,
+          "kind": 20,
+          "symbol": "?Set@Quaternion@@QAEXMMMM@Z",
+          "target": 6431104,
+          "addend": 0,
+          "resolved": 4293956866
+        },
+        {
+          "offset": 3103,
+          "kind": 6,
+          "symbol": "?IsometricViewMatrix@@3VMatrix3D@@A",
+          "target": 11499432,
+          "addend": 0,
+          "resolved": 11499432
+        },
+        {
+          "offset": 3108,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358552
+        },
+        {
+          "offset": 3114,
+          "kind": 6,
+          "symbol": "_RAD_60",
+          "target": 11498384,
+          "addend": 0,
+          "resolved": 11498384
+        },
+        {
+          "offset": 3120,
+          "kind": 6,
+          "symbol": "?IsometricViewMatrix@@3VMatrix3D@@A",
+          "target": 11499432,
+          "addend": 0,
+          "resolved": 11499432
+        },
+        {
+          "offset": 3130,
+          "kind": 20,
+          "symbol": "?Rotate_X@Matrix3D@@QAEXM@Z",
+          "target": 5834592,
+          "addend": 0,
+          "resolved": 4293360322
+        },
+        {
+          "offset": 3136,
+          "kind": 6,
+          "symbol": "_RAD_45",
+          "target": 11499816,
+          "addend": 0,
+          "resolved": 11499816
+        },
+        {
+          "offset": 3147,
+          "kind": 6,
+          "symbol": "?IsometricViewMatrix@@3VMatrix3D@@A",
+          "target": 11499432,
+          "addend": 0,
+          "resolved": 11499432
+        },
+        {
+          "offset": 3152,
+          "kind": 20,
+          "symbol": "?Rotate_Z@Matrix3D@@QAEXM@Z",
+          "target": 5835168,
+          "addend": 0,
+          "resolved": 4293360876
+        },
+        {
+          "offset": 3157,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 0,
+          "resolved": 11502904
+        },
+        {
+          "offset": 3164,
+          "kind": 20,
+          "symbol": "?Make_Identity@Matrix3D@@QAEXXZ",
+          "target": 5832800,
+          "addend": 0,
+          "resolved": 4293358496
+        },
+        {
+          "offset": 3173,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 192,
+          "resolved": 11503096
+        },
+        {
+          "offset": 3184,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 20,
+          "resolved": 11502924
+        },
+        {
+          "offset": 3194,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 48,
+          "resolved": 11502952
+        },
+        {
+          "offset": 3204,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 52,
+          "resolved": 11502956
+        },
+        {
+          "offset": 3214,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 64,
+          "resolved": 11502968
+        },
+        {
+          "offset": 3224,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 68,
+          "resolved": 11502972
+        },
+        {
+          "offset": 3234,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 96,
+          "resolved": 11503000
+        },
+        {
+          "offset": 3244,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 144,
+          "resolved": 11503048
+        },
+        {
+          "offset": 3254,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 148,
+          "resolved": 11503052
+        },
+        {
+          "offset": 3264,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 160,
+          "resolved": 11503064
+        },
+        {
+          "offset": 3274,
+          "kind": 6,
+          "symbol": "?BounceMatrices@@3PAVMatrix3D@@A",
+          "target": 11502904,
+          "addend": 164,
+          "resolved": 11503068
+        }
+      ],
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
+      "source": "rebuild/src/voxel.cpp",
+      "population": "rebuild-voxel",
+      "source_order": 7438432,
       "source_quality_family": "rebuild"
     },
     {
@@ -1290,7 +3247,7 @@
           "resolved": 11498400
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7441728,
@@ -1326,7 +3283,7 @@
           "resolved": 11503112
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7441760,
@@ -1394,7 +3351,7 @@
           "resolved": 4293959894
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7441792,
@@ -1462,7 +3419,7 @@
           "resolved": 11503112
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7441904,
@@ -1498,7 +3455,7 @@
           "resolved": 8363420
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442032,
@@ -1558,7 +3515,7 @@
           "resolved": 418384
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442048,
@@ -1682,7 +3639,7 @@
           "resolved": 4293357830
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442144,
@@ -1750,7 +3707,7 @@
           "resolved": 7983336
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442336,
@@ -1786,7 +3743,7 @@
           "resolved": 4293652203
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442432,
@@ -1822,7 +3779,7 @@
           "resolved": 11502904
         }
       ],
-      "source_sha256": "3bc6e4275d1af81a31c34603b39e57d966a665bb5c8c46697be8b12bdb8427ee",
+      "source_sha256": "947a34d029369d771668e02902d8d641e9d0c0e042c2b8c7be4e7859b942b22f",
       "source": "rebuild/src/voxel.cpp",
       "population": "rebuild-voxel",
       "source_order": 7442448,
