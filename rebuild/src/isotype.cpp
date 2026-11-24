@@ -1554,7 +1554,7 @@ struct IsoBlitState {
 #pragma pack(pop)
 
 
-#ifdef RA2_NON_MATCHING // not exact: 6016 bytes differ at 0052c230 (6967 body bytes, image_bounds.csv).
+#ifdef RA2_NON_MATCHING // not exact: 6013 bytes differ against the image-derived bound 0052c230 (6967 body bytes) (was 6016; the contiguous depth-only span walks its rows through zrow as TibSun isotype.cpp does)
 IsoBlitState IsoDrawData;
 unsigned short _iso_row_offsets[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
 unsigned char _iso_start_cols[ISO_DRAW_WIDTH*ISO_DRAW_HEIGHT];
@@ -2039,15 +2039,19 @@ void IsometricTileTypeClass::Draw_Tile(LightConvertClass * drawer, int subtile, 
 										IsoDrawData.RowRunLength += ISO_DRAW_WIDTH;
 									}
 								} else if (depth_only) {
+									unsigned short * zrow = IsoDrawData.DepthPtr;
 									for (int row = 0; row < IsoDrawData.SpanHeight; ++row) {
-										int start = *IsoDrawData.RowStartCol;
-										IsoDrawData.RowDepth = IsoDrawData.DepthPtr;
-										IsoDrawData.DepthPtr += start;
-										for (int run = *IsoDrawData.RowRunLength; run > 0; --run) {
-											*IsoDrawData.DepthPtr = IsoDrawData.FillDepth;
-											++IsoDrawData.DepthPtr;
+										IsoDrawData.RowDepth = zrow;
+										IsoDrawData.DepthPtr = &zrow[*IsoDrawData.RowStartCol];
+										int run = *IsoDrawData.RowRunLength;
+										if (run > 0) {
+											do {
+												*IsoDrawData.DepthPtr = IsoDrawData.FillDepth;
+												++IsoDrawData.DepthPtr;
+												--run;
+											} while (run != 0);
 										}
-										IsoDrawData.DepthPtr = &IsoDrawData.RowDepth[IsoDrawData.DepthWidth];
+										IsoDrawData.DepthPtr = zrow = &IsoDrawData.RowDepth[IsoDrawData.DepthWidth];
 										IsoDrawData.RowStartCol += ISO_DRAW_WIDTH;
 										IsoDrawData.RowRunLength += ISO_DRAW_WIDTH;
 									}

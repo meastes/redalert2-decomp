@@ -313,8 +313,7 @@ void WalkLocomotionClass::Movement_AI(bool first_pass)
 					LinkedTo->LastTubeCoord = LinkedTo->Get_Coord() + (Map[visual_cell].Cell_Coord() - enter_coord);
 
 					int start_h = Map.Get_Height_GL(LinkedTo->Get_Coord());
-					cell = tube_ptr->Get_Exit();
-					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(Coord(cell, 0)) - start_h) / tube_ptr->Get_Count();
+					LinkedTo->LastTubeCoord.Z = start_h + (Map.Get_Height_GL(Coord(tube_ptr->Get_Exit(), 0)) - start_h) / tube_ptr->Get_Count();
 					return;
 				}
 

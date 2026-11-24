@@ -7287,7 +7287,7 @@ static void Stop_Static_Movie(HWND window, StaticRecord * data)
 **	RA2: the window procedure of the static controls: text (typed out), an image, a shape or its
 **	animation, or a movie.
 */
-#ifdef RA2_NON_MATCHING // not exact: 3067 bytes differ against the image-derived bound 005f2b50 (4512 body bytes, image_bounds.csv; 4326 before): the record through ra2-decomp's Get_Data (its sibling dialog procedures, flagged: another site), the cases in the image's dispatch order with the real Control_Frame_Delay and Control_Animation_Rate calls, both movie starts written out
+#ifdef RA2_NON_MATCHING // not exact: 3056 bytes differ against the image-derived bound 005f2b50 (4512 body bytes, image_bounds.csv; 4326 before, 3067 before the published Yuri's Revenge StaticHandler's frame step, ++frame in the paint case): the record through ra2-decomp's Get_Data (its sibling dialog procedures, flagged: another site), the cases in the image's dispatch order with the real Control_Frame_Delay and Control_Animation_Rate calls, both movie starts written out
 LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	StaticRecord * data = (StaticRecord *)Get_Data(window);
@@ -7429,13 +7429,12 @@ LRESULT __stdcall Static_Proc(HWND window, UINT message, WPARAM wparam, LPARAM l
 						int frame = data->Frame;
 						Draw_Shape(*AlternateSurface, *drawer, shape, frame, point, window_rect, SHAPE_WIN_REL, 0, 0, ZGradientType(0), 1000, 0, 0, Point2D(0, 0));
 						if (animated && data->IsPlaying) {
-							int next = frame + 1;
-							if (next >= data->FrameCount) {
-								next = 0;
+							if (++frame >= data->FrameCount) {
+								frame = 0;
 							}
-							data->Frame = next;
+							data->Frame = frame;
 							if (data->Notify) {
-								SendMessageA(data->Notify, WM_USER + 216, next, (LPARAM)window); // RA2: the new frame
+								SendMessageA(data->Notify, WM_USER + 216, frame, (LPARAM)window); // RA2: the new frame
 								ValidateRect(window, 0);
 								break;
 							}

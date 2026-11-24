@@ -2995,7 +2995,7 @@ static int Add_Compressed_Events(void *buf, int bufsize, int frame_delay,
  * HISTORY:                                                                *
  *   11/21/1995 DRD : Created.                                             *
  *=========================================================================*/
-#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 924 bytes differ (was 934; the saved run's list index and unit count computed before the stream advance, a statement order no reference shows (RA2's saved-list code is not in the archive): flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size, RA2's sender capture follows it; the archive's numunits decrement before the next target copy; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them, TibSun's memcpy record copies); main: best 57.62, tried 6 times (register, frame, inline)
+#ifdef RA2_NON_MATCHING // not exact: against the image-derived bound 006282d0 (1,455 B) 923 bytes differ (was 924; the saved run counts its cached unit before the decrement, as the published Yuri's Revenge event cache does; the saved run's list index and unit count computed before the stream advance, a statement order no reference shows: flag spelling if it lands; TibSun queue.cpp sets the first event pointer after the frame-info data size; the megamission Slot byte and the flat saved-count table as ra2-decomp's event.h and queue.cpp have them); main: best 57.62, tried 6 times (register, frame, inline)
 int Extract_Compressed_Events(void * buf, int bufsize)
 {
 	int pos = 0;                // current buffer parsing position
@@ -3151,8 +3151,8 @@ int Extract_Compressed_Events(void * buf, int bufsize)
 									return(-1);
 								}
 								count++;
-								numunits--;
 								units++;
+								numunits--;
 								memcpy(&eventdata.Data.MegaMission.Whom, src++, datasize);
 								if (numunits == 1) {
 									datasize = -1;

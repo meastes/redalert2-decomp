@@ -435,10 +435,8 @@ void LoadProgressManager::Draw(void)
 	if (ProgressSurface == NULL) {
 		return;
 	}
-	Rect screen(0, 0, 0, 0);
 	int background = DSurface::Build_Hicolor_Pixel(BlackColor);
-	screen.Width = VideoModeWidth;
-	screen.Height = VideoModeHeight;
+	Rect screen(0, 0, VideoModeWidth, VideoModeHeight);
 	ProgressSurface->Fill_Rect(screen, screen, background);
 
 	if (Session.Type == GAME_NORMAL) {
