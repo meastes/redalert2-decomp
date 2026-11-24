@@ -9738,7 +9738,7 @@ palette,00603640,?Next@SchemeListIterator@@QAEPAV?$DynamicVectorClass@PAVColorSc
 palette,00603950,?SchemeLibrary_Free@@YIXXZ,268,a,mischa85,yes,,lane R7: unit extended over its object tail (main files 0x603950-0x605E80 under palette.cpp); calibration no,
 palette,00603a60,?SchemeLibrary_Add@@YIXPBDABVHSVClass@@@Z,430,a,mischa85,yes,,lane R7: unit extended over its object tail (main files 0x603950-0x605E80 under palette.cpp); calibration no,
 palette,00603c10,?Scheme_List_Count@@YIHXZ,311,a,mischa85,yes,,lane R7: unit extended over its object tail (main files 0x603950-0x605E80 under palette.cpp); calibration no,
-palette,00603d50,?Palette_Scheme_Count@@YIHXZ,592,a,mischa85,yes,,unguarded under its row (its draft was guarded as unplaced),
+palette,00603d50,?Palette_Scheme_Count@@YIHXZ,592,a,mischa85,yes,,unguarded under its row (its draft was guarded as unplaced),"[vii] unread local; the twin's bare Scheme_Library() call is 2 instructions off (operand order) (owner ruling 2026-11-24, lane F56; on the user's variation list: keep flagged or revert, 592 B)"
 palette,00603fa0,?SchemeLibrary_Destroy@@YIXXZ,39,a,ra2-decomp,yes,,ra2-decomp palette.cpp (YR twin) in this tree's names,
 palette,00603fd0,?SchemeLibrary_Create@@YIXXZ,330,a,ra2-decomp,yes,,ra2-decomp palette.cpp (YR twin) in this tree's names,
 palette,00604120,??0SchemeLibrary@@QAE@XZ,293,b,main palette Set_Theater/destructor and scheme_table constructor reshaped to existing tree,yes,4,r3691 NEW4/1559 unit total; canonical Replace caller and existing SchemeListIterator constructor match main; real destructor caller naturally emits both constructors; owner72/75 retains68; worker75/75 retains71; no headers/new classes/helpers; structure gate passed; source-only 7fb5ada4c6ac; Calibration used:no,

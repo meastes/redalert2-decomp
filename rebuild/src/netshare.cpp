@@ -4284,7 +4284,7 @@ void Send_Player_List(void); // RA2: 0x0073C480, defined in wonline.cpp
 void __fastcall Kick_Channel_User(wchar_t const * name); // RA2: 0x0075CAE0, looks the channel user up by name and has the chat service remove it (WOL)
 void Update_Channel_Player_Limit(void); // RA2: 0x00749F20, tells the chat service the channel's new player limit (WOL)
 
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005cbf20 has no row)
+#ifdef RA2_NON_MATCHING // not exact: 1745 bytes differ by position against the image-derived bound 005cbf20 (2,003 B; ours 1,984 B; 2 literals unbound): the image's 26 calls in another order (Reject_Join and Send_Slot_Names 0x13 bytes later, the side-combo fill 176 bytes later). The Yuri's Revenge twin (0x5EC9F0) is unmatched in ra2-decomp at 86.4 (dialog and slot exchange edi and ebp); its attempt text is not in their repository
 void __fastcall Change_Slot_Type(HWND dialog, int id, int data, int mode) // RA2: 0x005CBF20, not in TibSun; seats an entry in the slot of a combo box: a computer player is refused beside an observer, a player who is replaced is turned away, and the boxes follow the new entry; mode 1 and 2 tell the other players, mode 2 sends the lobby options as well
 {
 	NodeNameType * entry = (NodeNameType *)data; // RA2: as above

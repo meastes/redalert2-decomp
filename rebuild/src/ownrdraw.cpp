@@ -210,7 +210,7 @@ bool __fastcall Has_Visible_Default_Button(HWND dialog); // RA2: as above
 BOOL __stdcall Assign_Button_Kind(HWND window, LPARAM); // RA2: as above
 void __fastcall Assign_Button_Kinds(HWND window); // RA2: as above
 BOOL __stdcall Init_Control_Animation(HWND window, LPARAM); // RA2: as above
-BOOL __fastcall Is_Listed_Dialog_Kind(int kind); // RA2: as above
+bool __fastcall Is_Listed_Dialog_Kind(int kind);
 void __fastcall Init_Control_Animations(HWND window); // RA2: as above
 BOOL __stdcall Reset_Tested_Control(HWND window, LPARAM); // RA2: as above
 BOOL __stdcall Assign_Control_Sounds(HWND window, LPARAM); // RA2: as above
@@ -3833,7 +3833,7 @@ static inline void __cdecl Get_Animation_Record(unsigned int const &key, WinData
 {
     Control_Table.getPointer(key, &record); // RA2: as above
 }
-#ifdef RA2_NON_MATCHING // not exact: no independent bound yet (005e8130 has no row); main: best 49.20, tried 5 times (frame, inline, ruling)
+#ifdef RA2_NON_MATCHING // not exact: 1049 bytes differ by position against the image-derived bound 005e8130 (1,110 B; ours 896 B): the call list differs. The image's list is reached (995 by position, 1,072 B; registers then differ: zero in ebp, the parent in edi and GetDlgCtrlID through memory in the image) with the record through Get_Record, the animation fields as WinData members, the six helpers' lookups through Get_Record and Control_Animation_Art at 174 units; held, because the member declarations and the helper text turn count-sensitive rows (lane F57, private/dossiers/fable/patches/f57_ownrdraw_init_control_animation_call_list.patch); main: best 49.20
 BOOL __stdcall Init_Control_Animation(HWND window, LPARAM) // RA2: as above
 {
     HWND parent = GetParent(window);
@@ -3900,22 +3900,37 @@ done: // RA2: as above
 
 namespace OwnerDraw { // RA2: as above
 
-BOOL __fastcall Is_Listed_Dialog_Kind(int kind) // RA2: as above
+bool __fastcall Is_Listed_Dialog_Kind(int kind) // RA2: as above
 {
-    if (((((((kind != 0x94) && (kind != 0xd8)) && (kind != 0xf5)) && // RA2: as above
-                ((kind != 0xe2 && (kind != 0xd5)))) && (kind != 0x101)) && // RA2: as above
-            (((((kind != 0x129 && (kind != 0xd7)) && // RA2: as above
-                  ((kind != 0xbb && (((kind != 0x100 && (kind != 0xd6)) && (kind != 0x125)))))) // RA2: as above
-                && ((kind != 0x122 && (kind != 0x112)))) && (kind != 0xe7)))) && // RA2: as above
-          ((((kind != 0x116 && (kind != 0x11d)) && // RA2: as above
-              ((kind != 0x11c && (((kind != 0xfe && (kind != 0x10f)) && (kind != 0x117)))))) && // RA2: as above
-            (((kind != 0x114 && (kind != 0xe6)) && // RA2: as above
-              ((kind != 0xf3 && // RA2: as above
-                (((kind != 0xf4 && (kind != 700)) && // RA2: as above
-                  ((kind != 0x10e && ((kind != 0xbc6 && (kind != 0xbc7)))))))))))))) { // RA2: as above
-        return 0; // RA2: as above
-    }
-    return 1; // RA2: as above
+	return kind == 0x94 ||
+		kind == 0xd8 ||
+		kind == 0xf5 ||
+		kind == 0xe2 ||
+		kind == 0xd5 ||
+		kind == 0x101 ||
+		kind == 0x129 ||
+		kind == 0xd7 ||
+		kind == 0xbb ||
+		kind == 0x100 ||
+		kind == 0xd6 ||
+		kind == 0x125 ||
+		kind == 0x122 ||
+		kind == 0x112 ||
+		kind == 0xe7 ||
+		kind == 0x116 ||
+		kind == 0x11d ||
+		kind == 0x11c ||
+		kind == 0xfe ||
+		kind == 0x10f ||
+		kind == 0x117 ||
+		kind == 0x114 ||
+		kind == 0xe6 ||
+		kind == 0xf3 ||
+		kind == 0xf4 ||
+		kind == 700 ||
+		kind == 0x10e ||
+		kind == 0xbc6 ||
+		kind == 0xbc7;
 }
 
 }

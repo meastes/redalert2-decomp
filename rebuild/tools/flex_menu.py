@@ -323,6 +323,15 @@ def main():
         k[0] += 1; k[1] += int(f['bytes'])
         if f['tested_exact'] == 'yes' and int(f['net_bytes']) > 0:
             k[2] += 1; k[3] += int(f['net_bytes'])
+    # A function that has landed leaves the menu, and its variation or main-form row is then stale (lane O67:
+    # OnUserList kept a variation row after it landed, so it had no menu row). Rows of 0 bytes are held forms of
+    # exact rows, not parked functions.
+    parked = {r['entry'].lower() for r in rows}
+    for name, table in (('variation_candidates.csv', variation), ('main_forms.csv', forms)):
+        stale = sorted('%s %s' % (e, f['function'][:50]) for e, f in table.items()
+                       if e.lower() not in parked and (f['bytes'] or '0').strip().isdigit() and int(f['bytes']) > 0)
+        if stale:
+            print('%s: %d rows with no menu row (landed rows are stale and should go; flagged exact rows and unplaced drafts stay): %s' % (name, len(stale), '; '.join(stale)))
     refused = [f for f in forms.values() if f['group'] != 'E']
     tot = collections.OrderedDict((f, [0, 0]) for f in 'abcde')
     for r in rows:

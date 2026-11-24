@@ -5105,3 +5105,33 @@ saved diffs), ord.py (the object's function order for a variant), h1.py (header 
   count-watch units first when a header gains a declaration, before the unit the change is for.
 - A guard label saying "no independent bound" was wrong a third time (palette Set_Scheme_Table_Theater): the lane
   sweep that fixes labels from image_bounds.csv is worth one run over every guard.
+
+## A call list is solved with measured sizes before any spelling; a bool predicate shows in its callers; an accessor is a site (found in the rebuild (lane F57, high))
+
+Found in the rebuild (lane F57, high); one exact row rewritten, one draft's call list solved in scratch and held.
+Lane tools in build/r/f57: gh.py (gv.py with a header edit set per variant), fs.py (functions over a patched source
+and header, with the call list checked against the image's and our listing saved), ng.py (edit sets with no guard
+opened, for what a change costs the unit's exact rows), run.sh.
+
+- ownrdraw Init_Control_Animation 0x5E8130: write the image's inline decisions down as a list (which lookups are
+  expanded, which helpers, which nested calls stay) and solve it with il_lab sizes before trying texts. Seven root
+  sites at the floor budget of 1000 give the image's list only if each helper is 9 to 15 units leaner than written
+  and Control_Animation_Art is a site at all; both were then found (Get_Record in the helpers: 10 units; Art over the
+  auto-inline limit).
+- The auto-inline limit for a function not declared inline is exact in this unit: 174 units expand, 176 do not
+  (measure an over-limit function by adding `inline` to its definition in scratch). A helper the image expands and
+  ours never does, whatever the budget, is over the limit.
+- A file-local accessor that casts a byte array to a view struct (`Animation(record)->Frame`) is an inline site at
+  every use: fifteen of them after a helper divide its nested budget to nothing. Fields read through such an
+  accessor in a root that expands helpers are members in the original.
+- A lookup written direct in the root expands its hash call too; the image calling keyHash from an expanded
+  getPointer means the lookup sits one inline level down (Get_Record), as lane F14 found for Enable_Animated_Control.
+- A function that returns 0 or 1 in eax and whose every caller tests al is a bool function returning a logical
+  expression, not a BOOL function with if/return: VC6 materializes `a || b` as an int. Scan the image for the
+  callers of an out-of-line predicate and read the instruction after each call.
+- A struct in a header that gains real members (eleven declarations here) turned three count-sensitive rows in
+  three units, and six one-line text changes in exact helpers turned one more in their own unit: run the change
+  with no guard opened (ng.py) and the includers (inc.sh) before believing a draft's gain.
+- The register state left (zero in ebp, the parent in edi, the window reloaded from its slot in the image) did not
+  move for some twenty spellings or for use-count probes: with the calls right, a whole-function register state is
+  again not a matter of text.
